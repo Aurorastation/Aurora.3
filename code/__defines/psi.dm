@@ -9,6 +9,7 @@
 #define PSI_FLAG_FOUNDATIONAL	8	/// An ability automatically given to Psionically Sensitive users.
 #define PSI_FLAG_APEX			16	/// An ability automatically given to Psionic Apex users.
 #define PSI_FLAG_LIMITLESS		32  /// An ability automatically given to Limitless users.
+#define PSI_FLAG_SPECIAL		64 	/// Unselectable in the point shop - must be handed out manually.
 
 /// Psi shop points given by a certain rank.
 #define PSI_POINTS_HARMONIOUS  10

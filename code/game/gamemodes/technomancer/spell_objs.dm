@@ -168,11 +168,18 @@
 	. = ..()
 	if(isliving(loc))
 		owner = loc
-	if(owner && aspect != ASPECT_PSIONIC)
-		core = owner.get_technomancer_core()
-		if(!core)
-			to_chat(owner, "<span class='warning'>You need a Core to do that.</span>")
-			return INITIALIZE_HINT_QDEL
+	if(owner)
+		if(aspect != ASPECT_PSIONIC)
+			core = owner.get_technomancer_core()
+			if(!core)
+				to_chat(owner, "<span class='warning'>You need a Core to do that.</span>")
+				return INITIALIZE_HINT_QDEL
+		else
+			if(owner.psi.get_rank() >= PSI_RANK_APEX)
+				if(force)
+					force *= 1.1
+					armor_penetration *= 1.1
+
 	update_icon()
 
 // Proc: Destroy()
@@ -366,3 +373,8 @@
 	spawn(20)
 		if(src)
 			qdel(src)
+
+/obj/item/spell/damage_flags()
+	. = ..()
+	if(aspect == ASPECT_PSIONIC)
+		. |= DAMAGE_FLAG_PSIONIC

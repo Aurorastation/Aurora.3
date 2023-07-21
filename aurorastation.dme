@@ -2914,6 +2914,7 @@
 #include "code\modules\psionics\abilities\throw.dm"
 #include "code\modules\psionics\abilities\time_stop.dm"
 #include "code\modules\psionics\abilities\warp.dm"
+#include "code\modules\psionics\abilities\zona_absorption.dm"
 #include "code\modules\psionics\complexus\complexus.dm"
 #include "code\modules\psionics\complexus\complexus_helpers.dm"
 #include "code\modules\psionics\complexus\complexus_latency.dm"

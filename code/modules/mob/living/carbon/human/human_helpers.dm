@@ -198,7 +198,7 @@
 	to_chat(src, SPAN_DANGER("An indescribable, brain-tearing sound hisses from [source], and you collapse in a seizure!"))
 	seizure()
 	custom_pain(SPAN_DANGER("<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
-	set_psi_rank(pick(PSI_RANK_HARMONIOUS, PSI_RANK_SENSITIVE))
+	set_psi_rank(PSI_RANK_HARMONIOUS)
 	sleep(30)
 	addtimer(CALLBACK(psi, TYPE_PROC_REF(/datum/psi_complexus, check_psionic_trigger), 100, source, TRUE), 4.5 SECONDS)
 
@@ -417,7 +417,7 @@
 
 /mob/living/carbon/human/proc/get_tail_accessory()
 	var/obj/item/organ/external/groin/G = organs_by_name[BP_GROIN]
-	if(!G)
+	if(!istype(G))
 		return
 	if(!G.tail_storage)
 		return

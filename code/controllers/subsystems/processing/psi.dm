@@ -3,7 +3,7 @@ var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psioni
 /var/datum/controller/subsystem/processing/psi/SSpsi
 
 /datum/controller/subsystem/processing/psi
-	name = "Psychics"
+	name = "Psionics"
 	priority = SS_PRIORITY_PSYCHICS
 	flags = SS_POST_FIRE_TIMING | SS_BACKGROUND
 
@@ -88,6 +88,12 @@ var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psioni
 			to_chat(PC.owner, SPAN_WARNING("You have already sent your emotional state to the Nlom."))
 			return
 		if(emotion in nlom_votes)
-			nlom_votes[emotion]++
+			var/base_vote = 1
+			var/psi_rank = PC.get_rank()
+			if(psi_rank == PSI_RANK_HARMONIOUS)
+				base_vote = 2
+			else if(psi_rank == PSI_RANK_APEX)
+				base_vote = 4
+			nlom_votes[emotion] += base_vote
 			to_chat(PC.owner, SPAN_NOTICE("You have transmitted your emotional state to the Nlom."))
 			nlom_voters |= PC

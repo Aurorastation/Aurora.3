@@ -68,17 +68,22 @@
 	. = ..()
 	set_light(10, 10, COLOR_PURPLE)
 
+/obj/item/projectile/hollow_purple/Destroy()
+	return ..()
+
 /obj/item/projectile/hollow_purple/on_impact(var/atom/A)
 	if(ismob(A))
-		var/mob/M = A
-		M.gib()
+		if(A != firer)
+			var/mob/M = A
+			M.gib()
 	explosion(A, 5, 5, 5)
 	..()
 
 /obj/item/projectile/hollow_purple/on_hit(atom/target, blocked, def_zone)
 	if(ismob(target))
-		var/mob/M = target
-		M.gib()
+		if(target != firer)
+			var/mob/M = target
+			M.gib()
 	explosion(target, 5, 5, 5)
 	..()
 

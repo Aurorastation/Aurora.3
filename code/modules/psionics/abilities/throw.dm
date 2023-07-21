@@ -70,7 +70,12 @@
 		P.appearance = item_to_throw.appearance
 		P.damage = base_damage * (item_to_throw.w_class / 2)
 		P.armor_penetration = base_armor_penetration * item_to_throw.w_class
-		P.damage_flags = item_to_throw.damage_flags()
+		/// We need to do this again because we're overriding the base make_projectile.
+		if(owner.psi.get_rank() >= PSI_RANK_APEX)
+			if(P.damage)
+				P.damage *= 1.1
+				P.armor_penetration *= 1.1
+		P.damage_flags |= item_to_throw.damage_flags()
 		P.damage_type = item_to_throw.damtype
 		P.source_item = item_to_throw
 	return P

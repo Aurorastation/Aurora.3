@@ -482,6 +482,7 @@
 
 	to_chat(src, SPAN_NOTICE("You succeed in interfacing with the host's zona bovinae, this will be a painful process for them."))
 	host.awaken_psi_basic("something in your head")
+	host.psi.psi_points = 3 /// You don't get a lot at the start.
 	host.add_language(LANGUAGE_TCB) // if we don't have TCB, give them TCB | this allows monkey borers to RP
 
 /mob/living/simple_animal/borer/verb/advance_psionics()
@@ -494,9 +495,6 @@
 		return
 	if(!host.psi)
 		to_chat(src, SPAN_WARNING("Your host has not been psionically awakened!"))
-		return
-	if(host.psi.get_rank() >= PSI_RANK_HARMONIOUS)
-		to_chat(src, SPAN_WARNING("Your host is at the peak of their psionic power!"))
 		return
 	if(stat)
 		to_chat(src, SPAN_NOTICE("You cannot do that in your current state."))
@@ -525,13 +523,10 @@
 	if(!host)
 		return
 
-	var/host_psi_rank = host.psi.get_rank()
-	var/next_rank = host_psi_rank < PSI_RANK_APEX ? host_psi_rank + 1 : PSI_RANK_APEX
-	host.psi.set_rank(next_rank)
-	host.psi.update(TRUE)
-	to_chat(src, SPAN_NOTICE("You successfully manage to upgrade your host to [psychic_ranks_to_strings[host.psi.get_rank()]]."))
+	host.psi.psi_points++
+	to_chat(src, SPAN_NOTICE("You successfully manage to expand your living host's control over their Zona Bovinae. They know have an extra psionic point to spend."))
 	to_chat(host, SPAN_GOOD("A breeze of fresh air washes over your mind, you feel powerful!"))
-	to_chat(host, SPAN_NOTICE("You have been psionically enlightened. You are now [psychic_ranks_to_strings[host.psi.get_rank()]]."))
+	to_chat(host, SPAN_NOTICE("Your control over the Nlom has expanded. You now have an extra psionic point to spend in the Point Shop."))
 
 /mob/living/simple_animal/borer/verb/host_health_scan()
 	set category = "Abilities"

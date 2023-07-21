@@ -29,8 +29,15 @@
 
 /obj/item/spell/projectile/proc/make_projectile(obj/item/projectile/projectile_type, mob/living/user)
 	var/obj/item/projectile/P = new projectile_type(get_turf(user))
+	P.firer = user
 	if(aspect != ASPECT_PSIONIC)
 		P.damage = calculate_spell_power(P.damage)
+	else
+		if(owner.psi.get_rank() >= PSI_RANK_APEX)
+			if(P.damage)
+				P.damage *= 1.1
+				P.armor_penetration *= 1.1
+			P.damage_flags |= DAMAGE_FLAG_PSIONIC
 	return P
 
 /obj/item/spell/projectile/proc/set_up(atom/hit_atom, mob/living/user)

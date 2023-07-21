@@ -119,3 +119,27 @@
 	H.client.init_verbs()
 
 	set_light(0.5, 0.1, 3, 2, l_color = "#880000")
+
+/obj/item/psionic_jumpstarter
+	name = "psionic jumpstarter"
+	desc = "Use this to jumpstart your psionic rank to Psionically Harmonious, enabling you to use the Psionic Point Shop and buy offensive psionic abilities. \
+			This won't work on species with no Zona Bovinae, like synthetics, vaurcae or dionae! This item is definitely not canon."
+	icon = 'icons/obj/clothing/hats.dmi'
+	contained_sprite = FALSE
+	icon_state = "amp"
+
+/obj/item/psionic_jumpstarter/attack_self(mob/user)
+	. = ..()
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	if(!H.can_commune())
+		to_chat(H, SPAN_WARNING("You don't have a Zona Bovinae!"))
+		return
+	if(H.psi.get_rank() >= PSI_RANK_HARMONIOUS)
+		to_chat(H, SPAN_WARNING("You've already awakened your psionic potential!"))
+		return
+	H.set_psi_rank(PSI_RANK_HARMONIOUS)
+	H.psi.psi_points = 8
+	to_chat(H, SPAN_NOTICE("You've awakened your psionic potential. Note that you have a reduced point pool than usual."))
+	qdel(src)
