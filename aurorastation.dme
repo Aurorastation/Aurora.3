@@ -2885,6 +2885,7 @@
 #include "code\modules\psionics\abilities\emotional_suggestion.dm"
 #include "code\modules\psionics\abilities\focus.dm"
 #include "code\modules\psionics\abilities\grip.dm"
+#include "code\modules\psionics\abilities\hollow_purple.dm"
 #include "code\modules\psionics\abilities\ion.dm"
 #include "code\modules\psionics\abilities\jump.dm"
 #include "code\modules\psionics\abilities\lightning.dm"

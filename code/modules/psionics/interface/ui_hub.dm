@@ -80,6 +80,8 @@
 			continue
 		if(owner.psi.get_rank() < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_EVENT))
 			continue
+		if(owner.psi.get_rank() < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_ANTAG))
+			continue
 		data["available_psionics"] += list(
 			list(
 				"name" = P.name,

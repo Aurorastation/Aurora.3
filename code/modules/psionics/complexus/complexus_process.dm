@@ -23,14 +23,14 @@
 
 			var/image/aura_image = get_aura_image()
 			if(psionic_rank >= PSI_RANK_APEX) // spooky boosters
-				aura_color = "#0000ff"
+				aura_color = "#aaffaa"
 				aura_image.blend_mode = BLEND_SUBTRACT
 			else
 				aura_image.blend_mode = BLEND_ADD
 				if(psionic_rank == PSI_RANK_SENSITIVE)
-					aura_color = "#4747f5"
+					aura_color = "#cccc33"
 				else if(psionic_rank == PSI_RANK_HARMONIOUS)
-					aura_color = "#2828ff"
+					aura_color = "#cc3333"
 
 	if(psionic_rank > PSI_RANK_SENSITIVE && last_psionic_rank < PSI_RANK_HARMONIOUS)
 		switch(psionic_rank)
@@ -52,9 +52,11 @@
 		to_chat(owner, SPAN_NOTICE("<font size = 3>You are <b>psionic</b>, touched by powers beyond understanding.</font>"))
 		to_chat(owner, SPAN_NOTICE("<b>Left click</b> your psi icon to <b>suppress or unsuppress</b> your psionics. <b>Shift click</b> it to open your Psionic Point Shop. Beware: overusing your gifts can have <b>deadly consequences</b>."))
 		to_chat(owner, "<hr>")
-		if(get_rank() >= PSI_RANK_SENSITIVE)
-			for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
-				if((P.ability_flags & PSI_FLAG_FOUNDATIONAL) || (P.ability_flags & PSI_FLAG_APEX && get_rank() >= PSI_RANK_APEX))
+
+	if(get_rank() >= PSI_RANK_SENSITIVE)
+		for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
+			if((P.ability_flags & PSI_FLAG_FOUNDATIONAL) || (P.ability_flags & PSI_FLAG_APEX && get_rank() >= PSI_RANK_APEX) || (P.ability_flags & PSI_FLAG_LIMITLESS && get_rank() >= PSI_RANK_LIMITLESS))
+				if(!(P.type in psionic_powers))
 					P.apply(owner)
 
 /datum/psi_complexus/proc/wipe_user_abilities()

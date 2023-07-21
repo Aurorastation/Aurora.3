@@ -24,21 +24,22 @@
 	if(!isliving(user))
 		return
 
-	var/mob/living/L = user
 	stage = 1
-	user.visible_message(SPAN_NOTICE("<b><font size=4>[user] puts [get_pronoun("his")] palms together...</font></b>"))
+	user.visible_message(SPAN_NOTICE("<b><font size=4>[user] puts [user.get_pronoun("his")] palms together...</font></b>"))
 	START_PROCESSING(SSprocessing, src)
 	user.say("Cursed Technique Amplification: Blue...")
 	user.set_light(7, 10, COLOR_BLUE)
 	color = COLOR_BLUE
-	if(do_after(user, 3 SECONDS))
+	if(do_after(user, 4 SECONDS))
 		stage = 2
 		color = COLOR_RED
 		user.say("Cursed Technique Reversal: Red...")
+		user.set_light(0)
 		user.set_light(7, 10, COLOR_RED)
-		if(do_after(user, 3 SECONDS))
+		if(do_after(user, 4 SECONDS))
 			user.say("Hollow Technique: Purple!")
-			user.visible_message(SPAN_CULT("<b><font size=4>[user] fires a gigantic purple sphere from [get_pronoun("his")] hand!</font></b>"))
+			user.set_light(0)
+			user.visible_message(SPAN_CULT("<b><font size=4>[user] fires a gigantic purple sphere from [user.get_pronoun("his")] hand!</font></b>"))
 			. = ..()
 
 	STOP_PROCESSING(SSprocessing, src)
@@ -49,8 +50,6 @@
 /obj/item/spell/projectile/hollow_purple/process()
 	if(stage >= 1)
 		for(var/mob/living/L in get_hearers_in_view(7, src))
-			if(L == owner)
-				continue
 			shake_camera(L, 5, 5)
 
 /obj/item/projectile/hollow_purple
@@ -61,6 +60,7 @@
 	armor_penetration = 1000
 	penetrating = 100
 	range = 250
+	accuracy = 100
 	anti_materiel_potential = 100
 	damage_type = DAMAGE_BRUTE
 
@@ -75,7 +75,18 @@
 	explosion(A, 5, 5, 5)
 	..()
 
-/obj/item/projectile/energy/bfg/after_move()
+/obj/item/projectile/hollow_purple/on_hit(atom/target, blocked, def_zone)
+	if(ismob(target))
+		var/mob/M = target
+		M.gib()
+	explosion(target, 5, 5, 5)
+	..()
+
+/obj/item/projectile/hollow_purple/check_penetrate(atom/A)
+	on_hit(A)
+	return TRUE
+
+/obj/item/projectile/hollow_purple/after_move()
 	for(var/a in range(3, src))
 		if(isliving(a) && a != firer)
 			var/mob/living/M = a
