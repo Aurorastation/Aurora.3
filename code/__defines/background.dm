@@ -130,8 +130,8 @@
 #define ACCENT_HARRNRRI "Harr'nrri Siik'mas"
 #define ACCENT_ZARRJIRI "Zarr'jiri Siik'mas"
 
-#define ACCENT_HEGEMON_NOBLE "Noble Hegemonic"
-#define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"
+#define ACCENT_HEARTLAND_NOBLE "Izweski Heartland Noble"
+#define ACCENT_HEARTLAND_PEASANT "Izweski Heartland Peasant"
 #define ACCENT_TRAD_NOBLE "Noble Traditional"
 #define ACCENT_TRAD_PEASANT "Peasant Traditional"
 #define ACCENT_WASTELAND "Deep Wastelander"

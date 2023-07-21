@@ -1,16 +1,16 @@
-/datum/accent/hegemon_noble
-	name = ACCENT_HEGEMON_NOBLE
-	description = "The Noble Hegemonic accent is eloquent and flowing, staying near the front of the mouth. Airy and filled with hissing, this accent requires birth-right or years of \
+/datum/accent/heartland_noble
+	name = ACCENT_HEARTLAND_NOBLE
+	description = "The Noble Heartlands accent is eloquent and flowing, staying near the front of the mouth. Airy and filled with hissing, this accent requires birth-right or years of \
 	practice to properly convey. The families of Lords, Sk'akh Priests, noble warriors, and some merchants will often share this accent, and will mostly find the Sinta'Azaziba language \
-	and Traditionalist accent more savage. The Noble Hegemonic accent is primarily found in the Untouched Lands, and originates from the Sinta'Unathi language."
+	and associated accents more savage. The Noble Heartlands accent originates from the Sinta'Unathi language."
 	tag_icon = "hegemon_noble"
 	text_tag = "HGN"
 
-/datum/accent/hegemon_peasant
-	name = ACCENT_HEGEMON_PEASANT
+/datum/accent/heartland_peasant
+	name = ACCENT_HEARTLAND_PEASANT
 	description = "Lowborn guilds-workers, first-generation merchants, simple warrior levymen, and hundreds of other tasks for the common Clans - this is the most common accent for \
-	Unathi, stereotypically. It still holds a slight air of royalty to it compared to the Traditional accents. It is most commonly found in the crowded Untouched Lands and in colonies. \
-	It originates from the Sinta'Unathi language. "
+	Unathi of the Izweski Heartland. It still holds a slight air of royalty to it compared to accents from the rest of Moghes. It can be heard across Moghes and in colonies, but is most common by far in its birthplace, the crowded Izweski Heartland. \
+	It originates from the Sinta'Unathi language."
 	tag_icon = "hegemon_peasant"
 	text_tag = "HGP"
 
