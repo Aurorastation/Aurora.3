@@ -92,6 +92,7 @@
 #define ACCENT_DOMINIA_FRONTIER "Imperial Frontier"
 #define ACCENT_DOMINIA_NOVIJADRAN "Novi Jadranic"
 #define ACCENT_DOMINIA_LYODII "Lyodii"
+#define ACCENT_DOMINIA_SUNREACH "Sun Reach"
 #define ACCENT_JUPITER "Jovian"
 #define ACCENT_CALLISTO "Callistean"
 #define ACCENT_EUROPA "Europan"
@@ -130,8 +131,8 @@
 #define ACCENT_HARRNRRI "Harr'nrri Siik'mas"
 #define ACCENT_ZARRJIRI "Zarr'jiri Siik'mas"
 
-#define ACCENT_HEGEMON_NOBLE "Noble Hegemonic"
-#define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"
+#define ACCENT_HEARTLAND_NOBLE "Izweski Heartland Noble"
+#define ACCENT_HEARTLAND_PEASANT "Izweski Heartland Peasant"
 #define ACCENT_TRAD_NOBLE "Noble Traditional"
 #define ACCENT_TRAD_PEASANT "Peasant Traditional"
 #define ACCENT_WASTELAND "Deep Wastelander"

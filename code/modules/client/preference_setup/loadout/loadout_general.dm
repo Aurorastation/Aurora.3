@@ -268,6 +268,7 @@
 	comics["az'marian comic, issue 6"] = /obj/item/toy/comic/azmarian/issue_6
 	comics["az'marian comic, issue 7"] = /obj/item/toy/comic/azmarian/issue_7
 	comics["az'marian comic, issue 8"] = /obj/item/toy/comic/azmarian/issue_8
+	comics["dominian witchfinder novel"] = /obj/item/toy/comic/witchfinder
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste
