@@ -73,12 +73,13 @@
 	for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
 		if(owner.psi.get_rank() < P.minimum_rank)
 			continue
-		if(P.ability_flags & PSI_FLAG_FOUNDATIONAL)
+		/// Apex and Limitless abilities are automatically given, but we want them to have said abilities in the point shop so they know what they do.
+		if(owner.psi.get_rank() < PSI_RANK_APEX && P.ability_flags & PSI_FLAG_APEX)
 			continue
-		if(owner.psi.get_rank() < PSI_FLAG_APEX && P.ability_flags & PSI_FLAG_APEX)
+		if(owner.psi.get_rank() < PSI_RANK_LIMITLESS && P.ability_flags & PSI_FLAG_LIMITLESS)
 			continue
 		if(owner.psi.get_rank() < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_EVENT))
-			return
+			continue
 		data["available_psionics"] += list(
 			list(
 				"name" = P.name,

@@ -23,14 +23,14 @@
 
 			var/image/aura_image = get_aura_image()
 			if(psionic_rank >= PSI_RANK_APEX) // spooky boosters
-				aura_color = "#ffffff"
+				aura_color = "#0000ff"
 				aura_image.blend_mode = BLEND_SUBTRACT
 			else
 				aura_image.blend_mode = BLEND_ADD
 				if(psionic_rank == PSI_RANK_SENSITIVE)
-					aura_color = "#cc3333"
+					aura_color = "#4747f5"
 				else if(psionic_rank == PSI_RANK_HARMONIOUS)
-					aura_color = "#3333cc"
+					aura_color = "#2828ff"
 
 	if(psionic_rank > PSI_RANK_SENSITIVE && last_psionic_rank < PSI_RANK_HARMONIOUS)
 		switch(psionic_rank)

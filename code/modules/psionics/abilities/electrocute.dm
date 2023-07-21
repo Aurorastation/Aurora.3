@@ -13,6 +13,8 @@
 	aspect = ASPECT_PSIONIC
 	cooldown = 10
 	psi_cost = 5
+	hitsound = 'sound/effects/psi/power_evoke.ogg'
+	attack_verb = list("lays a palm on")
 
 /obj/item/spell/electrocute/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	if(!ishuman(hit_atom))
@@ -22,7 +24,6 @@
 	if(!.)
 		return
 	var/mob/living/carbon/human/H = hit_atom
-	user.visible_message(SPAN_WARNING("[user] lays a palm on [H]!"), SPAN_WARNING("You lay a palm on [H]!"))
 	H.adjustHalLoss(20)
 	H.adjustFireLoss(20)
 	H.flash_pain(20)

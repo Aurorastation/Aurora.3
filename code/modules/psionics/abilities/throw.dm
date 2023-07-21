@@ -82,6 +82,7 @@
 	var/obj/source_item
 
 /obj/item/projectile/psionic_throw/Destroy()
-	source_item.forceMove(loc)
-	source_item = null
+	if(source_item)
+		source_item.forceMove(loc)
+		source_item = null
 	return ..()

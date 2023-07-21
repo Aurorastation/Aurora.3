@@ -243,6 +243,8 @@
 	return FALSE
 
 /mob/living/carbon/human/can_commune()
+	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
+		return FALSE
 	if(psi)
 		return TRUE
 	else

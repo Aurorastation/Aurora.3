@@ -1485,6 +1485,9 @@
 
 	species.set_default_tail(src)
 
+	if(!species.can_commune())
+		ADD_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
+
 	if(client)
 		client.init_verbs()
 

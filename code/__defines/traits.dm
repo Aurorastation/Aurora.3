@@ -142,6 +142,9 @@
 /// Mob does not need to breathe.
 #define TRAIT_NO_BREATHE "no_breathe"
 
+/// Mob is psionically deaf.
+#define TRAIT_PSIONICALLY_DEAF "psionically_deaf"
+
 /// lets mobs that traditionally don't hallucinate, hallucinate
 #define TRAIT_BYPASS_HALLUCINATION_RESTRICTION "bypassing_hallucination_restriction"
 
