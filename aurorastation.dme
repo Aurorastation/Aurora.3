@@ -2898,6 +2898,7 @@
 #include "code\modules\psionics\abilities\psi_recovery.dm"
 #include "code\modules\psionics\abilities\psi_search.dm"
 #include "code\modules\psionics\abilities\psi_stamina.dm"
+#include "code\modules\psionics\abilities\psi_sunder.dm"
 #include "code\modules\psionics\abilities\psi_sword.dm"
 #include "code\modules\psionics\abilities\psi_tool.dm"
 #include "code\modules\psionics\abilities\pull.dm"
