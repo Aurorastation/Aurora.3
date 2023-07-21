@@ -76,7 +76,7 @@
 
 /datum/category_item/player_setup_item/general/psionics/content(var/mob/user)
 	var/datum/species/mob_species = all_species[pref.species]
-	if(!(mob_species.spawn_flags & HAS_PSIONICS))
+	if(!(mob_species.has_psionics))
 		return
 	var/list/bought_psionic_powers = list()
 	for(var/S in pref.psionics)
