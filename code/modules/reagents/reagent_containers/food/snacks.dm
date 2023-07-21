@@ -985,6 +985,15 @@
 
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
 
+/obj/item/reagent_containers/food/snacks/pepperoni
+	name = "pepperoni"
+	desc = "A stick of pepperoni sausage."
+	icon_state = "pepperoni"
+	filling_color = "#DB0000"
+	bitesize = 2
+
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
+
 /obj/item/reagent_containers/food/snacks/jalapeno_poppers
 	name = "jalapeno popper"
 	desc = "A battered, deep-fried chili pepper"
@@ -3279,6 +3288,28 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/drink/tomatojuice = 2, /singleton/reagent/oculine = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("pizza crust" = 5, "eggplant" = 5, "carrot" = 5, "corn" = 5))
 
+/obj/item/reagent_containers/food/snacks/sliceable/pizza/pepperoni
+	name = "pepperoni pizza"
+	desc = "Who doesn't love a good pepperoni pizza after a hard day in the Chainlink?"
+	icon_state = "pepperonipizza"
+	slice_path = /obj/item/reagent_containers/food/snacks/pepperonipizzaslice
+	slices_num = 6
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 10, /singleton/reagent/nutriment/protein = 44, /singleton/reagent/nutriment/protein/cheese = 10, /singleton/reagent/drink/tomatojuice = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("pizza crust" = 10, "tomato" = 10, "pepperoni" = 15))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/pepperonipizzaslice
+	name = "pepperoni pizza slice"
+	desc = "A slice of pepperoni pizza."
+	icon_state = "pepperonipizzaslice"
+	filling_color = "#BAA14C"
+	bitesize = 2
+	center_of_mass = list("x"=18, "y"=13)
+
+/obj/item/reagent_containers/food/snacks/pepperonipizzaslice/filled
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/protein = 7, /singleton/reagent/nutriment/protein/cheese = 2, /singleton/reagent/drink/tomatojuice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("pizza crust" = 5, "tomato" = 5))
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/crunch
 	name = "pizza crunch"
 	desc = "This was once a normal pizza, but it has been coated in batter and deep-fried. Whatever toppings it once had are a mystery, but they're still under there, somewhere..."
@@ -3359,7 +3390,7 @@
 
 		if( pizza )
 			var/image/pizzaimg = image(icon, icon_state = pizza.icon_state)
-			pizzaimg.pixel_y = -3
+			pizzaimg.pixel_y = -2
 			add_overlay(pizzaimg)
 
 		return
@@ -3494,6 +3525,10 @@
 /obj/item/pizzabox/pineapple
 	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/pineapple
 	boxtag = "Silversun Sunrise"
+
+/obj/item/pizzabox/pepperoni
+	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/pepperoni
+	boxtag = "Pepperoni Power"
 
 /obj/item/reagent_containers/food/snacks/sliceable/dionaroast
 	name = "roast diona"

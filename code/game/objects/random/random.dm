@@ -1988,7 +1988,8 @@
 		/obj/item/pizzabox/vegetable,
 		/obj/item/pizzabox/mushroom,
 		/obj/item/pizzabox/meat,
-		/obj/item/pizzabox/pineapple
+		/obj/item/pizzabox/pineapple,
+		/obj/item/pizzabox/pepperoni
 	)
 
 /obj/random/seed
