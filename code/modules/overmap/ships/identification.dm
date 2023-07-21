@@ -3,6 +3,7 @@
 	desc = "A complex set of various bluespace and subspace arrays that transmit a ship's identification tags."
 	icon = 'icons/obj/machinery/iff_transponder.dmi'
 	icon_state = "iff"
+	anchored = TRUE
 	idle_power_usage = 500
 	var/datum/wires/iff/wires
 	var/disabled = FALSE
