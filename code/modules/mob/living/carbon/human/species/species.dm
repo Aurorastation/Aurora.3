@@ -295,6 +295,9 @@
 
 	var/use_alt_hair_layer = FALSE
 
+	/// Number of psi points in character creation.
+	var/character_creation_psi_points = 0
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
@@ -470,6 +473,8 @@
 	if(!H.client || !H.client.prefs || !H.client.prefs.gender)
 		H.gender = pick(default_genders)
 		H.pronouns = H.gender
+	if(spawn_flags & HAS_PSIONICS)
+		H.set_psi_rank(PSI_RANK_SENSITIVE)
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return

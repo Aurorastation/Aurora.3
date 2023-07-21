@@ -25,9 +25,13 @@
 	var/mob/living/L = user
 	L.visible_message(SPAN_NOTICE("[user] puts [user.get_pronoun("his")] hands together and focuses..."),
 					SPAN_NOTICE("You put your hands together and begin focusing on recovering your psionic energy..."))
+	psi_recovery(user)
+
+/obj/item/spell/psi_recovery/proc/psi_recovery(mob/user)
+	var/mob/living/L = user
 	if(do_after(user, 0.5 SECONDS))
 		L.psi.stamina = min(L.psi.max_stamina, L.psi.stamina + rand(1,3))
 		if(L.psi.stamina >= L.psi.max_stamina)
 			to_chat(user, SPAN_NOTICE("You've recovered all your psionic energy."))
 			return TRUE
-		on_use_cast(user)
+		psi_recovery(user)

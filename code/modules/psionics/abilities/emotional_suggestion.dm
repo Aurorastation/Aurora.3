@@ -2,7 +2,7 @@
 	name = "Emotional Suggestion"
 	desc = "Allows you to psionically commune with the target."
 	icon_state = "tech_gambit"
-	ability_flags = PSI_FLAG_CANON
+	ability_flags = PSI_FLAG_EVENT|PSI_FLAG_CANON
 	spell_path = /obj/item/spell/emotional_suggestion
 
 /obj/item/spell/emotional_suggestion

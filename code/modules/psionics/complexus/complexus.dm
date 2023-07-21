@@ -1,7 +1,7 @@
 /datum/psi_complexus
 
 	var/announced = FALSE             // Whether or not we have been announced to our holder yet.
-	var/suppressed = TRUE             // Whether or not we are suppressing our psi powers.
+	var/suppressed = FALSE             // Whether or not we are suppressing our psi powers.
 	var/use_psi_armor = TRUE         // Whether or not we should automatically deflect/block incoming damage.
 
 	var/cost_modifier = 1             // Multiplier for power use stamina costs.

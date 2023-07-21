@@ -78,6 +78,7 @@
 				update_hud = TRUE
 		else
 			to_chat(owner, SPAN_NOTICE("You have recovered your mental composure."))
+			suppressed = FALSE
 			update_hud = TRUE
 		return
 

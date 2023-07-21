@@ -24,6 +24,7 @@
 #define CAN_JOIN          0x2    // Species is selectable in chargen.
 #define IS_RESTRICTED     0x4    // Is not a core/normally playable species. (castes, mutantraces)
 #define NO_AGE_MINIMUM    0x8    // Doesn't respect minimum job age requirements.
+#define HAS_PSIONICS	  0x10   // Spawns with psionics.
 
 // Species appearance flags
 #define HAS_SKIN_TONE     0x1    // Skin tone selectable in chargen. (0-255)

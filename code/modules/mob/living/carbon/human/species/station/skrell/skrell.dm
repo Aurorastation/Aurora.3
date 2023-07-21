@@ -38,7 +38,7 @@
 	grab_mod = 2
 	resist_mod = 0.5 // LIKE BABBY
 
-	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	spawn_flags = CAN_JOIN | IS_WHITELISTED | HAS_PSIONICS
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
 	flags = NO_SLIP
 
@@ -107,6 +107,8 @@
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
+	character_creation_psi_points = 4
+
 /datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
 	var/list/trail_info = ..()
 	if(!length(trail_info) && !H.shoes)
@@ -116,10 +118,6 @@
 		trail_info["footprint_type"] = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot/del_dry // makes skrellprints del on dry
 
 	return trail_info
-
-/datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
-	..()
-	H.set_psi_rank(PSI_RANK_SENSITIVE)
 
 /datum/species/skrell/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
 	switch(action)

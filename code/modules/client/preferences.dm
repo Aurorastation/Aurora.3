@@ -99,6 +99,8 @@ var/list/preferences_datums = list()
 	var/culture
 	var/origin
 
+	var/list/psionics = list()
+
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/static/list/preview_screen_locs = list(
 		"1" = "character_preview_map:1,5:-12",

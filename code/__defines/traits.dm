@@ -145,6 +145,9 @@
 /// Mob is psionically deaf.
 #define TRAIT_PSIONICALLY_DEAF "psionically_deaf"
 
+/// Hidden from Psi-Search.
+#define TRAIT_PSIONIC_SUPPRESSION "psionic_suppression"
+
 /// lets mobs that traditionally don't hallucinate, hallucinate
 #define TRAIT_BYPASS_HALLUCINATION_RESTRICTION "bypassing_hallucination_restriction"
 
