@@ -29,7 +29,7 @@
 			SPAN_WARNING("\The [M] pets \the [src]."),
 			SPAN_NOTICE("You eagerly pet \the [src].")
 		)
-		addtimer(CALLBACK(src, PROC_REF(PetResponse)), rand(2 SECONDS, 5 SECONDS))
+		addtimer(CALLBACK(src, PROC_REF(pet_response)), rand(2 SECONDS, 5 SECONDS))
 	..()
 
 /mob/living/simple_animal/capybara/examine(mob/user)
