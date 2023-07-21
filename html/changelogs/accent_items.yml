@@ -1,8 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - rscadd: "Added two new labcoats to the loadout with colourable accents."
-  - rscadd: "Added three new ponchos to the loadout with colourable accents."
-  - tweak: "Merged the colourable trenchcoats into one loadout selection."
