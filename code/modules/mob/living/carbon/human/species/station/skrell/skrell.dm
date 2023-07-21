@@ -38,7 +38,7 @@
 	grab_mod = 2
 	resist_mod = 0.5 // LIKE BABBY
 
-	spawn_flags = CAN_JOIN | IS_WHITELISTED | HAS_PSIONICS
+	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
 	flags = NO_SLIP
 
@@ -107,6 +107,7 @@
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
+	has_psionics = PSI_RANK_SENSITIVE
 	character_creation_psi_points = 4
 
 /datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
