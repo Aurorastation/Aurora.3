@@ -67,3 +67,10 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "pmc_ws"
 	item_state = "pmc_ws"
+
+/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
+	name = "dagamuir freewater private forces uniform"
+	desc = "An Unathi-style uniform used by the mercenaries of Dagamuir Freewater Private Forces, an Unathi-run PMCG subsidiary. The chest and back are emblazoned with a stylised red and golden eye, once the emblem of the Dagamuir clan."
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
+	icon_state = "pmc_dpf"
+	item_state = "pmc_dpf"
