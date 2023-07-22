@@ -47,4 +47,4 @@
 			"\The [src] has accepted its fate to receive pets."
 			)
 		to_chat(M, pick(responses))
-	..()
+
