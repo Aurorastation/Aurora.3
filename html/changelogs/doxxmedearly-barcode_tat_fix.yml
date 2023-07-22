@@ -1,4 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-changes:
-  - bugfix: "Barcode tattoos now appear on the correct leg when facing up."
