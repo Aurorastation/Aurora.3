@@ -102,13 +102,14 @@
 		connected.relaymove(user, direction, accellimit)
 		return 1
 
-/obj/machinery/computer/ship/helm/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/computer/ship/helm/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Helm", capitalize_first_letters(name))
 		ui.open()
 
-	var/data[0]
+/obj/machinery/computer/ship/helm/ui_data(mob/user)
+	var/list/data = list()
 
 	if(!connected)
 		display_reconnect_dialog(user, "helm")
@@ -185,26 +186,26 @@
 		if(sec_name in known_sectors)
 			to_chat(usr, "<span class='warning'>Sector with that name already exists, please input a different name.</span>")
 			return TOPIC_REFRESH
-		// switch(href_list["add"])
-		// 	if("current")
-		// 		R.fields["x"] = connected.x
-		// 		R.fields["y"] = connected.y
-		// 	if("new")
-		// 		var/newx = input("Input new entry x coordinate", "Coordinate input", connected.x) as num
-		// 		if(!CanInteract(usr, physical_state))
-		// 			return TOPIC_REFRESH
-		// 		var/newy = input("Input new entry y coordinate", "Coordinate input", connected.y) as num
-		// 		if(!CanInteract(usr, physical_state))
-		// 			return TOPIC_NOACTION
-		// 		R.fields["x"] = Clamp(newx, 1, world.maxx)
-		// 		R.fields["y"] = Clamp(newy, 1, world.maxy)
+		switch(params["add"])
+			if("current")
+				R.fields["x"] = connected.x
+				R.fields["y"] = connected.y
+			if("new")
+				var/newx = input("Input new entry x coordinate", "Coordinate input", connected.x) as num
+				if(!CanInteract(usr, physical_state))
+					return TOPIC_REFRESH
+				var/newy = input("Input new entry y coordinate", "Coordinate input", connected.y) as num
+				if(!CanInteract(usr, physical_state))
+					return TOPIC_NOACTION
+				R.fields["x"] = Clamp(newx, 1, world.maxx)
+				R.fields["y"] = Clamp(newy, 1, world.maxy)
 		known_sectors[sec_name] = R
 
-	// if (action == "remove")
-	// 	var/datum/computer_file/data/waypoint/R = locate(href_list["remove"])
-	// 	if(R)
-	// 		known_sectors.Remove(R.fields["name"])
-	// 		qdel(R)
+	if (action == "remove")
+		var/datum/computer_file/data/waypoint/R = locate(params["remove"])
+		if(R)
+			known_sectors.Remove(R.fields["name"])
+			qdel(R)
 
 	if (action == "setx")
 		var/newx = input("Input new destination x coordinate", "Coordinate input", dx) as num|null
@@ -220,9 +221,9 @@
 		if (newy)
 			dy = Clamp(newy, 1, world.maxy)
 
-	// if (href_list["x"] && href_list["y"])
-	// 	dx = text2num(href_list["x"])
-	// 	dy = text2num(href_list["y"])
+	if (action == "xy")
+		dx = text2num(params["x"])
+		dy = text2num(params["y"])
 
 	if (action == "reset")
 		dx = 0

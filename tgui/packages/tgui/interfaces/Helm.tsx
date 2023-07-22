@@ -23,7 +23,14 @@ export type HelmData = {
   accellimit: number;
   speed: number;
   ETAnext: number;
-  //locations:;
+  locations: Location[];
+};
+
+type Location = {
+  name: string;
+  x: number;
+  y: number;
+  reference: string;
 };
 
 export const Helm = (props, context) => {
@@ -32,109 +39,256 @@ export const Helm = (props, context) => {
   return (
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
-        <Section title="Helm Control">
-          <Section title="Flight Data">
-            <div style="">
-              <fieldset style="min-height:180px;background-color: #202020;">
-                <legend style="text-align:center">Flight data</legend>
-                <div class="item">
-                  <div class="itemLabelWider">ETA to next grid:</div>
-                  <div style="float:right">{data.ETAnext}</div>
-                </div>
-                <div class="item">
-                  <div class="itemLabelWider">Speed:</div>
-                  <div style="float:right">{data.speed} Gm/h</div>
-                </div>
-                <div class="item">
-                  <div class="itemLabelWider">Acceleration:</div>
-                  <div style="float:right">{data.accel} Gm/h</div>
-                </div>
-                <div class="item">
-                  <div class="itemLabelWider">Heading:</div>
-                  <div style="float:right">{data.heading}&deg;</div>
-                </div>
-                <div class="item">
-                  <div class="itemLabelWider">Acceleration limiter:</div>
-                  <div style="float:right">
-                    {/* {helper.link(data.accellimit, null, { 'accellimit' : 1}, null, null)}} Gm/h */}
-                  </div>
-                </div>
-              </fieldset>
-            </div>
-          </Section>
-          <Section title="Manual control">
-            <div style="">
-              <fieldset style="min-height:180px;background-color: #202020;">
-                <legend style="text-align:center">Manual control</legend>
-                <div class="item">
-                  <div class="item">
-                    <Button
-                      icon="circle"
-                      onClick={() => act('move', { move: 9 })}
-                    />
-                    <Button
-                      icon="arrow-up"
-                      onClick={() => act('move', { move: 1 })}
-                    />
-                    <Button
-                      icon="circle"
-                      onClick={() => act('move', { move: 5 })}
-                    />
-                  </div>
-                  <div class="item">
-                    {/* {{:helper.link('', 'triangle-1-w', { 'move' : 8 }, data.canburn ? null : 'disabled', null)}}
-			{{:helper.link('', 'circle-close', { 'brake' : 1 }, data.canburn ? null : 'disabled', null)}}
-			{{:helper.link('', 'triangle-1-e', { 'move' : 4 }, data.canburn ? null : 'disabled', null)}} */}
-                    <Button
-                      // disabled={!data.canburn}
-                      icon="arrow-left"
-                      onClick={() => act('move', { move: 8 })}
-                    />
-                    <Button
-                      icon="bacon"
-                      onClick={() => act('brake', { move: 1 })}
-                    />
-                    <Button
-                      icon="arrow-right"
-                      onClick={() => act('move', { move: 4 })}
-                    />
-                  </div>
-                  <div class="item">
-                    <Button
-                      icon="circle"
-                      onClick={() => act('move', { move: 10 })}
-                    />
-                    <Button
-                      icon="arrow-down"
-                      onClick={() => act('move', { move: 2 })}
-                    />
-                    <Button
-                      icon="circle"
-                      onClick={() => act('move', { move: 6 })}
-                    />
-                  </div>
-                  <div class="item">
-                    <div class="itemLabel">Maneuvers</div>
-                    <br />
-                    <div class="itemContent">
-                      {/* {{:helper.link('', 'arrowstop-1-w', {'turn' : 8}, data.cancombatturn ? null : 'disabled', null)}}
-				{{:helper.link('', 'arrowstop-1-e', {'turn' : 4}, data.cancombatturn ? null : 'disabled', null)}} */}
-                    </div>
-                    <div class="itemContent">
-                      {/* {{:helper.link('', 'arrowreturnthick-1-w', {'roll' : 8}, data.cancombatroll ? null : 'disabled', null)}}
-				{{:helper.link('', 'arrowreturnthick-1-e', {'roll' : 4}, data.cancombatroll ? null : 'disabled', null)}} */}
-                    </div>
-                  </div>
+        <Section title="Flight Data">
+          <Table>
+            <Table.Row>
+              <Table.Cell>ETA to next grid:</Table.Cell>
+              <Table.Cell>{data.ETAnext}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Speed:</Table.Cell>
+              <Table.Cell>{data.speed} Gm/h</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Acceleration:</Table.Cell>
+              <Table.Cell>{data.accel} Gm/h</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Heading:</Table.Cell>
+              <Table.Cell>{data.heading}°</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Acceleration limiter:</Table.Cell>
+              <Table.Cell>
+                <Button
+                  content={data.accellimit + ' Gm/h'}
+                  onClick={() => act('accellimit', { accellimit: 9 })}
+                />
+              </Table.Cell>
+            </Table.Row>
+          </Table>
+        </Section>
 
-                  <div class="item">
-                    <span class="white">Direct control</span>
-                    <br />
-                    {/* {{:helper.link(data.manual_control ? 'Engaged' : 'Disengaged', 'shuffle', { 'manual' : 1 }, null, data.manual_control ? 'selected' : null)}} */}
-                  </div>
-                </div>
-              </fieldset>
-            </div>
-          </Section>
+        <Section title="Manual control">
+          <Table width={0} title="Control">
+            <Table.Row>
+              <Table.Cell>
+                <Button
+                  icon="circle"
+                  disabled={!data.canburn}
+                  onClick={() => act('move', { move: 9 })}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                <Button
+                  icon="arrow-up"
+                  disabled={!data.canburn}
+                  onClick={() => act('move', { move: 1 })}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                <Button
+                  icon="circle"
+                  disabled={!data.canburn}
+                  onClick={() => act('move', { move: 5 })}
+                />
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>
+                <Button
+                  icon="arrow-left"
+                  disabled={!data.canburn}
+                  onClick={() => act('move', { move: 8 })}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                <Button
+                  icon="bacon"
+                  disabled={!data.canburn}
+                  onClick={() => act('brake', { move: 1 })}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                <Button
+                  icon="arrow-right"
+                  disabled={!data.canburn}
+                  onClick={() => act('move', { move: 4 })}
+                />
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>
+                <Button
+                  icon="circle"
+                  disabled={!data.canburn}
+                  onClick={() => act('move', { move: 10 })}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                <Button
+                  icon="arrow-down"
+                  disabled={!data.canburn}
+                  onClick={() => act('move', { move: 2 })}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                <Button
+                  icon="circle"
+                  disabled={!data.canburn}
+                  onClick={() => act('move', { move: 6 })}
+                />
+              </Table.Cell>
+            </Table.Row>
+          </Table>
+          <Table width={0} title="Maneuvers">
+            <Table.Row>
+              <Table.Cell>
+                <Button
+                  icon="arrow-left"
+                  disabled={!data.cancombatturn}
+                  onClick={() => act('turn', { turn: 8 })}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                <Button
+                  icon="arrow-right"
+                  disabled={!data.cancombatturn}
+                  onClick={() => act('turn', { turn: 4 })}
+                />
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>
+                <Button
+                  icon="arrow-left"
+                  disabled={!data.cancombatroll}
+                  onClick={() => act('roll', { roll: 8 })}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                <Button
+                  icon="arrow-right"
+                  disabled={!data.cancombatroll}
+                  onClick={() => act('roll', { roll: 4 })}
+                />
+              </Table.Cell>
+            </Table.Row>
+          </Table>
+        </Section>
+
+        <Section title="Autopilot">
+          <Table>
+            <Table.Row>
+              <Table.Cell>Target:</Table.Cell>
+              <Table.Cell>
+                {data.dest ? (
+                  <>
+                    <Button
+                      content={data.d_x}
+                      onClick={() => act('setx', { setx: true })}
+                    />
+                    <Button
+                      content={data.d_y}
+                      onClick={() => act('sety', { sety: true })}
+                    />
+                  </>
+                ) : (
+                  <Button
+                    content="None"
+                    onClick={() => {
+                      act('setx', { setx: true });
+                      act('sety', { sety: true });
+                    }}
+                  />
+                )}
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Speed limit:</Table.Cell>
+              <Table.Cell>
+                <Button
+                  content={data.speedlimit + ' Gm/h'}
+                  onClick={() => act('speedlimit', { speedlimit: true })}
+                />
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Button
+                content={data.autopilot ? 'Engaged' : 'Disengaged'}
+                icon="cog"
+                disabled={!data.dest}
+                onClick={() => act('apilot', { apilot: true })}
+              />
+            </Table.Row>
+          </Table>
+        </Section>
+
+        <Section title="Navigation Data">
+          <Table>
+            <Table.Row>
+              <Table.Cell>Location:</Table.Cell>
+              <Table.Cell>{data.sector}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Coordinates:</Table.Cell>
+              <Table.Cell>
+                {data.s_x} : {data.s_y}
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Scan data:</Table.Cell>
+              <Table.Cell>{data.sector_info}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>Status:</Table.Cell>
+              <Table.Cell>{data.landed}</Table.Cell>
+            </Table.Row>{' '}
+          </Table>
+          <Table width={0}>
+            <Table.Row>
+              <Table.Cell>
+                <Button
+                  icon="save"
+                  content="Save current position"
+                  disabled={!data.canburn}
+                  onClick={() => act('add', { add: 'current' })}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                <Button
+                  icon="file"
+                  content="Add new entry"
+                  disabled={!data.canburn}
+                  onClick={() => act('add', { add: 'new' })}
+                />
+              </Table.Cell>
+            </Table.Row>
+          </Table>
+          <Table>
+            <Table.Row header>
+              <Table.Cell>Name</Table.Cell>
+              <Table.Cell>Coordinates</Table.Cell>
+              <Table.Cell>Actions</Table.Cell>
+            </Table.Row>
+            {data.locations.map((location) => (
+              <Table.Row>
+                <Table.Cell>{location.name}</Table.Cell>
+                <Table.Cell>
+                  {location.x} : {location.y}
+                </Table.Cell>
+                <Table.Cell>
+                  <Button
+                    icon="close"
+                    content="Remove"
+                    onClick={() =>
+                      act('remove', { remove: location.reference })
+                    }
+                  />
+                </Table.Cell>
+              </Table.Row>
+            ))}
+          </Table>
         </Section>
       </NtosWindow.Content>
     </NtosWindow>
