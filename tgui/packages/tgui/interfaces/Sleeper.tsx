@@ -18,7 +18,8 @@ export type SleeperData = {
   pulse: string;
   reagents: SleeperReagent[];
   stasissettings: number[];
-  beaker: number;
+  beaker: BooleanLike;
+  beakerreagents: number;
   filtering: BooleanLike;
   pump: BooleanLike;
 };
@@ -45,10 +46,10 @@ export const Sleeper = (props, context) => {
           <Table>
             <BlockQuote>No occupant detected.</BlockQuote>
             <Button
-              content={data.beaker < 0 ? 'No Beaker' : 'Eject Beaker'}
+              content={data.beaker ? 'Eject Beaker' : 'No Beaker'}
               icon="medkit"
               color="red"
-              disabled={data.beaker < 0}
+              disabled={!data.beaker}
               onClick={() => act('beaker')}
             />
           </Table>
@@ -182,30 +183,30 @@ export const OccupantStatus = (props, context) => {
               title="Dialysis"
               buttons={
                 <Button
-                  content={data.beaker < 0 ? 'No Beaker' : 'Eject Beaker'}
+                  content={data.beaker ? 'Eject Beaker' : 'No Beaker'}
                   icon="medkit"
                   color="red"
-                  disabled={data.beaker < 0}
+                  disabled={!data.beaker}
                   onClick={() => act('beaker')}
                 />
               }>
               <Button
                 content="Blood Dialysis"
                 color={data.filtering ? 'good' : ''}
-                disabled={data.beaker < 0}
+                disabled={data.beaker ? data.beakerreagents <= 0 : 1}
                 icon="heart"
                 onClick={() => act('filter')}
               />
               <Button
                 content="Stomach Pump"
                 color={data.pump ? 'good' : ''}
-                disabled={data.beaker < 0}
+                disabled={data.beaker ? data.beakerreagents <= 0 : 1}
                 icon="splotch"
                 onClick={() => act('pump')}
               />
-              {data.beaker > -1 ? (
+              {data.beaker ? (
                 <BlockQuote>
-                  {Math.round(data.beaker)}u of free space remaining.
+                  {Math.round(data.beakerreagents)}u of free space remaining.
                 </BlockQuote>
               ) : (
                 <BlockQuote color="bad">No beaker inserted.</BlockQuote>
