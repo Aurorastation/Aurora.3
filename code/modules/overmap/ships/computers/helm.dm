@@ -125,6 +125,7 @@
 		data["autopilot"] = autopilot
 		data["manual_control"] = viewing_overmap(user)
 		data["canburn"] = connected.can_burn()
+		data["canturn"] = connected.can_turn()
 		data["cancombatroll"] = connected.can_combat_roll()
 		data["cancombatturn"] = connected.can_combat_turn()
 		data["accellimit"] = accellimit*1000
@@ -241,14 +242,6 @@
 				visible_message(SPAN_DANGER("[H] tilts the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 				connected.combat_roll(ndir)
 
-	if (href_list["turn"])
-		var/ndir = text2num(href_list["turn"])
-		if(ishuman(usr))
-			var/mob/living/carbon/human/H = usr
-			if(do_after(H, 1 SECOND) && connected.can_combat_turn())
-				visible_message(SPAN_DANGER("[H] twists the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
-				connected.combat_turn(ndir)
-
 	if (href_list["manual"])
 		viewing_overmap(usr) ? unlook(usr) : look(usr)
 
@@ -264,11 +257,25 @@
 
 	if(!issilicon(usr)) // AI and robots aren't allowed to pilot
 		if (href_list["move"])
-			var/ndir = text2num(href_list["move"])
 			if(prob(usr.confused * 5))
-				ndir = turn(ndir, pick(45, -45))
-			connected.relaymove(usr, ndir, accellimit)
-			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1)
+				href_list["turn"] = pick("45", "-45")
+			else
+				connected.relaymove(usr, connected.dir, accellimit)
+				addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1) // remove when turning into vueui
+
+		if (href_list["turn"])
+			var/ndir = text2num(href_list["turn"])
+			if(connected.can_turn())
+				connected.turn_ship(ndir)
+				addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), min(connected.vessel_mass / 10, 1) SECONDS + 1)
+
+		if (href_list["combat_turn"])
+			var/ndir = text2num(href_list["combat_turn"])
+			if(ishuman(usr))
+				var/mob/living/carbon/human/H = usr
+				if(do_after(H, 1 SECOND) && connected.can_combat_turn())
+					visible_message(SPAN_DANGER("[H] twists the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
+					connected.combat_turn(ndir)
 
 		if (href_list["brake"])
 			connected.decelerate()
