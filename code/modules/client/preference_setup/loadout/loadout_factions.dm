@@ -74,6 +74,7 @@
 	idris_sunglasses["HUDsunglasses, Idris"] = /obj/item/clothing/glasses/sunglasses/sechud/idris
 	idris_sunglasses["fat HUDsunglasses, Idris"] = /obj/item/clothing/glasses/sunglasses/sechud/big/idris
 	idris_sunglasses["aviator sunglasses, Idris"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
+	idris_sunglasses["security HUD, Idris"] = /obj/item/clothing/glasses/hud/security/idris
 	gear_tweaks += new /datum/gear_tweak/path(idris_sunglasses)
 
 /datum/gear/faction/idris_labcoat
@@ -221,6 +222,7 @@
 	zavod_sunglasses["HUDsunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/zavod
 	zavod_sunglasses["fat HUDsunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/big/zavod
 	zavod_sunglasses["aviator sunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/zavod
+	zavod_sunglasses["security HUD, Zavodskoi"] = /obj/item/clothing/glasses/hud/security/zavod
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sunglasses)
 
 /datum/gear/faction/zavodskoi_patch
@@ -272,6 +274,25 @@
 	pmc_sunglasses["HUDsunglasses alt, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/pmc/alt
 	pmc_sunglasses["fat HUDsunglasses alt, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/big/pmc/alt
 	pmc_sunglasses["aviator sunglasses alt, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc/alt
+	pmc_sunglasses["security HUD, PMCG"] = /obj/item/clothing/glasses/hud/security/pmc
+	pmc_sunglasses["security HUD, EPMC"] = /obj/item/clothing/glasses/hud/security/pmc/alt
+	gear_tweaks += new /datum/gear_tweak/path(pmc_sunglasses)
+
+/datum/gear/faction/pmc_medglasses
+	display_name = "PMCG medical HUD selection"
+	description = "A selection of PMCG medical HUDs."
+	path = /obj/item/clothing/glasses/hud/health/aviator/pmc
+	slot = slot_glasses
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
+	faction = "Private Military Contracting Group"
+
+/datum/gear/faction/pmc_medglasses/New()
+	..()
+	var/list/pmc_sunglasses = list()
+	pmc_sunglasses["aviator sunglasses, PMCG"] = /obj/item/clothing/glasses/hud/health/aviator/pmc
+	pmc_sunglasses["medical HUD, PMCG"] = /obj/item/clothing/glasses/hud/health/pmc
+	pmc_sunglasses["aviator sunglasses, EPMC"] = /obj/item/clothing/glasses/hud/health/aviator/pmc/alt
+	pmc_sunglasses["medical HUD, EPMC"] = /obj/item/clothing/glasses/hud/health/pmc/alt
 	gear_tweaks += new /datum/gear_tweak/path(pmc_sunglasses)
 
 /datum/gear/faction/pmc_labcoat
@@ -476,6 +497,21 @@
 	slot = slot_wear_suit
 	faction = "Zeng-Hu Pharmaceuticals"
 
+/datum/gear/faction/zeng_medglasses
+	display_name = "Zeng-Hu medical HUD selection"
+	description = "A selection of Zeng-Hu medical HUDs."
+	path = /obj/item/clothing/glasses/hud/health/aviator/zeng
+	slot = slot_glasses
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
+	faction = "Zeng-Hu Pharmaceuticals"
+
+/datum/gear/faction/zeng_medglasses/New()
+	..()
+	var/list/zeng_sunglasses = list()
+	zeng_sunglasses["aviator sunglasses, Zeng-Hu"] = /obj/item/clothing/glasses/hud/health/aviator/zeng
+	zeng_sunglasses["medical HUD, Zeng-Hu"] = /obj/item/clothing/glasses/hud/health/zeng
+	gear_tweaks += new /datum/gear_tweak/path(zeng_sunglasses)
+
 //Hephaestus
 /datum/gear/faction/heph_labcoat
 	display_name = "hephaestus coat selection"
@@ -556,6 +592,21 @@
 	nt_headwear["beret, nanotrasen"] = /obj/item/clothing/head/beret/corporate
 	nt_headwear["nanotrasen woolen hat"] = /obj/item/clothing/head/wool/nt
 	gear_tweaks += new /datum/gear_tweak/path(nt_headwear)
+
+/datum/gear/faction/nt_medglasses
+	display_name = "NanoTrasen medical HUD selection"
+	description = "A selection of NanoTrasen medical HUDs."
+	path = /obj/item/clothing/glasses/hud/health/aviator/nt
+	slot = slot_glasses
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
+	faction = "NanoTrasen"
+
+/datum/gear/faction/nt_medglasses/New()
+	..()
+	var/list/nt_sunglasses = list()
+	nt_sunglasses["aviator sunglasses, NanoTrasen"] = /obj/item/clothing/glasses/hud/health/aviator/nt
+	nt_sunglasses["medical HUD, NanoTrasen"] = /obj/item/clothing/glasses/hud/health/nt
+	gear_tweaks += new /datum/gear_tweak/path(nt_sunglasses)
 
 //Orion
 /datum/gear/faction/orion_coat
