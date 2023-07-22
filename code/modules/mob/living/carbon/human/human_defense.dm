@@ -428,7 +428,7 @@ emp_act
 							SPAN_WARNING("\The [src] is pinned to the wall by \the [O]!"),
 							SPAN_WARNING("You are pinned to the wall by \the [O]!")
 						)
-						src.anchored = 1
+						src.anchored = TRUE
 						src.pinned += O
 	else if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
