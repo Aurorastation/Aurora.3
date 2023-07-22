@@ -102,7 +102,12 @@
 		connected.relaymove(user, direction, accellimit)
 		return 1
 
-/obj/machinery/computer/ship/helm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/ship/helm/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Helm", capitalize_first_letters(name))
+		ui.open()
+
 	var/data[0]
 
 	if(!connected)
@@ -150,12 +155,7 @@
 
 		data["locations"] = locations
 
-		ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-		if (!ui)
-			ui = new(user, src, ui_key, "helm.tmpl", "[connected.get_real_name()] Helm Control", 565, 545)
-			ui.set_initial_data(data)
-			ui.open()
-			ui.set_auto_update(1)
+	return data
 
 /obj/machinery/computer/ship/helm/proc/get_acceleration()
 	return min(round(connected.get_acceleration()*1000, 0.01),accellimit*1000)
@@ -167,14 +167,14 @@
 	else
 		return "N/A"
 
-/obj/machinery/computer/ship/helm/Topic(href, href_list)
+/obj/machinery/computer/ship/helm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return TOPIC_HANDLED
 
 	if(!connected)
 		return TOPIC_HANDLED
 
-	if (href_list["add"])
+	if(action == "add")
 		var/datum/computer_file/data/waypoint/R = new()
 		var/sec_name = input("Input naviation entry name", "New navigation entry", "Sector #[known_sectors.len]") as text
 		if(!CanInteract(usr, physical_state))
@@ -185,51 +185,51 @@
 		if(sec_name in known_sectors)
 			to_chat(usr, "<span class='warning'>Sector with that name already exists, please input a different name.</span>")
 			return TOPIC_REFRESH
-		switch(href_list["add"])
-			if("current")
-				R.fields["x"] = connected.x
-				R.fields["y"] = connected.y
-			if("new")
-				var/newx = input("Input new entry x coordinate", "Coordinate input", connected.x) as num
-				if(!CanInteract(usr, physical_state))
-					return TOPIC_REFRESH
-				var/newy = input("Input new entry y coordinate", "Coordinate input", connected.y) as num
-				if(!CanInteract(usr, physical_state))
-					return TOPIC_NOACTION
-				R.fields["x"] = Clamp(newx, 1, world.maxx)
-				R.fields["y"] = Clamp(newy, 1, world.maxy)
+		// switch(href_list["add"])
+		// 	if("current")
+		// 		R.fields["x"] = connected.x
+		// 		R.fields["y"] = connected.y
+		// 	if("new")
+		// 		var/newx = input("Input new entry x coordinate", "Coordinate input", connected.x) as num
+		// 		if(!CanInteract(usr, physical_state))
+		// 			return TOPIC_REFRESH
+		// 		var/newy = input("Input new entry y coordinate", "Coordinate input", connected.y) as num
+		// 		if(!CanInteract(usr, physical_state))
+		// 			return TOPIC_NOACTION
+		// 		R.fields["x"] = Clamp(newx, 1, world.maxx)
+		// 		R.fields["y"] = Clamp(newy, 1, world.maxy)
 		known_sectors[sec_name] = R
 
-	if (href_list["remove"])
-		var/datum/computer_file/data/waypoint/R = locate(href_list["remove"])
-		if(R)
-			known_sectors.Remove(R.fields["name"])
-			qdel(R)
+	// if (action == "remove")
+	// 	var/datum/computer_file/data/waypoint/R = locate(href_list["remove"])
+	// 	if(R)
+	// 		known_sectors.Remove(R.fields["name"])
+	// 		qdel(R)
 
-	if (href_list["setx"])
+	if (action == "setx")
 		var/newx = input("Input new destination x coordinate", "Coordinate input", dx) as num|null
 		if(!CanInteract(usr, physical_state))
 			return
 		if (newx)
 			dx = Clamp(newx, 1, world.maxx)
 
-	if (href_list["sety"])
+	if (action == "sety")
 		var/newy = input("Input new destination y coordinate", "Coordinate input", dy) as num|null
 		if(!CanInteract(usr, physical_state))
 			return
 		if (newy)
 			dy = Clamp(newy, 1, world.maxy)
 
-	if (href_list["x"] && href_list["y"])
-		dx = text2num(href_list["x"])
-		dy = text2num(href_list["y"])
+	// if (href_list["x"] && href_list["y"])
+	// 	dx = text2num(href_list["x"])
+	// 	dy = text2num(href_list["y"])
 
-	if (href_list["reset"])
+	if (action == "reset")
 		dx = 0
 		dy = 0
 
-	if (href_list["roll"])
-		var/ndir = text2num(href_list["roll"])
+	if (action == "roll")
+		var/ndir = text2num(params["roll"])
 		if(ishuman(usr))
 			var/mob/living/carbon/human/H = usr
 			var/dir_to_move = turn(connected.dir, ndir == WEST ? 90 : -90)
@@ -241,40 +241,40 @@
 				visible_message(SPAN_DANGER("[H] tilts the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 				connected.combat_roll(ndir)
 
-	if (href_list["turn"])
-		var/ndir = text2num(href_list["turn"])
+	if (action == "turn")
+		var/ndir = text2num(params["turn"])
 		if(ishuman(usr))
 			var/mob/living/carbon/human/H = usr
 			if(do_after(H, 1 SECOND) && connected.can_combat_turn())
 				visible_message(SPAN_DANGER("[H] twists the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
 				connected.combat_turn(ndir)
 
-	if (href_list["manual"])
+	if (action == "manual")
 		viewing_overmap(usr) ? unlook(usr) : look(usr)
 
-	if (href_list["speedlimit"])
+	if (action == "speedlimit")
 		var/newlimit = input("Input new speed limit for autopilot (0 to brake)", "Autopilot speed limit", speedlimit*1000) as num|null
 		if(newlimit)
 			speedlimit = Clamp(newlimit/1000, 0, 100)
 
-	if (href_list["accellimit"])
+	if (action == "accellimit")
 		var/newlimit = input("Input new acceleration limit", "Acceleration limit", accellimit*1000) as num|null
 		if(newlimit)
 			accellimit = max(newlimit/1000, 0)
 
 	if(!issilicon(usr)) // AI and robots aren't allowed to pilot
-		if (href_list["move"])
-			var/ndir = text2num(href_list["move"])
+		if (action == "move")
+			var/ndir = text2num(params["move"])
 			if(prob(usr.confused * 5))
 				ndir = turn(ndir, pick(45, -45))
 			connected.relaymove(usr, ndir, accellimit)
 			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1)
 
-		if (href_list["brake"])
+		if (action == "brake")
 			connected.decelerate()
 			addtimer(CALLBACK(src, PROC_REF(updateUsrDialog)), connected.burn_delay + 1)
 
-		if (href_list["apilot"])
+		if (action == "apilot")
 			autopilot = !autopilot
 			check_processing()
 	else
