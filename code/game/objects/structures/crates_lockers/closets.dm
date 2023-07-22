@@ -228,7 +228,7 @@
 			added_units += item_size
 	return added_units
 
-/obj/structure/closet/proc/store_mobs(var/stored_units, var/mob_limit)
+/obj/structure/closet/proc/store_mobs(var/stored_units)
 	var/added_units = 0
 	for(var/mob/living/M in loc)
 		if(M.buckled_to || M.pinned.len)
@@ -242,8 +242,6 @@
 			M.client.eye = src
 		M.forceMove(src)
 		added_units += M.mob_size
-		if(mob_limit) //We only want to store one valid mob
-			break
 	return added_units
 
 /obj/structure/closet/proc/store_structure(var/stored_units)

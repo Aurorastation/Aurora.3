@@ -40,8 +40,7 @@ var/list/mob_icon_icon_states = list()
 	var/image/additional_parts = build_additional_parts(H, mob_icon, slot)
 	if(additional_parts)
 		I.add_overlay(additional_parts)
-	if(has_accents)
-		I.add_overlay(overlay_image(icon,"[item_state][contained_sprite ? slot_str_to_contained_flag(slot) : ""]_acc",accent_color, RESET_COLOR))
+
 	return I
 
 /obj/item/proc/get_image_key_mod()

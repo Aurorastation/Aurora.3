@@ -205,15 +205,6 @@
 	tag_icon = "dominia_lyodii"
 	text_tag = "LYD"
 
-/datum/accent/dominia_sunreach
-	name = ACCENT_DOMINIA_SUNREACH
-	description = "Regarded by most linguists as a Freespeak dialect, but classified by the Empire as a dialect of Vulgar Morozi, the Sun Reacher dialect is one of the more well-known accents of the Imperial Frontier. \
-	Previously associated with the Pirate Lords of Sun Reach and their raids on nearby worlds, the Reacher accent is now commonly heard from the voidsmen and officers of the Imperial Fleet and Goddess' Flotilla. \
-	Reachers who wish to demonstrate their loyalty to the Empire and a desire to assimilate into its culture will often go to great lengths to learn and speak a House Zhao-design pronunciation system which replaces \
-	the more guttural sounds of the Reacher dialect with lighter sounds closer in pronunciation to Jadranic Common."
-	tag_icon = "dominia_sunreach"
-	text_tag = "SRE"
-
 /datum/accent/jupiter
 	name = ACCENT_JUPITER
 	description = "The Jovian accent is an odd mish-mash of accents from Jupiter's various moons, and has heavy variation on each of the moons. On Europa, the Jovian accent often takes on traces of \

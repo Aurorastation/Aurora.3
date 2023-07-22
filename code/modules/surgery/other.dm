@@ -14,8 +14,8 @@
 	can_infect = TRUE
 	blood_level = 1
 
-	min_duration = 40
-	max_duration = 60
+	min_duration = 70
+	max_duration = 90
 
 /singleton/surgery_step/fix_vein/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -62,8 +62,8 @@
 	can_infect = TRUE
 	blood_level = 1
 
-	min_duration = 80
-	max_duration = 130
+	min_duration = 110
+	max_duration = 160
 
 /singleton/surgery_step/internal/fix_dead_tissue/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -127,8 +127,8 @@
 	can_infect = FALSE
 	blood_level = 0
 
-	min_duration = 80
-	max_duration = 90
+	min_duration = 100
+	max_duration = 110
 
 /singleton/surgery_step/treat_necrosis/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -193,8 +193,8 @@
 	can_infect = TRUE
 	blood_level = 1
 
-	min_duration = 50
-	max_duration = 70
+	min_duration = 70
+	max_duration = 90
 
 /singleton/surgery_step/fix_tendon/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -234,8 +234,8 @@
 	can_infect = FALSE
 	blood_level = 0
 
-	min_duration = 100
-	max_duration = 160
+	min_duration = 120
+	max_duration = 180
 
 /singleton/surgery_step/hardsuit/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -271,8 +271,8 @@
 	/obj/item/material/hatchet = 55
 	)
 
-	min_duration = 90
-	max_duration = 140
+	min_duration = 110
+	max_duration = 160
 
 /singleton/surgery_step/amputate/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

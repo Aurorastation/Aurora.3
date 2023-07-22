@@ -59,7 +59,7 @@
 		S.roundstart = 1
 
 	//Might as well mask the gene types while we're at it.
-	var/list/gene_datums = GET_SINGLETON_TYPE_MAP(/singleton/plantgene)
+	var/list/gene_datums = list()
 	var/list/used_masks = list()
 	var/list/plant_traits = ALL_GENES
 	while(plant_traits && plant_traits.len)

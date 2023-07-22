@@ -692,57 +692,6 @@
 	name = pick("Triesto Pre-Dimming Sangiovese", "New Beirut 2340", "Vysokan Artisans Merlot", "Silver Seas Original Merlot", "Domelkos Morozian Treasure", "Belle Cote Serene Moth 2395",
 			"Malta Sol Nebbiolo", "Ashkhaimi Gardens Shiraz", "Old Cairo 2375", "Artisan Empire 2354")
 
-/obj/item/reagent_containers/food/drinks/bottle/dominian_wine
-	name = "Jadrani Consecrated geneboosted wine"
-	desc = "A bottle of artisanally-crafted, highly sought-after Dominian red wine. Sanctified and exported via House Caladius."
-	desc_extended = "The Dominian mastery of the genome does not stop with the mere human; flora and fauna, too, can be adjusted to better serve the needs of the Empire and Her chosen people. This \
-	wine- the exact fruit juices used are a coveted secret- represents the Goddess in the Aspect of both the Artisan and the Scholar. Each bottle is inspected, tested, and blessed by a Priestess \
-	of the Moroz Holy Tribunal, then packaged and sold across the Empire and various- typically wealthy- foreign markets. The first hundred bottles of every season are given to the Goddess, as thanks for Her providence. \
-	The next thousand or so are sent directly to the Royal Family, as a favored gift to the royal court and their functionaries."
-	icon_state = "sacredwine"
-	center_of_mass = list("x"=16, "y"=5)
-	reagents_to_add = list(/singleton/reagent/alcohol/wine/dominian = 100)
-
-/obj/item/reagent_containers/food/drinks/bottle/algae_wine
-	name = "Reacher's Triumph 2423"
-	desc = "A bottle of wine, brewed from algae, made in the traditional style of the Imperial Viceroyalty of Sun Reach, a Dominian frontier-world."
-	desc_extended = "A swampy, humid planet, Sun Reach does not possess ample amounts of land available for agriculture, least of all for hops or wine grapes. Still, where exists a will exists a way, and the \
-	Goddess truly blessed Her faithful with more than enough of both. Produced from certain strains of the omnipresent Reacher algae, with the aid of benefactors in House Caladius, the result is a murky-blue \
-	drink that tastes almost, but entirely not like an absinthe. First presented at the first celebration of the Imperial Annexation, it is now mainly consumed on-world, though large sums are purchased by the \
-	Imperial Fleet as a 'morale improvement' measure. It plays a key part in the after-action rituals of the Imperial Armsmen, as the drink causes bizarre dreams said to bring one closer to the Goddess."
-	icon_state = "algaewinebottle"
-	center_of_mass = list("x"=16, "y"=5)
-	reagents_to_add = list(/singleton/reagent/alcohol/wine/algae = 100)
-
-/obj/item/reagent_containers/food/drinks/bottle/kvass
-	name = "Neubach Original kvass"
-	desc = "A bottle of authentic Fisanduhian kvass, a cereal alcohol."
-	desc_extended = "A traditional drink of the Fisanduh region, originating with the colony ships that brought their people to Moroz, large-scale production \
-	is now all but a hazy memory, owing to the region's bloodstained history. Today it comes from either a lonely factory in Strelitz's \
-	Rest- an initiative, on behalf of His Imperial Majesty, to bring back jobs for the civilian populace- or home brewing on behalf of locals. This particular variety is, in reality, brewed on \
-	Xanu Prime as an outreach effort of the government-in-exile."
-	icon_state = "kvassbottle"
-	center_of_mass = list("x"=16, "y"=5)
-	reagents_to_add = list(/singleton/reagent/alcohol/kvass = 100)
-
-/obj/item/reagent_containers/food/drinks/bottle/tarasun
-	name = "Frostdancer Distillery tarasun"
-	desc = "A bottle of Lyodii tarasun, an alcoholic beverage made from tenelote milk."
-	desc_extended = "Tarasun is an incredibly potent alcoholic beverage distilled and fermented from tenelote milk, often enjoyed during tribal festivities among Lyodii. This particular brand is \
-	distilled and distributed by the Frostdancer tribe of the Northern Lyod, with assistance by Zavodskoi Interstellar. Commonly distributed among the Lyodic Rifles of the Imperial military."
-	icon_state = "tarasunbottle"
-	center_of_mass = list("x"=16, "y"=5)
-	reagents_to_add = list(/singleton/reagent/alcohol/tarasun = 100)
-
-/obj/item/reagent_containers/food/drinks/bottle/valokki_wine
-	name = "Frostdancer Distillery valokki wine"
-	desc = "A bottle of wine distilled from the Morozi cloudberry."
-	desc_extended = "A smooth, rich wine distilled from the cloudberry fruit found within the taiga bordering the Lyod. \
-	This particular brand is distilled and distributed by the Frostdancer tribe of the Northern Lyod, with assistance by Zavodskoi Interstellar."
-	icon_state = "valokkiwinebottle"
-	center_of_mass = list("x"=16, "y"=5)
-	reagents_to_add = list(/singleton/reagent/alcohol/wine/valokki = 100)
-
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species

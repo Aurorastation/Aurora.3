@@ -15,7 +15,7 @@
 
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
-
+	
 /obj/item/clothing/accessory/poncho/eumponcho
 	name = "adorned poncho"
 	desc = "A poncho made of some sort of mesh weave material adorned by a piece of colored fabric wrapped around it."
@@ -24,6 +24,37 @@
 	item_state = "eumponcho"
 	icon_override = null
 	contained_sprite = TRUE
-	build_from_parts = TRUE
-	worn_overlay = "chain"
-	has_accents = TRUE
+	var/additional_color = COLOR_GRAY
+
+/obj/item/clothing/accessory/poncho/eumponcho/update_icon()
+	cut_overlays()
+	var/image/gem = image(icon, null, "eumponcho_gem")
+	gem.appearance_flags = RESET_COLOR
+	gem.color = additional_color
+	add_overlay(gem)
+	var/image/chain = image(icon, null, "eumponcho_chain")
+	chain.appearance_flags = RESET_COLOR
+	add_overlay(chain)
+
+/obj/item/clothing/accessory/poncho/eumponcho/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/gem = image(mob_icon, null, "eumponcho_un_gem")
+		gem.appearance_flags = RESET_COLOR
+		gem.color = additional_color
+		I.add_overlay(gem)
+		var/image/chain = image(mob_icon, null, "eumponcho_un_chain")
+		chain.appearance_flags = RESET_COLOR
+		I.add_overlay(chain)
+	return I
+
+/obj/item/clothing/accessory/poncho/eumponcho/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
+	var/image/base = ..()
+	var/image/gem = image(icon, null, "eumponcho_un_gem")
+	gem.appearance_flags = RESET_COLOR
+	gem.color = additional_color
+	base.add_overlay(gem)
+	var/image/chain = image(icon, null, "eumponcho_un_chain")
+	chain.appearance_flags = RESET_COLOR
+	base.add_overlay(chain)
+	return base

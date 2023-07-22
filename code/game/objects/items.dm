@@ -70,8 +70,6 @@
 	var/worn_overlay = null // used similarly as above, except for inhands.
 	var/worn_overlay_color = null // When you want your worn overlay to have colors. So you can have more than one modular coloring.
 	var/alpha_mask // when you want to slice out a chunk from a sprite
-	var/has_accents = FALSE // determines whether accent colour is applied or not
-	var/accent_color = COLOR_GRAY // used for accents which are coloured differently to the main body of the sprite
 
 	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
@@ -126,12 +124,10 @@
 	return ..()
 
 /obj/item/update_icon()
-	cut_overlays()
 	. = ..()
 	if(build_from_parts)
+		cut_overlays()
 		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
-	if(accent_color && has_accents)
-		add_overlay(overlay_image(icon,"[icon_state]_acc",accent_color, RESET_COLOR))
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'

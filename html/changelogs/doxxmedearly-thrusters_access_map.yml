@@ -1,0 +1,6 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - maptweak: "Provided a path to port thrusters for engineers which circumvents atmospherics. Take the hallway near the Tesla."
+  - maptweak: "Added signs around engineering to help direct lost engineers to the propulsion areas."
+  - tweak: Engineers have access to the east region of atmospherics, with the large O2 and air tanks. Technically, they always had this. This should allow them to fix damage to critical air supply pipes if no atmos tech is present. They still cannot access the main region of atmospherics. 

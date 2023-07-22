@@ -12,7 +12,7 @@
 /singleton/origin_item/origin/autakh
 	name = "Aut'akh Valley"
 	desc = "A large commune on Ouerea surrounded by mountains, the Aut'akh Valley is birthplace of the Aut'akh religion - a place for specifically augmented unathi to find sanctuary from the violence often found against their kind in cities and towns. It is largely disconnected from any government and is heavily guarded by the Aut'akh defending the clans there with their lives. Life here is simple, and more than half of the population is elderly or disabled with augments. The area is foggy and filled with natural lakes, and the area gets cold enough to snow in the cold season."
-	possible_accents = list(ACCENT_HEARTLAND_NOBLE, ACCENT_HEARTLAND_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_AUTAKH, ACCENT_TZA_PEASANT, ACCENT_TZA_NOBLE, ACCENT_SOUTHLANDS_PEASANT, ACCENT_SOUTHLANDS_NOBLE, ACCENT_TORN, ACCENT_ZAZ_LOW, ACCENT_ZAZ_HIGH, ACCENT_BROKEN_PEASANT, ACCENT_BROKEN_NOBLE, ACCENT_UNATHI_SPACER)
+	possible_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_AUTAKH)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI)
 	possible_religions = list(RELIGION_AUTAKH)
 

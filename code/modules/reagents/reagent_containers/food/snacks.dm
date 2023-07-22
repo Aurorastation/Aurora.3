@@ -4314,14 +4314,6 @@
 	bitesize = 2
 	filling_color = "#cca628"
 
-/obj/item/reagent_containers/food/snacks/chip/hummus
-	name = "hummus chip"
-	desc = "A portion sized chip good for dipping. This one has hummus on it."
-	icon_state = "chip_hummus"
-	bitten_state = "chip_half_hummus"
-	bitesize = 2
-	filling_color = "#cca628"
-
 /obj/item/reagent_containers/food/snacks/chip/nacho
 	name = "nacho chip"
 	desc = "A nacho ship stray from a plate of cheesy nachos."
@@ -4363,14 +4355,6 @@
 	filling_color = "#e4e4e4"
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/tajhummus
-	name = "nacho chip"
-	desc = "A stray nacho chip from a plate of cheesy nachos. This one has extra hummus on it."
-	icon_state = "chip_nacho_hummus"
-	bitten_state = "chip_half_hummus"
-	bitesize = 2
-	filling_color = "#cca628"
-
-/obj/item/reagent_containers/food/snacks/chip/nacho/hummus
 	name = "nacho chip"
 	desc = "A stray nacho chip from a plate of cheesy nachos. This one has extra hummus on it."
 	icon_state = "chip_nacho_hummus"
@@ -4520,17 +4504,6 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 20)
 	reagent_data = list(/singleton/reagent/nutriment = list("sweet hummus" = 20))
 	filling_color = "#cca628"
-
-/obj/item/reagent_containers/food/snacks/dip/hummus
-	name = "hummus"
-	desc = "A tasty spread made from chickpeas and sesame seed paste."
-	nachotrans = /obj/item/reagent_containers/food/snacks/chip/nacho/hummus
-	avahtrans = /obj/item/reagent_containers/food/snacks/chip/miniavah/hummus
-	chiptrans = /obj/item/reagent_containers/food/snacks/chip/hummus
-	icon_state = "hummus"
-	reagents_to_add = list(/singleton/reagent/nutriment = 20)
-	reagent_data = list(/singleton/reagent/nutriment = list("smooth chickpeas" = 20, "garlic" = 5))
-	filling_color = "#F1DA96"
 
 // Roasted Peanuts (under chips/nachos because finger food)
 /obj/item/reagent_containers/food/snacks/roasted_peanut
@@ -5672,14 +5645,6 @@
 	bitesize = 2
 	filling_color = "#cca628"
 
-/obj/item/reagent_containers/food/snacks/chip/miniavah/hummus
-	name = "hummus mini-avah"
-	desc = "A miniature avah filled with meat. This one has hummus on it."
-	icon_state = "avah_full_hummus"
-	bitten_state = "avah_half_hummus"
-	bitesize = 2
-	filling_color = "#cca628"
-
 /obj/item/reagent_containers/food/snacks/stew/diona
 	name = "dionae stew"
 	desc = "A steaming bowl of juicy dionae nymph. Extra cosy."
@@ -5858,6 +5823,16 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("pickled lettuce" = 4))
 	bitesize = 2
 	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/hummus
+	name = "hummus"
+	desc = "A tasty spread made from chickpeas and sesame seed paste."
+	icon_state = "hummus"
+	filling_color = "#F1DA96"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("smooth chickpeas" = 4, "garlic" = 1))
+	bitesize = 3
+	trash = /obj/item/trash/snack_bowl
 
 /obj/item/reagent_containers/food/snacks/fairy_bread
 	name = "fairy bread"

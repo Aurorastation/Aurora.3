@@ -193,6 +193,37 @@
 	item_state = "rockstone"
 	icon_override = null
 	contained_sprite = TRUE
-	build_from_parts = TRUE
-	worn_overlay =  "chain"
-	has_accents = TRUE
+	var/additional_color = COLOR_GRAY
+
+/obj/item/clothing/accessory/poncho/rockstone/update_icon()
+	cut_overlays()
+	var/image/gem = image(icon, null, "rockstone_gem")
+	gem.appearance_flags = RESET_COLOR
+	gem.color = additional_color
+	add_overlay(gem)
+	var/image/chain = image(icon, null, "rockstone_chain")
+	chain.appearance_flags = RESET_COLOR
+	add_overlay(chain)
+
+/obj/item/clothing/accessory/poncho/rockstone/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/gem = image(mob_icon, null, "rockstone_un_gem")
+		gem.appearance_flags = RESET_COLOR
+		gem.color = additional_color
+		I.add_overlay(gem)
+		var/image/chain = image(mob_icon, null, "rockstone_un_chain")
+		chain.appearance_flags = RESET_COLOR
+		I.add_overlay(chain)
+	return I
+
+/obj/item/clothing/accessory/poncho/rockstone/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
+	var/image/base = ..()
+	var/image/gem = image(icon, null, "rockstone_un_gem")
+	gem.appearance_flags = RESET_COLOR
+	gem.color = additional_color
+	base.add_overlay(gem)
+	var/image/chain = image(icon, null, "rockstone_un_chain")
+	chain.appearance_flags = RESET_COLOR
+	base.add_overlay(chain)
+	return base

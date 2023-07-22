@@ -4,9 +4,6 @@
 	desc = "A generic brand of lipstick."
 	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "lipstick"
-	item_state = "lipstick"
-	build_from_parts = TRUE
-	contained_sprite = TRUE
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	update_icon_on_init = TRUE
@@ -16,17 +13,15 @@
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 
 /obj/item/lipstick/update_icon()
+	. = ..()
 	cut_overlays()
 	if(open)
-		worn_overlay = "open_overlay"
-		worn_overlay_color = lipstick_color
 		icon_state = "[initial(icon_state)]_open"
 		var/image/stick_overlay = image('icons/obj/cosmetics.dmi', null, "[initial(icon_state)]_open_overlay")
 		stick_overlay.color = lipstick_color
 		add_overlay(stick_overlay)
 	else
 		icon_state = initial(icon_state)
-		worn_overlay = initial(worn_overlay)
 
 /obj/item/lipstick/purple
 	name = "purple lipstick"

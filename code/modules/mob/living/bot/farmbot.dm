@@ -163,15 +163,13 @@
 				break
 		else
 			for(var/obj/machinery/portable_atmospherics/hydroponics/tray in view(7, src))
-				if(!tray.seed) //No seed? We don't care.
-					continue
-				if(!process_tray(tray)) //If there's nothing for us to do with the plant, ignore this tray.
-					continue
-				if(pathfind(tray)) //If we can get there, we can accept it as a target. 
+				if(process_tray(tray))
 					target = tray
 					frustration = 0
 					break
-
+			if(target) //We found a tray we can do something to. Set path to there.
+				pathfind(target)
+				return
 			if(check_tank())
 				for(var/obj/structure/sink/source in view(7, src))
 					if(pathfind(source)) //If we can find a valid path to this sink, it's our target
@@ -181,18 +179,8 @@
 
 
 /mob/living/bot/farmbot/proc/pathfind(var/atom/A)
-	var/turf/targetloc = get_turf(A)
-	if(!targetloc)
-		return FALSE
-
-	//Check if there is a free space around the tray. A* cannot navigate directly to the tray since it is impassable
-	var/list/freespaces = targetloc.CardinalTurfsWithAccess(botcard)
-	if(!length(freespaces))
-		return FALSE
-
-	//If we got here, we know there's a space around it that we can use to access the tray/target. Let's try to find a path to it.	
-	var/turf/location_goal = pick(freespaces)
-	path = AStar(loc, location_goal, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
+	var/t = get_dir(A, src) // Turf with the tray is impassable, so a* can't navigate directly to it
+	path = AStar(loc, get_step(A, t), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
 	if(!path)
 		path = list()
 		return FALSE

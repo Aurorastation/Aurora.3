@@ -48,17 +48,15 @@
 	set src in view(1)
 
 	var/genemask = input("Choose a gene to modify.") as null|anything in SSplants.plant_gene_datums
+
 	if(!genemask)
 		return
+
 	gene = SSplants.plant_gene_datums[genemask]
 
 	to_chat(usr, SPAN_INFO("You set \the [src]\s targeted genetic area to [genemask]."))
 
-/obj/item/gun/energy/floragun/consume_next_projectile()
-	. = ..()
-	if(istype(., /obj/item/projectile/energy/floramut/gene))
-		var/obj/item/projectile/energy/floramut/gene/projectile = .
-		projectile.gene = gene
+	return
 
 /obj/item/gun/energy/meteorgun
 	name = "meteor gun"

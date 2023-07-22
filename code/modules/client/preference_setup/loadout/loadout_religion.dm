@@ -197,20 +197,3 @@
 	display_name = "tribunal codex"
 	path = /obj/item/device/versebook/tribunal
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
-
-/datum/gear/religion/dominia/icon
-	display_name = "tribunal iconography"
-	description = "A selection of Dominian religious icons."
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
-
-/datum/gear/religion/dominia/icon/New()
-	..()
-	var/list/dominiaicon = list()
-	dominiaicon["icon of the goddess, unaspected"] = /obj/item/sign/painting_frame/goddess
-	dominiaicon["icon of the goddess, the soldier"] = /obj/item/sign/painting_frame/goddess/soldier
-	dominiaicon["icon of the goddess, the artisan"] = /obj/item/sign/painting_frame/goddess/artisan
-	dominiaicon["icon of the goddess, the scholar"] = /obj/item/sign/painting_frame/goddess/scholar
-	dominiaicon["icon of the martyr, lotte"] = /obj/item/sign/painting_frame/martyr
-	dominiaicon["icon of the martyr, matteo"] = /obj/item/sign/painting_frame/martyr/matteo
-	dominiaicon["icon of the martyr, valeria"] = /obj/item/sign/painting_frame/martyr/valeria
-	gear_tweaks += new /datum/gear_tweak/path(dominiaicon)

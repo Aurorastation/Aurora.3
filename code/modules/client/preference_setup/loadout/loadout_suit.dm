@@ -89,19 +89,9 @@
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/mars
 
 /datum/gear/suit/labcoat
-	display_name = "labcoat selection"
-	description = "A selection of recolourable labcoats."
+	display_name = "labcoat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
-
-/datum/gear/suit/labcoat/New()
-	..()
-	var/list/labcoats = list()
-	labcoats["plain labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat
-	labcoats["accent labcoat"] = /obj/item/clothing/suit/storage/toggle/labcoat/accent
-	labcoats["accent labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/accent/alt
-	labcoats["long labcoat"] = /obj/item/clothing/suit/storage/toggle/longcoat
-	gear_tweaks += new /datum/gear_tweak/path(labcoats)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/cmo_labcoats
 	display_name = "chief medical officer labcoats selection"
@@ -168,18 +158,6 @@
 	poncho["poncho, operations"] = /obj/item/clothing/accessory/poncho/roles/cargo
 	gear_tweaks += new /datum/gear_tweak/path(poncho)
 
-/datum/gear/suit/poncho_colorable
-	display_name = "poncho selection, colourable"
-	path = /obj/item/clothing/accessory/poncho/colorable
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
-
-/datum/gear/suit/poncho_colorable/New()
-	..()
-	var/list/col_poncho = list()
-	col_poncho["poncho"] = /obj/item/clothing/accessory/poncho/colorable
-	col_poncho["poncho, alt"] = /obj/item/clothing/accessory/poncho/colorable/alt
-	col_poncho["poncho, gradient"] = /obj/item/clothing/accessory/poncho/colorable/gradient
-	gear_tweaks += new /datum/gear_tweak/path(col_poncho)
 
 /datum/gear/suit/suitjacket
 	display_name = "suit jacket"
@@ -216,18 +194,16 @@
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/trenchcoat_colorable
-	display_name = "colorable trenchcoat selection"
+	display_name = "colorable trenchcoat"
 	description = "A sleek canvas trenchcoat in 167,777,216 designer colors."
 	path = /obj/item/clothing/suit/storage/toggle/trench/colorable
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/suit/trenchcoat_colorable/New()
-	..()
-	var/list/trenches = list()
-	trenches["trenchcoat"] = /obj/item/clothing/suit/storage/toggle/trench/colorable
-	trenches["trenchcoat, alt"] = /obj/item/clothing/suit/storage/toggle/trench/colorable/alt
-
-	gear_tweaks += new /datum/gear_tweak/path(trenches)
+/datum/gear/suit/trenchcoat_colorable_alt
+	display_name = "colorable trenchcoat, alt"
+	description = "A sleek canvas trenchcoat in 167,777,216 designer colors."
+	path = /obj/item/clothing/suit/storage/toggle/trench/colorable/alt
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
 
 /datum/gear/suit/ian
 	display_name = "worn shirt"
