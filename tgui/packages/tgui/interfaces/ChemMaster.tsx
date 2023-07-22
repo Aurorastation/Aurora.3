@@ -40,7 +40,7 @@ const ReagentFactory = (props, context) => {
 
   return (
     <Table>
-      {reagents?.length && !data.is_condimaster
+      {reagents?.length
         ? reagents.map((reagent) => (
           <Table.Row key={reagent.name}>
             <Section
