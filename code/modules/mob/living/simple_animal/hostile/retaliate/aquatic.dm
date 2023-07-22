@@ -63,4 +63,4 @@
 	if(istype(O, /obj/item/melee/baton))
 		user.gib()
 		user.visible_message(SPAN_DANGER("[user] was torn to shreds by a shark while attempting to attack with \the [O]!"))
-		return 1
+		return TRUE
