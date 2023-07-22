@@ -45,3 +45,11 @@
 	telecrystal_cost = 3
 	bluecrystal_cost = 3
 	path = /obj/item/storage/box/syndie_kit/syringe_gun
+
+/datum/uplink_item/item/bioweapons/chlorine_tank
+	name = "Chlorine Gas Tank"
+	desc = "A Chlorine gas tank, a poisonous gas firstly mass produced on Earth for warfare uses, thanks to the research of Haber. At a premium, you can now wage \
+	your personal chemical warfare. Make sure the wind blows in the right direction, and wear the appropriate PPEs."
+	telecrystal_cost = 5
+	bluecrystal_cost = 5
+	path = /obj/machinery/portable_atmospherics/canister/chlorine
