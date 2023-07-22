@@ -19,7 +19,7 @@ export type SleeperData = {
   reagents: SleeperReagent[];
   stasissettings: number[];
   beaker: BooleanLike;
-  beakerreagents: number;
+  beakerfreespace: number;
   filtering: BooleanLike;
   pump: BooleanLike;
 };
@@ -193,20 +193,20 @@ export const OccupantStatus = (props, context) => {
               <Button
                 content="Blood Dialysis"
                 color={data.filtering ? 'good' : ''}
-                disabled={data.beaker ? data.beakerreagents <= 0 : 1}
+                disabled={!data.beaker || data.beakerfreespace <= 0}
                 icon="heart"
                 onClick={() => act('filter')}
               />
               <Button
                 content="Stomach Pump"
                 color={data.pump ? 'good' : ''}
-                disabled={data.beaker ? data.beakerreagents <= 0 : 1}
+                disabled={!data.beaker || data.beakerfreespace <= 0}
                 icon="splotch"
                 onClick={() => act('pump')}
               />
               {data.beaker ? (
                 <BlockQuote>
-                  {Math.round(data.beakerreagents)}u of free space remaining.
+                  {Math.round(data.beakerfreespace)}u of free space remaining.
                 </BlockQuote>
               ) : (
                 <BlockQuote color="bad">No beaker inserted.</BlockQuote>
