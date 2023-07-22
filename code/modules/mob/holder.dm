@@ -638,8 +638,8 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "fish_rest"
 	item_state = "fish_rest"
 	hitsound = 'sound/effects/snap.ogg'
-	force = 4.0//Being hit with an entire fish typically hurts
-	throwforce = 4.0//Having an entire fish thrown at you also hurts
+	force = 4//Being hit with an entire fish typically hurts
+	throwforce = 4//Having an entire fish thrown at you also hurts
 	throw_speed = 1//Because it's cinematic
 
 /obj/item/holder/fish/gupper
@@ -650,5 +650,5 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "cod_rest"
 	item_state = "cod_rest"
 	hitsound = 'sound/effects/snap.ogg'
-	force = 6.0//quite large fishey
-	throwforce = 6.0
+	force = 6//quite large fishey
+	throwforce = 6

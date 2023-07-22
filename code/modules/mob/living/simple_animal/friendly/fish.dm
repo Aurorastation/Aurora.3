@@ -7,7 +7,7 @@
 	emote_see = list("flops around", "inflates its gills")
 	speak_chance = 1
 	see_in_dark = 6
-	density = 0
+	density = FALSE
 	mob_size = MOB_SMALL
 	item_state = "fish"
 
