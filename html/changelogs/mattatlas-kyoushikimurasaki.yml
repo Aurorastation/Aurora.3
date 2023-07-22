@@ -39,7 +39,8 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - experiment: "Psionics have been reworked to use the Technomancer ability system. This means that you get physical ability objects in your hand to use (in hand, melee, or ranged)."
-  - rscadd: "Added a psionic point shop. Opened by shift-clicking your psionic hub icon. This is also usable by non-antags, but they can't buy anything: it's still useful to use it to know what your powers do and how to use them!"
+  - rscadd: "You can shift click psionic abilities at the top to obtain info about them."
+  - rscadd: "Added a psionic point shop. Opened by clicking your psionic hub icon. This is also usable by non-antags, but they can't buy anything: it's still useful to use it to know what your powers do and how to use them!"
   - rscadd: "Antagonists get points usable in the psionic point shop. This varies per antag: Loners get 8, borer hosts get 3 (increased by borers with Advance Psionics)."
   - tweak: "Reworked the Psi ranks. The canon ones are Psionically Sensitive (Skrell), Psionically Harmonious (exceptional Skrell born with better psionic control), Psionic Apex (unknown to everyone, really). There's also an admin-only non-canon Limitless level."
   - rscadd: "Every 30 minutes, psionics will be pinged in their chat about their emotional state, which can be one from a selection. A few minutes after, the responses will be tallied together and the winning emotion will be broadcasted. Higher psionic rank means higher vote value."

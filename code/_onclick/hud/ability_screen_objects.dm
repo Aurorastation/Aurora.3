@@ -187,8 +187,13 @@
 
 	overlays += ability_icon_state
 
-/obj/screen/ability/Click()
+/obj/screen/ability/Click(var/location, var/control, var/params)
 	if(!usr)
+		return
+
+	var/list/click_params = params2list(params)
+	if(click_params["shift"])
+		examine(usr)
 		return
 
 	activate()
@@ -319,6 +324,10 @@
 	ability_objects.Add(A)
 	if(my_mob.client)
 		toggle_open(2) //forces the icons to refresh on screen
+
+/obj/screen/ability/obj_based/psionic/examine(mob/user)
+	to_chat(user, SPAN_NOTICE("<font size=4>This ability is <b>[connected_power.name]</b>.</font>"))
+	to_chat(user, SPAN_NOTICE("[connected_power.desc]"))
 
 /// Technomancer.
 /obj/screen/ability/obj_based/technomancer

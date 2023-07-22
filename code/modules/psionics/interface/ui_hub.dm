@@ -33,10 +33,7 @@
 	update_icon()
 
 /obj/screen/psi/hub/Click(var/location, var/control, var/params)
-	var/list/click_params = params2list(params)
-	if(click_params["shift"])
-		ui_interact(owner)
-		return
+	ui_interact(owner)
 	update_icon()
 
 /obj/screen/psi/hub/ui_interact(mob/user, datum/tgui/ui)
