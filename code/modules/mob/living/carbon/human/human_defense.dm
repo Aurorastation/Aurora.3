@@ -424,7 +424,10 @@ emp_act
 
 					if(T)
 						src.forceMove(T)
-						visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
+						visible_message(
+							SPAN_WARNING("\The [src] is pinned to the wall by \the [O]!"),
+							SPAN_WARNING("You are pinned to the wall by \the [O]!")
+						)
 						src.anchored = 1
 						src.pinned += O
 	else if(ishuman(AM))
