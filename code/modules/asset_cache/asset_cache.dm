@@ -481,6 +481,7 @@ var/list/asset_datums = list()
 
 /datum/asset/simple/paper
 	legacy = TRUE
+	keep_local_name = TRUE
 	assets = list(
 		"talisman.png" = 'html/images/talisman.png',
 		"barcode0.png" = 'html/images/barcode0.png',

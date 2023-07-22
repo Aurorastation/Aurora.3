@@ -62,12 +62,14 @@ export const ChemicalDispenser = (props, context) => {
         </Section>
         <Section
           title={
-            'Container Display' + data.is_beaker_loaded &&
-            ' (' +
+            'Container Display' +
+            (data.is_beaker_loaded
+              ? ' (' +
               data.beaker_current_volume +
               '/' +
               data.beaker_max_volume +
               'u)'
+              : '')
           }
           buttons={
             data.is_beaker_loaded ? (

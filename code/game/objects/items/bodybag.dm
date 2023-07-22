@@ -53,7 +53,7 @@
 	icon_state = "bodybag"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
-	density = 0
+	density = FALSE
 	storage_capacity = 30
 	var/item_path = /obj/item/bodybag
 	var/contains_body = FALSE
@@ -95,8 +95,8 @@
 		LAZYREMOVE(overlays, image(icon, "bodybag_label"))
 		return TRUE
 
-/obj/structure/closet/body_bag/store_mobs(var/stored_units)
-	contains_body = ..()
+/obj/structure/closet/body_bag/store_mobs(var/stored_units, var/mob_limit)
+	contains_body = ..(stored_units, mob_limit = TRUE)
 	slowdown = 0
 	if(contains_body)
 		for(var/mob/living/M in contents)

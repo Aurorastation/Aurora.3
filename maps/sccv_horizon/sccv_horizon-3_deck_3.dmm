@@ -3070,7 +3070,6 @@
 /area/horizon/security/investigators_office)
 "cMt" = (
 /obj/structure/table/rack,
-/obj/item/storage/firstaid,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
@@ -3078,6 +3077,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/storage/firstaid/regular,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
 "cNg" = (
@@ -7593,6 +7593,11 @@
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 8;
+	id = "conferencesafetyshutters";
+	name = "Safety Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/bridge/meeting_room)
@@ -17962,6 +17967,17 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
+"olE" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	dir = 4;
+	id = "conferencewindowshutters";
+	name = "Window Shutters"
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/heads/cmo)
 "olJ" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/structure/disposalpipe/segment{
@@ -25572,6 +25588,11 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/shutters/open{
+	dir = 8;
+	id = "conferencesafetyshutters";
+	name = "Safety Shutter"
+	},
 /turf/simulated/floor/plating,
 /area/bridge/meeting_room)
 "uCk" = (
@@ -28445,7 +28466,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12)
+	req_one_access = list(12,19)
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
@@ -29248,6 +29269,13 @@
 	pixel_y = 24
 	},
 /obj/machinery/firealarm/east,
+/obj/machinery/button/remote/blast_door{
+	id = "conferencesafetyshutters";
+	name = "Safety Shutters";
+	pixel_x = 1;
+	pixel_y = 25;
+	req_access = list(40)
+	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "xpu" = (
@@ -43806,7 +43834,7 @@ wGH
 wGH
 tKk
 ltq
-ltq
+olE
 rnX
 mgP
 mgP

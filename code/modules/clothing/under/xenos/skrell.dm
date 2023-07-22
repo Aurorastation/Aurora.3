@@ -318,23 +318,7 @@
 	icon = 'icons/obj/item/clothing/under/skrell/wetsuit.dmi'
 	icon_state = "wetsuit"
 	item_state = "wetsuit"
-	var/additional_color = COLOR_GRAY
-
-/obj/item/clothing/under/skrell/wetsuit/update_icon()
-	cut_overlays()
-	var/image/accent = image(icon, null, "wetsuit_un_accent")
-	accent.appearance_flags = RESET_COLOR
-	accent.color = additional_color
-	add_overlay(accent)
-
-/obj/item/clothing/under/skrell/wetsuit/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
-	var/image/I = ..()
-	if(slot == slot_w_uniform_str)
-		var/image/accent = image(mob_icon, null, "wetsuit_un_accent")
-		accent.appearance_flags = RESET_COLOR
-		accent.color = additional_color
-		I.add_overlay(accent)
-	return I
+	has_accents = TRUE
 
 /obj/item/clothing/suit/storage/toggle/skrell/starcoat
 	name = "star coat"

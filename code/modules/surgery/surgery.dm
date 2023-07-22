@@ -104,6 +104,7 @@
 		/obj/item/personal_inhaler,
 		/obj/item/clothing/accessory/stethoscope,
 		/obj/item/autopsy_scanner,
+		/obj/item/device/flashlight/pen,
 		/obj/item/spell/resurrect,
 		/obj/item/spell/mend_organs,
 		/obj/item/spell/modifier/mend_life,
@@ -120,6 +121,13 @@
 	if(zone in M.op_stage.in_progress)
 		to_chat(user, SPAN_WARNING("You can't operate on this area while surgery is already in progress."))
 		return TRUE
+
+	//Check that one surgeon is not doing multiple surgeries at once
+	for(var/surg in M.op_stage.in_progress)
+		var/current_surgeon = M.op_stage.in_progress[surg]
+		if(user == current_surgeon)
+			to_chat(user, SPAN_WARNING("You can only focus on one surgery at a time!"))
+			return TRUE
 
 	// What surgeries does our tool/target enable?
 	var/list/possible_surgeries
@@ -150,17 +158,17 @@
 		if(zone in M.op_stage.in_progress)
 			to_chat(user, SPAN_WARNING("You can't operate on this area while surgery is already in progress."))
 		else if(S.is_valid_target(M))
-			M.op_stage.in_progress += zone
+			M.op_stage.in_progress += list(zone = user)
 			S.begin_step(user, M, zone, tool)
 			var/duration = rand(S.min_duration, S.max_duration)
-			if(prob(S.tool_quality(tool)) && do_mob(user, M, duration))
+			if(prob(S.tool_quality(tool)) && do_mob(user, M, duration) && !autofail)
 				S.end_step(user, M, zone, tool)
 			else if ((tool in user.contents) && user.Adjacent(M))
 				S.fail_step(user, M, zone, tool)
 			else
 				to_chat(user, SPAN_WARNING("You must remain close to your patient to conduct surgery."))
 			if(!QDELETED(M))
-				M.op_stage.in_progress -= zone
+				M.op_stage.in_progress -= list(zone = user)
 				if(ishuman(M))
 					var/mob/living/carbon/human/H = M
 					H.update_surgery()

@@ -379,6 +379,19 @@
 	the caves. Forces of Raskara, shape-shifting creatures, dastardly traps and true evil lurking within, the Az'Marian and his sidekick will have to use their \
 	newly regained powers to their fullest."
 
+/obj/item/toy/comic/witchfinder
+	icon = 'icons/obj/library.dmi'
+	name = "Witchfinder novel"
+	desc = "A popular genre of Dominian mystery literature, glorifying the Tribunal Investigations Constabulary and the work they do in \
+	defending the souls of the people of the Empire."
+	desc_extended = "Popular throughout the empire, witchfinder novels can range from schlock aimed at younger audiences to monstrous tomes dedicated to the \
+	purportedly real-life escapades of existing witchfinders. No matter their status as educational fiction or fact, every one has two things in common: the \
+	common rituals of the Constabulary, such as exorcisms and witchfindings, and a carefully-screened dose of indoctrination into the Moroz Holy Tribunal. Popular \
+	authors of witchfinder novels, such as Novi Jadran's Andrija Jurina, even travel abroad as honored servants of His Imperial Majesty Boleslaw Keeser, both to \
+	promote Dominian arts among their foreign partners and to proselytize their state religion to eager masses."
+	icon_state = "witchfindernovel"
+	item_state = "witchfindernovel"
+
 //
 // Toy Crossbows
 //

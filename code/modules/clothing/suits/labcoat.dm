@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/storage/toggle/labcoat
 	name = "labcoat"
 	desc = "A suit that protects against minor chemical spills."
-	icon = 'icons/mob/clothing/suit/labcoat.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/labcoat.dmi'
 	contained_sprite = TRUE
 	icon_state = "labcoat"
 	item_state = "labcoat" // used for inhands and onmobs. ESPECIALLY FOR CONTAINED SPRITES
@@ -16,7 +16,7 @@
 /obj/item/clothing/suit/storage/toggle/longcoat
 	name = "long labcoat"
 	desc = "A long, victorian styled labcoat that protects against minor chemical spills."
-	icon = 'icons/mob/clothing/suit/labcoat.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/labcoat.dmi'
 	contained_sprite = TRUE
 	icon_state = "labcoat_long"
 	item_state = "labcoat_long" // used for inhands and onmobs. ESPECIALLY FOR CONTAINED SPRITES
@@ -171,3 +171,12 @@
 /obj/item/clothing/suit/storage/toggle/labcoat/iac
 	name = "iac labcoat"
 	icon_state = "labcoat_iac"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/accent
+	has_accents = TRUE
+	icon_state = "labcoat_accent"
+	item_state = "labcoat_accent"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/accent/alt
+	icon_state = "labcoat_accent_alt"
+	item_state = "labcoat_accent_alt"
