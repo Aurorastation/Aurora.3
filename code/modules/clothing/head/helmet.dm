@@ -39,15 +39,25 @@
 		hold.max_storage_space = slots * ITEMSIZE_SMALL
 		hold.max_w_class = ITEMSIZE_SMALL
 
+/obj/item/proc/apply_sprite_to_helmet(var/image/mob_overlay, var/obj/item/clothing/head/helmet/helmet, var/mob/living/carbon/human/wearer)
+	var/icon_type = helmet.hold.helmet_storage_types[type]
+	var/thing_state = icon_type == HELMET_GARB_PASS_ICON ? initial(icon_state) : icon_type
+	mob_overlay.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, thing_state))
+
 /obj/item/clothing/head/helmet/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(has_storage && slot == slot_head_str && length(hold.contents))
+		I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
 		for(var/obj/item/thing in hold.contents)
-			var/icon_type = hold.helmet_storage_types[thing.type]
-			var/thing_state = icon_type == HELMET_GARB_PASS_ICON ? initial(thing.icon_state) : icon_type
-			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
-			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, thing_state))
+			thing.apply_sprite_to_helmet(I, src, H)
 	return I
+
+/obj/item/clothing/head/helmet/grant_user_action_buttons(var/mob/living/user)
+	. = ..()
+	if(has_storage && length(hold.contents))
+		for(var/obj/item/thing in hold.contents)
+			if(thing.action_button_name)
+				thing.grant_user_action_buttons(user)
 
 /obj/item/clothing/head/helmet/attack_hand(mob/user)
 	if(has_storage && !hold.handle_attack_hand(user))
@@ -146,6 +156,7 @@
 		)
 	siemens_coefficient = 0.35
 	flags_inv = HIDEEARS
+	has_storage = FALSE
 	action_button_name = "Toggle Visor"
 
 /obj/item/clothing/head/helmet/riot/attack_self(mob/user as mob)

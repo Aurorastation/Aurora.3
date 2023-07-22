@@ -132,7 +132,8 @@
 		/obj/item/storage/box/fancy/cigarettes/dyn = HELMET_GARB_PASS_ICON,
 		/obj/item/storage/box/fancy/cigarettes/wulu = HELMET_GARB_PASS_ICON,
 		/obj/item/clothing/head/hachimaki = HELMET_GARB_PASS_ICON,
-		/obj/item/clothing/head/leader_headband = HELMET_GARB_PASS_ICON
+		/obj/item/clothing/head/leader_headband = HELMET_GARB_PASS_ICON,
+		/obj/item/helmet_accessory/faceplate = HELMET_GARB_PASS_ICON
 	)
 	can_hold_strict = TRUE
 
@@ -146,12 +147,18 @@
 	. = ..()
 	if(. && istype(loc, /obj/item/clothing/head/helmet))
 		var/obj/item/clothing/head/helmet/helmet = loc
+		if(istype(W, /obj/item/helmet_accessory))
+			var/obj/item/helmet_accessory/accessory = W
+			accessory.inserted_into_helmet(helmet)
 		helmet.update_clothing_icon()
 
 /obj/item/storage/internal/helmet/remove_from_storage(obj/item/W, atom/new_location)
 	. = ..()
 	if(. && istype(loc, /obj/item/clothing/head/helmet))
 		var/obj/item/clothing/head/helmet/helmet = loc
+		if(istype(W, /obj/item/helmet_accessory))
+			var/obj/item/helmet_accessory/accessory = W
+			accessory.removed_into_helmet(helmet)
 		helmet.update_clothing_icon()
 
 /obj/item/storage/internal/tail

@@ -4,12 +4,12 @@
 #define AB_GENERIC 4
 #define AB_ITEM_USE_ICON 5
 
-#define AB_CHECK_RESTRAINED 1
-#define AB_CHECK_STUNNED 2
-#define AB_CHECK_LYING 4
-#define AB_CHECK_ALIVE 8
-#define AB_CHECK_INSIDE 16
-
+#define AB_CHECK_RESTRAINED BITFLAG(0)
+#define AB_CHECK_STUNNED BITFLAG(1)
+#define AB_CHECK_LYING BITFLAG(2)
+#define AB_CHECK_ALIVE BITFLAG(3)
+#define AB_CHECK_INSIDE BITFLAG(4)
+#define AB_CHECK_DEEP_INSIDE BITFLAG(5)
 
 /datum/action
 	var/name = "Generic Action"
@@ -112,6 +112,9 @@
 			return 0
 	if(check_flags & AB_CHECK_INSIDE)
 		if(!(target in owner))
+			return 0
+	if(check_flags & AB_CHECK_DEEP_INSIDE)
+		if(owner != recursive_loc_turf_check(target, 3, owner))
 			return 0
 	return 1
 
@@ -221,6 +224,14 @@
 /datum/action/item_action/CheckRemoval(mob/living/user)
 	return !(target in user)
 
+/datum/action/item_action/deep
+	check_flags = AB_CHECK_RESTRAINED|AB_CHECK_STUNNED|AB_CHECK_LYING|AB_CHECK_ALIVE|AB_CHECK_DEEP_INSIDE
+
+/datum/action/item_action/deep/CheckRemoval(mob/living/user)
+	if(user != recursive_loc_turf_check(target, 3, user))
+		return TRUE
+	return FALSE
+
 /datum/action/item_action/hands_free
 	check_flags = AB_CHECK_ALIVE|AB_CHECK_INSIDE
 
@@ -266,4 +277,4 @@
 #undef AB_CHECK_STUNNED
 #undef AB_CHECK_LYING
 #undef AB_CHECK_ALIVE
-#undef AB_CHECK_INSIDE 
+#undef AB_CHECK_INSIDE

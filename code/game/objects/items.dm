@@ -1102,3 +1102,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/is_shovel()
 	return FALSE
+
+/obj/item/proc/grant_user_action_buttons(var/mob/living/user)
+	if(!action)
+		action = new default_action_type
+	action.name = action_button_name
+	action.SetTarget(src)
+	action.Grant(user)

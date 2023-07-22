@@ -356,11 +356,7 @@
 			A.Remove(src)
 	for(var/obj/item/I in src)
 		if(I.action_button_name)
-			if(!I.action)
-				I.action = new I.default_action_type
-			I.action.name = I.action_button_name
-			I.action.SetTarget(I)
-			I.action.Grant(src)
+			I.grant_user_action_buttons(src)
 	return
 
 /mob/living/update_action_buttons()
