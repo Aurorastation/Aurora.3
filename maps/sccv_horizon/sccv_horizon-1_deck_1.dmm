@@ -566,7 +566,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/window/reinforced{
-	dir = 8
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 10
@@ -3350,6 +3350,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
+/obj/structure/sign/directions/prop{
+	dir = 8;
+	pixel_y = -22
+	},
+/obj/structure/sign/directions/prop{
+	pixel_y = -28
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "cwa" = (
@@ -3910,7 +3917,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/window/southleft{
-	dir = 8;
+	dir = 4;
 	name = "Atmospheric Tanks";
 	req_access = list(24)
 	},
@@ -6147,6 +6154,11 @@
 	name = "\improper DISPOSALS sign";
 	pixel_y = 32
 	},
+/obj/structure/sign/directions/prop{
+	dir = 8;
+	pixel_y = -10;
+	pixel_x = -32
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "evr" = (
@@ -7095,6 +7107,9 @@
 	icon_state = "cobweb1"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "faK" = (
@@ -13851,6 +13866,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"jMq" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Port Propulsion";
+	req_one_access = list(11,24)
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion)
 "jNq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -16483,6 +16505,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "lMA" = (
@@ -25598,6 +25621,13 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/rnd/isolation_a)
+"sdW" = (
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "seU" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
@@ -26855,6 +26885,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
+"sYf" = (
+/obj/structure/sign/fire{
+	desc = "A caution sign which reads 'PORT PROPULSION'.";
+	name = "\improper PORT PROPULSION sign";
+	pixel_x = -32
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "sYZ" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -30003,6 +30041,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/sign/directions/prop{
+	pixel_y = -22;
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "vdn" = (
@@ -32609,6 +32651,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"wXZ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/directions/prop{
+	pixel_y = 22;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "wYp" = (
 /obj/structure/sign/fire{
 	desc = "A caution sign which reads 'STARBOARD PROPULSION'.";
@@ -32762,14 +32812,9 @@
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
 /obj/machinery/alarm{
-	pixel_y = 28
-	},
-/obj/effect/landmark{
-	name = "Revenant"
+	dir = 4;
+	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -34135,7 +34180,7 @@
 	dir = 5
 	},
 /obj/structure/window/reinforced{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
@@ -59298,7 +59343,7 @@ hRF
 fCd
 uzC
 uVL
-lUr
+riL
 riL
 jYy
 baS
@@ -59499,10 +59544,10 @@ fKe
 uKh
 hRF
 fCd
-uni
-uVL
-lUr
-lUr
+uzC
+jMq
+sYf
+riL
 lUr
 qJg
 lUr
@@ -59704,7 +59749,7 @@ tkS
 mKb
 lMv
 uVL
-riL
+jAM
 riL
 riL
 riL
@@ -59907,7 +59952,7 @@ aoh
 uPx
 uVL
 uVL
-rsL
+haI
 xdF
 cTm
 pom
@@ -60114,7 +60159,7 @@ gyD
 eKc
 mhf
 pom
-mhf
+wXZ
 mhf
 tFd
 lrg
@@ -60315,7 +60360,7 @@ uVL
 uVL
 tnb
 eKc
-tFd
+sdW
 grP
 wJK
 iSc
