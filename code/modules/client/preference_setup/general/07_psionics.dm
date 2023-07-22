@@ -64,6 +64,10 @@
 		catch (var/exception/e)
 			log_debug("PSIONICS: Caught [e]. Initial value: [before]")
 			pref.psionics = list()
+	var/datum/species/mob_species = all_species[pref.species]
+	if(length(pref.psionics) && !mob_species.has_psionics)
+		pref.psionics = list()
+		return
 	for(var/S in pref.psionics)
 		var/singleton/psionic_power/P = GET_SINGLETON(text2path(S))
 		if(!istype(P))

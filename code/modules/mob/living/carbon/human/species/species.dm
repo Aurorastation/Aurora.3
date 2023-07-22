@@ -751,9 +751,6 @@
 /datum/species/proc/can_commune()
 	return FALSE
 
-/datum/species/proc/has_psi_potential()
-	return TRUE
-
 /datum/species/proc/handle_despawn()
 	return
 

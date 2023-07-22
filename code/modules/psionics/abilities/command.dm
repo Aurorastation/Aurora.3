@@ -7,7 +7,7 @@
 	ability_flags = PSI_FLAG_EVENT
 
 /obj/item/spell/command
-	name = "commune"
+	name = "command"
 	desc = "Send a psionic command to a target."
 	icon_state = "apportation"
 	cast_methods = CAST_RANGED|CAST_MELEE

@@ -24,3 +24,6 @@
 	else
 		log_debug("Psionic power [src.name] given to mob [H] without ability master!")
 		return FALSE
+
+/// A psionic power is made up of two elements: the psionic power singleton (which defines the ability metadata such as its name, description, and cost)
+/// and the physical spell object, which defines its behaviour when used. Keep in mind that ALL psionic abilities MUST have the ASPECT_PSIONIC aspect!
