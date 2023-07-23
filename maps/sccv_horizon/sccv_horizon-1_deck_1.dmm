@@ -374,7 +374,7 @@
 /obj/structure/railing/mapped,
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 6
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
@@ -3188,6 +3188,12 @@
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
+"cqE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/custodial/disposals)
 "cqU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -3350,6 +3356,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 9
 /obj/structure/sign/directions/prop{
 	dir = 8;
 	pixel_y = -22
@@ -4809,6 +4817,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
@@ -6290,9 +6301,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
@@ -7782,6 +7790,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
 "fyb" = (
@@ -7861,6 +7872,9 @@
 	name = "\improper DANGER: MASS DRIVER sign";
 	pixel_y = 32
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "fBg" = (
@@ -7903,9 +7917,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 6
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "fCT" = (
@@ -8100,6 +8112,9 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "fIO" = (
@@ -8110,6 +8125,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hangar/canary)
+"fJR" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	dir = 4;
+	id = "shutters_disposals";
+	name = "\improper Viewing Shutter"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/horizon/custodial/disposals)
 "fKe" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 8
@@ -8469,9 +8498,6 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial/disposals)
@@ -9750,9 +9776,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 5
-	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "gMb" = (
@@ -10203,6 +10226,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "hcD" = (
@@ -10383,11 +10409,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "hic" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/aux,
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 6
+	},
 /turf/space/dynamic,
 /area/horizon/exterior)
 "hjt" = (
@@ -11323,6 +11349,7 @@
 	name = "Disposals and Recycling";
 	req_one_access = list(26,67,31,29)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /turf/simulated/floor/tiled/full,
 /area/horizon/custodial/disposals)
 "hUh" = (
@@ -12642,6 +12669,12 @@
 "iTD" = (
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_c)
+"iTT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/custodial/disposals)
 "iTW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -13267,6 +13300,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
@@ -16719,7 +16755,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 10
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial/disposals)
@@ -16922,6 +16958,9 @@
 "lVH" = (
 /obj/effect/floor_decal/corner/purple{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
@@ -17133,6 +17172,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "mew" = (
@@ -17353,6 +17393,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
@@ -20617,7 +20660,7 @@
 	},
 /obj/structure/table/steel,
 /obj/item/toy/figure/janitor,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -20654,7 +20697,6 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "ozA" = (
@@ -21108,9 +21150,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial/disposals)
 "oWT" = (
@@ -21150,6 +21189,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "oYC" = (
@@ -21160,8 +21200,8 @@
 /area/storage/eva)
 "oYG" = (
 /obj/effect/floor_decal/corner/purple,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
@@ -22274,9 +22314,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 5
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial/disposals)
 "pLq" = (
@@ -22376,9 +22413,6 @@
 	secured_wires = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial/disposals)
 "pNv" = (
@@ -22816,8 +22850,8 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
@@ -23085,6 +23119,10 @@
 	icon_state = "16,17"
 	},
 /area/shuttle/intrepid/cargo_bay)
+"qnc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/horizon/custodial/disposals)
 "qnr" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -25356,7 +25394,7 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 8
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
@@ -26509,9 +26547,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial/disposals)
 "sNH" = (
@@ -27381,9 +27416,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial/disposals)
 "tri" = (
@@ -27843,7 +27875,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -31007,6 +31039,9 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "vPo" = (
@@ -32171,6 +32206,9 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "wHJ" = (
@@ -34336,6 +34374,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "xVk" = (
@@ -34502,6 +34543,9 @@
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "ybl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "ybm" = (
@@ -53044,7 +53088,7 @@ eSV
 nYA
 pQv
 ybl
-ybl
+cqE
 tGU
 gVx
 trc
@@ -53451,11 +53495,11 @@ nEm
 nEm
 gJK
 oma
-oma
+fJR
+qnc
+iTT
 nEm
-qrh
 nEm
-sXg
 nEm
 bQj
 hcC

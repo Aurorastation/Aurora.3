@@ -26610,14 +26610,27 @@
 	},
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/structure/table/steel,
-/obj/machinery/chemical_dispenser/bar_soft{
-	pixel_y = 8
-	},
-/obj/item/storage/box/cups{
-	pixel_y = -8
-	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
+	pixel_x = 6;
+	pixel_y = -12
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
+	pixel_x = -6;
+	pixel_y = -12
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
+	pixel_x = 6;
+	pixel_y = -19
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
+	pixel_x = -6;
+	pixel_y = -19
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)

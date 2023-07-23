@@ -40944,10 +40944,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
-"tZl" = (
-/obj/random/loot,
-/turf/simulated/wall/r_wall,
-/area/horizon/security/brig)
 "tZr" = (
 /obj/structure/cable/orange{
 	icon_state = "1-4"
@@ -80530,7 +80526,7 @@ iwo
 uPP
 gBa
 bDo
-tZl
+bDo
 bDo
 bDo
 pMz
