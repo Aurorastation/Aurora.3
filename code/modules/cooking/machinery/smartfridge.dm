@@ -38,7 +38,7 @@
 	)
 
 	var/datum/wires/smartfridge/wires = null
-	atmos_canpass = CANPASS_NEVER
+	atmos_canpass = CANPASS_DENSITY
 
 /obj/machinery/smartfridge/secure
 	is_secure = 1
