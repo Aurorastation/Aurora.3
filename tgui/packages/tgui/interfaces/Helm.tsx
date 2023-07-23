@@ -80,7 +80,8 @@ export const Helm = (props, context) => {
                         <Table.Row>
                           <Table.Cell>
                             <Button
-                              icon="no-icon"
+                              icon="arrow-left"
+                              iconRotation={45}
                               disabled={!data.canburn}
                               onClick={() => act('move', { move: 9 })}
                             />
@@ -94,7 +95,8 @@ export const Helm = (props, context) => {
                           </Table.Cell>
                           <Table.Cell>
                             <Button
-                              icon="no-icon"
+                              icon="arrow-right"
+                              iconRotation={-45}
                               disabled={!data.canburn}
                               onClick={() => act('move', { move: 5 })}
                             />
@@ -126,7 +128,8 @@ export const Helm = (props, context) => {
                         <Table.Row>
                           <Table.Cell>
                             <Button
-                              icon="no-icon"
+                              icon="arrow-left"
+                              iconRotation={-45}
                               disabled={!data.canburn}
                               onClick={() => act('move', { move: 10 })}
                             />
@@ -140,7 +143,8 @@ export const Helm = (props, context) => {
                           </Table.Cell>
                           <Table.Cell>
                             <Button
-                              icon="no-icon"
+                              icon="arrow-right"
+                              iconRotation={45}
                               disabled={!data.canburn}
                               onClick={() => act('move', { move: 6 })}
                             />
