@@ -1,6 +1,10 @@
 // Update asset_cache.dm if you change these.
 #define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4", "bottle-5", "bottle-6") //list of available bottle sprites
 
+#define CHEMMASTER_BOTTLE_SOUND playsound(src, 'sound/items/pickup/bottle.ogg', 75, 1)
+#define CHEMMASTER_DISPENSE_SOUND playsound(src, 'sound/machines/reagent_dispense.ogg', 75, 1)
+#define CHEMMASTER_CHANGESETTINGS_SOUND playsound(src, 'sound/machines/slide_change.ogg', 75, 1)
+#define CHEMMASTER_SWITCH_SOUND playsound(src, 'sound/machines/switch1.ogg', 75, 1)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,7 +49,6 @@
 				qdel(src)
 				return
 
-#define CHEMMASTER_BOTTLE_SOUND playsound(src, 'sound/items/pickup/bottle.ogg', 75, 1)
 
 /obj/machinery/chem_master/attackby(var/obj/item/B, mob/user)
 
@@ -156,9 +159,6 @@
 
 	return data
 
-#define CHEMMASTER_DISPENSE_SOUND playsound(src, 'sound/machines/reagent_dispense.ogg', 75, 1)
-#define CHEMMASTER_CHANGESETTINGS_SOUND playsound(src, 'sound/machines/slide_change.ogg', 75, 1)
-#define CHEMMASTER_SWITCH_SOUND playsound(src, 'sound/machines/switch1.ogg', 75, 1)
 
 /obj/machinery/chem_master/ui_act(action, params)
 	. = ..()
@@ -292,10 +292,6 @@
 		return TRUE
 	return TRUE
 
-#undef CHEMMASTER_DISPENSE_SOUND
-#undef CHEMMASTER_CHANGESETTINGS_SOUND
-#undef CHEMMASTER_SWITCH_SOUND
-#undef CHEMMASTER_BOTTLE_SOUND
 
 
 /obj/machinery/chem_master/Topic(href, href_list)
@@ -622,3 +618,8 @@
 
 	eject()
 	detach()
+
+#undef CHEMMASTER_DISPENSE_SOUND
+#undef CHEMMASTER_CHANGESETTINGS_SOUND
+#undef CHEMMASTER_SWITCH_SOUND
+#undef CHEMMASTER_BOTTLE_SOUND
