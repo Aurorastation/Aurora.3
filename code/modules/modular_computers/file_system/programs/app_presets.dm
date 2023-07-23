@@ -199,6 +199,7 @@
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/card_mod(comp),
 		new /datum/computer_file/program/comm(comp, TRUE),
+		new /datum/computer_file/program/docks(comp),
 		new /datum/computer_file/program/records/employment(comp)
 	)
 	return _prg_list
@@ -260,6 +261,7 @@
 		new /datum/computer_file/program/civilian/cargocontrol(comp),
 		new /datum/computer_file/program/card_mod(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
+		new /datum/computer_file/program/docks(comp),
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/records/security(comp)
 	)
@@ -280,6 +282,7 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/card_mod(comp),
 		new /datum/computer_file/program/comm(comp, TRUE),
+		new /datum/computer_file/program/docks(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/digitalwarrant(comp),
 		new /datum/computer_file/program/penal_mechs(comp),
@@ -478,7 +481,7 @@
 	description = "Contains the most common cargo programs as well as the OM's ones."
 	available = FALSE
 
-/datum/modular_computer_app_presets/supply/return_install_programs(obj/item/modular_computer/comp)
+/datum/modular_computer_app_presets/supply/om/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
 		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
@@ -488,7 +491,8 @@
 		new /datum/computer_file/program/civilian/cargocontrol(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/civilian/cargodelivery(comp),
-		new /datum/computer_file/program/comm(comp, FALSE)
+		new /datum/computer_file/program/comm(comp, FALSE),
+		new /datum/computer_file/program/docks(comp)
 	)
 	return _prg_list
 

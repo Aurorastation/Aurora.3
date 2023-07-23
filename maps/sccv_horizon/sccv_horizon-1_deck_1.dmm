@@ -22365,8 +22365,7 @@
 /area/hangar/intrepid)
 "pMP" = (
 /obj/effect/shuttle_landmark/distress/blue{
-	base_turf = /turf/simulated/floor/plating;
-	name = "Port Hangar"
+	base_turf = /turf/simulated/floor/plating
 	},
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
