@@ -326,8 +326,8 @@
 	)
 
 /obj/random/contraband
-	name = "Random Illegal Item"
-	desc = "Hot Stuff."
+	name = "random contraband"
+	desc = "This is some random contraband."
 	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "purplecomb"
 	problist = list(
