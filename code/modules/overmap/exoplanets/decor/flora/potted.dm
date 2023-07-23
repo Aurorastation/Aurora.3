@@ -71,10 +71,14 @@
 		return 1
 	return ..()
 
-// Added random icon selection for potted plants.
-// It was silly they always used the same sprite when we have 26 sprites of them in the icon file.
+/obj/structure/flora/pottedplant/random
+	name = "potted plant (DEPRECIATED)"
+	desc = "use /obj/random/pottedplant/ instead"
+
 /obj/structure/flora/pottedplant/random/New()
 	..()
+	name = "potted plant"
+	desc = "A potted plant."
 	var/number = rand(1,36)
 	if (number == 36)
 		if (prob(90)) // Make the weird one rarer
@@ -318,8 +322,8 @@
 /obj/structure/flora/pottedplant/eye
 	name = "eye bulb plant"
 	desc = "A decorative plant borne from a genetic mishap in a Zeng-Hu genetics lab. \
-	        The blinking \"eye\" is simply just a form of heat regulation, \
-			and other than that, the plant is same as any other greenery."
+	        Scientists assure, the blinking \"eye\" is simply just a form of heat regulation, \
+			and other than that, this plant is same as any other greenery."
 	icon_state = "plant-36"
 
 /obj/structure/flora/pottedplant/dead
@@ -337,5 +341,5 @@
 /obj/structure/flora/pottedplant/empty
 	name = "empty plant pot"
 	desc = "An empty plant pot."
-	icon_state = "plant-dead"
+	icon_state = "plant_empty"
 	dead = TRUE
