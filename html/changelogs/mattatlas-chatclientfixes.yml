@@ -41,3 +41,4 @@ changes:
   - bugfix: "The chat client no longer crashes to a bluescreen. Rejoice."
   - bugfix: "Defibrillator paddles and ship ammunition no longer make items get stuck in your offhand."
   - bugfix: "You can no longer peer through solid floors with the Look Down verb."
+  - bugfix: "Staff can now actually cancel votes."
