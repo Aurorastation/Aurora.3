@@ -2795,6 +2795,7 @@
 	strength = 25
 
 	glass_icon_state = "valokkiwineglass"
+	glass_name = "glass of valokki wine"
 	glass_desc = "A very classy, powerful drink."
 
 /singleton/reagent/alcohol/kvass
