@@ -20,7 +20,7 @@ var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psioni
 	NEW_SS_GLOBAL(SSpsi)
 
 /datum/controller/subsystem/processing/psi/fire(resumed)
-	if(world.time >= last_nlom_awareness_check + 1 MINUTES && !checking_nlom && !completing_nlom)
+	if((world.time >= (last_nlom_awareness_check + 1 MINUTES)) && !checking_nlom && !completing_nlom)
 		checking_nlom = TRUE
 		nlom_votes = list(
 			"Calm" = 0,
