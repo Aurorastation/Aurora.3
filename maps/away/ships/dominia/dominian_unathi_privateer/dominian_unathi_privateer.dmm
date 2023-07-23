@@ -551,10 +551,11 @@
 /area/space)
 "iv" = (
 /obj/structure/table/steel,
-/obj/item/clothing/head/helmet/space/void/kataphract,
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
+/obj/item/clothing/head/helmet/space/void/hegemony/captain,
+/obj/item/clothing/suit/space/void/hegemony/captain,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
 "iw" = (
