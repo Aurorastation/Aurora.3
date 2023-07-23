@@ -142,6 +142,12 @@
 /// Mob does not need to breathe.
 #define TRAIT_NO_BREATHE "no_breathe"
 
+/// Mob has pressure immunity.
+#define TRAIT_PRESSURE_IMMUNITY "pressure_immunity"
+
+/// Trait sourced from changeling abilities.
+#define TRAIT_SOURCE_CHANGELING "changeling"
+
 /// Mob is psionically deaf.
 #define TRAIT_PSIONICALLY_DEAF "psionically_deaf"
 

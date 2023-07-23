@@ -346,10 +346,7 @@
 /mob/living/carbon/human/proc/pressure_resistant()
 	if(HAS_FLAG(mutations, COLD_RESISTANCE))
 		return TRUE
-	var/datum/changeling/changeling = get_antag_datum(MODE_CHANGELING)
-	if(changeling?.space_adapted)
-		return TRUE
-	if(HAS_TRAIT(src, TRAIT_NO_BREATHE))
+	if(HAS_TRAIT(src, TRAIT_PRESSURE_IMMUNITY))
 		return TRUE
 	return FALSE
 
