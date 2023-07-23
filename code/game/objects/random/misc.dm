@@ -229,7 +229,7 @@
 
 /obj/random/animal_crate
 	name = "random animal"
-	desc = "Contains a random crate with some animal."
+	desc = "Contains a random crate with an animal."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "densecrate"
 	spawnlist = list(
