@@ -3358,6 +3358,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 9
+	},
 /obj/structure/sign/directions/prop{
 	dir = 8;
 	pixel_y = -22
