@@ -226,8 +226,8 @@
 	)
 
 /obj/random/highvalue/safe
-	name = "random corporate safe high valuable item"
-	desc = "This is a random corporate safe high valuable item."
+	name = "random corporate safe high value item"
+	desc = "This is a random corporate safe high value item."
 	icon = 'icons/obj/coins.dmi'
 	icon_state = "coin_diamond_heads"
 	problist = list(
