@@ -28,7 +28,7 @@
 
 /obj/item/gun/projectile/automatic/mini_uzi
 	name = ".45 machine pistol"
-	desc = "A lightweight, fast firing gun. For when you want someone dead."
+	desc = "A lightweight, fast-firing gun. For when you want someone dead."
 	icon = 'icons/obj/guns/mini-uzi.dmi'
 	icon_state = "mini-uzi"
 	item_state = "mini-uzi"
@@ -151,7 +151,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
-	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. It is unmarked."
+	desc = "A durable, rugged-looking automatic weapon of a make popular on the frontier worlds. It is unmarked."
 	desc_extended = "The STS35 is a durable, reliable and cheap to buy fully automatic assault rifle with many licensed manufacturers across \
 	the galaxy. It comes in different versions and calibres, this one uses 7.62 rounds. The manufacturer markings have been filed off."
 	can_bayonet = TRUE
@@ -194,7 +194,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/carbine
 	name = "ballistic carbine"
-	desc = "A durable, rugged looking semi-automatic weapon of a make popular on the frontier worlds. Doesn't accept large-capacity magazines. It is unmarked."
+	desc = "A durable, rugged-looking semi-automatic weapon of a make popular on the frontier worlds. Doesn't accept large-capacity magazines. It is unmarked."
 	desc_extended = "The ST24 is often considered the little brother of its larger and fully automatic counterpart, the STS35. It is a \
 	reliable and cheap to buy carbine with many licensed manufacturers across the galaxy. It comes in different versions and calibres, \
 	some even boasting select fire functionality. This one uses 5.56 rounds and is semi-automatic. The manufacturer markings have been filed off."
