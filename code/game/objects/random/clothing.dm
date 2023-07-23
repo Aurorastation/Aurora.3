@@ -138,7 +138,6 @@
 		/obj/item/storage/backpack = 10,
 
 		/obj/item/clothing/glasses/chameleon = 1
-
 	)
 
 /obj/random/gloves
