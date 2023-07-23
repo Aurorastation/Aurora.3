@@ -253,6 +253,7 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
 	)
+	light_overlay = "helmet_light_green"
 
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/captain/tarwa
 	name = "tarwa conglomerate captain's helmet"
@@ -267,3 +268,4 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
 	)
+	light_overlay = "helmet_light_dual_green"
