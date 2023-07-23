@@ -215,8 +215,8 @@
 /obj/item/clothing/suit/space/void/unathi_pirate/tarwa
 	name = "tarwa conglomerate voidsuit"
 	desc = "What looks like pieces of various civilian and military voidsuits crudely patched together, with the largest part of it seeming to come from a Coalition Vulture suit. Various holes and breaches look to have been sealed with diona bark, or some similar organic growth."
-	icon_state = "rig-tarwa"
-	item_state = "rig-tarwa_item"
+	icon_state = "rig-tarwapirate"
+	item_state = "rig-tarwapirate-held"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -229,8 +229,8 @@
 /obj/item/clothing/suit/space/void/unathi_pirate/captain/tarwa
 	name = "tarwa conglomerate captain's voidsuit"
 	desc = "What looks like pieces of various civilian and military voidsuits crudely patched together, with the largest part of it seeming to come from a Coalition Vulture suit. Various holes and breaches look to have been sealed with diona bark, or some similar organic growth."
-	icon_state = "rig-tarwa-captain"
-	item_state = "rig-tarwa-captain_item"
+	icon_state = "rig-tarwacaptain"
+	item_state = "rig-tarwacaptain-held"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_CARBINE,
@@ -243,8 +243,8 @@
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa
 	name = "tarwa conglomerate helmet"
 	desc = "What looks like a Coalition Vulture helmet, modified extensively to fit an Unathi's head. Pieces of it seem to have been broken, and something organic can be seen growing behind its visor..."
-	icon_state = "rig-tarwa-helm"
-	item_state = "rig-tarwa-helm_item"
+	icon_state = "rig-tarwapirate-helmet"
+	item_state = "rig-tarwapirate-helm-held"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -257,8 +257,8 @@
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/captain/tarwa
 	name = "tarwa conglomerate captain's helmet"
 	desc = "What looks like the broken remnants of a Coalition Vulture helmet - but most of it is shattered, replaced with what looks like some kind of strangely grown diona. A multitude of green eyes glow behind its visor."
-	icon_state = "rig-tarwa-captain-helm"
-	item_state = "rig-tarwa-captain-helm_item"
+	icon_state = "rig-tarwacaptain-helmet"
+	item_state = "rig-tarwaetcaptain-helmet-held"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_CARBINE,
