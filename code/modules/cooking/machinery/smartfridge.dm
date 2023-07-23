@@ -118,6 +118,11 @@
 	opacity = FALSE
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 
+/obj/machinery/smartfridge/foodheater/abandoned
+	// badly stocked, with trash, junk, etc
+	desc = "Used to keep food nice and warm in the past, now it is all dirty, and doesn't look like it'll ever run again."
+	use_power = 0
+
 /obj/machinery/smartfridge/seeds
 	name = "\improper MegaSeed Storage"
 	desc = "When you need seeds fast!"
