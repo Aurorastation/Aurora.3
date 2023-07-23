@@ -73,111 +73,128 @@ export const Helm = (props, context) => {
           <Table.Row>
             <Table.Cell width="50%">
               <Section title="Manual control">
-                <Table width={0} title="Control">
+                <Table>
                   <Table.Row>
-                    <Table.Cell>
-                      <Button
-                        icon="circle"
-                        disabled={!data.canburn}
-                        onClick={() => act('move', { move: 9 })}
-                      />
+                    <Table.Cell width="50%">
+                      <Table width={0} title="Control">
+                        <Table.Row>
+                          <Table.Cell>
+                            <Button
+                              icon="no-icon"
+                              disabled={!data.canburn}
+                              onClick={() => act('move', { move: 9 })}
+                            />
+                          </Table.Cell>
+                          <Table.Cell>
+                            <Button
+                              icon="arrow-up"
+                              disabled={!data.canburn}
+                              onClick={() => act('move', { move: 1 })}
+                            />
+                          </Table.Cell>
+                          <Table.Cell>
+                            <Button
+                              icon="no-icon"
+                              disabled={!data.canburn}
+                              onClick={() => act('move', { move: 5 })}
+                            />
+                          </Table.Cell>
+                        </Table.Row>
+                        <Table.Row>
+                          <Table.Cell>
+                            <Button
+                              icon="arrow-left"
+                              disabled={!data.canburn}
+                              onClick={() => act('move', { move: 8 })}
+                            />
+                          </Table.Cell>
+                          <Table.Cell title="Interial Dampener">
+                            <Button
+                              icon="stop"
+                              disabled={!data.canburn}
+                              onClick={() => act('brake', { move: 1 })}
+                            />
+                          </Table.Cell>
+                          <Table.Cell>
+                            <Button
+                              icon="arrow-right"
+                              disabled={!data.canburn}
+                              onClick={() => act('move', { move: 4 })}
+                            />
+                          </Table.Cell>
+                        </Table.Row>
+                        <Table.Row>
+                          <Table.Cell>
+                            <Button
+                              icon="no-icon"
+                              disabled={!data.canburn}
+                              onClick={() => act('move', { move: 10 })}
+                            />
+                          </Table.Cell>
+                          <Table.Cell>
+                            <Button
+                              icon="arrow-down"
+                              disabled={!data.canburn}
+                              onClick={() => act('move', { move: 2 })}
+                            />
+                          </Table.Cell>
+                          <Table.Cell>
+                            <Button
+                              icon="no-icon"
+                              disabled={!data.canburn}
+                              onClick={() => act('move', { move: 6 })}
+                            />
+                          </Table.Cell>
+                        </Table.Row>
+                      </Table>
                     </Table.Cell>
                     <Table.Cell>
-                      <Button
-                        icon="arrow-up"
-                        disabled={!data.canburn}
-                        onClick={() => act('move', { move: 1 })}
-                      />
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Button
-                        icon="circle"
-                        disabled={!data.canburn}
-                        onClick={() => act('move', { move: 5 })}
-                      />
-                    </Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell>
-                      <Button
-                        icon="arrow-left"
-                        disabled={!data.canburn}
-                        onClick={() => act('move', { move: 8 })}
-                      />
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Button
-                        icon="bacon"
-                        disabled={!data.canburn}
-                        onClick={() => act('brake', { move: 1 })}
-                      />
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Button
-                        icon="arrow-right"
-                        disabled={!data.canburn}
-                        onClick={() => act('move', { move: 4 })}
-                      />
-                    </Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell>
-                      <Button
-                        icon="circle"
-                        disabled={!data.canburn}
-                        onClick={() => act('move', { move: 10 })}
-                      />
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Button
-                        icon="arrow-down"
-                        disabled={!data.canburn}
-                        onClick={() => act('move', { move: 2 })}
-                      />
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Button
-                        icon="circle"
-                        disabled={!data.canburn}
-                        onClick={() => act('move', { move: 6 })}
-                      />
+                      <Table width={0} title="Maneuvers">
+                        <Table.Row title="Combat Turn">
+                          <Table.Cell>
+                            <Button
+                              icon="undo"
+                              disabled={!data.cancombatturn}
+                              onClick={() => act('turn', { turn: 8 })}
+                            />
+                          </Table.Cell>
+                          <Table.Cell>
+                            <Button
+                              icon="redo"
+                              disabled={!data.cancombatturn}
+                              onClick={() => act('turn', { turn: 4 })}
+                            />
+                          </Table.Cell>
+                        </Table.Row>
+                        <Table.Row title="Combat Roll">
+                          <Table.Cell>
+                            <Button
+                              icon="angle-double-left"
+                              disabled={!data.cancombatroll}
+                              onClick={() => act('roll', { roll: 8 })}
+                            />
+                          </Table.Cell>
+                          <Table.Cell>
+                            <Button
+                              icon="angle-double-right"
+                              disabled={!data.cancombatroll}
+                              onClick={() => act('roll', { roll: 4 })}
+                            />
+                          </Table.Cell>
+                        </Table.Row>
+                      </Table>
                     </Table.Cell>
                   </Table.Row>
                 </Table>
-                <Table width={0} title="Maneuvers">
-                  <Table.Row>
-                    <Table.Cell>
-                      <Button
-                        icon="arrow-left"
-                        disabled={!data.cancombatturn}
-                        onClick={() => act('turn', { turn: 8 })}
-                      />
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Button
-                        icon="arrow-right"
-                        disabled={!data.cancombatturn}
-                        onClick={() => act('turn', { turn: 4 })}
-                      />
-                    </Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell>
-                      <Button
-                        icon="arrow-left"
-                        disabled={!data.cancombatroll}
-                        onClick={() => act('roll', { roll: 8 })}
-                      />
-                    </Table.Cell>
-                    <Table.Cell>
-                      <Button
-                        icon="arrow-right"
-                        disabled={!data.cancombatroll}
-                        onClick={() => act('roll', { roll: 4 })}
-                      />
-                    </Table.Cell>
-                  </Table.Row>
-                </Table>
+                <Button
+                  content={
+                    'Manual Control ' +
+                    (data.manual_control ? 'Engaged' : 'Disengaged')
+                  }
+                  icon="cog"
+                  iconSpin={data.manual_control ? '0.0' : null}
+                  onClick={() => act('manual', { manual: true })}
+                />
               </Section>
             </Table.Cell>
             <Table.Cell width="50%">
@@ -219,8 +236,12 @@ export const Helm = (props, context) => {
                   </Table.Row>
                   <Table.Row>
                     <Button
-                      content={data.autopilot ? 'Engaged' : 'Disengaged'}
+                      content={
+                        'Autopilot ' +
+                        (data.autopilot ? 'Engaged' : 'Disengaged')
+                      }
                       icon="cog"
+                      iconSpin={data.autopilot ? '0.0' : null}
                       disabled={!data.dest}
                       onClick={() => act('apilot', { apilot: true })}
                     />
@@ -252,6 +273,37 @@ export const Helm = (props, context) => {
               <Table.Cell>{data.landed}</Table.Cell>
             </Table.Row>{' '}
           </Table>
+        </Section>
+
+        <Section title="Saved Positions">
+          <Table>
+            {data.locations.length ? (
+              <Table.Row header>
+                <Table.Cell>Name</Table.Cell>
+                <Table.Cell>Coordinates</Table.Cell>
+                <Table.Cell>Actions</Table.Cell>
+              </Table.Row>
+            ) : (
+              ''
+            )}
+            {data.locations.map((location) => (
+              <Table.Row>
+                <Table.Cell>{location.name}</Table.Cell>
+                <Table.Cell>
+                  {location.x} : {location.y}
+                </Table.Cell>
+                <Table.Cell>
+                  <Button
+                    icon="eraser"
+                    content="Remove"
+                    onClick={() =>
+                      act('remove', { remove: location.reference })
+                    }
+                  />
+                </Table.Cell>
+              </Table.Row>
+            ))}
+          </Table>
           <Table width={0}>
             <Table.Row>
               <Table.Cell>
@@ -271,30 +323,6 @@ export const Helm = (props, context) => {
                 />
               </Table.Cell>
             </Table.Row>
-          </Table>
-          <Table>
-            <Table.Row header>
-              <Table.Cell>Name</Table.Cell>
-              <Table.Cell>Coordinates</Table.Cell>
-              <Table.Cell>Actions</Table.Cell>
-            </Table.Row>
-            {data.locations.map((location) => (
-              <Table.Row>
-                <Table.Cell>{location.name}</Table.Cell>
-                <Table.Cell>
-                  {location.x} : {location.y}
-                </Table.Cell>
-                <Table.Cell>
-                  <Button
-                    icon="close"
-                    content="Remove"
-                    onClick={() =>
-                      act('remove', { remove: location.reference })
-                    }
-                  />
-                </Table.Cell>
-              </Table.Row>
-            ))}
           </Table>
         </Section>
       </NtosWindow.Content>
