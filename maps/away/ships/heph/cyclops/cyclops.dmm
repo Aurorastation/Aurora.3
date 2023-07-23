@@ -51,7 +51,7 @@
 /area/shuttle/cyclops_shuttle)
 "ax" = (
 /obj/effect/landmark/entry_point/port{
-	name = "port airlock"
+	name = "port, armory"
 	},
 /turf/simulated/wall/shuttle/space_ship/cardinal{
 	color = "#4c4324"
@@ -74,7 +74,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "aH" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -237,9 +237,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "cv" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port vault"
-	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
@@ -680,7 +677,7 @@
 	dir = 5
 	},
 /obj/structure/sign/flag/heph{
-	pixel_y = 30
+	pixel_y = 32
 	},
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill/weak,
@@ -694,6 +691,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/storage/belt/mining,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "hK" = (
@@ -1212,7 +1210,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "oZ" = (
 /obj/machinery/door/airlock/hatch{
@@ -2616,6 +2614,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/storage/belt/mining,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "BX" = (
@@ -2895,6 +2894,7 @@
 /obj/item/storage/belt/mining,
 /obj/item/pickaxe,
 /obj/item/storage/bag/ore,
+/obj/item/storage/belt/mining,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "EW" = (
@@ -3041,7 +3041,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "Hc" = (
-/obj/effect/landmark/entry_point/aft,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, hangar"
+	},
 /turf/unsimulated/wall/fakepdoor,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Hh" = (
@@ -3076,6 +3078,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
+	},
+/obj/structure/sign/flag/heph{
+	pixel_x = 32
 	},
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
@@ -3487,11 +3492,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
 "Lj" = (
-/obj/effect/landmark/entry_point/fore,
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops/cyclops_captain)
+/obj/effect/shuttle_landmark/cyclops_shuttle/transit,
+/turf/space/transit/north,
+/area/space)
 "Ln" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/table/standard,
@@ -3555,6 +3558,9 @@
 	dir = 5
 	},
 /obj/item/clothing/accessory/storage/pouches/brown,
+/obj/structure/sign/flag/heph{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Mx" = (
@@ -3602,9 +3608,6 @@
 "Na" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
-	},
-/obj/structure/sign/flag/heph{
-	pixel_y = 30
 	},
 /obj/machinery/light{
 	dir = 1
@@ -4372,7 +4375,7 @@
 "WI" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/starboard{
-	name = "starboard, barracks"
+	name = "starboard, crew quarters"
 	},
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_barracks)
@@ -4449,6 +4452,9 @@
 	color = "#ff9900";
 	dir = 1
 	},
+/obj/structure/sign/flag/heph{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "XT" = (
@@ -4516,11 +4522,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "YE" = (
-/obj/effect/landmark/entry_point/fore,
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#4c4324"
+/obj/effect/landmark{
+	name = "carpspawn"
 	},
-/area/hephmining_ship/cyclops/cyclops_kitchen)
+/turf/template_noop,
+/area/space)
 "YK" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -4533,10 +4539,12 @@
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "YS" = (
 /obj/effect/landmark/entry_point/port{
-	name = "port hangar"
+	name = "port, hangar"
 	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#4c4324"
+	},
+/area/hephmining_ship/cyclops/cyclops_engineering)
 "YY" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1
@@ -24422,7 +24430,7 @@ QB
 QB
 QB
 QB
-QB
+Lj
 QB
 QB
 QB
@@ -27159,7 +27167,7 @@ CE
 CE
 CE
 CE
-CE
+YE
 CE
 CE
 CE
@@ -27369,6 +27377,7 @@ CE
 CE
 CE
 CE
+YE
 CE
 CE
 CE
@@ -27415,8 +27424,7 @@ CE
 CE
 CE
 CE
-CE
-CE
+YE
 CE
 CE
 CE
@@ -27651,7 +27659,7 @@ CE
 CE
 CE
 CE
-CE
+YE
 CE
 CE
 CE
@@ -30957,7 +30965,7 @@ CE
 CE
 CE
 CE
-CE
+YE
 CE
 CE
 CE
@@ -34600,7 +34608,7 @@ qw
 Zn
 Zn
 Zn
-YE
+AO
 CE
 CE
 CE
@@ -35387,7 +35395,7 @@ CE
 CE
 CE
 CE
-CE
+YE
 CE
 CE
 CE
@@ -36344,7 +36352,7 @@ CE
 CE
 CE
 CE
-CE
+YE
 CE
 CE
 CE
@@ -38712,7 +38720,7 @@ FP
 Nh
 dO
 HX
-Lj
+FP
 CE
 CE
 CE
@@ -39205,7 +39213,7 @@ sI
 gZ
 gZ
 gZ
-gZ
+YS
 gZ
 gZ
 gZ
@@ -39462,7 +39470,7 @@ mN
 PZ
 CE
 CE
-YS
+CE
 CE
 CE
 CE
@@ -40237,7 +40245,7 @@ CE
 CE
 CE
 CE
-Zg
+gZ
 mb
 cv
 PZ
@@ -42835,7 +42843,7 @@ CE
 CE
 CE
 CE
-CE
+YE
 CE
 CE
 CE
@@ -45610,7 +45618,7 @@ CE
 CE
 CE
 CE
-CE
+YE
 CE
 CE
 CE
