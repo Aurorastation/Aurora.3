@@ -1,4 +1,3 @@
-
 /obj/random/belt
 	name = "random belt"
 	problist = list(
