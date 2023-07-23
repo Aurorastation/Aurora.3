@@ -136,11 +136,11 @@
 		data["accellimit"] = accellimit*1000
 
 		var/speed = round(connected.get_speed()*1000, 0.01)
-		if(connected.get_speed() < SHIP_SPEED_SLOW)
-			speed = "<span class='good'>[speed]</span>"
-		if(connected.get_speed() > SHIP_SPEED_FAST)
-			speed = "<span class='average'>[speed]</span>"
 		data["speed"] = speed
+		if(connected.get_speed() < SHIP_SPEED_SLOW)
+			data["speed_slow"] = TRUE
+		if(connected.get_speed() > SHIP_SPEED_FAST)
+			data["speed_fast"] = TRUE
 
 		data["ETAnext"] = get_eta()
 
