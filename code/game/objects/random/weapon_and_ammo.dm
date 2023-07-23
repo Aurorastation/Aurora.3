@@ -1,7 +1,7 @@
 
 /obj/random/weapon_and_ammo
 	name = "random weapon and ammo"
-	desc = "Summons a random weapon, with ammo if applicable"
+	desc = "Summons a random weapon, with ammo if applicable."
 	icon = 'icons/obj/guns/xenoblaster.dmi'
 	icon_state = "xenoblaster"
 	var/chosen_rarity //Can be set to force certain rarity

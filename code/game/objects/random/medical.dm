@@ -1,6 +1,5 @@
-
 /obj/random/medical
-	name = "Random Medicine"
+	name = "random medical item"
 	desc = "This is a random medical item."
 	icon = 'icons/obj/item/stacks/medical.dmi'
 	icon_state = "brutepack"
@@ -35,7 +34,7 @@
 	)
 
 /obj/random/firstaid
-	name = "Random First Aid Kit"
+	name = "random first aid kit"
 	desc = "This is a random first aid kit."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "firstaid"

@@ -1,7 +1,6 @@
-
 /obj/random/energy
-	name = "Random Energy Weapon"
-	desc = "This is a random security weapon."
+	name = "random energy weapon"
+	desc = "This is a random energy weapon."
 	icon = 'icons/obj/guns/ecarbine.dmi'
 	icon_state = "energykill100"
 	problist = list(
@@ -11,8 +10,8 @@
 	)
 
 /obj/random/projectile
-	name = "Random Projectile Weapon"
-	desc = "This is a random security weapon."
+	name = "random projectile weapon"
+	desc = "This is a random projectile weapon."
 	icon = 'icons/obj/guns/cshotgun.dmi'
 	icon_state = "cshotgun"
 	problist = list(
@@ -22,8 +21,8 @@
 	)
 
 /obj/random/handgun
-	name = "Random Handgun"
-	desc = "This is a random security sidearm."
+	name = "random handgun"
+	desc = "This is a random handgun."
 	icon = 'icons/obj/guns/secgun.dmi'
 	icon_state = "secgun"
 	problist = list(
@@ -32,8 +31,8 @@
 	)
 
 /obj/random/ammo
-	name = "Random Ammunition"
-	desc = "This is random ammunition."
+	name = "random ammunition"
+	desc = "This is some random ammunition."
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "45-10"
 	problist = list(
