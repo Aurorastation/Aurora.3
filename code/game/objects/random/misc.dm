@@ -1,4 +1,3 @@
-
 /obj/random/smokable
 	name = "random smokable"
 	desc = "This is a random smoking item."
