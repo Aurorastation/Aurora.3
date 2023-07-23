@@ -211,3 +211,59 @@
 	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. This one bears a purple insignia, marking the wearer as a Sk'akh priest within the Izweski Navy."
 	icon_state = "hegemony-voidhelm-priest"
 	item_state = "hegemony-voidhelm-priest_item"
+
+/obj/item/clothing/suit/space/void/unathi_pirate/tarwa
+	name = "tarwa conglomerate voidsuit"
+	desc = "What looks like pieces of various civilian and military voidsuits crudely patched together, with the largest part of it seeming to come from a Coalition Vulture suit. Various holes and breaches look to have been sealed with diona bark, or some similar organic growth."
+	icon_state = "rig-tarwa"
+	item_state = "rig-tarwa_item"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED //it has diona growing on and in it to absorb rads. if i could make it regenerate breaches that would be neat
+	)
+
+/obj/item/clothing/suit/space/void/unathi_pirate/captain/tarwa
+	name = "tarwa conglomerate captain's voidsuit"
+	desc = "What looks like pieces of various civilian and military voidsuits crudely patched together, with the largest part of it seeming to come from a Coalition Vulture suit. Various holes and breaches look to have been sealed with diona bark, or some similar organic growth."
+	icon_state = "rig-tarwa-captain"
+	item_state = "rig-tarwa-captain_item"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_PISTOL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED //it has diona growing on and in it to absorb rads
+	)
+
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa
+	name = "tarwa conglomerate helmet"
+	desc = "What looks like a Coalition Vulture helmet, modified extensively to fit an Unathi's head. Pieces of it seem to have been broken, and something organic can be seen growing behind its visor..."
+	icon_state = "rig-tarwa-helm"
+	item_state = "rig-tarwa-helm_item"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
+
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/captain/tarwa
+	name = "tarwa conglomerate captain's helmet"
+	desc = "What looks like the broken remnants of a Coalition Vulture helmet - but most of it is shattered, replaced with what looks like some kind of strangely grown diona. A multitude of green eyes glow behind its visor."
+	icon_state = "rig-tarwa-captain-helm"
+	item_state = "rig-tarwa-captain-helm_item"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_PISTOL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)

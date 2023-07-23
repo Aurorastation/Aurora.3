@@ -1161,8 +1161,10 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/unathi_pirate,
-/obj/item/clothing/head/helmet/space/void/unathi_pirate,
+/obj/item/clothing/suit/space/void/unathi_pirate/tarwa,
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "qK" = (
@@ -2397,8 +2399,10 @@
 	req_one_access = list(210)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/unathi_pirate/captain,
-/obj/item/clothing/head/helmet/space/void/unathi_pirate/captain,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/suit/space/void/unathi_pirate/captain/tarwa,
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/captain/tarwa,
 /turf/simulated/floor/carpet/orange,
 /area/tarwa_ship/captain)
 "JW" = (
@@ -2969,8 +2973,10 @@
 /area/tarwa_ship/engineering1)
 "Ql" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/unathi_pirate,
-/obj/item/clothing/head/helmet/space/void/unathi_pirate,
+/obj/item/clothing/suit/space/void/unathi_pirate/tarwa,
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "QA" = (
