@@ -151,6 +151,9 @@
 /// Mob is psionically deaf.
 #define TRAIT_PSIONICALLY_DEAF "psionically_deaf"
 
+/// Zona bovinae absorbed, used by Loner to track a mob that has had its ZB consumed. Doesn't make them psi-deaf.
+#define TRAIT_ZONA_BOVINAE_ABSORBED "bovinae_absorbed"
+
 /// Hidden from Psi-Search.
 #define TRAIT_PSIONIC_SUPPRESSION "psionic_suppression"
 

@@ -21,6 +21,9 @@
 	if(!L.can_commune())
 		to_chat(user, SPAN_WARNING("This being doesn't have a Zona Bovinae."))
 		return
+	if(HAS_TRAIT(L, TRAIT_ZONA_BOVINAE_ABSORBED))
+		to_chat(user, SPAN_WARNING("You already absorbed points from this creature!"))
+		return
 	. = ..()
 	if(!.)
 		return
@@ -34,4 +37,5 @@
 							SPAN_DANGER("You absorb psionic energy from [L], granting you an extra Psionic Point Shop point."))
 		var/mob/living/M = user
 		M.psi.psi_points++
-		to_chat(L, SPAN_DANGER("A splitting headache courses through your mind!"))
+		to_chat(L, SPAN_DANGER("A splitting headache courses through your mind! Your head feels a bit lighter..."))
+		ADD_TRAIT(L, TRAIT_ZONA_BOVINAE_ABSORBED, TRAIT_SOURCE_PSIONICS)

@@ -41,6 +41,8 @@
 	for(var/mob/living/L in mob_list)
 		if(L == user)
 			continue
+		if(!L.can_commune())
+			continue
 		if(GET_Z(L) != GET_Z(user))
 			continue
 		mob_choices += L
