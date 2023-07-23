@@ -80,10 +80,6 @@
 /obj/machinery/body_scanconsole,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
-"aN" = (
-/obj/machinery/appliance/cooker/fryer,
-/turf/simulated/floor/lino,
-/area/tarwa_ship/canteen)
 "aP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -318,9 +314,9 @@
 "du" = (
 /obj/structure/table/rack,
 /obj/item/gun/projectile/colt,
-/obj/random/weapon_and_ammo,
-/obj/random/weapon_and_ammo,
 /obj/item/clothing/suit/armor/unathi,
+/obj/random/civgun/rifle,
+/obj/random/civgun/rifle,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 "dG" = (
@@ -339,7 +335,8 @@
 	},
 /obj/machinery/alarm{
 	dir = 4;
-	pixel_x = -28
+	pixel_x = -28;
+	req_one_access = list(210)
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
@@ -393,10 +390,6 @@
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "fe" = (
-/turf/simulated/floor/lino,
-/area/tarwa_ship/canteen)
-"fi" = (
-/obj/machinery/light,
 /turf/simulated/floor/lino,
 /area/tarwa_ship/canteen)
 "fw" = (
@@ -788,10 +781,6 @@
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
-"kP" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/tarwa_ship/canteen)
 "kR" = (
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/helm,
@@ -802,7 +791,9 @@
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "kV" = (
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/engivend{
+	req_access = list(210)
+	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "kW" = (
@@ -1011,7 +1002,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25;
-	req_one_access = list(215)
+	req_one_access = list(210)
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
@@ -1253,7 +1244,8 @@
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
-	pixel_x = -24
+	pixel_x = -24;
+	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
@@ -1297,7 +1289,7 @@
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list(113)
+	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/cic)
@@ -1339,7 +1331,7 @@
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list(113)
+	req_access = list(210)
 	},
 /turf/simulated/floor/carpet/orange,
 /area/tarwa_ship/captain)
@@ -1423,7 +1415,8 @@
 "vn" = (
 /obj/machinery/alarm{
 	pixel_x = 28;
-	dir = 8
+	dir = 8;
+	req_one_access = list(210)
 	},
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/bruiser/flechette,
@@ -1779,7 +1772,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25;
-	req_one_access = list(215)
+	req_one_access = list(210)
 	},
 /obj/machinery/iv_drip,
 /obj/structure/bed/roller,
@@ -1940,7 +1933,8 @@
 "Dk" = (
 /obj/machinery/alarm{
 	dir = 4;
-	pixel_x = -28
+	pixel_x = -28;
+	req_one_access = list(210)
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
@@ -1994,7 +1988,7 @@
 	},
 /obj/machinery/alarm{
 	pixel_y = 25;
-	req_one_access = list(215)
+	req_one_access = list(210)
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
@@ -2016,7 +2010,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/alarm{
 	pixel_y = 25;
-	req_one_access = list(215)
+	req_one_access = list(210)
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
@@ -2030,7 +2024,7 @@
 	name = "north bump";
 	pixel_x = 0;
 	pixel_y = 24;
-	req_access = list(113)
+	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
@@ -2043,7 +2037,8 @@
 	dir = 4;
 	is_critical = 1;
 	name = "east bump";
-	pixel_x = 24
+	pixel_x = 24;
+	req_access = list(210)
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
@@ -2263,7 +2258,7 @@
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list(113)
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
@@ -2348,7 +2343,7 @@
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list(113)
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
@@ -2365,6 +2360,10 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /turf/simulated/floor/plating,
+/area/tarwa_ship/engineering2)
+"Jc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering2)
 "Jg" = (
 /turf/simulated/wall/shuttle/raider,
@@ -2395,7 +2394,7 @@
 "JO" = (
 /obj/machinery/alarm{
 	pixel_y = 25;
-	req_one_access = list(215)
+	req_one_access = list(210)
 	},
 /turf/simulated/floor/carpet/orange,
 /area/tarwa_ship/captain)
@@ -2572,7 +2571,8 @@
 	},
 /obj/machinery/alarm{
 	dir = 4;
-	pixel_x = -28
+	pixel_x = -28;
+	req_one_access = list(210)
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -2914,7 +2914,7 @@
 	is_critical = 1;
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list(113)
+	req_access = list(210)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -2941,7 +2941,7 @@
 "PL" = (
 /obj/machinery/alarm{
 	pixel_y = 25;
-	req_one_access = list(215)
+	req_one_access = list(210)
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
@@ -2991,7 +2991,8 @@
 	dir = 4;
 	is_critical = 1;
 	name = "east bump";
-	pixel_x = 24
+	pixel_x = 24;
+	req_access = list(210)
 	},
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/bruiser,
@@ -3202,9 +3203,8 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "TC" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply{
-	dir = 8;
-	target_pressure = 250
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
@@ -3323,7 +3323,7 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25;
-	req_one_access = list(215)
+	req_one_access = list(210)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -3346,7 +3346,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm{
 	pixel_y = 25;
-	req_one_access = list(215)
+	req_one_access = list(210)
 	},
 /obj/structure/bed/stool/padded/green,
 /turf/simulated/floor/tiled,
@@ -3437,7 +3437,8 @@
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
-	pixel_x = -24
+	pixel_x = -24;
+	req_access = list(210)
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/hangar)
@@ -3565,13 +3566,14 @@
 	dir = 8
 	},
 /obj/structure/table/rack,
-/obj/random/weapon_and_ammo/concealable,
 /obj/item/clothing/suit/armor/unathi,
 /obj/item/clothing/head/helmet/unathi,
 /obj/item/storage/secure/safe/unathi_pirate_izharshan{
 	pixel_x = -32;
 	pixel_y = 5
 	},
+/obj/random/civgun,
+/obj/random/civgun,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 
@@ -14805,7 +14807,7 @@ sC
 Gd
 zu
 kA
-HG
+Jc
 kA
 kA
 kA
@@ -16280,7 +16282,7 @@ Jg
 WP
 Jg
 Jg
-Jg
+Wz
 Wz
 Wz
 Wz
@@ -16442,8 +16444,8 @@ Jw
 ax
 Jw
 Jw
-Jw
 Wz
+MG
 MG
 MG
 oO
@@ -16604,9 +16606,9 @@ Ld
 mc
 jD
 Ie
-kP
 Wz
 FW
+MG
 MG
 MG
 MG
@@ -16766,8 +16768,8 @@ Wg
 jc
 bR
 Ie
-Jw
 Wz
+MG
 MG
 wj
 Fx
@@ -16928,8 +16930,8 @@ Ie
 jD
 jD
 Ie
-Jw
 Wz
+MG
 wj
 wj
 UN
@@ -17090,8 +17092,8 @@ pV
 jD
 jD
 Ie
-Jw
 Wz
+MG
 wj
 Px
 ZA
@@ -17252,8 +17254,8 @@ Jw
 Jw
 Jw
 Jw
-Jw
 Wz
+MG
 wj
 YL
 gg
@@ -17413,9 +17415,9 @@ Jg
 Dy
 yk
 yk
-yk
 fe
 Wz
+MG
 NC
 rN
 Ri
@@ -17576,8 +17578,8 @@ Ly
 fe
 fe
 fe
-fi
 Wz
+MG
 wj
 ov
 sT
@@ -17738,8 +17740,8 @@ QV
 wn
 bw
 HV
-aN
 Wz
+MG
 wj
 xl
 ZA
@@ -17900,8 +17902,8 @@ Jg
 Jg
 tO
 Jg
-Jg
 Wz
+MG
 wj
 CB
 gD
@@ -18062,8 +18064,8 @@ ef
 ef
 ef
 ef
-Jg
 Wz
+FW
 vW
 wj
 wj
@@ -18224,8 +18226,8 @@ ef
 ef
 ef
 ef
-ef
 Wz
+MG
 MG
 ey
 wj
@@ -18386,19 +18388,19 @@ ef
 ef
 ef
 ef
-ef
 Wz
-vv
-vv
-vv
-vv
-vv
-nt
-vv
-vv
-vv
-vv
-vv
+MG
+MG
+MG
+MG
+MG
+MG
+MG
+MG
+MG
+MG
+MG
+MG
 Wz
 ef
 ef
@@ -18548,20 +18550,20 @@ ef
 ef
 ef
 ef
-ef
-ef
-ef
-ef
-ef
-ef
-ef
-ef
-ef
-ef
-ef
-ef
-ef
-ef
+Wz
+vv
+vv
+vv
+vv
+vv
+vv
+nt
+vv
+vv
+vv
+vv
+vv
+Wz
 ef
 ef
 ef

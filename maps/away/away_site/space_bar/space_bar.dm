@@ -2,7 +2,7 @@
 	name = "space bar"
 	description = "An abandoned space structure."
 	suffixes = list("away_site/space_bar/space_bar.dmm")
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, ALL_COALITION_SECTORS)
 	spawn_weight = 1
 	ship_cost = 2
 	id = "space_bar"

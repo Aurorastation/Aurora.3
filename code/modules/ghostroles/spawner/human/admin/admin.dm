@@ -3,7 +3,7 @@
 
 //Add the ability to despawn
 /datum/ghostspawner/human/admin/post_spawn(mob/user)
-	user.client.verbs += /client/proc/despawn
+	add_verb(user.client, /client/proc/despawn)
 	return ..()
 
 /datum/ghostspawner/human/admin/checkpointsec
@@ -168,7 +168,7 @@
 	var/mob/M = mob
 	M.mind.special_role = null
 	M.ghostize(1)
-	verbs -= /client/proc/despawn
+	remove_verb(src, /client/proc/despawn)
 	qdel(M)
 
 
@@ -177,7 +177,7 @@
 	if(start_location.landmark_tag != "nav_emergency_start")
 		return TRUE
 
-	if(evacuation_controller.emergency_evacuation)
+	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 		if(get_security_level() != "green" )
 			var/datum/wifi/sender/door/wifi_sender = new("odin_arrivals_lockdown", SSghostroles)
 			wifi_sender.activate("close")

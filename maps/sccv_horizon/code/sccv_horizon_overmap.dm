@@ -21,7 +21,8 @@
 
 	initial_restricted_waypoints = list(
 		"Spark" = list("nav_hangar_mining"), 	//can't have random shuttles popping inside the ship
-		"Intrepid" = list("nav_hangar_intrepid")
+		"Intrepid" = list("nav_hangar_intrepid"),
+		"Canary" = list("nav_hangar_canary")
 	)
 
 	initial_generic_waypoints = list(
@@ -60,8 +61,7 @@
 	name = "Intrepid"
 	class = "SCCV"
 	designation = "Intrepid"
-	desc = "A standard-sized exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid, which actually uses \
-			a specially modified Pathfinder-class chassis fitted with a 40mm Francisca rotary gun."
+	desc = "A standard-sized exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid."
 	shuttle = "Intrepid"
 	icon_state = "intrepid"
 	moving_state = "intrepid_moving"
@@ -74,7 +74,6 @@
 	scanimage = "intrepid.png"
 	designer = "Hephaestus Industries"
 	volume = "21 meters length, 16 meters beam/width, 6 meters vertical height"
-	weapons = "Extruding fore-mounted low-caliber ballistic rotary armament"
 	sizeclass = "Pathfinder Exploration Shuttle"
 	shiptype = "Field expeditions and private research uses"
 
@@ -88,6 +87,12 @@
 	name = "\improper Intrepid control console"
 	shuttle_tag = "Intrepid"
 	req_access = list(access_intrepid)
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "right"
+	icon_screen = "blue"
+	icon_keyboard = null
+	circuit = null
 
 /obj/effect/overmap/visitable/ship/landable/mining_shuttle
 	name = "Spark"
@@ -119,6 +124,50 @@
 	name = "\improper Spark control console"
 	shuttle_tag = "Spark"
 	req_access = list(access_mining)
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "right"
+	icon_screen = "blue"
+	icon_keyboard = null
+	circuit = null
+
+/obj/effect/overmap/visitable/ship/landable/canary
+	name = "Canary"
+	class = "SCCV"
+	designation = "Canary"
+	desc = "A high-speed scouting craft akin to a less-maneuverable aerospace fighter. The Jester-type was originally an interceptor platform produced to populate the hangars of corporate defense vessels. While outdated, the solid design has found much appeal in long-term voyages due to minimal maintenance and compact size. This one has obvious thruster upgrades from similar obsolete counterparts."
+	shuttle = "Canary"
+	icon_state = "canary"
+	moving_state = "canary_moving"
+	colors = list("#cfd4ff", "#78adf8")
+	scanimage = "canary.png"
+	designer = "Hephaestus Industries, NanoTrasen"
+	volume = "14 meters length, 7 meters beam/width, 5 meters vertical height"
+	weapons = "Extruding fore-mounted low-caliber ballistic rotary armament"
+	sizeclass = "Jester-type Scout Skiff"
+	shiptype = "Exploratory survey and scouting, high-speed target interception"
+	max_speed = 2/(1 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 2500
+	fore_dir = SOUTH
+	vessel_size = SHIP_SIZE_TINY
+
+/obj/effect/overmap/visitable/ship/landable/canary/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "canary")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
+
+/obj/machinery/computer/shuttle_control/explore/canary
+	name = "\improper Canary control console"
+	shuttle_tag = "Canary"
+	req_access = list(access_intrepid)
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "right"
+	icon_screen = "blue"
+	icon_keyboard = null
+	circuit = null
 
 /obj/effect/shuttle_landmark/horizon/nav1
 	name = "Port Hangar Bay 1"

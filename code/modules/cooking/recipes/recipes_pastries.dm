@@ -122,11 +122,6 @@
 	fruit = list("apple" = 2)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/apple
 
-/singleton/recipe/cake/brain
-	appliance = OVEN
-	items = list(/obj/item/organ/internal/brain)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/brain
-
 /singleton/recipe/honeybun
 	appliance = OVEN
 	items = list(

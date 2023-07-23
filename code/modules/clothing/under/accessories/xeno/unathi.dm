@@ -175,6 +175,12 @@
 	taking sides in the power struggles of the nobility."
 	worn_overlay = "fighterslodge"
 
+/obj/item/clothing/accessory/poncho/unathimantle/fisher
+	name = "fishing league mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the grey-brown of the Fishing League. These mantles are reserved for full-fledged guildsmen, as a sign of \
+	their position in the guild."
+	desc_extended = "The largest guild within the Hegemony, the Fishing League is a behemoth of food production, churning out tons of foodstuffs a day. While local villages and nobles have their own food production centers, mainly aquaculture farms which run outside of the aegis of the Fishing League, the vast majority of food produced within the Hegemony is produced by the Fishing League, whether it be on Ouerea or Moghes. However, due to the post-contact war environment of Moghes, no matter how much the fishing league produces, it will never be enough to feed the remaining population."
+	worn_overlay = "fishingleague"
 
 /obj/item/clothing/accessory/poncho/rockstone
 	name = "rockstone cape"
@@ -187,37 +193,6 @@
 	item_state = "rockstone"
 	icon_override = null
 	contained_sprite = TRUE
-	var/additional_color = COLOR_GRAY
-
-/obj/item/clothing/accessory/poncho/rockstone/update_icon()
-	cut_overlays()
-	var/image/gem = image(icon, null, "rockstone_gem")
-	gem.appearance_flags = RESET_COLOR
-	gem.color = additional_color
-	add_overlay(gem)
-	var/image/chain = image(icon, null, "rockstone_chain")
-	chain.appearance_flags = RESET_COLOR
-	add_overlay(chain)
-
-/obj/item/clothing/accessory/poncho/rockstone/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/gem = image(mob_icon, null, "rockstone_un_gem")
-		gem.appearance_flags = RESET_COLOR
-		gem.color = additional_color
-		I.add_overlay(gem)
-		var/image/chain = image(mob_icon, null, "rockstone_un_chain")
-		chain.appearance_flags = RESET_COLOR
-		I.add_overlay(chain)
-	return I
-
-/obj/item/clothing/accessory/poncho/rockstone/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
-	var/image/base = ..()
-	var/image/gem = image(icon, null, "rockstone_un_gem")
-	gem.appearance_flags = RESET_COLOR
-	gem.color = additional_color
-	base.add_overlay(gem)
-	var/image/chain = image(icon, null, "rockstone_un_chain")
-	chain.appearance_flags = RESET_COLOR
-	base.add_overlay(chain)
-	return base
+	build_from_parts = TRUE
+	worn_overlay =  "chain"
+	has_accents = TRUE

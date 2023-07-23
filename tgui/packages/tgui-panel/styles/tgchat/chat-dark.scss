@@ -1,0 +1,602 @@
+/**
+ * Copyright (c) 2020 Aleksej Komarov
+ * SPDX-License-Identifier: MIT
+ */
+
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: pixelated;
+}
+
+img.icon {
+  height: 1em;
+  min-height: 16px;
+  width: auto;
+  vertical-align: bottom;
+}
+
+a {
+  color: #397ea5;
+}
+
+a.visited {
+  color: #7c00e6;
+}
+
+a:visited {
+  color: #7c00e6;
+}
+
+a.popt {
+  text-decoration: none;
+}
+
+/* POPUPS */
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background: #ddd;
+}
+
+.popup .close {
+  position: absolute;
+  background: #aaa;
+  top: 0;
+  right: 0;
+  color: #333;
+  text-decoration: none;
+  z-index: 2;
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.popup .close:hover {
+  background: #999;
+}
+
+.popup .head {
+  background: #999;
+  color: #ddd;
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+  border-bottom: 2px solid green;
+}
+
+.popup input {
+  border: 1px solid #999;
+  background: #fff;
+  margin: 0;
+  padding: 5px;
+  outline: none;
+  color: #333;
+}
+
+.popup input[type='text']:hover,
+.popup input[type='text']:active,
+.popup input[type='text']:focus {
+  border-color: green;
+}
+
+.popup input[type='submit'] {
+  padding: 5px 10px;
+  background: #999;
+  color: #ddd;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.popup input[type='submit']:hover,
+.popup input[type='submit']:focus,
+.popup input[type='submit']:active {
+  background: #aaa;
+  cursor: pointer;
+}
+
+.changeFont {
+  padding: 10px;
+}
+
+.changeFont a {
+  display: block;
+  text-decoration: none;
+  padding: 3px;
+  color: #333;
+}
+
+.changeFont a:hover {
+  background: #ccc;
+}
+
+.highlightPopup {
+  padding: 10px;
+  text-align: center;
+}
+
+.highlightPopup input[type='text'] {
+  display: block;
+  width: 215px;
+  text-align: left;
+  margin-top: 5px;
+}
+
+.highlightPopup input.highlightColor {
+  background-color: #ffff00;
+}
+
+.highlightPopup input.highlightTermSubmit {
+  margin-top: 5px;
+}
+
+/* ADMIN CONTEXT MENU */
+
+.contextMenu {
+  background-color: #ddd;
+  position: fixed;
+  margin: 2px;
+  width: 150px;
+}
+
+.contextMenu a {
+  display: block;
+  padding: 2px 5px;
+  text-decoration: none;
+  color: #333;
+}
+
+.contextMenu a:hover {
+  background-color: #ccc;
+}
+
+/* ADMIN FILTER MESSAGES MENU */
+
+.filterMessages {
+  padding: 5px;
+}
+
+.filterMessages div {
+  padding: 2px 0;
+}
+
+.filterMessages input {
+}
+
+.filterMessages label {
+}
+
+.icon-stack {
+  height: 1em;
+  line-height: 1em;
+  width: 1em;
+  vertical-align: middle;
+  margin-top: -2px;
+}
+
+/*****************************************
+*
+* OUTPUT ACTUALLY RELATED TO MESSAGES
+*
+******************************************/
+
+/* MOTD */
+.motd {
+  color: #a4bad6;
+  font-family: Verdana, sans-serif;
+  white-space: 'normal';
+}
+.motd h1,
+.motd h2,
+.motd h3,
+.motd h4,
+.motd h5,
+.motd h6 {
+  color: #a4bad6;
+  text-decoration: underline;
+}
+.vote {
+  color: #9933ff;
+}
+.alert {
+  color: #d82020;
+}
+.motd a,
+.motd a:link,
+.motd a:visited,
+.motd a:active,
+.motd a:hover {
+  color: #a4bad6;
+}
+
+/* ADD HERE FOR BOLD */
+.bold,
+.name,
+.prefix,
+.ooc,
+.looc,
+.adminooc,
+.admin,
+.medal,
+.yell {
+  font-weight: bold;
+}
+
+/* ADD HERE FOR ITALIC */
+.italic,
+.italics,
+.emote {
+  font-style: italic;
+}
+
+/* OUTPUT COLORS */
+.highlight {
+  background: yellow;
+}
+
+h1.alert,
+h2.alert {
+  color: #a4bad6;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  color: #a4bad6;
+  font-family: Georgia, Verdana, sans-serif;
+}
+
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* LOG */
+.log_message {
+  color: #386aff;
+  font-weight: bold;
+}
+
+/* CHAT TAGS */
+.tag {
+  color: #fff;
+  border-radius: 15px;
+  font-size: 80%;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.ooc_tag {
+  background-color: #3c5dc0;
+}
+.looc_tag {
+  color: #000;
+  background-color: #46b2b2;
+}
+.adminlooc_tag {
+  color: #000;
+  background-color: #3bae6e;
+}
+.dev_tag {
+  background-color: #2c7731;
+}
+.admin_tag {
+  background-color: #9611d4;
+}
+.ccia_tag {
+  background: #22a9b4;
+}
+.mod_tag {
+  background-color: #663a0e;
+}
+.dead_tag {
+  background-color: #9269c7;
+}
+.pmin_tag {
+  background-color: #ff0000;
+}
+.pmout_tag {
+  background-color: #ff0000;
+}
+.pmoutalt_tag {
+  background-color: #b54a4a;
+}
+.pmother_tag {
+  background-color: #498db6;
+}
+.help_tag {
+  background-color: #ff0000;
+}
+.aooc_tag {
+  background-color: #920000;
+}
+
+/* OOC */
+.ooc {
+  font-weight: bold;
+}
+.ooc img.text_tag {
+  width: 32px;
+  height: 10px;
+  vertical-align: middle;
+}
+
+.ooc .everyone {
+  color: #3c5dc0;
+}
+.ooc .looc {
+  color: #6699cc;
+}
+.ooc .adminlooc {
+  color: #3bbf6e;
+}
+.ooc .elevated {
+  color: #2e78d9;
+}
+.ooc .moderator {
+  color: #184880;
+}
+.ooc .developer {
+  color: #2c7731;
+}
+.ooc .admin {
+  color: #b82e00;
+}
+.aooc {
+  color: #d1021e;
+}
+
+/* Admin: Private Messages */
+.pm .howto {
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 200%;
+}
+.pm .in {
+  color: #ff0000;
+}
+.pm .out {
+  color: #ff0000;
+}
+.pm .other {
+  color: #0000ff;
+}
+
+/* Admin: Channels */
+.mod_channel {
+  color: #735638;
+  font-weight: bold;
+}
+.mod_channel .admin {
+  color: #b82e00;
+  font-weight: bold;
+}
+.admin_channel {
+  color: #9611d4;
+  font-weight: bold;
+}
+.cciaasay {
+  color: #22a9b4;
+  font-weight: bold;
+}
+.devsay {
+  color: #1b521f;
+  font-weight: bold;
+}
+.debug {
+  color: #306b34;
+}
+
+/* Radio: Misc */
+.deadsay {
+  color: #9269c7;
+}
+.radio {
+  color: #00a700;
+}
+.deptradio {
+  color: #ff00ff;
+} /* when all other department colors fail */
+.newscaster {
+  color: #b43c3c;
+}
+/* Radio Channels */
+.comradio {
+  color: #5b8deb;
+}
+.syndradio {
+  color: #ac6667;
+}
+.centradio {
+  color: #7272a7;
+}
+.airadio {
+  color: #ec00ec;
+}
+.entradio {
+  color: #cfcfcf;
+}
+.hailradio {
+  color: #8b4cd8;
+}
+.shipradio {
+  color: #738465;
+}
+
+.secradio {
+  color: #e21111;
+}
+.engradio {
+  color: #cc7b01;
+}
+.medradio {
+  color: #0f7e62;
+}
+.sciradio {
+  color: #c03bc0;
+}
+.supradio {
+  color: #c09141;
+}
+.srvradio {
+  color: #7fc732;
+}
+
+/* Miscellaneous */
+.name {
+  font-weight: bold;
+}
+.alert {
+  color: #ff0000;
+}
+
+.emote {
+  font-style: italic;
+}
+
+/* Game Messages */
+.attack {
+  color: #ff0000;
+}
+.moderate {
+  color: #cc0000;
+}
+.disarm {
+  color: #990000;
+}
+.passive {
+  color: #660000;
+}
+
+.danger {
+  color: #c51e1e;
+  font-weight: bold;
+}
+.warning {
+  color: #c51e1e;
+  font-style: italic;
+}
+.boldannounce {
+  color: #c51e1e;
+  font-weight: bold;
+}
+.rose {
+  color: #ff5050;
+}
+.info {
+  color: #6685f5;
+}
+.notice {
+  color: #6685f5;
+}
+.rose {
+  color: #ff5050;
+}
+.info {
+  color: #6685f5;
+}
+.notice {
+  color: #6685f5;
+}
+.alium {
+  color: #00ff00;
+}
+.cult {
+  color: #800080;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Languages */
+.alien {
+  color: #543354;
+}
+.tajaran {
+  color: #b15377;
+}
+.tajaran_signlang {
+  color: #cc2c2c;
+}
+.skrell {
+  color: #00ced1;
+}
+.vaurca {
+  color: #b9b943;
+}
+.vaurca_zora {
+  color: #c74444;
+}
+.vaurca_cthur {
+  color: #438eb9;
+}
+.vaurca_klax {
+  color: #43b97e;
+}
+.vaurca_liidra {
+  color: #af43b9;
+}
+.soghun {
+  color: #228b22;
+}
+.solcom {
+  color: #5f5fd4;
+}
+.elyran {
+  color: #c79322;
+}
+.soghun_alt {
+  color: #024402;
+}
+.changeling {
+  color: #800080;
+}
+.rough {
+  font-family: 'Trebuchet MS', cursive, sans-serif;
+}
+.say_quote {
+  font-family: Georgia, Verdana, sans-serif;
+}
+.yassa {
+  color: #400987;
+}
+.delvahhi {
+  color: #914123;
+  font-weight: bold;
+}
+.siiktau {
+  color: #a52a2a;
+}
+.freespeak {
+  color: #ff4500;
+  font-family: 'Trebuchet MS', cursive, sans-serif;
+}
+.tradeband {
+  color: #5c16c6;
+  font-family: Georgia, Verdana, sans-serif;
+}
+
+.interface {
+  color: #750e75;
+}
+
+.good {
+  color: #4f7529;
+  font-weight: bold;
+}
+.bad {
+  color: #ee0000;
+  font-weight: bold;
+}

@@ -9,7 +9,7 @@
 	name = "CoC Grown"
 	desc = "Dionae who were originally grown in and influenced by a planet within the Coalition of Colonies "
 	important_information = "As a result of no federal laws dictating how Dionae grown within CoC territory should be treated, their treatment can vary greatly from system to system, although generally are treated well and fully integrated into their local planet's society."
-	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
+	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
 
@@ -17,6 +17,6 @@
 	name = "Wildborn"
 	desc = "Dionae who were originally considered wild Dionae before being uplifted and integrated somewhere in the Coalition of Colonies or one of the megacorporations active within its borders."
 	important_information = "Wild Dionae tend to have a much harder time within CoC borders as they're generally hunted for minerals stored within them, although in more recent decades this practice has begun to die down, with more and more wild Dionae being integrated into the CoC. Policies on uplifting and integrating Dionae within the CoC vary greatly from system to system as there are no set federal laws detailing how to handle them."
-	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
+	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_IRONSONG, ACCENT_CRIMSONSONG)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)

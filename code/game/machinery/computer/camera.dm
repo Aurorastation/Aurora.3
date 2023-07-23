@@ -58,9 +58,6 @@
 	if (!ui)
 		ui = new(user, src, ui_key, "sec_camera.tmpl", "Camera Console", 900, 800)
 
-		ui.add_template("mapContent", "sec_camera_map_content.tmpl")
-		ui.add_template("mapHeader", "sec_camera_map_header.tmpl")
-
 		ui.set_initial_data(data)
 		ui.open()
 

@@ -59,7 +59,7 @@
 	glasses = null
 	head = /obj/item/clothing/head/vaurca_breeder
 	shoes = /obj/item/clothing/shoes/vaurca/breeder
-	mask = /obj/item/clothing/mask/breath/vaurca/filter
+	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder
 
 /datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -131,7 +131,7 @@
 	glasses = null
 	head = /obj/item/clothing/head/vaurca_breeder/klax
 	shoes = /obj/item/clothing/shoes/vaurca/breeder/klax
-	mask = /obj/item/clothing/mask/breath/vaurca/filter
+	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/klax
 
 /datum/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -202,7 +202,7 @@
 	glasses = null
 	head = /obj/item/clothing/head/vaurca_breeder/cthur
 	shoes = /obj/item/clothing/shoes/vaurca/breeder/cthur
-	mask = /obj/item/clothing/mask/breath/vaurca/filter
+	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/cthur
 
 /datum/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

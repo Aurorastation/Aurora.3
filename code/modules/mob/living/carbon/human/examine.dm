@@ -1,6 +1,3 @@
-#define SEC_HUDTYPE "security"
-#define MED_HUDTYPE "medical"
-
 /mob/living/carbon/human/proc/get_covered_body_parts(var/thick)
 	var/skipbody = 0
 	for(var/obj/item/clothing/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))

@@ -467,7 +467,7 @@
 	density = 1
 	anchored = 1
 	opacity = 1
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 //
 // The piston_move proc for various objects
