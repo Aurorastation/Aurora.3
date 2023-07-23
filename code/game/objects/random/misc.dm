@@ -83,7 +83,8 @@
 		/obj/item/toy/plushie/farwa,
 		/obj/item/toy/plushie/squid,
 		/obj/item/toy/plushie/bear,
-		/obj/item/toy/plushie/bearfire
+		/obj/item/toy/plushie/bearfire,
+		/obj/item/toy/plushie/herring_gull
 	)
 
 /obj/random/balloon
