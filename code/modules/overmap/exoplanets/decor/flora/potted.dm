@@ -327,3 +327,15 @@
 	desc = "A dead potted plant."
 	icon_state = "plant-dead"
 	dead = TRUE
+
+/obj/structure/flora/pottedplant/dead2
+	name = "dead potted plant"
+	desc = "A dead potted plant."
+	icon_state = "plant-dead-2"
+	dead = TRUE
+
+/obj/structure/flora/pottedplant/empty
+	name = "empty plant pot"
+	desc = "An empty plant pot."
+	icon_state = "plant-dead"
+	dead = TRUE
