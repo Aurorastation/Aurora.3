@@ -20,7 +20,7 @@ var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psioni
 	NEW_SS_GLOBAL(SSpsi)
 
 /datum/controller/subsystem/processing/psi/fire(resumed)
-	if((world.time >= (last_nlom_awareness_check + 1 MINUTES)) && !checking_nlom && !completing_nlom)
+	if((world.time >= (last_nlom_awareness_check + 30 MINUTES)) && !checking_nlom && !completing_nlom)
 		checking_nlom = TRUE
 		nlom_votes = list(
 			"Calm" = 0,
@@ -39,7 +39,7 @@ var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psioni
 						<a href='?src=\ref[src];emotion=Sad;voter=[ref(PC)]'>Sad</a> | <a href='?src=\ref[src];emotion=Fearful;voter=[ref(PC)]'>Fearful</a> | \
 						<a href='?src=\ref[src];emotion=Angry;voter=[ref(PC)]'>Angry</a> | <a href='?src=\ref[src];emotion=Stressed;voter=[ref(PC)]'>Stressed</a> | \
 						<a href='?src=\ref[src];emotion=Confused;voter=[ref(PC)]'>Confused</a")
-		complete_nlom_time = world.time + 1 MINUTE
+		complete_nlom_time = world.time + 2 MINUTES
 		completing_nlom = TRUE
 	if(completing_nlom && world.time >= complete_nlom_time)
 		var/highest_emotion = "Happy"
