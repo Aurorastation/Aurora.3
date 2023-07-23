@@ -166,8 +166,8 @@
 	)
 
 /obj/random/highvalue
-	name = "random high valuable item"
-	desc = "This is a random high valuable item."
+	name = "random high value item"
+	desc = "This is a random high value item."
 	icon = 'icons/obj/coins.dmi'
 	icon_state = "coin_diamond_heads"
 	problist = list(
