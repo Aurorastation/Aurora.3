@@ -9,7 +9,7 @@
 	item_state = "m_garment"
 	w_class = ITEMSIZE_SMALL
 	flags_inv = null
-	body_parts_covered = FACE
+	body_parts_covered = null
 	filtered_gases = list(GAS_NITROGEN, GAS_N2O, GAS_CHLORINE, GAS_ALIEN)
 	contained_sprite = 1
 
@@ -23,7 +23,7 @@
 	icon_state = "filterport"
 	w_class = ITEMSIZE_SMALL
 	flags_inv = null
-	body_parts_covered = FACE
+	body_parts_covered = null
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_BULWARK)
 	item_state = 0
 
