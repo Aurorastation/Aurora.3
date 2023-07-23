@@ -10,6 +10,7 @@
 	idle_power_usage = 5
 	active_power_usage = 100
 	flags = NOREACT
+	var/ui_sort_alphabetically = TRUE
 	var/global/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.
 	var/icon_on = "smartfridge"
 	var/icon_off = "smartfridge-off"
@@ -371,6 +372,7 @@
 	data["shoot_inventory"] = shoot_inventory
 	data["locked"] = locked
 	data["secure"] = is_secure
+	data["sort_alphabetically"] = ui_sort_alphabetically
 
 	var/list/items = list()
 	for (var/i = 1 to length(item_quants))
@@ -411,8 +413,10 @@
 						i--
 						if(i <= 0)
 							break
+		if("switch_sort_alphabetically")
+			ui_sort_alphabetically = !ui_sort_alphabetically
 
-			. = TRUE
+	. = TRUE
 
 /obj/machinery/smartfridge/proc/throw_item()
 	var/obj/throw_item = null

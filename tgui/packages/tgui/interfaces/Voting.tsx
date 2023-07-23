@@ -35,7 +35,16 @@ export const Voting = (props, context) => {
 export const VoteWindow = (props, context) => {
   const { act, data } = useBackend<VotingData>(context);
   return (
-    <Section collapsing title={data.question}>
+    <Section
+      collapsing
+      title={data.question}
+      buttons={
+        data.is_staff ? (
+          <Button content="Cancel" onClick={() => act('cancel')} />
+        ) : (
+          ''
+        )
+      }>
       <Table>
         <Table.Row header>
           <Table.Cell>
