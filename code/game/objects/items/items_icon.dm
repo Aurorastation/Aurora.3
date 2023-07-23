@@ -1,6 +1,10 @@
 var/list/mob_icon_icon_states = list()
 
 /obj/item/proc/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+	RETURN_TYPE(/image)
+
 	// If we don't actually need to offset this, don't bother with any of the generation/caching.
 	if(!mob_icon_icon_states[mob_icon])
 		mob_icon_icon_states[mob_icon] = icon_states(mob_icon)
@@ -40,7 +44,8 @@ var/list/mob_icon_icon_states = list()
 	var/image/additional_parts = build_additional_parts(H, mob_icon, slot)
 	if(additional_parts)
 		I.add_overlay(additional_parts)
-
+	if(has_accents)
+		I.add_overlay(overlay_image(icon,"[item_state][contained_sprite ? slot_str_to_contained_flag(slot) : ""]_acc",accent_color, RESET_COLOR))
 	return I
 
 /obj/item/proc/get_image_key_mod()

@@ -1378,6 +1378,11 @@
  	set hidden = 1
  	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
 
+/client/verb/cycle_target_zone()
+	set name = "cycle-zone"
+	set hidden = 1
+	toggle_zone_sel(BP_ALL_LIMBS)
+
 /client/proc/toggle_zone_sel(list/zones)
 	if(!check_has_body_select())
 		return

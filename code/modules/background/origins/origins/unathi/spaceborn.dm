@@ -11,14 +11,14 @@
 	name = "Pirates of the Spur"
 	desc = "Pirates have no common group holding them all together to work as one. They tend towards ambition and passion, acting impulsively towards what they desire. With Not'zar Izweski's call to pirates to forsake their lifestyles and join his space navy, any pirate that has served four or more years under the Hegemony has their crimes pardoned by him (but not necessarily other states). With this, a good handful of pirates that knew no normalcy are now finding it abroad. Unathi pirates don't have citizenship in their respective countries, typically having a work or visitation visa instead."
 	important_information = "Outside of the Hegemony, records should say they have some kind of visa instead of citizenship."
-	possible_accents = list(ACCENT_TRAD_PEASANT, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_WASTELAND, ACCENT_UNATHI_SPACER, ACCENT_HAZANA)
+	possible_accents = list(ACCENT_TRAD_PEASANT, ACCENT_HEARTLAND_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TZA_PEASANT, ACCENT_TZA_NOBLE, ACCENT_SOUTHLANDS_NOBLE, ACCENT_SOUTHLANDS_PEASANT, ACCENT_TORN, ACCENT_ZAZ_LOW, ACCENT_ZAZ_HIGH, ACCENT_BROKEN_PEASANT, ACCENT_BROKEN_NOBLE, ACCENT_WASTELAND, ACCENT_UNATHI_SPACER, ACCENT_HAZANA)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_OTHER, RELIGION_NONE)
 
 /singleton/origin_item/origin/colonist
 	name = "Colonist"
 	desc = "Regardless of what country you serve and the religion you hold, you became a colonist, living on a gritty world with little infrastructure to carve out a new life for yourself. It could be a Dominian Primary helping guide a colony, relegated with this tiny responsibility as a means to keep you out of the way; it could be living on Ouerea and Gakal'zaal and being one of the first Unathi to settle down and find your way among xenos; it could be living on a nomadic vessel, trading and salvaging, to earn your keep and see the cosmos. By whatever means you acquired, you found your way to the Horizon to move up in the world."
-	possible_accents = list(ACCENT_TRAD_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_HEGEMON_NOBLE, ACCENT_WASTELAND, ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH, ACCENT_UNATHI_SPACER)
+	possible_accents = list(ACCENT_TRAD_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_HEARTLAND_PEASANT, ACCENT_HEARTLAND_NOBLE, ACCENT_WASTELAND, ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH, ACCENT_UNATHI_SPACER, ACCENT_TZA_PEASANT, ACCENT_TZA_NOBLE, ACCENT_SOUTHLANDS_NOBLE, ACCENT_SOUTHLANDS_PEASANT, ACCENT_TORN, ACCENT_ZAZ_LOW, ACCENT_ZAZ_HIGH, ACCENT_BROKEN_PEASANT, ACCENT_BROKEN_NOBLE)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_OTHER, RELIGION_MOROZ, RELIGION_NONE)
 
