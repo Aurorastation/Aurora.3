@@ -342,6 +342,15 @@
 	icon_state = "assunzione_amulet"
 	contained_sprite = TRUE
 
+/obj/item/clothing/accessory/tallit
+	name = "tallit"
+	desc = "A tallit is a fringed garment worn as a prayer shawl by religious Jews. \
+	The tallit has special twined and knotted fringes known as tzitzit attached to its four corners."
+	icon = 'icons/clothing/accessories/Tallit.dmi'
+	item_state = "tallit"
+	icon_state = "tallit"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
 	desc = "They suspend the illusion of the mime's play."
@@ -411,20 +420,23 @@
 /obj/item/clothing/accessory/poncho
 	name = "poncho"
 	desc = "A simple, comfortable poncho."
+	icon = 'icons/obj/item/clothing/accessory/poncho/poncho.dmi'
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
-	icon_override = 'icons/mob/ties.dmi'
+	icon_override = 'icons/obj/item/clothing/accessory/poncho/poncho.dmi'
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	siemens_coefficient = 0.9
 	w_class = ITEMSIZE_NORMAL
 	slot = ACCESSORY_SLOT_CAPE
+	contained_sprite = TRUE
 	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
 
 /obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
 	set name = "Toggle Tail Coverage"
 	set category = "Object"
+	set src in usr
 
 	if(allow_tail_hiding)
 		flags_inv ^= HIDETAIL
@@ -501,6 +513,21 @@
 	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of operations."
 	icon_state = "cargoponcho"
 	item_state = "cargoponcho"
+
+/obj/item/clothing/accessory/poncho/colorable
+	name = "poncho"
+	desc = "A simple, comfortable cloak without sleeves."
+	icon_state = "colourponcho"
+	item_state = "colourponcho"
+	has_accents = TRUE
+
+/obj/item/clothing/accessory/poncho/colorable/alt
+	icon_state = "trimponcho"
+	item_state = "trimponcho"
+
+/obj/item/clothing/accessory/poncho/colorable/gradient
+	icon_state = "gradponcho"
+	item_state = "gradponcho"
 
 /*
  * Sashes
@@ -1074,7 +1101,7 @@
 	name = "\improper Burzsian shoulder mantle"
 	desc = "A uniform mantle made out of rudimentary metallic plates. The sigil of Burzsia is pressed into the front of it."
 	desc_extended = "A uniform mantle of metallic plates that provide positronics in Burzsia cheap, rudimentary protection from industrial hazards and shrapnel; it's also been chemically treated to withstand the surface of Burzsia I. Operation history and specifications are printed underneath the back plate, as a failsafe for field operators to quickly identify the unit in the event it is damaged to the point where said information cannot be discerned through other means."
-	icon = 'icons/clothing/accessories/bz_gorget.dmi'
+	icon = 'icons/clothing/accessories/bz_mantle.dmi'
 	icon_state = "ipcmantle"
 	item_state = "ipcmantle"
 	contained_sprite = TRUE

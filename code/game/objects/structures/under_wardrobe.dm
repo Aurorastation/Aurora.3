@@ -1,9 +1,3 @@
-#define M_UNDER "Male underwear"
-#define F_UNDER "Female underwear"
-#define M_SOCKS "Male socks"
-#define F_SOCKS "Female socks"
-#define U_SHIRT "Undershirt"
-
 /obj/structure/undies_wardrobe
 	name = "underwear wardrobe"
 	desc = "Holds item of clothing you shouldn't be showing off in the hallways."

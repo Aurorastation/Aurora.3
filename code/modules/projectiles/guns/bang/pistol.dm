@@ -57,7 +57,7 @@
 	pixel_offset_x = -4
 	pixel_offset_y = 15
 
-obj/item/gun/bang/deagle
+/obj/item/gun/bang/deagle
 	name = ".50 magnum pistol"
 	desc = "A robust handgun that uses .50 AE ammo."
 	icon = 'icons/obj/guns/deagle.dmi'

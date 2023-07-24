@@ -2675,9 +2675,7 @@
 	},
 /area/hailstorm_ship/engineering)
 "CE" = (
-/obj/structure/sign/flag/dpra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/dpra/large/north,
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
@@ -2717,9 +2715,6 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/hailstorm_shuttle)
 "Dx" = (
-/obj/structure/sign/flag/dpra/right{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},
@@ -2778,9 +2773,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/eva)
 "DU" = (
-/obj/structure/sign/flag/dpra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/dpra/large/north,
 /obj/effect/floor_decal/corner/black{
 	dir = 5
 	},

@@ -4,7 +4,7 @@
 	regions of Moghes. The forest mantle is exclusively for nobility these days."
 	path = /obj/item/clothing/accessory/poncho/unathimantle
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
@@ -21,24 +21,39 @@
 	path = /obj/item/clothing/accessory/poncho/unathimantle/forest
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/suit/unathi_mantle_heph
-	display_name = "hephaestus guild mantle"
-	description = "A deep green mantle, reserved for the guildsmen of Hephaestus Industries"
+/datum/gear/suit/unathi_mantle_guild
+	display_name = "guild mantle selection"
+	description = "A selection of hide mantles, each showing affiliation with one of the guilds of Moghes."
 	path = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/unathi_mantle_guild/New()
+	..()
+	var/list/guildmantles = list()
+	guildmantles["hephaestus guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+	guildmantles["merchants' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/merchant
+	guildmantles["miners' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/miner
+	guildmantles["junzi electric guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/junzi
+	guildmantles["bards' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/bard
+	guildmantles["house of medicine guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/med
+	guildmantles["construction coalition guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/construction
+	guildmantles["hearts of industry guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/union
+	guildmantles["fighters' lodge guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/fighter
+	guildmantles["fishing league mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/fisher
+	gear_tweaks += new /datum/gear_tweak/path(guildmantles)
 
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe"
 	path = /obj/item/clothing/suit/unathi/robe
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -51,7 +66,7 @@
 	display_name = "tzirzi robe"
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/robe_coat/New()
@@ -111,10 +126,27 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/religion/unathi_book
+	display_name = "unathi religious texts"
+	path = /obj/item/device/versebook/skakh
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/religion/unathi_book/New()
+	..()
+	var/list/unathi_book = list()
+	unathi_book["Sk'akh Legends"] = /obj/item/device/versebook/skakh
+	unathi_book["assorted Th'akh fables"] = /obj/item/device/versebook/thakh
+	unathi_book["Reflections on the Aut'akh Faith"] = /obj/item/device/versebook/autakh
+	unathi_book["Writings of Judizah Si'akh"] = /obj/item/device/versebook/siakh
+	gear_tweaks += new /datum/gear_tweak/path(unathi_book)
+
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic"
 	path = /obj/item/clothing/under/unathi
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -122,7 +154,7 @@
 	display_name = "himation cloak"
 	path = /obj/item/clothing/under/unathi/himation
 	cost = 1
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/head/sinta_ronin
 	display_name = "straw hat"
@@ -241,9 +273,9 @@
 /datum/gear/uniform/unathi/zazali
 	display_name = "zazali garb"
 	path = /obj/item/clothing/under/unathi/zazali
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
-	flags = GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
+	flags = GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/uniform/unathi/huytai
 	display_name = "huytai outfit"
@@ -254,7 +286,7 @@
 /datum/gear/uniform/unathi/zozo
 	display_name = "zozo top"
 	path = /obj/item/clothing/under/unathi/zozo
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/unathi/wrapping_head
@@ -322,7 +354,7 @@
 	display_name = "shaman staff"
 	path = /obj/item/cane/shaman
 	sort_category = "Xenowear - Unathi"
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities)
 	whitelisted = list(SPECIES_UNATHI)
 
 /datum/gear/suit/maxtlatl
@@ -331,7 +363,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain")
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -339,7 +371,7 @@
 	display_name = "Thakhist wristguards"
 	path = /obj/item/clothing/wrists/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities)
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
@@ -348,7 +380,7 @@
 	display_name = "Thakhist headgear"
 	path = /obj/item/clothing/head/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities)
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
@@ -358,15 +390,15 @@
 	path = /obj/item/clothing/accessory/poncho/rockstone
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles)
 	sort_category = "Xenowear - Unathi"
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/wrists/noble_bracers
 	display_name = "jeweled bracers"
 	path = /obj/item/clothing/wrists/unathi/jeweled
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -374,7 +406,7 @@
 	display_name = "gyazo belt"
 	path = /obj/item/clothing/accessory/unathi
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -383,6 +415,6 @@
 	path = /obj/item/clothing/suit/unathi/jokfar
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/izweski_upper, /singleton/origin_item/origin/trad_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

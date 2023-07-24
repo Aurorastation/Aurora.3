@@ -751,9 +751,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1062,9 +1060,6 @@
 "ey" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
-	},
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2997,9 +2992,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/structure/bed/stool/chair/padded/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4280,9 +4273,6 @@
 "OL" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
-	},
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4

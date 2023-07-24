@@ -24,12 +24,12 @@
 		heard = TRUE
 	return .
 
-datum/unit_test/mob_hear
+/datum/unit_test/mob_hear
 	name = "MOB: Living mobs test for mob's speech"
 	var/mob_type = /mob/living/test
 
 
-datum/unit_test/mob_hear/start_test()
+/datum/unit_test/mob_hear/start_test()
 	var/mobloc = pick(tdome1)
 	if(!mobloc)
 		TEST_FAIL("Unable to find a location to create test mob")
@@ -81,7 +81,7 @@ datum/unit_test/mob_hear/start_test()
 		TEST_FAIL("speaker did not say the words \"[message]\"")
 		return 0
 
-datum/unit_test/human_breath
+/datum/unit_test/human_breath
 	name = "MOB: Human Suffocates in Space"
 	var/starting_oxyloss = null
 	var/ending_oxyloss = null
@@ -89,7 +89,7 @@ datum/unit_test/human_breath
 	async = 1
 
 
-datum/unit_test/human_breath/start_test()
+/datum/unit_test/human_breath/start_test()
 	var/turf/T = locate(20,20,1) //TODO:  Find better way.
 
 	if(!istype(T, /turf/space))	//If the above isn't a space turf then we force it to find one will most likely pick 1,1,1
@@ -101,7 +101,7 @@ datum/unit_test/human_breath/start_test()
 
 	return 1
 
-datum/unit_test/human_breath/check_result()
+/datum/unit_test/human_breath/check_result()
 
 	if(H.life_tick < 10) 	// Finish Condition
 		return 0	// Return 0 to try again later.
@@ -117,7 +117,7 @@ datum/unit_test/human_breath/check_result()
 
 // ============================================================================
 
-proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/carbon/human, var/add_to_playerlist = FALSE)
+/proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/carbon/human, var/add_to_playerlist = FALSE)
 	var/list/test_result = list("result" = FAILURE, "msg"    = "", "mobref" = null)
 
 	if(isnull(mobloc))
@@ -144,7 +144,7 @@ proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living
 //Generic Check
 // TODO: Need to make sure I didn't just recreate the wheel here.
 
-proc/damage_check(var/mob/living/M, var/damage_type)
+/proc/damage_check(var/mob/living/M, var/damage_type)
 	var/loss = null
 
 	switch(damage_type)
@@ -187,7 +187,7 @@ proc/damage_check(var/mob/living/M, var/damage_type)
 //==============================================================================================================
 
 
-datum/unit_test/mob_damage
+/datum/unit_test/mob_damage
 	name = "MOB: Template for mob damage"
 	var/mob/living/carbon/human/testmob = null
 	var/damagetype = DAMAGE_BRUTE
@@ -196,7 +196,7 @@ datum/unit_test/mob_damage
 	var/check_health = 0
 	var/damage_location = BP_CHEST
 
-datum/unit_test/mob_damage/start_test()
+/datum/unit_test/mob_damage/start_test()
 	var/list/test = create_test_mob_with_mind(null, mob_type)
 	var/damage_amount = 5	// Do not raise, if damage >= 10 there is a % chance to reduce damage by half in /obj/item/organ/external/take_damage()
                                 // Which makes checks impossible.
@@ -283,27 +283,27 @@ datum/unit_test/mob_damage/start_test()
 // Human damage check.
 // =================================================================
 
-datum/unit_test/mob_damage/brute
+/datum/unit_test/mob_damage/brute
 	name = "MOB: Human Brute damage check"
 	damagetype = DAMAGE_BRUTE
 
-datum/unit_test/mob_damage/fire
+/datum/unit_test/mob_damage/fire
 	name = "MOB: Human Fire damage check"
 	damagetype = DAMAGE_BURN
 
-datum/unit_test/mob_damage/tox
+/datum/unit_test/mob_damage/tox
 	name = "MOB: Human Toxin damage check"
 	damagetype = DAMAGE_TOXIN
 
-datum/unit_test/mob_damage/oxy
+/datum/unit_test/mob_damage/oxy
 	name = "MOB: Human Oxygen damage check"
 	damagetype = DAMAGE_OXY
 
-datum/unit_test/mob_damage/clone
+/datum/unit_test/mob_damage/clone
 	name = "MOB: Human Clone damage check"
 	damagetype = DAMAGE_CLONE
 
-datum/unit_test/mob_damage/halloss
+/datum/unit_test/mob_damage/halloss
 	name = "MOB: Human Halloss damage check"
 	damagetype = DAMAGE_PAIN
 
@@ -311,32 +311,32 @@ datum/unit_test/mob_damage/halloss
 // Unathi
 // =================================================================
 
-datum/unit_test/mob_damage/unathi
+/datum/unit_test/mob_damage/unathi
 	name = "MOB: Unathi damage check template"
 	mob_type = /mob/living/carbon/human/unathi
 
-datum/unit_test/mob_damage/unathi/brute
+/datum/unit_test/mob_damage/unathi/brute
 	name = "MOB: Unathi Brute Damage Check"
 	damagetype = DAMAGE_BRUTE
 	expected_vulnerability = ARMORED
 
-datum/unit_test/mob_damage/unathi/fire
+/datum/unit_test/mob_damage/unathi/fire
 	name = "MOB: Unathi Fire Damage Check"
 	damagetype = DAMAGE_BURN
 
-datum/unit_test/mob_damage/unathi/tox
+/datum/unit_test/mob_damage/unathi/tox
 	name = "MOB: Unathi Toxins Damage Check"
 	damagetype = DAMAGE_TOXIN
 
-datum/unit_test/mob_damage/unathi/oxy
+/datum/unit_test/mob_damage/unathi/oxy
 	name = "MOB: Unathi Oxygen Damage Check"
 	damagetype = DAMAGE_OXY
 
-datum/unit_test/mob_damage/unathi/clone
+/datum/unit_test/mob_damage/unathi/clone
 	name = "MOB: Unathi Clone Damage Check"
 	damagetype = DAMAGE_CLONE
 
-datum/unit_test/mob_damage/unathi/halloss
+/datum/unit_test/mob_damage/unathi/halloss
 	name = "MOB: Unathi Halloss Damage Check"
 	damagetype = DAMAGE_PAIN
 
@@ -344,32 +344,32 @@ datum/unit_test/mob_damage/unathi/halloss
 // SpessKahjit aka Tajaran
 // =================================================================
 
-datum/unit_test/mob_damage/tajaran
+/datum/unit_test/mob_damage/tajaran
 	name = "MOB: Tajaran damage check template"
 	mob_type = /mob/living/carbon/human/tajaran
 
-datum/unit_test/mob_damage/tajaran/brute
+/datum/unit_test/mob_damage/tajaran/brute
 	name = "MOB: Tajaran Brute Damage Check"
 	damagetype = DAMAGE_BRUTE
 	expected_vulnerability = EXTRA_VULNERABLE
 
-datum/unit_test/mob_damage/tajaran/fire
+/datum/unit_test/mob_damage/tajaran/fire
 	name = "MOB: Tajaran Fire Damage Check"
 	damagetype = DAMAGE_BURN
 
-datum/unit_test/mob_damage/tajaran/tox
+/datum/unit_test/mob_damage/tajaran/tox
 	name = "MOB: Tajaran Toxins Damage Check"
 	damagetype = DAMAGE_TOXIN
 
-datum/unit_test/mob_damage/tajaran/oxy
+/datum/unit_test/mob_damage/tajaran/oxy
 	name = "MOB: Tajaran Oxygen Damage Check"
 	damagetype = DAMAGE_OXY
 
-datum/unit_test/mob_damage/tajaran/clone
+/datum/unit_test/mob_damage/tajaran/clone
 	name = "MOB: Tajaran Clone Damage Check"
 	damagetype = DAMAGE_CLONE
 
-datum/unit_test/mob_damage/tajaran/halloss
+/datum/unit_test/mob_damage/tajaran/halloss
 	name = "MOB: Tajaran Halloss Damage Check"
 	damagetype = DAMAGE_PAIN
 
@@ -377,31 +377,31 @@ datum/unit_test/mob_damage/tajaran/halloss
 // Skrell
 // =================================================================
 
-datum/unit_test/mob_damage/skrell
+/datum/unit_test/mob_damage/skrell
 	name = "MOB: Skrell damage check template"
 	mob_type = /mob/living/carbon/human/skrell
 
-datum/unit_test/mob_damage/skrell/brute
+/datum/unit_test/mob_damage/skrell/brute
 	name = "MOB: Skrell Brute Damage Check"
 	damagetype = DAMAGE_BRUTE
 
-datum/unit_test/mob_damage/skrell/fire
+/datum/unit_test/mob_damage/skrell/fire
 	name = "MOB: Skrell Fire Damage Check"
 	damagetype = DAMAGE_BURN
 
-datum/unit_test/mob_damage/skrell/tox
+/datum/unit_test/mob_damage/skrell/tox
 	name = "MOB: Skrell Toxins Damage Check"
 	damagetype = DAMAGE_TOXIN
 
-datum/unit_test/mob_damage/skrell/oxy
+/datum/unit_test/mob_damage/skrell/oxy
 	name = "MOB: Skrell Oxygen Damage Check"
 	damagetype = DAMAGE_OXY
 
-datum/unit_test/mob_damage/skrell/clone
+/datum/unit_test/mob_damage/skrell/clone
 	name = "MOB: Skrell Clone Damage Check"
 	damagetype = DAMAGE_CLONE
 
-datum/unit_test/mob_damage/skrell/halloss
+/datum/unit_test/mob_damage/skrell/halloss
 	name = "MOB: Skrell Halloss Damage Check"
 	damagetype = DAMAGE_PAIN
 
@@ -409,33 +409,33 @@ datum/unit_test/mob_damage/skrell/halloss
 // Diona
 // =================================================================
 
-datum/unit_test/mob_damage/diona
+/datum/unit_test/mob_damage/diona
 	name = "MOB: Diona damage check template"
 	mob_type = /mob/living/carbon/human/diona
 
-datum/unit_test/mob_damage/diona/brute
+/datum/unit_test/mob_damage/diona/brute
 	name = "MOB: Diona Brute Damage Check"
 	damagetype = DAMAGE_BRUTE
 
-datum/unit_test/mob_damage/diona/fire
+/datum/unit_test/mob_damage/diona/fire
 	name = "MOB: Diona Fire Damage Check"
 	damagetype = DAMAGE_BURN
 
-datum/unit_test/mob_damage/diona/tox
+/datum/unit_test/mob_damage/diona/tox
 	name = "MOB: Diona Toxins Damage Check"
 	damagetype = DAMAGE_TOXIN
 
-datum/unit_test/mob_damage/diona/oxy
+/datum/unit_test/mob_damage/diona/oxy
 	name = "MOB: Diona Oxygen Damage Check"
 	damagetype = DAMAGE_OXY
 	expected_vulnerability = IMMUNE
 
-datum/unit_test/mob_damage/diona/clone
+/datum/unit_test/mob_damage/diona/clone
 	name = "MOB: Diona Clone Damage Check"
 	damagetype = DAMAGE_CLONE
 	expected_vulnerability = IMMUNE
 
-datum/unit_test/mob_damage/diona/halloss
+/datum/unit_test/mob_damage/diona/halloss
 	name = "MOB: Diona Halloss Damage Check"
 	damagetype = DAMAGE_PAIN
 	expected_vulnerability = ARMORED
@@ -444,36 +444,36 @@ datum/unit_test/mob_damage/diona/halloss
 // SPECIAL WHITTLE SNOWFLAKES aka IPC
 // =================================================================
 
-datum/unit_test/mob_damage/machine
+/datum/unit_test/mob_damage/machine
 	name = "MOB: IPC damage check template"
 	mob_type = /mob/living/carbon/human/machine
 
-datum/unit_test/mob_damage/machine/brute
+/datum/unit_test/mob_damage/machine/brute
 	name = "MOB: IPC Brute Damage Check"
 	damagetype = DAMAGE_BRUTE
 	expected_vulnerability = ARMORED
 
-datum/unit_test/mob_damage/machine/fire
+/datum/unit_test/mob_damage/machine/fire
 	name = "MOB: IPC Fire Damage Check"
 	damagetype = DAMAGE_BURN
 	expected_vulnerability = EXTRA_VULNERABLE
 
-datum/unit_test/mob_damage/machine/tox
+/datum/unit_test/mob_damage/machine/tox
 	name = "MOB: IPC Toxins Damage Check"
 	damagetype = DAMAGE_TOXIN
 	expected_vulnerability = IMMUNE
 
-datum/unit_test/mob_damage/machine/oxy
+/datum/unit_test/mob_damage/machine/oxy
 	name = "MOB: IPC Oxygen Damage Check"
 	damagetype = DAMAGE_OXY
 	expected_vulnerability = IMMUNE
 
-datum/unit_test/mob_damage/machine/clone
+/datum/unit_test/mob_damage/machine/clone
 	name = "MOB: IPC Clone Damage Check"
 	damagetype = DAMAGE_CLONE
 	expected_vulnerability = IMMUNE
 
-datum/unit_test/mob_damage/machine/halloss
+/datum/unit_test/mob_damage/machine/halloss
 	name = "MOB: IPC Halloss Damage Check"
 	damagetype = DAMAGE_PAIN
 	expected_vulnerability = IMMUNE
@@ -482,46 +482,46 @@ datum/unit_test/mob_damage/machine/halloss
 // Vaurca Worker
 // =================================================================
 
-datum/unit_test/mob_damage/vaurca
+/datum/unit_test/mob_damage/vaurca
 	name = "MOB: Vaurca damage check template"
 	mob_type = /mob/living/carbon/human/type_a
 
-datum/unit_test/mob_damage/vaurca/brute
+/datum/unit_test/mob_damage/vaurca/brute
 	name = "MOB: Vaurca Brute Damage Check"
 	damagetype = DAMAGE_BRUTE
 	expected_vulnerability = ARMORED
 
-datum/unit_test/mob_damage/vaurca/fire
+/datum/unit_test/mob_damage/vaurca/fire
 	name = "MOB: Vaurca Fire Damage Check"
 	damagetype = DAMAGE_BURN
 	expected_vulnerability = EXTRA_VULNERABLE
 
-datum/unit_test/mob_damage/vaurca/tox
+/datum/unit_test/mob_damage/vaurca/tox
 	name = "MOB: Vaurca Toxins Damage Check"
 	damagetype = DAMAGE_TOXIN
 	expected_vulnerability = EXTRA_VULNERABLE
 
-datum/unit_test/mob_damage/vaurca/oxy
+/datum/unit_test/mob_damage/vaurca/oxy
 	name = "MOB: Vaurca Oxygen Damage Check"
 	damagetype = DAMAGE_OXY
 	expected_vulnerability = ARMORED
 
-datum/unit_test/mob_damage/vaurca/clone
+/datum/unit_test/mob_damage/vaurca/clone
 	name = "MOB: Vaurca Clone Damage Check"
 	damagetype = DAMAGE_CLONE
 
-datum/unit_test/mob_damage/vaurca/halloss
+/datum/unit_test/mob_damage/vaurca/halloss
 	name = "MOB: Vaurca Halloss Damage Check"
 	damagetype = DAMAGE_PAIN
 
 // ==============================================================================
 
 
-datum/unit_test/robot_module_icons
+/datum/unit_test/robot_module_icons
 	name = "MOB: Robot module icon check"
 	var/icon_file = 'icons/mob/screen/robot.dmi'
 
-datum/unit_test/robot_module_icons/start_test()
+/datum/unit_test/robot_module_icons/start_test()
 	var/failed = 0
 	if(!isicon(icon_file))
 		TEST_FAIL("[icon_file] is not a valid icon file.")

@@ -6,7 +6,7 @@
 	set desc = "Style your hair."
 	set category = "IC"
 
-	if(use_check_and_message())
+	if(incapacitated())
 		return
 
 	if(h_style)
@@ -54,7 +54,7 @@
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
-mob/living/carbon/human/proc/change_monitor()
+/mob/living/carbon/human/proc/change_monitor()
 	set name = "Change IPC Screen"
 	set desc = "Change the display on your screen."
 	set category = "Abilities"
@@ -1262,7 +1262,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(!istype(M))
 		to_chat(usr, SPAN_WARNING("You aren't allowed to rename \the [src]."))
 		return
-	 
+
 	if(usr == src)
 		to_chat(usr, SPAN_WARNING("You're a simple creature, you can't rename yourself!"))
 		return

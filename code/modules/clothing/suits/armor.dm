@@ -506,8 +506,8 @@
 
 // Vaurca version of Unathi armor
 /obj/item/clothing/suit/armor/unathi/klax
-	name = "klaxan hopeful body armor"
-	desc = "An armored chestplate designated to be worn by a K'lax hopeful. The retrofit is only a bit shoddy."
+	name = "klaxan warrior body armor"
+	desc = "An armored chestplate designated to be worn by a K'lax warrior. The retrofit is only a bit shoddy."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "klax_hopeful"
 	item_state = "klax_hopeful"

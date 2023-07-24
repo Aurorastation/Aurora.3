@@ -69,7 +69,7 @@
 	parent_organ = BP_HEAD
 	robotic = ROBOTIC_MECHANICAL
 
-obj/item/organ/vaurca/neuralsocket/process()
+/obj/item/organ/vaurca/neuralsocket/process()
 	if (is_broken())
 		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
 			owner.remove_language(LANGUAGE_VAURCA)

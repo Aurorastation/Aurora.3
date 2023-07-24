@@ -6,7 +6,7 @@
 	density = TRUE
 	layer = ABOVE_ALL_MOB_LAYER
 	pixel_x = -32
-	pixel_y = -32
+	pixel_y = -24
 	var/image/star_system_image
 
 /obj/machinery/stargazer/Initialize(mapload, d, populate_components)
@@ -37,7 +37,7 @@
 		cut_overlays()
 		set_light(0)
 
-/obj/machinery/stargazer/Topic(href, href_list, datum/topic_state/state)
+/obj/machinery/stargazer/Topic(href, href_list, datum/ui_state/state)
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return TRUE
 	if(!isInSight(usr, src))

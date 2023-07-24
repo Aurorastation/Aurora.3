@@ -50,7 +50,7 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/biesel(H), slot_head)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
+			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
 			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_belt)
@@ -169,7 +169,7 @@
 	western asia and northern africa during the early years of space colonization from Pre-Alliance Earth. It is made up of multiple star systems. It's national motto \
 	is \"For Greatness We Strive\". It's official language is Tau Ceti Basic, though several old-earth languages cling to life in small enclaves, such as arabic, persian, and farsi. \
 	The Republic has mixed relations with NanoTrasen, due to their own possession of phoron."
-	demonym = "elyrian"
+	demonym = "elyran"
 	consular_outfit = /datum/outfit/job/representative/consular/elyra
 
 /datum/outfit/job/representative/consular/elyra
@@ -177,6 +177,43 @@
 
 	backpack_contents = list(
 		/obj/item/gun/projectile/plasma/bolter/pistol = 1
+	)
+/datum/citizenship/elyran_ncp
+	name = CITIZENSHIP_ELYRA_NCP
+	description = "\"Non-Citizen Persons,\" (NCPs) as they are officially called, make-up approximately one-third of the total population of the Republic Elyra. \
+					Most of these people are poor migrant labourers from the less wealthy planets in the Coalition of Colonies or the stateless Human Frontier. \
+					They are often unskilled and undereducated, coming to Elyra in order to make enough money to send back home as remittances to their families, \
+					or alternatively to save up enough money to return to their homeworlds with enough cash to make their lives there. their lack of citizenship \
+					shuts them out of the Elyran public health and education systems, and grossly restricts the amount of influences they have on Elyran society, \
+					having little to no legal representation in most courts of law either. They cannot vote and are not provided with any of the other benefits \
+					that the average Elyran citizens enjoys."
+	demonym = "elyran non-citizen person"
+	consular_outfit = null
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
+		)
 	)
 
 /datum/citizenship/dominia

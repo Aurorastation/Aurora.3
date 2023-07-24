@@ -650,7 +650,6 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "yy" = (
-/obj/structure/sign/flag/heph/right,
 /turf/simulated/wall,
 /area/overgrown_mining_station)
 "yz" = (
@@ -803,7 +802,7 @@
 /turf/simulated/wall/diona,
 /area/overgrown_mining_station)
 "Ei" = (
-/obj/structure/sign/flag/heph/left,
+/obj/structure/sign/flag/heph/large/north,
 /turf/simulated/wall,
 /area/overgrown_mining_station)
 "Ep" = (

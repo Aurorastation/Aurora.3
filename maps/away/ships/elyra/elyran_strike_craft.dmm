@@ -1417,10 +1417,6 @@
 /area/ship/elyran_strike_craft)
 "nDF" = (
 /obj/machinery/hologram/holopad/long_range,
-/obj/structure/sign/flag/elyra/right{
-	dir = 4;
-	pixel_x = 32
-	},
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -1514,10 +1510,7 @@
 /area/ship/elyran_strike_craft)
 "pea" = (
 /obj/structure/table/standard,
-/obj/structure/sign/flag/elyra/left{
-	dir = 4;
-	pixel_x = 32
-	},
+/obj/structure/sign/flag/elyra/large/east,
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/item/paper_bin,
 /obj/item/pen/multi,

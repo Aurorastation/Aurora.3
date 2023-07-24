@@ -2438,7 +2438,7 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "fA" = (
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/wood,
 /area/security/training_theoretical)
 "fB" = (
@@ -3476,7 +3476,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
 "iT" = (
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/selfdestruct)
@@ -6725,7 +6725,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site/zone_2)
 "xa" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "xi" = (

@@ -4,6 +4,9 @@
 	name_plural = "Type A"
 	category_name = "Vaurca"
 	bodytype = BODYTYPE_VAURCA
+	species_height = HEIGHT_CLASS_TALL
+	height_min = 150
+	height_max = 250
 	age_min = 1
 	age_max = 20
 	default_genders = list(NEUTER)
@@ -142,7 +145,7 @@
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
-	var/obj/item/clothing/mask/breath/vaurca/filter/M = new /obj/item/clothing/mask/breath/vaurca/filter(H)
+	var/obj/item/clothing/mask/gas/vaurca/filter/M = new /obj/item/clothing/mask/gas/vaurca/filter(H)
 	H.equip_to_slot_or_del(M, slot_wear_mask)
 
 /datum/species/bug/after_equip(var/mob/living/carbon/human/H)

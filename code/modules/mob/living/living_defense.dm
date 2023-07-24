@@ -105,7 +105,7 @@
 		apply_effect(agony_amount / 10, STUTTER)
 		apply_effect(agony_amount / 10, EYE_BLUR)
 
-/mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/tesla_shock = 0, var/ground_zero)
+/mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	return 0 //only carbon liveforms have this proc
 
 /mob/living/emp_act(severity)
@@ -224,7 +224,7 @@
 /mob/living/proc/embed(var/obj/O, var/def_zone=null)
 	O.forceMove(src)
 	src.embedded += O
-	src.verbs += /mob/proc/yank_out_object
+	add_verb(src, /mob/proc/yank_out_object)
 
 /mob/living/proc/turf_collision(var/atom/T, var/speed = THROWFORCE_SPEED_DIVISOR, var/sound_to_play = 'sound/effects/bangtaper.ogg')
 	visible_message("<span class='danger'>[src] slams into \the [T]!</span>")

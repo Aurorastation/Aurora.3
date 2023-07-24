@@ -688,14 +688,7 @@
 "nY" = (
 /obj/random/booze,
 /obj/structure/table/wood,
-/obj/structure/sign/flag/coalition/left{
-	pixel_x = -16;
-	pixel_y = 29
-	},
-/obj/structure/sign/flag/coalition/right{
-	pixel_x = 16;
-	pixel_y = 29
-	},
+/obj/structure/sign/flag/coalition/large/north,
 /turf/simulated/floor/carpet/rubber,
 /area/dungeon/crashed_ship)
 "oe" = (

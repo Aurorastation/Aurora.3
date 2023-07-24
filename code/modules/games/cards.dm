@@ -231,6 +231,7 @@
 	set category = "Object"
 	set name = "Discard"
 	set desc = "Place a card from your hand in front of you."
+	set src in usr
 
 	draw_card(usr)
 
@@ -336,6 +337,7 @@
 		i++
 
 /obj/item/hand/dropped(mob/user as mob)
+	. = ..()
 	if(locate(/obj/structure/table, loc))
 		src.update_icon(user.dir)
 	else

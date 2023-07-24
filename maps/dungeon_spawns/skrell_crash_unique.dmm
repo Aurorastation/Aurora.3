@@ -631,10 +631,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "ce" = (
-/obj/structure/sign/flag/nralakk/left{
-	bound_y = 0;
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/nralakk/large/north,
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "cf" = (
@@ -670,9 +667,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "cl" = (
-/obj/structure/sign/flag/nralakk/right{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/nralakk/large/north,
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "cm" = (

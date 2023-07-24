@@ -7,7 +7,8 @@
 		return
 
 	if(SSticker.mode && SSticker.mode.check_antagonists_topic(href, href_list))
-		check_antagonists()
+		var/static/datum/tgui_module/moderator/shared/check_antagonists/global_check_antags = new()
+		global_check_antags.ui_interact(usr)
 		return
 
 	else if(href_list["stickyban"])
@@ -682,18 +683,22 @@
 		C.jumptomob(M)
 
 	else if(href_list["check_antagonist"])
-		check_antagonists()
+		var/static/datum/tgui_module/moderator/shared/check_antagonists/global_check_antags = new()
+		global_check_antags.ui_interact(usr)
 
 	else if(href_list["adminplayerobservecoodjump"])
-		if(!check_rights(R_ADMIN|R_MOD))	return
+		if(!check_rights(R_ADMIN|R_MOD))
+			return
+		if(isnewplayer(usr))
+			return
 
 		var/x = text2num(href_list["X"])
 		var/y = text2num(href_list["Y"])
 		var/z = text2num(href_list["Z"])
 
 		var/client/C = usr.client
-		if(!isobserver(usr))	C.admin_ghost()
-		sleep(2)
+		if(!isobserver(usr))
+			C.admin_ghost()
 		C.jumptocoord(x,y,z)
 
 	else if(href_list["take_ticket"])
@@ -1468,13 +1473,13 @@
 		access_control_topic(href_list["access_control"])
 		return
 
-mob/living/proc/can_centcom_reply()
+/mob/living/proc/can_centcom_reply()
 	return 0
 
-mob/living/carbon/human/can_centcom_reply()
+/mob/living/carbon/human/can_centcom_reply()
 	return istype(l_ear, /obj/item/device/radio/headset) || istype(r_ear, /obj/item/device/radio/headset)
 
-mob/living/silicon/ai/can_centcom_reply()
+/mob/living/silicon/ai/can_centcom_reply()
 	return common_radio != null && !check_unable(2)
 
 /client/proc/extra_admin_link()

@@ -47,19 +47,39 @@ Color adjustment
 	I.color = sanitize_hexcolor(metadata, I.color)
 
 /*
-	Additional Color adjustment
+Alpha adjustment
 */
 
-var/datum/gear_tweak/color/additional/gear_tweak_additional_color = new()
+/datum/gear_tweak/alpha/get_contents(var/metadata)
+	return "Alpha (0-255): [metadata]"
 
-/datum/gear_tweak/color/additional/get_contents(var/metadata)
-	return "Additional Color: <font color='[metadata]'>&#9899;</font>"
+/datum/gear_tweak/alpha/get_default()
+	return 255
 
-/datum/gear_tweak/color/additional/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
+/datum/gear_tweak/alpha/get_random()
+	return 255
+
+/datum/gear_tweak/alpha/get_metadata(var/user, var/metadata, var/title = "Character Preference")
+	var/selected_alpha = input(user, "Choose a color.", title, metadata) as num|null
+	selected_alpha = Clamp(selected_alpha, 0, 255)
+	return selected_alpha
+
+/datum/gear_tweak/alpha/tweak_item(var/obj/item/item, var/metadata, var/mob/living/carbon/human/H)
+	item.alpha = metadata
+
+/*
+	Accent colour
+*/
+
+var/datum/gear_tweak/color/accent/gear_tweak_accent_color = new()
+
+/datum/gear_tweak/color/accent/get_contents(var/metadata)
+	return "Accent Color: <font color='[metadata]'>&#9899;</font>"
+
+/datum/gear_tweak/color/accent/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
 	if(valid_colors && !(metadata in valid_colors))
 		return
-	if(I.vars["additional_color"]) // set var/additional_color = COLOR_GREY on item
-		I.vars["additional_color"] = metadata
+	I.accent_color = metadata
 	I.update_icon()
 
 /*

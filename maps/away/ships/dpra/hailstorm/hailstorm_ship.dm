@@ -39,6 +39,7 @@
 	initial_restricted_waypoints = list(
 		"Spacer Militia Shuttle" = list("nav_hailstorm_shuttle")
 	)
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/hailstorm_ship/New()
 	designation = "[pick("Al'mari", "Champion of the Tajara", "Nated's Revenge", "Mata'ke's Blade", "Star Guerilla", "Dreams of Freedom", "Al'mariist Comet", "Adhomai's Liberator")]"

@@ -22,6 +22,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	generic_object = FALSE
 	var/moving_state = "ship_moving"
 
+	layer = OVERMAP_SHIP_LAYER
+
 //RP fluff details to appear on scan readouts for mobile objects.
 	var/propulsion = "Chemical Composite Gas Thrust" 	//Slower than light propulsion method. No variation in this currently exists yet except the Horizon which heats its gas.
 	var/drive = "None equipped, FTL incapable" 			//Faster than light propulsion method, will usually be warp drives for third party ships and nothing for shuttles

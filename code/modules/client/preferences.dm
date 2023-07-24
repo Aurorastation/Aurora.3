@@ -2,7 +2,7 @@
 
 var/list/preferences_datums = list()
 
-datum/preferences
+/datum/preferences
 	//doohickeys for savefiles
 	var/path
 	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
@@ -26,7 +26,8 @@ datum/preferences
 	var/sfx_toggles = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
-	var/html_UI_style = "Nano"
+	var/tgui_fancy = TRUE
+	var/tgui_lock = FALSE
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
@@ -39,6 +40,7 @@ datum/preferences
 	var/gender = MALE					//gender of character (well duh)
 	var/pronouns = NEUTER				//what the character will appear as to others when examined
 	var/age = 30						//age of character
+	var/height						//character's height
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = OUTFIT_BACKPACK		//backpack type (defines in outfit.dm)
@@ -153,7 +155,7 @@ datum/preferences
 
 	// SPAAAACE
 	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
-	var/clientfps = 0
+	var/clientfps = 40
 	var/floating_chat_color
 	var/speech_bubble_type = "normal"
 
@@ -212,6 +214,18 @@ datum/preferences
 	var/datum/species/mob_species = all_species[species]
 	return mob_species.age_max
 
+/datum/preferences/proc/getMinHeight()
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.height_min
+
+/datum/preferences/proc/getMaxHeight()
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.height_max
+
+/datum/preferences/proc/getAvgHeight()
+	var/datum/species/mob_species = all_species[species]
+	return mob_species.species_height
+
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)	return
 	var/dat = "<center>"
@@ -234,7 +248,7 @@ datum/preferences
 	dat += player_setup.header()
 	dat += "<br><HR></center>"
 	dat += player_setup.content(user)
-	send_theme_resources(user)
+
 	winshow(user, "preferences_window", TRUE)
 	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 1400, 1000)
 	popup.set_content(dat)
@@ -382,6 +396,7 @@ datum/preferences
 	character.pronouns = pronouns
 	character.age = age
 	character.b_type = b_type
+	character.height = height
 
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
@@ -410,6 +425,8 @@ datum/preferences
 	character.b_skin = b_skin
 
 	character.s_tone = s_tone
+
+	character.lipstick_color = null
 
 	character.citizenship = citizenship
 	character.employer_faction = faction
@@ -496,9 +513,12 @@ datum/preferences
 	dat += "<hr>"
 	dat += "<a href='?src=\ref[src];close_load_dialog=1'>Close</a><br>"
 	dat += "</center></tt>"
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
 
+	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
+	load_diag.width = 300
+	load_diag.height = 390
+	load_diag.set_content(dat)
+	load_diag.open()
 
 /datum/preferences/proc/open_load_dialog_file(mob/user)
 	var/dat = "<tt><center>"
@@ -517,11 +537,13 @@ datum/preferences
 
 	dat += "<hr>"
 	dat += "</center></tt>"
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
+
+	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
+	load_diag.set_content(dat)
+	load_diag.open()
 
 /datum/preferences/proc/close_load_dialog(mob/user)
-	user << browse(null, "window=saves")
+	user << browse(null, "window=load_diag")
 
 // Logs a character to the database. For statistics.
 /datum/preferences/proc/log_character(var/mob/living/carbon/human/H)

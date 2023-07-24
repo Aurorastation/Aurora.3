@@ -54,6 +54,13 @@
 	damage = 40
 	armor_penetration = 20
 
+/obj/item/projectile/beam/midlaser/hegemony
+	armor_penetration = 30
+	muzzle_type = /obj/effect/projectile/muzzle/hegemony
+	tracer_type = /obj/effect/projectile/tracer/hegemony
+	impact_type = /obj/effect/projectile/impact/hegemony
+
+
 /obj/item/projectile/beam/noctiluca
 	damage = 20
 	armor_penetration = 40

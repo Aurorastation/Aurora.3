@@ -28,9 +28,7 @@
 	var/obj/screen/storage/storage_start //storage UI
 	var/obj/screen/storage/storage_continue
 	var/obj/screen/storage/storage_end
-	var/obj/screen/storage/stored_start
-	var/obj/screen/storage/stored_continue
-	var/obj/screen/storage/stored_end
+	var/list/storage_screens = list()
 	var/obj/screen/close/closer
 	var/care_about_storage_depth = TRUE
 	var/use_to_pickup	//Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
@@ -51,9 +49,7 @@
 	QDEL_NULL(storage_start)
 	QDEL_NULL(storage_continue)
 	QDEL_NULL(storage_end)
-	QDEL_NULL(stored_start)
-	QDEL_NULL(stored_continue)
-	QDEL_NULL(stored_end)
+	QDEL_NULL_LIST(storage_screens)
 	QDEL_NULL(closer)
 	return ..()
 
@@ -167,7 +163,10 @@
 /obj/item/storage/proc/close(mob/user as mob)
 	hide_from(user)
 	user.s_active = null
-	return
+	if(!length(can_see_contents()))
+		storage_start.vis_contents = list()
+		QDEL_NULL_LIST(storage_screens)
+		storage_screens = list()
 
 /obj/item/storage/proc/close_all()
 	for(var/mob/M in can_see_contents())
@@ -266,9 +265,17 @@
 	var/startpoint = 0
 	var/endpoint = 1
 
+	storage_start.vis_contents = list()
+	QDEL_NULL_LIST(storage_screens)
+	storage_screens = list()
+
 	for(var/obj/item/O in contents)
 		startpoint = endpoint + 1
 		endpoint += storage_width * O.get_storage_cost()/max_storage_space
+
+		var/obj/screen/storage/background/stored_start = new /obj/screen/storage/background(null, O, "stored_start")
+		var/obj/screen/storage/background/stored_continue = new /obj/screen/storage/background(null, O, "stored_continue")
+		var/obj/screen/storage/background/stored_end = new /obj/screen/storage/background(null, O, "stored_end")
 
 		var/matrix/M_start = matrix()
 		var/matrix/M_continue = matrix()
@@ -280,11 +287,13 @@
 		stored_start.transform = M_start
 		stored_continue.transform = M_continue
 		stored_end.transform = M_end
-		storage_start.add_overlay(list(stored_start, stored_continue, stored_end))
+
+		storage_screens += list(stored_start, stored_continue, stored_end)
+		storage_start.vis_contents += list(stored_start, stored_continue, stored_end)
 
 		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		O.maptext = ""
-		O.layer = SCREEN_LAYER+0.01
+		O.layer = SCREEN_LAYER+0.02
 
 	if (!defer_overlays)
 		storage_start.compile_overlays()
@@ -568,7 +577,7 @@
 	return handle_item_insertion(W, null, user)
 
 /obj/item/storage/dropped(mob/user as mob)
-	return
+	return ..()
 
 /obj/item/storage/attack_hand(mob/user)
 	if(ishuman(user))
@@ -601,6 +610,7 @@
 /obj/item/storage/verb/toggle_gathering_mode()
 	set name = "Switch Gathering Method"
 	set category = "Object"
+	set src in usr
 
 	collection_mode = !collection_mode
 	switch (collection_mode)
@@ -613,6 +623,7 @@
 /obj/item/storage/verb/quick_empty()
 	set name = "Empty Contents"
 	set category = "Object"
+	set src in usr
 
 	if((!ishuman(usr) && (src.loc != usr)) || usr.stat || usr.restrained())
 		return
@@ -670,12 +681,6 @@
 
 	storage_end = new /obj/screen/storage{icon_state = "storage_end"}
 	storage_end.master = src
-
-	stored_start = new /obj/storage_bullshit{icon_state = "stored_start"} //we just need these to hold the icon
-
-	stored_continue = new /obj/storage_bullshit{icon_state = "stored_continue"}
-
-	stored_end = new /obj/storage_bullshit{icon_state = "stored_end"}
 
 	closer = new /obj/screen/close{
 		icon_state = "x";

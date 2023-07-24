@@ -442,14 +442,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_SMALL
 
 
-/obj/item/spirit_board/fluff/klavdiya_board //Ghostly Board - Klavdiya Tikhomirov - alberyk
-	name = "ghostly board"
-	desc = "An adhomian ghostly board, used in divination rituals. This one is blue and has the symbol of a moon on it."
-	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
-	icon_override = 'icons/obj/custom_items/klavdiya_amulet.dmi'
-	icon_state = "klavdiya_board" //thanks to kyres1 for the sprites
-
-
 /obj/item/clothing/head/fluff/aavs_mask //Reflective Mask - Aavs Guwan - dronzthewolf
 	name = "reflective mask"
 	desc = "This odd mask and hood combination covers the wearer, and seems to be made of a one-way dome mirror and some old cloth or rope."
@@ -669,7 +661,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
+/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
 	name = "holo-symphette"
 	desc = "A cheap, collapsible musical instrument which utilizes holographic projections to generate a rough noise. It's shaped like a small harp, and seems to be  \
 	able to be tuned to mimic several old stringed Solarian instruments with some distorted audio. It's still got its price tag sticker on it."
@@ -682,7 +674,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	var/deployed = FALSE
 
-/obj/item/fluff/akinyi_symphette/update_icon()
+/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/update_icon()
 	if(deployed)
 		icon_state = "akinyi_symphette_on"
 		item_state = "akinyi_symphette_on"
@@ -690,7 +682,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = "akinyi_symphette"
 		item_state = "akinyi_symphette"
 
-/obj/item/fluff/akinyi_symphette/attack_self(var/mob/user)
+/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/AltClick(var/mob/user)
 	deployed = !deployed
 	to_chat(user, "<span class='notice'>You [deployed ? "expand" : "collapse"] \the [src].</span>")
 	update_icon()
@@ -1077,12 +1069,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	can_hold = list(
 		/obj/item/device/megaphone/fluff/akinyi_mic,
 		/obj/item/fluff/akinyi_stand,
-		/obj/item/fluff/akinyi_symphette
+		/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette
 		)
 	starts_with = list(
 		/obj/item/device/megaphone/fluff/akinyi_mic = 1,
 		/obj/item/fluff/akinyi_stand = 1,
-		/obj/item/fluff/akinyi_symphette = 1
+		/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette = 1
 	)
 
 
@@ -1332,17 +1324,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "godard_cape"
 	contained_sprite = TRUE
 
-/obj/item/flame/lighter/zippo/fluff/sezrak_zippo //Imperial 16th Zippo - Sezrak Han'san - captaingecko
-	name = "imperial 16th zippo"
-	desc = "A zippo lighter given by the Empire of Dominia to the men of the 16th Regiment of the Imperial Army, also known as the \"Suicide Regiments\", that would manage to survive more \
-	than a dozen deployments. The Imperial 16th is a regiment deployed by Dominia during battles that cannot be lost, their men ensuring victories through the use of unusual and highly \
-	dangerous tactics, resulting in extremely high losses during almost all of its engagements."
-	icon = 'icons/obj/custom_items/sezrak_zippo.dmi'
-	icon_override = 'icons/obj/custom_items/sezrak_zippo.dmi'
-	icon_state = "sezrak_zippo"
-	item_state = "sezrak_zippo"
-	contained_sprite = TRUE
-
 
 /obj/item/clothing/glasses/spiffygogs/fluff/andersen_goggles //Red Goggles - Adam Andersen - cybercide
 	name = "red goggles"
@@ -1384,27 +1365,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "valetzrhonaja_cloak"
 	contained_sprite = TRUE
 
-
-/obj/structure/sign/flag/fisanduh_coalition
-	name = "coalition fisanduh unity flag"
-	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
-	icon_state = "coalition-fisanduh"
-
-/obj/structure/sign/flag/fisanduh_coalition/left
-	icon_state = "fisanduh_coalition_l"
-
-/obj/structure/sign/flag/fisanduh_coalition/right
-	icon_state = "fisanduh_coalition_r"
-
 /obj/item/flag/fluff/bian_flag //Coalition Fisanduh Unity Flag - Bian Quy Le - persephoneq
-	name = "coalition fisanduh unity flag"
+	name = "large coalition fisanduh unity flag"
+	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
 	icon = 'icons/obj/custom_items/bian_flag.dmi'
 	icon_override = 'icons/obj/custom_items/bian_flag.dmi'
 	icon_state = "bian_flag"
-	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
 	flag_path = "fisanduh_coalition"
-	flag_size = 1
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/fisanduh_coalition
 
+/obj/structure/sign/flag/fisanduh_coalition
+	name = "large coalition fisanduh unity flag"
+	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
+	icon = 'icons/obj/custom_items/bian_flag.dmi'
+	flag_path = "fisanduh_coalition"
+	flag_item = /obj/item/flag/fluff/bian_flag
+	flag_size = TRUE
 
 /obj/item/organ/internal/augment/fluff/goldman_eye //Moneymaker Cybernetic Eye Overlay - Kobi Goldman - sleepywolf
 	name = "moneymaker cybernetic eye overlay"
@@ -1901,18 +1878,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "aheke_coat"
 	contained_sprite = TRUE
 
-
-/obj/structure/sign/flag/unathi_fleet
-	name = "unathi fleet flag"
-	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
-	icon_state = "unathi_fleet"
-
-/obj/structure/sign/flag/unathi_fleet/left
-	icon_state = "unathi_fleet_l"
-
-/obj/structure/sign/flag/unathi_fleet/right
-	icon_state = "unathi_fleet_r"
-
 /obj/item/flag/fluff/ahzi_flag //Unathi Fleet Flag - Ankala Ahzi - captaingecko
 	name = "unathi fleet flag"
 	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
@@ -1920,9 +1885,26 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/ahzi_items.dmi'
 	icon_state = "ahzi_flag"
 	flag_path = "unathi_fleet"
+	flag_structure = /obj/structure/sign/flag/unathi_fleet
+
+/obj/structure/sign/flag/unathi_fleet
+	name = "unathi fleet flag"
+	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
+	icon = 'icons/obj/custom_items/ahzi_items.dmi'
+	icon_state = "unathi_fleet"
+	flag_path = "unathi_fleet"
+	flag_item = /obj/item/flag/fluff/ahzi_flag
 
 /obj/item/flag/fluff/ahzi_flag/l
-	flag_size = 1
+	name = "large unathi fleet flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/unathi_fleet/large
+
+/obj/structure/sign/flag/unathi_fleet/large
+	icon_state = "unathi_fleet_l"
+	flag_path = "unathi_fleet"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/fluff/ahzi_flag/l
 
 /obj/item/clothing/accessory/armband/fluff/ahzi_armband //Unathi Fleet Armband - Ankala Ahzi - captaingecko
 	name = "unathi fleet armband"
@@ -2109,4 +2091,3 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/provenance_jacket.dmi'
 	icon_state = "provenance_coat"
 	item_state = "provenance_coat"
-

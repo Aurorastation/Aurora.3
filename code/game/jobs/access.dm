@@ -258,13 +258,13 @@ var/obj/item/card/id/all_access/ghost_all_access
 /mob/living/silicon/GetIdCard()
 	return id_card
 
-proc/FindNameFromID(var/mob/M, var/missing_id_name = "Unknown")
+/proc/FindNameFromID(var/mob/M, var/missing_id_name = "Unknown")
 	var/obj/item/card/id/C = M.GetIdCard()
 	if(C)
 		return C.registered_name
 	return missing_id_name
 
-proc/get_all_job_icons() //For all existing HUD icons
+/proc/get_all_job_icons() //For all existing HUD icons
 	return joblist + list("Prisoner")
 
 /obj/proc/GetJobName() //Used in secHUD icon generation

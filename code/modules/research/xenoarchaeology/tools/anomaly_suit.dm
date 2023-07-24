@@ -5,6 +5,8 @@
 	desc = "A sealed bio suit capable of insulating against exotic alien energies."
 	icon_state = "engspace_suit"
 	item_state = "engspace_suit"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("skr", "taj", "una")
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 100)
 
 /obj/item/clothing/head/hazmat/anomaly
@@ -12,6 +14,8 @@
 	desc = "A sealed bio hood capable of insulating against exotic alien energies."
 	icon_state = "engspace_helmet"
 	item_state = "engspace_helmet"
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("skr", "taj", "una")
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 100)
 
 /obj/item/clothing/suit/space/anomaly

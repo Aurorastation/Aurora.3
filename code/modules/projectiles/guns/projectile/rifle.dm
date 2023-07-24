@@ -32,7 +32,7 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/scope/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)
@@ -319,10 +319,10 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 
-	fire_delay = 25
+	fire_delay = ROF_UNWIELDY
 	accuracy = -1
 
-	fire_delay_wielded = 10
+	fire_delay_wielded = ROF_HEAVY
 	accuracy_wielded = 2
 
 	is_wieldable = TRUE
@@ -337,7 +337,7 @@
 	icon = 'icons/obj/guns/gauss_thumper.dmi'
 	icon_state = "gauss_thumper"
 	fire_sound = /singleton/sound_category/gauss_fire_sound
-	fire_delay = 30
+	fire_delay = ROF_UNWIELDY
 	charge_meter = 0
 	max_shots = 3
 	charge_cost = 500
@@ -360,7 +360,7 @@
 	handle_casings = HOLD_CASINGS
 	max_shells = 1
 
-	fire_delay_wielded = 20
+	fire_delay_wielded = ROF_INTERMEDIATE
 	accuracy_wielded = 1
 
 /obj/item/gun/projectile/gauss/carbine/update_icon()

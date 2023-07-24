@@ -2136,9 +2136,7 @@
 /turf/simulated/floor/wood,
 /area/cruise/pool)
 "bxd" = (
-/obj/structure/sign/flag/idris/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/idris/large/north,
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
@@ -4239,9 +4237,7 @@
 	},
 /area/cruise/beach)
 "dkH" = (
-/obj/structure/sign/flag/idris/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/idris/large/north,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -5893,9 +5889,6 @@
 	},
 /area/cruise/washroom_aft)
 "eKe" = (
-/obj/structure/sign/flag/idris/right{
-	pixel_y = 32
-	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -7336,9 +7329,6 @@
 /area/cruise/beach)
 "fQJ" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/structure/sign/flag/idris/right{
-	pixel_y = 32
-	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -16547,9 +16537,6 @@
 	},
 /area/cruise/library)
 "mXv" = (
-/obj/structure/sign/flag/idris/right{
-	pixel_y = 32
-	},
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
@@ -17519,9 +17506,6 @@
 "nQy" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
-	},
-/obj/structure/sign/flag/idris/right{
-	pixel_y = 32
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -25080,7 +25064,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -27926,9 +27910,7 @@
 /area/cruise/pool/sauna2)
 "wma" = (
 /obj/structure/bed/stool/chair/wood,
-/obj/structure/sign/flag/idris/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/idris/large/north,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -27990,9 +27972,7 @@
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
-/obj/structure/sign/flag/idris/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/idris/large/north,
 /obj/machinery/light/small{
 	dir = 1
 	},

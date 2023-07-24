@@ -1,8 +1,8 @@
-datum/track
+/datum/track
 	var/title
 	var/sound
 
-datum/track/New(var/title_name, var/audio)
+/datum/track/New(var/title_name, var/audio)
 	title = title_name
 	sound = audio
 
@@ -31,7 +31,7 @@ datum/track/New(var/title_name, var/audio)
 		new/datum/track("Endless Space", 'sound/music/space.ogg'),
 		new/datum/track("Scratch", 'sound/music/title1.ogg'),
 		new/datum/track("Suspenseful", 'sound/music/traitor.ogg'),
-		new/datum/track("Thunderdome", 'sound/music/thunderdome.ogg'),
+		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg'),
 		new/datum/track("Velvet Rose", 'sound/music/velvet_rose.ogg')
 	)
 

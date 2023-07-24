@@ -15,12 +15,13 @@
 	multi_aim = 1
 	burst_delay = 2
 	sel_mode = 1
+	fire_delay = ROF_SMG
 
 	firemodes = list(
-		list(mode_name="semiauto",       can_autofire=0, burst=1),
+		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=ROF_SMG),
 		list(mode_name="3-round bursts", can_autofire=0, burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10, 15)),
 		list(mode_name="short bursts",   can_autofire=0, burst=5, burst_accuracy=list(1,0,,-1,-1), dispersion=list(5, 10, 15, 20)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
 
 //Submachine guns and personal defence weapons, go.
@@ -129,14 +130,15 @@
 	empty_sound = /singleton/sound_category/out_of_ammo_rifle
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
+	fire_delay = ROF_RIFLE
 
 	is_wieldable = TRUE
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=10),
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
 		list(mode_name="short bursts",   burst=5, burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
 		)
 
 	//slower to regain aim, more inaccurate if not wielding
@@ -180,11 +182,10 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=8),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=1, one_hand_fa_penalty=22, burst_accuracy = list(0,-1,-1,-1,-2,-2,-2,-3), dispersion = list(5, 5, 10, 15, 20)),
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_HEAVY),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=22, burst_accuracy = list(0,-1,-1,-1,-2,-2,-2,-3), dispersion = list(5, 5, 10, 15, 20)),
 		)
 
-	fire_delay = 8
 	accuracy = 2
 
 /obj/item/gun/projectile/automatic/rifle/shorty/update_icon()
@@ -209,7 +210,7 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 
-	firemodes = list(mode_name="semiauto", burst=1, fire_delay=12, fire_delay_wielded=12)
+	firemodes = list(mode_name="semiauto", burst=1, fire_delay=ROF_HEAVY, fire_delay_wielded=ROF_INTERMEDIATE)
 
 /obj/item/gun/projectile/automatic/rifle/carbine/update_icon()
 	..()
@@ -293,7 +294,7 @@
 
 	burst_delay = 4
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=10),
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_INTERMEDIATE),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(2,1,1), dispersion=list(0, 7.5)),
 		list(mode_name="fire grenades", use_launcher=1)
 		)
@@ -359,7 +360,7 @@
 
 	burst_delay = 4
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=12),
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_RIFLE),
 		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(1, 1))
 	)
 
@@ -394,7 +395,7 @@
 	firemodes = list(
 		list(mode_name="short bursts",	burst=5, burst_accuracy = list(1,0,0,-1,-1), dispersion = list(3, 6, 9)),
 		list(mode_name="long bursts",	burst=8, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
-		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=1, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
 
 	var/cover_open = 0
@@ -597,18 +598,18 @@
 		)
 
 
-	fire_delay = 20
+	fire_delay = ROF_UNWIELDY
 	accuracy = -1
 
 	//wielding information
-	fire_delay_wielded = 5
+	fire_delay_wielded = ROF_SUPERHEAVY
 	accuracy_wielded = 2
 	scoped_accuracy = 2
 
 /obj/item/gun/projectile/automatic/terminator/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)
@@ -635,14 +636,12 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
 
 	accuracy = -2
-	fire_delay = 10
 	recoil_wielded = 0
 
-	fire_delay_wielded = 6
 	accuracy_wielded = 0
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay= 10, fire_delay_wielded=10),
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_SUPERHEAVY, fire_delay_wielded=ROF_HEAVY),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(0,-1,-1), dispersion=list(0, 10, 15))
 		)
 

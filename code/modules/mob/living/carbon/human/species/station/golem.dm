@@ -26,6 +26,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	eyes = "blank_eyes"
 
 	bodytype = BODYTYPE_GOLEM
+	species_height = HEIGHT_CLASS_SHORT
 
 	language = "Ceti Basic"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch)
@@ -815,7 +816,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	death_message = "collapses into a pile of flesh!"
 	death_message_range = 7
 
-	death_sound = 'sound/magic/disintegrate.ogg'
+	death_sound = 'sound/magic/Disintegrate.ogg'
 
 	golem_designation = "Flesh"
 

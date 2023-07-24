@@ -83,7 +83,7 @@
 			DoEffectPulse()
 
 //returns 0..1, with 1 being no protection and 0 being fully protected
-proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
+/proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
 	if(!H || !istype(H))
 		return 1
 

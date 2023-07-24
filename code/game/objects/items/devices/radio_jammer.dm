@@ -40,26 +40,29 @@ var/list/active_radio_jammers = list()
 	return ..()
 
 /obj/item/device/radiojammer/attack_self(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	ui_interact(user)
+
+/obj/item/device/radiojammer/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "devices-jammer", 200, 200, capitalize_first_letters(name))
-	ui.open()
+		ui = new(user, src, "Jammer", "Radio Jammer", 200, 200)
+		ui.open()
 
-/obj/item/device/radiojammer/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		data = list()
+/obj/item/device/radiojammer/ui_data(mob/user)
+	var/list/data = list()
+	data["active"] = active
+	return data
 
-	VUEUI_SET_CHECK(data["active"], active, ., data)
+/obj/item/device/radiojammer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return TRUE
 
-/obj/item/device/radiojammer/Topic(href, href_list)
-	..()
-
-	if(href_list["set_active"])
-		active = text2num(href_list["set_active"])
-		update_icon()
-
-	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
-	ui.check_for_change()
+	switch(action)
+		if("set_active")
+			active = text2num(params["set_active"])
+			update_icon()
+			. = TRUE
 
 /obj/item/device/radiojammer/emp_act()
 	toggle()

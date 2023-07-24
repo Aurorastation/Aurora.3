@@ -57,7 +57,7 @@
 		A.visible_message("<span class='warning'>[A] strikes [D] with their closed fist!</span>")
 	return 1
 
-datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(check_streak(A,D))
 		return 1
 	..()

@@ -3,7 +3,7 @@
 	desc = "Emits a protective shield fron your hand in front of you, which will protect you from almost anything able to harm \
 	you, so long as you can power it.  Stronger attacks blocked cost more energy to sustain.  \
 	Note that holding two shields will make blocking more energy efficent."
-	enhancement_desc = "Blocking is twice as efficent in terms of energy cost per hit."
+	enhancement_desc = "Blocking is twice as efficient in terms of energy cost per hit."
 	cost = 100
 	obj_path = /obj/item/spell/shield
 	ability_icon_state = "tech_shield"
@@ -33,7 +33,7 @@
 
 	var/damage_to_energy_cost = damage_to_energy_multiplier * damage
 
-	if(issmall(user)) // Smaller shields are more efficent.
+	if(issmall(user)) // Smaller shields are more efficient.
 		damage_to_energy_cost *= 0.75
 
 	if(ishuman(owner))
