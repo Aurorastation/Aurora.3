@@ -1279,15 +1279,23 @@
 	else
 		throw_mode_on()
 
+#define THROW_MODE_ICON 'icons/effects/cursor/throw_mode.dmi'
+
 /mob/proc/throw_mode_off()
 	src.in_throw_mode = 0
 	if(src.throw_icon) //in case we don't have the HUD and we use the hotkey
 		src.throw_icon.icon_state = "act_throw_off"
+	if(client?.mouse_pointer_icon == THROW_MODE_ICON)
+		client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
 
 /mob/proc/throw_mode_on()
 	src.in_throw_mode = 1
 	if(src.throw_icon)
 		src.throw_icon.icon_state = "act_throw_on"
+	if(client?.mouse_pointer_icon == initial(client.mouse_pointer_icon))
+		client.mouse_pointer_icon = THROW_MODE_ICON
+
+#undef THROW_MODE_ICON
 
 /mob/proc/is_invisible_to(var/mob/viewer)
 	if(isAI(viewer))
@@ -1377,6 +1385,11 @@
  	set name = "body-l-leg"
  	set hidden = 1
  	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
+
+/client/verb/cycle_target_zone()
+	set name = "cycle-zone"
+	set hidden = 1
+	toggle_zone_sel(BP_ALL_LIMBS)
 
 /client/proc/toggle_zone_sel(list/zones)
 	if(!check_has_body_select())

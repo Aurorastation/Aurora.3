@@ -348,8 +348,10 @@
 /obj/item/clothing/suit/storage/toggle/trench
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat."
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/trenchcoat.dmi'
 	icon_state = "trench"
 	item_state = "trench"
+	contained_sprite = TRUE
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 
@@ -390,23 +392,7 @@
 /obj/item/clothing/suit/storage/toggle/trench/colorable/alt
 	icon_state = "trench_colorable2"
 	item_state = "trench_colorable2"
-	var/additional_color = COLOR_GRAY
-
-/obj/item/clothing/suit/storage/toggle/trench/colorable/alt/update_icon()
-	cut_overlays()
-	var/image/belt = image(icon, null, "trench_colorable2_belt[opened ? "_open" : null]")
-	belt.appearance_flags = RESET_COLOR
-	belt.color = additional_color
-	add_overlay(belt)
-
-/obj/item/clothing/suit/storage/toggle/trench/colorable/alt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/belt = image(mob_icon, null, "trench_colorable2_belt[opened ? "_open" : null]")
-		belt.appearance_flags = RESET_COLOR
-		belt.color = additional_color
-		I.add_overlay(belt)
-	return I
+	has_accents = TRUE
 
 /obj/item/clothing/suit/storage/toggle/highvis
 	name = "high visibility jacket"

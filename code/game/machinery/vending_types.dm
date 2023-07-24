@@ -98,6 +98,11 @@
 		/obj/item/reagent_containers/food/drinks/bottle/space_up = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/dominian_wine = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/algae_wine = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/kvass = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/tarasun = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/valokki_wine = 3,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
 		/obj/item/reagent_containers/food/drinks/cans/sodawater = 15,
@@ -175,6 +180,29 @@
 	random_itemcount = 1
 	req_access = list()
 	restock_items = 1
+
+/obj/machinery/vending/boozeomat/abandoned
+	// badly stocked, with trash, junk, etc
+	desc = "Used to hold bottles and drinks cold and nice in the past, now it is all dusty and barely functioning, if at all."
+	products = list(
+		/obj/item/reagent_containers/food/drinks/drinkingglass = 1,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot = 5,
+		/obj/item/reagent_containers/food/drinks/ice = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/whiskey = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/tequila = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/vodka = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/rum = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/wine = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/victorygin = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 2,
+		/obj/item/reagent_containers/food/drinks/bottle = 6,
+		/obj/random/junk = 7,
+		/obj/item/material/shard = 3,
+		/obj/item/broken_bottle = 5)
+	random_itemcount = 1
+	req_access = list()
+	restock_items = 1
+	use_power = 0
 
 /obj/machinery/vending/assist
 	vend_id = "tools"
