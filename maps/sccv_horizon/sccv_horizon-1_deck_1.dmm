@@ -19159,6 +19159,10 @@
 	id = "shutters_deck2_portstairwellsec";
 	name = "Security Shutter"
 	},
+/obj/structure/sign/crush{
+	pixel_y = 8;
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/eva)
 "nup" = (
@@ -27188,7 +27192,8 @@
 	dir = 8
 	},
 /obj/structure/sign/crush{
-	pixel_y = 32
+	pixel_y = 32;
+	pixel_x = 16
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Expedition EVA Storage";
@@ -27942,9 +27947,6 @@
 "tJR" = (
 /obj/machinery/light/spot{
 	dir = 1
-	},
-/obj/structure/sign/crush{
-	pixel_y = 32
 	},
 /obj/structure/flora/pottedplant/random,
 /obj/structure/railing/mapped{

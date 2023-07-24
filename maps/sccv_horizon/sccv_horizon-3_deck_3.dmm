@@ -17279,19 +17279,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/medical/ward/isolation)
-"nGI" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/horizon/hallway/deck_three/primary/port)
 "nHe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
@@ -18393,6 +18380,10 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/machinery/light/floor{
+	dir = 1;
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/port)
@@ -20124,16 +20115,17 @@
 /turf/simulated/wall,
 /area/horizon/holodeck_control)
 "qhR" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/light/floor{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/port)
 "qii" = (
 /obj/machinery/alarm{
