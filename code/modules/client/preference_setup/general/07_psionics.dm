@@ -3,15 +3,7 @@
 	sort_order = 7
 
 /datum/category_item/player_setup_item/general/psionics/load_character(var/savefile/S)
-	var/psionics_json
-	S["psionics"] >> psionics_json
-	var/list/psionics = json_decode(psionics_json)
-	for(var/psi in psionics)
-		var/singleton/psionic_power/P = GET_SINGLETON(text2path(psi))
-		if(!istype(P))
-			continue
-		psionics |= P.type
-	pref.psionics = psionics
+	S["psionics"] >> pref.psionics
 
 /datum/category_item/player_setup_item/general/psionics/save_character(var/savefile/S)
 	var/list/psionics = pref.psionics
@@ -56,7 +48,7 @@
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
-/datum/category_item/player_setup_item/general/psionics/sanitize_character(var/sql_load = 0)
+/datum/category_item/player_setup_item/general/psionics/load_special(savefile/S)
 	if(istext(pref.psionics))
 		var/before = pref.psionics
 		try
@@ -64,6 +56,8 @@
 		catch (var/exception/e)
 			log_debug("PSIONICS: Caught [e]. Initial value: [before]")
 			pref.psionics = list()
+
+/datum/category_item/player_setup_item/general/psionics/sanitize_character(var/sql_load = 0)
 	var/datum/species/mob_species = all_species[pref.species]
 	if(length(pref.psionics) && !mob_species.has_psionics)
 		pref.psionics = list()
