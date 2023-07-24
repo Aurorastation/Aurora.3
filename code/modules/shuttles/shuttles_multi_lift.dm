@@ -5,7 +5,7 @@
 // order of stops is same as defined in destination_tags
 /datum/shuttle/autodock/multi/lift/
 	warmup_time = 3
-	move_time = 3
+	move_time = 2
 	knockdown = FALSE
 	squishes = FALSE
 	ceiling_type = null
@@ -35,6 +35,7 @@
 	var/next_tag = get_next_destination_tag()
 	next_location = SSshuttle.get_landmark(next_tag)
 	..(next_location.name, user)
+	launch(user)
 
 /datum/shuttle/autodock/multi/lift/arrived()
 	if(final_location == current_location)
