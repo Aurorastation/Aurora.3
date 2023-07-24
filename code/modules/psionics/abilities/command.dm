@@ -68,7 +68,7 @@
 			to_chat(M, "<span class='notice'>[user] psionically commands to [target]:</span> [text]")
 
 	var/mob/living/carbon/human/H = target
-	if(H.can_commune() || H.psi)
+	if(H.has_psionics())
 		to_chat(H, SPAN_CULT("<b>You are psionically commanded to carry out the following task:</b> [text]."))
 	else if(target.has_psi_aug())
 		to_chat(H, SPAN_CULT("<b>You sense [user]'s psyche link with your psi-receiver, a command sliding into your mind:</b> [text]"))

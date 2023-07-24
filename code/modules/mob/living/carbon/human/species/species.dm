@@ -748,8 +748,8 @@
 /datum/species/proc/get_digestion_product()
 	return /singleton/reagent/nutriment
 
-/datum/species/proc/can_commune()
-	return FALSE
+/datum/species/proc/has_psionics()
+	return has_psi_potential
 
 /datum/species/proc/handle_despawn()
 	return

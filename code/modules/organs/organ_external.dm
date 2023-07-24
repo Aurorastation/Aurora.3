@@ -289,7 +289,7 @@
 
 	/// Psionics and psionically deaf species take varying amounts of damage from psionic abilities.
 	if(psionic)
-		if(!owner.can_commune())
+		if(!owner.has_psionics())
 			brute *= 0.9
 			burn *= 0.9
 		else if(owner.psi)

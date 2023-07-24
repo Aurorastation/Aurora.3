@@ -6,7 +6,7 @@
 	return psiaug && !psiaug.is_broken()
 
 /mob/living/proc/is_psi_blocked()
-	return !can_commune()
+	return !has_psionics()
 
 /mob/living/carbon/is_psi_blocked()
 	if(HAS_TRAIT(src, TRAIT_ZONA_BOVINAE_ABSORBED))
