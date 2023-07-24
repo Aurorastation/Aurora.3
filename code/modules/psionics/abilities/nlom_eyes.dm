@@ -41,7 +41,7 @@
 	for(var/mob/living/L in mob_list)
 		if(L == user)
 			continue
-		if(!L.can_commune())
+		if(!L.is_psi_blocked())
 			continue
 		if(GET_Z(L) != GET_Z(user))
 			continue

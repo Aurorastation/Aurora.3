@@ -28,7 +28,7 @@
 		var/list/level_humans = list()
 		var/found_apex = FALSE
 		for(var/mob/living/carbon/human/H in human_mob_list)
-			if(GET_Z(H) == GET_Z(H) && H.can_commune())
+			if(GET_Z(H) == GET_Z(H) && !H.is_psi_blocked())
 				if(HAS_TRAIT(H, TRAIT_PSIONIC_SUPPRESSION))
 					continue
 				level_humans |= H

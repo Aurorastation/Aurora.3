@@ -133,7 +133,7 @@
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	if(!H.can_commune())
+	if(H.is_psi_blocked())
 		to_chat(H, SPAN_WARNING("You don't have a Zona Bovinae!"))
 		return
 	if(H.psi.get_rank() >= PSI_RANK_HARMONIOUS)
