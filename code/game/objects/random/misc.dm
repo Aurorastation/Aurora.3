@@ -356,6 +356,17 @@
 		/obj/item/shreddedp = 0.1
 	)
 
+/obj/random/dirt_75
+	name = "dirt 75%"
+	desc = "75% chance of spawning dirt, otherwise nothing."
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "dirt"
+	layer = ABOVE_CABLE_LAYER // just so it appears under structures in map editor
+	spawn_nothing_percentage = 25
+	spawnlist = list(
+		/obj/effect/decal/cleanable/dirt
+	)
+
 /obj/random/vendor
 	name = "random vendor"
 	var/depleted = FALSE
