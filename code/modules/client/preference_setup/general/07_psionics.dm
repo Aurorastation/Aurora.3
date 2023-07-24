@@ -62,15 +62,19 @@
 	if(length(pref.psionics) && !mob_species.has_psionics)
 		pref.psionics = list()
 		return
+	var/list/bought_psionic_powers = list()
 	for(var/S in pref.psionics)
 		var/singleton/psionic_power/P = GET_SINGLETON(text2path(S))
-		if(!istype(P))
-			pref.psionics -= S
-			continue
-		else
+		if(istype(P))
 			if(!(P.ability_flags & PSI_FLAG_CANON))
 				pref.psionics -= S
 				continue
+			bought_psionic_powers |= P
+		else
+			pref.psionics -= S
+			continue
+	if(length(bought_psionic_powers) > mob_species.character_creation_psi_points)
+		pref.psionics = list()
 
 /datum/category_item/player_setup_item/general/psionics/content(var/mob/user)
 	var/datum/species/mob_species = all_species[pref.species]
