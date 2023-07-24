@@ -56,6 +56,12 @@
 	item_state = "dominian_capew"
 	cape_backing_state = "capew_backing"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/zavod
+	name = "zavodskoi dominian cape"
+	icon_state = "dominian_capez"
+	item_state = "dominian_capez"
+	cape_backing_state = "capez_backing"
+
 /obj/item/clothing/accessory/poncho/dominia_cape/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
@@ -81,6 +87,12 @@
 	item_state = "strelitz_capew"
 	cape_backing_state = "capew_backing"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/strelitz/zavod
+	name = "zavodskoi house strelitz cape"
+	icon_state = "strelitz_capez"
+	item_state = "strelitz_capez"
+	cape_backing_state = "capez_backing"
+
 /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad
 	name = "house volvalaad cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Volvalaad."
@@ -92,6 +104,12 @@
 	icon_state = "volvalaad_capew"
 	item_state = "volvalaad_capew"
 	cape_backing_state = "capew_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/volvalaad/zavod
+	name = "zavodskoi house volvalaad cape"
+	icon_state = "volvalaad_capez"
+	item_state = "volvalaad_capez"
+	cape_backing_state = "capez_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz
 	name = "house kazhkz cape"
@@ -105,6 +123,12 @@
 	item_state = "kazhkz_capew"
 	cape_backing_state = "capew_backing"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/kazhkz/zavod
+	name = "zavodskoi house kazhkz cape"
+	icon_state = "kazhkz_capez"
+	item_state = "kazhkz_capez"
+	cape_backing_state = "capez_backing"
+
 /obj/item/clothing/accessory/poncho/dominia_cape/caladius
 	name = "house caladius cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Caladius."
@@ -117,6 +141,12 @@
 	item_state = "caladius_capew"
 	cape_backing_state = "capew_backing"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/caladius/zavod
+	name = "zavodskoi house caladius cape"
+	icon_state = "caladius_capez"
+	item_state = "caladius_capez"
+	cape_backing_state = "capez_backing"
+
 /obj/item/clothing/accessory/poncho/dominia_cape/zhao
 	name = "house zhao cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Zhao."
@@ -128,6 +158,13 @@
 	icon_state = "zhao_capew"
 	item_state = "zhao_capew"
 	cape_backing_state = "capew_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/zhao/zavod
+	name = "zavodskoi house zhao cape"
+	icon_state = "zhao_capez"
+	item_state = "zhao_capez"
+	cape_backing_state = "capez_backing"
+
 
 /obj/item/clothing/accessory/poncho/dominia_cape/mantle
 	name = "dominian military cape"
