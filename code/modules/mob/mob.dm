@@ -1428,7 +1428,7 @@
 		else
 			descriptor = "to tower over"
 	if(height_string)
-		return height_string + ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
+		return height_string + "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."
 	return "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."
 
 /mob/proc/get_speech_bubble_state_modifier()
