@@ -126,33 +126,6 @@
 	ambience = AMBIENCE_GHOSTLY
 
 //Robotics Lift
-/datum/shuttle/autodock/ferry/lift/scc_ship/robotics
-	name = "Robotics Lift"
-	location = 1
-	shuttle_area = /area/turbolift/scc_ship/robotics_lift
-	waypoint_station = "nav_robotics_lift_bottom"
-	waypoint_offsite = "nav_robotics_lift_top"
-
-/obj/effect/shuttle_landmark/lift/robotics_top
-	name = "Robotics Top"
-	landmark_tag = "nav_robotics_lift_top"
-	base_area = /area/hallway/medical
-	base_turf = /turf/simulated/open
-
-/obj/effect/shuttle_landmark/lift/robotics_bottom
-	name = "Robotics Bottom"
-	landmark_tag = "nav_robotics_lift_bottom"
-	flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/rnd/eva
-	base_turf = /turf/simulated/floor/plating
-
-/area/turbolift/scc_ship/robotics_lift
-	name = "Robotics Lift"
-	sound_env = TUNNEL_ENCLOSED
-	ambience = AMBIENCE_GHOSTLY
-
-// =============================================
-//Robotics Lift
 /datum/shuttle/autodock/multi/lift/robotics
 	name = "Robotics Lift 2"
 	current_location = "nav_robotics_lift_second_deck"
@@ -190,9 +163,9 @@
 /obj/machinery/computer/shuttle_control/multi/lift/wall/robotics
 	shuttle_tag = "Robotics Lift 2"
 
-// /area/turbolift/scc_ship/robotics_lift
-// 	name = "Robotics Lift"
-// 	sound_env = TUNNEL_ENCLOSED
-// 	ambience = AMBIENCE_GHOSTLY
+/area/turbolift/scc_ship/robotics_lift
+	name = "Robotics Lift"
+	sound_env = TUNNEL_ENCLOSED
+	ambience = AMBIENCE_GHOSTLY
 
 
