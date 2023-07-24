@@ -16,6 +16,14 @@
 			return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
 	return FALSE
 
+/mob/living/proc/has_zona_bovinae()
+	return TRUE
+
+/mob/living/carbon/has_zona_bovinae()
+	if(HAS_TRAIT(src, TRAIT_ZONA_BOVINAE_ABSORBED) || HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
+		return FALSE
+	return TRUE
+
 /mob/living/proc/is_psi_pingable()
 	return !is_psi_blocked()
 

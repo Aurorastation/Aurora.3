@@ -19,7 +19,7 @@
 	if(!isliving(hit_atom))
 		return
 	var/mob/living/L = hit_atom
-	if(L.is_psi_blocked())
+	if(!L.has_zona_bovinae())
 		to_chat(user, SPAN_WARNING("This being doesn't have a Zona Bovinae."))
 		return
 	if(L.psi && L.psi.get_rank() >= PSI_RANK_HARMONIOUS)
