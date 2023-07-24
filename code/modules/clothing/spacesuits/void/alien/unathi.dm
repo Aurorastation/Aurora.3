@@ -214,7 +214,8 @@
 
 /obj/item/clothing/suit/space/void/unathi_pirate/tarwa
 	name = "tarwa conglomerate voidsuit"
-	desc = "What looks like pieces of various civilian and military voidsuits crudely patched together, with the largest part of it seeming to come from a Coalition Vulture suit. Various holes and breaches look to have been sealed with diona bark, or some similar organic growth."
+	desc = "A mishmash of parts taken from Unathi pirate-made raider suits and hardware commonly found in the Southern frontier of the Spur, all held together by Diona bark, a common crafting method among the Unathi fleet of the Tarwa Conglomerate. \
+	It's relatively light, and yet appears to protect against a variety of hazards."
 	icon_state = "rig-tarwapirate"
 	item_state = "rig-tarwapirate-held"
 	armor = list(
@@ -228,7 +229,8 @@
 
 /obj/item/clothing/suit/space/void/unathi_pirate/captain/tarwa
 	name = "tarwa conglomerate captain's voidsuit"
-	desc = "What looks like pieces of various civilian and military voidsuits crudely patched together, with the largest part of it seeming to come from a Coalition Vulture suit. Various holes and breaches look to have been sealed with diona bark, or some similar organic growth."
+	desc = "A mishmash of parts taken from Unathi pirate-made raider suits and hardware commonly found in the Southern frontier of the Spur, all held together by Diona bark,  a common crafting method among the Unathi fleet of the Tarwa Conglomerate. \
+	It only seems to fit Unathi, it's relatively light, and yet appears to protect against a variety of hazards. This one features various reinforcements, making it probably fit for more important crew."
 	icon_state = "rig-tarwacaptain"
 	item_state = "rig-tarwacaptain-held"
 	armor = list(
@@ -242,7 +244,7 @@
 
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa
 	name = "tarwa conglomerate helmet"
-	desc = "What looks like a Coalition Vulture helmet, modified extensively to fit an Unathi's head. Pieces of it seem to have been broken, and something organic can be seen growing behind its visor..."
+	desc = "Metals, electronics and diona bark meet in this strange helmet. Quiet rustling can be heard from within."
 	icon_state = "rig-tarwapirate-helmet"
 	item_state = "rig-tarwapirate-helm-held"
 	armor = list(
@@ -257,7 +259,8 @@
 
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/captain/tarwa
 	name = "tarwa conglomerate captain's helmet"
-	desc = "What looks like the broken remnants of a Coalition Vulture helmet - but most of it is shattered, replaced with what looks like some kind of strangely grown diona. A multitude of green eyes glow behind its visor."
+	desc = "Metals, electronics and diona bark meet in this strange helmet. Quiet rustling can be heard from within. \
+	This one appears to have been reinforced."
 	icon_state = "rig-tarwacaptain-helmet"
 	item_state = "rig-tarwaetcaptain-helmet-held"
 	armor = list(
