@@ -595,6 +595,12 @@
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
 	t = replacetext(t, "\[editorbr\]", "<BR>")
 	t = replacetext(t, @"[image id=([\w]*?\.[\w]*?)]", "<img style=\"display:block;width:90%;\" src = [config.docs_image_host]$1></img>")
+	t = replacetext(t, "\[credit\]", "电")
+	t = replacetext(t, "\[solcredit\]", "民")
+	t = replacetext(t, "\[dompound\]", "Ф")
+	t = replacetext(t, "\[elypound\]", "پوند")
+	t = replacetext(t, "\[sqiip\]", "℘")
+	t = replacetext(t, "\[knuckle\]", "თ")
 	return t
 
 /proc/html2pencode(t, var/include_images = FALSE)
@@ -630,6 +636,12 @@
 	t = replacetext(t, "</td></tr></table>", "\[/grid\]")
 	t = replacetext(t, "</td><tr>", "\[row\]")
 	t = replacetext(t, "<td>", "\[cell\]")
+	t = replacetext(t, "电", "\[credit\]")
+	t = replacetext(t, "民", "\[solcredit\]")
+	t = replacetext(t, "Ф", "\[dompound\]")
+	t = replacetext(t, "پوند", "\[elypound\]")
+	t = replacetext(t, "℘", "\[sqiip\]")
+	t = replacetext(t, "თ", "\[knuckle\]")
 
 	if(include_images)
 		t = replacetext(t, "<img src = scclogo.png>", "\[logo_scc\]")
