@@ -1399,18 +1399,18 @@
 
 /mob/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
 	..()
-	if(assembleHeightString(user))
-		to_chat(user, SPAN_NOTICE(assembleHeightString(user)))
+	if(assemble_height_string(user))
+		to_chat(user, SPAN_NOTICE(assemble_height_string(user)))
 
 //Height String for examine - Runs on the mob being examined.
-/mob/proc/assembleHeightString(mob/examiner)
-	var/heightString = null
+/mob/proc/assemble_height_string(mob/examiner)
+	var/height_string = null
 	var/descriptor
 	if(height == HEIGHT_NOT_USED)
-		return heightString
+		return height_string
 
 	if(examiner.height == HEIGHT_NOT_USED)
-		return heightString
+		return height_string
 
 	switch(height - examiner.height)
 		if(-999 to -100)
@@ -1427,8 +1427,8 @@
 			descriptor = "much larger than"
 		else
 			descriptor = "to tower over"
-	if(heightString)
-		return heightString + ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
+	if(height_string)
+		return height_string + ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
 	return "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."
 
 /mob/proc/get_speech_bubble_state_modifier()
