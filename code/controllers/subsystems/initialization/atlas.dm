@@ -182,6 +182,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 	world.update_status()
 
 	// Begin loading the maps.
+	log_debug("Current map path: [current_map.path]")
 	var/maps_loaded = load_map_directory("maps/[current_map.path]/", TRUE)
 
 	log_ss("atlas", "Loaded [maps_loaded] maps.")
@@ -222,6 +223,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	var/static/regex/mapregex = new(".+\\.dmm$")
 	var/list/files = flist(directory)
+	log_debug("Map files: [english_list(files)]")
 	sortTim(files, GLOBAL_PROC_REF(cmp_text_asc))
 	var/mfile
 	var/first_dmm = TRUE
