@@ -56,7 +56,10 @@
 			if(H.psi && H.psi.get_rank() == PSI_RANK_HARMONIOUS)
 				harmonious_signatures++
 				continue
-		signatures += "[perceptive_signatures] weak signatures"
-		signatures += "[sensitive_signatures] robust signatures"
-		signatures += "[harmonious_signatures] robust signatures"
+		if(length(perceptive_signatures))
+			signatures += "[perceptive_signatures] weak signature[perceptive_signatures > 1 ? "s" : ""]"
+		if(length(sensitive_signatures))
+			signatures += "[sensitive_signatures] robust signature[sensitive_signatures > 1 ? "s" : ""]"
+		if(length(harmonious_signatures))
+			signatures += "[harmonious_signatures] very powerful signature[harmonious_signatures > 1 ? "s" : ""]"
 		to_chat(user, SPAN_NOTICE("Reaching out into the Nlom, you sense [english_list(signatures)]."))

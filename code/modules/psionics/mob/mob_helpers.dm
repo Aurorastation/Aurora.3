@@ -9,7 +9,7 @@
 	return !has_psionics()
 
 /mob/living/carbon/is_psi_blocked()
-	if(HAS_TRAIT(src, TRAIT_ZONA_BOVINAE_ABSORBED) || HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
+	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
 		return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
 	for (var/obj/item/implant/mindshield/I in src)
 		if (I.implanted)
@@ -20,7 +20,7 @@
 	return TRUE
 
 /mob/living/carbon/has_zona_bovinae()
-	if(HAS_TRAIT(src, TRAIT_ZONA_BOVINAE_ABSORBED) || HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
+	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
 		return FALSE
 	return TRUE
 
