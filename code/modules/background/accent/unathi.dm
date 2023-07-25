@@ -130,3 +130,9 @@
 	carefully crafted to give an air of civilised refinement in the harsh mountains of Zazalai."
 	tag_icon = "unathi_zaz_noble"
 	text_tag = "ZAZ"
+
+/datum/accent/ouerea
+	name = ACCENT_OUEREA
+	description = "yeah"
+	tag_icon = "ouerea"
+	text_tag = "OUE"
