@@ -49,13 +49,12 @@
 	)
 
 /datum/category_item/player_setup_item/general/psionics/load_special(savefile/S)
-	if(istext(pref.psionics))
-		var/before = pref.psionics
-		try
-			pref.psionics = json_decode(pref.psionics)
-		catch (var/exception/e)
-			log_debug("PSIONICS: Caught [e]. Initial value: [before]")
-			pref.psionics = list()
+	var/before = pref.psionics
+	try
+		pref.psionics = json_decode(pref.psionics)
+	catch (var/exception/e)
+		log_debug("PSIONICS: Caught [e]. Initial value: [before]")
+		pref.psionics = list()
 
 /datum/category_item/player_setup_item/general/psionics/sanitize_character(var/sql_load = 0)
 	var/datum/species/mob_species = all_species[pref.species]
