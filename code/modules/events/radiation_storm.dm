@@ -42,36 +42,13 @@
 		lights()
 
 /datum/event/radiation_storm/proc/radiate()
-	var/radiation_level = rand(15, 30)
+	var/radiation_level = rand(20, 40)
 	for(var/z in affecting_z)
-		SSradiation.z_radiate(locate(1, 1, z), radiation_level, 1)
+		SSradiation.z_radiate(locate(1, 1, z), radiation_level, TRUE)
 		
-	for(var/mob/living/C in living_mob_list)
-		var/area/A = get_area(C)
-		if(!A)
-			continue
-		if(isNotStationLevel(A.z))
-			continue
-		if(A.flags & RAD_SHIELDED)
-			continue
-		if(istype(C,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = C
-			
-			if(H.is_diona())
-				var/damage = rand(15, 30)
-				H.adjustToxLoss(-damage)
-				if(prob(5))
-					damage = rand(20, 60)
-					H.adjustToxLoss(-damage)
-				to_chat(H, SPAN_NOTICE("You can feel flow of energy which makes you regenerate."))
-			
-			if(prob(5 * (1 - H.get_blocked_ratio(null, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED, armor_pen = radiation_level))))
-				if (prob(75))
-					randmutb(H) // Applies bad mutation
-					domutcheck(H,null,MUTCHK_FORCED)
-				else
-					randmutg(H) // Applies good mutation
-					domutcheck(H,null,MUTCHK_FORCED)
+	//for(var/mob/living/C in living_mob_list)
+		//if(istype(C,/mob/living/carbon/human))
+			//C.handle_mutations_and_radiation()
 
 /datum/event/radiation_storm/end(var/faked)
 	..()

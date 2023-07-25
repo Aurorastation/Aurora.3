@@ -6,3 +6,4 @@ delete-after: True
 changes:
   - rscadd: "Ports how radiation storms work from Bay. Geiger counters can now detect radiation during storms, and radiation-resistant clothing (such as radsuits) now block radiation during storms."
   - rscadd: "Adds geiger counters to Engi-Vend."
+  - rscadd: "Exposure to extreme radiation is now much more harmful than before."
