@@ -749,7 +749,7 @@
 	return /singleton/reagent/nutriment
 
 /datum/species/proc/has_psionics()
-	return has_psi_potential
+	return has_psionics
 
 /datum/species/proc/handle_despawn()
 	return

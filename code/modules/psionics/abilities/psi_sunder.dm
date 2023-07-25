@@ -18,13 +18,16 @@
 /obj/item/spell/rend/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	if(!isliving(hit_atom))
 		return
+
 	var/mob/living/L = hit_atom
-	if(L.is_psi_blocked())
+	if(!L.has_zona_bovinae())
 		to_chat(user, SPAN_WARNING("This being doesn't have a Zona Bovinae."))
 		return
+
 	. = ..()
 	if(!.)
 		return
+
 	user.visible_message(SPAN_DANGER("[user] grabs [L]'s head..."), SPAN_DANGER("You grab [L]'s head..."))
 	if(do_mob(user, L, 5 SECONDS))
 		if(L.psi)

@@ -136,9 +136,11 @@
 	if(!H.has_zona_bovinae())
 		to_chat(H, SPAN_WARNING("You don't have a Zona Bovinae!"))
 		return
+
 	if(H.psi.get_rank() >= PSI_RANK_HARMONIOUS)
 		to_chat(H, SPAN_WARNING("You've already awakened your psionic potential!"))
 		return
+
 	H.set_psi_rank(PSI_RANK_HARMONIOUS)
 	H.psi.psi_points = 8
 	to_chat(H, SPAN_NOTICE("You've awakened your psionic potential. Note that you have a reduced point pool than usual."))

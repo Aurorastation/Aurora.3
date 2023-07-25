@@ -28,23 +28,23 @@
 		to_chat(user, SPAN_NOTICE("You will now use less psionic energy for a more standard readout."))
 
 /obj/item/spell/skinsight/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
-	. = ..()
-
 	if(!ishuman(hit_atom))
+		return
+
+	var/mob/living/carbon/human/target = hit_atom
+	if(!target.has_zona_bovinae())
+		to_chat(user, SPAN_WARNING("Psionic power cannot flow through this being."))
 		return
 
 	if(!isliving(user))
 		return
 
-	var/mob/living/carbon/human/target = hit_atom
-
-	var/psi_blocked = target.is_psi_blocked()
-	if(psi_blocked)
-		to_chat(user, psi_blocked)
-		return
-
 	if(target.stat == DEAD)
 		to_chat(user, SPAN_WARNING("The total lack of psionic energy flowing through this person can only mean one thing: they are dead."))
+		return
+
+	. = ..()
+	if(!.)
 		return
 
 	if(!body_scan_mode)

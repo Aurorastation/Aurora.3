@@ -16,22 +16,20 @@
 	psi_cost = 30
 
 /obj/item/spell/mend/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
-	. = ..()
-	if(!.)
-		return
-
 	if(!ishuman(hit_atom))
 		return
 
 	var/mob/living/carbon/human/H = hit_atom
+	if(!H.has_zona_bovinae())
+		to_chat(user, SPAN_WARNING("Psionic power cannot flow through this being."))
+		return
 
 	if(H.stat == DEAD || H.status_flags & FAKEDEATH)
 		to_chat(user, SPAN_WARNING("Psionic power does not flow through a dead person."))
 		return
 
-	var/psi_blocked = H.is_psi_blocked()
-	if(psi_blocked)
-		to_chat(user, psi_blocked)
+	. = ..()
+	if(!.)
 		return
 
 	user.visible_message(SPAN_NOTICE("[user] lays a palm on [H]..."), SPAN_NOTICE("You lay your palm on [H] and get to work."))

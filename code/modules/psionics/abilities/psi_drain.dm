@@ -18,22 +18,28 @@
 /obj/item/spell/psi_drain/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	if(!isliving(hit_atom))
 		return
+
 	var/mob/living/L = hit_atom
+
 	if(!L.has_zona_bovinae())
 		to_chat(user, SPAN_WARNING("This being doesn't have a Zona Bovinae."))
 		return
+
 	. = ..()
 	if(!.)
 		return
+
 	psi_drain(L, user)
 
 /obj/item/spell/psi_drain/on_ranged_cast(atom/hit_atom, mob/user, bypass_psi_check)
 	if(!isliving(hit_atom))
 		return
+
 	var/mob/living/L = hit_atom
 	if(!L.has_zona_bovinae())
 		to_chat(user, SPAN_WARNING("This being doesn't have a Zona Bovinae."))
 		return
+
 	. = ..()
 	if(!.)
 		return
