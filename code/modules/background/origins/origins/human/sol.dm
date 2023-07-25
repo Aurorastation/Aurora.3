@@ -197,7 +197,4 @@
 	possible_accents = list(ACCENT_OUEREA)
 	possible_religions = RELIGIONS_SOLARIAN
 	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
-	origin_traits_descriptions = list("speak Sinta'Unathi", "are more acclimatised to the heat")
-
-/singleton/origin_item/origin/ouerea_human/on_apply(mob/living/carbon/human/H)
-	H.add_language(LANGUAGE_UNATHI)
+	origin_traits_descriptions = list("are more acclimatised to the heat")

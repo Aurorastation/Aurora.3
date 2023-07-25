@@ -52,8 +52,4 @@
 	possible_citizenships = list(CITIZENSHIP_IZWESKI)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
 	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
-	origin_traits_descriptions = list("speak Sinta'Unathi", "are more acclimatised to the heat")
-
-/singleton/origin_item/origin/skrell_ouerea/on_apply(mob/living/carbon/human/H)
-	H.add_language(LANGUAGE_UNATHI)
-
+	origin_traits_descriptions = list("are more acclimatised to the heat")
