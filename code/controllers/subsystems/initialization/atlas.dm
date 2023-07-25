@@ -221,6 +221,12 @@ var/datum/controller/subsystem/atlas/SSatlas
 	if (!directory)
 		CRASH("No directory supplied.")
 
+	var/list/masterfiles = flist("")
+	log_debug("Master directory: [english_list(masterfiles)]")
+
+	var/list/mapfiles = flist("maps")
+	log_debug("Maps directory: [english_list(mapfiles)]")
+
 	var/static/regex/mapregex = new(".+\\.dmm$")
 	var/list/files = flist(directory)
 	log_debug("Map files: [english_list(files)]")
