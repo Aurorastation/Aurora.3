@@ -646,6 +646,7 @@ var/list/preferences_datums = list()
 
 		ccia_actions = list()
 		disabilities = list()
+		psionics = list()
 
 		economic_status = ECONOMICALLY_AVERAGE
 
