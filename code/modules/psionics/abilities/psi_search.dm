@@ -42,7 +42,8 @@
 			return TRUE
 		if(found_apex)
 			to_chat(L, SPAN_DANGER("<font size=4>You reach out into the Nlom and your senses are overwhelmed by a massive signature!</font>"))
-			L.adjustHalLoss(10)
+			L.flash_pain(20)
+			L.adjustHalLoss(20)
 			return
 		var/list/signatures = list()
 		var/harmonious_signatures = 0

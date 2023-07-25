@@ -70,11 +70,13 @@
 	stunned(value * 2)
 	set_cooldown(value * 100)
 
-	if(prob(value*10)) owner.emote("scream")
+	if(prob(value*10))
+		owner.emote("scream")
 
 	// Your head asplode.
 	owner.adjustBrainLoss(value)
 	owner.adjustHalLoss(value * 25) //Ouch.
+	owner.psi.hide_auras()
 	if(ishuman(owner))
 		var/mob/living/carbon/human/pop = owner
 		if(pop.should_have_organ(BP_BRAIN))

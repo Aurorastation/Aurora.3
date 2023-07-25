@@ -1,8 +1,7 @@
 /singleton/psionic_power/read_mind
 	name = "Read Mind"
-	desc = "Rip thoughts from someone's mind. This spell has two modes, switched by activating it in hand: for the first, they are required to answer truthfully, \
-			and this deals brain damage and confusion; in the second mode, they do not receive the brain damage (only the confusion), but they must willingly accept \
-			to have their mind read. Keep in mind that usage of mind reading is extremely illegal, no matter how you do it!"
+	desc = "Rip thoughts from someone's mind. If your rank is Psionically Sensitive, you may only skim the surface thoughts from a person's mind. \
+			If your rank is Psionically Harmonious or above, your target is forced to respond to a five-word question with the truth."
 	icon_state = "tech_illusion"
 	spell_path = /obj/item/spell/read_mind
 	ability_flags = PSI_FLAG_EVENT|PSI_FLAG_CANON
@@ -15,17 +14,6 @@
 	aspect = ASPECT_PSIONIC
 	cooldown = 10
 	psi_cost = 50
-	var/safe_mode = FALSE
-
-/obj/item/spell/read_mind/on_use_cast(mob/user)
-	. = ..(user, TRUE)
-	if(!.)
-		return
-	safe_mode = !safe_mode
-	if(safe_mode)
-		to_chat(user, SPAN_NOTICE("Your mind reading can now be resisted and will not incur brain damage."))
-	else
-		to_chat(user, SPAN_NOTICE("Your mind reading can no longer be resisted and will incur brain damage."))
 
 /obj/item/spell/read_mind/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	. = ..()
@@ -50,6 +38,11 @@
 		to_chat(user, psi_blocked)
 		return
 
+	var/safe_mode = FALSE
+	var/mob/living/L = user
+	if(L.psi.get_rank() < PSI_RANK_HARMONIOUS)
+		safe_mode = TRUE
+
 	user.visible_message(SPAN_WARNING("[user] lays a palm on [hit_atom]'s forehead..."))
 	var/question =  sanitize(input(user, "Ask your question.", "Read Mind") as null|text)
 
@@ -59,20 +52,24 @@
 	var/started_mindread = world.time
 	if(target.has_psi_aug())
 		to_chat(user, SPAN_NOTICE("<b>Your psyche links with [target]'s psi-receiver, seeking an answer from their mind's surface: <i>[question]</i></b>"))
-		to_chat(target, SPAN_NOTICE("<b>[user]'s psyche links with your psi-receiver. [safe_mode ? "You may resist, but in case you accept, you must \
-				answer truthfully." : "You cannot avoid the question, and must answer truthfully."] <i>[question]</i></b>"))
+		to_chat(target, SPAN_NOTICE("<b>[user]'s psyche links with your psi-receiver. [safe_mode ? "You must answer with what you think when the following question comes to mind.\
+									It does not have to be the answer, just your immediate thought." : "You cannot avoid the question, and must answer truthfully."] <i>[question]</i></b>"))
 	else
 		to_chat(user, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking an answer: <i>[question]</i></b>"))
-		to_chat(target, SPAN_NOTICE("<b>Your mind is compelled to answer. [safe_mode ? "You may avoid the question, but in case you follow it, you must \
-				answer truthfully." : "You cannot avoid the question, and must answer truthfully."]: <i>[question]</i></b>"))
-	var/answer =  sanitize(input(target, "[question]\n[safe_mode ? "You may avoid the question, but must answer truthfully if you do not." : "You may not resist, \
+		to_chat(target, SPAN_NOTICE("<b>Your mind is compelled to answer. [safe_mode ? "You must answer with what you think when the following question comes to mind.\
+									It does not have to be the answer, just your immediate thought." : "You cannot avoid the question, and must answer truthfully."]: <i>[question]</i></b>"))
+	var/answer =  sanitize(input(target, "[question]\n[safe_mode ? "You must answer with your first thoughts when you think about the question. They do not have to be an answer, only \
+										your first impression, or thoughts." : "You may not resist, \
 							and must answer truthfully."]\nYou have 25 seconds to type a response.", "Read Mind") as null|text)
 	if(!answer || world.time > started_mindread + 25 SECONDS || user.stat != CONSCIOUS)
 		to_chat(user, SPAN_NOTICE("<b>You receive nothing useful from \the [target].</b>"))
 		to_chat(target, SPAN_NOTICE("Your mind blanks out momentarily."))
 	else
-		to_chat(user, SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: <i>[answer]</i></b>"))
-	msg_admin_attack("[key_name(user)] read mind of [key_name(target)] with question \"[question]\" and [answer?"got answer \"[answer]\".":"got no answer."]")
+		if(safe_mode)
+			to_chat(user, SPAN_NOTICE("<b>You skim the first thoughts that come to mind when [target] thinks about your question: <i>[answer]</i></b>"))
+		else
+			to_chat(user, SPAN_NOTICE("<b>You pry the answer to your question from [target]'s mind: <i>[answer]</i></b>"))
+	msg_admin_attack("[key_name(user)] read mind of [key_name(target)] [safe_mode ? "skimming their surface thoughts" : "forcing them to answer truthfully"] with question \"[question]\" and [answer?"got answer \"[answer]\".":"got no answer."]")
 	if(safe_mode)
 		target.confused += 15
 		to_chat(target, SPAN_WARNING("You feel somewhat nauseated..."))

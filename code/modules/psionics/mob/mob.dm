@@ -5,8 +5,6 @@
 	..()
 	if(psi)
 		psi.update(TRUE)
-		if(!psi.suppressed)
-			psi.show_auras()
 
 /mob/living/Destroy()
 	QDEL_NULL(psi)

@@ -19,6 +19,7 @@
 	psi_cost = 35
 	attack_verb = list("rends apart", "disintegrates")
 	hitsound = 'sound/weapons/heavysmash.ogg'
+	flags = 0
 	var/structure_mode = FALSE
 
 /obj/item/spell/rend/on_use_cast(mob/user, bypass_psi_check)
