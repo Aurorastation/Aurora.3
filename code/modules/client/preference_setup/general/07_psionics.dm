@@ -59,6 +59,7 @@
 /datum/category_item/player_setup_item/general/psionics/sanitize_character(var/sql_load = 0)
 	var/datum/species/mob_species = all_species[pref.species]
 	if(length(pref.psionics) && !mob_species.has_psionics)
+		to_chat(pref.client, SPAN_WARNING("This species does not have psionics! Resetting..."))
 		pref.psionics = list()
 		return
 	var/list/bought_psionic_powers = list()
@@ -67,12 +68,15 @@
 		if(istype(P))
 			if(!(P.ability_flags & PSI_FLAG_CANON))
 				pref.psionics -= S
+				to_chat(pref.client, SPAN_WARNING("[P.name] is an invalid psionic!"))
 				continue
 			bought_psionic_powers |= P
 		else
+			to_chat(pref.client, SPAN_WARNING("[S] is an invalid psionic!"))
 			pref.psionics -= S
 			continue
 	if(length(bought_psionic_powers) > mob_species.character_creation_psi_points)
+		to_chat(pref.client, SPAN_WARNING("You have more psionics than possible! Resetting..."))
 		pref.psionics = list()
 
 /datum/category_item/player_setup_item/general/psionics/content(var/mob/user)

@@ -49,4 +49,3 @@ changes:
   - rscadd: "Added a truckload of new psionic abilities. No, really. They're a lot."
   - rscadd: "Skrell may choose additional psionics to spawn with in their loadout."
   - rscadd: "Added mechanical support for the lack of a Zona Bovinae, mainly for vaurcae and dionae. In certain cases, a Zona Bovinae may even be removed from someone..."
-  - rscdel: "Psionically deaf species like Vaurcae or IPCs or Dionae can no longer take psi-receivers."
