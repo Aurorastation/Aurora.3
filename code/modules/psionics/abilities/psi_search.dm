@@ -28,7 +28,9 @@
 		var/list/level_humans = list()
 		var/found_apex = FALSE
 		for(var/mob/living/carbon/human/H in human_mob_list)
-			if(GET_Z(H) == GET_Z(H) && !H.is_psi_blocked())
+			if(H == L)
+				continue
+			if((GET_Z(H) == GET_Z(L)) && !H.is_psi_blocked())
 				if(HAS_TRAIT(H, TRAIT_PSIONIC_SUPPRESSION))
 					continue
 				level_humans |= H
@@ -56,10 +58,10 @@
 			if(H.psi && H.psi.get_rank() == PSI_RANK_HARMONIOUS)
 				harmonious_signatures++
 				continue
-		if(length(perceptive_signatures))
+		if(perceptive_signatures)
 			signatures += "[perceptive_signatures] weak signature[perceptive_signatures > 1 ? "s" : ""]"
-		if(length(sensitive_signatures))
+		if(sensitive_signatures)
 			signatures += "[sensitive_signatures] robust signature[sensitive_signatures > 1 ? "s" : ""]"
-		if(length(harmonious_signatures))
+		if(harmonious_signatures)
 			signatures += "[harmonious_signatures] very powerful signature[harmonious_signatures > 1 ? "s" : ""]"
 		to_chat(user, SPAN_NOTICE("Reaching out into the Nlom, you sense [english_list(signatures)]."))
