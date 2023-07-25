@@ -227,7 +227,7 @@
 		rad = ARMOR_RAD_SHIELDED //it has diona growing on and in it to absorb rads. if i could make it regenerate breaches that would be neat
 	)
 
-/obj/item/clothing/suit/space/void/unathi_pirate/captain/tarwa
+/obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain
 	name = "tarwa conglomerate captain's voidsuit"
 	desc = "A mishmash of parts taken from Unathi pirate-made raider suits and hardware commonly found in the Southern frontier of the Spur, all held together by Diona bark,  a common crafting method among the Unathi fleet of the Tarwa Conglomerate. \
 	It only seems to fit Unathi, it's relatively light, and yet appears to protect against a variety of hazards. This one features various reinforcements, making it probably fit for more important crew."
