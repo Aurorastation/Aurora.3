@@ -45,10 +45,6 @@
 	var/radiation_level = rand(20, 40)
 	for(var/z in affecting_z)
 		SSradiation.z_radiate(locate(1, 1, z), radiation_level, TRUE)
-		
-	//for(var/mob/living/C in living_mob_list)
-		//if(istype(C,/mob/living/carbon/human))
-			//C.handle_mutations_and_radiation()
 
 /datum/event/radiation_storm/end(var/faked)
 	..()
