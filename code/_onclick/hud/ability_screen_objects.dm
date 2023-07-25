@@ -151,7 +151,7 @@
 /mob/living/LateLogin()
 	. = ..()
 	if(ability_master)
-		ability_master.toggle_open(1)
+		ability_master.toggle_open(2)
 		client.screen -= ability_master
 
 /mob/living/Initialize()
