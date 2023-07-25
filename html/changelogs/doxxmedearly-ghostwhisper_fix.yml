@@ -1,4 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-changes:
-  - bugfix: "Observers can now hear mobs whisper, per their ghostears preference. They should always hear the full whisper message."
