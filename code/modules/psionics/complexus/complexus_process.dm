@@ -52,7 +52,9 @@
 		announced = TRUE
 		to_chat(owner, "<hr>")
 		to_chat(owner, SPAN_NOTICE("<font size = 3>You are <b>psionic</b>, touched by powers beyond understanding.</font>"))
-		to_chat(owner, SPAN_NOTICE("<b>Left click</b> your psi icon to <b>suppress or unsuppress</b> your psionics. <b>Shift click</b> it to open your Psionic Point Shop. Beware: overusing your gifts can have <b>deadly consequences</b>."))
+		to_chat(owner, SPAN_NOTICE("<b>Left-click</b> your psionic icon to open your Psionic Point Shop, which contains information about your powers. \
+									You can also <b>shift-click</b> your ability icons on the top right to know more about them. \
+									Beware: overusing your gifts can have <b>deadly consequences</b>."))
 		to_chat(owner, "<hr>")
 
 	if(get_rank() >= PSI_RANK_SENSITIVE)
