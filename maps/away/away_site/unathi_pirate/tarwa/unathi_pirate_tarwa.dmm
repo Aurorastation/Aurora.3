@@ -2401,8 +2401,8 @@
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/suit/space/void/unathi_pirate/captain/tarwa,
-/obj/item/clothing/head/helmet/space/void/unathi_pirate/captain/tarwa,
+/obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain,
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa/captain,
 /turf/simulated/floor/carpet/orange,
 /area/tarwa_ship/captain)
 "JW" = (
