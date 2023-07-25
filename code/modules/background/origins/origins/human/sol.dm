@@ -192,8 +192,8 @@
 	As megacorporations began to set up operations on Ouerea, colonists came from across Alliance space to work and live there. Following the Alliance's withdrawal from the planet and the ceding of control to the Hegemony, many of the human colonists remained, having made Ouerea their home \
 	for decades. Through strife and revolution, the humans of Ouerea have persisted alongside their Skrell and Unathi neighbours, building a world that occupies a unique place among all three species. Many of the humans of Ouerea fought in the revolution of 2460 to abolish the Unathi feudal system on their world, \
 	and following their success human ideas of governance have played an important role in the establishment of the new and fragile Ouerean democracy. Humans born on Ouerea must be born on or after 2403."
-	important_information = "Despite being categorised as culturally Solarian, those humans who chose to remain on Ouerea have not been ruled by the Alliance directly in decades, and would be considered as Izweski Hegemony citizens."
-	possible_citizenships = list(CITIZENSHIP_IZWESKI)
+	important_information = "Despite being categorised as culturally Solarian, those humans who chose to remain on Ouerea have not been ruled by the Alliance directly in decades, and would be considered as Izweski Hegemony citizens if they have not emigrated elsewhere."
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_accents = list(ACCENT_OUEREA)
 	possible_religions = RELIGIONS_SOLARIAN
 	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
