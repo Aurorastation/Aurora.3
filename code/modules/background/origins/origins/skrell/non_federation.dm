@@ -5,7 +5,8 @@
 		/singleton/origin_item/origin/skrell_alliance,
 		/singleton/origin_item/origin/skrell_biesel,
 		/singleton/origin_item/origin/skrell_coalition,
-		/singleton/origin_item/origin/skrell_eum
+		/singleton/origin_item/origin/skrell_eum,
+		/singleton/origin_item/origin/skrell_ouerea
 	)
 
 /singleton/origin_item/origin/skrell_alliance
@@ -39,3 +40,20 @@
 	possible_accents = list(ACCENT_SKRELLEUM, ACCENT_SKRELL, ACCENT_HOMEWORLD, ACCENT_QERRMALIC, ACCENT_ALIOSE, ACCENT_AWEIJI, ACCENT_TRAVERSE, ACCENT_TATTUQIG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_EUM)
 	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
+
+/singleton/origin_item/origin/skrell_ouerea
+	name = "Ouerea"
+	desc = "When the Nralakk Federation first made contact with the Unathi, they quickly established their own presence in the Uueoa-Esa system, setting up research bases on the planet Ouerea and offering their 'guidance' to the Unathi colonists already there. Many Skrell from across the Federation \
+	came to Ouerea, and began to establish communities side by side with the humans and Unathi of the planet. When the Federation ceded control of Ouerea in 2458, any Skrell who wished to leave were permitted to evacuate - but many stayed, largely Tertiary Numericals or followers of unsanctioned religions who saw a chance \
+	to be free of Federation control - a rarity in the Orion Spur. Since then, the Skrell of Ouerea have been instrumental in the colony's growth and prosperity, with many fighting side by side with humans and Unathi during the Ouerean Revolution. Due to its status as a Skrell-inhabited world outside of Federation control, \
+	Ouerea has become a popular destination for Skrell seeking to flee the Federation - though not as popular as the Republic of Biesel or the Coalition of Colonies."
+	important_information = "The Nralakk Federation still monitors non-citizen Skrell living abroad, but has no formal agreement with the Izweski Hegemony regarding deportation of anti-Federation Skrell. Skrell who were born on Ouerea must be born on or after 2403."
+	possible_accents = list(ACCENT_OUEREA)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI)
+	possible_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("speak Sinta'Unathi", "are more acclimatised to the heat")
+
+/singleton/origin_item/origin/skrell_ouerea/on_apply(mob/living/carbon/human/H)
+	H.add_language(LANGUAGE_UNATHI)
+

@@ -18,8 +18,9 @@
 
 /singleton/origin_item/origin/ouerea
 	name = "Ouerea"
-	desc = "yeah"
-	important_information = "if you pick this accent you're gay"
+	desc = "Established in 2390, Ouerea was the first colony of the Izweski Hegemony, which quickly became home to large numbers of human and Skrell immigrants following first contact. During the Contact War, the Hegemony was incapable of governing it, and the planet was administrated by the Sol Alliance and Nralakk Federation. \
+	This period led to the establishment of a fledgeling democracy, until Hegemon Sk'resti Izweski restored Hegemony control of the planet, reestablishing the feudal system. Following the Ouerean Revolution of 2460, Ouerea's democracy was restored, though still as a vassal of the Hegemon. Today, it is a society defined by contrasts, \
+	with human, Skrell and Unathi culture blending into something strange, new and altogether unique within the Orion Spur."
 	possible_accents = list(ACCENT_OUEREA)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_OTHER, RELIGION_NONE)
