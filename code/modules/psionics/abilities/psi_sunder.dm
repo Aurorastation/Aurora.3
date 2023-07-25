@@ -15,7 +15,7 @@
 	cooldown = 30
 	psi_cost = 20
 
-/obj/item/spell/rend/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
+/obj/item/spell/sunder/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	if(!isliving(hit_atom))
 		return
 

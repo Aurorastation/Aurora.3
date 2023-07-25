@@ -55,7 +55,7 @@
 
 /obj/item/projectile/hollow_purple
 	name = "hollow purple"
-	icon_state = "bfg"
+	icon_state = "hollow_purple"
 	color = COLOR_PURPLE
 	damage = 1000
 	armor_penetration = 1000

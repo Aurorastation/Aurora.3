@@ -1,6 +1,6 @@
 /singleton/psionic_power/psi_drain
 	name = "Psi-Drain"
-	desc = "Destroy a living being's Zona Bovinae. This will make them psionically deaf."
+	desc = "Drain psi-stamina from a living being. This can be used both in melee and at range."
 	icon_state = "gen_project"
 	point_cost = 0
 	ability_flags = PSI_FLAG_APEX
