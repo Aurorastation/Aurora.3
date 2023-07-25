@@ -257,7 +257,7 @@
 	)
 	light_overlay = "helmet_light_green"
 
-/obj/item/clothing/head/helmet/space/void/unathi_pirate/captain/tarwa
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa/captain
 	name = "tarwa conglomerate captain's helmet"
 	desc = "Metals, electronics and diona bark meet in this strange helmet. Quiet rustling can be heard from within. \
 	This one appears to have been reinforced."
