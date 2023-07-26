@@ -100,6 +100,11 @@
 	volume = 40
 	reagents_to_add = list(/singleton/reagent/nutriment/sprinkles = 40)
 
+/obj/item/reagent_containers/food/condiment/shaker/pumpkinspice
+	icon_state = "spacespicebottle"
+	volume = 40
+	reagents_to_add = list(/singleton/reagent/spacespice/pumpkinspice = 40)
+
 /obj/item/reagent_containers/food/condiment/flour
 	name = "flour sack"
 	desc = "A big bag of flour. Good for baking!"
