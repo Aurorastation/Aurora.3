@@ -328,6 +328,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	possible_transfer_amounts = null
+	volume = 30
 
 //////////////////////////JUICES AND STUFF ///////////////////////
 
