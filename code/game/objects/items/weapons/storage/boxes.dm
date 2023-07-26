@@ -1192,7 +1192,7 @@
 		/obj/item/reagent_containers/food/condiment/shaker/spacespice = 2,
 		/obj/item/reagent_containers/food/condiment/shaker/sprinkles = 1,
 		/obj/item/reagent_containers/food/condiment/sugar = 1,
-		//  = 1,
+		/obj/item/reagent_containers/food/condiment/shaker/pumpkinspice = 1,
 	)
 
 /obj/item/storage/box/produce/fill()
