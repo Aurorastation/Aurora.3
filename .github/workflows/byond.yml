@@ -139,9 +139,9 @@ jobs:
           MYSQL_DATABASE: game
           MYSQL_ROOT_PASSWORD: root
     steps:
+      - uses: actions/checkout@v3
       - name: "Set ENV variables"
         run: source dependencies.sh
-      - uses: actions/checkout@v3
       - name: Restore BYOND cache
         uses: actions/cache@v3
         with:
