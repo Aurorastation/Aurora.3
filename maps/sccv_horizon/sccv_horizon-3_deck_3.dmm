@@ -3396,7 +3396,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/structure/table/reinforced/steel,
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "dce" = (
@@ -3932,7 +3932,7 @@
 	pixel_y = -8;
 	pixel_x = -2
 	},
-/obj/structure/table/reinforced/steel,
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "dzT" = (
@@ -4906,11 +4906,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/structure/table/reinforced/steel,
 /obj/item/storage/box/fancy/donut{
 	pixel_y = -9;
 	pixel_x = 1
 	},
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "emE" = (
@@ -20996,7 +20996,7 @@
 	dir = 8;
 	pixel_x = 32
 	},
-/obj/structure/table/reinforced/steel,
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "qLy" = (
