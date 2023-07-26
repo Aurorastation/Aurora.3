@@ -126,6 +126,11 @@
 	name = "culinary acid"
 	reagents_to_add = list(/singleton/reagent/acid/polyacid = 50)
 
+/obj/item/reagent_containers/food/condiment/syrup_chocolate
+	icon_state = "enzyme"
+	fixed_state = TRUE
+	reagents_to_add = list(/singleton/reagent/drink/syrup_chocolate = 50)
+
 //MRE condiments and drinks.
 
 /obj/item/reagent_containers/food/condiment/small/packet
