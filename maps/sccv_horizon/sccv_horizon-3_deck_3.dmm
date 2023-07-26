@@ -3384,7 +3384,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
 "daI" = (
-/obj/structure/table/reinforced/wood,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
@@ -3397,6 +3396,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "dce" = (
@@ -3911,7 +3911,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "dxG" = (
-/obj/structure/table/reinforced/wood,
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck - Cafe";
 	dir = 8
@@ -3925,16 +3924,15 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/teal/diagonal,
-/obj/item/reagent_containers/glass/rag/advanced/idris{
-	pixel_x = -2
-	},
 /obj/item/reagent_containers/food/drinks/shaker{
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 0
 	},
 /obj/item/storage/toolbox/lunchbox/idris{
 	pixel_y = -8;
-	pixel_x = 5
+	pixel_x = -2
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "dzT" = (
@@ -4879,7 +4877,6 @@
 /area/crew_quarters/captain)
 "emD" = (
 /obj/effect/floor_decal/corner/teal/diagonal,
-/obj/structure/table/reinforced/wood,
 /obj/item/storage/box/condiment{
 	pixel_y = 13
 	},
@@ -4908,6 +4905,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/box/fancy/donut{
+	pixel_y = -8;
+	pixel_x = 1
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
@@ -7519,6 +7521,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/cafeteria)
 "gbN" = (
@@ -8133,6 +8138,9 @@
 	name = "Cafe Desk Shutter"
 	},
 /obj/structure/table/stone/marble,
+/obj/item/storage/box/fancy/donut{
+	pixel_y = -1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
 "gDE" = (
@@ -10887,8 +10895,8 @@
 	dir = 9
 	},
 /obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_x = 4;
-	pixel_y = 10
+	pixel_x = -1;
+	pixel_y = 12
 	},
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
@@ -17855,6 +17863,15 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/rag/advanced/idris{
+	pixel_x = -4;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = 6;
+	pixel_y = 4
+	},
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "obp" = (
@@ -20951,7 +20968,6 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "qKT" = (
-/obj/structure/table/reinforced/wood,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -20975,6 +20991,7 @@
 	dir = 8;
 	pixel_x = 32
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "qLy" = (
@@ -24252,8 +24269,8 @@
 /area/horizon/longbow)
 "tqm" = (
 /obj/machinery/chemical_dispenser/coffeemaster/full{
-	pixel_x = -3;
-	pixel_y = 10
+	pixel_x = -9;
+	pixel_y = 12
 	},
 /obj/structure/table/stone/marble,
 /obj/effect/decal/fake_object{
@@ -24265,6 +24282,18 @@
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
+	pixel_x = 9;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
+	pixel_x = 9;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
+	pixel_x = 9;
+	pixel_y = -4
 	},
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
@@ -24664,30 +24693,11 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "tFg" = (
-/obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/corner/teal/diagonal,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
-	pixel_x = 17;
-	pixel_y = -6
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
-	pixel_x = 17;
-	pixel_y = 6
-	},
-/obj/item/storage/box/fancy/donut{
-	pixel_y = 0
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
-	pixel_x = 17;
-	pixel_y = -6
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
-	pixel_x = 17;
-	pixel_y = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/chem_heater,
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "tGl" = (
