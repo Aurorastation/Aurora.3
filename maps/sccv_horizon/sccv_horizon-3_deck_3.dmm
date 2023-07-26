@@ -202,11 +202,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/effect/floor_decal/corner/teal/diagonal,
 /obj/effect/floor_decal/spline/plain{
-	dir = 8
+	dir = 10
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "aeP" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -498,13 +497,10 @@
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/corner/teal/diagonal,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
 /obj/machinery/smartfridge/drinks{
 	opacity = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "aog" = (
 /obj/machinery/door/airlock/glass_security{
@@ -546,8 +542,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/lounge/secondary)
 "arR" = (
-/obj/effect/floor_decal/corner/teal/diagonal,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "asO" = (
 /turf/simulated/wall/r_wall,
@@ -633,13 +631,10 @@
 /area/horizon/crew_quarters/fitness/showers)
 "awM" = (
 /obj/effect/floor_decal/corner/teal/diagonal,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "axw" = (
 /obj/effect/floor_decal/corner/green{
@@ -3399,7 +3394,10 @@
 	pixel_x = 1;
 	pixel_y = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "dce" = (
 /obj/structure/grille,
@@ -3864,9 +3862,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury/foyer)
 "dui" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -3874,8 +3869,13 @@
 /obj/structure/sign/flag/idris{
 	pixel_y = -32
 	},
-/obj/effect/floor_decal/corner/teal/diagonal,
-/turf/simulated/floor/lino/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "dvD" = (
 /obj/structure/table/glass{
@@ -3935,7 +3935,7 @@
 	pixel_y = -8;
 	pixel_x = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "dzT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4906,7 +4906,10 @@
 	pixel_x = -5;
 	pixel_y = 2
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "emE" = (
 /obj/effect/floor_decal/corner/blue{
@@ -5021,9 +5024,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/shields)
 "epD" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/oven{
 	pixel_y = 8
+	},
+/obj/effect/floor_decal/corner/grey/diagonal{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/cafeteria)
@@ -7502,7 +7507,6 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/security/evidence_storage)
 "gbC" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/extinguisher_cabinet{
 	dir = 1;
 	pixel_y = 32;
@@ -7511,6 +7515,10 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/effect/floor_decal/corner/grey/diagonal{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/white,
 /area/horizon/cafeteria)
 "gbN" = (
@@ -9671,7 +9679,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "hFy" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/freezer/cafe,
 /obj/machinery/power/apc/low{
 	dir = 4;
@@ -9681,6 +9688,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/effect/floor_decal/corner/grey/diagonal{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/white,
 /area/horizon/cafeteria)
 "hGl" = (
@@ -10879,7 +10890,7 @@
 	pixel_x = 4;
 	pixel_y = 10
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "iKX" = (
 /obj/structure/railing/mapped{
@@ -12229,7 +12240,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "jOn" = (
 /obj/machinery/button/switch/windowtint{
@@ -15699,14 +15713,16 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/autopsy_laboratory)
 "mpY" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner/teal/diagonal,
-/turf/simulated/floor/lino/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "mqh" = (
 /obj/effect/floor_decal/corner/blue{
@@ -17836,11 +17852,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/teal/diagonal,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "obp" = (
 /obj/machinery/ammunition_loader/longbow{
@@ -20960,7 +20975,7 @@
 	dir = 8;
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "qLy" = (
 /turf/simulated/wall,
@@ -21522,12 +21537,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/teal/diagonal,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
 /obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "rnX" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -21585,7 +21599,9 @@
 	layer = 3.5;
 	pixel_y = 27
 	},
-/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/corner/grey/diagonal{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/cafeteria)
 "rqM" = (
@@ -24240,10 +24256,6 @@
 	pixel_y = 10
 	},
 /obj/structure/table/stone/marble,
-/obj/effect/floor_decal/corner/teal/diagonal,
-/obj/effect/floor_decal/spline/plain{
-	dir = 1
-	},
 /obj/effect/decal/fake_object{
 	desc = "A descriptive sign.";
 	icon = 'icons/effects/cafesign.dmi';
@@ -24251,7 +24263,10 @@
 	name = "cafe sign";
 	pixel_y = 30
 	},
-/turf/simulated/floor/lino/grey,
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "tqy" = (
 /obj/structure/disposalpipe/segment{
@@ -24609,11 +24624,10 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/effect/floor_decal/corner/teal/diagonal,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "tFa" = (
 /obj/machinery/light_switch{
@@ -24653,25 +24667,28 @@
 /obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/corner/teal/diagonal,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
-	pixel_x = 7;
-	pixel_y = 8
+	pixel_x = 17;
+	pixel_y = -6
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
-	pixel_x = 7;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
-	pixel_x = -4;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
-	pixel_x = -4;
-	pixel_y = 8
+	pixel_x = 17;
+	pixel_y = 6
 	},
 /obj/item/storage/box/fancy/donut{
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
+	pixel_x = 17;
+	pixel_y = -6
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
+	pixel_x = 17;
+	pixel_y = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "tGl" = (
 /obj/structure/toilet{
@@ -54040,8 +54057,8 @@ lbi
 lbi
 tqm
 mpY
-jhP
-jhP
+arR
+arR
 dui
 lbi
 qzF
@@ -54242,8 +54259,8 @@ rqs
 gbC
 awM
 jNL
-arR
-arR
+jhP
+jhP
 tFg
 uKi
 wWG

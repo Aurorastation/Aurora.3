@@ -1185,7 +1185,7 @@
 	icon_state = "largebox"
 	illustration = "condiment"
 	starts_with = list(
-		/obj/random_produce/box = 3,
+		/obj/item/reagent_containers/food/snacks/chocolatebar = 2,
 		/obj/item/reagent_containers/food/condiment/enzyme = 1,
 		/obj/item/reagent_containers/food/condiment/shaker/peppermill = 2,
 		/obj/item/reagent_containers/food/condiment/shaker/salt = 2,
