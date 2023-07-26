@@ -1178,3 +1178,23 @@
 	starts_with = list(
 		/obj/item/cell/high = 3
 	)
+
+/obj/item/storage/box/condiment
+	name = "condiment box"
+	desc = "A large box of condiments, syrups, flavorings."
+	icon_state = "largebox"
+	illustration = "condiment"
+	starts_with = list(
+		/obj/random_produce/box = 3,
+		/obj/item/reagent_containers/food/condiment/enzyme = 1,
+		/obj/item/reagent_containers/food/condiment/shaker/peppermill = 2,
+		/obj/item/reagent_containers/food/condiment/shaker/salt = 2,
+		/obj/item/reagent_containers/food/condiment/shaker/spacespice = 2,
+		/obj/item/reagent_containers/food/condiment/shaker/sprinkles = 1,
+		/obj/item/reagent_containers/food/condiment/sugar = 1,
+		//  = 1,
+	)
+
+/obj/item/storage/box/produce/fill()
+	. = ..()
+	make_exact_fit()
