@@ -1185,7 +1185,6 @@
 	icon_state = "largebox"
 	illustration = "condiment"
 	starts_with = list(
-		/obj/item/reagent_containers/food/snacks/chocolatebar = 2,
 		/obj/item/reagent_containers/food/condiment/enzyme = 1,
 		/obj/item/reagent_containers/food/condiment/shaker/peppermill = 2,
 		/obj/item/reagent_containers/food/condiment/shaker/salt = 2,
@@ -1193,7 +1192,10 @@
 		/obj/item/reagent_containers/food/condiment/shaker/sprinkles = 1,
 		/obj/item/reagent_containers/food/condiment/sugar = 1,
 		/obj/item/reagent_containers/food/condiment/shaker/pumpkinspice = 1,
-		/obj/item/reagent_containers/food/condiment/syrup_chocolate,
+		/obj/item/reagent_containers/glass/bottle/syrup/chocolate = 1,
+		/obj/item/reagent_containers/glass/bottle/syrup/pumpkin = 1,
+		/obj/item/reagent_containers/glass/bottle/syrup/vanilla = 1,
+		/obj/item/reagent_containers/glass/bottle/syrup/caramel = 1,
 	)
 
 /obj/item/storage/box/produce/fill()
