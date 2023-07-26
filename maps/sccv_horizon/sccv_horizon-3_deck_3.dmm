@@ -15530,9 +15530,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/item/storage/box/condiment{
-	pixel_y = 20
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "mgN" = (
