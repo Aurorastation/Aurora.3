@@ -3387,15 +3387,15 @@
 /area/horizon/security/investigations_hallway)
 "daI" = (
 /obj/structure/table/reinforced/wood,
-/obj/machinery/reagentgrinder{
-	pixel_x = 1;
-	pixel_y = 8
-	},
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner/teal/diagonal,
+/obj/machinery/reagentgrinder{
+	pixel_x = 1;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
 "dce" = (
@@ -3909,11 +3909,6 @@
 /area/horizon/hallway/deck_three/primary/starboard)
 "dxG" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/glass_jar{
-	desc = "A small empty jar that is mostly used for giving a tip.";
-	name = "tip jar";
-	pixel_y = 4
-	},
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck - Cafe";
 	dir = 8
@@ -3927,8 +3922,14 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/teal/diagonal,
+/obj/item/reagent_containers/glass/rag/advanced/idris{
+	pixel_x = -2
+	},
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = 5
+	},
 /obj/item/storage/toolbox/lunchbox/idris{
-	pixel_y = -7;
+	pixel_y = -8;
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled,
@@ -4884,24 +4885,20 @@
 	},
 /obj/effect/floor_decal/corner/teal/diagonal,
 /obj/structure/table/reinforced/wood,
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_x = -6;
-	pixel_y = 16
+/obj/item/storage/box/condiment{
+	pixel_y = 13
 	},
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = 4;
-	pixel_y = 16
+	pixel_x = 2;
+	pixel_y = 3
 	},
-/obj/item/material/kitchen/utensil/knife{
-	pixel_x = -5;
-	pixel_y = -9
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 7;
+	pixel_y = 3
 	},
-/obj/item/material/kitchen/rollingpin{
-	pixel_x = -1;
-	pixel_y = -10
-	},
-/obj/item/reagent_containers/cooking_container/board/bowl{
-	pixel_y = -13
+/obj/item/reagent_containers/food/condiment/shaker/sprinkles{
+	pixel_x = -4;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
@@ -5156,6 +5153,17 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/vending/dinnerware/plastic{
 	pixel_y = 22
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/item/flame/candle{
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
@@ -7489,6 +7497,11 @@
 /area/horizon/security/evidence_storage)
 "gbC" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/extinguisher_cabinet{
+	dir = 1;
+	pixel_y = 32;
+	pixel_x = -27
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/cafeteria)
 "gbN" = (
@@ -9650,7 +9663,7 @@
 /area/horizon/holodeck_control)
 "hFy" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer/cafe,
 /turf/simulated/floor/tiled/white,
 /area/horizon/cafeteria)
 "hGl" = (
@@ -10841,13 +10854,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hop/xo)
 "iJl" = (
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_x = 4;
-	pixel_y = 7
-	},
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
+	},
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_x = 4;
+	pixel_y = 10
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
@@ -20909,11 +20922,16 @@
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/corner/teal/diagonal,
-/obj/item/reagent_containers/glass/rag/advanced/idris{
-	pixel_x = -2
+/obj/item/material/kitchen/utensil/knife{
+	pixel_x = -5;
+	pixel_y = -9
 	},
-/obj/item/reagent_containers/food/drinks/shaker{
-	pixel_x = 5
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = -1;
+	pixel_y = -10
+	},
+/obj/item/reagent_containers/cooking_container/board/bowl{
+	pixel_y = -13
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
@@ -24192,15 +24210,19 @@
 "tqm" = (
 /obj/machinery/chemical_dispenser/coffeemaster/full{
 	pixel_x = -3;
-	pixel_y = 7
+	pixel_y = 10
 	},
 /obj/structure/table/stone/marble,
-/obj/structure/sign/flag/idris{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/teal/diagonal,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
+	},
+/obj/effect/decal/fake_object{
+	desc = "A descriptive sign.";
+	icon = 'icons/effects/cafesign.dmi';
+	icon_state = "cafesign";
+	name = "aft hall indicator";
+	pixel_y = 30
 	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
@@ -29121,6 +29143,11 @@
 	dir = 8;
 	id = "shutters_deck3_cafedesk";
 	name = "Cafe Desk Shutter"
+	},
+/obj/item/glass_jar{
+	desc = "A small empty jar that is mostly used for giving a tip.";
+	name = "tip jar";
+	pixel_y = 12
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
