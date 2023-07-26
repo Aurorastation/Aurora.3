@@ -69,7 +69,8 @@
 	msg_admin_attack("[key_name(user)] read mind of [key_name(target)] [safe_mode ? "skimming their surface thoughts" : "forcing them to answer truthfully with question \"[question]\""]  and [answer?"got answer \"[answer]\".":"got no answer."]")
 	if(safe_mode)
 		target.confused += 15
-		to_chat(target, SPAN_WARNING("You feel somewhat nauseated..."))
+		target.adjustBrainLoss(10)
+		to_chat(target, SPAN_WARNING("You feel somewhat nauseated, and a headache's come up too..."))
 	else
 		target.adjustBrainLoss(20)
 		target.confused += 20
