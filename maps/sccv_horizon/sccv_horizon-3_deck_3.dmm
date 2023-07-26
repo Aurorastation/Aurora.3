@@ -3397,6 +3397,10 @@
 	dir = 8
 	},
 /obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = 9;
+	pixel_y = 0
+	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "dce" = (
@@ -8143,9 +8147,6 @@
 	name = "Cafe Desk Shutter"
 	},
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/fancy/donut{
-	pixel_y = -1
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
 "gDE" = (
@@ -10902,6 +10903,22 @@
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	pixel_x = -1;
 	pixel_y = 12
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/chocolate{
+	pixel_y = 1;
+	pixel_x = -12
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
+	pixel_x = 7;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/vanilla{
+	pixel_x = 16;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/caramel{
+	pixel_x = -3;
+	pixel_y = 1
 	},
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
@@ -20985,9 +21002,6 @@
 	pixel_x = -1;
 	pixel_y = -10
 	},
-/obj/item/reagent_containers/cooking_container/board/bowl{
-	pixel_y = -13
-	},
 /obj/effect/decal/fake_object{
 	desc = "A chalkboard with the menu of the cafe written on it.";
 	icon = 'icons/obj/coffeemenu.dmi';
@@ -20997,6 +21011,13 @@
 	pixel_x = 32
 	},
 /obj/structure/table/stone/marble,
+/obj/item/pen/black{
+	pixel_x = 7;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/cooking_container/board/bowl{
+	pixel_y = -13
+	},
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "qLy" = (
@@ -24305,10 +24326,10 @@
 	pixel_y = 0
 	},
 /obj/item/reagent_containers/food/drinks/takeaway_cup_idris{
-	pixel_x = -10
+	pixel_x = -7
 	},
 /obj/item/reagent_containers/food/drinks/takeaway_cup_idris{
-	pixel_x = -10
+	pixel_x = -7
 	},
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
