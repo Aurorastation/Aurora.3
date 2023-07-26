@@ -636,6 +636,9 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
 "axw" = (
@@ -4875,30 +4878,33 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "emD" = (
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc/low{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
 /obj/effect/floor_decal/corner/teal/diagonal,
 /obj/structure/table/reinforced/wood,
 /obj/item/storage/box/condiment{
 	pixel_y = 13
 	},
+/obj/effect/decal/fake_object{
+	desc = "A descriptive sign.";
+	icon = 'icons/obj/coffeemenu.dmi';
+	icon_state = "left";
+	name = "aft hall indicator";
+	dir = 8;
+	pixel_x = 32
+	},
+/obj/item/reagent_containers/food/condiment/shaker/pumpkinspice{
+	pixel_y = 6
+	},
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
 	pixel_x = 2;
-	pixel_y = 3
+	pixel_y = 0
 	},
 /obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = 7;
-	pixel_y = 3
+	pixel_y = 0
 	},
 /obj/item/reagent_containers/food/condiment/shaker/sprinkles{
-	pixel_x = -4;
-	pixel_y = 4
+	pixel_x = -5;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
@@ -7502,6 +7508,9 @@
 	pixel_y = 32;
 	pixel_x = -27
 	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/cafeteria)
 "gbN" = (
@@ -9664,6 +9673,14 @@
 "hFy" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/closet/secure_closet/freezer/cafe,
+/obj/machinery/power/apc/low{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/cafeteria)
 "hGl" = (
@@ -12208,10 +12225,10 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
 "jNL" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/teal/diagonal,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
 "jOn" = (
@@ -20918,9 +20935,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/sign/flag/idris{
-	pixel_x = 32
-	},
 /obj/effect/floor_decal/corner/teal/diagonal,
 /obj/item/material/kitchen/utensil/knife{
 	pixel_x = -5;
@@ -20932,6 +20946,14 @@
 	},
 /obj/item/reagent_containers/cooking_container/board/bowl{
 	pixel_y = -13
+	},
+/obj/effect/decal/fake_object{
+	desc = "A descriptive sign.";
+	icon = 'icons/obj/coffeemenu.dmi';
+	icon_state = "right";
+	name = "aft hall indicator";
+	dir = 8;
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
@@ -21495,11 +21517,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/bed/stool/bar/padded/teal,
 /obj/effect/floor_decal/corner/teal/diagonal,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
+/obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/lino/grey,
 /area/horizon/cafeteria)
 "rnX" = (
@@ -24221,7 +24243,7 @@
 	desc = "A descriptive sign.";
 	icon = 'icons/effects/cafesign.dmi';
 	icon_state = "cafesign";
-	name = "aft hall indicator";
+	name = "cafe sign";
 	pixel_y = 30
 	},
 /turf/simulated/floor/lino/grey,
