@@ -85,9 +85,11 @@
 
 /obj/structure/closet/secure_closet/freezer/cafe/fill()
 	..()
-	for(var/i = 0, i < 5, i++)
+	for(var/i = 0, i < 6, i++)
 		new /obj/item/reagent_containers/food/drinks/milk(src)
 	for(var/i = 0, i < 2, i++)
 		new /obj/item/reagent_containers/food/drinks/soymilk(src)
-	for(var/i = 0, i < 2, i++)
+	for(var/i = 0, i < 3, i++)
 		new /obj/item/storage/box/fancy/egg_box(src)
+	for(var/i = 0, i < 2, i++)
+		/obj/item/reagent_containers/food/condiment/sugar

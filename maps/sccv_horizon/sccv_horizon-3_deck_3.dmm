@@ -4884,6 +4884,25 @@
 	},
 /obj/effect/floor_decal/corner/teal/diagonal,
 /obj/structure/table/reinforced/wood,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -6;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 4;
+	pixel_y = 16
+	},
+/obj/item/material/kitchen/utensil/knife{
+	pixel_x = -5;
+	pixel_y = -9
+	},
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = -1;
+	pixel_y = -10
+	},
+/obj/item/reagent_containers/cooking_container/board/bowl{
+	pixel_y = -13
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
 "emE" = (
