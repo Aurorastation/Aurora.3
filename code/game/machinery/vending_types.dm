@@ -985,7 +985,8 @@
 		/obj/item/tray = 12,
 		/obj/item/tray/plate = 10,
 		/obj/item/reagent_containers/bowl = 10,
-		/obj/item/reagent_containers/bowl/plate = 10
+		/obj/item/reagent_containers/bowl/plate = 10,
+		/obj/item/reagent_containers/glass/bottle/syrup = 4,
 	)
 	contraband = list(
 		/obj/item/storage/toolbox/lunchbox/syndicate = 2
