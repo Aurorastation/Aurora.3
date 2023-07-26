@@ -3923,10 +3923,6 @@
 	dir = 8;
 	pixel_x = 22
 	},
-/obj/machinery/firealarm/east{
-	pixel_x = 42;
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/teal/diagonal,
 /obj/item/reagent_containers/food/drinks/shaker{
 	pixel_x = 5;
@@ -5036,6 +5032,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 8
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/white,
 /area/horizon/cafeteria)
 "epJ" = (
