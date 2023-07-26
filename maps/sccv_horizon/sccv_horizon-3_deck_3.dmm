@@ -15489,6 +15489,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/item/storage/box/condiment{
+	pixel_y = 20
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "mgN" = (
@@ -17940,7 +17943,9 @@
 	id = "shutters_deck3_cafedesk";
 	name = "Cafe Desk Shutter"
 	},
-/obj/item/material/ashtray/bronze,
+/obj/item/material/ashtray/bronze{
+	pixel_y = 5
+	},
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
@@ -24646,10 +24651,26 @@
 /area/crew_quarters/heads/hop/xo)
 "tFg" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/storage/box/fancy/donut{
-	pixel_y = -1
-	},
 /obj/effect/floor_decal/corner/teal/diagonal,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/storage/box/fancy/donut{
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
 "tGl" = (
