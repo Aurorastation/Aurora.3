@@ -4881,10 +4881,10 @@
 	pixel_y = 13
 	},
 /obj/effect/decal/fake_object{
-	desc = "A descriptive sign.";
+	desc = "A chalkboard with the menu of the cafe written on it.";
 	icon = 'icons/obj/coffeemenu.dmi';
 	icon_state = "left";
-	name = "aft hall indicator";
+	name = "coffee menu chalkboard";
 	dir = 8;
 	pixel_x = 32
 	},
@@ -4908,7 +4908,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/box/fancy/donut{
-	pixel_y = -8;
+	pixel_y = -9;
 	pixel_x = 1
 	},
 /turf/simulated/floor/lino/grey,
@@ -5177,6 +5177,11 @@
 	},
 /obj/item/flame/candle{
 	pixel_y = 8
+	},
+/obj/item/glass_jar{
+	desc = "A small empty jar that is mostly used for giving a tip.";
+	name = "tip jar";
+	pixel_y = -9
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
@@ -17975,10 +17980,10 @@
 	id = "shutters_deck3_cafedesk";
 	name = "Cafe Desk Shutter"
 	},
-/obj/item/material/ashtray/bronze{
-	pixel_y = 5
-	},
 /obj/structure/table/stone/marble,
+/obj/item/material/ashtray/bronze{
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
 "ofL" = (
@@ -20984,10 +20989,10 @@
 	pixel_y = -13
 	},
 /obj/effect/decal/fake_object{
-	desc = "A descriptive sign.";
+	desc = "A chalkboard with the menu of the cafe written on it.";
 	icon = 'icons/obj/coffeemenu.dmi';
 	icon_state = "right";
-	name = "aft hall indicator";
+	name = "coffee menu chalkboard";
 	dir = 8;
 	pixel_x = 32
 	},
@@ -24287,6 +24292,7 @@
 	pixel_x = 9;
 	pixel_y = 8
 	},
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
 	pixel_x = 9;
 	pixel_y = 2
@@ -24294,6 +24300,15 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
 	pixel_x = 9;
 	pixel_y = -4
+	},
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris{
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris{
+	pixel_x = -10
+	},
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris{
+	pixel_x = -10
 	},
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
@@ -29213,11 +29228,6 @@
 	dir = 8;
 	id = "shutters_deck3_cafedesk";
 	name = "Cafe Desk Shutter"
-	},
-/obj/item/glass_jar{
-	desc = "A small empty jar that is mostly used for giving a tip.";
-	name = "tip jar";
-	pixel_y = 12
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/cafeteria)
