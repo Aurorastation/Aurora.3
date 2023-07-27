@@ -236,11 +236,12 @@
 	)
 
 	natural_armor = list(
-		melee = ARMOR_MELEE_SMALL
+		melee = ARMOR_MELEE_MEDIUM
 	)
 
-	brute_mod = 0.65
-	burn_mod = 1
+	brute_mod = 0.4
+	burn_mod = 1.25
+	pain_mod = 0.75 //thick carapace, getting hit doesn't hurt them as much
 	oxy_mod = 1
 	radiation_mod = 0
 	toxins_mod = 3
@@ -259,7 +260,7 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 	heat_level_2 = 400 //Default 400
 	heat_level_3 = 800 //Default 1000
 
-	sprint_speed_factor = 1.4
+	sprint_speed_factor = 1.0
 	stamina = 50
 
 /datum/species/bug/type_e/New()
