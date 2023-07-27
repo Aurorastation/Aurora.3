@@ -1,6 +1,6 @@
 /mob/living/proc/convert_to_rev(mob/M as mob in oview(src))
 	set name = "Invite to the Revolutionaries"
-	set category = "Abilities"
+	set category = "IC"
 	if(!M.mind)
 		return
 	for (var/obj/item/implant/mindshield/I in M)
@@ -48,7 +48,7 @@
 
 /mob/living/proc/convert_to_loyalist(mob/M as mob in oview(src))
 	set name = "Invite to the Loyalists"
-	set category = "Abilities"
+	set category = "IC"
 	if(!M.mind)
 		return
 	convert_to_faction(M.mind, loyalists)

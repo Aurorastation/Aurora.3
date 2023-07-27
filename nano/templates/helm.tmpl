@@ -3,7 +3,7 @@
 
 <div style="float:left;width:45%;">
 	<fieldset style="min-height:180px;background-color: #202020;">
-		<legend style="text-align:center">Flight data</legend> 
+		<legend style="text-align:center">Flight data</legend>
 		<div class='item'>
 			<div class="itemLabelWider">
 				ETA to next grid:
@@ -35,7 +35,7 @@
 			<div style="float:right">
 				{{:data.heading}}&deg;
 			</div>
-		</div> 
+		</div>
 		<div class='item'>
 			<div class="itemLabelWider">
 				Acceleration limiter:
@@ -43,36 +43,31 @@
 			<div style="float:right">
 				{{:helper.link(data.accellimit, null, { 'accellimit' : 1}, null, null)}} Gm/h
 			</div>
-		</div> 
+		</div>
 	</fieldset>
 </div>
-	
+
 <div style="float:left;width:25%">
 <fieldset style="min-height:180px;background-color: #202020;">
 	<legend style="text-align:center">Manual control</legend>
 	<div class='item'>
 		<div class='item'>
-			{{:helper.link('', 'triangle-1-nw', { 'move' : 9 }, data.canburn ? null : 'disabled', null)}}
+			{{:helper.link('', '', { 'move' : 1 }, 'disabled', null)}}
 			{{:helper.link('', 'triangle-1-n', { 'move' : 1 }, data.canburn ? null : 'disabled', null)}}
-			{{:helper.link('', 'triangle-1-ne', { 'move' : 5 }, data.canburn ? null : 'disabled', null)}}
+			{{:helper.link('', '', { 'move' : 1 }, 'disabled', null)}}
 		</div>
 		<div class='item'>
-			{{:helper.link('', 'triangle-1-w', { 'move' : 8 }, data.canburn ? null : 'disabled', null)}}
+			{{:helper.link('', 'arrowstop-1-w', {'turn' : 8}, data.canturn ? null : 'disabled', null)}}
 			{{:helper.link('', 'circle-close', { 'brake' : 1 }, data.canburn ? null : 'disabled', null)}}
-			{{:helper.link('', 'triangle-1-e', { 'move' : 4 }, data.canburn ? null : 'disabled', null)}}
-		</div>
-		<div class='item'>
-			{{:helper.link('', 'triangle-1-sw', { 'move' : 10 }, data.canburn ? null : 'disabled', null)}}
-			{{:helper.link('', 'triangle-1-s', { 'move' : 2 }, data.canburn ? null : 'disabled', null)}}
-			{{:helper.link('', 'triangle-1-se', { 'move' : 6 }, data.canburn ? null : 'disabled', null)}}
+			{{:helper.link('', 'arrowstop-1-e', {'turn' : 4}, data.canturn ? null : 'disabled', null)}}
 		</div>
 		<div class='item'>
 			<div class="itemLabel">
 				Maneuvers
 			</div><br>
 			<div class="itemContent">
-				{{:helper.link('', 'arrowstop-1-w', {'turn' : 8}, data.cancombatturn ? null : 'disabled', null)}}
-				{{:helper.link('', 'arrowstop-1-e', {'turn' : 4}, data.cancombatturn ? null : 'disabled', null)}}
+				{{:helper.link('', 'arrowstop-1-w', {'combat_turn' : 8}, data.cancombatturn ? null : 'disabled', null)}}
+				{{:helper.link('', 'arrowstop-1-e', {'combat_turn' : 4}, data.cancombatturn ? null : 'disabled', null)}}
 			</div>
 			<div class="itemContent">
 				{{:helper.link('', 'arrowreturnthick-1-w', {'roll' : 8}, data.cancombatroll ? null : 'disabled', null)}}
@@ -88,7 +83,7 @@
 	</div>
 </fieldset>
 </div>
-	
+
 <div style="float:left;width:30%">
 <fieldset style="min-height:180px;background-color: #202020;">
 	<legend style="text-align:center">Autopilot</legend>
@@ -103,7 +98,7 @@
 				{{:helper.link('None', null, { 'sety' : 1, 'setx' : 1 }, null, null)}}
 			{{/if}}
 		</div>
-	</div> 
+	</div>
 	<div class='item'>
 		<div class="itemLabelWide">
 			Speed limit:
@@ -111,13 +106,13 @@
 		<div class="itemContent">
 			{{:helper.link(data.speedlimit, null, { 'speedlimit' : 1 }, null, null)}} Gm/h
 		</div>
-	</div> 
+	</div>
 	<div class="item">
 		{{:helper.link(data.autopilot ? 'Engaged' : 'Disengaged', 'gear', { 'apilot' : 1 }, data.dest ? null : 'disabled', data.autopilot ? 'selected' : null)}}
 	</div>
 </fieldset>
 </div>
-	
+
 	<div class='block' style='clear: both;'>
 		<h3>Navigation data</h3>
 		<div class='item'>
@@ -168,5 +163,4 @@
 		</table>
 	</div>
 	</div>
-	
-	
+

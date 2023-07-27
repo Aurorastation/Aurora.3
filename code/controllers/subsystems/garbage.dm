@@ -6,6 +6,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	wait = 2 SECONDS
 	flags = SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	init_stage = INITSTAGE_EARLY
 
 	var/collection_timeout = 3000// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
 	var/delslasttick = 0		// number of del()'s we've done this tick
@@ -43,7 +44,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	NEW_SS_GLOBAL(SSgarbage)
 
 /datum/controller/subsystem/garbage_collector/stat_entry(msg)
-	msg += "W:[tobequeued.len]|Q:[queue.len]|D:[delslasttick]|G:[gcedlasttick]|"
+	msg = "W:[tobequeued.len]|Q:[queue.len]|D:[delslasttick]|G:[gcedlasttick]|"
 	msg += "GR:"
 	if (!(delslasttick+gcedlasttick))
 		msg += "n/a|"
@@ -55,7 +56,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		msg += "n/a|"
 	else
 		msg += "TGR:[round((totalgcs/(totaldels+totalgcs))*100, 0.01)]%"
-	..(msg)
+	return ..()
 
 /datum/controller/subsystem/garbage_collector/fire()
 	HandleToBeQueued()
@@ -113,15 +114,15 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		A = locate(refID)
 		if (A && A.gcDestroyed == GCd_at_time) // So if something else coincidently gets the same ref, it's not deleted by mistake
 			#ifdef REFERENCE_TRACKING
-			if(reference_find_on_fail[text_ref(D)])
-				INVOKE_ASYNC(D, TYPE_PROC_REF(/datum, find_references))
+			if(reference_find_on_fail[text_ref(A)])
+				INVOKE_ASYNC(A, TYPE_PROC_REF(/datum, find_references))
 				ref_searching = TRUE
 			#ifdef GC_FAILURE_HARD_LOOKUP
 			else
-				INVOKE_ASYNC(D, TYPE_PROC_REF(/datum, find_references))
+				INVOKE_ASYNC(A, TYPE_PROC_REF(/datum, find_references))
 				ref_searching = TRUE
 			#endif
-			reference_find_on_fail -= text_ref(D)
+			reference_find_on_fail -= text_ref(A)
 			#endif
 
 			// Something's still referring to the qdel'd object.  Kill it.
@@ -137,7 +138,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 			++gcedlasttick
 			++totalgcs
 			#ifdef REFERENCE_TRACKING
-			reference_find_on_fail -= text_ref(D)
+			reference_find_on_fail -= text_ref(A)
 			#endif
 
 	if (idex > 1)

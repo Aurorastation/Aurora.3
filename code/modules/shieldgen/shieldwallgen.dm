@@ -301,3 +301,8 @@
 			return prob(10)
 		else
 			return !density
+
+
+#undef POWER_INACTIVE
+#undef POWER_STARTING
+#undef POWER_ACTIVE

@@ -329,7 +329,7 @@ There are several things that need to be remembered:
 		var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 		if(vampire && (vampire.status & VAMP_FRENZIED))
 			is_frenzied = "frenzy"
-	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"][!!husk][!!fat][!!skeleton][is_frenzied]"
+	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lipstick_color || "nolips"][!!husk][!!fat][!!skeleton][is_frenzied]"
 	var/obj/item/organ/internal/eyes/eyes = get_eyes()
 	if(eyes)
 		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])]"
@@ -480,7 +480,7 @@ There are several things that need to be remembered:
 		if(update_icons)   update_icon()
 		return
 
-	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)) && !(l_ear && (l_ear.flags_inv & BLOCKHEADHAIR)) && !(r_ear && (r_ear.flags_inv & BLOCKHEADHAIR))
+	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)) && !(l_ear && (l_ear.flags_inv & BLOCKHEADHAIR)) && !(r_ear && (r_ear.flags_inv & BLOCKHEADHAIR)) && !(wear_suit && (wear_suit.flags_inv & BLOCKHEADHAIR))
 
 	var/icon/hair_icon = generate_hair_icon(has_visible_hair)
 

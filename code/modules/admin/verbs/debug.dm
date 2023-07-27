@@ -425,3 +425,18 @@
 	set desc = "Displays a list of things that didn't handle Initialize() properly"
 
 	usr << browse(replacetext(SSatoms.InitLog(), "\n", "<br>"), "window=initlog")
+
+/client/proc/reload_nanoui_resources()
+	set category = "Debug"
+	set name = "Reload NanoUI Resources"
+	set desc = "Force the client to redownload NanoUI Resources"
+
+	// Close open NanoUIs.
+	SSnanoui.close_user_uis(usr)
+
+	// Re-load the assets.
+	var/datum/asset/assets = get_asset_datum(/datum/asset/nanoui)
+	assets.register()
+
+	// Clear the user's cache so they get resent.
+	usr.client.sent_assets = list()

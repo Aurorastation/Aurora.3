@@ -28,31 +28,49 @@ var/datum/uplink/uplink
 /datum/uplink_item
 	var/name
 	var/desc
-	var/item_cost = 0
-	var/item_limit = 999 // how many times can this item be bought from a uplink (high limit is not shown in the uplink gui)
-	var/datum/uplink_category/category		// Item category
-	var/list/datum/antagonist/antag_roles	// Antag roles this item is displayed to. If empty, display to all.
-	var/list/datum/antagonist/antag_job     // Antag job this item is displayed to, if empty, display to all.
+	/// A null telecrystal cost means that this item cannot be bought with bluecrystals.
+	var/telecrystal_cost
+	/// A null bluecrystal cost means that this item cannot be bought with bluecrystals.
+	var/bluecrystal_cost
+	/// How many times can this item be bought from an uplink (high limit is not shown in the uplink GUI).
+	var/item_limit = 999
+	/// Item category.
+	var/datum/uplink_category/category
+	/// Antag roles this item is displayed to. If empty, display to all.
+	var/list/datum/antagonist/antag_roles
+	/// Antag job this item is displayed to, if empty, display to all.
+	var/list/datum/antagonist/antag_job
 
 /datum/uplink_item/item
-	var/path = null
+	var/path
 
 /datum/uplink_item/proc/buy(var/obj/item/device/uplink/U, var/mob/user)
 	var/extra_args = extra_args(user)
 	if(!extra_args)
 		return
 
-	if(!can_buy(U))
+	var/can_buy_telecrystals = can_buy_telecrystals(U)
+	var/can_buy_bluecrystals = can_buy_bluecrystals(U)
+	if(!can_buy_telecrystals && !can_buy_bluecrystals)
 		return
 
 	if(U.CanUseTopic(user, inventory_state) != STATUS_INTERACTIVE)
 		return
 
-	var/cost = cost(U.uses)
-
 	var/goods = get_goods(U, get_turf(user), user, extra_args)
 	if(!goods)
+		log_admin("Bought item [name] for [user]'s uplink could not be obtained.")
 		return
+
+	var/cost
+	if(can_buy_bluecrystals)
+		cost = bluecrystal_cost(U.bluecrystals)
+		U.bluecrystals -= cost
+		U.used_bluecrystals += cost
+	else if(can_buy_telecrystals)
+		cost = telecrystal_cost(U.telecrystals)
+		U.telecrystals -= cost
+		U.used_telecrystals += cost
 
 	var/obj/item/implanter/implanter = goods
 	if(istype(implanter))
@@ -61,55 +79,71 @@ var/datum/uplink/uplink
 			var/obj/item/device/uplink/hidden/hidden_uplink = uplink_implant.hidden_uplink
 			if(istype(hidden_uplink))
 				hidden_uplink.purchase_log = U.purchase_log
-	
+
 	purchase_log(U)
-	U.uses -= cost
-	U.used_TC += cost
 	return goods
 
 // Any additional arguments you wish to send to the get_goods
 /datum/uplink_item/proc/extra_args(var/mob/user)
 	return 1
 
-/datum/uplink_item/proc/can_buy(obj/item/device/uplink/U)
-	if(cost(U.uses) > U.uses)
-		return 0
+/datum/uplink_item/proc/can_buy_telecrystals(obj/item/device/uplink/U)
+	if(isnull(telecrystal_cost))
+		return FALSE
+
+	if(telecrystal_cost(U.telecrystals) > U.telecrystals)
+		return FALSE
 
 	if(items_left(U) <= 0)
-		return 0
+		return FALSE
+
+	return can_view(U)
+
+/datum/uplink_item/proc/can_buy_bluecrystals(obj/item/device/uplink/U)
+	if(isnull(bluecrystal_cost))
+		return FALSE
+
+	if(bluecrystal_cost(U.bluecrystals) > U.bluecrystals)
+		return FALSE
+
+	if(items_left(U) <= 0)
+		return FALSE
 
 	return can_view(U)
 
 /datum/uplink_item/proc/items_left(obj/item/device/uplink/U)
 	return item_limit - U.purchase_log[src]
-		
+
 /datum/uplink_item/proc/can_view(obj/item/device/uplink/U)
 	// Making the assumption that if no uplink was supplied, then we don't care about antag roles
 	if(!U || (!length(antag_roles) && !antag_job))
-		return 1
+		return TRUE
 
 	// With no owner, there's no need to check antag status.
 	if(!U.uplink_owner)
-		return 0
+		return FALSE
 
 	for(var/antag_role in antag_roles)
 		var/datum/antagonist/antag = all_antag_types[antag_role]
 		if(antag.is_antagonist(U.uplink_owner))
-			return 1
+			return TRUE
 
 	if (antag_job == U.uplink_owner.assigned_role) //for a quick and easy list of the assigned_role, look in specialty.dm
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
-/datum/uplink_item/proc/cost(var/telecrystals)
-	return item_cost
+/datum/uplink_item/proc/telecrystal_cost(var/telecrystals)
+	return telecrystal_cost
+
+/datum/uplink_item/proc/bluecrystal_cost(var/bluecrystals)
+	return bluecrystal_cost
 
 /datum/uplink_item/proc/description()
 	return desc
 
 // get_goods does not necessarily return physical objects, it is simply a way to acquire the uplink item without paying
 /datum/uplink_item/proc/get_goods(var/obj/item/device/uplink/U, var/loc)
-	return 0
+	return FALSE
 
 /datum/uplink_item/proc/log_icon()
 	return
@@ -177,6 +211,6 @@ var/datum/uplink/uplink
 		if(!I)
 			break
 		bought_items += I
-		remaining_TC -= I.cost(remaining_TC)
+		remaining_TC -= I.telecrystal_cost(remaining_TC)
 
 	return bought_items

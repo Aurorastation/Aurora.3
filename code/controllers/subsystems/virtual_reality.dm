@@ -131,7 +131,7 @@
 	M.vr_mob = target
 	target.ckey = new_ckey
 	M.ckey = "@[new_ckey]"
-	target.verbs += /mob/proc/body_return
+	add_verb(target, /mob/proc/body_return)
 
 	target.get_vr_name(M)
 	M.swap_languages(target)
@@ -145,6 +145,7 @@
 			var/mob/living/simple_animal/spiderbot/SB = target
 			SB.internal_id.access = original_id.access
 
+	target.client.init_verbs()
 	to_chat(target, SPAN_NOTICE("Connection established, system suite active and calibrated."))
 	to_chat(target, SPAN_WARNING("To exit this mode, use the \"Return to Body\" verb in the IC tab."))
 

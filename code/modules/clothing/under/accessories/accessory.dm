@@ -346,7 +346,7 @@
 	name = "tallit"
 	desc = "A tallit is a fringed garment worn as a prayer shawl by religious Jews. \
 	The tallit has special twined and knotted fringes known as tzitzit attached to its four corners."
-	icon = 'icons/clothing/accessories/tallit.dmi'
+	icon = 'icons/clothing/accessories/Tallit.dmi'
 	item_state = "tallit"
 	icon_state = "tallit"
 	contained_sprite = TRUE
@@ -420,20 +420,23 @@
 /obj/item/clothing/accessory/poncho
 	name = "poncho"
 	desc = "A simple, comfortable poncho."
+	icon = 'icons/obj/item/clothing/accessory/poncho/poncho.dmi'
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
-	icon_override = 'icons/mob/ties.dmi'
+	icon_override = 'icons/obj/item/clothing/accessory/poncho/poncho.dmi'
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	siemens_coefficient = 0.9
 	w_class = ITEMSIZE_NORMAL
 	slot = ACCESSORY_SLOT_CAPE
+	contained_sprite = TRUE
 	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
 
 /obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
 	set name = "Toggle Tail Coverage"
 	set category = "Object"
+	set src in usr
 
 	if(allow_tail_hiding)
 		flags_inv ^= HIDETAIL
@@ -510,6 +513,21 @@
 	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of operations."
 	icon_state = "cargoponcho"
 	item_state = "cargoponcho"
+
+/obj/item/clothing/accessory/poncho/colorable
+	name = "poncho"
+	desc = "A simple, comfortable cloak without sleeves."
+	icon_state = "colourponcho"
+	item_state = "colourponcho"
+	has_accents = TRUE
+
+/obj/item/clothing/accessory/poncho/colorable/alt
+	icon_state = "trimponcho"
+	item_state = "trimponcho"
+
+/obj/item/clothing/accessory/poncho/colorable/gradient
+	icon_state = "gradponcho"
+	item_state = "gradponcho"
 
 /*
  * Sashes

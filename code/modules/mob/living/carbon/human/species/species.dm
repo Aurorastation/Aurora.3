@@ -434,7 +434,7 @@
 /datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
-			H.verbs -= verb_path
+			remove_verb(H, verb_path)
 
 	if(inherent_spells)
 		for(var/spell_path in inherent_spells)
@@ -446,7 +446,7 @@
 /datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
-			H.verbs |= verb_path
+			add_verb(H, verb_path)
 
 	if(inherent_spells)
 		for(var/spell_path in inherent_spells)
@@ -520,10 +520,16 @@
 	var/list/vision = H.get_accumulated_vision_handlers()
 	H.update_sight()
 	if(H.machine && H.machine.check_eye(H) >= 0 && H.client.eye != H)
+		var/sight_flags = H.sight
+
 		// we inherit sight flags from the machine
-		H.sight &= ~(get_vision_flags(H))
-		H.sight &= ~(H.equipment_vision_flags)
-		H.sight &= ~(vision[1])
+		sight_flags &= ~(get_vision_flags(H))
+		sight_flags &= ~(H.equipment_vision_flags)
+		sight_flags &= ~(vision[1])
+
+		sight_flags |= H.machine.check_eye(H)
+
+		H.set_sight(sight_flags)
 	else
 		H.set_sight(H.sight|get_vision_flags(H)|H.equipment_vision_flags|vision[1])
 

@@ -79,3 +79,6 @@
 	else
 		to_chat(user, "<span class='warning'>You fail to pick open \the [holder].</span>")
 	return 0
+
+#undef LOCK_LOCKED
+#undef LOCK_BROKEN

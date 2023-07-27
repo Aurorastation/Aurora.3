@@ -190,3 +190,5 @@
 //Note that this is called when the shuttle leaves the WAIT_FINISHED state, the proc name is a little misleading
 /datum/shuttle/autodock/proc/arrived()
 	return	//do nothing for now
+
+#undef DOCK_ATTEMPT_TIMEOUT

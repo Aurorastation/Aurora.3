@@ -2938,7 +2938,6 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/item/deck/cards,
-/obj/item/board,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ruj" = (
