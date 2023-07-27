@@ -1153,6 +1153,7 @@
 #include "code\game\objects\random\produce.dm"
 #include "code\game\objects\random\random.dm"
 #include "code\game\objects\structures\barsign.dm"
+#include "code\game\objects\structures\beach.dm"
 #include "code\game\objects\structures\bedsheet_bin.dm"
 #include "code\game\objects\structures\bonfire.dm"
 #include "code\game\objects\structures\coatrack.dm"

@@ -51,3 +51,12 @@
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 	does_footprint = FALSE
 	has_edge_icon = FALSE
+
+/turf/simulated/floor/exoplanet/dirt_konyang/sand//same as above
+	name = "fine coastal sand"
+	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_beach.dmi'
+	icon_state = "sand"
+	footstep_sound = /singleton/sound_category/asteroid_footstep
+	smooth = SMOOTH_FALSE
+	does_footprint = FALSE
+	has_edge_icon = FALSE

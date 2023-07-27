@@ -88,6 +88,16 @@
 	. = ..()
 	icon_state = "rock_water[rand(1, 4)]"
 
+/obj/structure/flora/rock/konyang/small
+	name = "pebble cluster"
+	icon = 'icons/obj/flora/konyang/rocks.dmi'
+	icon_state = "pebble"
+	density = 0
+
+/obj/structure/flora/rock/konyang/small/Initialize(mapload)
+	. = ..()
+	icon_state = "pebble[rand(1, 6)]"
+
 /obj/structure/flora/bush/konyang_reeds
 	name = "grass stalks"
 	desc = "Thin and tall grass stalks, easy to sway to the wind and harsh to the touch."

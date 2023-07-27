@@ -37,10 +37,15 @@
 	base_icon_state = "unsmooth"
 	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_smooth_water.dmi'
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
-	canSmoothWith = list(/turf/simulated/floor/exoplanet/water/shallow/konyang, /turf/simulated/floor/exoplanet/water/konyang)
+	canSmoothWith = list(/turf/simulated/floor/exoplanet/water/shallow/konyang, /turf/simulated/floor/exoplanet/water/konyang, /turf/simulated/floor/exoplanet/water/shallow/konyang/beach)
 
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth
 	smooth = SMOOTH_FALSE
+
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach
+	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_beach.dmi'
+	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	canSmoothWith = list(/turf/simulated/floor/exoplanet/water/shallow/konyang, /turf/simulated/floor/exoplanet/water/konyang, /turf/simulated/floor/exoplanet/water/shallow/konyang/beach)
 
 /turf/simulated/floor/exoplanet/water/shallow/sewage//What horror.
 	name = "putrid sewage"
