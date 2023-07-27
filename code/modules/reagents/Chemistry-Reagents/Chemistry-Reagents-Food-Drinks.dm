@@ -1086,7 +1086,7 @@
 	glass_desc = "A glass of S'th berry juice, an Unathi delicacy"
 
 /singleton/reagent/drink/carrotjuice
-	name = "Carrot juice"
+	name = "Carrot Juice"
 	description = "It is just like a carrot but without crunching."
 	color = "#FF8C00" // rgb: 255, 140, 0
 	taste_description = "carrots"
@@ -2795,6 +2795,7 @@
 	strength = 25
 
 	glass_icon_state = "valokkiwineglass"
+	glass_name = "glass of valokki wine"
 	glass_desc = "A very classy, powerful drink."
 
 /singleton/reagent/alcohol/kvass
@@ -2921,7 +2922,7 @@
 	glass_desc = "Kahlua, Irish cream, and congac. You will get bombed."
 
 /singleton/reagent/alcohol/bahama_mama
-	name = "Bahama mama"
+	name = "Bahama Mama"
 	description = "Tropical cocktail."
 	color = "#f06820"
 	strength = 15
@@ -3545,7 +3546,7 @@
 	glass_center_of_mass = list("x"=16, "y"=9)
 
 /singleton/reagent/alcohol/pinkgintonic
-	name = "Pink Gin and Tonic."
+	name = "Pink Gin and Tonic"
 	description = "Bitterer gin and tonic."
 	color = "#F4BDDB"
 	strength = 25
@@ -4584,7 +4585,7 @@
 	glass_desc = "A raw egg in a glass of kvass. The closest thing you can get to breakfast in most of Neubach."
 
 /singleton/reagent/alcohol/governmentinexile
-	name = "Government In Exile"
+	name = "Government in Exile"
 	color = "#2ab888"
 	description = "A united front of flavors."
 	strength = 15
@@ -4883,7 +4884,7 @@
 	glass_desc = "A cocktail consisting of Messa's Mead and gunpowder."
 
 /singleton/reagent/alcohol/eggnog
-	name = "eggnog"
+	name = "Eggnog"
 	color = "#619494"
 	description = "A true Christmas classic, consisting of egg, cream, sugar and of course alcohol."
 	taste_description = "egg and alcohol"
@@ -5516,7 +5517,7 @@
 	glass_desc = "Comet cola! Now in diet!"
 
 /singleton/reagent/drink/milk/chocolate
-	name = "Chocolate milk"
+	name = "Chocolate Milk"
 	description = "A mixture of perfectly healthy milk and delicious chocolate."
 	color = "#74533b"
 	taste_description = "chocolate milk"
@@ -5526,7 +5527,7 @@
 	glass_desc = "A mixture of perfectly healthy milk and delicious chocolate."
 
 /singleton/reagent/drink/milk/strawberry
-	name = "Strawberry milk"
+	name = "Strawberry Milk"
 	description = "A mixture of perfectly healthy milk and delicious strawberry."
 	color = "#fc5a8d"
 	taste_description = "strawberry milk"
@@ -5547,7 +5548,7 @@
 	glass_desc = "Made from the NEW Xanu Prime peaches."
 
 /singleton/reagent/alcohol/pulque
-	name = "pulque"
+	name = "Pulque"
 	description = "A traditional Mictlanian drink made from fermented sap of maguey."
 	strength = 15
 	color = "f1f1f1"
@@ -5558,7 +5559,7 @@
 	glass_desc = "A traditional Mictlanian drink made from fermented sap of maguey."
 
 /singleton/reagent/alcohol/pulque/dyn
-	name = "dyn pulque"
+	name = "Dyn Pulque"
 	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is dyn flavored."
 	color = "a8ffff"
 	taste_description = "yeasty menthol"
@@ -5568,7 +5569,7 @@
 	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is dyn flavored."
 
 /singleton/reagent/alcohol/pulque/banana
-	name = "banana pulque"
+	name = "Banana Pulque"
 	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is banana flavored."
 	color = "ffe777"
 	taste_description = "yeasty banana"
@@ -5578,7 +5579,7 @@
 	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is banana flavored."
 
 /singleton/reagent/alcohol/pulque/berry
-	name = "berry pulque"
+	name = "Berry Pulque"
 	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is berry flavored."
 	color = "cc0066"
 	taste_description = "yeasty berries"
@@ -5588,7 +5589,7 @@
 	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is berry flavored."
 
 /singleton/reagent/alcohol/pulque/coffee
-	name = "coffee pulque"
+	name = "Coffee Pulque"
 	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."
 	color = "722b13"
 	taste_description = "yeasty coffee"
@@ -5598,7 +5599,7 @@
 	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."
 
 /singleton/reagent/drink/jyalra
-	name = "jyalra"
+	name = "Jyalra"
 	description = "Dyn that has been peeled and mashed into a savoury puree."
 	reagent_state = LIQUID
 	color = "#321b85"
@@ -5610,7 +5611,7 @@
 	glass_desc = "A puree made from dyn."
 
 /singleton/reagent/drink/jyalracheese
-	name = "jyalra with nycii"
+	name = "Jyalra With Nycii"
 	description = "Dyn that has been peeled and mashed into a savoury puree. Nycii has been added to the puree for extra flavour."
 	reagent_state = LIQUID
 	color = "#d9cf4c"
@@ -5622,7 +5623,7 @@
 	glass_desc = "A puree made from dyn."
 
 /singleton/reagent/drink/jyalraapple
-	name = "jyalra with apples"
+	name = "Jyalra With Apples"
 	description = "Dyn that has been peeled and mashed into a savoury puree. Apples have been added to the puree, making it sweeter."
 	reagent_state = LIQUID
 	color = "#1b8736"
@@ -5634,7 +5635,7 @@
 	glass_desc = "A puree made from dyn."
 
 /singleton/reagent/drink/jyalracherry
-	name = "jyalra with cherries"
+	name = "Jyalra With Cherries"
 	description = "Dyn that has been peeled and mashed into a savoury puree. Cherries have been added to the puree, making it sweeter."
 	reagent_state = LIQUID
 	color = "#87241b"
@@ -5646,7 +5647,7 @@
 	glass_desc = "A puree made from dyn."
 
 /singleton/reagent/alcohol/small/skrellbeerdyn
-	name = "dyn beer"
+	name = "Dyn Beer"
 	description = "A low-alcohol content beverage made from fermented dyn leaves. Unlike the fruit, this drink is quite bitter on its own and is usually spiced to give it a more palatable flavour profile."
 	reagent_state = LIQUID
 	color = "#31b0b0"
@@ -5659,7 +5660,7 @@
 	glass_desc = "A low-alcohol content beverage made from fermented dyn leaves. Unlike the fruit, this drink is quite bitter on its own and is usually spiced to give it a more palatable flavour profile."
 
 /singleton/reagent/alcohol/bottle/skrellwineylpha
-	name = "ylpha wine"
+	name = "Ylpha Wine"
 	description = "A low-alcohol content beverage made from fermented ylpha berries. It's considered very sweet."
 	reagent_state = LIQUID
 	color = "#964e24"

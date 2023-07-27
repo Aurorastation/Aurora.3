@@ -43,15 +43,15 @@
 	starlight_power = 2
 	starlight_range = 4
 
-/datum/space_sector/haneunim
-	name = SECTOR_HANEUNIM
-	description = "TBD."
-	skybox_icon = "weeping_stars"//placeholder
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/konyang)
-//	cargo_price_coef = TBD
-	starlight_color = "#615bff"//placeholder
-	starlight_power = 2//placeholder
-	starlight_range = 4//placeholder
-	sector_welcome_message = 'sound/AI/welcome_weeping.ogg'//placeholder
+/datum/space_sector/burzsia
+	name = SECTOR_BURZSIA
+	description = "The system of Burzsia serves as a resource hub solely for the corporate interests of Hephaestus Industries, with vast mining infrastructure and sprawling supply ports dotted all over the system. Hephaestus ships, enormous freighters and personnel transportation vessels dominate the area, with corporate security being extremely tight. Private vessels are allowed transit and rest if needed, though always under the close surveillance of Hephaestus security and local executives. A population of local off-worlders has also been present before corporate domination, but mostly leave any external relations to the company that has, at this point, taken upon it to represent virtually all interests of the natives."
+	skybox_icon = "weeping_stars"
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/burzsia, /obj/effect/overmap/visitable/sector/exoplanet/burzsia)
+	cargo_price_coef = list("nt" = 1.2, "hpi" = 0.4, "zhu" = 0.8, "een" = 1.2, "get" = 1.2, "arz" = 1.2, "blm" = 1.2, "iac" = 1.2, "zsc" = 0.8, "vfc" = 1.2, "bis" = 0.8, "xmg" = 0.8, "npi" = 0.8)
+	starlight_color = "#615bff"
+	starlight_power = 2
+	starlight_range = 4
+	sector_welcome_message = 'sound/AI/welcome_weeping.ogg'
 	sector_hud_menu = 'icons/misc/hudmenu/coalition_hud.dmi'
 	sector_hud_arrow = "menu_arrow"

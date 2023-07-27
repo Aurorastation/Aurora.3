@@ -126,7 +126,6 @@
 	return ..()
 
 /obj/item/update_icon()
-	cut_overlays()
 	. = ..()
 	if(build_from_parts)
 		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite

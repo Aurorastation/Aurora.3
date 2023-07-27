@@ -10,6 +10,7 @@
 	idle_power_usage = 5
 	active_power_usage = 100
 	flags = NOREACT
+	var/ui_sort_alphabetically = TRUE
 	var/global/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.
 	var/icon_on = "smartfridge"
 	var/icon_off = "smartfridge-off"
@@ -37,7 +38,7 @@
 	)
 
 	var/datum/wires/smartfridge/wires = null
-	atmos_canpass = CANPASS_NEVER
+	atmos_canpass = CANPASS_DENSITY
 
 /obj/machinery/smartfridge/secure
 	is_secure = 1
@@ -117,15 +118,10 @@
 	opacity = FALSE
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 
-/obj/machinery/smartfridge/foodheater/buffet
-	name = "buffet trays"
-	icon = 'icons/obj/structure/urban/restaurant.dmi'
-	icon_state = "buffet"
-	icon_off = "buffet"
-
-/obj/machinery/smartfridge/foodheater/buffet/Initialize()
-	. = ..()
-	icon_on = "buffet[rand(1, 4)]"
+/obj/machinery/smartfridge/foodheater/abandoned
+	// badly stocked, with trash, junk, etc
+	desc = "Used to keep food nice and warm in the past, now it is all dirty, and doesn't look like it'll ever run again."
+	use_power = 0
 
 /obj/machinery/smartfridge/seeds
 	name = "\improper MegaSeed Storage"
@@ -381,6 +377,7 @@
 	data["shoot_inventory"] = shoot_inventory
 	data["locked"] = locked
 	data["secure"] = is_secure
+	data["sort_alphabetically"] = ui_sort_alphabetically
 
 	var/list/items = list()
 	for (var/i = 1 to length(item_quants))
@@ -421,8 +418,10 @@
 						i--
 						if(i <= 0)
 							break
+		if("switch_sort_alphabetically")
+			ui_sort_alphabetically = !ui_sort_alphabetically
 
-			. = TRUE
+	. = TRUE
 
 /obj/machinery/smartfridge/proc/throw_item()
 	var/obj/throw_item = null
