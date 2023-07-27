@@ -296,7 +296,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "md" = (
-/obj/effect/floor_decal/asteroid_dug
+/obj/effect/floor_decal/asteroid_dug,
 /turf/simulated/floor/diona/airless,
 /area/space)
 "mf" = (
@@ -1087,7 +1087,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Nt" = (
-/obj/effect/floor_decal/asteroid_dug
+/obj/effect/floor_decal/asteroid_dug,
 /turf/unsimulated/floor/asteroid/ash,
 /area/space)
 "NX" = (
