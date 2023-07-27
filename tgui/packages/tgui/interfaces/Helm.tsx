@@ -96,9 +96,10 @@ const ManualSection = function (act, data) {
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell title="Combat Roll Left / Port">
+                <Table.Cell title="Roll Left / Port">
                   <Button
                     icon="angle-double-left"
+                    color="red"
                     disabled={!data.cancombatroll}
                     onClick={() => act('roll', { roll: 8 })}
                   />
@@ -110,9 +111,10 @@ const ManualSection = function (act, data) {
                     onClick={() => act('brake', { move: 1 })}
                   />
                 </Table.Cell>
-                <Table.Cell title="Combat Roll Left / Starboard">
+                <Table.Cell title="Roll Left / Starboard">
                   <Button
                     icon="angle-double-right"
+                    color="red"
                     disabled={!data.cancombatroll}
                     onClick={() => act('roll', { roll: 4 })}
                   />
