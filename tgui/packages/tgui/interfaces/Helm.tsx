@@ -74,27 +74,6 @@ const ManualSection = function (act, data) {
         <Table.Row>
           <Table.Cell width="50%">
             <Table width={0} title="Control" align="center">
-              <Table.Row title="Turn Left / Counterclockwise">
-                <Button
-                  icon="undo"
-                  disabled={!data.canturn}
-                  onClick={() => act('turn', { turn: 8 })}
-                />
-                <Table.Cell title="Burn / Forward">
-                  <Button
-                    icon="arrow-up"
-                    disabled={!data.canburn}
-                    onClick={() => act('move', { move: 1 })}
-                  />
-                </Table.Cell>
-                <Table.Cell title="Turn Right / Clockwise">
-                  <Button
-                    icon="redo"
-                    disabled={!data.canturn}
-                    onClick={() => act('turn', { turn: 4 })}
-                  />
-                </Table.Cell>
-              </Table.Row>
               <Table.Row>
                 <Table.Cell title="Roll Left / Port">
                   <Button
@@ -104,11 +83,11 @@ const ManualSection = function (act, data) {
                     onClick={() => act('roll', { roll: 8 })}
                   />
                 </Table.Cell>
-                <Table.Cell title="Slow / Stop / Inertia Dampener">
+                <Table.Cell title="Burn / Forward">
                   <Button
-                    icon="stop"
+                    icon="arrow-up"
                     disabled={!data.canburn}
-                    onClick={() => act('brake', { move: 1 })}
+                    onClick={() => act('move', { move: 1 })}
                   />
                 </Table.Cell>
                 <Table.Cell title="Roll Left / Starboard">
@@ -117,6 +96,29 @@ const ManualSection = function (act, data) {
                     color="red"
                     disabled={!data.cancombatroll}
                     onClick={() => act('roll', { roll: 4 })}
+                  />
+                </Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell title="Turn Left / Counterclockwise">
+                  <Button
+                    icon="undo"
+                    disabled={!data.canturn}
+                    onClick={() => act('turn', { turn: 8 })}
+                  />
+                </Table.Cell>
+                <Table.Cell title="Slow / Stop / Inertia Dampener">
+                  <Button
+                    icon="stop"
+                    disabled={!data.canburn}
+                    onClick={() => act('brake', { move: 1 })}
+                  />
+                </Table.Cell>
+                <Table.Cell title="Turn Right / Clockwise">
+                  <Button
+                    icon="redo"
+                    disabled={!data.canturn}
+                    onClick={() => act('turn', { turn: 4 })}
                   />
                 </Table.Cell>
               </Table.Row>
