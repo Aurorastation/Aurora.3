@@ -985,6 +985,15 @@
 
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
 
+/obj/item/reagent_containers/food/snacks/pepperoni
+	name = "pepperoni"
+	desc = "A stick of pepperoni sausage."
+	icon_state = "pepperoni"
+	filling_color = "#DB0000"
+	bitesize = 2
+
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
+
 /obj/item/reagent_containers/food/snacks/jalapeno_poppers
 	name = "jalapeno popper"
 	desc = "A battered, deep-fried chili pepper"
@@ -3279,6 +3288,29 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/drink/tomatojuice = 2, /singleton/reagent/oculine = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("pizza crust" = 5, "eggplant" = 5, "carrot" = 5, "corn" = 5))
 
+/obj/item/reagent_containers/food/snacks/sliceable/pizza/pepperoni
+	name = "pepperoni pizza"
+	desc = "Who doesn't love a good pepperoni pizza after a hard day in the Chainlink?"
+	icon_state = "pepperonipizza"
+	slice_path = /obj/item/reagent_containers/food/snacks/pepperonipizzaslice
+	slices_num = 6
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 10, /singleton/reagent/nutriment/protein = 44, /singleton/reagent/nutriment/protein/cheese = 10, /singleton/reagent/drink/tomatojuice = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("pizza crust" = 10, "tomato" = 10, "pepperoni" = 15))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/pepperonipizzaslice
+	name = "pepperoni pizza slice"
+	desc = "A slice of pepperoni pizza."
+	icon_state = "pepperonipizzaslice"
+	filling_color = "#BAA14C"
+	bitesize = 2
+	center_of_mass = list("x"=18, "y"=13)
+
+/obj/item/reagent_containers/food/snacks/pepperonipizzaslice/filled
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/protein = 7, /singleton/reagent/nutriment/protein/cheese = 2, /singleton/reagent/drink/tomatojuice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("pizza crust" = 5, "tomato" = 5))
+
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/crunch
 	name = "pizza crunch"
 	desc = "This was once a normal pizza, but it has been coated in batter and deep-fried. Whatever toppings it once had are a mystery, but they're still under there, somewhere..."
@@ -3359,7 +3391,7 @@
 
 		if( pizza )
 			var/image/pizzaimg = image(icon, icon_state = pizza.icon_state)
-			pizzaimg.pixel_y = -3
+			pizzaimg.pixel_y = -2
 			add_overlay(pizzaimg)
 
 		return
@@ -3494,6 +3526,10 @@
 /obj/item/pizzabox/pineapple
 	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/pineapple
 	boxtag = "Silversun Sunrise"
+
+/obj/item/pizzabox/pepperoni
+	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/pepperoni
+	boxtag = "Pepperoni Power"
 
 /obj/item/reagent_containers/food/snacks/sliceable/dionaroast
 	name = "roast diona"
@@ -4314,6 +4350,14 @@
 	bitesize = 2
 	filling_color = "#cca628"
 
+/obj/item/reagent_containers/food/snacks/chip/hummus
+	name = "hummus chip"
+	desc = "A portion sized chip good for dipping. This one has hummus on it."
+	icon_state = "chip_hummus"
+	bitten_state = "chip_half_hummus"
+	bitesize = 2
+	filling_color = "#cca628"
+
 /obj/item/reagent_containers/food/snacks/chip/nacho
 	name = "nacho chip"
 	desc = "A nacho ship stray from a plate of cheesy nachos."
@@ -4355,6 +4399,14 @@
 	filling_color = "#e4e4e4"
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/tajhummus
+	name = "nacho chip"
+	desc = "A stray nacho chip from a plate of cheesy nachos. This one has extra hummus on it."
+	icon_state = "chip_nacho_hummus"
+	bitten_state = "chip_half_hummus"
+	bitesize = 2
+	filling_color = "#cca628"
+
+/obj/item/reagent_containers/food/snacks/chip/nacho/hummus
 	name = "nacho chip"
 	desc = "A stray nacho chip from a plate of cheesy nachos. This one has extra hummus on it."
 	icon_state = "chip_nacho_hummus"
@@ -4504,6 +4556,17 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 20)
 	reagent_data = list(/singleton/reagent/nutriment = list("sweet hummus" = 20))
 	filling_color = "#cca628"
+
+/obj/item/reagent_containers/food/snacks/dip/hummus
+	name = "hummus"
+	desc = "A tasty spread made from chickpeas and sesame seed paste."
+	nachotrans = /obj/item/reagent_containers/food/snacks/chip/nacho/hummus
+	avahtrans = /obj/item/reagent_containers/food/snacks/chip/miniavah/hummus
+	chiptrans = /obj/item/reagent_containers/food/snacks/chip/hummus
+	icon_state = "hummus"
+	reagents_to_add = list(/singleton/reagent/nutriment = 20)
+	reagent_data = list(/singleton/reagent/nutriment = list("smooth chickpeas" = 20, "garlic" = 5))
+	filling_color = "#F1DA96"
 
 // Roasted Peanuts (under chips/nachos because finger food)
 /obj/item/reagent_containers/food/snacks/roasted_peanut
@@ -5645,6 +5708,14 @@
 	bitesize = 2
 	filling_color = "#cca628"
 
+/obj/item/reagent_containers/food/snacks/chip/miniavah/hummus
+	name = "hummus mini-avah"
+	desc = "A miniature avah filled with meat. This one has hummus on it."
+	icon_state = "avah_full_hummus"
+	bitten_state = "avah_half_hummus"
+	bitesize = 2
+	filling_color = "#cca628"
+
 /obj/item/reagent_containers/food/snacks/stew/diona
 	name = "dionae stew"
 	desc = "A steaming bowl of juicy dionae nymph. Extra cosy."
@@ -5823,16 +5894,6 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("pickled lettuce" = 4))
 	bitesize = 2
 	trash = /obj/item/trash/plate
-
-/obj/item/reagent_containers/food/snacks/hummus
-	name = "hummus"
-	desc = "A tasty spread made from chickpeas and sesame seed paste."
-	icon_state = "hummus"
-	filling_color = "#F1DA96"
-	reagents_to_add = list(/singleton/reagent/nutriment = 4)
-	reagent_data = list(/singleton/reagent/nutriment = list("smooth chickpeas" = 4, "garlic" = 1))
-	bitesize = 3
-	trash = /obj/item/trash/snack_bowl
 
 /obj/item/reagent_containers/food/snacks/fairy_bread
 	name = "fairy bread"

@@ -271,6 +271,17 @@
 		health -= damage
 	check_health()
 
+/obj/effect/plant/attack_hand(user)
+	if(!ishuman(user))
+		return FALSE
+	var/mob/living/carbon/human/H = user
+	playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
+	var/damage = H.default_attack.get_unarmed_damage() ? H.default_attack.get_unarmed_damage() : 1
+	if(H.default_attack.edge || H.default_attack.sharp)
+		damage *= 2
+	health -= damage
+	check_health()
+
 /obj/effect/plant/ex_act(severity)
 	switch(severity)
 		if(1.0)
