@@ -102,7 +102,8 @@
 	turf_type = /turf/simulated/floor/exoplanet/water/shallow/konyang
 	generators = list(
 		SMALL_FLORA = list(POISSON_SAMPLE, 4),
-		GRASSES = list(BATCHED_NOISE, 0.1, 360, 5)
+		GRASSES = list(BATCHED_NOISE, 0.1, 360, 5),
+		WILDLIFE = list(POISSON_SAMPLE, 5)
 	)
 	spawn_types = list(
 		SMALL_FLORA = list(
@@ -110,5 +111,10 @@
 		),
 		GRASSES = list(
 			/obj/structure/flora/bush/konyang_reeds/water = 4
+		),
+		WILDLIFE = list(
+			/mob/living/simple_animal/aquatic/fish = 1,
+			/mob/living/simple_animal/aquatic/fish/gupper = 1,
+			/mob/living/simple_animal/aquatic/fish/cod = 1
 		)
 	)

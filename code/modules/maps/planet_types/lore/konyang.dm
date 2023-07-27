@@ -26,8 +26,7 @@
 	return HABITABILITY_IDEAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_map()
-	if(prob(75))
-		lightlevel = rand(5,10)/10
+	lightlevel = 100
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_planet_image()
