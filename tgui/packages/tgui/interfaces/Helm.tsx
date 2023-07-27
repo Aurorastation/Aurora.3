@@ -282,30 +282,34 @@ const PosSection = function (act, data) {
   return (
     <Section title="Saved Positions">
       <Table>
-        {data.locations.length ? (
-          <Table.Row header>
-            <Table.Cell>Name</Table.Cell>
-            <Table.Cell>Coordinates</Table.Cell>
-            <Table.Cell>Actions</Table.Cell>
-          </Table.Row>
+        {data.locations && data.locations.length ? (
+          <>
+            <Table.Row header>
+              <Table.Cell>Name</Table.Cell>
+              <Table.Cell>Coordinates</Table.Cell>
+              <Table.Cell>Actions</Table.Cell>
+            </Table.Row>
+            {data.locations.map((location) => (
+              <Table.Row key={location.name}>
+                <Table.Cell>{location.name}</Table.Cell>
+                <Table.Cell>
+                  {location.x} : {location.y}
+                </Table.Cell>
+                <Table.Cell>
+                  <Button
+                    icon="eraser"
+                    content="Remove"
+                    onClick={() =>
+                      act('remove', { remove: location.reference })
+                    }
+                  />
+                </Table.Cell>
+              </Table.Row>
+            ))}
+          </>
         ) : (
           ''
         )}
-        {data.locations.map((location) => (
-          <Table.Row key={location.name}>
-            <Table.Cell>{location.name}</Table.Cell>
-            <Table.Cell>
-              {location.x} : {location.y}
-            </Table.Cell>
-            <Table.Cell>
-              <Button
-                icon="eraser"
-                content="Remove"
-                onClick={() => act('remove', { remove: location.reference })}
-              />
-            </Table.Cell>
-          </Table.Row>
-        ))}
       </Table>
       <Table width={0}>
         <Table.Row>
