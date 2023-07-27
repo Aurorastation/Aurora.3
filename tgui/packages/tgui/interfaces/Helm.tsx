@@ -73,7 +73,7 @@ const ManualSection = function (act, data) {
       <Table>
         <Table.Row>
           <Table.Cell width="50%">
-            <Table width={0} title="Control">
+            <Table width={0} title="Control" align="center">
               <Table.Row title="Turn Left / Counterclockwise">
                 <Button
                   icon="undo"
@@ -145,12 +145,12 @@ const AutopilotSection = function (act, data) {
             {data.dest ? (
               <>
                 <Button
-                  width="40%"
+                  width="25%"
                   content={data.d_x}
                   onClick={() => act('setx', { setx: true })}
                 />
                 <Button
-                  width="40%"
+                  width="25%"
                   content={data.d_y}
                   onClick={() => act('sety', { sety: true })}
                 />
