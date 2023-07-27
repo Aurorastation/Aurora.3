@@ -74,108 +74,43 @@ const ManualSection = function (act, data) {
         <Table.Row>
           <Table.Cell width="50%">
             <Table width={0} title="Control">
-              <Table.Row>
-                <Table.Cell>
-                  <Button
-                    icon="arrow-left"
-                    iconRotation={45}
-                    disabled={!data.canburn}
-                    onClick={() => act('move', { move: 9 })}
-                  />
-                </Table.Cell>
-                <Table.Cell>
+              <Table.Row title="Turn Left / Counterclockwise">
+                <Button
+                  icon="undo"
+                  disabled={!data.canturn}
+                  onClick={() => act('turn', { turn: 8 })}
+                />
+                <Table.Cell title="Burn / Forward">
                   <Button
                     icon="arrow-up"
                     disabled={!data.canburn}
                     onClick={() => act('move', { move: 1 })}
                   />
                 </Table.Cell>
-                <Table.Cell>
-                  <Button
-                    icon="arrow-right"
-                    iconRotation={-45}
-                    disabled={!data.canburn}
-                    onClick={() => act('move', { move: 5 })}
-                  />
-                </Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>
-                  <Button
-                    icon="arrow-left"
-                    disabled={!data.canburn}
-                    onClick={() => act('move', { move: 8 })}
-                  />
-                </Table.Cell>
-                <Table.Cell title="Interial Dampener">
-                  <Button
-                    icon="stop"
-                    disabled={!data.canburn}
-                    onClick={() => act('brake', { move: 1 })}
-                  />
-                </Table.Cell>
-                <Table.Cell>
-                  <Button
-                    icon="arrow-right"
-                    disabled={!data.canburn}
-                    onClick={() => act('move', { move: 4 })}
-                  />
-                </Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>
-                  <Button
-                    icon="arrow-left"
-                    iconRotation={-45}
-                    disabled={!data.canburn}
-                    onClick={() => act('move', { move: 10 })}
-                  />
-                </Table.Cell>
-                <Table.Cell>
-                  <Button
-                    icon="arrow-down"
-                    disabled={!data.canburn}
-                    onClick={() => act('move', { move: 2 })}
-                  />
-                </Table.Cell>
-                <Table.Cell>
-                  <Button
-                    icon="arrow-right"
-                    iconRotation={45}
-                    disabled={!data.canburn}
-                    onClick={() => act('move', { move: 6 })}
-                  />
-                </Table.Cell>
-              </Table.Row>
-            </Table>
-          </Table.Cell>
-          <Table.Cell>
-            <Table width={0} title="Maneuvers">
-              <Table.Row title="Combat Turn">
-                <Table.Cell>
-                  <Button
-                    icon="undo"
-                    disabled={!data.cancombatturn}
-                    onClick={() => act('turn', { turn: 8 })}
-                  />
-                </Table.Cell>
-                <Table.Cell>
+                <Table.Cell title="Turn Right / Clockwise">
                   <Button
                     icon="redo"
-                    disabled={!data.cancombatturn}
+                    disabled={!data.canturn}
                     onClick={() => act('turn', { turn: 4 })}
                   />
                 </Table.Cell>
               </Table.Row>
-              <Table.Row title="Combat Roll">
-                <Table.Cell>
+              <Table.Row>
+                <Table.Cell title="Combat Roll Left / Port">
                   <Button
                     icon="angle-double-left"
                     disabled={!data.cancombatroll}
                     onClick={() => act('roll', { roll: 8 })}
                   />
                 </Table.Cell>
-                <Table.Cell>
+                <Table.Cell title="Slow / Stop / Inertia Dampener">
+                  <Button
+                    icon="stop"
+                    disabled={!data.canburn}
+                    onClick={() => act('brake', { move: 1 })}
+                  />
+                </Table.Cell>
+                <Table.Cell title="Combat Roll Left / Starboard">
                   <Button
                     icon="angle-double-right"
                     disabled={!data.cancombatroll}
@@ -191,6 +126,7 @@ const ManualSection = function (act, data) {
         content={
           'Manual Control ' + (data.manual_control ? 'Engaged' : 'Disengaged')
         }
+        width="100%"
         icon="cog"
         iconSpin={data.manual_control ? '0.0' : null}
         onClick={() => act('manual', { manual: true })}
@@ -209,16 +145,19 @@ const AutopilotSection = function (act, data) {
             {data.dest ? (
               <>
                 <Button
+                  width="40%"
                   content={data.d_x}
                   onClick={() => act('setx', { setx: true })}
                 />
                 <Button
+                  width="40%"
                   content={data.d_y}
                   onClick={() => act('sety', { sety: true })}
                 />
               </>
             ) : (
               <Button
+                width="100%"
                 content="None"
                 onClick={() => {
                   act('setx', { setx: true });
@@ -232,21 +171,21 @@ const AutopilotSection = function (act, data) {
           <Table.Cell>Speed limit:</Table.Cell>
           <Table.Cell>
             <Button
+              width="100%"
               content={data.speedlimit + ' Gm/h'}
               onClick={() => act('speedlimit', { speedlimit: true })}
             />
           </Table.Cell>
         </Table.Row>
-        <Table.Row>
-          <Button
-            content={'Autopilot ' + (data.autopilot ? 'Engaged' : 'Disengaged')}
-            icon="cog"
-            iconSpin={data.autopilot ? '0.0' : null}
-            disabled={!data.dest}
-            onClick={() => act('apilot', { apilot: true })}
-          />
-        </Table.Row>
       </Table>
+      <Button
+        content={'Autopilot ' + (data.autopilot ? 'Engaged' : 'Disengaged')}
+        width="100%"
+        icon="cog"
+        iconSpin={data.autopilot ? '0.0' : null}
+        disabled={!data.dest}
+        onClick={() => act('apilot', { apilot: true })}
+      />
     </Section>
   );
 };
