@@ -39,4 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - maptweak: "Remaps the third deck cafe to be Idris themed."
-  - rscadd: "Adds syrups and takeaway cups."
+  - rscadd: "Adds coffee menu sign and syrups (sprites by disappointedButNotSuprised) and takeaway cups (sprite by Crumpaloo)."
