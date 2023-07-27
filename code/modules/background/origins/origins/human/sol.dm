@@ -171,6 +171,8 @@
 	possible_accents = list(ACCENT_ANTILLIA)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the heat")
 
 /singleton/origin_item/origin/sancolette
 	name = "San Colette"
