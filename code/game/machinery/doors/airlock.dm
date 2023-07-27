@@ -243,13 +243,17 @@
 	pixel_x = -16
 	pixel_y = -16
 	assembly_type = /obj/structure/door_assembly/door_assembly_generic
-	fill_file = 'icons/obj/doors/basic/single/generic/fill_steel.dmi'
-	color_file = 'icons/obj/doors/basic/single/generic/color.dmi'
 	frame_color_file = 'icons/obj/doors/basic/single/generic/frame_color.dmi'
+
+	color_file = 'icons/obj/doors/basic/single/generic/color.dmi'
 	color_fill_file = 'icons/obj/doors/basic/single/generic/fill_color.dmi'
+
 	stripe_file = 'icons/obj/doors/basic/single/generic/stripe.dmi'
 	stripe_fill_file = 'icons/obj/doors/basic/single/generic/fill_stripe.dmi'
+
 	glass_file = 'icons/obj/doors/basic/single/generic/fill_glass.dmi'
+	fill_file = 'icons/obj/doors/basic/single/generic/fill_steel.dmi'
+
 	bolts_file = 'icons/obj/doors/basic/single/generic/lights_bolts.dmi'
 	deny_file = 'icons/obj/doors/basic/single/generic/lights_deny.dmi'
 	lights_file = 'icons/obj/doors/basic/single/generic/lights_green.dmi'
@@ -1088,15 +1092,15 @@ About the new airlock wires panel:
 	switch(state)
 		if(0)
 			if(density)
-				icon_state = "door_closed"
+				icon_state = "closed"
 				state = AIRLOCK_CLOSED
 			else
-				icon_state = "door_open"
+				icon_state = "open"
 				state = AIRLOCK_OPEN
 		if(AIRLOCK_OPEN)
-			icon_state = "door_open"
+			icon_state = "open"
 		if(AIRLOCK_CLOSED)
-			icon_state = "door_closed"
+			icon_state = "closed"
 		if(AIRLOCK_OPENING, AIRLOCK_CLOSING, AIRLOCK_EMAG, AIRLOCK_DENY)
 			icon_state = ""
 
@@ -1205,11 +1209,11 @@ About the new airlock wires panel:
 	cut_overlays()
 
 	add_overlay(frame_color_overlay)
-	add_overlay(filling_overlay)
 	add_overlay(color_overlay)
 	add_overlay(panel_overlay)
 	add_overlay(stripe_overlay)
 	add_overlay(stripe_filling_overlay)
+	add_overlay(filling_overlay)
 	add_overlay(weld_overlay)
 	add_overlay(brace_overlay)
 	add_overlay(lights_overlay)
