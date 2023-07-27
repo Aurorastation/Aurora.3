@@ -128,6 +128,7 @@
 		data["speedlimit"] = speedlimit ? speedlimit*1000 : "Halted"
 		data["accel"] = get_acceleration()
 		data["heading"] = connected.get_heading() ? dir2angle(connected.get_heading()) : 0
+		data["direction"] = dir2angle(connected.dir)
 		data["autopilot"] = autopilot
 		data["manual_control"] = viewing_overmap(user)
 		data["canburn"] = connected.can_burn()

@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from '../components';
+import { Box, Button, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type HelmData = {
@@ -15,6 +15,7 @@ export type HelmData = {
   speedlimit: string;
   accel: number;
   heading: number;
+  direction: number;
   autopilot: BooleanLike;
   manual_control: BooleanLike;
   canburn: BooleanLike;
@@ -54,6 +55,10 @@ const FlightSection = function (act, data) {
           <Table.Cell>{data.heading}°</Table.Cell>
         </Table.Row>
         <Table.Row>
+          <Table.Cell>Direction:</Table.Cell>
+          <Table.Cell>{data.direction}°</Table.Cell>
+        </Table.Row>
+        <Table.Row>
           <Table.Cell>Acceleration limiter:</Table.Cell>
           <Table.Cell>
             <Button
@@ -63,6 +68,66 @@ const FlightSection = function (act, data) {
           </Table.Cell>
         </Table.Row>
       </Table>
+    </Section>
+  );
+};
+
+const BearingsSection = function (act, data) {
+  return (
+    <Section title="Heading and Direction">
+      <Box textAlign="center">
+        <svg height={100} width={100} viewBox="0 0 100 100">
+          <rect width="100" height="100" />
+          {data.speed ? (
+            <polygon
+              points="50,25 70,70 30,70"
+              fill="#3e6189"
+              transform={'rotate(' + data.heading + ' 50 50)'}
+            />
+          ) : (
+            ''
+          )}
+          <polygon
+            points="50,35 60,60 40,60"
+            fill="#5c83b0"
+            stroke="white"
+            stroke-width="1"
+            transform={'rotate(' + data.direction + ' 50 50)'}
+          />
+          <text
+            x="50"
+            y="10"
+            text-anchor="middle"
+            fill="white"
+            transform={'rotate(0 50 50)'}>
+            0
+          </text>
+          <text
+            x="50"
+            y="10"
+            text-anchor="middle"
+            fill="white"
+            transform={'rotate(90 50 50)'}>
+            90
+          </text>
+          <text
+            x="50"
+            y="10"
+            text-anchor="middle"
+            fill="white"
+            transform={'rotate(180 50 50)'}>
+            180
+          </text>
+          <text
+            x="50"
+            y="10"
+            text-anchor="middle"
+            fill="white"
+            transform={'rotate(270 50 50)'}>
+            270
+          </text>
+        </svg>
+      </Box>
     </Section>
   );
 };
@@ -280,8 +345,11 @@ export const Helm = (props, context) => {
   return (
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
-        {FlightSection(act, data)}
         <Table>
+          <Table.Row>
+            <Table.Cell width="50%">{FlightSection(act, data)}</Table.Cell>
+            <Table.Cell width="50%">{BearingsSection(act, data)}</Table.Cell>
+          </Table.Row>
           <Table.Row>
             <Table.Cell width="50%">{ManualSection(act, data)}</Table.Cell>
             <Table.Cell width="50%">{AutopilotSection(act, data)}</Table.Cell>
