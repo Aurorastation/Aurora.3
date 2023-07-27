@@ -263,9 +263,10 @@
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 
-	species_restricted = list(BODYTYPE_VAURCA,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list(BODYTYPE_VAURCA,BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BULWARK)
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi'
+		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi',
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
 	)
 
 	action_button_name = "Toggle the magclaws"
