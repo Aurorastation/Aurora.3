@@ -22,7 +22,7 @@
 	if (world.system_type == UNIX)
 		if (fexists("./librust_g.so"))
 			// No need for LD_LIBRARY_PATH badness.
-			return __rust_g = "./librust_g"
+			return __rust_g = "./librust_g.so"
 		else if (fexists("./rust_g"))
 			// Old dumb filename.
 			return __rust_g = "./rust_g"
@@ -31,7 +31,7 @@
 			return __rust_g = "rust_g"
 		else
 			// It's not in the current directory, so try others
-			return __rust_g = "librust_g"
+			return __rust_g = "librust_g.so"
 	else
 		return __rust_g = "rust_g"
 
