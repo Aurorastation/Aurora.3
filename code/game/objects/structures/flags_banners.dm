@@ -460,13 +460,13 @@
 
 /obj/item/flag/ouerea
 	name = "\improper Ouerea flag"
-	desc = "The modern day flag of Ouerea. Due to the incorporation of red stripes to symbolize the blood of the nobility spilled in the revolution, this is not the current official flag of the planet."
+	desc = "The modern day flag of Ouerea. Due to the incorporation of red stripes to symbolize the blood of the nobility spilled in the rebellion, this is not the current official flag of the planet."
 	flag_path = "ouerea"
 	flag_structure = /obj/structure/sign/flag/ouerea
 
 /obj/structure/sign/flag/ouerea
 	name = "\improper Ouerea flag"
-	desc = "The modern day flag of Ouerea. Due to the incorporation of red stripes to symbolize the blood of the nobility spilled in the revolution, this is not the current official flag of the planet."
+	desc = "The modern day flag of Ouerea. Due to the incorporation of red stripes to symbolize the blood of the nobility spilled in the rebellion, this is not the current official flag of the planet."
 	icon_state = "ouerea"
 	flag_path = "ouerea"
 	flag_item = /obj/item/flag/ouerea
