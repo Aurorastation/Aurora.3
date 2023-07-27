@@ -2,7 +2,7 @@
 	name = "fire alarm"
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
 	icon = 'icons/obj/monitors.dmi'
-	icon_state = "firealarm"
+	icon_state = "fire0"
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/detecting = 1
 	var/working = 1
@@ -33,26 +33,26 @@
 	if(wiresexposed)
 		switch(buildstage)
 			if(2)
-				add_overlay("fire_b2")
+				icon_state="fire_b2"
 			if(1)
-				add_overlay("fire_b1")
+				icon_state="fire_b1"
 			if(0)
-				add_overlay("fire_b0")
+				icon_state="fire_b0"
 		return
 
 	if(stat & BROKEN)
-		add_overlay("firex")
+		icon_state = "firex"
 		set_light(0)
 	else if(stat & NOPOWER)
-		add_overlay("firep")
+		icon_state = "firep"
 		set_light(0)
 	else
 		var/area/A = get_area(src)
 		if(A.fire)
-			add_overlay("fire1")
+			icon_state = "fire1"
 			set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = COLOR_RED)
 		else
-			add_overlay("fire0")
+			icon_state = "fire0"
 			switch(seclevel)
 				if("green")
 					set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = LIGHT_COLOR_GREEN)
