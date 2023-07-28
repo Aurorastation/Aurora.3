@@ -38,6 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Gun information now provides caliber, as well as a guide to toggling the safety and any unique firearm features."
-  - spellcheck: "Checked some gun descriptions for grammar."
+  - bugfix: "Every gun is no longer using Kumar Super."
 
