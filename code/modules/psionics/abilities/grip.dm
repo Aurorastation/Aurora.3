@@ -45,7 +45,7 @@
 	var/mob/living/M = hit_atom
 	user.visible_message(SPAN_DANGER("[user] extends [user.get_pronoun("his")] arm and makes a grab motion towards [M]!"),
 						SPAN_DANGER("You extend your arm and grab [M] with your psionic energy!"))
-	to_chat(M, SPAN_DANGER("<font size=4>You feel an invisible force tighten around you!</font>"))
+	to_chat(M, SPAN_DANGER(FONT_HUGE("You feel an invisible force tighten around you!")))
 	M.captured = TRUE
 	M.update_canmove()
 	victim = M
