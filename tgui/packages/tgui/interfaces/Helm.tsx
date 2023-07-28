@@ -36,14 +36,14 @@ type Location = {
   reference: string;
 };
 
-function bearing_unbounded(x, y) {
-  var res = 0;
+const bearing_unbounded = function (x, y) {
+  let res = 0;
   res = Math.atan2(x, y); // radians
   res = (res * 180) / 3.14; // convert to degrees
   res = (res + 360.0) % 360.0;
   res = Math.round(res);
   return res;
-}
+};
 
 const FlightSection = function (act, data) {
   return (
@@ -176,7 +176,7 @@ const BearingsSection = function (act, data) {
             315
           </text>
         </svg>
-        <svg height={20} width={20}></svg>
+        <svg height={20} width={20} />
         <svg height={100} width={100} viewBox="0 0 100 100">
           <rect width="100" height="100" />
           <text x="50" y="10" text-anchor="middle" fill="white">
