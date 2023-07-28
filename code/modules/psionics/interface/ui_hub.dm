@@ -56,7 +56,7 @@
 	data["psi_points"] = owner.psi.psi_points
 	data["bought_powers"] = owner.psi.psionic_powers
 	for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
-		if((P.ability_flags & PSI_FLAG_SPECIAL) && !(P.type in owner.psi.psionic_powers))
+		if(HAS_FLAG(P.ability_flags, PSI_FLAG_SPECIAL) && !(P.type in owner.psi.psionic_powers))
 			continue
 		if(owner_rank < P.minimum_rank)
 			continue
