@@ -1485,7 +1485,7 @@
 
 	species.set_default_tail(src)
 
-	if(species.psi_deaf || (species.flags & IS_MECHANICAL) || (species.flags & NO_SCAN))
+	if(species.psi_deaf || HAS_FLAG(species.flags, IS_MECHANICAL) || HAS_FLAG(species.flags, NO_SCAN))
 		ADD_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
 
 	if(client)
