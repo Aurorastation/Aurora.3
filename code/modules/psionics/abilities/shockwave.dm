@@ -25,7 +25,7 @@
 	if(isspaceturf(T))
 		to_chat(user, SPAN_WARNING("You charge your shockwave, slam your foot down... and then remember that you're in space."))
 		return
-	user.visible_message(SPAN_DANGER("<font size=4>[user] charges [user.get_pronoun("his")] foot with psionic energy and slams it down!</font>"),
+	user.visible_message(SPAN_DANGER(FONT_HUGE("[user] charges [user.get_pronoun("his")] foot with psionic energy and slams it down!")),
 						SPAN_DANGER("<font size=4>You charge your foot with psionic energy and slam it down!</font>"))
 	playsound(T, 'sound/effects/meteorimpact.ogg', 100)
 	for(var/mob/M in get_hearers_in_view(7, src))
