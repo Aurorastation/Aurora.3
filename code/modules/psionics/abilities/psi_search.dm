@@ -41,7 +41,7 @@
 			to_chat(L, SPAN_WARNING("The Nlom is quiet and empty here."))
 			return TRUE
 		if(found_apex)
-			to_chat(L, SPAN_DANGER("<font size=4>You reach out into the Nlom and your senses are overwhelmed by a massive signature!</font>"))
+			to_chat(L, SPAN_DANGER(FONT_HUGE("You reach out into the Nlom and your senses are overwhelmed by a massive signature!")))
 			L.flash_pain(20)
 			L.adjustHalLoss(20)
 			return
