@@ -39,7 +39,7 @@
 			if(O.damage > 0) // Fix internal damage
 				to_chat(SPAN_NOTICE("You mend their [O]'s bruising."))
 				O.heal_damage(O.damage)
-			if(O.status & ORGAN_BROKEN)
+			if(HAS_FLAG(O.status, ORGAN_BROKEN))
 				to_chat(SPAN_NOTICE("You restart their [O]'s functionality."))
 				O.status &= ~ORGAN_BROKEN
 			if(O.damage <= 5 && O.organ_tag == BP_EYES) // Fix eyes
