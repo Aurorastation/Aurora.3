@@ -120,11 +120,11 @@
 		data["sector"] = current_sector ? current_sector.name : "Deep Space"
 		data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
 		data["landed"] = connected.get_landed_info()
-		data["s_x"] = connected.x
-		data["s_y"] = connected.y
+		data["ship_coord_x"] = connected.x
+		data["ship_coord_y"] = connected.y
 		data["dest"] = dy && dx
-		data["d_x"] = dx
-		data["d_y"] = dy
+		data["autopilot_x"] = dx
+		data["autopilot_y"] = dy
 		data["speedlimit"] = speedlimit ? speedlimit*1000 : "Halted"
 		data["accel"] = get_acceleration()
 		data["heading"] = connected.get_heading() ? dir2angle(connected.get_heading()) : 0
@@ -143,6 +143,9 @@
 			data["speed_slow"] = TRUE
 		if(connected.get_speed() > SHIP_SPEED_FAST)
 			data["speed_fast"] = TRUE
+		var/list/speed_xy = connected.get_speed_xy()
+		data["ship_speed_x"] = speed_xy[1]
+		data["ship_speed_y"] = speed_xy[2]
 
 		data["ETAnext"] = get_eta()
 
