@@ -109,6 +109,11 @@
 
 	var/shatter_sound = /singleton/sound_category/glass_break_sound //sound it makes when it breaks.
 
+	/// Whether this material is fusion fuel or not.
+	var/is_fusion_fuel
+	/// Material light. Used for fuel rods.
+	var/luminescence
+
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!rod_product)
 		to_chat(user, "<span class='warning'>You cannot make anything out of \the [target_stack]</span>")
@@ -347,6 +352,14 @@
 	golem = SPECIES_GOLEM_PHORON
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/material/phoron/supermatter
+	name = MATERIAL_SUPERMATTER
+	icon_colour = "#ffff00"
+	radioactivity = 20
+	luminescence = 3
+	stack_origin_tech = list(TECH_BLUESPACE = 2, TECH_MATERIAL = 6, TECH_PHORON = 4)
+	stack_type = null
 
 /material/stone
 	name = MATERIAL_SANDSTONE
@@ -643,14 +656,6 @@
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 
-/material/tritium
-	name = MATERIAL_TRITIUM
-	stack_type = /obj/item/stack/material/tritium
-	icon_colour = "#777777"
-	stack_origin_tech = list(TECH_MATERIAL = 5)
-	sheet_singular_name = "ingot"
-	sheet_plural_name = "ingots"
-
 /material/mhydrogen
 	name = MATERIAL_HYDROGEN_METALLIC
 	display_name = "metallic hydrogen"
@@ -659,6 +664,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 6, TECH_MAGNET = 5)
 	conductivity = 100
 	golem = SPECIES_GOLEM_HYDROGEN
+	is_fusion_fuel = TRUE
 
 /material/platinum
 	name =  MATERIAL_PLATINUM
@@ -1057,3 +1063,22 @@
 	sheet_plural_name = "bars"
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
+
+/material/tritium
+	name = MATERIAL_TRITIUM
+	stack_type = /obj/item/stack/material/tritium
+	icon_colour = "#777777"
+	stack_origin_tech = list(TECH_MATERIAL = 5)
+	sheet_singular_name = "ingot"
+	sheet_plural_name = "ingots"
+	is_fusion_fuel = TRUE
+	value = 300
+
+/material/deuterium
+	name = MATERIAL_DEUTERIUM
+	stack_type = /obj/item/stack/material/deuterium
+	icon_colour = "#999999"
+	stack_origin_tech = list(TECH_MATERIAL = 3)
+	sheet_singular_name = "ingot"
+	sheet_plural_name = "ingots"
+	is_fusion_fuel = TRUE

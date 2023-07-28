@@ -139,11 +139,11 @@
 			return
 
 		last_shot = world.time
-		if(shot_number < burst_shots)
-			fire_delay = 2
+		if (shot_number < burst_shots)
+			fire_delay = get_burst_delay()
 			shot_number++
 		else
-			fire_delay = rand(min_burst_delay, max_burst_delay)
+			fire_delay = get_rand_burst_delay()
 			shot_number = 0
 
 		//need to calculate the power per shot as the emitter doesn't fire continuously.
@@ -154,7 +154,7 @@
 		if(prob(35))
 			spark_system.queue()
 
-		var/obj/item/projectile/beam/emitter/A = new /obj/item/projectile/beam/emitter(get_turf(src))
+		var/obj/item/projectile/beam/emitter/A = get_emitter_beam()
 		A.damage = round(power_per_shot / EMITTER_DAMAGE_POWER_TRANSFER)
 		A.launch_projectile(get_step(src, dir))
 		shot_counter++
@@ -258,6 +258,17 @@
 	else
 		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] whines, \"Access denied!\"")
 
+/obj/machinery/power/emitter/proc/get_initial_fire_delay()
+	return 10 SECONDS
+
+/obj/machinery/power/emitter/proc/get_rand_burst_delay()
+	return rand(min_burst_delay, max_burst_delay)
+
+/obj/machinery/power/emitter/proc/get_burst_delay()
+	return 0.2 SECONDS // This value doesn't really affect normal emitters, but *does* affect subtypes like the gyrotron that can have very long delays
+
+/obj/machinery/power/emitter/proc/get_emitter_beam()
+	return new /obj/item/projectile/beam/emitter(get_turf(src))
 
 #undef EMITTER_LOOSE
 #undef EMITTER_BOLTED

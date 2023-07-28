@@ -40,7 +40,7 @@
 	name = "Hydrogen"
 	specific_heat = 100
 	molar_mass = 0.002
-	flags = XGM_GAS_FUEL
+	flags = XGM_GAS_FUEL|XGM_GAS_FUSION_FUEL
 
 /singleton/xgm_gas/sleeping_agent
 	id = GAS_N2O
@@ -50,6 +50,25 @@
 	tile_overlay = "sleeping_agent"
 	overlay_limit = 1
 	flags = XGM_GAS_OXIDIZER
+
+/singleton/xgm_gas/hydrogen/deuterium
+	id = GAS_DEUTERIUM
+	name = "Deuterium"
+	specific_heat = 80
+	molar_mass = 0.004
+
+/singleton/xgm_gas/hydrogen/tritium
+	id = GAS_TRITIUM
+	name = "Tritium"
+	molar_mass = 0.006
+	specific_heat = 60
+
+/singleton/xgm_gas/helium
+	id = GAS_HELIUM
+	name = "Helium"
+	specific_heat = 80	// J/(mol*K)
+	molar_mass = 0.004	// kg/mol
+	flags = XGM_GAS_FUSION_FUEL
 
 /singleton/xgm_gas/alium
 	id = GAS_ALIEN
@@ -94,3 +113,10 @@
 	specific_heat = 5	// J/(mol*K)
 	molar_mass = 0.017	// kg/mol
 	flags = XGM_GAS_CONTAMINANT
+
+/singleton/xgm_gas/boron
+	id = GAS_BORON
+	name = "Boron"
+	specific_heat = 11
+	molar_mass = 0.011
+	flags = XGM_GAS_FUSION_FUEL
