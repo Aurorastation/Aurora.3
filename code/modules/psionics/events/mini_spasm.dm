@@ -48,7 +48,7 @@
 	else
 		to_chat(victim, SPAN_DANGER("An indescribable, brain-tearing sound hisses from [icon2html(source, victim)] \the [source], and you collapse in a seizure!"))
 		victim.seizure()
-		to_chat(victim, SPAN_DANGER("<font size = 3>[pick(psi_operancy_messages)]</font>"))
+		to_chat(victim, SPAN_DANGER(FONT_LARGE("[pick(psi_operancy_messages)]")))
 		victim.adjustBrainLoss(rand(10,20))
 		victim.set_psi_rank(1)
 		victim.psi.update()
