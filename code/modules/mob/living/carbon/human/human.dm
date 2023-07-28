@@ -159,7 +159,7 @@
 	if(species?.gluttonous & GLUT_MESSY)
 		if(ismob(victim))
 			var/mob/M = victim
-			if(ishuman(victim))
+			if(ishuman(victim) && !islesserform(M))
 				to_chat(src, SPAN_WARNING("You can't devour humanoids!"))
 				return FALSE
 			for(var/obj/item/grab/G in M.grabbed_by)

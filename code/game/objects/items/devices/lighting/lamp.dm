@@ -18,6 +18,8 @@
 	toggle_sound = /singleton/sound_category/switch_sound
 	activation_sound = 'sound/effects/lighton.ogg'
 
+/obj/item/device/flashlight/lamp/off
+	on = FALSE
 
 // green-shaded desk lamp
 /obj/item/device/flashlight/lamp/green
