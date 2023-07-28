@@ -64,7 +64,7 @@
 	for (var/mob/M in player_list)
 		if (istype(M, /mob/abstract/new_player))
 			continue
-		else if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)
+		else if(M.stat == DEAD && HAS_FLAG(M.client.prefs.toggles, CHAT_GHOSTEARS))
 			to_chat(M, "<span class='notice'>[user] psionically commands to [target]:</span> [text]")
 
 	var/mob/living/carbon/human/H = target
