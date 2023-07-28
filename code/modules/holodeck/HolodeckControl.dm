@@ -1,3 +1,6 @@
+
+var/global/list/obj/machinery/computer/HolodeckControl/holodeck_controls = list()
+
 /obj/machinery/computer/HolodeckControl
 	name = "holodeck control console"
 	desc = "A computer used to control a nearby holodeck."
@@ -29,6 +32,7 @@
 /obj/machinery/computer/HolodeckControl/Initialize()
 	. = ..()
 	linkedholodeck = locate(linkedholodeck_area)
+	holodeck_controls += src
 
 /obj/machinery/computer/HolodeckControl/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
@@ -372,6 +376,10 @@
 		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return TRUE
 
+/obj/machinery/computer/HolodeckControl/proc/load_random_program()
+	var/prog_to_load = pick(current_map.holodeck_programs)
+	loadProgram(current_map.holodeck_programs[prog_to_load])
+
 /obj/machinery/computer/HolodeckControl/Aurora
 	density = 0
 	linkedholodeck_area = /area/holodeck/alphadeck
@@ -379,11 +387,6 @@
 /obj/machinery/computer/HolodeckControl/Horizon
 	density = 0
 	linkedholodeck_area = /area/horizon/holodeck/alphadeck
-
-/obj/machinery/computer/HolodeckControl/Horizon/Initialize()
-	. = ..()
-	var/prog_to_load = pick(current_map.holodeck_programs)
-	loadProgram(current_map.holodeck_programs[prog_to_load])
 
 /obj/machinery/computer/HolodeckControl/Horizon/beta
 	linkedholodeck_area = /area/horizon/holodeck/betadeck
