@@ -59,7 +59,7 @@
 	name = "random tool"
 	desc = "This is a random tool"
 	icon = 'icons/obj/tools.dmi'
-	icon_state = "welder_off"
+	icon_state = "wrench"
 	spawnlist = list(
 		/obj/item/screwdriver,
 		/obj/item/wirecutters,
@@ -110,7 +110,7 @@
 /obj/random/toolbox
 	name = "random toolbox"
 	desc = "This is a random toolbox."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/toolbox.dmi'
 	icon_state = "red"
 	spawnlist = list(
 		/obj/item/storage/toolbox/mechanical = 3,
@@ -1411,6 +1411,17 @@
 
 	)
 
+/obj/random/dirt_75
+	name = "dirt 75%"
+	desc = "75% chance of spawning dirt, otherwise nothing."
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "dirt"
+	layer = ABOVE_CABLE_LAYER // just so it appears under structures in map editor
+	spawn_nothing_percentage = 25
+	spawnlist = list(
+		/obj/effect/decal/cleanable/dirt
+	)
+
 //Sometimes the chef will have spare oil in storage.
 //Sometimes they wont, and will need to order it from cargo
 //Variety is the spice of life!
@@ -1988,7 +1999,8 @@
 		/obj/item/pizzabox/vegetable,
 		/obj/item/pizzabox/mushroom,
 		/obj/item/pizzabox/meat,
-		/obj/item/pizzabox/pineapple
+		/obj/item/pizzabox/pineapple,
+		/obj/item/pizzabox/pepperoni
 	)
 
 /obj/random/seed
@@ -2148,3 +2160,28 @@
 		/obj/item/clothing/suit/space/syndicate/black/red = 1
 	)
 	has_postspawn = TRUE
+
+/obj/random/pottedplant
+	name = "random potted plant"
+	desc = "Spawns a random potted plant."
+	icon = 'icons/obj/plants.dmi'
+	icon_state = "plant-26"
+	spawn_nothing_percentage = 1
+
+/obj/random/pottedplant/spawn_item()
+	var/obj/structure/flora/pottedplant/P = null
+	var/list/unwanted = list(
+		/obj/structure/flora/pottedplant, // don't want parent base obj
+		/obj/structure/flora/pottedplant/random, // depreciated
+		/obj/structure/flora/pottedplant/dead2, // does not fit horizon's aesthetic
+		/obj/structure/flora/pottedplant/empty
+	)
+	var/list/rare = list(
+		/obj/structure/flora/pottedplant/eye,
+		/obj/structure/flora/pottedplant/dead
+	)
+	while(!P)
+		P = pick(typesof(/obj/structure/flora/pottedplant))
+		if(P in unwanted || ((P in rare) && prob(50)))
+			P = null
+	. = new P(loc)
