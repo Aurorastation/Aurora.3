@@ -66,7 +66,7 @@
 		if(owner_rank < PSI_RANK_LIMITLESS && HAS_FLAG(P.ability_flags, PSI_FLAG_LIMITLESS))
 			continue
 		if(NOT_FLAG(P.ability_flags, PSI_FLAG_CANON))
-			if(owner_rank < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_EVENT))
+			if(owner_rank < PSI_RANK_HARMONIOUS && HAS_FLAG(P.ability_flags, PSI_FLAG_EVENT))
 				continue
 		if(owner_rank < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_ANTAG))
 			continue
