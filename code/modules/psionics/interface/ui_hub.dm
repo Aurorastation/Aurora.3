@@ -63,7 +63,7 @@
 		/// Apex and Limitless abilities are automatically given, but we want them to have said abilities in the point shop so the users know what they do.
 		if(owner_rank < PSI_RANK_APEX && HAS_FLAG(P.ability_flags, PSI_FLAG_APEX))
 			continue
-		if(owner_rank < PSI_RANK_LIMITLESS && (P.ability_flags & PSI_FLAG_LIMITLESS))
+		if(owner_rank < PSI_RANK_LIMITLESS && HAS_FLAG(P.ability_flags, PSI_FLAG_LIMITLESS))
 			continue
 		if(!(P.ability_flags & PSI_FLAG_CANON))
 			if(owner_rank < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_EVENT))
