@@ -226,7 +226,7 @@
 			to_chat(owner, "<span class='danger'>You need to be wearing a core on your back or your wrists!</span>")
 			return FALSE
 		if(!core.simple_operation && !technomancers.is_technomancer(owner.mind)) //Now make sure the person using this is the actual antag.
-			to_chat(owner, "<span class='danger'>You can't seem to figure out how to make the machine work properly.</span>")
+			to_chat(owner, SPAN_DANGER("You can't seem to figure out how to make the machine work properly."))
 			return FALSE
 	else
 		if(!owner.psi)
