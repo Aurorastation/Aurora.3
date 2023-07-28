@@ -34,7 +34,7 @@ var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psioni
 		)
 		for(var/datum/psi_complexus/PC in all_psi_complexes)
 			if(PC.psionic_rank >= PSI_RANK_SENSITIVE)
-				to_chat(PC.owner, SPAN_NOTICE("<font size=4>The Nlom field prompts you for your emotional state.</font>"))
+				to_chat(PC.owner, SPAN_NOTICE(FONT_HUGE("The Nlom field prompts you for your emotional state.")))
 				to_chat(PC.owner,
 						"<a href='?src=\ref[src];emotion=Calm;voter=[ref(PC)]'>Calm</a> | <a href='?src=\ref[src];emotion=Happy;voter=[ref(PC)]'>Happy</a> | \
 						<a href='?src=\ref[src];emotion=Sad;voter=[ref(PC)]'>Sad</a> | <a href='?src=\ref[src];emotion=Fearful;voter=[ref(PC)]'>Fearful</a> | \
