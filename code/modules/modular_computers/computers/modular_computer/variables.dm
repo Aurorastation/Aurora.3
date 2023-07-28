@@ -84,4 +84,6 @@
 
 	var/registered_message = ""
 
+	var/click_sound = 'sound/machines/holoclick.ogg'
+
 	charge_failure_message = " does not have a battery installed."
