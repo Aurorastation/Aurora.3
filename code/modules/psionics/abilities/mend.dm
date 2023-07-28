@@ -63,7 +63,7 @@
 			if(HAS_FLAG(affected.status, ORGAN_ARTERY_CUT))
 				to_chat(SPAN_NOTICE("You mend a spliced artery in their [affected]."))
 				affected.status &= ~ORGAN_ARTERY_CUT
-			if(affected.status & ORGAN_DEAD)
+			if(HAS_FLAG(affected.status, ORGAN_DEAD))
 				to_chat(SPAN_NOTICE("You mend some necrosis from their [affected]."))
 				affected.status &= ~ORGAN_DEAD
 	user.visible_message(SPAN_NOTICE("[user] raises their palm from [H]."), SPAN_NOTICE("You raise your palm, having finished your work."))
