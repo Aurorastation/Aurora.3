@@ -27,7 +27,7 @@ html/changelogs/example.yml################################
 #################################
 
 # Your name.
-author: ChangeMe
+author: ClemTheDuck
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a changelog editing system that should cause fewer conflicts and more accurate timestamps."
-  - rscdel: "Killed innocent kittens."
+  - rscadd: "Added the the ability to choose how your goggles are layered. You can now choose to layer them OVER headgear as well as the usual over or under hair."
+ 

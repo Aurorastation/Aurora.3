@@ -84,47 +84,7 @@ There are several things that need to be remembered:
 	The idea behind it is icons are regenerated only once, even if multiple events requested it.
 */
 
-// Human Overlays Indexes //
-// Layer 1 intentionally left empty.
-#define FIRE_LAYER_LOWER      2
-#define MUTATIONS_LAYER       3
-#define DAMAGE_LAYER          4
-#define SURGERY_LAYER         5
-#define UNDERWEAR_LAYER       6
-#define TAIL_SOUTH_LAYER      7
-#define TAIL_SOUTH_ACC_LAYER  8
-#define SHOES_LAYER_ALT       9
-#define UNIFORM_LAYER         10
-#define ID_LAYER              11
-#define SHOES_LAYER           12
-#define GLOVES_LAYER          13
-#define BELT_LAYER            14
-#define WRISTS_LAYER_ALT      15
-#define SUIT_LAYER            16
-#define ID_LAYER_ALT          17
-#define TAIL_NORTH_LAYER      18
-#define TAIL_NORTH_ACC_LAYER  19
-#define HAIR_LAYER_ALT        20
-#define GLASSES_LAYER         21
-#define BELT_LAYER_ALT        22
-#define SUIT_STORE_LAYER      23
-#define BACK_LAYER            24
-#define HAIR_LAYER            25
-#define GLASSES_LAYER_ALT     26
-#define L_EAR_LAYER           27
-#define R_EAR_LAYER           28
-#define FACEMASK_LAYER        29
-#define HEAD_LAYER			  30	
-#define GLASSES_LAYER_OVER    31
-#define COLLAR_LAYER          32
-#define HANDCUFF_LAYER        33
-#define LEGCUFF_LAYER         34
-#define L_HAND_LAYER          35
-#define R_HAND_LAYER          36
-#define WRISTS_LAYER          37
-#define FIRE_LAYER_UPPER      38
-#define TOTAL_LAYERS          38
-////////////////////////////
+
 
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
 #define GET_TAIL_LAYER (dir == NORTH ? TAIL_NORTH_LAYER : TAIL_SOUTH_LAYER)
@@ -726,19 +686,18 @@ There are several things that need to be remembered:
 
 		var/image/glasses_overlay = glasses.get_mob_overlay(src, mob_icon, mob_state, slot_glasses_str)
 
-		var/normal_layer = TRUE
+		var/normal_layer = GLASSES_LAYER
 		if(istype(glasses, /obj/item/clothing/glasses))
 			var/obj/item/clothing/glasses/G = glasses
 			normal_layer = G.normal_layer
 
-		if(normal_layer)
-			overlays_raw[GLASSES_LAYER] = glasses_overlay
-			overlays_raw[GLASSES_LAYER_OVER] = null
-		else
-			overlays_raw[GLASSES_LAYER] = null
-			overlays_raw[GLASSES_LAYER_OVER] = glasses_overlay
+		overlays_raw[GLASSES_LAYER] = null
+		overlays_raw[GLASSES_LAYER_ALT] = null
+		overlays_raw[GLASSES_LAYER_OVER] = null
+		overlays_raw[normal_layer] = glasses_overlay
 	else
 		overlays_raw[GLASSES_LAYER] = null
+		overlays_raw[GLASSES_LAYER_ALT] = null
 		overlays_raw[GLASSES_LAYER_OVER] = null
 
 	if(update_icons)
