@@ -210,12 +210,15 @@ const ManualSection = function (act, data) {
         <Table.Row>
           <Table.Cell width="50%">
             <Table width={0} title="Control" align="center">
-              <Table.Row title="Turn Left / Counterclockwise">
-                <Button
-                  icon="undo"
-                  disabled={!data.canturn}
-                  onClick={() => act('turn', { turn: 8 })}
-                />
+              <Table.Row>
+                <Table.Cell title="Roll Left / Port">
+                  <Button
+                    icon="angle-double-left"
+                    color="red"
+                    disabled={!data.cancombatroll}
+                    onClick={() => act('roll', { roll: 8 })}
+                  />
+                </Table.Cell>
                 <Table.Cell title="Burn / Forward">
                   <Button
                     icon="arrow-up"
@@ -223,20 +226,21 @@ const ManualSection = function (act, data) {
                     onClick={() => act('move', { move: 1 })}
                   />
                 </Table.Cell>
-                <Table.Cell title="Turn Right / Clockwise">
+                <Table.Cell title="Roll Left / Starboard">
                   <Button
-                    icon="redo"
-                    disabled={!data.canturn}
-                    onClick={() => act('turn', { turn: 4 })}
+                    icon="angle-double-right"
+                    color="red"
+                    disabled={!data.cancombatroll}
+                    onClick={() => act('roll', { roll: 4 })}
                   />
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell title="Combat Roll Left / Port">
+                <Table.Cell title="Turn Left / Counterclockwise">
                   <Button
-                    icon="angle-double-left"
-                    disabled={!data.cancombatroll}
-                    onClick={() => act('roll', { roll: 8 })}
+                    icon="undo"
+                    disabled={!data.canturn}
+                    onClick={() => act('turn', { turn: 8 })}
                   />
                 </Table.Cell>
                 <Table.Cell title="Slow / Stop / Inertia Dampener">
@@ -246,11 +250,11 @@ const ManualSection = function (act, data) {
                     onClick={() => act('brake', { move: 1 })}
                   />
                 </Table.Cell>
-                <Table.Cell title="Combat Roll Left / Starboard">
+                <Table.Cell title="Turn Right / Clockwise">
                   <Button
-                    icon="angle-double-right"
-                    disabled={!data.cancombatroll}
-                    onClick={() => act('roll', { roll: 4 })}
+                    icon="redo"
+                    disabled={!data.canturn}
+                    onClick={() => act('turn', { turn: 4 })}
                   />
                 </Table.Cell>
               </Table.Row>
