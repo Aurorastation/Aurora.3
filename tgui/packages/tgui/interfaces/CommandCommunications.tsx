@@ -119,7 +119,6 @@ export const CommandCommunications = (props, context) => {
                     disabled={
                       data.current_security_level ===
                         data.def_SEC_LEVEL_GREEN ||
-                      data.isAI ||
                       !data.net_comms ||
                       !data.net_syscont
                     }
@@ -132,7 +131,6 @@ export const CommandCommunications = (props, context) => {
                     color="blue"
                     disabled={
                       data.current_security_level === data.def_SEC_LEVEL_BLUE ||
-                      data.isAI ||
                       !data.net_comms ||
                       !data.net_syscont
                     }
@@ -146,7 +144,6 @@ export const CommandCommunications = (props, context) => {
                     disabled={
                       data.current_security_level ===
                         data.def_SEC_LEVEL_YELLOW ||
-                      data.isAI ||
                       !data.net_comms ||
                       !data.net_syscont
                     }
