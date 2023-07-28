@@ -68,7 +68,7 @@ var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psioni
 					"Confused" = "confusion"
 				)
 				if(nlom_votes[highest_emotion] > 0)
-					to_chat(PC.owner, SPAN_NOTICE("<font size=4>A sense of <b><span class='[nlom_to_span[highest_emotion]]'>[nlom_to_chat_text[highest_emotion]]</span></b> washes over you.</font>"))
+					to_chat(PC.owner, SPAN_NOTICE(FONT_HUGE("A sense of <b><span class='[nlom_to_span[highest_emotion]]'>[nlom_to_chat_text[highest_emotion]]</span></b> washes over you.")))
 				else
 					to_chat(PC.owner, SPAN_WARNING("<font size=4>The Nlom is silent and still. You feel uneasy.</font>"))
 			checking_nlom = FALSE
