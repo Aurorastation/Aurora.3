@@ -72,7 +72,7 @@
 	return ..()
 
 /obj/structure/flora/pottedplant/random
-	name = "potted plant (DEPRECIATED)"
+	name = "potted plant (DEPRECATED)"
 	desc = "use /obj/random/pottedplant/ instead"
 
 /obj/structure/flora/pottedplant/random/New()
