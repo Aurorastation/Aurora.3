@@ -284,7 +284,7 @@
 	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
 	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
 	var/edge = (damage_flags & DAMAGE_FLAG_EDGE)
-	var/psionic = (damage_flags & DAMAGE_FLAG_PSIONIC)
+	var/psionic = HAS_FLAG(damage_flags, DAMAGE_FLAG_PSIONIC)
 	var/blunt = !!(brute && !sharp && !edge)
 
 	/// Psionics and psionically deaf species take varying amounts of damage from psionic abilities.
