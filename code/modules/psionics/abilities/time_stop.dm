@@ -30,7 +30,7 @@
 		return
 
 	if(do_after(user, 1 SECOND))
-		user.visible_message(SPAN_DANGER("<font size=4>[user] extends [user.get_pronoun("his")] arms to [user.get_pronoun("his")] sides!</font>"),
+		user.visible_message(SPAN_DANGER(FONT_HUGE("[user] extends [user.get_pronoun("his")] arms to [user.get_pronoun("his")] sides!")),
 							SPAN_DANGER("You extend your arms to your side and crystallize the Nlom around you!"))
 		time_stop(user)
 
