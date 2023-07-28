@@ -60,7 +60,7 @@
 			if((affected.damage < affected.min_broken_damage * config.organ_health_multiplier) && (affected.status & ORGAN_BROKEN))
 				to_chat(SPAN_NOTICE("You mend their [affected] together."))
 				affected.status &= ~ORGAN_BROKEN
-			if(affected.status & ORGAN_ARTERY_CUT)
+			if(HAS_FLAG(affected.status, ORGAN_ARTERY_CUT))
 				to_chat(SPAN_NOTICE("You mend a spliced artery in their [affected]."))
 				affected.status &= ~ORGAN_ARTERY_CUT
 			if(affected.status & ORGAN_DEAD)
