@@ -441,9 +441,11 @@
 	stack_type = /obj/item/stack/material/plasteel
 	integrity = 400
 	melting_point = 6000
+	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	icon_base = "solid"
 	icon_reinf = "reinf_over"
-	icon_colour = COLOR_TILED_2
+	icon_colour = "#545c68"
+	wall_colour = COLOR_WALL_GUNMETAL
 	explosion_resistance = 25
 	hardness = 80
 	weight = 23
@@ -703,6 +705,7 @@
 	display_name = "elevator panelling"
 	stack_type = null
 	icon_colour = "#666666"
+	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	integrity = 1200
 	melting_point = 6000
 	explosion_resistance = 200

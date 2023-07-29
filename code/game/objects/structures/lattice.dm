@@ -123,7 +123,7 @@
 	icon_state = "grate_dark"
 	return_amount = 1
 	smooth = null
-	color = COLOR_GUNMETAL
+	color = COLOR_TILED
 	var/base_icon_state = "grate_dark"
 	var/damaged = FALSE
 
