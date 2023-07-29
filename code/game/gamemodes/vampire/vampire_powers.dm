@@ -194,7 +194,7 @@
 
 	admin_attacker_log_many_victims(src, victims, "used glare to stun", "was stunned by [key_name(src)] using glare", "used glare to stun")
 
-	verbs -= /mob/living/carbon/human/proc/vampire_glare
+	remove_verb(src,/mob/living/carbon/human/proc/vampire_glare)
 	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/vampire_glare, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Targeted stun ability, moderate duration.
@@ -222,9 +222,12 @@
 	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
 	if(!vampire_can_affect_target(T))
 		return
+	if(vampire.status & VAMP_HYPNOTIZING)
+		to_chat(src, SPAN_WARNING("You are already focusing your gaze!"))
+		return
 
 	to_chat(src, SPAN_NOTICE("You begin peering into [T.name]'s mind, looking for a way to render them useless."))
-
+	vampire.status |= VAMP_HYPNOTIZING
 	if(do_mob(src, T, 50))
 		to_chat(src, SPAN_DANGER("You dominate [T.name]'s mind and render them temporarily powerless to resist."))
 		to_chat(T, SPAN_DANGER("You are captivated by [src.name]'s gaze, and find yourself unable to move or even speak."))
@@ -235,10 +238,11 @@
 		vampire.use_blood(10)
 		admin_attack_log(src, T, "used hypnotise to stun [key_name(T)]", "was stunned by [key_name(src)] using hypnotise", "used hypnotise on")
 
-		verbs -= /mob/living/carbon/human/proc/vampire_hypnotise
+		remove_verb(src, /mob/living/carbon/human/proc/vampire_hypnotise)
 		ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_hypnotise, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 	else
 		to_chat(src, SPAN_WARNING("You broke your gaze."))
+	vampire.status &= ~VAMP_HYPNOTIZING
 
 // Targeted teleportation, must be to a low-light tile.
 /mob/living/carbon/human/proc/vampire_veilstep(var/turf/T in world)
@@ -281,7 +285,7 @@
 	log_and_message_admins("activated veil step.")
 
 	vampire.use_blood(20)
-	verbs -= /mob/living/carbon/human/proc/vampire_veilstep
+	remove_verb(src, /mob/living/carbon/human/proc/vampire_veilstep)
 	ADD_VERB_IN_IF(src, 300, /mob/living/carbon/human/proc/vampire_veilstep, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Summons bats.
@@ -325,7 +329,7 @@
 	log_and_message_admins("summoned bats.")
 
 	vampire.use_blood(60)
-	verbs -= /mob/living/carbon/human/proc/vampire_bats
+	remove_verb(src, /mob/living/carbon/human/proc/vampire_bats)
 	ADD_VERB_IN_IF(src, 1200, /mob/living/carbon/human/proc/vampire_bats, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Chiropteran Screech
@@ -384,7 +388,7 @@
 	else
 		log_and_message_admins("used chiropteran screech.")
 
-	verbs -= /mob/living/carbon/human/proc/vampire_screech
+	remove_verb(src, /mob/living/carbon/human/proc/vampire_screech)
 	ADD_VERB_IN_IF(src, 3600, /mob/living/carbon/human/proc/vampire_screech, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Enables the vampire to be untouchable and walk through walls and other solid things.
@@ -618,7 +622,7 @@
 		var/list/damaged_organs = get_damaged_organs(TRUE, TRUE, FALSE)
 		if(length(damaged_organs))
 			// Heal an absurd amount, basically regenerate one organ.
-			heal_organ_damage(50, 50, FALSE)
+			heal_organ_damage(50, 50)
 			blood_used += 3
 
 		var/missing_blood = species.blood_volume - REAGENT_VOLUME(vessel, /singleton/reagent/blood)
@@ -748,7 +752,7 @@
 	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
 
 	vampire.use_blood(150)
-	verbs -= /mob/living/carbon/human/proc/vampire_enthrall
+	remove_verb(src, /mob/living/carbon/human/proc/vampire_enthrall)
 	ADD_VERB_IN_IF(src, 2800, /mob/living/carbon/human/proc/vampire_enthrall, CALLBACK(src, PROC_REF(finish_vamp_timeout)))
 
 // Makes the vampire appear 'friendlier' to others.
@@ -1009,5 +1013,5 @@
 	G.icon_state = "grabbed1"
 	G.synch()
 
-	verbs -= /mob/living/carbon/human/proc/grapple
+	remove_verb(src, /mob/living/carbon/human/proc/grapple)
 	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/grapple, CALLBACK(src, PROC_REF(finish_vamp_timeout), VAMP_FRENZIED))

@@ -168,7 +168,7 @@ var/global/list/radial_menus = list()
 	E.alpha = 0
 	E.name = "None"
 	E.maptext = null
-	E.mouse_opacity = 0
+	E.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	E.choice = null
 	E.next_page = FALSE
 
@@ -189,7 +189,7 @@ var/global/list/radial_menus = list()
 
 	//Visuals
 	E.alpha = 255
-	E.mouse_opacity = 1
+	E.mouse_opacity = MOUSE_OPACITY_ICON
 	E.overlays.Cut()
 	if(choice_id == NEXT_PAGE_ID)
 		E.name = "Next Page"
@@ -316,4 +316,5 @@ var/global/list/radial_menus = list()
 	radial_menus -= uniqueid
 	return answer
 
-#define RADIAL_INPUT(user, choices) show_radial_menu(user, user, choices, tooltips = TRUE)
+#undef NEXT_PAGE_ID
+#undef DEFAULT_CHECK_DELAY

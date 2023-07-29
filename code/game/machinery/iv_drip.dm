@@ -37,8 +37,14 @@
 	var/epp = TRUE // Emergency Positive Pressure system. Can be toggled if you want to turn it off
 	var/epp_active = FALSE
 
+	//What we accept as a container for IV transfers. Prevents attaching food and organs to IVs.
+	var/list/accepted_containers = list(
+		/obj/item/reagent_containers/blood,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle)
+
 	var/list/mask_blacklist = list(
-		/obj/item/clothing/mask/breath/vaurca,
+		/obj/item/clothing/mask/gas/vaurca,
 		/obj/item/clothing/mask/breath/skrell,
 		/obj/item/clothing/mask/breath/lyodsuit,
 		/obj/item/clothing/mask/breath/infiltrator)
@@ -415,7 +421,7 @@
 	if(istype(W, /obj/item/reagent_containers/blood/ripped))
 		to_chat(user, "You can't use a ripped bloodpack.")
 		return TRUE
-	if(istype(W, /obj/item/reagent_containers))
+	if(is_type_in_list(W, accepted_containers))
 		if(beaker)
 			to_chat(user, "There is already a reagent container loaded!")
 			return TRUE

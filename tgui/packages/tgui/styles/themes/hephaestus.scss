@@ -1,0 +1,53 @@
+@use 'sass:color';
+@use 'sass:meta';
+
+@use '../colors.scss' with (
+  $primary: #DB6700,
+  $bad: #991100,
+  $fg-map-keys: (),
+  $bg-map-keys: (),
+);
+@use '../base.scss' with (
+  $color-bg: #192616,
+  $color-bg-grad-spread: 6%,
+);
+
+.theme-hephaestus {
+  // Atomic classes
+  @include meta.load-css('../atomic/color.scss');
+
+  // Components
+  @include meta.load-css(
+    '../components/Input.scss',
+    $with: ('border-color': #db6700)
+  );
+  @include meta.load-css(
+    '../components/NoticeBox.scss',
+    $with: ('background-color': #8c470d)
+  );
+  @include meta.load-css(
+    '../components/NumberInput.scss',
+    $with: ('border-color': #c09524)
+  );
+  @include meta.load-css(
+    '../components/ProgressBar.scss',
+    $with: ('background-color': rgba(0, 0, 0, 0.5))
+  );
+  @include meta.load-css('../components/Section.scss');
+  @include meta.load-css(
+    '../components/Tooltip.scss',
+    $with: ('background-color': #c09524)
+  );
+
+  // Layouts
+  @include meta.load-css('../layouts/Layout.scss');
+  @include meta.load-css('../layouts/Window.scss');
+  @include meta.load-css(
+    '../layouts/TitleBar.scss',
+    $with: ('background-color': #263e23)
+  );
+
+  .Layout__content {
+    background-image: url('../../assets/bg-heph.svg');
+  }
+}

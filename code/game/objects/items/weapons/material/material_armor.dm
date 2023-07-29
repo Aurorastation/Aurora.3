@@ -1,4 +1,3 @@
-#define MATERIAL_ARMOR_COEFFICENT 0.05
 /*
 SEE code/modules/materials/materials.dm FOR DETAILS ON INHERITED DATUM.
 This class of armor takes armor and appearance data from a material "datum".

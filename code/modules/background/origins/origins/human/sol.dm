@@ -1,6 +1,3 @@
-#define RELIGIONS_SOLARIAN list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_SHINTO, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER, RELIGION_TRINARY)
-#define CITIZENSHIPS_SOLARIAN list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION)
-
 /singleton/origin_item/culture/solarian
 	name = "Solarian"
 	desc = "Despite the loss of much of its territory during the Solarian Collapse of 2463, most of those that fall under the general umbrella of Solarian culture are citizens or belong to statelets affiliated with the Alliance of Sovereign Solarian Nations (ASSN). By and large, Solarians are generally perceived as xenophobic, nationalistic, and militarist. Non-humans, aside from Skrell, are generally rare on Solarian worlds, and many that do reside on them are treated as second-class citizens at best."
@@ -174,6 +171,8 @@
 	possible_accents = list(ACCENT_ANTILLIA)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the heat")
 
 /singleton/origin_item/origin/sancolette
 	name = "San Colette"

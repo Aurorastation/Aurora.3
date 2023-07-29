@@ -146,6 +146,7 @@
 	banners["banner, People's Republic of Adhomai"] = /obj/item/flag/pra
 	banners["banner, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra
 	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
+	banners["banner, Free Tajaran Council"] = /obj/item/flag/ftc
 	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
 	banners["banner, CT-EUM"] = /obj/item/flag/cteum
 	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
@@ -168,6 +169,7 @@
 	banners["banner, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette
 	banners["banner, Mictlan"] = /obj/item/flag/mictlan
 	banners["banner, New Hai Phong"] = /obj/item/flag/nhp
+	banners["banner, Silversun"] = /obj/item/flag/silversun
 	banners["banner, Hive Zo'ra"] = /obj/item/flag/zora
 	banners["banner, Hive K'lax"] = /obj/item/flag/klax
 	banners["banner, Hive C'thur"] = /obj/item/flag/cthur
@@ -210,6 +212,7 @@
 	flags["flag, People's Republic of Adhomai"] = /obj/item/flag/pra/l
 	flags["flag, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra/l
 	flags["flag, New Kingdom of Adhomai"] = /obj/item/flag/nka/l
+	flags["flag, Free Tajaran Council"] = /obj/item/flag/ftc/l
 	flags["flag, Republic of Biesel"] = /obj/item/flag/biesel/l
 	flags["flag, Trinary Perfection"] = /obj/item/flag/trinaryperfection/l
 	flags["flag, Hephaestus Industries"] = /obj/item/flag/heph/l
@@ -229,6 +232,7 @@
 	flags["flag, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/l
 	flags["flag, Mictlan"] = /obj/item/flag/mictlan/l
 	flags["flag, New Hai Phong"] = /obj/item/flag/nhp/l
+	flags["flag, Silversun"] = /obj/item/flag/silversun/l
 	flags["flag, Hive Zo'ra"] = /obj/item/flag/zora/l
 	flags["flag, Hive K'lax"] = /obj/item/flag/klax/l
 	flags["flag, Hive C'thur"] = /obj/item/flag/cthur/l
@@ -264,6 +268,7 @@
 	comics["az'marian comic, issue 6"] = /obj/item/toy/comic/azmarian/issue_6
 	comics["az'marian comic, issue 7"] = /obj/item/toy/comic/azmarian/issue_7
 	comics["az'marian comic, issue 8"] = /obj/item/toy/comic/azmarian/issue_8
+	comics["dominian witchfinder novel"] = /obj/item/toy/comic/witchfinder
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste

@@ -172,8 +172,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 				return
 			if(prize.amount <= 0 && prize.amount != -1)
 				return
-			if(prize.cost > ID.mining_points)
-			else
+			if(prize.cost <= ID.mining_points)
 				if(prize.shuttle)
 					if(SScargo.order_mining(prize.equipment_path))
 						ID.mining_points -= prize.cost

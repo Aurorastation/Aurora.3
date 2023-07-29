@@ -21,7 +21,7 @@
 	icon_state = "unknown"
 	layer = 10
 	luminosity = 0
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 	var/obj/machinery/power/apc/apc = null
 	var/turf/base_turf // The base turf type of the area, which can be used to override the z-level's base turf.
@@ -179,7 +179,7 @@
 	if(!fire)
 		fire = 1	//used for firedoor checks
 		update_icon()
-		mouse_opacity = 0
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
@@ -191,7 +191,7 @@
 	if (fire)
 		fire = 0	//used for firedoor checks
 		update_icon()
-		mouse_opacity = 0
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
@@ -213,12 +213,12 @@
 	if (!party)
 		party = 1
 		update_icon()
-		mouse_opacity = 0
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /area/proc/partyreset()
 	if (party)
 		party = 0
-		mouse_opacity = 0
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		update_icon()
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)

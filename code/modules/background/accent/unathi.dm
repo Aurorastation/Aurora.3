@@ -1,16 +1,16 @@
-/datum/accent/hegemon_noble
-	name = ACCENT_HEGEMON_NOBLE
-	description = "The Noble Hegemonic accent is eloquent and flowing, staying near the front of the mouth. Airy and filled with hissing, this accent requires birth-right or years of \
+/datum/accent/heartland_noble
+	name = ACCENT_HEARTLAND_NOBLE
+	description = "The Noble Heartlands accent is eloquent and flowing, staying near the front of the mouth. Airy and filled with hissing, this accent requires birth-right or years of \
 	practice to properly convey. The families of Lords, Sk'akh Priests, noble warriors, and some merchants will often share this accent, and will mostly find the Sinta'Azaziba language \
-	and Traditionalist accent more savage. The Noble Hegemonic accent is primarily found in the Untouched Lands, and originates from the Sinta'Unathi language."
+	and associated accents more savage. The Noble Heartlands accent originates from the Sinta'Unathi language."
 	tag_icon = "hegemon_noble"
 	text_tag = "HGN"
 
-/datum/accent/hegemon_peasant
-	name = ACCENT_HEGEMON_PEASANT
+/datum/accent/heartland_peasant
+	name = ACCENT_HEARTLAND_PEASANT
 	description = "Lowborn guilds-workers, first-generation merchants, simple warrior levymen, and hundreds of other tasks for the common Clans - this is the most common accent for \
-	Unathi, stereotypically. It still holds a slight air of royalty to it compared to the Traditional accents. It is most commonly found in the crowded Untouched Lands and in colonies. \
-	It originates from the Sinta'Unathi language. "
+	Unathi of the Izweski Heartland. It still holds a slight air of royalty to it compared to accents from the rest of Moghes. It can be heard across Moghes and in colonies, but is most common by far in its birthplace, the crowded Izweski Heartland. \
+	It originates from the Sinta'Unathi language."
 	tag_icon = "hegemon_peasant"
 	text_tag = "HGP"
 
@@ -114,3 +114,19 @@
 	Torn Cities is one of the first that any Sinta would think of."
 	tag_icon = "unathi_torn"
 	text_tag = "TRN"
+
+/datum/accent/zazalai_peasant
+	name = ACCENT_ZAZ_LOW
+	description = "The accent of the Zazalai Mountains is a rather monotone one. The Sinta of the region tend to speak slowly and with little expressed emotion, leading to a common \
+	joke that they speak like they have a mouthful of rocks. The particular dialect of Sinta'Unathi spoken in the region can often be hard to understand to outsiders, with some of the more isolated communities \
+	having developed dialects that are nearly distinct languages of their own, to the fascination of many Unathi linguists."
+	tag_icon = "unathi_zaz_peasant"
+	text_tag = "ZAZ"
+
+/datum/accent/zazalai_noble
+	name = ACCENT_ZAZ_HIGH
+	description = "The accent of the Zazalai Mountains nobility is generally clearer than that of the peasantry, though it carries the same slow and monotone sound to it. This accent is \
+	something of an artificial construction, having been widely influenced by the accent of the Izweski Heartlands nobility due to the historic ties between the two regions. To many, this accent is \
+	carefully crafted to give an air of civilised refinement in the harsh mountains of Zazalai."
+	tag_icon = "unathi_zaz_noble"
+	text_tag = "ZAZ"

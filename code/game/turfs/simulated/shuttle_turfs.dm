@@ -426,6 +426,7 @@
 	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi'
 	icon_state = "c1"
 
+//Canary pieces
 /turf/simulated/wall/shuttle/unique/scc/scout
 	name = "jester-type shuttle hull"
 	desc = "The hull and reinforcement of a Jester-type corporate skiff. The phoron-purple colored bands indicate this, in bold text as the SCCV Canary."
@@ -451,8 +452,56 @@
 	icon_state = "4,1"
 	layer = ABOVE_ALL_MOB_LAYER
 
-//--Floors--//
+//Intrepid pieces
+/turf/simulated/wall/shuttle/unique/scc/research
+	name = "pathfinder class shuttle hull"
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid."
+	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/complete_hull.dmi'
+	icon_state = "8,10"
 
+/obj/structure/shuttle_part/scc/research
+	name = "pathfinder class shuttle hull"
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid."
+	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/complete_hull.dmi'
+	icon_state = "5,8"
+
+/obj/structure/window/shuttle/unique/scc/research
+	name = "pathfinder class shuttle hull"
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. This particular piece looks fragile and frames a viewport."
+	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/complete_hull.dmi'
+	icon_state = "3,10"
+
+/obj/structure/window/shuttle/unique/scc/tall//For side windows of the hull, can overlap seamlessly
+	icon = 'icons/obj/spaceship/scc/windows_tall.dmi'
+	icon_state = "long1-1"
+
+/obj/structure/window/shuttle/unique/scc/research/over
+	name = "pathfinder class shuttle cockpit"
+	desc = "The strong glass face of a Pathfinder class shuttle cockpit."
+	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/cockpit_windows.dmi'
+	icon_state = "2,1"
+	layer = ABOVE_ALL_MOB_LAYER
+
+//Spark pieces
+/turf/simulated/wall/shuttle/unique/scc/mining
+	name = "pickaxe class shuttle hull"
+	desc = "The hull and reinforcement of a Pickaxe class corporate mining shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Spark."
+	icon = 'icons/turf/shuttles_unique/scc/mining_shuttle/complete_hull.dmi'
+	icon_state = "1,8"
+
+/obj/structure/shuttle_part/scc/mining
+	name = "pickaxe class shuttle hull"
+	desc = "The hull and reinforcement of a Pickaxe class corporate mining shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Spark."
+	icon = 'icons/turf/shuttles_unique/scc/mining_shuttle/complete_hull.dmi'
+	icon_state = "1,0"
+
+/obj/structure/window/shuttle/unique/scc/mining
+	name = "pickaxe class shuttle hull"
+	desc = "The hull and reinforcement of a Pickaxe class corporate mining shuttle. This particular piece looks fragile and frames a viewport."
+	icon = 'icons/turf/shuttles_unique/scc/mining_shuttle/complete_hull.dmi'
+	icon_state = "5,2"
+
+//--Floors--//
 /turf/simulated/floor/shuttle
 	name = "shuttle floor"
 	icon = 'icons/turf/shuttle.dmi'

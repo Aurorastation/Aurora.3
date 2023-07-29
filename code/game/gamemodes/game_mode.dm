@@ -388,12 +388,17 @@ var/global/list/additional_antag_types = list()
 				ghosts++
 
 	var/text = ""
+	var/escape_text
+	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
+		escape_text = "escaped"
+	else
+		escape_text = "transfered"
 	if(surviving_total > 0)
 		text += "<br>There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]"
-		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "bluespace jumped"]</b>) and <b>[ghosts] ghosts</b>.<br>"
+		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [escape_text]</b>) and <b>[ghosts] ghosts</b>.<br>"
 
 		discord_text += "There [surviving_total>1 ? "were **[surviving_total] survivors**" : "was **one survivor**"]"
-		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "bluespace jumped"]) and **[ghosts] ghosts**."
+		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [escape_text]) and **[ghosts] ghosts**."
 	else
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>)."
 

@@ -9,21 +9,10 @@
 	required_access_run = list(access_medical, access_research)
 	required_access_download = list(access_medical, access_research)
 	available_on_ntnet = TRUE
+	tgui_id = "ChemCodex"
 
-/datum/computer_file/program/chemistry_codex/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-chemcodex", 450, 600, filedesc)
-	ui.open()
-
-/datum/computer_file/program/chemistry_codex/vueui_transfer(oldobj)
-	SSvueui.transfer_uis(oldobj, src, "mcomputer-chemcodex", 450, 600, filedesc)
-	return TRUE
-
-// Gathers data for ui. This is not great vueui example, all data sent from server is static.
-/datum/computer_file/program/chemistry_codex/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data || list()
+/datum/computer_file/program/chemistry_codex/ui_data(mob/user)
+	var/list/data = list()
 	// Gather data for computer header
 	var/headerdata = get_header_data(data["_PC"])
 	if(headerdata)
@@ -31,6 +20,7 @@
 		. = data
 
 	// Here goes listification
-	if(data["reactions"] == null)
-		. = data
+	if(!data["reactions"])
 		data["reactions"] = SSchemistry.codex_data
+
+	return data

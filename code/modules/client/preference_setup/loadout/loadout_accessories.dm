@@ -514,12 +514,20 @@
 	path = /obj/item/clothing/accessory/bandanna/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/flagpatch_colorable
-	display_name = "generic flagpatch"
-	path = /obj/item/clothing/accessory/flagpatch
+/datum/gear/accessory/flagpatch
+	display_name = "generic flagpatch selection"
+	path = /obj/item/clothing/accessory/flagpatch/rectangular
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	cost = 0
 
+/datum/gear/accessory/flagpatch/New()
+	..()
+	var/list/flagpatch = list()
+	flagpatch["rectangular flagpatch"] =  /obj/item/clothing/accessory/flagpatch/rectangular
+	flagpatch["triangular flagpatch"] = /obj/item/clothing/accessory/flagpatch/triangular
+	flagpatch["circular flagpatch"] =  /obj/item/clothing/accessory/flagpatch/circular
+	flagpatch["square flagpatch"] =  /obj/item/clothing/accessory/flagpatch/square
+	gear_tweaks += new /datum/gear_tweak/path(flagpatch)
 
 /datum/gear/accessory/flagpatch_national
 	display_name = "flagpatch selection"

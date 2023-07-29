@@ -165,4 +165,4 @@
 /datum/gear/eyes/colorable
 	display_name = "colorable glasses"
 	path = /obj/item/clothing/glasses/colorable
-	flags = GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ALPHA_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
+	flags = GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ALPHA_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION

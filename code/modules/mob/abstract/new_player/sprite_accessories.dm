@@ -247,6 +247,11 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_bobcurl2"
 	chatname = "curls"
 
+/datum/sprite_accessory/hair/bookish
+	name = "Bookish"
+	icon_state = "hair_bookish"
+	chatname = "short hair"
+
 /datum/sprite_accessory/hair/bowl
 	name = "Bowl"
 	icon_state = "hair_bowlcut"
@@ -388,6 +393,12 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_buzzcut2"
 	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 	chatname = "unbuzzed hair"
+
+/datum/sprite_accessory/hair/chop
+	name = "Chop"
+	icon_state = "hair_chop"
+	length = 1
+	chatname = "short hair"
 
 /datum/sprite_accessory/hair/chrono
 	name = "Chrono"
@@ -686,6 +697,11 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_jade"
 	length = 2
 	chatname = "messy hair"
+
+/datum/sprite_accessory/hair/jaeger
+	name = "Jaeger"
+	icon_state = "hair_jaeger"
+	chatname = "short hair"
 
 /datum/sprite_accessory/hair/jensen
 	name = "Jensen Hair"  // Removing Videogame References
@@ -4336,6 +4352,10 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Glorp"
 	icon_state = "glorp"
 
+/datum/sprite_accessory/facial_hair/diona_eye/snout
+	name = "Snout"
+	icon_state = "snout"
+
 /datum/sprite_accessory/facial_hair/tuux_whiskers
 	icon = 'icons/mob/human_face/skrell_beards.dmi'
 	name = "Tuux Tentacle Whiskers"
@@ -6071,6 +6091,10 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/marking/diona_leaves/bug_eyes/stump
 	name = "Stump"
 	icon_state = "stump"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/snout
+	name = "Snout"
+	icon_state = "snout"
 
 /datum/sprite_accessory/marking/diona_leaves/pbody
 	name = "P-Body"
