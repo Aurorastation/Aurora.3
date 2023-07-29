@@ -1504,7 +1504,6 @@ There are several things that need to be remembered:
 	else
 		return TRUE
 
-
 #undef UNDERSCORE_OR_NULL
 #undef GET_BODY_TYPE
 #undef GET_TAIL_LAYER
