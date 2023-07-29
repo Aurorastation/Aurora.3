@@ -1,0 +1,7 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds a new SMES subtype meant for bigger overmap ships."
+  - rscadd: "Re-implements the damaged light solarian cruiser as an event map."
