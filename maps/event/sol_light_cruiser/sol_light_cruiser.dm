@@ -2,12 +2,12 @@
 	name = "SFA Light Cruiser"
 	description = "big, green and very, very mean grrr."
 	prefix = "maps/event/"
-	suffix = "sol_light_cruiser/sol_light_cruiser.dmm"
+	suffixes = "sol_light_cruiser/sol_light_cruiser.dmm"
 	spawn_weight = 0
 	spawn_cost = 1
 	id = "sfa_light_cruiser"
 
-/decl/submap_archetype/sfa_light_cruiser
+/singleton/submap_archetype/sfa_light_cruiser
 	map = "sfa light cruiser"
 	descriptor = "big, green and very, very mean grrr."
 
@@ -48,7 +48,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/sfa_light_cruiser/New()
-	designation = "[pick("A Frank Exchange of Views", "Ace of Spades", "Don't Make Me Come Over There", "As Advertised", "Maniacal Laughter", "Innocent Until Proven", "Easy Does It", "Contrarian", "Final Word", "Shit Happens", "Determinist", "So Much For Subtlety", "Killing Time", "Reasonable Excuse", "Uninvited Guest", "Appeal To Reason",)]"
+	designation = "[pick("A Frank Exchange of Views", "Ace of Spades", "Don't Make Me Come Over There", "As Advertised", "Maniacal Laughter", "Innocent Until Proven", "Easy Does It", "Contrarian", "Final Word", "Shit Happens", "Determinist", "So Much For Subtlety", "Killing Time", "Reasonable Excuse", "Uninvited Guest", "Appeal To Reason")]"
 	..()
 
 /obj/effect/shuttle_landmark/sfa_light_cruiser/nav1
