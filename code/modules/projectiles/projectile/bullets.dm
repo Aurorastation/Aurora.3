@@ -14,7 +14,8 @@
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
 /obj/item/projectile/bullet/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
-	if (..(target, blocked, def_zone))
+	. = ..()
+	if(.)
 		var/mob/living/L = target
 		shake_camera(L, 3, 2)
 
@@ -185,6 +186,28 @@
 		T.imp_in = organ.owner
 		T.part = organ
 		LAZYADD(organ.implants, T)
+
+/obj/item/projectile/bullet/acid
+	name = "acid capsule"
+	damage = 20
+	damage_type = DAMAGE_BURN
+	agony = 30
+
+/obj/item/projectile/bullet/acid/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+
+	var/splatter_dir = starting ? get_dir(starting, target.loc) : dir
+	new /obj/effect/temp_visual/dir_setting/bloodsplatter(target.loc, splatter_dir, COLOR_VIOLET)
+	playsound(loc, 'sound/weapons/sear.ogg', 60, TRUE)
+
+	if(istype(target, /mob/living/simple_animal/hostile/giant_spider))
+		var/mob/living/simple_animal/hostile/giant_spider/gremmy = target
+		gremmy.take_overall_damage(0, 100, src)
+		if(!gremmy.stat)
+			walk_away(gremmy, starting, 5, gremmy.move_to_delay)
+	else if(isvaurca(target))
+		var/mob/living/carbon/human/vaurca = target
+		vaurca.take_overall_damage(0, 20, null, src)
 
 //Should do about 80 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding

@@ -344,6 +344,16 @@
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/tracking = 4)
 
+/obj/item/storage/box/shotgunacidshots
+	name = "box of shotgun acid shot"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: EXPERIMENTAL ammunition. Formulated to break down greimorian exoskeletons. Misuse may result in serious injury or death."
+	icon_state = "shellbox"
+	item_state = "shellbox"
+	illustration = "acidshot"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
+	starts_with = list(/obj/item/ammo_casing/shotgun/acid = 10)
+
 /obj/item/storage/box/sniperammo
 	name = "box of 14.5mm shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."

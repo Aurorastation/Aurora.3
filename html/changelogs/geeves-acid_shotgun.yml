@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added acid shotgun shells, it contains a capsule of acid specially designed to destroy greimorian exoskeletons. Mapped two boxes into the armory, each containing ten rounds."
+  - rscadd: "Added two ammo display devices to the warden office."

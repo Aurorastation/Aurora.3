@@ -203,6 +203,13 @@
 	spent_icon = "trackingshell-spent"
 	projectile_type = /obj/item/projectile/bullet/tracking
 
+/obj/item/ammo_casing/shotgun/acid
+	name = "acid shot"
+	desc = "A 12-gauge shotgun shot loaded with a capsule of acid specially designed to break down greimorian exoskeletons."
+	icon_state = "acidshell"
+	spent_icon = "acidshell-spent"
+	projectile_type = /obj/item/projectile/bullet/acid
+
 /obj/item/ammo_casing/tranq
 	name = "PPS shell"
 	desc = "A .50 cal PPS bullet casing."
