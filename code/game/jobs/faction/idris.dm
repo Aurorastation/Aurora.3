@@ -48,7 +48,7 @@
 		"Security Officer" = /datum/outfit/job/officer/idris,
 		"Warden" = /datum/outfit/job/warden/idris,
 		"Security Cadet" = /datum/outfit/job/intern_sec/idris,
-		"Investigator Intern" = /datum/outfit/job/intern_forensics/idris
+		"Investigator Intern" = /datum/outfit/job/intern_forensics/idris,
 		"Investigator" =/datum/outfit/job/forensics/idris,
 		"Bartender" = /datum/outfit/job/bartender/idris,
 		"Chef" = /datum/outfit/job/chef/idris,
