@@ -48,6 +48,7 @@
 		"Security Officer" = /datum/outfit/job/officer/idris,
 		"Warden" = /datum/outfit/job/warden/idris,
 		"Security Cadet" = /datum/outfit/job/intern_sec/idris,
+		"Investigator Intern" = /datum/outfit/job/intern_forensics/idris
 		"Investigator" =/datum/outfit/job/forensics/idris,
 		"Bartender" = /datum/outfit/job/bartender/idris,
 		"Chef" = /datum/outfit/job/chef/idris,
@@ -99,6 +100,17 @@
 
 /datum/outfit/job/intern_sec/idris
 	name = "Security Cadet - Idris"
+
+	uniform = /obj/item/clothing/under/rank/cadet/idris
+	id = /obj/item/card/id/idris/sec
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
+
+/datum/outfit/job/intern_forensics/idris
+	name = "Investigator Intern - Idris"
 
 	uniform = /obj/item/clothing/under/rank/cadet/idris
 	id = /obj/item/card/id/idris/sec
