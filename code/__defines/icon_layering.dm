@@ -28,7 +28,7 @@
 #define L_EAR_LAYER           27
 #define R_EAR_LAYER           28
 #define FACEMASK_LAYER        29
-#define HEAD_LAYER			  30	
+#define HEAD_LAYER			  30
 #define GLASSES_LAYER_OVER    31
 #define COLLAR_LAYER          32
 #define HANDCUFF_LAYER        33
