@@ -34,7 +34,7 @@
 		var/mob/M = target
 		M.visible_message(SPAN_DANGER("<font size=5>\The [src] blows [M]'s chest apart and punches straight through!</font>"))
 	if(isturf(target) || isobj(target))
-		explosion(target, 6, 8, 10)
+		explosion(target, 6, 8, 9)
 
 /obj/machinery/ammunition_loader/sol
 	icon_state = "ammo_loader_sol"
