@@ -35,7 +35,7 @@
 	name = "alarm"
 	desc = "A device that controls the local air regulation machinery and informs you when you're breathing vacuum."
 	icon = 'icons/obj/monitors.dmi'
-	icon_state = "alarmp"
+	icon_state = "alarm0"
 	anchored = 1
 	idle_power_usage = 90
 	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
@@ -334,7 +334,6 @@
 	return 0
 
 /obj/machinery/alarm/update_icon()
-	cut_overlays()
 	if(wiresexposed)
 		icon_state = "alarmx"
 		set_light(0)
@@ -351,13 +350,13 @@
 	var/new_color = null
 	switch(icon_level)
 		if (0)
-			add_overlay("alarm0")
+			icon_state = "alarm0"
 			new_color = "#03A728"
 		if (1)
-			add_overlay("alarm2") //yes, alarm2 is yellow alarm
+			icon_state = "alarm2" //yes, alarm2 is yellow alarm
 			new_color = COLOR_SUN
 		if (2)
-			add_overlay("alarm1")
+			icon_state = "alarm1"
 			new_color = "#DA0205"
 
 	set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = new_color)

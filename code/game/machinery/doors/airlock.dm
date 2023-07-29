@@ -241,15 +241,19 @@
 	door_color = "#909299"//The color of the door itself
 	door_frame_color = "#545c68"//The color of the frame that surrounds the door connecting its sprite to walls
 	pixel_x = -16
-	pixel_y = -7
+	pixel_y = -16
 	assembly_type = /obj/structure/door_assembly/door_assembly_generic
-	fill_file = 'icons/obj/doors/basic/single/generic/fill_steel.dmi'
-	color_file = 'icons/obj/doors/basic/single/generic/color.dmi'
 	frame_color_file = 'icons/obj/doors/basic/single/generic/frame_color.dmi'
+
+	color_file = 'icons/obj/doors/basic/single/generic/color.dmi'
 	color_fill_file = 'icons/obj/doors/basic/single/generic/fill_color.dmi'
+
 	stripe_file = 'icons/obj/doors/basic/single/generic/stripe.dmi'
 	stripe_fill_file = 'icons/obj/doors/basic/single/generic/fill_stripe.dmi'
+
 	glass_file = 'icons/obj/doors/basic/single/generic/fill_glass.dmi'
+	fill_file = 'icons/obj/doors/basic/single/generic/fill_steel.dmi'
+
 	bolts_file = 'icons/obj/doors/basic/single/generic/lights_bolts.dmi'
 	deny_file = 'icons/obj/doors/basic/single/generic/lights_deny.dmi'
 	lights_file = 'icons/obj/doors/basic/single/generic/lights_green.dmi'
@@ -264,52 +268,61 @@
 	glass = 1
 
 /obj/machinery/door/airlock/generic/command
+	icon_state = "cmd"
 	door_color = "#353c4b"
 
 /obj/machinery/door/airlock/generic/command_glass
-	icon_state = "preview_glass"
-	paintable = AIRLOCK_PAINTABLE_MAIN
+	icon_state = "cmd_glass"
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#516487"
+	stripe_color = "#ffc443"
 	glass = 1
 
 /obj/machinery/door/airlock/generic/command_gold
+	icon_state = "cmdgold"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#475057"
 	stripe_color = "#ffc443"
 
 /obj/machinery/door/airlock/generic/security
+	icon_state = "sec"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#2b4b68"
 	stripe_color = "#ff4343"
 
 /obj/machinery/door/airlock/generic/security_glass
+	icon_state = "sec_glass"
 	icon_state = "preview_glass"
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#2b4b68"
 	glass = 1
 
 /obj/machinery/door/airlock/generic/security_gold
+	icon_state = "sec"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#2b4b68"
 	stripe_color = "#ffc443"
 
 /obj/machinery/door/airlock/generic/engineering
+	icon_state = "eng"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#caa638"
 	stripe_color = "#ff7f43"
 
 /obj/machinery/door/airlock/generic/engineering_glass
-	icon_state = "preview_glass"
+	icon_state = "eng_glass"
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#caa638"
 	glass = 1
 
 /obj/machinery/door/airlock/generic/engineering_green
+	icon_state = "eng"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#caa638"
 	stripe_color = "#62ff43"
 
 /obj/machinery/door/airlock/generic/maintenance
+	icon_state = "grey"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#4d4d4d"
 	stripe_color = "#a88029"
@@ -318,22 +331,24 @@
 	door_frame_color = "#81838b"//Meant to connect to external scc spaceship walls like the horizon hull
 
 /obj/machinery/door/airlock/generic/service
+	icon_state = "ser"
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#6f8751"
 
 /obj/machinery/door/airlock/generic/service_glass
-	icon_state = "preview_glass"
+	icon_state = "ser_glass"
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#6f8751"
 	glass = 1
 
 /obj/machinery/door/airlock/generic/research
+	icon_state = "sci"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#d6c8ee"
 	stripe_color = "#e943ff"
 
 /obj/machinery/door/airlock/generic/research_glass
-	icon_state = "preview_glass"
+	icon_state = "sci_glass"
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#d6c8ee"
 	glass = 1
@@ -1077,15 +1092,15 @@ About the new airlock wires panel:
 	switch(state)
 		if(0)
 			if(density)
-				icon_state = "door_closed"
+				icon_state = "closed"
 				state = AIRLOCK_CLOSED
 			else
-				icon_state = "door_open"
+				icon_state = "open"
 				state = AIRLOCK_OPEN
 		if(AIRLOCK_OPEN)
-			icon_state = "door_open"
+			icon_state = "open"
 		if(AIRLOCK_CLOSED)
-			icon_state = "door_closed"
+			icon_state = "closed"
 		if(AIRLOCK_OPENING, AIRLOCK_CLOSING, AIRLOCK_EMAG, AIRLOCK_DENY)
 			icon_state = ""
 
@@ -1194,11 +1209,11 @@ About the new airlock wires panel:
 	cut_overlays()
 
 	add_overlay(frame_color_overlay)
-	add_overlay(filling_overlay)
 	add_overlay(color_overlay)
 	add_overlay(panel_overlay)
 	add_overlay(stripe_overlay)
 	add_overlay(stripe_filling_overlay)
+	add_overlay(filling_overlay)
 	add_overlay(weld_overlay)
 	add_overlay(brace_overlay)
 	add_overlay(lights_overlay)
