@@ -354,7 +354,7 @@
 	display_name = "shaman staff"
 	path = /obj/item/cane/shaman
 	sort_category = "Xenowear - Unathi"
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities, /singleton/origin_item/origin/ouerea)
 	whitelisted = list(SPECIES_UNATHI)
 
 /datum/gear/suit/maxtlatl
@@ -363,7 +363,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	allowed_roles = list("Chaplain")
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities, /singleton/origin_item/origin/ouerea)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -371,7 +371,7 @@
 	display_name = "Thakhist wristguards"
 	path = /obj/item/clothing/wrists/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities, /singleton/origin_item/origin/ouerea)
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
@@ -380,7 +380,7 @@
 	display_name = "Thakhist headgear"
 	path = /obj/item/clothing/head/unathi/maxtlatl
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/torn_cities, /singleton/origin_item/origin/ouerea)
 	allowed_roles = list("Chaplain")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION

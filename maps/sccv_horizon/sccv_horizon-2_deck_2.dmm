@@ -10902,9 +10902,6 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/obj/structure/bed/stool/chair/padded/red{
-	dir = 8
-	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "ftS" = (
@@ -29446,6 +29443,7 @@
 /area/hallway/engineering)
 "oml" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/structure/bed/stool/bar/padded/black,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "omA" = (
@@ -32878,18 +32876,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/table/wood,
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_x = -3
-	},
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = 3
-	},
-/obj/item/flame/candle,
 /obj/machinery/camera/network/service{
 	c_tag = "Service - Deck 2 - Dining Hall 2";
 	dir = 1
 	},
+/obj/structure/table/rack/fancy_table/black,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "qaf" = (
@@ -43866,7 +43857,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair/padded/red,
+/obj/structure/synthesized_instrument/synthesizer/piano,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "vxe" = (
