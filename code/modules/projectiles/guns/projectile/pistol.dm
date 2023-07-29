@@ -504,7 +504,7 @@
 	accuracy = -3
 	accuracy_wielded = 1
 
-/obj/item/gun/projectile/Initialize()
+/obj/item/gun/projectile/pistol/super_heavy/Initialize()
 	. = ..()
 	desc_info = "This is an extremely powerful ballistic weapon, using .599 Kumar Super ammunition. If you aren't an Unathi or a G2 IPC, firing without wielding (clicking in-hand) could lead to serious injury or death; Unathi and G2s may fire it unwielded \
 	with an aim penalty. To fire the weapon, toggle the safety with ctrl-click (or enable HARM intent), then click where you want to fire.  To reload, click the gun with an empty hand to remove the magazine, and then insert a new one."
