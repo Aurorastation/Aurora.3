@@ -109,6 +109,18 @@
 	output_level = 1000000
 	charge = 3.02024e+006
 
+/obj/machinery/power/smes/buildable/third_party_shuttle/Initialize() //For bigger ships on the overmap
+	. = ..()
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	input_attempt = TRUE
+	output_attempt = TRUE
+	input_level = 1500000
+	output_level = 1500000
+	charge = 5.55e+007
+
+
 // END SMES SUBTYPES
 
 // SMES itself
