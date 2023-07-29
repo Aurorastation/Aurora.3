@@ -68,10 +68,13 @@
 	else if(sound_token)
 		QDEL_NULL(sound_token)
 
-/obj/machinery/computer/ship/sensors/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if(!linked)
-		display_reconnect_dialog(user, "sensors")
-		return
+/obj/machinery/computer/ship/sensors/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Sensors", capitalize_first_letters(name))
+		ui.open()
+
+/obj/machinery/computer/ship/sensors/ui_data(mob/user)
 
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
 
@@ -176,58 +179,53 @@
 	else
 		data["id_status"] = "NOBEACON" //Should not really happen.
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "shipsensors.tmpl", "[linked.get_real_name()] Sensors Control", 600, 530, src)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
-/obj/machinery/computer/ship/sensors/Topic(href, href_list)
+/obj/machinery/computer/ship/sensors/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if (..())
 		return TOPIC_HANDLED
 
 	if (!linked)
 		return TOPIC_NOACTION
 
-	if (href_list["viewing"])
+	if (action == "viewing")
 		if(usr)
 			viewing_overmap(usr) ? unlook(usr) : look(usr)
 		return TOPIC_REFRESH
 
-	if (href_list["link"])
+	if (action == "link")
 		find_sensors_and_iff()
 		return TOPIC_REFRESH
 
 	if(sensors)
-		if (href_list["range"])
+		if (action == "range")
 			var/nrange = input("Set new sensors range", "Sensor range", sensors.range) as num|null
 			if(!CanInteract(usr, default_state))
 				return TOPIC_NOACTION
 			if (nrange)
 				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
 			return TOPIC_REFRESH
-		if(href_list["range_choice"])
-			var/nrange = text2num(href_list["range_choice"])
+		if(action == "range_choice")
+			var/nrange = text2num(params["range_choice"])
 			if(!CanInteract(usr, default_state))
 				return TOPIC_NOACTION
 			if(nrange)
 				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
 			return TOPIC_REFRESH
-		if (href_list["toggle"])
+		if (action == "toggle")
 			sensors.toggle()
 			return TOPIC_REFRESH
 
-		if(href_list["deep_scan_toggle"])
+		if(action == "deep_scan_toggle")
 			sensors.deep_scan_toggled = !sensors.deep_scan_toggled
 			return TOPIC_REFRESH
 
 	if(identification)
-		if(href_list["toggle_id"])
+		if(action == "toggle_id")
 			identification.toggle()
 			return TOPIC_REFRESH
 
-		if(href_list["change_ship_class"])
+		if(action == "change_ship_class")
 			if(!identification.use_power)
 				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
 				return
@@ -243,7 +241,7 @@
 			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship class registered.\"</i>"))
 			return TOPIC_REFRESH
 
-		if(href_list["change_ship_name"])
+		if(action == "change_ship_name")
 			if(!identification.use_power)
 				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
 				return
@@ -259,8 +257,8 @@
 			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship designation registered.\"</i>"))
 			return TOPIC_REFRESH
 
-	if (href_list["scan-action"])
-		switch(href_list["scan-action"])
+	if (action == "scan-action")
+		switch(params["scan-action"])
 			if("clear")
 				contact_details = null
 			if("print")
@@ -269,8 +267,8 @@
 					new/obj/item/paper/(get_turf(src), contact_details, "paper (Sensor Scan - [contact_name])")
 		return TOPIC_HANDLED
 
-	if (href_list["scan"])
-		var/obj/effect/overmap/O = locate(href_list["scan"])
+	if (action == "scan")
+		var/obj/effect/overmap/O = locate(params["scan"])
 		if(istype(O) && !QDELETED(O))
 			if((O in view(7,linked))|| (O in contact_datums))
 				playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
@@ -282,8 +280,8 @@
 				contact_details = O.get_scan_data(usr)
 		return TOPIC_HANDLED
 
-	if (href_list["request_datalink"])
-		var/obj/effect/overmap/visitable/O = locate(href_list["request_datalink"])
+	if (action == "request_datalink")
+		var/obj/effect/overmap/visitable/O = locate(params["request_datalink"])
 		if(istype(O) && !QDELETED(O))
 			if((O in view(7,linked)) || (O in contact_datums))
 
@@ -291,26 +289,26 @@
 					sensor_console.connected.datalink_requests |= src.connected
 		return TOPIC_HANDLED
 
-	if (href_list["accept_datalink_requests"])
-		var/obj/effect/overmap/visitable/O = locate(href_list["accept_datalink_requests"])
+	if (action == "accept_datalink_requests")
+		var/obj/effect/overmap/visitable/O = locate(params["accept_datalink_requests"])
 		for(var/obj/machinery/computer/ship/sensors/sensor_console in src.connected.consoles)
 			sensor_console.datalink_add_ship_datalink(O)
 			break
 		src.connected.datalink_requests -= O	// Remove the request
 		return TOPIC_HANDLED
 
-	if (href_list["decline_datalink_requests"])
-		var/obj/effect/overmap/visitable/O = locate(href_list["decline_datalink_requests"])
+	if (action == "decline_datalink_requests")
+		var/obj/effect/overmap/visitable/O = locate(params["decline_datalink_requests"])
 		src.connected.datalink_requests -= O	// Remove the request
 
-	if (href_list["remove_datalink"])
-		var/obj/effect/overmap/visitable/O = locate(href_list["remove_datalink"])
+	if (action == "remove_datalink")
+		var/obj/effect/overmap/visitable/O = locate(params["remove_datalink"])
 		for(var/obj/machinery/computer/ship/sensors/rescinder_sensor_console in src.connected.consoles)	// Get sensor console from the rescinder
 			rescinder_sensor_console.datalink_remove_ship_datalink(O, TRUE)
 			return TOPIC_HANDLED
 
-	if (href_list["play_message"])
-		var/caller = href_list["play_message"]
+	if (action == "play_message")
+		var/caller = params["play_message"]
 		var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[caller]
 		var/mob/living/carbon/human/sender = beacon.user
 		var/user_name = beacon.user_name
@@ -320,8 +318,8 @@
 		visible_message(SPAN_ITALIC("[accent_icon] <b>[user_name]</b> explains, \"[beacon.distress_message]\""))
 		return TOPIC_HANDLED
 
-	if(href_list["inbound_fire"])
-		var/direction = href_list["inbound_fire"]
+	if(action == "inbound_fire")
+		var/direction = params["inbound_fire"]
 		if(direction != "clear")
 			security_announcement.Announce("Enemy fire inbound, enemy fire inbound! [sanitizeSafe(direction)]!", "Brace for shock!", sound('sound/mecha/internaldmgalarm.ogg', volume = 90), 0)
 		else
