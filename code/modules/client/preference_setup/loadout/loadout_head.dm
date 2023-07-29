@@ -1,6 +1,5 @@
 /datum/gear/head
 	display_name = "green boonie hat"
-	description = "A floppy boonie hat with an attached string."
 	path = /obj/item/clothing/head/bucket/boonie/green
 	slot = slot_head
 	sort_category = "Hats and Headwear"
