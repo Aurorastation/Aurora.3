@@ -1,10 +1,11 @@
 /obj/item/clothing/head/wide_hat
-    name = "wide-brimmed sun hat"
-    desc = "A large and light hat meant to block the sun from your precious eyes."
-    icon = 'icons/obj/item/clothing/head/sun_hat.dmi'
-    icon_state = "sun_hat"
-    item_state = "sun_hat"
-    contained_sprite = TRUE
+	name = "wide-brimmed sun hat"
+	desc = "A large and light hat meant to block the sun from your precious eyes."
+	icon = 'icons/obj/item/clothing/head/sun_hat.dmi'
+	icon_state = "sun_hat"
+	item_state = "sun_hat"
+	contained_sprite = TRUE
+	has_accents = TRUE
 
 /obj/item/clothing/head/wide_hat/alt
 	build_from_parts = TRUE
@@ -62,9 +63,11 @@
 /obj/item/clothing/head/fedora
 	name = "fedora"
 	icon_state = "fedora"
+	item_state = "fedora"
 	desc = "A sharp, stylish hat."
 	icon = 'icons/obj/item/clothing/head/bucket_hat.dmi'
 	contained_sprite = TRUE
+	has_accents = TRUE
 
 /obj/item/clothing/head/fedora/grey
 	name = "grey fedora"
@@ -76,8 +79,8 @@
 /obj/item/clothing/head/top_hat
 	name = "top hat"
 	icon_state = "tophat"
+	item_state = "tophat"
 	desc = "A top hat worn by only the most prestigious hat collectors."
 	icon = 'icons/obj/item/clothing/head/top_hat.dmi'
 	contained_sprite = TRUE
-	build_from_parts = TRUE
-	worn_overlay = "over"
+	has_accents = TRUE

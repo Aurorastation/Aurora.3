@@ -1,0 +1,9 @@
+author: kyres1
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a lot of colorable hats that use the accent and overlay system to make some cool color combinations possible."
+  - rscadd: "Added the following - four variations of colorable sun hats, colorable ushankas, two colored and one colorable boonie hat, colorable bucket hats, colorable fedoras proper, colorable top hats, colorable cowboy hats and a new type of colorable beanies."
+  - tweak: "Adjusted and updated the Konyanger gat sprite."
+  - tweak: "Moved hair pins and IPC specieswear into contained dmi files each."

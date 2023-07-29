@@ -27,6 +27,7 @@
 	else
 		src.icon_state = initial(icon_state)
 		to_chat(user, "You lower the ear flaps on the ushanka.")
+	update_icon()
 	update_clothing_icon()
 
 /obj/item/clothing/head/ushanka/grey
@@ -53,3 +54,4 @@
 	desc = "A head-hugging brimless winter cap. This one has flaps that cover the ears."
 	icon_state = "winterbeanie"
 	item_state = "winterbeanie"
+	has_accents = TRUE

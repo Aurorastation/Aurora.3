@@ -102,6 +102,7 @@
 	else
 		src.icon_state = initial(icon_state)
 		to_chat(user, "You lower the rain veil on the gat.")
+	update_icon()
 	update_clothing_icon()
 
 /obj/item/clothing/under/konyangdress
