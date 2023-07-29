@@ -2,6 +2,7 @@
 	var/table_mat
 	var/table_reinf
 	var/no_cargo
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	build_amt = 1
 
 /obj/structure/table/Initialize()
@@ -49,7 +50,6 @@
 	icon = 'icons/obj/structure/tables/glass.dmi'
 	table_mat = MATERIAL_GLASS_REINFORCED
 	table_reinf = MATERIAL_GLASS_REINFORCED
-	alpha = 77 // 0.3 * 255
 
 /obj/structure/table/wood
 	icon = 'icons/obj/structure/tables/wood.dmi'
@@ -64,7 +64,6 @@
 	icon = 'icons/obj/structure/tables/glass.dmi'
 	icon_state = "glass_preview"
 	table_mat = MATERIAL_GLASS
-	alpha = 77 // 0.3 * 255
 
 /obj/structure/table/skrell
 	icon_state = "skrell_preview"

@@ -30,7 +30,6 @@
 	var/material/padding_material
 
 	var/base_icon = "bed"
-	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
 	var/buckling_sound = 'sound/effects/buckle.ogg'
 
 	var/painted_colour // Used for paint gun and preset colours. I know this name sucks.

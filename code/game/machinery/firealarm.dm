@@ -235,11 +235,7 @@
 	. = ..(mapload, ndir)
 
 	seclevel = get_security_level()
-
-	if(building)
-		buildstage = 0
-		wiresexposed = 1
-		icon_state = "fire_b0"
+	update_icon()
 
 	// Overwrite the mapped in values.
 	pixel_x = DIR2PIXEL_X(dir)
@@ -259,19 +255,14 @@
 // Convenience subtypes for mappers.
 /obj/machinery/firealarm/north
 	dir = NORTH
-	pixel_y = 18
 
 /obj/machinery/firealarm/east
 	dir = EAST
-	pixel_x = 10
 
 /obj/machinery/firealarm/west
 	dir = WEST
-	pixel_x = -10
-
 /obj/machinery/firealarm/south
 	dir = SOUTH
-	pixel_y = -6
 
 /*
 FIRE ALARM CIRCUIT

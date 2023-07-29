@@ -206,3 +206,22 @@
 
 /obj/structure/bed/stool/chair/sofa/corner/convex/violet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
+
+/obj/structure/bed/stool/chair/sofa/pew
+	name = "pew"
+	desc = "A long, simple bench with a backboard, commonly found in places of worship, courtrooms and so on. Not known for being particularly comfortable."
+	icon_state = "pewmiddle"
+	base_icon = "pewmiddle"
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
+	build_amt = 3
+
+/obj/structure/bed/stool/chair/sofa/pew/New(var/newloc)
+	..(newloc, MATERIAL_WOOD)
+
+/obj/structure/bed/stool/chair/sofa/pew/left
+	icon_state = "pewend_left"
+	base_icon = "pewend_left"
+
+/obj/structure/bed/stool/chair/sofa/pew/right
+	icon_state = "pewend_right"
+	base_icon = "pewend_right"
