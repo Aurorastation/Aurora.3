@@ -286,9 +286,6 @@
 /obj/machinery/door/window/northleft{
 	dir = 2
 	},
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 30
-	},
 /turf/simulated/floor/plating,
 /area/light_cruiser/starboard_aft_hall)
 "asu" = (
@@ -782,12 +779,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/light_cruiser/starboard_grauwolf)
-"bgA" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 30
-	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/starboard_fore_hall_2)
 "bjh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -903,9 +894,6 @@
 "buw" = (
 /obj/machinery/light{
 	dir = 1
-	},
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/dark,
 /area/light_cruiser/port_fore_hall_2)
@@ -2452,9 +2440,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 30
-	},
 /turf/simulated/floor/tiled/dark,
 /area/light_cruiser/starboard_fore_hall_2)
 "dXz" = (
@@ -2887,13 +2872,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/light_cruiser/starboard_engineering)
-"eNX" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 30;
-	pixel_x = -13
-	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/cic_hall)
 "eOJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -3462,9 +3440,6 @@
 /obj/machinery/door/window/northleft{
 	dir = 2
 	},
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 30
-	},
 /turf/simulated/floor/plating,
 /area/light_cruiser/port_aft_hall)
 "fRv" = (
@@ -3965,15 +3940,6 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/light_cruiser/medical)
-"gNx" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 30
-	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/central_hall)
 "gNE" = (
 /obj/machinery/atmospherics/binary/passive_gate{
 	dir = 8
@@ -4756,16 +4722,16 @@
 	pixel_x = -4;
 	pixel_y = -3
 	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_x = -4;
+	pixel_y = -3
+	},
 /obj/machinery/recharger{
 	pixel_x = 7;
 	pixel_y = -5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
-	},
-/obj/item/tank/emergency_oxygen/double{
-	pixel_x = -4;
-	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/light_cruiser/armoury)
@@ -5084,10 +5050,7 @@
 /area/light_cruiser/port_engineering)
 "jbX" = (
 /obj/structure/table/steel,
-/obj/item/reagent_containers/glass/beaker/clonexadone{
-	name = "clonexadone beaker";
-	desc = "A beaker with a label at its front denoting what is ideally contained in it. Clonexadone is a reagent that works best on a patient put into a cryo cell, as it only works within a body that is very very cold. It heals all wounds effectively, including organ damage."
-	},
+/obj/item/reagent_containers/chem_disp_cartridge/clonexadone,
 /turf/simulated/floor/tiled,
 /area/light_cruiser/medical)
 "jce" = (
@@ -5409,20 +5372,16 @@
 /obj/machinery/door/window/northleft{
 	dir = 2
 	},
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 30
-	},
 /turf/simulated/floor/plating,
 /area/light_cruiser/port_aft_hall)
 "jEz" = (
-/obj/machinery/door/firedoor{
-	req_one_access = list(203)
-	},
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 30
-	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/central_hall)
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/coilgun,
+/obj/item/ship_ammunition/coilgun,
+/obj/item/ship_ammunition/coilgun,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/light_cruiser/starboard_coilgun_ammo_1)
 "jGA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -5733,16 +5692,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/light_cruiser/cic)
-"kjQ" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 30;
-	pixel_x = -14
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/cic_hall)
 "kki" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6379,6 +6328,7 @@
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/ammo_magazine/c762/sol,
+/obj/item/gun/projectile/automatic/rifle/sol,
 /obj/item/gun/projectile/automatic/rifle/sol,
 /obj/item/gun/projectile/automatic/rifle/sol,
 /obj/item/gun/projectile/automatic/rifle/sol,
@@ -7128,7 +7078,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/light_cruiser/cic)
 "nbw" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -7137,6 +7086,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/machinery/power/smes/buildable/big_overmap_ship,
 /turf/simulated/floor/tiled/dark,
 /area/light_cruiser/reactor)
 "nct" = (
@@ -7492,12 +7442,6 @@
 /obj/item/device/lightreplacer/advanced,
 /turf/simulated/floor/tiled,
 /area/light_cruiser/starboard_engineering)
-"nUG" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 30
-	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/central_hall)
 "nVd" = (
 /obj/structure/extinguisher_cabinet{
 	layer = 3.3;
@@ -8074,6 +8018,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/bluegrid,
 /area/light_cruiser/cic)
+"oXi" = (
+/obj/machinery/atmospherics/pipe/tank/phoron,
+/turf/simulated/floor/tiled,
+/area/light_cruiser/port_engineering)
 "oXS" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -8259,6 +8207,7 @@
 /obj/item/gun/projectile/automatic/c20r/sol,
 /obj/item/gun/projectile/automatic/c20r/sol,
 /obj/item/gun/projectile/automatic/c20r/sol,
+/obj/item/gun/projectile/automatic/c20r/sol,
 /turf/simulated/floor/tiled/dark/full,
 /area/light_cruiser/armoury)
 "pkp" = (
@@ -8267,15 +8216,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/light_cruiser/port_engineering)
-"pkQ" = (
-/obj/machinery/door/firedoor{
-	req_one_access = list(203)
-	},
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 30
-	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/central_hall)
 "plN" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -9179,12 +9119,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/light_cruiser/lifts_and_stairs)
-"rgM" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 30
-	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/port_fore_hall_2)
 "rhL" = (
 /obj/structure/viewport/sol,
 /obj/effect/landmark/entry_point/fore{
@@ -9374,9 +9308,6 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
-	},
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/light_cruiser/starboard_grauwolf)
@@ -9828,9 +9759,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/phoron_bomb{
-	pixel_y = -5
-	},
 /obj/structure/cable{
 	dir = 4
 	},
@@ -10224,6 +10152,7 @@
 	pixel_x = 8;
 	pixel_y = 6
 	},
+/obj/item/storage/firstaid/combat,
 /turf/simulated/floor/tiled/white,
 /area/light_cruiser/medical)
 "sUZ" = (
@@ -10294,12 +10223,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/light_cruiser/starboard_observation)
-"tiu" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 30
-	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/central_hall)
 "tqm" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/floor_decal/corner/red{
@@ -10480,9 +10403,6 @@
 /area/light_cruiser/starboard_fore_hall_2)
 "tJt" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 30
-	},
 /turf/simulated/floor/tiled/dark,
 /area/light_cruiser/central_hall)
 "tJx" = (
@@ -10715,9 +10635,6 @@
 /obj/machinery/door/window/northleft{
 	dir = 2
 	},
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 30
-	},
 /turf/simulated/floor/plating,
 /area/light_cruiser/starboard_aft_hall)
 "uoN" = (
@@ -10876,9 +10793,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 30
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/light_cruiser/starboard_grauwolf)
 "uzm" = (
@@ -10913,15 +10827,6 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/light_cruiser/strongroom)
-"uzH" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 30
-	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/central_hall)
 "uzO" = (
 /obj/structure/extinguisher_cabinet{
 	layer = 3.3;
@@ -11612,6 +11517,7 @@
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
 /turf/simulated/floor/tiled/dark/full,
 /area/light_cruiser/armoury)
 "vQa" = (
@@ -11691,13 +11597,6 @@
 "vTA" = (
 /turf/simulated/wall/shuttle/raider,
 /area/light_cruiser/starboard_observation)
-"vUh" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 30
-	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/central_hall)
 "vUj" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -41425,7 +41324,7 @@ rXa
 aqN
 oDp
 cdX
-uzH
+eXP
 cKJ
 cwv
 kOk
@@ -41682,7 +41581,7 @@ bTY
 wYf
 qcY
 cdX
-tiu
+cwv
 clV
 cjG
 hsd
@@ -43011,10 +42910,10 @@ wva
 xYa
 ljX
 gQL
-gQL
+jEz
 xqT
 xlX
-bgA
+vnu
 vnu
 uWy
 nEc
@@ -43481,7 +43380,7 @@ gpq
 vcu
 snS
 iWu
-jEz
+pxM
 bxk
 pxM
 lZL
@@ -44518,7 +44417,7 @@ jzK
 dsj
 fBl
 lZL
-eNX
+uqE
 kfc
 xWw
 enn
@@ -44775,7 +44674,7 @@ dpn
 tBB
 mfe
 lZL
-kjQ
+dPA
 iTZ
 rjx
 jJW
@@ -45280,7 +45179,7 @@ chr
 ilf
 gpq
 iWu
-vUh
+tJt
 iTi
 pNo
 lZL
@@ -45537,7 +45436,7 @@ gpq
 cZL
 gpq
 iWu
-pkQ
+pxM
 bxk
 pxM
 lZL
@@ -46098,7 +45997,7 @@ kbQ
 kbQ
 cpw
 iEb
-rgM
+len
 len
 ujD
 hyn
@@ -47336,7 +47235,7 @@ fcI
 uoN
 xlL
 uPu
-nUG
+cwv
 uEC
 cVd
 bvG
@@ -47593,7 +47492,7 @@ twx
 qeC
 lXV
 uPu
-gNx
+eXP
 cKJ
 cwv
 kOk
@@ -47824,7 +47723,7 @@ mDm
 xjO
 ubH
 gPu
-qXn
+oXi
 coK
 gPu
 qzB

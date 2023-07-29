@@ -109,7 +109,7 @@
 	output_level = 1000000
 	charge = 3.02024e+006
 
-/obj/machinery/power/smes/buildable/third_party_shuttle/Initialize() //For bigger ships on the overmap
+/obj/machinery/power/smes/buildable/big_overmap_ship/Initialize() //For bigger ships on the overmap
 	. = ..()
 	component_parts += new /obj/item/smes_coil/super_io(src)
 	component_parts += new /obj/item/smes_coil/super_io(src)
