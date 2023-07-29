@@ -355,13 +355,14 @@
 					to_chat(usr, SPAN_WARNING("You must remove \the [breather]'s [breather.wear_mask] first!"))
 					breather = null
 					return
+				if(tank)
+					tank_on()
 				visible_message("<b>[usr]</b> secures the mask over \the <b>[breather]'s</b> face.")
 				playsound(breather, 'sound/effects/buckle.ogg', 50)
 				breath_mask.forceMove(breather.loc)
 				breather.equip_to_slot(breath_mask, slot_wear_mask)
 				breather.update_inv_wear_mask()
 				update_icon()
-				tank_on()
 				return
 
 /obj/machinery/iv_drip/AltClick(mob/user)
