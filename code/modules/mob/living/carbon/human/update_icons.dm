@@ -1504,37 +1504,6 @@ There are several things that need to be remembered:
 	else
 		return TRUE
 
-//Human Overlays Indexes/////////
-#undef FIRE_LAYER_LOWER
-#undef MUTATIONS_LAYER
-#undef DAMAGE_LAYER
-#undef SURGERY_LAYER
-#undef UNIFORM_LAYER
-#undef ID_LAYER
-#undef SHOES_LAYER
-#undef GLOVES_LAYER
-#undef BELT_LAYER
-#undef WRISTS_LAYER_ALT
-#undef SUIT_LAYER
-#undef TAIL_NORTH_LAYER
-#undef TAIL_SOUTH_LAYER
-#undef GLASSES_LAYER
-#undef BELT_LAYER_ALT
-#undef SUIT_STORE_LAYER
-#undef BACK_LAYER
-#undef HAIR_LAYER
-#undef L_EAR_LAYER
-#undef R_EAR_LAYER
-#undef FACEMASK_LAYER
-#undef HEAD_LAYER
-#undef COLLAR_LAYER
-#undef HANDCUFF_LAYER
-#undef LEGCUFF_LAYER
-#undef L_HAND_LAYER
-#undef R_HAND_LAYER
-#undef WRISTS_LAYER
-#undef FIRE_LAYER_UPPER
-#undef TOTAL_LAYERS
 
 #undef UNDERSCORE_OR_NULL
 #undef GET_BODY_TYPE
