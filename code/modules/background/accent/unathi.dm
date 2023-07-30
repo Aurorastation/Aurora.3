@@ -130,3 +130,11 @@
 	carefully crafted to give an air of civilised refinement in the harsh mountains of Zazalai."
 	tag_icon = "unathi_zaz_noble"
 	text_tag = "ZAZ"
+
+/datum/accent/ouerea
+	name = ACCENT_OUEREA
+	description = "The Ouerean accent is a curious thing - influenced in equal parts by human, Skrell and Unathi tongues. This leads many to find it confusing to the ear, and a common stereotype of Ouereans \
+	among other Unathi is their propensity for talking quickly and their frequent use of loan words from alien languages. Among Ouereans, whether Skrell, human or Unathi, however, their accent is a mark of pride, \
+	representing the fierce and independent spirit that the colony values highly."
+	tag_icon = "ouerea"
+	text_tag = "OUE"
