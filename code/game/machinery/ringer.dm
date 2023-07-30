@@ -20,6 +20,10 @@
 	. = ..()
 	if(id)
 		ringers = new(id, src)
+	pixel_x = DIR2PIXEL_X(src.dir)
+	pixel_y = DIR2PIXEL_Y(src.dir)
+	if(src.dir & NORTH)
+		alpha = 127
 	generate_overlays()
 	update_icon()
 

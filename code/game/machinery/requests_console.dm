@@ -109,11 +109,18 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(building)
 		if(dir)
 			src.set_dir(dir)
-
-		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
-		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
+		pixel_x = DIR2PIXEL_X(src.dir)
+		pixel_y = DIR2PIXEL_Y(src.dir)
+		if(src.dir & NORTH)
+			alpha = 127
+		generate_overlays()
 		update_icon()
 		return
+
+	pixel_x = DIR2PIXEL_X(src.dir)
+	pixel_y = DIR2PIXEL_Y(src.dir)
+	if(dir & NORTH)
+		alpha = 127
 
 	announcement.title = "[department] announcement"
 	announcement.newscast = 1

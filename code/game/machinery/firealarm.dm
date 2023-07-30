@@ -240,6 +240,8 @@
 	// Overwrite the mapped in values.
 	pixel_x = DIR2PIXEL_X(dir)
 	pixel_y = DIR2PIXEL_Y(dir)
+	if(dir & NORTH)
+		alpha = 127
 
 	if(isContactLevel(z))
 		set_security_level(security_level ? get_security_level() : "green")

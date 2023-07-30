@@ -351,19 +351,11 @@
 /turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "hx" = (
-/obj/machinery/newscaster{
-	dir = 1;
-	pixel_y = 18;
-	pixel_x = 16
-	},
+/obj/machinery/newscaster,
 /obj/machinery/light{
 	brightness_range = 16;
 	dir = 8;
 	must_start_working = 1
-	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = 20
 	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
@@ -698,13 +690,7 @@
 /area/construction/hallway)
 "oM" = (
 /obj/machinery/requests_console{
-	dir = 1;
-	pixel_y = 18
-	},
-/obj/machinery/ringer{
-	dir = 1;
-	pixel_x = 15;
-	pixel_y = 18
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
@@ -1020,6 +1006,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
 /area/construction/qmaint)
+"xl" = (
+/obj/machinery/ringer,
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "xo" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1144,8 +1134,7 @@
 /area/antag/mercenary)
 "zU" = (
 /obj/machinery/newscaster{
-	pixel_y = -4;
-	pixel_x = 15
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
@@ -1463,6 +1452,12 @@
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
+"Ig" = (
+/obj/machinery/ringer{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/construction/solars)
 "Iw" = (
 /obj/machinery/light{
 	dir = 1
@@ -1683,13 +1678,7 @@
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "Nk" = (
-/obj/machinery/requests_console{
-	pixel_y = -4
-	},
-/obj/machinery/ringer{
-	pixel_y = -4;
-	pixel_x = 15
-	},
+/obj/machinery/requests_console,
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "Nw" = (
@@ -1729,6 +1718,12 @@
 /area/construction/supplyshuttle)
 "Od" = (
 /turf/simulated/wall/wood,
+/area/construction/solars)
+"Pg" = (
+/obj/machinery/ringer{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/construction/solars)
 "Ph" = (
 /obj/structure/cable{
@@ -1998,19 +1993,8 @@
 /turf/simulated/floor,
 /area/construction/qmaint)
 "TM" = (
-/obj/machinery/requests_console{
-	dir = 4;
-	pixel_x = 6
-	},
 /obj/machinery/newscaster{
-	dir = 4;
-	pixel_x = 6;
-	pixel_y = -15
-	},
-/obj/machinery/ringer{
-	dir = 4;
-	pixel_x = 6;
-	pixel_y = 17
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
@@ -2064,6 +2048,17 @@
 /obj/structure/grille/over,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
+/area/construction/solars)
+"Vk" = (
+/obj/machinery/light{
+	brightness_range = 16;
+	dir = 4;
+	must_start_working = 1
+	},
+/obj/machinery/requests_console{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/construction/solars)
 "Vr" = (
 /turf/simulated/wall,
@@ -33514,7 +33509,7 @@ pz
 pz
 pz
 hQ
-oM
+Nk
 Na
 Na
 hQ
@@ -33775,9 +33770,9 @@ Rg
 Na
 Na
 hQ
-Wo
+Vk
 TM
-Na
+Pg
 hQ
 pz
 pz
@@ -34542,9 +34537,9 @@ pz
 pz
 pz
 hQ
+xl
 Na
-Na
-Nk
+oM
 hQ
 Na
 Na
@@ -34801,7 +34796,7 @@ pz
 hQ
 Wo
 Na
-Na
+Ig
 hQ
 Wo
 Na

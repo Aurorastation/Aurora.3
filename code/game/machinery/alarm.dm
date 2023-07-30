@@ -155,17 +155,20 @@
 	if(building)
 		if(dir)
 			src.set_dir(dir)
-
 		buildstage = 0
 		wiresexposed = 1
-		update_icon()
 		pixel_x = DIR2PIXEL_X(dir)
 		pixel_y = DIR2PIXEL_Y(dir)
+		if(dir & NORTH)
+			alpha = 127
+		update_icon()
 		return
 
 	first_run()
 
 	set_frequency(frequency)
+
+	update_icon()
 
 	return INITIALIZE_HINT_LATELOAD
 

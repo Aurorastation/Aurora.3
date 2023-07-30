@@ -1,6 +1,6 @@
 /obj/structure/table
 	name = "table frame"
-	icon = 'icons/obj/structure/tables/base.dmi'
+	icon = 'icons/obj/structure/tables/table.dmi'
 	icon_state = "frame"
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
 	density = 1

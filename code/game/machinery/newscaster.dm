@@ -75,6 +75,10 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	allCasters += src
 	src.paper_remaining = 15            // Will probably change this to something better
 	src.unit_no = allCasters.len + 1
+	pixel_x = DIR2PIXEL_X(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
+	if(dir & NORTH)
+		alpha = 127
 	src.generate_overlays()
 	src.update_icon() //for any custom ones on the map...
 

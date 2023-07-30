@@ -15,12 +15,12 @@
 	. = ..()
 
 /obj/structure/table/standard
-	icon = 'icons/obj/structure/tables/plain.dmi'
+	icon = 'icons/obj/structure/tables/table.dmi'
 	icon_state = "plastic_preview"
 	table_mat = DEFAULT_TABLE_MATERIAL
 
 /obj/structure/table/steel
-	icon = 'icons/obj/structure/tables/steel.dmi'
+	icon = 'icons/obj/structure/tables/steel_table.dmi'
 	icon_state = "steel_preview"
 	table_mat = DEFAULT_WALL_MATERIAL
 
@@ -32,27 +32,27 @@
 	table_mat = MATERIAL_MARBLE
 
 /obj/structure/table/reinforced
-	icon = 'icons/obj/structure/tables/plain.dmi'
+	icon = 'icons/obj/structure/tables/greyscale_table.dmi'
 	icon_state = "reinf_preview"
 	table_mat = DEFAULT_TABLE_MATERIAL
 	table_reinf = DEFAULT_WALL_MATERIAL
 
 /obj/structure/table/reinforced/steel
-	icon = 'icons/obj/structure/tables/steel.dmi'
+	icon = 'icons/obj/structure/tables/steel_table.dmi'
 	table_mat = DEFAULT_WALL_MATERIAL
 
 /obj/structure/table/reinforced/wood
-	icon = 'icons/obj/structure/tables/wood.dmi'
+	icon = 'icons/obj/structure/tables/wood_table.dmi'
 	table_mat = MATERIAL_WOOD
 	table_reinf = MATERIAL_WOOD
 
 /obj/structure/table/reinforced/glass
-	icon = 'icons/obj/structure/tables/glass.dmi'
+	icon = 'icons/obj/structure/tables/glass_table.dmi'
 	table_mat = MATERIAL_GLASS_REINFORCED
 	table_reinf = MATERIAL_GLASS_REINFORCED
 
 /obj/structure/table/wood
-	icon = 'icons/obj/structure/tables/wood.dmi'
+	icon = 'icons/obj/structure/tables/wood_table.dmi'
 	icon_state = "wood_preview"
 	table_mat = MATERIAL_WOOD
 	material_alteration = MATERIAL_ALTERATION_ALL
@@ -62,7 +62,7 @@
 	carpeted = 1
 
 /obj/structure/table/glass
-	icon = 'icons/obj/structure/tables/glass.dmi'
+	icon = 'icons/obj/structure/tables/glass_table.dmi'
 	icon_state = "glass_preview"
 	table_mat = MATERIAL_GLASS
 
