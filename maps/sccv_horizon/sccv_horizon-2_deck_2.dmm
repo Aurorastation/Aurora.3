@@ -3081,6 +3081,9 @@
 	pixel_x = -35;
 	pixel_y = -7
 	},
+/obj/effect/landmark/start{
+	name = "Gardener"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "buG" = (
@@ -15706,6 +15709,9 @@
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Gardener"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
