@@ -3138,7 +3138,6 @@
 /turf/simulated/wall,
 /area/medical/psych)
 "ib" = (
-/obj/item/clothing/head/fedora/brown,
 /obj/item/ammo_casing/c38{
 	pixel_x = 8;
 	pixel_y = -9

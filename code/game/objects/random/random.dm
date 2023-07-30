@@ -1999,7 +1999,8 @@
 		/obj/item/pizzabox/vegetable,
 		/obj/item/pizzabox/mushroom,
 		/obj/item/pizzabox/meat,
-		/obj/item/pizzabox/pineapple
+		/obj/item/pizzabox/pineapple,
+		/obj/item/pizzabox/pepperoni
 	)
 
 /obj/random/seed
@@ -2159,3 +2160,28 @@
 		/obj/item/clothing/suit/space/syndicate/black/red = 1
 	)
 	has_postspawn = TRUE
+
+/obj/random/pottedplant
+	name = "random potted plant"
+	desc = "Spawns a random potted plant."
+	icon = 'icons/obj/plants.dmi'
+	icon_state = "plant-26"
+	spawn_nothing_percentage = 1
+
+/obj/random/pottedplant/spawn_item()
+	var/obj/structure/flora/pottedplant/P = null
+	var/list/unwanted = list(
+		/obj/structure/flora/pottedplant, // don't want parent base obj
+		/obj/structure/flora/pottedplant/random, // depreciated
+		/obj/structure/flora/pottedplant/dead2, // does not fit horizon's aesthetic
+		/obj/structure/flora/pottedplant/empty
+	)
+	var/list/rare = list(
+		/obj/structure/flora/pottedplant/eye,
+		/obj/structure/flora/pottedplant/dead
+	)
+	while(!P)
+		P = pick(typesof(/obj/structure/flora/pottedplant))
+		if(P in unwanted || ((P in rare) && prob(50)))
+			P = null
+	. = new P(loc)
