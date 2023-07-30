@@ -179,6 +179,7 @@
 			if(WT.use_tool(src, user, max(5, damage / 5), volume = 50) && WT && WT.isOn())
 				to_chat(user, SPAN_NOTICE("You finish repairing the damage to [src]."))
 				take_damage(-damage)
+				clear_bulletholes()
 		else
 			to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 			return

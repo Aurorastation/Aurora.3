@@ -86,6 +86,7 @@
 		burn(500)
 	
 	bullet_ping(Proj)
+	create_bullethole(Proj)
 
 	var/proj_damage = Proj.get_structure_damage()
 	var/damage = proj_damage
@@ -123,6 +124,7 @@
 
 /turf/simulated/wall/ChangeTurf(var/newtype)
 	clear_plants()
+	clear_bulletholes()
 	..(newtype)
 
 //Appearance
@@ -205,6 +207,7 @@
 			O.forceMove(src)
 
 	clear_plants()
+	clear_bulletholes()
 	material = SSmaterials.get_material_by_name("placeholder")
 	reinf_material = null
 

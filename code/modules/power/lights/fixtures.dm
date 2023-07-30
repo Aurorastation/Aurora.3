@@ -104,6 +104,14 @@
 	brightness_color = LIGHT_COLOR_RED
 	randomize_color = FALSE
 
+/obj/machinery/light/colored/decayed
+	brightness_color = LIGHT_COLOR_DECAYED
+	randomize_color = FALSE
+
+/obj/machinery/light/colored/dying
+	brightness_color = LIGHT_COLOR_DYING
+	randomize_color = FALSE
+
 /obj/machinery/light/spot
 	name = "spotlight"
 	fitting = "large tube"

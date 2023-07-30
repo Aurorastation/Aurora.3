@@ -80,6 +80,14 @@
 	board_type = /obj/item/circuitboard/rig_assembly/civilian/industrial
 	rig_type = /obj/item/rig/industrial
 
+/obj/item/rig_assembly/industrial/himeo
+	name = "himean industrial suit control module assembly"
+	desc = "The assembly frame for a rugged hardsuit used by Himean miners, engineers, and naval sappers."
+	icon_base = "himeo"
+	icon_state = "himeo1"
+	board_type = /obj/item/circuitboard/rig_assembly/civilian/industrial
+	rig_type = /obj/item/rig/industrial/himeo
+
 /obj/item/rig_assembly/hazmat
 	name = "AMI control module assembly"
 	desc = "The assembly frame for a Anomalous Material Interaction hardsuit that protects the wearer against the strangest energies the universe can throw at them."

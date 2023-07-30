@@ -102,8 +102,7 @@
 	var/list/species_restricted = list(BODYTYPE_HUMAN,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 
 /obj/item/rig/examine()
-	to_chat(usr, "This is [icon2html(src, usr)][src.name].")
-	to_chat(usr, "[src.desc]")
+	. = ..()
 	if(wearer)
 		for(var/obj/item/piece in list(helmet,gloves,chest,boots))
 			if(!piece || piece.loc != wearer)
@@ -589,10 +588,12 @@
 
 //TODO: Fix Topic vulnerabilities for malfunction and AI override.
 /obj/item/rig/Topic(href,href_list)
-	if(ismob(href))
-		do_rig_thing(href, href_list)
-		return
-	do_rig_thing(usr, href_list)
+    if(href_list["examine_fluff"])
+        examine_fluff(usr)
+    if(ismob(href))
+        do_rig_thing(href, href_list)
+        return
+    do_rig_thing(usr, href_list)
 
 /obj/item/rig/proc/do_rig_thing(mob/user, var/list/href_list)
 	if(!check_suit_access(user))

@@ -55,7 +55,7 @@
 
 /proc/SelectObjectives(var/job,var/datum/mind/traitor,var/hijack = 0)
 	var/list/chosenobjectives = list()
-	var/list/theftobjectives = GenerateTheft(job,traitor)		//Separated all the objective types so they can be picked independantly of each other.
+	var/list/theftobjectives = GenerateTheft(job,traitor)		//Separated all the objective types so they can be picked independently of each other.
 	var/list/killobjectives = GenerateAssassinate(job,traitor)
 	var/list/frameobjectives = GenerateFrame(job,traitor)
 	var/list/protectobjectives = GenerateProtection(job,traitor)
@@ -264,7 +264,7 @@ datum
 				target = targeta
 				job = joba
 				weight = get_points(job)
-				explanation_text = "Frame [target.current.real_name], the [target.assigned_role] for a crime and make sure they are arrested and brought back to the Centcom station alive.  We'll handle the rest from there."
+				explanation_text = "Frame [target.current.real_name], the [target.assigned_role] for a crime and make sure they are arrested and brought back to the CentComm station alive.  We'll handle the rest from there."
 
 			check_completion()
 				if(!evacuation_controller.round_over())

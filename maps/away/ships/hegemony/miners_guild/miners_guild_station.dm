@@ -19,6 +19,7 @@
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "outpost"
 	color = "#b07810"
+	scanimage = "unathi_guild_station.png"
 	comms_support = TRUE
 	comms_name = "Miners' Guild"
 	initial_generic_waypoints = list(
@@ -49,7 +50,11 @@
 	name = "Miners' Guild Outpost - Aft"
 	landmark_tag = "miners_guild_nav4"
 
-
+/obj/effect/overmap/visitable/sector/miners_guild_station/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "guild_station")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 //Shuttle
 
 /obj/effect/overmap/visitable/ship/landable/miners_guild

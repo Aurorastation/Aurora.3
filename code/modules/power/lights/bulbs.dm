@@ -182,6 +182,10 @@
 	name = "cyan light bulb"
 	brightness_color = LIGHT_COLOR_CYAN
 
+/obj/item/light/bulb/colored/decayed
+	name = "decayed light bulb"
+	brightness_color = LIGHT_COLOR_DECAYED
+
 /obj/item/light/throw_impact(atom/hit_atom)
 	..()
 	shatter()

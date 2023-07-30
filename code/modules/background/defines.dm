@@ -142,6 +142,7 @@
 #define ACCENT_BROKEN_NOBLE "Broken Coalition Noble"
 #define ACCENT_UNATHI_SPACER "Spacer"
 #define ACCENT_HAZANA "Hazana"
+#define ACCENT_TORN "Torn Cities"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 #define ACCENT_HOMEWORLD "Qerrbalak"
@@ -160,6 +161,14 @@
 #define ACCENT_ROOTSONG "Rootsong"
 #define ACCENT_VOIDSONG "Voidsong"
 #define ACCENT_ANCIENTSONG "Ancientsong"
+#define ACCENT_CRIMSONSONG "Crimsonsong"
+#define ACCENT_IRONSONG "Ironsong"
+#define ACCENT_SANDSONG "Sandsong"
+#define ACCENT_WASTESONG "Wastesong"
+#define ACCENT_WAVESONG "Wavesong"
+#define ACCENT_SUNKENSONG "Sunkensong"
+#define ACCENT_STARSONG "Starsong"
+
 
 #define ACCENT_TTS "Text-to-Speech"
 

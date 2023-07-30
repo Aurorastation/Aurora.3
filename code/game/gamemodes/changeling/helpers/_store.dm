@@ -10,7 +10,7 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling
 	var/allowduringlesserform = FALSE
-	var/genomecost = 69420 // Cost for the changling to evolve this power.
+	var/genomecost = 69420 // Cost for the changeling to evolve this power.
 
 //DNA absorption
 
@@ -139,14 +139,14 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/hallucinate_sting
 	name = "Hallucination Sting"
-	desc = "We evolve the ability to sting a target with a powerful hallunicationary chemical."
+	desc = "We evolve the ability to sting a target with a powerful hallucinogenic chemical."
 	helptext = "The target does not notice they have been stung. The effect occurs after five to fifteen seconds."
 	genomecost = 3
 	verbpath = /mob/proc/changeling_hallucinate_sting
 
 /datum/power/changeling/death_sting
 	name = "Death Sting"
-	desc = "We sting a human, transfering five units of cyanide. Their death is likely, unless immediate intervention occurs."
+	desc = "We sting a human, transferring five units of cyanide. Their death is likely, unless immediate intervention occurs."
 	genomecost = 10
 	verbpath = /mob/proc/changeling_death_sting
 
@@ -284,7 +284,7 @@ var/list/datum/power/changeling/powerinstances = list()
 		for(var/P in powers)
 			powerinstances += new P()
 
-	var/dat = "<html><head><title>Changling Evolution Menu</title></head>"
+	var/dat = "<html><head><title>Changeling Evolution Menu</title></head>"
 
 	//javascript, the part that does most of the work~
 	dat += {"

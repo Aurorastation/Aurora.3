@@ -41,7 +41,7 @@
 		if(covered && (stat & NOPOWER)) //Only bounce off if its powered (i.e. shield active)
 			. = ..()
 		else
-			user.visible_message("<span class='danger'>[src] has been hit by [user] with [W], but it bounces off the forcefield.</span>","<span class='danger'>You hit [src] with [W], but it bounces off the forcefield.</span>","You hear something boucing off a forcefield.")
+			user.visible_message("<span class='danger'>[src] has been hit by [user] with [W], but it bounces off the forcefield.</span>","<span class='danger'>You hit [src] with [W], but it bounces off the forcefield.</span>","You hear something bouncing off a forcefield.")
 			. = TRUE
 	update_icon()
 

@@ -1050,20 +1050,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/secure)
 "aya" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Anti-Materiel)"
-	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
-/obj/item/ammo_casing/peac,
-/obj/item/ammo_casing/peac,
-/obj/item/ammo_casing/peac,
-/obj/item/gun/projectile/peac,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/structure/closet/secure_closet/guncabinet/peac,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/armoury)
 "ayc" = (
@@ -7030,7 +7024,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "dwb" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Starboard Wing"
 	},
 /obj/structure/cable/green{
@@ -9935,7 +9929,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "eYp" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Port Wing"
 	},
 /obj/structure/cable/green{
@@ -11641,7 +11635,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "fLU" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Research"
 	},
 /obj/structure/cable{
@@ -26703,7 +26697,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "mVR" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Medical"
 	},
 /obj/structure/cable{
@@ -37019,7 +37013,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
 "sbO" = (
-/obj/machinery/power/smes/buildable{
+/obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Engineering Main"
 	},
 /obj/structure/cable,

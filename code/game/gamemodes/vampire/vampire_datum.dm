@@ -1,7 +1,7 @@
 // Vampire and thrall datums. Contains the necessary information about a vampire.
 // Must be attached to a /datum/mind.
 /datum/vampire
-	var/list/thralls = list()					// A list of thralls that obey the vamire.
+	var/list/thralls = list()					// A list of thralls that obey the vampire.
 	var/blood_total = 0							// How much total blood do we have?
 	var/blood_usable = 0						// How much usable blood do we have?
 	var/blood_vamp = 0							// How much vampire blood do we have?
