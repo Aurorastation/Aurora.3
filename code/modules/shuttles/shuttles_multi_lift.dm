@@ -39,7 +39,6 @@
 /datum/shuttle/autodock/multi/lift/arrived()
 	if(final_location == current_location)
 		final_location = null
-		// TODO: play sound lol
 	else
 		var/next_tag = get_next_destination_tag()
 		next_location = SSshuttle.get_landmark(next_tag)
