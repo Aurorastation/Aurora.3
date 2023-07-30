@@ -108,7 +108,7 @@
 	handle_hearing()
 
 	if((is_pacified()) && a_intent == I_HURT && !is_berserk())
-		to_chat(src, "<span class='notice'>You don't feel like harming anybody.</span>")
+		to_chat(src, SPAN_NOTICE("You don't feel like harming anybody."))
 		a_intent_change(I_HELP)
 
 //this handles hud updates. Calls update_vision() and handle_hud_icons()
