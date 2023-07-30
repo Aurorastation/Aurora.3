@@ -377,7 +377,7 @@ var/global/list/obj/machinery/computer/HolodeckControl/holodeck_controls = list(
 		return TRUE
 
 /obj/machinery/computer/HolodeckControl/proc/load_random_program()
-	var/prog_to_load = pick(current_map.holodeck_programs)
+	var/datum/holodeck_program/prog_to_load = pick(current_map.holodeck_programs)
 	loadProgram(current_map.holodeck_programs[prog_to_load])
 
 /obj/machinery/computer/HolodeckControl/Aurora

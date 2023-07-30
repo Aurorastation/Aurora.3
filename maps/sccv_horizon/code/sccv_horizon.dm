@@ -197,7 +197,9 @@
 /datum/map/sccv_horizon/load_holodeck_programs()
 	// loads only if at least two engineers are present
 	// so as to not drain power on deadpop
+	// also only loads if no program is loaded already
 	var/list/roles = number_active_with_role()
 	if(roles && roles["Engineer"] && roles["Engineer"] >= 2)
 		for(var/obj/machinery/computer/HolodeckControl/holo in holodeck_controls)
-			holo.load_random_program()
+			if(!holo.active)
+				holo.load_random_program()
