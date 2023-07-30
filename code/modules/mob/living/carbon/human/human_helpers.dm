@@ -41,6 +41,12 @@
 #undef HUMAN_EATING_NO_MOUTH
 #undef HUMAN_EATING_BLOCKED_MOUTH
 
+/mob/living/carbon/human/set_intent(var/set_intent)
+	if(is_pacified() && set_intent == I_HURT && !is_berserk())
+		to_chat(src, SPAN_WARNING("You don't want to harm other beings!"))
+		return
+	..()
+
 /mob/living/carbon/human/proc/update_equipment_vision()
 	flash_protection = 0
 	equipment_tint_total = 0

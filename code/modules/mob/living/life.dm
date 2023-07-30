@@ -107,7 +107,7 @@
 	//Ears
 	handle_hearing()
 
-	if((is_pacified()) && a_intent == I_HURT)
+	if((is_pacified()) && a_intent == I_HURT && !is_berserk())
 		to_chat(src, "<span class='notice'>You don't feel like harming anybody.</span>")
 		a_intent_change(I_HELP)
 
