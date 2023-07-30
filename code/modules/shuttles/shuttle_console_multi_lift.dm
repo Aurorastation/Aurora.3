@@ -11,7 +11,7 @@
 	icon_state = "lift_wall"
 
 /obj/machinery/computer/shuttle_control/multi/lift/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/datum/shuttle/autodock/shuttle = SSshuttle.shuttles[shuttle_tag]
+	var/datum/shuttle/autodock/multi/lift/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if(!istype(shuttle))
 		to_chat(user, SPAN_WARNING("Unable to establish link with the shuttle."))
 		return
@@ -25,7 +25,7 @@
 		ui.open()
 		ui.set_auto_update(TRUE)
 
-/obj/machinery/computer/shuttle_control/multi/lift/get_ui_data(var/datum/shuttle/autodock/multi/shuttle)
+/obj/machinery/computer/shuttle_control/multi/lift/get_ui_data(var/datum/shuttle/autodock/multi/lift/shuttle)
 	. = ..()
 	if(istype(shuttle))
 		var/list/destination_keys = list()
@@ -35,8 +35,10 @@
 			"destinations" = destination_keys,
 		)
 
-/obj/machinery/computer/shuttle_control/multi/handle_topic_href(var/datum/shuttle/autodock/multi/shuttle, var/list/href_list)
+/obj/machinery/computer/shuttle_control/multi/handle_topic_href(var/datum/shuttle/autodock/multi/lift/shuttle, var/list/href_list)
 	if(href_list["pick"] && href_list["destination"])
 		shuttle.set_destination(href_list["destination"], usr)
 		return TOPIC_REFRESH
+	if(href_list["cancel"])
+		shuttle.final_location = null // no return so parent can handle it
 	..()
