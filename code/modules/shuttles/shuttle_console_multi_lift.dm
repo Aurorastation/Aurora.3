@@ -23,7 +23,7 @@
 		ui = new(user, src, ui_key, ui_template, "[shuttle_tag] Control", 470, 300)
 		ui.set_initial_data(data)
 		ui.open()
-		ui.set_auto_update(1)
+		ui.set_auto_update(TRUE)
 
 /obj/machinery/computer/shuttle_control/multi/lift/get_ui_data(var/datum/shuttle/autodock/multi/shuttle)
 	. = ..()
