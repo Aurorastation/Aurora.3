@@ -101,7 +101,7 @@
 	var/datum/comm_message_listener/l = obtain_message_listener()
 	switch(action)
 		if("emergencymaint")
-			if(is_authenticated(user) && !issilicon(user))
+			if(is_authenticated(user) && (isAI(user) || !issilicon(user)))
 				if(maint_all_access)
 					revoke_maint_all_access()
 					feedback_inc("alert_comms_maintRevoke",1)
@@ -189,7 +189,7 @@
 			if(is_authenticated(user) && (!issilicon(usr) || isAI(usr)) && ntn_cont && ntn_comm)
 				var/current_level = text2num(params["target"])
 				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", filedesc, "No", "Yes")
-				if(confirm == "Yes" && !computer.use_check_and_message(usr))
+				if(confirm == "Yes" && !computer.use_check_and_message(usr, (isAI(usr) ? USE_ALLOW_NON_ADJACENT : FALSE)))
 					var/old_level = security_level
 					if(!current_level)
 						current_level = SEC_LEVEL_GREEN
