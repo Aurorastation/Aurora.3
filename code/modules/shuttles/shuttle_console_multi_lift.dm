@@ -1,4 +1,3 @@
-
 /obj/machinery/computer/shuttle_control/multi/lift
 	name = "lift controller"
 	icon = 'icons/obj/computer.dmi'
