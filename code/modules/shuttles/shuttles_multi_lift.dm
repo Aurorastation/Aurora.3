@@ -2,7 +2,7 @@
 // if it goes from first stop to the last one
 // it goes one by one sequentially through the ones in the middle
 // order of stops is same as defined in destination_tags
-/datum/shuttle/autodock/multi/lift/
+/datum/shuttle/autodock/multi/lift
 	warmup_time = 3
 	move_time = 2
 	knockdown = FALSE
