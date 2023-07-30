@@ -2050,6 +2050,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/seed_extractor,
+/obj/machinery/media/jukebox/audioconsole/wall{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics)
 "aUh" = (
