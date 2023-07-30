@@ -45,6 +45,3 @@
 		set_destination(next_location.name, null)
 		launch(in_use)
 	..()
-
-// TODO: handle emergency stop
-
