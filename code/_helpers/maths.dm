@@ -225,3 +225,8 @@
 			line += locate(current_x_step, current_y_step, starting_z)
 
 	return line
+
+
+// Returns distance between two points
+/proc/dist_between_two_points(ax, ay, bx, by)
+	return sqrt((bx-ax)*(bx-ax))+((by-ay)*(by-ay))

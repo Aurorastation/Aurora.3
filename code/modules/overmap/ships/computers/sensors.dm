@@ -82,6 +82,20 @@
 
 	data["viewing"] = viewing_overmap(user)
 	data["muted"] = muted
+
+	data["grid_x"] = linked.x
+	data["grid_y"] = linked.y
+	data["direction"] = dir2angle(linked.dir)
+	var/linked_x = linked.x
+	var/linked_y = linked.y
+	var/obj/effect/overmap/visitable/ship/linked_ship = linked
+	if(istype(linked_ship))
+		linked_x += linked_ship.position[1] / 2.0
+		linked_y += linked_ship.position[2] / 2.0
+		data["is_ship"] = TRUE
+	data["x"] = linked_x
+	data["y"] = linked_y
+
 	if(sensors)
 		data["on"] = sensors.use_power
 		data["range"] = sensors.range
@@ -131,17 +145,44 @@
 		for(var/obj/effect/overmap/visitable/identified_contact in contact_datums)
 			potential_contacts |= identified_contact
 
-		for(var/obj/effect/overmap/O in potential_contacts)
-			if(linked == O)
+		var/max_shown_distance = 5
+		data["max_shown_distance"] = max_shown_distance
+
+		for(var/obj/effect/overmap/contact in potential_contacts)
+			if(linked == contact)
 				continue
-			if(!O.scannable)
+			if(!contact.scannable)
 				continue
-			var/bearing = round(90 - Atan2(O.x - linked.x, O.y - linked.y),5)
+
+			var/obj/effect/overmap/visitable/ship/landable/contact_landable = contact
+			var/landed = (istype(contact_landable) && contact_landable.status == SHIP_STATUS_LANDED)
+
+			var/contact_x = contact.x
+			var/contact_y = contact.y
+
+			var/obj/effect/overmap/visitable/ship/contact_ship = contact
+			if(istype(contact_ship))
+				contact_x += contact_ship.position[1] / 2.0
+				contact_y += contact_ship.position[2] / 2.0
+
+			var/bearing = round(90 - Atan2(contact_x - linked_x, contact_y - linked_y),5)
 			if(bearing < 0)
 				bearing += 360
-			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing, "can_datalink"=(!(O in connected.datalinked)))))
-		if(length(contacts))
-			data["contacts"] = contacts
+
+			var/distance = dist_between_two_points(linked_x, linked_y, contact_x, contact_y)
+
+			contacts.Add(list(list(
+				"name"=contact.name,
+				"ref"="\ref[contact]",
+				"bearing"=bearing,
+				"can_datalink"=(!(contact in connected.datalinked)),
+				"distance"=Clamp(distance,0, max_shown_distance),
+				"landed"=landed,
+				"x"=contact_x,
+				"y"=contact_y
+			)))
+
+		data["contacts"] = contacts
 
 		// Add datalink requests
 		if(length(connected.datalink_requests))

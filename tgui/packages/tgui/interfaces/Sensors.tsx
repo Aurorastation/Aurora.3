@@ -1,10 +1,17 @@
 import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type SensorsData = {
   viewing: BooleanLike;
+  muted: BooleanLike;
+  grid_x: number;
+  grid_y: number;
+  x: number;
+  y: number;
+  direction: number;
+  is_ship: BooleanLike;
   on: BooleanLike;
   range: number;
   health: number;
@@ -27,6 +34,10 @@ type ContactData = {
   ref: string;
   bearing: number;
   can_datalink: BooleanLike;
+  landed: BooleanLike;
+  distance: number;
+  x: number;
+  y: number;
   color: string; // assigned in ts
 };
 
@@ -110,15 +121,26 @@ const ContactsSection = function (act, data: SensorsData) {
         <Table>
           <Table.Row header>
             <Table.Cell>Designation</Table.Cell>
-            <Table.Cell>Bearing</Table.Cell>
+            <Table.Cell>B</Table.Cell>
+            <Table.Cell>X</Table.Cell>
+            <Table.Cell>Y</Table.Cell>
+            <Table.Cell>D</Table.Cell>
+            <Table.Cell>Color</Table.Cell>
           </Table.Row>
           {data.contacts.map((contact: ContactData, i) => (
             <Table.Row>
               <Table.Cell>{contact.name}</Table.Cell>
               <Table.Cell>{contact.bearing}</Table.Cell>
-              <Table.Cell color={contact.color}>
-                {contact.color} + {i}
+              <Table.Cell>{contact.x}</Table.Cell>
+              <Table.Cell>{contact.y}</Table.Cell>
+              <Table.Cell>
+                {contact.landed
+                  ? ''
+                  : contact.distance >= 5
+                    ? '≥' + contact.distance
+                    : contact.distance}
               </Table.Cell>
+              <Table.Cell color={contact.color}>{contact.color}</Table.Cell>
             </Table.Row>
           ))}
         </Table>
@@ -129,47 +151,135 @@ const ContactsSection = function (act, data: SensorsData) {
   );
 };
 
-const CompassSection = function (act, data: SensorsData) {
+const CompassSection = function (context, act, data: SensorsData) {
+  const [relativeDirection, setRelativeDirection] = useLocalState(
+    context,
+    'relativeDirection',
+    false
+  );
+
   return (
     <Section title="Sensor Contacts Compass">
       <Box textAlign="center">
+        Dir: {data.direction}
         <svg height={200} width={200} viewBox="0 0 100 100">
           <rect width="100" height="100" />
-          {data.contacts.map((contact: ContactData, i) => (
-            <>
-              <rect
-                width="1"
-                height={40}
-                x="49"
-                y="50"
-                fill={contact.color}
-                transform={'rotate(' + (contact.bearing + 180) + ' 50 50)'}
-              />
-            </>
-          ))}
-          {data.contacts.map((contact: ContactData, i) => (
-            <>
+          <g
+            transform={
+              'rotate(' +
+              (relativeDirection ? -data.direction : '0') +
+              ' 50 50)'
+            }>
+            {[8, 16, 24, 32, 40, 48].map((r) => (
               <circle
-                r={3}
+                r={r}
                 cx={50}
-                cy={10 + (i + 1) * 6}
-                fill={contact.color}
-                transform={'rotate(' + contact.bearing + ' 50 50)'}
+                cy={50}
+                fill="none"
+                stroke="#3e6189"
+                stroke-width="0.5"
               />
-            </>
-          ))}
-          {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
-            <text
-              x="50"
-              y="10"
-              text-anchor="middle"
-              fill="white"
-              font-size="10"
-              transform={'rotate(' + b + ' 50 50)'}>
-              {b}
-            </text>
-          ))}
+            ))}
+            <polygon
+              points="50,45 55,55 45,55"
+              fill="#5c83b0"
+              stroke="white"
+              stroke-width="0.5"
+              transform={
+                'rotate(' +
+                (relativeDirection ? data.direction : data.direction) +
+                ' 50 50)'
+              }
+            />
+            <circle
+              r={40}
+              cx={50}
+              cy={50}
+              fill="none"
+              stroke="#3e6189"
+              stroke-width="0.5">
+              {/* <animate
+                attributeName="r"
+                // begin="0s"
+                dur="4s"
+                repeatCount="indefinite"
+                // from="20%"
+                // to="100%"
+                values="4;44"
+              /> */}
+            </circle>
+            {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
+              <rect
+                width="0.5"
+                height={32}
+                x="50"
+                y="58"
+                fill="#3e6189"
+                transform={'rotate(' + b + ' 50 50)'}
+              />
+            ))}
+            {data.contacts
+              .filter((c) => c.distance)
+              .map((contact: ContactData, i) => (
+                <rect
+                  width="1"
+                  height={30}
+                  x="49"
+                  y="60"
+                  fill={contact.color}
+                  transform={'rotate(' + (contact.bearing + 180) + ' 50 50)'}
+                />
+              ))}
+            {data.contacts.map((contact: ContactData, i) => (
+              <>
+                <circle
+                  r={3}
+                  cx={50}
+                  cy={50 - contact.distance * 8}
+                  fill={contact.color}
+                  transform={'rotate(' + contact.bearing + ' 50 50)'}
+                />
+                {/* <polygon
+                points="49,45 51,45 55,55 45,55"
+                fill={contact.color}
+                transform={
+                  ' rotate(' +
+                  contact.bearing +
+                  ' 50 50)' +
+                  'translate(0 ' +
+                  contact.distance * -8 +
+                  ') '
+                }
+              /> */}
+                <text
+                  x="50"
+                  y="2"
+                  text-anchor="middle"
+                  fill="white"
+                  font-size="5"
+                  transform={'rotate(' + contact.bearing + ' 50 50)'}>
+                  {contact.bearing}
+                </text>
+              </>
+            ))}
+            {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
+              <text
+                x="50"
+                y="8"
+                text-anchor="middle"
+                fill="white"
+                font-size="8"
+                transform={'rotate(' + b + ' 50 50)'}>
+                {b}
+              </text>
+            ))}
+          </g>
         </svg>
+        <Button.Checkbox
+          content="Relative Direction"
+          checked={relativeDirection}
+          onClick={() => setRelativeDirection(!relativeDirection)}
+        />
       </Box>
     </Section>
   );
@@ -179,56 +289,37 @@ export const Sensors = (props, context) => {
   const { act, data } = useBackend<SensorsData>(context);
 
   {
+    let color_i = 0;
     const colors = [
       'red',
-      'blue',
       'green',
       'purple',
       'orange',
-      'white',
       'cyan',
+      'blue',
+      'white',
     ];
 
+    let bearing_color_map: Map<number, string> = new Map();
+
     data.contacts.forEach((contact, i) => {
-      contact.color = colors[i];
+      if (!bearing_color_map[contact.bearing]) {
+        bearing_color_map[contact.bearing] = colors[color_i];
+        color_i++;
+        if (color_i >= colors.length) {
+          color_i = 0;
+        }
+      }
+      contact.color = bearing_color_map[contact.bearing];
     });
-
-    // let bearing_color_map: Map<number, string> = new Map();
-
-    // data.contacts.forEach((contact) => {
-    //   bearing_color_map[contact.bearing] = '';
-    // });
-
-    // let i = 0;
-    // bearing_color_map.forEach((color, bearing) => {
-    //   bearing_color_map[bearing] = colors[i];
-    //   i++;
-    // });
-
-    // data.contacts.forEach((contact) => {
-    //   contact.color = bearing_color_map[contact.bearing];
-    // });
-
-    // let bearing_contact_map: Map<number, ContactData[]> = new Map();
-    // data.contacts.forEach((contact) => {
-    //   if (!bearing_contact_map[contact.bearing]) {
-    //     bearing_contact_map[contact.bearing] = [];
-    //   }
-    //   bearing_contact_map[contact.bearing] += contact;
-    // });
-
-    // bearing_contact_map.forEach((contacts, bearing) => {
-    //   contacts.forEach((contact) => {
-    //     contact.color = 'red';
-    //   });
-    // });
   }
+
   return (
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
         {SensorSection(act, data)}
         {ContactsSection(act, data)}
-        {CompassSection(act, data)}
+        {CompassSection(context, act, data)}
       </NtosWindow.Content>
     </NtosWindow>
   );
