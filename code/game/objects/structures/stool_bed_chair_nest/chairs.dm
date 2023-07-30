@@ -188,7 +188,6 @@
 	desc = "Old is never too old to not be in fashion."
 	icon_state = "wooden_chair"
 	base_icon = "wooden_chair"
-	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	build_amt = 3
 	held_item = /obj/item/material/stool/chair/wood
 	can_pad = FALSE

@@ -55,6 +55,7 @@
 	icon = 'icons/obj/structure/tables/wood.dmi'
 	icon_state = "wood_preview"
 	table_mat = MATERIAL_WOOD
+	material_alteration = MATERIAL_ALTERATION_ALL
 
 /obj/structure/table/wood/gamblingtable
 	icon_state = "gamble_preview"

@@ -379,17 +379,11 @@
 #define GFI_ROTATION_OVERDIR 2 //Layers will have overidden direction
 
 // The pixel_(x|y) offset that will be used by default by wall items, such as APCs or Fire Alarms.
-#define DEFAULT_WALL_OFFSET_NORTH 18
-#define DEFAULT_WALL_OFFSET_NORTH_APC 16//specifically for APCs!
-#define DEFAULT_WALL_OFFSET_SOUTH 6
-#define DEFAULT_WALL_OFFSET_SOUTH_LIGHT 1//specifically for light fixtures!
-#define DEFAULT_WALL_OFFSET_X 10
+#define DEFAULT_WALL_OFFSET 22 // Don't touch this unless you're going to work with walls in a major way.
 
 // Defines for translating a dir into pixelshifts for wall items
-#define DIR2PIXEL_X(dir) ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? DEFAULT_WALL_OFFSET_X : -(DEFAULT_WALL_OFFSET_X)))
-#define DIR2PIXEL_Y(dir) ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? DEFAULT_WALL_OFFSET_NORTH : -(DEFAULT_WALL_OFFSET_SOUTH)) : 0)
-#define DIR2PIXEL_Y_APC(dir) ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? DEFAULT_WALL_OFFSET_NORTH_APC : -(DEFAULT_WALL_OFFSET_SOUTH)) : 0)
-#define DIR2PIXEL_Y_LIGHT(dir) ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? DEFAULT_WALL_OFFSET_NORTH : -(DEFAULT_WALL_OFFSET_SOUTH_LIGHT)) : 0)
+#define DIR2PIXEL_X(dir) ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)))
+#define DIR2PIXEL_Y(dir) ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)) : 0)
 
 /*
 Define for getting a bitfield of adjacent turfs that meet a condition.

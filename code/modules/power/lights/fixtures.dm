@@ -175,7 +175,7 @@
 	. = ..()
 
 	pixel_x = DIR2PIXEL_X(dir)
-	pixel_y = DIR2PIXEL_Y_LIGHT(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
 
 	if (!has_power())
 		stat |= NOPOWER

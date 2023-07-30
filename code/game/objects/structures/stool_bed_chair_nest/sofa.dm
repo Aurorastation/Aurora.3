@@ -212,7 +212,6 @@
 	desc = "A long, simple bench with a backboard, commonly found in places of worship, courtrooms and so on. Not known for being particularly comfortable."
 	icon_state = "pewmiddle"
 	base_icon = "pewmiddle"
-	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	build_amt = 3
 
 /obj/structure/bed/stool/chair/sofa/pew/New(var/newloc)
