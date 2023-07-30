@@ -9083,7 +9083,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	name = "Pilot Room";
-	req_one_access = list(73, 48)
+	req_one_access = list(73,48)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -9248,12 +9248,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "gua" = (
-/obj/machinery/button/remote/blast_door{
-	id = "canary_hangar";
-	name = "Canary Hangar Control";
-	pixel_x = 21;
-	pixel_y = 22
-	},
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 3
@@ -13000,12 +12994,11 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/door/blast/shutters/open{
-	dir = 4;
-	id = "canary_hangar";
-	name = "Canary Hangar"
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_command{
+	name = "Canary Hangar";
+	req_one_access = list(73)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hangar/control)
 "jio" = (
@@ -58579,7 +58572,7 @@ aWP
 aWP
 aWP
 jhH
-jhH
+aWP
 aWP
 aWP
 wNS
