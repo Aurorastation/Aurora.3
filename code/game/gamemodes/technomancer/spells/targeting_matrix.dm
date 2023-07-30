@@ -15,6 +15,7 @@
 	aspect = ASPECT_FORCE //idk?
 
 /obj/item/spell/targeting_matrix/on_ranged_cast(atom/hit_atom, mob/user)
+	. = ..()
 	var/turf/T = get_turf(hit_atom)
 	if(T)
 		var/mob/living/chosen_target = targeting_assist(T,5)		//The person who's about to get attacked.
