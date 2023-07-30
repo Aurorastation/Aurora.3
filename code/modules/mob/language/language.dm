@@ -180,7 +180,7 @@
 /datum/language/proc/handle_message_mode(var/message_mode)
 	return list(src, message_mode)
 
-/datum/language/proc/can_speak_special(mob/speaker)
+/datum/language/proc/check_speech_restrict(mob/speaker) //for languages with special physical requirements to speak
 	return 1
 
 // Language handling.
@@ -213,7 +213,7 @@
 
 // Can we speak this language, as opposed to just understanding it?
 /mob/proc/can_speak(datum/language/speaking)
-	return (speaking.can_speak_special(src) && (universal_speak || (speaking && speaking.flags & INNATE) || (speaking in src.languages)))
+	return (speaking.check_speech_restrict(src) && (universal_speak || (speaking && speaking.flags & INNATE) || (speaking in src.languages)))
 
 /mob/proc/get_language_prefix()
 	if(client && client.prefs.language_prefixes && client.prefs.language_prefixes.len)

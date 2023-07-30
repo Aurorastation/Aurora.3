@@ -179,7 +179,7 @@
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
 	allow_accents = TRUE
 
-/datum/language/skrell/can_speak_special(mob/speaker)
+/datum/language/skrell/check_speech_restrict(mob/speaker)
 	if(!ishuman(speaker))
 		return FALSE
 	var/mob/living/carbon/human/H = speaker
