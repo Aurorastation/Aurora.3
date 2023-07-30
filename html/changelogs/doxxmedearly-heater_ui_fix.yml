@@ -1,0 +1,5 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Gas heater UI now functions."
+  - bugfix: "Gas coolers no longer come up as 'gas heating system' in their UI."
