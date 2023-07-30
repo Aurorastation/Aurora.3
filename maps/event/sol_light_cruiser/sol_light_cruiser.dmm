@@ -342,6 +342,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/light_cruiser/port_aft_hall)
+"axx" = (
+/obj/machinery/atmospherics/pipe/tank/phoron,
+/turf/simulated/floor/tiled,
+/area/light_cruiser/port_engineering)
 "ayj" = (
 /turf/simulated/wall/shuttle/raider,
 /area/light_cruiser/starboard_coilgun)
@@ -8018,10 +8022,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/bluegrid,
 /area/light_cruiser/cic)
-"oXi" = (
-/obj/machinery/atmospherics/pipe/tank/phoron,
-/turf/simulated/floor/tiled,
-/area/light_cruiser/port_engineering)
 "oXS" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -47723,7 +47723,7 @@ mDm
 xjO
 ubH
 gPu
-oXi
+axx
 coK
 gPu
 qzB
@@ -52680,7 +52680,7 @@ xRX
 xRX
 xRX
 xRX
-ocZ
+xRX
 xRX
 xRX
 xRX
