@@ -1,4 +1,3 @@
-
 // multi lift, meaning it goes between stops
 // if it goes from first stop to the last one
 // it goes one by one sequentially through the ones in the middle
