@@ -321,6 +321,15 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	else
 		icon_state = "water_cup_e"
 
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris
+	name = "takeaway cup"
+	desc = "A takeaway cup, sporting the Idris logo."
+	icon_state = "takeaway_cup_idris"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	possible_transfer_amounts = null
+	volume = 30
+
 //////////////////////////JUICES AND STUFF ///////////////////////
 
 /obj/item/reagent_containers/food/drinks/carton
