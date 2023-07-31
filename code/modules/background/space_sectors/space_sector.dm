@@ -116,3 +116,21 @@
 
 /datum/space_sector/proc/generate_system_name()
 	return "[pick("Miranda", "BNM", "Xavier", "GJ", "HD", "TC", "Melissa", "TC")][prob(10) ? " Eridani" : ""] [rand(100,999)][prob(10) ? " [pick(greek_letters)]" : ""]"
+
+// Returns a flat list of all possible away sites that can spawn in this sector.
+/datum/space_sector/proc/possible_sites_in_sector()
+	var/list/away_sites = list()
+	for(var/id in SSmapping.away_sites_templates)
+		var/datum/map_template/ruin/away_site = SSmapping.away_sites_templates[id]
+		if(name in away_site.sectors)
+			away_sites += away_site
+	return away_sites
+
+// Returns a flat list of all possible ruins that can spawn in this sector.
+/datum/space_sector/proc/possible_ruins_in_sector()
+	var/list/ruins = list()
+	for(var/id in SSmapping.exoplanet_ruins_templates)
+		var/datum/map_template/ruin/ruin = SSmapping.away_sites_templates[id]
+		if(name in ruin.sectors)
+			ruins += ruin
+	return ruins
