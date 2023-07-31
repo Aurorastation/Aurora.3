@@ -28,7 +28,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant/,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "acn" = (
@@ -21024,7 +21024,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "oQa" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant/,
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -23127,7 +23127,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant/,
 /turf/simulated/floor/grass/alt,
 /area/hallway/primary/aft)
 "qog" = (
@@ -27962,7 +27962,7 @@
 /obj/machinery/light/spot{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant/,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -28655,7 +28655,7 @@
 	pixel_y = 37;
 	req_one_access = list(1,19)
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant/,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
