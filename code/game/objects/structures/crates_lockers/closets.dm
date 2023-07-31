@@ -536,7 +536,7 @@
 	if(!usr.canmove || usr.stat || usr.restrained())
 		return
 
-	if(ishuman(usr))
+	if(ishuman(usr) || (issilicon(usr) && Adjacent(usr)))
 		add_fingerprint(usr)
 		toggle(usr)
 	else

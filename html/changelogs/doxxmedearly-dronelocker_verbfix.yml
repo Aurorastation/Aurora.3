@@ -1,0 +1,4 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Drones and borgs can now properly use the Toggle Open verb for closets and crates."
