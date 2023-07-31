@@ -51,7 +51,7 @@
 /datum/gear/religion/trinary/book
 	display_name = "The Voice of Temple"
 	description = "A supplementary holy text belonging to the Lodge of Temple Architect, an order within the Trinary Perfection."
-	path = /obj/item/device/versebook/trinary/templeist
+	path = /obj/item/device/versebook/templeist
 
 /datum/gear/religion/rosary
 	display_name = "rosary"
