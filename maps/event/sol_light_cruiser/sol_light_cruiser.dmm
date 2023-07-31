@@ -9357,7 +9357,9 @@
 /turf/simulated/floor/tiled/white,
 /area/light_cruiser/medical)
 "ryY" = (
-/obj/structure/reagent_dispensers/coolanttank,
+/obj/structure/reagent_dispensers/coolanttank{
+	amount_per_transfer_from_this = 120
+	},
 /obj/item/reagent_containers/glass/bucket,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,

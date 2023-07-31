@@ -1,12 +1,12 @@
 /datum/map_template/ruin/away_site/sfa_light_cruiser
 	name = "SFA Light Cruiser"
+	id = "sfa_light_cruiser"
 	description = "big, green and very, very mean grrr."
 	prefix = "maps/event/"
-	suffixes = "sol_light_cruiser/sol_light_cruiser.dmm"
+	suffixes = list("sol_light_cruiser/sol_light_cruiser.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 0
 	ship_cost = 5
-	id = "sfa_light_cruiser"
 
 /singleton/submap_archetype/sfa_light_cruiser
 	map = "sfa light cruiser"
