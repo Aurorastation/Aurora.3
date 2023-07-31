@@ -245,6 +245,6 @@
 	path = /obj/item/organ/internal/augment/language/zeng
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	faction = "Zeng-Hu Pharmaceuticals"
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain")
 	cost = 3
 
