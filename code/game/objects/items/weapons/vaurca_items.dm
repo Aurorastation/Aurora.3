@@ -7,6 +7,9 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_garment"
 	item_state = "m_garment"
+	w_class = ITEMSIZE_SMALL
+	flags_inv = null
+	body_parts_covered = null
 	filtered_gases = list(GAS_NITROGEN, GAS_N2O, GAS_CHLORINE, GAS_ALIEN)
 	contained_sprite = 1
 
@@ -18,6 +21,9 @@
 	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
 	name = "filter port"
 	icon_state = "filterport"
+	w_class = ITEMSIZE_SMALL
+	flags_inv = null
+	body_parts_covered = null
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_BULWARK)
 	item_state = 0
 
@@ -338,7 +344,7 @@
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
 
-/obj/item/clothing/mask/gas/vaurca
+/obj/item/clothing/mask/gas/vaurca/tactical
 	name = "tactical garment"
 	desc = "A tactical mandible garment with state of the art air filtration."
 	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | FLEXIBLEMATERIAL | THICKMATERIAL

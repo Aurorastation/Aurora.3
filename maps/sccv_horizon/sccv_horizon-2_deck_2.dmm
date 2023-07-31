@@ -4337,6 +4337,9 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/structure/sign/directions/prop{
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "bWT" = (
@@ -4481,13 +4484,14 @@
 /area/horizon/security/brig)
 "bZD" = (
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/regular{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/storage/firstaid/regular,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 8
+	},
+/obj/item/storage/firstaid/adv{
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/adv{
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -5133,12 +5137,31 @@
 "cua" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/o2{
-	pixel_x = 5;
-	pixel_y = 5
+	pixel_y = 8;
+	pixel_x = -17
 	},
-/obj/item/storage/firstaid/o2,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_y = 3;
+	pixel_x = -17
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_y = 8;
+	pixel_x = -2
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_y = 3;
+	pixel_x = -2
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_y = 8;
+	pixel_x = 13
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_y = 3;
+	pixel_x = 13
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -10881,9 +10904,6 @@
 /obj/item/device/radio/intercom{
 	dir = 1;
 	pixel_y = -24
-	},
-/obj/structure/bed/stool/chair/padded/red{
-	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
@@ -18911,11 +18931,12 @@
 	dir = 6
 	},
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/adv{
-	pixel_x = 5;
+/obj/item/storage/firstaid/large/adv{
+	pixel_y = 10
+	},
+/obj/item/storage/firstaid/large/adv{
 	pixel_y = 5
 	},
-/obj/item/storage/firstaid/adv,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "jeY" = (
@@ -19866,16 +19887,19 @@
 /area/engineering/locker_room)
 "jBw" = (
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/toxin{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/storage/firstaid/toxin,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_y = 8;
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_y = 3;
+	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -21243,11 +21267,6 @@
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "kiJ" = (
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/fire{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/storage/firstaid/fire,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
 	},
@@ -21256,6 +21275,22 @@
 	dir = 8
 	},
 /obj/machinery/firealarm/east,
+/obj/item/storage/box/syringes{
+	pixel_y = 15;
+	pixel_x = -4
+	},
+/obj/item/storage/box/syringes{
+	pixel_y = 15;
+	pixel_x = 5
+	},
+/obj/item/storage/box/bloodpacks{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/item/storage/box/bloodpacks{
+	pixel_x = 5;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "kiK" = (
@@ -23796,6 +23831,11 @@
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Hallway 5";
 	dir = 8
+	},
+/obj/structure/sign/directions/prop{
+	pixel_x = 32;
+	dir = 4;
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
@@ -27277,6 +27317,10 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/structure/sign/directions/prop{
+	dir = 4;
+	pixel_y = -22
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "ngG" = (
@@ -29411,6 +29455,7 @@
 /area/hallway/engineering)
 "oml" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/structure/bed/stool/bar/padded/black,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "omA" = (
@@ -30199,6 +30244,13 @@
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
+/area/hallway/engineering)
+"oEV" = (
+/obj/structure/railing/mapped,
+/obj/structure/sign/directions/prop{
+	pixel_y = 32
+	},
+/turf/simulated/open,
 /area/hallway/engineering)
 "oFp" = (
 /obj/effect/floor_decal/spline/plain/cee{
@@ -32843,18 +32895,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/table/wood,
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_x = -3
-	},
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = 3
-	},
-/obj/item/flame/candle,
 /obj/machinery/camera/network/service{
 	c_tag = "Service - Deck 2 - Dining Hall 2";
 	dir = 1
 	},
+/obj/structure/table/rack/fancy_table/black,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "qaf" = (
@@ -40890,10 +40935,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
-"tZl" = (
-/obj/random/loot,
-/turf/simulated/wall/r_wall,
-/area/horizon/security/brig)
 "tZr" = (
 /obj/structure/cable/orange{
 	icon_state = "1-4"
@@ -43835,7 +43876,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair/padded/red,
+/obj/structure/synthesized_instrument/synthesizer/piano,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "vxe" = (
@@ -44274,10 +44315,6 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
-/obj/item/storage/box/syringes{
-	pixel_x = -2;
-	pixel_y = 10
-	},
 /obj/item/bodybag/cryobag{
 	pixel_x = 13;
 	pixel_y = 10
@@ -44293,18 +44330,6 @@
 /obj/item/bodybag/cryobag{
 	pixel_x = 13;
 	pixel_y = 2
-	},
-/obj/item/storage/box/bloodpacks{
-	pixel_x = 1;
-	pixel_y = -1
-	},
-/obj/item/storage/box/syringes{
-	pixel_x = -2;
-	pixel_y = 7
-	},
-/obj/item/storage/box/bloodpacks{
-	pixel_x = -5;
-	pixel_y = -1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -68737,7 +68762,7 @@ xZI
 qCs
 vgt
 iSx
-jsA
+oEV
 uyq
 voz
 gfX
@@ -80492,7 +80517,7 @@ iwo
 uPP
 gBa
 bDo
-tZl
+bDo
 bDo
 bDo
 pMz

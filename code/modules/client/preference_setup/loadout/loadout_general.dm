@@ -138,6 +138,8 @@
 	banners["banner, Dominia"] = /obj/item/flag/dominia
 	banners["banner, Elyra"] = /obj/item/flag/elyra
 	banners["banner, Hegemony"] = /obj/item/flag/hegemony
+	banners["banner, Ouerea"] = /obj/item/flag/ouerea
+	banners["banner, Old Ouerea"] = /obj/item/flag/ouerea/old
 	banners["banner, Nralakk"] = /obj/item/flag/nralakk
 	banners["banner, Traverse"] = /obj/item/flag/traverse
 	banners["banner, NanoTrasen"] = /obj/item/flag/nanotrasen
@@ -204,6 +206,8 @@
 	flags["flag, Dominia"] = /obj/item/flag/dominia/l
 	flags["flag, Elyra"] = /obj/item/flag/elyra/l
 	flags["flag, Hegemony"] = /obj/item/flag/hegemony/l
+	flags["flag, Ouerea"] = /obj/item/flag/ouerea/l
+	flags["flag, Old Ouerea"] = /obj/item/flag/ouerea/old/l
 	flags["flag, Nralakk"] = /obj/item/flag/nralakk/l
 	flags["flag, Traverse"] = /obj/item/flag/traverse/l
 	flags["flag, NanoTrasen"] = /obj/item/flag/nanotrasen/l
@@ -268,6 +272,7 @@
 	comics["az'marian comic, issue 6"] = /obj/item/toy/comic/azmarian/issue_6
 	comics["az'marian comic, issue 7"] = /obj/item/toy/comic/azmarian/issue_7
 	comics["az'marian comic, issue 8"] = /obj/item/toy/comic/azmarian/issue_8
+	comics["dominian witchfinder novel"] = /obj/item/toy/comic/witchfinder
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste
