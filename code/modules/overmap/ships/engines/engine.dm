@@ -13,8 +13,10 @@ var/list/ship_engines = list()
 /datum/ship_engine/proc/can_burn()
 	return 0
 
-//Tries to fire the engine. Returns thrust
-/datum/ship_engine/proc/burn()
+//Tries to fire the engine with power modifier (0..1). Returns thrust.
+//Power modifier is intended to be used for maneuvers or the like,
+//that should use less/more fuel/electricity than an actual burn.
+/datum/ship_engine/proc/burn(var/power_modifier = 1)
 	return 0
 
 //Returns status string for this engine
