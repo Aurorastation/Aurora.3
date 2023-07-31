@@ -251,8 +251,3 @@
 	name = ".50 Pistol"
 	telecrystal_cost = 5
 	path = /obj/item/gun/projectile/deagle/adhomai
-
-/datum/uplink_item/item/visible_weapons/psionic_jumpstarter
-	name = "Psionic Jumpstarter"
-	telecrystal_cost = 19
-	path = /obj/item/psionic_jumpstarter

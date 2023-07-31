@@ -16,7 +16,6 @@
 	cooldown = 30
 
 /obj/item/spell/oxygenate/on_ranged_cast(atom/hit_atom, mob/user)
-	. = ..()
 	if(!within_range(hit_atom))
 		return
 	if(ishuman(hit_atom))

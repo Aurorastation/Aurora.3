@@ -16,7 +16,6 @@
 	aspect = ASPECT_FORCE
 
 /obj/item/spell/raise_wall/on_ranged_cast(atom/hit_atom, mob/user)
-	. = ..()
 	var/turf/target_turf = isturf(hit_atom) ? hit_atom : get_turf(hit_atom)
 	if(target_turf.density)
 		return

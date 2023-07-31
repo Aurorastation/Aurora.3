@@ -5,17 +5,16 @@
 	..()
 	if(psi)
 		psi.update(TRUE)
+		if(!psi.suppressed)
+			psi.show_auras()
 
 /mob/living/Destroy()
 	QDEL_NULL(psi)
 	. = ..()
 
-/mob/living/proc/set_psi_rank(var/rank, var/defer_update, var/temporary)
-	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
-		to_chat(src, SPAN_WARNING("Something tingles in your head."))
-		return
+/mob/living/proc/set_psi_rank(var/faculty, var/rank, var/take_larger, var/defer_update, var/temporary)
 	if(!psi)
 		psi = new(src)
-	var/current_rank = psi.get_rank()
-	if(current_rank != rank && current_rank < rank)
-		psi.set_rank(rank, defer_update, temporary)
+	var/current_rank = psi.get_rank(faculty)
+	if(current_rank != rank && (!take_larger || current_rank < rank))
+		psi.set_rank(faculty, rank, defer_update, temporary)

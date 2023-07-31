@@ -46,7 +46,7 @@
 			L.forceMove(get_turf(src))
 			L.visible_message(SPAN_WARNING("\The [src] ejects [L]!"))
 
-/obj/effect/phase_shift/relaymove(mob/user)
+/obj/effect/phase_shift/relaymove(mob/user as mob)
 	if(user.stat)
 		return
 
@@ -55,7 +55,6 @@
 	qdel(src)
 
 /obj/item/spell/phase_shift/on_use_cast(mob/user)
-	. = ..()
 	if(isturf(user.loc)) //Check if we're not already in a rift.
 		if(pay_energy(2000))
 			var/obj/effect/phase_shift/PS = new(get_turf(user))

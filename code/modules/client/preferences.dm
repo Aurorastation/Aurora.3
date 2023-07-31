@@ -99,8 +99,6 @@ var/list/preferences_datums = list()
 	var/culture
 	var/origin
 
-	var/list/psionics = list()
-
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/static/list/preview_screen_locs = list(
 		"1" = "character_preview_map:1,5:-12",
@@ -473,12 +471,6 @@ var/list/preferences_datums = list()
 
 	character.headset_choice = headset_choice
 
-	if(length(psionics) && character.client)
-		for(var/power in psionics)
-			var/singleton/psionic_power/P = GET_SINGLETON(text2path(power))
-			if(istype(P) && (P.ability_flags & PSI_FLAG_CANON))
-				P.apply(character)
-
 	if(icon_updates)
 		character.force_update_limbs()
 		character.update_mutations(0)
@@ -646,7 +638,6 @@ var/list/preferences_datums = list()
 
 		ccia_actions = list()
 		disabilities = list()
-		psionics = list()
 
 		economic_status = ECONOMICALLY_AVERAGE
 

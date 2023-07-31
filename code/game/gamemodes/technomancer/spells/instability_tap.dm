@@ -19,7 +19,6 @@
 	set_light(3, 2, l_color = "#FA58F4")
 
 /obj/item/spell/instability_tap/on_use_cast(mob/user)
-	. = ..()
 	var/amount = calculate_spell_power(5000)
 	if(check_for_scepter())
 		core.give_energy(amount * 1.5)

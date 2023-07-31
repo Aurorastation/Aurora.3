@@ -6,23 +6,20 @@
 	return psiaug && !psiaug.is_broken()
 
 /mob/living/proc/is_psi_blocked()
-	return !has_psionics()
+	return !can_commune()
 
 /mob/living/carbon/is_psi_blocked()
-	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
-		return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
+	if(!psi && !has_psi_aug())
+		if(isSynthetic())
+			return SPAN_ALIEN("Reaching out, your mind grasps at nothing.")
+		if (isvaurca(src))
+			return SPAN_CULT("You reach out into the Nlom; your call sails right through and yields no response.")
+		if (is_diona())
+			return SPAN_ALIEN("[src]'s mind is incompatible, formless.")
 	for (var/obj/item/implant/mindshield/I in src)
 		if (I.implanted)
 			return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
 	return FALSE
-
-/mob/living/proc/has_zona_bovinae()
-	return TRUE
-
-/mob/living/carbon/has_zona_bovinae()
-	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
-		return FALSE
-	return TRUE
 
 /mob/living/proc/is_psi_pingable()
 	return !is_psi_blocked()

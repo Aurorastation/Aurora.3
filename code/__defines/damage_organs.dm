@@ -20,7 +20,6 @@
 #define DAMAGE_FLAG_EXPLODE   16
 #define DAMAGE_FLAG_DISPERSED 32 // Makes apply_damage calls without specified zone distribute damage rather than randomly choose organ (for humans)
 #define DAMAGE_FLAG_BIO       64
-#define DAMAGE_FLAG_PSIONIC   128
 
 #define STUN      "stun"
 #define WEAKEN    "weaken"

@@ -15,7 +15,6 @@
 	aspect = ASPECT_TELE
 
 /obj/item/spell/abjuration/on_ranged_cast(atom/hit_atom, mob/user)
-	. = ..()
 	if(istype(hit_atom, /mob/living) && pay_energy(500) && within_range(hit_atom))
 		var/mob/living/L = hit_atom
 		var/mob/living/simple_animal/SM = null

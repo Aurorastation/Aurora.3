@@ -105,7 +105,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/flame/match/proc/light()
 	lit = TRUE
-	damtype = "fire"
+	damtype = "burn"
 	icon_state = "match_lit"
 	item_state = "match_lit"
 	if(ismob(loc))

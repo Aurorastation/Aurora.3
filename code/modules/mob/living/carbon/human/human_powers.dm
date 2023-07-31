@@ -239,16 +239,14 @@
 
 
 // Simple mobs cannot use Skrellepathy
-/mob/proc/has_psionics()
+/mob/proc/can_commune()
 	return FALSE
 
-/mob/living/carbon/human/has_psionics()
-	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
-		return FALSE
+/mob/living/carbon/human/can_commune()
 	if(psi)
 		return TRUE
 	else
-		return species ? species.has_psionics() : FALSE
+		return species ? species.can_commune() : FALSE
 
 /mob/living/carbon/human/proc/commune()
 	set category = "Abilities"
@@ -324,14 +322,14 @@
 			to_chat(M,"<span class='notice'>[src] telepathically says to [target]:</span> [text]")
 
 	var/mob/living/carbon/human/H = target
-	if (target.has_psionics())
+	if (target.can_commune())
 		to_chat(H,"<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]")
 	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 		to_chat(H,"<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]")
 	else
 		to_chat(H,"<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
 		if(istype(H))
-			if (target.has_psionics())
+			if (target.can_commune())
 				return
 			if(prob(10) && !(H.species.flags & NO_BLOOD))
 				to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")

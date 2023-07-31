@@ -12,7 +12,8 @@
 
 //removes the need to breathe, removes effects of very low pressure
 /mob/proc/changeling_spaceadaption()
-	ADD_TRAIT(src, TRAIT_PRESSURE_IMMUNITY, TRAIT_SOURCE_CHANGELING)
+	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	changeling.space_adapted = TRUE
 	return TRUE
 
 /mob/proc/changeling_armor()
@@ -21,7 +22,8 @@
 
 //removes the need to breathe
 /mob/proc/changeling_nobreathing()
-	ADD_TRAIT(src, TRAIT_NO_BREATHE, TRAIT_SOURCE_CHANGELING)
+	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	changeling.no_breathing = TRUE
 	return TRUE
 
 // HIVE MIND UPLOAD/DOWNLOAD DNA

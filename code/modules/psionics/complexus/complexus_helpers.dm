@@ -1,27 +1,37 @@
+/datum/psi_complexus/proc/cancel()
+	sound_to(owner, sound('sound/effects/psi/power_fail.ogg'))
+	if(LAZYLEN(manifested_items))
+		for(var/thing in manifested_items)
+			owner.drop_from_inventory(thing)
+			qdel(thing)
+		manifested_items = null
+
 /datum/psi_complexus/proc/stunned(var/amount)
 	var/old_stun = stun
 	stun = max(stun, amount)
 	if(amount && !old_stun)
 		to_chat(owner, "<span class='danger'>Your concentration has been shattered! You cannot focus your psi power!</span>")
 		ui.update_icon()
+	cancel()
 
 /datum/psi_complexus/proc/get_armor(var/armortype)
 	if(can_use_passive())
 		last_armor_check = world.time
-		return round(Clamp(Clamp(4 * get_rank(), 0, 20) * get_rank() / 2, 0, 100) * (stamina/max_stamina))
+		return round(Clamp(Clamp(4 * rating, 0, 20) * get_rank(SSpsi.armor_faculty_by_type[armortype]), 0, 100) * (stamina/max_stamina))
 	else
 		last_armor_check = 0
 		return 0
 
-/datum/psi_complexus/proc/set_rank(var/rank, var/defer_update)
-	if(get_rank() != rank)
-		last_psionic_rank = psionic_rank
-		psionic_rank = rank
+/datum/psi_complexus/proc/get_rank(var/faculty)
+	return LAZYACCESS(ranks, faculty)
+
+/datum/psi_complexus/proc/set_rank(var/faculty, var/rank, var/defer_update, var/temporary)
+	if(get_rank(faculty) != rank)
+		LAZYSET(ranks, faculty, rank)
+		if(!temporary)
+			LAZYSET(base_ranks, faculty, rank)
 		if(!defer_update)
 			update()
-
-/datum/psi_complexus/proc/get_rank()
-	return psionic_rank
 
 /datum/psi_complexus/proc/set_cooldown(var/value)
 	next_power_use = world.time + value
@@ -70,13 +80,11 @@
 	stunned(value * 2)
 	set_cooldown(value * 100)
 
-	if(prob(value*10))
-		owner.emote("scream")
+	if(prob(value*10)) owner.emote("scream")
 
 	// Your head asplode.
 	owner.adjustBrainLoss(value)
 	owner.adjustHalLoss(value * 25) //Ouch.
-	owner.psi.hide_auras()
 	if(ishuman(owner))
 		var/mob/living/carbon/human/pop = owner
 		if(pop.should_have_organ(BP_BRAIN))
@@ -89,6 +97,8 @@
 
 /datum/psi_complexus/proc/reset()
 	aura_color = initial(aura_color)
+	ranks = base_ranks ? base_ranks.Copy() : null
 	max_stamina = initial(max_stamina)
 	stamina = min(stamina, max_stamina)
+	cancel()
 	update()

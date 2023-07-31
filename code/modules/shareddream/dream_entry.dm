@@ -17,7 +17,7 @@ var/list/dream_entries = list()
 	// If they're an Unconsious person with the abillity to do Skrellepathy.
 	// If either changes, they should be nocked back to the real world.
 	var/mob/living/carbon/human/srom_puller = srom_pulled_by?.resolve()
-	if((has_psionics() || (srom_puller && Adjacent(srom_puller))) && stat == UNCONSCIOUS && sleeping > 1)
+	if((can_commune() || (srom_puller && Adjacent(srom_puller))) && stat == UNCONSCIOUS && sleeping > 1)
 		if(!istype(bg) && client) // Don't spawn a brainghost if we're not logged in.
 			bg = new /mob/living/brain_ghost(src) // Generate a new brainghost.
 			if(isnull(bg)) // Prevents you from getting kicked if the brain ghost didn't spawn - geeves
@@ -30,7 +30,7 @@ var/list/dream_entries = list()
 			to_chat(bg, "<span class='warning'>Whilst in shared dreaming, you find it difficult to hide your secrets.</span>")
 			if(willfully_sleeping)
 				to_chat(bg, "To wake up, use the \"Awaken\" verb in the IC tab.")
-			if(!srom_pulling && has_psionics())
+			if(!srom_pulling && can_commune())
 				var/obj/item/grab/G = r_hand
 				if(!G)
 					G = l_hand
@@ -50,7 +50,7 @@ var/list/dream_entries = list()
 		if(istype(bg) || force_wakeup)
 			// If we choose to be asleep, keep sleeping.
 			if(willfully_sleeping && sleeping && stat == UNCONSCIOUS)
-				if(has_psionics() || srom_pulled_by)
+				if(can_commune() || srom_pulled_by)
 					sleeping = 5
 					return
 			for(var/thing in SSpsi.processing)
