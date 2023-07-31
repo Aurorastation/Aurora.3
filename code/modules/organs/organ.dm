@@ -187,6 +187,7 @@
 	else if(owner.bodytemperature >= 170)	//cryo stops germs from moving and doing their bad stuffs
 		//** Handle antibiotics and curing infections
 		handle_antibiotics()
+		handle_immunosuppressants()
 		handle_rejection()
 		handle_germ_effects()
 
@@ -241,8 +242,7 @@
 			take_damage(1,silent=prob(30))
 
 /obj/item/organ/proc/handle_rejection()
-	// Process unsuitable transplants. TODO: consider some kind of
-	// immunosuppressant that changes transplant data to make it match.
+	// Process unsuitable transplants.
 	if(dna)
 		if(!rejecting)
 			if(blood_incompatible(dna.b_type, owner.dna.b_type, species, owner.species))
@@ -310,10 +310,14 @@
 
 //Germs
 /obj/item/organ/proc/handle_antibiotics()
+	var/antibiotics
 	if(!owner || !(CE_ANTIBIOTIC in owner.chem_effects) || (germ_level <= 0))
 		return
-
-	var/antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
+	var/antiimmune = owner.chem_effects[CE_ANTIIMMUNE]
+	if(antiimmune)
+		antibiotics = ((owner.chem_effects[CE_ANTIBIOTIC]) * 0.5) //antibiotic effectiveness is severely hampered
+	else
+		antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
 
 	if(germ_level <= INFECTION_LEVEL_ONE)
 		if(antibiotics >= 5)
@@ -324,6 +328,20 @@
 		germ_level = max(germ_level - min(antibiotics, 6), 0) //Still quick, infection's not too bad. At max dose and germ_level 500, should take a minute or two
 	else
 		germ_level = max(germ_level - min(antibiotics * 0.5, 3), 0) //Big infections, very slow to stop. At max dose and germ_level 1000, should take five to six minutes
+
+//Immunosuppressants
+/obj/item/organ/proc/handle_immunosuppressants()
+	if(!owner || !(CE_ANTIIMMUNE in owner.chem_effects))
+		return
+
+	var/antiimmune = owner.chem_effects[CE_ANTIIMMUNE]
+
+	if(rejecting <= 3)
+		rejecting = 0 //nullifies rejection
+		if(dna)
+			dna.b_type = owner.dna.b_type
+	else
+		rejecting = max(rejecting - min(antiimmune, 2), 0) //fairly slow to work, don't want it to be trivial after all
 
 //Adds autopsy data for used_weapon.
 /obj/item/organ/proc/add_autopsy_data(var/used_weapon, var/damage)
