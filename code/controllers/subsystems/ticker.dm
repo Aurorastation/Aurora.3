@@ -466,16 +466,17 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/datum/space_sector/current_sector = SSatlas.current_sector
 	if(istype(current_sector))
-		var/list/sites = english_list(SSatlas.current_sector.possible_sites_in_sector())
-		var/list/ruins = english_list(SSatlas.current_sector.possible_ruins_in_sector())
-		to_world({"\
-			<span class='notice' onclick="document.getElementById('current_sector_show_sites_id').style.display='';">\
-				Current sector: [current_sector]. Click to see every possible site/ship that can potentially spawn here.\
-			</span>\
-			<span class='notice' id='current_sector_show_sites_id' style='display:none'>\
+		var/list/sites = SSatlas.current_sector.possible_sites_in_sector()
+		var/list/ruins = SSatlas.current_sector.possible_ruins_in_sector()
+		var/html = {"\
+			<span class='notice' onclick='document.getElementById("current_sector_show_sites_id").style.display="";'> \
+				Current sector: [current_sector]. Click to see every possible site/ship that can potentially spawn here. \
+			</span> \
+			<span class='notice' id='current_sector_show_sites_id' style='display:none'> \
 				<br> Sites: [sites]; <br> Ruins: [ruins]; <br> \
-			</span>\
-		"})
+			</span> \
+		"}
+		to_world(html)
 
 		// var/text = "Current sector: [current_sector]. Click to see every possible site/ship that can potentially spawn here."
 		// for(var/client/client in clients)
