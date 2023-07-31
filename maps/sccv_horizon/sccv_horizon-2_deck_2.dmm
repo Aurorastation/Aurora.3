@@ -4337,6 +4337,9 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/structure/sign/directions/prop{
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "bWT" = (
@@ -23829,6 +23832,11 @@
 	c_tag = "Engineering - Hallway 5";
 	dir = 8
 	},
+/obj/structure/sign/directions/prop{
+	pixel_x = 32;
+	dir = 4;
+	pixel_y = 10
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
 "lFE" = (
@@ -27309,6 +27317,10 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/structure/sign/directions/prop{
+	dir = 4;
+	pixel_y = -22
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "ngG" = (
@@ -30232,6 +30244,13 @@
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
+/area/hallway/engineering)
+"oEV" = (
+/obj/structure/railing/mapped,
+/obj/structure/sign/directions/prop{
+	pixel_y = 32
+	},
+/turf/simulated/open,
 /area/hallway/engineering)
 "oFp" = (
 /obj/effect/floor_decal/spline/plain/cee{
@@ -68743,7 +68762,7 @@ xZI
 qCs
 vgt
 iSx
-jsA
+oEV
 uyq
 voz
 gfX

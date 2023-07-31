@@ -339,9 +339,23 @@
 	gear_tweaks += new /datum/gear_tweak/path(badge)
 
 /datum/gear/accessory/namepin
-	display_name = "pin tag (colourable)"
+	display_name = "pins selection"
 	path = /obj/item/clothing/accessory/badge/namepin
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/namepin/New()
+	..()
+	var/list/pin = list()
+	pin["pin, name tag"] = /obj/item/clothing/accessory/badge/namepin
+	pin["pin, any/all pronouns"] = /obj/item/clothing/accessory/pronoun
+	pin["pin, he/him pronouns"] = /obj/item/clothing/accessory/pronoun/hehim
+	pin["pin, he/they pronouns"] = /obj/item/clothing/accessory/pronoun/hethey
+	pin["pin, she/her pronouns"] = /obj/item/clothing/accessory/pronoun/sheher
+	pin["pin, she/they pronouns"] = /obj/item/clothing/accessory/pronoun/shethey
+	pin["pin, they/them pronouns"] = /obj/item/clothing/accessory/pronoun/theythem
+	pin["pin, it/its pronouns"] = /obj/item/clothing/accessory/pronoun/itits
+	pin["pin, please ask! pronouns"] = /obj/item/clothing/accessory/pronoun/ask
+	gear_tweaks += new /datum/gear_tweak/path(pin)
 
 /datum/gear/accessory/ribbon
 	display_name = "ribbon (colourable)"

@@ -1,6 +1,6 @@
 /obj/screen/psi/hub
 	name = "Psi"
-	icon_state = "psi_suppressed"
+	icon_state = "psi_active"
 	screen_loc = "EAST-1:28,CENTER-3:11"
 	hidden = FALSE
 	maptext_x = 6
@@ -13,7 +13,6 @@
 	START_PROCESSING(SSprocessing, src)
 
 /obj/screen/psi/hub/update_icon()
-
 	if(!owner.psi)
 		return
 
@@ -30,25 +29,68 @@
 		return
 	if(!owner.psi)
 		return
-	maptext = "[round((owner.psi.stamina/owner.psi.max_stamina)*100)]%"
+	maptext = SMALL_FONTS(7, "[round((owner.psi.stamina/owner.psi.max_stamina)*100)]%")
 	update_icon()
 
 /obj/screen/psi/hub/Click(var/location, var/control, var/params)
-	var/list/click_params = params2list(params)
-	if(click_params["shift"])
-		owner.show_psi_assay(owner)
-		return
-
-	if(owner.psi.suppressed && owner.psi.stun)
-		to_chat(owner, "<span class='warning'>You are dazed and reeling, and cannot muster enough focus to do that!</span>")
-		return
-
-	owner.psi.suppressed = !owner.psi.suppressed
-	to_chat(owner, "<span class='notice'>You are <b>[owner.psi.suppressed ? "now suppressing" : "no longer suppressing"]</b> your psi-power.</span>")
-	if(owner.psi.suppressed)
-		owner.psi.cancel()
-		owner.psi.hide_auras()
-	else
-		sound_to(owner, sound('sound/effects/psi/power_unlock.ogg'))
-		owner.psi.show_auras()
+	ui_interact(owner)
 	update_icon()
+
+/obj/screen/psi/hub/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "PsionicShop", "Psionic Point Shop", 400, 500)
+		ui.open()
+
+/obj/screen/psi/hub/ui_state(mob/user)
+    return conscious_state
+
+/obj/screen/psi/hub/ui_status(mob/user, datum/ui_state/state)
+    return UI_INTERACTIVE
+
+/obj/screen/psi/hub/ui_data(mob/user)
+	var/list/data = list()
+	var/owner_rank = owner.psi.get_rank()
+	data["available_psionics"] = list()
+	data["psi_rank"] = psychic_ranks_to_strings[owner_rank]
+	data["psi_points"] = owner.psi.psi_points
+	data["bought_powers"] = owner.psi.psionic_powers
+	for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
+		if(HAS_FLAG(P.ability_flags, PSI_FLAG_SPECIAL) && !(P.type in owner.psi.psionic_powers))
+			continue
+		if(owner_rank < P.minimum_rank)
+			continue
+		/// Apex and Limitless abilities are automatically given, but we want them to have said abilities in the point shop so the users know what they do.
+		if(owner_rank < PSI_RANK_APEX && HAS_FLAG(P.ability_flags, PSI_FLAG_APEX))
+			continue
+		if(owner_rank < PSI_RANK_LIMITLESS && HAS_FLAG(P.ability_flags, PSI_FLAG_LIMITLESS))
+			continue
+		if(NOT_FLAG(P.ability_flags, PSI_FLAG_CANON))
+			if(owner_rank < PSI_RANK_HARMONIOUS && HAS_FLAG(P.ability_flags, PSI_FLAG_EVENT))
+				continue
+		if(owner_rank < PSI_RANK_HARMONIOUS && HAS_FLAG(P.ability_flags, PSI_FLAG_ANTAG))
+			continue
+		data["available_psionics"] += list(
+			list(
+				"name" = P.name,
+				"desc"  = P.desc,
+				"point_cost" = P.point_cost,
+				"minimum_rank" = P.minimum_rank,
+				"path" = P.type
+			)
+		)
+	return data
+
+/obj/screen/psi/hub/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return TRUE
+
+	switch(action)
+		if("buy")
+			var/psionic_path = text2path(params["buy"])
+			if(ispath(psionic_path))
+				var/singleton/psionic_power/P = GET_SINGLETON(psionic_path)
+				P.apply(owner)
+				to_chat(owner, SPAN_NOTICE("You are now capable of using [P.name]."))
+				return TRUE
