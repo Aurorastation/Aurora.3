@@ -57,6 +57,7 @@
 #include "code\__defines\hallucinations.dm"
 #include "code\__defines\hud.dm"
 #include "code\__defines\hydroponics.dm"
+#include "code\__defines\icon_layering.dm"
 #include "code\__defines\important_recursive_contents.dm"
 #include "code\__defines\items_clothing.dm"
 #include "code\__defines\jobs.dm"
