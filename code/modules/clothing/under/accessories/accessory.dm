@@ -10,6 +10,7 @@
 	var/slot = ACCESSORY_SLOT_GENERIC
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
+	var/overlay_in_inventory = TRUE // Whether the worn_overlay should apply when attached to an item of clothing.
 	var/image/accessory_mob_overlay = null
 	var/flippable = 0 //whether it has an attack_self proc which causes the icon to flip horizontally
 	var/flipped = 0
@@ -41,7 +42,7 @@
 		inv_overlay = image(icon = I, icon_state = tmp_icon_state, dir = SOUTH)
 	if(color)
 		inv_overlay.color = color
-	if(build_from_parts)
+	if(build_from_parts && overlay_in_inventory)
 		inv_overlay.cut_overlays()
 		inv_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
@@ -1296,3 +1297,45 @@
 	icon_state = "overall_skirt_x"
 	item_state = "overall_skirt_x"
 /********** Overalls End **********/
+
+// Pronoun pins
+/obj/item/clothing/accessory/pronoun
+	name = "any/all pronouns pin"
+	desc = "A pin denoting the wearer's pronouns: any/all."
+	icon = 'icons/clothing/accessories/pronoun_pin.dmi'
+	icon_state = "pronounpin"
+	item_state = "pronounpin"
+	worn_overlay = "over"
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	overlay_in_inventory = FALSE
+
+/obj/item/clothing/accessory/pronoun/hehim
+	name = "he/him pronouns pin"
+	desc = "A pin denoting the wearer's pronouns: he/him."
+
+/obj/item/clothing/accessory/pronoun/hethey
+	name = "he/they pronouns pin"
+	desc = "A pin denoting the wearer's pronouns: he/they."
+
+/obj/item/clothing/accessory/pronoun/sheher
+	name = "she/her pronouns pin"
+	desc = "A pin denoting the wearer's pronouns: she/her."
+
+/obj/item/clothing/accessory/pronoun/shethey
+	name = "she/they pronouns pin"
+	desc = "A pin denoting the wearer's pronouns: she/they."
+
+/obj/item/clothing/accessory/pronoun/theythem
+	name = "they/them pronouns pin"
+	desc = "A pin denoting the wearer's pronouns: they/them."
+
+/obj/item/clothing/accessory/pronoun/itits
+	name = "it/its pronouns pin"
+	desc = "A pin denoting the wearer's pronouns: it/its."
+
+/obj/item/clothing/accessory/pronoun/ask
+	name = "please ask! pronouns pin"
+	desc = "A pin asking others to ask for their pronouns."
