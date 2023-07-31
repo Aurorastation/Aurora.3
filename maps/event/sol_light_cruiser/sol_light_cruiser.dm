@@ -3,8 +3,9 @@
 	description = "big, green and very, very mean grrr."
 	prefix = "maps/event/"
 	suffixes = "sol_light_cruiser/sol_light_cruiser.dmm"
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 0
-	spawn_cost = 1
+	ship_cost = 5
 	id = "sfa_light_cruiser"
 
 /singleton/submap_archetype/sfa_light_cruiser
@@ -25,13 +26,17 @@
 		\
 	This particular light cruiser has received some substantial field modifications which make it pose only a fraction of the danger it usually would. Most significant of which is the removal of its energy \
 	and missile emplacements, replaced with large coilguns."
-	icon_state = "ship_green"
-	moving_state = "ship_green_moving"
+	icon_state = "light_cruiser"
+	moving_state = "light_cruiser_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 250000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_LARGE
+	designer = "Hephaestus"
+	sizeclass = "Yincheng-class Cruiser"
+	shiptype = "Military patrol and pirate hunting"
+	weapons = "Two hull mounted naval coil guns, one hull affixed grauwolf"
 
 	initial_generic_waypoints = list(
 		"nav_sfa_light_cruiser_1",
