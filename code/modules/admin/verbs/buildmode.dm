@@ -42,10 +42,11 @@
 /obj/effect/bmode//Cleaning up the tree a bit
 	density = 1
 	anchored = 1
-	layer = SCREEN_LAYER
+	layer = SCREEN_LAYER + 1
 	dir = NORTH
 	icon = 'icons/misc/buildmode.dmi'
-	var/obj/effect/bmode/buildholder/master = null
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
+	var/obj/effect/bmode/buildholder/master
 
 /obj/effect/bmode/Destroy()
 	if(master && master.cl)
