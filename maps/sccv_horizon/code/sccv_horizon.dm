@@ -101,7 +101,7 @@
 	map_shuttles = list(
 		/datum/shuttle/autodock/ferry/lift/scc_ship/cargo,
 		/datum/shuttle/autodock/ferry/lift/scc_ship/morgue,
-		/datum/shuttle/autodock/ferry/lift/scc_ship/robotics,
+		/datum/shuttle/autodock/multi/lift/robotics,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod2,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
