@@ -169,7 +169,7 @@
 
 /obj/item/projectile/energy/blaster
 	name = "blaster bolt"
-	icon_state = "heavybolt"
+	icon_state = "laser"
 	damage = 30
 	check_armor = "laser"
 	damage_type = DAMAGE_BURN
@@ -189,7 +189,7 @@
 
 /obj/item/projectile/energy/disruptorstun
 	name = "disruptor bolt"
-	icon_state = "blue_laser"
+	icon_state = "bluelaser"
 	damage = 1
 	agony = 40
 	speed = 0.4
