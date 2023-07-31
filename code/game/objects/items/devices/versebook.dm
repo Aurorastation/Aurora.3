@@ -82,6 +82,14 @@
 	. = ..()
 	randomquip = file2list("ingame_manuals/trinary.txt")
 
+/obj/item/device/versebook/trinary/templeist
+	name = "\improper The Voice of Temple (abdridged version)"
+	desc = "The holy text of the Lodge of Temple Architect, an order within the Trinary Perfection that seeks to attain its goals via technological advancement and scientific discovery."
+	desc_extended = "This book contains some of the words of Temple, a sacred AI within the Trinary Perfection and namesake of the Lodge of the Temple Architect. It also includes some teachings by leading members within the sect. Due to its recent establishment, this book is frequently changed and amended \
+	as new insights into their faith are realized."
+	icon_state = "templeistbook"
+	item_state = "trinary"
+
 /obj/item/device/versebook/siakh
 	name = "\improper Writings of Judizah Si'akh"
 	desc = "A collection of musings, commands and theological discussions, copied many times over from the alleged words of the controversial prophet Judizah Si'akh himself."
