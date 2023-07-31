@@ -305,7 +305,7 @@
 	. = null
 	if((L in languages) && (L in speaker.languages))
 		if(L.name in speaker.languages_to_dialects)
-			var/singleton/dialect/D = decls_repository.get_decl(speaker.languages_to_dialects[L.name])
+			var/singleton/dialect/D = GET_SINGLETON(speaker.languages_to_dialects[L.name])
 			if(L.name in speaker.languages_to_dialects)
-				var/singleton/dialect/R = decls_repository.get_decl(languages_to_dialects[L.name])
+				var/singleton/dialect/R = GET_SINGLETON(languages_to_dialects[L.name])
 				. = D.calculate_cross_understanding(R)

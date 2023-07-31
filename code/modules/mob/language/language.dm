@@ -213,7 +213,7 @@
 
 /mob/living/carbon/human/get_random_dialect(var/datum/language/L)
 	for(var/dialect in L.possible_dialects)
-		var/singleton/dialect/D = decls_repository.get_decl(dialect)
+		var/singleton/dialect/D = GET_SINGLETON(dialect)
 		if(!D.culture_restriction || culture.type == D.culture_restriction)
 			if(!D.origin_restriction || origin.type == D.origin_restriction)
 				. = D
