@@ -239,7 +239,7 @@
 /obj/machinery/door/airlock/generic // the start
 	icon = 'icons/obj/doors/basic/single/generic/door.dmi'
 	door_color = "#909299"//The color of the door itself
-	door_frame_color = "#545c68"//The color of the frame that surrounds the door connecting its sprite to walls
+	door_frame_color = COLOR_GRAY20//The color of the frame that surrounds the door connecting its sprite to walls
 	pixel_x = -16
 	pixel_y = -16
 	assembly_type = /obj/structure/door_assembly/door_assembly_generic

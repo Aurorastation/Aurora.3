@@ -3,7 +3,7 @@
 	desc = "A steel window frame."
 	icon = 'icons/obj/smooth/window/full_window_frame_color.dmi'
 	icon_state = "window_frame"
-	color = COLOR_WALL_GUNMETAL
+	color = COLOR_GRAY20
 	build_amt = 4
 	layer = 2.98
 	anchored = TRUE

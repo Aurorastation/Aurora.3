@@ -404,7 +404,7 @@
 	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	icon_reinf = "reinf_over"
 	icon_colour = COLOR_GRAY40
-	wall_colour = COLOR_WALL_GUNMETAL
+	wall_colour = COLOR_GRAY20
 	golem = SPECIES_GOLEM_STEEL
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
@@ -445,7 +445,7 @@
 	icon_base = "solid"
 	icon_reinf = "reinf_over"
 	icon_colour = "#545c68"
-	wall_colour = COLOR_WALL_GUNMETAL
+	wall_colour = COLOR_GRAY20
 	explosion_resistance = 25
 	hardness = 80
 	weight = 23
