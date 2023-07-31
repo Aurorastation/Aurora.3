@@ -49,13 +49,11 @@
 		qdel(src)
 
 /obj/item/spell/insert/on_melee_cast(atom/hit_atom, mob/user)
-	. = ..()
 	if(istype(hit_atom, /mob/living))
 		var/mob/living/L = hit_atom
 		insert(L,user)
 
 /obj/item/spell/insert/on_ranged_cast(atom/hit_atom, mob/user)
-	. = ..()
 	if(istype(hit_atom, /mob/living))
 		var/mob/living/L = hit_atom
 		insert(L,user)

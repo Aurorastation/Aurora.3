@@ -432,8 +432,8 @@
 
 	else if(href_list["trigger_psi_latencies"])
 		var/datum/psi_complexus/psi = locate(href_list["trigger_psi_latencies"])
-		log_and_message_admins("triggered psionics for [key_name(psi.owner)].")
-		psi.check_psionic_trigger(100, "outside intervention", redactive = TRUE)
+		log_and_message_admins("triggered psi latencies for [key_name(psi.owner)].")
+		psi.check_latency_trigger(100, "outside intervention", redactive = TRUE)
 
 	else if(href_list["monkeyone"])
 		if(!check_rights(R_SPAWN))	return

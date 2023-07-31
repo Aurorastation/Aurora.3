@@ -129,7 +129,6 @@
 	)
 
 	alterable_internal_organs = list()
-	psi_deaf = TRUE
 
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
@@ -184,6 +183,9 @@
 				break
 	if(SB)
 		SB.handle_item_insertion(new /obj/item/device/flashlight/survival(get_turf(H)), TRUE)
+
+/datum/species/diona/has_psi_potential()
+	return FALSE
 
 /datum/species/diona/is_naturally_insulated()
 	return TRUE

@@ -17,7 +17,6 @@
 	var/mob/living/simple_animal/illusion/illusion = null
 
 /obj/item/spell/illusion/on_ranged_cast(atom/hit_atom, mob/user)
-	. = ..()
 	if(istype(hit_atom, /atom/movable))
 		var/atom/movable/AM = hit_atom
 		if(pay_energy(100))
@@ -39,7 +38,6 @@
 				return 1
 
 /obj/item/spell/illusion/on_use_cast(mob/user)
-	. = ..()
 	if(illusion)
 		var/choice = alert(user, "Would you like to have \the [illusion] speak, or do an emote?", "Illusion", "Speak","Emote","Cancel")
 		switch(choice)

@@ -6,7 +6,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 */
 
 
-/obj/effect
+/obj/effect/effect
 	name = "effect"
 	icon = 'icons/effects/effects.dmi'
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT

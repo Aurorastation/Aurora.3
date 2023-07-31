@@ -54,7 +54,3 @@
 			host.drop_from_inventory(src)
 		else
 			qdel(src)
-
-/obj/item/psychic_power/damage_flags()
-	. = ..()
-	. |= DAMAGE_FLAG_PSIONIC

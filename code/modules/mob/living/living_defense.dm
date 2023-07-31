@@ -18,10 +18,6 @@
 	var/natural_armor = GetComponent(/datum/component/armor)
 	if(natural_armor)
 		. += natural_armor
-	if(psi)
-		var/armor = psi.GetComponent(/datum/component/armor/psionic)
-		if(armor)
-			. += armor
 
 /mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone, var/used_weapon = null)
 
@@ -251,7 +247,7 @@
 
 // End BS12 momentum-transfer code.
 
-/mob/living/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags, var/damage_type = DAMAGE_BRUTE)
+/mob/living/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags)
 	if(!damage)
 		return
 
@@ -261,7 +257,7 @@
 		src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
 	user.do_attack_animation(src)
 
-	apply_damage(damage, damage_type, user.zone_sel?.selecting, armor_pen = armor_penetration, damage_flags = attack_flags)
+	apply_damage(damage, DAMAGE_BRUTE, user.zone_sel?.selecting, armor_pen = armor_penetration, damage_flags = attack_flags)
 	updatehealth()
 
 	return TRUE

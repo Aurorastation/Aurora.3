@@ -65,7 +65,6 @@
 	var/selected_sound = null
 
 /obj/item/spell/audible_deception/on_use_cast(mob/user)
-	. = ..()
 	var/list/sound_options = available_sounds
 	if(check_for_scepter())
 		sound_options["!!AIR HORN!!"] = 'sound/items/AirHorn.ogg'
@@ -74,7 +73,6 @@
 		selected_sound = sound_options[new_sound]
 
 /obj/item/spell/audible_deception/on_ranged_cast(atom/hit_atom, mob/living/user)
-	. = ..()
 	var/turf/T = get_turf(hit_atom)
 	if(selected_sound && pay_energy(200))
 		playsound(src, selected_sound, 80, 1, -1)

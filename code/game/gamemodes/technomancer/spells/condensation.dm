@@ -17,7 +17,6 @@
 	cooldown = 2 SECONDS
 
 /obj/item/spell/condensation/on_ranged_cast(atom/hit_atom, mob/user)
-	. = ..()
 	if(pay_energy(200))
 		if(istype(hit_atom, /turf/simulated) && within_range(hit_atom))
 			var/turf/simulated/T = hit_atom

@@ -17,7 +17,6 @@
 	var/busy = 0
 
 /obj/item/spell/passwall/on_melee_cast(atom/hit_atom, mob/user)
-	. = ..()
 	if(busy)	//Prevent someone from trying to get two uses of the spell from one instance.
 		return 0
 	if(!allowed_to_teleport())

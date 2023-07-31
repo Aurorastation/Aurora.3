@@ -214,7 +214,7 @@
 	var/atom/target
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
-		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags, damage_type))
+		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags))
 		target = L
 	else if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob

@@ -36,6 +36,5 @@
 		adjust_instability(2)
 
 /obj/item/spell/aura/biomed/on_use_cast(mob/living/user)
-	. = ..()
 	heal_allies_only = !heal_allies_only
 	to_chat(user, "Your aura will now heal [heal_allies_only ? "your allies" : "everyone"] near you.")
