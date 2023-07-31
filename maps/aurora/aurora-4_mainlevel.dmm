@@ -179,7 +179,6 @@
 /area/maintenance/security_starboard)
 "aaz" = (
 /obj/structure/lattice,
-/obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "aaA" = (
@@ -244,8 +243,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aaH" = (
-/obj/structure/grille/broken,
-/obj/structure/lattice,
 /obj/structure/grille/broken,
 /obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -1528,12 +1525,7 @@
 	icon_state = "map_vent_out";
 	use_power = 1
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "adh" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2181,20 +2173,10 @@
 	dir = 8
 	},
 /obj/machinery/r_n_d/server/advanced/core,
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "aes" = (
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "aet" = (
 /obj/item/material/shard{
@@ -2909,12 +2891,7 @@
 	pump_direction = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "afH" = (
 /obj/structure/cable/green{
@@ -6693,9 +6670,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/device/piano{
-	broken = 1;
-	force_piano = 1;
+/obj/structure/synthesized_instrument/synthesizer/piano{
 	pixel_x = 6;
 	pixel_y = -6
 	},
@@ -10409,7 +10384,6 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "atx" = (
-/obj/machinery/computer/power_monitor,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -12314,7 +12288,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awP" = (
@@ -12352,7 +12326,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awT" = (
@@ -15643,7 +15617,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aCa" = (
-/obj/machinery/computer/station_alert/engineering,
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
@@ -18701,12 +18674,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "aGI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -18906,12 +18874,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "aHa" = (
 /obj/structure/grille,
@@ -20507,7 +20470,7 @@
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJE" = (
@@ -20736,7 +20699,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/toy/prize/deathripley{
+/obj/item/toy/mech/deathripley{
 	desc = "This is Johnny 5. Is he alive?";
 	name = "Johnny 5"
 	},
@@ -21010,9 +20973,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
-/obj/structure/sign/flag/scc/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/scc/large/north,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aKu" = (
@@ -23698,7 +23659,6 @@
 /area/security/brig/control_room)
 "aPc" = (
 /obj/machinery/firealarm/south,
-/obj/machinery/computer/station_alert/security,
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aPd" = (
@@ -25051,7 +25011,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aRu" = (
@@ -25194,7 +25154,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aRG" = (
@@ -25620,7 +25580,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aSg" = (
-/obj/machinery/computer/station_alert/engineering,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
@@ -28549,7 +28508,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aXu" = (
@@ -30964,14 +30923,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
-/obj/structure/sign/flag/scc/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/scc/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/scc/large/north,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics_cyborgification)
 "bbD" = (
@@ -33265,10 +33217,6 @@
 /obj/structure/table/rack{
 	dir = 8;
 	layer = 2.9
-	},
-/obj/item/circuitboard/powermonitor{
-	pixel_x = -2;
-	pixel_y = 2
 	},
 /obj/item/circuitboard/security/engineering,
 /obj/item/circuitboard/atmos_alert{
@@ -48293,7 +48241,7 @@
 	network = list("Service")
 	},
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/nanoquikpay,
+/obj/item/device/quikpay,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -50686,7 +50634,6 @@
 /obj/machinery/newscaster{
 	pixel_y = -30
 	},
-/obj/machinery/vending/battlemonsters,
 /turf/simulated/floor/wood,
 /area/library)
 "bQR" = (
@@ -50991,7 +50938,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bRW" = (
-/obj/structure/device/piano,
+/obj/structure/synthesized_instrument/synthesizer/piano,
 /obj/structure/table/wood{
 	pixel_x = -2;
 	pixel_y = -1
@@ -51552,7 +51499,7 @@
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
-/obj/item/device/nanoquikpay,
+/obj/item/device/quikpay,
 /obj/item/storage/box/fancy/matches,
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/storage/box/fancy/candle_box,
@@ -52540,7 +52487,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "bVE" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4;
 	must_start_working = 1
 	},
@@ -56713,7 +56660,7 @@
 /obj/structure/track{
 	icon_state = "track12"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/asteroid/airless,
@@ -57430,7 +57377,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid/airless,
@@ -58759,14 +58706,8 @@
 /area/maintenance/medbay)
 "coB" = (
 /obj/structure/table/steel,
-/obj/item/storage/firstaid/regular{
-	empty = 1;
-	name = "First-Aid (empty)"
-	},
-/obj/item/storage/firstaid/regular{
-	empty = 1;
-	name = "First-Aid (empty)"
-	},
+/obj/item/storage/firstaid/empty,
+/obj/item/storage/firstaid/empty,
 /obj/item/device/healthanalyzer,
 /obj/item/device/healthanalyzer,
 /obj/machinery/firealarm/south,
@@ -59017,7 +58958,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -60522,7 +60463,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8;
 	must_start_working = 1
 	},
@@ -60947,9 +60888,7 @@
 /turf/simulated/wall,
 /area/security/brig)
 "gaR" = (
-/obj/machinery/power/singularity_beacon/emergency{
-	name = "emergency tesla beacon"
-	},
+/obj/machinery/power/tesla_beacon,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "gbQ" = (
@@ -62662,7 +62601,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "jcx" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid/airless,
@@ -63240,7 +63179,6 @@
 /area/maintenance/vault)
 "kAL" = (
 /obj/structure/table/wood,
-/obj/item/board,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "kAV" = (
@@ -64384,9 +64322,7 @@
 /obj/structure/table/wood{
 	table_reinf = "wood"
 	},
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 31
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Representative Office"
 	},
@@ -65064,7 +65000,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "odf" = (
@@ -66275,9 +66211,6 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
-/obj/structure/sign/flag/scc/right{
-	pixel_y = 30
-	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "qgs" = (
@@ -67066,7 +66999,7 @@
 /area/maintenance/cargo)
 "ruO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/violin,
+/obj/item/device/synthesized_instrument/violin,
 /obj/structure/table/wood{
 	pixel_x = -2;
 	pixel_y = -1
@@ -67469,9 +67402,6 @@
 	},
 /obj/structure/table/wood{
 	table_reinf = "wood"
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_y = 31
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
@@ -68484,7 +68414,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/flour,
 /obj/structure/table,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/machinery/light_construct{
 	dir = 8
 	},
@@ -71266,7 +71196,7 @@
 	},
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/laceup,
-/obj/item/device/nanoquikpay{
+/obj/item/device/quikpay{
 	pixel_y = 8
 	},
 /obj/item/clothing/gloves/latex/nitrile/tajara,

@@ -359,10 +359,10 @@
 "bud" = (
 /obj/structure/table/steel,
 /obj/structure/table/steel,
-/obj/item/storage/firstaid/brute{
+/obj/item/storage/firstaid/trauma{
 	pixel_x = -4
 	},
-/obj/item/storage/firstaid/brute{
+/obj/item/storage/firstaid/trauma{
 	pixel_x = -4
 	},
 /obj/item/storage/firstaid/fire{
@@ -488,6 +488,7 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/suit/space/void/valkyrie,
 /obj/item/clothing/head/helmet/space/void/valkyrie,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "cWy" = (
@@ -531,6 +532,7 @@
 /obj/item/ammo_magazine/c45m,
 /obj/item/gun/projectile/plasma/bolter,
 /obj/item/ammo_magazine/plasma/light,
+/obj/item/device/gps,
 /turf/simulated/floor/carpet,
 /area/ship/elyran_strike_craft)
 "dqM" = (
@@ -1415,10 +1417,6 @@
 /area/ship/elyran_strike_craft)
 "nDF" = (
 /obj/machinery/hologram/holopad/long_range,
-/obj/structure/sign/flag/elyra/right{
-	dir = 4;
-	pixel_x = 32
-	},
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -1512,10 +1510,7 @@
 /area/ship/elyran_strike_craft)
 "pea" = (
 /obj/structure/table/standard,
-/obj/structure/sign/flag/elyra/left{
-	dir = 4;
-	pixel_x = 32
-	},
+/obj/structure/sign/flag/elyra/large/east,
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
@@ -1783,6 +1778,7 @@
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
+/obj/item/device/gps,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "rBF" = (
@@ -1836,6 +1832,15 @@
 	},
 /obj/item/ship_ammunition/francisca/ap{
 	pixel_y = 8
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)

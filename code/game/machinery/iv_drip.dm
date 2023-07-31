@@ -37,8 +37,14 @@
 	var/epp = TRUE // Emergency Positive Pressure system. Can be toggled if you want to turn it off
 	var/epp_active = FALSE
 
+	//What we accept as a container for IV transfers. Prevents attaching food and organs to IVs.
+	var/list/accepted_containers = list(
+		/obj/item/reagent_containers/blood,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle)
+
 	var/list/mask_blacklist = list(
-		/obj/item/clothing/mask/breath/vaurca,
+		/obj/item/clothing/mask/gas/vaurca,
 		/obj/item/clothing/mask/breath/skrell,
 		/obj/item/clothing/mask/breath/lyodsuit,
 		/obj/item/clothing/mask/breath/infiltrator)
@@ -245,7 +251,7 @@
 			return
 		if(!attached.dna)
 			return
-		if(NOCLONE in attached.mutations)
+		if(HAS_FLAG(attached.mutations, NOCLONE))
 			return
 		if(attached.species.flags & NO_BLOOD)
 			return
@@ -255,7 +261,7 @@
 				beaker.reagents.trans_to_mob(attached, transfer_amount, CHEM_BLOOD)
 				update_icon()
 			if(toggle_stop) // Automatically detaches if the blood volume is at 100%
-				if((beaker.reagents.has_reagent(/decl/reagent/blood) || beaker.reagents.has_reagent(/decl/reagent/saline)) && attached.get_blood_volume() >= 100)
+				if((beaker.reagents.has_reagent(/singleton/reagent/blood) || beaker.reagents.has_reagent(/singleton/reagent/saline)) && attached.get_blood_volume() >= 100)
 					visible_message("\The <b>[src]</b> flashes a warning light, disengaging from [attached]'s [vein.name] automatically!")
 					playsound(src, 'sound/machines/buzz-two.ogg', 100)
 					vein = null
@@ -415,7 +421,7 @@
 	if(istype(W, /obj/item/reagent_containers/blood/ripped))
 		to_chat(user, "You can't use a ripped bloodpack.")
 		return TRUE
-	if(istype(W, /obj/item/reagent_containers))
+	if(is_type_in_list(W, accepted_containers))
 		if(beaker)
 			to_chat(user, "There is already a reagent container loaded!")
 			return TRUE
@@ -559,7 +565,7 @@
 
 /obj/machinery/iv_drip/proc/iv_rip()
 	attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [vein.name]."), SPAN_DANGER("The needle <B>painfully</B> rips out of your [vein.name]."))
-	vein.take_damage(brute = 5, damage_flags = DAM_SHARP)
+	vein.take_damage(brute = 5, damage_flags = DAMAGE_FLAG_SHARP)
 	vein = null
 	attached = null
 

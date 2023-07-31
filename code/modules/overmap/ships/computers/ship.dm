@@ -8,6 +8,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	var/extra_view = 0 // how much the view is increased by when the mob is in overmap mode.
 	var/obj/effect/overmap/visitable/ship/connected //The ship we're attached to. This is a typecheck for linked, to ensure we're linked to a ship and not a sector
 	var/targeting = FALSE //Are we targeting anything right now?
+	var/linked_type = /obj/effect/overmap/visitable/ship
 
 /obj/machinery/computer/ship/proc/display_reconnect_dialog(var/mob/user, var/flavor)
 	var/datum/browser/popup = new (user, "[src]", "[src]")
@@ -41,7 +42,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 
 /obj/machinery/computer/ship/sync_linked()
 	. = ..()
-	if(istype(linked, /obj/effect/overmap/visitable/ship))
+	if(istype(linked, linked_type))
 		connected = linked
 
 // Management of mob view displacement. look to shift view to the ship on the overmap; unlook to shift back.
@@ -51,10 +52,13 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		user.reset_view(linked)
 	if(user.client)
 		user.client.view = world.view + extra_view
-	moved_event.register(user, src, /obj/machinery/computer/ship/proc/unlook)
+	moved_event.register(user, src, PROC_REF(unlook))
 	if(user.eyeobj)
-		moved_event.register(user.eyeobj, src, /obj/machinery/computer/ship/proc/unlook)
+		moved_event.register(user.eyeobj, src, PROC_REF(unlook))
 	LAZYDISTINCTADD(viewers, WEAKREF(user))
+	if(linked)
+		LAZYDISTINCTADD(linked.navigation_viewers, WEAKREF(user))
+	ADD_TRAIT(user, TRAIT_COMPUTER_VIEW, ref(src))
 
 /obj/machinery/computer/ship/proc/unlook(var/mob/user)
 	user.reset_view()
@@ -70,16 +74,24 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		c.pixel_x = 0
 		c.pixel_y = 0
 
-	moved_event.unregister(user, src, /obj/machinery/computer/ship/proc/unlook)
+	moved_event.unregister(user, src, PROC_REF(unlook))
 
 	if(isEye(user)) // If we're an AI eye, the computer has our AI mob in its viewers list not the eye mob
 		var/mob/abstract/eye/E = user
-		moved_event.unregister(E.owner, src, /obj/machinery/computer/ship/proc/unlook)
+		moved_event.unregister(E.owner, src, PROC_REF(unlook))
 		LAZYREMOVE(viewers, WEAKREF(E.owner))
 	LAZYREMOVE(viewers, WEAKREF(user))
+	if(linked)
+		LAZYREMOVE(linked.navigation_viewers, WEAKREF(user))
+
+	if(linked)
+		for(var/obj/machinery/computer/ship/sensors/sensor in linked.consoles)
+			sensor.hide_contacts(user)
+
+	REMOVE_TRAIT(user, TRAIT_COMPUTER_VIEW, ref(src))
 
 /obj/machinery/computer/ship/proc/viewing_overmap(mob/user)
-	return (WEAKREF(user) in viewers)
+	return (WEAKREF(user) in viewers) || (linked && (WEAKREF(user) in linked.navigation_viewers))
 
 /obj/machinery/computer/ship/CouldNotUseTopic(mob/user)
 	. = ..()
@@ -98,9 +110,11 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	if (use_check_and_message(user, flags) || user.blinded || inoperable() || !linked)
 		return -1
 	else
-		return 0
+		return SEE_THRU
 
 /obj/machinery/computer/ship/Destroy()
+	if(linked)
+		linked = null
 	if(connected)
 		LAZYREMOVE(connected.consoles, src)
 	. = ..()
@@ -113,6 +127,8 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 			var/M = W.resolve()
 			if(M)
 				unlook(M)
+				if(linked)
+					LAZYREMOVE(linked.navigation_viewers, W)
 	. = ..()
 
 /obj/machinery/computer/ship/on_user_login(mob/M)
@@ -122,13 +138,14 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	. = ..()
 
 	if(.)
-		if(istype(linked, /obj/effect/overmap/visitable/ship)) //Only ships get ship computers
+		if(istype(linked, linked_type))
 			connected = linked
-			LAZYSET(connected.consoles, src, TRUE)
+			if(istype(connected)) // we do a little type abuse
+				LAZYSET(connected.consoles, src, TRUE)
 
 /obj/machinery/computer/ship/Initialize()
 	. = ..()
 	if(current_map.use_overmap && !linked)
 		var/my_sector = map_sectors["[z]"]
-		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
+		if(istype(my_sector, linked_type))
 			attempt_hook_up(my_sector)

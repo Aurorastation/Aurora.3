@@ -308,7 +308,7 @@
 	name = "NTCC Odin Chef"
 
 	uniform = /obj/item/clothing/under/rank/chef
-	suit = /obj/item/clothing/suit/chef
+	suit = /obj/item/clothing/suit/chef_jacket
 	head = /obj/item/clothing/head/chefhat
 	shoes = /obj/item/clothing/shoes/laceup/all_species
 	headset = /obj/item/device/radio/headset/headset_service

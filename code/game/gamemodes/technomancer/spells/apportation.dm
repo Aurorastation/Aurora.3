@@ -19,7 +19,7 @@
 	if(istype(hit_atom, /atom/movable))
 		var/atom/movable/AM = hit_atom
 
-		if(!AM.loc) //Don't teleport HUD telements to us.
+		if(!AM.loc) //Don't teleport HUD elements to us.
 			return
 		if(AM.anchored)
 			to_chat(user, "<span class='warning'>\The [hit_atom] is firmly secured and anchored, you can't move it!</span>")
@@ -50,7 +50,7 @@
 			spark(L, 5, cardinal)
 			spark(user, 5, cardinal)
 			L.throw_at(get_step(get_turf(src), get_dir(src, L)), 4, 1, src)
-			addtimer(CALLBACK(src, .proc/seize_mob, L, user), 1 SECOND)
+			addtimer(CALLBACK(src, PROC_REF(seize_mob), L, user), 1 SECOND)
 			user.drop_item(src)
 			src.loc = null
 

@@ -3,6 +3,7 @@
 /obj/item/gun/energy/wand
 	name = "wand of nothing"
 	desc = "A magic stick, this one don't do much however."
+	desc_info = null
 	icon = 'icons/obj/wands.dmi'
 	icon_state = "nothingwand"
 	item_state = "wand"
@@ -10,15 +11,13 @@
 	fire_sound = 'sound/magic/wand.ogg'
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
-	max_shots = 20
+	max_shots = 10
+	charge_cost = 100
 	projectile_type = /obj/item/projectile/magic
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5, TECH_BLUESPACE = 6)
 	charge_meter = 0
-	charge_failure_message = null
 	has_safety = FALSE
-
-/obj/item/gun/energy/wand/get_cell()
-	return DEVICE_NO_CELL
+	needspin = FALSE
 
 /obj/item/gun/energy/wand/handle_click_empty(mob/user = null)
 	if (user)
@@ -28,7 +27,7 @@
 	playsound(src.loc, 'sound/effects/sparks1.ogg', 100, 1)
 
 /obj/item/gun/energy/wand/special_check(var/mob/living/user)
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
 		return 0
 	return 1

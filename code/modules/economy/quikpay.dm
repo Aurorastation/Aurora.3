@@ -1,26 +1,26 @@
 
 
-/obj/item/device/nanoquikpay
-	name = "\improper NT Quik-Pay"
+/obj/item/device/quikpay
+	name = "\improper Idris Quik-Pay"
 	desc = "Swipe your ID to make direct company purchases."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "quikpay"
+	w_class = ITEMSIZE_SMALL
+	slot_flags = SLOT_BELT
 	var/machine_id = ""
 	var/list/items = list()
+	var/list/items_to_price = list()
+	var/list/buying = list()
+	var/new_item = ""
+	var/new_price = 0
 	var/sum = 0
-	var/access_code = 0
-	var/editmode = 0
+	var/editmode = FALSE
 	var/receipt = ""
 	var/destinationact = "Service"
 
-
-
-
-/obj/item/device/nanoquikpay/Initialize()
+/obj/item/device/quikpay/Initialize()
 	. = ..()
-	machine_id = "[station_name()] Quik-Pay #[SSeconomy.num_financial_terminals++]"
-	access_code = rand(1111,111111)
-	print_reference()
+	machine_id = "[station_name()] Idris Quik-Pay #[SSeconomy.num_financial_terminals++]"
 
 	//create a short manual as well
 	var/obj/item/paper/R = new(src.loc)
@@ -28,13 +28,12 @@
 
 	R.info += "<b>Quik-Pay setup:</b><br>"
 	R.info += "<ol><li>Remember your access code included on the paper that is included with your device</li>"
-	R.info += "<li>Enter the pin into the locking mechanism to be able to add items to the menu</li>"
+	R.info += "<li>Unlock it to be able to add items to the menu</li>"
 	R.info += "<li>Add items to the menu by typing the item name and its price</li></ol>"
 	R.info += "<b>When starting a new transaction:</b><br>"
-	R.info += "<ol><li>Have the customer enter the amount of the item they want.</li>"
-	R.info += "<li>Press confirm payment</li>"
+	R.info += "<ol><li>Have the customer enter the amount of the item they want and then confirm the purchase.</li>"
 	R.info += "<li>Allow them to review the sum.</li>"
-	R.info += "<li>Have them swipe their card to pay for the items, press return to reset the sum.</li></ol>"
+	R.info += "<li>Have them swipe their card to pay for the items.</li></ol>"
 
 
 	//stamp the paper
@@ -49,37 +48,14 @@
 	R.add_overlay(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Executive Officer's desk.</i>"
 
-/obj/item/device/nanoquikpay/AltClick(var/mob/user)
+/obj/item/device/quikpay/AltClick(var/mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()
 	if(istype(I) && (access_heads in I.access))
-		editmode = 1
+		editmode = TRUE
 		to_chat(user, SPAN_NOTICE("Command access granted."))
-		SSvueui.check_uis_for_change(src)
+		SStgui.update_uis(src)
 
-
-/obj/item/device/nanoquikpay/proc/print_reference()
-	var/obj/item/paper/R = new(src.loc)
-	var/pname = "Reference: [machine_id]"
-	var/info = "<b>[machine_id] reference</b><br><br>"
-	info += "Access code: [access_code]<br><br>"
-	info += "<b>Do not lose or misplace this code.</b><br>"
-	R.set_content_unsafe(pname, info)
-
-	//stamp the paper
-	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-cent"
-	if(!R.stamped)
-		R.stamped = new
-	R.stamped += /obj/item/stamp
-	R.add_overlay(stampoverlay)
-	R.stamps += "<HR><i>This paper has been stamped by the Executive Officer's desk.</i>"
-	var/obj/item/smallDelivery/D = new(R.loc)
-	R.forceMove(D)
-	D.wrapped = R
-	D.name = "small parcel - 'Quik Pay access code'"
-
-
-/obj/item/device/nanoquikpay/proc/print_receipt()
+/obj/item/device/quikpay/proc/print_receipt()
 	var/obj/item/paper/R = new(usr.loc)
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
@@ -93,9 +69,7 @@
 	R.add_overlay(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Quik-Pay device.</i>"
 
-
-
-/obj/item/device/nanoquikpay/attackby(obj/O, mob/user)
+/obj/item/device/quikpay/attackby(obj/O, mob/user)
 	if (istype(O, /obj/item/spacecash/ewallet))
 		var/obj/item/spacecash/ewallet/E = O
 		var/transaction_amount = sum
@@ -104,142 +78,159 @@
 
 		if(transaction_amount <= E.worth)
 			playsound(src, 'sound/machines/chime.ogg', 50, 1)
-			src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
+			src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
 
 			SSeconomy.charge_to_account(SSeconomy.get_department_account(destinationact)?.account_number, E.owner_name, transaction_purpose, transaction_terminal, transaction_amount)
 			E.worth -= transaction_amount
 			print_receipt()
 			sum = 0
 			receipt = ""
-			to_chat(src.loc, SPAN_NOTICE("Transaction completed, please return to the home screen."))
+			to_chat(user, SPAN_NOTICE("Transaction completed, please return to the home screen."))
 		else if (transaction_amount > E.worth)
-			to_chat(user, "[icon2html(src, user)]<span class='warning'>\The [E] doesn't have that much money!</span>")
+			to_chat(user, SPAN_WARNING("[icon2html(src, user)]\The [E] doesn't have that much money!"))
 		return
 
 	var/obj/item/card/id/I = O.GetID()
-	if (!I)
-		return
 	if (!istype(O))
 		return
 
+	var/transaction_amount = sum
+	var/transaction_purpose = "[destinationact] Payment"
+	var/transaction_terminal = machine_id
+
+	var/transaction = SSeconomy.transfer_money(I.associated_account_number, SSeconomy.get_department_account(destinationact)?.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
+
+	if(transaction)
+		to_chat(user, SPAN_NOTICE("[icon2html(src, user)]<span class='warning'>[transaction].</span>"))
 	else
-
-		var/transaction_amount = sum
-		var/transaction_purpose = "[destinationact] Payment"
-		var/transaction_terminal = machine_id
-
-		var/transaction = SSeconomy.transfer_money(I.associated_account_number, SSeconomy.get_department_account(destinationact)?.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
-
-		if(transaction)
-			to_chat(user,"[icon2html(src, user)]<span class='warning'>[transaction].</span>")
-		else
-			playsound(src, 'sound/machines/chime.ogg', 50, 1)
-			src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
-			print_receipt()
-			sum = 0
-			receipt = ""
-			to_chat(src.loc, SPAN_NOTICE("Transaction completed, please return to the home screen."))
-
-// VUEUI Below <3
-
-
-/obj/item/device/nanoquikpay/attack_self(mob/user as mob)
-	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
-	if (!ui)
-		ui = new(usr, src, "devices-quikpay-main", 400, 400, "NT Quik-Pay")
-	ui.open()
-
-/obj/item/device/nanoquikpay/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		. = data = list()
-
-	VUEUI_SET_CHECK_IFNOTSET(data["items"], items, ., data)
-	VUEUI_SET_CHECK_IFNOTSET(data["price"], items, ., data)
-	VUEUI_SET_CHECK_IFNOTSET(data["tmp_name"], "", ., data)
-	VUEUI_SET_CHECK_IFNOTSET(data["tmp_price"], 0, ., data)
-	VUEUI_SET_CHECK(data["tmp_price"], max(0, data["tmp_price"]), ., data)
-	if(data["tmp_price"] < 0)
-		data["tmp_price"] = 0
-		. = data
-	VUEUI_SET_CHECK_IFNOTSET(data["selection"], list("_" = 0), ., data)
-	VUEUI_SET_CHECK(data["editmode"], editmode, ., data)
-	VUEUI_SET_CHECK(data["destinationact"], destinationact, ., data)
-
-/obj/item/device/nanoquikpay/Topic(href, href_list)
-	var/datum/vueui/ui = href_list["vueui"]
-	if(!istype(ui))
-		return
-	if(href_list["add"])
-
-		if(editmode == 0)
-			to_chat(src, SPAN_NOTICE("You don't have access to use this option."))
-			return 0
-
-		items[href_list["add"]["name"]] = href_list["add"]["price"]
-		ui.data["items"][href_list["add"]["name"]] = href_list["add"]["price"]
-		. = TRUE
-	if(href_list["remove"])
-
-		if(editmode == 0)
-			to_chat(src, SPAN_NOTICE("You don't have access to use this option."))
-			return 0
-		items -= href_list["remove"]
-		ui.data["items"] -= href_list["remove"]
-		. = TRUE
-	if(href_list["confirm"])
-		var/selection = ui.data["selection"]
-		var/items = ui.data["items"]
-		for(var/name in selection)
-			if(items[name] && selection[name])
-				sum += items[name] * selection[name]
-				receipt += "<b>[name]</b> : [items[name]]x[selection[name]]:  [items[name] * selection[name]]<br>"
-		ui.activeui = "devices-quikpay-confirmation"
-		. = TRUE
-	if(href_list["return"])
+		playsound(src, 'sound/machines/chime.ogg', 50, 1)
+		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
+		print_receipt()
 		sum = 0
 		receipt = ""
-		ui.activeui = "devices-quikpay-main"
-		. = TRUE
+		to_chat(user, SPAN_NOTICE("Transaction completed, please return to the home screen."))
 
+/obj/item/device/quikpay/attack_self(var/mob/user)
+	ui_interact(user)
 
-	if(href_list["locking"])
-		if(editmode == 1)
-			editmode = 0
-			to_chat(src, SPAN_NOTICE("Device Locked."))
-			SSvueui.check_uis_for_change(src)
-			return 0
-		if(editmode == 0)
-			var/attempt_code = input("Enter the edit code", "Confirm edit access code") as num //Copied the eftpos method, dont judge
-			if(attempt_code == access_code)
-				editmode = 1
-				to_chat(src, SPAN_NOTICE("Device Unlocked."))
-				SSvueui.check_uis_for_change(src)
-		. = TRUE
+/obj/item/device/quikpay/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "QuikPay", "Idris Quik-Pay", 400, 400)
+		ui.open()
 
-	if(href_list["accountselect"])
+/obj/item/device/quikpay/ui_data(var/mob/user)
+	var/list/data = list()
 
-		if(editmode == 0)
-			to_chat(usr, SPAN_NOTICE("You don't have access to use this option."))
-			return 0
-		switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Service", "Operations", "Command", "Medical", "Security", "Engineering", "Science"))
+	data["items"] = items
+	data["buying"] = buying
+	data["sum"] = sum
+	data["new_item"] = new_item
+	data["new_price"] = new_price
+	data["editmode"] = editmode
+	data["destinationact"] = destinationact
 
-			if("Service")
-				destinationact = "Service"
-			if("Operations")
-				destinationact = "Operations"
-			if("Command")
-				destinationact = "Command"
-			if("Medical")
-				destinationact = "Medical"
-			if("Security")
-				destinationact = "Security"
-			if("Engineering")
-				destinationact = "Engineering"
-			if("Science")
-				destinationact = "Science"
-	. = TRUE
-	playsound(src, 'sound/machines/chime.ogg', 50, 1)
-	SSvueui.check_uis_for_change(src)
+	return data
 
+/obj/item/device/quikpay/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
+	switch(action)
+		if("add")
+			if(!editmode)
+				to_chat(usr, SPAN_WARNING("Device locked."))
+				return FALSE
 
+			items += list(list("name" = new_item, "price" = new_price))
+			items_to_price[new_item] = new_price
+			. = TRUE
+
+		if("remove")
+			if(!editmode)
+				to_chat(usr, SPAN_NOTICE("Device locked."))
+				return FALSE
+
+			items -= params["remove"]
+			items_to_price -= params["remove"]
+			. = TRUE
+
+		if("set_new_price")
+			new_price = params["set_new_price"]
+			. = TRUE
+
+		if("set_new_item")
+			new_item = params["set_new_item"]
+			. = TRUE
+
+		if("clear")
+			clear_order()
+			. = TRUE
+
+		if("buy")
+			for(var/list/L in buying)
+				if(L["name"] == params["buying"])
+					L["amount"]++
+					return TRUE
+			buying += list(list("name" = params["buying"], "amount" = params["amount"]))
+
+		if("removal")
+			for(var/list/L in buying)
+				if(L["name"] == params["removal"])
+					if(L["amount"] > 1)
+						L["amount"]--
+					else
+						buying -= L
+			. = TRUE
+
+		if("confirm")
+			for(var/list/bought_item in buying)
+				var/item_name = bought_item["name"]
+				var/item_amount = bought_item["amount"]
+				var/item_price = items_to_price[item_name]
+
+				receipt += "<b>[name]</b>: [item_name] x[item_amount] at [item_price]cr each<br>"
+				sum += item_price
+			. = TRUE
+
+		if("locking")
+			if(editmode)
+				editmode = FALSE
+				to_chat(usr, SPAN_NOTICE("Device locked."))
+			else
+				if(!editmode)
+					var/obj/item/card/id/I = usr.GetIdCard()
+					if(!istype(I))
+						return
+					if(check_access(I))
+						editmode = !editmode
+						to_chat(usr, SPAN_NOTICE("Device [editmode ? "un" : ""]locked."))
+			. = TRUE
+
+		if("accountselect")
+			if(!editmode)
+				to_chat(usr, SPAN_WARNING("Device locked."))
+				return FALSE
+
+			switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Service", "Operations", "Command", "Medical", "Security", "Engineering", "Science"))
+				if("Service")
+					destinationact = "Service"
+				if("Operations")
+					destinationact = "Operations"
+				if("Command")
+					destinationact = "Command"
+				if("Medical")
+					destinationact = "Medical"
+				if("Security")
+					destinationact = "Security"
+				if("Engineering")
+					destinationact = "Engineering"
+				if("Science")
+					destinationact = "Science"
+			. = TRUE
+
+/obj/item/device/quikpay/proc/clear_order()
+	buying.Cut()
+	sum = 0
+	receipt = ""

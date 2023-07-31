@@ -1,4 +1,4 @@
-proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam,var/p_range,var/can_cover=TRUE,var/shard_range = 50)
+/proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam,var/p_range,var/can_cover=TRUE,var/shard_range = 50)
 	var/turf/O = get_turf(source)
 	var/fragger = rand(fragx,fragy)
 	explosion(O, -1, -1, light_dam, flash_dam)

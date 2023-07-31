@@ -1,44 +1,3 @@
-#define OUTFIT_NOTHING 1
-
-#define OUTFIT_BACKPACK 2
-#define OUTFIT_SATCHEL 3 // the classic grey sling one
-#define OUTFIT_SATCHEL_ALT 4 // the leather bag
-#define OUTFIT_DUFFELBAG 5
-#define OUTFIT_MESSENGERBAG 6
-#define OUTFIT_RUCKSACK 7 // the bay one
-#define OUTFIT_POCKETBOOK 8 // the leather bag but smaller
-
-#define OUTFIT_JOBSPECIFIC 1
-#define OUTFIT_GENERIC 2
-#define OUTFIT_FACTIONSPECIFIC 3
-
-#define OUTFIT_THIN 2
-#define OUTFIT_NORMAL 3
-#define OUTFIT_THICK 4
-
-#define OUTFIT_BLUE 2
-#define OUTFIT_GREEN 3
-#define OUTFIT_NAVY 4
-#define OUTFIT_TAN 5
-#define OUTFIT_KHAKI 6
-#define OUTFIT_BLACK 7
-#define OUTFIT_OLIVE 8
-#define OUTFIT_AUBURN 9
-#define OUTFIT_BROWN 10
-
-#define OUTFIT_TAB_PDA 2
-#define OUTFIT_PDA_OLD 3
-#define OUTFIT_PDA_RUGGED 4
-#define OUTFIT_PDA_SLATE 5
-#define OUTFIT_PDA_SMART 6
-#define OUTFIT_TABLET 7
-#define OUTFIT_WRISTBOUND 8
-
-#define OUTFIT_HEADSET 2
-#define OUTFIT_BOWMAN 3
-#define OUTFIT_DOUBLE 4
-#define OUTFIT_WRISTRAD 5
-
 /datum/outfit
 	var/name = "Naked"
 	var/collect_not_del = FALSE
@@ -190,7 +149,9 @@
 					back = /obj/item/storage/backpack/satchel/leather/recolorable
 
 	if(back)
-		var/obj/item/storage/backpack/B = new back(H) //i'll be honest with you - i'm kinda retarded
+		if(islist(back))
+			back = pick(back)
+		var/obj/item/storage/backpack/B = new back(H)
 		if (H.backbag == OUTFIT_SATCHEL_ALT || H.backbag == OUTFIT_RUCKSACK || H.backbag == OUTFIT_POCKETBOOK)
 			switch (H.backbag_color)
 				if (OUTFIT_NOTHING)
@@ -229,6 +190,7 @@
 		else
 			H.equip_or_collect(B, slot_back)
 
+	var/datum/callback/radio_callback
 	if(allow_headset_choice)
 		switch(H.headset_choice)
 			if (OUTFIT_NOTHING)
@@ -237,21 +199,26 @@
 				l_ear = bowman
 			if (OUTFIT_DOUBLE)
 				l_ear = double_headset
-			if (OUTFIT_WRISTRAD)
+			if (OUTFIT_WRISTRAD, OUTFIT_THIN_WRISTRAD)
 				l_ear = null
 				wrist = wrist_radio
+				if(H.headset_choice == OUTFIT_THIN_WRISTRAD)
+					radio_callback = CALLBACK(src, PROC_REF(turn_into_thinset))
 			else
 				l_ear = headset //Department headset
 	if(l_ear)
-		equip_item(H, l_ear, slot_l_ear)
+		equip_item(H, l_ear, slot_l_ear, callback = radio_callback)
 	else if (wrist)
-		equip_item(H, wrist, slot_wrists)
+		equip_item(H, wrist, slot_wrists, callback = radio_callback)
 
-	return
+/datum/outfit/proc/turn_into_thinset(var/obj/item/device/radio/headset/wrist/radio)
+	if(istype(radio))
+		radio.icon_state = replacetext(radio.icon_state, "wrist", "thin")
+		radio.item_state = replacetext(radio.item_state, "wrist", "thin")
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
 //override_collect temporarily allows equip_or_collect without enabling it for the job. Mostly used to prevent weirdness with hand equips when the player is missing one
-/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE, var/item_color)
+/datum/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE, var/item_color, var/datum/callback/callback)
 	var/obj/item/I
 
 	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
@@ -265,6 +232,9 @@
 		I = G.spawn_random()
 	else
 		I = new path(H) //As fallback treat it as a path
+
+	if(I && callback)
+		callback.Invoke(I)
 
 	if(collect_not_del || override_collect)
 		H.equip_or_collect(I, slot)
@@ -414,7 +384,7 @@
 				I.icon = 'icons/obj/pda_smart.dmi'
 				I.desc_extended += "NanoTrasen originally designed this as a portable media player. Unfortunately, Royalty-free and corporate-approved ukulele isn't particularly popular."
 		I.update_icon()
-		if (H.pda_choice == OUTFIT_WRISTBOUND)
+		if(!H.wrists && H.pda_choice == OUTFIT_WRISTBOUND)
 			H.equip_or_collect(I, slot_wrists)
 		else
 			H.equip_or_collect(I, slot_wear_id)
@@ -425,23 +395,41 @@
 		if(r_pocket)
 			equip_item(H, r_pocket, slot_r_store)
 
-		for(var/path in backpack_contents)
-			var/number = backpack_contents[path]
-			for(var/i in 1 to number)
-				H.equip_or_collect(new path(H), slot_in_backpack)
+		if(H.back) // you would think, right
+			for(var/path in backpack_contents)
+				var/number = backpack_contents[path]
+				for(var/i in 1 to number)
+					H.equip_or_collect(new path(H), slot_in_backpack)
+		else
+			var/obj/item/storage/storage_item
+			if(!H.l_hand)
+				storage_item = new /obj/item/storage/bag/plasticbag(H)
+				H.equip_to_slot_or_del(storage_item, slot_l_hand)
+			if(!storage_item && !H.r_hand)
+				storage_item = new /obj/item/storage/bag/plasticbag(H)
+				H.equip_to_slot_or_del(storage_item, slot_r_hand)
+			if(storage_item)
+				for(var/path in backpack_contents)
+					var/number = backpack_contents[path]
+					for(var/i in 1 to number)
+						storage_item.handle_item_insertion(new path(H.loc), TRUE)
 		for(var/path in belt_contents)
 			var/number = belt_contents[path]
 			for(var/i in 1 to number)
 				H.equip_or_collect(new path(H), slot_in_belt)
 
 		if(id)
-			var/obj/item/modular_computer/P = H.wear_id
-			var/obj/item/I = new id(H)
-			imprint_idcard(H,I)
-			if(istype(P) && P.card_slot)
-				addtimer(CALLBACK(src, .proc/register_pda, P, I), 2 SECOND)
+			var/obj/item/modular_computer/personal_computer
+			if(istype(H.wear_id, /obj/item/modular_computer))
+				personal_computer = H.wear_id
+			else if(istype(H.wrists, /obj/item/modular_computer))
+				personal_computer = H.wrists
+			var/obj/item/ID = new id(H)
+			imprint_idcard(H, ID)
+			if(personal_computer?.card_slot)
+				addtimer(CALLBACK(src, PROC_REF(register_pda), personal_computer, ID), 2 SECOND)
 			else
-				H.equip_or_collect(I, slot_wear_id)
+				H.equip_or_collect(ID, slot_wear_id)
 
 	post_equip(H, visualsOnly)
 
@@ -537,7 +525,7 @@
 		C.access = get_id_access(H)
 		C.rank = get_id_rank(H)
 		C.assignment = get_id_assignment(H)
-		addtimer(CALLBACK(H, /mob/.proc/set_id_info, C), 1 SECOND)	// Delay a moment to allow an icon update to happen.
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob, set_id_info), C), 1 SECOND)	// Delay a moment to allow an icon update to happen.
 
 		if(H.mind && H.mind.initial_account)
 			C.associated_account_number = H.mind.initial_account.account_number

@@ -100,7 +100,7 @@ var/list/forum_groupids_to_ranks = list()
 			var/datum/admin_rank/rank_object = admin_ranks[rank]
 
 			if (!rank_object)
-				error("Unrecognized rank in admins.txt: \"[rank]\"")
+				log_error("Unrecognized rank in admins.txt: \"[rank]\"")
 				continue
 
 			//create the admin datum and store it for later use
@@ -114,7 +114,7 @@ var/list/forum_groupids_to_ranks = list()
 	else
 		//The current admin system uses SQL
 		if(!establish_db_connection(dbcon))
-			error("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
+			log_error("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
 			log_misc("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
 			config.admin_legacy_system = 1
 			load_admins()
@@ -134,7 +134,7 @@ var/list/forum_groupids_to_ranks = list()
 			D.associate(directory[ckey])
 
 		if(!admin_datums)
-			error("AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
+			log_error("AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
 			log_misc("AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
 			config.admin_legacy_system = 1
 			load_admins()

@@ -8,10 +8,12 @@
 	var/one_shot	= 0	// If true, then the event will not be re-added to the list of available events
 	var/add_to_queue= 1	// If true, add back to the queue of events upon finishing.
 	var/list/role_weights = list()
+	var/list/minimum_job_requirement = list() //Minimum amount of jobs required for the event to fire.
+	var/pop_requirement = 0 //Minimum amount of player_list mobs for this to fire.
 	var/list/excluded_gamemodes	// A lazylist of gamemodes during which this event won't fire.
 	var/datum/event/event_type
 
-/datum/event_meta/New(var/event_severity, var/event_name, var/datum/event/type, var/event_weight, var/list/job_weights, var/is_one_shot = 0, var/min_event_weight = 0, var/max_event_weight = 0, var/list/excluded_roundtypes, var/add_to_queue = TRUE)
+/datum/event_meta/New(var/event_severity, var/event_name, var/datum/event/type, var/event_weight, var/list/job_weights, var/is_one_shot = 0, var/min_event_weight = 0, var/max_event_weight = 0, var/list/excluded_roundtypes, var/add_to_queue = TRUE, var/list/minimum_job_requirement_list, var/pop_needed = 0)
 	name = event_name
 	severity = event_severity
 	event_type = type
@@ -20,13 +22,19 @@
 	min_weight = min_event_weight
 	max_weight = max_event_weight
 	src.add_to_queue = add_to_queue
+	pop_requirement = pop_needed
 	if(job_weights)
 		role_weights = job_weights
+	if(minimum_job_requirement_list)
+		minimum_job_requirement = minimum_job_requirement_list
 	if(excluded_roundtypes)
 		excluded_gamemodes = excluded_roundtypes
 
 /datum/event_meta/proc/get_weight(var/list/active_with_role)
 	if(!enabled)
+		return 0
+
+	if(length(player_list) <= pop_requirement)
 		return 0
 
 	if(LAZYISIN(excluded_gamemodes, SSticker.mode.name))
@@ -35,9 +43,17 @@
 		return 0
 
 	var/job_weight = 0
-	for(var/role in role_weights)
-		if(role in active_with_role)
-			job_weight += active_with_role[role] * role_weights[role]
+	var/minimum_met = TRUE
+	if(minimum_job_requirement)
+		for(var/role in minimum_job_requirement)
+			if(active_with_role[role] >= minimum_job_requirement[role])
+				minimum_met = TRUE
+			else
+				minimum_met = FALSE
+	if(minimum_met)
+		for(var/role in role_weights)
+			if(role in active_with_role)
+				job_weight += active_with_role[role] * role_weights[role]
 
 	var/total_weight = weight + job_weight
 

@@ -182,7 +182,7 @@
 		to_chat(user, SPAN_WARNING("The suit cannot function while the wearer is prone."))
 		return FALSE
 
-	if(holder.security_check_enabled && !holder.check_suit_access(user))
+	if(holder.security_check_enabled && holder.locked && !holder.check_suit_access(user))
 		to_chat(user, SPAN_DANGER("Access denied."))
 		return FALSE
 
@@ -261,21 +261,24 @@
 		to_chat(holder.wearer, wearer_text)
 		return
 
-/mob/living/carbon/human/Stat()
+/mob/living/carbon/human/get_status_tab_items()
 	. = ..()
 
 	if(. && istype(back,/obj/item/rig))
 		var/obj/item/rig/R = back
-		SetupStat(R)
+		if(R && !R.canremove && R.installed_modules.len)
+			var/cell_status = R.cell ? "[R.cell.charge]/[R.cell.maxcharge]" : "ERROR"
+			. += "Suit Charge: [cell_status]"
 
-/mob/proc/SetupStat(var/obj/item/rig/R)
-	if(R && !R.canremove && R.installed_modules.len && statpanel("Hardsuit Modules"))
-		var/cell_status = R.cell ? "[R.cell.charge]/[R.cell.maxcharge]" : "ERROR"
-		stat("Suit charge", cell_status)
+/mob/living/carbon/human/get_actions_for_statpanel()
+	var/list/data = ..()
+	if(istype(back,/obj/item/rig))
+		var/obj/item/rig/R = back
 		for(var/obj/item/rig_module/module in R.installed_modules)
 			for(var/stat_rig_module/SRM in module.stat_modules)
 				if(SRM.CanUse())
-					stat(SRM.module.interface_name,SRM)
+					data += list(list("Hardsuit Modules", "[SRM.module.interface_name]", "[SRM]", ref(SRM)))
+	return data
 
 /stat_rig_module
 	parent_type = /atom/movable
@@ -299,9 +302,9 @@
 /stat_rig_module/Click()
 	if(CanUse())
 		var/list/href_list = list(
-							"interact_module" = module.holder.installed_modules.Find(module),
-							"module_mode" = module_mode
-							)
+			"interact_module" = module.holder.installed_modules.Find(module),
+			"module_mode" = module_mode
+			)
 		AddHref(href_list)
 		module.holder.Topic(usr, href_list)
 

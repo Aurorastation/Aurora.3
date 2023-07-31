@@ -2,26 +2,36 @@
 	name = "chemical dispenser"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
-	var/icon_state_active = "dispenser_active"
-	clicksound = /decl/sound_category/button_sound
+	clicksound = /singleton/sound_category/button_sound
+	idle_power_usage = 100
+	density = TRUE
+	anchored = TRUE
+	manufacturer = "zenghu"
 
 	obj_flags = OBJ_FLAG_ROTATABLE
 
-	var/list/spawn_cartridges = null // Set to a list of types to spawn one of each on New()
-
-	var/list/cartridges = list() // Associative, label -> cartridge
-	var/obj/item/reagent_containers/container = null
-
+	/// Icon state when used.
+	var/icon_state_active = "dispenser_active"
+	/// Set to a list of types to spawn one of each on New().
+	var/list/spawn_cartridges
+	 /// Associative, label -> cartridge.
+	var/list/cartridges = list()
+	///Current container.
+	var/obj/item/reagent_containers/container
+	/// Name of the dispenser on the UI.
 	var/ui_title = "Chemical Dispenser"
-
-	var/accept_drinking = 0
+	/// If set to FALSE, will only accept beakers.
+	var/accept_drinking = FALSE
+	/// Amount dispensed.
 	var/amount = 30
-	var/list/forbidden_containers = list(/obj/item/reagent_containers/glass/bucket) //For containers we don't want people to shove into the chem machine. Like big-ass buckets.
-	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment) //Allow these cans/glasses/condiment bottles but forbid ACTUAL food.
-
-	idle_power_usage = 100
-	density = 1
-	anchored = 1
+	/// Preset amounts to dispense.
+	var/list/preset_dispense_amounts = list(5, 10, 15, 20, 30, 40)
+	/// If the user can select the amount to dispense.
+	var/can_select_dispense_amount = TRUE
+	/// For containers we don't want people to shove into the chem machine. Like buckets.
+	var/list/forbidden_containers = list(/obj/item/reagent_containers/glass/bucket)
+	/// Allow these cans/glasses/condiment bottles but forbid ACTUAL food.
+	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment)
 
 /obj/machinery/chemical_dispenser/Initialize()
 	. = ..()
@@ -61,13 +71,13 @@
 		C.forceMove(src)
 
 	cartridges[C.label] = C
-	sortTim(cartridges, /proc/cmp_text_asc)
-	SSvueui.check_uis_for_change(src)
+	sortTim(cartridges, GLOBAL_PROC_REF(cmp_text_asc))
+	SStgui.update_uis(src)
 
 /obj/machinery/chemical_dispenser/proc/remove_cartridge(label)
 	. = cartridges[label]
 	cartridges -= label
-	SSvueui.check_uis_for_change(src)
+	SStgui.update_uis(src)
 
 /obj/machinery/chemical_dispenser/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
@@ -114,67 +124,71 @@
 		container =  RC
 		user.drop_from_inventory(RC,src)
 		to_chat(user, SPAN_NOTICE("You set [RC] on [src]."))
-		SSvueui.check_uis_for_change(src) // update all UIs attached to src
+		SStgui.update_uis(src)
 		if(icon_state_active)
 			icon_state = icon_state_active
 
 	else
 		return ..()
 
-/obj/machinery/chemical_dispenser/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = ..() || data || list()
-	// this is the data which will be sent to the ui
+/obj/machinery/chemical_dispenser/ui_data(mob/user)
+	var/list/data =  list()
+
+	data["manufacturer"] = manufacturer
 	data["amount"] = amount
-	data["glass"] = accept_drinking
-	data["isBeakerLoaded"] = !!container
-	data["beakerMaxVolume"] = container?.reagents?.maximum_volume
-	data["beakerCurrentVolume"] = container?.reagents?.total_volume
-	var beakerD[0]
+	data["preset_dispense_amounts"] = preset_dispense_amounts
+	data["can_select_dispense_amount"] = can_select_dispense_amount
+	data["accept_drinking"] = accept_drinking
+	data["is_beaker_loaded"] = !!container
+	data["beaker_max_volume"] = container?.reagents?.maximum_volume
+	data["beaker_current_volume"] = container?.reagents?.total_volume
+	var/list/beakerD = list()
 	for(var/_R in container?.reagents?.reagent_volumes)
-		var/decl/reagent/R = decls_repository.get_decl(_R)
-		beakerD[++beakerD.len] = list("name" = R.name, "volume" = REAGENT_VOLUME(container.reagents, _R))
-	data["beakerContents"] = beakerD
-	var chemicals[0]
+		var/singleton/reagent/R = GET_SINGLETON(_R)
+		beakerD += list(list("name" = R.name, "volume" = REAGENT_VOLUME(container.reagents, _R)))
+	data["beaker_contents"] = beakerD
+	var/list/chemicals = list()
 	for(var/label in cartridges)
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
-		chemicals[++chemicals.len] = list("label" = label, "amount" = C.reagents.total_volume)
+		chemicals += list(list("label" = label, "amount" = C.reagents.total_volume))
 	data["chemicals"] = chemicals
 	return data
 
-/obj/machinery/chemical_dispenser/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+/obj/machinery/chemical_dispenser/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "machinery-chemdisp", 390, 680, ui_title, state = interactive_state)
-	ui.open()
+		ui = new(user, src, "ChemicalDispenser", ui_title, 400, 680)
+		ui.open()
 
-/obj/machinery/chemical_dispenser/Topic(href, href_list)
-	if(..())
-		return TOPIC_NOACTION
+/obj/machinery/chemical_dispenser/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	if(href_list["amount"])
-		amount = round(text2num(href_list["amount"]), 1) // round to nearest 1
-		amount = between(amount, 1, container?.reagents?.maximum_volume || 120) // Since the user can actually type the commands himself, some sanity checking
+	switch(action)
+		if("amount")
+			amount = round(text2num(params["amount"]), 1) // round to nearest 1
+			amount = between(amount, 1, container?.reagents?.maximum_volume || 120) // Since the user can actually type the commands himself, some sanity checking
+			. = TRUE
 
-	else if(href_list["dispense"])
-		var/label = href_list["dispense"]
-		if(cartridges[label] && container?.is_open_container())
-			var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
-			playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
-			C.reagents.trans_to(container, amount)
-			addtimer(CALLBACK(SSvueui, /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change, src), 2 SECONDS) //Just in case we get no new data
+		if("dispense")
+			var/label = params["dispense"]
+			if(cartridges[label] && container?.is_open_container())
+				var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
+				playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
+				C.reagents.trans_to(container, amount)
+				. = TRUE
 
-	else if(href_list["ejectBeaker"])
-		if(container)
-			var/obj/item/reagent_containers/B = container
-			usr.put_in_hands(B)
-			container = null
-			if(icon_state_active)
-				icon_state = initial(icon_state)
-			SSvueui.check_uis_for_change(src)
+		if("ejectBeaker")
+			if(container)
+				var/obj/item/reagent_containers/B = container
+				usr.put_in_hands(B)
+				container = null
+				if(icon_state_active)
+					icon_state = initial(icon_state)
+				. = TRUE
 
-	SSnanoui.update_uis(src)
 	add_fingerprint(usr)
-	return TOPIC_REFRESH // update UIs attached to this object
 
 /obj/machinery/chemical_dispenser/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))

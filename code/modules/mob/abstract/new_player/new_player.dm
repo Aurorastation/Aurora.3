@@ -9,12 +9,11 @@
 	invisibility = 101
 
 	density = 0
-	stat = 2
+	stat = DEAD
 	canmove = 0
 
 	anchored = 1	//  don't get pushed around
 	simulated = FALSE
-	virtual_mob = null // Hear no evil, speak no evil
 
 	var/last_ready_name // This has to be saved because the client is nulled prior to Logout()
 
@@ -28,31 +27,28 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	QDEL_NULL(late_choices_ui)
 	return ..()
 
-/mob/abstract/new_player/Stat()
-	..()
+/mob/abstract/new_player/get_status_tab_items()
+	. = ..()
 
-	if(statpanel("Lobby"))
-		stat("Game ID:", game_id)
+	if(!istype(SSticker))
+		return
 
-		if(!istype(SSticker))
-			return
+	if(SSticker.hide_mode == ROUNDTYPE_SECRET)
+		. += "Game Mode: Secret"
+	else if (SSticker.hide_mode == ROUNDTYPE_MIXED_SECRET)
+		. += "Game Mode: Mixed Secret"
+	else
+		. += "Game Mode: [master_mode]" // Old setting for showing the game mode
 
-		if(SSticker.hide_mode == ROUNDTYPE_SECRET)
-			stat("Game Mode:", "Secret")
-		else if (SSticker.hide_mode == ROUNDTYPE_MIXED_SECRET)
-			stat("Game Mode:", "Mixed Secret")
-		else
-			stat("Game Mode:", "[master_mode]") // Old setting for showing the game mode
-
-		if(SSticker.current_state == GAME_STATE_PREGAME)
-			stat("Time To Start:", "[SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]")
-			stat("Players: [length(player_list)]", "Players Ready: [SSticker.total_players_ready]")
-			if(LAZYLEN(SSticker.ready_player_jobs))
-				for(var/dept in SSticker.ready_player_jobs)
-					if(LAZYLEN(SSticker.ready_player_jobs[dept]))
-						stat(uppertext(dept), null)
-					for(var/char in SSticker.ready_player_jobs[dept])
-						stat("[copytext_char(char, 1, 18)]", "[SSticker.ready_player_jobs[dept][char]]")
+	if(SSticker.current_state == GAME_STATE_PREGAME)
+		. += "Time To Start: [SSticker.pregame_timeleft][round_progressing ? "" : " (DELAYED)"]"
+		. += "Players: [length(player_list)] Players Ready: [SSticker.total_players_ready]"
+		if(LAZYLEN(SSticker.ready_player_jobs))
+			for(var/dept in SSticker.ready_player_jobs)
+				if(LAZYLEN(SSticker.ready_player_jobs[dept]))
+					. += "[uppertext(dept)]"
+				for(var/char in SSticker.ready_player_jobs[dept])
+					. += "[copytext_char(char, 1, 18)]: [SSticker.ready_player_jobs[dept][char]]"
 
 /mob/abstract/new_player/Topic(href, href_list[])
 	if(!client)	return 0
@@ -109,7 +105,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(!ROUND_IS_STARTED)
 			to_chat(usr, SPAN_WARNING("The round hasn't started yet!"))
 			return
-		SSghostroles.vui_interact(src)
+		SSghostroles.ui_interact(usr)
 
 	if(href_list["SelectedJob"])
 
@@ -305,14 +301,14 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title
 		// can't use their name here, since cyborg namepicking is done post-spawn, so we'll just say "A new Cyborg has arrived"/"A new Android has arrived"/etc.
-		global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the station"].", "Arrivals Announcement Computer")
+		global_announcer.autosay("A new[rank ? " [rank]" : " visitor" ] [join_message ? join_message : "has arrived on the [current_map.station_type]"].", "Arrivals Announcer")
 
 /mob/abstract/new_player/proc/LateChoices()
 	if(!istype(late_choices_ui))
 		late_choices_ui = new(src)
 	else // if the UI exists force refresh it
-		late_choices_ui.ui_refresh()
-	late_choices_ui.ui_open()
+		SStgui.update_uis(late_choices_ui)
+	late_choices_ui.ui_interact(src)
 
 /mob/abstract/new_player/proc/create_character()
 	spawning = 1
@@ -380,10 +376,12 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	new_character.key = key		//Manually transfer the key to log them in
 
+	new_character.client.init_verbs()
+
 	return new_character
 
 /mob/abstract/new_player/proc/ViewManifest()
-	SSrecords.open_manifest_vueui(src)
+	SSrecords.open_manifest_tgui(src)
 
 /mob/abstract/new_player/Move()
 	return TRUE

@@ -10,9 +10,9 @@ var/hadevent    = 0
 		if(isNotStationLevel(T.z))
 			continue
 
-		H.apply_damage((rand(15,75)), IRRADIATE, damage_flags = DAM_DISPERSED)
+		H.apply_damage((rand(15,75)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 		if (prob(5))
-			H.apply_damage((rand(90,150)), IRRADIATE, damage_flags = DAM_DISPERSED)
+			H.apply_damage((rand(90,150)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 		if (prob(25))
 			if (prob(75))
 				randmutb(H)
@@ -62,15 +62,7 @@ var/hadevent    = 0
 		sleep(150)
 		command_announcement.Announce("Gr3y.T1d3 virus detected in [station_name()] imprisonment subroutines. Recommend station AI involvement.", "Security Alert")
 	else
-		world.log <<  "ERROR: Could not initate grey-tide. Unable find prison or brig area."
-
-/proc/carp_migration() // -- Darem
-	for(var/obj/effect/landmark/C in landmarks_list)
-		if(C.name == "carpspawn")
-			new /mob/living/simple_animal/hostile/carp(C.loc)
-	//sleep(100)
-	spawn(rand(300, 600)) //Delayed announcements to keep the crew on their toes.
-		command_announcement.Announce("Attention: unknown biological entities have been detected near the [station_name()]'s exterior.", "Lifesign Sensor Array Alert", new_sound = 'sound/AI/commandreport.ogg')
+		log_error("ERROR: Could not initate grey-tide. Unable find prison or brig area.")
 
 /proc/lightsout(isEvent = 0, lightsoutAmount = 1,lightsoutRange = 25) //leave lightsoutAmount as 0 to break ALL lights
 	if(isEvent)

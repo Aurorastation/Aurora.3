@@ -9,6 +9,8 @@
 		material = SSmaterials.get_material_by_name(table_mat)
 	if(table_reinf)
 		reinforced = SSmaterials.get_material_by_name(table_reinf)
+	if(reinforced)
+		breakable = FALSE
 	. = ..()
 
 /obj/structure/table/standard

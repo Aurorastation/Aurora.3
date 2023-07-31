@@ -60,7 +60,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/beast/charbaby/attack_hand(mob/living/carbon/human/H)
 	. = ..()
-	reflect_unarmed_damage(H, BURN, "amorphous mass")
+	reflect_unarmed_damage(H, DAMAGE_BURN, "amorphous mass")
 
 /mob/living/simple_animal/hostile/retaliate/beast/shantak/lava
 	desc = "A vaguely canine looking beast. It looks as though its fur is made of stone wool."

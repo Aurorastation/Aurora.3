@@ -242,6 +242,28 @@
 	check_flags = AB_CHECK_ALIVE|AB_CHECK_INSIDE
 	button_icon_state = "rev_eyes"
 
+/datum/action/item_action/integrated_circuit
+	check_flags = AB_CHECK_RESTRAINED|AB_CHECK_STUNNED|AB_CHECK_ALIVE|AB_CHECK_INSIDE
+
+/datum/action/item_action/integrated_circuit/Trigger()
+	if(!Checks())
+		return
+	var/obj/item/clothing/target_clothing = target
+	to_chat(usr, SPAN_NOTICE("You press the button on the exterior of \the [target_clothing]."))
+	target_clothing.action_circuit.activate_pin(1)
+
 #undef AB_WEST_OFFSET
 #undef AB_NORTH_OFFSET
 #undef AB_MAX_COLUMNS
+
+#undef AB_ITEM
+#undef AB_SPELL
+#undef AB_INNATE
+#undef AB_GENERIC
+#undef AB_ITEM_USE_ICON
+
+#undef AB_CHECK_RESTRAINED
+#undef AB_CHECK_STUNNED
+#undef AB_CHECK_LYING
+#undef AB_CHECK_ALIVE
+#undef AB_CHECK_INSIDE 

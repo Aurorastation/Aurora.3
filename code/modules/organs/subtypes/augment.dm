@@ -119,7 +119,8 @@
 	M.canremove = FALSE
 	M.item_flags |= NOMOVE
 	owner.equip_to_slot(M, aug_slot)
-	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [owner.organs_by_name[parent_organ]]."), SPAN_NOTICE("You deploy \the [M]!"))
+	var/obj/item/organ/O = owner.organs_by_name[parent_organ]
+	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [O.name]."), SPAN_NOTICE("You deploy \the [M]!"))
 
 /obj/item/organ/internal/augment/tool/combitool
 	name = "retractable combitool"
@@ -239,7 +240,7 @@
 	if(owner)
 		to_chat(owner, FONT_LARGE(SPAN_DANGER("You feel your [src.name] surge with energy!")))
 		spark(get_turf(owner), 3)
-		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(disarm)), recharge_time MINUTES)
 		if(is_bruised() && prob(50))
 			owner.electrocute_act(40, owner)
 
@@ -248,7 +249,7 @@
 		return
 	actual_charges = min(actual_charges - 1, max_charges)
 	if(actual_charges > 0)
-		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(disarm)), recharge_time MINUTES)
 	if(is_broken())
 		owner.visible_message(SPAN_DANGER("\The [owner] crackles with energy!"))
 		playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
@@ -272,6 +273,13 @@
 	owner.visible_message(SPAN_DANGER("\The [owner] crackles with energy!"))
 	playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
 	tesla_zap(owner, 7, 1500)
+
+/obj/item/organ/internal/augment/tesla/massive
+	name = "massive tesla spine"
+	icon_state = "tesla_spine"
+	organ_tag = BP_AUG_TESLA
+	on_mob_icon = 'icons/mob/human_races/tesla_body_augments.dmi'
+	species_restricted = list(SPECIES_TAJARA_TESLA_BODY)
 
 /obj/item/organ/internal/augment/eye_sensors
 	name = "integrated HUD sensors"
@@ -600,9 +608,9 @@
 	if(world.time > (last_emotion + 5 MINUTES))
 		switch(set_emotion)
 			if("happiness")
-				to_chat(owner, SPAN_NOTICE("You feel happy."))
+				to_chat(owner, SPAN_GOOD("You feel happy."))
 			if("calmness")
-				to_chat(owner, SPAN_NOTICE("You feel calm."))
+				to_chat(owner, SPAN_GOOD("You feel calm."))
 		last_emotion = world.time
 
 		if(is_broken())
@@ -631,7 +639,8 @@
 	if(!.)
 		return FALSE
 
-	zoom(owner,7,7, FALSE)
+	zoom(owner, 7, 7, FALSE, FALSE)
+	owner.visible_message(zoom ? "<b>[owner]</b>'s pupils narrow..." : "<b>[owner]</b>'s pupils return to normal.", range = 3)
 
 /obj/item/organ/internal/augment/enhanced_vision/emp_act(severity)
 	..()

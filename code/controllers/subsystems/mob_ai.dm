@@ -4,6 +4,7 @@
 	name = "Mobs - AI"
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_MOB
+	runlevels = RUNLEVELS_PLAYING
 
 	var/list/processing = list()
 	var/list/currentrun = list()
@@ -12,8 +13,9 @@
 /datum/controller/subsystem/mob_ai/New()
 	NEW_SS_GLOBAL(SSmob_ai)
 
-/datum/controller/subsystem/mob_ai/stat_entry()
-	..("P:[processing.len]")
+/datum/controller/subsystem/mob_ai/stat_entry(msg)
+	msg = "P:[processing.len]"
+	return ..()
 
 /datum/controller/subsystem/mob_ai/fire(resumed = FALSE)
 	if (!resumed)

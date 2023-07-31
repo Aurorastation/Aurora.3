@@ -5,6 +5,7 @@ var/datum/controller/subsystem/sun/sun
 	flags = SS_NO_INIT | SS_POST_FIRE_TIMING | SS_BACKGROUND
 	wait = 1 MINUTE
 	priority = SS_PRIORITY_SUN
+	runlevels = RUNLEVELS_PLAYING
 
 	var/angle
 	var/dx
@@ -24,8 +25,9 @@ var/datum/controller/subsystem/sun/sun
 	solar_next_update = world.time	// init the timer
 	angle = rand (0,360)
 
-/datum/controller/subsystem/sun/stat_entry()
-	..("A:[angle] R:[rate] S:[LAZYLEN(solars)]")
+/datum/controller/subsystem/sun/stat_entry(msg)
+	msg = "A:[angle] R:[rate] S:[LAZYLEN(solars)]"
+	return ..()
 
 /datum/controller/subsystem/sun/fire(resumed = 0)
 	if (!resumed)

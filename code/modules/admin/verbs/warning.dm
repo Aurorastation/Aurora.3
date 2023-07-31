@@ -223,11 +223,11 @@
 
 /client/proc/notifications_acknowledge(var/id)
 	if(!id)
-		error("Error: Argument ID for notificaton acknowledgement not supplied.")
+		log_error("Error: Argument ID for notificaton acknowledgement not supplied.")
 		return
 
 	if (!establish_db_connection(dbcon))
-		error("Error: Unable to establish db connection during notification acknowledgement.")
+		log_error("Error: Unable to establish db connection during notification acknowledgement.")
 		return
 
 	var/DBQuery/query = dbcon.NewQuery({"UPDATE ss13_player_notifications
@@ -420,7 +420,7 @@
 		return
 
 	if (!establish_db_connection(dbcon))
-		error("Error: Unable to establish db connection while adding a notification.")
+		log_error("Error: Unable to establish db connection while adding a notification.")
 		return
 
 	var/ckey = ckey(input(usr, "What ckey?", "Enter a ckey"))
@@ -483,12 +483,12 @@
 
 	if (count == 0)
 		to_chat(usr, "<span class='warning'>Database update failed due to a warning id not being present in the database.</span>")
-		error("Database update failed due to a warning id not being present in the database.")
+		log_error("Database update failed due to a warning id not being present in the database.")
 		return
 
 	if (count > 1)
 		to_chat(usr, "<span class='warning'>Database update failed due to multiple warnings having the same ID. Contact the database admin.</span>")
-		error("Database update failed due to multiple warnings having the same ID. Contact the database admin.")
+		log_error("Database update failed due to multiple warnings having the same ID. Contact the database admin.")
 		return
 
 	switch (warning_edit)

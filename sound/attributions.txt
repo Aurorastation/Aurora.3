@@ -34,7 +34,6 @@ All sounds listed above in this section part of "Valhalla", licensed under CC0 1
 ATTRIBUTIONS SECTION END
 
 ATTRIBUTIONS SECTION START
-
 sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg - "Mortar", licensed under CC0. Obtained from https://freesound.org/people/Mozfoo/sounds/529239/
 sound/weapons/gunshot/ship_weapons/rotary_fire.ogg - "Minigun", licensed under CC0. Obtained and edited from https://freesound.org/people/Breviceps/sounds/557595/
 sound/weapons/gunshot/ship_weapons/flak_fire.ogg - "Minigun Fire", licensed under CC0. Obtained and edited from https://freesound.org/people/Bratish/sounds/500304/
@@ -48,5 +47,23 @@ sound/effects/ship_weapons/leviathan_powerdown.ogg - "CP_Power_Down01", licensed
 sound/effects/ship_weapons/leviathan_powerup.ogg - "Device powering up", licensed under CC BY 4.0. Obtained and edited from https://freesound.org/people/spoonsandlessspoons/sounds/361339/
 sound/items/drop/shell_drop.ogg - "ANI Big Pipe Hit", licensed under CC0. Obtained from https://freesound.org/people/ani_music/sounds/244983/
 sound/effects/combatroll.ogg - "Starship landing sequence", licensed under CC BY 4.0. Obtained and edited from https://freesound.org/people/Hybrid_V/sounds/381679/
+ATTRIBUTIONS SECTION END
 
+ATTRIBUTIONS SECTION START
+sound/items/geiger.ogg - https://freesound.org/people/leonelmail/sounds/328381/ -- Under creative commons 0
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/items/shield/energy/shield-loop.ogg - By spookerton for Baystation12 - Licensed under GNU Affero General Public License v3
+sound/items/shield/energy/shield-start.ogg - By spookerton for Baystation12 - Licensed under GNU Affero General Public License v3
+sound/items/shield/energy/shield-stop.ogg - By spookerton for Baystation12 - Licensed under GNU Affero General Public License v3
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/machines/switch_chain.ogg - "Chain_switch_2.wav", licensed under CC-BY 3.0. Obtained and edited from https://freesound.org/people/DCElliott/sounds/386422/
+sound/machines/switch_flashlight.ogg - "Flashlight Switch", licensed under CC0. Obtained and edited from https://freesound.org/people/Kinoton/sounds/352092/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/machines/sensors/ping.ogg - "archi_sonar_05.wav", licensed under CC0. Obtained and edited from https://freesound.org/people/ElanHickler/sounds/38704
 ATTRIBUTIONS SECTION END

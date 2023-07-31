@@ -100,7 +100,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_pipenets(resumed, no_mc_tick)
 		cost_pipenets = MC_AVERAGE(cost_pipenets, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if (state != SS_RUNNING)
+		if (state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_MACHINERY
 		resumed = FALSE
@@ -108,7 +108,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_machinery(resumed, no_mc_tick)
 		cost_machinery = MC_AVERAGE(cost_machinery, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if(state != SS_RUNNING)
+		if(state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_POWERNETS
 		resumed = FALSE
@@ -116,7 +116,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_powernets(resumed, no_mc_tick)
 		cost_powernets = MC_AVERAGE(cost_powernets, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if(state != SS_RUNNING)
+		if(state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_POWER_OBJECTS
 		resumed = FALSE
@@ -124,7 +124,7 @@ if(Datum.isprocessing) {\
 		timer = world.tick_usage
 		process_power_objects(resumed, no_mc_tick)
 		cost_power_objects = MC_AVERAGE(cost_power_objects, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if (state != SS_RUNNING)
+		if (state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
 			return
 		current_step = SSMACHINERY_PIPENETS
 
@@ -143,9 +143,10 @@ if(Datum.isprocessing) {\
 		propagate_network(cable, cable.powernet)
 
 /datum/controller/subsystem/machinery/proc/setup_atmos_machinery(list/machines)
-	set background = TRUE
 	var/list/atmos_machines = list()
 	for (var/obj/machinery/atmospherics/machine in machines)
+		if(QDELETED(machine))
+			continue
 		atmos_machines += machine
 	admin_notice(SPAN_DANGER("Initializing atmos machinery."), R_DEBUG)
 	log_ss("machinery", "Initializing atmos machinery.")
@@ -187,8 +188,11 @@ if(Datum.isprocessing) {\
 				machine.isprocessing = null
 			processing -= machine
 			continue
-		if (machine.process_all() == PROCESS_KILL)
-			processing -= machine
+		//process_all was moved here because of calls overhead for no benefits
+		if(HAS_FLAG(machine.processing_flags, MACHINERY_PROCESS_SELF))
+			if(machine.process() == PROCESS_KILL)
+				STOP_PROCESSING_MACHINE(machine, MACHINERY_PROCESS_SELF)
+				processing -= machine
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
@@ -233,8 +237,8 @@ if(Datum.isprocessing) {\
 			queue.Cut(i)
 			return
 
-/datum/controller/subsystem/machinery/stat_entry()
-	..({"\n\
+/datum/controller/subsystem/machinery/stat_entry(msg)
+	msg = {"\n\
 		Queues: \
 		Pipes [pipenets.len] \
 		Machines [processing.len] \
@@ -246,7 +250,8 @@ if(Datum.isprocessing) {\
 		Networks [round(cost_powernets, 1)] \
 		Objects [round(cost_power_objects, 1)]\n\
 		Overall [round(cost ? processing.len / cost : 0, 0.1)]
-	"})
+	"}
+	return ..()
 
 /datum/controller/subsystem/machinery/ExplosionStart()
 	suspend()
@@ -269,8 +274,8 @@ if(Datum.isprocessing) {\
 			rcon_breaker_units += breaker
 			rcon_breaker_units_by_tag[breaker.RCon_tag] = breaker
 
-	sortTim(rcon_smes_units, /proc/cmp_rcon_smes)
-	sortTim(rcon_breaker_units, /proc/cmp_rcon_bbox)
+	sortTim(rcon_smes_units, GLOBAL_PROC_REF(cmp_rcon_smes))
+	sortTim(rcon_breaker_units, GLOBAL_PROC_REF(cmp_rcon_bbox))
 
 #undef SSMACHINERY_PIPENETS
 #undef SSMACHINERY_MACHINERY

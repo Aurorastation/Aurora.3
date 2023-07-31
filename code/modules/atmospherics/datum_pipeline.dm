@@ -21,6 +21,7 @@
 		thing.parent = null
 
 	members = null
+	edges = null
 
 	return ..()
 
@@ -131,7 +132,7 @@
 
 		target.zone.air.merge(turf_copy)
 
-	else
+	else if(target)
 		var/datum/gas_mixture/turf_air = target.return_air()
 
 		equalize_gases(list(air_sample, turf_air))

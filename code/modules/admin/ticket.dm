@@ -25,7 +25,7 @@ var/global/list/ticket_panels = list()
 	opened_rt = world.realtime
 
 	if (config.ticket_reminder_period)
-		reminder_timer = addtimer(CALLBACK(src, .proc/remind), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
+		reminder_timer = addtimer(CALLBACK(src, PROC_REF(remind)), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /datum/ticket/proc/broadcast_closure(closing_user)
 	var/client/owner_client = client_by_ckey(owner)
@@ -133,7 +133,7 @@ var/global/list/ticket_panels = list()
 			if((C.holder.rights & (R_ADMIN|R_MOD)) && (C.prefs.toggles & SOUND_ADMINHELP))
 				sound_to(C, 'sound/effects/adminhelp.ogg')
 
-	reminder_timer = addtimer(CALLBACK(src, .proc/remind), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
+	reminder_timer = addtimer(CALLBACK(src, PROC_REF(remind)), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /proc/get_open_ticket_by_ckey(var/owner)
 	for(var/datum/ticket/ticket in tickets)

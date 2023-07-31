@@ -120,13 +120,7 @@
 /turf/template_noop,
 /area/template_noop)
 "abc" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 32;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -523,14 +517,7 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "avs" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -1;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 31;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor,
@@ -1764,7 +1751,7 @@
 	},
 /area/centcom/spawning)
 "aQm" = (
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -1852,7 +1839,7 @@
 /area/shuttle/arrival)
 "aTW" = (
 /obj/machinery/igniter,
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor,
 /area/tdome)
 "aTX" = (
@@ -1896,10 +1883,6 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/tdome)
-"aUq" = (
-/obj/machinery/atmospherics/pipe/vent,
-/turf/simulated/floor/bluegrid,
-/area/tdome)
 "aUs" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -1914,28 +1897,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
-"aUu" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 5
-	},
-/turf/simulated/floor,
-/area/tdome)
-"aUv" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/tdome)
-"aUw" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/turf/simulated/floor,
-/area/tdome)
-"aUz" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor,
-/area/tdome)
 "aVo" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/reagent_containers/food/drinks/bottle/cognac{
@@ -2524,9 +2485,6 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/administration)
 "byi" = (
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_y = 30
-	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
@@ -3152,9 +3110,7 @@
 	pixel_x = -2;
 	pixel_y = 7
 	},
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -3965,13 +3921,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/supply/dock)
-"drB" = (
-/obj/machinery/atmospherics/valve,
-/obj/effect/floor_decal/corner/orange/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "new_white"
-	},
-/area/tdome/tdomeadmin)
 "dtJ" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -5146,9 +5095,6 @@
 /area/centcom/specops)
 "eUc" = (
 /obj/structure/table/reinforced/wood,
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_y = 30
-	},
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	pixel_x = -8;
 	pixel_y = 7
@@ -5670,19 +5616,6 @@
 	temperature = 278
 	},
 /area/centcom/control)
-"fIw" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/sleeping_agent{
-	pixel_x = 1
-	},
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/unsimulated/floor{
-	icon_state = "new_white"
-	},
-/area/tdome/tdomeadmin)
 "fIR" = (
 /obj/structure/table/reinforced/wood,
 /obj/effect/decal/fake_object{
@@ -5957,7 +5890,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/computer/station_alert,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "fWO" = (
@@ -6275,7 +6207,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "goO" = (
@@ -7173,11 +7105,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/control)
-"hpC" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/unsimulated/floor/plating,
-/area/tdome/tdomeadmin)
 "hri" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
@@ -7472,7 +7399,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1;
 	name = "adjusted spotlight";
 	pixel_x = -16
@@ -9810,9 +9737,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "kIY" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
@@ -9877,9 +9802,6 @@
 /turf/unsimulated/wall/fakepdoor,
 /area/centcom/specops)
 "kNJ" = (
-/obj/item/circuitboard/rcon_console{
-	name = "circuit board (Ticket Kiosk Console)"
-	},
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
@@ -12590,14 +12512,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "ouV" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/item/deck/cards,
 /obj/structure/table/steel,
 /turf/unsimulated/floor{
@@ -13081,7 +12996,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -14016,14 +13931,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/sign/flag/biesel/right{
-	pixel_x = 16;
-	pixel_y = 29
-	},
-/obj/structure/sign/flag/biesel/left{
-	pixel_x = -16;
-	pixel_y = 29
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "qzr" = (
@@ -14993,7 +14901,7 @@
 /obj/machinery/computer/shuttle_control{
 	req_access = null;
 	req_one_access = list(38,72);
-	shuttle_tag = "Agent Shuttle"
+	shuttle_tag = "SCC Shuttle"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
@@ -17153,14 +17061,7 @@
 /turf/simulated/floor/grass/alt,
 /area/centcom/holding)
 "wgf" = (
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -17612,7 +17513,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "wMw" = (
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/trauma,
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/o2,
 /obj/item/storage/firstaid/toxin,
@@ -17632,7 +17533,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape)
 "wNC" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
@@ -17953,7 +17854,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "xfN" = (
-/obj/structure/banner/unmovable,
+/obj/structure/sign/flag/nanotrasen/unmovable,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
@@ -50641,8 +50542,8 @@ aTX
 aTX
 aTX
 aUm
-aUq
-aUu
+aUm
+aTX
 aTX
 aTX
 rFD
@@ -50899,12 +50800,12 @@ aTX
 aTX
 aUn
 goO
-aUv
-aUz
-aUz
-hpC
-drB
-fIw
+aTX
+aTX
+aTX
+nQZ
+cJB
+bBe
 cJB
 bBe
 lUA
@@ -51155,8 +51056,8 @@ aTX
 aTX
 aTX
 aUm
-aUq
-aUw
+aUm
+aTX
 aTX
 aTX
 rFD

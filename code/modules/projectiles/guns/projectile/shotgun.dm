@@ -1,6 +1,9 @@
 /obj/item/gun/projectile/shotgun
 	name = "strange shotgun"
-	desc = "A strange shotgun that doesn't seem to belong anywhere. You feel like you shouldn't be able to see this and should... submit an issue?"
+	desc = DESC_PARENT
+	desc_info = "This is a shotgun, chambered for various shells and slugs. To fire the weapon, toggle the safety with CTRL-Click or enable 'HARM' intent, then click where \
+	you want to fire. To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen. To reload, insert shells or a magazine \
+	into the shotgun, then pump the shotgun to chamber a fresh round."
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
@@ -58,7 +61,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
 	var/recentpump = 0 // to prevent spammage
-	var/rack_sound = /decl/sound_category/shotgun_pump
+	var/rack_sound = /singleton/sound_category/shotgun_pump
 	var/rack_verb = "pump"
 
 /obj/item/gun/projectile/shotgun/pump/consume_next_projectile()
@@ -121,7 +124,6 @@
 /obj/item/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
 	desc = "A true classic."
-	desc_info = "Use in hand to unload, alt click to change firemodes."
 	icon = 'icons/obj/guns/dshotgun.dmi'
 	icon_state = "dshotgun"
 	item_state = "dshotgun"
@@ -140,6 +142,7 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
+	fire_delay = ROF_INTERMEDIATE
 
 	burst_delay = 0
 	firemodes = list(

@@ -2,7 +2,7 @@
 	name = "wrapping paper"
 	desc = "You can use this to wrap items in."
 	desc_info = "To wrap something into a gift, click on the wrapping paper that's not in your hands with the object you wish to wrap."
-	icon = 'icons/obj/stacks/wrap.dmi'
+	icon = 'icons/obj/item/stacks/wrap.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_wrap.dmi',
 		slot_r_hand_str = 'icons/mob/items/stacks/righthand_wrap.dmi',
@@ -92,7 +92,7 @@
 
 /obj/item/stack/packageWrap
 	name = "package wrapper"
-	icon = 'icons/obj/stacks/wrap.dmi'
+	icon = 'icons/obj/item/stacks/wrap.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_wrap.dmi',
 		slot_r_hand_str = 'icons/mob/items/stacks/righthand_wrap.dmi',
@@ -206,7 +206,7 @@
 /obj/item/c_tube
 	name = "cardboard tube"
 	desc = "A tube of cardboard."
-	icon = 'icons/obj/stacks/wrap.dmi'
+	icon = 'icons/obj/item/stacks/wrap.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_wrap.dmi',
 		slot_r_hand_str = 'icons/mob/items/stacks/righthand_wrap.dmi',

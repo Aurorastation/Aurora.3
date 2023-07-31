@@ -92,10 +92,19 @@
 	display_name = "horrible tie"
 	path = /obj/item/clothing/accessory/horrible
 
-/datum/gear/accessory/bowtie
-	display_name = "bowtie"
-	path = /obj/item/clothing/accessory/tie/bowtie
+/datum/gear/accessory/neck_accessories_colourable
+	display_name = "neck accessories selection (colourable)"
+	description = "A selection of various neck accessories, such as ribbons and bows."
+	path = /obj/item/clothing/accessory/tie/ribbon
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/neck_accessories_colourable/New()
+	..()
+	var/list/neck_accessories_colourable = list()
+	neck_accessories_colourable["neck ribbon"] = /obj/item/clothing/accessory/tie/ribbon/neck
+	neck_accessories_colourable["neck bow"] = /obj/item/clothing/accessory/tie/ribbon/bow
+	neck_accessories_colourable["bow tie"] = /obj/item/clothing/accessory/tie/ribbon/bow_tie
+	gear_tweaks += new /datum/gear_tweak/path(neck_accessories_colourable)
 
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
@@ -165,16 +174,16 @@
 	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/overalls_mining
-	display_name = "overalls, mining"
-	path = /obj/item/clothing/accessory/storage/overalls/mining
-	allowed_roles = list("Shaft Miner", "Xenoarchaeologist")
-	cost = 2
-
 /datum/gear/accessory/overalls_engineer
 	display_name = "overalls, engineering"
 	path = /obj/item/clothing/accessory/storage/overalls/engineer
 	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	cost = 2
+
+/datum/gear/accessory/overalls_mining
+	display_name = "overalls, mining"
+	path = /obj/item/clothing/accessory/storage/overalls/mining
+	allowed_roles = list("Shaft Miner", "Xenoarchaeologist")
 	cost = 2
 
 /datum/gear/accessory/sweater
@@ -196,15 +205,15 @@
 	sweater["deep v-neck sweater"] = /obj/item/clothing/accessory/sweater/v_neck/deep
 
 	// Argyle Sweaters
-	sweater["argyle sweater"] = /obj/item/clothing/accessory/argyle_sweater
-	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/tubeneck
-	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/turtleneck
-	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/argyle_sweater/crewneck
-	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/argyle_sweater/v_neck
+	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweater/argyle
+	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweater/argyle/tubeneck
+	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweater/argyle/turtleneck
+	sweater["argyle crewneck sweater"] = /obj/item/clothing/accessory/sweater/argyle/crewneck
+	sweater["argyle v-neck sweater"] = /obj/item/clothing/accessory/sweater/argyle/v_neck
 
 	// Sweater Vests
-	sweater["sweater vest"] = /obj/item/clothing/accessory/sweater_vest
-	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/argyle_sweater_vest
+	sweater["sweater vest"] = /obj/item/clothing/accessory/sweater/vest
+	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweater/argyle/vest
 
 	gear_tweaks += new /datum/gear_tweak/path(sweater)
 
@@ -330,9 +339,23 @@
 	gear_tweaks += new /datum/gear_tweak/path(badge)
 
 /datum/gear/accessory/namepin
-	display_name = "pin tag (colourable)"
+	display_name = "pins selection"
 	path = /obj/item/clothing/accessory/badge/namepin
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/namepin/New()
+	..()
+	var/list/pin = list()
+	pin["pin, name tag"] = /obj/item/clothing/accessory/badge/namepin
+	pin["pin, any/all pronouns"] = /obj/item/clothing/accessory/pronoun
+	pin["pin, he/him pronouns"] = /obj/item/clothing/accessory/pronoun/hehim
+	pin["pin, he/they pronouns"] = /obj/item/clothing/accessory/pronoun/hethey
+	pin["pin, she/her pronouns"] = /obj/item/clothing/accessory/pronoun/sheher
+	pin["pin, she/they pronouns"] = /obj/item/clothing/accessory/pronoun/shethey
+	pin["pin, they/them pronouns"] = /obj/item/clothing/accessory/pronoun/theythem
+	pin["pin, it/its pronouns"] = /obj/item/clothing/accessory/pronoun/itits
+	pin["pin, please ask! pronouns"] = /obj/item/clothing/accessory/pronoun/ask
+	gear_tweaks += new /datum/gear_tweak/path(pin)
 
 /datum/gear/accessory/ribbon
 	display_name = "ribbon (colourable)"
@@ -354,7 +377,7 @@
 	description = "A selection of cadre brassards from Gadpathur."
 	path = /obj/item/clothing/accessory/armband/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/decl/origin_item/origin/gadpathur)
+	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/accessory/gadpathur/New()
 	..()
@@ -369,14 +392,14 @@
 	description = "A small metal badge worn by Gadpathurian Section Leaders."
 	path = /obj/item/clothing/accessory/gadpathurian_leader
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/decl/origin_item/origin/gadpathur)
+	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/accessory/gadpathur_dogtags
 	display_name = "gadpathurian dogtags"
 	description = "Dogtags issued to Gadpathurians."
 	path = /obj/item/clothing/accessory/dogtags/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
-	origin_restriction = list(/decl/origin_item/origin/gadpathur)
+	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/accessory/sash_coloured
 	display_name = "sash (colourable)"
@@ -505,12 +528,20 @@
 	path = /obj/item/clothing/accessory/bandanna/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/flagpatch_colorable
-	display_name = "generic flagpatch"
-	path = /obj/item/clothing/accessory/flagpatch
+/datum/gear/accessory/flagpatch
+	display_name = "generic flagpatch selection"
+	path = /obj/item/clothing/accessory/flagpatch/rectangular
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	cost = 0
 
+/datum/gear/accessory/flagpatch/New()
+	..()
+	var/list/flagpatch = list()
+	flagpatch["rectangular flagpatch"] =  /obj/item/clothing/accessory/flagpatch/rectangular
+	flagpatch["triangular flagpatch"] = /obj/item/clothing/accessory/flagpatch/triangular
+	flagpatch["circular flagpatch"] =  /obj/item/clothing/accessory/flagpatch/circular
+	flagpatch["square flagpatch"] =  /obj/item/clothing/accessory/flagpatch/square
+	gear_tweaks += new /datum/gear_tweak/path(flagpatch)
 
 /datum/gear/accessory/flagpatch_national
 	display_name = "flagpatch selection"
@@ -551,3 +582,73 @@
 	flagpatch_national["flagpatch, nralakk"] = /obj/item/clothing/accessory/flagpatch/nralakk
 	flagpatch_national["flagpatch, hegemony"] = /obj/item/clothing/accessory/flagpatch/hegemony
 	gear_tweaks += new /datum/gear_tweak/path(flagpatch_national)
+
+/datum/gear/accessory/aodai
+	display_name = "ao dai"
+	description = "A long, split tunic worn over trousers. Traditional on New Hai Phong."
+	path = /obj/item/clothing/accessory/aodai
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/earth, /singleton/origin_item/origin/new_hai_phong)
+
+/datum/gear/accessory/aodai/New()
+	..()
+	var/list/aodai = list()
+	aodai["ao dai"] = /obj/item/clothing/accessory/aodai
+	aodai["ao dai, new hai phong cut"] = /obj/item/clothing/accessory/aodai/nhp
+	aodai["ao dai, masculine formalwear"] = /obj/item/clothing/accessory/aodai/masc
+	gear_tweaks += new /datum/gear_tweak/path(aodai)
+
+/datum/gear/accessory/temperature
+	display_name = "temperature packs"
+	description = "A nice little pack that heats/cools you when worn under your clothes!"
+	path = /obj/item/clothing/accessory/temperature
+	flags = 0
+
+/datum/gear/accessory/temperature/New()
+	..()
+	var/list/temperature = list()
+	for(var/temp_path in subtypesof(/obj/item/clothing/accessory/temperature))
+		var/obj/item/clothing/accessory/temperature/temp_pack = temp_path
+		temperature[initial(temp_pack.name)] = temp_path
+	gear_tweaks += new /datum/gear_tweak/path(temperature)
+
+/datum/gear/accessory/necklace
+	display_name = "colored necklace selection"
+	description = "A selection of already-colored necklaces."
+	path = /obj/item/clothing/accessory/necklace
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/necklace/New()
+	..()
+	var/list/colored = list()
+	colored["necklace"] = /obj/item/clothing/accessory/necklace
+	colored["golden"] = /obj/item/clothing/accessory/necklace/thin
+	colored["silver"] = /obj/item/clothing/accessory/necklace/thin/silver
+	colored["golden chain"] = /obj/item/clothing/accessory/necklace/chain
+	colored["silver chain"] = /obj/item/clothing/accessory/necklace/chain/silver
+	gear_tweaks += new /datum/gear_tweak/path(colored)
+
+/datum/gear/accessory/necklace_uncolored
+	display_name = "necklace selection (colorable)"
+	description = "A selection of entirely colorable necklaces."
+	path = /obj/item/clothing/accessory/necklace/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/necklace_uncolored/New()
+	..()
+	var/list/necklace_uncolored = list()
+	necklace_uncolored["rounded"] = /obj/item/clothing/accessory/necklace/colorable
+	necklace_uncolored["low hanging"] = /obj/item/clothing/accessory/necklace/colorable/low
+	necklace_uncolored["small"] = /obj/item/clothing/accessory/necklace/colorable/small
+	necklace_uncolored["golden dotted"] = /obj/item/clothing/accessory/necklace/colorable/twopiece
+	necklace_uncolored["silver dotted"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/silver
+	necklace_uncolored["golden pendant"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant
+	necklace_uncolored["silver pendant"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/silver
+	necklace_uncolored["large golden pendant"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/fat
+	necklace_uncolored["large silver pendant"] = /obj/item/clothing/accessory/necklace/colorable/twopiece/pendant/silver/fat
+	gear_tweaks += new /datum/gear_tweak/path(necklace_uncolored)
+
+/datum/gear/accessory/visegradi_sweater
+	display_name = "visegradi patterned sweater"
+	path = /obj/item/clothing/accessory/sweater/visegradi
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

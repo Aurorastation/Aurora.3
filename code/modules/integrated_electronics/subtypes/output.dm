@@ -209,7 +209,7 @@
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 
 /obj/item/integrated_circuit/output/sound/medbot
-	name = "medbot sound circuit"
+	name = "medibot sound circuit"
 	desc = "A miniature speaker is attached to this component, used to annoy patients while they get pricked by a medbot."
 	sounds = list(
 		"surgeon"     = 'sound/voice/medbot/msurgeon.ogg',

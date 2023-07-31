@@ -34,7 +34,7 @@
 	hide(!T.is_plating())
 	center = T
 
-	addtimer(CALLBACK(src, .proc/magnetic_process), 0, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(magnetic_process)), 0, TIMER_UNIQUE)
 
 /obj/machinery/magnetic_module/LateInitialize()
 	if(SSradio)
@@ -42,7 +42,7 @@
 
 	// update the invisibility and icon
 /obj/machinery/magnetic_module/hide(var/intact)
-	invisibility = intact ? 101 : 0
+	set_invisibility(intact ? 101 : 0)
 	update_icon()
 
 /obj/machinery/magnetic_module/update_icon()

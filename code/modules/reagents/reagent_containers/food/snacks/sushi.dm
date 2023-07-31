@@ -5,13 +5,13 @@
 	icon_state = "sushi_rice"
 	bitesize = 1
 	var/fish_type = "fish"
-	reagent_data = list(/decl/reagent/nutriment = list())
+	reagent_data = list(/singleton/reagent/nutriment = list())
 
 /obj/item/reagent_containers/food/snacks/sushi/Initialize(var/ml, var/obj/item/reagent_containers/food/snacks/rice, var/obj/item/reagent_containers/food/snacks/topping)
 	. = ..(ml)
 	if(istype(topping))
-		var/list/flavor = LAZYLEN(topping.reagent_data) ? topping.reagent_data[/decl/reagent/nutriment] : null
-		var/list/ourflavor = LAZYLEN(reagent_data) ? reagent_data[/decl/reagent/nutriment] : null
+		var/list/flavor = LAZYLEN(topping.reagent_data) ? topping.reagent_data[/singleton/reagent/nutriment] : null
+		var/list/ourflavor = LAZYLEN(reagent_data) ? reagent_data[/singleton/reagent/nutriment] : null
 		for(var/taste_thing in flavor)
 			if(!ourflavor[taste_thing]) ourflavor[taste_thing] = 0
 			ourflavor[taste_thing] += flavor[taste_thing]
@@ -58,7 +58,7 @@
 	filling_color = "#FFDEFE"
 	gender = PLURAL
 	bitesize = 3
-	reagents_to_add = list(/decl/reagent/nutriment/protein/seafood = 3)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 3)
 	var/fish_type = "fish"
 	var/slices = 1
 

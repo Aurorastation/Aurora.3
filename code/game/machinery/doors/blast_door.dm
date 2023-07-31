@@ -188,9 +188,9 @@
 		return
 	if((stat & NOPOWER) && fail_secure)
 		securitylock = !density // Blast doors will only re-open when power is restored if they were open originally.
-		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_close)
+		INVOKE_ASYNC(src, PROC_REF(force_close))
 	else if(securitylock && fail_secure)
-		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_open)
+		INVOKE_ASYNC(src, PROC_REF(force_open))
 		securitylock = FALSE
 
 /obj/machinery/door/blast/attack_hand(mob/user as mob)

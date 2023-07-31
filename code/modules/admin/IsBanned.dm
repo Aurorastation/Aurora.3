@@ -3,7 +3,7 @@
 #define STICKYBAN_MAX_ADMIN_MATCHES 1
 
 //Blocks an attempt to connect before even creating our client datum thing.
-world/IsBanned(key, address, computer_id, type, real_bans_only = FALSE)
+/world/IsBanned(key, address, computer_id, type, real_bans_only = FALSE)
 	if (type == "world")
 		return ..()
 
@@ -52,7 +52,7 @@ world/IsBanned(key, address, computer_id, type, real_bans_only = FALSE)
 
 
 		if(!establish_db_connection(dbcon))
-			error("Ban database connection failure. Key [ckey] not checked")
+			log_error("Ban database connection failure. Key [ckey] not checked")
 			log_misc("Ban database connection failure. Key [ckey] not checked")
 			return ..()
 

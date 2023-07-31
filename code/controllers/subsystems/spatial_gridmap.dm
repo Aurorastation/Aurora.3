@@ -52,6 +52,8 @@
 	var/list/hearing_contents
 	///every client possessed mob inside this cell
 	var/list/client_contents
+	///every mob inside this cell
+	var/list/tgt_contents
 
 /datum/spatial_grid_cell/New(cell_x, cell_y, cell_z)
 	. = ..()
@@ -67,6 +69,7 @@
 
 	hearing_contents = dummy_list
 	client_contents = dummy_list
+	tgt_contents = dummy_list
 
 /datum/spatial_grid_cell/Destroy(force, ...)
 	if(force)//the response to someone trying to qdel this is a right proper fuck you
@@ -102,7 +105,7 @@
 	///list of the spatial_grid_cell datums per z level, arranged in the order of y index then x index
 	var/list/grids_by_z_level = list()
 	///everything that spawns before us is added to this list until we initialize
-	var/list/waiting_to_add_by_type = list(RECURSIVE_CONTENTS_HEARING_SENSITIVE = list(), RECURSIVE_CONTENTS_CLIENT_MOBS = list())
+	var/list/waiting_to_add_by_type = list(RECURSIVE_CONTENTS_HEARING_SENSITIVE = list(), RECURSIVE_CONTENTS_CLIENT_MOBS = list(), RECURSIVE_CONTENTS_AI_TARGETS = list())
 
 	var/cells_on_x_axis = 0
 	var/cells_on_y_axis = 0
@@ -140,12 +143,12 @@
 
 	pregenerate_more_oranges_ears(NUMBER_OF_PREGENERATED_ORANGES_EARS)
 
-	RegisterSignal(SSdcs, COMSIG_GLOB_NEW_Z, .proc/propogate_spatial_grid_to_new_z)
-	RegisterSignal(SSdcs, COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, .proc/after_world_bounds_expanded)
+	RegisterSignal(SSdcs, COMSIG_GLOB_NEW_Z, PROC_REF(propogate_spatial_grid_to_new_z))
+	RegisterSignal(SSdcs, COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, PROC_REF(after_world_bounds_expanded))
 
 ///add a movable to the pre init queue for whichever type is specified so that when the subsystem initializes they get added to the grid
 /datum/controller/subsystem/spatial_grid/proc/enter_pre_init_queue(atom/movable/waiting_movable, type)
-	RegisterSignal(waiting_movable, COMSIG_PARENT_PREQDELETED, .proc/queued_item_deleted, override = TRUE)
+	RegisterSignal(waiting_movable, COMSIG_PARENT_PREQDELETED, PROC_REF(queued_item_deleted), override = TRUE)
 	//override because something can enter the queue for two different types but that is done through unrelated procs that shouldnt know about eachother
 	waiting_to_add_by_type[type] += waiting_movable
 
@@ -316,6 +319,12 @@
 
 					. += grid_level[row][x_index].hearing_contents
 
+		if(SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
+			for(var/row in BOUNDING_BOX_MIN(center_y) to BOUNDING_BOX_MAX(center_y, cells_on_y_axis))
+				for(var/x_index in BOUNDING_BOX_MIN(center_x) to BOUNDING_BOX_MAX(center_x, cells_on_x_axis))
+
+					. += grid_level[row][x_index].tgt_contents
+
 	return .
 
 ///get the grid cell encomapassing targets coordinates
@@ -356,8 +365,12 @@
 ///find the spatial map cell that target belongs to, then add target's important_recusive_contents to it.
 ///make sure to provide the turf new_target is "in"
 /datum/controller/subsystem/spatial_grid/proc/enter_cell(atom/movable/new_target, turf/target_turf)
-	if(init_state != SS_INITSTATE_DONE)
+
+	// This contraption only applies to unit tests, as during the destroy phase some have an MMI machine that is being deleted
+	#ifdef UNIT_TEST
+	if(QDELETED(new_target) && istype(new_target, /obj/item/organ/internal/mmi_holder))
 		return
+	#endif
 
 	if(QDELETED(new_target))
 		CRASH("qdeleted or null target trying to enter the spatial grid!")
@@ -372,7 +385,7 @@
 	var/datum/spatial_grid_cell/intersecting_cell = grids_by_z_level[z_index][y_index][x_index]
 
 	if(new_target.important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS])
-		GRID_CELL_SET(intersecting_cell.client_contents, new_target.important_recursive_contents[SPATIAL_GRID_CONTENTS_TYPE_CLIENTS])
+		GRID_CELL_SET(intersecting_cell.client_contents, new_target.important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS])
 
 		SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(RECURSIVE_CONTENTS_CLIENT_MOBS), new_target)
 
@@ -380,6 +393,12 @@
 		GRID_CELL_SET(intersecting_cell.hearing_contents, new_target.important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE])
 
 		SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(RECURSIVE_CONTENTS_HEARING_SENSITIVE), new_target)
+
+	if(new_target.important_recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+		GRID_CELL_SET(intersecting_cell.tgt_contents, new_target.important_recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+
+		SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(RECURSIVE_CONTENTS_AI_TARGETS), new_target)
+
 
 /**
  * find the spatial map cell that target used to belong to, then subtract target's important_recusive_contents from it.
@@ -392,9 +411,6 @@
 /datum/controller/subsystem/spatial_grid/proc/exit_cell(atom/movable/old_target, turf/target_turf, exclusive_type)
 	if(init_state != SS_INITSTATE_DONE)
 		return
-
-	if(QDELETED(old_target))
-		CRASH("qdeleted or null target trying to enter the spatial grid")
 
 	if(!target_turf || !old_target?.important_recursive_contents)
 		CRASH("/datum/controller/subsystem/spatial_grid/proc/exit_cell() was given null arguments or a new_target without important_recursive_contents!")
@@ -414,6 +430,9 @@
 			if(RECURSIVE_CONTENTS_HEARING_SENSITIVE)
 				GRID_CELL_REMOVE(intersecting_cell.hearing_contents, old_target.important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE])
 
+			if(RECURSIVE_CONTENTS_AI_TARGETS)
+				GRID_CELL_REMOVE(intersecting_cell.tgt_contents, old_target.important_recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+
 		SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_EXITED(exclusive_type), old_target)
 		return
 
@@ -426,6 +445,11 @@
 		GRID_CELL_REMOVE(intersecting_cell.hearing_contents, old_target.important_recursive_contents[RECURSIVE_CONTENTS_HEARING_SENSITIVE])
 
 		SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_EXITED(RECURSIVE_CONTENTS_HEARING_SENSITIVE), old_target)
+
+	if(old_target.important_recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+		GRID_CELL_REMOVE(intersecting_cell.tgt_contents, old_target.important_recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+
+		SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_EXITED(RECURSIVE_CONTENTS_AI_TARGETS), old_target)
 
 ///find the cell this movable is associated with and removes it from all lists
 /datum/controller/subsystem/spatial_grid/proc/force_remove_from_cell(atom/movable/to_remove, datum/spatial_grid_cell/input_cell)
@@ -441,6 +465,7 @@
 
 	GRID_CELL_REMOVE(input_cell.client_contents, to_remove)
 	GRID_CELL_REMOVE(input_cell.hearing_contents, to_remove)
+	GRID_CELL_REMOVE(input_cell.tgt_contents, to_remove)
 
 ///if shit goes south, this will find hanging references for qdeleting movables inside the spatial grid
 /datum/controller/subsystem/spatial_grid/proc/find_hanging_cell_refs_for_movable(atom/movable/to_remove, remove_from_cells = TRUE)
@@ -460,7 +485,7 @@
 	for(var/list/z_level_grid as anything in grids_by_z_level)
 		for(var/list/cell_row as anything in z_level_grid)
 			for(var/datum/spatial_grid_cell/cell as anything in cell_row)
-				if(to_remove in (cell.hearing_contents | cell.client_contents))
+				if(to_remove in (cell.hearing_contents | cell.client_contents | cell.tgt_contents))
 					containing_cells += cell
 					if(remove_from_cells)
 						force_remove_from_cell(to_remove, cell)
@@ -485,17 +510,21 @@
 /atom/proc/find_grid_statistics_for_z_level(insert_clients = 0)
 	var/raw_clients = 0
 	var/raw_hearables = 0
+	var/raw_targets = 0
 
 	var/cells_with_clients = 0
 	var/cells_with_hearables = 0
+	var/cells_with_targets = 0
 
 	var/list/client_list = list()
 	var/list/hearable_list = list()
+	var/list/target_list = list()
 
 	var/total_cells = (world.maxx / SPATIAL_GRID_CELLSIZE) ** 2
 
 	var/average_clients_per_cell = 0
 	var/average_hearables_per_cell = 0
+	var/average_targets_per_cell = 0
 
 	var/hearable_min_x = (world.maxx / SPATIAL_GRID_CELLSIZE)
 	var/hearable_max_x = 1
@@ -508,6 +537,12 @@
 
 	var/client_min_y = (world.maxy / SPATIAL_GRID_CELLSIZE)
 	var/client_max_y = 1
+
+	var/target_min_x = (world.maxx / SPATIAL_GRID_CELLSIZE)
+	var/target_max_x = 1
+
+	var/target_min_y = (world.maxy / SPATIAL_GRID_CELLSIZE)
+	var/target_max_y = 1
 
 	var/list/inserted_clients = list()
 
@@ -522,7 +557,7 @@
 		for(var/client_to_insert in 0 to insert_clients)
 			var/turf/random_turf = pick(turfs)
 			var/mob/fake_client = new()
-			fake_client.important_recursive_contents = list(SPATIAL_GRID_CONTENTS_TYPE_HEARING = list(fake_client), SPATIAL_GRID_CONTENTS_TYPE_CLIENTS = list(fake_client))
+			fake_client.important_recursive_contents = list(SPATIAL_GRID_CONTENTS_TYPE_HEARING = list(fake_client), SPATIAL_GRID_CONTENTS_TYPE_CLIENTS = list(fake_client), SPATIAL_GRID_CONTENTS_TYPE_TARGETS = list(fake_client))
 			fake_client.forceMove(random_turf)
 			inserted_clients += fake_client
 
@@ -531,9 +566,11 @@
 	for(var/datum/spatial_grid_cell/cell as anything in all_z_level_cells)
 		var/client_length = length(cell.client_contents)
 		var/hearable_length = length(cell.hearing_contents)
+		var/target_length = length(cell.tgt_contents)
 
 		raw_clients += client_length
 		raw_hearables += hearable_length
+		raw_targets += target_length
 
 		if(client_length)
 			cells_with_clients++
@@ -569,11 +606,30 @@
 			if(cell.cell_y > hearable_max_y)
 				hearable_max_y = cell.cell_y
 
+		if(target_length)
+			cells_with_targets++
+
+			target_list += cell.tgt_contents
+
+			if(cell.cell_x < target_min_x)
+				target_min_x = cell.cell_x
+
+			if(cell.cell_x > target_max_x)
+				target_max_x = cell.cell_x
+
+			if(cell.cell_y < target_min_y)
+				target_min_y = cell.cell_y
+
+			if(cell.cell_y > target_max_y)
+				target_max_y = cell.cell_y
+
 	var/total_client_distance = 0
 	var/total_hearable_distance = 0
+	var/total_target_distance = 0
 
 	var/average_client_distance = 0
 	var/average_hearable_distance = 0
+	var/average_target_distance = 0
 
 	for(var/hearable in hearable_list)//n^2 btw
 		for(var/other_hearable in hearable_list)
@@ -587,24 +643,35 @@
 				continue
 			total_client_distance += get_dist(client, other_client)
 
+	for(var/target in target_list)
+		for(var/other_target in target_list)
+			if(target == other_target)
+				continue
+			total_target_distance += get_dist(target, other_target)
+
 	if(length(hearable_list))
 		average_hearable_distance = total_hearable_distance / length(hearable_list)
 	if(length(client_list))
 		average_client_distance = total_client_distance / length(client_list)
+	if(length(target_list))
+		average_target_distance = total_target_distance / length(target_list)
 
 	average_clients_per_cell = raw_clients / total_cells
 	average_hearables_per_cell = raw_hearables / total_cells
+	average_targets_per_cell = raw_targets / total_cells
 
 	for(var/mob/inserted_client as anything in inserted_clients)
 		qdel(inserted_client)
 
-	message_admins("on z level [z] there are [raw_clients] clients ([insert_clients] of whom are fakes inserted to random station turfs) \
-	and [raw_hearables] hearables. all of whom are inside the bounding box given by \
-	clients: ([client_min_x], [client_min_y]) x ([client_max_x], [client_max_y]) \
-	and hearables: ([hearable_min_x], [hearable_min_y]) x ([hearable_max_x], [hearable_max_y]) \
-	on average there are [average_clients_per_cell] clients per cell and [average_hearables_per_cell] hearables per cell. \
-	[cells_with_clients] cells have clients and [cells_with_hearables] have hearables, \
-	the average client distance is: [average_client_distance] and the average hearable_distance is [average_hearable_distance].")
+	message_admins("on z level [z] there are [raw_clients] clients ([insert_clients] of whom are fakes inserted to random station turfs), \
+	[raw_hearables] hearables, and [raw_targets] targets. all of whom are inside the bounding box given by \
+	clients: ([client_min_x], [client_min_y]) x ([client_max_x], [client_max_y]), \
+	hearables: ([hearable_min_x], [hearable_min_y]) x ([hearable_max_x], [hearable_max_y]), \
+	and targets: ([target_min_x], [target_min_y]) x ([target_max_x], [target_max_y]). \
+	on average there are [average_clients_per_cell] clients per cell, [average_hearables_per_cell] hearables per cell, and \
+	[average_targets_per_cell] targets per cell. [cells_with_clients] cells have clients, [cells_with_hearables] have hearables, \
+	and [cells_with_targets] have targets. the average client distance is: [average_client_distance], the average hearable_distance \
+	is [average_hearable_distance], and the average target distance is [average_target_distance].")
 
 #undef GRID_CELL_ADD
 #undef GRID_CELL_REMOVE

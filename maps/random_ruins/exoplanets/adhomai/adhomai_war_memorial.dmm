@@ -1,0 +1,162 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"c" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/concrete/square,
+/area/exoplanet/adhomai)
+"g" = (
+/obj/item/flame/candle{
+	pixel_x = -9;
+	pixel_y = -5;
+	start_lit = 1
+	},
+/turf/simulated/floor/concrete/square,
+/area/exoplanet/adhomai)
+"i" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/concrete/square,
+/area/exoplanet/adhomai)
+"o" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/concrete/square,
+/area/exoplanet/adhomai)
+"s" = (
+/turf/simulated/floor/concrete/square,
+/area/exoplanet/adhomai)
+"u" = (
+/obj/structure/sign/adhomai_memorial{
+	pixel_y = 0
+	},
+/turf/simulated/floor/concrete/square,
+/area/exoplanet/adhomai)
+"w" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
+"x" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/concrete/square,
+/area/exoplanet/adhomai)
+"J" = (
+/obj/item/flame/candle{
+	pixel_x = 9;
+	pixel_y = -6;
+	start_lit = 1
+	},
+/turf/simulated/floor/concrete/square,
+/area/exoplanet/adhomai)
+"K" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/concrete/square,
+/area/exoplanet/adhomai)
+"N" = (
+/obj/item/reagent_containers/food/snacks/grown/mtear,
+/turf/simulated/floor/concrete/square,
+/area/exoplanet/adhomai)
+"P" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/concrete/square,
+/area/exoplanet/adhomai)
+"T" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/concrete/square,
+/area/exoplanet/adhomai)
+"X" = (
+/obj/item/clothing/accessory/dogtags/adhomai{
+	layer = 2.9;
+	icon_state = "adhomai_dogtags_single";
+	item_state = "adhomai_dogtags_single";
+	separated = 1
+	},
+/obj/item/flame/candle{
+	pixel_y = 8;
+	start_lit = 1
+	},
+/turf/simulated/floor/concrete/square,
+/area/exoplanet/adhomai)
+
+(1,1,1) = {"
+w
+w
+w
+w
+w
+w
+w
+"}
+(2,1,1) = {"
+w
+P
+c
+c
+c
+K
+w
+"}
+(3,1,1) = {"
+w
+o
+s
+J
+N
+s
+w
+"}
+(4,1,1) = {"
+w
+o
+s
+u
+X
+s
+w
+"}
+(5,1,1) = {"
+w
+o
+s
+g
+N
+s
+w
+"}
+(6,1,1) = {"
+w
+i
+x
+x
+x
+T
+w
+"}
+(7,1,1) = {"
+w
+w
+w
+w
+w
+w
+w
+"}

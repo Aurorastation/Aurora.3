@@ -123,7 +123,7 @@
 
 	if (!SSjobs.safe_to_sanitize)
 		if (!SSjobs.deferred_preference_sanitizations[src])
-			SSjobs.deferred_preference_sanitizations[src] = CALLBACK(src, .proc/late_sanitize, sql_load)
+			SSjobs.deferred_preference_sanitizations[src] = CALLBACK(src, PROC_REF(late_sanitize), sql_load)
 	else
 		late_sanitize(sql_load)
 
@@ -447,17 +447,17 @@
 	dat += "</tr>"
 	dat += "</table><center><hr/>"
 
-	dat += "You can learn more about this faction on <a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>.</center>"
+	dat += "You can learn more about this faction on <a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>."
 
 	if (selected_faction == pref.faction)
-		dat += "<br>\[Faction Already Selected\]"
+		dat += "<br>\[Faction selected\]"
 	else if (faction.can_select(pref,user))
-		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>Select Faction</a>\]"
+		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>Select faction</a>\]"
 	else
 		dat += "<br><span class='warning'>[faction.get_selection_error(pref, user)]</span>"
+	dat += "</center>"
 
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat.Join()), "window=factionpreview;size=750x450")
+	user << browse(dat.Join(), "window=factionpreview;size=750x450")
 
 /datum/category_item/player_setup_item/occupation/proc/validate_and_set_faction(selected_faction)
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]

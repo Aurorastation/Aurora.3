@@ -8,7 +8,7 @@
 	unacidable = TRUE
 	anchored = TRUE				//There's a reason this is here, Mport. God fucking damn it -Agouri. Find&Fix by Pete. The reason this is here is to stop the curving of emitter shots.
 	pass_flags = PASSTABLE|PASSRAILING
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	animate_movement = 0	//Use SLIDE_STEPS in conjunction with legacy
 	var/projectile_type = /obj/item/projectile
 	var/ping_effect = "ping_b" //Effect displayed when a bullet hits a barricade. See atom/proc/bullet_ping.
@@ -28,8 +28,8 @@
 
 	//Effects
 	var/damage = 10
-	var/damage_type = BRUTE		//BRUTE, BURN, TOX, OXY, CLONE, PAIN are the only things that should be in here
-	var/damage_flags = DAM_BULLET
+	var/damage_type = DAMAGE_BRUTE		//DAMAGE_BRUTE, DAMAGE_BURN, DAMAGE_TOXIN, DAMAGE_OXY, DAMAGE_CLONE, DAMAGE_PAIN are the only things that should be in here
+	var/damage_flags = DAMAGE_FLAG_BULLET
 	var/nodamage = FALSE		//Determines if the projectile will skip any damage inflictions
 	var/check_armor = "bullet" //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb	//Cael - bio and rad are also valid
 	var/list/impact_sounds	//for different categories, IMPACT_MEAT etc
@@ -114,7 +114,7 @@
 	if(isanimal(target))
 		return FALSE
 	var/mob/living/L = target
-	if(damage_type == BRUTE && damage > 5) //weak hits shouldn't make you gush blood
+	if(damage_type == DAMAGE_BRUTE && damage > 5) //weak hits shouldn't make you gush blood
 		var/splatter_color = "#A10808"
 		var/mob/living/carbon/human/H = target
 		if (istype(H) && H.species && H.species.blood_color)
@@ -126,7 +126,7 @@
 
 	L.apply_effects(0, weaken, paralyze, 0, stutter, eyeblur, drowsy, 0, incinerate, blocked)
 	L.stun_effect_act(stun, agony, def_zone, src, damage_flags)
-	L.apply_damage(irradiate, IRRADIATE, damage_flags = DAM_DISPERSED) //radiation protection is handled separately from other armor types.
+	L.apply_damage(irradiate, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED) //radiation protection is handled separately from other armor types.
 	return 1
 
 //called when the projectile stops flying because it collided with something
@@ -136,7 +136,7 @@
 //Checks if the projectile is eligible for embedding. Not that it necessarily will.
 /obj/item/projectile/proc/can_embed()
 	//embed must be enabled and damage type must be brute
-	if(!embed || damage_type != BRUTE)
+	if(!embed || damage_type != DAMAGE_BRUTE)
 		return FALSE
 	return TRUE
 
@@ -151,7 +151,7 @@
 	return SP
 
 /obj/item/projectile/proc/get_structure_damage()
-	if(damage_type == BRUTE || damage_type == BURN)
+	if(damage_type == DAMAGE_BRUTE || damage_type == DAMAGE_BURN)
 		return damage * anti_materiel_potential
 	return FALSE
 
@@ -208,7 +208,7 @@
 			if(!point_blank)
 				if(!silenced)
 					target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
-					playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
+					playsound(target_mob, /singleton/sound_category/bulletflyby_sound, 50, 1)
 				return FALSE
 		if(PROJECTILE_DODGED)
 			return FALSE
@@ -372,6 +372,7 @@
 	if(hitscan)
 		return process_hitscan()
 	else
+		generate_muzzle_flash()
 		if(!isprocessing)
 			START_PROCESSING(SSprojectiles, src)
 		pixel_move(1)	//move it now!
@@ -616,6 +617,19 @@
 	STOP_PROCESSING(SSprojectiles, src)
 	return ..()
 
+/obj/item/projectile/proc/generate_muzzle_flash(duration = 3)
+	if(duration <= 0)
+		return
+	if(!muzzle_type || silenced)
+		return
+	var/datum/point/p = trajectory
+	var/atom/movable/thing = new muzzle_type
+	p.move_atom_to_src(thing)
+	var/matrix/M = new
+	M.Turn(original_angle)
+	thing.transform = M
+	QDEL_IN(thing, duration)
+
 /obj/item/projectile/proc/generate_hitscan_tracers(cleanup = TRUE, duration = 3)
 	if(!length(beam_segments))
 		return
@@ -671,13 +685,15 @@
 	rotate.Turn(angle)
 	I.transform = rotate
 	// Need to do this in order to prevent the ping from being deleted
-	addtimer(CALLBACK(I, /image/.proc/flick_overlay, src, 3), 1)
+	addtimer(CALLBACK(I, TYPE_PROC_REF(/image, flick_overlay), src, 3), 1)
 
 
 /image/proc/flick_overlay(var/atom/A, var/duration)
 	A.overlays.Add(src)
-	addtimer(CALLBACK(src, .proc/flick_remove_overlay, A), duration)
+	addtimer(CALLBACK(src, PROC_REF(flick_remove_overlay), A), duration)
 
 /image/proc/flick_remove_overlay(var/atom/A)
 	if(A)
 		A.overlays.Remove(src)
+
+#undef MUZZLE_EFFECT_PIXEL_INCREMENT

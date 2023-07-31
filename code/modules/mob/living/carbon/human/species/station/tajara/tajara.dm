@@ -4,12 +4,16 @@
 	name_plural = "Tajara"
 	category_name = "Tajara"
 	bodytype = BODYTYPE_TAJARA
+	species_height = HEIGHT_CLASS_SHORT
+	height_min = 150
+	height_max = 190
 	icobase = 'icons/mob/human_races/tajara/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/tajara/r_def_tajaran.dmi'
 	preview_icon = 'icons/mob/human_races/tajara/tajaran_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
-	tail = "tajtail"
+	tail = "Tail"
 	tail_animation = 'icons/mob/species/tajaran/tail.dmi'
+	selectable_tails = list("Tail", "Hakh'jar Tail")
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
@@ -18,7 +22,7 @@
 		/datum/unarmed_attack/bite/sharp
 	)
 	maneuvers = list(
-		/decl/maneuver/leap/tajara
+		/singleton/maneuver/leap/tajara
 	)
 	darksight = 8
 	slowdown = -1
@@ -95,8 +99,8 @@
 	default_h_style = "Tajaran Ears"
 
 	possible_cultures = list(
-		/decl/origin_item/culture/adhomian,
-		/decl/origin_item/culture/offworld_tajara
+		/singleton/origin_item/culture/adhomian,
+		/singleton/origin_item/culture/offworld_tajara
 	)
 
 	inherent_verbs = list(

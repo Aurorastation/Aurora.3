@@ -15,8 +15,9 @@
 /datum/controller/subsystem/sunlight/New()
 	NEW_SS_GLOBAL(SSsunlight)
 
-/datum/controller/subsystem/sunlight/stat_entry()
-	..("A:[config.sun_accuracy] LP:[light_points.len] Z:[config.sun_target_z]")
+/datum/controller/subsystem/sunlight/stat_entry(msg)
+	msg = "A:[config.sun_accuracy] LP:[light_points.len] Z:[config.sun_target_z]"
+	return ..()
 
 /datum/controller/subsystem/sunlight/Initialize()
 
@@ -55,7 +56,7 @@
 
 /atom/movable/sunobj
 	name = "sunlight emitter"
-	desc = "Weren't you told to never look directly at the sun? (but seriously, you shouldn't see this)"
+	desc = DESC_PARENT
 	light_novis = TRUE
 	light_range = 16
 	simulated = FALSE

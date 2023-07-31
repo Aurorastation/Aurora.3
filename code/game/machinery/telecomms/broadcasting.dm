@@ -118,7 +118,7 @@
 	var/mob/M = speaker.resolve()
 
 	data = list(
-		"name" = M.name,
+		"name" = M.GetVoice(),
 		"job" = M.job,
 		"message" = message,
 		"compression" = rand(35, 65),

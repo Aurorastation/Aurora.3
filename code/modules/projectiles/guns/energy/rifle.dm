@@ -191,8 +191,8 @@
 
 /obj/item/gun/energy/rifle/laser/tachyon/verb/scope()
 	set category = "Object"
-	set name = "Use Rifle Scope"
-	set popup_menu = 1
+	set name = "Use Scope"
+	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)
@@ -235,7 +235,7 @@
 	name = "geop cannon"
 	desc = "An advanced weapon of Skrell design, this Geop Cannon uses a tiny warp accelerator to super heat particles."
 	desc_extended = ""
-	icon = 'icons/obj/contained_items/skrell/skrell_weaponry.dmi'
+	icon = 'icons/obj/item/gun/energy/rifle/qukala_heavy.dmi'
 	icon_state = "qukala_heavy"
 	item_state = "qukala_heavy"
 	max_shots = 10

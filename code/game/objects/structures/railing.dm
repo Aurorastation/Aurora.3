@@ -10,7 +10,7 @@
 	anchored = FALSE
 
 	flags = ON_BORDER
-	obj_flags = OBJ_FLAG_ROTATABLE
+	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 
 	build_amt = 2
 	var/broken = FALSE
@@ -41,7 +41,7 @@
 	if(!material || !material.radioactivity)
 		return
 	for(var/mob/living/L in range(1,src))
-		L.apply_damage(round(material.radioactivity / 20), IRRADIATE)
+		L.apply_damage(round(material.radioactivity / 20), DAMAGE_RADIATION)
 
 /obj/structure/railing/Initialize()
 	. = ..()
@@ -213,7 +213,7 @@
 					playsound(get_turf(src), 'sound/effects/grillehit.ogg', 50, TRUE)
 					if(prob(30))
 						G.affecting.Weaken(5)
-					G.affecting.apply_damage(15, BRUTE, BP_HEAD)
+					G.affecting.apply_damage(15, DAMAGE_BRUTE, BP_HEAD)
 				else
 					G.affecting.forceMove(get_step(src, get_dir(user, src)))
 					G.affecting.Weaken(5)
@@ -273,7 +273,7 @@
 			update_icon()
 		return
 
-	if(W.force && (W.damtype == BURN || W.damtype == BRUTE))
+	if(W.force && (W.damtype == DAMAGE_BURN || W.damtype == DAMAGE_BRUTE))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		visible_message(SPAN_WARNING("\The [src] has been [LAZYLEN(W.attack_verb) ? pick(W.attack_verb) : "attacked"] with \the [W] by \the [user]!"))
 		take_damage(W.force)
@@ -329,3 +329,18 @@
 	. = get_turf(src) // by default, we pop into the turf the railing's on
 	if(get_turf(user) == . || !(get_dir(src, user) & dir)) // if the user's inside our turf or behind us, go in front of us
 		. = get_step(src, dir)
+
+//fence
+
+/obj/structure/railing/fence
+	name = "fence"
+	color = "#824B28"
+	anchored = TRUE
+
+/obj/structure/railing/fence/Initialize()
+	. = ..()
+	color = "#824B28"
+
+/obj/structure/railing/fence/New(var/newloc, var/material_key = MATERIAL_WOOD)
+	material = material_key
+	..(newloc)

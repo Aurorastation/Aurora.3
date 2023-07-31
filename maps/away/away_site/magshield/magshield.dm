@@ -2,12 +2,12 @@
 	name = "Magshield"
 	id = "magshield"
 	description = "It's an orbital shield station."
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
-	suffix = "away_site/magshield/magshield.dmm"
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA, ALL_COALITION_SECTORS)
+	suffixes = list("away_site/magshield/magshield.dmm")
 	spawn_weight = 1
 	spawn_cost = 1
 
-/decl/submap_archetype/magshield
+/singleton/submap_archetype/magshield
 	map = "magshield"
 	descriptor = "It's an orbital shield station."
 
@@ -50,7 +50,7 @@
 	landmark_tag = "nav_magshield_6"
 
 //mainly props now, the gimmick of an infrequent emp pulse was kind of interesting but hard to port and might punish synths too hard for exploring
-/obj/structure/magshield/maggen 
+/obj/structure/magshield/maggen
 	name = "magnetic field generator"
 	desc = "A large three-handed generator with rotating top. It is used to create high-power magnetic fields in hard vacuum. It's spinning and that seems to be all it's good for at the moment."
 	icon = 'maps/away/away_site/magshield/magshield_sprites.dmi'

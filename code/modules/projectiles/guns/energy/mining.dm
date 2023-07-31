@@ -70,7 +70,7 @@
 	name = "plasma arc"
 	icon_state = "omnilaser"
 	damage = 20
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	check_armor = "laser"
 	range = 5
 	pass_flags = PASSTABLE|PASSRAILING

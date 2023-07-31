@@ -5,7 +5,7 @@
 	transforming = 1
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 	update_canmove()
 	dead_mob_list -= src
 
@@ -39,7 +39,7 @@
 	transforming = TRUE
 	canmove = 0
 	icon = null
-	invisibility = 101
+	set_invisibility(101)
 
 	QDEL_IN(animation, 20)
 	QDEL_IN(src, 20)
@@ -63,7 +63,7 @@
 
 	exit_vr()
 
-	stat = DEAD
+	set_stat(DEAD)
 
 	update_canmove()
 
@@ -95,6 +95,14 @@
 
 	if(SSticker.mode)
 		SSticker.mode.check_win()
+
+	//This might seems like an useless computation to the programmer of the future, why would we do this?
+	//Easy! That's because otherwise, the hostile AI will keep us referenced, leading to an harddel
+	for(var/mob/living/simple_animal/hostile/hostile_in_sight in get_targets_in_LOS(world.view))
+		hostile_in_sight.targets.Remove(src)
+
+		if(hostile_in_sight.target_mob == src)
+			hostile_in_sight.target_mob = null
 
 	return 1
 

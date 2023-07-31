@@ -9,7 +9,7 @@
 	anchored = 1
 	density = 0
 	layer = OBJ_LAYER + 0.9
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	animate_movement = 0
 	var/solid_time = 120
 	var/amount = 3
@@ -21,8 +21,8 @@
 	icon_state = "[ismetal? "m" : ""]foam"
 	metal = ismetal
 	playsound(src, 'sound/effects/bubbles2.ogg', 80, 1, -3)
-	addtimer(CALLBACK(src, .proc/tick), 3 + metal * 3)
-	addtimer(CALLBACK(src, .proc/post), solid_time)
+	addtimer(CALLBACK(src, PROC_REF(tick)), 3 + metal * 3)
+	addtimer(CALLBACK(src, PROC_REF(post)), solid_time)
 
 /obj/effect/effect/foam/proc/tick()
 	process()
@@ -127,7 +127,7 @@
 			for(var/id in carried_reagents)
 				F.reagents.add_reagent(id, 1, safety = 1) //makes a safety call because all reagents should have already reacted anyway
 		else
-			F.reagents.add_reagent(/decl/reagent/water, 1, safety = 1)
+			F.reagents.add_reagent(/singleton/reagent/water, 1, safety = 1)
 
 // wall formed by metal foams, dense and opaque, but easy to break
 
@@ -167,7 +167,7 @@
 /obj/structure/foamedmetal/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
-	if ((HULK in user.mutations) || (prob(75 - metal * 25)))
+	if (HAS_FLAG(user.mutations, HULK) || (prob(75 - metal * 25)))
 		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), SPAN_NOTICE("You smash through the metal foam wall."))
 		qdel(src)
 	else

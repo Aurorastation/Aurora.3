@@ -38,6 +38,7 @@
 /obj/machinery/atmospherics/binary/passive_gate/on/input/max/Initialize()
 	. = ..()
 	target_pressure = max_pressure_setting
+
 /obj/machinery/atmospherics/binary/passive_gate/scrubbers
 	name = "scrubbers pressure regulator"
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for scrubber pipes."
@@ -54,6 +55,26 @@
 	icon_state = "map-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
 	icon_connect_type = "-supply"
+
+	unlocked = TRUE
+	target_pressure = 200
+
+/obj/machinery/atmospherics/binary/passive_gate/fuel
+	name = "fuel pressure regulator"
+	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for fuel pipes."
+	icon_state = "map-fuel"
+	connect_types = CONNECT_TYPE_FUEL
+	icon_connect_type = "-fuel"
+
+	unlocked = TRUE
+	target_pressure = 200
+
+/obj/machinery/atmospherics/binary/passive_gate/aux
+	name = "auxiliary pressure regulator"
+	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for auxiliary pipes."
+	icon_state = "map-aux"
+	connect_types = CONNECT_TYPE_AUX
+	icon_connect_type = "-aux"
 
 	unlocked = TRUE
 	target_pressure = 200
@@ -279,8 +300,9 @@
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>")
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
+	if (!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
+	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return TRUE

@@ -21,7 +21,9 @@
 				UNSETEMPTY(pilots)
 
 	if(radio)
-		radio.set_on(head?.radio && head.radio.is_functional() && get_cell())
+		var/radio_check = head?.radio && head.radio.is_functional() && get_cell()
+		if(radio.is_on() != radio_check)
+			radio.set_on(radio_check)
 
 	if(camera)
 		camera.status = (head?.camera && head.camera.is_functional())
@@ -99,7 +101,7 @@
 		bodytemperature += ((environment.temperature - bodytemperature) / 3)
 
 	if(environment.temperature >= T0C+1400) //A bit higher because I like to assume there's a difference between a mech and a wall
-		apply_damage(damage = environment.temperature /5 , damagetype = BURN)
+		apply_damage(damage = environment.temperature /5 , damagetype = DAMAGE_BURN)
 	//A possibility is to hook up interface icons here. But this works pretty well in my experience
 		if(prob(5))
 			visible_message("<span class='danger'>\The [src]'s hull bends and buckles under the intense heat!</span>")

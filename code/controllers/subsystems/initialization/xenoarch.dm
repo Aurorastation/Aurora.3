@@ -18,11 +18,14 @@ var/datum/controller/subsystem/xenoarch/SSxenoarch
 	NEW_SS_GLOBAL(SSxenoarch)
 
 /datum/controller/subsystem/xenoarch/Initialize(timeofday)
-	//create digsites
-	for(var/turf/simulated/mineral/M in turfs)
-		CHECK_TICK
+	set background=1
 
-		if(!prob(XENOARCH_SPAWN_CHANCE))
+	//create digsites
+	for(var/turf/TIW in world)
+		CHECK_TICK
+		var/turf/simulated/mineral/M = TIW
+
+		if(!istype(M) || !prob(XENOARCH_SPAWN_CHANCE))
 			continue
 
 		digsite_spawning_turfs.Add(M)

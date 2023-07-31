@@ -103,7 +103,7 @@
 /obj/item/organ/internal/lungs/proc/enable_rupture()
 	rupture_imminent = TRUE
 	checking_rupture = TRUE
-	addtimer(CALLBACK(src, .proc/disable_rupture), 5 SECONDS, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(disable_rupture)), 5 SECONDS, TIMER_UNIQUE)
 
 /obj/item/organ/internal/lungs/proc/disable_rupture()
 	rupture_imminent = FALSE
@@ -130,7 +130,7 @@
 				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel vast amounts of air force itself into your lungs!")))
 			else
 				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel as if your lungs are about to blow!")))
-			addtimer(CALLBACK(src, .proc/enable_rupture), 2 SECONDS, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, PROC_REF(enable_rupture)), 2 SECONDS, TIMER_UNIQUE)
 			checking_rupture = FALSE
 
 	var/safe_pressure_min = owner.species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
@@ -232,7 +232,7 @@
 	if(toxins_pp > safe_toxins_max)
 		var/ratio = (poison/safe_toxins_max) * 10
 		if(reagents)
-			reagents.add_reagent(/decl/reagent/toxin, Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
+			reagents.add_reagent(/singleton/reagent/toxin, Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 			breath.adjust_gas(poison_type, -poison/6, update = 0) //update after
 		owner.phoron_alert = max(owner.phoron_alert, 1)
 	else
@@ -286,7 +286,7 @@
 	return failed_breath
 
 /obj/item/organ/internal/lungs/proc/handle_temperature_effects(datum/gas_mixture/breath)
-	if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1) && !(COLD_RESISTANCE in owner.mutations))
+	if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1) && NOT_FLAG(owner.mutations, COLD_RESISTANCE))
 
 		if(breath.temperature <= owner.species.cold_level_1)
 			if(prob(20))
@@ -297,24 +297,24 @@
 
 		if(breath.temperature >= owner.species.heat_level_1)
 			if(breath.temperature < owner.species.heat_level_2)
-				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_1, BURN, BP_HEAD, used_weapon = "Excessive Heat")
+				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_1, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Heat")
 				owner.fire_alert = max(owner.fire_alert, 2)
 			else if(breath.temperature < species.heat_level_3)
-				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_2, BURN, BP_HEAD, used_weapon = "Excessive Heat")
+				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_2, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Heat")
 				owner.fire_alert = max(owner.fire_alert, 2)
 			else
-				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_3, BURN, BP_HEAD, used_weapon = "Excessive Heat")
+				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_3, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Heat")
 				owner.fire_alert = max(owner.fire_alert, 2)
 
 		else if(breath.temperature <= owner.species.cold_level_1)
 			if(breath.temperature > species.cold_level_2)
-				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_1, BURN, BP_HEAD, used_weapon = "Excessive Cold")
+				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_1, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Cold")
 				owner.fire_alert = max(owner.fire_alert, 1)
 			else if(breath.temperature > species.cold_level_3)
-				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_2, BURN, BP_HEAD, used_weapon = "Excessive Cold")
+				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_2, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Cold")
 				owner.fire_alert = max(owner.fire_alert, 1)
 			else
-				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_3, BURN, BP_HEAD, used_weapon = "Excessive Cold")
+				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_3, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Cold")
 				owner.fire_alert = max(owner.fire_alert, 1)
 
 		//breathing in hot/cold air also heats/cools you a bit
@@ -331,13 +331,16 @@
 		if (temp_adj < BODYTEMP_COOLING_MAX) temp_adj = BODYTEMP_COOLING_MAX
 		owner.bodytemperature += temp_adj
 
-	else if(breath.temperature >= owner.species.heat_discomfort_level)
+	else if(owner.bodytemperature >= owner.species.heat_discomfort_level)
 		owner.species.get_environment_discomfort(owner,"heat")
-	else if(breath.temperature <= owner.species.cold_discomfort_level)
+	else if(owner.bodytemperature <= owner.species.cold_discomfort_level)
 		owner.species.get_environment_discomfort(owner,"cold")
 
 /obj/item/organ/internal/lungs/listen()
 	if(owner.failed_last_breath)
+		return "no respiration"
+
+	if(owner.status_flags & FAKEDEATH)
 		return "no respiration"
 
 	if(BP_IS_ROBOTIC(src))

@@ -42,7 +42,7 @@
 /datum/outfit/admin/space_bar_bartender/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
@@ -74,7 +74,7 @@
 	name = "Space Bar Chef"
 
 	uniform = /obj/item/clothing/under/rank/chef/idris
-	suit = /obj/item/clothing/suit/chef/idris
+	suit = /obj/item/clothing/suit/chef_jacket/idris
 	head = /obj/item/clothing/head/chefhat/idris
 	shoes = /obj/item/clothing/shoes/brown
 	species_shoes = list(
@@ -97,7 +97,7 @@
 /datum/outfit/admin/space_bar_chef/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
@@ -139,7 +139,7 @@
 		H.equip_to_slot_or_del(new S, slot_shoes)
 
 /datum/outfit/admin/random/space_bar_patron/vaurca
-	mask = /obj/item/clothing/mask/breath/vaurca/filter
+	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	r_pocket = /obj/item/reagent_containers/inhaler/phoron_special
 
 /datum/outfit/admin/random/space_bar_patron/vaurca/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

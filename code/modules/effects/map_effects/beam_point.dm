@@ -36,7 +36,7 @@ var/global/list/all_beam_points
 	if(make_beams_on_init)
 		create_beams()
 	if(use_timer)
-		addtimer(CALLBACK(src, .proc/handle_beam_timer), initial_delay)
+		addtimer(CALLBACK(src, PROC_REF(handle_beam_timer)), initial_delay)
 	return ..()
 
 /obj/effect/map_effect/beam_point/Destroy()

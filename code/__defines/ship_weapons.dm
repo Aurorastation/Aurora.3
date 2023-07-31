@@ -5,6 +5,8 @@
 #define SHIP_CALIBER_ZTA "zero-point warp beam"
 #define SHIP_CALIBER_178MM "178mm"
 #define SHIP_CALIBER_COILGUN "tungsten rod"
+#define SHIP_CALIBER_200MM "200mm"
+#define SHIP_CALIBER_BLASTER "blaster charge"
 
 #define SHIP_GUN_FIRING_SUCCESSFUL "firing sequence completed"
 #define SHIP_GUN_ERROR_NO_AMMO "no ammunition loaded"
@@ -17,12 +19,14 @@
 #define SHIP_AMMO_CAN_HIT_PLANETS    4
 
 #define SHIP_AMMO_IMPACT_HE "high explosive"
+#define SHIP_AMMO_IMPACT_PROBE "sensor probe"
 #define SHIP_AMMO_IMPACT_FMJ "full metal jacket"
 #define SHIP_AMMO_IMPACT_AP "armour-piercing"
 #define SHIP_AMMO_IMPACT_LASER "laser"
 #define SHIP_AMMO_IMPACT_BUNKERBUSTER "bunker-buster"
 #define SHIP_AMMO_IMPACT_PLASMA "plasma"
 #define SHIP_AMMO_IMPACT_ZTA "zero-point warp beam"
+#define SHIP_AMMO_IMPACT_BLASTER "blaster charge"
 
 #define FIRING_EFFECT_FLAG_THROW_MOBS  1
 #define FIRING_EFFECT_FLAG_EXTREMELY_LOUD 2 //Play the heavy firing sound to all mobs on connected zlevels.

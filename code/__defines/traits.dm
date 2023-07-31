@@ -119,17 +119,10 @@
 // common trait sources
 #define TRAIT_GENERIC "generic"
 #define GENERIC_ITEM_TRAIT "generic_item"
-#define UNCONSCIOUS_TRAIT "unconscious"
-#define EYE_DAMAGE "eye_damage"
-#define EAR_DAMAGE "ear_damage"
-#define GENETIC_MUTATION "genetic"
-#define OBESITY "obesity"
-#define MAGIC_TRAIT "magic"
-#define TRAUMA_TRAIT "trauma"
 
 /// cannot be removed without admin intervention
 #define ROUNDSTART_TRAIT "roundstart"
-#define JOB_TRAIT "job"
+#define CULTURE_TRAIT "culture"
 
 #define INNATE_TRAIT "innate"
 
@@ -142,3 +135,21 @@
 
 // every hearing sensitive atom has this trait
 #define TRAIT_HEARING_SENSITIVE "hearing_sensitive"
+
+/// forces the mob to speak gibberish, like highly damaged borgs
+#define TRAIT_SPEAKING_GIBBERISH "speaking_gibberish"
+
+/// lets mobs that traditionally don't hallucinate, hallucinate
+#define TRAIT_BYPASS_HALLUCINATION_RESTRICTION "bypassing_hallucination_restriction"
+
+/// This mob should never close UI even if it doesn't have a client
+#define TRAIT_PRESERVE_UI_WITHOUT_CLIENT "preserve_ui_without_client"
+
+/// when mobs are viewing something via a computer, currently used for the helm computer
+#define TRAIT_COMPUTER_VIEW "computer_view"
+
+// IPC OVERLOADER OVERDOSE STATES
+#define TRAIT_SOURCE_OVERLOADER "overloader"
+#define TRAIT_OVERLOADER_OD_INITIAL "overloader_od_initial"
+#define TRAIT_OVERLOADER_OD_MEDIUM "overloader_od_medium"
+#define TRAIT_OVERLOADER_OD_EFFECT "overloader_od_effect"

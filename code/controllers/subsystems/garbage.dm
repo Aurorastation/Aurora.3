@@ -4,7 +4,9 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	name = "Garbage"
 	priority = SS_PRIORITY_GARBAGE
 	wait = 2 SECONDS
-	flags = SS_FIRE_IN_LOBBY|SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
+	flags = SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	init_stage = INITSTAGE_EARLY
 
 	var/collection_timeout = 3000// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
 	var/delslasttick = 0		// number of del()'s we've done this tick
@@ -30,15 +32,19 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	// of the immortality qdel hints
 	var/list/noforcerespect = list()
 
-#ifdef TESTING
+	#ifdef TESTING
 	var/list/qdel_list = list()	// list of all types that have been qdel()eted
-#endif
+	#endif
+
+	#ifdef REFERENCE_TRACKING
+	var/list/reference_find_on_fail = list()
+	#endif
 
 /datum/controller/subsystem/garbage_collector/New()
 	NEW_SS_GLOBAL(SSgarbage)
 
 /datum/controller/subsystem/garbage_collector/stat_entry(msg)
-	msg += "W:[tobequeued.len]|Q:[queue.len]|D:[delslasttick]|G:[gcedlasttick]|"
+	msg = "W:[tobequeued.len]|Q:[queue.len]|D:[delslasttick]|G:[gcedlasttick]|"
 	msg += "GR:"
 	if (!(delslasttick+gcedlasttick))
 		msg += "n/a|"
@@ -50,7 +56,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		msg += "n/a|"
 	else
 		msg += "TGR:[round((totalgcs/(totaldels+totalgcs))*100, 0.01)]%"
-	..(msg)
+	return ..()
 
 /datum/controller/subsystem/garbage_collector/fire()
 	HandleToBeQueued()
@@ -85,9 +91,16 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	var/starttime = world.time
 	var/starttimeofday = world.timeofday
 	var/idex = 1
+	#ifdef REFERENCE_TRACKING
+	var/ref_searching = FALSE
+	#endif
 	while((queue.len - (idex - 1)) && starttime == world.time && starttimeofday == world.timeofday)
 		if (MC_TICK_CHECK)
 			break
+		#ifdef REFERENCE_TRACKING
+		if (ref_searching)
+			break
+		#endif
 		var/refID = queue[idex]
 		if (!refID)
 			idex++
@@ -100,8 +113,16 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		var/datum/A
 		A = locate(refID)
 		if (A && A.gcDestroyed == GCd_at_time) // So if something else coincidently gets the same ref, it's not deleted by mistake
+			#ifdef REFERENCE_TRACKING
+			if(reference_find_on_fail[text_ref(A)])
+				INVOKE_ASYNC(A, TYPE_PROC_REF(/datum, find_references))
+				ref_searching = TRUE
 			#ifdef GC_FAILURE_HARD_LOOKUP
-			A.find_references()
+			else
+				INVOKE_ASYNC(A, TYPE_PROC_REF(/datum, find_references))
+				ref_searching = TRUE
+			#endif
+			reference_find_on_fail -= text_ref(A)
 			#endif
 
 			// Something's still referring to the qdel'd object.  Kill it.
@@ -116,6 +137,9 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 		else
 			++gcedlasttick
 			++totalgcs
+			#ifdef REFERENCE_TRACKING
+			reference_find_on_fail -= text_ref(A)
+			#endif
 
 	if (idex > 1)
 		queue.Cut(1, idex)
@@ -221,10 +245,15 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 				SSgarbage.HardQueue(D)
 			if (QDEL_HINT_HARDDEL_NOW)	//qdel should assume this object won't gc, and hard del it post haste.
 				SSgarbage.HardDelete(D)
-			if (QDEL_HINT_FINDREFERENCE)//qdel will, if TESTING is enabled, display all references to this object, then queue the object for deletion.
+			if (QDEL_HINT_FINDREFERENCE)//qdel will, if REFERENCE_TRACKING is enabled, display all references to this object, then queue the object for deletion.
 				SSgarbage.QueueForQueuing(D)
-				#ifdef TESTING
+				#ifdef REFERENCE_TRACKING
 				D.find_references()
+				#endif
+			if (QDEL_HINT_IFFAIL_FINDREFERENCE) // qdel will, if REFERENCE_TRACKING is enabled and the object fails to collect, display all references to this object
+				SSgarbage.QueueForQueuing(D)
+				#ifdef REFERENCE_TRACKING
+				SSgarbage.reference_find_on_fail[text_ref(D)] = TRUE
 				#endif
 			else
 				if(!SSgarbage.noqdelhint["[D.type]"])

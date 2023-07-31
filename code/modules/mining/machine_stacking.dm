@@ -63,7 +63,7 @@
 	add_fingerprint(user)
 	ui_interact(user)
 
-/obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = default_state)
+/obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/ui_state/state = default_state)
 	if(!setup_machine(user))
 		return
 
@@ -116,7 +116,7 @@
 /obj/machinery/mineral/stacking_machine
 	name = "stacking machine"
 	desc = "A machine which takes loose stacks of finished sheets and packs them together into one easily transportable sheet."
-	icon = 'icons/obj/machines/mining_machines.dmi'
+	icon = 'icons/obj/machinery/mining_machines.dmi'
 	icon_state = "stacker"
 	density = TRUE
 	anchored = TRUE

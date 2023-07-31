@@ -7,7 +7,7 @@
 // Root type for cooking machines. See following files for specific implementations.
 /obj/machinery/appliance
 	name = "cooker"
-	desc = "You shouldn't be seeing this!"
+	desc = DESC_PARENT
 	desc_info = "Control-click this to change its temperature."
 	icon = 'icons/obj/cooking_machines.dmi'
 	var/appliancetype = 0
@@ -32,12 +32,15 @@
 	var/cooking						// Whether or not the machine is currently operating.
 	var/cook_type					// A string value used to track what kind of food this machine makes.
 	var/can_cook_mobs				// Whether or not this machine accepts grabbed mobs.
-	var/mobdamagetype = BRUTE		// Burn damage for cooking appliances, brute for cereal/candy
+	var/mobdamagetype = DAMAGE_BRUTE		// Burn damage for cooking appliances, brute for cereal/candy
 	var/food_color					// Colour of resulting food item.
 	var/cooked_sound = 'sound/machines/ding.ogg'				// Sound played when cooking completes.
 	var/can_burn_food				// Can the object burn food that is left inside?
 	var/burn_chance = 10			// How likely is the food to burn?
 	var/list/cooking_objs = list()	// List of things being cooked
+	var/particles/particle_holder
+	var/particle_type = /particles/cooking_smoke
+	var/smoke_percent = 0
 
 	// If the machine has multiple output modes, define them here.
 	var/selected_option
@@ -53,6 +56,7 @@
 		stat &= ~NOPOWER
 	else
 		stat |= NOPOWER
+	particle_holder = new particle_type
 
 /obj/machinery/appliance/Destroy()
 	for (var/a in cooking_objs)
@@ -254,11 +258,11 @@
 		oilwork(J, CI)
 
 	for (var/_R in CI.container.reagents.reagent_volumes)
-		if (ispath(_R, /decl/reagent/nutriment))
+		if (ispath(_R, /singleton/reagent/nutriment))
 			CI.max_cookwork += CI.container.reagents.reagent_volumes[_R] *2//Added reagents contribute less than those in food items due to granular form
 
 			//Nonfat reagents will soak oil
-			if (!ispath(_R, /decl/reagent/nutriment/triglyceride))
+			if (!ispath(_R, /singleton/reagent/nutriment/triglyceride))
 				CI.max_oil += CI.container.reagents.reagent_volumes[_R] * 0.25
 		else
 			CI.max_cookwork += CI.container.reagents.reagent_volumes[_R]
@@ -274,11 +278,11 @@
 	var/work = 0
 	if (istype(S) && S.reagents)
 		for (var/_R in S.reagents.reagent_volumes)
-			if (ispath(_R, /decl/reagent/nutriment))
+			if (ispath(_R, /singleton/reagent/nutriment))
 				work += S.reagents.reagent_volumes[_R] *3//Core nutrients contribute much more than peripheral chemicals
 
 				//Nonfat reagents will soak oil
-				if (!ispath(_R, /decl/reagent/nutriment/triglyceride))
+				if (!ispath(_R, /singleton/reagent/nutriment/triglyceride))
 					CI.max_oil += S.reagents.reagent_volumes[_R] * 0.35
 			else
 				work += S.reagents.reagent_volumes[_R]
@@ -317,18 +321,43 @@
 
 	return TRUE
 
+/obj/machinery/appliance/proc/get_smoke_percent()
+	if(can_burn_food == FALSE)
+		return 0
+	var/closest_to_burn = 0
+	for (var/datum/cooking_item/i in cooking_objs)
+		if(i.burned | !i.max_cookwork)
+			continue
+		var/progress = i.cookwork / i.max_cookwork
+		var/half_overcook = (i.overcook_mult - 1)*0.5
+		var/normalized_burn = (progress - half_overcook)/(i.overcook_mult - half_overcook)
+		if(progress < 1+half_overcook)
+			continue
+		if(normalized_burn > closest_to_burn)
+			closest_to_burn = normalized_burn
+	return closest_to_burn
+
+/obj/machinery/appliance/proc/adjust_smoke()
+	smoke_percent = get_smoke_percent()
+	particle_holder.spawning = 3 * smoke_percent
+	if(smoke_percent > 0)
+		particles = particle_holder
+	else
+		particles = null
+
 /obj/machinery/appliance/process()
 	if (cooking_power > 0 && cooking)
 		for (var/i in cooking_objs)
 			do_cooking_tick(i)
-
+	if(can_burn_food)
+		adjust_smoke()
 
 /obj/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
 	audible_message("<b>[src]</b> [finish_verb]", intent_message = PING_SOUND)
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options
-	var/decl/recipe/recipe = null
+	var/singleton/recipe/recipe = null
 	var/atom/C = null
 	var/appliance
 	if (CI.container && CI.container.appliancetype)
@@ -579,7 +608,7 @@
 	if(ishuman(victim))
 		var/mob/living/carbon/human/CH = victim
 		meat_name = CH.species?.name || meat_name
-	if(ispath(digest_product_type, /decl/reagent/nutriment/protein))
+	if(ispath(digest_product_type, /singleton/reagent/nutriment/protein))
 		data = list("[meat_name] meat" = reagent_amount)
 	result.reagents.add_reagent(digest_product_type, reagent_amount, data)
 

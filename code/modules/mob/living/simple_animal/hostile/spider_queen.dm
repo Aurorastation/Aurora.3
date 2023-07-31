@@ -97,7 +97,7 @@
 		M.update_icon()
 		M.pass_flags = PASSTABLE | PASSMOB
 		M.layer = BELOW_MOB_LAYER
-		addtimer(CALLBACK(src, .proc/do_landing, M), 1 MINUTE)
+		addtimer(CALLBACK(src, PROC_REF(do_landing), M), 1 MINUTE)
 		return TRUE
 	else
 		return FALSE
@@ -114,6 +114,6 @@
 		S.visible_message("<span class='danger'>\The [S] lands on the [target_turf]!</span>")
 		for(var/mob/living/M in target_turf)
 			if(M != src)
-				M.apply_damage(50, BRUTE)
+				M.apply_damage(50, DAMAGE_BRUTE)
 				M.apply_effect(6, STUN, blocked)
 	return TRUE

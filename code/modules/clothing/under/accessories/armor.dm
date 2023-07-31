@@ -26,6 +26,11 @@
 	icon_state = "legguards_generic"
 	item_state = "legguards_generic"
 
+/obj/item/clothing/accessory/leg_guard/scc
+	name = "scc leg guards"
+	icon_state = "legguards_scc"
+	item_state = "legguards_scc"
+
 /obj/item/clothing/accessory/leg_guard/ablative
 	name = "ablative leg guards"
 	desc = "These will protect your legs and feet from energy weapons."
@@ -72,7 +77,7 @@
 	item_state = "legguards_military"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -85,7 +90,7 @@
 	item_state = "legguards_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -102,7 +107,7 @@
 	item_state = "legguards_sec_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -134,6 +139,11 @@
 	name = "standard arm guards"
 	icon_state = "armguards_generic"
 	item_state = "armguards_generic"
+
+/obj/item/clothing/accessory/arm_guard/scc
+	name = "scc arm guards"
+	icon_state = "armguards_scc"
+	item_state = "armguards_scc"
 
 /obj/item/clothing/accessory/arm_guard/ablative
 	name = "ablative arm guards"
@@ -181,7 +191,7 @@
 	item_state = "armguards_military"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -194,7 +204,7 @@
 	item_state = "armguards_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -211,7 +221,7 @@
 	item_state = "armguards_sec_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -224,7 +234,7 @@
 	item_state = "armguards_sec_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,

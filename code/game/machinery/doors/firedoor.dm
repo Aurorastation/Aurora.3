@@ -60,6 +60,8 @@
 	var/open_sound = 'sound/machines/firelockopen.ogg'
 	var/close_sound = 'sound/machines/firelockclose.ogg'
 
+	init_flags = 0
+
 /obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
@@ -84,7 +86,7 @@
 			if(locate(src.type) in T)
 				door_directions |= direction
 
-			if(T.oxygen <= 0)
+			if(T.initial_gas == null)
 				noair_directions |= direction
 
 			if(get_area(src.loc) != get_area(T))
@@ -245,7 +247,7 @@
 		close()
 
 	if(needs_to_close)
-		addtimer(CALLBACK(src, .proc/do_close), 50)
+		addtimer(CALLBACK(src, PROC_REF(do_close)), 50)
 
 /obj/machinery/door/firedoor/proc/do_close()
 	var/alarmed = FALSE
@@ -272,8 +274,8 @@
 				SPAN_NOTICE("You begin welding [src] [blocked ? "open" : "shut"]."),
 				SPAN_ITALIC("You hear a welding torch on metal.")
 			)
-			playsound(src, 'sound/items/welder.ogg', 50, 1)
-			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
+			playsound(src, 'sound/items/Welder.ogg', 50, 1)
+			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, PROC_REF(is_open), src.density)))
 				return
 			if(!WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
@@ -355,8 +357,6 @@
 
 // CHECK PRESSURE
 /obj/machinery/door/firedoor/process()
-	..()
-
 	if(density && next_process_time <= world.time)
 		next_process_time = world.time + 100		// 10 second delays between process updates
 		var/changed = 0
@@ -399,6 +399,9 @@
 		if(changed)
 			update_icon()
 
+	else if(!density)
+		return PROCESS_KILL
+
 /obj/machinery/door/firedoor/proc/latetoggle()
 	if(operating || !nextstate)
 		return
@@ -424,6 +427,7 @@
 		return
 	cut_overlays()
 	latetoggle()
+	START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	return ..()
 
 /obj/machinery/door/firedoor/open(forced = 0, user = usr)
@@ -500,6 +504,11 @@
 /obj/machinery/door/firedoor/noid
 	req_one_access = null
 
+/obj/machinery/door/firedoor/noid/closed
+	req_one_access = null
+	icon_state = "door_closed"
+	density = 1
+
 //These are playing merry hell on ZAS.  Sorry fellas :(
 
 /*/obj/machinery/door/firedoor/border_only
@@ -541,3 +550,10 @@
 		if(istype(destination)) SSair.tiles_to_update += destination
 		return 1
 */
+
+
+#undef FIREDOOR_MAX_PRESSURE_DIFF
+#undef FIREDOOR_MAX_TEMP
+#undef FIREDOOR_MIN_TEMP
+#undef FIREDOOR_ALERT_HOT
+#undef FIREDOOR_ALERT_COLD

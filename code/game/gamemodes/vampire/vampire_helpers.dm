@@ -18,14 +18,14 @@
 		client.screen += vampire.blood_hud
 		client.screen += vampire.frenzy_hud
 
-	verbs += new /datum/antagonist/vampire/proc/vampire_help
+	add_verb(src, /datum/antagonist/vampire/proc/vampire_help)
 
 	for(var/datum/power/vampire/P in vampirepowers)
 		if(!(P in vampire.purchased_powers))
 			if(!P.blood_cost)
 				vampire.add_power(mind, P, 0)
 		else if(P.isVerb && P.verbpath)
-			verbs += P.verbpath
+			add_verb(src,  P.verbpath)
 
 	return TRUE
 
@@ -193,13 +193,13 @@
 		visible_message("<span class='danger'>A dark aura manifests itself around [src.name], their eyes turning red and their composure changing to be more beast-like.</span>", "<span class='danger'>You can resist no longer. The power of the Veil takes control over your mind: you are unable to speak or think. In people, you see nothing but prey to be feasted upon. You are reduced to an animal.</span>")
 
 		overlay_fullscreen("frenzy", /obj/screen/fullscreen/frenzy)
-		mutations.Add(HULK)
+		mutations |= HULK
 		update_mutations()
 
 		sight |= SEE_MOBS
 
-		verbs += /mob/living/carbon/human/proc/grapple
-		
+		add_verb(src, /mob/living/carbon/human/proc/grapple)
+
 		return TRUE
 
 /mob/living/carbon/human/vampire_start_frenzy()
@@ -216,7 +216,7 @@
 	if (prob(force_stop ? 100 : vampire.blood_usable))
 		vampire.status &= ~VAMP_FRENZIED
 
-		mutations.Remove(HULK)
+		mutations &= ~HULK
 		update_mutations()
 
 		clear_fullscreen("frenzy")
@@ -224,9 +224,9 @@
 
 		visible_message("<span class='danger'>[src.name]'s eyes no longer glow with violent rage, their form reverting to resemble that of a normal person's.</span>", "<span class='danger'>The beast within you retreats. You gain control over your body once more.</span>")
 
-		verbs -= /mob/living/carbon/human/proc/grapple
+		remove_verb(src, /mob/living/carbon/human/proc/grapple)
 		regenerate_icons()
-		
+
 		return TRUE
 
 /mob/living/carbon/human/vampire_stop_frenzy()
@@ -243,7 +243,7 @@
 		return
 	for (var/datum/power/vampire/P in vampire.purchased_powers)
 		if (P.isVerb)
-			verbs -= P.verbpath
+			remove_verb(src, P.verbpath)
 
 	if (vampire.status & VAMP_FRENZIED)
 		vampire_stop_frenzy(1)

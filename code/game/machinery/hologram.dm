@@ -121,19 +121,18 @@ Possible to do for anyone motivated enough:
 
 	ui_interact(user)
 
-/obj/machinery/hologram/holopad/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "misc-holopad", 800, 600, capitalize(name))
-		ui.auto_update_content = TRUE
-	ui.open()
+/obj/machinery/hologram/holopad/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Holopad", capitalize(name), 800, 600)
+		ui.open()
 
-/obj/machinery/hologram/holopad/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	data = data || list()
-	LAZYINITLIST(data["holopad_list"])
+/obj/machinery/hologram/holopad/ui_data(mob/user)
+	var/list/data = list()
+	data["holopad_list"] = list()
 	for(var/obj/machinery/hologram/holopad/H as anything in SSmachinery.all_holopads - src)
 		if(can_connect(H) && H.operable())
-			data["holopad_list"]["\ref[H]"] = list("id" = H.holopad_id, "busy" = (H.has_established_connection() || H.incoming_connection), "ref" = "\ref[H]")
+			data["holopad_list"] += list(list("id" = H.holopad_id, "busy" = (H.has_established_connection() || H.incoming_connection), "ref" = "\ref[H]"))
 	data["command_auth"] = has_command_auth(user)
 	data["forcing_call"] = forcing_call
 	data["call_range"] = max_overmap_call_range
@@ -145,38 +144,40 @@ Possible to do for anyone motivated enough:
 		return TRUE
 	return FALSE
 
-
-/obj/machinery/hologram/holopad/Topic(href, href_list)
+/obj/machinery/hologram/holopad/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
 
-	if(href_list["call_ai"])
-		last_request = world.time
-		to_chat(usr, SPAN_NOTICE("You request an AI's presence."))
-		var/area/area = get_area(src)
-		for(var/mob/living/silicon/ai/AI in silicon_mob_list)
-			if(!AI.client)
-				continue
-			if(!AreConnectedZLevels(AI.z, z))
-				continue
-			to_chat(AI, SPAN_INFO("Your presence is requested at <a href='?src=\ref[AI];jumptoholopad=\ref[src]'>\the [area]</a>."))
+	switch(action)
+		if("call_ai")
+			last_request = world.time
+			to_chat(usr, SPAN_NOTICE("You request an AI's presence."))
+			var/area/area = get_area(src)
+			for(var/mob/living/silicon/ai/AI in silicon_mob_list)
+				if(!AI.client)
+					continue
+				if(!AreConnectedZLevels(AI.z, z))
+					continue
+				to_chat(AI, SPAN_INFO("Your presence is requested at <a href='?src=\ref[AI];jumptoholopad=\ref[src]'>\the [area]</a>."))
+				. = TRUE
 
-	if(href_list["call_holopad"])
-		last_request = world.time
-		var/obj/machinery/hologram/holopad/HP = locate(href_list["call_holopad"])
-		if(!HP)
-			to_chat(usr, SPAN_DANGER("Could not locate that holopad, this is a bug!"))
+		if("call_holopad")
+			last_request = world.time
+			var/obj/machinery/hologram/holopad/HP = locate(params["call_holopad"])
+			if(!HP)
+				to_chat(usr, SPAN_DANGER("Could not locate that holopad, this is a bug!"))
+				return
+			connected_pad = HP
+			INVOKE_ASYNC(src, PROC_REF(make_call), connected_pad, usr, forcing_call)
+			. = TRUE
+
+		if("toggle_command")
+			forcing_call = !forcing_call
+			. = TRUE
 			return
-		connected_pad = HP
-		INVOKE_ASYNC(src, .proc/make_call, connected_pad, usr, forcing_call)
 
-	if(href_list["toggle_command"])
-		forcing_call = !forcing_call
-		SSvueui.check_uis_for_change(src)
-		return
-
-	SSvueui.close_user_uis(usr, src)
+	SStgui.close_uis(src)
 
 //setters
 /**
@@ -325,16 +326,16 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		//This communication is imperfect because the holopad "filters" voices and is only designed to connect to the master only.
 		var/rendered
 		if(speaking)
-			rendered = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [speaking.format_message(text, verb)]</span></i>"
+			rendered = "<i><span class='game say'>Holopad received, <span class='name'>[M.get_accent_icon()] [name_used]</span> [speaking.format_message(text, verb)]</span></i>"
 		else
-			rendered = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
+			rendered = "<i><span class='game say'>Holopad received, <span class='name'>[M.get_accent_icon()] [name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
 		master.show_message(rendered, 2)
 	if(has_established_connection())
 		var/message
 		if(speaking)
-			message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [speaking.format_message(text, verb)]</span></i>"
+			message = "<i><span class='game say'>Holopad received, <span class='name'>[M.get_accent_icon()] [name_used]</span> [speaking.format_message(text, verb)]</span></i>"
 		else
-			message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
+			message = "<i><span class='game say'>Holopad received, <span class='name'>[M.get_accent_icon()] [name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
 		connected_pad.audible_message(message)
 		connected_pad.last_message = message
 
@@ -466,7 +467,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	icon_state = "holopad0_lr"
 	icon_state_suffix = "_lr"
 	long_range = TRUE
-	max_overmap_call_range = 4
+	max_overmap_call_range = 6
 
 /obj/machinery/hologram/holopad/long_range/get_holopad_id()
 	holopad_id = ""
@@ -535,7 +536,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		appearance = AI.holo_icon.appearance
 	else
 		appearance = A.appearance
-	mouse_opacity = 0 //So you can't click on it.
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT //So you can't click on it.
 	dir = A.dir
 	color = long_range ? rgb(225, 173, 125) : rgb(125, 180, 225)
 	alpha = 100

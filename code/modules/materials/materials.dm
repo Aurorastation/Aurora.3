@@ -89,7 +89,7 @@
 	// Noise made when a simple door made of this material opens or closes.
 	var/dooropen_noise = 'sound/effects/stonedoor_openclose.ogg'
 	// Noise made when you hit structure made of this material.
-	var/hitsound = 'sound/weapons/genhit.ogg'
+	var/hitsound = 'sound/weapons/Genhit.ogg'
 	// Path to resulting stacktype. Todo remove need for this.
 	var/stack_type
 	// Wallrot crumble message.
@@ -105,9 +105,9 @@
 	//for use in material weapons. because tiles and stacks sound different. since cardboard baseball bats sound different from wooden ones and et cetera.
 	var/weapon_drop_sound = 'sound/items/drop/metalweapon.ogg'
 	var/weapon_pickup_sound = 'sound/items/pickup/metalweapon.ogg'
-	var/weapon_hitsound = /decl/sound_category/swing_hit_sound
+	var/weapon_hitsound = /singleton/sound_category/swing_hit_sound
 
-	var/shatter_sound = /decl/sound_category/glass_break_sound //sound it makes when it breaks.
+	var/shatter_sound = /singleton/sound_category/glass_break_sound //sound it makes when it breaks.
 
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!rod_product)
@@ -174,6 +174,9 @@
 		if ("shuttle")
 			skip_blend = TRUE
 		if ("skrell")
+			skip_blend = TRUE
+		if("concrete")
+			wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
 			skip_blend = TRUE
 		else
 			world.log <<  "materials: [src] has unknown icon_base [icon_base]."
@@ -373,6 +376,13 @@
 	golem = SPECIES_GOLEM_MARBLE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
+
+/material/stone/concrete
+	name = MATERIAL_CONCRETE
+	icon_base = "concrete"
+	icon_colour = "#D2D1CD"
+	stack_type = null
+	golem = null
 
 /material/steel
 	name = DEFAULT_WALL_MATERIAL
@@ -704,7 +714,7 @@
 	dooropen_noise = 'sound/effects/doorcreaky.ogg'
 	door_icon_base = "wood"
 	destruction_desc = "splinters"
-	shatter_sound = /decl/sound_category/wood_break_sound
+	shatter_sound = /singleton/sound_category/wood_break_sound
 	sheet_singular_name = "plank"
 	sheet_plural_name = "planks"
 	golem = SPECIES_GOLEM_WOOD
@@ -714,9 +724,9 @@
 	weapon_drop_sound = 'sound/items/drop/woodweapon.ogg'
 	weapon_pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 	weapon_hitsound = 'sound/weapons/woodenhit.ogg'
-	shatter_sound = /decl/sound_category/wood_break_sound
+	shatter_sound = /singleton/sound_category/wood_break_sound
 
-/material/wood/birch 
+/material/wood/birch
 	name = MATERIAL_BIRCH
 	stack_type = /obj/item/stack/material/wood/coloured/birch
 	icon_colour = WOOD_COLOR_BIRCH
@@ -727,7 +737,7 @@
 	icon_colour = WOOD_COLOR_RICH
 
 /material/wood/maple
-	name = MATERIAL_MAPLE  
+	name = MATERIAL_MAPLE
 	stack_type = /obj/item/stack/material/wood/coloured/maple
 	icon_colour = WOOD_COLOR_PALE
 
@@ -753,7 +763,7 @@
 
 /material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
 	name = MATERIAL_WOOD_LOG
-	stack_type = /obj/item/stack/material/woodlog
+	stack_type = /obj/item/stack/material/wood/log
 	icon_colour = "#824B28"
 	integrity = 50
 	icon_base = "solid"
@@ -764,22 +774,22 @@
 	melting_point = T0C+380
 	ignition_point = T0C+328
 	destruction_desc = "splinters"
-	sheet_singular_name = "log"
-	sheet_plural_name = "logs"
+	sheet_singular_name = "pice"
+	sheet_plural_name = "piles"
 
 /material/wood/branch
 	name = MATERIAL_WOOD_BRANCH
-	stack_type = /obj/item/stack/material/woodbranch
+	stack_type = /obj/item/stack/material/wood/branch
 	icon_colour = "#824B28"
-	integrity = 50
+	integrity = 10
 	icon_base = "solid"
 	explosion_resistance = 0
 	hardness = 0.1
 	weight = 7
 	melting_point = T0C+220
 	ignition_point = T0C+218
-	sheet_singular_name = "branch"
-	sheet_plural_name = "branch"
+	sheet_singular_name = "bundle"
+	sheet_plural_name = "bundle"
 
 /material/rust
 	name = MATERIAL_RUST
@@ -815,7 +825,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 1)
 	door_icon_base = "wood"
 	destruction_desc = "crumples"
-	shatter_sound = /decl/sound_category/cardboard_break_sound
+	shatter_sound = /singleton/sound_category/cardboard_break_sound
 	golem = SPECIES_GOLEM_CARDBOARD
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
@@ -964,12 +974,6 @@
 	stack_type = /obj/item/stack/material/animalhide/lizard
 	icon_colour = "#34AF10"
 
-/material/hide/xeno
-	name = MATERIAL_HIDE_ALIEN
-	stack_type = /obj/item/stack/material/animalhide/xeno
-	icon_colour = "#525288"
-	protectiveness = 10 // 33%
-
 /material/hide/human
 	name = MATERIAL_HIDE_HUMAN
 	stack_type = /obj/item/stack/material/animalhide/human
@@ -1023,6 +1027,7 @@
 	name = MATERIAL_SHUTTLE
 	display_name = "plastitanium alloy"
 	stack_type = null
+	icon_reinf = null
 	icon_base = "shuttle"
 	integrity = 1200
 	melting_point = 6000       // Hull plating.
@@ -1041,7 +1046,7 @@
 /material/graphite
 	name = MATERIAL_GRAPHITE
 	stack_type = /obj/item/stack/material/graphite
-	icon_base = "graphite"
+	icon_base = "solid"
 	icon_colour = "#666666"
 	shard_type = SHARD_STONE_PIECE
 	weight = 20

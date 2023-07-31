@@ -92,25 +92,31 @@
 		affecting = items
 	conveying = TRUE
 
-	addtimer(CALLBACK(src,.proc/post_process, affecting),1)
+	addtimer(CALLBACK(src, PROC_REF(post_process), affecting),1)
 
 /obj/machinery/conveyor/proc/post_process(var/list/affecting)
 	for(var/af in affecting)
 		if(!ismovable(af))
 			continue
+
+		//If we're overrunning the tick, abort and we will continue at the next machine processing
+		if(TICK_CHECK)
+			break
+
 		var/atom/movable/mv = af
-		stoplag()
 		if(QDELETED(mv) || (mv.loc != loc))
 			continue
 		if(!mv.simulated)
 			continue
-		mv.conveyor_act(movedir)
+
+		if(!mv.anchored && mv.simulated && has_gravity(mv))
+			mv.conveyor_act(movedir)
+
 	conveying = FALSE
 
 /atom/movable/proc/conveyor_act(move_dir)
 	set waitfor = FALSE
-	if (!anchored && simulated && has_gravity(src))
-		step(src, move_dir)
+	step(src, move_dir)
 
 /obj/effect/conveyor_act()
 	return
@@ -350,3 +356,5 @@
 	var/obj/machinery/conveyor_switch/NC = new/obj/machinery/conveyor_switch(A, id)
 	transfer_fingerprints_to(NC)
 	qdel(src)
+
+#undef MAX_CONVEYOR_ITEMS_MOVE

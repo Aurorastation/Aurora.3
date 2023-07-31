@@ -54,7 +54,7 @@
 		switch(dir)
 			if(SOUTH)
 				layer = ABOVE_MOB_LAYER
-			else if(NORTH)
+			if(NORTH)
 				layer = initial(layer) - 0.01
 			else
 				layer = initial(layer)
@@ -136,7 +136,7 @@
 		playsound(src, barricade_hitsound, 50, 1)
 	if(is_wired)
 		visible_message(SPAN_DANGER("\The [src]'s barbed wire slices into [L]!"))
-		L.apply_damage(rand(5, 10), BRUTE, pick(BP_R_HAND, BP_L_HAND), "barbed wire", DAM_SHARP|DAM_EDGE, 25)
+		L.apply_damage(rand(5, 10), DAMAGE_BRUTE, pick(BP_R_HAND, BP_L_HAND), "barbed wire", DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, 25)
 	L.do_attack_animation(src)
 	take_damage(damage)
 
@@ -212,7 +212,7 @@
 /obj/structure/barricade/ex_act(severity, direction, cause_data)
 	for(var/obj/structure/barricade/B in get_step(src,dir)) //discourage double-stacking barricades by removing health from opposing barricade
 		if(B.dir == reverse_direction(dir))
-			INVOKE_ASYNC(B, /atom/.proc/ex_act, severity, direction)
+			INVOKE_ASYNC(B, TYPE_PROC_REF(/atom, ex_act), severity, direction)
 	update_health(round(severity))
 
 // This proc is called whenever the cade is moved, so I thought it was appropriate,

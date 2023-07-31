@@ -34,7 +34,7 @@
 	cooldown--
 	if(cooldown <= 0)
 		return FALSE
-	addtimer(CALLBACK(src, .proc/process_cooldown), 1 SECOND)
+	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 1 SECOND)
 	return TRUE
 
 // Called when another assembly acts on this one, var/radio will determine where it came from for wire calcs
@@ -57,7 +57,7 @@
 	if(!secured || cooldown)
 		return FALSE
 	cooldown = 2
-	addtimer(CALLBACK(src, .proc/process_cooldown), 1 SECOND)
+	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 1 SECOND)
 	return TRUE
 
 /obj/item/device/assembly/proc/toggle_secure()
@@ -110,3 +110,9 @@
 
 /obj/item/device/assembly/interact(mob/user)
 	return
+
+/obj/item/device/assembly/ui_host(mob/user)
+	. = ..()
+	// Sets the UI host to the transfer valve if its mounted on a transfer_valve
+	if(istype(loc,/obj/item/device/transfer_valve))
+		return loc

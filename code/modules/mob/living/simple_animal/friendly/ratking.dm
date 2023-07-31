@@ -159,7 +159,7 @@
 	update_nutrition_stats()
 
 /mob/living/simple_animal/rat/king/splat()
-	src.apply_damage(5, BRUTE)
+	src.apply_damage(5, DAMAGE_BRUTE)
 
 /mob/living/simple_animal/rat/king/verb/kingDecree()
 	set category = "Abilities"
@@ -283,3 +283,12 @@
 	if(rats.len >= RAT_KING_LEVEL)
 		return 1
 	return 0
+
+
+#undef RAT_MAYOR_LEVEL
+#undef RAT_BARON_LEVEL
+#undef RAT_DUKE_LEVEL
+#undef RAT_KING_LEVEL
+#undef RAT_EMPEROR_LEVEL
+#undef RAT_SAVIOR_LEVEL
+#undef RAT_GOD_LEVEL

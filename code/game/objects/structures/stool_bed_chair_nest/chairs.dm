@@ -366,6 +366,27 @@
 	if(!buckled)
 		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_MOB_LAYER)
 
+/obj/structure/bed/stool/chair/cockpit
+	name = "cockpit seating"
+	icon_state = "cockpit_preview"
+	base_icon = "cockpit"
+	buckling_sound = 'sound/effects/metal_close.ogg'
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
+	can_dismantle = FALSE
+	anchored = TRUE
+	held_item = null
+	desc = "A heavy set of belts and buckles, completed by a hinging arm mechanism that surrounds the occupant. Perfect for flying shuttles."
+	icon = 'icons/obj/spaceship/cockpit_chair.dmi'
+	override_material_color = TRUE
+
+/obj/structure/bed/stool/chair/cockpit/CanPass(atom/movable/mover, turf/target, height, air_group)
+    return TRUE
+
+/obj/structure/bed/stool/chair/cockpit/update_icon()
+	..()
+	if(buckled)
+		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_MOB_LAYER)
+
 // pool chair, to sit with your feet in the water. only works when facing south, because water overlays weirdly otherwise
 /obj/structure/bed/stool/chair/pool
 	name = "pool chair"
@@ -442,3 +463,4 @@
 	buckle_lying = FALSE
 	can_dismantle = FALSE
 	override_material_color = TRUE
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED

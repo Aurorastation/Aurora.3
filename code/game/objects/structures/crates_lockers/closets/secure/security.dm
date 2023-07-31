@@ -12,7 +12,7 @@
 	new /obj/item/storage/backpack/duffel/cap(src)
 	// Armor
 	new /obj/item/clothing/head/helmet(src)
-	new /obj/item/clothing/suit/armor/carrier/officer(src)
+	new /obj/item/clothing/suit/armor/carrier/generic(src)
 	//Tools
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
@@ -61,7 +61,7 @@
 	new /obj/item/storage/box/fancy/keypouch/service(src)
 	//Appearance
 	new /obj/item/clothing/glasses/sunglasses(src)
-	new /obj/item/clothing/suit/armor/carrier/officer(src)
+	new /obj/item/clothing/suit/armor/carrier/generic(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	//Tools
@@ -82,6 +82,7 @@
 /obj/structure/closet/secure_closet/xo2/fill()
 	..()
 	new /obj/item/clothing/under/rank/xo(src)
+	new /obj/item/clothing/head/caphat/xo(src)
 	new /obj/random/suit(src)
 	new /obj/random/suit(src)
 	new /obj/item/clothing/shoes/brown(src)
@@ -112,7 +113,6 @@
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
-	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/suit/storage/security/hos(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
@@ -181,7 +181,6 @@
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/head/helmet/security(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
-	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
@@ -281,9 +280,8 @@
 	new /obj/item/clothing/under/det/pmc(src)
 	new /obj/item/clothing/under/det/zavod(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
-	new /obj/item/clothing/gloves/black/forensic(src)
-	new /obj/item/clothing/shoes/brown(src)
-	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/clothing/shoes/laceup/all_species(src)
+	new /obj/item/clothing/shoes/laceup/all_species(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
@@ -295,9 +293,12 @@
 	new /obj/item/device/camera/detective(src)
 	new /obj/item/device/camera_film(src)
 	new /obj/item/stamp/investigations(src)
+	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
+	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/clothing/accessory/storage/pouches/black(src)
+	new /obj/item/storage/belt/security(src)
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"
@@ -354,6 +355,7 @@
 /obj/structure/closet/secure_closet/bridge_crew/fill()
 	..()
 	new /obj/item/clothing/under/rank/bridge_crew(src)
+	new /obj/item/clothing/head/caphat/bridge_crew(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)

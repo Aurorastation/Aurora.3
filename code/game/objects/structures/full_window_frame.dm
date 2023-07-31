@@ -8,6 +8,7 @@
 	density = TRUE
 	climbable = TRUE
 	smooth = SMOOTH_TRUE
+	breakable = TRUE
 	can_be_unanchored = TRUE
 	canSmoothWith = list(
 		/turf/simulated/wall,
@@ -19,6 +20,7 @@
 		/obj/structure/window_frame/unanchored,
 		/obj/structure/window_frame/empty
 	)
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/should_check_mapload = TRUE
 	var/has_glass_installed = FALSE
 	var/glass_needed = 4
@@ -113,7 +115,7 @@
 		if(!WT.isOn())
 			to_chat(user, SPAN_NOTICE("\The [WT] isn't turned on."))
 			return
-		playsound(src, 'sound/items/welder.ogg', 50, TRUE)
+		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
 		user.visible_message(
 			SPAN_WARNING("\The [user] starts welding \the [src] apart!"),
 			SPAN_NOTICE("You start welding \the [src] apart..."),

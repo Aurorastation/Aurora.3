@@ -200,15 +200,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
 		src.reagents.set_temperature(T0C + 45)
 		damtype = "fire"
-		if(REAGENT_VOLUME(reagents, /decl/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
+		if(REAGENT_VOLUME(reagents, /singleton/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
 			var/datum/effect/effect/system/reagents_explosion/e = new()
-			e.set_up(round(REAGENT_VOLUME(reagents, /decl/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
+			e.set_up(round(REAGENT_VOLUME(reagents, /singleton/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
 			e.start()
 			qdel(src)
 			return
-		if(REAGENT_VOLUME(reagents, /decl/reagent/fuel)) // the fuel explodes, too, but much less violently
+		if(REAGENT_VOLUME(reagents, /singleton/reagent/fuel)) // the fuel explodes, too, but much less violently
 			var/datum/effect/effect/system/reagents_explosion/e = new()
-			e.set_up(round(REAGENT_VOLUME(reagents, /decl/reagent/fuel) / 5, 1), get_turf(src), 0, 0)
+			e.set_up(round(REAGENT_VOLUME(reagents, /singleton/reagent/fuel) / 5, 1), get_turf(src), 0, 0)
 			e.start()
 			qdel(src)
 			return
@@ -300,7 +300,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
-	icon_on = "cigon" 
+	icon_on = "cigon"
 	icon_off = "cigoff"
 	has_blood_overlay = FALSE
 	type_butt = /obj/item/trash/cigbutt
@@ -312,8 +312,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	weldermes = "<span class='notice'>USER casually lights the NAME with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME.</span>"
 	reagents_to_add = list(
-		/decl/reagent/toxin/tobacco = 10,
-		/decl/reagent/mental/nicotine = 5
+		/singleton/reagent/toxin/tobacco = 10,
+		/singleton/reagent/mental/nicotine = 5
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/attackby(obj/item/W as obj, mob/user as mob)
@@ -373,15 +373,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/vanilla
 	burn_rate = 0.015
-	reagents_to_add = list(/decl/reagent/toxin/tobacco = 15)
+	reagents_to_add = list(/singleton/reagent/toxin/tobacco = 15)
 
 /obj/item/clothing/mask/smokable/cigarette/acmeco
 	burn_rate = 0.015
 	reagents_to_add = list(
-		/decl/reagent/toxin/tobacco = 5,
-		/decl/reagent/mental/nicotine = 5,
-		/decl/reagent/lexorin = 2,
-		/decl/reagent/serotrotium = 3
+		/singleton/reagent/toxin/tobacco = 5,
+		/singleton/reagent/mental/nicotine = 5,
+		/singleton/reagent/lexorin = 2,
+		/singleton/reagent/serotrotium = 3
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/blank
@@ -391,29 +391,49 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 	reagents_to_add = list(
-		/decl/reagent/toxin/tobacco = 5,
-		/decl/reagent/mental/nicotine = 10
+		/singleton/reagent/toxin/tobacco = 5,
+		/singleton/reagent/mental/nicotine = 10
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/nicotine
 	reagents_to_add = list(
-		/decl/reagent/toxin/tobacco/rich = 5,
-		/decl/reagent/mental/nicotine = 10
+		/singleton/reagent/toxin/tobacco/rich = 5,
+		/singleton/reagent/mental/nicotine = 10
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/rugged
 	reagents_to_add = list(
-		/decl/reagent/toxin/tobacco/fake = 10,
-		/decl/reagent/mental/nicotine = 5
+		/singleton/reagent/toxin/tobacco/fake = 10,
+		/singleton/reagent/mental/nicotine = 5
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/adhomai
 	name = "adhomian cigarette"
 	desc = "An adhomian cigarette made from processed S'rendarr's Hand."
 	reagents_to_add = list(
-		/decl/reagent/toxin/tobacco = 5,
-		/decl/reagent/mental/nicotine = 5
+		/singleton/reagent/toxin/tobacco = 5,
+		/singleton/reagent/mental/nicotine = 5
 	)
+
+/obj/item/clothing/mask/smokable/cigarette/sweet
+	reagents_to_add = list(
+		/singleton/reagent/toxin/tobacco/sweet = 10,
+		/singleton/reagent/mental/nicotine = 5
+	)
+
+/obj/item/clothing/mask/smokable/cigarette/dyn
+	name =  "dyn cigarette"
+	desc = "A mentholated cigarette from Nralakk made with processed dyn."
+	reagents_to_add = list(
+		/singleton/reagent/toxin/tobacco/sweet = 5,
+		/singleton/reagent/mental/nicotine = 5,
+		/singleton/reagent/drink/dynjuice = 5
+	)
+
+/obj/item/clothing/mask/smokable/cigarette/wulu
+	name = "wulumunusha cigarette"
+	desc = "A wulumunusha cigarette commonly smoked by Skrell for religious purposes."
+	reagents_to_add = list(/singleton/reagent/wulumunusha = 15)
 
 ////////////
 // CIGARS //
@@ -437,8 +457,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	reagents_to_add = list(
-		/decl/reagent/toxin/tobacco/rich = 25,
-		/decl/reagent/mental/nicotine = 5
+		/singleton/reagent/toxin/tobacco/rich = 25,
+		/singleton/reagent/mental/nicotine = 5
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/havana
@@ -451,9 +471,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
 	chem_volume = 60
 	reagents_to_add = list(
-		/decl/reagent/toxin/tobacco/rich = 15,
-		/decl/reagent/mental/nicotine = 5,
-		/decl/reagent/tricordrazine = 10
+		/singleton/reagent/toxin/tobacco/rich = 15,
+		/singleton/reagent/mental/nicotine = 5,
+		/singleton/reagent/tricordrazine = 10
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
@@ -466,9 +486,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
 	chem_volume = 120
 	reagents_to_add = list(
-		/decl/reagent/toxin/tobacco/rich = 30,
-		/decl/reagent/mental/nicotine = 10,
-		/decl/reagent/tricordrazine = 20
+		/singleton/reagent/toxin/tobacco/rich = 30,
+		/singleton/reagent/mental/nicotine = 10,
+		/singleton/reagent/tricordrazine = 20
+	)
+
+/obj/item/clothing/mask/smokable/cigarette/cigar/prank
+	reagents_to_add = list(
+		/singleton/reagent/toxin/tobacco/rich = 20,
+		/singleton/reagent/mental/nicotine = 5,
+		/singleton/reagent/fuel = 5
 	)
 
 /obj/item/trash/cigbutt
@@ -511,7 +538,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "sausageoff"
 	type_butt = /obj/item/trash/cigbutt/sausagebutt
 	chem_volume = 6
-	reagents_to_add = list(/decl/reagent/nutriment/protein = 6)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
 
 /obj/item/trash/cigbutt/sausagebutt
 	name = "sausage butt"
@@ -696,6 +723,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	thrower.drop_from_inventory(src)
 
 /obj/item/flame/lighter/zippo/augment/dropped()
+	. = ..()
 	loc = null
 	qdel(src)
 
@@ -714,8 +742,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "solzippo"
 
 /obj/item/flame/lighter/zippo/tcfl
-	name = "\improper Bieselite Zippo lighter"
-	desc = "A zippo lighter with a depiction of the Bieselite flag."
+	name = "\improper Biesellite Zippo lighter"
+	desc = "A zippo lighter with a depiction of the Biesellite flag."
 	desc_extended = "In their rush to expand the Tau Ceti Foreign Legion, the Republic of Biesel manufactured thousands of Biesel-patterned zippo lighters to compliment the jackets and berets that were so often touted by recruiters. In the wake of Frost's Invasion, the popularity of such lighters has only increased and they serve as a small show of patriotism. A small NanoTrasen logo is stenciled on the base."
 	icon_state = "tcflzippo"
 	item_state = "tcflzippo"
@@ -817,6 +845,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	flame_light_color = LIGHT_COLOR_WHITE
 	flame_light_range = 2
 
+/obj/item/flame/lighter/zippo/sancolette
+	name = "\improper San Colette Zippo lighter"
+	desc = "A tricolor zippo lighter depicting the flag of San Colette."
+	desc_extended = "Among Solarian nations, it's popular to carry a lighter depicting the flag of the Sol Alliance as a proclaimation of \
+	one's patriotism. After being recognised as the Sovereign Solarian Republic of San Colette, this tradition continued on with the Colettish, \
+	now opting to pridefully bare their own tricolor flag instead."
+	icon_state = "sancolettezippo"
+	item_state = "sancolettezippo"
+
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()
 	icon_state = "lighter-[pick("r","c","y","g")]"
@@ -853,9 +890,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 					if(user.IgniteMob())
 						user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally sets themselves on fire!"))
 					if(user.l_hand == src)
-						user.apply_damage(2, BURN,BP_L_HAND)
+						user.apply_damage(2, DAMAGE_BURN,BP_L_HAND)
 					else
-						user.apply_damage(2, BURN,BP_R_HAND)
+						user.apply_damage(2, DAMAGE_BURN,BP_R_HAND)
 					if(last_open <= world.time - 20) //Spam limiter.
 						last_open = world.time
 						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)

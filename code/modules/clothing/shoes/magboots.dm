@@ -51,6 +51,7 @@
 		to_chat(user, "You enable the mag-pulse traction system.")
 	user.update_inv_shoes()	//so our mob-overlays update
 	user.update_action_buttons()
+	user.update_floating()
 
 /obj/item/clothing/shoes/magboots/negates_gravity()
 	if(magpulse)
@@ -85,12 +86,12 @@
 
 /obj/item/clothing/shoes/magboots/dropped()
 	..()
-	INVOKE_ASYNC(src, .proc/update_wearer)
+	INVOKE_ASYNC(src, PROC_REF(update_wearer))
 
 /obj/item/clothing/shoes/magboots/mob_can_unequip()
 	. = ..()
 	if (.)
-		INVOKE_ASYNC(src, .proc/update_wearer)
+		INVOKE_ASYNC(src, PROC_REF(update_wearer))
 
 /obj/item/clothing/shoes/magboots/examine(mob/user)
 	..(user)

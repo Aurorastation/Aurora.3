@@ -21,6 +21,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["skin_red"]          >> pref.r_skin
 	S["skin_green"]        >> pref.g_skin
 	S["skin_blue"]         >> pref.b_skin
+	S["tail_style_name"]   >> pref.tail_style
 	S["hair_style_name"]   >> pref.h_style
 	S["facial_style_name"] >> pref.f_style
 	S["grad_style_name"]   >> pref.g_style
@@ -47,6 +48,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["skin_red"]          << pref.r_skin
 	S["skin_green"]        << pref.g_skin
 	S["skin_blue"]         << pref.b_skin
+	S["tail_style_name"]   << pref.tail_style
 	S["hair_style_name"]   << pref.h_style
 	S["facial_style_name"] << pref.f_style
 	S["grad_style_name"]   << pref.g_style
@@ -69,6 +71,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				"grad_colour",
 				"skin_tone" = "s_tone",
 				"skin_colour",
+				"tail_style",
 				"hair_style" = "h_style",
 				"facial_style" = "f_style",
 				"gradient_style" = "g_style",
@@ -95,6 +98,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			"grad_colour",
 			"skin_tone",
 			"skin_colour",
+			"tail_style",
 			"hair_style",
 			"facial_style",
 			"gradient_style",
@@ -116,7 +120,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		"facial_colour" = rgb(pref.r_facial, pref.g_facial, pref.b_facial),
 		"grad_colour"   = rgb(pref.r_grad, pref.g_grad, pref.b_grad),
 		"skin_tone"     = pref.s_tone,
-		"skin_colour"   = rgb(pref.r_skin, pref.g_skin, pref.b_skin) ,
+		"skin_colour"   = rgb(pref.r_skin, pref.g_skin, pref.b_skin),
+		"tail_style"    = pref.tail_style,
 		"hair_style"    = pref.h_style,
 		"facial_style"  = pref.f_style,
 		"gradient_style"= pref.g_style,
@@ -179,6 +184,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				log_debug("DISABILITIES: Caught [e]. Initial value: [before]")
 				pref.disabilities = list()
 
+	var/datum/species/mob_species = all_species[pref.species]
+
 	pref.r_hair   = sanitize_integer(pref.r_hair, 0, 255, initial(pref.r_hair))
 	pref.g_hair   = sanitize_integer(pref.g_hair, 0, 255, initial(pref.g_hair))
 	pref.b_hair   = sanitize_integer(pref.b_hair, 0, 255, initial(pref.b_hair))
@@ -189,6 +196,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.r_skin   = sanitize_integer(pref.r_skin, 0, 255, initial(pref.r_skin))
 	pref.g_skin   = sanitize_integer(pref.g_skin, 0, 255, initial(pref.g_skin))
 	pref.b_skin   = sanitize_integer(pref.b_skin, 0, 255, initial(pref.b_skin))
+	pref.tail_style = sanitize_inlist(pref.tail_style, mob_species.selectable_tails, mob_species.tail)
 	pref.h_style  = sanitize_inlist(pref.h_style, hair_styles_list, initial(pref.h_style))
 	pref.f_style  = sanitize_inlist(pref.f_style, facial_hair_styles_list, initial(pref.f_style))
 	pref.g_style = sanitize_inlist(pref.g_style, hair_gradient_styles_list, initial(pref.g_style))
@@ -293,7 +301,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
 	out += "</td></tr></table>"
 
-	out += "<b>Hair</b><br>"
+	var/tail_spacing = FALSE
+	if(length(mob_species.selectable_tails))
+		out += "<b>Tail</b><br>"
+		out += "<a href='?src=\ref[src];tail_style=1'>[pref.tail_style ? "Style: [pref.tail_style]" : "Style: None"]</a><br>"
+		tail_spacing = TRUE
+
+	out += "[tail_spacing ? "<br>" : ""]<b>Hair</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
 		out += "<a href='?src=\ref[src];hair_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_hair, pref.g_hair, pref.b_hair))] "
 	out += " Style: <a href='?src=\ref[src];hair_style=1'>[pref.h_style]</a><br>"
@@ -303,7 +317,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "<a href='?src=\ref[src];facial_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_facial, pref.g_facial, pref.b_facial))] "
 	out += " Style: <a href='?src=\ref[src];facial_style=1'>[pref.f_style]</a><br>"
 
-	out += "<b>Gradient</b><br>"
+	out += "<br><b>Gradient</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
 		out += "<a href='?src=\ref[src];gradient_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_grad, pref.g_grad, pref.b_grad))] "
 	out += " Style: <a href='?src=\ref[src];gradient_style=1'>[pref.g_style]</a><br>"
@@ -396,6 +410,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			else	// Species has no hair, or something fucked up.
 				pref.h_style = hair_styles_list["Bald"]
 
+			if(length(mob_species.selectable_tails))
+				pref.tail_style = pick(mob_species.selectable_tails)
+			else
+				pref.tail_style = null
+
 			//grab one of the valid facial hair styles for the newly chosen species
 			var/list/valid_facialhairstyles = list()
 			for(var/facialhairstyle in facial_hair_styles_list)
@@ -427,10 +446,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 			var/new_culture = mob_species.possible_cultures[1]
 			pref.culture = "[new_culture]"
-			var/decl/origin_item/culture/OC = decls_repository.get_decl(text2path(pref.culture))
+			var/singleton/origin_item/culture/OC = GET_SINGLETON(text2path(pref.culture))
 			var/new_origin = OC.possible_origins[1]
 			pref.origin = "[new_origin]"
-			var/decl/origin_item/origin/OO = decls_repository.get_decl(text2path(pref.origin))
+			var/singleton/origin_item/origin/OO = GET_SINGLETON(text2path(pref.origin))
 			pref.accent = OO.possible_accents[1]
 			pref.citizenship = OO.possible_citizenships[1]
 			pref.religion = OO.possible_religions[1]
@@ -468,6 +487,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			pref.r_grad = GetRedPart(new_grad)
 			pref.g_grad = GetGreenPart(new_grad)
 			pref.b_grad = GetBluePart(new_grad)
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["tail_style"])
+		if(!length(mob_species.selectable_tails))
+			return
+		var/new_tail_style = input(user, "Choose your character's tail style:", "Character Preference", pref.tail_style) as null|anything in mob_species.selectable_tails
+		if(new_tail_style && CanUseTopic(user))
+			pref.tail_style = new_tail_style
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["hair_style"])
@@ -865,8 +892,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		dat += "\[<a href='?src=\ref[src];set_species=[html_encode(pref.species_preview)]'>select</a>\]"
 	dat += "</center>"
 
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat.Join()), "window=species;size=700x400")
+
+	user << browse(dat.Join(), "window=species;size=700x400")
 
 /*/datum/category_item/player_setup_item/general/body/proc/reset_limbs()
 

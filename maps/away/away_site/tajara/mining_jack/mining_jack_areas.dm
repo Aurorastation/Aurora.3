@@ -5,7 +5,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/space
-	flags = RAD_SHIELDED
+	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
 
 /area/mining_jack_outpost/quarters
 	name = "Mining Jack Outpost Crew Quarters"

@@ -4,6 +4,9 @@
 	short_name = "jak"
 	name_plural = "Shells"
 	bodytype = BODYTYPE_HUMAN
+	species_height = HEIGHT_CLASS_AVERAGE
+	height_min = 140
+	height_max = 230
 	default_genders = list(MALE, FEMALE)
 	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
 
@@ -71,7 +74,8 @@
 		/mob/living/carbon/human/proc/check_tag,
 		/mob/living/carbon/human/proc/tie_hair)
 
-	bodyfall_sound = /decl/sound_category/bodyfall_sound
+	bodyfall_sound = /singleton/sound_category/bodyfall_sound
+	use_alt_hair_layer = FALSE
 
 /datum/species/machine/shell/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
 	if(reference)
@@ -122,6 +126,7 @@
 	name_plural = "Industrials"
 	bald = 1
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
+	species_height = HEIGHT_CLASS_HUGE
 	mob_size = 12
 
 	unarmed_types = list(/datum/unarmed_attack/industrial, /datum/unarmed_attack/palm/industrial)
@@ -161,7 +166,7 @@
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
 	maneuvers = list(
-		/decl/maneuver/leap/industrial
+		/singleton/maneuver/leap/industrial
 	)
 
 	heat_level_1 = 800
@@ -191,6 +196,7 @@
 	name_plural = "HKs"
 	bald = 1
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
+	species_height = HEIGHT_CLASS_TALL
 
 	blurb = "\[REDACTED\]"
 
@@ -350,6 +356,7 @@
 	name = SPECIES_IPC_XION
 	short_name = "xmf"
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
+	species_height = HEIGHT_CLASS_TALL
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
@@ -363,11 +370,11 @@
 	brute_mod = 0.9
 	grab_mod = 0.9
 	resist_mod = 8
-	
+
 	cold_level_1 = -1 //RaceDefault 50 Default -1
 	cold_level_2 = -1 //RaceDefault -1 Default -1
 	cold_level_3 = -1  //RaceDefault -1 Default -1
-	
+
 	heat_level_1 = 700  //RaceDefault 600 Default 700
 	heat_level_2 = 1400  //RaceDefault 1200 Default 1400
 	heat_level_3 = 2800  //RaceDefault 2400 Default 2800
@@ -460,7 +467,7 @@
 		/mob/living/carbon/human/proc/check_tag
 		)
 	maneuvers = list(
-		/decl/maneuver/leap/zenghu
+		/singleton/maneuver/leap/zenghu
 	)
 
 
@@ -472,6 +479,7 @@
 	name = SPECIES_IPC_BISHOP
 	short_name = "bcf"
 	bodytype = BODYTYPE_IPC_BISHOP
+	species_height = HEIGHT_CLASS_AVERAGE
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'

@@ -28,8 +28,6 @@
 				return
 		if("Cancel")
 			return
-		if("No")
-			; // do nothing
 
 	callproc_targetpicked(targetselected, target)
 
@@ -137,8 +135,6 @@
 				current = get_area(M)
 				if(!current)
 					switch(alert("\The [M] appears to not have an area; do you want to pass null instead?",, "Yes", "Cancel"))
-						if("Yes")
-							; // do nothing
 						if("Cancel")
 							return
 
@@ -146,8 +142,6 @@
 				current = holder.marked_datum
 				if(!current)
 					switch(alert("You do not currently have a marked datum; do you want to pass null instead?",, "Yes", "Cancel"))
-						if("Yes")
-							; // do nothing
 						if("Cancel")
 							return
 		if(!done)
@@ -163,8 +157,13 @@
 		else
 			returnval = call(target, procname)()
 	else
+		var/procpath = text2path("/proc/[procname]")
+		if(!procpath)
+			to_chat(usr, "Invalid proc path /proc/[procname].")
+			return
+
 		log_admin("[key_name(src)] called [procname]() with [arguments.len ? "the arguments [list2params(arguments)]" : "no arguments"].",admin_key=key_name(src))
-		returnval = call(procname)(arglist(arguments))
+		returnval = call(procpath)(arglist(arguments))
 
 	to_chat(usr, "<span class='info'>[procname]() returned: [isnull(returnval) ? "null" : returnval]</span>")
 	feedback_add_details("admin_verb","APC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

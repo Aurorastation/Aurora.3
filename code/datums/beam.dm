@@ -34,7 +34,7 @@
 	icon_state = beam_icon_state
 	beam_type = btype
 	if(time != -1)
-		addtimer(CALLBACK(src,.proc/End), time)
+		addtimer(CALLBACK(src, PROC_REF(End), time))
 
 /datum/beam/proc/Start()
 	recalculate()
@@ -48,6 +48,9 @@
 	timing_id = null
 	var/turf/origin_turf = get_turf(origin)
 	var/turf/target_turf = get_turf(target)
+	if(!istype(origin_turf) || !istype(target_turf) || QDELETED(origin) || QDELETED(target))
+		End()
+		return
 	curr_distance = get_dist(origin_turf, target_turf)
 	if(!(curr_distance == -1 && origin_turf != target_turf) && curr_distance < max_distance && origin_turf.z == target_turf.z)
 		if((origin_turf != origin_oldloc || target_turf != target_oldloc))
@@ -64,12 +67,12 @@
 	return
 
 /datum/beam/proc/recalculate_in(time)
-	timing_id = addtimer(CALLBACK(src, .proc/recalculate), time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
+	timing_id = addtimer(CALLBACK(src, PROC_REF(recalculate)), time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
 
 /datum/beam/proc/after_calculate()
 	if((sleep_time == null) || finished)	//Does not automatically recalculate.
 		return
-	timing_id = addtimer(CALLBACK(src, .proc/recalculate), sleep_time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
+	timing_id = addtimer(CALLBACK(src, PROC_REF(recalculate)), sleep_time, TIMER_STOPPABLE | TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
 /datum/beam/proc/End(destroy_self = TRUE)
 	finished = TRUE
@@ -84,6 +87,8 @@
 	elements.Cut()
 
 /datum/beam/Destroy()
+	if(timing_id)
+		deltimer(timing_id)
 	Reset()
 	target = null
 	origin = null
@@ -191,7 +196,7 @@
 	return (world.icon_size * target_oldloc.y) - (world.icon_size * origin_oldloc.y)
 
 /obj/effect/ebeam
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = 1
 	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	blend_mode = BLEND_ADD
@@ -209,5 +214,5 @@
 		crash_with("Tried to create beam with infinite time!")
 		return null
 	var/datum/beam/newbeam = new beam_datum_type(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type,beam_sleep_time)
-	INVOKE_ASYNC(newbeam, /datum/beam/.proc/Start)
+	INVOKE_ASYNC(newbeam, TYPE_PROC_REF(/datum/beam, Start))
 	return newbeam

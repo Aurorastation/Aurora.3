@@ -11,7 +11,7 @@
 
 	var/light_x = 0
 	var/light_y = 0
-	mobdamagetype = BURN
+	mobdamagetype = DAMAGE_BURN
 	cooking_coeff = 0
 	cooking_power = 0
 	flags = null
@@ -131,6 +131,7 @@
 	overlays += light
 
 /obj/machinery/appliance/cooker/process()
+	if (!loc) return FALSE
 	var/datum/gas_mixture/loc_air = loc.return_air()
 	if (stat || (use_power != 2)) // if we're not actively heating
 		temperature -= min(loss, temperature - loc_air.temperature)

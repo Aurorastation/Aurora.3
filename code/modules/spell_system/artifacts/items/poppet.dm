@@ -69,7 +69,7 @@
 			H.confused += 10
 			H.stuttering += 5
 			to_chat(H, "<span class='danger'>You suddenly feel as if your head was hit by something!</span>")
-			playsound(get_turf(H), /decl/sound_category/punch_sound, 50, 1, -1)
+			playsound(get_turf(H), /singleton/sound_category/punch_sound, 50, 1, -1)
 
 		cooldown = world.time + cooldown_time
 
@@ -91,8 +91,7 @@
 		if(istype(W, /obj/item/device/flashlight))
 			to_chat(H, "<span class='warning'>You direct \the [W] towards \the [src]'s eyes!</span>")
 			playsound(get_turf(H), 'sound/items/flashlight.ogg', 50, 1, -1)
-			H.flash_eyes()
-			H.eye_blurry = 5
+			H.flash_act()
 			return TRUE
 
 		if(W.iscoil())
@@ -110,7 +109,7 @@
 
 		if(W.edge)
 			to_chat(H, "<span class='warning'>You stab \the [src] with \the [W]!</span>")
-			H.apply_damage(2, BRUTE, target_zone, damage_flags = DAM_EDGE)
+			H.apply_damage(2, DAMAGE_BRUTE, target_zone, damage_flags = DAMAGE_FLAG_EDGE)
 			playsound(get_turf(H), 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 			if(H.can_feel_pain())
 				var/obj/item/organ/external/organ = H.get_organ(target_zone)
@@ -142,7 +141,7 @@
 /obj/item/poppet/bullet_act(var/obj/item/projectile/Proj)
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
-		H.apply_damage(Proj.damage, PAIN)
+		H.apply_damage(Proj.damage, DAMAGE_PAIN)
 
 /obj/item/poppet/fire_act()
 	var/mob/living/carbon/human/H = target.resolve()

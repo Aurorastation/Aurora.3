@@ -38,7 +38,7 @@
 			to_chat(src, "<span class='notice'><b>APU GENERATOR FAILURE! (System Damaged)</b></span>")
 			stop_apu(1)
 
-		if (!is_blinded())
+		if (!is_blind())
 			if (ai_restore_power_routine==2)
 				to_chat(src, "Alert cancelled. Power has been restored without our assistance.")
 				ai_restore_power_routine = 0
@@ -144,7 +144,7 @@
 	add_ai_verbs(src)
 
 /mob/living/silicon/ai/update_sight()
-	if(is_blinded())
+	if(is_blind())
 		update_icon()
 		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
 		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
@@ -157,8 +157,8 @@
 		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_LIVING)
 
-/mob/living/silicon/ai/proc/is_blinded()
+/mob/living/silicon/ai/is_blind()
 	var/area/A = get_area(src)
 	if (A && !A.power_equip && !istype(src.loc,/obj/item) && !APU_power)
-		return 1
-	return 0
+		return TRUE
+	return FALSE

@@ -44,7 +44,6 @@
 		if(powernet)
 			add_avail(power_gen * power_output)
 		UseFuel()
-		SSvueui.check_uis_for_change(src)
 	else
 		set_light(0)
 		active = FALSE
@@ -160,7 +159,6 @@
 			temp_rating += SP.rating
 
 	power_gen = round(initial(power_gen) * (max(2, temp_rating) / 2))
-	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/power/portgen/basic/examine(mob/user)
 	..(user)
@@ -206,6 +204,7 @@
 		Gives traitors more opportunities to sabotage the generator or allows enterprising engineers to build additional
 		cooling in order to get more power out.
 	*/
+	if(!loc) return
 	var/datum/gas_mixture/environment = loc.return_air()
 	if (environment)
 		var/ratio = min(environment.return_pressure()/ONE_ATMOSPHERE, 1)
@@ -233,8 +232,6 @@
 	else if (overheating > 0)
 		overheating--
 
-	SSvueui.check_uis_for_change(src)
-
 /obj/machinery/power/portgen/basic/handleInactive()
 	var/cooling_temperature = 20
 
@@ -250,7 +247,6 @@
 		var/temp_loss = (temperature - cooling_temperature)/TEMPERATURE_DIVISOR
 		temp_loss = between(2, round(temp_loss, 1), TEMPERATURE_CHANGE_MAX)
 		temperature = max(temperature - temp_loss, cooling_temperature)
-		SSvueui.check_uis_for_change(src)
 
 	if(overheating)
 		overheating--
@@ -278,7 +274,6 @@
 		to_chat(user, SPAN_NOTICE("You add [amount] sheet\s to the [name]."))
 		sheets += amount
 		addstack.use(amount)
-		SSvueui.check_uis_for_change(src)
 		return
 	else if(!active)
 		if(O.iswrench())
@@ -289,7 +284,6 @@
 			else
 				disconnect_from_network()
 				to_chat(user, SPAN_NOTICE("You unsecure the generator from the floor."))
-				SSvueui.close_uis(src)
 
 			playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
@@ -311,7 +305,6 @@
 			new_frame.state = 2
 			new_frame.icon_state = "box_1"
 			qdel(src)
-	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/power/portgen/basic/attack_hand(mob/user)
 	..()
@@ -324,9 +317,8 @@
 		return
 	ui_interact(user)
 
-/obj/machinery/power/portgen/basic/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		. = data = list()
+/obj/machinery/power/portgen/basic/ui_data(var/mob/user)
+	var/list/data = list()
 
 	data["active"] = active
 	data["output_set"] = power_output
@@ -336,8 +328,11 @@
 	data["temperature_max"] = max_temperature
 	data["temperature_overheat"] = overheating
 
-	var/datum/gas_mixture/environment = loc.return_air()
-	data["temperature_min"] = Floor(environment.temperature - T0C)
+	if(loc)
+		var/datum/gas_mixture/environment = loc.return_air()
+		if(environment)
+			data["temperature_min"] = Floor(environment.temperature - T0C)
+
 	data["output_min"] = initial(power_output)
 	data["is_broken"] = IsBroken()
 	data["is_ai"] = (isAI(user) || (isrobot(user) && !Adjacent(user)))
@@ -354,44 +349,50 @@
 	data["coolant_stored"] = reagents?.total_volume
 	data["coolant_capacity"] = reagents?.maximum_volume
 
-	LAZYINITLIST(data["fuel"])
 	data["fuel"] = fuel
 	data["output_watts"] = power_output * power_gen
 
 	return data
 
-/obj/machinery/power/portgen/basic/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "machinery-power-portgen", 500, 560, capitalize(name))
-	ui.open()
+/obj/machinery/power/portgen/basic/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "PortableGenerator", name, 500, 560)
+		ui.open()
 
-/obj/machinery/power/portgen/basic/Topic(href, href_list)
-	if(..())
+/obj/machinery/power/portgen/basic/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
 
 	add_fingerprint(usr)
-	if(href_list["action"])
-		if(href_list["action"] == "enable")
+	switch(action)
+		if("enable")
 			if(!active && HasFuel() && !IsBroken())
 				active = TRUE
 				update_icon()
 				soundloop.start(src)
-		if(href_list["action"] == "disable")
+				. = TRUE
+		if("disable")
 			if (active)
 				active = FALSE
 				update_icon()
 				soundloop.stop(src)
-		if(href_list["action"] == "eject")
+				. = TRUE
+		if("eject")
 			if(!active)
 				DropFuel()
-		if(href_list["action"] == "lower_power")
-			if (power_output > initial(power_output))
-				power_output--
-		if (href_list["action"] == "higher_power")
-			if ((power_output < max_power_output) || (emagged && (power_output < round(max_power_output*2.5))))
-				power_output++
-		SSvueui.check_uis_for_change(src)
+				. = TRUE
+		if("set_power")
+			var/new_power = text2num(params["set_power"])
+			if(new_power < power_output)
+				if (power_output > initial(power_output))
+					power_output = new_power
+					. = TRUE
+			else
+				if ((power_output < max_power_output) || (emagged && (power_output < round(max_power_output*2.5))))
+					power_output = new_power
+					. = TRUE
 
 //
 // Portable Generator - Advanced
@@ -414,18 +415,13 @@
 /obj/machinery/power/portgen/basic/advanced/UseFuel()
 	//produces a tiny amount of radiation when in use
 	if (prob(2 * power_output))
-		for (var/mob/living/L in range(src, 5))
-			L.apply_damage(1, IRRADIATE, damage_flags = DAM_DISPERSED) //should amount to ~5 rads per minute at max safe power
+		SSradiation.radiate(src, 4)
 	..()
 
 /obj/machinery/power/portgen/basic/advanced/explode()
 	//a nice burst of radiation
 	var/rads = 50 + (sheets + sheet_left)*1.5
-	for (var/mob/living/L in range(src, 10))
-		//should really fall with the square of the distance, but that makes the rads value drop too fast
-		//I dunno, maybe physics works different when you live in 2D -- SM radiation also works like this, apparently
-		L.apply_damage(max(20, round(rads/get_dist(L,src))), IRRADIATE, damage_flags = DAM_DISPERSED)
-
+	SSradiation.radiate(src, max(40, rads))
 	explosion(loc, 3, 3, 5, 3)
 	qdel(src)
 
@@ -477,7 +473,7 @@
 
 	var/coolant_volume = 360
 	var/coolant_use = 0.2
-	var/coolant_reagent = /decl/reagent/coolant
+	var/coolant_reagent = /singleton/reagent/coolant
 
 /obj/machinery/power/portgen/basic/fusion/explode()
 	//a nice burst of radiation
@@ -485,7 +481,7 @@
 	for (var/mob/living/L in range(src, 10))
 		//should really fall with the square of the distance, but that makes the rads value drop too fast
 		//I dunno, maybe physics works different when you live in 2D -- SM radiation also works like this, apparently
-		L.apply_damage(max(20, round(rads/get_dist(L,src))), IRRADIATE, damage_flags = DAM_DISPERSED)
+		L.apply_damage(max(20, round(rads/get_dist(L,src))), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 	explosion(loc, 3, 6, 12, 16, 1)
 	qdel(src)
@@ -508,8 +504,7 @@
 		temperature_gain = initial(temperature_gain)
 	..()
 	if (prob(2 * power_output))
-		for (var/mob/living/L in range(src, 5))
-			L.apply_damage(1, IRRADIATE, damage_flags = DAM_DISPERSED) //should amount to ~5 rads per minute at max safe power
+		SSradiation.radiate(src, 6)
 	..()
 
 /obj/machinery/power/portgen/basic/fusion/update_icon()
@@ -522,7 +517,7 @@
 	if(istype(O, /obj/item/reagent_containers))
 		var/obj/item/reagent_containers/R = O
 		if(R.standard_pour_into(user, src))
-			if(reagents.has_reagent(/decl/reagent/coolant))
+			if(reagents.has_reagent(/singleton/reagent/coolant))
 				audible_message("<span class='notice'>[src] blips happily!</span>")
 				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
 			else

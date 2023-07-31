@@ -4,7 +4,7 @@
 /obj/machinery/crusher_base
 	name = "trash compactor"
 	desc = "A colossal piston used for crushing garbage."
-	icon = 'icons/obj/machines/crusherbase.dmi'
+	icon = 'icons/obj/machinery/crusherbase.dmi'
 	icon_state = "standalone"
 	anchored = 1
 	density = 1
@@ -88,8 +88,8 @@
 /obj/machinery/crusher_base/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(status != "idle" && prob(40) && ishuman(user))
 		var/mob/living/carbon/human/M = user
-		M.apply_damage(45, BRUTE, user.get_active_hand())
-		M.apply_damage(45, PAIN)
+		M.apply_damage(45, DAMAGE_BRUTE, user.get_active_hand())
+		M.apply_damage(45, DAMAGE_PAIN)
 		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")
 		M.say("*scream")
 		return TRUE
@@ -364,7 +364,7 @@
 /obj/machinery/crusher_piston
 	name = "trash compactor piston"
 	desc = "A colossal piston used for crushing garbage."
-	icon = 'icons/obj/machines/crusherpiston.dmi' //Placeholder TODO: Get a proper icon
+	icon = 'icons/obj/machinery/crusherpiston.dmi' //Placeholder TODO: Get a proper icon
 	icon_state = "piston_0"
 	density = 0
 	anchored = 1
@@ -467,7 +467,7 @@
 	density = 1
 	anchored = 1
 	opacity = 1
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 //
 // The piston_move proc for various objects

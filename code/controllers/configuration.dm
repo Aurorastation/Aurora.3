@@ -17,6 +17,7 @@ var/list/gamemode_cache = list()
 	var/log_attack = 0					// log attack messages
 	var/log_adminchat = 0				// log admin chat messages
 	var/log_pda = 0						// log NTIRC messages
+	var/log_asset = 0					// log asset caching
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtime = 0					// logs world.log to a file
 	var/log_world_output = 0			// log world.log <<  messages
@@ -46,7 +47,6 @@ var/list/gamemode_cache = list()
 	var/allow_Metadata = 0				// Metadata is supported.
 	var/popup_admin_pm = 0				//adminPMs to non-admins show in a pop-up 'reply' window when set to 1.
 	var/Ticklag = 0.4
-	var/Tickcomp = 0
 	var/antag_hud_allowed = 0			// Ghosts can turn on Antagovision to see a HUD of who is the bad guys this round.
 	var/antag_hud_restricted = 0                    // Ghosts that turn on Antagovision cannot rejoin the round.
 	var/list/mode_names = list()
@@ -105,13 +105,13 @@ var/list/gamemode_cache = list()
 	var/githuburl
 
 	//Alert level description
-	var/alert_desc_green = "All threats to the station have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
-	var/alert_desc_blue_upto = "The station has received reliable information about possible hostile activity on the station. Security staff may have weapons visible, random searches are permitted."
+	var/alert_desc_green = "All threats to the ship have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
+	var/alert_desc_blue_upto = "The ship has received reliable information about possible hostile activity onboard. Security staff may have weapons visible, random searches are permitted."
 	var/alert_desc_blue_downto = "The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed."
-	var/alert_desc_yellow_to = "The station is now under an elevated alert status due to a confirmed biological hazard. All crew are to follow command instruction in order to ensure a safe return to standard operations."
-	var/alert_desc_red_upto = "There is an immediate serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised."
-	var/alert_desc_red_downto = "The self-destruct mechanism has been deactivated, there is still, however, an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised."
-	var/alert_desc_delta = "The station's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill."
+	var/alert_desc_yellow_to = "The ship is now under an elevated alert status due to a confirmed biological hazard. All crew are to follow command instruction in order to ensure a safe return to standard operations."
+	var/alert_desc_red_upto = "There is an immediate serious threat to the ship. Security may have weapons unholstered at all times. Random searches are allowed and advised."
+	var/alert_desc_red_downto = "The self-destruct mechanism has been deactivated, there is still, however, an immediate serious threat to the ship. Security may have weapons unholstered at all times, random searches are allowed and advised."
+	var/alert_desc_delta = "The ship's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill."
 
 	var/forbid_singulo_possession = 0
 
@@ -126,7 +126,7 @@ var/list/gamemode_cache = list()
 	var/default_brain_health = 400
 
 	//Paincrit knocks someone down once they hit 60 shock_stage, so by default make it so that close to 100 additional damage needs to be dealt,
-	//so that it's similar to PAIN. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
+	//so that it's similar to DAMAGE_PAIN. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
 	var/organ_damage_spillover_multiplier = 0.5
 
 	var/bones_can_break = 0
@@ -262,6 +262,9 @@ var/list/gamemode_cache = list()
 	var/ipintel_save_bad = 1
 	var/ipintel_domain = "check.getipintel.net"
 
+	// BYOND Tracy
+	var/enable_byond_tracy = 0
+
 	// Access control/Panic bunker settings.
 	var/access_deny_new_players = 0
 	var/access_deny_new_accounts = -1
@@ -323,6 +326,14 @@ var/list/gamemode_cache = list()
 	var/lore_summary
 
 	var/current_space_sector
+
+	var/cache_assets = TRUE
+
+	var/asset_transport = "simple"
+
+	var/asset_simple_preload
+	var/asset_cdn_webroot = ""
+	var/asset_cdn_url = null
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -437,6 +448,9 @@ var/list/gamemode_cache = list()
 
 				if ("log_pda")
 					config.log_pda = 1
+
+				if ("log_asset")
+					config.log_asset = 1
 
 				if ("log_world_output")
 					config.log_world_output = 1
@@ -682,9 +696,6 @@ var/list/gamemode_cache = list()
 				if("antag_hud_restricted")
 					config.antag_hud_restricted = 1
 
-				if("tickcomp")
-					Tickcomp = 1
-
 				if("ipc_timelock_active")
 					ipc_timelock_active = TRUE
 
@@ -878,6 +889,9 @@ var/list/gamemode_cache = list()
 				if("ipintel_save_bad")
 					ipintel_save_bad = text2num(value)
 
+				if("enable_byond_tracy")
+					enable_byond_tracy = 1
+
 				if("access_deny_new_accounts")
 					access_deny_new_accounts = text2num(value) >= 0 ? text2num(value) : -1
 				if("access_deny_vms")
@@ -890,7 +904,7 @@ var/list/gamemode_cache = list()
 
 				if("fastboot")
 					fastboot = TRUE
-					world.log <<  "Fastboot is ENABLED."
+					log_debug("Fastboot is ENABLED.")
 
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
@@ -978,6 +992,17 @@ var/list/gamemode_cache = list()
 
 				if("lore_summary")
 					lore_summary = value
+
+				if("cache_assets")
+					cache_assets = text2num(value)
+				if("asset_transport")
+					asset_transport = value
+				if("asset_simple_preload")
+					asset_simple_preload = TRUE
+				if("asset_cdn_webroot")
+					asset_cdn_webroot = (value[length(value)] != "/" ? (value + "/") : value)
+				if("asset_cdn_url")
+					asset_cdn_url = (value[length(value)] != "/" ? (value + "/") : value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

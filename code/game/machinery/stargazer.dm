@@ -1,12 +1,12 @@
 /obj/machinery/stargazer
 	name = "stargazer system"
-	icon = 'icons/obj/machines/stargazer.dmi'
+	icon = 'icons/obj/machinery/stargazer.dmi'
 	icon_state = "stargazer_off"
 	anchored = TRUE
 	density = TRUE
 	layer = ABOVE_ALL_MOB_LAYER
 	pixel_x = -32
-	pixel_y = -32
+	pixel_y = -24
 	var/image/star_system_image
 
 /obj/machinery/stargazer/Initialize(mapload, d, populate_components)
@@ -28,13 +28,16 @@
 	else if(!(stat & NOPOWER))
 		icon_state = "stargazer_on"
 		add_overlay(star_system_image)
-		set_light(6, 2, LIGHT_COLOR_BLUE)
+		var/stargazer_light_color = LIGHT_COLOR_HALOGEN
+		if(SSatlas.current_sector.starlight_color)
+			stargazer_light_color = SSatlas.current_sector.starlight_color
+		set_light(6, 2, stargazer_light_color)
 	else
 		icon_state = "stargazer_off"
 		cut_overlays()
 		set_light(0)
 
-/obj/machinery/stargazer/Topic(href, href_list, datum/topic_state/state)
+/obj/machinery/stargazer/Topic(href, href_list, datum/ui_state/state)
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return TRUE
 	if(!isInSight(usr, src))

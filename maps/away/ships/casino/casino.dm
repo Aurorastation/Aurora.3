@@ -1,14 +1,14 @@
 /datum/map_template/ruin/away_site/casino
 	name = "Casino"
 	description = "A casino ship!"
-	suffix = "ships/casino/casino.dmm"
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
+	suffixes = list("ships/casino/casino.dmm")
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA, ALL_COALITION_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "awaysite_casino"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/casino_cutter)
 
-/decl/submap_archetype/casino
+/singleton/submap_archetype/casino
 	map = "Casino"
 	descriptor = "A casino ship!"
 
@@ -17,8 +17,12 @@
 	name = "passenger liner"
 	class = "ICV"
 	desc = "A spaceborne casino slash passenger liner of an uncertain design. It's hardly nimble, quite defenceless and is likely far from any safe transit routes. Sensors detect that it is undamaged and without any signs of activity within."
-	icon_state = "ship_grey"
-	moving_state = "ship_grey_moving"
+	icon_state = "generic"
+	moving_state = "generic_moving"
+	colors = list("#c3c7eb", "#a0a8ec")
+	volume = "57 meters length, 35 meters beam/width, 16 meters vertical height"
+	sizeclass = "Passenger Liner"
+	shiptype = "Long-distance freight and leisure transit"
 	vessel_mass = 15000
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECOND
@@ -75,8 +79,9 @@
 	name = "Casino Cutter"
 	desc = "A generic small, boxy transport shuttle. It looks like a brick and it handles like one too."
 	shuttle = "Casino Cutter"
-	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#c3c7eb", "#a0a8ec")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 3000 //Hard to move

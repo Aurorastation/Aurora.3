@@ -83,8 +83,8 @@
 	var/displays_maptext = FALSE
 	var/can_ammo_display = TRUE
 	var/obj/item/ammo_display
-	var/empty_sound = /decl/sound_category/out_of_ammo
-	var/casing_drop_sound = /decl/sound_category/casing_drop_sound
+	var/empty_sound = /singleton/sound_category/out_of_ammo
+	var/casing_drop_sound = /singleton/sound_category/casing_drop_sound
 	maptext_x = 22
 	maptext_y = 2
 
@@ -109,7 +109,7 @@
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
-	var/wield_sound = /decl/sound_category/generic_wield_sound
+	var/wield_sound = /singleton/sound_category/generic_wield_sound
 	var/unwield_sound = null
 	var/one_hand_fa_penalty = 0 // Additional accuracy/dispersion penalty for using full auto one-handed
 
@@ -200,6 +200,7 @@
 	if(new_mode)
 		playsound(user, safetyoff_sound, 25)
 		to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
+		update_firing_delays()
 	for(var/M in message_mobs)
 		to_chat(M, SPAN_NOTICE("[user] has set \the [src] to [new_mode.name]."))
 
@@ -218,7 +219,7 @@
 
 	var/mob/living/M = user
 
-	if(HULK in M.mutations)
+	if(HAS_FLAG(M.mutations, HULK))
 		to_chat(M, SPAN_DANGER("Your fingers are much too large for the trigger guard!"))
 		return FALSE
 
@@ -228,7 +229,8 @@
 		if(no_guns_check)
 			to_chat(A, SPAN_WARNING("[no_guns_check]")) // the proc returns the no_guns_message
 			return FALSE
-
+		if(A.species && !A.species.can_use_guns())
+			return FALSE
 	if((M.is_clumsy()) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)
@@ -284,6 +286,12 @@
 	else
 		return ..() //Pistolwhippin'
 
+/obj/item/gun/proc/get_appropriate_delay()
+	var/fire_time = burst > 1 ? ((burst - 1) * burst_delay) : fire_delay
+	var/appropriate_delay = burst > 1 ? burst_delay : fire_delay
+	var/shoot_time = max(fire_time, appropriate_delay)
+	return shoot_time
+
 /obj/item/gun/proc/fire_checks(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(!user || !target)
 		return FALSE
@@ -310,9 +318,8 @@
 			to_chat(user, SPAN_WARNING("\The [src] is not ready to fire again!"))
 		return FALSE
 
-	var/shoot_time = max((burst - 1) * burst_delay, burst_delay)
+	var/shoot_time = get_appropriate_delay()
 	user.setClickCooldown(shoot_time)
-	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
 
 	user.face_atom(target, TRUE)
@@ -327,7 +334,7 @@
 		var/obj/item/gun/SG = user.get_inactive_hand()
 		if(istype(SG))
 			var/decreased_accuracy = (SG.w_class * 2) - SG.offhand_accuracy
-			addtimer(CALLBACK(SG, .proc/Fire, target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 5)
+			addtimer(CALLBACK(SG, PROC_REF(Fire), target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 5)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -361,8 +368,9 @@
 
 	update_held_icon()
 
-	user.setClickCooldown(max(burst_delay+1, fire_delay))
-	user.setMoveCooldown(move_delay)
+	// Custom formula here because otherwise you can fire bursts within the burst.
+	var/shoot_time = burst > 1 ? burst_delay + 1 : fire_delay
+	user.setClickCooldown(shoot_time)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)
@@ -372,7 +380,7 @@
 	if(world.time < next_fire_time)
 		return FALSE
 
-	var/shoot_time = (burst - 1)* burst_delay
+	var/shoot_time = get_appropriate_delay()
 	next_fire_time = world.time + shoot_time
 
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -405,7 +413,7 @@
 
 			if (muzzle_flash)
 				set_light(muzzle_flash)
-				addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2, TIMER_UNIQUE | TIMER_OVERRIDE)
+				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 2, TIMER_UNIQUE | TIMER_OVERRIDE)
 			update_icon()
 
 		if(i < burst)
@@ -415,7 +423,7 @@
 			target = targloc
 
 	//update timing
-	next_fire_time = world.time + fire_delay
+	next_fire_time = world.time + shoot_time
 
 	accuracy = initial(accuracy)	//Reset the gun's accuracy
 
@@ -462,7 +470,7 @@
 
 		if(muzzle_flash)
 			set_light(muzzle_flash)
-			addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 2)
 
 	if(recoil)
 		shake_camera(user, recoil + 1, recoil)
@@ -480,20 +488,21 @@
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
-	//default point blank multiplier
-	var/damage_mult = 1.3
+	if(!ismob(target))
+		return
+
+	var/mob/M = target
+	var/damage_mult = 1
+	if(M.incapacitated(INCAPACITATION_ALL))
+		damage_mult = 1.3
 
 	//determine multiplier due to the target being grabbed
-	if(ismob(target))
-		var/mob/M = target
-		if(M.grabbed_by.len)
-			var/grabstate = 0
-			for(var/obj/item/grab/G in M.grabbed_by)
-				grabstate = max(grabstate, G.state)
-			if(grabstate >= GRAB_NECK)
-				damage_mult = 2.5
-			else if(grabstate >= GRAB_AGGRESSIVE)
-				damage_mult = 1.5
+	if(M.grabbed_by.len)
+		var/grabstate = 0
+		for(var/obj/item/grab/G in M.grabbed_by)
+			grabstate = max(grabstate, G.state)
+		if(grabstate >= GRAB_NECK)
+			damage_mult = 2.5
 	P.damage *= damage_mult
 	P.point_blank = TRUE
 
@@ -520,7 +529,7 @@
 	if(length(firemodes))
 		F = firemodes[sel_mode]
 	if(one_hand_fa_penalty > 2 && !wielded && F?.name == "full auto") // todo: make firemode names defines
-		P.accuracy -= one_hand_fa_penalty/2
+		P.accuracy -= one_hand_fa_penalty * 0.5
 		P.dispersion -= one_hand_fa_penalty * 0.5
 
 //does the actual launching of the projectile
@@ -579,11 +588,11 @@
 			user.show_message(SPAN_WARNING("You feel rather silly, trying to commit suicide with a toy."))
 			mouthshoot = FALSE
 			return
-		else if(in_chamber.damage_type == PAIN)
-			user.apply_damage(in_chamber.damage * 2, PAIN, BP_HEAD)
+		else if(in_chamber.damage_type == DAMAGE_PAIN)
+			user.apply_damage(in_chamber.damage * 2, DAMAGE_PAIN, BP_HEAD)
 		else
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src].")
-			user.apply_damage(in_chamber.damage * 20, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
+			user.apply_damage(in_chamber.damage * 20, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAMAGE_FLAG_SHARP)
 			user.death()
 
 		handle_post_fire(user, user, FALSE, FALSE, FALSE)
@@ -735,12 +744,8 @@
 
 /obj/item/gun/proc/unwield()
 	wielded = FALSE
-	if(fire_delay_wielded)
-		fire_delay = initial(fire_delay)
-	if(recoil_wielded)
-		recoil = initial(recoil)
-	if(accuracy_wielded)
-		accuracy = initial(accuracy)
+	update_firing_delays()
+
 	if(unwield_sound)
 		playsound(src.loc, unwield_sound, 50, 1)
 
@@ -749,17 +754,29 @@
 
 /obj/item/gun/proc/wield()
 	wielded = TRUE
-	if(fire_delay_wielded)
-		fire_delay = fire_delay_wielded
-	if(recoil_wielded)
-		recoil = recoil_wielded
-	if(accuracy_wielded)
-		accuracy = accuracy_wielded
+	update_firing_delays()
+
 	if(wield_sound)
 		playsound(src.loc, wield_sound, 50, 1)
 
 	update_icon()
 	update_held_icon()
+
+/obj/item/gun/proc/update_firing_delays()
+	if(wielded)
+		if(fire_delay_wielded)
+			fire_delay = fire_delay_wielded
+		if(recoil_wielded)
+			recoil = recoil_wielded
+		if(accuracy_wielded)
+			accuracy = accuracy_wielded
+	else
+		if(fire_delay_wielded)
+			fire_delay = initial(fire_delay)
+		if(recoil_wielded)
+			recoil = initial(recoil)
+		if(accuracy_wielded)
+			accuracy = initial(accuracy)
 
 /obj/item/gun/mob_can_equip(M as mob, slot, disable_warning, ignore_blocked)
 	//Cannot equip wielded items.
@@ -792,7 +809,7 @@
 /obj/item/gun/pickup(mob/user)
 	..()
 	queue_icon_update()
-	addtimer(CALLBACK(src, .proc/update_maptext), 1)
+	addtimer(CALLBACK(src, PROC_REF(update_maptext)), 1)
 	if(is_wieldable)
 		unwield()
 
@@ -822,6 +839,7 @@
 		qdel(src)
 
 /obj/item/offhand/dropped(mob/living/user)
+	. = ..()
 	if(user)
 		var/obj/item/gun/O = user.get_inactive_hand()
 		if(istype(O))

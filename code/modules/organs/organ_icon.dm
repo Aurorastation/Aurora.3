@@ -84,11 +84,12 @@
 			mob_icon.Blend(eyes_icon, ICON_OVERLAY)
 			add_overlay(eyes_icon)
 
-	if(owner.lip_style && (species && (species.appearance_flags & HAS_LIPS)))
-		var/icon/lip_icon = SSicon_cache.human_lip_cache["[owner.lip_style]"]
+	if(owner.lipstick_color && (species && (species.appearance_flags & HAS_LIPS)))
+		var/icon/lip_icon = SSicon_cache.human_lip_cache["[owner.lipstick_color]"]
 		if (!lip_icon)
-			lip_icon = new/icon('icons/mob/human_face/lips.dmi', "[owner.lip_style]")
-			SSicon_cache.human_lip_cache["[owner.lip_style]"] = lip_icon
+			lip_icon = new/icon('icons/mob/human_face/lips.dmi', "lips")
+			lip_icon.Blend(owner.lipstick_color, species.eyes_icon_blend)
+			SSicon_cache.human_lip_cache["[owner.lipstick_color]"] = lip_icon
 
 		add_overlay(lip_icon)
 		mob_icon.Blend(lip_icon, ICON_OVERLAY)
@@ -179,7 +180,7 @@
 					gender = "m"
 
 			if(skeletal)
-				mob_icon = new /icon('icons/mob/human_races/r_skeleton.dmi', "[icon_name][gender ? "_[gender]" : ""]")
+				mob_icon = new /icon(species.skeleton_icon, "[icon_name][gender ? "_[gender]" : ""]")
 			else if (status & ORGAN_ROBOT && !force_skintone)
 				mob_icon = new /icon('icons/mob/human_races/ipc/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
 			else

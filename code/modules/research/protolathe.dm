@@ -182,7 +182,7 @@
 			ret += "[D.materials[M] - materials[M]] [M]"
 	for(var/C in D.chemicals)
 		if(!reagents.has_reagent(C, D.chemicals[C]))
-			var/decl/reagent/R = decls_repository.get_decl(C)
+			var/singleton/reagent/R = GET_SINGLETON(C)
 			if(ret != "")
 				ret += ", "
 			ret += "[R.name]"

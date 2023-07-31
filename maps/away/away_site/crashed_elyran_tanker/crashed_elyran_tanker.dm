@@ -3,13 +3,13 @@
 /datum/map_template/ruin/away_site/crashed_elyran_tanker
 	name = "Crashed Elyran Tanker"
 	description = "A small tanker, emitting a very faint IFF signal of civilian vessels registered in Elyra. It seems to be partially embedded into a small asteroid, and appears to be completely cold."
-	suffix = "away_site/crashed_elyran_tanker/crashed_elyran_tanker.dmm"
+	suffixes = list("away_site/crashed_elyran_tanker/crashed_elyran_tanker.dmm")
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "crashed_elyran_tanker"
 
-/decl/submap_archetype/crashed_elyran_tanker
+/singleton/submap_archetype/crashed_elyran_tanker
 	map = "crashed_elyran_tanker"
 	descriptor = "A small tanker, emitting a very faint IFF signal of civilian vessels registered in Elyra. It seems to be partially embedded into a small asteroid, and appears to be completely cold."
 
@@ -56,6 +56,9 @@
 /obj/effect/shuttle_landmark/nav_crashed_elyran_tanker/west
 	name = "Navpoint West"
 	landmark_tag = "nav_crashed_elyran_tanker_west"
+
+/area/crashed_elyran_tanker
+	flags = HIDE_FROM_HOLOMAP
 
 // ---------------- areas
 /area/crashed_elyran_tanker/bridge

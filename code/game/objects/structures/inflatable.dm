@@ -5,7 +5,7 @@
 	name = "inflatable"
 	desc_info = "Inflate by using it in your hand. The inflatable barrier will inflate on the turf you are standing on. To deflate it, use the 'deflate' verb."
 	w_class = ITEMSIZE_SMALL
-	icon = 'icons/contained_items/items/inflatables.dmi'
+	icon = 'icons/obj/item/inflatables.dmi'
 	var/deploy_path = null
 
 /obj/item/inflatable/attack_self(mob/user)
@@ -34,7 +34,7 @@
 	name = "inflatable"
 	desc = "An inflated membrane. Do not puncture."
 	desc_info = "To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
-	icon = 'icons/contained_objects/objects/inflatables.dmi'
+	icon = 'icons/obj/item/inflatables.dmi'
 	icon_state = "wall"
 
 	density = TRUE
@@ -105,7 +105,7 @@
 	if(W.can_puncture())
 		user.visible_message(SPAN_DANGER("[user] pierces \the [src] with \the [W]!"), SPAN_WARNING("You pierce \the [src] with \the [W]!"))
 		deflate(TRUE)
-	else if(W.damtype == BRUTE || W.damtype == BURN)
+	else if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
 		hit(W.force)
 		..()
 
@@ -133,7 +133,7 @@
 		M.Scale(0.6)
 		M.Turn(pick(-40, 40))
 		animate(src, 0.2 SECONDS, transform = M)
-		addtimer(CALLBACK(src, .proc/post_tear), 0.2 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(post_tear)), 0.2 SECONDS)
 	else
 		if(!undeploy_path)
 			return
@@ -143,7 +143,7 @@
 		var/matrix/M = new
 		M.Scale(0.6)
 		animate(src, 2.6 SECONDS, transform = M)
-		addtimer(CALLBACK(src, .proc/post_deflate), 2.6 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(post_deflate)), 2.6 SECONDS)
 
 /obj/structure/inflatable/proc/post_deflate()
 	var/obj/item/inflatable/R = new undeploy_path(loc)
@@ -171,7 +171,7 @@
 	user.do_attack_animation(src)
 	if(health <= 0)
 		user.visible_message(SPAN_DANGER("[user] [attack_verb] open the [src]!"))
-		INVOKE_ASYNC(src, .proc/deflate, TRUE)
+		INVOKE_ASYNC(src, PROC_REF(deflate), TRUE)
 	else
 		user.visible_message(SPAN_DANGER("[user] [attack_verb] at [src]!"))
 	return TRUE
@@ -234,7 +234,7 @@
 	density = FALSE
 	state = STATE_OPEN
 	flick("door_opening",src)
-	addtimer(CALLBACK(src, .proc/ResetOpen), 1 SECOND)
+	addtimer(CALLBACK(src, PROC_REF(ResetOpen)), 1 SECOND)
 
 /obj/structure/inflatable/door/proc/ResetOpen()
 	update_icon()
@@ -247,7 +247,7 @@
 		return
 	isSwitchingStates = TRUE
 	flick("door_closing", src)
-	addtimer(CALLBACK(src, .proc/ResetClose), 1 SECOND)
+	addtimer(CALLBACK(src, PROC_REF(ResetClose)), 1 SECOND)
 
 /obj/structure/inflatable/door/proc/ResetClose()
 	density = TRUE
@@ -264,7 +264,7 @@
 /obj/item/inflatable/torn
 	name = "torn inflatable wall"
 	desc = "A folded membrane which rapidly expands into a large cubical shape on activation. It is too torn to be usable."
-	icon_state = "folded_wall_torn"
+	icon_state = "folded_wall-torn"
 
 /obj/item/inflatable/torn/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("The inflatable wall is too torn to be inflated!"))
@@ -273,7 +273,7 @@
 /obj/item/inflatable/door/torn
 	name = "torn inflatable door"
 	desc = "A folded membrane which rapidly expands into a simple door on activation. It is too torn to be usable."
-	icon_state = "folded_door_torn"
+	icon_state = "folded_door-torn"
 
 /obj/item/inflatable/door/torn/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("The inflatable door is too torn to be inflated!"))
@@ -282,7 +282,7 @@
 /obj/item/storage/bag/inflatable
 	name = "inflatable barrier box"
 	desc = "Contains inflatable walls and doors."
-	icon = 'icons/contained_items/items/inflatables_box.dmi'
+	icon = 'icons/obj/item/inflatables.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
 	contained_sprite = TRUE

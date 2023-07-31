@@ -9,9 +9,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "aiv" = (
-/obj/machinery/cryopod,
-/obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/ship/orion_express_ship)
 "ajL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -25,7 +28,7 @@
 	pixel_y = -1
 	},
 /obj/item/storage/firstaid/adv,
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/trauma,
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/o2,
 /obj/item/storage/firstaid/toxin,
@@ -67,10 +70,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
-"ayD" = (
-/obj/structure/window/shuttle/scc,
-/turf/template_noop,
-/area/shuttle/orion_express_shuttle)
 "aDL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -216,10 +215,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "bld" = (
-/obj/structure/table/wood,
-/obj/item/toy/desk/fan,
-/turf/simulated/floor/shuttle/tan,
-/area/shuttle/orion_express_shuttle)
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor,
+/area/ship/orion_express_ship)
 "ble" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
@@ -293,7 +292,6 @@
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/mechanical,
 /obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -424,6 +422,20 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
+"cvK" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "orion_express_shuttle";
+	name = "Port docking controller";
+	tag_door = "orion_express_shuttle_out"
+	},
+/obj/structure/table/wood,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/tan,
+/area/shuttle/orion_express_shuttle)
 "cwI" = (
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
@@ -479,6 +491,7 @@
 	dir = 4
 	},
 /mob/living/bot/cleanbot,
+/obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "deS" = (
@@ -586,11 +599,6 @@
 	tag_interior_door = "orion_traveler_n_in"
 	},
 /turf/simulated/floor,
-/area/ship/orion_express_ship)
-"dHA" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
 /area/ship/orion_express_ship)
 "dLy" = (
 /turf/simulated/floor/shuttle/black,
@@ -967,6 +975,10 @@
 /obj/machinery/atmospherics/binary/pump/high_power,
 /turf/simulated/floor/airless,
 /area/ship/orion_express_ship)
+"hfG" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/template_noop,
+/area/space)
 "hjK" = (
 /obj/machinery/atm{
 	pixel_x = 32
@@ -1051,11 +1063,13 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "hAw" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
 "hFA" = (
 /obj/effect/floor_decal/spline/plain/corner{
@@ -1096,7 +1110,7 @@
 "ian" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/clothing/suit/chef,
+/obj/item/clothing/suit/chef_jacket,
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
 "ibp" = (
@@ -1137,9 +1151,8 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/ramp{
-	dir = 4;
-	nitrogen = 0;
-	oxygen = 0
+	dir = 8;
+	initial_gas = list()
 	},
 /area/ship/orion_express_ship)
 "iCX" = (
@@ -1501,8 +1514,7 @@
 /turf/simulated/floor/airless,
 /area/ship/orion_express_ship)
 "lwI" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/effect/decal/cleanable/cobweb2,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "lxT" = (
@@ -1666,9 +1678,6 @@
 /turf/simulated/floor/wood,
 /area/ship/orion_express_ship)
 "mzO" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
@@ -1677,12 +1686,18 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
 "mzY" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 1;
-	pixel_y = -5
+/obj/machinery/computer/ship/helm{
+	req_access = list(201);
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/orion_express_shuttle)
@@ -1749,7 +1764,7 @@
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket,
 /obj/item/clothing/suit/storage/toggle/bomber,
 /obj/item/clothing/under/shorts/khaki,
-/obj/item/clothing/under/shorts/khaki/female,
+/obj/item/clothing/under/shorts/khaki/short,
 /obj/item/clothing/shoes/workboots/dark,
 /obj/item/clothing/shoes/workboots/toeless/dark,
 /obj/item/clothing/gloves/brown,
@@ -1924,13 +1939,20 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
 "oey" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/shuttle/black,
+/area/shuttle/orion_express_shuttle)
+"oqT" = (
+/obj/structure/table/wood,
+/obj/item/toy/desk/fan,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/shuttle/tan,
 /area/shuttle/orion_express_shuttle)
 "oAK" = (
 /obj/structure/closet/walllocker/emerglocker/west{
@@ -2018,17 +2040,6 @@
 /obj/item/paper_bin,
 /obj/item/pen/multi,
 /turf/simulated/floor/tiled/dark,
-/area/ship/orion_express_ship)
-"pll" = (
-/obj/structure/lattice/catwalk,
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "orion_traveler_port";
-	name = "exterior access button";
-	pixel_y = 32
-	},
-/turf/template_noop,
 /area/ship/orion_express_ship)
 "ppM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -2337,9 +2348,8 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/ramp{
-	dir = 8;
-	nitrogen = 0;
-	oxygen = 0
+	dir = 4;
+	initial_gas = list()
 	},
 /area/ship/orion_express_ship)
 "rvq" = (
@@ -2385,14 +2395,14 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
 "rLo" = (
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
 	},
-/obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/ship/orion_express_ship)
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/orion_express_shuttle)
 "rNJ" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -2586,6 +2596,8 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "sJD" = (
@@ -2812,6 +2824,9 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "tUu" = (
@@ -2906,6 +2921,8 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "uzX" = (
@@ -2958,6 +2975,13 @@
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "aft, airlock"
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "orion_traveler_port";
+	name = "exterior access button";
+	pixel_x = -32
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -3088,10 +3112,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "vOd" = (
-/obj/machinery/computer/ship/helm{
-	req_access = list(201)
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
 	},
-/turf/simulated/floor/shuttle/tan,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/orion_express_shuttle)
 "vPn" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -3153,12 +3178,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
 "wkO" = (
-/obj/structure/table/wood,
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "orion_express_shuttle";
-	name = "Port docking controller";
-	tag_door = "orion_express_shuttle_out"
+/obj/machinery/computer/ship/sensors{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/orion_express_shuttle)
@@ -3472,6 +3496,7 @@
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_out"
 	},
+/obj/effect/shuttle_landmark/orion_express_ship/nav3,
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 
@@ -22336,7 +22361,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+hfG
 xRX
 xRX
 xRX
@@ -28757,11 +28782,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
+riA
 riA
 aEq
 riA
-xRX
+riA
 xRX
 xRX
 xRX
@@ -29013,13 +29038,13 @@ xRX
 xRX
 xRX
 xRX
-xRX
+riA
 riA
 fbf
 awG
 htX
 riA
-xRX
+riA
 xRX
 xRX
 xRX
@@ -30041,13 +30066,13 @@ xRX
 xRX
 xRX
 xRX
-xRX
+riA
 riA
 vUr
 rsO
 rsO
 riA
-xRX
+riA
 xRX
 xRX
 xRX
@@ -30299,11 +30324,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
+riA
 riA
 diy
 riA
-xRX
+riA
 xRX
 xRX
 xRX
@@ -31329,7 +31354,7 @@ xRX
 xRX
 xRX
 bex
-dHA
+soM
 xnk
 xRX
 xRX
@@ -32875,10 +32900,10 @@ oMV
 mhA
 qBd
 deS
-deS
+qBd
 qBd
 rrQ
-ilT
+rrQ
 kFU
 wlw
 wpk
@@ -33393,9 +33418,9 @@ deS
 deS
 deS
 deS
-deS
 rrQ
-ilT
+rrQ
+rrQ
 wpk
 riA
 riA
@@ -33886,8 +33911,8 @@ xuX
 xRX
 xRX
 riA
-rLo
-pDY
+riA
+hAw
 pDY
 hVK
 jwy
@@ -34143,8 +34168,8 @@ yfz
 xRX
 riA
 riA
-aiv
-aiv
+riA
+riA
 riA
 riA
 wYR
@@ -34166,7 +34191,7 @@ odB
 deS
 viF
 lMD
-fro
+qBd
 qBd
 oAP
 nkI
@@ -34399,8 +34424,8 @@ ccK
 qMt
 xRX
 riA
-riA
-riA
+xsE
+xsE
 qBd
 dmm
 sll
@@ -34423,10 +34448,10 @@ deS
 deS
 odB
 odB
-deS
+fro
 qBd
 oEN
-sSQ
+bld
 qXP
 riA
 xRX
@@ -34903,7 +34928,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+xuX
 xuX
 xuX
 xuX
@@ -34940,7 +34965,7 @@ gHP
 gHP
 qBd
 qBd
-lwI
+qBd
 ddB
 oQn
 riA
@@ -35160,10 +35185,10 @@ xRX
 xRX
 xRX
 xRX
-ayD
-bld
+hvo
 qUy
 sTK
+oqT
 qjk
 dLy
 xuX
@@ -35201,7 +35226,7 @@ qBd
 riA
 riA
 qBd
-soM
+xRX
 xRX
 xRX
 xRX
@@ -35418,9 +35443,9 @@ xRX
 xRX
 xRX
 hvo
-vOd
 mcD
 oIF
+gXD
 dLy
 iPr
 uNn
@@ -35458,7 +35483,7 @@ rrQ
 ppM
 gtw
 hPR
-pll
+xRX
 xRX
 xRX
 xRX
@@ -35677,7 +35702,7 @@ xRX
 qrd
 mzY
 wkO
-gXD
+cvK
 dLy
 dLy
 dLy
@@ -35715,7 +35740,7 @@ krz
 dYD
 rvq
 vfR
-soM
+xRX
 xRX
 xRX
 xRX
@@ -35909,7 +35934,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+hfG
 xRX
 xRX
 xRX
@@ -35933,7 +35958,7 @@ xRX
 xRX
 xuX
 mzO
-oey
+rLo
 oey
 dLy
 dLy
@@ -35972,7 +35997,6 @@ hrj
 rvq
 oEN
 yks
-soM
 xRX
 xRX
 xRX
@@ -35990,6 +36014,7 @@ xRX
 xRX
 xRX
 xRX
+hfG
 xRX
 xRX
 xRX
@@ -36229,7 +36254,7 @@ qBd
 riA
 riA
 qBd
-soM
+xRX
 xRX
 xRX
 xRX
@@ -36448,7 +36473,7 @@ xRX
 xuX
 iOe
 iOe
-iOe
+vOd
 kLL
 kcS
 xuX
@@ -36482,9 +36507,9 @@ mmT
 hwT
 qBd
 qBd
-hAw
+qBd
 tUl
-sSQ
+aiv
 riA
 xRX
 xRX
@@ -36702,7 +36727,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+xuX
 xuX
 xuX
 xuX
@@ -36739,8 +36764,8 @@ oMV
 aDL
 hKC
 jBp
+lwI
 rvq
-oEN
 riA
 riA
 xRX
@@ -38787,7 +38812,7 @@ uwG
 qBd
 qBd
 qBd
-xsE
+qBd
 xsE
 xsE
 xsE
@@ -41093,11 +41118,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
+riA
 riA
 diy
 riA
-xRX
+riA
 xRX
 xRX
 xRX
@@ -41349,13 +41374,13 @@ xRX
 xRX
 xRX
 xRX
-xRX
+riA
 riA
 rsO
 rsO
 vyy
 riA
-xRX
+riA
 xRX
 xRX
 xRX
@@ -42377,13 +42402,13 @@ xRX
 xRX
 xRX
 xRX
-xRX
+riA
 riA
 htX
 awG
 fbf
 riA
-xRX
+riA
 xRX
 xRX
 xRX
@@ -42635,11 +42660,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
+riA
 riA
 frC
 riA
-xRX
+riA
 xRX
 xRX
 xRX

@@ -6,7 +6,7 @@
 	anchored = 1.0
 	idle_power_usage = 300
 	active_power_usage = 300
-	clicksound = /decl/sound_category/keyboard_sound
+	clicksound = /singleton/sound_category/keyboard_sound
 
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = 0
@@ -54,7 +54,6 @@
 				for(var/x in verbs)
 					verbs -= x
 				set_broken()
-		else
 	return
 
 /obj/machinery/computer/bullet_act(var/obj/item/projectile/Proj)
@@ -118,25 +117,32 @@
 	return text
 
 /obj/machinery/computer/attackby(var/obj/item/W as obj, user as mob)
-	if(W.isscrewdriver() && circuit)
-		if(W.use_tool(src, user, 20, volume = 50))
-			var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
-			var/obj/item/circuitboard/M = new circuit( A )
-			A.circuit = M
-			A.anchored = 1
-			for (var/obj/C in src)
-				C.forceMove(src.loc)
-			if (src.stat & BROKEN)
-				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
-				new /obj/item/material/shard( src.loc )
-				A.state = 3
-				A.icon_state = "3"
-			else
-				to_chat(user, "<span class='notice'>You disconnect the glass keyboard panel.</span>")
-				A.state = 4
-				A.icon_state = "4"
-			M.deconstruct(src)
-			qdel(src)
+	if(W.isscrewdriver())
+		if(circuit)
+			if(W.use_tool(src, user, 20, volume = 50))
+				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
+				var/obj/item/circuitboard/M = new circuit(A)
+				A.circuit = M
+				A.anchored = TRUE
+				for(var/obj/C in src)
+					C.forceMove(src.loc)
+				if(src.stat & BROKEN)
+					to_chat(user, SPAN_NOTICE("The broken glass falls out."))
+					new /obj/item/material/shard( src.loc )
+					A.state = 3
+					A.icon_state = "3"
+				else
+					to_chat(user, SPAN_NOTICE("You disconnect the glass keyboard panel."))
+					A.state = 4
+					A.icon_state = "4"
+				M.deconstruct(src)
+				qdel(src)
+		else if(stat & BROKEN)
+			to_chat(user, SPAN_NOTICE("You start fixing \the [src]..."))
+			if(W.use_tool(src, user, 5 SECONDS, volume = 50))
+				to_chat(user, SPAN_NOTICE("You fix the console's screen and tie up a few loose cables."))
+				stat &= ~BROKEN
+				update_icon()
 		return TRUE
 	else
 		return ..()

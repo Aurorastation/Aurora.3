@@ -11,6 +11,7 @@
 	flags = CONDUCT
 	explosion_resistance = 1
 	layer = 2.98
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/health = 10
 	var/destroyed = 0
 
@@ -44,7 +45,7 @@
 	if(shock(user, 70))
 		return
 
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		damage_dealt += 5
 	else
 		damage_dealt += 1
@@ -73,7 +74,7 @@
 	//20% chance that the grille provides a bit more cover than usual. Support structure for example might take up 20% of the grille's area.
 	//If they click on the grille itself then we assume they are aiming at the grille itself and the extra cover behaviour is always used.
 	switch(Proj.damage_type)
-		if(BRUTE)
+		if(DAMAGE_BRUTE)
 			//bullets
 			if(Proj.original == src || prob(20))
 				Proj.damage *= between(0, Proj.damage/60, 0.5)
@@ -82,7 +83,7 @@
 			else
 				Proj.damage *= between(0, Proj.damage/60, 1)
 				passthrough = 1
-		if(BURN)
+		if(DAMAGE_BURN)
 			//beams and other projectiles are either blocked completely by grilles or stop half the damage.
 			if(!(Proj.original == src || prob(20)))
 				Proj.damage *= 0.5
@@ -90,7 +91,7 @@
 
 	if(passthrough)
 		. = PROJECTILE_CONTINUE
-		damage = between(0, (damage - Proj.damage)*(Proj.damage_type == BRUTE? 0.4 : 1), 10) //if the bullet passes through then the grille avoids most of the damage
+		damage = between(0, (damage - Proj.damage)*(Proj.damage_type == DAMAGE_BRUTE? 0.4 : 1), 10) //if the bullet passes through then the grille avoids most of the damage
 
 	src.health -= damage*0.2
 	spawn(0) healthcheck() //spawn to make sure we return properly if the grille is deleted
@@ -98,7 +99,7 @@
 /obj/structure/grille/attackby(obj/item/W, mob/user)
 	if(W.iswirecutter())
 		if(!shock(user, 100))
-			playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
+			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
 			qdel(src)
 	else if(istype(W, /obj/item/gun/energy/plasmacutter))
@@ -111,7 +112,7 @@
 		qdel(src)
 	else if((W.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
-			playsound(loc, 'sound/items/screwdriver.ogg', 100, 1)
+			playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "fastens" : "unfastens"] the grille.</span>", \
 								 "<span class='notice'>You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor.</span>")
@@ -243,10 +244,11 @@
 	destroyed = 1
 	icon_state = "grille-b"
 	density = 0
-	New()
-		..()
-		health = rand(-5, -1) //In the destroyed but not utterly threshold.
-		healthcheck() //Send this to healthcheck just in case we want to do something else with it.
+
+/obj/structure/grille/broken/New()
+	..()
+	health = rand(-5, -1) //In the destroyed but not utterly threshold.
+	healthcheck() //Send this to healthcheck just in case we want to do something else with it.
 
 /obj/structure/grille/diagonal
 	icon_state = "grille_diagonal"

@@ -73,7 +73,7 @@
 		to_chat(user, "<span class='notice'>You link \the [C] to \the [src], it will now ring upon someone using \the [src].</span>")
 		rings_pdas += C
 		// WONT FIX: This requires callbacks fuck my dick.
-		destroyed_event.register(C, src, .proc/remove_pda)
+		destroyed_event.register(C, src, PROC_REF(remove_pda))
 		update_icon()
 		return TRUE
 	else
@@ -112,7 +112,7 @@
 		var/message = "Attention required!"
 		P.get_notification(message, 1, "[capitalize(department)]")
 
-	addtimer(CALLBACK(src, .proc/unping), 45 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(unping)), 45 SECONDS)
 
 /obj/machinery/ringer/proc/unping()
 	pinged = FALSE

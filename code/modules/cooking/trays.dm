@@ -18,8 +18,8 @@
 	flags = CONDUCT
 	matter = list(DEFAULT_WALL_MATERIAL = 3000)
 	recyclable = TRUE
-	hitsound = /decl/sound_category/bottle_hit_broken
-	drop_sound = /decl/sound_category/bottle_hit_broken
+	hitsound = /singleton/sound_category/bottle_hit_broken
+	drop_sound = /singleton/sound_category/bottle_hit_broken
 	var/max_carry = 20
 	var/current_weight = 0
 	var/cooldown = 0	//shield bash cooldown. based on world.time
@@ -106,8 +106,8 @@
 	current_weight += I.w_class
 	vis_contents += I
 	I.vis_flags |= VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
-	item_equipped_event.register(I, src, /obj/item/tray/proc/pick_up)
-	destroyed_event.register(I, src, /obj/item/tray/proc/unload_item)
+	item_equipped_event.register(I, src, PROC_REF(pick_up))
+	destroyed_event.register(I, src, PROC_REF(unload_item))
 
 /obj/item/tray/verb/unload()
 	set name = "Unload Tray"
@@ -182,7 +182,7 @@
 		user.visible_message("<b>[user]</b> spills their tray all over the floor.", SPAN_WARNING("You spill the tray!"))
 	else
 		visible_message(SPAN_NOTICE("The tray scatters its contents all over the area."))
-	playsound(dropspot, /decl/sound_category/tray_hit_sound, 50, 1)
+	playsound(dropspot, /singleton/sound_category/tray_hit_sound, 50, 1)
 
 /obj/item/tray/throw_impact(atom/hit_atom)
 	spill(null, loc)
@@ -192,6 +192,7 @@
 	..()
 
 /obj/item/tray/dropped(mob/user)
+	. = ..()
 	spawn(1)//A hack to avoid race conditions. Dropped procs too quickly
 		if (ismob(loc))
 			//If this is true, then the tray has just switched hands and is still held by a mob
@@ -206,3 +207,15 @@
 	if(istype(A,/obj/structure/table))
 		safedrop = TRUE
 	return ..(A, user, click_parameters)
+
+/obj/item/tray/plate
+	name = "serving plate"
+	desc = "A large plate for serving meals on."
+	icon = 'icons/obj/kitchen.dmi'
+	icon_state = "l_plate"
+	throwforce = 4
+	force = 3
+	flags = null
+	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
+	recyclable = TRUE
+	max_carry = 7 // That's 3 dishes, a knife, spoon and fork and a glass

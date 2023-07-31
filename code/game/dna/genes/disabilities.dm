@@ -28,8 +28,8 @@
 	return 1 // Always set!
 
 /datum/dna/gene/disability/activate(var/mob/M, var/connected, var/flags)
-	if(mutation && !(mutation in M.mutations))
-		M.mutations.Add(mutation)
+	if(mutation && NOT_FLAG(M.mutations, mutation))
+		M.mutations |= mutation
 	if(disability)
 		M.disabilities|=disability
 	if(sdisability)
@@ -40,8 +40,8 @@
 		testing("[name] has no activation message.")
 
 /datum/dna/gene/disability/deactivate(var/mob/M, var/connected, var/flags)
-	if(mutation && (mutation in M.mutations))
-		M.mutations.Remove(mutation)
+	if(mutation && HAS_FLAG(M.mutations, mutation))
+		M.mutations &= ~mutation
 	if(disability)
 		M.disabilities &= (~disability)
 	if(sdisability)
@@ -83,14 +83,6 @@
 
 /datum/dna/gene/disability/clumsy/New()
 	block=CLUMSYBLOCK
-
-/datum/dna/gene/disability/tourettes
-	name="Tourettes"
-	activation_message="You twitch."
-	disability=TOURETTES
-
-/datum/dna/gene/disability/tourettes/New()
-	block=TWITCHBLOCK
 
 /datum/dna/gene/disability/stutter
 	name="Stuttering"

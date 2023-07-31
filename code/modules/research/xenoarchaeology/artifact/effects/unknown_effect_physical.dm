@@ -18,7 +18,7 @@
 					if(affecting && istype(affecting))
 						affecting.heal_damage(25 * weakness, 25 * weakness)
 				//H:heal_organ_damage(25, 25)
-				H.vessel.add_reagent(/decl/reagent/blood,5, temperature = H.species?.body_temperature)
+				H.vessel.add_reagent(/singleton/reagent/blood,5, temperature = H.species?.body_temperature)
 				H.adjustNutritionLoss(-50 * weakness)
 				H.adjustHydrationLoss(-50 * weakness)
 				H.adjustBrainLoss(-25 * weakness)
@@ -85,7 +85,7 @@
 			C.adjustBruteLoss(rand(5,25) * weakness)
 			C.adjustFireLoss(rand(5,25) * weakness)
 			C.adjustBrainLoss(rand(5,25) * weakness)
-			C.apply_damage(25 * weakness, IRRADIATE, damage_flags = DAM_DISPERSED)
+			C.apply_damage(25 * weakness, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 			C.adjustNutritionLoss(50 * weakness)
 			C.adjustHydrationLoss(50 * weakness)
 			C.make_dizzy(6 * weakness)
@@ -314,27 +314,21 @@
 
 /datum/artifact_effect/radiate/New()
 	..()
-	radiation_amount = rand(1, 10)
+	radiation_amount = rand(10, 50)
 	effect_type = pick(4,5)
 
 /datum/artifact_effect/radiate/DoEffectTouch(var/mob/living/user)
 	if(user)
-		user.apply_effect(radiation_amount * 5,IRRADIATE,0)
+		user.apply_damage(radiation_amount * 5, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 		user.updatehealth()
 		return TRUE
 
 /datum/artifact_effect/radiate/DoEffectAura()
 	if(holder)
-		var/turf/T = get_turf(holder)
-		for (var/mob/living/M in range(src.effectrange,T))
-			M.apply_effect(radiation_amount,IRRADIATE,0)
-			M.updatehealth()
+		SSradiation.radiate(holder, radiation_amount)
 		return TRUE
 
 /datum/artifact_effect/radiate/DoEffectPulse()
 	if(holder)
-		var/turf/T = get_turf(holder)
-		for (var/mob/living/M in range(src.effectrange,T))
-			M.apply_damage(radiation_amount * 25, IRRADIATE, damage_flags = DAM_DISPERSED)
-			M.updatehealth()
+		SSradiation.radiate(holder, radiation_amount)
 		return TRUE

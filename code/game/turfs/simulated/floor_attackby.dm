@@ -23,7 +23,7 @@
 				return
 			to_chat(user, "<span class='notice'>You unscrew and remove the [flooring.descriptor].</span>")
 			make_plating(1)
-			playsound(src, 'sound/items/screwdriver.ogg', 80, 1)
+			playsound(src, 'sound/items/Screwdriver.ogg', 80, 1)
 			return
 		else if(C.iswrench() && (flooring.flags & TURF_REMOVE_WRENCH))
 			to_chat(user, "<span class='notice'>You unwrench and remove the [flooring.descriptor].</span>")
@@ -62,10 +62,10 @@
 				to_chat(user, "<span class='warning'>This section is too damaged to support anything. Use a welder to fix the damage.</span>")
 				return
 			var/obj/item/stack/S = C
-			var/decl/flooring/use_flooring
-			var/list/decls = decls_repository.get_decls_of_subtype(/decl/flooring)
+			var/singleton/flooring/use_flooring
+			var/list/decls = GET_SINGLETON_SUBTYPE_MAP(/singleton/flooring)
 			for(var/flooring_type in decls)
-				var/decl/flooring/F = decls[flooring_type]
+				var/singleton/flooring/F = decls[flooring_type]
 				if(!F.build_type)
 					continue
 				if(ispath(S.type, F.build_type) || ispath(S.build_type, F.build_type))
@@ -130,6 +130,12 @@
 							visible_message("<span class='warning'>[user] has melted the plating's reinforcements! It should be possible to pry it off.</span>")
 							playsound(src, 'sound/items/Welder.ogg', 80, 1)
 					return
+
+	if(istype(C,/obj/item/floor_frame))
+		var/obj/item/floor_frame/F = C
+		F.try_build(src, user)
+		return
+
 	return ..()
 
 /turf/simulated/floor/proc/welder_melt()

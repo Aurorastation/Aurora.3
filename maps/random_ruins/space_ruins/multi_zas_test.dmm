@@ -5,10 +5,6 @@
 "b" = (
 /turf/simulated/floor,
 /area/template_noop)
-"c" = (
-/mob/living/simple_animal/passive/corgi,
-/turf/simulated/floor,
-/area/template_noop)
 "d" = (
 /turf/simulated/open,
 /area/template_noop)
@@ -39,7 +35,7 @@ a
 (3,1,1) = {"
 a
 b
-c
+b
 b
 a
 "}

@@ -584,6 +584,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -811,6 +812,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1614,12 +1616,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
-"ua" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/obj/item/hullbeacon/red,
-/turf/template_noop,
-/area/scrapper_base)
 "ud" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
@@ -1802,7 +1798,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "vT" = (
-/obj/machinery/computer/shuttle_control/explore/tajara_scrapper,
+/obj/machinery/computer/shuttle_control/explore/tajara_scrapper{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
@@ -2259,6 +2257,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2619,7 +2618,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
 "Hg" = (
-/obj/machinery/computer/ship/sensors,
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
@@ -2675,7 +2676,8 @@
 /area/shuttle/scrapper_ship/workshop)
 "HA" = (
 /obj/machinery/computer/ship/helm{
-	req_access = null
+	req_access = null;
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -2844,7 +2846,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "JH" = (
-/obj/machinery/computer/ship/navigation,
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
 	},
@@ -3545,11 +3549,6 @@
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
-"RJ" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space)
 "RK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4064,7 +4063,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "Yo" = (
-/obj/machinery/computer/ship/engines,
+/obj/machinery/computer/ship/engines{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
@@ -37934,7 +37935,7 @@ Uk
 OZ
 mx
 JU
-RJ
+Ng
 Ng
 Ng
 Ng
@@ -39998,7 +39999,7 @@ Iu
 Iu
 Iu
 Iu
-RJ
+Ng
 Ng
 Ng
 Ng
@@ -45130,7 +45131,7 @@ Uk
 cD
 mx
 JU
-RJ
+Ng
 Ng
 Ng
 Ng
@@ -46441,7 +46442,7 @@ Ng
 Ng
 Ng
 Ng
-ua
+CO
 Kn
 Kn
 Kn
@@ -49252,7 +49253,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+zx
 Kn
 Kn
 Kn
@@ -49509,7 +49510,7 @@ Kn
 Kn
 Kn
 Kn
-zx
+Kn
 Kn
 Kn
 Kn

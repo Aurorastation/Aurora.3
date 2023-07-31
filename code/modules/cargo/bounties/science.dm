@@ -1,10 +1,3 @@
-/datum/bounty/item/science/boh
-	name = "Bag of Holding"
-	description = "%COMPNAME would make good use of a high-capacity backpack. If you have any, please ship them."
-	reward_low = 6000
-	reward_high = 7200
-	wanted_types = list(/obj/item/storage/backpack/holding)
-
 /datum/bounty/item/science/nightvision_goggles
 	name = "Night Vision Goggles"
 	description = "An electrical storm has busted all the lights at %BOSSSHORT. While management is waiting for replacements, perhaps some night vision goggles can be shipped?"
@@ -46,7 +39,7 @@
 	if(O.check_completion())
 		return TRUE
 	return FALSE
-	
+
 /datum/bounty/item/science/forcegloves
 	name = "Force Gloves"
 	description = "%PERSONNAME has been challenged to a sparring duel in the holodeck. Ship them a pair of forcegloves so there can be a fair fight."
@@ -98,10 +91,6 @@
 /datum/bounty/item/science/circuitboard/dronecontrol
 	name = "Drone Control Circuitboard"
 	wanted_types = list(/obj/item/circuitboard/drone_control)
-
-/datum/bounty/item/science/circuitboard/powermonitor
-	name = "Power Monitor Circuitboard"
-	wanted_types = list(/obj/item/circuitboard/powermonitor)
 
 /datum/bounty/item/science/battery
 	name = "Heavy-Duty Power Cell"

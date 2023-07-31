@@ -65,7 +65,7 @@
 				priority = "Undetermined"
 
 /obj/machinery/telecomms/message_server
-	icon = 'icons/obj/machines/research.dmi'
+	icon = 'icons/obj/machinery/research.dmi'
 	icon_state = "server"
 	name = "messaging server"
 	desc = "A machine that processes and routes request console messages."
@@ -75,7 +75,7 @@
 
 	var/list/datum/data_pda_msg/pda_msgs = list() // TODO: actually re-link modular PDAs to the message servers
 	var/list/datum/data_rc_msg/rc_msgs = list()
-	var/decryptkey = "password"
+	var/decryptkey = ""
 
 	//Spam filtering stuff
 	var/list/spamfilter = list("You have won", "your prize", "male enhancement", "shitcurity", \
@@ -234,9 +234,14 @@ var/obj/machinery/blackbox_recorder/blackbox
 	if(blackbox)
 		if(istype(blackbox,/obj/machinery/blackbox_recorder))
 			qdel(src)
-	blackbox = src
+	else
+		blackbox = src
 
 /obj/machinery/blackbox_recorder/Destroy()
 	feedback_set_details("blackbox_destroyed","true")
 	feedback_set("blackbox_destroyed",1)
 	return ..()
+
+
+#undef MESSAGE_SERVER_SPAM_REJECT
+#undef MESSAGE_SERVER_DEFAULT_SPAM_LIMIT

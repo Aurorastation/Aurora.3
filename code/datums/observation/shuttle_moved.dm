@@ -18,15 +18,15 @@
 //			/obj/effect/shuttle_landmark/old_location: the old location's shuttle landmark
 //			/obj/effect/shuttle_landmark/new_location: the new location's shuttle landmark
 
-var/datum/observ/shuttle_moved/shuttle_moved_event = new()
+var/singleton/observ/shuttle_moved/shuttle_moved_event = new()
 
-/datum/observ/shuttle_moved
+/singleton/observ/shuttle_moved
 	name = "Shuttle Moved"
 	expected_type = /datum/shuttle
 
-var/datum/observ/shuttle_pre_move/shuttle_pre_move_event = new()
+var/singleton/observ/shuttle_pre_move/shuttle_pre_move_event = new()
 
-/datum/observ/shuttle_pre_move
+/singleton/observ/shuttle_pre_move
 	name = "Shuttle Pre Move"
 	expected_type = /datum/shuttle
 

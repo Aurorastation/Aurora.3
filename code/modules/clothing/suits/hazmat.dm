@@ -6,7 +6,7 @@
 /obj/item/clothing/suit/hazmat
 	name = "hazmat suit"
 	desc = "A suit that protects against biological hazards."
-	icon = 'icons/contained_items/clothing/bottomwear/hazmat.dmi'
+	icon = 'icons/obj/item/clothing/suit/hazmat.dmi'
 	icon_state = "hazmat"
 	item_state = "hazmat"
 	contained_sprite = TRUE

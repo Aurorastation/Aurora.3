@@ -32,8 +32,7 @@
 		)
 	throwforce = 0
 	force = 0
-//	var/mob/living/carbon/human/owner = null
-	var/mob/living/owner = null
+	var/mob/living/carbon/human/owner = null
 	var/obj/item/technomancer_core/core = null
 	var/cast_methods = null			// Controls how the spell is casted.
 	var/aspect = null				// Used for combining spells.
@@ -123,14 +122,16 @@
 // Proc: get_technomancer_core()
 // Parameters: 0
 // Description: Returns the technomancer's core, assuming it is being worn properly.
-/mob/living/proc/get_technomancer_core()
+/mob/proc/get_technomancer_core()
+	if(istype(back, /obj/item/technomancer_core))
+		return back
 	return null
 
 /mob/living/carbon/human/get_technomancer_core()
-	var/obj/item/technomancer_core/core = back
-	if(istype(core))
-		return core
-	return null
+	. = ..()
+	if(!.)
+		if(istype(wrists, /obj/item/technomancer_core))
+			return wrists
 
 // Proc: New()
 // Parameters: 0
@@ -183,12 +184,12 @@
 	if(!core)
 		core = locate(/obj/item/technomancer_core) in owner
 		if(!core)
-			to_chat(owner, "<span class='danger'>You need to be wearing a core on your back!</span>")
+			to_chat(owner, "<span class='danger'>You need to be wearing a core on your back or your wrists!</span>")
 			return 0
-	if(core.loc != owner || owner.back != core) //Make sure the core's being worn.
-		to_chat(owner, "<span class='danger'>You need to be wearing a core on your back!</span>")
+	if(core.loc != owner || (owner.back != core && owner.wrists != core)) //Make sure the core's being worn.
+		to_chat(owner, "<span class='danger'>You need to be wearing a core on your back or your wrists!</span>")
 		return 0
-	if(!technomancers.is_technomancer(owner.mind)) //Now make sure the person using this is the actual antag.
+	if(!core.simple_operation && !technomancers.is_technomancer(owner.mind)) //Now make sure the person using this is the actual antag.
 		to_chat(owner, "<span class='danger'>You can't seem to figure out how to make the machine work properly.</span>")
 		return 0
 	return 1
@@ -312,6 +313,7 @@
 // Parameters: 0
 // Description: Deletes the spell object immediately.
 /obj/item/spell/dropped()
+	. = ..()
 	spawn(1)
 		if(src)
 			qdel(src)

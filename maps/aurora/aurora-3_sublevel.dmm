@@ -1342,11 +1342,7 @@
 	pump_direction = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced{
-	name = "vacuum floor";
-	nitrogen = 0.01;
-	oxygen = 0.01
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "adr" = (
 /obj/structure/grille,
@@ -1757,11 +1753,7 @@
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/reinforced{
-	name = "vacuum floor";
-	nitrogen = 0.01;
-	oxygen = 0.01
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "aeg" = (
 /obj/machinery/door/firedoor,
@@ -2019,11 +2011,7 @@
 	pixel_y = 1;
 	use_power = 1
 	},
-/turf/simulated/floor/reinforced{
-	name = "vacuum floor";
-	nitrogen = 0.01;
-	oxygen = 0.01
-	},
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
 "aeQ" = (
 /obj/machinery/door/firedoor,
@@ -2067,7 +2055,7 @@
 /area/engineering/atmos)
 "aeW" = (
 /obj/structure/window/borosilicate/reinforced,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -3703,7 +3691,7 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -5157,7 +5145,7 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "alP" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -5447,10 +5435,7 @@
 /obj/item/aiModule/robocop,
 /obj/item/aiModule/paladin,
 /obj/item/aiModule/corp,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "amk" = (
 /obj/machinery/door/window{
@@ -5463,10 +5448,7 @@
 /obj/item/aiModule/freeformcore,
 /obj/item/aiModule/asimov,
 /obj/item/aiModule/nanotrasen,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "aml" = (
 /obj/machinery/light/small/emergency{
@@ -5644,73 +5626,46 @@
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "cobweb1"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "amy" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "amz" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "amA" = (
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "amB" = (
 /obj/machinery/ai_status_display{
 	pixel_x = 32
 	},
 /obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "amC" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "amD" = (
 /obj/item/modular_computer/console/preset/ai,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "amE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "amF" = (
 /obj/machinery/door/window/southleft,
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "amG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
@@ -5866,10 +5821,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "amQ" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -5878,20 +5830,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "amR" = (
 /obj/machinery/porta_turret{
 	dir = 4
 	},
 /obj/effect/decal/warning_stripes,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "amS" = (
 /obj/machinery/door/blast/regular{
@@ -5916,25 +5862,19 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "amT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "amV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "amW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5943,10 +5883,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "amX" = (
 /obj/machinery/camera/network/command{
@@ -5960,20 +5897,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "amY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "amZ" = (
 /obj/machinery/light/small,
@@ -5983,10 +5914,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "ana" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -6007,10 +5935,7 @@
 	name = "AI core maintenance hatch";
 	opacity = 0
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "anb" = (
 /obj/machinery/light/small,
@@ -6020,10 +5945,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "anc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6032,10 +5954,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "and" = (
 /obj/structure/sign/vacuum,
@@ -6241,10 +6160,7 @@
 "anr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "ans" = (
 /obj/machinery/door/blast/regular{
@@ -6267,7 +6183,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/cable/cyan,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "ant" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -6275,37 +6191,25 @@
 	dir = 4
 	},
 /obj/effect/decal/warning_stripes,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "anu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "anv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "anw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "anx" = (
 /obj/item/device/radio/intercom{
@@ -6330,10 +6234,7 @@
 /obj/effect/landmark{
 	name = "tripai"
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "any" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -6341,10 +6242,7 @@
 	req_access = list(16)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "anz" = (
 /obj/structure/grille,
@@ -6571,10 +6469,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "anL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6583,10 +6478,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "anM" = (
 /obj/machinery/door/firedoor,
@@ -6602,7 +6494,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "anN" = (
 /obj/structure/grille,
@@ -6619,7 +6511,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "anO" = (
 /obj/structure/cable/cyan{
@@ -6648,7 +6540,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "anP" = (
 /obj/structure/cable/cyan{
@@ -6656,24 +6548,15 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "anQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "anR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "anS" = (
 /obj/structure/window/reinforced{
@@ -6685,10 +6568,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "anT" = (
 /obj/structure/cable/cyan{
@@ -6723,10 +6603,7 @@
 	dir = 4
 	},
 /obj/machinery/recharge_station,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "anW" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6734,10 +6611,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "anX" = (
 /obj/structure/grille,
@@ -6901,20 +6775,14 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aok" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aol" = (
 /obj/machinery/hologram/holopad,
@@ -6925,10 +6793,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aom" = (
 /obj/machinery/access_button{
@@ -6953,10 +6818,7 @@
 	pixel_x = 35;
 	pixel_y = 25
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aon" = (
 /obj/machinery/door/airlock/external{
@@ -6973,9 +6835,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/plating{
-	temperature = 273.15
-	},
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "aoo" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -7013,9 +6873,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/plating{
-	temperature = 273.15
-	},
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "aop" = (
 /obj/machinery/door/airlock/external{
@@ -7045,9 +6903,7 @@
 	name = "AI core maintenance hatch";
 	opacity = 0
 	},
-/turf/simulated/floor/plating{
-	temperature = 273.15
-	},
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "aoq" = (
 /obj/structure/cable/cyan{
@@ -7080,10 +6936,7 @@
 	pixel_x = -35;
 	pixel_y = -25
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aor" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -7096,10 +6949,7 @@
 	dir = 4
 	},
 /obj/machinery/ai_slipper,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "aos" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7108,10 +6958,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "aot" = (
 /obj/machinery/flasher{
@@ -7132,10 +6979,7 @@
 	name = "AI Core Door";
 	req_access = list(16)
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "aou" = (
 /obj/item/device/radio/intercom{
@@ -7179,10 +7023,7 @@
 /obj/effect/landmark/start{
 	name = "AI"
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "aov" = (
 /obj/structure/cable/cyan{
@@ -7215,10 +7056,7 @@
 	c_tag = "AI Core - SMES Room 2";
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aox" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -7240,10 +7078,7 @@
 	name = "AI core maintenance hatch";
 	opacity = 0
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aoy" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7253,10 +7088,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aoz" = (
 /obj/effect/decal/warning_stripes,
@@ -7270,10 +7102,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aoA" = (
 /obj/machinery/camera/network/command{
@@ -7298,10 +7127,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aoB" = (
 /obj/structure/cable{
@@ -7355,10 +7181,7 @@
 /area/rnd/xenobiology/cells/charlie)
 "aoE" = (
 /obj/machinery/anti_bluespace,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aoF" = (
 /obj/machinery/door/firedoor,
@@ -7449,10 +7272,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aoM" = (
 /obj/structure/cable/cyan{
@@ -7461,10 +7281,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aoN" = (
 /obj/machinery/door/firedoor,
@@ -7485,7 +7302,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "aoO" = (
 /obj/machinery/door/firedoor,
@@ -7502,7 +7319,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "aoP" = (
 /obj/structure/cable/cyan{
@@ -7533,7 +7350,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "aoQ" = (
 /obj/structure/cable/cyan{
@@ -7546,10 +7363,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aoR" = (
 /obj/structure/cable/cyan{
@@ -7558,17 +7372,11 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "aoS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "aoT" = (
 /obj/machinery/power/apc/super/critical{
@@ -7591,10 +7399,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "aoU" = (
 /obj/structure/cable/cyan{
@@ -7625,10 +7430,7 @@
 	dir = 4
 	},
 /mob/living/silicon/robot/shell,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aoX" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7636,10 +7438,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aoY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7656,10 +7455,7 @@
 	target_pressure = 150;
 	use_power = 1
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aoZ" = (
 /obj/structure/cable{
@@ -7831,10 +7627,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/mask/breath,
 /obj/item/tank/emergency_oxygen,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "apn" = (
 /obj/machinery/door/blast/regular{
@@ -7857,7 +7650,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "apo" = (
 /obj/structure/cable/cyan{
@@ -7870,10 +7663,7 @@
 	dir = 4
 	},
 /obj/effect/decal/warning_stripes,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "app" = (
 /obj/structure/cable/cyan{
@@ -7884,10 +7674,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "apq" = (
 /obj/structure/cable/cyan{
@@ -7903,10 +7690,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "apr" = (
 /obj/structure/cable/cyan{
@@ -7917,10 +7701,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "aps" = (
 /obj/item/device/radio/intercom{
@@ -7942,10 +7723,7 @@
 /obj/effect/landmark{
 	name = "tripai"
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "apt" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -8284,18 +8062,12 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "apM" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "apN" = (
 /obj/machinery/door/blast/regular{
@@ -8315,25 +8087,19 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "apO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "apP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "apQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -8343,10 +8109,7 @@
 	dir = 1;
 	pixel_y = -28
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "apR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -8355,10 +8118,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "apS" = (
 /obj/machinery/light/small{
@@ -8370,10 +8130,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "apT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -8382,10 +8139,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "apU" = (
 /obj/machinery/camera/network/command{
@@ -8400,10 +8154,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "apV" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -8424,10 +8175,7 @@
 	name = "AI core maintenance hatch";
 	opacity = 0
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "apW" = (
 /obj/machinery/light/small{
@@ -8439,10 +8187,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "apX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8451,10 +8196,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "apY" = (
 /obj/structure/cable{
@@ -8791,18 +8533,12 @@
 	pixel_x = -5;
 	pixel_y = -27
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aqq" = (
 /obj/machinery/computer/robotics,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aqr" = (
 /obj/machinery/alarm/cold{
@@ -8812,26 +8548,17 @@
 /obj/machinery/ai_status_display{
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aqs" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/item/modular_computer/console/preset/ai,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "aqt" = (
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "aqu" = (
 /obj/machinery/door/window/northright,
@@ -8839,10 +8566,7 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "aqv" = (
 /obj/structure/cable{
@@ -8960,7 +8684,6 @@
 	c_tag = "Medical - Patient Wing Library";
 	dir = 1
 	},
-/obj/item/board,
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
 "aqG" = (
@@ -9056,10 +8779,7 @@
 /obj/item/aiModule/teleporterOffline,
 /obj/item/aiModule/antimov,
 /obj/item/aiModule/purge,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "aqO" = (
 /obj/machinery/door/window{
@@ -9072,10 +8792,7 @@
 /obj/item/aiModule/oneHuman,
 /obj/item/aiModule/oxygen,
 /obj/item/aiModule/freeformcore,
-/turf/simulated/floor/bluegrid{
-	name = "cooled mainframe floor";
-	temperature = 278
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/turret_protected/ai)
 "aqP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -12389,9 +12106,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "awk" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
@@ -14526,11 +14240,6 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/machinery/computer/atmoscontrol/laptop{
-	monitored_alarm_ids = list("1501","1502","1503","1504");
-	name = "Isolation Atmospheric Controls";
-	req_one_access = list(7,11,24,47)
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "aCq" = (
@@ -16806,7 +16515,7 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
-/obj/item/storage/bag/slimes,
+/obj/item/storage/slimes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aHP" = (
@@ -19881,10 +19590,6 @@
 /area/rnd/xenobiology)
 "aOy" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/atmoscontrol/laptop{
-	monitored_alarm_ids = list("xenobio_alpha","xenobio_bravo","xenobio_charlie","xenobio_delta","xenobio_echo","xenobio_foxtrot","xenobio_golf","xenobio_hotel");
-	req_one_access = list(47,24,11)
-	},
 /obj/effect/floor_decal/corner/white{
 	dir = 1
 	},
@@ -20295,7 +20000,7 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/test_area)
 "aPE" = (
@@ -20439,7 +20144,7 @@
 /area/rnd/xenobiology)
 "aPZ" = (
 /obj/structure/table/standard,
-/obj/item/storage/bag/slimes,
+/obj/item/storage/slimes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aQa" = (
@@ -20885,7 +20590,7 @@
 	dir = 8
 	},
 /obj/structure/window/borosilicate/reinforced,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -20897,7 +20602,7 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -24392,7 +24097,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
 "bgd" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -24526,7 +24231,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/airless{
@@ -25325,7 +25030,6 @@
 /turf/simulated/open/airless,
 /area/rnd/mixing)
 "bkz" = (
-/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/firealarm/west,
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
@@ -25420,7 +25124,6 @@
 /turf/simulated/open/airless,
 /area/rnd/mixing)
 "bkM" = (
-/obj/machinery/atmospherics/trinary/filter/m_filter,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -25535,10 +25238,6 @@
 	req_one_access = list(8)
 	},
 /turf/simulated/open/airless,
-/area/rnd/mixing)
-"ble" = (
-/obj/machinery/atmospherics/portables_connector,
-/turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
 "blf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -25661,23 +25360,10 @@
 /turf/simulated/floor/plating,
 /area/rnd/mixing)
 "blx" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
-"bly" = (
-/obj/machinery/atmospherics/trinary/mixer/t_mixer/north,
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/mixing)
 "blz" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
@@ -26441,10 +26127,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "cvy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -27007,14 +26690,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
 	},
-/obj/structure/sign/flag/nanotrasen/right{
-	pixel_x = 16;
-	pixel_y = 30
-	},
-/obj/structure/sign/flag/nanotrasen/left{
-	pixel_x = -16;
-	pixel_y = 30
-	},
+/obj/structure/sign/flag/nanotrasen/large/north,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "dyi" = (
@@ -27116,10 +26792,7 @@
 /obj/machinery/light_switch{
 	pixel_x = -26
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/turret_protected/ai)
 "dNz" = (
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -27527,7 +27200,7 @@
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_gym)
 "ejX" = (
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony/warden)
 "emk" = (
@@ -31768,7 +31441,6 @@
 /area/maintenance/medsublevel_port)
 "ntd" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/computer/station_alert,
 /obj/machinery/ringer{
 	department = "Engineering";
 	id = "engie_ringer";
@@ -33863,13 +33535,6 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/machinery/computer/atmoscontrol/laptop{
-	monitored_alarm_ids = list("1601");
-	name = "Hazardous Specimens Atmospheric Controls";
-	pixel_x = -2;
-	req_access = null;
-	req_one_access = list(55,24,11)
-	},
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 6
 	},
@@ -36213,7 +35878,6 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "wuX" = (
-/obj/machinery/computer/station_alert,
 /turf/simulated/floor/tiled,
 /area/engineering/backup_SMES)
 "wve" = (
@@ -36291,7 +35955,6 @@
 /area/maintenance/medsublevel)
 "wHR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/computer/power_monitor,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "wIo" = (
@@ -55084,9 +54747,9 @@ avZ
 bjW
 bki
 bkA
-bkN
-ble
-bly
+aVi
+aVi
+blz
 aQq
 aba
 aba

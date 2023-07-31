@@ -34,6 +34,8 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	max_amount = 60
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	lock_picking_level = 3
+	stacktype = /obj/item/stack/rods
+	icon_has_variants = TRUE
 
 /obj/item/stack/rods/full/Initialize()
 	. = ..()
@@ -51,17 +53,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 
 /obj/item/stack/rods/New(var/loc, var/amount=null)
 	..()
-
 	recipes = rod_recipes
-	update_icon()
-
-/obj/item/stack/rods/update_icon()
-	var/amount = get_amount()
-	if((amount <= 5) && (amount > 0))
-		icon_state = "rods-[amount]"
-	else
-		icon_state = "rods"
-	check_maptext(SMALL_FONTS(7, amount))
 
 /obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
 	..()

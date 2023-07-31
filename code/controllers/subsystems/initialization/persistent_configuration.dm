@@ -33,7 +33,7 @@
 	try
 		decoded = json_decode(file)
 	catch (var/exception/e)
-		error("SSperist_config: invalid JSON detected. Error: [e]")
+		log_error("SSperist_config: invalid JSON detected. Error: [e]")
 		return
 
 	if (!decoded || !decoded.len)

@@ -18,6 +18,7 @@
 	dir = EAST
 	density = TRUE
 	anchored = TRUE
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/locked = FALSE
 	var/obj/structure/m_tray/connected = null
 	var/tray = /obj/structure/m_tray
@@ -143,6 +144,7 @@
 	anchored = TRUE
 	throwpass = TRUE
 	layer = TURF_LAYER
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/obj/structure/morgue/connected = null
 
 /obj/structure/m_tray/Destroy()
@@ -273,9 +275,9 @@
 						desperation = rand(1,5)
 						switch(desperation) //This is messy. A better solution would probably be to make more sounds, but...
 							if(1)
-								playsound(src.loc, 'sound/weapons/genhit.ogg', 45, 1)
+								playsound(src.loc, 'sound/weapons/Genhit.ogg', 45, 1)
 								shake_animation(2)
-								playsound(src.loc, 'sound/weapons/genhit.ogg', 45, 1)
+								playsound(src.loc, 'sound/weapons/Genhit.ogg', 45, 1)
 							if(2)
 								playsound(src.loc, 'sound/effects/grillehit.ogg', 45, 1)
 								shake_animation(3)

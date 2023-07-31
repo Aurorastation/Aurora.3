@@ -8,7 +8,7 @@
 
 /datum/gear/mask/vaurca
 	display_name = "mandible garment"
-	path = /obj/item/clothing/mask/breath/vaurca
+	path = /obj/item/clothing/mask/gas/vaurca
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
@@ -16,7 +16,7 @@
 
 /datum/gear/mask/filterport
 	display_name = "filter port"
-	path = /obj/item/clothing/mask/breath/vaurca/filter
+	path = /obj/item/clothing/mask/gas/vaurca/filter
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
@@ -70,7 +70,7 @@
 
 /datum/gear/vaurca_robe
 	display_name = "hive cloak"
-	description = "A selection of vaurca colored hive cloaks."
+	description = "A selection of vaurca colored Hive cloaks."
 	path = /obj/item/clothing/suit/vaurca
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
@@ -169,7 +169,7 @@
 
 /datum/gear/augment/language_processor
 	display_name = "language processor"
-	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective hives."
+	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective Hives."
 	path = /obj/item/organ/internal/augment/language/klax
 	cost = 0
 	sort_category = "Xenowear - Vaurca"
@@ -198,7 +198,7 @@
 		var/obj/item/storage/toolbox/lunchbox/lunchbox = lunchbox_type
 		if(!initial(lunchbox.filled))
 			lunchboxes[initial(lunchbox.name)] = lunchbox_type
-	sortTim(lunchboxes, /proc/cmp_text_asc)
+	sortTim(lunchboxes, GLOBAL_PROC_REF(cmp_text_asc))
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_vaurca(), lunchables_vaurca_snack(), lunchables_drinks(), lunchables_utensil())
 
@@ -219,3 +219,18 @@
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/augment/vaurcatool
+	display_name = "vaurca integrated toolset"
+	description = "A heavy arm-mounted toolset designed for use by Bound Workers and Bulwarks."
+	cost = 5
+	path = /obj/item/organ/internal/augment/tool/combitool/vaurca
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK)
+
+/datum/gear/augment/vaurcatool/New()
+	..()
+	var/list/augs = list()
+	augs["vaurca integrated toolset, right hand"] = /obj/item/organ/internal/augment/tool/combitool/vaurca
+	augs["vaurca integrated toolset, left hand"] = /obj/item/organ/internal/augment/tool/combitool/vaurca/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)

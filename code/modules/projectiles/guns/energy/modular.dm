@@ -170,7 +170,7 @@
 	if(!capacitor)
 		return null
 	if (self_recharge)
-		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(try_recharge)), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 	var/obj/item/projectile/beam/A = new projectile_type(src)
 	A.damage = capacitor.damage
 	var/damage_coeff = 1
@@ -255,7 +255,7 @@
 /obj/item/gun/energy/laser/prototype/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(zoomdevicename)
 		if(wielded)
@@ -295,6 +295,7 @@
 	set name = "Name Prototype"
 	set category = "Object"
 	set desc = "Name your invention so that its glory might be eternal"
+	set src in usr
 
 	var/mob/M = usr
 	if(!M.mind)
@@ -312,6 +313,7 @@
 	set name = "Describe Prototype"
 	set category = "Object"
 	set desc = "Describe your invention so that its glory might be eternal"
+	set src in usr
 
 	var/mob/M = usr
 	if(!M.mind)

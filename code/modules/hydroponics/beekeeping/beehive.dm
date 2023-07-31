@@ -1,3 +1,17 @@
+/obj/item/beehive_assembly
+	name = "beehive assembly"
+	desc = "Contains everything you need to build a beehive."
+	icon = 'icons/obj/beekeeping.dmi'
+	icon_state = "beehive_assembly"
+
+/obj/item/beehive_assembly/attack_self(var/mob/user)
+	to_chat(user, SPAN_NOTICE("You start assembling \the [src]..."))
+	if(do_after(user, 30))
+		user.visible_message(SPAN_NOTICE("\The [user] constructs a beehive."), SPAN_NOTICE("You construct a beehive."))
+		new /obj/machinery/beehive(get_turf(user))
+		qdel(src)
+	return
+
 /obj/machinery/beehive
 	name = "beehive"
 	icon = 'icons/obj/beekeeping.dmi'
@@ -193,21 +207,7 @@
 		//what's left over
 		var/mob/living/simple_animal/bee/B = new(pick(spawn_turfs), src)
 		B.strength = bees_to_release
-		B.icon_state = "bees[B.strength]"
+		B.icon_state = "bh_bees[B.strength]"
 		B.feral = angry
 		B.update_icon()
 		bees_to_release = 0
-
-/obj/item/beehive_assembly
-	name = "beehive assembly"
-	desc = "Contains everything you need to build a beehive."
-	icon = 'icons/obj/apiary_bees_etc.dmi'
-	icon_state = "apiary"
-
-/obj/item/beehive_assembly/attack_self(var/mob/user)
-	to_chat(user, SPAN_NOTICE("You start assembling \the [src]..."))
-	if(do_after(user, 30))
-		user.visible_message(SPAN_NOTICE("\The [user] constructs a beehive."), SPAN_NOTICE("You construct a beehive."))
-		new /obj/machinery/beehive(get_turf(user))
-		qdel(src)
-	return

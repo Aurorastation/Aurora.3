@@ -1,20 +1,25 @@
 /datum/map_template/ruin/away_site/tajara_mining_jack
 	name = "adhomian mining outpost"
 	description = "An outpost used by the crew of mining jacks."
-	suffix = "away_site/tajara/mining_jack/mining_jack.dmm"
+	suffixes = list("away_site/tajara/mining_jack/mining_jack.dmm")
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1
-	spawn_cost = 1
+	ship_cost = 1
 	id = "tajara_mining_jack"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_mining_jack)
 
-/decl/submap_archetype/tajara_mining_jack
+/singleton/submap_archetype/tajara_mining_jack
 	map = "adhomian mining outpost"
 	descriptor = "An outpost used by the crew of mining jacks."
 
 /obj/effect/overmap/visitable/sector/tajara_mining_jack
 	name = "adhomian mining outpost"
 	desc = "An outpost used by the crew of adhomian mining jacks."
+
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "outpost"
+	color = "#DAA06D"
+
 	initial_generic_waypoints = list(
 		"nav_tajara_mining_jack_1",
 		"nav_tajara_mining_jack_2",
@@ -24,7 +29,7 @@
 		"Mining Jack" = list("nav_hangar_tajara_mining_jack")
 	)
 	comms_support = TRUE
-	comms_name = "adhomian"
+	comms_name = "adhomian mining"
 
 /obj/effect/shuttle_landmark/tajara_mining_jack
 	base_turf = /turf/space
@@ -51,6 +56,11 @@
 	shuttle = "Mining Jack"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	colors = list("#DAA06D")
+	designer = "Independent/no designation"
+	volume = "18 meters length, 15 meters beam/width, 7 meters vertical height"
+	sizeclass = "Multi-purpose Civilian Skipjack"
+	shiptype = "Short-term industrial prospecting, raw goods transport"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

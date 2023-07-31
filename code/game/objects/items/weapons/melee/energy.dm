@@ -137,7 +137,7 @@
 	active_force = 40
 	active_throwforce = 60
 	active_w_class = ITEMSIZE_HUGE
-	armor_penetration = 20 
+	armor_penetration = 20
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEMSIZE_HUGE
@@ -209,6 +209,12 @@
 	..()
 	icon_state = initial(icon_state)
 	to_chat(user, "<span class='notice'>\The [src] is de-energised. It's just a regular axe now.</span>")
+
+/obj/item/melee/energy/axe/can_woodcut()
+	if(active)
+		return TRUE
+	else
+		return FALSE
 
 /*
  * Energy Sword
@@ -284,6 +290,22 @@
 	desc = "An energy with a curved output, useful for defense and intimidation."
 	active_force = 20 // 20 damage per hit, seems more balanced for what it can do
 
+/obj/item/melee/energy/glaive/hegemony
+	name = "hegemony energy glaive"
+	desc = "A standard melee weapon for Unathi infantry, known across Hegemony space as a symbol of Izweski might."
+	icon_state = "hegemony-eglaive0"
+
+/obj/item/melee/energy/glaive/hegemony/activate(mob/living/user)
+	..()
+	icon_state = "hegemony-eglaive1"
+	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
+
+/obj/item/melee/energy/glaive/hegemony/deactivate(mob/living/user)
+	..()
+	icon_state = initial(icon_state)
+	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
+
+
 /obj/item/melee/energy/sword/hegemony
 	name = "hegemony energy blade"
 	desc = "A righteous hardlight blade to strike down the dishonourable."
@@ -345,8 +367,8 @@
 	active_w_class = ITEMSIZE_NORMAL
 	w_class = ITEMSIZE_NORMAL
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
-	equip_sound = /decl/sound_category/sword_equip_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
 
 /obj/item/melee/energy/sword/powersword/activate(mob/living/user)
 	..()
@@ -408,6 +430,7 @@
 
 
 /obj/item/melee/energy/blade/dropped()
+	. = ..()
 	QDEL_IN(src, 1)
 
 /obj/item/melee/energy/blade/process()

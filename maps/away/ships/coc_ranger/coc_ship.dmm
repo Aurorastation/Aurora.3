@@ -377,6 +377,7 @@
 /obj/item/clothing/suit/space/void/coalition,
 /obj/item/clothing/head/helmet/space/void/coalition,
 /obj/item/tank/emergency_oxygen/double,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "bIQ" = (
@@ -395,7 +396,7 @@
 "bSt" = (
 /obj/structure/table/wood,
 /obj/structure/window/basic,
-/obj/structure/sign/flag/kazkhz{
+/obj/structure/sign/flag/kazhkz{
 	pixel_y = 32
 	},
 /obj/item/clothing/head/helmet/space/void/dominia/unathi,
@@ -898,6 +899,7 @@
 	req_one_access = null
 	},
 /obj/item/tank/emergency_oxygen/double,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "eFH" = (
@@ -915,11 +917,8 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/janitor)
 "eJp" = (
-/obj/structure/sign/flag/vysoka/right{
-	pixel_y = 32
-	},
 /obj/item/clothing/accessory/flagpatch/vysoka,
-/obj/item/clothing/head/softcap/vysoka,
+/obj/item/clothing/head/vysoka,
 /obj/structure/table/wood,
 /obj/item/clothing/accessory/badge/passcard/coalition,
 /turf/simulated/floor/carpet/red,
@@ -1376,9 +1375,6 @@
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/structure/sign/flag/coalition/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
 "gWX" = (
@@ -1488,6 +1484,7 @@
 	icon_state = "tube1"
 	},
 /obj/item/tank/emergency_oxygen/double,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
 "hwT" = (
@@ -1605,10 +1602,7 @@
 /area/ship/ranger_corvette/medbay)
 "ieN" = (
 /obj/structure/table/steel,
-/obj/structure/sign/flag/gadpathur/left{
-	dir = 4;
-	pixel_x = 32
-	},
+/obj/structure/sign/flag/gadpathur/large/east,
 /obj/item/clothing/accessory/flagpatch/gadpathur,
 /obj/item/clothing/accessory/dogtags/gadpathur,
 /obj/effect/floor_decal/spline/plain{
@@ -1975,7 +1969,7 @@
 	},
 /obj/item/reagent_containers/food/drinks/pitcher{
 	pixel_x = -5;
-	reagents_to_add = list(/decl/reagent/drink/coffee=30)
+	reagents_to_add = list(/singleton/reagent/drink/coffee=30)
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
 	pixel_x = 6
@@ -2693,7 +2687,7 @@
 	pixel_x = -3;
 	pixel_y = 1
 	},
-/obj/structure/sign/flag/coalition/left{
+/obj/structure/sign/flag/coalition/large/south{
 	pixel_y = -32
 	},
 /obj/machinery/light{
@@ -3128,9 +3122,6 @@
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
 "pOf" = (
-/obj/structure/sign/flag/coalition/right{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
@@ -3713,10 +3704,6 @@
 /area/ship/ranger_corvette/foyer)
 "stJ" = (
 /obj/structure/table/steel,
-/obj/structure/sign/flag/gadpathur/right{
-	dir = 4;
-	pixel_x = 32
-	},
 /obj/item/shovel/gadpathur,
 /obj/item/device/versebook/gadpathur,
 /obj/machinery/light{
@@ -4050,8 +4037,8 @@
 /obj/item/clothing/head/beret/colorable/random,
 /obj/item/clothing/head/headbando/random,
 /obj/item/clothing/head/headbando/random,
-/obj/item/clothing/suit/apron/overalls/random,
-/obj/item/clothing/suit/apron/overalls/random,
+/obj/item/clothing/accessory/apron/random,
+/obj/item/clothing/accessory/apron/random,
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
 /obj/item/clothing/suit/storage/toggle/trench/colorable/random,
@@ -4174,12 +4161,18 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/item/grenade/frag{
-	desc = "A military fragmentation grenade, designed to explode in a deadly shower of fragments. This one has the word 'CATCH!!' written on it in white paint."
-	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ranger_corvette/munitions)
@@ -4308,6 +4301,9 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
+/obj/item/grenade/frag{
+	desc = "A military fragmentation grenade, designed to explode in a deadly shower of fragments. This one has the word 'CATCH!!' written on it in white paint."
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "ufB" = (
@@ -4326,9 +4322,7 @@
 /area/ship/ranger_corvette/bathroom)
 "umS" = (
 /obj/structure/bed,
-/obj/structure/sign/flag/vysoka/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/vysoka/large/north,
 /obj/item/photo{
 	desc = "Pictured is someone standing beside a Gurmori infront of rolling hills."
 	},
@@ -4950,9 +4944,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "wYR" = (
-/obj/structure/sign/flag/coalition/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/coalition/large/north,
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)

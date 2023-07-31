@@ -17,7 +17,7 @@
 	var/icon_selected = 0		//If icon selection has been completed yet
 	var/spawn_sound = 'sound/voice/liveagain.ogg'
 	var/pitch_toggle = TRUE
-	var/datum/effect/effect/system/ion_trail_follow/ion_trail
+	var/datum/effect_system/ion_trail/ion_trail
 	var/datum/effect_system/sparks/spark_system
 
 	// Wiring
@@ -136,6 +136,7 @@
 	var/image/panel_overlay
 	var/list/image/cached_panel_overlays
 	var/image/shield_overlay
+	var/datum/weakref/holo_map
 
 /mob/living/silicon/robot/Initialize(mapload, unfinished = FALSE)
 	spark_system = bind_spark(src, 5)
@@ -150,7 +151,7 @@
 	updatename(mod_type)
 
 	if(!client)
-		stat = UNCONSCIOUS
+		set_stat(UNCONSCIOUS)
 
 	if(mmi?.brainobj)
 		mmi.brainobj.prepared = TRUE
@@ -414,7 +415,7 @@
 /mob/living/silicon/robot/verb/cmd_station_manifest()
 	set category = "Robot Commands"
 	set name = "Show Crew Manifest"
-	SSrecords.open_manifest_vueui(usr)
+	SSrecords.open_manifest_tgui(usr)
 
 /mob/living/silicon/robot/proc/self_diagnosis()
 	if(!is_component_functioning("diagnosis unit"))
@@ -506,6 +507,22 @@
 	to_chat(src, SPAN_NOTICE("You [C.toggled ? "disable" : "enable"] [C.name]."))
 	C.toggled = !C.toggled
 
+/mob/living/silicon/robot/verb/view_holomap()
+	set category = "Robot Commands"
+	set name = "View Holomap"
+	set desc = "View a virtual map of the surrounding area."
+
+	var/obj/machinery/station_map/mobile/holo_map_object
+	if(src.holo_map)
+		holo_map_object = src.holo_map.resolve()
+
+	// Not an else because weakref.resolve() can return false. Edge case
+	if(!holo_map_object)
+		holo_map_object = new(src)
+		src.holo_map = WEAKREF(holo_map)
+
+	holo_map_object.startWatching(src)
+
 /mob/living/silicon/robot/verb/rebuild_overlays()
 	set category = "Robot Commands"
 	set name = "Rebuild Overlays"
@@ -538,39 +555,30 @@
 		set_light(0)
 	setup_eye_cache() //update eyes
 
-// this function displays jetpack pressure in the stat panel
-/mob/living/silicon/robot/proc/show_jetpack_pressure()
-	// if you have a jetpack, show the internal tank pressure
-	if(jetpack)
-		stat(null, "Internal Atmosphere Info: [jetpack.name]")
-		stat(null, "Tank Pressure: [jetpack.air_contents.return_pressure()]")
-
-// this function displays the cyborgs current cell charge in the stat panel
-/mob/living/silicon/robot/proc/show_cell_power()
-	if(cell)
-		stat(null, text("Charge Left: [round(cell.percent())]%"))
-		stat(null, text("Cell Rating: [round(cell.maxcharge)]")) // Round just in case we somehow get crazy values
-		stat(null, text("Power Cell Load: [round(used_power_this_tick)]W"))
-	else
-		stat(null, text("No Cell Inserted!"))
-
 /mob/living/silicon/robot/proc/show_access()
 	if(!module)
-		stat(null, text("Access type: assistant level access"))
+		. = "Access Type: Assistant Level"
 	else
-		stat(null, text("Access type: [module.all_access ? "all access" : "role specific"]"))
+		. = "Access Type: [module.all_access ? "All Access" : "Role Specific"]"
 
-// update the status screen display
-/mob/living/silicon/robot/Stat()
-	..()
-	if(statpanel("Status"))
-		show_cell_power()
-		show_access()
-		show_jetpack_pressure()
-		stat(null, text("Lights: [lights_on ? "ON" : "OFF"]"))
-		if(module)
-			for(var/datum/matter_synth/ms in module.synths)
-				stat("[ms.name]: [ms.energy]/[ms.max_energy_multiplied]")
+/mob/living/silicon/robot/get_status_tab_items()
+	. = ..()
+	if(cell)
+		. += "Charge Left: [round(cell.percent())]%"
+		. += "Cell Rating: [round(cell.maxcharge)]" // Round just in case we somehow get crazy values
+		. += "Power Cell Load: [round(used_power_this_tick)]W"
+	else
+		. += "No Cell Inserted!"
+
+	. += show_access()
+
+	if(jetpack)
+		. += "Internal Atmosphere Info: [jetpack.name]"
+		. += "Tank Pressure: [jetpack.air_contents.return_pressure()]"
+	. += "Lights: [lights_on ? "ON" : "OFF"]"
+	if(module)
+		for(var/datum/matter_synth/ms in module.synths)
+			. += "[ms.name]: [ms.energy]/[ms.max_energy_multiplied]"
 
 /mob/living/silicon/robot/restrained()
 	return FALSE
@@ -910,10 +918,6 @@
 	if(usr != src)
 		return TRUE
 
-	if(href_list["showalerts"])
-		subsystem_alarm_monitor()
-		return TRUE
-
 	if(href_list["mod"])
 		var/obj/item/O = locate(href_list["mod"])
 		if(istype(O) && (O.loc == src))
@@ -1029,7 +1033,7 @@
 	else
 		say("WARNING! Self-destruct initiated. Unit [src] will self destruct in five seconds.")
 
-	addtimer(CALLBACK(src, .proc/self_destruct_warning, 1), 2 SECONDS, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(self_destruct_warning), 1), 2 SECONDS, TIMER_UNIQUE)
 
 /mob/living/silicon/robot/proc/self_destruct_warning(var/warning_level)
 	if(!process_level_restrictions()) // Robot has returned to a turf where it is safe
@@ -1040,10 +1044,10 @@
 	switch(warning_level)
 		if(1)
 			playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
-			addtimer(CALLBACK(src, .proc/self_destruct_warning, 2), 2 SECONDS, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, PROC_REF(self_destruct_warning), 2), 2 SECONDS, TIMER_UNIQUE)
 		if(2)
 			playsound(get_turf(src), 'sound/effects/alert.ogg', 125, TRUE)
-			addtimer(CALLBACK(src, .proc/self_destruct_warning, 3), 1 SECONDS, TIMER_UNIQUE)
+			addtimer(CALLBACK(src, PROC_REF(self_destruct_warning), 3), 1 SECONDS, TIMER_UNIQUE)
 		if(3)
 			self_destruct()
 
@@ -1079,7 +1083,7 @@
 	if(R)
 		R.UnlinkSelf()
 		to_chat(R, SPAN_NOTICE("Buffers flushed and reset. Camera system shutdown. All systems operational."))
-		src.verbs -= /mob/living/silicon/robot/proc/ResetSecurityCodes
+		remove_verb(src, /mob/living/silicon/robot/proc/ResetSecurityCodes)
 
 /mob/living/silicon/robot/proc/SetLockdown(var/state = TRUE)
 	// They stay locked down if their wire is cut.
@@ -1108,7 +1112,7 @@
 		return
 
 	if(icon_selected)
-		verbs -= /mob/living/silicon/robot/proc/choose_icon
+		remove_verb(src, /mob/living/silicon/robot/proc/choose_icon)
 		return
 
 	if(length(module_sprites) == 1 || !client)
@@ -1138,7 +1142,7 @@
 	setup_icon_cache()
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 10, TRUE)
 	spark(get_turf(src), 5, alldirs)
-	verbs -= /mob/living/silicon/robot/proc/choose_icon
+	remove_verb(src, /mob/living/silicon/robot/proc/choose_icon)
 	to_chat(src, SPAN_NOTICE("Your icon has been set. You now require a module reset to change it."))
 
 
@@ -1155,12 +1159,12 @@
 	return sensor_mode == MED_HUD
 
 /mob/living/silicon/robot/proc/add_robot_verbs()
-	src.verbs |= robot_verbs_default
-	src.verbs |= silicon_subsystems
+	add_verb(src, robot_verbs_default)
+	add_verb(src, silicon_subsystems)
 
 /mob/living/silicon/robot/proc/remove_robot_verbs()
-	src.verbs -= robot_verbs_default
-	src.verbs -= silicon_subsystems
+	remove_verb(src, robot_verbs_default)
+	remove_verb(src, silicon_subsystems)
 
 // Uses power from cyborg's cell. Returns 1 on success or 0 on failure.
 // Properly converts using CELLRATE now! Amount is in Joules.
@@ -1279,3 +1283,16 @@
 			to_chat(src, SPAN_DANGER("Hack attempt detected and thwarted. Evacuate the area immediately."))
 		return SMOOTH_TRUE
 	return
+
+/mob/living/silicon/robot/succumb()
+	set hidden = TRUE
+	if(health < maxHealth / 3)
+		death()
+		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
+	else
+		to_chat(src, SPAN_NOTICE("You are not injured enough to succumb to death!"))
+
+/mob/living/silicon/robot/GetIdCard()
+	return id_card
+
+#undef CYBORG_POWER_USAGE_MULTIPLIER

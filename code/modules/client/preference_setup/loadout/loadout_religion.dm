@@ -39,6 +39,22 @@
 	path = /obj/item/clothing/accessory/rosary
 	slot = slot_tie
 
+/datum/gear/religion/crucifix
+	display_name = "crucifix selection"
+	description = "A selection of different crucifixes, commonly associated with Christianity."
+	path = /obj/item/clothing/accessory/crucifix
+	slot = slot_tie
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
+
+/datum/gear/religion/crucifix/New()
+	..()
+	var/list/crucifix = list()
+	crucifix["gold crucifix"] = /obj/item/clothing/accessory/crucifix/gold
+	crucifix["silver crucifix"] = /obj/item/clothing/accessory/crucifix/silver
+	crucifix["gold saint peter crucifix"] = /obj/item/clothing/accessory/crucifix/gold/saint_peter
+	crucifix["silver saint peter crucifix"] = /obj/item/clothing/accessory/crucifix/silver/saint_peter
+	gear_tweaks += new /datum/gear_tweak/path(crucifix)
+
 /datum/gear/religion/shintorobe
 	display_name = "shrine maiden robe"
 	path = /obj/item/clothing/under/konyangdresstraditional/red
@@ -51,12 +67,19 @@
 	slot = slot_head
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/religion/tallit
+	display_name = "tallit"
+	description = "A prayer shawl commonly worn by those of Jewish faith."
+	path = /obj/item/clothing/accessory/tallit
+	slot = slot_tie
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/religion/dominia/robe
 	display_name = "dominian robe selection"
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
 	slot = slot_w_uniform
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/robe/New()
 	..()
@@ -70,7 +93,7 @@
 	description = "A selection of modified berets belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
 	slot= slot_head
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/beret/New()
 	..()
@@ -85,7 +108,7 @@
 	description = "A selection of capes and outerwear worn by the Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
 	slot = slot_wear_suit
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/cape/New()
 	..()
@@ -100,7 +123,7 @@
 	description = "A selection of robes worn by adherents to Luceism."
 	path = /obj/item/clothing/accessory/poncho/assunzione
 	slot = slot_wear_suit
-	origin_restriction = list(/decl/origin_item/origin/assunzione, /decl/origin_item/origin/ipc_assunzione)
+	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
 
 /datum/gear/religion/assunzione/robe/New()
 	..()
@@ -114,14 +137,14 @@
 	display_name = "tribunal necklace"
 	path = /obj/item/clothing/accessory/dominia
 	slot = slot_tie
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/medical
 	display_name = "tribunalist medical beret"
 	path = /obj/item/clothing/head/beret/dominia/medical
 	slot = slot_head
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/shaman_staff
 	display_name = "shaman staff"
@@ -134,7 +157,7 @@
 	path = /obj/item/clothing/under/dominia/priest/consular
 	slot = slot_w_uniform
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/beret_consular
 	display_name = "tribunalist consular beret"
@@ -142,7 +165,7 @@
 	path = /obj/item/clothing/head/beret/dominia/consular
 	slot = slot_head
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/cape_consular
 	display_name = "tribunalist cousular cape"
@@ -150,27 +173,44 @@
 	path = /obj/item/clothing/accessory/poncho/dominia/consular
 	slot = slot_wear_suit
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/assunzione/accessory
 	display_name = "luceian amulet"
 	path = /obj/item/clothing/accessory/assunzione
 	slot = slot_tie
-	origin_restriction = list(/decl/origin_item/origin/assunzione, /decl/origin_item/origin/ipc_assunzione)
+	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
 
 /datum/gear/religion/assunzioneorb
 	display_name = "assunzione warding sphere"
 	description = "A religious artefact commonly associated with Luceism."
 	path = /obj/item/assunzioneorb
-	origin_restriction = list(/decl/origin_item/origin/assunzione, /decl/origin_item/origin/ipc_assunzione)
+	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
 
 /datum/gear/religion/assunzionesheath
 	display_name = "assunzione warding sphere sheath"
 	description = "A small metal shell designed to hold a warding sphere."
 	path = /obj/item/storage/assunzionesheath
-	origin_restriction = list(/decl/origin_item/origin/assunzione, /decl/origin_item/origin/ipc_assunzione)
+	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
 
 /datum/gear/religion/dominia/codex
 	display_name = "tribunal codex"
 	path = /obj/item/device/versebook/tribunal
-	culture_restriction = list(/decl/origin_item/culture/dominia, /decl/origin_item/culture/dominian_unathi, /decl/origin_item/culture/diona_dominia)
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+
+/datum/gear/religion/dominia/icon
+	display_name = "tribunal iconography"
+	description = "A selection of Dominian religious icons."
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+
+/datum/gear/religion/dominia/icon/New()
+	..()
+	var/list/dominiaicon = list()
+	dominiaicon["icon of the goddess, unaspected"] = /obj/item/sign/painting_frame/goddess
+	dominiaicon["icon of the goddess, the soldier"] = /obj/item/sign/painting_frame/goddess/soldier
+	dominiaicon["icon of the goddess, the artisan"] = /obj/item/sign/painting_frame/goddess/artisan
+	dominiaicon["icon of the goddess, the scholar"] = /obj/item/sign/painting_frame/goddess/scholar
+	dominiaicon["icon of the martyr, lotte"] = /obj/item/sign/painting_frame/martyr
+	dominiaicon["icon of the martyr, matteo"] = /obj/item/sign/painting_frame/martyr/matteo
+	dominiaicon["icon of the martyr, valeria"] = /obj/item/sign/painting_frame/martyr/valeria
+	gear_tweaks += new /datum/gear_tweak/path(dominiaicon)

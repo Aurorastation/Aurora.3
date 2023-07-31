@@ -2,7 +2,7 @@
 	name = "paint gun"
 	desc = "A Hephaestus-made paint gun that uses microbes to replenish its paint storage. Very high-tech and fancy too!"
 	desc_info = "Use control-click on a coloured decal on a turf to copy its colour. You can also use shift-click on a turf with the paint gun in hand to clear all decals on it."
-	icon = 'icons/obj/contained_items/tools/floor_painter.dmi'
+	icon = 'icons/obj/item/tools/floor_painter.dmi'
 	icon_state = "floor_painter"
 	item_state = "floor_painter"
 	contained_sprite = TRUE
@@ -251,7 +251,7 @@
 
 	if(usr.incapacitated())
 		return
-	var/new_colour = input(usr, "Choose a colour.", "paintgun", paint_colour) as color|anything in preset_colors
+	var/new_colour = input(usr, "Choose a colour.", "paintgun", paint_colour) as null|anything in preset_colors
 	if(new_colour && new_colour != paint_colour)
 		paint_colour = preset_colors[new_colour]
 		to_chat(usr, "<span class='notice'>You set \the [src] to paint with <font color='[paint_colour]'>a new colour</font>.</span>")

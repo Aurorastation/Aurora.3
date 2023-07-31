@@ -1,10 +1,10 @@
-proc/get_base_turf(var/z)
+/proc/get_base_turf(var/z)
 	if(!current_map.base_turf_by_z["[z]"])
 		current_map.base_turf_by_z["[z]"] = /turf/space
 	return current_map.base_turf_by_z["[z]"]
 
 //An area can override the z-level base turf, so our solar array areas etc. can be space-based.
-proc/get_base_turf_by_area(var/turf/T)
+/proc/get_base_turf_by_area(var/turf/T)
 	if (!istype(T))
 		T = get_turf(T)
 		if (!T)

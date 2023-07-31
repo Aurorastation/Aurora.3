@@ -3496,9 +3496,9 @@
 "iN" = (
 /obj/structure/closet/wardrobe,
 /obj/item/clothing/head/chefhat,
-/obj/item/clothing/suit/chef,
+/obj/item/clothing/suit/chef_jacket,
 /obj/item/clothing/under/rank/chef,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/accessory/apron/chef,
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
 "iO" = (
@@ -6886,9 +6886,6 @@
 /area/grand_romanovich)
 "JI" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/sign/flag/dpra/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "JO" = (
@@ -7104,9 +7101,7 @@
 /area/grand_romanovich)
 "Mo" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/sign/flag/dpra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/dpra/large/south,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Mz" = (

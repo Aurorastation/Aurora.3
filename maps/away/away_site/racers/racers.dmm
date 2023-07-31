@@ -814,15 +814,6 @@
 /obj/structure/bed/stool/bar/padded,
 /turf/simulated/floor/plating,
 /area/racers)
-"dtM" = (
-/obj/structure/window/reinforced/tinted/frosted{
-	dir = 8
-	},
-/obj/structure/window/reinforced/tinted/frosted,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/racers)
 "dtY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -2473,7 +2464,6 @@
 	icon_state = "tube1"
 	},
 /obj/structure/table/glass,
-/obj/item/board,
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_x = 30
 	},
@@ -2731,6 +2721,14 @@
 	},
 /obj/machinery/portable_atmospherics/canister/empty/hydrogen,
 /turf/simulated/floor/tiled/white/airless,
+/area/racers)
+"nqE" = (
+/obj/structure/window/reinforced/tinted/frosted,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/window/reinforced/tinted/frosted{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
 /area/racers)
 "nrP" = (
 /obj/structure/girder/displaced,
@@ -3158,7 +3156,7 @@
 /area/racers)
 "pvh" = (
 /obj/structure/table/steel,
-/obj/item/storage/box/fancy/tray/robotics,
+/obj/item/storage/box/fancy/tray/machinist,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
@@ -3624,7 +3622,6 @@
 /area/racers)
 "rAy" = (
 /obj/machinery/mech_recharger,
-/mob/living/bot/floorbot,
 /turf/simulated/floor/plating,
 /area/racers)
 "rDo" = (
@@ -3634,12 +3631,6 @@
 	},
 /turf/template_noop,
 /area/space)
-"rHx" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
-/area/racers)
 "rIG" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/plating,
@@ -4633,7 +4624,6 @@
 /area/racers)
 "wEw" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/board,
 /turf/simulated/floor/plating,
 /area/racers)
 "wGR" = (
@@ -4989,7 +4979,7 @@
 	pixel_x = 7;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /turf/simulated/floor/tiled/white,
 /area/racers)
 "xSs" = (
@@ -40165,7 +40155,7 @@ jyq
 jyq
 jyq
 jyq
-dtM
+nqE
 xRX
 xRX
 xRX
@@ -43229,7 +43219,7 @@ vLM
 wiz
 bVv
 vLM
-rHx
+vLM
 xjB
 sae
 xjB
@@ -44257,7 +44247,7 @@ vLM
 vLM
 bhm
 lwM
-rHx
+vLM
 lsG
 dsR
 xjB

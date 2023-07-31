@@ -8,9 +8,9 @@
 //			/old_sight: sight before the change
 //			/new_sight: sight after the change
 
-var/datum/observ/sight_set/sight_set_event = new()
+var/singleton/observ/sight_set/sight_set_event = new()
 
-/datum/observ/sight_set
+/singleton/observ/sight_set
 	name = "Sight Set"
 	expected_type = /mob
 

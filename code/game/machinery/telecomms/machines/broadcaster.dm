@@ -15,6 +15,7 @@
 	produces_heat = FALSE
 	delay = 7
 	circuitboard = "/obj/item/circuitboard/telecomms/broadcaster"
+	overmap_range = 3
 	var/list/recent_broadcasts
 
 /obj/machinery/telecomms/broadcaster/Initialize(mapload)
@@ -44,7 +45,7 @@
 	LAZYADD(recent_broadcasts, signal_message)
 
 	if(signal.data["slow"] > 0)
-		addtimer(CALLBACK(signal, /datum/signal/subspace/proc/broadcast), signal.data["slow"]) // network lag
+		addtimer(TYPE_PROC_REF(/datum/signal/subspace, broadcast), signal.data["slow"]) // network lag
 	else
 		signal.broadcast()
 

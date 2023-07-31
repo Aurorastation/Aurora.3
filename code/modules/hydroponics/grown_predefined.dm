@@ -29,3 +29,6 @@
 
 /obj/item/reagent_containers/food/snacks/grown/banana
 	plantname = "banana"
+
+/obj/item/reagent_containers/food/snacks/grown/mtear
+	plantname = "mtear"

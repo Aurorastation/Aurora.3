@@ -165,7 +165,7 @@
 		if(reagents_length)
 			to_chat(user, SPAN_NOTICE("[reagents_length] chemical agent[reagents_length > 1 ? "s" : ""] found."))
 			for(var/_re in A.reagents.reagent_volumes)
-				var/decl/reagent/re = decls_repository.get_decl(_re)
+				var/singleton/reagent/re = GET_SINGLETON(_re)
 				to_chat(user, SPAN_NOTICE("    [re.name]"))
 		else
 			to_chat(user, SPAN_NOTICE("No active chemical agents found in [A]."))
@@ -200,6 +200,7 @@
 // On-click handling. Turns on the computer if it's off and opens the GUI.
 /obj/item/modular_computer/attack_self(mob/user)
 	if(enabled && screen_on)
+		user.set_machine(src)
 		ui_interact(user)
 	else if(!enabled && screen_on)
 		turn_on(user)
@@ -215,7 +216,7 @@
 		if(!hard_drive)
 			to_chat(user, SPAN_WARNING("You cannot reset a device that has no hard drive."))
 			return TRUE
-		enrolled = 0
+		enrolled = DEVICE_UNSET
 		hard_drive.reset_drive()
 		audible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> pings, <span class='notice'>\"Enrollment status reset! Have a NanoTrasen day.\"</span>")
 		return TRUE
@@ -288,7 +289,7 @@
 			return TRUE
 
 		to_chat(user, SPAN_NOTICE("You begin repairing the damage to \the [src]..."))
-		playsound(get_turf(src), 'sound/items/welder.ogg', 100, 1)
+		playsound(get_turf(src), 'sound/items/Welder.ogg', 100, 1)
 		if(WT.use(round(damage / 75)) && do_after(user, damage / 10))
 			damage = 0
 			to_chat(user, SPAN_NOTICE("You fully repair \the [src]."))
@@ -335,3 +336,9 @@
 		if(P.focused_conv)
 			P.focused_conv.cl_send(P, text, M)
 	registered_message = text
+
+/obj/item/modular_computer/examine(mob/user)
+	. = ..()
+	var/obj/item/card/id/id = GetID()
+	if(istype(id) && Adjacent(user))
+		id.show(user)

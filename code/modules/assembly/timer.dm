@@ -13,7 +13,6 @@
 	var/timing = FALSE
 	var/time = 10
 
-
 /obj/item/device/assembly/timer/activate()
 	. = ..()
 	if(!.)
@@ -40,7 +39,7 @@
 	if(!holder)
 		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
 	cooldown = 2
-	addtimer(CALLBACK(src, .proc/process_cooldown), 1 SECOND)
+	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 1 SECOND)
 
 /obj/item/device/assembly/timer/process()
 	if(timing)
@@ -50,8 +49,6 @@
 			timing = FALSE
 			timer_end()
 			time = 10
-
-	SSvueui.check_uis_for_change(src)
 
 /obj/item/device/assembly/timer/update_icon()
 	cut_overlays()
@@ -67,34 +64,34 @@
 		to_chat(user, SPAN_WARNING("\The [src] is unsecured!"))
 		return
 
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	ui_interact(user)
+
+/obj/item/device/assembly/timer/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "devices-assembly-timer", 320, 220, capitalize_first_letters(name), state = deep_inventory_state)
-	ui.open()
+		ui = new(user, src, "Timer", "Timer Assembly", 320, 220)
+		ui.open()
 
-/obj/item/device/assembly/timer/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		data = list()
+/obj/item/device/assembly/timer/ui_data(mob/user)
+	var/list/data = list()
 
-	var/second = time % 60
-	var/minute = (time - second) / 60
+	data["timeractive"] = timing
+	data["time"] = time
 
-	VUEUI_SET_CHECK(data["timeractive"], timing, ., data)
-	VUEUI_SET_CHECK(data["minute"], minute, ., data)
-	VUEUI_SET_CHECK(data["second"], second, ., data)
+	return data
 
-/obj/item/device/assembly/timer/Topic(href, href_list)
-	..()
+/obj/item/device/assembly/timer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	if(href_list["time"])
-		timing = !timing
-		update_icon()
+	switch(action)
+		if("time")
+			timing = !timing
+			update_icon()
+			. = TRUE
 
-	if(href_list["tp"])
-		var/tp = text2num(href_list["tp"])
-		time += tp
-		time = round(time)
-		time = clamp(time, 1, 600)
-
-	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
-	ui.check_for_change()
+		if("tp")
+			var/tp = text2num(params["tp"])
+			time = clamp(tp, 1, 600)
+			. = TRUE

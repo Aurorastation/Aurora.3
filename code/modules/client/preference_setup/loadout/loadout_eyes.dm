@@ -132,3 +132,37 @@
 	blindfold["blindfold"] = /obj/item/clothing/glasses/sunglasses/blindfold/white
 	blindfold["blindfold, transparent"] = /obj/item/clothing/glasses/sunglasses/blindfold/white/seethrough
 	gear_tweaks += new /datum/gear_tweak/path(blindfold)
+
+/datum/gear/eyes/goon_goggles
+	display_name = "tactical HUD goggles selection (security)"
+	description = "A selection of tactical eyewear. Note that factional ones can only be taken by members of that faction."
+	path = /obj/item/clothing/glasses/safety/goggles/goon
+
+/datum/gear/eyes/goon_goggles/New()
+	..()
+	allowed_roles = security_positions
+	var/list/goggles = list()
+	goggles["goggles, tactical"] = list(/obj/item/clothing/glasses/safety/goggles/goon, null)
+	goggles["goggles, tactical (PMCG)"] = list(/obj/item/clothing/glasses/safety/goggles/goon/pmc, "Private Military Contracting Group")
+	goggles["goggles, tactical (Zavodskoi)"] = list(/obj/item/clothing/glasses/safety/goggles/goon/zavod, "Zavodskoi Interstellar")
+	goggles["goggles, tactical (Idris)"] = list(/obj/item/clothing/glasses/safety/goggles/goon/idris, "Idris Incorporated")
+	gear_tweaks += new /datum/gear_tweak/path/faction(goggles)
+
+/datum/gear/eyes/medical_goggles
+	display_name = "HUD goggles selection (medical)"
+	description = "A selection of medical goggles. Note that factional ones can only be taken by members of that faction."
+	path = /obj/item/clothing/glasses/safety/goggles/medical
+	allowed_roles = list("First Responder")
+
+/datum/gear/eyes/medical_goggles/New()
+	..()
+	var/list/goggles = list()
+	goggles["goggles, medical"] = list(/obj/item/clothing/glasses/safety/goggles/medical, null)
+	goggles["goggles, medical (PMCG)"] = list(/obj/item/clothing/glasses/safety/goggles/medical/pmc, "Private Military Contracting Group")
+	goggles["goggles, medical (Zeng-Hu)"] = list(/obj/item/clothing/glasses/safety/goggles/medical/zeng, "Zeng-Hu Pharmaceuticals")
+	gear_tweaks += new /datum/gear_tweak/path/faction(goggles)
+
+/datum/gear/eyes/colorable
+	display_name = "colorable glasses"
+	path = /obj/item/clothing/glasses/colorable
+	flags = GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ALPHA_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION

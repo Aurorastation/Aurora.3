@@ -11,6 +11,8 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/chem_storage = 50
 	var/sting_range = 1
 	var/space_adapted = FALSE
+	var/using_thermals = FALSE
+	var/no_breathing = FALSE
 	var/changelingID = "Changeling"
 	var/geneticdamage = 0
 	var/isabsorbing = 0
@@ -39,6 +41,9 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		if(dna_owner == DNA.name)
 			return DNA
 
+/datum/changeling/proc/use_charges(var/charges_used)
+	chem_charges = max(0, chem_charges - charges_used)
+
 /mob/proc/absorbDNA(var/datum/absorbed_dna/newDNA)
 	var/datum/changeling/changeling = null
 	if(mind)
@@ -62,8 +67,8 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(!mind.antag_datums[MODE_CHANGELING])
 		mind.antag_datums[MODE_CHANGELING] = new /datum/changeling(gender)
 
-	verbs += /datum/changeling/proc/EvolutionMenu
-	add_language("Changeling")
+	add_verb(src, /datum/changeling/proc/EvolutionMenu)
+	add_language(LANGUAGE_CHANGELING)
 
 	var/lesser_form = !ishuman(src)
 
@@ -83,7 +88,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		if(P.isVerb)
 			if(lesser_form && !P.allowduringlesserform)	continue
 			if(!(P in src.verbs))
-				src.verbs += P.verbpath
+				add_verb(src, P.verbpath)
 
 	for(var/language in languages)
 		changeling.absorbed_languages |= language
@@ -105,7 +110,8 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		return
 	for(var/datum/power/changeling/P in changeling.purchasedpowers)
 		if(P.isVerb)
-			verbs -= P.verbpath
+			remove_verb(src, P.verbpath)
+	remove_language(LANGUAGE_CHANGELING)
 
 
 //Helper proc. Does all the checks and stuff for us to avoid copypasta
@@ -140,7 +146,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	for(var/language in updated_languages)
 		languages += language
 	//This isn't strictly necessary but just to be safe...
-	add_language("Changeling")
+	add_language(LANGUAGE_CHANGELING)
 	return
 
 //DNA related datums
@@ -150,13 +156,15 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/datum/dna/dna
 	var/speciesName
 	var/list/languages
+	var/height
 
-/datum/absorbed_dna/New(var/newName, var/newDNA, var/newSpecies, var/newLanguages)
+/datum/absorbed_dna/New(var/newName, var/newDNA, var/newSpecies, var/newLanguages, newHeight)
 	..()
 	name = newName
 	dna = newDNA
 	speciesName = newSpecies
 	languages = newLanguages
+	height = newHeight
 
 //Helper for stingcode
 

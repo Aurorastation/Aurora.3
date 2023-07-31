@@ -144,7 +144,7 @@
 
 /obj/item/implanter/freedom/Initialize()
 	imp = new /obj/item/implant/freedom( src )
-	..()
+	. = ..()
 	update()
 
 /obj/item/implanter/uplink
@@ -152,7 +152,7 @@
 
 /obj/item/implanter/uplink/Initialize()
 	imp = new /obj/item/implant/uplink( src )
-	..()
+	. = ..()
 	update()
 
 /obj/item/implanter/anti_augment

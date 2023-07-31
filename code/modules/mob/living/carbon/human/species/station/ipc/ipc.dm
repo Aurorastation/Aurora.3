@@ -4,6 +4,9 @@
 	name_plural = "Baselines"
 	category_name = "Integrated Positronic Chassis"
 	bodytype = BODYTYPE_IPC
+	species_height = HEIGHT_CLASS_SHORT
+	height_min = 100
+	height_max = 250
 	age_min = 1
 	age_max = 60
 	economic_modifier = 3
@@ -119,24 +122,27 @@
 	max_hydration_factor = -1
 	max_nutrition_factor = -1
 
-	bodyfall_sound = /decl/sound_category/bodyfall_machine_sound
+	bodyfall_sound = /singleton/sound_category/bodyfall_machine_sound
 
 	possible_cultures = list(
-		/decl/origin_item/culture/ipc_sol,
-		/decl/origin_item/culture/ipc_elyra,
-		/decl/origin_item/culture/ipc_coalition,
-		/decl/origin_item/culture/ipc_tau_ceti,
-		/decl/origin_item/culture/golden_deep,
-		/decl/origin_item/culture/megacorporate,
-		/decl/origin_item/culture/scrapper,
-		/decl/origin_item/culture/orepit_trinary
+		/singleton/origin_item/culture/ipc_sol,
+		/singleton/origin_item/culture/ipc_elyra,
+		/singleton/origin_item/culture/ipc_coalition,
+		/singleton/origin_item/culture/ipc_tau_ceti,
+		/singleton/origin_item/culture/golden_deep,
+		/singleton/origin_item/culture/megacorporate,
+		/singleton/origin_item/culture/scrapper,
+		/singleton/origin_item/culture/orepit_trinary
 	)
 
 	alterable_internal_organs = list()
+	possible_speech_bubble_types = list("synth", "normal")
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
 	var/move_charge_factor = 1
+
+	use_alt_hair_layer = TRUE
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
@@ -173,7 +179,7 @@
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
 	H.f_style = ""
-	addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/update_hair), 100)
+	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, update_hair)), 100)
 
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
@@ -374,3 +380,14 @@
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
+
+/datum/species/machine/has_stamina_for_pushup(var/mob/living/carbon/human/human)
+	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
+	if(!C.cell)
+		return FALSE
+	return C.cell.charge > (C.cell.maxcharge / 10)
+
+/datum/species/machine/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
+	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
+	if(C)
+		C.use(stamina_cost * 8)

@@ -58,7 +58,7 @@
 
 //If this hits 0 then they decide to up and leave.
 /datum/trader/proc/tick()
-	addtimer(CALLBACK(src, .proc/do_after_tick), 1)
+	addtimer(CALLBACK(src, PROC_REF(do_after_tick)), 1)
 	return 1
 
 /datum/trader/proc/do_after_tick()
@@ -117,7 +117,7 @@
 	num = Clamp(num,1,trading_items.len)
 	if(trading_items[num])
 		var/atom/movable/M = trading_items[num]
-		return "<b>[initial(M.name)]</b>"
+		return "[initial(M.name)]"
 
 /datum/trader/proc/get_item_value(var/trading_num)
 	if(!trading_items[trading_items[trading_num]])

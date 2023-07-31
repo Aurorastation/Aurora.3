@@ -26,7 +26,9 @@
 	var/datum/changeling/changeling = get_antag_datum(MODE_CHANGELING)
 	if(changeling?.space_adapted)
 		return
-	
+	if(changeling?.no_breathing)
+		return
+		
 	volume_needed *= (species?.breath_vol_mul || 1)
 
 	var/datum/gas_mixture/breath = null

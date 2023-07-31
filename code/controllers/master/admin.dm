@@ -106,4 +106,4 @@ var/list/panic_targets_data_loss = list(
 	var/ctype = panic_targets[controller]
 	Master.subsystems += new ctype
 
-	sortTim(Master.subsystems, /proc/cmp_subsystem_display)
+	sortTim(Master.subsystems, GLOBAL_PROC_REF(cmp_subsystem_display))

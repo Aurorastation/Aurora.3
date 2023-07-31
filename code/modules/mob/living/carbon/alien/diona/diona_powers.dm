@@ -127,7 +127,7 @@
 				D.drop_from_inventory(O)
 			D.hat = null
 			D.forceMove(src)
-			D.stat = CONSCIOUS
+			D.set_stat(CONSCIOUS)
 			status_flags |= PASSEMOTES
 			return TRUE
 	else
@@ -147,7 +147,7 @@
 		return
 
 	if(!iscarbon(loc))
-		verbs -= /mob/living/carbon/alien/diona/proc/split
+		remove_verb(src, /mob/living/carbon/alien/diona/proc/split)
 		return
 
 	var/r = alert(src, "Splitting will remove you from your gestalt and deposit you on the ground, allowing you continue alone. If you had any stored biomass before you joined the gestalt, you will not get it back. Are you sure you wish to split?", "Confirm Split", "I am ready to leave.", "I'll stick around.")
@@ -162,7 +162,7 @@
 
 	split_languages(gestalt)
 	forceMove(get_turf(src))
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 	gestalt = null
 	update_verbs()
 

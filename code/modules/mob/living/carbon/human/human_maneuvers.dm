@@ -1,4 +1,4 @@
-/mob/living/carbon/human/get_acrobatics_multiplier(var/decl/maneuver/attempting_maneuver)
+/mob/living/carbon/human/get_acrobatics_multiplier(var/singleton/maneuver/attempting_maneuver)
 	. = ..()
 
 	// Broken limb checks
@@ -15,7 +15,7 @@
 	if(suspension && . < 3)
 		. = max(. + suspension.jump_bonus, 3) 
 
-/mob/living/carbon/human/can_do_maneuver(var/decl/maneuver/maneuver, var/silent = FALSE)
+/mob/living/carbon/human/can_do_maneuver(var/singleton/maneuver/maneuver, var/silent = FALSE)
 	. = ..()
 	if(.)
 		if(nutrition <= 20)

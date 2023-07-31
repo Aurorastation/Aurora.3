@@ -4,6 +4,9 @@
 	blurb = "The Offworlders are humans that have adapted to zero-G conditions through a lifetime of conditioning, exposure, and physical modification. \
 	They thrive in thinner atmosphere and weightlessness, more often than not utilizing advanced life support and body-bracing equipment to sustain themselves in normal Human environments."
 	hide_name = FALSE
+	species_height = HEIGHT_CLASS_TALL
+	height_min = 180
+	height_max = 230
 
 	icobase = 'icons/mob/human_races/human/r_offworlder.dmi'
 	deform = 'icons/mob/human_races/human/r_offworlder.dmi'
@@ -51,7 +54,7 @@
 	var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
 	if(S)
 		for(var/_R in S.ingested.reagent_volumes)
-			if(_R == /decl/reagent/rmt)
+			if(_R == /singleton/reagent/rmt)
 				return 0
 
 	return 4
@@ -84,7 +87,7 @@
 		var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
 		if(S)
 			for(var/_R in S.ingested.reagent_volumes)
-				if(_R == /decl/reagent/rmt)
+				if(_R == /singleton/reagent/rmt)
 					return
 
 		var/pain_message = pick("You feel sluggish as if something is weighing you down.",

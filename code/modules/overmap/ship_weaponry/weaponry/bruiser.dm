@@ -1,7 +1,7 @@
 /obj/machinery/ship_weapon/bruiser
 	name = "bruiser cannon II"
 	desc = "Among the Hegemony's earliest forays into ranged weaponry for their military ships, although obsolete nowadays, the Bruiser is popular among many Unathi sailors - including pirates - for its extreme simplicity, allowing it to fire handcraft ammo with minimal modification."
-	icon = 'icons/obj/machines/ship_guns/bruiser.dmi'
+	icon = 'icons/obj/machinery/ship_guns/bruiser.dmi'
 	heavy_firing_sound = 'sound/weapons/gunshot/cannon.ogg'
 	icon_state = "weapon_base"
 	max_ammo = 1

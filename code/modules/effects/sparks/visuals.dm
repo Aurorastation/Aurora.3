@@ -3,7 +3,7 @@
 	name = "sparks"
 	icon_state = "sparks"
 	anchored = 1
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/effect/visual/sparks/Initialize(mapload)
 	. = ..(mapload)
@@ -21,7 +21,7 @@
 
 /obj/effect/visual/sparks/start(var/direction)
 	if (direction)
-		addtimer(CALLBACK(src, .proc/do_step, direction), 5)
+		addtimer(CALLBACK(src, PROC_REF(do_step), direction), 5)
 
 /obj/effect/visual/sparks/proc/do_step(direction)
 	step(src, direction)

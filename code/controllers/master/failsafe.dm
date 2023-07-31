@@ -4,7 +4,7 @@
   * Pretty much pokes the MC to make sure it's still alive.
  **/
 
-#define FAILSAFE_MSG(msg) admin_notice("<big><em><span class='warning'>FAILSAFE: </span><font color='black'>[msg]</font></em></big>", R_DEBUG|R_ADMIN|R_DEV)
+#define FAILSAFE_MSG(msg) admin_notice("<big><em><span class='warning'>FAILSAFE: </span><font color='#ff8800'>[msg]</font></em></big>", R_DEBUG|R_ADMIN|R_DEV)
 
 var/datum/controller/failsafe/Failsafe
 
@@ -97,10 +97,8 @@ var/datum/controller/failsafe/Failsafe
 /datum/controller/failsafe/proc/defcon_pretty()
 	return defcon
 
-/datum/controller/failsafe/stat_entry()
-	if(!statclick)
-		statclick = new/obj/effect/statclick/debug(null, "Initializing...", src)
-
-	stat("Failsafe Controller:", statclick.update("Defcon: [defcon_pretty()] (Interval: [Failsafe.processing_interval] | Iteration: [Failsafe.master_iteration])"))
+/datum/controller/failsafe/stat_entry(msg)
+	msg = "Defcon: [defcon_pretty()] (Interval: [Failsafe.processing_interval] | Iteration: [Failsafe.master_iteration])"
+	return msg
 
 #undef FAILSAFE_MSG

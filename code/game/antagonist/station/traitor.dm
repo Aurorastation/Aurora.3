@@ -3,7 +3,7 @@ var/datum/antagonist/traitor/traitors
 // Inherits most of its vars from the base datum.
 /datum/antagonist/traitor
 	id = MODE_TRAITOR
-	restricted_jobs = list("Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Executive Officer", "Operations Manager", "AI")
+	restricted_jobs = list("Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Executive Officer", "Operations Manager", "AI", "Merchant")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Investigator")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	required_age = 10
@@ -91,8 +91,8 @@ var/datum/antagonist/traitor/traitors
 			var/mob/living/silicon/robot/R = traitor_mob
 			R.overclock_available = TRUE
 			R.emagged = TRUE
-			R.verbs += /mob/living/silicon/robot/proc/ResetSecurityCodes
-			R.verbs += /mob/living/silicon/robot/proc/toggle_overclock
+			add_verb(R, /mob/living/silicon/robot/proc/ResetSecurityCodes)
+			add_verb(R, /mob/living/silicon/robot/proc/toggle_overclock)
 		return 1
 
 	if(!..())

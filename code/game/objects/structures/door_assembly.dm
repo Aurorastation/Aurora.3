@@ -10,7 +10,7 @@
 	density = 1
 	w_class = ITEMSIZE_HUGE
 	build_amt = 4
-	obj_flags = OBJ_FLAG_ROTATABLE
+	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 	var/state = STATE_UNWIRED
 	var/base_icon_state = ""
 	var/base_name = "Airlock"
@@ -258,7 +258,7 @@
 			to_chat(user, SPAN_WARNING("\The [src]'s wires cannot be reached, take out the electronics first."))
 			return
 
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("<b>[user]</b> starts cutting the wires from the airlock assembly.", SPAN_NOTICE("You start cutting the wires from airlock assembly."))
 
 		if(W.use_tool(src, user, 40, volume = 50))
@@ -277,7 +277,7 @@
 			return
 		var/obj/item/airlock_electronics/EL = W
 		if(!EL.is_installed)
-			playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			user.visible_message("<b>[user]</b> starts installing \the [EL] into the airlock assembly.", SPAN_NOTICE("You start installing \the [EL] into the airlock assembly."))
 			EL.is_installed = TRUE
 			if(W.use_tool(src, user, 40, volume = 50) && state == STATE_WIRED)
@@ -333,7 +333,7 @@
 						to_chat(user, SPAN_WARNING("You cannot make an airlock out of [S]."))
 						return
 					if(S.get_amount() >= 2)
-						playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
+						playsound(src.loc, /singleton/sound_category/crowbar_sound, 100, 1)
 						user.visible_message("<b>[user]</b> starts installing [S] into the airlock assembly.", "You start installing [S] into the airlock assembly.")
 						if(W.use_tool(src, user, 40, volume = 50) && !glass)
 							if (S.use(2))
@@ -378,7 +378,7 @@
 				SPAN_NOTICE("You start cutting \the [src] apart..."), \
 				SPAN_WARNING("You hear a loud buzzing sound and metal grinding on metal...") \
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, W)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), W)))
 				user.visible_message(\
 					SPAN_DANGER("[user] finishes cutting \the [src] apart with the [W]."), \
 					SPAN_NOTICE("You finish cutting \the [src] apart."), \

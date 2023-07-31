@@ -67,7 +67,7 @@
 
 
 // -- SSoverlays --
-#define CUT_OVERLAY_IN(ovr, time) addtimer(CALLBACK(src, /atom/.proc/cut_overlay, ovr), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
+#define CUT_OVERLAY_IN(ovr, time) addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), ovr), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
 #define ATOM_USING_SSOVERLAY(atom) (atom.our_overlays || atom.priority_overlays)
 
 // -- SSticker --
@@ -101,6 +101,9 @@
 // -- SSmob_ai --
 #define MOB_START_THINKING(mob) if (!mob.thinking_enabled) { SSmob_ai.processing += mob; mob.on_think_enabled(); mob.thinking_enabled = TRUE; }
 #define MOB_STOP_THINKING(mob) SSmob_ai.processing -= mob; mob.on_think_disabled(); mob.thinking_enabled = FALSE;
+
+#define MOB_SHIFT_TO_FAST_THINKING(mob) if(!mob.is_fast_processing) { SSmob_ai.processing -= mob; SSmob_fast_ai.processing += mob; mob.is_fast_processing = TRUE; }
+#define MOB_SHIFT_TO_NORMAL_THINKING(mob) if(mob.is_fast_processing) { SSmob_fast_ai.processing -= mob; SSmob_ai.processing += mob; mob.is_fast_processing = FALSE; }
 
 
 // - SSrecords --
@@ -143,3 +146,5 @@
 #define JOBROLE_DEFAULT 0                    // This is the default "job role", no special meaning.
 #define JOBROLE_SUPERVISOR (1 << 0)          // Indicates that the job is a supervisory position, i.e a head of department.
 #define SIMPLEDEPT(dept) list(dept = JOBROLE_DEFAULT)
+
+#define ASSET_CROSS_ROUND_CACHE_DIRECTORY "tmp/assets"

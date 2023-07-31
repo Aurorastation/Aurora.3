@@ -48,7 +48,7 @@
 			var/turf/T = get_turf(M)
 			if(T)
 				to_chat(M, msg)
-				if(message_sound && !isdeaf(M) && (M.client.prefs.sfx_toggles & ASFX_VOX))
+				if(message_sound && !isdeaf(M) && (M.client?.prefs.sfx_toggles & ASFX_VOX))
 					sound_to(M, message_sound)
 	if(do_newscast)
 		NewsCast(message, message_title)
@@ -98,19 +98,19 @@
 	if(!I)
 		return "Unknown"
 	// Format currently matches that of newscaster feeds: Registered Name (Assigned Rank)
-	return I.assignment ? "[I.registered_name] ([I.assignment])" : I.registered_name
+	return I.assignment ? "[I.registered_name], [I.assignment]" : I.registered_name
 
 /proc/level_seven_announcement()
 	command_announcement.Announce("Confirmed outbreak of level 7 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", new_sound = 'sound/AI/level_7_biohazard.ogg')
 
 /proc/ion_storm_announcement()
-	command_announcement.Announce("It has come to our attention that the station passed through an ion storm.  Please monitor all electronic equipment for malfunctions.", "Anomaly Alert")
+	command_announcement.Announce("It has come to our attention that the ship has passed through an ion storm.  Please monitor all electronic equipment for malfunctions.", "Anomaly Alert")
 
 /proc/AnnounceArrival(var/mob/living/carbon/human/character, var/rank, var/join_message)
-	if (SSticker.current_state == GAME_STATE_PLAYING)
+	if(SSticker.current_state == GAME_STATE_PLAYING)
 		if(character.mind.role_alt_title)
 			rank = character.mind.role_alt_title
 		AnnounceArrivalSimple(character.real_name, rank, join_message)
 
-/proc/AnnounceArrivalSimple(var/name, var/rank = "visitor", var/join_message = "has arrived on the station", var/new_sound = 'sound/misc/announcements/notice.ogg')
-	global_announcer.autosay("[name], [rank], [join_message].", "Arrivals Announcement Computer")
+/proc/AnnounceArrivalSimple(var/name, var/rank = "visitor", var/join_message = "has arrived on the [current_map.station_type]", var/new_sound = 'sound/misc/announcements/notice.ogg')
+	global_announcer.autosay("[name], [rank], [join_message].", "Arrivals Announcer")

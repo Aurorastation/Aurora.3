@@ -1,7 +1,7 @@
 /obj/machinery/ammunition_loader
 	name = "ammunition loader"
 	desc = "An ammunition loader for ship weapons systems. All hands to battlestations!"
-	icon = 'icons/obj/machines/ship_guns/ship_weapon_attachments.dmi'
+	icon = 'icons/obj/machinery/ship_guns/ship_weapon_attachments.dmi'
 	icon_state = "ammo_loader"
 	density = TRUE
 	anchored = TRUE
@@ -51,6 +51,9 @@
 		var/mob/living/heavy_vehicle/HV = user
 		if(istype(W, /obj/item/mecha_equipment/clamp))
 			var/obj/item/mecha_equipment/clamp/CL = W
+			if(!length(CL.carrying))
+				to_chat(user, SPAN_WARNING("\The [CL] is empty."))
+				return TRUE
 			if(istype(CL.carrying[1], /obj/item/ship_ammunition))
 				var/obj/item/ship_ammunition/SA = CL.carrying[1]
 				return load_ammo(SA, HV)
@@ -89,7 +92,7 @@
 /obj/structure/viewport
 	name = "viewport"
 	desc = "A viewport for some sort of ship-mounted weapon. You can see your enemies blow up into many, many bits and pieces from here."
-	icon = 'icons/obj/machines/ship_guns/ship_weapon_attachments.dmi'
+	icon = 'icons/obj/machinery/ship_guns/ship_weapon_attachments.dmi'
 	icon_state = "viewport_generic"
 	density = TRUE
 	opacity = FALSE

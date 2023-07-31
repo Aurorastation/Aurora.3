@@ -24,37 +24,33 @@
 	return ..()
 
 
-/obj/proc/buckle(atom/movable/MA, mob/user)
-	if ((MA.loc != loc) && !(density && get_dist(src, MA) <= 1))
-		return 0
-	if (MA.loc != loc)
-		MA.forceMove(loc)
-	if (is_type_in_list(MA, can_buckle))
-		if(!(MA.can_be_buckled) || MA.buckled_to)
-			return 0
-		if(user)
-			if(MA != user)
-				if(isliving(MA))
-					var/mob/living/L = MA
-					if(!L.lying)
-						if(!do_mob(user, L, 3 SECONDS))
-							return 0
-		MA.buckled_to = src
-		buckled = MA
-		if(istype(MA, /mob/living))
-			var/mob/living/M = MA
-			if(M.pinned.len || (buckle_require_restraints && !M.restrained()))
-				return 0
-			M.set_dir(buckle_dir ? buckle_dir : dir)
-			M.facing_dir = null
-			M.update_canmove()
-		else
-			MA.anchored = TRUE
+/obj/proc/buckle(atom/movable/buckling_atom, mob/user)
+	if(!buckling_atom.can_be_buckled || buckling_atom.buckled_to)
+		return FALSE
+	if(!is_type_in_list(buckling_atom, can_buckle))
+		return FALSE
+	if(buckling_atom.loc != loc)
+		step_towards(buckling_atom, src)
+		if(buckling_atom.loc != loc)
+			return FALSE
+	if(buckling_atom != user && isliving(buckling_atom))
+		var/mob/living/buckling_mob = buckling_atom
+		if(!buckling_mob.lying && !do_mob(user, buckling_mob, 3 SECONDS))
+			return FALSE
+	buckling_atom.buckled_to = src
+	buckled = buckling_atom
+	if(istype(buckling_atom, /mob/living))
+		var/mob/living/buckling_mob = buckling_atom
+		if(length(buckling_mob.pinned) || (buckle_require_restraints && !buckling_mob.restrained()))
+			return FALSE
+		buckling_mob.set_dir(buckle_dir ? buckle_dir : dir)
+		buckling_mob.facing_dir = null
+		buckling_mob.update_canmove()
 	else
-		return 0
-	post_buckle(MA)
-	MA.layer = src.layer + 0.1
-	return 1
+		buckling_atom.anchored = TRUE
+	post_buckle(buckling_atom)
+	buckling_atom.layer = layer + 0.1
+	return TRUE
 
 /obj/proc/unbuckle()
 	var/atom/movable/MA = buckled
@@ -105,7 +101,7 @@
 			MA.visible_message(\
 				SPAN_DANGER("\The [MA] is starting to be buckled to [src] by [user.name]!"),\
 				SPAN_NOTICE("You hear metal clanking."))
-				
+
 		if(!do_after(user, buckle_delay, src))
 			return
 	if(buckle(MA, user))

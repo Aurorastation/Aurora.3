@@ -229,6 +229,7 @@
 			bag.icon_state = "[icon_state]_man_folded"
 		qdel(src)
 		return
+	return ..()
 
 /obj/structure/closet/airbubble/req_breakout()
 
@@ -267,7 +268,7 @@
 	var/time = 360 * breakout_time * 2
 	breakout = TRUE
 
-	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, .proc/breakout_callback, escapee)))
+	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, PROC_REF(breakout_callback), escapee)))
 		breakout = FALSE
 		return
 
@@ -429,7 +430,7 @@
 		"<span class='notice'>You begin putting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/weapons/cablecuff.ogg', 50, 1)
-		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
 			return TRUE
 		zipped = !zipped
 		update_icon()
@@ -450,8 +451,8 @@
 		"<span class='warning'>[user] begins cutting cable restrains on zipper of [src].</span>",
 		"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>"
 		)
-		playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
-		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+		playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
+		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
 			return TRUE
 		zipped = !zipped
 		update_icon()
@@ -484,8 +485,8 @@
 	else
 		return attack_hand(user)
 
-/obj/structure/closet/airbubble/store_mobs(var/stored_units)
-	contains_body = ..()
+/obj/structure/closet/airbubble/store_mobs(var/stored_units, var/mob_limit)
+	contains_body = ..(stored_units, mob_limit = TRUE)
 	return contains_body
 
 /obj/structure/closet/airbubble/update_icon()
@@ -579,8 +580,7 @@
 /obj/structure/closet/airbubble/proc/get_turf_air()
 	var/turf/T = get_turf(src)
 	if(T)
-		. = T.return_air()
-	return
+		return T.return_air()
 
 /obj/structure/closet/airbubble/proc/return_pressure()
 	. = 0

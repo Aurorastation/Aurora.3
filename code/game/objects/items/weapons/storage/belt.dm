@@ -50,6 +50,7 @@
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
 	set category = "Object"
+	set src in usr
 
 	if(show_above_suit == -1)
 		to_chat(usr, SPAN_NOTICE("\The [src] cannot be worn above your suit!"))
@@ -201,7 +202,8 @@
 		/obj/item/device/flashlight,
 		/obj/item/extinguisher/mini,
 		/obj/item/device/radio,
-		/obj/item/taperoll/medical
+		/obj/item/taperoll/medical,
+		/obj/item/storage/box/fancy/med_pouch
 		)
 
 /obj/item/storage/belt/medical/first_responder
@@ -369,6 +371,7 @@
 		/obj/item/pinpointer,
 		/obj/item/plastique,
 		/obj/item/gun/projectile/pistol,
+		/obj/item/gun/projectile/silenced,
 		/obj/item/gun/energy/crossbow,
 		/obj/item/material/knife/trench,
 		/obj/item/ammo_casing/a145,
@@ -576,7 +579,27 @@
 /obj/item/storage/belt/generic
 	name = "belt"
 	desc = "Only useful for holding up your pants." // Useless belt is useless.
+	icon = 'icons/obj/item/clothing/belts/generic_belts.dmi'
 	icon_state = "belt"
 	item_state = "belt"
+	contained_sprite = TRUE
 	storage_slots = 1
 	max_w_class = ITEMSIZE_TINY
+
+/obj/item/storage/belt/generic/thin
+	name = "thin elastic belt"
+	icon_state = "thin_belt"
+	item_state = "thin_belt"
+
+/obj/item/storage/belt/generic/thick
+	name = "wide waist belt"
+	icon_state = "thick_belt"
+	item_state = "thick_belt"
+
+/obj/item/storage/belt/generic/buckle
+	name = "buckle belt"
+	desc = "A belt secured by a large golden buckle."
+	icon_state = "belt_b"
+	item_state = "belt_b"
+	build_from_parts = TRUE
+	worn_overlay = "buckle"

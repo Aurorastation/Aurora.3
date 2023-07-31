@@ -41,7 +41,7 @@
 			m = min(m, cable.amount)
 			m = min(m, 30)
 			if(m)
-				playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
+				playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				var/cable_color = use_cable(m)
 				var/obj/item/stack/cable_coil/CC = new(get_turf(src), m, cable_color)
 				user.put_in_hands(CC)

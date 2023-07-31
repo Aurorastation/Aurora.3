@@ -64,7 +64,7 @@
 	flick("poster_being_set", P)
 	playsound(W, 'sound/items/package_wrap.ogg', 100, 1)
 
-	addtimer(CALLBACK(src, .proc/place_on_wall, P, user, W), 28, TIMER_CLIENT_TIME)
+	addtimer(CALLBACK(src, PROC_REF(place_on_wall), P, user, W), 28, TIMER_CLIENT_TIME)
 
 /obj/item/contraband/poster/proc/place_on_wall(obj/structure/sign/poster/P, mob/user, turf/W)
 	if (QDELETED(P))
@@ -128,7 +128,7 @@
 
 /obj/structure/sign/poster/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswirecutter())
-		playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
+		playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		if(ruined)
 			to_chat(user, "<span class='notice'>You remove the remnants of the poster.</span>")
 			qdel(src)

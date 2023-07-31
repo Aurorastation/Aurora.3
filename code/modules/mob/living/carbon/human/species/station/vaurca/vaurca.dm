@@ -4,6 +4,9 @@
 	name_plural = "Type A"
 	category_name = "Vaurca"
 	bodytype = BODYTYPE_VAURCA
+	species_height = HEIGHT_CLASS_TALL
+	height_min = 150
+	height_max = 250
 	age_min = 1
 	age_max = 20
 	default_genders = list(NEUTER)
@@ -71,7 +74,7 @@
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES | PHORON_IMMUNE
+	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	blood_color = COLOR_VAURCA_BLOOD // dark yellow
@@ -131,9 +134,9 @@
 
 
 	possible_cultures = list(
-		/decl/origin_item/culture/zora,
-		/decl/origin_item/culture/klax,
-		/decl/origin_item/culture/cthur
+		/singleton/origin_item/culture/zora,
+		/singleton/origin_item/culture/klax,
+		/singleton/origin_item/culture/cthur
 	)
 
 
@@ -142,7 +145,7 @@
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
-	var/obj/item/clothing/mask/breath/vaurca/filter/M = new /obj/item/clothing/mask/breath/vaurca/filter(H)
+	var/obj/item/clothing/mask/gas/vaurca/filter/M = new /obj/item/clothing/mask/gas/vaurca/filter(H)
 	H.equip_to_slot_or_del(M, slot_wear_mask)
 
 /datum/species/bug/after_equip(var/mob/living/carbon/human/H)

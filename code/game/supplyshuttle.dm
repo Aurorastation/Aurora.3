@@ -18,14 +18,3 @@
 	icon_state = "shuttle3"
 	requires_power = 0
 	centcomm_area = 1
-
-
-/*
-/obj/effect/marker/supplymarker
-	icon_state = "X"
-	icon = 'icons/misc/mark.dmi'
-	name = "X"
-	invisibility = 101
-	anchored = 1
-	opacity = 0
-*/

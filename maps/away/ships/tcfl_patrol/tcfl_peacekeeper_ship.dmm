@@ -475,6 +475,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ehg" = (
@@ -1196,9 +1198,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/ship/tcfl_peacekeeper_ship)
 "hzX" = (
-/obj/structure/sign/flag/biesel/left{
-	pixel_y = 31
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /obj/machinery/recharge_station,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
@@ -1216,9 +1216,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcfl_shuttle)
 "hEj" = (
-/obj/structure/sign/flag/biesel/right{
-	pixel_y = 31
-	},
+/obj/structure/sign/flag/biesel/large/north,
 /obj/structure/bed/stool,
 /obj/machinery/light/small{
 	dir = 1
@@ -1981,7 +1979,7 @@
 "lri" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /turf/simulated/floor/tiled/white,
 /area/ship/tcfl_peacekeeper_ship)
 "ltf" = (
@@ -2912,6 +2910,15 @@
 /obj/item/ship_ammunition/francisca/ap{
 	pixel_y = 5
 	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/francisca/frag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "rlW" = (
@@ -2931,7 +2938,6 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/item/deck/cards,
-/obj/item/board,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "ruj" = (
@@ -3770,6 +3776,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "yiy" = (

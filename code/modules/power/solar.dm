@@ -1,6 +1,3 @@
-#define SOLAR_MAX_DIST 40
-#define SOLARGENRATE 1500
-
 /obj/machinery/power/solar
 	name = "solar panel"
 	desc = "A solar electrical generator."
@@ -37,6 +34,7 @@
 	if(SC && (get_dist(src, SC) > SOLAR_MAX_DIST))
 		return 0
 	control = SC
+	START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	return 1
 
 //set the control of the panel to null and removes it from the control list of the previous control computer if needed
@@ -44,6 +42,7 @@
 	if(control)
 		control.connected_panels.Remove(src)
 	control = null
+	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 /obj/machinery/power/solar/proc/Make(var/obj/item/solar_assembly/S)
 	if(!S)
@@ -118,21 +117,18 @@
 	sunfrac = cos(p_angle) ** 2
 	//isn't the power received from the incoming light proportionnal to cos(p_angle) (Lambert's cosine law) rather than cos(p_angle)^2 ?
 
-/obj/machinery/power/solar/process()//TODO: remove/add this from machines to save on processing as needed ~Carn PRIORITY
-	if(stat & BROKEN)
-		return
-	if(!sun || !control) //if there's no sun or the panel is not linked to a solar control computer, no need to proceed
-		return
+/obj/machinery/power/solar/process()
+	if(stat & BROKEN || !control || !sun)
+		return PROCESS_KILL
 
-	if(powernet)
-		if(powernet == control.powernet)//check if the panel is still connected to the computer
-			if(obscured) //get no light from the sun, so don't generate power
-				return
-			var/sgen = SOLARGENRATE * sunfrac
-			add_avail(sgen)
-			control.gen += sgen
-		else //if we're no longer on the same powernet, remove from control computer
-			unset_control()
+	if(powernet && powernet == control.powernet)
+		if(obscured) //get no light from the sun, so don't generate power
+			return
+		var/sgen = SOLARGENRATE * sunfrac
+		add_avail(sgen)
+		control.gen += sgen
+	else //if we're no longer on the same powernet, remove from control computer
+		unset_control()
 
 /obj/machinery/power/solar/proc/broken()
 	stat |= BROKEN
@@ -236,7 +232,7 @@
 			playsound(src.loc, W.usesound, 75, 1)
 			return 1
 
-		if(istype(W, /obj/item/stack/material) && (W.get_material_name() == "glass" || W.get_material_name() == "rglass"))
+		if(istype(W, /obj/item/stack/material) && (W.get_material_name() == "glass" || W.get_material_name() == MATERIAL_GLASS_REINFORCED))
 			var/obj/item/stack/material/S = W
 			if(S.use(2))
 				glass_type = W.type
@@ -385,7 +381,7 @@
 
 /obj/machinery/power/solar_control/attackby(var/obj/I, user as mob)
 	if(I.isscrewdriver())
-		playsound(src.loc, 'sound/items/screwdriver.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 20))
 			if (src.stat & BROKEN)
 				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
@@ -521,7 +517,7 @@
 	. = ..()
 	power_change()
 	update_icon()
-	addtimer(CALLBACK(src, .proc/do_solars), 1800)
+	addtimer(CALLBACK(src, PROC_REF(do_solars)), 1800)
 
 /obj/machinery/power/solar_control/autostart/proc/do_solars()
 	search_for_connected()

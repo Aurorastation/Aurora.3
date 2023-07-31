@@ -6,8 +6,7 @@
 	set desc = "Style your hair."
 	set category = "IC"
 
-	if(!use_check_and_message())
-		to_chat(src, SPAN_WARNING("You can't tie your hair when you are incapacitated!"))
+	if(incapacitated())
 		return
 
 	if(h_style)
@@ -55,7 +54,7 @@
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
-mob/living/carbon/human/proc/change_monitor()
+/mob/living/carbon/human/proc/change_monitor()
 	set name = "Change IPC Screen"
 	set desc = "Change the display on your screen."
 	set category = "Abilities"
@@ -228,13 +227,13 @@ mob/living/carbon/human/proc/change_monitor()
 
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
-		H.apply_damage(50,BRUTE)
+		H.apply_damage(50,DAMAGE_BRUTE)
 		if(H.stat == 2)
 			H.gib()
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M)) return //wut
-		M.apply_damage(50,BRUTE)
+		M.apply_damage(50,DAMAGE_BRUTE)
 		if(M.stat == 2)
 			M.gib()
 
@@ -393,14 +392,14 @@ mob/living/carbon/human/proc/change_monitor()
 			to_chat(H, SPAN_WARNING("They are missing that limb!"))
 			return
 
-		H.apply_damage(25, BRUTE, hit_zone, damage_flags = DAM_SHARP|DAM_EDGE)
+		H.apply_damage(25, DAMAGE_BRUTE, hit_zone, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
-		M.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
+		M.apply_damage(25, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(get_turf(src), 'sound/weapons/slash.ogg', 50, TRUE)
@@ -421,8 +420,8 @@ mob/living/carbon/human/proc/change_monitor()
 			playsound(F, 'sound/items/countdown.ogg', 125, 1)
 			spawn(20)
 				explosion(F.loc, -1, -1, 2)
-				M.apply_damage(20,BRUTE)
-				M.apply_damage(15,BURN)
+				M.apply_damage(20,DAMAGE_BRUTE)
+				M.apply_damage(15,DAMAGE_BURN)
 				qdel(F)
 
 	for(var/obj/item/material/shard/shrapnel/flechette/F in range(7, src))
@@ -602,7 +601,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	visible_message("<span class='warning'><b>[src]</b> launches a spine-quill at [target]!</span>")
 
-	src.apply_damage(10,BRUTE)
+	src.apply_damage(10,DAMAGE_BRUTE)
 	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 	var/obj/item/arrow/quill/A = new /obj/item/arrow/quill(usr.loc)
 	A.throw_at(target, 10, 30, usr)
@@ -632,7 +631,7 @@ mob/living/carbon/human/proc/change_monitor()
 	visible_message("<span class='danger'>\The [src] shrieks!</span>")
 	playsound(src.loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
-		if(T.protected_from_sound())
+		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 			continue
 		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
 			earpain(2, TRUE, 1)
@@ -657,7 +656,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	src.set_light(4,-20)
 
-	addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 30 SECONDS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 30 SECONDS)
 
 /mob/living/carbon/human/proc/darkness_eyes()
 	set category = "Abilities"
@@ -673,7 +672,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='notice'>You return your vision to normal.</span>")
 		src.stop_sight_update = 0
 
-/mob/living/carbon/human/proc/shadow_step(var/turf/T in turfs)
+/mob/living/carbon/human/proc/shadow_step(var/turf/T in world)
 	set category = "Abilities"
 	set name = "Shadow Step"
 	set desc = "Travel from place to place using the shadows."
@@ -778,7 +777,7 @@ mob/living/carbon/human/proc/change_monitor()
 		playsound(src,'sound/mecha/mechstep.ogg',25,1)
 		if (brokesomething)
 			src.visible_message("<span class='danger'>[src.name] breaks through!</span>")
-		addtimer(CALLBACK(src, .proc/trampling), 1)
+		addtimer(CALLBACK(src, PROC_REF(trampling)), 1)
 
 	else
 		target = get_step(src, dir)
@@ -829,15 +828,15 @@ mob/living/carbon/human/proc/change_monitor()
 	var/list/victims = list()
 
 	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
-		if(T.protected_from_sound())
+		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 			continue
 		if (T.get_hearing_sensitivity() == HEARING_VERY_SENSITIVE)
 			earpain(3, TRUE, 1)
 		else if (T in range(src, 2))
 			earpain(2, TRUE, 2)
-	
+
 	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
-		if(T.protected_from_sound())
+		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 			continue
 
 		to_chat(T, SPAN_DANGER("You hear an ear piercing shriek and feel your senses go dull!"))
@@ -895,7 +894,7 @@ mob/living/carbon/human/proc/change_monitor()
 			D.create_reagents(200)
 			if(!src)
 				return
-			D.reagents.add_reagent(/decl/reagent/fuel/napalm, 200)
+			D.reagents.add_reagent(/singleton/reagent/fuel/napalm, 200)
 			D.set_color()
 			D.set_up(my_target, rand(6,8), 1, 50)
 	return
@@ -940,7 +939,7 @@ mob/living/carbon/human/proc/change_monitor()
 			adjustBruteLoss(-10*O.amount)
 			adjustFireLoss(-10*O.amount)
 			if(!(species.flags & NO_BLOOD))
-				vessel.add_reagent(/decl/reagent/blood,20*O.amount, temperature = species.body_temperature)
+				vessel.add_reagent(/singleton/reagent/blood,20*O.amount, temperature = species.body_temperature)
 			qdel(O)
 			last_special = world.time + 50
 
@@ -973,7 +972,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 		var/mob/living/carbon/human/G = new(src.loc)
 		G.key = O.brainmob.key
-		INVOKE_ASYNC(G, /mob/living/carbon/human.proc/set_species, O.dna.species)
+		INVOKE_ASYNC(G, TYPE_PROC_REF(/mob/living/carbon/human, set_species), O.dna.species)
 		to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
 		qdel(O)
 		last_special = world.time + 200
@@ -1153,7 +1152,7 @@ mob/living/carbon/human/proc/change_monitor()
 		ping_image.pixel_x = (T.x - src.x) * WORLD_ICON_SIZE
 		ping_image.pixel_y = (T.y - src.y) * WORLD_ICON_SIZE
 		src << ping_image
-		addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, ping_image), 8)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), ping_image), 8)
 		var/direction = num2text(get_dir(src, L))
 		var/dist
 		if(text2num(direction))
@@ -1199,6 +1198,8 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 	else
 		custom_emote(VISIBLE_MESSAGE, "flicks their tongue out.")
+
+	if(!src.loc) return
 
 	var/datum/gas_mixture/mixture = src.loc.return_air()
 	var/total_moles = mixture.total_moles
@@ -1261,7 +1262,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(!istype(M))
 		to_chat(usr, SPAN_WARNING("You aren't allowed to rename \the [src]."))
 		return
-	 
+
 	if(usr == src)
 		to_chat(usr, SPAN_WARNING("You're a simple creature, you can't rename yourself!"))
 		return
@@ -1318,3 +1319,18 @@ mob/living/carbon/human/proc/change_monitor()
 	if (is_listening())
 		visible_message("<b>[src]</b> stops listening intently.")
 		intent_listener -= src
+
+/mob/living/carbon/human/proc/open_tail_storage()
+	set name = "Tail Accessories"
+	set desc = "Opens the tail accessory slot."
+	set category = "Abilities"
+
+	var/obj/item/organ/external/groin/G = organs_by_name[BP_GROIN]
+	if(!G)
+		to_chat(usr, SPAN_WARNING("You have no tail!"))
+		return
+	if(!G.tail_storage)
+		to_chat(usr, SPAN_WARNING("Your tail storage is missing!"))
+		return
+
+	G.tail_storage.open(usr)

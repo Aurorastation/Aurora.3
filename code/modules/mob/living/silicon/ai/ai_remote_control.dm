@@ -51,7 +51,7 @@
 /obj/item/crowbar/robotic/jawsoflife
 	name = "jaws of life"
 	desc = "A set of specialized tools that functions as both the ordinary crowbar, but is additionally capable of brute forcing bolted doors without power."
-	icon = 'icons/obj/contained_items/weapons/jawsoflife.dmi'
+	icon = 'icons/obj/item/tools/jawsoflife.dmi'
 	icon_state = "jawspry"
 	flags = NOBLUDGEON
 	force = 0

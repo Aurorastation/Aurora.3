@@ -215,7 +215,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
 
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
@@ -277,8 +277,12 @@
 /obj/item/clothing/gloves/offworlder
 	name = "starmitts"
 	desc = "Thick arm warmers and mittens that reach past the elbow."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "starmittens"
 	item_state = "starmittens"
+	build_from_parts = TRUE
+	worn_overlay = "over"
 
 /obj/item/clothing/gloves/ballistic
 	name = "ballistic gauntlet"
@@ -328,7 +332,7 @@
 		return
 
 /obj/item/clothing/gloves/ballistic/verb/unload_shells()
-	set name = "Unload Ballistic Gauntlet "
+	set name = "Unload Ballistic Gauntlet"
 	set desc = "Unload the shells from the gauntlet's mounted gun."
 	set category = "Object"
 	set src in usr
@@ -384,7 +388,7 @@
 				charged = FALSE
 				update_icon()
 				user.update_inv_gloves()
-				addtimer(CALLBACK(src, .proc/rearm), 10 SECONDS)
+				addtimer(CALLBACK(src, PROC_REF(rearm)), 10 SECONDS)
 
 		else
 			var/turf/T = get_turf(user)
@@ -396,7 +400,7 @@
 			charged = FALSE
 			update_icon()
 			user.update_inv_gloves()
-			addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(rearm)), 30 SECONDS)
 
 /obj/item/clothing/gloves/tesla/proc/rearm()
 	visible_message(SPAN_NOTICE("\The [src] surges back with energy!"))

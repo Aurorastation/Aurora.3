@@ -73,7 +73,7 @@
 		try
 			call(obj, thread_proc)(arglist(args.Copy(3)))    
 		catch(var/exception/e)
-			error("[e] on [e.file]:[e.line]")
+			log_error("[e] on [e.file]:[e.line]")
 		close()
 
 /datum/spawn_sync/proc/wait_until_done()

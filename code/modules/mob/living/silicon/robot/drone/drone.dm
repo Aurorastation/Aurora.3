@@ -254,7 +254,7 @@
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
 
-	verbs |= /mob/living/proc/hide
+	add_verb(src, /mob/living/proc/hide)
 	remove_language(LANGUAGE_ROBOT)
 	add_language(LANGUAGE_ROBOT, FALSE)
 	add_language(LANGUAGE_DRONE, TRUE)
@@ -273,7 +273,7 @@
 		var/datum/robot_component/C = components[V]
 		C.max_damage = 10
 
-	verbs -= /mob/living/silicon/robot/verb/Namepick
+	remove_verb(src, /mob/living/silicon/robot/verb/Namepick)
 	density = FALSE
 
 /mob/living/silicon/robot/drone/init()
@@ -459,7 +459,7 @@
 /mob/living/silicon/robot/drone/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 		return
 	health = maxHealth - (getBruteLoss() + getFireLoss())
 	return
@@ -512,13 +512,13 @@
 		return
 	if(rebooting)
 		return
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 	SSghostroles.add_spawn_atom("rebooted_maint_drone", src)
 
 /mob/living/silicon/robot/drone/proc/transfer_personality(var/client/player)
 	if(!player)
 		return
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 	src.ckey = player.ckey
 
 	if(player.mob?.mind)
@@ -528,6 +528,7 @@
 	to_chat(src, "<b>Systems rebooted</b>. Loading base pattern maintenance protocol... <b>loaded</b>.")
 	full_law_reset()
 	welcome_drone()
+	client.init_verbs()
 
 /mob/living/silicon/robot/drone/proc/welcome_drone()
 	to_chat(src, SPAN_NOTICE("<b>You are a maintenance drone, a tiny-brained robotic repair machine</b>."))
@@ -567,10 +568,10 @@
 	..()
 
 /mob/living/silicon/robot/drone/add_robot_verbs()
-	src.verbs |= silicon_subsystems
+	add_verb(src, silicon_subsystems)
 
 /mob/living/silicon/robot/drone/remove_robot_verbs()
-	src.verbs -= silicon_subsystems
+	remove_verb(src, silicon_subsystems)
 
 /mob/living/silicon/robot/drone/self_destruct()
 	gib()

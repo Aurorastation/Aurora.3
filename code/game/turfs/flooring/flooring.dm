@@ -8,7 +8,7 @@
 // [icon_base]_edges: directional overlays for edges.
 // [icon_base]_corners: directional overlays for non-edge corners.
 
-/decl/flooring
+/singleton/flooring
 	var/name
 	var/desc
 	var/icon
@@ -28,9 +28,9 @@
 	var/descriptor = "tiles"
 	var/flags
 	var/can_paint
-	var/footstep_sound = /decl/sound_category/tiles_footstep
+	var/footstep_sound = /singleton/sound_category/tiles_footstep
 
-/decl/flooring/grass
+/singleton/flooring/grass
 	name = "synthetic grass"
 	desc = "A patch of synthetic grass."
 	icon = 'icons/turf/flooring/grass.dmi'
@@ -39,9 +39,9 @@
 	damage_temperature = T0C+80
 	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
 	build_type = /obj/item/stack/tile/grass
-	footstep_sound = /decl/sound_category/grass_footstep
+	footstep_sound = /singleton/sound_category/grass_footstep
 
-/decl/flooring/grass/alt
+/singleton/flooring/grass/alt
 	name = "grass"
 	desc = "A soft patch of grass"
 	icon = 'icons/turf/total_floors.dmi'
@@ -50,17 +50,17 @@
 	build_type = /obj/item/stack/tile/grass_alt
 	has_base_range = 0
 
-/decl/flooring/asteroid
+/singleton/flooring/asteroid
 	name = "coarse sand"
 	desc = "Gritty and unpleasant."
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	icon_base = "asteroid"
 	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
 	build_type = null
-	footstep_sound = /decl/sound_category/asteroid_footstep
+	footstep_sound = /singleton/sound_category/asteroid_footstep
 
 //Carpet
-/decl/flooring/carpet
+/singleton/flooring/carpet
 	name = "carpet"
 	desc = "Imported and comfy."
 	icon = 'icons/turf/flooring/carpet.dmi'
@@ -68,60 +68,60 @@
 	build_type = /obj/item/stack/tile/carpet
 	damage_temperature = T0C+200
 	flags = TURF_HAS_EDGES | TURF_HAS_CORNERS | TURF_REMOVE_CROWBAR | TURF_CAN_BURN
-	footstep_sound = /decl/sound_category/carpet_footstep
+	footstep_sound = /singleton/sound_category/carpet_footstep
 
-/decl/flooring/carpet/blue
+/singleton/flooring/carpet/blue
 	name = "carpet"
 	icon_base = "bcarpet"
 	build_type = /obj/item/stack/tile/carpet_blue
 
-/decl/flooring/carpet/rubber
+/singleton/flooring/carpet/rubber
 	name = "rubber carpet"
 	desc = "Durable, easy to clean and provides extra grip. Perfect for industrial settings."
 	icon_base = "rub_carpet"
 	build_type = /obj/item/stack/tile/carpet_rubber
 
-/decl/flooring/carpet/art
+/singleton/flooring/carpet/art
 	icon_base = "artcarpet"
 	build_type = /obj/item/stack/tile/carpet_art
 
-/decl/flooring/carpet/fancybrown
+/singleton/flooring/carpet/fancybrown
 	icon_base = "brown"
 	build_type = /obj/item/stack/tile/carpet_fancybrown
 
-/decl/flooring/carpet/red
+/singleton/flooring/carpet/red
 	icon_base = "red"
 	build_type = /obj/item/stack/tile/carpet_red
 
-/decl/flooring/carpet/darkblue
+/singleton/flooring/carpet/darkblue
 	icon_base = "blue1"
 	build_type = /obj/item/stack/tile/carpet_darkblue
 
-/decl/flooring/carpet/lightblue
+/singleton/flooring/carpet/lightblue
 	icon_base = "blue2"
 	build_type = /obj/item/stack/tile/carpet_lightblue
 
-/decl/flooring/carpet/aquablue
+/singleton/flooring/carpet/aquablue
 	icon_base = "blue3"
 	build_type = /obj/item/stack/tile/carpet_aquablue
 
-/decl/flooring/carpet/green
+/singleton/flooring/carpet/green
 	icon_base = "green"
 	build_type = /obj/item/stack/tile/carpet_green
 
-/decl/flooring/carpet/magenta
+/singleton/flooring/carpet/magenta
 	icon_base = "magenta"
 	build_type = /obj/item/stack/tile/carpet_magenta
 
-/decl/flooring/carpet/purple
+/singleton/flooring/carpet/purple
 	icon_base = "purple"
 	build_type = /obj/item/stack/tile/carpet_purple
 
-/decl/flooring/carpet/orange
+/singleton/flooring/carpet/orange
 	icon_base = "orange"
 	build_type = /obj/item/stack/tile/carpet_orange
 
-/decl/flooring/tiling
+/singleton/flooring/tiling
 	name = "steel tiles"
 	desc = "A set of steel floor tiles."
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -131,26 +131,26 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/floor
 	can_paint = 1
-	footstep_sound = /decl/sound_category/tiles_footstep
+	footstep_sound = /singleton/sound_category/tiles_footstep
 
-/decl/flooring/tiling/full
+/singleton/flooring/tiling/full
 	name = "full steel tile"
 	desc = "A full steel floor tile."
 	icon_base = "steel_full"
 	has_damage_range = FALSE
 	build_type = /obj/item/stack/tile/floor/full
 
-/decl/flooring/tiling/asteroid
+/singleton/flooring/tiling/asteroid
 	name = "floor"
 	icon = 'icons/turf/total_floors.dmi'
 	icon_base = "asteroidfloor"
 	has_damage_range = null
 	build_type = null
 
-/decl/flooring/tiling/asteroid/plating
+/singleton/flooring/tiling/asteroid/plating
 	icon_base = "asteroidfloor"
 
-/decl/flooring/linoleum
+/singleton/flooring/linoleum
 	name = "linoleum"
 	desc = "It's like the 2390's all over again."
 	icon = 'icons/turf/flooring/linoleum.dmi'
@@ -158,21 +158,21 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/lino
 	can_paint = 1
-	footstep_sound = /decl/sound_category/carpet_footstep
+	footstep_sound = /singleton/sound_category/carpet_footstep
 
-/decl/flooring/linoleum/grey
+/singleton/flooring/linoleum/grey
 	icon_base = "lino_grey"
 	build_type = /obj/item/stack/tile/lino_grey
 	has_damage_range = 2
 
-/decl/flooring/tiling/red
+/singleton/flooring/tiling/red
 	name = "floor"
 	icon_base = "white"
 	has_damage_range = null
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_red
 
-/decl/flooring/tiling/steel
+/singleton/flooring/tiling/steel
 	name = "floor"
 	icon = 'icons/turf/total_floors.dmi'
 	icon_base = "steel_dirty"
@@ -180,7 +180,7 @@
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_steel
 
-/decl/flooring/tiling/old
+/singleton/flooring/tiling/old
 	name = "old floor"
 	desc = "An old and scuffed floor tile, harkening back to a bygone era."
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -189,7 +189,7 @@
 	flags = TURF_IS_FRAGILE | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = null
 
-/decl/flooring/tiling/old_dark
+/singleton/flooring/tiling/old_dark
 	name = "old dark floor"
 	desc = "An old and scuffed floor tile, harkening back to a bygone era."
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -198,7 +198,7 @@
 	flags = TURF_IS_FRAGILE
 	build_type = null
 
-/decl/flooring/tiling/old_white
+/singleton/flooring/tiling/old_white
 	name = "old sterile floor"
 	desc = "An old, scuffed and supposedly once sterile floor tile harkening back to a bygone era."
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -207,7 +207,7 @@
 	flags = TURF_IS_FRAGILE
 	build_type = null
 
-/decl/flooring/tiling/white
+/singleton/flooring/tiling/white
 	name = "floor"
 	desc = "How sterile."
 	icon_base = "white"
@@ -215,14 +215,14 @@
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_white
 
-/decl/flooring/tiling/yellow
+/singleton/flooring/tiling/yellow
 	name = "floor"
 	icon_base = "white"
 	has_damage_range = null
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_yellow
 
-/decl/flooring/tiling/dark
+/singleton/flooring/tiling/dark
 	name = "plasteel tiles"
 	desc = "A set of plasteel floor tiles."
 	icon_base = "dark"
@@ -230,13 +230,13 @@
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_dark
 
-/decl/flooring/tiling/dark/full
+/singleton/flooring/tiling/dark/full
 	name = "full plasteel tile"
 	desc = "A full plasteel floor tile."
 	icon_base = "dark_full"
 	build_type = /obj/item/stack/tile/floor_dark/full
 
-/decl/flooring/tiling/freezer
+/singleton/flooring/tiling/freezer
 	name = "floor"
 	desc = "Don't slip."
 	icon_base = "freezer"
@@ -245,7 +245,7 @@
 	build_type = /obj/item/stack/tile/floor_freezer
 
 //Wood
-/decl/flooring/wood
+/singleton/flooring/wood
 	name = "wooden floor"
 	desc = "Polished redwood planks."
 	icon = 'icons/turf/flooring/wood.dmi'
@@ -255,43 +255,43 @@
 	descriptor = "planks"
 	build_type = /obj/item/stack/tile/wood
 	flags = TURF_CAN_BREAK | TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER | TURF_CAN_BURN
-	footstep_sound = /decl/sound_category/wood_footstep
+	footstep_sound = /singleton/sound_category/wood_footstep
 
-/decl/flooring/wood/coloured
+/singleton/flooring/wood/coloured
 	icon_base = "woodcolour"
 	desc = "Polished wooden planks."
 	build_type = /obj/item/stack/tile/wood/coloured
 	var/color
 
-/decl/flooring/wood/coloured/birch
+/singleton/flooring/wood/coloured/birch
 	color = WOOD_COLOR_BIRCH 
 	build_type = /obj/item/stack/tile/wood/coloured/birch
 
-/decl/flooring/wood/coloured/mahogany
+/singleton/flooring/wood/coloured/mahogany
 	color = WOOD_COLOR_RICH
 	build_type = /obj/item/stack/tile/wood/coloured/mahogany
 
-/decl/flooring/wood/coloured/maple
+/singleton/flooring/wood/coloured/maple
 	color = WOOD_COLOR_PALE
 	build_type = /obj/item/stack/tile/wood/coloured/maple
 
-/decl/flooring/wood/coloured/bamboo
+/singleton/flooring/wood/coloured/bamboo
 	color = WOOD_COLOR_PALE2
 	build_type = /obj/item/stack/tile/wood/coloured/bamboo
 
-/decl/flooring/wood/coloured/ebony
+/singleton/flooring/wood/coloured/ebony
 	color = WOOD_COLOR_BLACK
 	build_type = /obj/item/stack/tile/wood/coloured/ebony
 
-/decl/flooring/wood/coloured/walnut
+/singleton/flooring/wood/coloured/walnut
 	color = WOOD_COLOR_CHOCOLATE
 	build_type = /obj/item/stack/tile/wood/coloured/walnut
 
-/decl/flooring/wood/coloured/yew
+/singleton/flooring/wood/coloured/yew
 	color = WOOD_COLOR_YELLOW
 	build_type = /obj/item/stack/tile/wood/coloured/yew
 
-/decl/flooring/reinforced
+/singleton/flooring/reinforced
 	name = "reinforced floor"
 	desc = "Heavily reinforced with steel rods."
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -303,9 +303,9 @@
 	apply_thermal_conductivity = 0.025
 	apply_heat_capacity = 325000
 	can_paint = 1
-	footstep_sound = /decl/sound_category/plating_footstep
+	footstep_sound = /singleton/sound_category/plating_footstep
 
-/decl/flooring/reinforced/circuit
+/singleton/flooring/reinforced/circuit
 	name = "processing strata"
 	desc = "A durable surface covered in various circuity and wiring."
 	icon = 'icons/turf/flooring/circuit.dmi'
@@ -316,18 +316,18 @@
 	can_paint = 1
 	build_type = /obj/item/stack/tile/circuit_blue
 
-/decl/flooring/reinforced/circuit/green
+/singleton/flooring/reinforced/circuit/green
 	name = "processing strata"
 	icon_base = "gcircuit"
 	build_type = /obj/item/stack/tile/circuit_green
 
-/decl/flooring/reinforced/circuit/red
+/singleton/flooring/reinforced/circuit/red
 	icon_base = "rcircuit"
 	flags = TURF_ACID_IMMUNE
 	can_paint = 0
 	build_type = null
 
-/decl/flooring/reinforced/cult
+/singleton/flooring/reinforced/cult
 	name = "engraved floor"
 	desc = "Unsettling whispers waver from the surface..."
 	icon = 'icons/turf/flooring/cult.dmi'
@@ -337,7 +337,7 @@
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK
 	can_paint = null
 
-/decl/flooring/reinforced/ramp
+/singleton/flooring/reinforced/ramp
 	name = "foot ramp"
 	desc = "An archaic means of locomotion along the Z axis."
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -347,20 +347,20 @@
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK
 	can_paint = 1
 
-/decl/flooring/reinforced/ramp/bottom
+/singleton/flooring/reinforced/ramp/bottom
 	icon_base = "rampbot"
 
-/decl/flooring/diona
+/singleton/flooring/diona
 	name = "biomass"
 	desc = "A mass of small intertwined aliens forming a floor... Creepy."
 	icon = 'icons/turf/floors.dmi'
 	icon_base = "diona"
 	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL | TURF_REMOVE_WELDER
-	footstep_sound = /decl/sound_category/grass_footstep
+	footstep_sound = /singleton/sound_category/grass_footstep
 
 //material turfs
 
-/decl/flooring/silver
+/singleton/flooring/silver
 	name = "silver floor"
 	desc = "A fancy floor with silver plating."
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -368,7 +368,7 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/silver
 
-/decl/flooring/gold
+/singleton/flooring/gold
 	name = "golden floor"
 	desc = "A fancy floor with golden plating."
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -376,7 +376,7 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/gold
 
-/decl/flooring/uranium
+/singleton/flooring/uranium
 	name = "uranium floor"
 	desc = "An unsafe floor with uranium plating."
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -384,7 +384,7 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/uranium
 
-/decl/flooring/phoron
+/singleton/flooring/phoron
 	name = "phoron floor"
 	desc = "A flammable floor with phoron plating."
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -392,7 +392,7 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/phoron
 
-/decl/flooring/diamond
+/singleton/flooring/diamond
 	name = "diamond floor"
 	desc = "An expensive floor with diamond plating."
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -400,7 +400,7 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/diamond
 
-/decl/flooring/marble
+/singleton/flooring/marble
 	name = "light marble floor"
 	desc = "A robust floor made from marble."
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -408,14 +408,14 @@
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/marble
 
-/decl/flooring/marble/dark
+/singleton/flooring/marble/dark
 	name = "dark marble floor"
 	icon_base = "darkmarble"
 	build_type = /obj/item/stack/tile/marble/dark
 
 //Shuttle turfs
 
-/decl/flooring/shuttle
+/singleton/flooring/shuttle
 	name = "shuttle floor"
 	desc = "Typical shuttle flooring."
 	icon = 'icons/turf/shuttle.dmi'
@@ -425,43 +425,43 @@
 	apply_heat_capacity = 325000
 	can_paint = 1
 
-/decl/flooring/shuttle/yellow
+/singleton/flooring/shuttle/yellow
 	icon_base = "floor2"
 
-/decl/flooring/shuttle/white
+/singleton/flooring/shuttle/white
 	icon_base = "floor3"
 
-/decl/flooring/shuttle/red
+/singleton/flooring/shuttle/red
 	icon_base = "floor4"
 
-/decl/flooring/shuttle/dark_red
+/singleton/flooring/shuttle/dark_red
 	icon_base = "floor6"
 
-/decl/flooring/shuttle/black
+/singleton/flooring/shuttle/black
 	icon_base = "floor7"
 
-/decl/flooring/shuttle/tan
+/singleton/flooring/shuttle/tan
 	icon_base = "floor8"
 
-/decl/flooring/shuttle/dark_blue
+/singleton/flooring/shuttle/dark_blue
 	icon_base = "floor9"
 
-/decl/flooring/shuttle/advanced
+/singleton/flooring/shuttle/advanced
 	icon_base = "advanced_plating"
 
-/decl/flooring/shuttle/advanced/alt
+/singleton/flooring/shuttle/advanced/alt
 	icon_base = "advanced_plating_alt"
 
-/decl/flooring/shuttle/skrell
+/singleton/flooring/shuttle/skrell
 	desc = "Typical flooring of skrell vessels, soft and springy to the touch."
 	icon_base = "skrell_purple"
 
-/decl/flooring/shuttle/skrell/blue
+/singleton/flooring/shuttle/skrell/blue
 	icon_base = "skrell_blue"
 
-/decl/flooring/shuttle/skrell/ramp
+/singleton/flooring/shuttle/skrell/ramp
 	name = "footramp"
 	icon_base = "skrellramp-bottom"
 
-/decl/flooring/shuttle/skrell/ramp/top
+/singleton/flooring/shuttle/skrell/ramp/top
 	icon_base = "skrellramp-top"

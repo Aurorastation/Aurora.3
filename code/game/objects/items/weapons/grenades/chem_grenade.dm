@@ -15,6 +15,8 @@
 	var/list/allowed_containers = list(/obj/item/reagent_containers/glass/beaker, /obj/item/reagent_containers/glass/bottle)
 	var/affected_area = 3
 
+	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 300)
+
 /obj/item/grenade/chem_grenade/Initialize()
 	. = ..()
 	create_reagents(1000)
@@ -176,7 +178,7 @@
 		C.drop_from_inventory(src)
 		C.throw_mode_off()
 
-	invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
+	set_invisibility(INVISIBILITY_MAXIMUM) //Why am i doing this?
 	//To make sure all reagents can work
 	//correctly before deleting the grenade.
 	QDEL_IN(src, 50)
@@ -190,6 +192,8 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	affected_area = 4
 
+	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 500)
+
 /obj/item/grenade/chem_grenade/metalfoam
 	name = "metal-foam grenade"
 	desc = "Used for emergency sealing of air breaches."
@@ -201,9 +205,9 @@
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 
-	B1.reagents.add_reagent(/decl/reagent/aluminum, 30)
-	B2.reagents.add_reagent(/decl/reagent/foaming_agent, 10)
-	B2.reagents.add_reagent(/decl/reagent/acid/polyacid, 10)
+	B1.reagents.add_reagent(/singleton/reagent/aluminum, 30)
+	B2.reagents.add_reagent(/singleton/reagent/foaming_agent, 10)
+	B2.reagents.add_reagent(/singleton/reagent/acid/polyacid, 10)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
@@ -222,11 +226,11 @@
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 
-	B1.reagents.add_reagent(/decl/reagent/aluminum, 15)
-	B1.reagents.add_reagent(/decl/reagent/fuel,20)
-	B2.reagents.add_reagent(/decl/reagent/toxin/phoron, 15)
-	B2.reagents.add_reagent(/decl/reagent/acid, 15)
-	B1.reagents.add_reagent(/decl/reagent/fuel,20)
+	B1.reagents.add_reagent(/singleton/reagent/aluminum, 15)
+	B1.reagents.add_reagent(/singleton/reagent/fuel,20)
+	B2.reagents.add_reagent(/singleton/reagent/toxin/phoron, 15)
+	B2.reagents.add_reagent(/singleton/reagent/acid, 15)
+	B1.reagents.add_reagent(/singleton/reagent/fuel,20)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
@@ -245,10 +249,10 @@
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 
-	B1.reagents.add_reagent(/decl/reagent/toxin/plantbgone, 25)
-	B1.reagents.add_reagent(/decl/reagent/potassium, 25)
-	B2.reagents.add_reagent(/decl/reagent/phosphorus, 25)
-	B2.reagents.add_reagent(/decl/reagent/sugar, 25)
+	B1.reagents.add_reagent(/singleton/reagent/toxin/plantbgone, 25)
+	B1.reagents.add_reagent(/singleton/reagent/potassium, 25)
+	B2.reagents.add_reagent(/singleton/reagent/phosphorus, 25)
+	B2.reagents.add_reagent(/singleton/reagent/sugar, 25)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
@@ -267,12 +271,12 @@
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 
-	B1.reagents.add_reagent(/decl/reagent/sugar, 20)
-	B1.reagents.add_reagent(/decl/reagent/potassium,20)
-	B1.reagents.add_reagent(/decl/reagent/soporific, 10)
-	B1.reagents.add_reagent(/decl/reagent/dylovene, 10)
-	B2.reagents.add_reagent(/decl/reagent/polysomnine,40)
-	B2.reagents.add_reagent(/decl/reagent/phosphorus,20)
+	B1.reagents.add_reagent(/singleton/reagent/sugar, 20)
+	B1.reagents.add_reagent(/singleton/reagent/potassium,20)
+	B1.reagents.add_reagent(/singleton/reagent/soporific, 10)
+	B1.reagents.add_reagent(/singleton/reagent/dylovene, 10)
+	B2.reagents.add_reagent(/singleton/reagent/polysomnine,40)
+	B2.reagents.add_reagent(/singleton/reagent/phosphorus,20)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
@@ -291,9 +295,9 @@
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 
-	B1.reagents.add_reagent(/decl/reagent/surfactant, 40)
-	B2.reagents.add_reagent(/decl/reagent/water, 40)
-	B2.reagents.add_reagent(/decl/reagent/spacecleaner, 10)
+	B1.reagents.add_reagent(/singleton/reagent/surfactant, 40)
+	B2.reagents.add_reagent(/singleton/reagent/water, 40)
+	B2.reagents.add_reagent(/singleton/reagent/spacecleaner, 10)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
@@ -312,9 +316,9 @@
 	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 
-	B1.reagents.add_reagent(/decl/reagent/surfactant, 40)
-	B2.reagents.add_reagent(/decl/reagent/water, 40)
-	B2.reagents.add_reagent(/decl/reagent/antifuel, 10)
+	B1.reagents.add_reagent(/singleton/reagent/surfactant, 40)
+	B2.reagents.add_reagent(/singleton/reagent/water, 40)
+	B2.reagents.add_reagent(/singleton/reagent/antifuel, 10)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
@@ -333,10 +337,10 @@
 	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)
 
-	B1.reagents.add_reagent(/decl/reagent/toxin/cardox, 40)
-	B1.reagents.add_reagent(/decl/reagent/potassium, 40)
-	B2.reagents.add_reagent(/decl/reagent/phosphorus, 40)
-	B2.reagents.add_reagent(/decl/reagent/sugar, 40)
+	B1.reagents.add_reagent(/singleton/reagent/toxin/cardox, 40)
+	B1.reagents.add_reagent(/singleton/reagent/potassium, 40)
+	B2.reagents.add_reagent(/singleton/reagent/phosphorus, 40)
+	B2.reagents.add_reagent(/singleton/reagent/sugar, 40)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
@@ -356,11 +360,11 @@
 	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)
 
-	B1.reagents.add_reagent(/decl/reagent/phosphorus, 40)
-	B1.reagents.add_reagent(/decl/reagent/potassium, 40)
-	B1.reagents.add_reagent(/decl/reagent/capsaicin/condensed, 40)
-	B2.reagents.add_reagent(/decl/reagent/sugar, 40)
-	B2.reagents.add_reagent(/decl/reagent/capsaicin/condensed, 80)
+	B1.reagents.add_reagent(/singleton/reagent/phosphorus, 40)
+	B1.reagents.add_reagent(/singleton/reagent/potassium, 40)
+	B1.reagents.add_reagent(/singleton/reagent/capsaicin/condensed, 40)
+	B2.reagents.add_reagent(/singleton/reagent/sugar, 40)
+	B2.reagents.add_reagent(/singleton/reagent/capsaicin/condensed, 80)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
@@ -374,18 +378,18 @@
 	stage = 2
 	path = 1
 
-	Initialize()
-		. = ..()
-		var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
-		var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
+/obj/item/grenade/chem_grenade/monoammoniumphosphate/Initialize()
+	. = ..()
+	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 
-		B1.reagents.add_reagent(/decl/reagent/surfactant, 40)
-		B1.reagents.add_reagent(/decl/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
-		B2.reagents.add_reagent(/decl/reagent/water, 40)
-		B2.reagents.add_reagent(/decl/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
+	B1.reagents.add_reagent(/singleton/reagent/surfactant, 40)
+	B1.reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
+	B2.reagents.add_reagent(/singleton/reagent/water, 40)
+	B2.reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
 
-		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
-		beakers += B1
-		beakers += B2
-		icon_state = initial(icon_state) +"_locked"
+	beakers += B1
+	beakers += B2
+	icon_state = initial(icon_state) +"_locked"

@@ -12,7 +12,7 @@
 	suit_type = "crimson hardsuit"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -77,7 +77,7 @@
 	suit_type = "rhino hardsuit"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -116,3 +116,24 @@
 		/obj/item/rig_module/device/door_hack,
 		/obj/item/rig_module/actuators/combat
 		)
+
+/obj/item/rig/merc/einstein //For the Einstein Merc kit
+	name = "paragon suit control module"
+	desc = "A back mounted control mechanism of an Einstein Engines hardsuit. This model is issued to the leaders of security teams within the corporation."
+	suit_type = "paragon"
+	icon = 'icons/clothing/rig/einstein_merc.dmi'
+	icon_state = "paragon"
+	icon_supported_species_tags = null
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+
+	initial_modules = list(
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/mounted/ion,
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/vision/multi,
+		/obj/item/rig_module/electrowarfare_suite
+	)

@@ -31,9 +31,9 @@
 	return B
 
 /obj/item/material/sword/cultify()
-	var/obj/item/melee/cultblade/CBT = new /obj/item/melee/cultblade(get_turf(src)) // AHAHAHAHAHAHAHA - Geeves
+	var/obj/item/melee/cultblade/A = new /obj/item/melee/cultblade(get_turf(src))
 	qdel(src)
-	return CBT
+	return A
 
 /obj/item/storage/backpack/cultify()
 	var/obj/item/storage/backpack/cultpack/CP = new /obj/item/storage/backpack/cultpack(get_turf(src))
@@ -59,8 +59,8 @@
 	qdel(src)
 
 /obj/machinery/atmospherics/cultify()
-	if(src.invisibility != INVISIBILITY_MAXIMUM)
-		src.invisibility = INVISIBILITY_MAXIMUM
+	if(invisibility != INVISIBILITY_MAXIMUM)
+		set_invisibility(INVISIBILITY_MAXIMUM)
 		density = FALSE
 
 /obj/machinery/cooker/cultify()
@@ -95,8 +95,8 @@
 	qdel(src)
 
 /obj/machinery/power/apc/cultify()
-	if(src.invisibility != INVISIBILITY_MAXIMUM)
-		src.invisibility = INVISIBILITY_MAXIMUM
+	if(invisibility != INVISIBILITY_MAXIMUM)
+		set_invisibility(INVISIBILITY_MAXIMUM)
 
 /obj/machinery/vending/cultify()
 	new /obj/structure/cult/forge(get_turf(src))

@@ -6,14 +6,17 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 /obj/effect/overmap/visitable
 	name = "map object"
 	scannable = TRUE
+	sensor_range_override = TRUE
 	var/designation //Actual name of the object.
 	var/class //Imagine a ship or station's class. "NTCC" Odin, "SCCV" Horizon, ...
+	unknown_id = "Bogey"
 	var/obfuscated_name = "unidentified object"
 	var/obfuscated_desc = "This object is not displaying its IFF signature."
 	var/obfuscated = FALSE //Whether we hide our name and class or not.
 
 	var/list/initial_generic_waypoints //store landmark_tag of landmarks that should be added to the actual lists below on init.
 	var/list/initial_restricted_waypoints //For use with non-automatic landmarks (automatic ones add themselves).
+	var/list/tracked_dock_tags //landmark_tag of landmarks of docks that will be tracked in the docks computer program
 
 	var/list/generic_waypoints = list()    //waypoints that any shuttle can use
 	var/list/restricted_waypoints = list() //waypoints for specific shuttles
@@ -34,8 +37,23 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/obj/machinery/leviathan_safeguard/levi_safeguard
 	var/obj/machinery/gravity_generator/main/gravity_generator
 
-	var/comms_support = FALSE		// Whether ghostroles attached to this overmap object spawn with comms
-	var/comms_name = "shipboard"	// Snowflake name to apply to comms equipment ("shipboard radio headset", "intercom (shipboard)", "shipboard telecommunications mainframe"), etc.
+	/// Whether ghostroles attached to this overmap object spawn with comms
+	var/comms_support = FALSE
+	/// Snowflake name to apply to comms equipment ("shipboard radio headset", "intercom (shipboard)", "shipboard telecommunications mainframe"), etc.
+	var/comms_name = "shipboard"
+	/// Whether away ship comms have access to the common channel / PUB_FREQ
+	var/use_common = FALSE
+	var/list/navigation_viewers // list of weakrefs to people viewing the overmap via this ship
+	var/list/consoles
+
+	var/list/datalink_requests = list()// A list of datalink requests that we received
+	var/list/datalinked        = list()// Other effects that we are datalinked with
+
+	/// null | num | list. If a num or a (num, num) list, the radius or random bounds for placing this sector near the main map's overmap icon.
+	var/list/place_near_main
+
+	var/invisible_until_ghostrole_spawn = FALSE
+	var/hide_from_reports = FALSE
 
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
@@ -47,11 +65,25 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	if(!current_map.overmap_z)
 		build_overmap()
-		
-	start_x = start_x || rand(OVERMAP_EDGE, current_map.overmap_size - OVERMAP_EDGE)
-	start_y = start_y || rand(OVERMAP_EDGE, current_map.overmap_size - OVERMAP_EDGE)
 
-	forceMove(locate(start_x, start_y, current_map.overmap_z))
+	var/map_low = OVERMAP_EDGE
+	var/map_high = current_map.overmap_size - OVERMAP_EDGE
+	var/turf/home
+	if (place_near_main)
+		var/obj/effect/overmap/visitable/main = map_sectors["1"]
+		if (islist(place_near_main))
+			place_near_main = Roundm(Frand(place_near_main[1], place_near_main[2]), 0.1)
+		home = CircularRandomTurfAround(main, abs(place_near_main), map_low, map_low, map_high, map_high)
+		start_x = home.x
+		start_y = home.y
+		log_debug("place_near_main moving [src] near [main] ([main.x],[main.y]) with radius [place_near_main], got ([home.x],[home.y])")
+	else
+		start_x = start_x || rand(map_low, map_high)
+		start_y = start_y || rand(map_low, map_high)
+		home = locate(start_x, start_y, current_map.overmap_z)
+
+	if(!invisible_until_ghostrole_spawn)
+		forceMove(home)
 
 	update_name()
 
@@ -59,7 +91,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	LAZYADD(SSshuttle.sectors_to_initialize, src) //Queued for further init. Will populate the waypoint lists; waypoints not spawned yet will be added in as they spawn.
 	SSshuttle.clear_init_queue()
-	START_PROCESSING(SSprocessing, src)
+	START_PROCESSING(SSovermap, src)
 
 /obj/effect/overmap/visitable/process()
 	if(get_dist(src, targeting) > 7)
@@ -81,7 +113,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	targeting = null
 	levi_safeguard = null
 	gravity_generator = null
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSovermap, src)
 	. = ..()
 
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.
@@ -145,7 +177,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 /obj/effect/overmap/visitable/proc/toggle_distress_status()
 	has_called_distress_beacon = !has_called_distress_beacon
 	if(has_called_distress_beacon)
-		var/image/distress_overlay = image('icons/obj/overmap.dmi', "distress")
+		var/image/distress_overlay = image('icons/obj/overmap/overmap_effects.dmi', "distress")
 		applied_distress_overlay = distress_overlay
 		add_overlay(applied_distress_overlay)
 		filters = filter(type = "outline", size = 2, color = COLOR_RED)
@@ -158,6 +190,8 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		return
 	if(obfuscated)
 		return
+	if(comms_support)
+		update_away_freq(name, get_real_name())
 	name = get_real_name()
 
 /obj/effect/overmap/visitable/proc/get_real_name()
@@ -188,6 +222,9 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 // prior to being moved to the overmap. This blocks that. Use set_invisibility to adjust invisibility as needed instead.
 /obj/effect/overmap/visitable/sector/hide()
 
+/obj/effect/overmap/visitable/proc/handle_sensor_state_change(var/on)
+	return
+
 /proc/build_overmap()
 	if(!current_map.use_overmap)
 		return 1
@@ -212,3 +249,51 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	testing("Overmap build complete.")
 	return 1
+
+/// A circular random coordinate pair from 0, unit by default, scaled by radius, then rounded if round.
+/proc/CircularRandomCoordinate(radius = 1, round)
+	var/angle = rand(0, 359)
+	var/x = cos(angle) * radius
+	var/y = sin(angle) * radius
+	if (round)
+		x = round(x)
+		y = round(y)
+	return list(x, y)
+
+/**
+* A circular random coordinate with radius on center_x, center_y,
+* reflected into low_x,low_y -> high_x,high_y, clamped in low,high,
+* and rounded if round is set
+*
+* Generally this proc is useful for placement around a point (eg a
+* player) that must stay within map boundaries, or some similar circle
+* in box constraint
+*
+* A "donut" pattern can be achieved by varying the number supplied as
+* radius outside the scope of the proc, eg as BoundedCircularRandomCoordinate(Frand(1, 3), ...)
+*/
+/proc/BoundedCircularRandomCoordinate(radius, center_x, center_y, low_x, low_y, high_x, high_y, round)
+	var/list/xy = CircularRandomCoordinate(radius, round)
+	var/dx = xy[1]
+	var/dy = xy[2]
+	var/x = center_x + dx
+	var/y = center_y + dy
+	if (x < low_x || x > high_x)
+		x = center_x - dx
+	if (y < low_y || y > high_y)
+		y = center_y - dy
+	return list(
+		clamp(x, low_x, high_x),
+		clamp(y, low_y, high_y)
+	)
+
+/// Pick a random turf using BoundedCircularRandomCoordinate about x,y on level z
+/proc/CircularRandomTurf(radius, z, center_x, center_y, low_x = 1, low_y = 1, high_x = world.maxx, high_y = world.maxy)
+	var/list/xy = BoundedCircularRandomCoordinate(radius, center_x, center_y, low_x, low_y, high_x, high_y, TRUE)
+	return locate(xy[1], xy[2], z)
+
+
+/// Pick a random turf using BoundedCircularRandomCoordinate around the turf of target
+/proc/CircularRandomTurfAround(atom/target, radius, low_x = 1, low_y = 1, high_x = world.maxx, high_y = world.maxy)
+	var/turf/turf = get_turf(target)
+	return CircularRandomTurf(radius, turf.z, turf.x, turf.y, low_x, low_y, high_x, high_y)

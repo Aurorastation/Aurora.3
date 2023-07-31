@@ -30,6 +30,12 @@
 		/obj/item/clothing/accessory/storage/modular_pouch
 	)
 
+/obj/item/clothing/suit/armor/carrier/scc
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate/scc,
+		/obj/item/clothing/accessory/storage/modular_pouch
+	)
+
 /obj/item/clothing/suit/armor/carrier/riot
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/riot,
@@ -112,6 +118,12 @@
 	icon_state = "plate_generic"
 	item_state = "plate_generic"
 
+/obj/item/clothing/accessory/armor_plate/scc
+	name = "scc armor plate"
+	desc = "A light-weight kevlar armor plate in SCC corporate colors. Often issued to untrained personnel, to help with identification."
+	icon_state = "plate_blue"
+	item_state = "plate_scc"
+
 /obj/item/clothing/accessory/armor_plate/hos
 	name = "commander armor plate"
 	desc = "A particularly light-weight armor plate with really cool gold bands. Even more stylish when the gold bands are covered in the blood of your goons!"
@@ -167,7 +179,7 @@
 	item_state = "plate_military"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -181,7 +193,7 @@
 	item_state = "plate_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -229,7 +241,7 @@
 	item_state = "plate_sec_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
@@ -242,6 +254,12 @@
 	contained_sprite = TRUE
 	icon_state = "helm_sec"
 	item_state = "helm_sec"
+
+/obj/item/clothing/head/helmet/security/scc
+	name = "scc helmet"
+	desc = "A helmet in SCC colors. Often issued to untrained personnel."
+	icon_state = "helm_scc"
+	item_state = "helm_scc"
 
 /obj/item/clothing/head/helmet/security/generic
 	name = "standard helmet"
@@ -263,7 +281,7 @@
 	item_state = "helm_sec_heavy"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -278,7 +296,7 @@
 	item_state = "helm_military"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_REVOLVER,
+		bullet = ARMOR_BALLISTIC_MAJOR,
 		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
@@ -302,11 +320,39 @@
 	desc = "A simple strip of fabric attached to a vest or helmet typically used to denote the wearer's \
 	organization or nationality."
 	icon = 'icons/clothing/kit/modular_armor_accessories.dmi'
-	icon_state = "flagpatch_colorable"
-	item_state = "flagpatch_colorable"
+	icon_state = "flagpatch"
+	item_state = "flagpatch"
+	var/shading_state = "flagpatch"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_GENERIC
 	flippable = FALSE
+
+/obj/item/clothing/accessory/flagpatch/Initialize()
+	. = ..()
+	var/icon/shading_icon
+	var/icon/flagpatch_icon = new(icon, icon_state)
+	if(shading_state)
+		shading_icon = new(icon, shading_state)
+		flagpatch_icon.Blend(shading_icon, ICON_MULTIPLY)
+		add_overlay(flagpatch_icon)
+
+/obj/item/clothing/accessory/flagpatch/rectangular
+	shading_state = null
+
+/obj/item/clothing/accessory/flagpatch/triangular
+	icon_state = "flagpatch_triangular"
+	item_state = "flagpatch_triangular"
+	shading_state = null
+
+/obj/item/clothing/accessory/flagpatch/circular
+	icon_state = "flagpatch_circular"
+	item_state = "flagpatch_circular"
+	shading_state = null
+
+/obj/item/clothing/accessory/flagpatch/square
+	icon_state = "flagpatch_square"
+	item_state = "flagpatch_square"
+	shading_state = null
 
 /obj/item/clothing/accessory/flagpatch/biesel
 	name = "republic of biesel flagpatch"
@@ -422,6 +468,7 @@
 	holographic patches made of hardlight to make their affiliation clear no matter the conditions."
 	icon_state = "flagpatch_elyra"
 	item_state = "flagpatch_elyra"
+	shading_state = "flagpatch_triangular"
 
 /obj/item/clothing/accessory/flagpatch/konyang
 	name = "konyang flagpatch"

@@ -4,6 +4,9 @@
 	name_plural = "Skrell"
 	category_name = "Skrell"
 	bodytype = BODYTYPE_SKRELL
+	species_height = HEIGHT_CLASS_SHORT
+	height_min = 130
+	height_max = 170
 	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
@@ -12,6 +15,9 @@
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
 	preview_icon = 'icons/mob/human_races/skrell/skrell_preview.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
+	tail = "No Tail"
+	tail_animation = 'icons/mob/species/skrell/tail.dmi'
+	selectable_tails = list("No Tail", "Short Tail", "Short Fish Tail", "Short Fringed Tail")
 	eyes = "skrell_eyes_s"
 	primitive_form = SPECIES_MONKEY_SKRELL
 	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/palm, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)
@@ -87,24 +93,24 @@
 	default_h_style = "Headtails"
 
 	possible_cultures = list(
-		/decl/origin_item/culture/federation,
-		/decl/origin_item/culture/non_federation
+		/singleton/origin_item/culture/federation,
+		/singleton/origin_item/culture/non_federation
 	)
-	
+
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/adjust_headtails
 	)
 
 	zombie_type = SPECIES_ZOMBIE_SKRELL
-	bodyfall_sound = /decl/sound_category/bodyfall_skrell_sound
-	footsound = /decl/sound_category/footstep_skrell_sound
+	bodyfall_sound = /singleton/sound_category/bodyfall_skrell_sound
+	footsound = /singleton/sound_category/footstep_skrell_sound
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
 /datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
 	var/list/trail_info = ..()
 	if(!length(trail_info) && !H.shoes)
-		var/list/blood_data = REAGENT_DATA(H.vessel, /decl/reagent/blood)
+		var/list/blood_data = REAGENT_DATA(H.vessel, /singleton/reagent/blood)
 		trail_info["footprint_DNA"] = list(blood_data["blood_DNA"] = blood_data["blood_type"])
 		trail_info["footprint_color"] = rgb(H.r_skin, H.g_skin, H.b_skin, 25)
 		trail_info["footprint_type"] = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot/del_dry // makes skrellprints del on dry

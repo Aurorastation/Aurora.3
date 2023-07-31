@@ -18,7 +18,7 @@ emp_act
 		var/deflection_chance = check_martial_deflection_chance()
 		if(prob(deflection_chance))
 			visible_message(SPAN_WARNING("\The [src] deftly dodges \the [P]!"), SPAN_NOTICE("You deftly dodge \the [P]!"))
-			playsound(src, /decl/sound_category/bulletflyby_sound, 75, TRUE)
+			playsound(src, /singleton/sound_category/bulletflyby_sound, 75, TRUE)
 			return PROJECTILE_DODGED
 
 	def_zone = check_zone(def_zone)
@@ -43,7 +43,7 @@ emp_act
 
 	//Shrapnel
 	if(!(species.flags & NO_EMBED) && P.can_embed())
-		var/armor = get_blocked_ratio(def_zone, BRUTE, P.damage_flags(), armor_pen = P.armor_penetration, damage = P.damage)*100
+		var/armor = get_blocked_ratio(def_zone, DAMAGE_BRUTE, P.damage_flags(), armor_pen = P.armor_penetration, damage = P.damage)*100
 		if(prob(20 + max(P.damage + P.embed_chance - armor, -10)))
 			P.do_embed(organ)
 
@@ -81,7 +81,7 @@ emp_act
 	..(stun_amount, agony_amount, def_zone, used_weapon, damage_flags)
 
 /mob/living/carbon/human/get_blocked_ratio(def_zone, damage_type, damage_flags, armor_pen, damage)
-	if(!def_zone && (damage_flags & DAM_DISPERSED))
+	if(!def_zone && (damage_flags & DAMAGE_FLAG_DISPERSED))
 		var/tally
 		for(var/zone in organ_rel_size)
 			tally += organ_rel_size[zone]
@@ -254,7 +254,7 @@ emp_act
 			var/obj/item/clothing/gloves/force/G = X.gloves
 			effective_force *= G.amplification
 
-	if((I.damtype == BRUTE || I.damtype == PAIN) && prob(25 + (effective_force * 2)))
+	if((I.damtype == DAMAGE_BRUTE || I.damtype == DAMAGE_PAIN) && prob(25 + (effective_force * 2)))
 		if(!stat)
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
@@ -387,12 +387,12 @@ emp_act
 					msg_admin_attack("[src.name] ([src.ckey]) was hit by a [O], thrown by [M.name] ([assailant.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 
 		//thrown weapon embedded object code.
-		if(dtype == BRUTE && istype(O,/obj/item))
+		if(dtype == DAMAGE_BRUTE && istype(O,/obj/item))
 			var/obj/item/I = O
 			if (!is_robot_module(I))
 				var/sharp = is_sharp(I)
 				var/damage = throw_damage
-				damage *= (1 - get_blocked_ratio(zone, BRUTE, O.damage_flags(), O.armor_penetration, damage))
+				damage *= (1 - get_blocked_ratio(zone, DAMAGE_BRUTE, O.damage_flags(), O.armor_penetration, damage))
 
 				//blunt objects should really not be embedding in things unless a huge amount of force is involved
 				var/embed_chance = sharp ? damage/I.w_class : damage/(I.w_class*3)
@@ -418,14 +418,18 @@ emp_act
 
 			if(!O || !src) return
 
-			if(O.loc == src && O.sharp) //Projectile is embedded and suitable for pinning.
-				var/turf/T = near_wall(dir,2)
+			if(O != ITEMSIZE_TINY)
+				if(O.loc == src && O.sharp) //Projectile is embedded and suitable for pinning.
+					var/turf/T = near_wall(dir,2)
 
-				if(T)
-					src.forceMove(T)
-					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
-					src.anchored = 1
-					src.pinned += O
+					if(T)
+						src.forceMove(T)
+						visible_message(
+							SPAN_WARNING("\The [src] is pinned to the wall by \the [O]!"),
+							SPAN_WARNING("You are pinned to the wall by \the [O]!")
+						)
+						src.anchored = TRUE
+						src.pinned += O
 	else if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		H.Weaken(3)
@@ -463,7 +467,7 @@ emp_act
 /mob/living/carbon/human/proc/handle_suit_punctures(var/damtype, var/damage, var/def_zone)
 
 	// Tox and oxy don't matter to suits.
-	if(damtype != BURN && damtype != BRUTE) return
+	if(damtype != DAMAGE_BURN && damtype != DAMAGE_BRUTE) return
 
 	// The rig might soak this hit, if we're wearing one.
 	if(back && istype(back,/obj/item/rig))

@@ -1,59 +1,59 @@
-/decl/proteinbar_flavor
+/singleton/proteinbar_flavor
 	var/name = "flavorless"
 	var/list/reagents
 
-/decl/proteinbar_flavor/applenpear
+/singleton/proteinbar_flavor/applenpear
 	name = "apple 'n pear"
-	reagents = list(/decl/reagent/drink/applejuice, /decl/reagent/drink/pearjuice)
+	reagents = list(/singleton/reagent/drink/applejuice, /singleton/reagent/drink/pearjuice)
 
-/decl/proteinbar_flavor/banananut
+/singleton/proteinbar_flavor/banananut
 	name = "banana nut"
-	reagents = list(/decl/reagent/drink/banana)
+	reagents = list(/singleton/reagent/drink/banana)
 
-/decl/proteinbar_flavor/cappuccino
+/singleton/proteinbar_flavor/cappuccino
 	name = "cappuccino"
-	reagents = list(/decl/reagent/drink/coffee, /decl/reagent/drink/milk)
+	reagents = list(/singleton/reagent/drink/coffee, /singleton/reagent/drink/milk)
 
-/decl/proteinbar_flavor/casualcupcake
+/singleton/proteinbar_flavor/casualcupcake
 	name = "casual cupcake"
-	reagents = list(/decl/reagent/nutriment/sprinkles, /decl/reagent/nutriment/coating/batter)
+	reagents = list(/singleton/reagent/nutriment/sprinkles, /singleton/reagent/nutriment/coating/batter)
 
-/decl/proteinbar_flavor/chippercherry
+/singleton/proteinbar_flavor/chippercherry
 	name = "chipper cherry"
-	reagents = list(/decl/reagent/nutriment/cherryjelly)
+	reagents = list(/singleton/reagent/nutriment/cherryjelly)
 
-/decl/proteinbar_flavor/chocolite
+/singleton/proteinbar_flavor/chocolite
 	name = "choco-lite"
-	reagents = list(/decl/reagent/nutriment/coco)
+	reagents = list(/singleton/reagent/nutriment/coco)
 
-/decl/proteinbar_flavor/citrusblast
+/singleton/proteinbar_flavor/citrusblast
 	name = "citrus blast"
-	reagents = list(/decl/reagent/drink/lemonjuice, /decl/reagent/drink/limejuice, /decl/reagent/drink/orangejuice)
+	reagents = list(/singleton/reagent/drink/lemonjuice, /singleton/reagent/drink/limejuice, /singleton/reagent/drink/orangejuice)
 
-/decl/proteinbar_flavor/classiccaramel
+/singleton/proteinbar_flavor/classiccaramel
 	name = "classic caramel"
-	reagents = list(/decl/reagent/nutriment/caramel)
+	reagents = list(/singleton/reagent/nutriment/caramel)
 
-/decl/proteinbar_flavor/delicatedenton
+/singleton/proteinbar_flavor/delicatedenton
 	name = "delicate denton"
-	reagents = list(/decl/reagent/drink/milk/soymilk)
+	reagents = list(/singleton/reagent/drink/milk/soymilk)
 
-/decl/proteinbar_flavor/heartyherbal
+/singleton/proteinbar_flavor/heartyherbal
 	name = "hearty herbal"
-	reagents = list(/decl/reagent/drink/garlicjuice, /decl/reagent/drink/onionjuice)
+	reagents = list(/singleton/reagent/drink/garlicjuice, /singleton/reagent/drink/onionjuice)
 
-/decl/proteinbar_flavor/honeybuns
+/singleton/proteinbar_flavor/honeybuns
 	name = "honey buns"
-	reagents = list(/decl/reagent/nutriment/honey, /decl/reagent/drink/grapejuice)
+	reagents = list(/singleton/reagent/nutriment/honey, /singleton/reagent/drink/grapejuice)
 
-/decl/proteinbar_flavor/powerfulpeppermint
+/singleton/proteinbar_flavor/powerfulpeppermint
 	name = "powerful peppermint"
-	reagents = list(/decl/reagent/nutriment/mint)
+	reagents = list(/singleton/reagent/nutriment/mint)
 
-/decl/proteinbar_flavor/magicalmelons
+/singleton/proteinbar_flavor/magicalmelons
 	name = "magical melons"
-	reagents = list(/decl/reagent/drink/watermelonjuice)
+	reagents = list(/singleton/reagent/drink/watermelonjuice)
 
-/decl/proteinbar_flavor/mixedberry
+/singleton/proteinbar_flavor/mixedberry
 	name = "mixed berry"
-	reagents = list(/decl/reagent/drink/berryjuice)
+	reagents = list(/singleton/reagent/drink/berryjuice)

@@ -26,6 +26,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	eyes = "blank_eyes"
 
 	bodytype = BODYTYPE_GOLEM
+	species_height = HEIGHT_CLASS_SHORT
 
 	language = "Ceti Basic"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch)
@@ -384,7 +385,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	death_message = "shatters into many shards!"
 	death_message_range = 7
 
-	death_sound = /decl/sound_category/glass_break_sound
+	death_sound = /singleton/sound_category/glass_break_sound
 
 	heat_level_1 = T0C+350
 	heat_level_2 = T0C+550
@@ -416,7 +417,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	for(var/i in 1 to 5)
 		var/obj/item/material/shard/T = new meat_type(H.loc)
 		var/turf/landing = get_step(H, pick(alldirs))
-		INVOKE_ASYNC(T, /atom/movable/.proc/throw_at, landing, 30, 5)
+		INVOKE_ASYNC(T, TYPE_PROC_REF(/atom/movable, throw_at), landing, 30, 5)
 	qdel(H)
 
 /datum/species/golem/glass/handle_post_spawn(var/mob/living/carbon/human/H)
@@ -768,7 +769,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 /datum/species/golem/uranium/handle_environment_special(var/mob/living/carbon/human/H)
 	if(prob(25))
 		for(var/mob/living/L in view(7, H))
-			L.apply_damage(20, IRRADIATE, damage_flags = DAM_DISPERSED)
+			L.apply_damage(20, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /datum/species/golem/homunculus
 	name = SPECIES_GOLEM_MEAT
@@ -815,7 +816,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	death_message = "collapses into a pile of flesh!"
 	death_message_range = 7
 
-	death_sound = 'sound/magic/disintegrate.ogg'
+	death_sound = 'sound/magic/Disintegrate.ogg'
 
 	golem_designation = "Flesh"
 

@@ -15,8 +15,8 @@
 	sharp = TRUE
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /decl/sound_category/sword_pickup_sound
-	equip_sound = /decl/sound_category/sword_equip_sound
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
 	var/does_cult_check = TRUE
 
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
@@ -33,12 +33,12 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/affecting = H.get_organ(zone)
-		to_chat(user, SPAN_CULT("An unexplicable force rips through your [affecting.name], tearing the sword from your grasp!"))
+		to_chat(user, SPAN_CULT("An inexplicable force rips through your [affecting.name], tearing the sword from your grasp!"))
 	else
-		to_chat(user, SPAN_CULT("An unexplicable force rips through you, tearing the sword from your grasp!"))
+		to_chat(user, SPAN_CULT("An inexplicable force rips through you, tearing the sword from your grasp!"))
 
 	//random amount of damage between half of the blade's force and the full force of the blade.
-	user.apply_damage(rand(force/2, force), BRUTE, zone, 0, damage_flags = DAM_SHARP|DAM_EDGE)
+	user.apply_damage(rand(force/2, force), DAMAGE_BRUTE, zone, 0, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 	user.Weaken(5)
 
 	user.drop_from_inventory(src)

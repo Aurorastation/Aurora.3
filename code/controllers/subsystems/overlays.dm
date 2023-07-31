@@ -2,7 +2,8 @@ var/datum/controller/subsystem/overlays/SSoverlays
 
 /datum/controller/subsystem/overlays
 	name = "Overlay"
-	flags = SS_TICKER|SS_FIRE_IN_LOBBY
+	flags = SS_TICKER
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	wait = 1
 	priority = SS_PRIORITY_OVERLAY
 	init_order = SS_INIT_OVERLAY
@@ -14,8 +15,9 @@ var/datum/controller/subsystem/overlays/SSoverlays
 	var/list/overlay_icon_cache = list()
 	var/initialized = FALSE
 
-/datum/controller/subsystem/overlays/stat_entry()
-	..("Ov:[processing.len - (idex - 1)]")
+/datum/controller/subsystem/overlays/stat_entry(msg)
+	msg = "Ov:[processing.len - (idex - 1)]"
+	return ..()
 
 /datum/controller/subsystem/overlays/New()
 	NEW_SS_GLOBAL(SSoverlays)
@@ -78,7 +80,7 @@ var/datum/controller/subsystem/overlays/SSoverlays
 
 /proc/iconstate2appearance(icon, iconstate)
 	var/static/image/stringbro = new()
-	var/list/icon_states_cache = SSoverlays.overlay_icon_state_caches 
+	var/list/icon_states_cache = SSoverlays.overlay_icon_state_caches
 	var/list/cached_icon = icon_states_cache[icon]
 	if (cached_icon)
 		var/cached_appearance = cached_icon["[iconstate]"]
@@ -132,10 +134,10 @@ var/datum/controller/subsystem/overlays/SSoverlays
 #define NOT_QUEUED_ALREADY (!(overlay_queued))
 #define QUEUE_FOR_COMPILE overlay_queued = TRUE; SSoverlays.processing += src;
 
-/atom/proc/cut_overlays(priority = FALSE)
+/atom/proc/cut_overlays(priority = FALSE, force_compile = FALSE)
 	var/list/cached_overlays = our_overlays
 	var/list/cached_priority = priority_overlays
-	
+
 	var/need_compile = FALSE
 
 	if(LAZYLEN(cached_overlays)) //don't queue empty lists, don't cut priority overlays
@@ -146,10 +148,13 @@ var/datum/controller/subsystem/overlays/SSoverlays
 		cached_priority.Cut()
 		need_compile = TRUE
 
-	if(NOT_QUEUED_ALREADY && need_compile)
-		QUEUE_FOR_COMPILE
+	if(need_compile)
+		if(!SS_IS_RUNNING(SSoverlays))
+			compile_overlays()
+		else if(NOT_QUEUED_ALREADY)
+			QUEUE_FOR_COMPILE
 
-/atom/proc/cut_overlay(list/overlays, priority)
+/atom/proc/cut_overlay(list/overlays, priority = FALSE, force_compile = FALSE)
 	if(!overlays)
 		return
 
@@ -164,10 +169,12 @@ var/datum/controller/subsystem/overlays/SSoverlays
 	if(priority)
 		LAZYREMOVE(cached_priority, overlays)
 
-	if(NOT_QUEUED_ALREADY && ((init_o_len != LAZYLEN(cached_priority)) || (init_p_len != LAZYLEN(cached_overlays))))
+	if(force_compile && !SS_IS_RUNNING(SSoverlays))
+		compile_overlays()
+	else if(NOT_QUEUED_ALREADY && ((init_o_len != LAZYLEN(cached_priority)) || (init_p_len != LAZYLEN(cached_overlays))))
 		QUEUE_FOR_COMPILE
 
-/atom/proc/add_overlay(list/overlays, priority = FALSE)
+/atom/proc/add_overlay(list/overlays, priority = FALSE, force_compile = FALSE)
 	if(!overlays)
 		return
 
@@ -182,10 +189,12 @@ var/datum/controller/subsystem/overlays/SSoverlays
 	else
 		LAZYADD(our_overlays, overlays)
 
-	if(NOT_QUEUED_ALREADY)
+	if(force_compile && !SS_IS_RUNNING(SSoverlays))
+		compile_overlays()
+	else if(NOT_QUEUED_ALREADY)
 		QUEUE_FOR_COMPILE
 
-/atom/proc/set_overlays(list/overlays, priority = FALSE)	// Sets overlays to a list, equivalent to cut_overlays() + add_overlays().
+/atom/proc/set_overlays(list/overlays, priority = FALSE, force_compile = FALSE)	// Sets overlays to a list, equivalent to cut_overlays() + add_overlays().
 	if (!overlays)
 		return
 
@@ -200,10 +209,12 @@ var/datum/controller/subsystem/overlays/SSoverlays
 		if (overlays)
 			LAZYADD(our_overlays, overlays)
 
-	if (NOT_QUEUED_ALREADY)
+	if(force_compile && !SS_IS_RUNNING(SSoverlays))
+		compile_overlays()
+	else if (NOT_QUEUED_ALREADY)
 		QUEUE_FOR_COMPILE
 
-/atom/proc/copy_overlays(atom/other, cut_old = FALSE)	//copys our_overlays from another atom
+/atom/proc/copy_overlays(atom/other, cut_old = FALSE, force_compile = FALSE)	//copys our_overlays from another atom
 	if(!other)
 		if(cut_old)
 			cut_overlays()
@@ -215,7 +226,9 @@ var/datum/controller/subsystem/overlays/SSoverlays
 			our_overlays = cached_other.Copy()
 		else
 			our_overlays |= cached_other
-		if(NOT_QUEUED_ALREADY)
+		if(force_compile && !SS_IS_RUNNING(SSoverlays))
+			compile_overlays()
+		else if(NOT_QUEUED_ALREADY)
 			QUEUE_FOR_COMPILE
 	else if(cut_old)
 		cut_overlays()

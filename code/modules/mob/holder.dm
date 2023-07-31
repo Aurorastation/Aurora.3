@@ -3,7 +3,7 @@ var/list/holder_mob_icon_cache = list()
 //Helper object for picking dionaea (and other creatures) up.
 /obj/item/holder
 	name = "holder"
-	desc = "You shouldn't ever see this."
+	desc = DESC_PARENT
 	icon = 'icons/mob/npc/held_mobs.dmi'
 	randpixel = 0
 	center_of_mass = null
@@ -117,6 +117,7 @@ var/list/holder_mob_icon_cache = list()
 		M.attackby(W,user)
 
 /obj/item/holder/dropped(mob/user)
+	. = ..()
 
 	///When an object is put into a container, drop fires twice.
 	//once with it on the floor, and then once in the container
@@ -125,7 +126,7 @@ var/list/holder_mob_icon_cache = list()
 		//Repeat this check
 		//If we're still on the turf a few frames later, then we have actually been dropped or thrown
 		//Release the mob accordingly
-		addtimer(CALLBACK(src, .proc/post_drop), 3)
+		addtimer(CALLBACK(src, PROC_REF(post_drop)), 3)
 		return
 
 	if (istype(loc, /obj/item/storage))	//The second drop reads the container its placed into as the location
@@ -204,7 +205,7 @@ var/list/holder_mob_icon_cache = list()
 		to_chat(grabber, "<span class='warning'>Your hand is full!</span>")
 		return
 
-	src.verbs += /mob/living/proc/get_holder_location//This has to be before we move the mob into the holder
+	add_verb(src,  /mob/living/proc/get_holder_location) //This has to be before we move the mob into the holder
 
 	spawn(2)
 		var/obj/item/holder/H = new holder_type(loc)
@@ -376,6 +377,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/carp/baby/verb/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object"
+	set src in usr
 
 	flags_inv ^= BLOCKHEADHAIR
 	to_chat(usr, SPAN_NOTICE("\The [src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
@@ -628,3 +630,25 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "schlorrgo_fat"
 	item_state = "schlorrgo_fat"
 	w_class = ITEMSIZE_LARGE
+
+/obj/item/holder/fish
+	name = "fish"
+	attack_verb = list("fished", "disrespected", "smacked", "smackereled")
+	icon = 'icons/mob/npc/fish.dmi'
+	icon_state = "fish_rest"
+	item_state = "fish_rest"
+	hitsound = 'sound/effects/snap.ogg'
+	force = 4//Being hit with an entire fish typically hurts
+	throwforce = 4//Having an entire fish thrown at you also hurts
+	throw_speed = 1//Because it's cinematic
+
+/obj/item/holder/fish/gupper
+	icon_state = "gupper_rest"
+	item_state = "gupper_rest"
+
+/obj/item/holder/fish/cod
+	icon_state = "cod_rest"
+	item_state = "cod_rest"
+	hitsound = 'sound/effects/snap.ogg'
+	force = 6//quite large fishey
+	throwforce = 6

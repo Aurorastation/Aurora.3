@@ -77,7 +77,7 @@
 // Holder object used for dimming openspaces & copying lighting of below turf.
 /atom/movable/openspace/multiplier
 	name = "openspace multiplier"
-	desc = "You shouldn't see this."
+	desc = DESC_PARENT
 	icon = 'icons/effects/lighting_overlay.dmi'
 	icon_state = "dark"
 	plane = OPENTURF_MAX_PLANE
@@ -100,7 +100,7 @@
 	appearance = LO
 	layer = MIMICED_LIGHTING_LAYER
 	plane = OPENTURF_MAX_PLANE
-	invisibility = 0
+	set_invisibility(101)
 	blend_mode = BLEND_MULTIPLY
 	if (icon_state == null)
 		// We're using a color matrix, so just darken the colors across the board.
@@ -184,19 +184,19 @@
 			deltimer(destruction_timer)
 			destruction_timer = null
 	else if (!destruction_timer)
-		destruction_timer = addtimer(CALLBACK(src, /datum/.proc/qdel_self), 10 SECONDS, TIMER_STOPPABLE)
+		destruction_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, qdel_self)), 10 SECONDS, TIMER_STOPPABLE)
 
 // Called when the turf we're on is deleted/changed.
 /atom/movable/openspace/mimic/proc/owning_turf_changed()
 	if (!destruction_timer)
-		destruction_timer = addtimer(CALLBACK(src, /datum/.proc/qdel_self), 10 SECONDS, TIMER_STOPPABLE)
+		destruction_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/datum, qdel_self)), 10 SECONDS, TIMER_STOPPABLE)
 
 // -- TURF PROXY --
 
 // This thing holds the mimic appearance for non-OVERWRITE turfs.
 /atom/movable/openspace/turf_proxy
 	plane = OPENTURF_MAX_PLANE
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	no_z_overlay = TRUE  // Only one of these should ever be visible at a time, the mimic logic will handle that.
 
 /atom/movable/openspace/turf_proxy/attackby(obj/item/W, mob/user)
@@ -218,7 +218,7 @@
 // A type for copying non-overwrite turfs' self-appearance.
 /atom/movable/openspace/turf_mimic
 	plane = OPENTURF_MAX_PLANE	// These *should* only ever be at the top?
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/turf/delegate
 
 /atom/movable/openspace/turf_mimic/Initialize(mapload, ...)

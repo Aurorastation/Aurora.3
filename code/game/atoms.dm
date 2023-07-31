@@ -47,8 +47,6 @@
 /atom/proc/return_air()
 	if(loc)
 		return loc.return_air()
-	else
-		return null
 
 // Returns src and all recursive contents in a list.
 /atom/proc/GetAllContents()
@@ -117,6 +115,9 @@
 /atom/proc/emp_act(var/severity)
 	return
 
+/atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
+	return
+
 /atom/proc/bullet_act(obj/item/projectile/P, def_zone)
 	P.on_hit(src, 0, def_zone)
 	. = 0
@@ -129,64 +130,66 @@
 		return 1
 	return
 
-// Helper for adding verbs with timers.
-/atom/proc/add_verb(the_verb, datum/callback/callback)
-	if (callback && !callback.Invoke())
-		return
 
-	verbs += the_verb
-
-#define HAS_FLAG(flag) (flag & use_flags)
-#define NOT_FLAG(flag) !HAS_FLAG(flag)
-
-// Checks if user can use this object. Set use_flags to customize what checks are done.
-// Returns 0 if they can use it, a value representing why they can't if not.
-// Flags are in "code/__defines/misc.dm".
+/**
+ * Checks if user can use this object. Set use_flags to customize what checks are done
+ * Returns 0 (FALSE) if they can use it, a value representing why they can't if not
+ * See `code\__defines\misc.dm` for the list of flags and return codes
+ *
+ * * user - The `mob` to check against, if it can perform said use
+ * * use_flags - The flags to modify the check behavior, eg. `USE_ALLOW_NON_ADJACENT`, see `code\__defines\misc.dm` for the list of flags
+ * * show_messages - A boolean, to indicate if a feedback message should be shown, about the reason why someone can't use the atom
+ */
 /atom/proc/use_check(mob/user, use_flags = 0, show_messages = FALSE)
 	. = USE_SUCCESS
-	if(NOT_FLAG(USE_ALLOW_NONLIVING) && !isliving(user)) // No message for ghosts.
+	if(NOT_FLAG(use_flags, USE_ALLOW_NONLIVING) && !isliving(user)) // No message for ghosts.
 		return USE_FAIL_NONLIVING
 
-	if(NOT_FLAG(USE_ALLOW_NON_ADJACENT) && !Adjacent(user))
+	if(NOT_FLAG(use_flags, USE_ALLOW_NON_ADJACENT) && !Adjacent(user))
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("You're too far away from [src] to do that."))
 		return USE_FAIL_NON_ADJACENT
 
-	if(NOT_FLAG(USE_ALLOW_DEAD) && user.stat == DEAD)
+	if(NOT_FLAG(use_flags, USE_ALLOW_DEAD) && user.stat == DEAD)
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("How do you expect to do that when you're dead?"))
 		return USE_FAIL_DEAD
 
-	if(NOT_FLAG(USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
+	if(NOT_FLAG(use_flags, USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("You cannot do that in your current state."))
 		return USE_FAIL_INCAPACITATED
 
-	if(NOT_FLAG(USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
+	if(NOT_FLAG(use_flags, USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("You don't know how to operate [src]."))
 		return USE_FAIL_NON_ADV_TOOL_USR
 
-	if(HAS_FLAG(USE_DISALLOW_SILICONS) && issilicon(user))
+	if(HAS_FLAG(use_flags, USE_DISALLOW_SILICONS) && issilicon(user))
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("How do you propose doing that without hands?"))
 		return USE_FAIL_IS_SILICON
 
-	if(HAS_FLAG(USE_DISALLOW_SPECIALS) && is_mob_special(user))
+	if(HAS_FLAG(use_flags, USE_DISALLOW_SPECIALS) && is_mob_special(user))
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("Your current mob type prevents you from doing this."))
 		return USE_FAIL_IS_MOB_SPECIAL
 
-	if(HAS_FLAG(USE_FORCE_SRC_IN_USER) && !(src in user))
+	if(HAS_FLAG(use_flags, USE_FORCE_SRC_IN_USER) && !(src in user))
 		if (show_messages)
 			to_chat(user, SPAN_NOTICE("You need to be holding [src] to do that."))
 		return USE_FAIL_NOT_IN_USER
 
+/**
+ * Checks if a mob can use an atom, message the user if not with an appropriate reason
+ * Returns 0 (FALSE) if they can use it, a value representing why they can't if not
+ * See `code\__defines\misc.dm` for the list of flags and return codes
+ *
+ * * user - The `mob` to check against, if it can perform said use
+ * * use_flags - The flags to modify the check behavior, eg. `USE_ALLOW_NON_ADJACENT`, see `code\__defines\misc.dm` for the list of flags
+ */
 /atom/proc/use_check_and_message(mob/user, use_flags = 0)
 	. = use_check(user, use_flags, TRUE)
-
-#undef NOT_FLAG
-#undef HAS_FLAG
 
 /atom/proc/get_light_and_color(var/atom/origin)
 	if(origin)
@@ -241,7 +244,7 @@
 			f_name = "some "
 		else
 			f_name = "a "
-		if(blood_color != "#030303")
+		if(blood_color != COLOR_IPC_BLOOD && blood_color != COLOR_OIL)
 			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
 		else
 			f_name += "oil-stained [name][infix]."
@@ -303,6 +306,30 @@
 
 	if(href_list["examine_fluff"])
 		examine_fluff(usr)
+
+	var/client/usr_client = usr.client
+	var/list/paramslist = list()
+	if(href_list["statpanel_item_click"])
+		switch(href_list["statpanel_item_click"])
+			if("left")
+				paramslist[LEFT_CLICK] = "1"
+			if("right")
+				paramslist[RIGHT_CLICK] = "1"
+			if("middle")
+				paramslist[MIDDLE_CLICK] = "1"
+			else
+				return
+
+		if(href_list["statpanel_item_shiftclick"])
+			paramslist[SHIFT_CLICK] = "1"
+		if(href_list["statpanel_item_ctrlclick"])
+			paramslist[CTRL_CLICK] = "1"
+		if(href_list["statpanel_item_altclick"])
+			paramslist[ALT_CLICK] = "1"
+
+		var/mouseparams = list2params(paramslist)
+		usr_client.Click(src, loc, null, mouseparams)
+		return TRUE
 
 // Called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled_to var set.
 // See code/modules/mob/mob_movement.dm for more.
@@ -378,7 +405,7 @@
 		add_fibers(M)
 
 		// They have no prints.
-		if (mFingerprints in M.mutations)
+		if (HAS_FLAG(M.mutations, mFingerprints))
 			if(fingerprintslast != M.key)
 				fingerprintshidden += "(Has no fingerprints) Real name: [M.real_name], Key: [M.key]"
 				fingerprintslast = M.key
@@ -525,14 +552,14 @@
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
 		if(istype(inject_reagents) && inject_reagents.total_volume)
 			inject_reagents.trans_to_obj(this, min(15, inject_reagents.total_volume))
-			this.reagents.add_reagent(/decl/reagent/acid/stomach, 5)
+			this.reagents.add_reagent(/singleton/reagent/acid/stomach, 5)
 
 		// Make toxins related vomit look different.
 		if(toxvomit)
 			this.icon_state = "vomittox_[pick(1,4)]"
 
 /mob/living/proc/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
-	vomit.reagents.add_reagent(/decl/reagent/acid/stomach, 5)
+	vomit.reagents.add_reagent(/singleton/reagent/acid/stomach, 5)
 
 /atom/proc/clean_blood()
 	if(!simulated)
@@ -677,3 +704,32 @@
 
 /atom/proc/handle_middle_mouse_click(var/mob/user)
 	return FALSE
+
+/atom/proc/handle_pointed_at(var/mob/pointer)
+	return
+
+/atom/proc/create_bullethole(obj/item/projectile/Proj)
+	var/p_x = Proj.p_x + rand(-6, 6)
+	var/p_y = Proj.p_y + rand(-6, 6)
+	var/obj/effect/overlay/bmark/bullet_mark = new(src)
+
+	bullet_mark.pixel_x = p_x
+	bullet_mark.pixel_y = p_y
+
+	//Offset correction
+	bullet_mark.pixel_x--
+	bullet_mark.pixel_y--
+
+	if(Proj.damage_flags & DAMAGE_FLAG_BULLET)
+		bullet_mark.icon_state = "dent"
+	else if(Proj.damage_flags & DAMAGE_FLAG_LASER)
+		bullet_mark.name = "scorch mark"
+		if(Proj.damage >= 20)
+			bullet_mark.icon_state = "scorch"
+			bullet_mark.set_dir(pick(NORTH,SOUTH,EAST,WEST)) // Pick random scorch design
+		else
+			bullet_mark.icon_state = "light_scorch"
+
+/atom/proc/clear_bulletholes()
+	for(var/obj/effect/overlay/bmark/bullet_mark in src)
+		qdel(bullet_mark)

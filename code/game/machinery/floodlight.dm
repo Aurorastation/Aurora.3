@@ -2,7 +2,7 @@
 /obj/machinery/floodlight
 	name = "industrial floodlight"
 	desc = "A series of large LEDs housed in a reflective frame, this is a cheap and easy way of lighting large areas during construction."
-	icon = 'icons/obj/machines/floodlight.dmi'
+	icon = 'icons/obj/machinery/floodlight.dmi'
 	icon_state = "flood00"
 	density = TRUE
 	obj_flags = OBJ_FLAG_ROTATABLE
@@ -17,7 +17,7 @@
 
 /obj/machinery/floodlight/Initialize()
 	. = ..()
-	cell = new /obj/item/cell/device(src) // 41minutes @ 200W
+	cell = new /obj/item/cell(src)
 
 /obj/machinery/floodlight/examine(mob/user)
 	. = ..()
@@ -44,7 +44,7 @@
 	// If the cell is almost empty rarely "flicker" the light. Aesthetic only.
 	if((cell.percent() < 10) && prob(5))
 		set_light(brightness_on/3, 0.5)
-		addtimer(CALLBACK(src, .proc/stop_flicker), 5, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(stop_flicker)), 5, TIMER_UNIQUE)
 
 	cell.use(use*CELLRATE)
 

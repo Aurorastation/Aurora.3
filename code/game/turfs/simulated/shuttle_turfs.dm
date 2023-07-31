@@ -180,6 +180,7 @@
 	density = TRUE
 	var/outside_part = TRUE
 	atmos_canpass = CANPASS_DENSITY
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED|OBJ_FLAG_NOFALL
 
 /obj/structure/shuttle_part/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(density)
@@ -412,75 +413,165 @@
 	icon_state = "6,2"
 
 //scc shuttle pieces
-
 /turf/simulated/wall/shuttle/unique/scc
 	name = "shuttle hull"
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
+	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi'
 	icon_state = "c1"
 
-//--Floors--//
+/obj/structure/shuttle_part/scc
+	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi'
+	icon_state = "c1"
 
+/obj/structure/window/shuttle/unique/scc
+	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi'
+	icon_state = "c1"
+
+//Canary pieces
+/turf/simulated/wall/shuttle/unique/scc/scout
+	name = "jester-type shuttle hull"
+	desc = "The hull and reinforcement of a Jester-type corporate skiff. The phoron-purple colored bands indicate this, in bold text as the SCCV Canary."
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
+	icon_state = "4,1"
+
+/obj/structure/shuttle_part/scc/scout
+	name = "jester-type shuttle hull"
+	desc = "The hull and reinforcement of a Jester-type corporate skiff. The phoron-purple colored bands indicate this, in bold text as the SCCV Canary."
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/scc/scout
+	name = "jester-type shuttle hull"
+	desc = "The hull and reinforcement of a Jester-type corporate skiff. This particular piece looks fragile and frames a cockpit viewport."
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/scc/scout/over
+	name = "jester-type shuttle cockpit"
+	desc = "The strong glass face of a Jester-type shuttle cockpit."
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/cockpit_windows.dmi'
+	icon_state = "4,1"
+	layer = ABOVE_ALL_MOB_LAYER
+
+//Intrepid pieces
+/turf/simulated/wall/shuttle/unique/scc/research
+	name = "pathfinder class shuttle hull"
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid."
+	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/complete_hull.dmi'
+	icon_state = "8,10"
+
+/obj/structure/shuttle_part/scc/research
+	name = "pathfinder class shuttle hull"
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid."
+	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/complete_hull.dmi'
+	icon_state = "5,8"
+
+/obj/structure/window/shuttle/unique/scc/research
+	name = "pathfinder class shuttle hull"
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. This particular piece looks fragile and frames a viewport."
+	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/complete_hull.dmi'
+	icon_state = "3,10"
+
+/obj/structure/window/shuttle/unique/scc/tall//For side windows of the hull, can overlap seamlessly
+	icon = 'icons/obj/spaceship/scc/windows_tall.dmi'
+	icon_state = "long1-1"
+
+/obj/structure/window/shuttle/unique/scc/research/over
+	name = "pathfinder class shuttle cockpit"
+	desc = "The strong glass face of a Pathfinder class shuttle cockpit."
+	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/cockpit_windows.dmi'
+	icon_state = "2,1"
+	layer = ABOVE_ALL_MOB_LAYER
+
+//Spark pieces
+/turf/simulated/wall/shuttle/unique/scc/mining
+	name = "pickaxe class shuttle hull"
+	desc = "The hull and reinforcement of a Pickaxe class corporate mining shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Spark."
+	icon = 'icons/turf/shuttles_unique/scc/mining_shuttle/complete_hull.dmi'
+	icon_state = "1,8"
+
+/obj/structure/shuttle_part/scc/mining
+	name = "pickaxe class shuttle hull"
+	desc = "The hull and reinforcement of a Pickaxe class corporate mining shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Spark."
+	icon = 'icons/turf/shuttles_unique/scc/mining_shuttle/complete_hull.dmi'
+	icon_state = "1,0"
+
+/obj/structure/window/shuttle/unique/scc/mining
+	name = "pickaxe class shuttle hull"
+	desc = "The hull and reinforcement of a Pickaxe class corporate mining shuttle. This particular piece looks fragile and frames a viewport."
+	icon = 'icons/turf/shuttles_unique/scc/mining_shuttle/complete_hull.dmi'
+	icon_state = "5,2"
+
+//--Floors--//
 /turf/simulated/floor/shuttle
 	name = "shuttle floor"
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "floor"
 	permit_ao = 0
-	initial_flooring = /decl/flooring/shuttle
-	footstep_sound = /decl/sound_category/plating_footstep
+	initial_flooring = /singleton/flooring/shuttle
+	footstep_sound = /singleton/sound_category/plating_footstep
 
 /turf/simulated/floor/shuttle/yellow
 	icon_state = "floor2"
-	initial_flooring = /decl/flooring/shuttle/yellow
+	initial_flooring = /singleton/flooring/shuttle/yellow
 
 /turf/simulated/floor/shuttle/white
 	icon_state = "floor3"
-	initial_flooring = /decl/flooring/shuttle/white
+	initial_flooring = /singleton/flooring/shuttle/white
 
 /turf/simulated/floor/shuttle/red
 	icon_state = "floor4"
-	initial_flooring = /decl/flooring/shuttle/red
+	initial_flooring = /singleton/flooring/shuttle/red
 
 /turf/simulated/floor/shuttle/dark_red
 	icon_state = "floor6"
-	initial_flooring = /decl/flooring/shuttle/dark_red
+	initial_flooring = /singleton/flooring/shuttle/dark_red
 
 /turf/simulated/floor/shuttle/black
 	icon_state = "floor7"
-	initial_flooring = /decl/flooring/shuttle/black
+	initial_flooring = /singleton/flooring/shuttle/black
 
 /turf/simulated/floor/shuttle/tan
 	icon_state = "floor8"
-	initial_flooring = /decl/flooring/shuttle/tan
+	initial_flooring = /singleton/flooring/shuttle/tan
 
 /turf/simulated/floor/shuttle/dark_blue
 	icon_state = "floor9"
-	initial_flooring = /decl/flooring/shuttle/dark_blue
+	initial_flooring = /singleton/flooring/shuttle/dark_blue
+
+/turf/simulated/floor/shuttle/dark_blue/airless
+	initial_gas = null
 
 /turf/simulated/floor/shuttle/advanced
 	icon_state = "advanced_plating"
-	initial_flooring = /decl/flooring/shuttle/advanced
+	initial_flooring = /singleton/flooring/shuttle/advanced
 
 /turf/simulated/floor/shuttle/advanced/alt
 	icon_state = "advanced_plating_alt"
-	initial_flooring = /decl/flooring/shuttle/advanced/alt
+	initial_flooring = /singleton/flooring/shuttle/advanced/alt
 
 /turf/simulated/floor/shuttle/skrell
 	icon_state = "skrell_purple"
-	initial_flooring = /decl/flooring/shuttle/skrell
-	footstep_sound = /decl/sound_category/sand_footstep
+	initial_flooring = /singleton/flooring/shuttle/skrell
+	footstep_sound = /singleton/sound_category/sand_footstep
+
+/turf/simulated/floor/shuttle/skrell/airless
+	initial_gas = null
 
 /turf/simulated/floor/shuttle/skrell/blue
 	icon_state = "skrell_blue"
-	initial_flooring = /decl/flooring/shuttle/skrell/blue
+	initial_flooring = /singleton/flooring/shuttle/skrell/blue
+
+/turf/simulated/floor/shuttle/skrell/blue/airless
+	initial_gas = null
 
 /turf/simulated/floor/shuttle/skrell/ramp
 	name = "footramp"
 	icon_state = "skrellramp-bottom"
-	initial_flooring = /decl/flooring/shuttle/skrell/ramp
+	initial_flooring = /singleton/flooring/shuttle/skrell/ramp
 
 /turf/simulated/floor/shuttle/skrell/ramp/top
 	icon_state = "skrellramp-top"
-	initial_flooring = /decl/flooring/shuttle/skrell/ramp/top
+	initial_flooring = /singleton/flooring/shuttle/skrell/ramp/top
 
 //--Roofs--//
 
@@ -490,8 +581,7 @@
 	icon_state = "roof_white"
 	smooth = SMOOTH_DIAGONAL|SMOOTH_TRUE
 	smooth_underlays = TRUE
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	roof_type = null
 	permit_ao = 0
 	canSmoothWith = list(

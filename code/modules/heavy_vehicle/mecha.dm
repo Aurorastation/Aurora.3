@@ -45,6 +45,7 @@
 
 	// Remote control stuff
 	var/remote = FALSE // Spawns a robotic pilot to be remote controlled
+	var/remote_type = /obj/item/remote_mecha
 	var/does_hardpoint_lock = TRUE
 	var/mob/living/simple_animal/spiderbot/dummy // The remote controlled dummy
 	var/dummy_type = /mob/living/simple_animal/spiderbot
@@ -55,9 +56,6 @@
 	var/obj/item/mech_component/propulsion/legs
 	var/obj/item/mech_component/sensors/head
 	var/obj/item/mech_component/chassis/body
-
-	// Invisible components.
-	var/datum/effect/effect/system/spark_spread/sparks
 
 	// Equipment tracking vars.
 	var/obj/item/mecha_equipment/selected_system
@@ -96,6 +94,12 @@
 
 	selected_system = null
 
+	for(var/hardpoint in hardpoints)
+		var/obj/item/S = remove_system(hardpoint, force = 1)
+		qdel(S)
+
+	hardpoints = null
+
 	for(var/thing in pilots)
 		var/mob/pilot = thing
 		if(pilot.client)
@@ -111,13 +115,19 @@
 
 	hardpoint_hud_elements = null
 
-	hardpoints = null
-
 	QDEL_NULL(access_card)
 	QDEL_NULL(arms)
 	QDEL_NULL(legs)
 	QDEL_NULL(head)
 	QDEL_NULL(body)
+
+	QDEL_NULL(hud_health)
+	QDEL_NULL(hud_open)
+	QDEL_NULL(hud_power)
+	QDEL_NULL(hud_power_control)
+
+	QDEL_NULL(camera)
+	QDEL_NULL(radio)
 
 	. = ..()
 
@@ -150,7 +160,7 @@
 	for(var/obj/item/mech_component/thing in list(arms, legs, head, body))
 		if(!thing)
 			continue
-		var/damage_string = "destroyed"
+		var/damage_string = ""
 		switch(thing.damage_state)
 			if(1)
 				damage_string = "undamaged"
@@ -159,7 +169,7 @@
 			if(3)
 				damage_string = "<span class='warning'>badly damaged</span>"
 			if(4)
-				damage_string = "<span class='danger'>almost destroyed</span>"
+				damage_string = "<span class='danger'>destroyed</span>"
 		to_chat(user, "Its <b>[thing.name]</b> [thing.gender == PLURAL ? "are" : "is"] [damage_string].")
 
 /mob/living/heavy_vehicle/Topic(href,href_list[])
@@ -230,7 +240,7 @@
 		MR.start_charging(src)
 
 /mob/living/heavy_vehicle/return_air()
-	return (body && body.pilot_coverage >= 100 && hatch_closed) ? body.cockpit : loc.return_air()
+	return (body && body.pilot_coverage >= 100 && hatch_closed) ? body.cockpit : loc?.return_air()
 
 /mob/living/heavy_vehicle/GetIdCard()
 	return access_card
@@ -287,7 +297,7 @@
 		if(istype(exosuit) && exosuit.head && exosuit.head.radio && exosuit.head.radio.is_functional())
 			return ..()
 
-/obj/item/device/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = mech_state)
+/obj/item/device/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = mech_state)
 	. = ..()
 
 /mob/living/heavy_vehicle/proc/become_remote()
@@ -306,10 +316,8 @@
 	dummy = new dummy_type(get_turf(src))
 	dummy.real_name = "Remote-Bot"
 	dummy.name = dummy.real_name
-	dummy.mmi = new /obj/item/device/mmi(dummy) // this is literally just because i luck the aesthetics - geeves
-	dummy.verbs -= /mob/living/proc/ventcrawl
-	dummy.verbs -= /mob/living/proc/hide
-	dummy.update_icon()
+	remove_verb(dummy, /mob/living/proc/ventcrawl)
+	remove_verb(dummy, /mob/living/proc/hide)
 	if(dummy_colour)
 		dummy.color = dummy_colour
 	enter(dummy, TRUE)

@@ -161,15 +161,6 @@
 	handies["gustatorial centre (left hand)"] = /obj/item/organ/internal/augment/gustatorial/hand/left
 	gear_tweaks += new /datum/gear_tweak/path(handies)
 
-/datum/gear/augment/drill
-	display_name = "integrated drill"
-	description = "A mining drill integrated in the hand. The drill is heavy, so only industrial IPCs can use it."
-	path = /obj/item/organ/internal/augment/tool/drill
-	whitelisted = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
-	allowed_roles = list("Shaft Miner")
-	cost = 5
-	sort_category = "Xenowear - IPC"
-
 /datum/gear/augment/drill/New()
 	..()
 	var/list/augs = list()
@@ -187,7 +178,7 @@
 /datum/gear/accessory/ipcmantle
 	display_name = "Burzsian mantle"
 	description = "A uniform mantle identifying Hephaestus IPC's from Burzsia. Operation history and specifications are printed underneath the tarp."
-	path = /obj/item/clothing/accessory/poncho/ipc_mantle
+	path = /obj/item/clothing/accessory/poncho/burzsian_mantle
 	sort_category = "Xenowear - IPC"
 	cost = 1
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)

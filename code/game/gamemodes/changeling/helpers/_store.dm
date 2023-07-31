@@ -10,7 +10,7 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling
 	var/allowduringlesserform = FALSE
-	var/genomecost = 69420 // Cost for the changling to evolve this power.
+	var/genomecost = 69420 // Cost for the changeling to evolve this power.
 
 //DNA absorption
 
@@ -112,7 +112,7 @@ var/list/datum/power/changeling/powerinstances = list()
 /datum/power/changeling/blind_sting
 	name = "Blind Sting"
 	desc = "We sting a human, completely blinding them for a short time."
-	genomecost = 2
+	genomecost = 1
 	allowduringlesserform = TRUE
 	verbpath = /mob/proc/changeling_blind_sting
 
@@ -120,7 +120,7 @@ var/list/datum/power/changeling/powerinstances = list()
 	name = "Silence Sting"
 	desc = "We silently sting a human, completely silencing them for a short time."
 	helptext = "Does not provide a warning to a victim that they have been stung, until they try to speak and cannot."
-	genomecost = 3
+	genomecost = 2
 	allowduringlesserform = TRUE
 	verbpath = /mob/proc/changeling_silence_sting
 
@@ -139,14 +139,14 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/hallucinate_sting
 	name = "Hallucination Sting"
-	desc = "We evolve the ability to sting a target with a powerful hallunicationary chemical."
+	desc = "We evolve the ability to sting a target with a powerful hallucinogenic chemical."
 	helptext = "The target does not notice they have been stung. The effect occurs after five to fifteen seconds."
 	genomecost = 3
 	verbpath = /mob/proc/changeling_hallucinate_sting
 
 /datum/power/changeling/death_sting
 	name = "Death Sting"
-	desc = "We sting a human, transfering five units of cyanide. Their death is likely, unless immediate intervention occurs."
+	desc = "We sting a human, transferring five units of cyanide. Their death is likely, unless immediate intervention occurs."
 	genomecost = 10
 	verbpath = /mob/proc/changeling_death_sting
 
@@ -174,6 +174,14 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 4
 	isVerb = FALSE
 	verbpath = /mob/proc/changeling_engorgedglands
+
+/datum/power/changeling/nobreathing
+	name = "UPGRADE: No Breathing"
+	desc = "We no longer have need to breathe, although we go through the motions to fool observers."
+	helptext = "Harmful gas can still irritate your eyes and this doesn't mean you can survive in space without a suit. Lung damage can still hurt somewhat."
+	genomecost = 2
+	isVerb = FALSE
+	verbpath = /mob/proc/changeling_nobreathing
 
 /datum/power/changeling/space_adaption
 	name = "UPGRADE: Space Adaption"
@@ -204,7 +212,7 @@ var/list/datum/power/changeling/powerinstances = list()
 /datum/power/changeling/armblades
 	name = "Mutate Armblades"
 	desc = "Permits us to reshape our arms into a deadly blade."
-	genomecost = 4
+	genomecost = 3
 	verbpath = /mob/proc/armblades
 
 /datum/power/changeling/shield
@@ -213,16 +221,56 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 3
 	verbpath = /mob/proc/changeling_shield
 
+/datum/power/changeling/armor
+	name = "Integrated Armor"
+	desc = "We evolve our skin to harden in response to trauma."
+	helptext = "Gives us innate armor, slightly worse than heavy armor."
+	genomecost = 1
+	isVerb = FALSE
+	verbpath = /mob/proc/changeling_armor
+
+/datum/power/changeling/resonant_shriek
+	name = "Resonant Shriek"
+	desc = "Our lungs and vocal chords evolve, allowing us to briefly emit a noise that deafens and confuses the weak-minded."
+	helptext = "Lights are blown, organics are disoriented, and synthetics act as if they were flashed."
+	genomecost = 3
+	isVerb = TRUE
+	verbpath = /mob/proc/resonant_shriek
+
+/datum/power/changeling/dissonant_shriek
+	name = "Dissonant Shriek"
+	desc = "We shift our vocal chords to release a high-frequency sound that overloads synthetics and nearby electronics."
+	helptext = "Creates a moderate sized EMP."
+	genomecost = 3
+	isVerb = TRUE
+	verbpath = /mob/proc/dissonant_shriek
+
+/datum/power/changeling/augmented_eyesight
+	name = "Augmented Eyesight"
+	desc = "Creates heat receptors in our eyes and dramatically increases light sensing ability."
+	helptext = "Grants us thermal vision that can be toggled on or off. This decreases our resistance to flashing."
+	genomecost = 2
+	isVerb = TRUE
+	verbpath = /mob/proc/changeling_thermals
+
+/datum/power/changeling/electric_lockpick
+	name = "Electric Lockpick"
+	desc = "We discreetly evolve a finger to be able to send a small electric charge.  \
+	We can open most electrical locks, but it will be obvious when we do so."
+	helptext = "Use the ability, then touch something that utilizes an electrical locking system, to open it.  Each use costs 10 chemicals."
+	genomecost = 1
+	verbpath = /mob/proc/changeling_electric_lockpick
+
 /datum/power/changeling/horror_form
 	name = "Horror Form"
-	desc = "We tear apart our human disguise, revealing our true form."
-	helptext = "We will return to our current form after ten minutes."
-	genomecost = 15
+	desc = "We tear apart our human disguise, revealing our true and ultimate form."
+	helptext = "We will assume our ultimate form. This is irreversible. While we are in this state, we are extremely powerful."
+	genomecost = 10
 	verbpath = /mob/proc/horror_form
 
 // Modularchangling, totally stolen from the new player panel.  YAYY
 //I'm too afraid to touch this, you win this time, oldcode - Geeves
-// After an HTML course, I finally conquered this. Convert into VueUi eventually. - Geeves
+// After an HTML course, I finally conquered this. Convert into TGUI eventually. - Geeves
 /datum/changeling/proc/EvolutionMenu()//The new one
 	set category = "Changeling"
 	set desc = "Buy new abilities with the genomes we obtained."
@@ -236,7 +284,7 @@ var/list/datum/power/changeling/powerinstances = list()
 		for(var/P in powers)
 			powerinstances += new P()
 
-	var/dat = "<html><head><title>Changling Evolution Menu</title></head>"
+	var/dat = "<html><head><title>Changeling Evolution Menu</title></head>"
 
 	//javascript, the part that does most of the work~
 	dat += {"

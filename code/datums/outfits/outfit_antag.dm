@@ -38,7 +38,8 @@
 	var/obj/item/device/radio/uplink/U = H.r_store
 	if(istype(U))
 		U.hidden_uplink.uplink_owner = H.mind
-		U.hidden_uplink.uses = uplink_uses
+		U.hidden_uplink.telecrystals = uplink_uses
+		U.hidden_uplink.bluecrystals = round(uplink_uses / 2)
 		U.hidden_uplink.nanoui_menu = 1
 
 /datum/outfit/admin/syndicate/get_id_access()
@@ -189,7 +190,7 @@
 	allow_backbag_choice = FALSE
 
 	uniform = list(
-		/obj/item/clothing/under/serviceoveralls,
+		/obj/item/clothing/under/service_overalls,
 		/obj/item/clothing/under/det/zavod,
 		/obj/item/clothing/under/color/brown,
 		/obj/item/clothing/under/syndicate/tracksuit,
@@ -201,10 +202,10 @@
 		/obj/item/clothing/under/lance,
 		/obj/item/clothing/under/legion/pilot,
 		/obj/item/clothing/under/offworlder,
-		/obj/item/clothing/under/pants,
+		/obj/item/clothing/under/pants/jeans,
 		/obj/item/clothing/under/pants/camo,
 		/obj/item/clothing/under/pants/khaki,
-		/obj/item/clothing/under/pants/musthang,
+		/obj/item/clothing/under/pants/mustang,
 		/obj/item/clothing/under/rank/bartender,
 		/obj/item/clothing/under/rank/hangar_technician/heph,
 		/obj/item/clothing/under/rank/chef,
@@ -232,7 +233,7 @@
 		/obj/item/clothing/accessory/poncho/roles/cloak/cargo,
 		/obj/item/clothing/accessory/poncho/roles/cloak/mining,
 		/obj/item/clothing/accessory/poncho/roles/cloak/rd,
-		/obj/item/clothing/suit/apron/overalls/random,
+		/obj/item/clothing/accessory/overalls/random,
 		/obj/item/clothing/suit/captunic/capjacket,
 		/obj/item/clothing/suit/ianshirt,
 		/obj/item/clothing/suit/storage/toggle/fib,
@@ -243,7 +244,7 @@
 		/obj/item/clothing/suit/storage/leathercoat,
 		/obj/item/clothing/suit/storage/vest/ft,
 		/obj/item/clothing/suit/storage/toggle/dominia/bomber,
-		/obj/item/clothing/suit/storage/toggle/dominia/gold,
+		/obj/item/clothing/suit/storage/dominia/gold,
 		/obj/item/clothing/suit/storage/toggle/flannel,
 		/obj/item/clothing/suit/storage/toggle/flannel/gray,
 		/obj/item/clothing/suit/storage/toggle/flannel/red,
@@ -289,8 +290,7 @@
 		/obj/item/clothing/head/beanie/random,
 		/obj/item/clothing/head/beaverhat,
 		/obj/item/clothing/head/cowboy,
-		/obj/item/clothing/head/fedora/brown,
-		/obj/item/clothing/head/fedora/grey,
+		/obj/item/clothing/head/fedora,
 		/obj/item/clothing/head/fez,
 		/obj/item/clothing/head/flatcap,
 		/obj/item/clothing/head/headbando/random,
@@ -520,7 +520,7 @@
 	allow_backbag_choice = FALSE
 
 	head = /obj/item/clothing/head/culthood/alt
-	uniform = /obj/item/clothing/under/serviceoveralls
+	uniform = /obj/item/clothing/under/service_overalls
 	suit = /obj/item/clothing/suit/cultrobes/alt
 	back = /obj/item/storage/backpack/cultpack
 	belt = /obj/item/book/tome

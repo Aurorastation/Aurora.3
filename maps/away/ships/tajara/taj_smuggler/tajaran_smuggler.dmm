@@ -37,9 +37,7 @@
 	},
 /area/tajaran_smuggler)
 "aci" = (
-/obj/machinery/computer/ship/engines{
-	dir = 1
-	},
+/obj/machinery/computer/ship/engines,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -277,7 +275,9 @@
 	},
 /area/tajaran_smuggler/dorms)
 "aSi" = (
-/obj/machinery/computer/ship/sensors,
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -676,7 +676,8 @@
 /area/tajaran_smuggler)
 "dhp" = (
 /obj/machinery/computer/ship/helm{
-	req_access = null
+	req_access = null;
+	dir = 1
 	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
@@ -2035,7 +2036,6 @@
 /area/tajaran_smuggler)
 "kpn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -2513,6 +2513,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/item/device/gps/engineering,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2824,7 +2825,10 @@
 	},
 /area/tajaran_smuggler)
 "pfE" = (
-/turf/simulated/floor/foamedmetal,
+/obj/structure/foamedmetal,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
 /area/tajaran_smuggler)
 "phC" = (
 /obj/structure/table/steel,
@@ -2952,6 +2956,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/device/gps/engineering,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3469,7 +3474,10 @@
 	},
 /area/tajaran_smuggler/atmos)
 "uhO" = (
-/turf/simulated/floor/foamedmetal,
+/obj/structure/foamedmetal,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
 /area/tajaran_smuggler/engine)
 "utm" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3792,6 +3800,7 @@
 	req_one_access = null;
 	pixel_y = 32
 	},
+/obj/item/device/gps/engineering,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3943,7 +3952,9 @@
 	},
 /area/tajaran_smuggler)
 "yin" = (
-/obj/machinery/computer/ship/navigation,
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},

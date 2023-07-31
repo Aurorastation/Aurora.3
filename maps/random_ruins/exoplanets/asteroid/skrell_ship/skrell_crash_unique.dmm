@@ -1,0 +1,1631 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"ab" = (
+/obj/structure/window/shuttle/skrell,
+/obj/structure/grille/diagonal{
+	icon_state = "grille_diagonal";
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"ad" = (
+/obj/structure/window/shuttle/skrell,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"ae" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"af" = (
+/obj/structure/grille/broken,
+/obj/item/stack/rods,
+/obj/item/material/shard/phoron,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"ag" = (
+/obj/structure/window/shuttle/skrell,
+/obj/structure/grille/diagonal,
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"ah" = (
+/obj/structure/bed/stool/chair/office/hover{
+	icon_state = "hover_chair";
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"ai" = (
+/obj/structure/grille,
+/obj/item/material/shard/phoron,
+/turf/simulated/floor/airless,
+/area/template_noop)
+"aj" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/template_noop)
+"al" = (
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"am" = (
+/obj/structure/windoor_assembly{
+	dir = 2;
+	icon_state = "l_windoor_assembly01";
+	name = "Command Copula"
+	},
+/turf/simulated/floor/shuttle/skrell/ramp{
+	initial_gas = list()
+	},
+/area/template_noop)
+"an" = (
+/obj/structure/window/shuttle/skrell,
+/obj/structure/grille/diagonal{
+	icon_state = "grille_diagonal";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"ao" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/skrell,
+/obj/item/paper_scanner,
+/obj/item/pen/black,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/template_noop)
+"ap" = (
+/turf/simulated/wall/shuttle/skrell,
+/area/template_noop)
+"aq" = (
+/turf/template_noop,
+/area/template_noop)
+"ar" = (
+/obj/structure/table/skrell,
+/obj/item/reagent_containers/food/snacks/skrellsnacks,
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"as" = (
+/obj/structure/bed/roller/hover,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"at" = (
+/obj/structure/table/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"au" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/skrell,
+/obj/item/skrell_projector,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/template_noop)
+"av" = (
+/obj/structure/bed/stool/chair/office/hover/command{
+	icon_state = "hover_command";
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/template_noop)
+"aw" = (
+/obj/structure/closet/crate/freezer,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"ax" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/skrell,
+/obj/item/stack/rods,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/template_noop)
+"ay" = (
+/obj/effect/decal/cleanable/blood/tracks/footprints{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"az" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/template_noop)
+"aA" = (
+/obj/machinery/bodyscanner,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"aB" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Bridge"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"aC" = (
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"aD" = (
+/obj/structure/blocker/steel,
+/obj/structure/door_assembly/door_assembly_skrell{
+	name = "Bridge"
+	},
+/obj/structure/inflatable/door,
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"aE" = (
+/obj/item/device/breath_analyzer,
+/obj/item/surgery/scalpel,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"aF" = (
+/obj/machinery/body_scanconsole{
+	icon_state = "body_scannerconsole";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/item/storage/firstaid/surgery,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"aG" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"aH" = (
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"aI" = (
+/obj/effect/decal/cleanable/blood/tracks/footprints{
+	basecolor = "#0081CD"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"aJ" = (
+/obj/machinery/light/skrell,
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"aK" = (
+/obj/structure/blocker/steel,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"aL" = (
+/obj/item/reagent_containers/food/snacks/skrellsnacks,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"aM" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"aN" = (
+/obj/machinery/bioprinter,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"aO" = (
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"aP" = (
+/obj/structure/table/skrell,
+/obj/item/roller/hover,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"aQ" = (
+/obj/item/device/flashlight/pen,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"aR" = (
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"aS" = (
+/obj/item/stack/rods,
+/obj/structure/grille/broken,
+/obj/item/material/shard/phoron,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"aT" = (
+/obj/item/material/shard/phoron{
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"aU" = (
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"aV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"aW" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/obj/item/reagent_containers/blood/empty,
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"aY" = (
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"aZ" = (
+/obj/structure/closet/walllocker/medical{
+	desc = "It's wall-mounted storage unit for medical supplies. It has almost come off its mounts.";
+	name = "Dilapitated medical closet";
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"ba" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/skrell,
+/obj/item/material/shard/phoron,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/template_noop)
+"bb" = (
+/obj/machinery/door/airlock/skrell/grey,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"bc" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Cryogenics"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"bd" = (
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"be" = (
+/obj/effect/decal/cleanable/blood/tracks/footprints,
+/obj/item/stack/material/steel,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"bf" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "loadingarea";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/bed/roller/hover,
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/obj/item/clothing/under/skrell/qeblak,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"bg" = (
+/obj/structure/table/skrell,
+/obj/item/device/flashlight/heavy,
+/obj/machinery/cell_charger,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"bh" = (
+/obj/item/storage/box/gloves,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "loadingarea";
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"bi" = (
+/obj/machinery/porta_turret_construct/dark,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"bj" = (
+/obj/item/stack/material/plasteel,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"bk" = (
+/obj/structure/closet/firecloset/full,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"bl" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"bm" = (
+/obj/structure/closet/radiation,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"bn" = (
+/obj/structure/closet/toolcloset,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"bo" = (
+/obj/machinery/constructable_frame/machine_frame,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"bp" = (
+/obj/item/storage/box/freezer/organcooler,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"bq" = (
+/obj/machinery/autolathe,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"br" = (
+/obj/structure/closet/secure_closet/engineering_welding,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"bs" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"bt" = (
+/obj/structure/closet/skrell,
+/obj/item/clothing/ears/skrell/band/bluejewels,
+/obj/item/clothing/head/helmet/space/void/skrell/white,
+/obj/item/clothing/mask/breath/skrell,
+/obj/item/clothing/suit/space/void/skrell/white,
+/obj/item/clothing/under/skrell,
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"bu" = (
+/obj/structure/shuttle/engine/heater{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"bv" = (
+/obj/structure/table/skrell,
+/obj/item/storage/box/sharps,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"bw" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Medbay"
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"by" = (
+/obj/structure/table/skrell,
+/obj/item/nralakktag,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"bz" = (
+/obj/structure/closet/skrell,
+/obj/machinery/light/skrell,
+/obj/item/clothing/ears/skrell/band/ebony,
+/obj/item/clothing/head/helmet/space/void/skrell/black,
+/obj/item/clothing/mask/breath/skrell,
+/obj/item/clothing/suit/space/void/skrell/black,
+/obj/item/clothing/under/skrell,
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"bA" = (
+/obj/effect/decal/cleanable/blood/tracks/footprints,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"bB" = (
+/obj/machinery/cryopod,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"bD" = (
+/obj/structure/blocker/steel,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"bE" = (
+/obj/structure/table/skrell,
+/obj/machinery/light/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"bF" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/item/material/shard/phoron,
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/template_noop)
+"bG" = (
+/obj/item/device/t_scanner,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"bH" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"bI" = (
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"bJ" = (
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/obj/effect/decal/cleanable/blood/tracks/footprints{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"bK" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"bL" = (
+/obj/item/clothing/under/skrell,
+/obj/item/clothing/suit/space/void/skrell/black,
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"bP" = (
+/obj/structure/bed/stool/chair/office/hover,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"bR" = (
+/obj/structure/grille,
+/obj/structure/window/shuttle/skrell,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"bS" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"bT" = (
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"bU" = (
+/obj/item/landmine/emp{
+	deployed = 1
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"bV" = (
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"bW" = (
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"bX" = (
+/obj/structure/blocker/steel,
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"bY" = (
+/obj/structure/table/skrell,
+/obj/item/device/healthanalyzer,
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"bZ" = (
+/obj/structure/table/skrell,
+/obj/item/device/mass_spectrometer/adv,
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"ca" = (
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"cb" = (
+/obj/effect/decal/cleanable/blood/tracks/footprints{
+	basecolor = "#0081CD"
+	},
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"cc" = (
+/obj/item/reagent_containers/blood/ripped,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/light/skrell,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"cd" = (
+/obj/item/clothing/head/helmet/space/void/skrell/white,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"ce" = (
+/obj/structure/sign/flag/nralakk/large/north,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"cf" = (
+/obj/structure/table/skrell,
+/obj/item/reagent_containers/food/snacks/skrellsnacks,
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"cg" = (
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"ch" = (
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/obj/effect/decal/cleanable/blood/tracks/footprints{
+	basecolor = "#0081CD"
+	},
+/obj/item/clothing/mask/breath/skrell,
+/obj/item/clothing/under/skrell,
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"ci" = (
+/obj/structure/girder/displaced,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"ck" = (
+/obj/effect/decal/cleanable/blood/tracks/footprints,
+/obj/item/clothing/under/offworlder,
+/obj/random/weapon_and_ammo{
+	chosen_rarity = "Common"
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"cm" = (
+/obj/structure/cryofeed{
+	icon_state = "cryo_rear";
+	dir = 2
+	},
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/obj/structure/sign/flag/nralakk{
+	pixel_y = 32
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"co" = (
+/obj/structure/table/skrell,
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/obj/item/trash/semki,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"cp" = (
+/obj/item/clothing/head/helmet/space/void/skrell/black,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"cq" = (
+/obj/structure/table/reinforced/steel{
+	dir = 8;
+	flipped = 1
+	},
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"cr" = (
+/obj/effect/decal/cleanable/blood{
+	basecolor = "#0081CD"
+	},
+/obj/item/clothing/under/skrell,
+/obj/item/clothing/suit/space/void/skrell/white,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"cs" = (
+/obj/effect/decal/cleanable/blood/drip{
+	basecolor = "#0081CD"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"ct" = (
+/obj/item/trash/plate,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"cu" = (
+/obj/structure/table/skrell,
+/obj/item/trash/skrellsnacks,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"cv" = (
+/obj/structure/table/skrell,
+/obj/item/trash/snack_bowl,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"cw" = (
+/obj/structure/door_assembly/door_assembly_skrell{
+	name = "Cryogenics"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"cx" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"cy" = (
+/obj/structure/window/shuttle/skrell,
+/obj/structure/grille/diagonal{
+	icon_state = "grille_diagonal";
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"cz" = (
+/turf/simulated/wall/shuttle/skrell/cardinal,
+/area/template_noop)
+"cA" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"cB" = (
+/obj/item/storage/firstaid/adv,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"cC" = (
+/obj/effect/decal/cleanable/blood/xeno,
+/obj/item/clothing/under/gearharness,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"cD" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"cH" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"cI" = (
+/obj/item/storage/firstaid,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"cJ" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/item/plastique,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"cK" = (
+/obj/item/storage/firstaid/fire,
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"cL" = (
+/obj/item/weldingtool/largetank,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"cM" = (
+/obj/item/stack/material/steel,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"cN" = (
+/obj/machinery/door/airlock/skrell/grey{
+	locked = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"cO" = (
+/obj/structure/girder,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"cP" = (
+/obj/item/stack/material/steel,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"cQ" = (
+/obj/item/stack/material/plasteel,
+/obj/item/powerdrill,
+/obj/item/landmine/frag{
+	deployed = 1;
+	layer = 2
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
+"fS" = (
+/obj/machinery/light/skrell,
+/turf/simulated/floor/shuttle/skrell,
+/area/template_noop)
+"Dz" = (
+/obj/structure/table/skrell,
+/obj/machinery/light/skrell,
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"OB" = (
+/obj/structure/closet/skrell,
+/obj/random/weapon_and_ammo,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
+"Th" = (
+/turf/simulated/floor/shuttle/skrell/airless,
+/area/template_noop)
+"Ug" = (
+/turf/simulated/floor/shuttle/skrell/blue/airless,
+/area/template_noop)
+"Vf" = (
+/obj/structure/window/shuttle/skrell,
+/obj/structure/grille,
+/turf/simulated/floor/airless,
+/area/template_noop)
+
+(1,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aa
+aa
+aa
+aa
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+"}
+(2,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+ap
+ad
+cD
+ad
+ap
+aa
+aa
+aa
+aa
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+"}
+(3,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+ap
+ca
+cr
+aR
+ap
+aq
+aa
+aa
+aa
+aa
+aq
+aq
+aq
+aa
+aa
+aa
+aa
+aq
+aq
+"}
+(4,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+ap
+ap
+ap
+ap
+ap
+aS
+cD
+ad
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+aa
+aa
+aa
+aq
+"}
+(5,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+ap
+ce
+bW
+cd
+aM
+aT
+aH
+aH
+bb
+aH
+bW
+aH
+bb
+aH
+aH
+fS
+ap
+bg
+ap
+ap
+aa
+aq
+aq
+"}
+(6,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+ap
+aH
+cC
+aL
+ck
+aH
+cb
+aH
+ap
+aH
+bU
+aH
+ap
+bi
+aH
+aH
+cN
+aR
+bl
+cH
+aa
+aq
+aq
+"}
+(7,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+ap
+ad
+ad
+ap
+aK
+aK
+cz
+cz
+bw
+ap
+ap
+ap
+ap
+bc
+ap
+ap
+ap
+aH
+aH
+ap
+aR
+ap
+ap
+aa
+aa
+aq
+"}
+(8,1,1) = {"
+aq
+aq
+ab
+ad
+ad
+ap
+ap
+bt
+bz
+ap
+bV
+aH
+cz
+aN
+aC
+aZ
+ap
+bK
+co
+bD
+al
+at
+ap
+bV
+aH
+ap
+ca
+bm
+ap
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aq
+aq
+ad
+ae
+ah
+aO
+Ug
+Ug
+Ug
+aB
+aH
+aH
+ap
+bY
+aG
+aC
+ap
+al
+al
+al
+al
+al
+ap
+bA
+aH
+ap
+aR
+bn
+ap
+ap
+aa
+aa
+"}
+(10,1,1) = {"
+aq
+ab
+ag
+ae
+ah
+Ug
+Ug
+Ug
+ap
+ap
+ap
+ap
+ap
+aP
+aG
+bp
+cz
+cz
+al
+al
+ct
+al
+bc
+bA
+aH
+ap
+aR
+bo
+bl
+cH
+aa
+aa
+"}
+(11,1,1) = {"
+aa
+af
+ax
+ao
+bF
+Ug
+ch
+Ug
+ap
+aA
+aF
+aQ
+aC
+aU
+aG
+bh
+bT
+ap
+bB
+al
+bP
+cu
+ap
+be
+aH
+cO
+cx
+bj
+bl
+cH
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+ai
+aj
+av
+Th
+am
+ay
+aJ
+ap
+bf
+aV
+aG
+aC
+aC
+aC
+bH
+cc
+ap
+cm
+cq
+bP
+bE
+ap
+aH
+cL
+cP
+cQ
+cJ
+bu
+ap
+aa
+aa
+"}
+(13,1,1) = {"
+aa
+Vf
+ba
+au
+az
+Ug
+aI
+Ug
+ap
+aE
+aW
+aC
+aw
+as
+aC
+bS
+aC
+ap
+bK
+cs
+bP
+cv
+ap
+ci
+cM
+ap
+aR
+cK
+bl
+cH
+aa
+aq
+"}
+(14,1,1) = {"
+aa
+cy
+an
+ae
+ah
+Ug
+ay
+ay
+ap
+ap
+ap
+ap
+ap
+by
+aC
+cB
+cz
+cz
+cp
+al
+cs
+al
+cw
+aH
+aH
+ap
+aR
+bq
+bl
+cH
+aa
+aq
+"}
+(15,1,1) = {"
+aa
+aq
+bR
+ae
+ah
+aY
+Ug
+aI
+bJ
+aD
+aH
+bi
+ap
+bZ
+aG
+aC
+ap
+al
+al
+bL
+cI
+OB
+ap
+aH
+aH
+ap
+aR
+br
+ap
+ap
+aa
+aq
+"}
+(16,1,1) = {"
+aq
+aq
+cy
+ad
+ad
+ap
+ap
+ar
+Dz
+ap
+bV
+aH
+cz
+bv
+aC
+aZ
+ap
+bB
+cf
+al
+al
+at
+ap
+bV
+aH
+ap
+ca
+bs
+ap
+aa
+cA
+aq
+"}
+(17,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+ap
+ad
+ad
+ap
+aH
+aK
+cz
+cz
+bw
+ap
+ap
+ap
+ap
+bc
+ap
+ap
+ap
+aH
+aH
+ap
+bG
+ap
+ap
+aa
+aa
+aq
+"}
+(18,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+ap
+ce
+bd
+aH
+aH
+aH
+bW
+aH
+ap
+aH
+aH
+aH
+ap
+aH
+aH
+aH
+cN
+aR
+bl
+cH
+aa
+aq
+aq
+"}
+(19,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+ap
+aH
+bX
+aH
+aH
+aH
+aH
+aH
+bb
+aH
+cg
+aH
+bb
+aH
+bd
+fS
+ap
+bk
+ap
+ap
+aa
+aq
+aq
+"}
+(20,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+ap
+ap
+ap
+ap
+ap
+ad
+cD
+ad
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+aa
+aa
+aa
+aa
+"}
+(21,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+ap
+ca
+bI
+aR
+ap
+aa
+aa
+aa
+aa
+aq
+aq
+aq
+aq
+aa
+aa
+aa
+aa
+aq
+aq
+"}
+(22,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+ap
+ad
+cD
+ad
+ap
+aa
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aa
+aa
+aa
+aq
+aq
+"}
+(23,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aa
+aa
+aa
+aa
+aa
+aa
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+"}
+(24,1,1) = {"
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aa
+aa
+aa
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+"}

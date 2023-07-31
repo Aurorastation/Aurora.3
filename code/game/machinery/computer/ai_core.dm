@@ -86,7 +86,7 @@
 				if (brain)
 					to_chat(user, "Get that brain out of there first")
 				else
-					playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
+					playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 					to_chat(user, "<span class='notice'>You remove the cables.</span>")
 					state = 2
 					icon_state = "2"
@@ -94,7 +94,7 @@
 					A.amount = 5
 				return TRUE
 
-			if(istype(P, /obj/item/stack/material) && P.get_material_name() == "rglass")
+			if(istype(P, /obj/item/stack/material) && P.get_material_name() == MATERIAL_GLASS_REINFORCED)
 				var/obj/item/stack/RG = P
 				if (RG.get_amount() < 2)
 					to_chat(user, "<span class='warning'>You need two sheets of glass to put in the glass panel.</span>")

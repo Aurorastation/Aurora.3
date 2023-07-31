@@ -32,21 +32,18 @@
 /mob/living/silicon/pai/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 	else
 		health = maxHealth - getBruteLoss() - getFireLoss()
 
-/mob/living/silicon/pai/Stat()
-	..()
+/mob/living/silicon/pai/get_status_tab_items()
+	. = ..()
 
 	if(istype(card.loc, /mob/living/bot))
 		var/mob/living/bot/B = card.loc
-		stat(null, "Piloting: [B.name]")
-		stat(null, "Bot Status: [B.on ? "Active" : "Inactive"]")
-		stat(null, "Maintenance Hatch: [B.open ? "Open" : "Closed"]")
-		stat(null, "Maintenance Lock: [B.locked ? "Locked" : "Unlocked"]")
+		. += "Piloting: [B.name]"
+		. += "Bot Status: [B.on ? "Active" : "Inactive"]"
+		. += "Maintenance Hatch: [B.open ? "Open" : "Closed"]"
+		. += "Maintenance Lock: [B.locked ? "Locked" : "Unlocked"]"
 		if(B.emagged)
-			stat(null, "Bot M#$FUN90: MALFUNC--")
-	if(istype(card.loc, /mob/living/bot/floorbot))
-		var/mob/living/bot/floorbot/F = card.loc
-		stat(null, "Metal Count: [F.amount]/[F.maxAmount]")
+			. += "Bot M#$FUN90: MALFUNC--"

@@ -58,8 +58,9 @@
 	icon = 'icons/obj/ship_engine.dmi'
 	icon_state = "nozzle"
 	opacity = 1
-	density = 1
+	density = TRUE
 	atmos_canpass = CANPASS_NEVER
+	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
 
 	use_power = POWER_USE_OFF
 	power_channel = EQUIP
@@ -74,6 +75,9 @@
 	var/blockage
 	var/exhaust_offset = 1 // for engines that are longer
 	var/exhaust_width = 1 //for engines that are wider
+
+/obj/machinery/atmospherics/unary/engine/scc_shuttle
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi'
 
 /obj/machinery/atmospherics/unary/engine/scc_ship_engine
 	name = "ship thruster"

@@ -330,7 +330,6 @@
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "epH" = (
-/obj/structure/sign/flag/traverse/right,
 /turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "erL" = (
@@ -447,6 +446,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "eMT" = (
@@ -751,7 +752,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "gTr" = (
-/obj/structure/sign/flag/traverse/left,
+/obj/structure/sign/flag/traverse/large/north,
 /turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "gTw" = (
@@ -1195,7 +1196,7 @@
 /area/ship/tirakqi_freighter)
 "kwe" = (
 /obj/structure/table/skrell,
-/obj/item/clothing/suit/chef/classic{
+/obj/item/clothing/accessory/apron/chef{
 	pixel_y = -6
 	},
 /obj/random/pizzabox,
@@ -1353,7 +1354,7 @@
 	pixel_x = 3;
 	pixel_y = 6
 	},
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
 	pixel_x = -4;
 	pixel_y = 11
@@ -1807,6 +1808,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
+"rQN" = (
+/obj/item/device/gps,
+/turf/space/transit/north,
+/area/space)
 "rXT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -2144,6 +2149,8 @@
 /obj/item/clothing/suit/space/void/skrell/black,
 /obj/item/clothing/head/helmet/space/void/skrell/black,
 /obj/item/clothing/head/helmet/space/void/skrell/black,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "yiR" = (
@@ -7024,7 +7031,7 @@ etL
 etL
 etL
 etL
-etL
+rQN
 que
 etL
 etL

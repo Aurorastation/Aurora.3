@@ -27,7 +27,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 18
 	armor_penetration = 30 //Standard armor probably doesn't help against a bear, does it?
-	attack_flags = DAM_EDGE|DAM_SHARP
+	attack_flags = DAMAGE_FLAG_EDGE|DAMAGE_FLAG_SHARP
 	resist_mod = 4
 	break_stuff_probability = 80
 	mob_size = 17
@@ -91,6 +91,7 @@
 	var/previous = stance
 	stance = input
 	if (stance != previous)
+		change_stance(stance)
 		stance_step = 0
 
 /mob/living/simple_animal/hostile/bear/think()
@@ -116,7 +117,7 @@
 			stop_automated_movement = 1
 			stance_step++
 			if(stance_step >= 15) //rests for 10 ticks
-				if(target_mob && (target_mob in ListTargets(10)))
+				if(target_mob && (target_mob in get_targets(10)))
 					set_stance(HOSTILE_STANCE_ATTACK) //If the mob he was chasing is still nearby, resume the attack, otherwise go idle.
 				else
 					set_stance(HOSTILE_STANCE_IDLE)
@@ -124,7 +125,7 @@
 		if(HOSTILE_STANCE_ALERT)
 			stop_automated_movement = 1
 			var/found_mob = 0
-			if(target_mob && (target_mob in ListTargets(10)) && !(SA_attackable(target_mob)))
+			if(target_mob && (target_mob in get_targets(10)) && !(SA_attackable(target_mob)))
 				found_mob = 1
 			else
 				LoseTarget()
@@ -182,7 +183,7 @@
 	var/mob/nearest_downed_target = null
 	var/nearest_downed_dist = 99999
 
-	for(var/atom/A in ListTargets(10))
+	for(var/atom/A in get_targets(10))
 
 		if(A == src || A == target_mob)//We're only interested in alternatives to our current target
 			continue

@@ -59,3 +59,5 @@
 		return TRUE
 	else
 		return FALSE
+
+#undef DEFAULT_MAX_RUNES

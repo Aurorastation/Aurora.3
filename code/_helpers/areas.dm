@@ -12,6 +12,8 @@
 			. += A
 
 /proc/get_area_turfs(var/area/A, var/list/predicates)
+	set background=1
+
 	. = new/list()
 	A = istype(A) ? A : locate(A)
 	if(!A)

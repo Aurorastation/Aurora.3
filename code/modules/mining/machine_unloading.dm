@@ -3,7 +3,7 @@
 /obj/machinery/mineral/unloading_machine
 	name = "unloading machine"
 	desc = "A machine capable of unloading an ore box or ore scattered on the floor within its input zone, to its output zone."
-	icon = 'icons/obj/machines/mining_machines.dmi'
+	icon = 'icons/obj/machinery/mining_machines.dmi'
 	icon_state = "unloader"
 	density = TRUE
 	anchored = TRUE

@@ -49,7 +49,7 @@
 	return
 
 /obj/machinery/optable/attack_hand(mob/user)
-	if(HULK in user.mutations)
+	if(HAS_FLAG(user.mutations, HULK))
 		visible_message(SPAN_DANGER("\The [user] destroys \the [src]!"))
 		density = FALSE
 		qdel(src)
@@ -71,7 +71,7 @@
 
 		suppressing = !suppressing
 		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."), intent_message = BUTTON_FLICK)
-		playsound(loc, /decl/sound_category/switch_sound, 50, 1)
+		playsound(loc, /singleton/sound_category/switch_sound, 50, 1)
 
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)
 	if(air_group || (height == 0))

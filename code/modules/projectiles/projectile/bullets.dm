@@ -2,7 +2,7 @@
 	name = "bullet"
 	icon_state = "bullet"
 	damage = 60
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	nodamage = FALSE
 	check_armor = "bullet"
@@ -151,6 +151,7 @@
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
 	damage = 55
+	armor_penetration = 5
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
@@ -213,7 +214,7 @@
 
 /obj/item/projectile/bullet/rifle/a556
 	damage = 30
-	armor_penetration = 26
+	armor_penetration = 28
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a556/ap
@@ -222,8 +223,8 @@
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/a556/polymer
-	damage = 24
-	armor_penetration = 32
+	damage = 25
+	armor_penetration = 34
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/rifle/a145
@@ -276,7 +277,7 @@
 	weaken = 0
 	drowsy = 0
 	eyeblur = 0
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	speed = 0.3
 
 /obj/item/projectile/bullet/rifle/tranq/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
@@ -289,18 +290,18 @@
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
-						if(L.reagents)	L.reagents.add_reagent(/decl/reagent/soporific, 10)
+						if(L.reagents)	L.reagents.add_reagent(/singleton/reagent/soporific, 10)
 				if(def_zone == BP_HEAD && blocked < 100)
-					if(L.reagents)	L.reagents.add_reagent(/decl/reagent/soporific, 15)
+					if(L.reagents)	L.reagents.add_reagent(/singleton/reagent/soporific, 15)
 				if(def_zone != "torso" && def_zone != BP_HEAD)
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
-						if(L.reagents)	L.reagents.add_reagent(/decl/reagent/soporific, 5)
+						if(L.reagents)	L.reagents.add_reagent(/singleton/reagent/soporific, 5)
 
 	if(isanimal(target))
 		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
-		L.apply_damage(35, TOX) //temporary until simple_animal paralysis actually works.
+		L.apply_damage(35, DAMAGE_TOXIN) //temporary until simple_animal paralysis actually works.
 	..()
 
 /* Miscellaneous */
@@ -327,7 +328,7 @@
 
 /obj/item/projectile/bullet/pistol/cap
 	name = "cap"
-	damage_type = PAIN
+	damage_type = DAMAGE_PAIN
 	damage = 0
 	nodamage = 1
 	embed = 0
@@ -342,7 +343,7 @@
 	icon = 'icons/obj/terminator.dmi'
 	icon_state = "flechette_bullet"
 	damage = 40
-	damage_type = BRUTE
+	damage_type = DAMAGE_BRUTE
 	check_armor = "bullet"
 	embed = 1
 	sharp = 1
@@ -413,7 +414,7 @@
 		var/turf/T = get_turf(mob)
 		if(T && (loc.z == T.z))
 			if(ishuman(mob))
-				mob.apply_damage(250, IRRADIATE, damage_flags = DAM_DISPERSED)
+				mob.apply_damage(250, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 	new /obj/effect/temp_visual/nuke(A.loc)
 	explosion(A,2,5,9)
 	..()
@@ -431,19 +432,76 @@
 	name = "anti-tank warhead"
 	icon_state = "missile"
 	damage = 30
-	anti_materiel_potential = 3
+	armor_penetration = 30
+	anti_materiel_potential = 4
 	embed = FALSE
 	penetrating = FALSE
-	armor_penetration = 10
 	var/heavy_impact_range = 1
 
 /obj/item/projectile/bullet/recoilless_rifle/on_impact(var/atom/A)
 	explosion(A, -1, heavy_impact_range, 2)
 	..()
 
-/obj/item/projectile/bullet/recoilless_rifle/peac
+/obj/item/projectile/bullet/peac
 	name = "anti-tank missile"
 	icon_state = "peac"
-	damage = 45
-	penetrating = TRUE
-	heavy_impact_range = -1
+	damage = 25
+	armor_penetration = 35
+	anti_materiel_potential = 6
+	embed = FALSE
+	penetrating = 1
+
+	var/devastation_range = -1
+	var/heavy_impact_range = -1
+	var/light_impact_range = 2
+
+/obj/item/projectile/bullet/peac/check_penetrate(atom/hit_atom)
+	if(hit_atom == original)
+		return FALSE
+	return ..()
+
+/obj/item/projectile/bullet/peac/on_impact(var/atom/hit_atom)
+	explosion(hit_atom, devastation_range, heavy_impact_range, light_impact_range)
+
+/obj/item/projectile/bullet/peac/he
+	name = "high-explosive missile"
+	armor_penetration = 0
+	anti_materiel_potential = 3
+
+	devastation_range = 1
+	heavy_impact_range = 2
+	light_impact_range = 4
+
+/obj/item/projectile/bullet/peac/shrapnel
+	name = "fragmentation missile"
+	armor_penetration = 0
+	anti_materiel_potential = 2
+
+	light_impact_range = 1
+
+/obj/item/projectile/bullet/peac/shrapnel/preparePixelProjectile()
+	. = ..()
+	range = get_dist(firer, original)
+
+/obj/item/projectile/bullet/peac/shrapnel/on_impact(var/atom/hit_atom)
+	..()
+	spawn_shrapnel(starting ? get_dir(starting, original) : dir)
+
+/obj/item/projectile/bullet/peac/shrapnel/proc/spawn_shrapnel(var/shrapnel_dir)
+	set waitfor = FALSE
+
+	var/turf/O = get_turf(src)
+	var/list/target_turfs = list()
+	target_turfs += get_step(O, shrapnel_dir)
+	target_turfs += get_step(O, turn(shrapnel_dir, -45))
+	target_turfs += get_step(O, turn(shrapnel_dir, 45))
+
+	for(var/turf/T in target_turfs)
+		var/obj/item/projectile/bullet/pellet/fragment/P = new(O)
+		P.damage = 30
+		P.pellets = 4
+		P.range_step = 3
+		P.shot_from = src
+		P.range = 15
+		P.name = "shrapnel"
+		P.launch_projectile(T)

@@ -130,11 +130,15 @@
 			has_spread = 1
 			break
 
+	initialized = TRUE
+
 	if(!has_spread)
 		Spread()
 		QDEL_IN(src, 2 MINUTES)
+		return INITIALIZE_HINT_NORMAL
 	else
-		qdel(src)
+		return INITIALIZE_HINT_QDEL
+
 
 /obj/effect/decal/cleanable/foam/proc/Spread(exclude=list())
 	if(amount < 15) return

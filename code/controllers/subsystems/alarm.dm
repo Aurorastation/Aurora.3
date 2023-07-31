@@ -8,8 +8,10 @@ var/datum/controller/subsystem/alarm/SSalarm
 
 /datum/controller/subsystem/alarm
 	name = "Alarms"
+	init_order = SS_INIT_MISC_FIRST
 	priority = SS_PRIORITY_ALARMS
-	
+	runlevels = RUNLEVELS_PLAYING
+
 	var/list/datum/alarm/all_handlers
 	var/tmp/list/current = list()
 
@@ -20,7 +22,7 @@ var/datum/controller/subsystem/alarm/SSalarm
 
 /datum/controller/subsystem/alarm/Initialize(timeofday)
 	all_handlers = list(atmosphere_alarm, camera_alarm, fire_alarm, motion_alarm, power_alarm)
-	
+
 /datum/controller/subsystem/alarm/fire(resumed = FALSE)
 	if (!resumed)
 		current = all_handlers.Copy()
@@ -43,5 +45,6 @@ var/datum/controller/subsystem/alarm/SSalarm
 /datum/controller/subsystem/alarm/proc/number_of_active_alarms()
 	return active_alarm_cache.len
 
-/datum/controller/subsystem/alarm/stat_entry()
-	..("A:[active_alarm_cache.len]")
+/datum/controller/subsystem/alarm/stat_entry(msg)
+	msg = "A:[active_alarm_cache.len]"
+	return ..()

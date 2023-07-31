@@ -29,7 +29,7 @@ var/list/whitelist_jobconfig = list()
 	if (config.sql_whitelists)
 		if (!establish_db_connection(dbcon))
 			//Continue with the old code if we have no database.
-			error("Database connection failed while loading whitelists. Reverting to legacy system.")
+			log_error("Database connection failed while loading whitelists. Reverting to legacy system.")
 			config.sql_whitelists = 0
 		else
 			return
@@ -72,7 +72,7 @@ var/list/whitelist_jobconfig = list()
 	if (config.sql_whitelists)
 		if (!establish_db_connection(dbcon))
 			//Continue with the old code if we have no database.
-			error("Database connection failed while loading alien whitelists. Reverting to legacy system.")
+			log_error("Database connection failed while loading alien whitelists. Reverting to legacy system.")
 			config.sql_whitelists = 0
 		else
 			var/DBQuery/query = dbcon.NewQuery("SELECT status_name, flag FROM ss13_whitelist_statuses")

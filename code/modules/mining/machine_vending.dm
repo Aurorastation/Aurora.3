@@ -39,7 +39,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Item-Warp Pack",				/obj/item/extraction_pack,									25,					600),
 	new /datum/data/mining_equipment("Drone Health Upgrade", 		/obj/item/device/mine_bot_upgrade/health,					20,					600),
 	new /datum/data/mining_equipment("RFD M-Class",             	/obj/item/rfd/mining,										10,					600),
-	new /datum/data/mining_equipment("Brute First-Aid Kit",			/obj/item/storage/firstaid/brute,							30,					600),
+	new /datum/data/mining_equipment("Trauma First-Aid Kit",		/obj/item/storage/firstaid/trauma,							30,					600),
 	new /datum/data/mining_equipment("Ore Magnet",					/obj/item/oremagnet,										10,					600),
 	new /datum/data/mining_equipment("Minecart",					/obj/vehicle/train/cargo/trolley/mining,					-1,					600,	1),
 	new /datum/data/mining_equipment("Resonator",					/obj/item/resonator,										10,					700),
@@ -63,7 +63,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 /obj/machinery/mineral/equipment_vendor
 	name = "mining equipment vendor"
 	desc = "An equipment vendor for miners, points collected at an ore redemption machine can be spent here."
-	icon = 'icons/obj/machines/mining_machines.dmi'
+	icon = 'icons/obj/machinery/mining_machines.dmi'
 	icon_state = "mining"
 	density = TRUE
 	anchored = TRUE
@@ -172,8 +172,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 				return
 			if(prize.amount <= 0 && prize.amount != -1)
 				return
-			if(prize.cost > ID.mining_points)
-			else
+			if(prize.cost <= ID.mining_points)
 				if(prize.shuttle)
 					if(SScargo.order_mining(prize.equipment_path))
 						ID.mining_points -= prize.cost

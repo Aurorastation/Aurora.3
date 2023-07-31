@@ -3,7 +3,7 @@
 /obj/structure/particle_accelerator/particle_emitter
 	name = "EM Containment Grid"
 	desc = "This emits alpha particles, you might not want to stand near this end."
-	icon = 'icons/obj/machines/particle_accelerator.dmi'
+	icon = 'icons/obj/machinery/particle_accelerator.dmi'
 	var/fire_delay = 50
 	var/last_shot = 0
 

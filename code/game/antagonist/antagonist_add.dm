@@ -32,13 +32,13 @@
 	current_antagonists |= player
 
 	if(faction_verb && player.current)
-		player.current.verbs |= faction_verb
+		add_verb(player.current.client, faction_verb)
 
 	if(player.current.client)
-		player.current.client.verbs += /client/proc/aooc
+		add_verb(player.current.client, /client/proc/aooc)
 
 	to_chat(player.current, "<span class='notice'>Once you decide on a goal to pursue, you can optionally display it to everyone at the end of the shift with the <b>Set Ambition</b> verb, located in the IC tab.  You can change this at any time, and it otherwise has no bearing on your round.</span>")
-	player.current.verbs += /mob/living/proc/write_ambition
+	add_verb(player.current.client, /mob/living/proc/write_ambition)
 
 	// Handle only adding a mind and not bothering with gear etc.
 	if(nonstandard_role_type)
@@ -58,7 +58,7 @@
 		return 0
 
 	if(player.current && faction_verb)
-		player.current.verbs -= faction_verb
+		remove_verb(player.current.client, faction_verb)
 
 	if(player in current_antagonists)
 		log_antagonist_remove()
@@ -73,10 +73,10 @@
 
 		if(player.current.client)
 			if(!is_special_character(player) && !check_rights(R_ADMIN|R_MOD|R_CCIAA, 0, player.current))
-				player.current.client.verbs -= /client/proc/aooc
+				remove_verb(player.current.client, /client/proc/aooc)
 
 		if(!is_special_character(player))
-			player.current.verbs -= /mob/living/proc/write_ambition
+			remove_verb(player.current.client, /mob/living/proc/write_ambition)
 			player.ambitions = ""
 		return 1
 

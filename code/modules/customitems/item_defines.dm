@@ -58,18 +58,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_MASK | SLOT_TIE
 
 
-/obj/item/clothing/accessory/badge/fluff/caleb_badge //Worn Badge - Caleb Greene - notmegatron
-	name = "worn badge"
-	desc = "A simple gold badge denoting the wearer as Head of Security. It is worn and dulled with age, but the name, \"Caleb Greene\", is still clearly legible."
-	icon = 'icons/obj/custom_items/caleb_badge.dmi'
-	icon_override = 'icons/obj/custom_items/caleb_badge.dmi'
-	item_state = "caleb_badge"
-	icon_state = "caleb_badge"
-	stored_name = "Caleb Greene"
-	badge_string = "NOS Apollo Head of Security"
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/under/fluff/ana_uniform //Retired Uniform - Ana Roh'hi'tin - suethecake
 	name = "retired uniform"
 	desc = "A silken blouse paired with dark-colored slacks. It has the words \"Chief Investigator\" embroidered into the shoulder bar."
@@ -197,8 +185,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/reagent_containers/food/drinks/teapot/fluff/brianne_teapot //Ceramic Teapot - Sean Brianne - zelmana
 	name = "ceramic teapot"
 	desc = "A blue ceramic teapot, gilded with the abbreviation for NanoTrasen."
-	icon = 'icons/obj/custom_items/brianne_teapot.dmi'
-	icon_override = 'icons/obj/custom_items/brianne_teapot.dmi'
+	icon = 'icons/obj/custom_items/brianne_items.dmi'
+	icon_override = 'icons/obj/custom_items/brianne_items.dmi'
 	icon_state = "brianne_teapot"
 
 
@@ -271,16 +259,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_NORMAL
 
 
-/obj/item/clothing/under/fluff/ellie_uniform //Cheery Blazer - Ellie Shoshanna - resilynn
-	name = "cheery blazer"
-	desc = "A cheery but professional outfit, mauve corduroys, blue blazer and a tie."
-	icon = 'icons/obj/custom_items/ellie_uniform.dmi'
-	icon_override = 'icons/obj/custom_items/ellie_uniform.dmi'
-	icon_state = "ellie_uniform"
-	item_state = "ellie_uniform"
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/suit/storage/fluff/vira_coat //Designer Military Coat - Vira Bolivar - scheveningen
 	name = "designer military coat"
 	desc = "A dark funnel neck designer military-style dress coat, specially fitted on commission, clearly designed for a woman's figure. \
@@ -326,17 +304,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
 	icon_override = 'icons/obj/custom_items/zilosnish_items.dmi'
 	icon_state = "zilosnish_pen"
-
-
-/obj/item/clothing/head/fluff/qorja_headband //Rebellious Headband - Q'orja Sak'ha - fortport
-	name = "rebellious headband"
-	desc = "A comfortable headband made from a long, soft cloth that's tied into a knot in the back. It is a bright shade of red, slipped through a decorative brass plate. \
-	Upon the metal is an engraving of the People's Republic of Adhomai's insignia, as if straight from their flag."
-	icon = 'icons/obj/custom_items/qorja_headband.dmi'
-	icon_override = 'icons/obj/custom_items/qorja_headband.dmi'
-	icon_state = "qorja_headband"
-	item_state = "qorja_headband"
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/wrists/watch/fluff/rex_watch //Engraved Wristwatch - Rex Winters - tailson
@@ -422,7 +389,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_NORMAL
 
 
-/obj/item/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - simontheminer
+/obj/item/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - sampletex
 	desc = "An old looking zippo lighter with Vasili Mine Logo engraved on it. \"Good Luck Nikit\" is crudely scratched on under the logo in small writing."
 	icon = 'icons/obj/custom_items/nikit_zippo.dmi'
 	icon_override = 'icons/obj/custom_items/nikit_zippo.dmi'
@@ -473,23 +440,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "tokash_sign"
 	sign_state = "tokash_sign"
 	w_class = ITEMSIZE_SMALL
-
-
-/obj/item/spirit_board/fluff/klavdiya_board //Ghostly Board - Klavdiya Tikhomirov - alberyk
-	name = "ghostly board"
-	desc = "An adhomian ghostly board, used in divination rituals. This one is blue and has the symbol of a moon on it."
-	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
-	icon_override = 'icons/obj/custom_items/klavdiya_amulet.dmi'
-	icon_state = "klavdiya_board" //thanks to kyres1 for the sprites
-
-
-/obj/item/clothing/glasses/threedglasses/fluff/grunnus_glasses //3D glasses - Paul Grunnus - moom241
-	desc = "A pair of old, beat up looking glasses, with red and blue lenses. Pretty archaic, but some might call it fashionable."
-	icon = 'icons/obj/custom_items/grunnus_glasses.dmi'
-	icon_override = 'icons/obj/custom_items/grunnus_glasses.dmi'
-	icon_state = "grunnus_glasses"
-	item_state = "grunnus_glasses"
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/head/fluff/aavs_mask //Reflective Mask - Aavs Guwan - dronzthewolf
@@ -711,7 +661,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
+/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
 	name = "holo-symphette"
 	desc = "A cheap, collapsible musical instrument which utilizes holographic projections to generate a rough noise. It's shaped like a small harp, and seems to be  \
 	able to be tuned to mimic several old stringed Solarian instruments with some distorted audio. It's still got its price tag sticker on it."
@@ -724,7 +674,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	var/deployed = FALSE
 
-/obj/item/fluff/akinyi_symphette/update_icon()
+/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/update_icon()
 	if(deployed)
 		icon_state = "akinyi_symphette_on"
 		item_state = "akinyi_symphette_on"
@@ -732,7 +682,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = "akinyi_symphette"
 		item_state = "akinyi_symphette"
 
-/obj/item/fluff/akinyi_symphette/attack_self(var/mob/user)
+/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/AltClick(var/mob/user)
 	deployed = !deployed
 	to_chat(user, "<span class='notice'>You [deployed ? "expand" : "collapse"] \the [src].</span>")
 	update_icon()
@@ -811,7 +761,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "likho_labcoat"
 
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/ramit_jacket //Winter Paramedic Jacket - Ra'mit Ma'zaira - simontheminer
+/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/ramit_jacket //Winter Paramedic Jacket - Ra'mit Ma'zaira - sampletex
 	name = "winter paramedic jacket"
 	desc = "A custom made first responder coat. Inside is a warm fabric with the name \"Ra'Mit Ma'zaira\" sewn in by the collar."
 	icon = 'icons/obj/custom_items/ramit_jacket.dmi'
@@ -1017,28 +967,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user, "<span class='notice'>You pick out a song in the folder and read the lyrics: [pick(lyrics)]</span>")
 
 
-/obj/item/modular_computer/laptop/fluff/harrow_laptop //Developer's Laptop - Danny Harrow - brainos
-	name = "developer's laptop"
-	desc = "A portable computer, this one is covered edge-to-edge in stickers. Some stand out; such ones from a 2458 Game Jam, 2459 Game Jam and various title logos from obscure holovid series. Printed on the bottom panel \
-	is \"Hello, world!\" in a bright, monospace font."
-	icon = 'icons/obj/custom_items/harrow_laptop.dmi'
-	icon_override = 'icons/obj/custom_items/harrow_laptop.dmi'
-	anchored = FALSE
-	screen_on = FALSE
-	icon_state = "laptop-closed"
-
-/obj/item/modular_computer/laptop/fluff/harrow_laptop/install_default_hardware()
-	..()
-	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
-	hard_drive = new /obj/item/computer_hardware/hard_drive(src)
-	network_card = new /obj/item/computer_hardware/network_card(src)
-	battery_module = new /obj/item/computer_hardware/battery_module(src)
-	battery_module.charge_to_full()
-	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
-	nano_printer.max_paper = 10
-	nano_printer.stored_paper = 5
-
-
 /obj/item/clothing/accessory/poncho/fluff/ozuha_cape //Victory Cape - Skavoss Ozuha - dronzthewolf
 	name = "victory cape"
 	desc = "A finely crafted cape that combines Ozuha clan colors and Izweski nation colors, with inscriptions on the decorative brass paldrons reading something in Sinta'Unathi."
@@ -1141,12 +1069,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	can_hold = list(
 		/obj/item/device/megaphone/fluff/akinyi_mic,
 		/obj/item/fluff/akinyi_stand,
-		/obj/item/fluff/akinyi_symphette
+		/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette
 		)
 	starts_with = list(
 		/obj/item/device/megaphone/fluff/akinyi_mic = 1,
 		/obj/item/fluff/akinyi_stand = 1,
-		/obj/item/fluff/akinyi_symphette = 1
+		/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette = 1
 	)
 
 
@@ -1178,32 +1106,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "akila_jacket"
 	item_state = "akila_jacket"
 	contained_sprite = TRUE
-
-
-/obj/structure/sign/flag/red_coalition
-	name = "Red Coalition flag"
-	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
-	mining colony represented in the center by the alchemical symbol for iron."
-	icon_state = "redcoalition"
-
-/obj/structure/sign/flag/red_coalition/left
-	icon_state = "redcoalition_l"
-
-/obj/structure/sign/flag/red_coalition/right
-	icon_state = "redcoalition_r"
-
-/obj/item/flag/fluff/nikita_flag //Red Coalition Banner - Nikita Yutani - sycmos
-	name = "Red Coalition flag"
-	icon = 'icons/obj/custom_items/nikita_flag.dmi'
-	icon_override = 'icons/obj/custom_items/nikita_flag.dmi'
-	icon_state = "nikita_flag"
-	desc = "A high-quality copy of an original Red Coalition banner. This variant on the standard was flown by the Zelazny arcology during the Martian World War, Zelazny's origins as a \
-	mining colony represented in the center by the alchemical symbol for iron."
-	flag_path = "redcoalition"
-
-/obj/item/flag/fluff/nikita_flag/l
-	flag_size = 1
-
 
 /obj/item/voidsuit_modkit/fluff/rajka_suit
 	name = "HEV-3 voidsuit kit"
@@ -1267,7 +1169,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/holoconsole/attack_self(mob/user)
 	if(on && !(world.time < last_sound + sound_delay))
-		playsound(loc, /decl/sound_category/quick_arcade, 60)
+		playsound(loc, /singleton/sound_category/quick_arcade, 60)
 		last_sound = world.time
 		return
 	return ..()
@@ -1354,7 +1256,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	var/obj/item/fluff/holoconsole/H = parent_console.resolve()
 	if(H?.on)
-		playsound(H.loc, /decl/sound_category/quick_arcade, 60)
+		playsound(H.loc, /singleton/sound_category/quick_arcade, 60)
 		last_sound = world.time
 
 /obj/item/fluff/holoconsole_controller/r // Holoconsole - Qoi Liuiq - shestrying
@@ -1422,17 +1324,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "godard_cape"
 	contained_sprite = TRUE
 
-/obj/item/flame/lighter/zippo/fluff/sezrak_zippo //Imperial 16th Zippo - Sezrak Han'san - captaingecko
-	name = "imperial 16th zippo"
-	desc = "A zippo lighter given by the Empire of Dominia to the men of the 16th Regiment of the Imperial Army, also known as the \"Suicide Regiments\", that would manage to survive more \
-	than a dozen deployments. The Imperial 16th is a regiment deployed by Dominia during battles that cannot be lost, their men ensuring victories through the use of unusual and highly \
-	dangerous tactics, resulting in extremely high losses during almost all of its engagements."
-	icon = 'icons/obj/custom_items/sezrak_zippo.dmi'
-	icon_override = 'icons/obj/custom_items/sezrak_zippo.dmi'
-	icon_state = "sezrak_zippo"
-	item_state = "sezrak_zippo"
-	contained_sprite = TRUE
-
 
 /obj/item/clothing/glasses/spiffygogs/fluff/andersen_goggles //Red Goggles - Adam Andersen - cybercide
 	name = "red goggles"
@@ -1474,27 +1365,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "valetzrhonaja_cloak"
 	contained_sprite = TRUE
 
-
-/obj/structure/sign/flag/fisanduh_coalition
-	name = "coalition fisanduh unity flag"
-	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
-	icon_state = "coalition-fisanduh"
-
-/obj/structure/sign/flag/fisanduh_coalition/left
-	icon_state = "fisanduh_coalition_l"
-
-/obj/structure/sign/flag/fisanduh_coalition/right
-	icon_state = "fisanduh_coalition_r"
-
 /obj/item/flag/fluff/bian_flag //Coalition Fisanduh Unity Flag - Bian Quy Le - persephoneq
-	name = "coalition fisanduh unity flag"
+	name = "large coalition fisanduh unity flag"
+	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
 	icon = 'icons/obj/custom_items/bian_flag.dmi'
 	icon_override = 'icons/obj/custom_items/bian_flag.dmi'
 	icon_state = "bian_flag"
-	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
 	flag_path = "fisanduh_coalition"
-	flag_size = 1
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/fisanduh_coalition
 
+/obj/structure/sign/flag/fisanduh_coalition
+	name = "large coalition fisanduh unity flag"
+	desc = "A well-loved flag often seen hung by those advocating for Fisanduh's legitimization and acceptance into the Coalition of Colonies."
+	icon = 'icons/obj/custom_items/bian_flag.dmi'
+	flag_path = "fisanduh_coalition"
+	flag_item = /obj/item/flag/fluff/bian_flag
+	flag_size = TRUE
 
 /obj/item/organ/internal/augment/fluff/goldman_eye //Moneymaker Cybernetic Eye Overlay - Kobi Goldman - sleepywolf
 	name = "moneymaker cybernetic eye overlay"
@@ -1966,19 +1853,19 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A piece of handmade taffy, rolled up in a cute spiral!"
 	icon = 'icons/obj/custom_items/bells_zora_items.dmi'
 	icon_state = "orange_taffy"
-	reagents_to_add = list(/decl/reagent/nutriment = 3)
-	reagent_data = list(/decl/reagent/nutriment = list("bittersweetness, insect meat and regret" = 1))
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("bittersweetness, insect meat and regret" = 1))
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/fluff/taffy/pink
 	name = "pink taffy"
 	icon_state = "pink_taffy"
-	reagent_data = list(/decl/reagent/nutriment = list("sweetness and a hint of strawberry" = 1))
+	reagent_data = list(/singleton/reagent/nutriment = list("sweetness and a hint of strawberry" = 1))
 
 /obj/item/reagent_containers/food/snacks/fluff/taffy/blue
 	name = "blue taffy"
 	icon_state = "blue_taffy"
-	reagent_data = list(/decl/reagent/nutriment = list("salty-sweet, tangy taffy" = 1))
+	reagent_data = list(/singleton/reagent/nutriment = list("salty-sweet, tangy taffy" = 1))
 
 
 /obj/item/clothing/suit/storage/fluff/aheke_coat //Hengsha Thermal Coat - Aheke Han'san - hawkington
@@ -1991,18 +1878,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "aheke_coat"
 	contained_sprite = TRUE
 
-
-/obj/structure/sign/flag/unathi_fleet
-	name = "unathi fleet flag"
-	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
-	icon_state = "unathi_fleet"
-
-/obj/structure/sign/flag/unathi_fleet/left
-	icon_state = "unathi_fleet_l"
-
-/obj/structure/sign/flag/unathi_fleet/right
-	icon_state = "unathi_fleet_r"
-
 /obj/item/flag/fluff/ahzi_flag //Unathi Fleet Flag - Ankala Ahzi - captaingecko
 	name = "unathi fleet flag"
 	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
@@ -2010,9 +1885,26 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/ahzi_items.dmi'
 	icon_state = "ahzi_flag"
 	flag_path = "unathi_fleet"
+	flag_structure = /obj/structure/sign/flag/unathi_fleet
+
+/obj/structure/sign/flag/unathi_fleet
+	name = "unathi fleet flag"
+	desc = "A flag bearing the easily recognizable iconography of the Unathi fleets, this one depicting a Sinta slain by spears under an omniscient, uncaring eye."
+	icon = 'icons/obj/custom_items/ahzi_items.dmi'
+	icon_state = "unathi_fleet"
+	flag_path = "unathi_fleet"
+	flag_item = /obj/item/flag/fluff/ahzi_flag
 
 /obj/item/flag/fluff/ahzi_flag/l
-	flag_size = 1
+	name = "large unathi fleet flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/unathi_fleet/large
+
+/obj/structure/sign/flag/unathi_fleet/large
+	icon_state = "unathi_fleet_l"
+	flag_path = "unathi_fleet"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/fluff/ahzi_flag/l
 
 /obj/item/clothing/accessory/armband/fluff/ahzi_armband //Unathi Fleet Armband - Ankala Ahzi - captaingecko
 	name = "unathi fleet armband"
@@ -2031,6 +1923,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/ielia_tarot.dmi'
 	icon_state = "ielia_tarot"
 	contained_sprite = TRUE
+	w_class = ITEMSIZE_SMALL
 	var/list/possible_cards = list("Island","Hatching Egg","Star Chanter","Jiu'x'klua","Stormcloud","Gnarled Tree","Poet","Bloated Toad","Void","Qu'Poxii","Fisher","Mountain","Sraso","Nioh")
 	var/activated = FALSE
 	var/first_card
@@ -2070,7 +1963,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	icon_state = "card_spin"
 	add_overlay("card_spin_fx")
-	addtimer(CALLBACK(src, .proc/finish_selection, usr), 3 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(finish_selection), usr), 3 SECONDS)
 
 /obj/item/fluff/ielia_tarot/examine(mob/user)
 	if(..(user, 1))
@@ -2113,7 +2006,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	activated = FALSE
 
 
-/obj/item/clothing/suit/storage/fluff/osborne_suit //Osborne Strelitz - Osborne Strelitz - sirtoast
+/obj/item/clothing/suit/storage/fluff/osborne_suit //Dominian Officers Trench Coat - Osborne Strelitz - sirtoast
 	name = "dominian officer's trench coat"
 	desc = "An Imperial Army trench coat that is used by Dominian officers in colder environments. This one is missing the unit insignia and has the symbol of a military count on its rank collar."
 	icon = 'icons/obj/custom_items/osborne_suit.dmi'
@@ -2121,3 +2014,80 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "osborne_suit"
 	item_state = "osborne_suit"
 	contained_sprite = TRUE
+
+
+/obj/item/storage/box/fancy/cigarettes/cigar/brianne_cigarettes //Martian Cigarette Case - Sean Brianne - zelmana
+	name = "martian cigarette case"
+	desc = "A small, personal cigarette tin. It holds cigarettes similar to a cigarette packet but has some nice flair."
+	icon = 'icons/obj/custom_items/brianne_items.dmi'
+	icon_override = 'icons/obj/custom_items/brianne_items.dmi'
+	icon_state = "brianne_cigarettes"
+	item_state = "brianne_cigarettes"
+	icon_type = "cigarette"
+	can_hold = list(/obj/item/clothing/mask/smokable/cigarette/dromedaryco)
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/glasses/sunglasses/fluff/lyod_snowglasses //Lyod snowglasses - Ravna Surtaeva - sycmos
+	name = "\improper Lyod snowglasses"
+	desc = "A pair of protective glasses hand-sculpted of reindeer antler, intended for use in arctic climates to protect from snow blindness."
+	icon = 'icons/obj/custom_items/ravna_items.dmi'
+	icon_override = 'icons/obj/custom_items/ravna_items.dmi'
+	icon_state = "ravna_sunglasses"
+	item_state = "ravna_sunglasses"
+	contained_sprite = TRUE
+	flash_protection = FLASH_PROTECTION_NONE
+
+/obj/item/clothing/suit/storage/toggle/fluff/prejoroub_fur_longcoat //Prejoroub Fur Longcoat - Ravna Surtaeva - sycmos
+	name = "prejoroub fur longcoat"
+	desc = "A dense and heavy longcoat of dyed tenelote leather, with a liner and collar of prejoroub fur and decorative trimming throughout."
+	icon = 'icons/obj/custom_items/ravna_items.dmi'
+	icon_override = 'icons/obj/custom_items/ravna_items.dmi'
+	icon_state = "ravna_coat"
+	item_state = "ravna_coat"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/armor/carrier/fluff/abbasi_carrier //Medinan Mercenary's Plate Carrier - Shirin Abbasi - persephoneq
+	name = "medinan mercenary's plate carrier"
+	desc = "A flashy and apparently well-made plate carrier. This one seems well-maintained, if quite worn-in. It's design is reminiscent of the ornate and intricate patterns of \
+	Medinan make, though someone has written various colorful epithets such as 'AIM HERE' over the heart and 'KICK ME' on the back in Elyran Standard. A patch on the center depicts a \
+	golden jackal with a challenging and cheerful grin, a chunk of phoron held between it's teeth. On the left shoulder, a much newer patch is sewn in depicting the insignia of the \
+	SCC Chainlink. Beneath it is stitched 'ABBASI'."
+	icon = 'icons/obj/custom_items/abbasi_carrier.dmi'
+	icon_override = 'icons/obj/custom_items/abbasi_carrier.dmi'
+	icon_state = "abbasi_carrier"
+	item_state = "abbasi_carrier"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/toggle/fluff/freedom_coat //Renewed Antiquated Labcoat - Freedom Of Self Shackled By Unending Greed - lmwevil
+	name = "renewed antiquated labcoat"
+	desc = "An ancient labcoat from the Narrows, recently revitalized with extreme tailoring to become a symbol of unity between the Conglomerate and Dionae across the spur after the \
+	allowance of Dionae as Executive Officers aboard the Horizon. It must have cost a substantial sum to fix the century old labcoat back up to scratch. On the left arm is a beautifully \
+	sewn on patch that reads \"A block\"."
+	icon = 'icons/obj/custom_items/freedom_coat.dmi'
+	icon_override = 'icons/obj/custom_items/freedom_coat.dmi'
+	icon_state = "freedom_coat"
+	item_state = "freedom_coat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/fluff/schlosser_hat // Schlosser - NewOriginalSchwann
+	name = "national defense force schiffchen"
+	desc = "A side cap known as a Schiffchen on Visegrad, a term roughly translating to “little boat” in Basic, which is commonly worn by members of the Visegradi National Defense Force. The NDF’s symbol – a silver fortress standing upon a crimson background – is prominently featured on the Schiffchen’s badge. “Totschlager” has been written on the inside of the band by somebody with a marker."
+	desc_extended = "The Schiffchen has a long, storied, and somewhat controversial history upon Visegrad, which dates back to its initial colonization. The planet’s first security service, the Visegradi People’s Security Service, used the Schiffchen as its standard headwear for security personnel in an effort to invoke \
+	the Warsaw Pact’s security services. Following its dissolution the National Defense Force continued to use the Schiffchen as headwear, and it remains a common sight on Visegrad today even if the NDF, which was dissolved by the Navy shortly after the Solarian Collapse, no longer exists."
+	icon = 'icons/obj/custom_items/schlosser_hat.dmi'
+	icon_override = 'icons/obj/custom_items/schlosser_hat.dmi'
+	icon_state = "schlosser_hat"
+	item_state = "schlosser_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/konyang/dbjacket/provenance_jacket // Double-Breasted Cropped Jacket - Z.I Provenance - niennab
+	name = "double-breasted cropped jacket"
+	desc = "Styled after the latest fashion trends on Konyang, this hybrid leather and polyester mesh jacket was built with the planet’s humid climate in mind. This particular jacket appears to be emblematic of Konyang's stylings but hand-made, sporting a distinctive fur collar."
+	icon = 'icons/obj/custom_items/provenance_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/provenance_jacket.dmi'
+	icon_state = "provenance_coat"
+	item_state = "provenance_coat"

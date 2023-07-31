@@ -24,7 +24,7 @@
 /mob/proc/equip_to_slot_if_possible(obj/item/W as obj, slot, del_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, ignore_blocked = FALSE, assisted_equip = FALSE)
 	if(!istype(W))
 		return FALSE
-	if(W.item_flags & NOMOVE) //Cannot move NOMOVE items from one inventory slot to another. Cannot do canremove here because then BSTs spawn naked. 
+	if(W.item_flags & NOMOVE) //Cannot move NOMOVE items from one inventory slot to another. Cannot do canremove here because then BSTs spawn naked.
 		return FALSE
 
 	if(!W.mob_can_equip(src, slot, disable_warning, ignore_blocked))
@@ -180,12 +180,11 @@ var/list/slot_equipment_priority = list( \
 // If canremove or other conditions need to be checked then use unEquip instead.
 /mob/proc/drop_from_inventory(var/obj/item/W, var/atom/target)
 	if(W)
-		if(!target)
-			target = loc
 		remove_from_mob(W)
 		if(!(W && W.loc))
 			return TRUE
-		W.forceMove(target)
+		if(target)
+			W.forceMove(target)
 		W.do_drop_animation(src)
 		update_icon()
 		return TRUE
@@ -212,7 +211,7 @@ var/list/slot_equipment_priority = list( \
 		. = drop_r_hand(Target)
 
 	if (istype(item_dropped) && !QDELETED(item_dropped))
-		addtimer(CALLBACK(src, .proc/make_item_drop_sound, item_dropped), 1)
+		addtimer(CALLBACK(src, PROC_REF(make_item_drop_sound), item_dropped), 1)
 
 /mob/proc/make_item_drop_sound(obj/item/I)
 	if(QDELETED(I))
@@ -342,14 +341,19 @@ var/list/slot_equipment_priority = list( \
 	if(!item)
 		return FALSE
 
+	var/throw_range = item.throw_range
+	var/itemsize
+
 	if(istype(item, /obj/item/grab))
 		var/obj/item/grab/G = item
 		item = G.throw_held() //throw the person instead of the grab
 		if(ismob(item) && G.state >= GRAB_NECK)
+			var/mob/M = item
+			throw_range = round(throw_range * (src.mob_size/M.mob_size))
+			itemsize = round(M.mob_size/4)
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
-				var/mob/M = item
 				if(is_pacified())
 					to_chat(src, "<span class='notice'>You gently let go of [M].</span>")
 					src.remove_from_mob(item)
@@ -365,6 +369,10 @@ var/list/slot_equipment_priority = list( \
 			qdel(G)
 		else
 			return FALSE
+
+	else if(istype(item, /obj/item))
+		var/obj/item/I = item
+		itemsize = I.w_class
 
 	if(!item)
 		return FALSE //Grab processing has a chance of returning null
@@ -398,12 +406,12 @@ var/list/slot_equipment_priority = list( \
 			for(var/obj/O in T)
 				if(!O.density) //We don't care about you.
 					continue
-				if(O.CanPass(item, T)) //Items have CANPASS for tables/railings, allows placement. Also checks windows. 
+				if(O.CanPass(item, T)) //Items have CANPASS for tables/railings, allows placement. Also checks windows.
 					continue
 				if(istype(O, /obj/structure/closet/crate)) //Placing on/in crates is fine.
 					continue
 				return TRUE //Something is stopping us. Takes off throw mode.
-				
+
 		if(unEquip(I))
 			make_item_drop_sound(I)
 			I.forceMove(T)
@@ -422,8 +430,9 @@ var/list/slot_equipment_priority = list( \
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))
-			src.inertia_dir = get_dir(target, src)
-			step(src, inertia_dir)
+			if(prob((itemsize * itemsize * 20) * MOB_MEDIUM/src.mob_size)) // 20% chance with a tiny item, 40% with small, guaranteed above
+				src.inertia_dir = get_dir(target, src)
+				step(src, inertia_dir)
 		if(istype(item,/obj/item))
 			var/obj/item/W = item
 			W.randpixel_xy()
@@ -431,9 +440,9 @@ var/list/slot_equipment_priority = list( \
 			playsound(src, 'sound/effects/throw.ogg', volume, TRUE, -1)
 
 		// Animate the mob throwing.
-		animate_throw(src)
+		animate_throw()
 
-		item.throw_at(target, item.throw_range, item.throw_speed, src)
+		item.throw_at(target, throw_range, item.throw_speed, src)
 
 		return TRUE
 
@@ -488,5 +497,5 @@ var/list/slot_equipment_priority = list( \
 
 //When you drop an extremely heavy 406mm shell onto your foot. Oops!
 /mob/living/carbon/proc/throw_fail_consequences(var/obj/item/I)
-	apply_damage(45, BRUTE, pick(list(BP_L_FOOT, BP_R_FOOT)), I, armor_pen = 30)
+	apply_damage(45, DAMAGE_BRUTE, pick(list(BP_L_FOOT, BP_R_FOOT)), I, armor_pen = 30)
 	I.throw_fail_consequences(src)

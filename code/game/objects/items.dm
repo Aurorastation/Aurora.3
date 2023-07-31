@@ -10,7 +10,7 @@
 	var/health
 	var/burn_point
 	var/burning
-	var/hitsound = /decl/sound_category/swing_hit_sound//generic hit sound.
+	var/hitsound = /singleton/sound_category/swing_hit_sound//generic hit sound.
 	var/storage_cost
 	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
@@ -54,9 +54,9 @@
 	///Sound used when equipping the item into a valid slot
 	var/equip_sound = null
 	///Sound uses when picking the item up (into your hands)
-	var/pickup_sound = /decl/sound_category/generic_pickup_sound
+	var/pickup_sound = /singleton/sound_category/generic_pickup_sound
 	///Sound uses when dropping the item, or when its thrown.
-	var/drop_sound = /decl/sound_category/generic_drop_sound // drop sound - this is the default
+	var/drop_sound = /singleton/sound_category/generic_drop_sound // drop sound - this is the default
 
 	var/list/armor
 	var/armor_degradation_speed //How fast armor will degrade, multiplier to blocked damage to get armor damage value.
@@ -70,6 +70,8 @@
 	var/worn_overlay = null // used similarly as above, except for inhands.
 	var/worn_overlay_color = null // When you want your worn overlay to have colors. So you can have more than one modular coloring.
 	var/alpha_mask // when you want to slice out a chunk from a sprite
+	var/has_accents = FALSE // determines whether accent colour is applied or not
+	var/accent_color = COLOR_GRAY // used for accents which are coloured differently to the main body of the sprite
 
 	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
@@ -126,8 +128,9 @@
 /obj/item/update_icon()
 	. = ..()
 	if(build_from_parts)
-		cut_overlays()
 		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+	if(accent_color && has_accents)
+		add_overlay(overlay_image(icon,"[icon_state]_acc",accent_color, RESET_COLOR))
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
@@ -163,7 +166,7 @@
 			if (prob(5))
 				qdel(src)
 				return
-		else
+
 	return
 
 /obj/item/verb/move_to_top(obj/item/I in range(1))
@@ -330,7 +333,7 @@
 				else if(hitsound)
 					playsound(hit_atom, hitsound, volume, TRUE, -1)
 				else
-					playsound(hit_atom, 'sound/weapons/genhit.ogg', volume, TRUE, -1)
+					playsound(hit_atom, 'sound/weapons/Genhit.ogg', volume, TRUE, -1)
 			else
 				playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
 	else
@@ -340,9 +343,26 @@
 //Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
 //It is called after loc is set, so if placed in a container its loc will be that container.
 /obj/item/proc/dropped(var/mob/user)
+	SHOULD_CALL_PARENT(TRUE)
+	remove_item_verbs(user)
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
+
+/obj/item/proc/remove_item_verbs(mob/user)
+	if(ismech(user)) //very snowflake, but necessary due to how mechs work
+		return
+	if(QDELING(user))
+		return
+	var/list/verbs_to_remove = list()
+	for(var/v in verbs)
+		var/verbstring = "[v]"
+		if(length(user.item_verbs[verbstring]) == 1)
+			if(user.item_verbs[verbstring][1] == src)
+				verbs_to_remove += v
+		LAZYREMOVE(user.item_verbs[verbstring], src)
+	remove_verb(user, verbs_to_remove)
+
 
 // Called whenever an object is moved around inside the mob's contents.
 // Linker proc: mob/proc/prepare_for_slotmove, which is referenced in proc/handle_item_insertion and obj/item/attack_hand.
@@ -357,7 +377,7 @@
 	pixel_x = 0
 	pixel_y = 0
 	if(flags & HELDMAPTEXT)
-		addtimer(CALLBACK(src, .proc/check_maptext), 1) // invoke async does not work here
+		addtimer(CALLBACK(src, PROC_REF(check_maptext)), 1) // invoke async does not work here
 	do_pickup_animation(user)
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
@@ -378,6 +398,7 @@
 // slot uses the slot_X defines found in setup.dm
 // for items that can be placed in multiple slots
 /obj/item/proc/equipped(var/mob/user, var/slot)
+	SHOULD_CALL_PARENT(TRUE)
 	layer = SCREEN_LAYER+0.01
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
@@ -389,7 +410,16 @@
 			playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
 		else
 			playsound(src, drop_sound, DROP_SOUND_VOLUME)
-	return
+	if(item_action_slot_check(user, slot))
+		add_verb(user, verbs)
+		for(var/v in verbs)
+			LAZYDISTINCTADD(user.item_verbs["[v]"], src)
+	else
+		remove_item_verbs(user)
+
+//sometimes we only want to grant the item's action if it's equipped in a specific slot.
+/obj/item/proc/item_action_slot_check(mob/user, slot)
+	return TRUE
 
 //Defines which slots correspond to which slot flags
 var/list/global/slot_flags_enumeration = list(
@@ -903,7 +933,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	if(delay)
 		// Create a callback with checks that would be called every tick by do_after.
-		var/datum/callback/tool_check = CALLBACK(src, .proc/tool_check_callback, user, amount, extra_checks)
+		var/datum/callback/tool_check = CALLBACK(src, PROC_REF(tool_check_callback), user, amount, extra_checks)
 
 		if(ismob(target))
 			if(!do_mob(user, target, delay, extra_checks = tool_check))
@@ -1057,8 +1087,17 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
 	if(!isturf(loc))
 		return
-	pickup_animation.overlays = overlays
+	if(overlays.len)
+		pickup_animation.overlays = overlays
+	if(underlays.len)
+		pickup_animation.underlays = underlays
 	. = ..()
 
 /obj/item/proc/throw_fail_consequences(var/mob/living/carbon/C)
 	return
+
+/obj/item/proc/can_woodcut()
+	return FALSE
+
+/obj/item/proc/is_shovel()
+	return FALSE

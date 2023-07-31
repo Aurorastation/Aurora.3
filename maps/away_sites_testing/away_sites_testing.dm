@@ -18,6 +18,14 @@
 		/datum/unit_test/foundation/step_shall_return_true_on_success
 	)
 
+/obj/effect/overmap/visitable/sector/away_sites_testing
+	name = "Away Sites Testing Facility"
+	desc = "You shouldn't be seeing this. But c'est la vie."
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "runtime_penal_colony"
+	color = COLOR_STEEL
+	base = TRUE
+
 /datum/map/away_sites_testing/build_away_sites()
 	for (var/map in SSmapping.away_sites_templates)
 		var/datum/map_template/ruin/away_site/A = SSmapping.away_sites_templates[map]

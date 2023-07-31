@@ -43,8 +43,8 @@
 		T.pixel_x = 0
 		T.pixel_y = 0
 		T.layer = ABOVE_OBJ_LAYER
-		moved_event.register(T, src, /atom/movable/proc/move_to_turf)
-		moved_event.register(src, T, /atom/movable/proc/move_to_turf)
+		moved_event.register(T, src, TYPE_PROC_REF(/atom/movable, move_to_turf))
+		moved_event.register(src, T, TYPE_PROC_REF(/atom/movable, move_to_turf))
 		T.stake = src
 		pinned_target = T
 	else

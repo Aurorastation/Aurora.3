@@ -202,7 +202,7 @@
 	return
 
 /mob/living/UnarmedAttack(var/atom/A, var/proximity_flag)
-	if(!Master.round_started)
+	if(!(GAME_STATE & RUNLEVELS_PLAYING))
 		to_chat(src, "You cannot attack people before the game has started.")
 		return 0
 
@@ -220,7 +220,7 @@
 	animals lunging, etc.
 */
 /mob/proc/RangedAttack(var/atom/A, var/params)
-	if(length(mutations) && (LASER_EYES in mutations) && a_intent == I_HURT)
+	if(HAS_FLAG(mutations, LASER_EYES) && a_intent == I_HURT)
 		LaserEyes(A, params) // moved into a proc below
 		return
 	A.attack_ranged(src, params)
@@ -241,6 +241,11 @@
 	if(A.handle_middle_mouse_click(src))
 		return
 	swap_hand()
+
+/mob/living/carbon/human/MiddleClickOn(var/atom/A)
+	if(species.handle_middle_mouse_click(src, A))
+		return
+	return ..()
 
 // In case of use break glass
 /*
@@ -286,13 +291,10 @@
 
 /atom/proc/AltClick(var/mob/user)
 	var/turf/T = get_turf(src)
-	if(T && user.TurfAdjacent(T))
-		if(user.listed_turf == T)
-			user.listed_turf = null
-		else
-			user.listed_turf = T
-			user.client.statpanel = "Turf"
-	return 1
+	if(!T || !user.TurfAdjacent(T))
+		return FALSE
+	if(T && (isturf(loc) || isturf(src)) && user.TurfAdjacent(T))
+		user.set_listed_turf(T)
 
 /mob/proc/TurfAdjacent(var/turf/T)
 	return T.AdjacentQuick(src)
@@ -367,7 +369,7 @@ var/global/list/click_catchers
 	icon = 'icons/mob/screen_gen.dmi'
 	icon_state = "click_catcher"
 	plane = CLICKCATCHER_PLANE
-	mouse_opacity = 2
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	screen_loc = "CENTER-7,CENTER-7"
 
 /obj/screen/click_catcher/Destroy()

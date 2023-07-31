@@ -3,12 +3,15 @@
 	short_name = "vaw"
 	name_plural = "Type BA"
 	language = LANGUAGE_VAURCA
+	species_height = HEIGHT_CLASS_TALL
+	height_min = 150
+	height_max = 250
 	primitive_form = SPECIES_VAURCA_WORKER
 	greater_form = SPECIES_VAURCA_BREEDER
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
 	slowdown = 0
 
-	brute_mod = 0.7
+	brute_mod = 0.8
 	oxy_mod = 1
 	radiation_mod = 0.5
 	standing_jump_range = 3
@@ -51,6 +54,9 @@
 	name_plural = "Type CB"
 	bodytype = BODYTYPE_VAURCA_BREEDER
 	primitive_form = SPECIES_VAURCA_WARRIOR
+	species_height = HEIGHT_CLASS_GIGANTIC
+	height_min = 220
+	height_max = 335
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
@@ -91,12 +97,12 @@
 	sprint_cost_factor = 0.80
 	stamina_recovery = 3
 
-	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE
+	flags =  NO_SLIP | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN
 
 	possible_cultures = list(
-		/decl/origin_item/culture/zora_breeder,
-		/decl/origin_item/culture/klax_breeder,
-		/decl/origin_item/culture/cthur_breeder
+		/singleton/origin_item/culture/zora_breeder,
+		/singleton/origin_item/culture/klax_breeder,
+		/singleton/origin_item/culture/cthur_breeder
 	)
 
 	inherent_verbs = list(
@@ -128,6 +134,7 @@
 	deform = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
 	default_language = LANGUAGE_GIBBERING
 	language = LANGUAGE_VAURCA
+	species_height = HEIGHT_NOT_USED
 	icon_x_offset = -8
 	unarmed_types = list(/datum/unarmed_attack/claws/cleave, /datum/unarmed_attack/bite/strong)
 	rarity_value = 10
@@ -164,7 +171,7 @@
 	warning_high_pressure = 3250 //Default 325
 
 	spawn_flags = IS_RESTRICTED
-	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE | NO_ARTERIES | PHORON_IMMUNE
+	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE | NO_ARTERIES | PHORON_IMMUNE | NO_COLD_SLOWDOWN
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/rebel_yell,
@@ -189,7 +196,7 @@
 	default_h_style = "Bald"
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.mutations.Add(HULK)
+	H.mutations |= HULK
 	return ..()
 
 /datum/species/bug/type_e
@@ -197,6 +204,9 @@
 	short_name = "vak"
 	name_plural = "Type E"
 	bodytype = BODYTYPE_VAURCA_BULWARK
+	species_height = HEIGHT_CLASS_GIGANTIC
+	height_min = 220
+	height_max = 320
 	preview_icon = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
@@ -220,9 +230,9 @@
 
 	slowdown = 2
 
-	unarmed_types = list(/datum/unarmed_attack/claws/vaurca_bulwark)
+	unarmed_types = list(/datum/unarmed_attack/vaurca_bulwark)
 	maneuvers = list(
-		/decl/maneuver/leap/bulwark
+		/singleton/maneuver/leap/bulwark
 	)
 
 	natural_armor = list(
@@ -235,12 +245,12 @@
 	radiation_mod = 0
 	toxins_mod = 3
 
-	grab_mod = 0.8
-	resist_mod = 4
+	grab_mod = 0.5 //very big, very easy to grab
+	resist_mod = 14 //also very strong
 
 	mob_size = 28
 	taste_sensitivity = TASTE_DULL
-	blurb = {"Type E Vaurca, otherwise known as the Bulwarks, are a new bodyform derived from the worker caste in a collaboration by the C'thur and Nralakk scientists. Originally only the C'thur had access to these behemoths, but after a short amount of time, the bodyform started appearing in the ranks of the Zo'ra and K'lax as well, causing an even more strained relationship between the hives.<br>
+	blurb = {"Type E Vaurca, otherwise known as the Bulwarks, are a new bodyform derived from the worker caste in a collaboration by the C'thur and Nralakk scientists. Originally only the C'thur had access to these behemoths, but after a short amount of time, the bodyform started appearing in the ranks of the Zo'ra and K'lax as well, causing an even more strained relationship between the Hives.<br>
 Similar to Workers, Bulwarks are generally passive, and prefer to flee a fight rather than resist. Though due to their speed, they may still choose to defend themselves should they be unable to properly escape a battle. The main exception to this is when another Vaurca is in danger. When this occurs, they tend to put themselves in between the attacker and the Vaurca, acting as a shield of sorts. They won't go out of their way to take down the attacker, but will ensure the others get away safely.<br>
 Bulwarks are much larger and have significantly thicker carapaces than most Vaurca, making them slow but resistant to most hits, including a complete immunity to radiation. Their powerful arms and claws grant them stronger punches, enough to bend metal, and is often used to pry open non-functional doors.<br>
 <b>Type E Vaurca are typically used for heavy lifting, agricultural and industrial work, thus they can typically be found as Engineers, Cargo Technicians, Miners and similar jobs, though they can also be found in positions such as janitor and Assistant should they be needed.</b>"}

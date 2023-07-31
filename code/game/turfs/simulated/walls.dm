@@ -30,7 +30,7 @@
 	var/material/reinf_material
 	var/last_state
 	var/construction_stage
-	var/hitsound = 'sound/weapons/genhit.ogg'
+	var/hitsound = 'sound/weapons/Genhit.ogg'
 	var/use_set_icon_state
 
 	var/under_turf = /turf/simulated/floor/plating
@@ -84,8 +84,9 @@
 		burn(2500)
 	else if(istype(Proj,/obj/item/projectile/ion))
 		burn(500)
-	
+
 	bullet_ping(Proj)
+	create_bullethole(Proj)
 
 	var/proj_damage = Proj.get_structure_damage()
 	var/damage = proj_damage
@@ -123,6 +124,7 @@
 
 /turf/simulated/wall/ChangeTurf(var/newtype)
 	clear_plants()
+	clear_bulletholes()
 	..(newtype)
 
 //Appearance
@@ -188,7 +190,7 @@
 
 /turf/simulated/wall/proc/dismantle_wall(var/devastated, var/explode, var/no_product, var/no_change = FALSE)
 	if (!no_change)	// No change is TRUE when this is called by destroy.
-		playsound(src, 'sound/items/welder.ogg', 100, 1)
+		playsound(src, 'sound/items/Welder.ogg', 100, 1)
 
 	if(!no_product)
 		if(reinf_material)
@@ -205,6 +207,7 @@
 			O.forceMove(src)
 
 	clear_plants()
+	clear_bulletholes()
 	material = SSmaterials.get_material_by_name("placeholder")
 	reinf_material = null
 
@@ -223,7 +226,7 @@
 				dismantle_wall(1,1)
 		if(3.0)
 			take_damage(rand(0, 250))
-		else
+
 	return
 
 // Wall-rot effect, a nasty fungus that destroys walls.
@@ -247,15 +250,14 @@
 	to_chat(user, SPAN_WARNING("The thermite starts melting through the wall."))
 
 	QDEL_IN(O, 100)
-	addtimer(CALLBACK(src, /atom/.proc/melt, FALSE), 100)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, melt), FALSE), 100)
 
 /turf/simulated/wall/proc/radiate()
 	var/total_radiation = material.radioactivity + (reinf_material ? reinf_material.radioactivity / 2 : 0)
 	if(!total_radiation)
 		return
 
-	for(var/mob/living/L in range(3,src))
-		L.apply_damage(total_radiation, IRRADIATE, damage_flags = DAM_DISPERSED)
+	SSradiation.radiate(src, total_radiation)
 	return total_radiation
 
 /turf/simulated/wall/proc/burn(temperature)

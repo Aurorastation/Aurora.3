@@ -219,34 +219,37 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
 
 	return 1 // success
 
-/datum/asset/nanoui_templates/register()
-	var/list/nano_asset_dirs = list(
+/datum/asset/nanoui
+	var/list/common = list()
+
+	var/list/common_dirs = list(
+		"nano/css/",
+		"nano/js/",
 		"nano/images/",
 		"nano/images/status_icons/",
 		"nano/templates/"
 	)
+	var/list/uncommon_dirs = list()
 
-	var/list/filenames = null
-	for (var/path in nano_asset_dirs)
-		filenames = flist(path)
+/datum/asset/nanoui/register()
+	// Crawl the directories to find files.
+	for (var/path in common_dirs)
+		var/list/filenames = flist(path)
 		for(var/filename in filenames)
-			if(copytext(filename, length(filename)) != "/") // filenames which end in "/" are actually directories, which we want to ignore
-				var/fullpath = path + filename
-				if(fexists(fullpath))
-					register_asset(filename, fcopy_rsc(fullpath))
+			if(copytext(filename, length(filename)) != "/") // Ignore directories.
+				if(fexists(path + filename))
+					common[filename] = fcopy_rsc(path + filename)
+					SSassets.transport.register_asset(filename, common[filename])
+	for (var/path in uncommon_dirs)
+		var/list/filenames = flist(path)
+		for(var/filename in filenames)
+			if(copytext(filename, length(filename)) != "/") // Ignore directories.
+				if(fexists(path + filename))
+					SSassets.transport.register_asset(filename, fcopy_rsc(path + filename))
 
-/datum/asset/simple/nanoui_common
-	assets = list(
-		"libraries.min.js" = 'nano/js/libraries.min.js',
-		"nano_base_callbacks.js" = 'nano/js/nano_base_callbacks.js',
-		"nano_base_helpers.js" = 'nano/js/nano_base_helpers.js',
-		"nano_state.js" = 'nano/js/nano_state.js',
-		"nano_state_default.js" = 'nano/js/nano_state_default.js',
-		"nano_state_manager.js" = 'nano/js/nano_state_manager.js',
-		"nano_template.js" = 'nano/js/nano_template.js',
-		"nano_utility.js" = 'nano/js/nano_utility.js',
-		"icons.css" = 'nano/css/icons.css',
-		"layout_basic.css" = 'nano/css/layout_basic.css',
-		"layout_default.css" = 'nano/css/layout_default.css',
-		"shared.css" = 'nano/css/shared.css'
-	)
+/datum/asset/nanoui/send(client, uncommon)
+	if(!islist(uncommon))
+		uncommon = list(uncommon)
+
+	SSassets.transport.send_assets(client, uncommon)
+	SSassets.transport.send_assets(client, common)

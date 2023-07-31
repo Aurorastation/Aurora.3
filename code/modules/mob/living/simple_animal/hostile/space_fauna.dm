@@ -27,7 +27,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	armor_penetration = 15
-	attack_flags = DAM_EDGE
+	attack_flags = DAMAGE_FLAG_EDGE
 	attacktext = "bitten"
 	attack_sound = 'sound/weapons/bite.ogg'
 
@@ -65,7 +65,7 @@
 /mob/living/simple_animal/hostile/carp/MoveToTarget()
 	stop_automated_movement = 1
 	if(istype(target_mob, /obj/effect/energy_field) && !QDELETED(target_mob) && (target_mob in targets))
-		stance = HOSTILE_STANCE_ATTACKING
+		change_stance(HOSTILE_STANCE_ATTACKING)
 		walk_to(src, target_mob, 1, move_to_delay)
 		return 1
 	..()
@@ -90,27 +90,10 @@
 		return e
 
 /mob/living/simple_animal/hostile/carp/DestroySurroundings(var/bypass_prob = FALSE)
-	if(stance != HOSTILE_STANCE_ATTACKING)
-		return 0
-	if(prob(break_stuff_probability) || bypass_prob)
-		for(var/dir in cardinal) // North, South, East, West
-			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
-			if(e && e.strength >= 1)
-				e.Stress(rand(1,2))
-				visible_message("<span class='danger'>\the [src] bites \the [e]!</span>")
-				src.do_attack_animation(e)
-				target_mob = e
-				stance = HOSTILE_STANCE_ATTACKING
-				return 1
-			for(var/obj/structure/window/obstacle in get_step(src, dir))
-				if(obstacle.dir == reverse_dir[dir]) // So that windows get smashed in the right order
-					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-					return 1
-			var/obj/structure/obstacle = locate(/obj/structure, get_step(src, dir))
-			if(istype(obstacle, /obj/structure/window) || istype(obstacle, /obj/structure/closet) || istype(obstacle, /obj/structure/table) || istype(obstacle, /obj/structure/grille))
-				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-				return 1
-	return 0
+	if(stance != HOSTILE_STANCE_ATTACKING || ON_ATTACK_COOLDOWN(src))
+		return FALSE
+
+	return ..()
 
 /mob/living/simple_animal/hostile/carp/russian
 	name = "Ivan the carp"
@@ -189,8 +172,8 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	armor_penetration = 25
-	
-/mob/living/simple_animal/hostile/carp/bloater	
+
+/mob/living/simple_animal/hostile/carp/bloater
 	name = "bloater"
 	desc = "A fat, mineral-devouring creature frequently herded for mining expeditions. Its actual ability to dig is less valuable than its volatile nature, however."
 	icon = 'icons/mob/npc/large_space_xenofauna.dmi'
@@ -212,14 +195,14 @@
 /mob/living/simple_animal/hostile/carp/bloater/AttackingTarget()
 	..()
 	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
+	change_stance(HOSTILE_STANCE_TIRED)
 	stop_automated_movement = 1
 	wander = 0
 	if(!has_exploded)
 		icon_state = "bloater_bloating"
 		icon_living = "bloater_bloating"
 		has_exploded = TRUE
-		addtimer(CALLBACK(src, .proc/explode), 5)
+		addtimer(CALLBACK(src, PROC_REF(explode)), 5)
 
 /mob/living/simple_animal/hostile/carp/bloater/bullet_act(var/obj/item/projectile/Proj)
 	if(!has_exploded)
@@ -272,6 +255,7 @@
 	health = 5
 	mob_size = 2
 	density = FALSE
+	destroy_surroundings = FALSE
 
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
 	harm_intent_damage = 5
@@ -296,4 +280,3 @@
 	flying = TRUE
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
-

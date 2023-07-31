@@ -3,91 +3,98 @@
 	name = "carpet"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
-	initial_flooring = /decl/flooring/carpet
-	footstep_sound = /decl/sound_category/carpet_footstep
+	initial_flooring = /singleton/flooring/carpet
+	footstep_sound = /singleton/sound_category/carpet_footstep
 
 /turf/simulated/floor/carpet/blue
 	name = "blue carpet"
 	icon_state = "bcarpet"
-	initial_flooring = /decl/flooring/carpet/blue
+	initial_flooring = /singleton/flooring/carpet/blue
 
 /turf/simulated/floor/carpet/blue/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/carpet/rubber
 	name = "rubber carpet"
 	icon_state = "rub_carpet"
-	initial_flooring = /decl/flooring/carpet/rubber
+	initial_flooring = /singleton/flooring/carpet/rubber
 
 /turf/simulated/floor/carpet/art
 	icon_state = "artcarpet"
-	initial_flooring = /decl/flooring/carpet/art
+	initial_flooring = /singleton/flooring/carpet/art
 
 /turf/simulated/floor/carpet/fancybrown
 	icon_state = "brown"
-	initial_flooring = /decl/flooring/carpet/fancybrown
+	initial_flooring = /singleton/flooring/carpet/fancybrown
 
 /turf/simulated/floor/carpet/red
 	icon_state = "red"
-	initial_flooring = /decl/flooring/carpet/red
+	initial_flooring = /singleton/flooring/carpet/red
 
 /turf/simulated/floor/carpet/darkblue
 	icon_state = "blue1"
-	initial_flooring = /decl/flooring/carpet/darkblue
+	initial_flooring = /singleton/flooring/carpet/darkblue
 
 /turf/simulated/floor/carpet/lightblue
 	icon_state = "blue2"
-	initial_flooring = /decl/flooring/carpet/lightblue
+	initial_flooring = /singleton/flooring/carpet/lightblue
 
 /turf/simulated/floor/carpet/aquablue
 	icon_state = "blue3"
-	initial_flooring = /decl/flooring/carpet/aquablue
+	initial_flooring = /singleton/flooring/carpet/aquablue
 
 /turf/simulated/floor/carpet/green
 	icon_state = "green"
-	initial_flooring = /decl/flooring/carpet/green
+	initial_flooring = /singleton/flooring/carpet/green
 
 /turf/simulated/floor/carpet/magenta
 	icon_state = "magenta"
-	initial_flooring = /decl/flooring/carpet/magenta
+	initial_flooring = /singleton/flooring/carpet/magenta
 
 /turf/simulated/floor/carpet/purple
 	icon_state = "purple"
-	initial_flooring = /decl/flooring/carpet/purple
+	initial_flooring = /singleton/flooring/carpet/purple
 
 /turf/simulated/floor/carpet/orange
 	icon_state = "orange"
-	initial_flooring = /decl/flooring/carpet/orange
+	initial_flooring = /singleton/flooring/carpet/orange
 
 //Grids
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
 	icon_state = "bcircuit"
-	initial_flooring = /decl/flooring/reinforced/circuit
+	initial_flooring = /singleton/flooring/reinforced/circuit
+
+/turf/simulated/floor/bluegrid/cooled
+	name = "cooled mainframe floor"
+	temperature = 278
+
+/turf/simulated/floor/bluegrid/server
+	name = "cooled mainframe floor"
+	temperature = 80
+	initial_gas = list("nitrogen" = MOLES_CELLSTANDARD) //one atmosphere of nitrogen
 
 /turf/simulated/floor/greengrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
 	icon_state = "gcircuit"
-	initial_flooring = /decl/flooring/reinforced/circuit/green
+	initial_flooring = /singleton/flooring/reinforced/circuit/green
 
 //Wood Flooring
 /turf/simulated/floor/wood
 	name = "wooden floor"
 	icon = 'icons/turf/flooring/wood.dmi'
 	icon_state = "wood"
-	initial_flooring = /decl/flooring/wood
-	footstep_sound = /decl/sound_category/wood_footstep
+	initial_flooring = /singleton/flooring/wood
+	footstep_sound = /singleton/sound_category/wood_footstep
 
 /turf/simulated/floor/wood/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/wood/coloured
 	icon_state = "woodcolour"
-	initial_flooring = /decl/flooring/wood/coloured
+	initial_flooring = /singleton/flooring/wood/coloured
 
 /turf/simulated/floor/wood/coloured/birch
 	color = WOOD_COLOR_BIRCH
@@ -115,95 +122,84 @@
 	name = "grass patch"
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
-	initial_flooring = /decl/flooring/grass
-	footstep_sound = /decl/sound_category/grass_footstep
+	initial_flooring = /singleton/flooring/grass
+	footstep_sound = /singleton/sound_category/grass_footstep
 
 /turf/simulated/floor/grass/alt
 	icon = 'icons/turf/total_floors.dmi'
 	icon_state = "grass_alt"
-	initial_flooring = /decl/flooring/grass/alt
+	initial_flooring = /singleton/flooring/grass/alt
 
 //Tiles
 /turf/simulated/floor/tiled
 	name = "steel tiles"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "steel"
-	initial_flooring = /decl/flooring/tiling
+	initial_flooring = /singleton/flooring/tiling
+
+/turf/simulated/floor/tiled/cooled
+	name = "cooled steel tiles"
+	temperature = 278
 
 /turf/simulated/floor/tiled/full
 	name = "full steel tile"
 	icon_state = "steel_full"
-	initial_flooring = /decl/flooring/tiling/full
+	initial_flooring = /singleton/flooring/tiling/full
 
 /turf/simulated/floor/tiled/full/airless
 	name = "airless full steel tile"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/reinforced
 	name = "reinforced floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "reinforced"
-	initial_flooring = /decl/flooring/reinforced
-	footstep_sound = /decl/sound_category/plating_footstep
+	initial_flooring = /singleton/flooring/reinforced
+	footstep_sound = /singleton/sound_category/plating_footstep
+
+/turf/simulated/floor/reinforced/cooled
+	name = "cooled reinforced floor"
+	temperature = 278
 
 /turf/simulated/floor/reinforced/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 	roof_type = null
 
 /turf/simulated/floor/reinforced/airmix
-	oxygen = MOLES_O2ATMOS
-	nitrogen = MOLES_N2ATMOS
+	initial_gas = list("oxygen" = MOLES_O2ATMOS, "nitrogen" = MOLES_N2ATMOS)
 
 /turf/simulated/floor/reinforced/nitrogen
-	oxygen = 0
-	nitrogen = ATMOSTANK_NITROGEN
+	initial_gas = list("nitrogen" = ATMOSTANK_NITROGEN)
 
 // Reinforced Reactor Flooring
 /turf/simulated/floor/reinforced/reactor
 	name = "reinforced reactor floor"
-	oxygen = 0
-	nitrogen = MOLES_CELLSTANDARD // One atmosphere of nitrogen.
+	initial_gas = list("nitrogen" = MOLES_CELLSTANDARD) // One atmosphere of nitrogen.
 
 /turf/simulated/floor/reinforced/oxygen
-	oxygen = ATMOSTANK_OXYGEN
-	nitrogen = 0
+	initial_gas = list("oxygen" = ATMOSTANK_OXYGEN)
 
 /turf/simulated/floor/reinforced/phoron
-	oxygen = 0
-	nitrogen = 0
-	phoron = ATMOSTANK_PHORON
+	initial_gas = list("phoron" = ATMOSTANK_PHORON)
 
 /turf/simulated/floor/reinforced/phoron/scarce
-	phoron = ATMOSTANK_PHORON_SCARCE
+	initial_gas = list("phoron" = ATMOSTANK_PHORON_SCARCE)
 
 /turf/simulated/floor/reinforced/carbon_dioxide
-	oxygen = 0
-	nitrogen = 0
-	carbon_dioxide = ATMOSTANK_CO2
+	initial_gas = list("carbon_dioxide" = ATMOSTANK_CO2)
 
 /turf/simulated/floor/reinforced/n20
-	oxygen = 0
-	nitrogen = 0
-
-/turf/simulated/floor/reinforced/n20/Initialize()
-	. = ..()
-	if(!air)
-		make_air()
-	air.adjust_gas(GAS_N2O, ATMOSTANK_NITROUSOXIDE)
+	initial_gas = list("sleeping_agent" = ATMOSTANK_NITROUSOXIDE)
 
 /turf/simulated/floor/reinforced/hydrogen
-	oxygen = 0
-	nitrogen = 0
-	hydrogen = ATMOSTANK_HYDROGEN
+	initial_gas = list("hydrogen" = ATMOSTANK_HYDROGEN)
 
 /turf/simulated/floor/cult
 	name = "engraved floor"
 	icon = 'icons/turf/flooring/cult.dmi'
 	icon_state = "cult"
-	initial_flooring = /decl/flooring/reinforced/cult
+	initial_flooring = /singleton/flooring/reinforced/cult
 	appearance_flags = NO_CLIENT_COLOR
 
 /turf/simulated/floor/cult/cultify()
@@ -212,66 +208,70 @@
 /turf/simulated/floor/tiled/dark
 	name = "plasteel tiles"
 	icon_state = "dark"
-	initial_flooring = /decl/flooring/tiling/dark
+	initial_flooring = /singleton/flooring/tiling/dark
+
+/turf/simulated/floor/tiled/dark/cooled
+	name = "cooled plasteel tiles"
+	temperature = 278
 
 /turf/simulated/floor/tiled/dark/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/tiled/dark/full
 	name = "full plasteel tile"
 	icon_state = "dark_full"
-	initial_flooring = /decl/flooring/tiling/dark/full
+	initial_flooring = /singleton/flooring/tiling/dark/full
 
 /turf/simulated/floor/tiled/dark/full/airless
 	name = "airless full plasteel tile"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/tiled/red
 	name = "red floor"
 	color = COLOR_RED_GRAY
 	icon_state = "white"
-	initial_flooring = /decl/flooring/tiling/red
+	initial_flooring = /singleton/flooring/tiling/red
 
 /turf/simulated/floor/tiled/steel
 	name = "steel floor"
 	icon = 'icons/turf/total_floors.dmi'
 	icon_state = "steel_dirty"
-	initial_flooring = /decl/flooring/tiling/steel
+	initial_flooring = /singleton/flooring/tiling/steel
 
 /turf/simulated/floor/tiled/steel/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	roof_type = null
 
 /turf/simulated/floor/tiled/old
 	name = "old floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "old_steel"
-	initial_flooring = /decl/flooring/tiling/old
+	initial_flooring = /singleton/flooring/tiling/old
 
 /turf/simulated/floor/tiled/old_dark
 	name = "old dark floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "old_dark"
-	initial_flooring = /decl/flooring/tiling/old_dark
+	initial_flooring = /singleton/flooring/tiling/old_dark
 
 /turf/simulated/floor/tiled/old_white
 	name = "old sterile floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "old_white"
-	initial_flooring = /decl/flooring/tiling/old_white
+	initial_flooring = /singleton/flooring/tiling/old_white
 
 /turf/simulated/floor/tiled/asteroid
 	icon = 'icons/turf/total_floors.dmi'
 	icon_state = "asteroidfloor"
-	initial_flooring = /decl/flooring/tiling/asteroid
+	initial_flooring = /singleton/flooring/tiling/asteroid
 
 /turf/simulated/floor/tiled/asteroid/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	roof_type = null
+
+/turf/simulated/floor/plating/cooled
+	name = "cooled plating"
+	temperature = 278
 
 /turf/simulated/floor/plating/asteroid
 	icon = 'icons/turf/total_floors.dmi'
@@ -280,83 +280,77 @@
 /turf/simulated/floor/tiled/white
 	name = "white floor"
 	icon_state = "white"
-	initial_flooring = /decl/flooring/tiling/white
+	initial_flooring = /singleton/flooring/tiling/white
 
 /turf/simulated/floor/tiled/yellow
 	name = "yellow floor"
 	color = COLOR_BROWN
 	icon_state = "white"
-	initial_flooring = /decl/flooring/tiling/yellow
+	initial_flooring = /singleton/flooring/tiling/yellow
 
 /turf/simulated/floor/tiled/freezer
 	name = "tiles"
 	icon_state = "freezer"
-	initial_flooring = /decl/flooring/tiling/freezer
+	initial_flooring = /singleton/flooring/tiling/freezer
 
 /turf/simulated/floor/tiled/ramp
 	name = "foot ramp"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "ramptop"
-	initial_flooring = /decl/flooring/reinforced/ramp
+	initial_flooring = /singleton/flooring/reinforced/ramp
 
 /turf/simulated/floor/tiled/ramp/bottom
 	name = "foot ramp"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "rampbot"
-	initial_flooring = /decl/flooring/reinforced/ramp/bottom
+	initial_flooring = /singleton/flooring/reinforced/ramp/bottom
 
 /turf/simulated/floor/lino
 	name = "lino"
 	icon = 'icons/turf/flooring/linoleum.dmi'
 	icon_state = "lino"
-	initial_flooring = /decl/flooring/linoleum
+	initial_flooring = /singleton/flooring/linoleum
 
 /turf/simulated/floor/lino/grey
 	icon_state = "lino_grey"
-	initial_flooring = /decl/flooring/linoleum/grey
+	initial_flooring = /singleton/flooring/linoleum/grey
 
 //ATMOS PREMADES
 /turf/simulated/floor/reinforced/airless
 	name = "vacuum floor"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 	roof_type = null
 
 /turf/simulated/floor/airless
 	name = "airless plating"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
-	footstep_sound = /decl/sound_category/plating_footstep
+	footstep_sound = /singleton/sound_category/plating_footstep
 
 	roof_type = null
 
 /turf/simulated/floor/tiled/airless
 	name = "airless floor"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 
 /turf/simulated/floor/bluegrid/airless
 	name = "airless floor"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 
 /turf/simulated/floor/greengrid/airless
 	name = "airless floor"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 
 /turf/simulated/floor/greengrid/nitrogen
-	oxygen = 0
+	initial_gas = list("nitrogen" = MOLES_N2STANDARD)
 
 /turf/simulated/floor/tiled/white/airless
 	name = "airless floor"
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 
 // Placeholders
@@ -371,23 +365,28 @@
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "ice"
 
+/turf/simulated/floor/airless/ice
+	name = "ice"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "ice"
+
 /turf/simulated/floor/snow
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
-	footstep_sound = /decl/sound_category/snow_footstep
+	footstep_sound = /singleton/sound_category/snow_footstep
 	does_footprint = TRUE
 	footprint_color = COLOR_SNOW
 	track_distance = 4
 
 /turf/simulated/floor/snow/Initialize()
 	. = ..()
-	icon_state = pick("snow[rand(1,12)]","snow0")
+	icon_state = pick("snow[rand(1,2)]","snow0")
 
 /turf/simulated/floor/plating/snow
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snowplating"
-	footstep_sound = /decl/sound_category/snow_footstep
+	footstep_sound = /singleton/sound_category/snow_footstep
 
 /turf/simulated/floor/airless/ceiling
 	icon_state = "asteroidplating"
@@ -399,42 +398,42 @@
 	name = "silver floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "silver"
-	initial_flooring = /decl/flooring/silver
+	initial_flooring = /singleton/flooring/silver
 
 /turf/simulated/floor/gold
 	name = "golden floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "gold"
-	initial_flooring = /decl/flooring/gold
+	initial_flooring = /singleton/flooring/gold
 
 /turf/simulated/floor/uranium
 	name = "uranium floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "uranium"
-	initial_flooring =/decl/flooring/uranium
+	initial_flooring =/singleton/flooring/uranium
 
 /turf/simulated/floor/phoron
 	name = "phoron floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "plasma"
-	initial_flooring = /decl/flooring/phoron
+	initial_flooring = /singleton/flooring/phoron
 
 /turf/simulated/floor/diamond
 	name = "diamond floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "diamond"
-	initial_flooring = /decl/flooring/diamond
+	initial_flooring = /singleton/flooring/diamond
 
 /turf/simulated/floor/marble
 	name = "light marble floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "lightmarble"
-	initial_flooring = /decl/flooring/marble
+	initial_flooring = /singleton/flooring/marble
 
 /turf/simulated/floor/marble/dark
 	name = "dark marble floor"
 	icon_state = "darkmarble"
-	initial_flooring = /decl/flooring/marble/dark
+	initial_flooring = /singleton/flooring/marble/dark
 
 /turf/simulated/floor/vaurca
 	name = "alien floor"

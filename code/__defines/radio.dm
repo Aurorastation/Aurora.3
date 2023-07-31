@@ -159,11 +159,11 @@ var/list/DEPT_FREQS_ASSOC = list(
 #define RADIO_ATMOSIA "radio_atmos"
 #define RADIO_NAVBEACONS "radio_navbeacon"
 #define RADIO_AIRLOCK "radio_airlock"
-#define RADIO_SECBOT "radio_secbot"
-#define RADIO_MULEBOT "radio_mulebot"
 #define RADIO_MAGNETS "radio_magnet"
 #define RADIO_ARRIVALS "radio_arrvl"
 
 #define JAMMER_OFF -1
 #define JAMMER_ALL 1 // affects ALL wireless streams
 #define JAMMER_SYNTHETIC 2 // affects only synthetic wireless connections (attack_ai)
+
+#define DEFAULT_LAW_CHANNEL "Main Frequency"

@@ -19,6 +19,7 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/fire.dmi'
 	)
 	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.90
