@@ -184,7 +184,7 @@
 		return FALSE
 	var/mob/living/carbon/human/H = speaker
 	var/obj/item/organ/internal/augment/language/zeng/aug = H.internal_organs_by_name[BP_AUG_LANGUAGE]
-	if(istype(aug))
+	if(istype(aug) && !isskrell(H))
 		to_chat(speaker, SPAN_WARNING("You are not capable of speaking Nral'malic!"))
 		return FALSE
 	else
