@@ -54,7 +54,7 @@
 	for(var/datum/language/L in known_languages)
 		if(LAZYACCESS(partial_understanding, L.name))
 			understand_chance += partial_understanding[L.name]
-	
+
 	if(!isnull(dialect_understanding))
 		understand_chance += dialect_understanding
 
@@ -213,7 +213,7 @@
 
 /mob/living/carbon/human/get_random_dialect(var/datum/language/L)
 	for(var/dialect in L.possible_dialects)
-		var/decl/dialect/D = decls_repository.get_decl(dialect)
+		var/singleton/dialect/D = decls_repository.get_decl(dialect)
 		if(!D.culture_restriction || culture.type == D.culture_restriction)
 			if(!D.origin_restriction || origin.type == D.origin_restriction)
 				. = D

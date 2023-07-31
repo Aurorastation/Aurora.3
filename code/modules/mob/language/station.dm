@@ -304,8 +304,8 @@
 	"zu", "zun", "zuo")
 	allow_accents = TRUE
 	possible_dialects = list(
-		/decl/dialect/sol_earth,
-		/decl/dialect/sol_morozi
+		/singleton/dialect/sol_earth,
+		/singleton/dialect/sol_morozi
 	)
 
 /datum/language/human/get_random_name(var/gender)
@@ -327,7 +327,7 @@
 	key = "4"
 	flags = WHITELISTED | TCOMSSIM
 	syllables = list("af", "if", "ba", "ta", "tha", "id", "jem", "ha", "kha", "dal", "dhl", "ra", "zay", "sen", "um", "shn", "sid", "ad", "ta", "za", "ayn", "gha", "zir", "yn", "fa", "qaf", "iam", "mim", "al", "ja", "non", "ha", "waw", "ya",
-		"hem", "zah", "hml", "ks", "ini", "da", "ks", "iga", "ih", "la", "ulf", "xe", "ayw", "sit", "ah", "aarah", "jalaa", "sirt", "kurt", "turhk", "ust", "irk", "kir", "mir", "ach", "oglu", "bolu", "shek", "she", "ghoz", "miya", "ejdan", 
+		"hem", "zah", "hml", "ks", "ini", "da", "ks", "iga", "ih", "la", "ulf", "xe", "ayw", "sit", "ah", "aarah", "jalaa", "sirt", "kurt", "turhk", "ust", "irk", "kir", "mir", "ach", "oglu", "bolu", "shek", "she", "ghoz", "miya", "ejdan",
 		"haaz", "quq", "taab", "shanha", "an", "saa", "seh", "an'", "e'", "a'", "em'")
 	allow_accents = TRUE
 

@@ -470,7 +470,7 @@ datum/preferences
 	character.culture = decls_repository.get_decl(text2path(culture))
 
 	for(var/dialect in dialects)
-		var/decl/dialect/D = decls_repository.get_decl(dialect)
+		var/singleton/dialect/D = decls_repository.get_decl(dialect)
 		character.languages_to_dialects[D.parent_language] = D
 
 	character.skills = skills

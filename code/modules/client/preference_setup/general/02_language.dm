@@ -98,9 +98,9 @@
 
 	for(var/L in pref.alternate_languages)
 		var/datum/language/lang = all_languages[L]
-		var/decl/dialect/our_dialect
+		var/singleton/dialect/our_dialect
 		for(var/dialect in pref.dialects)
-			var/decl/dialect/D = decls_repository.get_decl(dialect)
+			var/singleton/dialect/D = decls_repository.get_decl(dialect)
 			if(D.parent_language == lang.name)
 				our_dialect = D
 				break
@@ -114,13 +114,13 @@
 	var/datum/species/S = all_species[pref.species]
 	var/list/langs_to_dialects = list()
 	for(var/dialect in pref.dialects)
-		var/decl/dialect/D = decls_repository.get_decl(dialect)
+		var/singleton/dialect/D = decls_repository.get_decl(dialect)
 		langs_to_dialects[D.parent_language] = D
 
 	if(S.language)
 		dat += "- [S.language]"
 	if(S.language in langs_to_dialects)
-		var/decl/dialect/D = langs_to_dialects[S.language]
+		var/singleton/dialect/D = langs_to_dialects[S.language]
 		dat += " (<a href='?src=\ref[src];change_dialect=[S.language]'>[D.name]</a>)"
 	dat += "<br>"
 	if(S.default_language && S.default_language != S.language)
@@ -131,7 +131,7 @@
 				var/lang = pref.alternate_languages[i]
 				dat += "- [lang]"
 				if(lang in langs_to_dialects)
-					var/decl/dialect/D = langs_to_dialects[lang]
+					var/singleton/dialect/D = langs_to_dialects[lang]
 					dat += "(<a href='?src=\ref[src];change_dialect=[lang]'>[D.name]</a>)"
 				dat += " - <a href='?src=\ref[src];remove_language=[i]'>remove</a><br>"
 
@@ -181,7 +181,7 @@
 						pref.alternate_languages |= new_lang
 					var/datum/language/lang = all_languages[new_lang]
 					if(length(lang.possible_dialects))
-						var/decl/dialect/our_dialect = decls_repository.get_decl(pick(lang.possible_dialects))
+						var/singleton/dialect/our_dialect = decls_repository.get_decl(pick(lang.possible_dialects))
 						pref.dialects += our_dialect.type
 					return TOPIC_REFRESH
 	else if(href_list["change_dialect"])
@@ -189,15 +189,15 @@
 		var/datum/language/L = all_languages[language_name]
 		var/list/possible_dialects = list()
 		for(var/D in L.possible_dialects)
-			var/decl/dialect/DL = decls_repository.get_decl(D)
+			var/singleton/dialect/DL = decls_repository.get_decl(D)
 			possible_dialects[DL.name] = DL
 		var/new_dialect = input(user, "Select a dialect for [language_name].", "Dialect", null) as null|anything in possible_dialects
 		if(!new_dialect)
 			return TOPIC_REFRESH
-		var/decl/dialect/ND = possible_dialects[new_dialect]
-		var/decl/dialect/dialect_to_remove
+		var/singleton/dialect/ND = possible_dialects[new_dialect]
+		var/singleton/dialect/dialect_to_remove
 		for(var/dialect in pref.dialects)
-			var/decl/dialect/D = decls_repository.get_decl(dialect)
+			var/singleton/dialect/D = decls_repository.get_decl(dialect)
 			if(D.parent_language == language_name)
 				dialect_to_remove = D
 				break

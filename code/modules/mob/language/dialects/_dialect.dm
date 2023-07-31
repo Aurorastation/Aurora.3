@@ -1,4 +1,4 @@
-/decl/dialect
+/singleton/dialect
 	var/name = "dialect"
 	var/desc = "Listen up, troublemaker, how did you know about my fever?"
 	var/parent_language = LANGUAGE_SOL_COMMON
@@ -7,10 +7,10 @@
 	var/culture_restriction
 	var/origin_restriction
 	//List structure:
-	// /decl/dialect/morozi = 95
+	// /singleton/dialect/morozi = 95
 	//This overrides other speech variables.
 
-/decl/dialect/proc/calculate_cross_understanding(var/decl/dialect/target)
+/singleton/dialect/proc/calculate_cross_understanding(var/singleton/dialect/target)
 	if(target?.type in dialect_to_understanding)
 		return dialect_to_understanding[target.type]
 	var/total_understanding = 100
