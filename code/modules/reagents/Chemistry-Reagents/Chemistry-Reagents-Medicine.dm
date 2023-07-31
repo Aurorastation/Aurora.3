@@ -776,6 +776,7 @@
 	od_minimum_dose = 1
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
+	metabolism = REM * 0.25
 	taste_description = "bitter vegetables"
 
 /singleton/reagent/cytophenolate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
