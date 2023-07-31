@@ -606,7 +606,6 @@
 	return
 
 /obj/machinery/iv_drip/proc/tank_off()
-	playsound(src, 'sound/effects/internals.ogg', 100)
 	tank.forceMove(src)
 	if(breather.internals)
 		breather.internals.icon_state = "internal0"
