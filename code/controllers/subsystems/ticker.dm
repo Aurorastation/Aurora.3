@@ -467,21 +467,27 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/datum/space_sector/current_sector = SSatlas.current_sector
 	if(istype(current_sector))
 		var/list/sites = SSatlas.current_sector.possible_sites_in_sector()
-		var/list/ruins = SSatlas.current_sector.possible_ruins_in_sector()
+		// var/list/ruins = SSatlas.current_sector.possible_ruins_in_sector()
+		var/list/no_shuttles = list()
+		var/list/with_shuttles = list()
+		for(var/datum/map_template/ruin/site in sites)
+			if(site.shuttles_to_initialise && site.shuttles_to_initialise.len)
+				with_shuttles += site
+			else
+				no_shuttles += site
+		var/no_shuttles_str = english_list(no_shuttles)
+		var/with_shuttles_str = english_list(with_shuttles)
 		var/html = {"\
 			<span class='notice' onclick='document.getElementById("current_sector_show_sites_id").style.display="";'> \
 				Current sector: [current_sector]. Click to see every possible site/ship that can potentially spawn here. \
 			</span> \
 			<span class='notice' id='current_sector_show_sites_id' style='display:none'> \
-				<br> Sites: [sites]; <br> Ruins: [ruins]; <br> \
+				<br> Sites: [sites]; <br> Ruins: ; <br> \
 			</span> \
 		"}
 		to_world(html)
-
-		// var/text = "Current sector: [current_sector]. Click to see every possible site/ship that can potentially spawn here."
-		// for(var/client/client in clients)
-		// 	var/onclick= {" onclick="window.location.href='byond://?src=\ref[client];current_sector_sites=1'" "}
-		// 	to_chat(client, "<span class='notice' [onclick]>[text]</span>")
+				//		<br> Sites: ; \
+				//<br> Sites (with shuttles): ; \
 
 	callHook("pregame_start")
 
