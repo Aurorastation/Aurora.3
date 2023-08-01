@@ -881,7 +881,7 @@
 /obj/structure/window/full/phoron
 	name = "borosilicate window"
 	desc = "You aren't supposed to see this."
-	icon = 'icons/obj/smooth/full_window_phoron.dmi'
+	icon = 'icons/obj/smooth/window/full_window_phoron.dmi'
 	icon_state = "window_glass"
 	basestate = "window_glass"
 	glasstype = /obj/item/stack/material/glass/phoronglass
