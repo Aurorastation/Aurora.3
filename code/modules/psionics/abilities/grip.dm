@@ -29,10 +29,14 @@
 		return
 	if(world.time < next_squeeze_time)
 		return
+	if(!length(get_line(user, victim)))
+		to_chat(user, SPAN_WARNING("You need to have direct line of sight to your target!"))
+		return
 	. = ..()
 	if(!.)
 		return
 	user.visible_message(SPAN_WARNING("[user] squeezes [user.get_pronoun("his")] hand!"), SPAN_WARNING("You squeeze your hand to tighten the psionic force around [victim]."))
+	log_and_message_admins("[key_name(owner)] has psionically crushed [victim]", owner, get_turf(owner))
 	to_chat(victim, SPAN_DANGER(FONT_HUGE("You are crushed by an invisible force!")))
 	victim.apply_damage(20, DAMAGE_BRUTE, armor_pen = 15, def_zone = BP_HEAD)
 	victim.SetStunned(2)
