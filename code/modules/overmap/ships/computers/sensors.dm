@@ -145,9 +145,6 @@
 		for(var/obj/effect/overmap/visitable/identified_contact in contact_datums)
 			potential_contacts |= identified_contact
 
-		var/max_shown_distance = 5
-		data["max_shown_distance"] = max_shown_distance
-
 		for(var/obj/effect/overmap/contact in potential_contacts)
 			if(linked == contact)
 				continue
@@ -176,7 +173,7 @@
 				"ref"="\ref[contact]",
 				"bearing"=bearing,
 				"can_datalink"=(!(contact in connected.datalinked)),
-				"distance"=Clamp(distance,0, max_shown_distance),
+				"distance"=distance,
 				"landed"=landed,
 				"x"=contact_x,
 				"y"=contact_y

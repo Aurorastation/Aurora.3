@@ -1,7 +1,8 @@
 import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Section, Table } from '../components';
+import { useBackend, useSharedState } from '../backend';
+import { Box, Button, Section, Table, ProgressBar, Slider, RoundGauge } from '../components';
 import { NtosWindow } from '../layouts';
+import { round } from 'common/math';
 
 export type SensorsData = {
   viewing: BooleanLike;
@@ -48,6 +49,8 @@ type DistressBeaconData = {
 };
 
 const SensorSection = function (act, data: SensorsData) {
+  const range_choice_max = data.range_choices[data.range_choices.length - 1];
+
   return (
     <Section
       title="Sensor Array Control"
@@ -60,8 +63,9 @@ const SensorSection = function (act, data: SensorsData) {
       <Table>
         <Table.Row>
           <Table.Cell>State:</Table.Cell>
+          <Table.Cell>{data.on ? 'Active' : 'Inactive'}</Table.Cell>
           <Table.Cell>
-            {data.on} <Button content="on/off" onClick={() => act('toggle')} />
+            <Button content="on/off" onClick={() => act('toggle')} />
           </Table.Cell>
         </Table.Row>
         <Table.Row>
@@ -71,26 +75,36 @@ const SensorSection = function (act, data: SensorsData) {
         <Table.Row>
           <Table.Cell>Range:</Table.Cell>
           <Table.Cell>
-            {data.range_choices?.map((range: number) => (
-              <Button
-                content={range}
-                disabled={range == data.desired_range}
-                color={range <= data.range ? 'green' : null}
-                onClick={() => act('range_choice', { range_choice: range })}
-              />
-            ))}
+            <Slider
+              animated
+              step={1}
+              stepPixelSize={16}
+              value={data.desired_range}
+              minValue={1}
+              maxValue={range_choice_max}
+              onChange={(e, value) =>
+                act('range_choice', { range_choice: value })
+              }>
+              Desired Range: {data.desired_range} / {range_choice_max}
+            </Slider>
+            <ProgressBar
+              animated
+              minValue={0}
+              maxValue={range_choice_max}
+              value={data.range}>
+              Current Range: {data.range} / {range_choice_max}
+            </ProgressBar>
           </Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell>Range:</Table.Cell>
-          <Table.Cell>{data.range}</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>{data.deep_scan_name}</Table.Cell>
+          <Table.Cell>{data.deep_scan_name}:</Table.Cell>
           <Table.Cell>
-            Effective Range: {data.deep_scan_range}{' '}
+            Effective Range: {data.deep_scan_range},{' '}
+            {data.deep_scan_toggled ? 'Active' : 'Inactive'}
+          </Table.Cell>
+          <Table.Cell>
             <Button
-              content={data.deep_scan_toggled ? 'Active' : 'Inactive'}
+              content={'on/off'}
               onClick={() =>
                 act('deep_scan_toggle', { deep_scan_toggle: true })
               }
@@ -100,13 +114,25 @@ const SensorSection = function (act, data: SensorsData) {
         <Table.Row>
           <Table.Cell>Integrity:</Table.Cell>
           <Table.Cell>
-            {data.health} / {data.max_health}
+            <ProgressBar
+              animated
+              minValue={0}
+              maxValue={data.max_health}
+              value={data.health}>
+              {data.health} / {data.max_health}
+            </ProgressBar>
           </Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>Temperature:</Table.Cell>
           <Table.Cell>
-            {data.heat} / {data.critical_heat}
+            <ProgressBar
+              animated
+              minValue={0}
+              maxValue={data.critical_heat}
+              value={data.heat}>
+              {data.heat} / {data.critical_heat}
+            </ProgressBar>
           </Table.Cell>
         </Table.Row>
       </Table>
@@ -130,17 +156,17 @@ const ContactsSection = function (act, data: SensorsData) {
           {data.contacts.map((contact: ContactData, i) => (
             <Table.Row>
               <Table.Cell>{contact.name}</Table.Cell>
-              <Table.Cell>{contact.bearing}</Table.Cell>
-              <Table.Cell>{contact.x}</Table.Cell>
-              <Table.Cell>{contact.y}</Table.Cell>
-              <Table.Cell>
-                {contact.landed
-                  ? ''
-                  : contact.distance >= 5
-                    ? '≥' + contact.distance
-                    : contact.distance}
-              </Table.Cell>
-              <Table.Cell color={contact.color}>{contact.color}</Table.Cell>
+              {contact.landed ? (
+                ''
+              ) : (
+                <>
+                  <Table.Cell>{contact.bearing}</Table.Cell>
+                  <Table.Cell>{contact.x}</Table.Cell>
+                  <Table.Cell>{contact.y}</Table.Cell>
+                  <Table.Cell>{round(contact.distance, 2)}</Table.Cell>
+                  <Table.Cell color={contact.color}>██</Table.Cell>
+                </>
+              )}
             </Table.Row>
           ))}
         </Table>
@@ -152,7 +178,7 @@ const ContactsSection = function (act, data: SensorsData) {
 };
 
 const CompassSection = function (context, act, data: SensorsData) {
-  const [relativeDirection, setRelativeDirection] = useLocalState(
+  const [relativeDirection, setRelativeDirection] = useSharedState(
     context,
     'relativeDirection',
     false
@@ -161,7 +187,6 @@ const CompassSection = function (context, act, data: SensorsData) {
   return (
     <Section title="Sensor Contacts Compass">
       <Box textAlign="center">
-        Dir: {data.direction}
         <svg height={200} width={200} viewBox="0 0 100 100">
           <rect width="100" height="100" />
           <g
@@ -180,7 +205,7 @@ const CompassSection = function (context, act, data: SensorsData) {
                 stroke-width="0.5"
               />
             ))}
-            <polygon
+            <polygon // ship direction triangle
               points="50,45 55,55 45,55"
               fill="#5c83b0"
               stroke="white"
@@ -191,25 +216,8 @@ const CompassSection = function (context, act, data: SensorsData) {
                 ' 50 50)'
               }
             />
-            <circle
-              r={40}
-              cx={50}
-              cy={50}
-              fill="none"
-              stroke="#3e6189"
-              stroke-width="0.5">
-              {/* <animate
-                attributeName="r"
-                // begin="0s"
-                dur="4s"
-                repeatCount="indefinite"
-                // from="20%"
-                // to="100%"
-                values="4;44"
-              /> */}
-            </circle>
             {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
-              <rect
+              <rect // compass bearings
                 width="0.5"
                 height={32}
                 x="50"
@@ -219,51 +227,49 @@ const CompassSection = function (context, act, data: SensorsData) {
               />
             ))}
             {data.contacts
-              ?.filter((c) => c.distance)
+              ?.filter((c) => !c.landed)
               .map((contact: ContactData, i) => (
-                <rect
-                  width="1"
-                  height={30}
-                  x="49"
-                  y="60"
+                <rect // contact lines
+                  width="1.0"
+                  height={32}
+                  x="49.5"
+                  y="58"
                   fill={contact.color}
                   transform={'rotate(' + (contact.bearing + 180) + ' 50 50)'}
                 />
               ))}
-            {data.contacts?.map((contact: ContactData, i) => (
-              <>
-                <circle
-                  r={3}
-                  cx={50}
-                  cy={50 - contact.distance * 8}
-                  fill={contact.color}
-                  transform={'rotate(' + contact.bearing + ' 50 50)'}
-                />
-                {/* <polygon
-                points="49,45 51,45 55,55 45,55"
-                fill={contact.color}
-                transform={
-                  ' rotate(' +
-                  contact.bearing +
-                  ' 50 50)' +
-                  'translate(0 ' +
-                  contact.distance * -8 +
-                  ') '
-                }
-              /> */}
-                <text
-                  x="50"
-                  y="2"
-                  text-anchor="middle"
-                  fill="white"
-                  font-size="5"
-                  transform={'rotate(' + contact.bearing + ' 50 50)'}>
-                  {contact.bearing}
-                </text>
-              </>
-            ))}
+            {data.contacts
+              ?.filter((c) => !c.landed)
+              .map((contact: ContactData, i) => (
+                <>
+                  {/* <circle // contact circle
+                    r={3}
+                    cx={50}
+                    cy={50 - contact.distance * 8}
+                    fill={contact.color}
+                    transform={'rotate(' + contact.bearing + ' 50 50)'}
+                  /> */}
+                  <rect
+                    width="4"
+                    height="4"
+                    x={50 - 2}
+                    y={50 - 2 - contact.distance * 8}
+                    fill={contact.color}
+                    transform={'rotate(' + contact.bearing + ' 50 50)'}
+                  />
+                  <text // contact bearing on edge of compass
+                    x="50"
+                    y="2"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="5"
+                    transform={'rotate(' + contact.bearing + ' 50 50)'}>
+                    {contact.bearing}
+                  </text>
+                </>
+              ))}
             {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
-              <text
+              <text // compass bearings on edge of compass
                 x="50"
                 y="8"
                 text-anchor="middle"
@@ -296,7 +302,9 @@ export const Sensors = (props, context) => {
       'purple',
       'orange',
       'cyan',
-      'blue',
+      'yellow',
+      'maroon',
+      'olive',
       'white',
     ];
 
