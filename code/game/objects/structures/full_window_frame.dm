@@ -142,7 +142,7 @@
 	should_check_mapload = FALSE // No glass.
 
 /obj/structure/window_frame/shuttle
-	icon = 'icons/obj/smooth/window/shuttle_window_dark_frame.dmi'
+	icon = 'icons/obj/smooth/window/full_window_frame_color.dmi'
 	color = null
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
