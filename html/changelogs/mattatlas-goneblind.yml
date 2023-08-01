@@ -45,3 +45,5 @@ changes:
   - tweak: "Psionic Grip now only freezes the victim for a short amount of time when activated."
   - tweak: "Psionic Grip now only does damage to the head when activated."
   - bugfix: "Psionic Grip now actually has a cooldown on activation."
+  - bugfix: "Skrell now have 2 loadout psionic points instead of 4, as was intended."
+  - rscdel: "Command has been removed."
