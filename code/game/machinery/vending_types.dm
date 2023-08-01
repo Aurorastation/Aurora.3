@@ -967,6 +967,7 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/food/drinks/pitcher = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
+		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 		/obj/item/clothing/accessory/apron/chef = 2,
 		/obj/item/clothing/suit/chef_jacket = 2,
 		/obj/item/material/kitchen/rollingpin = 2,
@@ -984,7 +985,8 @@
 		/obj/item/tray = 12,
 		/obj/item/tray/plate = 10,
 		/obj/item/reagent_containers/bowl = 10,
-		/obj/item/reagent_containers/bowl/plate = 10
+		/obj/item/reagent_containers/bowl/plate = 10,
+		/obj/item/reagent_containers/glass/bottle/syrup = 4,
 	)
 	contraband = list(
 		/obj/item/storage/toolbox/lunchbox/syndicate = 2
@@ -1007,7 +1009,8 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/food/drinks/pitcher = 3,
-		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
+		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 	)
 
 /obj/machinery/vending/dinnerware/bar
@@ -1017,7 +1020,8 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/food/drinks/pitcher = 3,
-		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
+		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 	)
 
 /obj/machinery/vending/sovietsoda
