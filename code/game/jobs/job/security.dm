@@ -250,7 +250,17 @@
 	department_flag = ENGSEC
 	faction = "Station"
 	alt_titles = list("Investigator Intern", "Warden Cadet")
-	alt_outfits = list("Investigator Intern" = /datum/outfit/job/intern_forensics)
+	alt_outfits = list("Investigator Intern" = /datum/outfit/job/intern_sec/forensics)
+	alt_ages = list("Investigator Intern" = list(
+		SPECIES_HUMAN = 24,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
+	),
+	"Warden Cadet" = list(
+		SPECIES_HUMAN = 24,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
+	))
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Head of Security"
@@ -301,27 +311,12 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
 
-/datum/outfit/job/intern_forensics
+/datum/outfit/job/intern_sec/forensics
 	name = "Investigator Intern"
 	jobtype = /datum/job/intern_sec
 
-	uniform = /obj/item/clothing/under/rank/cadet
 	shoes = /obj/item/clothing/shoes/laceup/all_species
 
-	headset = /obj/item/device/radio/headset/headset_sec
-	bowman = /obj/item/device/radio/headset/headset_sec/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/sec
-	wrist_radio = /obj/item/device/radio/headset/wrist/sec
-
-	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel/sec
-	dufflebag = /obj/item/storage/backpack/duffel/sec
-	messengerbag = /obj/item/storage/backpack/messenger/sec
-
-	tab_pda = /obj/item/modular_computer/handheld/pda/security
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
-	tablet = /obj/item/modular_computer/handheld/preset/security
-
-/datum/outfit/job/intern_forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/job/intern_sec/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	H.equip_or_collect(new /obj/item/clothing/gloves/black/forensic(H), slot_gloves)
