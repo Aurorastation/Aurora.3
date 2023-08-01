@@ -42,9 +42,6 @@
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)
 "r" = (
-/obj/structure/sign/flag/dpra/right{
-	pixel_y = 32
-	},
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/field_ration/dpra,
 /obj/item/storage/field_ration/dpra,
@@ -68,9 +65,6 @@
 /obj/structure/table/wood,
 /obj/item/device/flashlight/flare/torch,
 /obj/item/device/flashlight/flare/torch,
-/obj/structure/sign/flag/dpra/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)
 "x" = (
@@ -95,9 +89,7 @@
 /area/exoplanet/adhomai)
 "C" = (
 /obj/structure/reagent_dispensers/keg/mead,
-/obj/structure/sign/flag/dpra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/dpra/large/north,
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)
 "F" = (
@@ -118,9 +110,7 @@
 /obj/item/pickaxe,
 /obj/item/pickaxe,
 /obj/item/pickaxe,
-/obj/structure/sign/flag/dpra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/dpra/large/north,
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)
 "J" = (

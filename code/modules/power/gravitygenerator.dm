@@ -135,7 +135,7 @@
 	for(var/obj/machinery/gravity_generator/part/O in parts)
 		O.main_part = null
 		qdel(O)
-	linked.gravity_generator = null
+	linked?.gravity_generator = null
 	return ..()
 
 /obj/machinery/gravity_generator/main/proc/eventshutofftoggle() // Used by the gravity event. Bypasses charging and all of that stuff.
@@ -494,3 +494,18 @@
 					continue
 			to_chat(M, SPAN_DANGER("Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
 			M.fall_impact(1)
+
+
+#undef POWER_IDLE
+#undef POWER_UP
+#undef POWER_DOWN
+
+#undef GRAV_NEEDS_SCREWDRIVER
+#undef GRAV_NEEDS_WELDING
+#undef GRAV_NEEDS_PLASTEEL
+#undef GRAV_NEEDS_WRENCH
+
+#undef AREA_ERRNONE
+#undef AREA_STATION
+#undef AREA_SPACE
+#undef AREA_SPECIAL

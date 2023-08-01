@@ -5,23 +5,10 @@
 		remove_system(hardpoint, force = 1)
 	hardpoints.Cut()
 
-	if(arms)
-		frame.arms = arms
-		arms.forceMove(frame)
-		arms = null
-	if(legs)
-		frame.legs = legs
-		legs.forceMove(frame)
-		pass_flags &= PASSRAILING //if previously was hoverthrusters, need to update pass flag
-		legs = null
-	if(body)
-		frame.body = body
-		body.forceMove(frame)
-		body = null
-	if(head)
-		frame.head = head
-		head.forceMove(frame)
-		head = null
+	remove_arms(frame)
+	remove_legs(frame)
+	remove_body(frame)
+	remove_head(frame)
 
 	frame.is_wired = FRAME_WIRED_ADJUSTED
 	frame.is_reinforced = FRAME_REINFORCED_WELDED
@@ -30,6 +17,72 @@
 	frame.queue_icon_update()
 
 	qdel(src)
+
+/mob/living/heavy_vehicle/proc/remove_body_part(obj/item/mech_component/part, atom/dest)
+	if(!part)
+		return
+
+	if(!dest)
+		dest = get_turf(src)
+
+	if(part == arms)
+		remove_arms(dest)
+	else if(part == legs)
+		remove_legs(dest)
+	else if(part == body)
+		remove_body(dest)
+	else if(part == head)
+		remove_head(dest)
+
+/mob/living/heavy_vehicle/proc/remove_arms(atom/dest)
+	if(!arms)
+		return
+
+	var/obj/structure/heavy_vehicle_frame/frame = dest
+
+	if(istype(frame))
+		frame.arms = arms
+
+	arms.forceMove(dest)
+	arms = null
+
+/mob/living/heavy_vehicle/proc/remove_legs(atom/dest)
+	if(!legs)
+		return
+
+	pass_flags &= PASSRAILING //if previously was hoverthrusters, need to update pass flag
+
+	var/obj/structure/heavy_vehicle_frame/frame = dest
+
+	if(istype(frame))
+		frame.legs = legs
+
+	legs.forceMove(dest)
+	legs = null
+
+/mob/living/heavy_vehicle/proc/remove_body(atom/dest)
+	if(!body)
+		return
+
+	var/obj/structure/heavy_vehicle_frame/frame = dest
+
+	if(istype(frame))
+		frame.body = body
+
+	body.forceMove(dest)
+	body = null
+
+/mob/living/heavy_vehicle/proc/remove_head(atom/dest)
+	if(!head)
+		return
+
+	var/obj/structure/heavy_vehicle_frame/frame = dest
+
+	if(istype(frame))
+		frame.head = head
+
+	head.forceMove(dest)
+	head = null
 
 /mob/living/heavy_vehicle/proc/forget_module(var/module_to_forget)
 	//Realistically a module disappearing without being uninstalled is wrong and a bug or adminbus
@@ -72,7 +125,7 @@
 
 			if(user.unEquip(system))
 				to_chat(user, "<span class='notice'>You install \the [system] in \the [src]'s [system_hardpoint].</span>")
-				playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
+				playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			else return FALSE
 	var/obj/item/mecha_equipment/ME = system
 	if(istype(ME))
@@ -148,6 +201,6 @@
 		system.forceMove(get_turf(user))
 		user.put_in_hands(system)
 		to_chat(user, "<span class='notice'>You remove \the [system] in \the [src]'s [system_hardpoint].</span>")
-		playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
+		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 
-	return 1
+	return system

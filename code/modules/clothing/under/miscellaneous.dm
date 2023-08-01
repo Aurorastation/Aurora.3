@@ -335,7 +335,10 @@
 /obj/item/clothing/under/dress/offworlder
 	name = "\improper CR dress"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear, made of strong woven spider-silk. This variant seems to be tailored to resemble a dress, revealing much more skin."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "crdress"
+	item_state = "crdress"
 	worn_state = "crdress"
 
 /obj/item/clothing/under/hosformalmale
@@ -540,7 +543,10 @@
 /obj/item/clothing/under/offworlder
 	name = "\improper CR suit"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "crsuit"
+	item_state = "crsuit"
 	worn_state = "crsuit"
 
 /obj/item/clothing/under/tactical

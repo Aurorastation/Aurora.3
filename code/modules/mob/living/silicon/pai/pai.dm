@@ -183,11 +183,11 @@
 	add_language(LANGUAGE_SIGN, 0)
 	set_custom_sprite()
 
-	verbs += /mob/living/silicon/pai/proc/choose_chassis
-	verbs += /mob/living/silicon/pai/proc/choose_verbs
-	verbs += /mob/living/silicon/proc/computer_interact
-	verbs += /mob/living/silicon/pai/proc/personal_computer_interact
-	verbs += /mob/living/silicon/proc/silicon_mimic_accent
+	add_verb(src, /mob/living/silicon/pai/proc/choose_chassis)
+	add_verb(src, /mob/living/silicon/pai/proc/choose_verbs)
+	add_verb(src, /mob/living/silicon/proc/computer_interact)
+	add_verb(src, /mob/living/silicon/pai/proc/personal_computer_interact)
+	add_verb(src, /mob/living/silicon/proc/silicon_mimic_accent)
 
 	. = ..()
 
@@ -214,18 +214,11 @@
 		greeted = 1
 	..()
 
-// this function shows the information about being silenced as a pAI in the Status panel
-/mob/living/silicon/pai/proc/show_silenced()
-	if(src.silence_time)
+/mob/living/silicon/pai/get_status_tab_items()
+	. = ..()
+	if(silence_time)
 		var/timeleft = round((silence_time - world.timeofday)/10 ,1)
-		stat(null, "Communications system reboot in -[(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]")
-
-
-/mob/living/silicon/pai/Stat()
-	..()
-	statpanel("Status")
-	if (src.client.statpanel == "Status")
-		show_silenced()
+		. += "Communications system reboot in -[(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]"
 
 /mob/living/silicon/pai/check_eye(var/mob/user as mob)
 	if (!src.current)
@@ -386,8 +379,8 @@
 	holder_type = pai_holder_types[choice]
 	chassis = icon_state
 
-	verbs -= /mob/living/silicon/pai/proc/choose_chassis
-	verbs += /mob/living/proc/hide
+	remove_verb(src, /mob/living/silicon/pai/proc/choose_chassis)
+	add_verb(src, /mob/living/proc/hide)
 
 /mob/living/silicon/pai/verb/get_onmob_location()
 	set category = "pAI Commands"
@@ -412,7 +405,7 @@
 	speak_exclamation = sayverbs[(sayverbs.len>1 ? 2 : sayverbs.len)]
 	speak_query = sayverbs[(sayverbs.len>2 ? 3 : sayverbs.len)]
 
-	verbs -= /mob/living/silicon/pai/proc/choose_verbs
+	remove_verb(src, /mob/living/silicon/pai/proc/choose_verbs)
 
 /mob/living/silicon/pai/lay_down()
 	set name = "Rest"

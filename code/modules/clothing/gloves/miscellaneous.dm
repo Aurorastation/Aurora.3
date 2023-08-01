@@ -277,8 +277,12 @@
 /obj/item/clothing/gloves/offworlder
 	name = "starmitts"
 	desc = "Thick arm warmers and mittens that reach past the elbow."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "starmittens"
 	item_state = "starmittens"
+	build_from_parts = TRUE
+	worn_overlay = "over"
 
 /obj/item/clothing/gloves/ballistic
 	name = "ballistic gauntlet"
@@ -328,7 +332,7 @@
 		return
 
 /obj/item/clothing/gloves/ballistic/verb/unload_shells()
-	set name = "Unload Ballistic Gauntlet "
+	set name = "Unload Ballistic Gauntlet"
 	set desc = "Unload the shells from the gauntlet's mounted gun."
 	set category = "Object"
 	set src in usr

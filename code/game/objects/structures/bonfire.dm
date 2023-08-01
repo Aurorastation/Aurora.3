@@ -15,7 +15,6 @@ var/global/list/total_active_bonfires = list()
 	var/max_fuel = 2000
 	var/on_fire = FALSE
 	var/safe = FALSE
-	var/obj/machinery/appliance/bonfire/cook_machine
 	var/list/burnable_materials = list(MATERIAL_WOOD = 200, MATERIAL_WOOD_LOG = 400, MATERIAL_WOOD_BRANCH = 40, MATERIAL_COTTON = 20, MATERIAL_CLOTH = 50, MATERIAL_CARPET = 20, MATERIAL_CARDBOARD = 35)
 	var/list/burnable_other = list(/obj/item/ore/coal = 750, /obj/item/torch = 20) //For items without material/default material
 	var/heat_range = 5 //Range in which it will heat other people

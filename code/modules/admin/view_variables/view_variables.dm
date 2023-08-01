@@ -6,7 +6,7 @@
 // Variables not to expand the lists of. Vars is pointless to expand, and overlays/underlays cannot be expanded.
 /var/list/view_variables_dont_expand = list("overlays", "underlays", "vars", "screen", "our_overlays", "priority_overlays", "queued_overlays")
 // Variables that runtime if you try to test associativity of the lists they contain by indexing
-/var/list/view_variables_no_assoc = list("verbs", "contents")
+/var/list/view_variables_no_assoc = list("verbs", "contents", "vis_contents")
 
 // Acceptable 'in world', as VV would be incredibly hampered otherwise
 /client/proc/debug_variables(datum/D in world)
@@ -131,9 +131,7 @@
 	var/vtext = ""
 	var/debug_type = get_debug_type(value, FALSE)
 	var/extra = list()
-	if(isnull(value))
-		// get_debug_type displays this
-	else if(istext(value))
+	if(istext(value))
 		debug_type = null // it's kinda annoying here; we can tell the type by the quotes
 		vtext = "\"[html_encode(value)]\""
 	else if(isicon(value))

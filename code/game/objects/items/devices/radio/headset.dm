@@ -32,7 +32,6 @@
 	set_listening(TRUE)
 	recalculateChannels(TRUE)
 	possibly_deactivate_in_loc()
-	moved_event.register(src, src, PROC_REF(possibly_deactivate_in_loc))
 
 /obj/item/device/radio/headset/proc/possibly_deactivate_in_loc()
 	if(ismob(loc))
@@ -44,6 +43,10 @@
 	QDEL_NULL(keyslot1)
 	QDEL_NULL(keyslot2)
 	return ..()
+
+/obj/item/device/radio/headset/Moved(atom/old_loc, forced)
+	. = ..()
+	possibly_deactivate_in_loc()
 
 /obj/item/device/radio/headset/set_listening(new_listening, actual_setting = TRUE)
 	. = ..()
@@ -644,7 +647,7 @@
 	name = "earmuffs"
 	desc = "Protects your hearing from loud noises, and quiet ones as well."
 	desc_antag = "This set of earmuffs has a secret compartment housing radio gear, allowing it to function as a standard headset."
-	icon = 'icons/obj/clothing/ears.dmi'
+	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
 	item_flags = SOUNDPROTECTION

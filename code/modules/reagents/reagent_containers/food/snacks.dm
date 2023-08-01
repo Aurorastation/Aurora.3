@@ -985,15 +985,14 @@
 
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
 
-/obj/item/reagent_containers/food/snacks/sausage/battered
-	name = "battered sausage"
-	desc = "A piece of mixed, long meat, battered and then deepfried"
-	icon_state = "batteredsausage"
+/obj/item/reagent_containers/food/snacks/pepperoni
+	name = "pepperoni"
+	desc = "A stick of pepperoni sausage."
+	icon_state = "pepperoni"
 	filling_color = "#DB0000"
-	do_coating_prefix = 0
 	bitesize = 2
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/coating/batter = 1.7, /singleton/reagent/nutriment/triglyceride/oil = 1.5)
-	coating = /singleton/reagent/nutriment/coating/batter
+
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
 
 /obj/item/reagent_containers/food/snacks/jalapeno_poppers
 	name = "jalapeno popper"
@@ -1041,16 +1040,6 @@
 	reagents.add_reagent(/singleton/reagent/drink/doctorsdelight, 5)
 	reagents.add_reagent(/singleton/reagent/hyperzine, 1.5)
 	reagents.add_reagent(/singleton/reagent/synaptizine, 1.25)
-
-/obj/item/reagent_containers/food/snacks/burger/brain
-	name = "brainburger"
-	desc = "A strange looking burger. It looks almost sentient."
-	icon_state = "brainburger"
-	filling_color = "#F2B6EA"
-	center_of_mass = list("x"=15, "y"=11)
-	bitesize = 2
-
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 6, /singleton/reagent/alkysine = 6)
 
 /obj/item/reagent_containers/food/snacks/burger/ghost
 	name = "ghost burger"
@@ -2781,32 +2770,6 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 5, "sweetness" = 5, "carrot" = 5))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/sliceable/cake/brain
-	name = "brain cake"
-	desc = "A squishy cake-thing."
-	icon_state = "braincake"
-	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/brain
-	slices_num = 5
-	filling_color = "#E6AEDB"
-	center_of_mass = list("x"=16, "y"=10)
-	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 25, /singleton/reagent/alkysine = 10)
-	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 10, "sweetness" = 10, "slime" = 15))
-	bitesize = 2
-
-/obj/item/reagent_containers/food/snacks/cakeslice/brain
-	name = "brain cake slice"
-	desc = "Lemme tell you something about prions. THEY'RE DELICIOUS."
-	icon_state = "braincakeslice"
-	trash = /obj/item/trash/plate
-	filling_color = "#E6AEDB"
-	bitesize = 2
-	center_of_mass = list("x"=16, "y"=12)
-
-/obj/item/reagent_containers/food/snacks/cakeslice/brain/filled
-	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/protein = 5, /singleton/reagent/alkysine = 2)
-	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 2, "sweetness" = 2, "slime" = 3))
-	bitesize = 2
-
 /obj/item/reagent_containers/food/snacks/sliceable/cake/cheese
 	name = "cheese cake"
 	desc = "DANGEROUSLY cheesy."
@@ -3325,6 +3288,29 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/drink/tomatojuice = 2, /singleton/reagent/oculine = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("pizza crust" = 5, "eggplant" = 5, "carrot" = 5, "corn" = 5))
 
+/obj/item/reagent_containers/food/snacks/sliceable/pizza/pepperoni
+	name = "pepperoni pizza"
+	desc = "Who doesn't love a good pepperoni pizza after a hard day in the Chainlink?"
+	icon_state = "pepperonipizza"
+	slice_path = /obj/item/reagent_containers/food/snacks/pepperonipizzaslice
+	slices_num = 6
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 10, /singleton/reagent/nutriment/protein = 44, /singleton/reagent/nutriment/protein/cheese = 10, /singleton/reagent/drink/tomatojuice = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("pizza crust" = 10, "tomato" = 10, "pepperoni" = 15))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/pepperonipizzaslice
+	name = "pepperoni pizza slice"
+	desc = "A slice of pepperoni pizza."
+	icon_state = "pepperonipizzaslice"
+	filling_color = "#BAA14C"
+	bitesize = 2
+	center_of_mass = list("x"=18, "y"=13)
+
+/obj/item/reagent_containers/food/snacks/pepperonipizzaslice/filled
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/protein = 7, /singleton/reagent/nutriment/protein/cheese = 2, /singleton/reagent/drink/tomatojuice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("pizza crust" = 5, "tomato" = 5))
+
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/crunch
 	name = "pizza crunch"
 	desc = "This was once a normal pizza, but it has been coated in batter and deep-fried. Whatever toppings it once had are a mystery, but they're still under there, somewhere..."
@@ -3405,7 +3391,7 @@
 
 		if( pizza )
 			var/image/pizzaimg = image(icon, icon_state = pizza.icon_state)
-			pizzaimg.pixel_y = -3
+			pizzaimg.pixel_y = -2
 			add_overlay(pizzaimg)
 
 		return
@@ -3540,6 +3526,10 @@
 /obj/item/pizzabox/pineapple
 	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/pineapple
 	boxtag = "Silversun Sunrise"
+
+/obj/item/pizzabox/pepperoni
+	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/pepperoni
+	boxtag = "Pepperoni Power"
 
 /obj/item/reagent_containers/food/snacks/sliceable/dionaroast
 	name = "roast diona"
@@ -4344,6 +4334,30 @@
 	bitesize = 2
 	filling_color = "#FFF454"
 
+/obj/item/reagent_containers/food/snacks/chip/sourcream
+	name = "sour cream chip"
+	desc = "A portion sized chip good for dipping. This one has sour cream on it."
+	icon_state = "chip_sourcream"
+	bitten_state = "chip_half_sourcream"
+	bitesize = 2
+	filling_color = "#e4e4e4"
+
+/obj/item/reagent_containers/food/snacks/chip/tajhummus
+	name = "hummus chip"
+	desc = "A portion sized chip good for dipping. This one has hummus on it."
+	icon_state = "chip_hummus"
+	bitten_state = "chip_half_hummus"
+	bitesize = 2
+	filling_color = "#cca628"
+
+/obj/item/reagent_containers/food/snacks/chip/hummus
+	name = "hummus chip"
+	desc = "A portion sized chip good for dipping. This one has hummus on it."
+	icon_state = "chip_hummus"
+	bitten_state = "chip_half_hummus"
+	bitesize = 2
+	filling_color = "#cca628"
+
 /obj/item/reagent_containers/food/snacks/chip/nacho
 	name = "nacho chip"
 	desc = "A nacho ship stray from a plate of cheesy nachos."
@@ -4354,7 +4368,7 @@
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/salsa
 	name = "nacho chip"
-	desc = "A nacho ship stray from a plate of cheesy nachos. This one has salsa on it."
+	desc = "A stray nacho chip from a plate of cheesy nachos. This one has salsa on it."
 	icon_state = "chip_nacho_salsa"
 	bitten_state = "chip_half"
 	bitesize = 2
@@ -4362,7 +4376,7 @@
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/guac
 	name = "nacho chip"
-	desc = "A nacho ship stray from a plate of cheesy nachos. This one has guac on it."
+	desc = "A stray nacho chip from a plate of cheesy nachos. This one has guac on it."
 	icon_state = "chip_nacho_guac"
 	bitten_state = "chip_half"
 	bitesize = 2
@@ -4370,11 +4384,35 @@
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/cheese
 	name = "nacho chip"
-	desc = "A nacho ship stray from a plate of cheesy nachos. This one has extra cheese on it."
+	desc = "A stray nacho chip from a plate of cheesy nachos. This one has extra cheese on it."
 	icon_state = "chip_nacho_cheese"
 	bitten_state = "chip_half"
 	bitesize = 2
 	filling_color = "#FFF454"
+
+/obj/item/reagent_containers/food/snacks/chip/nacho/sourcream
+	name = "nacho chip"
+	desc = "A stray nacho chip from a plate of cheesy nachos. This one has extra sour cream on it."
+	icon_state = "chip_nacho_sourcream"
+	bitten_state = "chip_half_sourcream"
+	bitesize = 2
+	filling_color = "#e4e4e4"
+
+/obj/item/reagent_containers/food/snacks/chip/nacho/tajhummus
+	name = "nacho chip"
+	desc = "A stray nacho chip from a plate of cheesy nachos. This one has extra hummus on it."
+	icon_state = "chip_nacho_hummus"
+	bitten_state = "chip_half_hummus"
+	bitesize = 2
+	filling_color = "#cca628"
+
+/obj/item/reagent_containers/food/snacks/chip/nacho/hummus
+	name = "nacho chip"
+	desc = "A stray nacho chip from a plate of cheesy nachos. This one has extra hummus on it."
+	icon_state = "chip_nacho_hummus"
+	bitten_state = "chip_half_hummus"
+	bitesize = 2
+	filling_color = "#cca628"
 
 // chip plates
 /obj/item/reagent_containers/food/snacks/chipplate
@@ -4427,6 +4465,7 @@
 	name = "queso dip"
 	desc = "A simple, cheesy dip consisting of tomatos, cheese, and spices."
 	var/nachotrans = /obj/item/reagent_containers/food/snacks/chip/nacho/cheese
+	var/avahtrans = /obj/item/reagent_containers/food/snacks/chip/miniavah/cheese
 	var/chiptrans = /obj/item/reagent_containers/food/snacks/chip/cheese
 	icon_state = "dip_cheese"
 	trash = /obj/item/trash/dipbowl
@@ -4441,6 +4480,8 @@
 	var/obj/item/reagent_containers/food/snacks/returningitem
 	if(istype(item,/obj/item/reagent_containers/food/snacks/chip/nacho) && item.icon_state == "chip_nacho")
 		returningitem = new nachotrans(src)
+	else if (istype(item,/obj/item/reagent_containers/food/snacks/chip/miniavah) && item.icon_state == "avah_full" || item.icon_state == "avah_half")
+		returningitem = new avahtrans(src)
 	else if (istype(item,/obj/item/reagent_containers/food/snacks/chip) && (item.icon_state == "chip" || item.icon_state == "chip_half"))
 		returningitem = new chiptrans(src)
 	if(returningitem)
@@ -4452,7 +4493,7 @@
 			returningitem.bitesize = Clamp(returningitem.reagents.total_volume,1,10)
 		else if(prob(1))
 			memed = 1
-			to_chat(user, "You scoop up some dip with the chip, but mid-scop, the chip breaks off into the dreadful abyss of dip, never to be seen again...")
+			to_chat(user, "You scoop up some dip with \the [returningitem], but mid-scoop, \the [returningitem] breaks off into the dreadful abyss of dip, never to be seen again...")
 			returningitem.icon_state = "[returningitem.icon_state]_half"
 			returningitem.bitesize = Clamp(returningitem.reagents.total_volume,1,10)
 		else
@@ -4463,10 +4504,10 @@
 
 		if (reagents && reagents.total_volume)
 			if(!memed)
-				to_chat(user, "You scoop up some dip with the chip.")
+				to_chat(user, "You scoop up some dip with \the [returningitem].")
 		else
 			if(!memed)
-				to_chat(user, "You scoop up the remaining dip with the chip.")
+				to_chat(user, "You scoop up the remaining dip with \the [returningitem].")
 			var/obj/waste = new trash(loc)
 			if (loc == user)
 				user.put_in_hands(waste)
@@ -4476,6 +4517,7 @@
 	name = "salsa dip"
 	desc = "Traditional Sol chunky salsa dip containing tomatos, peppers, and spices."
 	nachotrans = /obj/item/reagent_containers/food/snacks/chip/nacho/salsa
+	avahtrans = /obj/item/reagent_containers/food/snacks/chip/miniavah/salsa
 	chiptrans = /obj/item/reagent_containers/food/snacks/chip/salsa
 	icon_state = "dip_salsa"
 	reagents_to_add = list(/singleton/reagent/nutriment = 20)
@@ -4486,11 +4528,45 @@
 	name = "guac dip"
 	desc = "A recreation of the ancient Sol 'Guacamole' dip using tofu, limes, and spices. This recreation obviously leaves out mole meat."
 	nachotrans = /obj/item/reagent_containers/food/snacks/chip/nacho/guac
+	avahtrans = /obj/item/reagent_containers/food/snacks/chip/miniavah/guac
 	chiptrans = /obj/item/reagent_containers/food/snacks/chip/guac
 	icon_state = "dip_guac"
 	reagents_to_add = list(/singleton/reagent/nutriment = 20)
 	reagent_data = list(/singleton/reagent/nutriment = list("guacmole" = 20))
 	filling_color = "#35961D"
+
+/obj/item/reagent_containers/food/snacks/dip/sarmikhir
+	name = "sarmikhir"
+	desc = "A traditional Tajaran cream made of fermented Fatshouter milk. Traditionally used with bread or as condiment."
+	nachotrans = /obj/item/reagent_containers/food/snacks/chip/nacho/sourcream
+	avahtrans = /obj/item/reagent_containers/food/snacks/chip/miniavah/sourcream
+	chiptrans = /obj/item/reagent_containers/food/snacks/chip/sourcream
+	icon_state = "dip_sourcream"
+	reagents_to_add = list(/singleton/reagent/nutriment = 20)
+	reagent_data = list(/singleton/reagent/nutriment = list("sour cream" = 20))
+	filling_color = "#e4e4e4"
+
+/obj/item/reagent_containers/food/snacks/dip/tajhummus
+	name = "hrikhir"
+	desc = "A savoury Tajaran dip, typically paired with avahs."
+	nachotrans = /obj/item/reagent_containers/food/snacks/chip/nacho/tajhummus
+	avahtrans = /obj/item/reagent_containers/food/snacks/chip/miniavah/tajhummus
+	chiptrans = /obj/item/reagent_containers/food/snacks/chip/tajhummus
+	icon_state = "dip_hummus"
+	reagents_to_add = list(/singleton/reagent/nutriment = 20)
+	reagent_data = list(/singleton/reagent/nutriment = list("sweet hummus" = 20))
+	filling_color = "#cca628"
+
+/obj/item/reagent_containers/food/snacks/dip/hummus
+	name = "hummus"
+	desc = "A tasty spread made from chickpeas and sesame seed paste."
+	nachotrans = /obj/item/reagent_containers/food/snacks/chip/nacho/hummus
+	avahtrans = /obj/item/reagent_containers/food/snacks/chip/miniavah/hummus
+	chiptrans = /obj/item/reagent_containers/food/snacks/chip/hummus
+	icon_state = "hummus"
+	reagents_to_add = list(/singleton/reagent/nutriment = 20)
+	reagent_data = list(/singleton/reagent/nutriment = list("smooth chickpeas" = 20, "garlic" = 5))
+	filling_color = "#F1DA96"
 
 // Roasted Peanuts (under chips/nachos because finger food)
 /obj/item/reagent_containers/food/snacks/roasted_peanut
@@ -5338,6 +5414,8 @@
 	bitesize = 1
 	reagents_to_add = list(/singleton/reagent/nutriment = 15)
 	reagent_data = list(/singleton/reagent/nutriment = list("crusty bread" = 2))
+	slice_path = /obj/item/reagent_containers/food/snacks/hardbread_slice
+	slices_num = 6
 	throw_range = 5
 	throwforce = 10
 	w_class = ITEMSIZE_NORMAL
@@ -5345,6 +5423,14 @@
 	desc_extended = "The adhomian hard bread is type of tajaran bread, made from Blizzard Ears's flour, water and spice, usually basked in the shape of a loaf. \
 	It is known for its hard crust, bland taste and for being long lasting. The hard bread was usually prepared for long journeys, hard winters or military campaigns, \
 	due to its shelf life. Certain folk stories and jokes claim that such food could also be used as an artillery ammunition or thrown at besieging armies during sieges."
+
+/obj/item/reagent_containers/food/snacks/hardbread_slice
+	name = "adhomian hard bread slice"
+	desc = "A long-lasting Tajaran bread slice. It is usually prepared for long journeys, hard winters, or military campaigns."
+	icon_state = "hardbread_slice"
+	filling_color = "#BD8939"
+	bitesize = 2
+	throwforce = 2
 
 /obj/item/reagent_containers/food/snacks/spreads/lard
 	name = "lard"
@@ -5428,6 +5514,207 @@
 		to_chat(user, SPAN_NOTICE("You must unwrap \the [src] first."))
 		return
 	..()
+
+/obj/item/reagent_containers/food/snacks/earthenroot_mash
+	name = "mashed earthen-root"
+	desc = "Mounds of mashed earthen-root. Soft and pillowy."
+	icon_state = "earthenroot_mash"
+	trash = /obj/item/trash/plate
+	filling_color = "#3884a7"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("mashed earthenroot" = 4))
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/earthenroot_chopped
+	name = "chopped earthen-root"
+	desc = "Chopped earthen-root. Cooking this would make it nicer."
+	icon_state = "earthenroot_chopped"
+	trash = /obj/item/trash/plate
+	filling_color = "#5498b8"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("sweet, chunky earthenroot" = 3))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/earthenroot_fries
+	name = "earthen-root fries"
+	desc = "A plate full of fresh earthen-root fries. A crispy sweet Adhomian treat."
+	icon_state = "earthenroot_fries"
+	trash = /obj/item/trash/plate
+	filling_color = "#3884a7"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/triglyceride/oil = 1.2)
+	reagent_data = list(/singleton/reagent/nutriment = list("crispy sweet earthen-root fries" = 4))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/earthenroot_wedges
+	name = "fried earthen-root wedges"
+	desc = "Some fried wedges made from earthen-root. Chunkier than fries, but still crispy."
+	icon_state = "earthenroot_wedges"
+	trash = /obj/item/trash/plate
+	filling_color = "#3884a7"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/triglyceride/oil = 1.2)
+	reagent_data = list(/singleton/reagent/nutriment = list("crispy sweet earthen-root wedges" = 4))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/salad/earthenroot
+	name = "earthen-root salad"
+	desc = "A Tajaran salad containing earthen-root, sarmikhir, herbs and cream. A great option for the more healthy-minded."
+	icon_state = "earthenroot_salad"
+	trash = /obj/item/trash/snack_bowl
+	reagents_to_add = list(/singleton/reagent/nutriment = 10)
+	reagent_data = list(/singleton/reagent/nutriment = list("sweet chunky earthen-root" = 2, "sour cream" = 2, "oily berries" = 2, "sweet herbs" = 2))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/stuffed_earthenroot
+	name = "stuffed earthen-root"
+	desc = "An earthen-root stuffed with Adhomian meat. Crunchy on the outside, savoury on the inside."
+	icon_state = "earthenroot_stuffed"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/nutriment/protein = 7)
+	reagent_data = list(/singleton/reagent/nutriment = list("sweet earthen-root" = 3), /singleton/reagent/nutriment/protein = list("smoky, salty meat"))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/clam_pasta
+	name = "ras'val pasta"
+	desc = "A Tajaran pasta made from earthen-root, boiled with Ras'val clams. For the seafood lovers that can't handle spice."
+	icon_state = "earthenroot_clambake"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein/seafood = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("sweet and salty earthen-root" = 3), /singleton/reagent/nutriment/protein/seafood = list("salty clam meat"))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/fermented_worm_sandwich
+	name = "fermented hma'trra sandwich"
+	desc = "A Tajaran delicacy that stinks as bad as it looks. Some claim the meat is an acquired taste and swear by its flavour."
+	icon_state = "hardbread_fermented"
+	reagents_to_add = list(/singleton/reagent/nutriment = 10, /singleton/reagent/nutriment/protein/seafood = 15, /singleton/reagent/ammonia = 10)
+	reagent_data = list(/singleton/reagent/nutriment = list("crusty bread" = 2), /singleton/reagent/nutriment/protein/seafood = list("salty, tangy fish" = 3))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/sarmikhir_sandwich
+	name = "sarmikhir sandwich"
+	desc = "A Tajaran sandwich with hard bread and sour cream. A staple of the Hadiist breakfast menu."
+	icon_state = "hardbread_sourcream"
+	reagents_to_add = list(/singleton/reagent/nutriment = 12)
+	reagent_data = list(/singleton/reagent/nutriment = list("crusty bread" = 2, "sour cream" = 2))
+
+/obj/item/reagent_containers/food/snacks/soup/tajfish
+	name = "adhomian fish soup"
+	desc = "A creamy Adhomian fish soup, garnished with sweet herbs."
+	icon_state = "adhomian_fish_soup"
+	trash = /obj/item/trash/snack_bowl
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/drink/milk/cream = 4, /singleton/reagent/water = 4)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("creamy, sweet fish." = 3))
+
+/obj/item/reagent_containers/food/snacks/hardbread_pudding
+	name = "hardbread pudding"
+	desc = "Traditional Adhomian hardbread pudding, sliceable into four slices. Topped with delicious sweet cream."
+	icon_state = "hardbread_pudding_whole"
+	slice_path = /obj/item/reagent_containers/food/snacks/hardbread_bun
+	slices_num = 4
+	trash = /obj/item/trash/tray
+	reagents_to_add = list(/singleton/reagent/nutriment = 30, /singleton/reagent/drink/milk/cream = 15)
+	reagent_data = list(/singleton/reagent/nutriment = list("soft bread" = 3), /singleton/reagent/drink/milk/cream = list("sweet cream" = 3))
+
+/obj/item/reagent_containers/food/snacks/hardbread_bun
+	name = "hardbread bun"
+	desc = "A bun made out of hardbread pudding. Topped with sweet cream."
+	icon_state = "hardbread_pudding_bun"
+	trash = /obj/item/trash/snack_bowl
+
+/obj/item/reagent_containers/food/snacks/tunneler_meategg
+	name = "tunneler meategg"
+	desc = "An Adhomian ice tunneler egg cooked with a layer of meat. All the protein that you'll need!"
+	icon_state = "tunneler_scotchegg"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment/protein = 7, /singleton/reagent/nutriment = 5)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("savoury meat" = 3), /singleton/reagent/nutriment = list("meaty bread" = 1))
+
+/obj/item/reagent_containers/food/snacks/tunneler_souffle
+	name = "tunneler souffle"
+	desc = "A souffle made from an Adhomian ice tunneler egg and traditional sour cream."
+	icon_state = "tunneler_souffle"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment = 5, /singleton/reagent/drink/milk/cream = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("baked dough" = 2))
+
+/obj/item/reagent_containers/food/snacks/chipplate/miniavah_basket
+	name = "mini-avah basket"
+	desc = "A basket of mini-avahs, a small variant of a traditional avah filled with meat that are the perfect size for dipping."
+	icon_state = "miniavahs_3"
+	vendingobject = /obj/item/reagent_containers/food/snacks/chip/miniavah
+	unitname = "mini-avah"
+	trash = /obj/item/trash/chipbasket
+	bitesize = 6
+	reagents_to_add = list(/singleton/reagent/nutriment = 9, /singleton/reagent/nutriment/protein = 9)
+	reagent_data = list(/singleton/reagent/nutriment = list("baked dough" = 3), /singleton/reagent/nutriment/protein = list("savoury meat" = 3))
+
+/obj/item/reagent_containers/food/snacks/chipplate/miniavah_basket/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 6)
+			icon_state = "miniavahs_1"
+		if(7 to 12)
+			icon_state = "miniavahs_2"
+		if(18 to INFINITY)
+			icon_state = "miniavahs_3"
+
+/obj/item/reagent_containers/food/snacks/chip/miniavah/on_consume(mob/M as mob)
+	if(reagents && reagents.total_volume)
+		icon_state = bitten_state
+	. = ..()
+
+/obj/item/reagent_containers/food/snacks/chip/miniavah
+	name = "mini-avah"
+	desc = "A miniature avah, a traditional Adhomian treat. This one is filled with meat, and is the perfect size for dipping."
+	icon_state = "avah_full"
+	bitten_state = "avah_half"
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/chip/miniavah/cheese
+	name = "cheese mini-avah"
+	desc = "A miniature avah filled with meat. This one has cheese on it."
+	icon_state = "avah_full_queso"
+	bitten_state = "avah_half_queso"
+	bitesize = 2
+	filling_color = "#FFF454"
+
+/obj/item/reagent_containers/food/snacks/chip/miniavah/salsa
+	name = "salsa mini-avah"
+	desc = "A miniature avah filled with meat. This one has salsa on it."
+	icon_state = "avah_full_salsa"
+	bitten_state = "avah_half_salsa"
+	bitesize = 2
+	filling_color = "#FF4D36"
+
+/obj/item/reagent_containers/food/snacks/chip/miniavah/guac
+	name = "guac mini-avah"
+	desc = "A miniature avah filled with meat. This one has guac on it."
+	icon_state = "avah_full_guac"
+	bitten_state = "avah_half_guac"
+	bitesize = 2
+	filling_color = "#35961D"
+
+/obj/item/reagent_containers/food/snacks/chip/miniavah/sourcream
+	name = "sourcream mini-avah"
+	desc = "A miniature avah filled with meat. This one has sour cream on it."
+	icon_state = "avah_full_sourcream"
+	bitten_state = "avah_half_sourcream"
+	bitesize = 2
+	filling_color = "#e4e4e4"
+
+/obj/item/reagent_containers/food/snacks/chip/miniavah/tajhummus
+	name = "hummus mini-avah"
+	desc = "A miniature avah filled with meat. This one has sweet hummus on it."
+	icon_state = "avah_full_hummus"
+	bitten_state = "avah_half_hummus"
+	bitesize = 2
+	filling_color = "#cca628"
+
+/obj/item/reagent_containers/food/snacks/chip/miniavah/hummus
+	name = "hummus mini-avah"
+	desc = "A miniature avah filled with meat. This one has hummus on it."
+	icon_state = "avah_full_hummus"
+	bitten_state = "avah_half_hummus"
+	bitesize = 2
+	filling_color = "#cca628"
 
 /obj/item/reagent_containers/food/snacks/stew/diona
 	name = "dionae stew"
@@ -5565,6 +5852,30 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("iron" = 3))
 	bitesize = 6
 
+/obj/item/reagent_containers/food/snacks/stokkebab
+	name = "stok skewers"
+	desc = "Two hearty skewers of seared meat, glazed in a tangy spice. A popular Skalamar street food - despite the name, it can be made with just about any meat."
+	icon_state = "stok-skewers"
+	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/protein = 2, /singleton/reagent/capsaicin = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("tangy and gamey meat" = 3))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/gukhefish
+	name = "gukhe fish"
+	desc = "A fish cutlet cured in a bitter gukhe rub, served with a tangy dipping sauce and a garnish of seaweed. A staple of Ouerean and Mictlani Unathi cooking."
+	icon_state = "gukhe-fish"
+	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/capsaicin = 2, /singleton/reagent/sodiumchloride = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("tangy fish" = 3, "bitter gukhe" = 3))
+	bitesize = 5
+
+/obj/item/reagent_containers/food/snacks/aghrasshcake
+	name = "aghrassh cake"
+	desc = "A dense, calorie-packed puck of aghrassh paste, spices, and ground meat, usually eaten as an Unathi field ration. This one has an egg cracked over it to make it a bit more palatable."
+	icon_state = "aghrassh-cake"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 8, /singleton/reagent/nutriment/coco = 3, /singleton/reagent/blackpepper = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("aghrassh nuts" = 3, "mealy paste" = 3))
+	bitesize = 5
+
 /obj/item/reagent_containers/food/snacks/phoroncandy
 	name = "phoron rock candy"
 	desc = "Rock candy popular in Flagsdale. Actually contains phoron."
@@ -5581,5 +5892,46 @@
 	filling_color = "#EBE699"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("pickled lettuce" = 4))
+	bitesize = 2
+	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/fairy_bread
+	name = "fairy bread"
+	desc = "A piece of bread covered in sprinkles. Absolutely delicious!"
+	icon_state = "fairy_bread"
+	item_state = "toast"
+	slot_flags = SLOT_MASK
+	contained_sprite = TRUE
+	filling_color = "#FEFECC"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/bagel
+	name = "bagel"
+	desc = "Goes great with cream cheese and smoked salmon."
+	icon_state = "bagel"
+	filling_color = "#F1B45E"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("toasty dough" = 2))
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/chana_masala
+	name = "chana masala"
+	desc = "Curried chickpeas on rice."
+	icon_state = "chana_masala"
+	filling_color = "#C97F02"
+	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/nutriment/rice = 10, /singleton/reagent/spacespice = 2, /singleton/reagent/capsaicin = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("spicy chickpeas" = 4))
+	bitesize = 2
+	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/jyalrafresh
+	name = "jyalra"
+	desc = "Dyn leaves peeled and mashed into a savoury puree."
+	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
+	icon_state = "jyalrafresh"
+	filling_color = "#321b85"
+	reagents_to_add = list(/singleton/reagent/nutriment = 10, /singleton/reagent/drink/dynjuice = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("dry mush" = 2, "something savoury" = 4))
 	bitesize = 2
 	trash = /obj/item/trash/plate

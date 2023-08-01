@@ -23,6 +23,13 @@
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
+	scanimage = "headmaster.png"
+	designer = "People's Republic of Adhomai"
+	volume = "61 meters length, 35 meters beam/width, 17 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Extruding starboard-mounted medium caliber ballistic armament, starboard obscured flight craft bay"
+	sizeclass = "Headmaster Cruiser"
+	shiptype = "Military patrol and combat utility"
 	initial_generic_waypoints = list(
 		"nav_headmaster_ship_1",
 		"nav_headmaster_ship_2",
@@ -41,6 +48,12 @@
 	else
 		designation = "[pick("Al'mari Hadii", "Adhomai's Shield", "Loyal Comrade", "People's Guardian", "Visionary", "Great Future", "Fearless Pioneer", "Adhomian Dream")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/headmaster_ship/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "headmaster")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/headmaster_ship
 	base_turf = /turf/space

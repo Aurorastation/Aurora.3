@@ -192,6 +192,7 @@
 	..()
 
 /obj/item/tray/dropped(mob/user)
+	. = ..()
 	spawn(1)//A hack to avoid race conditions. Dropped procs too quickly
 		if (ismob(loc))
 			//If this is true, then the tray has just switched hands and is still held by a mob
@@ -206,3 +207,15 @@
 	if(istype(A,/obj/structure/table))
 		safedrop = TRUE
 	return ..(A, user, click_parameters)
+
+/obj/item/tray/plate
+	name = "serving plate"
+	desc = "A large plate for serving meals on."
+	icon = 'icons/obj/kitchen.dmi'
+	icon_state = "l_plate"
+	throwforce = 4
+	force = 3
+	flags = null
+	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
+	recyclable = TRUE
+	max_carry = 7 // That's 3 dishes, a knife, spoon and fork and a glass

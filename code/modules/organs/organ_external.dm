@@ -194,7 +194,7 @@
 		dislocated = 2
 	else
 		dislocated = 1
-	owner.verbs |= /mob/living/carbon/human/proc/undislocate
+	add_verb(owner, /mob/living/carbon/human/proc/undislocate)
 	if(children && children.len)
 		for(var/obj/item/organ/external/child in children)
 			child.dislocate()
@@ -213,7 +213,7 @@
 		for(var/obj/item/organ/external/limb in owner.organs)
 			if(limb.dislocated == 2)
 				return
-		owner.verbs -= /mob/living/carbon/human/proc/undislocate
+		remove_verb(owner, /mob/living/carbon/human/proc/undislocate)
 
 /obj/item/organ/external/update_health()
 	damage = min(max_damage, (brute_dam + burn_dam))
@@ -284,7 +284,25 @@
 	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
 	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
 	var/edge = (damage_flags & DAMAGE_FLAG_EDGE)
+	var/psionic = HAS_FLAG(damage_flags, DAMAGE_FLAG_PSIONIC)
 	var/blunt = !!(brute && !sharp && !edge)
+
+	/// Psionics and psionically deaf species take varying amounts of damage from psionic abilities.
+	if(psionic)
+		if(!owner.has_psionics())
+			brute *= 0.9
+			burn *= 0.9
+		else if(owner.psi)
+			var/psi_rank = owner.psi.get_rank()
+			if(psi_rank == PSI_RANK_SENSITIVE)
+				brute *= 1.05
+				burn *= 1.05
+			else if(psi_rank == PSI_RANK_HARMONIOUS)
+				brute *= 1.1
+				burn *= 1.1
+			else if(psi_rank == PSI_RANK_APEX)
+				brute *= 1.2
+				burn *= 1.2
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
 		if(owner && (owner.can_feel_pain()) && owner.stat == CONSCIOUS)
@@ -405,7 +423,7 @@
 				var/blunt_eligible = FALSE
 				var/maim_bonus = 0
 				var/dam_flags = 0
-				
+
 				if(isitem(used_weapon))
 					var/obj/item/W = used_weapon
 					dam_flags = W.damage_flags()
@@ -481,7 +499,7 @@ This function completely restores a damaged organ to perfect condition.
 
 
 /obj/item/organ/external/proc/createwound(var/type = CUT, var/damage)
-	if(damage <= 0)
+	if(damage <= 0 || !owner)
 		return
 
 	//moved this before the open_wound check so that having many small wounds for example doesn't somehow protect you from taking internal damage (because of the return)
@@ -969,8 +987,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 			src.transform = M
 			if(!clean)
 				 //Throw limb around.
-				if(src && istype(loc,/turf))
-					INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src,pick(alldirs)), rand(1,3), 30)
+				if(src && isturf(loc))
+					INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src,pick(alldirs)), rand(1,3), 4)
 				dir = 2
 		if(DROPLIMB_BURN)
 			new /obj/effect/decal/cleanable/ash(get_turf(victim))
@@ -985,12 +1003,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(victim.species.blood_color)
 				gore.basecolor = victim.species.blood_color
 			gore.update_icon()
-			INVOKE_ASYNC(gore, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
+			INVOKE_ASYNC(gore, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 4)
 
 			for(var/obj/item/organ/I in internal_organs)
 				I.removed()
 				if(istype(loc,/turf))
-					INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
+					INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 4)
 
 			var/turf/Tloc = get_turf(src)
 			for(var/obj/item/I in src)
@@ -998,7 +1016,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 					qdel(I)
 					continue
 				I.forceMove(Tloc)
-				INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 30)
+				INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(alldirs)), rand(1,3), 4)
 
 			qdel(src)
 
@@ -1096,7 +1114,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	playsound(src.loc, /singleton/sound_category/fracture_sound, 100, 1, -2)
 	status |= ORGAN_BROKEN
-	broken_description = pick("Broken","Fracture","Hairline Fracture")
+	broken_description = pick("broken", "fracture", "hairline fracture")
 	perma_injury = brute_dam
 
 	// Fractures have a chance of getting you out of restraints
@@ -1224,7 +1242,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.visible_message("<span class='danger'>\The [W] sticks in [owner]'s wound!</span>", "<span class='danger'>\The [W] sticks in your wound!</span>")
 	implants += W
 	owner.embedded_flag = 1
-	owner.verbs += /mob/proc/yank_out_object
+	add_verb(owner, /mob/proc/yank_out_object)
 	W.add_blood(owner)
 	if(ismob(W.loc))
 		var/mob/living/H = W.loc

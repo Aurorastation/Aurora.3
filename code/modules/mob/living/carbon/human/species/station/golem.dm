@@ -26,6 +26,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	eyes = "blank_eyes"
 
 	bodytype = BODYTYPE_GOLEM
+	species_height = HEIGHT_CLASS_SHORT
 
 	language = "Ceti Basic"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch)
@@ -97,6 +98,8 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	hud_type = /datum/hud_data/construct
 
+	psi_deaf = TRUE
+
 	var/turn_into_materials = TRUE //the golem will turn into materials upon its death
 	var/golem_designation = "Coal" //used in the creation of the name
 
@@ -121,9 +124,6 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 /datum/species/golem/handle_death_check(var/mob/living/carbon/human/H)
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
-	return FALSE
-
-/datum/species/golem/has_psi_potential()
 	return FALSE
 
 /datum/species/golem/iron
@@ -815,7 +815,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	death_message = "collapses into a pile of flesh!"
 	death_message_range = 7
 
-	death_sound = 'sound/magic/disintegrate.ogg'
+	death_sound = 'sound/magic/Disintegrate.ogg'
 
 	golem_designation = "Flesh"
 

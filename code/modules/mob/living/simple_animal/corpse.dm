@@ -30,6 +30,9 @@
 /obj/effect/landmark/mobcorpse/Initialize()
 	createCorpse()
 
+	initialized = TRUE
+	return INITIALIZE_HINT_NORMAL
+
 /obj/effect/landmark/mobcorpse/proc/createCorpse() //Creates a mob and checks for gear in each slot before attempting to equip it.
 	var/mob/living/carbon/human/M = new /mob/living/carbon/human (src.loc)
 	M.real_name = src.name

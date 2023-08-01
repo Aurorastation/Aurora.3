@@ -903,7 +903,11 @@
 /obj/item/storage/box/tranquilizer
 	name = "box of tranquilizer darts"
 	desc = "It has a picture of a tranquilizer dart and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "incendiaryshot_box"
+	icon_state = "shellbox"
+	item_state = "shellbox"
+	illustration = "incendiaryshot"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/tranq = 8)
 
 /obj/item/storage/box/toothpaste
@@ -1174,3 +1178,26 @@
 	starts_with = list(
 		/obj/item/cell/high = 3
 	)
+
+/obj/item/storage/box/condiment
+	name = "condiment box"
+	desc = "A large box of condiments, syrups, flavorings."
+	icon_state = "largebox"
+	illustration = "condiment"
+	starts_with = list(
+		/obj/item/reagent_containers/food/condiment/enzyme = 1,
+		/obj/item/reagent_containers/food/condiment/shaker/peppermill = 2,
+		/obj/item/reagent_containers/food/condiment/shaker/salt = 2,
+		/obj/item/reagent_containers/food/condiment/shaker/spacespice = 2,
+		/obj/item/reagent_containers/food/condiment/shaker/sprinkles = 1,
+		/obj/item/reagent_containers/food/condiment/sugar = 1,
+		/obj/item/reagent_containers/food/condiment/shaker/pumpkinspice = 1,
+		/obj/item/reagent_containers/glass/bottle/syrup/chocolate = 1,
+		/obj/item/reagent_containers/glass/bottle/syrup/pumpkin = 1,
+		/obj/item/reagent_containers/glass/bottle/syrup/vanilla = 1,
+		/obj/item/reagent_containers/glass/bottle/syrup/caramel = 1,
+	)
+
+/obj/item/storage/box/produce/fill()
+	. = ..()
+	make_exact_fit()

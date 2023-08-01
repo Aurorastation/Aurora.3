@@ -50,6 +50,7 @@
 	if(istype(R))
 		R.clear_reagents()
 	breathing.clear_reagents()
+	intoxication = 0
 	..()
 
 /mob/living/carbon/Move(NewLoc, direct)
@@ -114,11 +115,6 @@
 				action = "pushed"
 			if(I_HURT)
 				action = "punched"
-		var/t_him = "it"
-		if (src.gender == MALE)
-			t_him = "him"
-		else if (src.gender == FEMALE)
-			t_him = "her"
 		var/show_ssd
 		var/mob/living/carbon/human/H
 		if(ishuman(src))
@@ -130,7 +126,7 @@
 			else if(!vr_mob)
 				visible_message(SPAN_NOTICE("[M] [action] [src], but they do not respond... Maybe they have S.S.D?"))
 		else if(client && willfully_sleeping)
-			visible_message(SPAN_NOTICE("[M] [action] [src] waking [t_him] up!"))
+			visible_message(SPAN_NOTICE("[M] [action] [src] waking [get_pronoun("him")] up!"))
 			sleeping = 0
 			willfully_sleeping = FALSE
 
@@ -260,11 +256,6 @@
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
 		else
-			var/t_him = "it"
-			if (src.gender == MALE)
-				t_him = "him"
-			else if (src.gender == FEMALE)
-				t_him = "her"
 			if (istype(src,/mob/living/carbon/human) && src:w_uniform)
 				var/mob/living/carbon/human/H = src
 				H.w_uniform.add_fingerprint(M)
@@ -278,13 +269,13 @@
 				if(H.bg)
 					to_chat(H, SPAN_WARNING("You sense some disturbance to your physical body, like someone is trying to wake you up."))
 				else if(!vr_mob)
-					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [t_him] up!"), \
+					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [get_pronoun("him")] up!"), \
 										SPAN_NOTICE("You shake [src], but they do not respond... Maybe they have S.S.D?"))
 			else if(lying)
 				if(src.sleeping)
 					src.sleeping = max(0,src.sleeping-5)
-					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [t_him] up!"), \
-										SPAN_NOTICE("You shake [src] trying to wake [t_him] up!"))
+					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [get_pronoun("him")] up!"), \
+										SPAN_NOTICE("You shake [src] trying to wake [get_pronoun("him")] up!"))
 				else
 					M.help_up_offer = !M.help_up_offer
 					if(M.help_up_offer)
@@ -446,6 +437,10 @@
 		return FALSE
 
 	return TRUE
+
+/mob/living/carbon/get_shock()
+	if(can_feel_pain())
+		return ..()
 
 /mob/living/carbon/proc/need_breathe()
 	return

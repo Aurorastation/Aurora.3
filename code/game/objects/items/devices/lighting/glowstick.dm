@@ -3,18 +3,19 @@
 	desc = "A green military-grade glowstick."
 	w_class = ITEMSIZE_SMALL
 	brightness_on = 1.2
-	light_power = 2
-	color = "#49F37C"
+	flashlight_power = 2
+	light_color = "#49F37C"
 	icon_state = "glowstick"
 	item_state = "glowstick"
+	produce_heat = 0
 	uv_intensity = 255
 	light_wedge = LIGHT_OMNI
 	activation_sound = 'sound/items/glowstick.ogg'
-	overrides_activation_message = TRUE
+	toggle_sound = null
 
 /obj/item/device/flashlight/flare/glowstick/Initialize()
 	. = ..()
-	fuel = rand(900, 1200)
+	fuel = rand(9 MINUTES, 12 MINUTES)
 	light_color = color
 
 /obj/item/device/flashlight/flare/glowstick/process()
@@ -31,33 +32,23 @@
 		icon_state = "[initial(icon_state)]-empty"
 		set_light(0)
 	else if(on)
+		var/image/I = overlay_image(icon, "glowstick-overlay", color)
+		I.blend_mode = BLEND_ADD
+		add_overlay(I)
 		icon_state = "[initial(icon_state)]-on"
 		item_state = "[initial(icon_state)]-on"
-		set_light(brightness_on)
+		set_light(brightness_on, flashlight_power, light_color)
 	else
 		icon_state = initial(icon_state)
 	update_held_icon()
 
-/obj/item/device/flashlight/flare/glowstick/attack_self(var/mob/living/user)
-	if(((user.is_clumsy())) && prob(50))
-		to_chat(user, SPAN_WARNING("You break \the [src] apart, spilling its contents everywhere!"))
-		fuel = 0
-		new /obj/effect/decal/cleanable/greenglow(get_turf(user))
-		user.apply_damage(rand(15,30), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-		qdel(src)
-		return
-
-	if(!fuel)
-		to_chat(user, SPAN_WARNING("\The [src] has already been used."))
-		return
-	if(on)
-		to_chat(user, SPAN_WARNING("\The [src] has already been turned on."))
-		return
-
-	. = ..()
-
-	if(.)
-		user.visible_message(SPAN_NOTICE("\The [user] cracks and shakes \the [src]."), SPAN_NOTICE("You crack and shake \the [src], turning it on!"))
+/obj/item/device/flashlight/flare/glowstick/activate(mob/user)
+	if(istype(user))
+		user.visible_message(
+			SPAN_NOTICE("\The [user] cracks and shakes \the [src]."),
+			SPAN_NOTICE("You crack and shake \the [src], turning it on!"),
+			SPAN_NOTICE("You hear someone crack and shake a glowstick.")
+		)
 
 /obj/item/device/flashlight/flare/glowstick/red
 	name = "red glowstick"

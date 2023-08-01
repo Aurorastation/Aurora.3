@@ -2,7 +2,7 @@
 	name = "IAC Rescue Ship"
 	description = "The Sanctuary-class rescue ship is a fast response medical vessel, based in large part off of the Asclepius-class medical transport, a much older and more widespread clinic ship, designed to operate mainly between planets rather than in open space. Most Sanctuary-class hulls are heavily refitted to accomodate for the new conditions in the Wildlands, sporting additional thrusters and a hangar bay, created from what was originally a waiting room. However, it is still limited by its origins, having only the bare minimum of crew and atmospherics facilities, as well as being rather obviously unarmed, often needing to return to port for repairs or supplies."
 	suffixes = list("ships/iac/iac_rescue_ship.dmm")
-	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
+	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, ALL_COALITION_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "iac_rescue_ship"
@@ -67,6 +67,11 @@
 	icon_state = "sanctuary"
 	moving_state = "sanctuary_moving"
 	colors = list("#ace8fa", "#71abf7")
+	scanimage = "hospital.png"
+	designer = "Zeng-Hu Pharmaceuticals, Hephaestus Industries"
+	volume = "48 meters length, 32 meters beam/width, 19 meters vertical height"
+	sizeclass = "Sanctuary-class Rescue Ship"
+	shiptype = "Emergency medical logistics relief and distress response"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -89,6 +94,12 @@
 /obj/effect/overmap/visitable/ship/iac_rescue_ship/New()
 	designation = "[pick("Angitia", "Eir", "Vejovis", "Dharti", "Serket", "He Xiangu", "Sirona", "Ixtlilton", "Boris Yegorov", "Simi", "Aleksandra Hro'makar", "Assistance", "Helping Hand", "Free Aid", "Safe Haven", "Grace", "Compassion", "Relief")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/iac_rescue_ship/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "hospital")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/iac_rescue_ship/nav1
 	name = "IAC Rescue Ship - Port Side"

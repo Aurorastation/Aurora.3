@@ -53,11 +53,11 @@
 		imprisoned = temporarymob
 
 	if(health == 0) //meaning if the statue didn't find a valid target
-		qdel(src)
-		return
+		initialized = TRUE
+		return INITIALIZE_HINT_QDEL
 
 	START_PROCESSING(SSprocessing, src)
-	..()
+	. = ..()
 
 /obj/structure/closet/statue/process()
 	timer -= 2

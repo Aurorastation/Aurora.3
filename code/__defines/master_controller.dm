@@ -31,6 +31,8 @@
 
 #define NEW_SS_GLOBAL(varname) if(varname != src){if(istype(varname)){Recover();qdel(varname);}varname = src;}
 
+#define MC_LOOP_RTN_NEWSTAGES 1
+#define MC_LOOP_RTN_GRACEFUL_EXIT 2
 
 //SubSystem flags (Please design any new flags so that the default is off, to make adding flags to subsystems easier)
 
@@ -45,6 +47,12 @@
 /** Subsystem only runs on spare cpu (after all non-background subsystems have ran that tick) */
 /// SS_BACKGROUND has its own priority bracket, this overrides SS_TICKER's priority bump
 #define SS_BACKGROUND 4
+
+/// If this subsystem doesn't initialize, it should not report as a hard error in CI.
+/// This should be used for subsystems that are flaky for complicated reasons, such as
+/// the Lua subsystem, which relies on auxtools, which is unstable.
+/// It should not be used simply to silence CI.
+#define SS_OK_TO_FAIL_INIT (1 << 6)
 
 //subsystem does not tick check, and should not run unless there is enough time (or its running behind (unless background))
 #define SS_NO_TICK_CHECK 8
@@ -74,6 +82,11 @@
 #define SS_PAUSED 3		//paused by mc_tick_check
 #define SS_SLEEPING 4	//fire() slept.
 #define SS_PAUSING 5 	//in the middle of pausing
+
+// Subsystem init stages
+#define INITSTAGE_EARLY 1 //! Early init stuff that doesn't need to wait for mapload
+#define INITSTAGE_MAIN 2 //! Main init stage
+#define INITSTAGE_MAX 2 //! Highest initstage.
 
 // Subsystem init-states, used for the initialization MC panel.
 #define SS_INITSTATE_NONE 0

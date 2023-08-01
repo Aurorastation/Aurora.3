@@ -25,6 +25,9 @@
 	)
 	comms_support = TRUE
 	comms_name = "adhomian scrapper"
+
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "outpost"
 	color = "#DAA06D"
 
 /obj/effect/shuttle_landmark/tajara_scrapper

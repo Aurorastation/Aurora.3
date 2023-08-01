@@ -1,19 +1,3 @@
-/******************************Lantern*******************************/
-
-/obj/item/device/flashlight/lantern
-	name = "lantern"
-	desc = "A mining lantern."
-	icon_state = "lantern"
-	item_state = "lantern"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
-		)
-	light_power = 1
-	brightness_on = 4
-	light_wedge = LIGHT_OMNI
-	light_color = LIGHT_COLOR_FIRE
-
 /*****************************Pickaxe********************************/
 
 /obj/item/pickaxe
@@ -94,6 +78,7 @@
 	return ..()
 
 /obj/item/pickaxe/dropped(mob/user)
+	. = ..()
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
 		var/obj/item/pickaxe/O = user.get_inactive_hand()
@@ -825,7 +810,7 @@
 	if(isliving(target) && proximity_flag)
 		if(istype(target, /mob/living/simple_animal))
 			var/mob/living/simple_animal/M = target
-			if(!(M.find_type() & revive_type))
+			if(!(M.find_type() & revive_type) || !(M.tameable))
 				to_chat(user, SPAN_INFO("\The [src] does not work on this sort of creature."))
 				return
 			if(M.stat == DEAD)
@@ -1064,7 +1049,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "shield2"
 	layer = 5
 	anchored = TRUE
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/resonance_damage = 20
 	var/creator
 	var/obj/item/resonator/res
@@ -1223,7 +1208,7 @@ var/list/total_extraction_beacons = list()
 		user.visible_message(SPAN_NOTICE("\The [user] begins sculpting."), SPAN_NOTICE("You begin sculpting."))
 
 		if(prob(25))
-			playsound(loc, 'sound/items/screwdriver.ogg', 20, TRUE)
+			playsound(loc, 'sound/items/Screwdriver.ogg', 20, TRUE)
 		else
 			playsound(loc, /singleton/sound_category/pickaxe_sound, 20, TRUE)
 

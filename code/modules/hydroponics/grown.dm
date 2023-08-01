@@ -221,6 +221,11 @@
 					new /obj/item/reagent_containers/food/snacks/carrotfries(get_turf(src))
 					qdel(src)
 					return
+				else if(!isnull(seed.chems[/singleton/reagent/drink/earthenrootjuice]))
+					to_chat(user, "You slice \the [src] into sticks.")
+					new /obj/item/reagent_containers/food/snacks/earthenroot_chopped(get_turf(src))
+					qdel(src)
+					return
 				else if(!isnull(seed.chems[/singleton/reagent/drink/milk/soymilk]))
 					to_chat(user, "You roughly chop up \the [src].")
 					new /obj/item/reagent_containers/food/snacks/soydope(get_turf(src))

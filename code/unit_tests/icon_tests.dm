@@ -50,7 +50,7 @@
 		// Base icon state
 		if(!(state in closet_states))
 			missing_states += 1
-			log_unit_test("icon_state [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+			TEST_FAIL("icon_state [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 		// Non-animated door states
 		if(!initial(closet_path.is_animating_door))
 			// Door icon
@@ -58,55 +58,55 @@
 				state = "[initial(closet_path.icon_door)][closet_state_suffixes["door"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 			else
 				state = "[initial(closet_path.icon_state)][closet_state_suffixes["door"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 			// Secure closet icon overlays
 			if(initial(closet_path.secure))
 				// Emagged
 				state = "[initial(closet_path.icon_door_overlay)][closet_state_suffixes["emag"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Emag'd icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Emag'd icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 				// Locked
 				state = "[initial(closet_path.icon_door_overlay)][closet_state_suffixes["locked"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Locked icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Locked icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 				// Unlocked
 				state = "[initial(closet_path.icon_door_overlay)][closet_state_suffixes["unlocked"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Unlocked icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Unlocked icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 			// Opened
 			if(initial(closet_path.icon_door_override))
 				state = "[initial(closet_path.icon_door)][closet_state_suffixes["opened"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Opened icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Opened icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 			else
 				state = "[initial(closet_path.icon_state)][closet_state_suffixes["opened"]]"
 				if(!(state in closet_states))
 					missing_states += 1
-					log_unit_test("Opened icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+					TEST_FAIL("Opened icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 		// Animated Door
 		else
 			state = "[initial(closet_path.icon_door) || initial(closet_path.icon_state)][closet_state_suffixes["door"]]"
 			if(!(state in closet_states))
 				missing_states += 1
-				log_unit_test("Animated door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+				TEST_FAIL("Animated door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 			state = "[initial(closet_path.icon_door) || initial(closet_path.icon_state)][closet_state_suffixes["back"]]"
 			if(!(state in closet_states))
 				missing_states += 1
-				log_unit_test("Animated door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
+				TEST_FAIL("Animated door icon [state] missing for [initial(closet_path.name)] -- ([closet_path])")
 
 	if(missing_states)
-		fail("[missing_states] closet icon state\s [missing_states == 1 ? "is" : "are"] missing.")
+		TEST_FAIL("[missing_states] closet icon state\s [missing_states == 1 ? "is" : "are"] missing.")
 	else
-		pass("All related closet icon states exist.")
+		TEST_PASS("All related closet icon states exist.")
 	return TRUE
 
 /datum/unit_test/icon_test/closets/mapped_closets_shall_have_invalid_icon_states
@@ -124,12 +124,12 @@
 			continue
 
 		invalid_states++
-		log_unit_test("Mapped closet [C] at [C.x], [C.y], [C.z] had an invalid icon_state defined: [C.icon_state]!")
+		TEST_FAIL("Mapped closet [C] at [C.x], [C.y], [C.z] had an invalid icon_state defined: [C.icon_state]!")
 
 	if(invalid_states)
-		fail("Found [invalid_states] / [checked_closets] mapped closets with invalid mapped icon states!")
+		TEST_FAIL("Found [invalid_states] / [checked_closets] mapped closets with invalid mapped icon states!")
 	else
-		pass("All mapped closets had valid icon states.")
+		TEST_PASS("All mapped closets had valid icon states.")
 
 	return TRUE
 
@@ -143,9 +143,9 @@
 		var/list/rig_states = icon_states(R.icon)
 
 		if(!(R.icon_state in rig_states))
-			fail("[R.name]'s module icon_state isn't in its icon file.")
+			TEST_FAIL("[R.name]'s module icon_state isn't in its icon file.")
 		if(!("[R.icon_state]_ba" in rig_states))
-			fail("[R.name]'s on-back module icon_state isn't in its icon file.")
+			TEST_FAIL("[R.name]'s on-back module icon_state isn't in its icon file.")
 
 		var/list/species_to_check = list("") // blank means default, human
 		if(length(R.icon_supported_species_tags))
@@ -153,50 +153,50 @@
 
 		if(R.helm_type)
 			if(!("[R.icon_state]_helmet" in rig_states))
-				fail("[R.name]'s helmet icon_state isn't in its icon file.")
+				TEST_FAIL("[R.name]'s helmet icon_state isn't in its icon file.")
 			if(!("[R.icon_state]_sealed_helmet" in rig_states))
-				fail("[R.name]'s sealed helmet icon_state isn't in its icon file.")
+				TEST_FAIL("[R.name]'s sealed helmet icon_state isn't in its icon file.")
 		if(R.suit_type)
 			if(!("[R.icon_state]_suit" in rig_states))
-				fail("[R.name]'s suit icon_state isn't in its icon file.")
+				TEST_FAIL("[R.name]'s suit icon_state isn't in its icon file.")
 			if(!("[R.icon_state]_sealed_suit" in rig_states))
-				fail("[R.name]'s sealed suit icon_state isn't in its icon file.")
+				TEST_FAIL("[R.name]'s sealed suit icon_state isn't in its icon file.")
 		if(R.glove_type)
 			if(!("[R.icon_state]_gloves" in rig_states))
-				fail("[R.name]'s gloves icon_state isn't in its icon file.")
+				TEST_FAIL("[R.name]'s gloves icon_state isn't in its icon file.")
 			if(!("[R.icon_state]_sealed_gloves" in rig_states))
-				fail("[R.name]'s sealed gloves icon_state isn't in its icon file.")
+				TEST_FAIL("[R.name]'s sealed gloves icon_state isn't in its icon file.")
 		if(R.boot_type)
 			if(!("[R.icon_state]_shoes" in rig_states))
-				fail("[R.name]'s shoes icon_state isn't in its icon file.")
+				TEST_FAIL("[R.name]'s shoes icon_state isn't in its icon file.")
 			if(!("[R.icon_state]_sealed_shoes" in rig_states))
-				fail("[R.name]'s sealed shoes icon_state isn't in its icon file.")
+				TEST_FAIL("[R.name]'s sealed shoes icon_state isn't in its icon file.")
 
 		for(var/short in species_to_check)
 			short = UNDERSCORE_OR_NULL(short)
 			if(R.helm_type)
 				if(!("[short][R.icon_state]_he" in rig_states))
-					fail("[short] [R.name]'s helmet item_state isn't in its icon file.")
+					TEST_FAIL("[short] [R.name]'s helmet item_state isn't in its icon file.")
 				if(!("[short][R.icon_state]_sealed_he" in rig_states))
-					fail("[short] [R.name]'s sealed helmet item_state isn't in its icon file.")
+					TEST_FAIL("[short] [R.name]'s sealed helmet item_state isn't in its icon file.")
 			if(R.suit_type)
 				if(!("[short][R.icon_state]_su" in rig_states))
-					fail("[short] [R.name]'s suit item_state isn't in its icon file.")
+					TEST_FAIL("[short] [R.name]'s suit item_state isn't in its icon file.")
 				if(!("[short][R.icon_state]_sealed_su" in rig_states))
-					fail("[short] [R.name]'s sealed suit item_state isn't in its icon file.")
+					TEST_FAIL("[short] [R.name]'s sealed suit item_state isn't in its icon file.")
 			if(R.glove_type)
 				if(!("[short][R.icon_state]_gl" in rig_states))
-					fail("[short] [R.name]'s gloves item_state isn't in its icon file.")
+					TEST_FAIL("[short] [R.name]'s gloves item_state isn't in its icon file.")
 				if(!("[short][R.icon_state]_sealed_gl" in rig_states))
-					fail("[short] [R.name]'s sealed gloves item_state isn't in its icon file.")
+					TEST_FAIL("[short] [R.name]'s sealed gloves item_state isn't in its icon file.")
 			if(R.boot_type)
 				if(!("[short][R.icon_state]_sh" in rig_states))
-					fail("[short] [R.name]'s shoes item_state isn't in its icon file.")
+					TEST_FAIL("[short] [R.name]'s shoes item_state isn't in its icon file.")
 				if(!("[short][R.icon_state]_sealed_sh" in rig_states))
-					fail("[short] [R.name]'s sealed shoes item_state isn't in its icon file.")
+					TEST_FAIL("[short] [R.name]'s sealed shoes item_state isn't in its icon file.")
 
 	if(!reported)
-		pass("All hardsuits have their correct sprites.")
+		TEST_PASS("All hardsuits have their correct sprites.")
 
 	return TRUE
 

@@ -17,18 +17,18 @@
 					tested_count++
 					if(mat in D.materials)
 						if(I.matter[mat] > D.materials[mat])
-							fail("Design '[D.name]' costs less material '[mat]' ([D.materials[mat]]) than the product is worth ([I.matter[mat]]).")
+							TEST_FAIL("Design '[D.name]' costs less material '[mat]' ([D.materials[mat]]) than the product is worth ([I.matter[mat]]).")
 							error_count++
 					else
-						fail("Design '[D.name]' does not require material '[mat]' even though the product is worth [I.matter[mat]].")
+						TEST_FAIL("Design '[D.name]' does not require material '[mat]' even though the product is worth [I.matter[mat]].")
 						error_count++
 			qdel(I)
 		qdel(D)
 
 	if(error_count)
-		fail("[error_count] design error(s) found. Every research design should cost more than what its product is worth when recycled.")
+		TEST_FAIL("[error_count] design error(s) found. Every research design should cost more than what its product is worth when recycled.")
 	else
-		pass("All [tested_count] research designs with recyclable products have correct material costs.")
+		TEST_PASS("All [tested_count] research designs with recyclable products have correct material costs.")
 
 	return 1
 
@@ -55,16 +55,16 @@
 							var/item_matter_value = I.matter[mat] * R.res_amount
 							var/consumed_matter_value = temp_matter[mat] * R.req_amount
 							if(item_matter_value > consumed_matter_value)
-								fail("Recipe '[R.title]' on material '[D.name]' consumes less material '[mat]' ([R.req_amount] × [temp_matter[mat]] = [consumed_matter_value]) than the product is worth ([R.res_amount] × [I.matter[mat]] = [item_matter_value]).")
+								TEST_FAIL("Recipe '[R.title]' on material '[D.name]' consumes less material '[mat]' ([R.req_amount] × [temp_matter[mat]] = [consumed_matter_value]) than the product is worth ([R.res_amount] × [I.matter[mat]] = [item_matter_value]).")
 								error_count++
 						else
-							warn("Recipe '[R.title]' on material '[D.name]' creates product with material '[mat]', but that material is not required by the recipe.")
+							TEST_WARN("Recipe '[R.title]' on material '[D.name]' creates product with material '[mat]', but that material is not required by the recipe.")
 				qdel(I)
 		qdel(D)
 
 	if(error_count)
-		fail("[error_count] stack recipe error(s) found. Every stack recipe should cost more than what its product is worth when recycled.")
+		TEST_FAIL("[error_count] stack recipe error(s) found. Every stack recipe should cost more than what its product is worth when recycled.")
 	else
-		pass("All [tested_count] stack recipes with recyclable /obj/item products have correct material costs.")
+		TEST_PASS("All [tested_count] stack recipes with recyclable /obj/item products have correct material costs.")
 
 	return 1

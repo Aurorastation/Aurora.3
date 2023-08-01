@@ -4,6 +4,7 @@
 #define list_find(L, needle, LIMITS...) L.Find(needle, LIMITS)
 #define hex2num(hex) text2num(hex, 16)
 #define num2hex(num, pad) num2text(num, pad, 16)
+#define text_ref(datum) (isdatum(datum) ? (datum:cached_ref ||= "\ref[datum]") : ("\ref[datum]"))
 
 #define span(class, text) ("<span class='[class]'>" + text + "</span>")
 #define SPAN_NOTICE(X) ("<span class='notice'>" + X + "</span>")
@@ -29,11 +30,11 @@
 #define FONT_SIZE_HUGE 4
 #define FONT_SIZE_GIANT 5
 
-#define FONT_SMALL(X) ("<font size='1'>" + X + "</font>")
-#define FONT_NORMAL(X) ("<font size='2'>" + X + "</font>")
-#define FONT_LARGE(X) ("<font size='3'>" + X + "</font>")
-#define FONT_HUGE(X) ("<font size='4'>" + X + "</font>")
-#define FONT_GIANT(X) ("<font size='5'>" + X + "</font>")
+#define FONT_SMALL(X) ("<font size=1>" + X + "</font>")
+#define FONT_NORMAL(X) ("<font size=2>" + X + "</font>")
+#define FONT_LARGE(X) ("<font size=3>" + X + "</font>")
+#define FONT_HUGE(X) ("<font size=4>" + X + "</font>")
+#define FONT_GIANT(X) ("<font size=5>" + X + "</font>")
 
 #define MATRIX_DANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
 #define MATRIX_NOTICE(X) (FONT_LARGE(SPAN_NOTICE(X)))
@@ -104,9 +105,12 @@
 
 #define isclient(A) istype(A, /client)
 
-#define isprojectile(A) istype(A, /obj/item/projectile)
-
 #define isclothing(A) istype(A, /obj/item/clothing)
+
+/// Projectile helpers
+#define isprojectile(A) istype(A, /obj/item/projectile)
+#define isbeam(A) istype(A, /obj/item/projectile/beam)
+#define isenergy(A) istype(A, /obj/item/projectile/energy)
 
 /// General I/O helpers
 #define to_target(target, payload)                          target << (payload)
@@ -153,3 +157,6 @@
 
 /// Decrease the size of L by 1 from the end. Is the old last entry index.
 #define LIST_DEC(L) ((L).len--)
+
+/// Radial input menu
+#define RADIAL_INPUT(user, choices) show_radial_menu(user, user, choices, tooltips = TRUE)

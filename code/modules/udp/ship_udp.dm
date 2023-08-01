@@ -47,7 +47,7 @@
 	. = rustg_udp_send(addr, data)
 
 	if (.)
-		error("UDP Sender error: [.]")
+		log_error("UDP Sender error: [.]")
 
 #else
 	return
@@ -70,21 +70,3 @@
 	log_data.Add(additional_data)
 	var/gelf_log = json_encode(log_data)
 	return send_udp_data(config.log_gelf_addr, gelf_log)
-
-/obj/item/device/udp_debugger
-	name = "udp_debugger"
-	desc = "Used to debug UDP Data sent to the log server."
-	icon = 'icons/obj/hacktool.dmi'
-	icon_state = "hacktool-g"
-	force = 5.0
-	w_class = ITEMSIZE_SMALL
-	throwforce = 5.0
-	throw_range = 15
-	throw_speed = 3
-	desc = "You can use this to debug sending udp logs to the log server"
-
-/obj/item/device/udp_debugger/proc/raw(addr=config.log_gelf_addr, data="RAW Test String")
-	return send_udp_data(addr,data)
-
-/obj/item/device/udp_debugger/proc/gelf(short_message="", long_message="", level = 1)
-	return send_gelf_log(short_message, long_message, level)

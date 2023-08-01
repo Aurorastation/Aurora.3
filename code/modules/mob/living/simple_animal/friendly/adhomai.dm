@@ -249,3 +249,101 @@
 	..()
 	if(burrowed)
 		unburrow()
+
+/mob/living/simple_animal/climber
+	name = "climber"
+	desc = "A rideable beast of burden, large enough for one adult rider only but perfectly adapted for the rough terrain on Adhomai."
+	icon = 'icons/mob/npc/adhomai_48.dmi'
+	icon_state = "climber"
+	icon_living = "climber"
+	icon_dead = "climber_dead"
+	speak_emote = list("chuffs")
+	emote_hear = list("chuffs")
+	emote_see = list("shakes its head", "stomps its feet")
+	speak_chance = 1
+	turns_per_move = 5
+	see_in_dark = 6
+
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "kicks"
+	attacktext = "kicked"
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+
+	faction = "Adhomai"
+
+	maxHealth = 100
+	health = 100
+	mob_size = 12
+	pixel_x = -8
+
+	canbrush = TRUE
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	meat_amount = 4
+	faction = "Adhomai"
+	vehicle_version = /obj/vehicle/bike/climber
+
+/mob/living/simple_animal/climber/saddle
+	desc = "A rideable beast of burden, large enough for one adult rider only but perfectly adapted for the rough terrain on Adhomai. This one has a saddle mounted on it"
+	icon_state = "climber_s"
+	icon_living = "climber_s"
+	icon_dead = "climber_s_dead"
+
+/mob/living/simple_animal/snow_strider
+	name = "snow strider"
+	desc = "An animal hunted and farmed by the Tajara for its meat and fur."
+	icon = 'icons/mob/npc/adhomai_48.dmi'
+	icon_state = "snow_strider"
+	icon_living = "snow_strider"
+	icon_dead = "snow_strider_dead"
+
+	turns_per_move = 3
+	speak_emote = list("chuffs")
+	emote_hear = list("yelps")
+	emote_see = list("shakes its head", "stamps a foot", "glares around")
+
+	stop_automated_movement_when_pulled = 0
+	mob_size = 12
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
+
+	maxHealth = 150
+	health = 150
+
+	butchering_products = list(/obj/item/stack/material/animalhide = 10)
+	meat_amount = 20
+	faction = "Adhomai"
+	pixel_x = -8
+
+/mob/living/simple_animal/nosehorn
+	name = "nose-horn"
+	desc = "A domesticated beast of burden used for hitching and dragging. "
+	icon = 'icons/mob/npc/adhomai_96.dmi'
+	icon_state = "nosehorn"
+	icon_living = "nosehorn"
+	icon_dead = "nosehorn_dead"
+	speak_emote = list("chuffs")
+	emote_hear = list("brays")
+	emote_see = list("shakes its head")
+	speak_chance = 1
+	turns_per_move = 5
+	see_in_dark = 6
+	meat_amount = 50
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
+	response_help  = "pets"
+	response_disarm = "gently pushes aside"
+	response_harm   = "kicks"
+	attacktext = "kicked"
+	health = 450
+	maxHealth = 452
+	mob_size = 30
+
+	pixel_x = -32
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	butchering_products = list(/obj/item/stack/material/animalhide = 15, /obj/item/reagent_containers/food/snacks/spreads/lard = 20)
+	faction = "Adhomai"

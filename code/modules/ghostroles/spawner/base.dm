@@ -166,6 +166,11 @@
 		disable()
 	if(welcome_message)
 		to_chat(user, SPAN_NOTICE(welcome_message))
+	else
+		if(name)
+			to_chat(user, SPAN_INFO("You are spawning as: ") + name)
+		if(desc)
+			to_chat(user, SPAN_INFO("Role description: ") + desc)
 	universe.OnPlayerLatejoin(user)
 	if(current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector = map_sectors["[user.z]"]
@@ -181,6 +186,10 @@
 	if(check_rights(req_perms_edit, show_msg=FALSE, user=user))
 		return TRUE
 	return FALSE
+
+//Proc to check if a specific user can jump to this spawner (ghosts should be able to)
+/datum/ghostspawner/proc/can_jump_to(mob/user)
+	return isobserver(user) && loc_type == GS_LOC_POS
 
 /datum/ghostspawner/proc/is_enabled()
 	if(loc_type == GS_LOC_ATOM)

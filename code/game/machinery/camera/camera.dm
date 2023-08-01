@@ -50,9 +50,9 @@
 	*/
 	if(!src.network || src.network.len < 1)
 		if(loc)
-			error("[src.name] in [get_area(src)] (x:[src.x] y:[src.y] z:[src.z] has errored. [src.network?"Empty network list":"Null network list"]")
+			log_error("[src.name] in [get_area(src)] (x:[src.x] y:[src.y] z:[src.z] has errored. [src.network?"Empty network list":"Null network list"]")
 		else
-			error("[src.name] in [get_area(src)]has errored. [src.network?"Empty network list":"Null network list"]")
+			log_error("[src.name] in [get_area(src)]has errored. [src.network?"Empty network list":"Null network list"]")
 		ASSERT(src.network)
 		ASSERT(src.network.len > 0)
 	return ..()
@@ -232,7 +232,7 @@
 				visible_message("<span class='notice'> [user] has deactivated [src]!</span>")
 			else
 				visible_message("<span class='notice'> [src] clicks and shuts down. </span>")
-			playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = "[initial(icon_state)]1"
 			add_hiddenprint(user)
 		else
@@ -240,7 +240,7 @@
 				visible_message("<span class='notice'> [user] has reactivated [src]!</span>")
 			else
 				visible_message("<span class='notice'> [src] clicks and reactivates itself. </span>")
-			playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = initial(icon_state)
 			add_hiddenprint(user)
 
@@ -367,7 +367,7 @@
 
 	// Do after stuff here
 	to_chat(user, "<span class='notice'>You start to weld the [src]..</span>")
-	playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
+	playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 	user.flash_act(FLASH_PROTECTION_MAJOR)
 	busy = 1
 	if(WT.use_tool(src, user, 100, volume = 50))
@@ -435,7 +435,7 @@
 		update_coverage(1)
 
 /obj/machinery/camera/proc/nano_structure()
-	var/cam[0]
+	var/cam = list()
 	cam["name"] = sanitize(c_tag)
 	cam["deact"] = !can_use()
 	cam["camera"] = "\ref[src]"

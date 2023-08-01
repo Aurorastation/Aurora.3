@@ -216,14 +216,14 @@
 
 			user.drop_from_inventory(M, O)
 			O.mmi = M
-			O.invisibility = 0
+			O.set_invisibility(0)
 			O.custom_name = "Ai shell"
 
 			O.job = "AI Shell"
 			O.cell = chest.cell
 			O.cell.forceMove(O)
-			W.forceMove(O) 
-			
+			W.forceMove(O)
+
 			if(O.cell)
 				var/datum/robot_component/cell_component = O.components["power cell"]
 				cell_component.wrapped = O.cell
@@ -284,7 +284,7 @@
 
 				user.drop_from_inventory(M, O)
 				O.mmi = W
-				O.invisibility = 0
+				O.set_invisibility(0)
 				O.custom_name = created_name
 				O.updatename("Default")
 

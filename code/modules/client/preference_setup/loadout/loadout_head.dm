@@ -1,6 +1,6 @@
 /datum/gear/head
-	display_name = "ushanka"
-	path = /obj/item/clothing/head/ushanka
+	display_name = "green boonie hat"
+	path = /obj/item/clothing/head/bucket/boonie/green
 	slot = slot_head
 	sort_category = "Hats and Headwear"
 
@@ -8,9 +8,10 @@
 	..()
 	gear_tweaks += list(gear_tweak_hair_block)
 
-/datum/gear/head/ushanka_grey
-	display_name = "ushanka, grey"
-	path = /obj/item/clothing/head/ushanka/grey
+/datum/gear/head/boonie_blue
+	display_name = "blue boonie hat"
+	description = "A floppy boonie hat with an attached string. This one is blue."
+	path = /obj/item/clothing/head/bucket/boonie/blue
 
 /datum/gear/head/bandana
 	display_name = "bandana selection"
@@ -211,16 +212,8 @@
 	hats["hat, boatsman"] = /obj/item/clothing/head/boaterhat
 	hats["hat, bowler"] = /obj/item/clothing/head/bowler
 	hats["hat, fez"] = /obj/item/clothing/head/fez
-	hats["hat, tophat"] = /obj/item/clothing/head/that
 	hats["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
-	hats["hat, striped black fedora"] = /obj/item/clothing/head/fedora
-	hats["hat, black fedora"] = /obj/item/clothing/head/fedora/black
-	hats["hat, brown fedora"] = /obj/item/clothing/head/fedora/brown
-	hats["hat, dark brown fedora"] = /obj/item/clothing/head/fedora/brown/dark
-	hats["hat, grey fedora"] = /obj/item/clothing/head/fedora/grey
 	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
-	hats["hat, cowboy"] = /obj/item/clothing/head/cowboy
-	hats["hat, wide-brimmed cowboy"] = /obj/item/clothing/head/cowboy/wide
 	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
 	hats["hat, flatcap"] = /obj/item/clothing/head/flatcap
 	gear_tweaks += new /datum/gear_tweak/path(hats)
@@ -229,14 +222,23 @@
 	display_name = "hat selection (colourable)"
 	description = "A selection of hats."
 	path = /obj/item/clothing/head/flatcap/colourable
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/head/hats_colourable/New()
 	..()
 	var/list/hats_colourable = list()
 	hats_colourable["hat, flatcap"] = /obj/item/clothing/head/flatcap/colourable
+	hats_colourable["hat, bucket"] = /obj/item/clothing/head/bucket
 	hats_colourable["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby/colourable
 	hats_colourable["hat, woolen"] = /obj/item/clothing/head/wool
+	hats_colourable["hat, fedora"] = /obj/item/clothing/head/fedora
+	hats_colourable["hat, top hat"] = /obj/item/clothing/head/top_hat
+	hats_colourable["hat, cowboy"] = /obj/item/clothing/head/cowboy
+	hats_colourable["hat, cowboy wide"] = /obj/item/clothing/head/cowboy/wide
+	hats_colourable["hat, wide sun hat"] = /obj/item/clothing/head/wide_hat
+	hats_colourable["hat, sun hat with band"] = /obj/item/clothing/head/wide_hat/alt
+	hats_colourable["hat, wide pointed"] = /obj/item/clothing/head/wide_hat/pointed
+	hats_colourable["hat, wide pointed with band"] = /obj/item/clothing/head/wide_hat/pointed/alt
 	gear_tweaks += new /datum/gear_tweak/path(hats_colourable)
 
 /datum/gear/head/hijab
@@ -313,10 +315,16 @@
 	path = /obj/item/clothing/head/beanie
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/head/beanie_alt
+	display_name = "winter beanie"
+	path = /obj/item/clothing/head/beanie/winter
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
 /datum/gear/head/nonla
 	display_name = "non la hat"
 	path = /obj/item/clothing/head/nonla
 	origin_restriction = list(/singleton/origin_item/origin/earth, /singleton/origin_item/origin/new_hai_phong)
+
 /datum/gear/head/konyang
 	display_name = "gat"
 	path = /obj/item/clothing/head/konyang
@@ -368,14 +376,43 @@
 	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
 
 /datum/gear/head/vysoka
-	display_name = "vysokan fur cap"
-	path = /obj/item/clothing/head/softcap/vysoka
+	display_name = "vysokan fur cap selection"
+	description = "A fur hat from Vysoka made of authentic ohdker fur."
+	path = /obj/item/clothing/head/vysoka
 	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
 
-/datum/gear/head/buckethat
-	display_name = "bucket hat"
-	path = /obj/item/clothing/head/buckethat
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+/datum/gear/head/vysoka/New()
+	..()
+	var/list/vysoka = list()
+	vysoka["fur cap"] = /obj/item/clothing/head/vysoka
+	vysoka["fur cap, purple"] = /obj/item/clothing/head/vysoka/purple
+	vysoka["fur cap, blue"] = /obj/item/clothing/head/vysoka/blue
+	vysoka["fur cap, red"] = /obj/item/clothing/head/vysoka/red
+	gear_tweaks += new /datum/gear_tweak/path(vysoka)
+
+/datum/gear/head/joku
+	display_name = "vysokan joku cap"
+	description = "A warm-looking expensive cap made from fine, dyed dalakyhr fur."
+	path = /obj/item/clothing/head/vysoka/joku
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
+
+/datum/gear/head/joku/New()
+	..()
+	var/list/joku = list()
+	joku["fancy cap"] = /obj/item/clothing/head/vysoka/joku
+	joku["fancy cap, purple"] = /obj/item/clothing/head/vysoka/joku/purple
+	joku["fancy cap, blue"] = /obj/item/clothing/head/vysoka/joku/blue
+	joku["fancy cap, red"] = /obj/item/clothing/head/vysoka/joku/red
+	gear_tweaks += new /datum/gear_tweak/path(joku)
+
+/datum/gear/head/dainshu
+	display_name = "vysokan dainshu feather"
+	description = "The feather of a Vysokan dainshu, a domesticated flying beast."
+	path = /obj/item/clothing/head/pin/dainshu
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
 
 /datum/gear/head/bridge_crew_cap_alt
 	display_name = "san colettish bridge crew cap"
@@ -388,6 +425,11 @@
 	path = /obj/item/clothing/head/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
+
+/datum/gear/head/ushanka
+	display_name = "ushanka (colorable)"
+	path = /obj/item/clothing/head/ushanka
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/gadpathur/New()
 	..()
@@ -414,6 +456,11 @@
 	display_name = "hairnet"
 	path = /obj/item/clothing/head/hairnet
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/nyakas
+	display_name = "visegradi nyakas"
+	path = /obj/item/clothing/head/ushanka/nyakas
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /*
 	Block Hair Adjustment

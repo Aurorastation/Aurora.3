@@ -504,3 +504,33 @@
 	accessory["NKA medal for the defense of the kingdom"] = /obj/item/clothing/accessory/medal/kingdom_defense
 	accessory["NKA medal for the harr'masir offensive"] = /obj/item/clothing/accessory/medal/harrmasir_offensive
 	gear_tweaks += new /datum/gear_tweak/path(accessory)
+
+/datum/gear/uniform/tajara_consular
+	display_name = "tajaran alternative consular uniform selection"
+	description = "A selection of tajaran alternative consular uniforms."
+	path = /obj/item/clothing/under/tajaran/consular/female
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Consular Officer")
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/uniform/tajara_consular/New()
+	..()
+	var/list/uniform = list()
+	uniform["PRA consular uniform, female"] = /obj/item/clothing/under/tajaran/consular/female
+	uniform["DPRA consular uniform, female"] = /obj/item/clothing/under/tajaran/consular/dpra/female
+	gear_tweaks += new /datum/gear_tweak/path(uniform)
+
+/datum/gear/head/tajara_consular
+	display_name = "tajaran alternative consular hat selection"
+	description = "A selection of tajaran alternative consular hats."
+	path = /obj/item/clothing/head/tajaran/consular/side_cap
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	allowed_roles = list("Consular Officer")
+
+/datum/gear/head/tajara_consular/New()
+	..()
+	var/list/hats = list()
+	hats["PRA consular service side cap"] = /obj/item/clothing/head/tajaran/consular/side_cap
+	hats["DPRA consular service side cap"] = /obj/item/clothing/head/tajaran/consular/dpra/side_cap
+	gear_tweaks += new /datum/gear_tweak/path(hats)

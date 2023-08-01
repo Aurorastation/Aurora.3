@@ -36,7 +36,7 @@
 		var/singleton/xgm_gas/gas = new p //avoid initial() because of potential New() actions
 
 		if(gas.id in gas_data.gases)
-			error("Duplicate gas id `[gas.id]` in `[p]`")
+			log_error("Duplicate gas id `[gas.id]` in `[p]`")
 
 		gas_data.gases += gas.id
 		gas_data.name[gas.id] = gas.name
@@ -62,7 +62,7 @@
 	icon_state = "generic"
 	layer = LIGHTING_LAYER - 1
 	appearance_flags = RESET_COLOR
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/effect/gas_overlay/Initialize()
 	. = ..()

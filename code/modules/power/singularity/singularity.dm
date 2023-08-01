@@ -1,4 +1,4 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
+#define I_SINGULO "singulo"
 
 /obj/singularity/
 	name = "gravitational singularity"
@@ -371,10 +371,10 @@
 	var/dir2 = 0
 	var/dir3 = 0
 	switch(direction)
-		if(NORTH||SOUTH)
+		if(NORTH, SOUTH)
 			dir2 = 4
 			dir3 = 8
-		if(EAST||WEST)
+		if(EAST, WEST)
 			dir2 = 1
 			dir3 = 2
 	var/turf/T2 = T
@@ -510,3 +510,5 @@
 	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
 	if(destination)
 		forceMove(destination)
+
+#undef I_SINGULO

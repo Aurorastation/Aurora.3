@@ -74,6 +74,7 @@
 	idris_sunglasses["HUDsunglasses, Idris"] = /obj/item/clothing/glasses/sunglasses/sechud/idris
 	idris_sunglasses["fat HUDsunglasses, Idris"] = /obj/item/clothing/glasses/sunglasses/sechud/big/idris
 	idris_sunglasses["aviator sunglasses, Idris"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/idris
+	idris_sunglasses["security HUD, Idris"] = /obj/item/clothing/glasses/hud/security/idris
 	gear_tweaks += new /datum/gear_tweak/path(idris_sunglasses)
 
 /datum/gear/faction/idris_labcoat
@@ -146,7 +147,7 @@
 	path = /obj/item/clothing/under/rank/security/zavod/zavodsec
 	slot = slot_w_uniform
 	faction = "Zavodskoi Interstellar"
-	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet")
+	allowed_roles = list("Warden", "Investigator", "Security Officer", "Security Cadet")
 
 /datum/gear/faction/zavod_sec_uniforms/New()
 	..()
@@ -221,6 +222,7 @@
 	zavod_sunglasses["HUDsunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/zavod
 	zavod_sunglasses["fat HUDsunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/big/zavod
 	zavod_sunglasses["aviator sunglasses, Zavodskoi"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/zavod
+	zavod_sunglasses["security HUD, Zavodskoi"] = /obj/item/clothing/glasses/hud/security/zavod
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sunglasses)
 
 /datum/gear/faction/zavodskoi_patch
@@ -235,6 +237,24 @@
 	slot = slot_tie
 	faction = "Zavodskoi Interstellar"
 	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet")
+
+/datum/gear/faction/zavodskoicape
+	display_name = "zavodskoi dominian great house cape selection"
+	description = "A selection of Zavodskoi-colored Dominian great house capes."
+	slot = slot_wear_suit
+	faction = "Zavodskoi Interstellar"
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+
+/datum/gear/faction/zavodskoicape/New()
+	..()
+	var/list/zavodskoicape = list()
+	zavodskoicape["zavodskoi dominia cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/zavod
+	zavodskoicape["zavodskoi dominia cape, strelitz"] = /obj/item/clothing/accessory/poncho/dominia_cape/strelitz/zavod
+	zavodskoicape["zavodskoi dominia cape, volvalaad"] = /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad/zavod
+	zavodskoicape["zavodskoi dominia cape, kazhkz"] = /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz/zavod
+	zavodskoicape["zavodskoi dominia cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius/zavod
+	zavodskoicape["zavodskoi dominia cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/zavod
+	gear_tweaks += new /datum/gear_tweak/path(zavodskoicape)
 
 // PMCG
 /datum/gear/faction/pmc_sunglasses
@@ -254,6 +274,25 @@
 	pmc_sunglasses["HUDsunglasses alt, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/pmc/alt
 	pmc_sunglasses["fat HUDsunglasses alt, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/big/pmc/alt
 	pmc_sunglasses["aviator sunglasses alt, PMCG"] = /obj/item/clothing/glasses/sunglasses/sechud/aviator/pmc/alt
+	pmc_sunglasses["security HUD, PMCG"] = /obj/item/clothing/glasses/hud/security/pmc
+	pmc_sunglasses["security HUD, EPMC"] = /obj/item/clothing/glasses/hud/security/pmc/alt
+	gear_tweaks += new /datum/gear_tweak/path(pmc_sunglasses)
+
+/datum/gear/faction/pmc_medglasses
+	display_name = "PMCG medical HUD selection"
+	description = "A selection of PMCG medical HUDs."
+	path = /obj/item/clothing/glasses/hud/health/aviator/pmc
+	slot = slot_glasses
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
+	faction = "Private Military Contracting Group"
+
+/datum/gear/faction/pmc_medglasses/New()
+	..()
+	var/list/pmc_sunglasses = list()
+	pmc_sunglasses["aviator sunglasses, PMCG"] = /obj/item/clothing/glasses/hud/health/aviator/pmc
+	pmc_sunglasses["medical HUD, PMCG"] = /obj/item/clothing/glasses/hud/health/pmc
+	pmc_sunglasses["aviator sunglasses, EPMC"] = /obj/item/clothing/glasses/hud/health/aviator/pmc/alt
+	pmc_sunglasses["medical HUD, EPMC"] = /obj/item/clothing/glasses/hud/health/pmc/alt
 	gear_tweaks += new /datum/gear_tweak/path(pmc_sunglasses)
 
 /datum/gear/faction/pmc_labcoat
@@ -334,6 +373,7 @@
 	pmcg_sec_uniforms["EPMC uniform, alt"] = /obj/item/clothing/under/rank/security/pmc/epmc/alt
 	pmcg_sec_uniforms["EPMC detective uniform"] = /obj/item/clothing/under/det/pmc/alt
 	pmcg_sec_uniforms["wildlands squadron uniform"] = /obj/item/clothing/under/rank/security/pmc/wildlands_squadron
+	pmcg_sec_uniforms["Dagamuir Freewater uniform"] = /obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
 
 /datum/gear/faction/erisec_patch
@@ -411,6 +451,8 @@
 	var/list/zenghu_headwear = list()
 	zenghu_headwear["beret, zeng-hu"] = /obj/item/clothing/head/beret/corporate/zeng
 	zenghu_headwear["beret alt, zeng-hu"] = /obj/item/clothing/head/beret/corporate/zeng/alt
+	zenghu_headwear["cap, zeng-hu"] = /obj/item/clothing/head/softcap/zeng
+	zenghu_headwear["cap alt, zeng-hu"] = /obj/item/clothing/head/softcap/zeng/alt
 	zenghu_headwear["zeng-hu woolen hat"] = /obj/item/clothing/head/wool/zeng
 	zenghu_headwear["zeng-hu woolen hat, alt"] = /obj/item/clothing/head/wool/zeng/alt
 	gear_tweaks += new /datum/gear_tweak/path(zenghu_headwear)
@@ -455,6 +497,21 @@
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
 	slot = slot_wear_suit
 	faction = "Zeng-Hu Pharmaceuticals"
+
+/datum/gear/faction/zeng_medglasses
+	display_name = "Zeng-Hu medical HUD selection"
+	description = "A selection of Zeng-Hu medical HUDs."
+	path = /obj/item/clothing/glasses/hud/health/aviator/zeng
+	slot = slot_glasses
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
+	faction = "Zeng-Hu Pharmaceuticals"
+
+/datum/gear/faction/zeng_medglasses/New()
+	..()
+	var/list/zeng_sunglasses = list()
+	zeng_sunglasses["aviator sunglasses, Zeng-Hu"] = /obj/item/clothing/glasses/hud/health/aviator/zeng
+	zeng_sunglasses["medical HUD, Zeng-Hu"] = /obj/item/clothing/glasses/hud/health/zeng
+	gear_tweaks += new /datum/gear_tweak/path(zeng_sunglasses)
 
 //Hephaestus
 /datum/gear/faction/heph_labcoat
@@ -536,6 +593,21 @@
 	nt_headwear["beret, nanotrasen"] = /obj/item/clothing/head/beret/corporate
 	nt_headwear["nanotrasen woolen hat"] = /obj/item/clothing/head/wool/nt
 	gear_tweaks += new /datum/gear_tweak/path(nt_headwear)
+
+/datum/gear/faction/nt_medglasses
+	display_name = "NanoTrasen medical HUD selection"
+	description = "A selection of NanoTrasen medical HUDs."
+	path = /obj/item/clothing/glasses/hud/health/aviator/nt
+	slot = slot_glasses
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
+	faction = "NanoTrasen"
+
+/datum/gear/faction/nt_medglasses/New()
+	..()
+	var/list/nt_sunglasses = list()
+	nt_sunglasses["aviator sunglasses, NanoTrasen"] = /obj/item/clothing/glasses/hud/health/aviator/nt
+	nt_sunglasses["medical HUD, NanoTrasen"] = /obj/item/clothing/glasses/hud/health/nt
+	gear_tweaks += new /datum/gear_tweak/path(nt_sunglasses)
 
 //Orion
 /datum/gear/faction/orion_coat

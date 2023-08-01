@@ -45,7 +45,7 @@
 		icon_state = dead_icon
 
 /obj/item/organ/internal/proc/surgical_fix(mob/user)
-	if(damage > min_broken_damage && !(status & ORGAN_ROBOT))
+	if(damage > min_broken_damage)
 		var/scarring = damage / max_damage
 		scarring = 1 - 0.5 * scarring ** 2 // Between ~15 and 50 percent loss.
 		var/new_max_dam = Floor(scarring * max_damage)

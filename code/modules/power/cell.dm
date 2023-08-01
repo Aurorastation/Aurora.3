@@ -29,16 +29,18 @@
 
 /obj/item/cell/update_icon()
 	cut_overlays()
-
-	if(charge < 0.01)
-		return
-	else if(charge/maxcharge >=0.995)
-		add_overlay("cell-o2")
-	else
-		add_overlay("cell-o1")
+	switch(percent())
+		if(95 to 100)
+			add_overlay("cell-o2")
+		if(25 to 94)
+			add_overlay("cell-o1")
+		if(0.05 to 25)
+			add_overlay("cell-o0")
+		if(0 to 0.05)
+			return
 
 /obj/item/cell/proc/percent()		// return % charge of cell
-	return 100.0*charge/maxcharge
+	return maxcharge && (100.0*charge/maxcharge)
 
 /obj/item/cell/proc/fully_charged()
 	return (charge == maxcharge)
@@ -74,7 +76,6 @@
 		explode()
 		return 0
 
-	if(maxcharge < amount)	return 0
 	var/amount_used = min(maxcharge-charge,amount)
 	charge += amount_used
 	return amount_used

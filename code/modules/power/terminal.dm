@@ -28,5 +28,5 @@
 	return ..()
 
 /obj/machinery/power/terminal/hide(var/i)
-	invisibility = i ? 101 : initial(invisibility)
+	set_invisibility(i ? 101 : initial(invisibility))
 	icon_state = i ? "term-f" : "term"

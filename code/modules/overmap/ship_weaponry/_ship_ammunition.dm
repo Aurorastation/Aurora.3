@@ -7,6 +7,7 @@
 	slowdown = 2
 	drop_sound = 'sound/items/drop/shell_drop.ogg'
 	var/projectile_type_override //Override projectile type fired by the gun. This is because certain guns don't use ammo (the Leviathan) but with some we want the ammo to matter.
+	var/overmap_projectile_type_override //Override projectile type on the overmap, fired by the gun. Like the Grauwolf Probe.
 	var/name_override //If set, this will override the ammunition name for the overmap effect.
 	var/written_message
 	var/wielded = FALSE
@@ -24,7 +25,7 @@
 	var/obj/item/projectile/original_projectile
 	var/heading = SOUTH
 	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
-	var/mob_carry_size = MOB_LARGE //How large a mob has to be to carry the shell
+	var/mob_carry_size = 12 //How large a mob has to be to carry the shell
 	//Cookoff variables.
 	var/cookoff_devastation = 0
 	var/cookoff_heavy = 2
@@ -127,6 +128,10 @@
 	return
 
 /obj/item/ship_ammunition/proc/wield(var/mob/living/carbon/human/user)
+	var/obj/A = user.get_inactive_hand()
+	if(A)
+		to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
+		return
 	wielded = TRUE
 	var/obj/item/offhand/O = new(user)
 	O.name = "[initial(name)] - offhand"
@@ -173,7 +178,12 @@
 	if(!start_object)
 		return FALSE
 
-	var/obj/effect/overmap/projectile/P = new(null, start_object.x, start_object.y)
+	var/obj/effect/overmap/projectile/P = null
+	if(overmap_projectile_type_override)
+		P = new overmap_projectile_type_override(null, start_object.x, start_object.y, origin)
+	else
+		P = new(null, start_object.x, start_object.y, origin)
+
 	P.name = name_override ? name_override : name
 	P.desc = desc
 	P.ammunition = src
@@ -230,7 +240,8 @@
 			"target_area" = get_area(target),
 			"coordinates" = "[target.x], [target.y], [target.z]"
 		)
-		ammo.origin.signal_hit(hit_data)
+		if(ammo && ammo.origin)
+			ammo.origin.signal_hit(hit_data)
 	return ..()
 
 /obj/item/projectile/ship_ammo/proc/on_translate(var/turf/entry_turf, var/target_turf) //This proc is called when the projectile enters a new ship's overmap zlevel.

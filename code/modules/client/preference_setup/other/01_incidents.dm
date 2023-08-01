@@ -25,7 +25,7 @@
 				act.deleted_at IS NULL;
 		"})
 		if (!ccia_action_query.Execute(list("char_id" = pref.current_character)))
-			error("Error CCIA Actions for character #[pref.current_character]. SQL error message: '[ccia_action_query.ErrorMsg()]'.")
+			log_error("Error CCIA Actions for character #[pref.current_character]. SQL error message: '[ccia_action_query.ErrorMsg()]'.")
 
 		while(ccia_action_query.NextRow())
 			var/list/action = list(

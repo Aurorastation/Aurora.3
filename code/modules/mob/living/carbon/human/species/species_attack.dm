@@ -236,7 +236,7 @@
 	attack_verb = list("scorched", "burned")
 	attack_noun = list("flaming fist")
 	damage = 10
-	attack_sound = 'sound/items/welder.ogg'
+	attack_sound = 'sound/items/Welder.ogg'
 	attack_name = "flaming touch"
 	damage_type = DAMAGE_BURN
 
@@ -245,17 +245,29 @@
 	if(prob(25))
 		target.apply_effect(1, INCINERATE, 0)
 
-/datum/unarmed_attack/claws/vaurca_bulwark
-	attack_verb = list("punched", "clobbered", "lacerated")
-	attack_noun = list("clawed fists")
+/datum/unarmed_attack/vaurca_bulwark
+	attack_verb = list("punched", "pulverized", "hammered")
+	attack_noun = list("fists")
+	desc = "Smash into your opponents with the strength the Queens gave you. Not as sharp as other species' claws, but yours hit a hell of a lot harder."
 	eye_attack_text = "claws"
 	eye_attack_text_victim = "claws"
-	attack_name = "clawed fists"
+	attack_name = "bulwark punch"
+	attack_sound = 'sound/weapons/heavysmash.ogg'
 	shredding = TRUE
 
-	damage = 7.5
+	damage = 10
 	attack_door = 20
 	crowbar_door = TRUE
+	sparring_variant_type = /datum/unarmed_attack/pain_strike/heavy
+
+/datum/unarmed_attack/vaurca_bulwark/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
+	..()
+	if(prob(25))
+		playsound(user, 'sound/weapons/push_connect.ogg', 50, 1, -1)
+		user.visible_message(SPAN_DANGER("[user] shoves hard, sending [target] flying!"))
+		var/turf/target_turf = get_ranged_target_turf(target, user.dir, 4)
+		target.throw_at(target_turf, 4, 1, user)
+		target.apply_effect(attack_damage * 0.4, WEAKEN, armor)
 
 /datum/unarmed_attack/bite/warrior
 	attack_name = "warrior bite"

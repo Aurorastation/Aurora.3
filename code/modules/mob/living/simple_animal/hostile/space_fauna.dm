@@ -90,27 +90,10 @@
 		return e
 
 /mob/living/simple_animal/hostile/carp/DestroySurroundings(var/bypass_prob = FALSE)
-	if(stance != HOSTILE_STANCE_ATTACKING)
-		return 0
-	if(prob(break_stuff_probability) || bypass_prob)
-		for(var/dir in cardinal) // North, South, East, West
-			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
-			if(e && e.strength >= 1)
-				e.Stress(rand(1,2))
-				visible_message("<span class='danger'>\the [src] bites \the [e]!</span>")
-				src.do_attack_animation(e)
-				target_mob = e
-				change_stance(HOSTILE_STANCE_ATTACKING)
-				return 1
-			for(var/obj/structure/window/obstacle in get_step(src, dir))
-				if(obstacle.dir == reverse_dir[dir]) // So that windows get smashed in the right order
-					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-					return 1
-			var/obj/structure/obstacle = locate(/obj/structure, get_step(src, dir))
-			if(istype(obstacle, /obj/structure/window) || istype(obstacle, /obj/structure/closet) || istype(obstacle, /obj/structure/table) || istype(obstacle, /obj/structure/grille))
-				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-				return 1
-	return 0
+	if(stance != HOSTILE_STANCE_ATTACKING || ON_ATTACK_COOLDOWN(src))
+		return FALSE
+
+	return ..()
 
 /mob/living/simple_animal/hostile/carp/russian
 	name = "Ivan the carp"
@@ -272,6 +255,7 @@
 	health = 5
 	mob_size = 2
 	density = FALSE
+	destroy_surroundings = FALSE
 
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
 	harm_intent_damage = 5
@@ -296,4 +280,3 @@
 	flying = TRUE
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
-

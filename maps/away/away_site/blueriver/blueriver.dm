@@ -6,7 +6,7 @@
 	description = "An arctic planet and an alien underground surface."
 	suffixes = list("away_site/blueriver/blueriver-1.dmm","away_site/blueriver/blueriver-2.dmm")
 	generate_mining_by_z = 2
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
 
 /singleton/submap_archetype/blueriver
 	map = "bluespace river"
@@ -84,10 +84,9 @@
 	dynamic_lighting = 0
 
 /turf/unsimulated/wall/supermatter/no_spread/blueriver/Initialize()
-	.=..()
+	. = ..()
 	icon_state = "bluespacecrystal[rand(1,3)]"
 	set_light(0.7, 1, 5, l_color = "#0066ff")
-	return PROCESS_KILL
 
 /obj/structure/deity
 	name = "crystal altar"

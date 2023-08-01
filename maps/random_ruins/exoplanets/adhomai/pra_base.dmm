@@ -75,10 +75,6 @@
 	},
 /area/pra_base)
 "dy" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_x = 31;
-	dir = 4
-	},
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine{
 	req_access = list(209);
@@ -144,9 +140,7 @@
 	},
 /area/pra_base)
 "fY" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -233,10 +227,7 @@
 	},
 /area/pra_base)
 "ly" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_x = 31;
-	dir = 4
-	},
+/obj/structure/sign/flag/pra/large/east,
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
@@ -314,9 +305,6 @@
 	},
 /area/pra_base)
 "mB" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -487,6 +475,9 @@
 	pixel_y = 4
 	},
 /obj/item/storage/pill_bottle/dylovene,
+/obj/item/storage/pill_bottle/perconol,
+/obj/item/reagent_containers/glass/bottle/thetamycin,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /turf/simulated/floor/tiled/white,
 /area/pra_base)
 "tT" = (
@@ -527,10 +518,7 @@
 /area/exoplanet/adhomai)
 "vD" = (
 /obj/structure/table/steel,
-/obj/item/storage/box/fancy/tray/machinist{
-	name = "PRA operation tray";
-	desc = "A tray of various mundane surgical instruments for fixing someone up when they've been shot."
-	},
+/obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/pra_base)
 "vF" = (
@@ -852,9 +840,7 @@
 "FZ" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -898,9 +884,7 @@
 	},
 /area/pra_base)
 "Iq" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/structure/hadii_statue,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -925,9 +909,6 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/book/manual/pra_manifesto,
 /obj/item/clothing/accessory/badge/pra_passport,
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -983,7 +964,7 @@
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
-/area/exoplanet/adhomai)
+/area/pra_base)
 "Lm" = (
 /obj/effect/floor_decal/concrete,
 /obj/effect/floor_decal/concrete{
@@ -1008,6 +989,12 @@
 	dir = 9
 	},
 /turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
+/area/pra_base)
+"LI" = (
+/obj/structure/flora/bush/adhomai,
+/turf/simulated/floor/exoplanet/snow{
 	temperature = 268.15
 	},
 /area/pra_base)
@@ -1066,9 +1053,6 @@
 /turf/simulated/floor/wood,
 /area/pra_base)
 "Or" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /obj/structure/hadii_statue,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -1144,9 +1128,7 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/book/manual/pra_manifesto,
 /obj/item/clothing/accessory/badge/pra_passport,
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -1379,9 +1361,6 @@
 "Yr" = (
 /obj/structure/table/standard,
 /obj/item/storage/pill_bottle/dice/tajara,
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -1542,8 +1521,8 @@ vi
 "}
 (4,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 gU
 gU
@@ -1576,8 +1555,8 @@ vi
 "}
 (5,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 fq
 Go
@@ -1610,8 +1589,8 @@ vi
 "}
 (6,1,1) = {"
 hT
-vi
-vi
+wB
+wB
 gU
 St
 bR
@@ -1644,7 +1623,7 @@ vi
 "}
 (7,1,1) = {"
 vi
-vi
+wB
 Lb
 gU
 Xb
@@ -1678,8 +1657,8 @@ vi
 "}
 (8,1,1) = {"
 mN
-mN
-mN
+Lu
+Lu
 rt
 Lu
 Lu
@@ -1712,8 +1691,8 @@ vi
 "}
 (9,1,1) = {"
 Fo
-Fo
-Fo
+Sr
+Sr
 oA
 Sr
 Sr
@@ -1746,8 +1725,8 @@ vi
 "}
 (10,1,1) = {"
 HY
-HY
-HY
+EJ
+EJ
 Yb
 EJ
 EJ
@@ -1780,7 +1759,7 @@ hT
 "}
 (11,1,1) = {"
 vi
-vi
+wB
 Lb
 gU
 EK
@@ -1814,8 +1793,8 @@ vi
 "}
 (12,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 UF
 DL
@@ -1848,8 +1827,8 @@ vi
 "}
 (13,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 rq
 tc
@@ -1882,8 +1861,8 @@ vi
 "}
 (14,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 gU
 gU
@@ -1916,8 +1895,8 @@ vi
 "}
 (15,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -1950,8 +1929,8 @@ vi
 "}
 (16,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -1984,8 +1963,8 @@ vi
 "}
 (17,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2018,8 +1997,8 @@ vi
 "}
 (18,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2052,8 +2031,8 @@ vi
 "}
 (19,1,1) = {"
 vi
-hT
-vi
+LI
+wB
 gU
 wB
 wB
@@ -2086,8 +2065,8 @@ vi
 "}
 (20,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2120,8 +2099,8 @@ vi
 "}
 (21,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2154,8 +2133,8 @@ vi
 "}
 (22,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2188,8 +2167,8 @@ vi
 "}
 (23,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2222,8 +2201,8 @@ vi
 "}
 (24,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2256,8 +2235,8 @@ vi
 "}
 (25,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2290,8 +2269,8 @@ vi
 "}
 (26,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2324,8 +2303,8 @@ vi
 "}
 (27,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2358,8 +2337,8 @@ vi
 "}
 (28,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2392,8 +2371,8 @@ hT
 "}
 (29,1,1) = {"
 vi
-hT
-vi
+LI
+wB
 gU
 wB
 wB
@@ -2426,8 +2405,8 @@ vi
 "}
 (30,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2460,8 +2439,8 @@ vi
 "}
 (31,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2494,8 +2473,8 @@ vi
 "}
 (32,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2528,8 +2507,8 @@ vi
 "}
 (33,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 wB
 wB
@@ -2562,8 +2541,8 @@ vi
 "}
 (34,1,1) = {"
 vi
-vi
-vi
+wB
+wB
 gU
 gU
 gU

@@ -159,7 +159,7 @@
 		qdel(eye)
 		eye = null
 
-	..()
+	. = ..()
 
 /obj/item/clothing/mask/ai/attack_self(mob/user)
 	if(user.incapacitated())
@@ -198,9 +198,11 @@
 	name = "scarab scarf"
 	desc = "Usually a treasured item, these spider-silk scarves are seen passed down by generations of Scarabs."
 	desc_extended = "Scarves like these are passed down from family members in the Scarab fleets as a coming of age ritual, typically given to children to mark them as worthy of setting off on their own."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "pioneer_scarf"
-	item_flags = FLEXIBLEMATERIAL
 	item_state = "pioneer_scarf"
+	item_flags = FLEXIBLEMATERIAL
 	w_class = ITEMSIZE_SMALL
 	body_parts_covered = FACE
 
@@ -208,6 +210,6 @@
 	name = "starveil"
 	desc = "A thin holographic veil meant to cover the face, intended to block out light."
 	icon_state = "starveil"
-	item_state = "muzzle"
+	item_state = "starveil"
 	down_body_parts_covered = null
 	adjustable = TRUE

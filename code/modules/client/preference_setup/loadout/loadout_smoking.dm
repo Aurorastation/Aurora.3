@@ -20,8 +20,9 @@
 	zippolighters["fisanduhian zippo"] = /obj/item/flame/lighter/zippo/fisanduh
 	zippolighters["coalition zippo"] = /obj/item/flame/lighter/zippo/coalition
 	zippolighters["solarian zippo"] = /obj/item/flame/lighter/zippo/sol
-	zippolighters["bieselite zippo"] = /obj/item/flame/lighter/zippo/tcfl
+	zippolighters["biesellite zippo"] = /obj/item/flame/lighter/zippo/tcfl
 	zippolighters["himeo zippo"] = /obj/item/flame/lighter/zippo/himeo
+	zippolighters["san colettish zippo"] = /obj/item/flame/lighter/zippo/sancolette
 	zippolighters["europan zippo"] = /obj/item/flame/lighter/zippo/europa
 	zippolighters["gadpathurian zippo"] = /obj/item/flame/lighter/zippo/gadpathur
 	zippolighters["luceian zippo"] = /obj/item/flame/lighter/zippo/luceian
@@ -55,6 +56,8 @@
 	cigarettes["Working Tajara cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/pra
 	cigarettes["Shastar Leaves cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dpra
 	cigarettes["Royal Choice cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nka
+	cigarettes["Eriuyushi Sunset cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/federation
+	cigarettes["Xaqixal Dyn Fields cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dyn
 	gear_tweaks += new /datum/gear_tweak/path(cigarettes)
 
 /datum/gear/smoking/chew
@@ -70,6 +73,8 @@
 	chews["Rredouane Cuts chewing tobacco"] = /obj/item/storage/chewables/tobacco/bad
 	chews["Mendell Smooth chewing tobacco"] = /obj/item/storage/chewables/tobacco
 	chews["Taba-Kamu chewing tobacco"] = /obj/item/storage/chewables/tobacco/fine
+	chews["Leviathan Chew chewing tobacco"] = /obj/item/storage/chewables/tobacco/federation
+	chews["Weibi's Breeze chewing tobacco"] = /obj/item/storage/chewables/tobacco/dyn
 	chews["box of Nico-Tine gum"] = /obj/item/storage/box/fancy/chewables/tobacco/nico
 	gear_tweaks += new /datum/gear_tweak/path(chews)
 

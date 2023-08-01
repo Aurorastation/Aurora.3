@@ -95,6 +95,16 @@
 	volume = 40
 	reagents_to_add = list(/singleton/reagent/spacespice = 40)
 
+/obj/item/reagent_containers/food/condiment/shaker/sprinkles
+	icon_state = "sprinklesbottle"
+	volume = 40
+	reagents_to_add = list(/singleton/reagent/nutriment/sprinkles = 40)
+
+/obj/item/reagent_containers/food/condiment/shaker/pumpkinspice
+	icon_state = "spacespicebottle"
+	volume = 40
+	reagents_to_add = list(/singleton/reagent/spacespice/pumpkinspice = 40)
+
 /obj/item/reagent_containers/food/condiment/flour
 	name = "flour sack"
 	desc = "A big bag of flour. Good for baking!"
@@ -255,3 +265,30 @@
 
 
 //End of MRE stuff.
+
+//syrups
+
+/obj/item/reagent_containers/glass/bottle/syrup
+	name = "syrup dispenser"
+	desc = "A small bottle dispenser."
+	icon = 'icons/obj/syrup.dmi'
+	icon_state = "syrup"
+	filling_states = "20;40;60;80;100"
+	flags = OPENCONTAINER
+	volume = 50
+
+/obj/item/reagent_containers/glass/bottle/syrup/chocolate
+	name = "chocolate syrup dispenser"
+	reagents_to_add = list(/singleton/reagent/drink/syrup_chocolate = 50)
+
+/obj/item/reagent_containers/glass/bottle/syrup/pumpkin
+	name = "pumpkin spice syrup dispenser"
+	reagents_to_add = list(/singleton/reagent/drink/syrup_pumpkin = 50)
+
+/obj/item/reagent_containers/glass/bottle/syrup/vanilla
+	name = "vanilla syrup dispenser"
+	reagents_to_add = list(/singleton/reagent/drink/syrup_vanilla = 50)
+
+/obj/item/reagent_containers/glass/bottle/syrup/caramel
+	name = "caramel syrup dispenser"
+	reagents_to_add = list(/singleton/reagent/drink/syrup_caramel = 50)

@@ -70,10 +70,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
-"ayD" = (
-/obj/structure/window/shuttle/scc,
-/turf/template_noop,
-/area/shuttle/orion_express_shuttle)
 "aDL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -296,7 +292,6 @@
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/mechanical,
 /obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -604,11 +599,6 @@
 	tag_interior_door = "orion_traveler_n_in"
 	},
 /turf/simulated/floor,
-/area/ship/orion_express_ship)
-"dHA" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
 /area/ship/orion_express_ship)
 "dLy" = (
 /turf/simulated/floor/shuttle/black,
@@ -1161,9 +1151,8 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/ramp{
-	dir = 4;
-	nitrogen = 0;
-	oxygen = 0
+	dir = 8;
+	initial_gas = list()
 	},
 /area/ship/orion_express_ship)
 "iCX" = (
@@ -2359,9 +2348,8 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/ramp{
-	dir = 8;
-	nitrogen = 0;
-	oxygen = 0
+	dir = 4;
+	initial_gas = list()
 	},
 /area/ship/orion_express_ship)
 "rvq" = (
@@ -31366,7 +31354,7 @@ xRX
 xRX
 xRX
 bex
-dHA
+soM
 xnk
 xRX
 xRX
@@ -35197,7 +35185,7 @@ xRX
 xRX
 xRX
 xRX
-ayD
+hvo
 qUy
 sTK
 oqT

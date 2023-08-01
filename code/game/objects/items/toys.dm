@@ -379,6 +379,19 @@
 	the caves. Forces of Raskara, shape-shifting creatures, dastardly traps and true evil lurking within, the Az'Marian and his sidekick will have to use their \
 	newly regained powers to their fullest."
 
+/obj/item/toy/comic/witchfinder
+	icon = 'icons/obj/library.dmi'
+	name = "Witchfinder novel"
+	desc = "A popular genre of Dominian mystery literature, glorifying the Tribunal Investigations Constabulary and the work they do in \
+	defending the souls of the people of the Empire."
+	desc_extended = "Popular throughout the empire, witchfinder novels can range from schlock aimed at younger audiences to monstrous tomes dedicated to the \
+	purportedly real-life escapades of existing witchfinders. No matter their status as educational fiction or fact, every one has two things in common: the \
+	common rituals of the Constabulary, such as exorcisms and witchfindings, and a carefully-screened dose of indoctrination into the Moroz Holy Tribunal. Popular \
+	authors of witchfinder novels, such as Novi Jadran's Andrija Jurina, even travel abroad as honored servants of His Imperial Majesty Boleslaw Keeser, both to \
+	promote Dominian arts among their foreign partners and to proselytize their state religion to eager masses."
+	icon_state = "witchfindernovel"
+	item_state = "witchfindernovel"
+
 //
 // Toy Crossbows
 //
@@ -1003,7 +1016,7 @@
 
 /obj/item/toy/plushie/kitten
 	name = "kitten plush"
-	desc = "A plushie of a cute kitten! Watch as it purrs it's way right into your heart."
+	desc = "A plushie of a cute kitten! Watch as it purrs its way right into your heart."
 	icon_state = "kittenplushie"
 	slot_flags = SLOT_HEAD
 
@@ -1187,6 +1200,59 @@
 	icon_state = "squidplushie_colour"
 	// slot_flags = SLOT_HEAD - head sprite may come someday, but not today.
 	phrase = "Blub!"
+
+// Herring Gull Plushie
+/obj/item/toy/plushie/herring_gull
+	name = "herring gull plushie"
+	desc = "A herring gull plushie. Adorable!"
+	desc_extended = "The European herring gull, also known as <i>Larus argentatus</i>, is a common seabird originating from Earth. It can be found on and around \
+	the coasts as well as cities on Earth and wherever it may have been transplanted to. Commonly seen as something that symbolizes the sea as well as freedom."
+	icon_state = "herring_gull"
+	item_state = "herring_gull"
+	phrase = "Kek kek kek!"
+	var/lying = FALSE
+
+/obj/item/toy/plushie/herring_gull/attack_self(mob/user)
+	if(user.a_intent == I_HELP)
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> pets \the [src]."),
+			SPAN_NOTICE("You pet \the [src].")
+		)
+	else if(user.a_intent == I_DISARM)
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> squeezes \the [src]."),
+			SPAN_NOTICE("You squeeze \the [src].")
+		)
+	else if(user.a_intent == I_GRAB)
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> hugs \the [src]."),
+			SPAN_NOTICE("You hug \the [src].")
+		)
+	else if(user.a_intent == I_HURT)
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> pokes \the [src]."),
+			SPAN_NOTICE("You poke \the [src].")
+		)
+		playsound(src, 'sound/items/plushies/herring_gull/alarm_call.ogg', 75, FALSE)
+		visible_message("<b>\The [src]</b> says, \"[phrase]\"")
+
+/obj/item/toy/plushie/herring_gull/AltClick(mob/user)
+	if(lying)
+		lying = !lying
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> extends \the [src]'s legs."),
+			SPAN_NOTICE("You extend \the [src]'s legs.")
+		)
+		icon_state = "herring_gull"
+		item_state = "herring_gull"
+	else
+		lying = !lying
+		user.visible_message(
+			SPAN_NOTICE("<b>\The [user]</b> tucks in \the [src]'s legs."),
+			SPAN_NOTICE("You tuck in \the [src]'s legs.")
+		)
+		icon_state = "herring_gull_lying"
+		item_state = "herring_gull_lying"
 
 //Toy cult sword
 /obj/item/toy/cultsword

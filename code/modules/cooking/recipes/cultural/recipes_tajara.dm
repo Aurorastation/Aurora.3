@@ -71,6 +71,69 @@
 			return ..()
 	return FALSE
 
+/singleton/recipe/earthenroot_mash
+	appliance = MIX
+	fruit = list("earthenroot" = 1)
+	reagents = list(/singleton/reagent/blackpepper = 1, /singleton/reagent/sodiumchloride = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/earthenroot_mash
+
+/singleton/recipe/earthenroot_fries
+	appliance = FRYER
+	items = list(
+		/obj/item/reagent_containers/food/snacks/earthenroot_chopped
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/earthenroot_fries
+
+/singleton/recipe/earthenroot_wedges
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/earthenroot_chopped
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/earthenroot_wedges
+
+/singleton/recipe/earthenroot_salad
+	appliance = MIX
+	fruit = list("earthenroot" = 1, "mtear" = 2, "nifberries" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dip/sarmikhir
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/salad/earthenroot
+
+/singleton/recipe/sarmikhir_sandwich
+	appliance = MIX
+	items = list(
+		/obj/item/reagent_containers/food/snacks/hardbread_slice,
+		/obj/item/reagent_containers/food/snacks/hardbread_slice,
+		/obj/item/reagent_containers/food/snacks/dip/sarmikhir
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/sarmikhir_sandwich
+
+/singleton/recipe/tunneler_meategg
+	appliance = SAUCEPAN | POT
+	items = list(
+		/obj/item/reagent_containers/food/snacks/hardbread_slice,
+		/obj/item/reagent_containers/food/snacks/meat/adhomai,
+		/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
+	)
+	reagents = list(/singleton/reagent/spacespice = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/tunneler_meategg
+
+/singleton/recipe/tunneler_souffle
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dip/sarmikhir,
+		/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
+	)
+	reagents = list(/singleton/reagent/nutriment/flour/nfrihi = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/tunneler_souffle
+
 // Tajaran cakes
 /singleton/recipe/conecake
 	appliance = OVEN
@@ -85,6 +148,27 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/avah
+
+/singleton/recipe/miniavah
+	appliance = FRYER
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/adhomai,
+		/obj/item/reagent_containers/food/snacks/dough
+	)
+	reagents = list(/singleton/reagent/nutriment/flour/nfrihi = 5, /singleton/reagent/spacespice = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/chipplate/miniavah_basket
+
+/singleton/recipe/hardbread_pudding
+	appliance = OVEN
+	fruit = list("earthenroot" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/hardbread,
+		/obj/item/reagent_containers/food/snacks/hardbread
+	)
+	reagents = list(/singleton/reagent/drink/milk/cream = 5, /singleton/reagent/sugar = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/hardbread_pudding
 
 // Tajaran pies
 /singleton/recipe/fruitrikazu
@@ -156,6 +240,17 @@
 	fruit = list("nifberries" = 1)
 	result = /obj/item/reagent_containers/food/snacks/creamice
 
+/singleton/recipe/stuffed_eartenroot
+	appliance = OVEN
+	fruit = list("earthenroot" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dip/sarmikhir,
+		/obj/item/reagent_containers/food/snacks/zkahnkowaslice,
+		/obj/item/reagent_containers/food/snacks/hardbread_slice
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/stuffed_earthenroot
+
 // Tajaran Seafood
 /singleton/recipe/spicy_clams
 	fruit = list("chili" = 1, "cabbage" = 1)
@@ -165,6 +260,37 @@
 		/obj/item/reagent_containers/food/snacks/clam
 	)
 	result = /obj/item/reagent_containers/food/snacks/spicy_clams
+
+/singleton/recipe/clam_pasta
+	appliance = POT | SAUCEPAN
+	fruit = list("earthenroot" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/clam
+	)
+	reagents = list(/singleton/reagent/water = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/clam_pasta
+
+/singleton/recipe/fermented_worm_sandwich
+	appliance = MIX
+	items = list(
+		/obj/item/reagent_containers/food/snacks/hardbread_slice,
+		/obj/item/reagent_containers/food/snacks/hardbread_slice,
+		/obj/item/reagent_containers/food/snacks/fermented_worm
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/fermented_worm_sandwich
+
+/singleton/recipe/tajfishsoup
+	appliance = POT | SAUCEPAN
+	fruit = list("mtear" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dip/sarmikhir,
+		/obj/item/reagent_containers/food/snacks/fish
+	)
+	reagents = list(/singleton/reagent/water = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/soup/tajfish
 
 // Tajaran candy
 /singleton/recipe/tajcandy
@@ -187,3 +313,16 @@
 		/obj/item/reagent_containers/food/snacks/meat/adhomai
 	)
 	result = /obj/item/reagent_containers/food/snacks/explorer_ration
+
+// Tajaran Dips
+/singleton/recipe/sarmikhir
+	appliance = MIX
+	reagents = list(/singleton/reagent/drink/milk/adhomai/fermented = 15, /singleton/reagent/drink/milk/cream = 15, /singleton/reagent/spacespice = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/dip/sarmikhir
+
+/singleton/recipe/tajhummus
+	appliance = MIX
+	fruit = list("mtear" = 1, "nifberries" = 1)
+	reagents = list(/singleton/reagent/spacespice = 1, /singleton/reagent/nutriment/flour/nfrihi = 5)
+	result = /obj/item/reagent_containers/food/snacks/dip/tajhummus

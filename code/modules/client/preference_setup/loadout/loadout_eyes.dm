@@ -161,3 +161,8 @@
 	goggles["goggles, medical (PMCG)"] = list(/obj/item/clothing/glasses/safety/goggles/medical/pmc, "Private Military Contracting Group")
 	goggles["goggles, medical (Zeng-Hu)"] = list(/obj/item/clothing/glasses/safety/goggles/medical/zeng, "Zeng-Hu Pharmaceuticals")
 	gear_tweaks += new /datum/gear_tweak/path/faction(goggles)
+
+/datum/gear/eyes/colorable
+	display_name = "colorable glasses"
+	path = /obj/item/clothing/glasses/colorable
+	flags = GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ALPHA_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION

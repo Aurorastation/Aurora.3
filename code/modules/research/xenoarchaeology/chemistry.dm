@@ -13,7 +13,7 @@
 	volume = 2
 	flags = OPENCONTAINER
 
-obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/living/user as mob)
+/obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/living/user as mob)
 	if(W.ispen())
 		var/new_label = sanitizeSafe(input("What should the new label be?","Label solution tray"), MAX_NAME_LEN)
 		if(new_label)
@@ -26,57 +26,60 @@ obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/
 	name = "solution tray box"
 	icon_state = "solution_trays"
 
-	fill()
-		..()
-		new /obj/item/reagent_containers/glass/solution_tray( src )
-		new /obj/item/reagent_containers/glass/solution_tray( src )
-		new /obj/item/reagent_containers/glass/solution_tray( src )
-		new /obj/item/reagent_containers/glass/solution_tray( src )
-		new /obj/item/reagent_containers/glass/solution_tray( src )
-		new /obj/item/reagent_containers/glass/solution_tray( src )
-		new /obj/item/reagent_containers/glass/solution_tray( src )
+/obj/item/storage/box/solution_trays/fill()
+	..()
+	new /obj/item/reagent_containers/glass/solution_tray( src )
+	new /obj/item/reagent_containers/glass/solution_tray( src )
+	new /obj/item/reagent_containers/glass/solution_tray( src )
+	new /obj/item/reagent_containers/glass/solution_tray( src )
+	new /obj/item/reagent_containers/glass/solution_tray( src )
+	new /obj/item/reagent_containers/glass/solution_tray( src )
+	new /obj/item/reagent_containers/glass/solution_tray( src )
 
 /obj/item/reagent_containers/glass/beaker/tungsten
 	name = "beaker 'tungsten'"
-	Initialize()
-		. = ..()
-		reagents.add_reagent(/singleton/reagent/tungsten,50)
-		update_icon()
+
+/obj/item/reagent_containers/glass/beaker/tungsten/Initialize()
+	. = ..()
+	reagents.add_reagent(/singleton/reagent/tungsten,50)
+	update_icon()
 
 /obj/item/reagent_containers/glass/beaker/oxygen
 	name = "beaker 'oxygen'"
-	Initialize()
-		. = ..()
-		reagents.add_reagent(/singleton/reagent/acetone,50)
-		update_icon()
+
+/obj/item/reagent_containers/glass/beaker/oxygen/Initialize()
+	. = ..()
+	reagents.add_reagent(/singleton/reagent/acetone,50)
+	update_icon()
 
 /obj/item/reagent_containers/glass/beaker/sodium
 	name = "beaker 'sodium'"
-	Initialize()
-		. = ..()
-		reagents.add_reagent(/singleton/reagent/sodium,50)
-		update_icon()
+
+/obj/item/reagent_containers/glass/beaker/sodium/Initialize()
+	. = ..()
+	reagents.add_reagent(/singleton/reagent/sodium,50)
+	update_icon()
 
 /obj/item/reagent_containers/glass/beaker/lithium
 	name = "beaker 'lithium'"
 
-	Initialize()
-		. = ..()
-		reagents.add_reagent(/singleton/reagent/lithium,50)
-		update_icon()
+/obj/item/reagent_containers/glass/beaker/lithium/Initialize()
+	. = ..()
+	reagents.add_reagent(/singleton/reagent/lithium,50)
+	update_icon()
 
 /obj/item/reagent_containers/glass/beaker/water
 	name = "beaker 'water'"
 
-	Initialize()
-		. = ..()
-		reagents.add_reagent(/singleton/reagent/water,50)
-		update_icon()
+/obj/item/reagent_containers/glass/beaker/water/Initialize()
+	. = ..()
+	reagents.add_reagent(/singleton/reagent/water,50)
+	update_icon()
 
 /obj/item/reagent_containers/glass/beaker/fuel
 	name = "beaker 'fuel'"
 
-	Initialize()
-		. = ..()
-		reagents.add_reagent(/singleton/reagent/fuel,50)
-		update_icon()
+/obj/item/reagent_containers/glass/beaker/fuel/Initialize()
+	. = ..()
+	reagents.add_reagent(/singleton/reagent/fuel,50)
+	update_icon()

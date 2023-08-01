@@ -11,12 +11,26 @@
 	var/contact_details = null
 	var/contact_name = null
 
-	var/working_sound = 'sound/machines/sensors/dradis.ogg'
+	var/working_sound = 'sound/machines/sensors/ping.ogg'
 	var/datum/sound_token/sound_token
 	var/sound_id
 
 	var/datum/weakref/sensor_ref
 	var/list/last_scan
+
+/obj/machinery/computer/ship/sensors/cockpit
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "left_wide"
+	icon_screen = "sensors"
+	icon_keyboard = null
+	circuit = null
+
+/obj/machinery/computer/ship/sensors/Destroy()
+	QDEL_NULL(sound_token)
+	sensors = null
+	identification = null
+	return ..()
 
 /obj/machinery/computer/ship/sensors/proc/get_sensors()
 	return sensors
@@ -47,9 +61,9 @@
 
 	var/obj/machinery/shipsensors/sensors = get_sensors()
 	if(linked && sensors?.use_power && !(sensors.stat & NOPOWER))
-		var/volume = 10
+		var/volume = 15
 		if(!sound_token)
-			sound_token = sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10)
+			sound_token = sound_player.PlayLoopingSound(src, sound_id, working_sound, volume = volume, range = 10, sound_type = ASFX_CONSOLE_AMBIENCE)
 		sound_token.SetVolume(volume)
 	else if(sound_token)
 		QDEL_NULL(sound_token)
@@ -59,7 +73,9 @@
 		display_reconnect_dialog(user, "sensors")
 		return
 
-	var/data[0]
+	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
+
+	var/data = list()
 
 	data["viewing"] = viewing_overmap(user)
 	data["muted"] = muted
@@ -120,7 +136,7 @@
 			var/bearing = round(90 - Atan2(O.x - linked.x, O.y - linked.y),5)
 			if(bearing < 0)
 				bearing += 360
-			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing)))
+			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing, "can_datalink"=(!(O in connected.datalinked)))))
 		if(length(contacts))
 			data["contacts"] = contacts
 
@@ -290,7 +306,7 @@
 	if (href_list["remove_datalink"])
 		var/obj/effect/overmap/visitable/O = locate(href_list["remove_datalink"])
 		for(var/obj/machinery/computer/ship/sensors/rescinder_sensor_console in src.connected.consoles)	// Get sensor console from the rescinder
-			rescinder_sensor_console.datalink_remove_ship_datalink(O)
+			rescinder_sensor_console.datalink_remove_ship_datalink(O, TRUE)
 			return TOPIC_HANDLED
 
 	if (href_list["play_message"])
@@ -307,7 +323,7 @@
 	if(href_list["inbound_fire"])
 		var/direction = href_list["inbound_fire"]
 		if(direction != "clear")
-			security_announcement.Announce("Enemy fire inbound, enemy fire inbound! [direction]!", "Brace for shock!", sound('sound/mecha/internaldmgalarm.ogg', volume = 90), 0)
+			security_announcement.Announce("Enemy fire inbound, enemy fire inbound! [sanitizeSafe(direction)]!", "Brace for shock!", sound('sound/mecha/internaldmgalarm.ogg', volume = 90), 0)
 		else
 			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/misc/announcements/security_level_old.ogg'), 0)
 		return TOPIC_HANDLED
@@ -350,7 +366,7 @@
 
 		if(WT.use(0,user))
 			to_chat(user, "<span class='notice'>You start repairing the damage to [src].</span>")
-			playsound(src, 'sound/items/welder.ogg', 100, 1)
+			playsound(src, 'sound/items/Welder.ogg', 100, 1)
 			if(WT.use_tool(src, user, max(5, damage / 5), volume = 50) && WT && WT.isOn())
 				to_chat(user, "<span class='notice'>You finish repairing the damage to [src].</span>")
 				take_damage(-damage)
@@ -372,6 +388,9 @@
 	icon_state = "[base_icon_state]_off"
 	if(!use_power)
 		cut_overlays()
+
+	if(use_power)
+		icon_state = "[base_icon_state]_on"
 		return
 
 	var/overlay = "[base_icon_state]-effect"
@@ -479,16 +498,27 @@
 	desc = "Miniturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
 	deep_scan_range = 0
 
+/obj/machinery/shipsensors/weak/scc_shuttle
+	icon_state = "sensors"
+	icon = 'icons/obj/spaceship/scc/helm_pieces.dmi'
+
 /obj/machinery/shipsensors/strong
 	desc = "An upgrade to the standard ship-mounted sensor array, this beast has massive cooling systems running beneath it, allowing it to run hotter for much longer. Can only run in vacuum to protect delicate quantum BS elements."
-	icon_state = "sensor_suite"
 	heat_reduction = 3.7 // can sustain range 6
 	max_range = 14
 	deep_scan_range = 6
 	deep_scan_sensor_name = "High-Power Sensor Array"
 
+/obj/machinery/shipsensors/strong/scc_shuttle //Exclusively for the Horizon scout shuttle.
+	icon_state = "sensors"
+	icon = 'icons/obj/spaceship/scc/shuttle_sensors.dmi'
+
 /obj/machinery/shipsensors/strong/venator
 	name = "venator-class quantum sensor array"
 	desc = "An incredibly advanced sensor array, created using top of the line technology in every conceivable area. Not only does it far outperform and outclass every other sensors system, it also boasts revolutionary quantum long-range sensors."
+	icon = 'icons/obj/machinery/sensors_venator.dmi'
 	deep_scan_range = 12
 	deep_scan_sensor_name = "Venator-Class Ultra-High Depth Sensors"
+	layer = ABOVE_ALL_MOB_LAYER
+	pixel_x = -32
+	pixel_y = -32

@@ -161,7 +161,7 @@
 		return null
 
 	if (!establish_db_connection(dbcon))
-		error("Error initiatlizing database connection while getting notifications.")
+		log_error("Error initiatlizing database connection while getting notifications.")
 		return null
 
 	var/DBQuery/query = dbcon.NewQuery({"SELECT
@@ -215,7 +215,7 @@
 		return null
 
 	if (!establish_db_connection(dbcon))
-		error("Error initiatlizing database connection while counting CCIA actions.")
+		log_error("Error initiatlizing database connection while counting CCIA actions.")
 		return null
 
 	var/DBQuery/prep_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey:")

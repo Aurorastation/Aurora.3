@@ -1,13 +1,13 @@
 /datum/accent/skrell
 	name = ACCENT_SKRELL
-	description = "In the Nralakk Federation, the typical skrellian accent has dozens of minute and tiny variations and can be found across a multitude of planets (and their colonies) \
-	and in a wide range of sectors. Its generality has resulted in the belief that it is the 'standard' accent for all Skrell. "
+	description = "In the Nralakk Federation, the typical skrellian accent has dozens of minute variations and can be found across a multitude of planets (and their colonies). \
+	Its generality has resulted in the belief that it is the 'standard' accent for all Skrell. "
 	tag_icon = "skrell"
 	text_tag = "NRA"
 
 /datum/accent/skrell/homeworld
 	name = ACCENT_HOMEWORLD
-	description = "The typical accent of the Homeworld (or Qerrbalak), is very much more distinct and enunciated than other variations of Nral'Malic. It puts specific emphasis on a \
+	description = "The typical accent of the Homeworld (or Qerrbalak) is very distinct for being much more enunciated than other variations of Nral'Malic. It puts specific emphasis on a \
 	melodious manner of speaking, their tones often jumping out of the standard human hearing range."
 	tag_icon = "skrell_homeworld"
 	text_tag = "QER"
@@ -15,7 +15,7 @@
 /datum/accent/skrell/qerrmalic
 	name = ACCENT_QERRMALIC
 	description = "The Qerr'Malic accent is known for being rather soft, even hushed at some points. Because of the moon's tourist industry, it borrows elements from other accents to \
-	form a rather unique mixture that makes specific reference to keeping low tones accessible to non-Skrell, further cementing the overall 'quietness' to other Skrell as their sentences \
+	form a unique mixture designed to emphasize low tones so that the accent is more comfortable to non-Skrell, further cementing the overall 'quietness' to other Skrell as their sentences \
 	sound half-finished."
 	tag_icon = "skrell_qerrmalic"
 	text_tag = "QRM"
@@ -29,7 +29,7 @@
 
 /datum/accent/skrell/aweiji
 	name = ACCENT_AWEIJI
-	description = "This type of accent emphasizes on a balance of highs and lows. It uses the nasal canal to further produce a harmonic pattern of speech. Idols are often found replicating \
+	description = "This type of accent emphasizes a balance of highs and lows. It uses the nasal canal to further produce a harmonic pattern of speech. Idols are often found replicating \
 	this accent due to how gentle it is on both Skrell and non-Skrell."
 	tag_icon = "skrell_aweiji"
 	text_tag = "AWE"
@@ -85,3 +85,10 @@
 	a certain stigma attached to it, and is noted as being 'rural' or 'unrefined' by Skrell from the inner systems."
 	tag_icon = "skrell_tattuqig"
 	text_tag = "TAT"
+
+/datum/accent/skrell/EUM
+	name = ACCENT_SKRELLEUM
+	description = "The Nral'Daaq accent draws from the accents of migrating Skrell from the Federation as well as elements of rootsong from the local Dionae population, creating a sing-song accent with \
+    melodic highs and lows. The accent has been compared to the Aweijiin accent, but it does not have the same reputation as it is not used by idols."
+	tag_icon = "skrell_nraldaaq"
+	text_tag = "NDQ"

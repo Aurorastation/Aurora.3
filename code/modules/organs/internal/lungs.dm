@@ -340,6 +340,9 @@
 	if(owner.failed_last_breath)
 		return "no respiration"
 
+	if(owner.status_flags & FAKEDEATH)
+		return "no respiration"
+
 	if(BP_IS_ROBOTIC(src))
 		if(is_bruised())
 			return "malfunctioning fans"

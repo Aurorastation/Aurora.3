@@ -133,5 +133,7 @@
 #define CONNECT_TYPE_SUPPLY		2
 #define CONNECT_TYPE_SCRUBBER	4
 #define CONNECT_TYPE_HE			8
+#define CONNECT_TYPE_FUEL		16
+#define CONNECT_TYPE_AUX		32
 
 var/global/list/pipe_colors = list("grey" = PIPE_COLOR_GREY, "red" = PIPE_COLOR_RED, "blue" = PIPE_COLOR_BLUE, "cyan" = PIPE_COLOR_CYAN, "green" = PIPE_COLOR_GREEN, "yellow" = PIPE_COLOR_YELLOW, "black" = PIPE_COLOR_BLACK, "purple" = PIPE_COLOR_PURPLE)

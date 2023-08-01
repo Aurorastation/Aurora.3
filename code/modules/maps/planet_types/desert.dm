@@ -2,20 +2,20 @@
 	name = "desert exoplanet"
 	desc = "An arid exoplanet with sparse biological resources but rich mineral deposits underground."
 	color = "#a08444"
+	scanimage = "desert.png"
+	geology = "Non-existent tectonic activity, minimal geothermal signature"
+	weather = "Global full-atmosphere geothermal weather system. Barely-habitable ambient high temperatures. Slow-moving, stagnant meteorological activity prone to unpredictable upset in wind condition"
 	planetary_area = /area/exoplanet/desert
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#420d22")
-	map_generators = list(/datum/random_map/noise/exoplanet/desert, /datum/random_map/noise/ore)
-	possible_themes = list(/datum/exoplanet_theme/mountains/breathable)
+	possible_themes = list(/datum/exoplanet_theme/desert)
 	surface_color = "#d6cca4"
 	water_color = null
-
-	possible_random_ruins = list(
-		/datum/map_template/ruin/exoplanet/desert_oasis)
+	ruin_planet_type = PLANET_DESERT
+	ruin_allowed_tags = RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/generate_map()
-	if(prob(70))
-		lightlevel = rand(5,10)/10	//deserts are usually :lit:
+	lightlevel = rand(5,10)/10	//deserts are usually :lit:
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/generate_atmosphere()
@@ -40,27 +40,6 @@
 	if(prob(75))
 		S.set_trait(TRAIT_CARNIVOROUS,2)
 	S.set_trait(TRAIT_SPREAD,0)
-
-/datum/random_map/noise/exoplanet/desert
-	descriptor = "desert exoplanet"
-	smoothing_iterations = 4
-	land_type = /turf/simulated/floor/exoplanet/desert
-
-	flora_prob = 0
-	fauna_types = list(/mob/living/simple_animal/thinbug, /mob/living/simple_animal/tindalos)
-
-/datum/random_map/noise/exoplanet/desert/get_additional_spawns(var/value, var/turf/T)
-	..()
-	if(is_edge_turf(T))
-		return
-	var/v = noise2value(value)
-	if(v > 6)
-		if(prob(10))
-			new/obj/structure/quicksand(T)
-
-/area/exoplanet/desert
-	ambience = list('sound/effects/wind/desert0.ogg','sound/effects/wind/desert1.ogg','sound/effects/wind/desert2.ogg','sound/effects/wind/desert3.ogg','sound/effects/wind/desert4.ogg','sound/effects/wind/desert5.ogg')
-	base_turf = /turf/simulated/floor/exoplanet/desert
 
 /obj/structure/quicksand
 	name = "sand"

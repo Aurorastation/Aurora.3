@@ -38,6 +38,9 @@
 	if(use_common)
 		channels += list(CHANNEL_COMMON = TRUE)
 
+	initialized = TRUE
+	return INITIALIZE_HINT_NORMAL
+
 /obj/item/device/encryptionkey/ship/common
 	use_common = TRUE
 

@@ -29,8 +29,9 @@
 /proc/log_topic(T, addr, master, key, var/list/queryparams)
 	WRITE_LOG(diary, "[game_id] TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]")
 
-/proc/error(msg)
+/proc/log_error(msg)
 	world.log <<  "## ERROR: [msg][log_end]"
+	game_log("ERROR", msg)
 
 /proc/shutdown_logging()
 	dll_call(RUST_G, "log_close_all")
@@ -39,10 +40,12 @@
 //print a warning message to world.log
 /proc/warning(msg)
 	world.log <<  "## WARNING: [msg][log_end]"
+	game_log("WARNING", msg)
 
 //print a testing-mode debug message to world.log
 /proc/testing(msg)
 	world.log <<  "## TESTING: [msg][log_end]"
+	game_log("TESTING", msg)
 
 /proc/game_log(category, text)
 	WRITE_LOG(diary, "[game_id] [category]: [text][log_end]")
@@ -66,14 +69,14 @@
 		game_log("DEBUG", text)
 
 	if (level == SEVERITY_ERROR) // Errors are always logged
-		error(text)
+		log_error(text)
 
 	for(var/s in staff)
 		var/client/C = s
 		if(!C.prefs) //This is to avoid null.toggles runtime error while still initialyzing players preferences
 			return
 		if(C.prefs.toggles & CHAT_DEBUGLOGS)
-			to_chat(C, "DEBUG: [text]")
+			to_chat(C, "<span class='debug'>DEBUG: [text]</span>")
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = level, category = "DEBUG")
 
 /proc/log_game(text, level = SEVERITY_NOTICE, ckey = "", admin_key = "", ckey_target = "")
@@ -181,7 +184,7 @@
 	send_gelf_log(text, "[time_stamp()]: [text]", SEVERITY_ALERT, "FAILSAFE")
 
 /proc/log_tgs(text, severity = SEVERITY_INFO)
-	game_log("TGS", text)
+	game_log("TGS[SEVERITY_INFO]", text)
 	send_gelf_log(
 		short_message = text,
 		long_message="[time_stamp()]: [text]",
@@ -192,9 +195,6 @@
 /proc/log_ntsl(text, severity = SEVERITY_NOTICE, ckey = "")
 	game_log("NTSL", text)
 	send_gelf_log(text, "[time_stamp()]: [text]", severity, "NTSL", additional_data = list("_ckey" = ckey))
-
-/proc/log_unit_test(text)
-	world.log <<  "## UNIT_TEST ##: [text]"
 
 /proc/log_exception(exception/e)
 	if (config.log_runtime)
@@ -310,5 +310,45 @@
 	if(!istype(d))
 		return json_encode(d)
 	return d.get_log_info_line()
+
+/proc/log_href(text)
+	WRITE_LOG(href_logfile, "HREF: [text]")
+
+/**
+ * Appends a tgui-related log entry. All arguments are optional.
+ */
+/proc/log_tgui(user, message, context,
+		datum/tgui_window/window,
+		datum/src_object)
+	var/entry = ""
+	// Insert user info
+	if(!user)
+		entry += "<nobody>"
+	else if(istype(user, /mob))
+		var/mob/mob = user
+		entry += "[mob.ckey] (as [mob] at [mob.x],[mob.y],[mob.z])"
+	else if(istype(user, /client))
+		var/client/client = user
+		entry += "[client.ckey]"
+	// Insert context
+	if(context)
+		entry += " in [context]"
+	else if(window)
+		entry += " in [window.id]"
+	// Resolve src_object
+	if(!src_object && window?.locked_by)
+		src_object = window.locked_by.src_object
+	// Insert src_object info
+	if(src_object)
+		entry += "\nUsing: [src_object.type] [text_ref(src_object)]"
+	// Insert message
+	if(message)
+		entry += "\n[message]"
+	WRITE_LOG(diary, entry)
+
+/// Logging for loading and caching assets
+/proc/log_asset(text)
+	if(config.log_asset)
+		WRITE_LOG(diary, "ASSET: [text]")
 
 #undef WRITE_LOG

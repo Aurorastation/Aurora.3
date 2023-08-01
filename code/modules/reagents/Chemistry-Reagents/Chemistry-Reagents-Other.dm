@@ -683,8 +683,9 @@
 	P.icon_state = "anom"
 	P.name = "wormhole"
 	var/list/pick_turfs = list()
-	for(var/turf/simulated/floor/exit in turfs)
-		if(isStationLevel(exit.z))
+	for(var/turf/TIW in world)
+		var/turf/simulated/floor/exit = TIW
+		if(istype(exit) && isStationLevel(exit.z))
 			pick_turfs += exit
 	P.target = pick(pick_turfs)
 	QDEL_IN(P, rand(150,300))

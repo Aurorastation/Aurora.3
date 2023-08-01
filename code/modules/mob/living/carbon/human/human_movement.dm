@@ -121,6 +121,8 @@
 
 /mob/living/carbon/human/Move()
 	. = ..()
+	if(.) //We moved
+		handle_leg_damage()
 
 	var/turf/T = loc
 	var/footsound
@@ -153,6 +155,21 @@
 			footstep++
 			if (footstep % 2)
 				playsound(src, is_noisy ? footsound : species.footsound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+
+/mob/living/carbon/human/proc/handle_leg_damage()
+	if(!can_feel_pain())
+		return
+	var/crutches = 0
+	for (var/obj/item/cane/C as anything in get_type_in_hands(/obj/item/cane))
+		if(istype(C) && (C?.can_support))
+			crutches++
+	for(var/organ_name in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
+		var/obj/item/organ/external/E = get_organ(organ_name)
+		if(E && (ORGAN_IS_DISLOCATED(E)|| E.is_broken()))
+			if(crutches)
+				crutches--
+			else
+				E.add_pain(10)
 
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()

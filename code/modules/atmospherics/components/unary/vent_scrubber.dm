@@ -119,6 +119,7 @@
 				add_underlay(T, node, dir, node.icon_connect_type)
 			else
 				add_underlay(T,, dir)
+			underlays += "frame"
 
 /obj/machinery/atmospherics/unary/vent_scrubber/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)

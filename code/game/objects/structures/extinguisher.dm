@@ -11,7 +11,7 @@
 	var/opened = 0
 
 /obj/structure/extinguisher_cabinet/Initialize()
-	..()
+	. = ..()
 	has_extinguisher = new/obj/item/extinguisher(src)
 	update_icon()
 

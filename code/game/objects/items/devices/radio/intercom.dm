@@ -215,6 +215,9 @@
 /obj/item/device/radio/intercom/broadcasting/Initialize()
 	set_broadcasting(TRUE)
 
+	initialized = TRUE
+	return INITIALIZE_HINT_NORMAL
+
 /obj/item/device/radio/intercom/locked
     var/locked_frequency
 

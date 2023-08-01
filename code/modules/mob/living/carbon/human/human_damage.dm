@@ -218,6 +218,8 @@
 		var/obj/item/organ/internal/I = internal
 		if(amount <= 0)
 			break
+		if(BP_IS_ROBOTIC(I))
+			continue //Chems won't help, you need surgery to fix robot organs
 		if(heal)
 			if(I.damage < amount)
 				amount -= I.damage
@@ -279,7 +281,7 @@
 //Heals ONE external organ, organ gets randomly selected from damaged ones.
 //It automatically updates damage overlays if necesary
 //It automatically updates health status
-/mob/living/carbon/human/heal_organ_damage(var/brute, var/burn, var/prosthetic = TRUE)
+/mob/living/carbon/human/heal_organ_damage(var/brute, var/burn, var/prosthetic = FALSE)
 	var/list/obj/item/organ/external/parts = get_damaged_organs(brute, burn, prosthetic)
 	if(!length(parts))
 		return
@@ -395,7 +397,7 @@ This function restores all organs.
 	if (invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
 		if(damage > 0)
 			to_chat(src, "<span class='danger'>You are now visible.</span>")
-			src.invisibility = 0
+			set_invisibility(0)
 
 	var/obj/item/organ/external/organ = isorgan(def_zone) ? def_zone : get_organ(def_zone, TRUE)
 	if(!organ)
@@ -465,7 +467,7 @@ This function restores all organs.
 		rads = rads * species.radiation_mod
 	..(rads)
 
-/mob/living/carbon/human/proc/get_shock()
+/mob/living/carbon/human/get_shock()
 	if(!can_feel_pain())
 		return 0
 

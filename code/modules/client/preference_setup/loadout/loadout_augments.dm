@@ -5,7 +5,7 @@
 	cost = 1
 	augment = TRUE
 	sort_category = "Augments"
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/eye_sensors
@@ -92,7 +92,7 @@
 	description = "A synthetic replacement for the structures within the ear, allowing the user to hear without requiring external tools."
 	path = /obj/item/organ/internal/augment/cochlear
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
-	cost = 3
+	cost = 1
 
 /datum/gear/augment/analyzer
 	display_name = "retractable cyborg analyzer"
@@ -144,15 +144,14 @@
 	display_name = "psionic receiver"
 	description = "An augment installed into the head that functions as a surrogate for a missing zona bovinae, also functioning as a filter for the psionically-challenged."
 	path = /obj/item/organ/internal/augment/psi
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 /datum/gear/augment/memory_inhibitor
 	display_name = "memory inhibitor"
 	description = "A Zeng Hu implant that allows one to have control over their memories, allowing you to set a timer and remove any memories developed within it."
 	path = /obj/item/organ/internal/augment/memory_inhibitor
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	faction = "Zeng-Hu Pharmaceuticals"
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain", "Bridge Crew")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain", "Bridge Crew")
 
 /datum/gear/augment/emotional_manipulator
 	display_name = "emotional manipulator"
@@ -160,7 +159,7 @@
 	path = /obj/item/organ/internal/augment/emotional_manipulator
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	faction = "Zeng-Hu Pharmaceuticals"
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain", "Bridge Crew")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain", "Bridge Crew")
 
 /datum/gear/augment/enhanced_vision
 	display_name = "vision enhanced retinas"
@@ -169,7 +168,7 @@
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	faction = "Zeng-Hu Pharmaceuticals"
 	cost = 3
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain", "Bridge Crew")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain", "Bridge Crew")
 
 
 /datum/gear/augment/sightlights
@@ -179,7 +178,7 @@
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	faction = "Zeng-Hu Pharmaceuticals"
 	cost = 3
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain")
 
 
 /datum/gear/augment/zenghu_plate
@@ -188,7 +187,7 @@
 	path = /obj/item/organ/internal/augment/zenghu_plate
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	faction = "Zeng-Hu Pharmaceuticals"
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain")
 
 
 /datum/gear/augment/corrective_lenses
@@ -202,6 +201,14 @@
 	path = /obj/item/organ/internal/augment/tool/correctivelens/glare_dampener
 	allowed_roles = list("Chief Engineer", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist")
 	cost = 2
+
+/datum/gear/augment/drill
+	display_name = "integrated drill"
+	description = "A mining drill integrated in the hand. The drill is heavy enough that it is only usable by industrial IPCs, as well as Vaurca Bulwarks and Bound Workers."
+	path = /obj/item/organ/internal/augment/tool/drill
+	whitelisted = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WORKER)
+	allowed_roles = list("Shaft Miner")
+	cost = 5
 
 /datum/gear/augment/head_fluff
 	display_name = "custom head augmentation"

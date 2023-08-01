@@ -6,6 +6,7 @@
 	var/attack_same = 0
 	var/ranged = 0
 	var/rapid = 0
+	var/ranged_attack_range = 6
 	var/projectiletype
 	var/projectilesound
 	var/casingtype
@@ -51,6 +52,7 @@
 	friends = null
 	target_mob = null
 	targets = null
+	QDEL_NULL_ASSOC(target_type_validator_map)
 	return ..()
 
 /mob/living/simple_animal/hostile/can_name(var/mob/living/M)
@@ -67,8 +69,12 @@
 	var/atom/T = null
 	var/target_range = INFINITY
 	for (var/atom/A in targets)
-		if(A == src)
+		if(A == src || QDELING(A)) //Avoid targeting ourself, and targets that are being GC'd
 			continue
+		if(ismob(A)) //Don't target mobs with keys that have logged out.
+			var/mob/M = A
+			if(M.key && !M.client)
+				continue
 		if(!isturf(A.loc))
 			A = A.loc
 		var/datum/callback/cb = null
@@ -114,13 +120,13 @@
 		target_mob = P.firer
 		change_stance(HOSTILE_STANCE_ATTACK)
 
-/mob/living/simple_animal/hostile/attackby(var/obj/item/O, var/mob/user)
+/mob/living/simple_animal/hostile/handle_attack_by(var/mob/user)
 	..()
 	if(target_mob != user)
 		target_mob = user
 		change_stance(HOSTILE_STANCE_ATTACK)
 
-mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+/mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
 	..()
 	if(istype(AM,/obj/))
 		var/obj/O = AM
@@ -144,9 +150,6 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 /mob/living/simple_animal/hostile/proc/FoundTarget()
 	return
 
-/mob/living/simple_animal/hostile/proc/Found(var/atom/A)
-	return
-
 /mob/living/simple_animal/hostile/proc/see_target()
 	return check_los(src, target_mob)
 
@@ -158,7 +161,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		LoseTarget()
 	if(target_mob in targets)
 		if(ranged)
-			if(get_dist(src, target_mob) <= 6)
+			if(get_dist(src, target_mob) <= ranged_attack_range)
 				walk(src, 0) // We gotta stop moving if we are in range
 				OpenFire(target_mob)
 			else
@@ -172,12 +175,16 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if(QDELETED(target_mob) || SA_attackable(target_mob))
 		LoseTarget()
 		return 0
+	if(ismob(target_mob)) //target_mob is not in fact always a mob
+		if(target_mob.key && !target_mob.client)
+			LoseTarget()
+			return 0
 	if(!(target_mob in targets))
 		LoseTarget()
 		return 0
 	if(!see_target())
 		LoseTarget()
-	if(world.time < hostile_time_between_attacks + hostile_last_attack)
+	if(ON_ATTACK_COOLDOWN(src))
 		return
 	if(get_dist(src, target_mob) <= 1)	//Attacking
 		AttackingTarget()
@@ -207,7 +214,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	var/atom/target
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
-		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags))
+		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags, damage_type))
 		target = L
 	else if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
@@ -253,9 +260,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 /mob/living/simple_animal/hostile/proc/LostTarget()
 	return
 
-/mob/living/simple_animal/hostile/proc/ListTargets(var/dist = 7)
-	var/list/L = view(src, dist)
-	return L
+/mob/living/simple_animal/hostile/proc/get_targets(dist = world.view)
+	return get_targets_in_LOS(dist, src)
 
 /mob/living/simple_animal/hostile/death()
 	..()
@@ -269,7 +275,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 	switch(stance)
 		if(HOSTILE_STANCE_IDLE)
-			targets = get_targets_in_LOS(10, src)
+			targets = get_targets(10)
 			target_mob = FindTarget()
 			if(destroy_surroundings && isnull(target_mob))
 				DestroySurroundings()
@@ -283,7 +289,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			if(!AttackTarget() && destroy_surroundings)	//hit a window OR a mob, not both at once
 				DestroySurroundings(TRUE)
 			if(attacked_times >= rand(0, 4))
-				targets = get_targets_in_LOS(10, src)
+				targets = get_targets(10)
 				target_mob = FindTarget()
 				attacked_times = 0
 
@@ -313,7 +319,10 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	// This code checks if we are not going to hit our target
 	if(smart_ranged && !check_fire(target_mob))
 		return
+	if(ON_ATTACK_COOLDOWN(src))
+		return
 	visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] fires at \the [target]!"))
+	hostile_last_attack = world.time
 
 	if(rapid)
 		var/datum/callback/shoot_cb = CALLBACK(src, PROC_REF(shoot_wrapper), target, loc, src)
@@ -361,25 +370,60 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	A.launch_projectile(target, def_zone)
 
 /mob/living/simple_animal/hostile/proc/DestroySurroundings(var/bypass_prob = FALSE)
+	if(ON_ATTACK_COOLDOWN(src))
+		return FALSE
+
 	if(prob(break_stuff_probability) || bypass_prob) //bypass_prob is used to make mob destroy things in the way to our target
-		for(var/dir in cardinal) // North, South, East, West
-			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
-			if(e && !e.invisibility && e.density)
+		for(var/card_dir in cardinal) // North, South, East, West
+			var/turf/target_turf = get_step(src, card_dir)
+
+			var/obj/found_obj = locate(/obj/effect/energy_field) in target_turf
+			if(found_obj && !found_obj.invisibility && found_obj.density)
+				var/obj/effect/energy_field/e = found_obj
 				e.Stress(rand(0.5, 1.5))
 				visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] [attacktext] \the [e]!"))
 				src.do_attack_animation(e)
 				target_mob = e
 				change_stance(HOSTILE_STANCE_ATTACKING)
+				hostile_last_attack = world.time
 				return TRUE
-			for(var/obj/structure/window/obstacle in get_step(src, dir))
-				if(obstacle.dir == reverse_dir[dir]) // So that windows get smashed in the right order
-					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-					return 1
-			var/obj/structure/obstacle = locate(/obj/structure, get_step(src, dir))
-			if(istype(obstacle, /obj/structure/window) || istype(obstacle, /obj/structure/closet) || istype(obstacle, /obj/structure/table) || istype(obstacle, /obj/structure/grille))
-				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
-				return 1
-	return 0
+
+			found_obj = locate(/obj/structure/window) in target_turf
+			if(found_obj)
+				if(HAS_FLAG(found_obj.flags, ON_BORDER) && found_obj.dir != reverse_dir[card_dir])
+					continue
+				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
+				hostile_last_attack = world.time
+				return TRUE
+
+			found_obj = locate(/obj/structure/window_frame) in target_turf
+			if(found_obj)
+				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
+				hostile_last_attack = world.time
+				return TRUE
+
+			found_obj = locate(/obj/structure/closet) in target_turf
+			if(found_obj)
+				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
+				hostile_last_attack = world.time
+				return TRUE
+
+			found_obj = locate(/obj/structure/table) in target_turf
+			if(found_obj)
+				var/obj/structure/table/table = found_obj
+				if(!table.breakable)
+					continue
+				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
+				hostile_last_attack = world.time
+				return TRUE
+
+			found_obj = locate(/obj/structure/grille) in target_turf
+			if(found_obj)
+				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
+				hostile_last_attack = world.time
+				return TRUE
+
+	return FALSE
 
 /mob/living/simple_animal/hostile/RangedAttack(atom/A, params) //Player firing
 	if(ranged)

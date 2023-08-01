@@ -71,6 +71,13 @@
 	icon_state = "lammergeier"
 	moving_state = "lammergeier_moving"
 	colors = list("#df1032", "#d4296b")
+	scanimage = "dominian_corvette.png"
+	designer = "Zhurong Naval Arsenal, Empire of Dominia"
+	volume = "42 meters length, 75 meters beam/width, 18 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Dual wingtip-mounted extruding medium-caliber ballistic armament, aft obscured flight craft bay"
+	sizeclass = "Lammergeier-class Corvette"
+	shiptype = "Military patrol and combat utility"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -90,6 +97,12 @@
 /obj/effect/overmap/visitable/ship/dominian_corvette/New()
 	designation = "[pick("Lammergeier", "Eagle", "Hawk", "Owl", "Vulture", "Sparrowhawk", "Falcon", "Peregrine", "Condor", "Harrier", "Kestrel", "Osprey", "Yastr", "Merlin", "Kite", "Seriema", "Caracaras")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/dominian_corvette/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "dominian_corvette")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/dominian_corvette/nav1
 	name = "Dominian Corvette - Fore"

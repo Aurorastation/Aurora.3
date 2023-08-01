@@ -135,12 +135,12 @@
 
 /obj/item/gun/projectile/improvised_handgun
 	name = "improvised handgun"
-	desc = "A common sight in an amateur's workshop, a simple yet effective assembly made to chamber and fire .45 Rounds."
+	desc = "A common sight in an amateur's workshop, this is a simple- yet effective- improvised handgun."
 	max_shells = 7
 	recoil = 2
 	accuracy = -1
 	offhand_accuracy = 1
-	fire_delay = 9
+	fire_delay = ROF_PISTOL
 	icon = 'icons/obj/guns/ipistol.dmi'
 	icon_state = "ipistol"
 	item_state = "ipistol"
@@ -209,7 +209,7 @@
 
 /obj/item/gun/projectile/automatic/improvised
 	name = "improvised machine pistol"
-	desc = "An improvised automatic handgun. Uses .45 rounds."
+	desc = "An improvised automatic handgun."
 	icon = 'icons/obj/guns/ismg.dmi'
 	icon_state = "ismg"
 	item_state = "ismg"
@@ -220,11 +220,10 @@
 	caliber = ".45"
 	sel_mode = 1
 	accuracy = -1
-	fire_delay = 5
+	fire_delay = ROF_PISTOL
 	burst = 3
 	burst_delay = 3
 	move_delay = 3
-	fire_delay = 2
 	dispersion = list(5, 10, 15, 20)
 	jam_chance = 20
 

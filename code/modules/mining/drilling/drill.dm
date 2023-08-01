@@ -96,10 +96,19 @@
 				ore.forceMove(src)
 				if(attached_satchel?.linked_box)
 					attached_satchel.insert_into_storage(ore)
+	else if(istype(get_turf(src), /turf/simulated/floor/exoplanet))
+		var/turf/simulated/floor/exoplanet/T = get_turf(src)
+		if(T.diggable)
+			new /obj/structure/pit(T)
+			T.diggable = 0
+			for(var/obj/item/ore/ore in range(1, src)) // gets_dug causes ore to spawn, this picks that ore up as well
+				ore.forceMove(src)
+				if(attached_satchel?.linked_box)
+					attached_satchel.insert_into_storage(ore)
 	else if(istype(get_turf(src), /turf/simulated/floor))
 		var/turf/simulated/floor/T = get_turf(src)
 		var/turf/below_turf = GetBelow(T)
-		if(!istype(below_turf.loc, /area/mine) && !istype(below_turf.loc, /area/template_noop))
+		if(below_turf && !istype(below_turf.loc, /area/mine) && !istype(below_turf.loc, /area/exoplanet) && !istype(below_turf.loc, /area/template_noop))
 			system_error("Potential station breach below.")
 			return
 		T.ex_act(2.0)
@@ -111,6 +120,8 @@
 		while(length(resource_field) && !harvesting.resources)
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
+			harvesting.cut_overlay(harvesting.resource_indicator)
+			QDEL_NULL(harvesting.resource_indicator)
 			resource_field -= harvesting
 			if(length(resource_field))
 				harvesting = pick(resource_field)
@@ -156,6 +167,8 @@
 		if(!found_resource)
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
+			harvesting.cut_overlay(harvesting.resource_indicator)
+			QDEL_NULL(harvesting.resource_indicator)
 			resource_field -= harvesting
 	else
 		active = FALSE
@@ -571,3 +584,7 @@
 	connected.supports -= src
 	connected.check_supports()
 	connected = null
+
+#undef DRILL_LIGHT_IDLE
+#undef DRILL_LIGHT_WARNING
+#undef DRILL_LIGHT_ACTIVE

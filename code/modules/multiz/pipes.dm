@@ -59,7 +59,7 @@
 
 /obj/machinery/atmospherics/pipe/zpipe/hide(var/i)
 	if(istype(loc, /turf/simulated))
-		invisibility = i ? 101 : 0
+		set_invisibility(i ? 101 : 0)
 	queue_icon_update()
 
 /obj/machinery/atmospherics/pipe/zpipe/process()
@@ -222,9 +222,9 @@
 	var/turf/T = src.loc			// hide if turf is not intact
 	hide(!T.is_plating())
 
-///////////////////////
-// supply/scrubbers  //
-///////////////////////
+////////////////////////////////
+// supply/scrubbers/fuel/aux  //
+////////////////////////////////
 
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers
 	icon_state = "up-scrubbers"
@@ -242,6 +242,22 @@
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
 
+/obj/machinery/atmospherics/pipe/zpipe/up/fuel
+	icon_state = "up-fuel"
+	name = "upwards fuel pipe"
+	desc = "A fuel pipe segment to connect upwards."
+	connect_types = CONNECT_TYPE_FUEL
+	icon_connect_type = "-fuel"
+	color = PIPE_COLOR_YELLOW
+
+/obj/machinery/atmospherics/pipe/zpipe/up/aux
+	icon_state = "up-aux"
+	name = "upwards auxiliary pipe"
+	desc = "A auxiliary pipe segment to connect upwards."
+	connect_types = CONNECT_TYPE_AUX
+	icon_connect_type = "-aux"
+	color = PIPE_COLOR_CYAN
+
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers
 	icon_state = "down-scrubbers"
 	name = "downwards scrubbers pipe"
@@ -257,6 +273,22 @@
 	connect_types = CONNECT_TYPE_SUPPLY
 	icon_connect_type = "-supply"
 	color = PIPE_COLOR_BLUE
+
+/obj/machinery/atmospherics/pipe/zpipe/down/fuel
+	icon_state = "down-fuel"
+	name = "downwards fuel pipe"
+	desc = "A fuel pipe segment to connect downwards."
+	connect_types = CONNECT_TYPE_FUEL
+	icon_connect_type = "-fuel"
+	color = PIPE_COLOR_YELLOW
+
+/obj/machinery/atmospherics/pipe/zpipe/down/aux
+	icon_state = "down-aux"
+	name = "downwards auxiliary pipe"
+	desc = "An auxiliary pipe segment to connect downwards."
+	connect_types = CONNECT_TYPE_AUX
+	icon_connect_type = "-supply"
+	color = PIPE_COLOR_CYAN
 
 // Colored misc. pipes
 /obj/machinery/atmospherics/pipe/zpipe/up/cyan

@@ -129,9 +129,8 @@ var/list/GPS_list = list()
 	update_icon()
 	update_position()
 
-/obj/item/device/gps/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		. = data = list()
+/obj/item/device/gps/ui_data(mob/user)
+	var/list/data = list()
 
 	data["own_tag"] = gpstag
 
@@ -142,96 +141,95 @@ var/list/GPS_list = list()
 			continue
 
 		if(AreConnectedZLevels(loc.z, GPS_list[tracking_tag]["pos_z"]))
-			tracking_list[tracking_tag] = (GPS_list[tracking_tag])
+			tracking_list += list(list("tag" = tracking_tag , "gps" = (GPS_list[tracking_tag])))
 
 	data["tracking_list"] = tracking_list
 	data["compass_list"] = tracking_compass
 
-	return data // should update constantly
+	return data
 
 /obj/item/device/gps/attack_self(mob/user)
 	if(!emped)
 		ui_interact(user)
 
-/obj/item/device/gps/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "devices-gps-gps", 460, 600, capitalize(name))
-		ui.auto_update_content = TRUE
-	ui.open()
+/obj/item/device/gps/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "GPS", capitalize_first_letters(name), 460, 600)
+		ui.open()
 
 /obj/item/device/gps/process()
 	if(held_by || implanted_into || (world.time < last_process + process_interval))
 		return
 	update_position(FALSE)
 
-/obj/item/device/gps/Topic(href, href_list)
-	..()
+/obj/item/device/gps/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	if(href_list["tag"])
-		var/set_tag = uppertext(copytext(sanitize(href_list["tag"]), 1, 8))
+	switch(action)
+		if("tag")
+			var/set_tag = uppertext(copytext(sanitize(params["tag"]), 1, 8))
 
-		var/was_tracked // If we were tracking this, we want to keep it on the list with its new tag
-		if(gpstag in tracking)
-			was_tracked = TRUE
-			tracking -= gpstag
+			var/was_tracked // If we were tracking this, we want to keep it on the list with its new tag
+			if(gpstag in tracking)
+				was_tracked = TRUE
+				tracking -= gpstag
 
-		if(loc == usr)
-			if(!GPS_list[set_tag])
-				GPS_list -= gpstag
-				gpstag = set_tag
-				name = "global positioning system ([gpstag])"
+			if(loc == usr)
+				if(!GPS_list[set_tag])
+					GPS_list -= gpstag
+					gpstag = set_tag
+					name = "global positioning system ([gpstag])"
+					ui.title = capitalize_first_letters(name)
 
-				var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
-				if(ui)
-					ui.title = capitalize(name)
+					update_position()
 
-				update_position()
+					if(was_tracked)
+						tracking |= gpstag
+				else
+					to_chat(usr, SPAN_WARNING("This GPS tag already assigned, please choose another."))
 
-				if(was_tracked)
-					tracking |= gpstag
+			return TRUE
+
+		if("add_tag")
+			var/new_tag = uppertext(copytext(sanitize(params["add_tag"]), 1, 8))
+
+			if(GPS_list[new_tag])
+				tracking |= new_tag
+				update_compass(TRUE)
 			else
-				to_chat(usr, SPAN_WARNING("GPS tag already assigned, choose another."))
+				to_chat(usr, SPAN_WARNING("That GPS tag could not be located."))
 
-		return TRUE
+			return TRUE
 
-	if(href_list["add_tag"])
-		var/new_tag = uppertext(copytext(sanitize(href_list["add_tag"]), 1, 8))
-
-		if(GPS_list[new_tag])
-			tracking |= new_tag
+		if("remove_tag")
+			tracking -= params["remove_tag"]
 			update_compass(TRUE)
-		else
-			to_chat(usr, "Could not locate GPS tag.")
+			return TRUE
 
-		return TRUE
+		if("add_all")
+			tracking.Cut()
+			for(var/gps in GPS_list)
+				tracking += GPS_list[gps]["tag"]
+			update_compass(TRUE)
+			return TRUE
 
-	if(href_list["remove_tag"])
-		tracking -= href_list["remove_tag"]
-		update_compass(TRUE)
-		return TRUE
+		if("clear_all")
+			tracking.Cut()
+			tracking |= gpstag // always want to track ourselves
+			update_compass(TRUE)
+			return TRUE
 
-	if(href_list["add_all"])
-		tracking.Cut()
-		for(var/gps in GPS_list)
-			tracking += GPS_list[gps]["tag"]
-		update_compass(TRUE)
-		return TRUE
-
-	if(href_list["clear_all"])
-		tracking.Cut()
-		tracking |= gpstag // always want to track ourselves
-		update_compass(TRUE)
-		return TRUE
-
-	if(href_list["compass"])
-		var/tracking_tag = href_list["compass"]
-		if(LAZYISIN(tracking_compass, tracking_tag))
-			LAZYREMOVE(tracking_compass, tracking_tag)
-		else
-			LAZYADD(tracking_compass, tracking_tag)
-		update_compass(TRUE)
-		return TRUE
+		if("compass")
+			var/tracking_tag = params["compass"]
+			if(LAZYISIN(tracking_compass, tracking_tag))
+				LAZYREMOVE(tracking_compass, tracking_tag)
+			else
+				LAZYADD(tracking_compass, tracking_tag)
+			update_compass(TRUE)
+			return TRUE
 
 	return FALSE
 
@@ -244,7 +242,6 @@ var/list/GPS_list = list()
 		return
 	var/area/gpsarea = get_area(src)
 	GPS_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[gpsarea.name]", "emped" = emped, "compass_color" = compass_color)
-	SSvueui.check_uis_for_change(src)
 	if(check_held_by && held_by && (held_by.get_active_hand() == src || held_by.get_inactive_hand() == src))
 		update_compass(TRUE)
 
@@ -351,6 +348,9 @@ var/list/GPS_list = list()
 
 	START_PROCESSING(SSprocessing, src)
 
+	initialized = TRUE
+	return INITIALIZE_HINT_NORMAL
+
 /obj/item/device/gps/stationary/attack_hand() // Don't let users pick it up.
 	return
 
@@ -371,4 +371,12 @@ var/list/GPS_list = list()
 	gps_prefix = "COM"
 	compass_color = "#193A7A"
 	gpstag = "INTREPID"
+
+/obj/item/device/gps/stationary/sccv_canary
+	name = "static GPS (SCCV Canary)"
+	desc = "A static global positioning system helpful for finding your way back to the SCCV Canary."
+	icon_state = "gps-com"
+	gps_prefix = "COM"
+	compass_color = "#57c5e0"
+	gpstag = "CANARY"
 /********** Static GPS End **********/

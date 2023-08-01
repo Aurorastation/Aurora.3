@@ -14,7 +14,7 @@ var/list/dreams = list(
 	"a unathi","a tajaran","the ai core","the mining station","the research station","a beaker of strange liquid"
 	)
 
-mob/living/carbon/proc/dream()
+/mob/living/carbon/proc/dream()
 	dreaming = 1
 
 	spawn(0)
@@ -25,8 +25,8 @@ mob/living/carbon/proc/dream()
 				break
 		dreaming = 0
 
-mob/living/carbon/proc/handle_dreams()
+/mob/living/carbon/proc/handle_dreams()
 	if(client && !dreaming && prob(5))
 		dream()
 
-mob/living/carbon/var/dreaming = 0
+/mob/living/carbon/var/dreaming = 0

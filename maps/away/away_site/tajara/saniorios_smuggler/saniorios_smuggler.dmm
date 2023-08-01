@@ -24,7 +24,7 @@
 /area/saniorios_smuggler)
 "bt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/banner,
+/obj/structure/sign/flag/nanotrasen,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -1164,13 +1164,6 @@
 "WU" = (
 /obj/item/material/shard/shrapnel,
 /turf/simulated/floor/airless,
-/area/saniorios_smuggler)
-"WZ" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor{
-	temperature = 278.15
-	},
 /area/saniorios_smuggler)
 "Yj" = (
 /turf/simulated/wall,
@@ -25713,7 +25706,7 @@ SL
 SL
 AW
 AW
-WZ
+Nt
 Nt
 Nt
 Nt
@@ -29054,7 +29047,6 @@ SL
 SL
 AW
 AW
-WZ
 Nt
 Nt
 Nt
@@ -29062,7 +29054,8 @@ Nt
 Nt
 Nt
 Nt
-WZ
+Nt
+Nt
 AW
 AW
 SL

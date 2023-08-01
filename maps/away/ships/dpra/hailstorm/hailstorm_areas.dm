@@ -44,7 +44,7 @@
 	icon_state = "armory"
 
 /area/hailstorm_ship/barracks
-	name = "Headmaster Barracks"
+	name = "Hailstorm Barracks"
 	icon_state = "crew_quarters"
 
 /area/shuttle/hailstorm_shuttle

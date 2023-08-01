@@ -95,7 +95,7 @@
 	if (crit_fail)
 		add_overlay("nucgun-whee")
 		return
-	var/ratio = power_supply.charge / power_supply.maxcharge
+	var/ratio = max((power_supply?.charge / power_supply?.maxcharge), 0)
 	ratio = round(ratio, 0.25) * 100
 	add_overlay("nucgun-[ratio]")
 
@@ -105,7 +105,7 @@
 		return
 	if(lightfail)
 		add_overlay("nucgun-medium")
-	else if ((power_supply.charge/power_supply.maxcharge) <= 0.5)
+	else if ((power_supply?.charge/power_supply?.maxcharge) <= 0.5)
 		add_overlay("nucgun-light")
 	else
 		add_overlay("nucgun-clean")
@@ -177,6 +177,25 @@
 		list(mode_name="smite", projectile_type=/obj/item/projectile/beam/pistol/hegemony, modifystate="hegemony_pistol", fire_sound='sound/weapons/laser1.ogg')
 		)
 
+/obj/item/gun/energy/hegemonyrifle
+	name = "hegemony energy rifle"
+	desc = "An upgraded variant of the standard laser rifle. It does not have a stun setting."
+	desc_extended = "The Zkrehk-Guild Heavy Beamgun, an energy-based rifle designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
+	icon = 'icons/obj/guns/hegemony_rifle.dmi'
+	icon_state = "hegemonyrifle"
+	item_state = "hegemonyrifle"
+	has_item_ratio = FALSE
+	fire_sound = 'sound/weapons/laser1.ogg'
+	slot_flags = SLOT_BELT|SLOT_BACK
+	max_shots = 15
+	can_switch_modes = FALSE
+	can_turret = TRUE
+	turret_is_lethal = TRUE
+	projectile_type = /obj/item/projectile/beam/midlaser/hegemony
+	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 4)
+	is_wieldable = TRUE
+	modifystate = "hegemonyrifle"
+
 /obj/item/gun/energy/repeater
 	name = "energy repeater"
 	desc = "A Stellar Corporate Conglomerate created energy repeater, extremely lightweight. It has three settings: Single, Three-Burst, and Full-Auto."
@@ -207,7 +226,7 @@
 	fire_sound = 'sound/weapons/Laser2.ogg'
 	modifystate = null
 	charge_failure_message = "'s charging socket was removed to make room for a recharger."
-	secondary_fire_sound = 'sound/weapons/Laser3.ogg'
+	secondary_fire_sound = 'sound/weapons/laser3.ogg'
 
 /obj/item/gun/energy/gun/skrell/emp_act(severity)
 	return //Fuck robots.
@@ -225,7 +244,7 @@
 
 	firemodes = list(
 		list(mode_name="disable", projectile_type=/obj/item/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pulse/skrell, fire_sound='sound/weapons/Laser3.ogg')
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pulse/skrell, fire_sound='sound/weapons/laser3.ogg')
 		)
 
 /obj/item/gun/energy/gun/skrell/smg
@@ -242,7 +261,7 @@
 
 	firemodes = list(
 		list(mode_name="disable", projectile_type=/obj/item/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pulse/skrell, fire_sound='sound/weapons/Laser3.ogg', burst = 2, burst_delay = 2)
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pulse/skrell, fire_sound='sound/weapons/laser3.ogg', burst = 2, burst_delay = 2)
 		)
 
 /obj/item/gun/energy/gun/qukala

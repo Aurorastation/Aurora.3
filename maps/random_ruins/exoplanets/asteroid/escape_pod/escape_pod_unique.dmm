@@ -6,17 +6,14 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/dark_blue{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "c" = (
 /obj/structure/window/shuttle/unique/escape_pod{
 	icon_state = "1,3"
 	},
 /obj/structure/grille,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "d" = (
 /obj/effect/landmark/clear,
@@ -27,10 +24,7 @@
 /obj/structure/door_assembly/door_assembly_ext{
 	anchored = 1
 	},
-/turf/simulated/floor/shuttle/dark_blue{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "f" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
@@ -88,10 +82,7 @@
 /obj/random/smalltank,
 /obj/item/device/gps,
 /obj/item/archaeological_find,
-/turf/simulated/floor/shuttle/dark_blue{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/simulated/floor/shuttle/dark_blue/airless,
 /area/template_noop)
 "R" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
@@ -166,7 +157,7 @@ g
 j
 t
 x
-l
+i
 i
 i
 i
@@ -183,7 +174,7 @@ c
 D
 b
 e
-l
+i
 i
 i
 i
@@ -200,7 +191,7 @@ Z
 R
 f
 n
-l
+i
 i
 i
 i
@@ -217,8 +208,8 @@ a
 a
 a
 a
-d
-d
+i
+i
 d
 i
 i

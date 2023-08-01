@@ -401,15 +401,25 @@
 	max_stack = 1
 
 /obj/item/ammo_casing/peac
-	name = "anti-materiel cannon cartridge"
+	name = "anti-materiel AP cannon cartridge"
 	icon_state = "peac"
 	spent_icon = "peac-spent"
 	caliber = "peac"
 	w_class = ITEMSIZE_NORMAL
 	slot_flags = null
-	projectile_type = /obj/item/projectile/bullet/recoilless_rifle/peac
+	projectile_type = /obj/item/projectile/bullet/peac
+	drop_sound = 'sound/items/drop/shell_drop.ogg'
+	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	reload_sound = 'sound/weapons/railgun_insert_emp.ogg'
 	max_stack = 1
+
+/obj/item/ammo_casing/peac/he
+	name = "anti-materiel HE cannon cartridge"
+	projectile_type = /obj/item/projectile/bullet/peac/he
+
+/obj/item/ammo_casing/peac/shrapnel
+	name = "anti-materiel FRAG cannon cartridge"
+	projectile_type = /obj/item/projectile/bullet/peac/shrapnel
 
 /obj/item/ammo_casing/kumar_super
 	name =".599 kumar super casing"

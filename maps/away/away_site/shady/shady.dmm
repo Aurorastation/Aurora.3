@@ -287,12 +287,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
-"dP" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/obj/structure/lattice/catwalk/indoor/grate/old,
-/turf/simulated/floor/plating,
-/area/hideout)
 "ed" = (
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/hideout)
@@ -35203,7 +35197,7 @@ fV
 eu
 ci
 hg
-dP
+GO
 lf
 lf
 lf

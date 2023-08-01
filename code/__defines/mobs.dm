@@ -46,6 +46,8 @@
 #define HOSTILE_STANCE_ATTACKING 4
 #define HOSTILE_STANCE_TIRED     5
 
+#define ON_ATTACK_COOLDOWN(hostile_mob) world.time < hostile_mob.hostile_time_between_attacks + hostile_mob.hostile_last_attack
+
 #define LEFT  1
 #define RIGHT 2
 
@@ -138,8 +140,10 @@
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
 
-// Zombie organ
+// Parasite organs
 #define BP_ZOMBIE_PARASITE "black tumour"
+#define BP_WORM_HEART "heart fluke"
+#define BP_WORM_NERVE "nerve fluke"
 
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
@@ -467,3 +471,28 @@
 #define ROBOT_EYES		"eyetype"
 
 #define BLOOD_REGEN_RATE 0.1
+
+// Height Defines
+#define HEIGHT_NOT_USED 0
+#define HEIGHT_CLASS_TINY 130
+#define HEIGHT_CLASS_SHORT 150
+#define HEIGHT_CLASS_AVERAGE 170
+#define HEIGHT_CLASS_TALL 190
+#define HEIGHT_CLASS_HUGE 240
+#define HEIGHT_CLASS_GIGANTIC 300
+
+#define MOB_IS_INCAPACITATED(incapacitation_flags)\
+(\
+	((incapacitation_flags & INCAPACITATION_STUNNED) && stunned) ||\
+	((incapacitation_flags & INCAPACITATION_FORCELYING) && (weakened || resting)) ||\
+	((incapacitation_flags & INCAPACITATION_KNOCKOUT) && (stat || paralysis || sleeping || (status_flags & FAKEDEATH))) ||\
+	((incapacitation_flags & INCAPACITATION_RESTRAINED) && restrained())\
+	? TRUE :\
+	(\
+		((incapacitation_flags & (INCAPACITATION_BUCKLED_PARTIALLY|INCAPACITATION_BUCKLED_FULLY))) ?\
+		(\
+			(buckled_to() >= PARTIALLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_PARTIALLY)) ||	(buckled_to() == FULLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_FULLY)) ?\
+			TRUE : FALSE\
+		) : FALSE\
+	)\
+)

@@ -47,3 +47,30 @@
 
 #define PIPE_PASSIVE_GATE_SCRUBBER  42
 #define PIPE_PASSIVE_GATE_SUPPLY    43
+
+///// New defines for fuel and auxiliary piping
+#define PIPE_FUEL_STRAIGHT			44
+#define PIPE_FUEL_BENT				45
+#define PIPE_AUX_STRAIGHT			46
+#define PIPE_AUX_BENT				47
+#define PIPE_FUEL_MANIFOLD			48
+#define PIPE_AUX_MANIFOLD			49
+#define PIPE_FUEL_MANIFOLD4W		50
+#define PIPE_AUX_MANIFOLD4W			51
+#define PIPE_FUEL_UP				52
+#define PIPE_AUX_UP					53
+#define PIPE_FUEL_DOWN				54
+#define PIPE_AUX_DOWN				55
+#define PIPE_FUEL_CAP				56
+#define PIPE_AUX_CAP				57
+
+#define PIPE_PASSIVE_GATE_FUEL		58
+#define PIPE_PASSIVE_GATE_AUX		59
+
+#define PIPE_PUMP_FUEL				60
+#define PIPE_PUMP_AUX				61
+
+#define PIPE_CONNECTOR_FUEL			62
+#define PIPE_CONNECTOR_AUX			63
+
+#define PIPE_AUX_UVENT				64

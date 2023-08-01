@@ -365,8 +365,8 @@
 	)
 
 /obj/item/clothing/head/helmet/unathi/klax
-	name = "klaxan hopeful helmet"
-	desc = "A helmet designated to be worn by a K'lax hopeful. The retrofit features a modified shape and an extra two eye visors. Flash protection blocks many flashes, shielding sensitive Vaurca eyes."
+	name = "klaxan warrior helmet"
+	desc = "A helmet designated to be worn by a K'lax warrior. The retrofit features a modified shape and an extra two eye visors. Flash protection blocks many flashes, shielding sensitive Vaurca eyes."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "klax_hopeful_helmet"
 	item_state = "klax_hopeful_helmet"

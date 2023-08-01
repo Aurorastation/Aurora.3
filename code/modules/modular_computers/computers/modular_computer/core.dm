@@ -1,5 +1,3 @@
-#define LISTENER_MODULAR_COMPUTER "modular_computers"
-
 /obj/item/modular_computer/process()
 	if(!enabled) // The computer is turned off
 		last_power_usage = 0
@@ -95,7 +93,8 @@
 	if(looping_sound)
 		soundloop = new(src, enabled)
 	initial_name = name
-	listener = new(LISTENER_MODULAR_COMPUTER, src)
+	listener = new("modular_computers", src)
+	sync_linked()
 
 /obj/item/modular_computer/Destroy()
 	kill_program(TRUE)
@@ -195,7 +194,6 @@
 // Relays kill program request to currently active program. Use this to quit current program.
 /obj/item/modular_computer/proc/kill_program(var/forced = FALSE)
 	if(active_program && active_program.kill_program(forced))
-		src.vueui_transfer(active_program)
 		active_program = null
 	else
 		return FALSE
@@ -217,7 +215,7 @@
 	return ntnet_global.add_log(text, network_card)
 
 /obj/item/modular_computer/proc/shutdown_computer(var/loud = TRUE)
-	SSvueui.close_uis(active_program)
+	SStgui.close_uis(active_program)
 	kill_program(TRUE)
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.kill_program(TRUE)
@@ -231,7 +229,7 @@
 
 	if(loud)
 		visible_message(SPAN_NOTICE("\The [src] shuts down."))
-	SSvueui.close_uis(src)
+	SStgui.close_uis(src)
 	enabled = FALSE
 	if(looping_sound)
 		soundloop.stop(src)
@@ -263,8 +261,6 @@
 
 	idle_threads.Add(active_program)
 	active_program.program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
-	SSnanoui.close_uis(active_program.NM ? active_program.NM : active_program)
-	src.vueui_transfer(active_program)
 	active_program = null
 	update_icon()
 	if(istype(user))
@@ -291,8 +287,7 @@
 		active_program = P
 		idle_threads.Remove(P)
 		update_icon()
-		if(!P.vueui_transfer(src))
-			SSvueui.close_uis(src)
+		ui_interact(user)
 		return
 
 	if(idle_threads.len >= processor_unit.max_idle_programs+1)
@@ -308,19 +303,18 @@
 
 	if(P.run_program(user))
 		active_program = P
-		if(!P.vueui_transfer(src))
-			SSvueui.close_uis(src)
+		ui_interact(user)
 		update_icon()
 	return TRUE
 
 /obj/item/modular_computer/proc/update_uis()
 	if(active_program) //Should we update program ui or computer ui?
 		SSnanoui.update_uis(active_program)
-		SSvueui.check_uis_for_change(active_program)
+		SStgui.update_uis(src)
 		if(active_program.NM)
 			SSnanoui.update_uis(active_program.NM)
 	else
-		SSvueui.check_uis_for_change(src)
+		SStgui.update_uis(src)
 		SSnanoui.update_uis(src)
 
 /obj/item/modular_computer/proc/check_update_ui_need()
@@ -432,18 +426,18 @@
 
 // TODO: Make pretty much everything use these helpers.
 /obj/item/modular_computer/proc/output_notice(var/message, var/message_range)
-	message = "[icon2html(src, viewers(message_range, get_turf(src)))][src]: " + message
+	message = "[icon2html(src, viewers(message_range, get_turf(src)))] [src]: " + message
 	output_message(SPAN_NOTICE(message), message_range)
 
 /obj/item/modular_computer/proc/output_error(var/message, var/message_range)
-	message = "[icon2html(src, viewers(message_range, get_turf(src)))][src]: " + message
+	message = "[icon2html(src, viewers(message_range, get_turf(src)))] [src]: " + message
 	output_message(SPAN_WARNING(message), message_range)
 
 /obj/item/modular_computer/proc/get_notification(var/message, var/message_range = 1, var/atom/source)
 	if(silent)
 		return
 	playsound(get_turf(src), 'sound/machines/twobeep.ogg', 20, 1)
-	message = "[icon2html(src, viewers(message_range, get_turf(src)))][src]: [SPAN_DANGER("-!-")] Notification from [source]: " + message
+	message = "[icon2html(src, viewers(message_range, get_turf(src)))] [src]: [SPAN_DANGER("-!-")] Notification from [source]: " + message
 	output_message(FONT_SMALL(SPAN_BOLD(message)), message_range)
 
 /obj/item/modular_computer/proc/register_account(var/datum/computer_file/program/PRG = null)
@@ -502,3 +496,26 @@
 /obj/item/modular_computer/on_slotmove(var/mob/living/user, slot)
 	. = ..(user, slot)
 	BITSET(user.hud_updateflag, ID_HUD) //Same reasoning as for IDs
+
+// A late init operation called in SSshuttle for ship computers and holopads, used to attach the thing to the right ship.
+/obj/item/modular_computer/proc/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
+    SHOULD_CALL_PARENT(TRUE)
+    if(!istype(sector))
+        return FALSE
+    if(sector.check_ownership(src))
+        linked = sector
+        return TRUE
+    return FALSE
+
+/obj/item/modular_computer/proc/sync_linked()
+    var/obj/effect/overmap/visitable/sector = map_sectors["[z]"]
+    if(!sector)
+        return
+    return attempt_hook_up_recursive(sector)
+
+/obj/item/modular_computer/proc/attempt_hook_up_recursive(var/obj/effect/overmap/visitable/sector)
+    if(attempt_hook_up(sector))
+        return sector
+    for(var/obj/effect/overmap/visitable/candidate in sector)
+        if((. = .(candidate)))
+            return

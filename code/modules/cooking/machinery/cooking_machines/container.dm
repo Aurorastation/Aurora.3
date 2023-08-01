@@ -248,22 +248,22 @@
 		return FALSE
 	return TRUE
 
-/obj/item/reagent_containers/cooking_container/plate
-	name = "serving plate"
-	shortname = "plate"
-	desc = "A plate. You plate foods on this plate."
-	icon_state = "plate"
+/obj/item/reagent_containers/cooking_container/board
+	name = "chopping board"
+	shortname = "board"
+	desc = "A board for preparing food. Not chopping. I'm sorry."
+	icon_state = "board"
 	appliancetype = MIX
 	flags = OPENCONTAINER // Will still react
 	volume = 15 // for things like jelly sandwiches etc
 	max_space = 25
 
-/obj/item/reagent_containers/cooking_container/plate/examine(mob/user)
+/obj/item/reagent_containers/cooking_container/board/examine(mob/user)
 	. = ..()
 	if(length(contents) || reagents?.total_volume)
 		to_chat(user, SPAN_NOTICE("To attempt cooking; click and hold, then drag this onto your character"))
 
-/obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
+/obj/item/reagent_containers/cooking_container/board/MouseDrop(var/obj/over_obj)
 	if(over_obj != usr || use_check(usr))
 		return ..()
 	if(!(length(contents) || reagents?.total_volume))
@@ -301,8 +301,40 @@
 	QDEL_NULL(temp) //delete buffer object
 	return ..()
 
-/obj/item/reagent_containers/cooking_container/plate/bowl
-	name = "serving bowl"
+
+/obj/item/reagent_containers/cooking_container/board/on_reagent_change()
+	update_icon()
+
+/obj/item/reagent_containers/cooking_container/board/pickup(mob/user)
+	..()
+	update_icon()
+
+/obj/item/reagent_containers/cooking_container/board/dropped(mob/user)
+	..()
+	update_icon()
+
+
+/obj/item/reagent_containers/cooking_container/board/attack_hand()
+	..()
+	update_icon()
+
+
+/obj/item/reagent_containers/cooking_container/board/do_empty(mob/user)
+	..()
+	update_icon()
+
+/obj/item/reagent_containers/cooking_container/board/attackby(obj/item/I, mob/user)
+	..()
+	update_icon()
+
+/obj/item/reagent_containers/cooking_container/board/update_icon()
+	if(length(contents)) // Only if something was actually added.
+		icon_state = "[initial(icon_state)]_prep"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/reagent_containers/cooking_container/board/bowl
+	name = "mixing bowl"
 	shortname = "bowl"
 	desc = "A bowl. You bowl foods... wait, what?"
 	icon = 'icons/obj/kitchen.dmi'
@@ -315,27 +347,7 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,180)
 
-
-/obj/item/reagent_containers/cooking_container/plate/bowl/on_reagent_change()
-	update_icon()
-
-
-/obj/item/reagent_containers/cooking_container/plate/bowl/pickup(mob/user)
-	..()
-	update_icon()
-
-
-/obj/item/reagent_containers/cooking_container/plate/bowl/dropped(mob/user)
-	..()
-	update_icon()
-
-
-/obj/item/reagent_containers/cooking_container/plate/bowl/attack_hand()
-	..()
-	update_icon()
-
-
-/obj/item/reagent_containers/cooking_container/plate/bowl/update_icon()
+/obj/item/reagent_containers/cooking_container/board/bowl/update_icon()
 	cut_overlays()
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state][get_filling_state()]")

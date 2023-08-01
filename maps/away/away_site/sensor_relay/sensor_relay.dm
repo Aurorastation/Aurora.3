@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/sensor_relay
 	name = "sensor relay"
-	description = "An independent sensor relay. It's a ring-shaped installation with a powerful sensor suite located in the center. The project to deploy these in sectors across the galaxy was started years ago by an extremely rich Solarian investment banker, claiming that it'd be 'The next best thing since lighthouses!'. The project actually went well, making a lot of profit by selling sensor data to civilian and military entities alike, but funding dried up after the inventor passed away. Now, these relays are used as temporary resting points for weary travelers looking to save a dime."
+	description = "A ring-shaped installation with a powerful sensor suite. These stations were originally built during the pre-Interstellar War era by the Solarian Alliance’s Department of Colonization as a method of making interstellar travel safer. Thousands of these “beacon stations” were built by the Alliance and many were abandoned during the Interstellar War and its aftermath. While they have been mostly replaced in more developed sectors, such as Liberty’s Cradle and the Jewel Worlds, beacon stations are still a common sight in less developed sectors of the Orion Spur such as the Badlands and Weeping Stars."
 	suffixes = list("away_site/sensor_relay/sensor_relay.dmm")
 	sectors = ALL_POSSIBLE_SECTORS
 	id = "sensor_relay"
@@ -15,7 +15,7 @@
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "sensor_relay"
 	color = COLOR_STEEL
-	desc = "An independent sensor relay. It's a ring-shaped installation with a powerful sensor suite located in the center. The project to deploy these in sectors across the galaxy was started years ago by an extremely rich Solarian investment banker, claiming that it'd be 'The next best thing since lighthouses!'. The project actually went well, making a lot of profit by selling sensor data to civilian and military entities alike, but funding dried up after the inventor passed away. Now, these relays are used as temporary resting points for weary travelers looking to save a dime."
+	desc = "A ring-shaped installation with a powerful sensor suite. These stations were originally built during the pre-Interstellar War era by the Solarian Alliance’s Department of Colonization as a method of making interstellar travel safer. Thousands of these “beacon stations” were built by the Alliance and many were abandoned during the Interstellar War and its aftermath. While they have been mostly replaced in more developed sectors, such as Liberty’s Cradle and the Jewel Worlds, beacon stations are still a common sight in less developed sectors of the Orion Spur such as the Badlands and Weeping Stars."
 	comms_support = TRUE
 	comms_name = "relay"
 

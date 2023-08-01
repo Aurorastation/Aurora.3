@@ -26,7 +26,7 @@
 
 
 var/all_unit_tests_passed = 1
-var/failed_unit_tests = 0
+var/unit_tests_failures = 0
 var/total_unit_tests = 0
 
 // For console out put in Linux/Bash makes the output green or red.
@@ -49,18 +49,86 @@ var/ascii_reset = "[ascii_esc]\[0m"
 	var/why_disabled = "No reason set."   // If we disable a unit test we will display why so it reminds us to check back on it later.
 	var/map_path // This should be the same as the path var on /datum/map - The unit test will only run for that map
 
-/datum/unit_test/proc/fail(var/message)
+
+/**
+ * Log levels used to prettify correctly, only defined in this file (aka undef'd at the end)
+ * Build unit test messages as per https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions, or for console output
+ */
+#define LOG_UNIT_TEST_DEBUG 7
+#define LOG_UNIT_TEST_INFORMATION 6
+#define LOG_UNIT_TEST_WARNING 4
+#define LOG_UNIT_TEST_ERROR 3
+
+
+/datum/unit_test/proc/log_unit_test(var/severity, var/message, var/filename, var/line, var/title)
+
+	#if defined(MANUAL_UNIT_TEST)
+
+	// We are manually running, write in a more sensible format
+	switch(severity)
+		if(LOG_UNIT_TEST_DEBUG)
+			severity = "\[\[ DEBUG \]\] "
+		if(LOG_UNIT_TEST_INFORMATION)
+			severity = "[ascii_green] *** NOTICE *** [ascii_reset] "
+		if(LOG_UNIT_TEST_WARNING)
+			severity = "[ascii_yellow] === WARNING === [ascii_reset] "
+		if(LOG_UNIT_TEST_ERROR)
+			severity = "[ascii_red] !!! FAILURE !!! [ascii_reset] "
+	#else
+
+	// We are running off Travis, which means github (or someone fucked up very badly)
+
+	// Spaces or lack thereof are significant here!
+	switch(severity)
+		if(LOG_UNIT_TEST_DEBUG)
+			severity = "debug"
+		if(LOG_UNIT_TEST_INFORMATION)
+			severity = "notice "
+		if(LOG_UNIT_TEST_WARNING)
+			severity = "warning "
+		if(LOG_UNIT_TEST_ERROR)
+			severity = "error "
+
+	// Of the #if defined(MANUAL_UNIT_TEST)
+	#endif
+
+	var/printstring = "::[severity]"
+
+	if(title)
+		printstring += " title=[title]"
+
+	printstring += "::[message] → " + TEST_OUTPUT_U_CYAN("@@@[filename]:[line]")
+
+
+	world.log <<  printstring
+
+
+/datum/unit_test/proc/debug(var/message, var/file, var/line)
+	log_unit_test(LOG_UNIT_TEST_DEBUG, message, file, line)
+
+/datum/unit_test/proc/notice(var/message, var/file, var/line)
+	log_unit_test(LOG_UNIT_TEST_INFORMATION, message, file, line)
+
+/datum/unit_test/proc/warn(var/message, var/file, var/line)
+	log_unit_test(LOG_UNIT_TEST_WARNING, message, file, line)
+
+/datum/unit_test/proc/fail(var/message, var/file, var/line)
 	all_unit_tests_passed = 0
-	failed_unit_tests++
+	unit_tests_failures++
 	reported = 1
-	log_unit_test("[ascii_red]!!! FAILURE !!! \[[name]\]: [message][ascii_reset]")
+	log_unit_test(LOG_UNIT_TEST_ERROR, message, file, line)
+	return UNIT_TEST_FAILED
 
-/datum/unit_test/proc/pass(var/message)
+/datum/unit_test/proc/pass(var/message, var/file, var/line)
 	reported = 1
-	log_unit_test("[ascii_green]*** SUCCESS *** \[[name]\]: [message][ascii_reset]")
+	log_unit_test(LOG_UNIT_TEST_INFORMATION, "[ascii_green][message][ascii_reset]", file, line, title = "SUCCESS: [name]")
+	return UNIT_TEST_PASSED
 
-/datum/unit_test/proc/warn(var/message)
-	log_unit_test("[ascii_yellow]=== WARNING === \[[name]\]: [message][ascii_reset]")
+
+#undef LOG_UNIT_TEST_DEBUG
+#undef LOG_UNIT_TEST_INFORMATION
+#undef LOG_UNIT_TEST_WARNING
+#undef LOG_UNIT_TEST_ERROR
 
 /datum/unit_test/proc/start_test()
 	fail("No test proc.")

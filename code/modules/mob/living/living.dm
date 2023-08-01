@@ -11,7 +11,7 @@
 //mob verbs are faster than object verbs. See above.
 var/mob/living/next_point_time = 0
 /mob/living/pointed(atom/A as mob|obj|turf in view())
-	if(src.stat || !src.canmove || src.restrained())
+	if(src.stat || src.restrained())
 		return FALSE
 	if(src.status_flags & FAKEDEATH)
 		return FALSE
@@ -298,6 +298,9 @@ default behaviour is:
 /mob/living/proc/getHalLoss()
 	return 0
 
+/mob/living/proc/get_shock()
+	return getHalLoss()
+
 /mob/living/proc/getCloneLoss()
 	return 0
 
@@ -474,6 +477,13 @@ default behaviour is:
 	bodytemperature = T20C
 	sdisabilities = 0
 	disabilities = 0
+	hallucination = 0
+	silent = 0
+	dizziness = 0
+	drowsiness = 0
+	stuttering = 0
+	confused = 0
+	jitteriness = 0
 
 	// fix blindness and deafness
 	blinded = 0
@@ -586,8 +596,7 @@ default behaviour is:
 
 		if (!restrained())
 			var/diag = get_dir(src, pulling)
-			if ((diag - 1) & diag)
-			else
+			if (!((diag - 1) & diag))
 				diag = null
 			if ((get_dist(src, pulling) > 1 || diag))
 				if (isliving(pulling))
@@ -910,6 +919,12 @@ default behaviour is:
 	QDEL_NULL(reagents)
 	clear_from_target_grid()
 
+	if(auras)
+		for(var/a in auras)
+			remove_aura(a)
+
+	QDEL_NULL(ability_master)
+
 	return ..()
 
 /mob/living/proc/nervous_system_failure()
@@ -990,12 +1005,6 @@ default behaviour is:
 		return FALSE
 	. = TRUE
 
-/mob/living/Destroy()
-	if(auras)
-		for(var/a in auras)
-			remove_aura(a)
-	return ..()
-
 /mob/living/proc/needs_wheelchair()
 	return FALSE
 
@@ -1017,3 +1026,6 @@ default behaviour is:
 
 /mob/living/proc/is_anti_materiel_vulnerable()
 	return FALSE
+
+/mob/living/get_speech_bubble_state_modifier()
+	return isSynthetic() ? "synth" : ..()

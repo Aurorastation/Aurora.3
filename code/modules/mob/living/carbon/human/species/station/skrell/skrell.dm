@@ -4,6 +4,9 @@
 	name_plural = "Skrell"
 	category_name = "Skrell"
 	bodytype = BODYTYPE_SKRELL
+	species_height = HEIGHT_CLASS_SHORT
+	height_min = 130
+	height_max = 170
 	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
@@ -94,7 +97,7 @@
 		/singleton/origin_item/culture/federation,
 		/singleton/origin_item/culture/non_federation
 	)
-	
+
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/adjust_headtails
 	)
@@ -105,6 +108,9 @@
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
+	has_psionics = PSI_RANK_SENSITIVE
+	character_creation_psi_points = 4
+
 /datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
 	var/list/trail_info = ..()
 	if(!length(trail_info) && !H.shoes)
@@ -114,10 +120,6 @@
 		trail_info["footprint_type"] = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot/del_dry // makes skrellprints del on dry
 
 	return trail_info
-
-/datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
-	..()
-	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)
 
 /datum/species/skrell/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
 	switch(action)
@@ -139,7 +141,4 @@
 	return "<BR><A href='?src=[reference];species=headtail'>Empty Headtail Storage</A>"
 
 /datum/species/skrell/can_breathe_water()
-	return TRUE
-
-/datum/species/skrell/can_commune()
 	return TRUE

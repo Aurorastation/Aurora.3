@@ -34,9 +34,9 @@
 
 /datum/changeling_sting/proc/do_sting(var/mob/living/target)
 	var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
-	changeling.chem_charges -= required_chems
+	changeling.use_charges(required_chems)
 	changeling.sting_range = 1
-	owner.verbs -= verb_path
+	remove_verb(owner, verb_path)
 	ADD_VERB_IN(owner, 10, verb_path)
 
 	if(stealthy)
@@ -69,6 +69,7 @@
 
 	changeling.prepared_sting = new datum_path(src, verb_path, required_chems, stealthy)
 	to_chat(src, SPAN_NOTICE("You prepare to fire the <b>[changeling.prepared_sting.name]</b>."))
+	to_chat(src, SPAN_NOTICE("In order to use a sting, click a mob with an empty hand on harm intent."))
 	return TRUE
 
 /mob/proc/changeling_hallucinate_sting()
@@ -267,10 +268,10 @@
 	changeling = changeling_power(10, 0, 100)
 	if(!changeling)
 		return FALSE
-	changeling.chem_charges -= 10
+	changeling.use_charges(10)
 	to_chat(src, SPAN_NOTICE("Your throat adjusts to launch the sting."))
 	changeling.sting_range = 2
-	src.verbs -= /mob/proc/changeling_boost_range
+	remove_verb(src, /mob/proc/changeling_boost_range)
 	ADD_VERB_IN(src, 5, /mob/proc/changeling_boost_range)
 	feedback_add_details("changeling_powers", "RS")
 	return TRUE

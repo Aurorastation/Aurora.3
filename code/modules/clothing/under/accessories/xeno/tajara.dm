@@ -312,7 +312,7 @@
 	desc = "A hand carved wooden charm of tajaran origin."
 	icon_state = "wooden_talisman"
 	item_state = "wooden_talisman"
-	desc_extended = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off raskara and other evils. \
+	desc_extended = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off Raskara and other evils. \
 	Hand-carved tajani charms are held in special regards, often being thought of as being particularly fortunate."
 	w_class = ITEMSIZE_TINY
 	flags = NOBLUDGEON

@@ -218,7 +218,7 @@
 		var/turf/simulated/open/above = GetAbove(turf)
 		if(!above)
 			warning("Stair created without z-level above: ([loc.x], [loc.y], [loc.z])")
-			return qdel(src)
+			return INITIALIZE_HINT_QDEL
 		if(!istype(above))
 			above.ChangeToOpenturf()
 
@@ -236,6 +236,10 @@
 /obj/structure/stairs/CollidedWith(atom/movable/A)
 	// This is hackish but whatever.
 	var/turf/target = get_step(GetAbove(A), dir)
+	if(!target)
+		return
+	if(target.z > (z + 1)) //Prevents wheelchair fuckery. Basically, you teleport twice because both the wheelchair + your mob collide with the stairs.
+		return
 	if(target.Enter(A, src))
 		A.forceMove(target)
 		if(isliving(A))

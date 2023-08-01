@@ -11,7 +11,9 @@
 	var/tag_interior_sensor
 	var/tag_airlock_mech_sensor
 	var/tag_shuttle_mech_sensor
-	var/tag_secure = 0
+	var/tag_secure = FALSE
+	var/tag_air_alarm
+	var/cycle_to_external_air = FALSE
 
 /obj/machinery/embedded_controller/radio/airlock/Initialize(mapload, given_id_tag, given_frequency, given_tag_exterior_door, given_tag_interior_door, given_tag_airpump, given_tag_chamber_sensor)
 	. = ..()
@@ -89,7 +91,7 @@
 //Airlock controller for airlock control - most airlocks on the station use this
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller
 	name = "Airlock Controller"
-	tag_secure = 1
+	tag_secure = TRUE
 
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]

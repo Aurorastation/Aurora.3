@@ -821,10 +821,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/sign/flag/pra/left{
-	pixel_x = 32;
-	dir = 4
-	},
+/obj/structure/sign/flag/pra/large/east,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1261,9 +1258,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1503,9 +1498,6 @@
 "tl" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
-	},
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3127,7 +3119,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = -6;
 	pixel_y = 8
@@ -3969,10 +3961,6 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/sign/flag/pra/right{
-	dir = 4;
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

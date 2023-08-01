@@ -161,15 +161,6 @@
 	handies["gustatorial centre (left hand)"] = /obj/item/organ/internal/augment/gustatorial/hand/left
 	gear_tweaks += new /datum/gear_tweak/path(handies)
 
-/datum/gear/augment/drill
-	display_name = "integrated drill"
-	description = "A mining drill integrated in the hand. The drill is heavy, so only industrial IPCs can use it."
-	path = /obj/item/organ/internal/augment/tool/drill
-	whitelisted = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
-	allowed_roles = list("Shaft Miner")
-	cost = 5
-	sort_category = "Xenowear - IPC"
-
 /datum/gear/augment/drill/New()
 	..()
 	var/list/augs = list()

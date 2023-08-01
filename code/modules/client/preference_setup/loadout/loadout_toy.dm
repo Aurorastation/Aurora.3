@@ -1,11 +1,7 @@
 /datum/gear/toy
-	display_name = "holo board game"
-	path = /obj/item/board
-	sort_category = "Toys"
-
-/datum/gear/toy/dice
 	display_name = "pack of dice"
 	path = /obj/item/storage/pill_bottle/dice
+	sort_category = "Toys"
 
 /datum/gear/toy/dicegaming
 	display_name = "pack of gaming dice"
@@ -70,6 +66,7 @@
 /datum/gear/toy/plushie/New()
 	..()
 	var/list/plushies = list()
+	plushies["plushie, herring gull"] = /obj/item/toy/plushie/herring_gull
 	plushies["plushie, nymph"] = /obj/item/toy/plushie/nymph
 	plushies["plushie, mouse"] = /obj/item/toy/plushie/mouse
 	plushies["plushie, kitten"] = /obj/item/toy/plushie/kitten

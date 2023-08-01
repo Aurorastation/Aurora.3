@@ -198,10 +198,10 @@
 	desc = "How could you do this? You monster!"
 
 /mob/living/simple_animal/chicken
-	name = "\improper chicken"
+	name = "chicken"
 	desc = "Hopefully the eggs are good this season."
 	icon = 'icons/mob/npc/livestock.dmi'
-	icon_state = null
+	icon_state = "chicken_white" // Overridden in Initialize(). This is for map visibility.
 	icon_living = null
 	icon_dead = null
 	speak = list("Cluck!","BWAAAAARK BWAK BWAK BWAK!","Bwaak bwak.")

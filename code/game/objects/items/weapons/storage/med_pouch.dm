@@ -30,7 +30,7 @@ Single Use Emergency Pouches
 	var/injury_type = "generic"
 
 /obj/item/storage/box/fancy/med_pouch/Initialize()
-	..()
+	. = ..()
 	name = "emergency [injury_type] pouch"
 	make_exact_fit()
 	for(var/obj/item/reagent_containers/pill/P in contents)
@@ -161,25 +161,52 @@ Single Use Emergency Pouches
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto
 	name = "emergency autoinjector"
-	desc = "An emergency autoinjector from an emergency medical pouch."
+	desc = "An emergency autoinjector from an emergency medical pouch. Do not administer more than one of each type of autoinjector to a patient."
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline
 	name = "emergency inaprovaline autoinjector"
+	desc = "An emergency autoinjector containing inaprovaline, for stabilizing patients in or near critical condition."
 	reagents_to_add = list(/singleton/reagent/inaprovaline = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/mortaphenyl
 	name = "emergency mortaphenyl autoinjector"
+	desc = "An emergency autoinjector containing mortaphenyl, a powerful painkiller for use in extreme injury. Side effects include confusion and impaired vision. <b>DO NOT APPLY TO ANYONE UNDER THE INFLUENCE OF ALCOHOL.</b>"
 	reagents_to_add = list(/singleton/reagent/mortaphenyl = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dylovene
 	name = "emergency dylovene autoinjector"
+	desc = "An emergency autoinjector containing dylovene, an effective anti-toxin medicine that protects the body from poisoning effects and neutralizes toxins."
 	reagents_to_add = list(/singleton/reagent/dylovene = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin
 	name = "emergency dexalin autoinjector"
+	desc = "An emergency autoinjector containing dexalin, a medicine which delivers oxygen to patients who are deprived of it, such as with lung injuries or vacuum exposure. <b>DO NOT APPLY TO VAURCAE.</b>"
 	reagents_to_add = list(/singleton/reagent/dexalin = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline
 	name = "emergency adrenaline autoinjector"
+	desc = "An emergency autoinjector containing adrenaline, or epinephrine. This autoinjector comes with a dosage meant to make rescusitation easier. Apply to those in critical condition only, and combine with CPR."
 	amount_per_transfer_from_this = 8
 	reagents_to_add = list(/singleton/reagent/adrenaline = 8)
+
+//advanced autos
+
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/butazoline
+	name = "emergency butazoline autoinjector"
+	desc = "An emergency autoinjector containing butazoline for treating severe trauma. Side effects include dehydration and itchiness."
+	reagents_to_add = list(/singleton/reagent/butazoline = 10)
+
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dermaline
+	name = "emergency dermaline autoinjector"
+	desc = "An emergency autoinjector containing dermaline for treating severe burns. Side effects include dehydration and itchiness."
+	reagents_to_add = list(/singleton/reagent/dermaline = 10)
+
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin_plus
+	name = "emergency dexalin plus autoinjector"
+	desc = "An emergency autoinjector containing dexalin plus, a medicine which efficiently delivers oxygen to patients who are deprived of it, such as with lung injuries or vacuum exposure. <b>DO NOT APPLY TO VAURCAE.</b>"
+	reagents_to_add = list(/singleton/reagent/dexalin/plus = 10)
+
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/fluvectionem
+	name = "emergency bloodstream purge autoinjector"
+	desc = "An emergency anti-toxin autoinjector that, when injected into a person, purges their bloodstream of chemicals, including toxins and medicine alike. Useful in the event of severe poisonings.<b>PURGES MEDICINE. DO NOT APPLY IF ANY MEDICATION WAS ALREADY GIVEN.</b>"
+	reagents_to_add = list(/singleton/reagent/fluvectionem = 5)

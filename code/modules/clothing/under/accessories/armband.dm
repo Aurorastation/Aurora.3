@@ -48,6 +48,8 @@
 /obj/item/clothing/accessory/armband/offworlder
 	name = "science exo-stellar ribbon"
 	desc = "Durable cloth meant to be worn over or attached to the chest pieces of the ESS modules. This one is purple."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "ribbon_sci"
 	slot = ACCESSORY_SLOT_CAPE
 	flippable = 0

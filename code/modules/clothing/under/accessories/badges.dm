@@ -440,8 +440,12 @@
 	desc = "A dagger issued as a writ of passage to Scarabs abroad."
 	desc_extended = "By Scarab traditions, one should show their weapon to non-Scarabs upon first meeting. This dagger, sheathed in hakhma chitin, is often given to noncombatants, the Released, or the young, so they \
 	may meet with outsiders with at least a blade between them. Despite this, the blade is sealed tightly within the scabbard."
-	icon_state = "passcard_scarab"
-	item_state = "passcard_scarab"
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	icon_state = "passblade_scarab"
+	item_state = "passblade_scarab"
+	worn_overlay = "over"
+	contained_sprite = TRUE
+	build_from_parts = TRUE
 	slot_flags = SLOT_HOLSTER
 	w_class = ITEMSIZE_SMALL
 

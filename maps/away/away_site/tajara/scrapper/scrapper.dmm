@@ -1616,12 +1616,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
-"ua" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/obj/item/hullbeacon/red,
-/turf/template_noop,
-/area/scrapper_base)
 "ud" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
@@ -3555,11 +3549,6 @@
 	temperature = 278.15
 	},
 /area/shuttle/scrapper_ship/power_station)
-"RJ" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space)
 "RK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -37946,7 +37935,7 @@ Uk
 OZ
 mx
 JU
-RJ
+Ng
 Ng
 Ng
 Ng
@@ -40010,7 +39999,7 @@ Iu
 Iu
 Iu
 Iu
-RJ
+Ng
 Ng
 Ng
 Ng
@@ -45142,7 +45131,7 @@ Uk
 cD
 mx
 JU
-RJ
+Ng
 Ng
 Ng
 Ng
@@ -46453,7 +46442,7 @@ Ng
 Ng
 Ng
 Ng
-ua
+CO
 Kn
 Kn
 Kn

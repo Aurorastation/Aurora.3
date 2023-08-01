@@ -101,7 +101,7 @@
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-	
+
 /datum/gear/head/skrell/skrell_bandana
 	display_name = "skrell bandana"
 	path = /obj/item/clothing/head/skrell/skrell_bandana
@@ -135,6 +135,13 @@
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_NO_SELECTION
+
+/datum/gear/wulu_pouch
+	display_name = "wulumunusha joint pouch"
+	path = /obj/item/storage/box/fancy/cigarettes/wulu
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/ears/skrell/goop
 	display_name = "glowing algae"
@@ -233,19 +240,19 @@
 */
 var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 
-datum/gear_tweak/social_credit/get_contents(var/metadata)
+/datum/gear_tweak/social_credit/get_contents(var/metadata)
 	return "Social Credit Score: [metadata]"
 
-datum/gear_tweak/social_credit/get_default()
+/datum/gear_tweak/social_credit/get_default()
 	return 5
 
-datum/gear_tweak/social_credit/get_metadata(var/user, var/metadata)
+/datum/gear_tweak/social_credit/get_metadata(var/user, var/metadata)
 	var/credit_score = input(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Credit Score") as null|num
 	if(credit_score)
 		return round(credit_score, 0.01)
 	return metadata
 
-datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/passport/nralakk/PP, var/metadata)
+/datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/passport/nralakk/PP, var/metadata)
 	if(!istype(PP))
 		return
 	PP.credit_score = metadata + pick(-0.01, 0, 0.01)
@@ -393,7 +400,7 @@ datum/gear_tweak/social_credit/tweak_item(var/obj/item/clothing/accessory/badge/
 	path = /obj/item/clothing/under/skrell/wetsuit
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ADDITIONAL_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/ears/skrell/tailband
 	display_name = "SCS tailband"

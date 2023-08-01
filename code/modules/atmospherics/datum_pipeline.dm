@@ -21,6 +21,7 @@
 		thing.parent = null
 
 	members = null
+	edges = null
 
 	return ..()
 

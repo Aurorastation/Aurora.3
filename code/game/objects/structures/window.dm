@@ -534,6 +534,8 @@
 	icon = 'icons/obj/smooth/shuttle_window.dmi'
 	icon_state = "shuttle_window"
 	basestate = "window"
+	flags = 0
+	obj_flags = null
 	maxhealth = 40
 	reinf = TRUE
 	basestate = "w"
@@ -596,6 +598,7 @@
 /obj/structure/window/full
 	name = "window"
 	desc = "You aren't supposed to see this."
+	flags = 0
 	obj_flags = null
 	dir = 5
 	maxhealth = 28 // Two glass panes worth of health, since that's the minimum you need to break through to get to the other side.
@@ -660,6 +663,9 @@
 	update_nearby_tiles(need_rebuild=1)
 	update_icon()
 	update_nearby_icons()
+	initialized = TRUE
+
+	return INITIALIZE_HINT_NORMAL
 
 /obj/structure/window/full/Destroy()
 	var/obj/structure/window_frame/WF = locate(/obj/structure/window_frame) in get_turf(src)

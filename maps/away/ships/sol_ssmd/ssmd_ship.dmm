@@ -38,9 +38,6 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
-/obj/structure/sign/flag/sol/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/wood/coloured/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "ajL" = (
@@ -95,7 +92,6 @@
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/starboardengine)
 "aow" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -3232,11 +3228,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/bridge)
-"iwS" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/ship/ssmd_corvette/hangar)
 "ixt" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -7220,7 +7211,6 @@
 /area/ship/ssmd_corvette/hangar)
 "vRd" = (
 /obj/structure/table/wood,
-/obj/item/board,
 /turf/simulated/floor/wood/coloured/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "vTv" = (
@@ -7671,9 +7661,7 @@
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
 	},
-/obj/structure/sign/flag/sol/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/sol/large/south,
 /obj/machinery/light{
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
@@ -41869,9 +41857,9 @@ wgj
 aSi
 aSi
 hoJ
-iwS
-iwS
-iwS
+aMB
+aMB
+aMB
 rtf
 aMB
 qZm

@@ -23,6 +23,13 @@
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
+	scanimage = "nka_freighter.png"
+	designer = "NanoTrasen, New Kingdom of Adhomai"
+	volume = "49 meters length, 28 meters beam/width, 11 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Not apparent, port obscured flight craft bay"
+	sizeclass = "Hma'trra Freighter"
+	shiptype = "Long-term shipping utilities"
 	initial_generic_waypoints = list(
 		"nka_merchant_ship_1",
 		"nka_merchant_ship_2",
@@ -33,9 +40,17 @@
 		"Her Majesty's Mercantile Flotilla Shuttle" = list("nav_nka_merchant_shuttle")
 	)
 
+	invisible_until_ghostrole_spawn = TRUE
+
 /obj/effect/overmap/visitable/ship/nka_merchant/New()
 	designation = "[pick("Minharrzka's Daughter", "Her Majesty's Merchant", "Vahzirthaamro", "Azunja's Favorite", "Wealth-Beyond-Measure", "Miran'mir", "Crown Traveller", "Space Monarch")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/nka_merchant/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "nka_freighter")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/nka_merchant
 	base_turf = /turf/space

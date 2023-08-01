@@ -21,7 +21,7 @@
 /mob/abstract/oranges_ear
 	icon_state = null
 	invisibility = 0
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	faction = null
 	screens = null
 
@@ -31,6 +31,7 @@
 
 /mob/abstract/oranges_ear/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE)
+	initialized = TRUE
 	return INITIALIZE_HINT_NORMAL
 
 /mob/abstract/oranges_ear/Destroy(force)
@@ -211,7 +212,7 @@
 		mid_turf = get_step_towards(mid_turf, target_turf)
 		if(mid_turf == target_turf)
 			break
-		if(mid_turf.opacity)
+		if(IS_OPAQUE_TURF(mid_turf))
 			return FALSE
 
 	return TRUE

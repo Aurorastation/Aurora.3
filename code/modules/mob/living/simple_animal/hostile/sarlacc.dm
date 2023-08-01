@@ -13,7 +13,7 @@
 	desc = "Hop in, the gastrointestinal juices are just fine."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = null
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	throwforce = 0
 	anchored = 1
 	deployed = 1
@@ -398,7 +398,7 @@
 		if(L.reagents)
 			var/madhouse = pick(/singleton/reagent/psilocybin,/singleton/reagent/mindbreaker,/singleton/reagent/impedrezene,/singleton/reagent/cryptobiolin,/singleton/reagent/soporific,/singleton/reagent/mutagen)
 			var/madhouse_verbal_component = pick(thoughts)
-			L.reagents.add_reagent("[madhouse]", 3)
+			L.reagents.add_reagent(madhouse, 3)
 			to_chat(L, "<span class='alium'><b><i>[madhouse_verbal_component]</i></b></span>")
 
 /obj/structure/greatworm

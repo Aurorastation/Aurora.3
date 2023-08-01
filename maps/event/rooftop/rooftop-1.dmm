@@ -440,7 +440,6 @@
 /area/city/mendell/interior)
 "cF" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
-/obj/structure/sign/flag/sol/right,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "cG" = (
@@ -484,7 +483,6 @@
 /area/city/mendell/interior)
 "cL" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
-/obj/structure/sign/flag/coalition/right,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "cN" = (
@@ -3239,7 +3237,7 @@
 	},
 /area/city/mendell/interior)
 "rO" = (
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "rP" = (
@@ -3285,8 +3283,8 @@
 /turf/simulated/floor/tiled/ramp,
 /area/city/mendell)
 "rZ" = (
-/obj/structure/banner/scc,
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "sc" = (
@@ -7181,7 +7179,7 @@
 /area/city/mendell/interior)
 "OQ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
-/obj/structure/sign/flag/sol/left,
+/obj/structure/sign/flag/sol/large/north,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "OR" = (
@@ -8306,7 +8304,7 @@
 /area/city/mendell)
 "Vh" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
-/obj/structure/sign/flag/coalition/left,
+/obj/structure/sign/flag/coalition/large/north,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "Vi" = (
@@ -8716,7 +8714,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "Xo" = (
-/obj/structure/banner/scc,
+/obj/structure/sign/flag/scc,
 /turf/simulated/floor/wood,
 /area/city/mendell)
 "Xs" = (

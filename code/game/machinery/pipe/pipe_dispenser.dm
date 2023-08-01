@@ -43,22 +43,40 @@
 		<A href='?src=\ref[src];make=34;dir=1'>4-Way Manifold</A><BR>
 		<A href='?src=\ref[src];make=36;dir=1'>Upward Pipe</A><BR>
 		<A href='?src=\ref[src];make=38;dir=1'>Downward Pipe</A><BR>
+		<b>Fuel pipes:</b><BR>
+		<A href='?src=\ref[src];make=44;dir=1'>Pipe</A><BR>
+		<A href='?src=\ref[src];make=45;dir=5'>Bent Pipe</A><BR>
+		<A href='?src=\ref[src];make=48;dir=1'>Manifold</A><BR>
+		<A href='?src=\ref[src];make=40;dir=1'>Pipe Cap</A><BR>
+		<A href='?src=\ref[src];make=50;dir=1'>4-Way Manifold</A><BR>
+		<A href='?src=\ref[src];make=52;dir=1'>Upward Pipe</A><BR>
+		<A href='?src=\ref[src];make=54;dir=1'>Downward Pipe</A><BR>
+		<b>Auxiliary pipes:</b><BR>
+		<A href='?src=\ref[src];make=46;dir=1'>Pipe</A><BR>
+		<A href='?src=\ref[src];make=47;dir=5'>Bent Pipe</A><BR>
+		<A href='?src=\ref[src];make=49;dir=1'>Manifold</A><BR>
+		<A href='?src=\ref[src];make=40;dir=1'>Pipe Cap</A><BR>
+		<A href='?src=\ref[src];make=51;dir=1'>4-Way Manifold</A><BR>
+		<A href='?src=\ref[src];make=53;dir=1'>Upward Pipe</A><BR>
+		<A href='?src=\ref[src];make=55;dir=1'>Downward Pipe</A><BR>
 		<b>Devices:</b><BR>
 		<A href='?src=\ref[src];make=26;dir=1'>Universal pipe adapter</A><BR>
 		<A href='?src=\ref[src];make=4;dir=1'>Connector</A><BR>
+		<A href='?src=\ref[src];make=62;dir=1'>Fuel Connector</A><BR>
+		<A href='?src=\ref[src];make=63;dir=1'>Auxiliary Connector</A><BR>
 		<A href='?src=\ref[src];make=7;dir=1'>Unary Vent</A><BR>
+		<A href='?src=\ref[src];make=64;dir=1'>Auxiliary Unary Vent</A><BR>
 		<A href='?src=\ref[src];make=9;dir=1'>Gas Pump</A><BR>
+		<A href='?src=\ref[src];make=60;dir=1'>Fuel Gas Pump</A><BR>
+		<A href='?src=\ref[src];make=61;dir=1'>Auxiliary Gas Pump</A><BR>
 		<A href='?src=\ref[src];make=13;dir=1'>Pressure Regulator</A><BR>
 		<A href='?src=\ref[src];make=42;dir=1'>Scrubbers Pressure Regulator</A><BR>
 		<A href='?src=\ref[src];make=43;dir=1'>Supply Pressure Regulator</A><BR>
+		<A href='?src=\ref[src];make=58;dir=1'>Fuel Pressure Regulator</A><BR>
+		<A href='?src=\ref[src];make=59;dir=1'>Auxiliary Pressure Regulator</A><BR>
 		<A href='?src=\ref[src];make=14;dir=1'>High Power Gas Pump</A><BR>
 		<A href='?src=\ref[src];make=10;dir=1'>Scrubber</A><BR>
 		<A href='?src=\ref[src];makemeter=1'>Meter</A><BR>
-		<A href='?src=\ref[src];make=11;dir=1'>Gas Filter</A><BR>
-		<A href='?src=\ref[src];make=21;dir=1'>Gas Filter - Mirrored</A><BR>
-		<A href='?src=\ref[src];make=12;dir=1'>Gas Mixer</A><BR>
-		<A href='?src=\ref[src];make=23;dir=1'>Gas Mixer - Mirrored</A><BR>
-		<A href='?src=\ref[src];make=22;dir=1'>Gas Mixer - T</A><BR>
 		<A href='?src=\ref[src];make=24;dir=1'>Omni Gas Mixer</A><BR>
 		<A href='?src=\ref[src];make=25;dir=1'>Omni Gas Filter</A><BR>
 		<b>Heat exchange:</b><BR>

@@ -2,10 +2,7 @@
 "aj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "aC" = (
 /obj/structure/table/reinforced,
@@ -22,10 +19,7 @@
 /obj/item/bedsheet/blue,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "bK" = (
 /obj/structure/grille,
@@ -41,10 +35,7 @@
 "cn" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "cv" = (
 /obj/structure/grille,
@@ -139,10 +130,7 @@
 /area/derelict)
 "hE" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "hS" = (
 /obj/machinery/door/airlock/centcom{
@@ -160,19 +148,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "iU" = (
 /obj/effect/decal/cleanable/spiderling_remains,
-/turf/simulated/floor/tiled/airless,
-/area/derelict)
-"jr" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "jC" = (
@@ -209,9 +188,7 @@
 /turf/simulated/floor/tiled,
 /area/derelict)
 "jK" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/sol/large/north,
 /obj/machinery/light_construct{
 	dir = 1
 	},
@@ -223,15 +200,10 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "ki" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/sol/large/north,
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "kj" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "ku" = (
@@ -270,10 +242,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "lu" = (
 /obj/structure/curtain/open/shower,
@@ -323,10 +292,7 @@
 "mM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/door_assembly,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "mP" = (
 /obj/structure/table/wood,
@@ -337,10 +303,7 @@
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "nx" = (
 /obj/structure/table/wood,
@@ -371,10 +334,7 @@
 /obj/structure/door_assembly{
 	anchored = 1
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "oZ" = (
 /turf/simulated/floor/tiled,
@@ -385,9 +345,6 @@
 /turf/simulated/floor/tiled,
 /area/derelict)
 "pA" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = 32
-	},
 /obj/machinery/light_construct{
 	dir = 1
 	},
@@ -455,10 +412,7 @@
 /obj/structure/sign/poster{
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "sI" = (
 /obj/structure/grille,
@@ -485,10 +439,7 @@
 /obj/machinery/light{
 	brightness_color = "#FA8282"
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "tz" = (
 /obj/effect/decal/cleanable/dirt,
@@ -534,10 +485,7 @@
 "un" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "us" = (
 /obj/structure/grille,
@@ -572,10 +520,7 @@
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "uQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -648,10 +593,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "Bl" = (
 /obj/structure/toilet,
@@ -680,7 +622,7 @@
 /obj/structure/table/wood,
 /obj/machinery/photocopier/faxmachine,
 /obj/item/paper{
-	info = "[center][flag_sol][/center][center][small][i]This paper has been transmitted by Solarian Naval Fleet Command, 39th Fleet[/i][/small][/center][hr][hr][small]Date: 09/22/2452 Orders sent by: Admiral Sooraj Sirasikar, 39th FleetRecipient: Captain Obasie UchiePosition: Commanding Officer of Marine Garrison Installation Tango Charlie-22 Priority: CriticalSubject: EvacuationTransmission: Tau Ceti independence imminent. Bunker must be evacuated in accordance to independence agreement. Scrub all databases and activate automated defenses. Leave nothing valuable. Do not destroy installation. It may be needed again one day. Evacuation shuttle will arrive in one hour."
+	info = "\[center]\[flag_sol]\[/center]\[center]\[small]\[i]This paper has been transmitted by Solarian Naval Fleet Command, 39th Fleet\[/i]\[/small]\[/center]\[hr]\[hr]\[small]Date: 09/22/2452 Orders sent by: Admiral Sooraj Sirasikar, 39th FleetRecipient: Captain Obasie UchiePosition: Commanding Officer of Marine Garrison Installation Tango Charlie-22 Priority: CriticalSubject: EvacuationTransmission: Tau Ceti independence imminent. Bunker must be evacuated in accordance to independence agreement. Scrub all databases and activate automated defenses. Leave nothing valuable. Do not destroy installation. It may be needed again one day. Evacuation shuttle will arrive in one hour."
 	},
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/wood,
@@ -688,10 +630,7 @@
 "CD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/sol/marine,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "DF" = (
 /obj/random/junk,
@@ -704,10 +643,7 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "Em" = (
 /obj/structure/toilet,
@@ -773,7 +709,7 @@
 	deployed = 1
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
+/area/derelict)
 "GF" = (
 /obj/structure/bed/stool/padded/red,
 /obj/machinery/light{
@@ -787,10 +723,7 @@
 	dir = 1;
 	status = 2
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "GX" = (
 /obj/effect/decal/cleanable/dirt,
@@ -862,15 +795,12 @@
 /obj/machinery/light{
 	brightness_color = "#FA8282"
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "KL" = (
 /obj/structure/boulder,
 /turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
+/area/derelict)
 "KZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -908,9 +838,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict)
 "Mi" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/sol/large/south,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
@@ -934,10 +862,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "Oh" = (
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "Oi" = (
 /obj/effect/decal/cleanable/mucus,
@@ -986,10 +911,7 @@
 /obj/structure/bed/padded,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "QX" = (
 /obj/effect/decal/cleanable/cobweb,
@@ -1047,10 +969,7 @@
 /obj/effect/decal/cleanable/dirt{
 	layer = 3.1
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "SI" = (
 /obj/machinery/door/airlock/vault/bolted,
@@ -1100,26 +1019,21 @@
 	brightness_color = "#FA8282"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
+/area/derelict)
 "Vs" = (
-/obj/structure/sign/flag/sol/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/sol/large/south,
 /obj/item/landmine/frag{
 	deployed = 1
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
+/area/derelict)
 "Wn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/remains/rat,
 /obj/structure/sign/flag/sol{
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/wood/airless,
 /area/derelict)
 "WE" = (
 /obj/structure/grille,
@@ -1181,11 +1095,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "Yp" = (
-/obj/structure/sign/flag/sol/right{
-	pixel_y = -32
-	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
+/area/derelict)
 "YV" = (
 /turf/template_noop,
 /area/space)
@@ -1204,9 +1115,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/derelict)
-"ZG" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/space)
 
 (1,1,1) = {"
 YV
@@ -29351,13 +29259,13 @@ YV
 YV
 YV
 YV
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 YV
 YV
 YV
@@ -29607,16 +29515,16 @@ YV
 YV
 YV
 YV
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
 YV
 YV
 YV
@@ -29864,19 +29772,19 @@ zM
 YV
 YV
 YV
-ZG
+Yp
 zM
 zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 YV
 YV
 YV
@@ -30128,11 +30036,11 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
 zM
 zM
 YV
@@ -30360,7 +30268,7 @@ YV
 YV
 YV
 YV
-ZG
+Yp
 YV
 zM
 zM
@@ -30387,8 +30295,8 @@ zM
 zM
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -30616,8 +30524,8 @@ YV
 YV
 YV
 YV
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -30645,7 +30553,7 @@ zM
 zM
 zM
 zM
-ZG
+Yp
 zM
 zM
 zM
@@ -30872,8 +30780,8 @@ YV
 YV
 YV
 YV
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -30902,8 +30810,8 @@ zM
 zM
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -31126,9 +31034,9 @@ YV
 YV
 YV
 YV
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -31139,8 +31047,8 @@ zM
 zM
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -31159,9 +31067,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -31382,8 +31290,8 @@ YV
 YV
 YV
 YV
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -31395,7 +31303,7 @@ zM
 zM
 zM
 zM
-ZG
+Yp
 Gy
 Va
 Uq
@@ -31416,9 +31324,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -31638,12 +31546,12 @@ YV
 YV
 YV
 YV
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -31651,10 +31559,10 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
 Lu
 xW
 nR
@@ -31673,9 +31581,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -31893,25 +31801,25 @@ YV
 YV
 YV
 YV
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 Lu
 xU
 xU
@@ -31930,9 +31838,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -32151,23 +32059,23 @@ YV
 YV
 YV
 YV
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 Gy
-ZG
+Yp
 Vs
 Uq
 Uq
@@ -32187,9 +32095,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -32410,21 +32318,21 @@ YV
 YV
 YV
 YV
-ZG
+Yp
 YV
-ZG
+Yp
 zM
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 Yp
 Uq
 Uq
@@ -32444,9 +32352,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -32672,16 +32580,16 @@ YV
 YV
 zM
 zM
-ZG
+Yp
 zM
 zM
 zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 Uq
 Uq
 gd
@@ -32701,9 +32609,9 @@ zM
 zM
 zM
 zM
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -32936,8 +32844,8 @@ zM
 zM
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 Uq
 Uq
 gd
@@ -34995,7 +34903,7 @@ pV
 vN
 Jc
 Ce
-jr
+gd
 Mf
 gd
 WG
@@ -36041,8 +35949,8 @@ zM
 zM
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -36298,8 +36206,8 @@ zM
 zM
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -36555,8 +36463,8 @@ zM
 zM
 zM
 KL
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM
@@ -36808,12 +36716,12 @@ KG
 Uq
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 KL
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -37063,13 +36971,13 @@ hE
 Oh
 hE
 Uq
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -37321,12 +37229,12 @@ lp
 lp
 Uq
 zM
-ZG
-ZG
-ZG
-ZG
-ZG
-ZG
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
 zM
 zM
 zM
@@ -37579,8 +37487,8 @@ sN
 Uq
 zM
 zM
-ZG
-ZG
+Yp
+Yp
 zM
 zM
 zM

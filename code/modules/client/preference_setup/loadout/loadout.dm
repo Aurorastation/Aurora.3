@@ -356,7 +356,7 @@ var/list/gear_datums = list()
 
 	else if(href_list["select_category"])
 		current_tab = href_list["select_category"]
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return TOPIC_REFRESH
 	else if(href_list["clear_loadout"])
 		pref.gear.Cut()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -388,8 +388,10 @@ var/list/gear_datums = list()
 		description = initial(O.desc)
 	if(flags & GEAR_HAS_COLOR_SELECTION)
 		gear_tweaks += list(gear_tweak_free_color_choice)
-	if(flags & GEAR_HAS_ADDITIONAL_COLOR_SELECTION)
-		gear_tweaks += list(gear_tweak_additional_color)
+	if(flags & GEAR_HAS_ALPHA_SELECTION)
+		gear_tweaks += list(gear_tweak_alpha_choice)
+	if(flags & GEAR_HAS_ACCENT_COLOR_SELECTION)
+		gear_tweaks += list(gear_tweak_accent_color)
 	if(flags & GEAR_HAS_NAME_SELECTION)
 		gear_tweaks += list(gear_tweak_free_name)
 	if(flags & GEAR_HAS_DESC_SELECTION)

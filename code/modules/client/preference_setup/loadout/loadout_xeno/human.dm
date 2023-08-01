@@ -88,6 +88,7 @@
 	path = /obj/item/clothing/accessory/badge/passcard/scarab
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
 	sort_category = "Xenowear - Human"
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)
 
 /datum/gear/accessory/offworlder_mantle

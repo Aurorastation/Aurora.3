@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/colt
 	name = ".45 combat pistol"
-	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette.  Uses .45 rounds."
+	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
 	magazine_type = /obj/item/ammo_magazine/c45m
@@ -14,6 +14,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/colt/update_icon()
 	..()
@@ -29,6 +30,7 @@
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Rename your gun. If you're the detective."
+	set src in usr
 
 	var/mob/M = usr
 	if(!M.mind)	return 0
@@ -45,7 +47,7 @@
 
 /obj/item/gun/projectile/colt/super
 	name = "ornamental .45 combat pistol"
-	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. Uses .45 rounds. This example sports a short slide, wood-paneled grips, and few signs of use, likely belonging to someone of higher stature."
+	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. This example sports a short slide, wood-paneled grips, and few signs of use, likely belonging to someone of higher stature."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
 	magazine_type = /obj/item/ammo_magazine/c45m/stendo
@@ -62,7 +64,7 @@
 
 /obj/item/gun/projectile/automatic/lebman
 	name = "automatic .45 combat pistol"
-	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette.  Uses .45 rounds. This example has been modified to allow fully-automatic fire, and sports a prominent vertical grip and muzzle compensator to aid in control."
+	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. This example has been modified to allow fully-automatic fire, and sports a prominent vertical grip and muzzle compensator to aid in control."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
 	magazine_type = /obj/item/ammo_magazine/c45m/lebman
@@ -89,7 +91,7 @@
 
 /obj/item/gun/projectile/sec
 	name = "\improper .45 pistol"
-	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. Uses .45 rounds."
+	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun.dmi'
 	icon_state = "secgun"
@@ -102,6 +104,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/sec/update_icon()
 	..()
@@ -119,7 +122,7 @@
 
 /obj/item/gun/projectile/sec/wood
 	name = "custom .45 pistol"
-	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip. Uses .45 rounds."
+	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun_wood.dmi'
 	icon_state = "secgunwood"
@@ -134,7 +137,7 @@
 
 /obj/item/gun/projectile/automatic/x9
 	name = "automatic .45 pistol"
-	desc = "A NanoTrasen-designed sidearm, modified for fully-automatic fire. Issued to select security and law enforcement groups. Uses .45 rounds."
+	desc = "A NanoTrasen-designed sidearm, modified for fully-automatic fire. Issued to select security and law enforcement groups."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security \
 	forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. \
 	A trademark of NanoTrasen security forces. This one has been modified for fully-automatic fire from the factory and sports a collapsible shoulder stock for better control. It uses .45 rounds."
@@ -182,7 +185,7 @@
 	sel_mode = 1
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0, fire_delay_wielded=0),
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_PISTOL, fire_delay_wielded=ROF_SMG),
 		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10))
 		)
 
@@ -196,7 +199,7 @@
 
 /obj/item/gun/projectile/silenced
 	name = "silenced pistol"
-	desc = "A small, quiet, easily concealable gun. Uses .45 rounds."
+	desc = "A small, quiet, easily concealable gun."
 	desc_extended = "Created as a disposable and concealable weapon, the Mrrazhakulii suppressed pistol is a firearm with a silencer integrated as part of its barrel. \
 		Carried by guerrilla forces and spies, those guns are used in assassination and subterfuge operations. Due to using cheap and available materials, such as \
 		recycled iron and tires, countless of those pistols were distributed among cells and ALA soldiers."
@@ -213,6 +216,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/silenced/update_icon()
 	..()
@@ -223,7 +227,7 @@
 
 /obj/item/gun/projectile/deagle
 	name = ".50 magnum pistol"
-	desc = "A robust handgun that uses .50 AE ammo."
+	desc = "A very robust handgun."
 	icon = 'icons/obj/guns/deagle.dmi'
 	icon_state = "deagle"
 	item_state = "deagle"
@@ -235,6 +239,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/a50)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	fire_delay = ROF_RIFLE
 
 /obj/item/gun/projectile/deagle/update_icon()
 	..()
@@ -245,7 +250,7 @@
 
 /obj/item/gun/projectile/deagle/adhomai
 	name = "adhomian heavy pistol"
-	desc = "A bulk handgun used by republican commissars and high-ranking members of the Hadiist Party."
+	desc = "A bulky handgun used by republican commissars and high-ranking members of the Hadiist Party."
 	icon = 'icons/obj/guns/adhomian_heavy_pistol.dmi'
 	icon_state = "adhomian_heavy_pistol"
 	item_state = "adhomian_heavy_pistol"
@@ -255,7 +260,7 @@
 
 /obj/item/gun/projectile/gyropistol
 	name = "gyrojet pistol"
-	desc = "A bulky pistol designed to fire self propelled rounds"
+	desc = "A massive experimental pistol, designed to fire self-propelled rounds."
 	icon = 'icons/obj/guns/gyropistol.dmi'
 	icon_state = "gyropistol"
 	item_state = "gyropistol"
@@ -270,6 +275,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/a75)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	fire_delay = ROF_UNWIELDY
 
 /obj/item/gun/projectile/gyropistol/update_icon()
 	..()
@@ -280,7 +286,7 @@
 
 /obj/item/gun/projectile/pistol
 	name = "9mm pistol"
-	desc = "A compact 9mm handgun, extremely popular all throughout human space."
+	desc = "An extremely popular compact handgun, used throughout human space."
 	desc_extended = "The Zavodskoi Interstellar Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"
@@ -296,13 +302,14 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
 	var/can_silence = TRUE
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/pistol/flash
 	name = "9mm signal pistol"
 	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
 
 /obj/item/gun/projectile/pistol/detective
-	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip. Uses 9mm rounds."
+	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip."
 	desc_extended = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by NanoTrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in 9mm caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - 9mm in such a small package can be unpleasant for the average shooter."
 	name = "compact 9mm pistol"
 	magazine_type = /obj/item/ammo_magazine/mc9mm
@@ -322,6 +329,7 @@
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Rename your gun."
+	set src in usr
 
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
 
@@ -404,15 +412,15 @@
 
 /obj/item/gun/projectile/pirate/Initialize()
 	ammo_type = pick(ammo_types)
-	desc += " Uses [ammo_types[ammo_type]] rounds."
-
 	var/obj/item/ammo_casing/ammo = ammo_type
 	caliber = initial(ammo.caliber)
 	. = ..()
 
 /obj/item/gun/projectile/leyon
 	name = "10mm pistol"
-	desc = "NanoTrasen's first marketed firearm design, the Mk1, better known as the Everyman, was an instant hit - though it is a crude, stripper clip-fed design with a very small capacity, the Everyman is absurdly inexpensive and famously reliable, and is now one of the most common weapons found in the Orion Spur. Chambered in 10mm."
+	desc = "NanoTrasen's first marketed firearm design, the Mk1, better known as the Everyman, was an instant hit - though it is a crude, \
+	stripper clip-fed design with a very small capacity, the Everyman is absurdly inexpensive and famously reliable, and is now one of the most \
+	common weapons found in the Orion Spur."
 	icon = 'icons/obj/guns/leyon.dmi'
 	icon_state = "leyon"
 	item_state = "leyon"
@@ -424,6 +432,7 @@
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = SINGLE_CASING|SPEEDLOADER
+	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/leyon/update_icon()
 	..()
@@ -434,7 +443,7 @@
 
 /obj/item/gun/projectile/pistol/sol
 	name = "solarian service pistol"
-	desc = "Manufactured by Zavodskoi Interstellar and based off of a full-sized variant of their 9mm design, the compact M8 is the standard service pistol of the Solarian Armed Forces. Chambered in 9mm."
+	desc = "Manufactured by Zavodskoi Interstellar and based off of a full-sized variant of their 9mm design, the compact M8 is the standard service pistol of the Solarian Armed Forces."
 	icon = 'icons/obj/guns/sol_pistol.dmi'
 	icon_state = "m8"
 	item_state = "m8"
@@ -449,7 +458,7 @@
 
 /obj/item/gun/projectile/pistol/adhomai
 	name = "adhomian service pistol"
-	desc = "The Adar'Mazy pistol is an adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
+	desc = "The Adar'Mazy pistol is an Adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
 	icon = 'icons/obj/guns/adhomian_pistol.dmi'
 	icon_state = "adhomian_pistol"
 	item_state = "adhomian_pistol"
@@ -466,8 +475,7 @@
 
 /obj/item/gun/projectile/pistol/super_heavy
 	name = "super-heavy pistol"
-	desc = "A big, bulky and extremely powerful pistol, intended to pierce even your strongest enemy. You should wield this thing with two hands, if you want your wrists to stay intact."
-	desc_info = "You should not shoot this pistol unwielded, if you are not a Unathi or a G2. It will fly out of your hand and almost certainly break the hand you are using. Even as a Unathi or G2, the accuracy will suffer, if shot unwielded."
+	desc = "A big, bulky, and extremely powerful pistol, intended to pierce even your strongest enemy. You should wield this thing with two hands, if you want your wrists to stay intact."
 	desc_extended = "The Kumar Arms 2557 is a newly designed type of \"super-heavy\" pistol. \
 	It features a light-weight polymer pistol grip, a bulky plasteel frame and an extra long barrel. \
 	It is chambered in the newly developed .599 Kumar Super rifle cartridge. Despite designed for rifle use, the newly developed propellants allows this cartridge for use in the Kumar Arms 2557, upping the stopping power significantly. \
@@ -487,8 +495,8 @@
 	ammo_type = /obj/item/ammo_casing/kumar_super
 	magazine_type = /obj/item/ammo_magazine/super_heavy
 	allowed_magazines = list(/obj/item/ammo_magazine/super_heavy)
-	fire_delay = 18
-	fire_delay_wielded = 18
+	fire_delay = ROF_UNWIELDY
+	fire_delay_wielded = ROF_SUPERHEAVY
 	max_shells = 5
 	force = 3
 	recoil = 5
@@ -496,6 +504,10 @@
 	accuracy = -3
 	accuracy_wielded = 1
 
+/obj/item/gun/projectile/pistol/super_heavy/Initialize()
+	. = ..()
+	desc_info = "This is an extremely powerful ballistic weapon, using .599 Kumar Super ammunition. If you aren't an Unathi or a G2 IPC, firing without wielding (clicking in-hand) could lead to serious injury or death; Unathi and G2s may fire it unwielded \
+	with an aim penalty. To fire the weapon, toggle the safety with ctrl-click (or enable HARM intent), then click where you want to fire.  To reload, click the gun with an empty hand to remove the magazine, and then insert a new one."
 
 /obj/item/gun/projectile/pistol/super_heavy/update_icon()
 	..()

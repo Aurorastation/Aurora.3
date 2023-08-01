@@ -372,7 +372,7 @@ var/global/dmm_suite/preloader/_preloader = new
 
 	if(crds)
 		if(!no_changeturf && ispath(path, /turf))
-			. = crds.ChangeTurf(path, FALSE, TRUE)
+			. = crds.ChangeTurf(path, FALSE, TRUE, TRUE)
 		else
 			. = create_atom(path, crds)//first preloader pass
 

@@ -4,7 +4,7 @@
 		icon_state = "blank"
 		anchored = 1
 		layer = 99
-		mouse_opacity = 0
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		unacidable = 1//Just to be sure.
 
 /obj/effect/beam
@@ -51,9 +51,9 @@
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
-	afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
-		user.drop_item()
-		src.throw_at(target, throw_range, throw_speed, user)
+/obj/item/beach_ball/afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
+	user.drop_item()
+	src.throw_at(target, throw_range, throw_speed, user)
 
 /obj/effect/spawner
 	name = "object spawner"
@@ -61,7 +61,7 @@
 /obj/structure/spaceship
 	name = "Abandoned Shuttle"
 	desc = "An ancient and inoperable shuttle-craft"
-	icon = 'icons/obj/machinery/spaceship.dmi'
+	icon = 'icons/obj/machinery/SpaceShip.dmi'
 	anchored = 1
 	density = 1
 

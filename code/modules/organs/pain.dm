@@ -3,8 +3,8 @@
 		animate(pain, alpha = target, time = 15, easing = ELASTIC_EASING)
 		animate(pain, alpha = 0, time = 20)
 
-mob/var/last_pain_message = ""
-mob/var/next_pain_time = 0
+/mob/var/last_pain_message = ""
+/mob/var/next_pain_time = 0
 
 // message is the custom message to be displayed
 // power decides how much painkillers will stop the message
@@ -42,7 +42,7 @@ mob/var/next_pain_time = 0
 		var/force_emote = species.get_pain_emote(src, power)
 		if(force_emote && prob(power))
 			var/singleton/emote/use_emote = usable_emotes[force_emote]
-			if(!(use_emote.message_type == AUDIBLE_MESSAGE && silent))
+			if(use_emote && !(use_emote.message_type == AUDIBLE_MESSAGE && silent))
 				emote(force_emote)
 
 	next_pain_time = world.time + 5 SECONDS
@@ -79,7 +79,7 @@ mob/var/next_pain_time = 0
 				msg = "[burning ? species.organ_low_burn_message : species.organ_low_pain_message]"
 			if(11 to 60)
 				msg = "[burning ? species.organ_med_burn_message : species.organ_med_pain_message]"
-			if(70 to 10000)
+			if(61 to INFINITY)
 				msg = "[burning ? species.organ_high_burn_message : species.organ_high_pain_message]"
 		msg = replacetext(msg, "%PARTNAME%", damaged_organ.name)
 		custom_pain(msg, maxdam, prob(30), damaged_organ, TRUE)

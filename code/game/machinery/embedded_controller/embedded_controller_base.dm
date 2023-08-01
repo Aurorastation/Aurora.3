@@ -10,7 +10,7 @@
 
 	var/on = 1
 
-obj/machinery/embedded_controller/radio/Destroy()
+/obj/machinery/embedded_controller/radio/Destroy()
 	if(SSradio)
 		SSradio.remove_object(src,frequency)
 	return ..()

@@ -57,9 +57,6 @@
 	var/obj/item/mech_component/sensors/head
 	var/obj/item/mech_component/chassis/body
 
-	// Invisible components.
-	var/datum/effect/effect/system/spark_spread/sparks
-
 	// Equipment tracking vars.
 	var/obj/item/mecha_equipment/selected_system
 	var/selected_hardpoint
@@ -97,6 +94,12 @@
 
 	selected_system = null
 
+	for(var/hardpoint in hardpoints)
+		var/obj/item/S = remove_system(hardpoint, force = 1)
+		qdel(S)
+
+	hardpoints = null
+
 	for(var/thing in pilots)
 		var/mob/pilot = thing
 		if(pilot.client)
@@ -112,13 +115,19 @@
 
 	hardpoint_hud_elements = null
 
-	hardpoints = null
-
 	QDEL_NULL(access_card)
 	QDEL_NULL(arms)
 	QDEL_NULL(legs)
 	QDEL_NULL(head)
 	QDEL_NULL(body)
+
+	QDEL_NULL(hud_health)
+	QDEL_NULL(hud_open)
+	QDEL_NULL(hud_power)
+	QDEL_NULL(hud_power_control)
+
+	QDEL_NULL(camera)
+	QDEL_NULL(radio)
 
 	. = ..()
 
@@ -288,7 +297,7 @@
 		if(istype(exosuit) && exosuit.head && exosuit.head.radio && exosuit.head.radio.is_functional())
 			return ..()
 
-/obj/item/device/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = mech_state)
+/obj/item/device/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = mech_state)
 	. = ..()
 
 /mob/living/heavy_vehicle/proc/become_remote()
@@ -307,8 +316,8 @@
 	dummy = new dummy_type(get_turf(src))
 	dummy.real_name = "Remote-Bot"
 	dummy.name = dummy.real_name
-	dummy.verbs -= /mob/living/proc/ventcrawl
-	dummy.verbs -= /mob/living/proc/hide
+	remove_verb(dummy, /mob/living/proc/ventcrawl)
+	remove_verb(dummy, /mob/living/proc/hide)
 	if(dummy_colour)
 		dummy.color = dummy_colour
 	enter(dummy, TRUE)

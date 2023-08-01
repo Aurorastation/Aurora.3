@@ -56,7 +56,7 @@
 	else
 		binoc_check = TRUE
 
-	if ((!client || client.eye == src || client.eye == loc || client.eye == z_eye) && binoc_check) // !client is so the unit tests function
+	if(((!client || client.eye == src || client.eye == loc || client.eye == z_eye) && binoc_check) || HAS_TRAIT(src, TRAIT_COMPUTER_VIEW)) // !client is so the unit tests function
 		if(istype(src.head, /obj/item/clothing/head))
 			add_clothing_protection(head)
 		if(istype(src.glasses, /obj/item/clothing/glasses))
@@ -185,7 +185,7 @@
 
 	return O
 
-/mob/living/carbon/human/proc/awaken_psi_basic(var/source, var/allow_latency = TRUE)
+/mob/living/carbon/human/proc/awaken_psi_basic(var/source)
 	var/static/list/psi_operancy_messages = list(
 		"There's something in your skull!",
 		"Something is eating your thoughts!",
@@ -197,13 +197,10 @@
 		)
 	to_chat(src, SPAN_DANGER("An indescribable, brain-tearing sound hisses from [source], and you collapse in a seizure!"))
 	seizure()
-	var/new_latencies = rand(2,4)
-	var/list/faculties = list(PSI_COERCION, PSI_REDACTION, PSI_ENERGISTICS, PSI_PSYCHOKINESIS)
-	for(var/i = 1 to new_latencies)
-		custom_pain(SPAN_DANGER("<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
-		set_psi_rank(pick_n_take(faculties), allow_latency ? PSI_RANK_LATENT : PSI_RANK_OPERANT) // if set to latent, it spikes anywhere from OPERANT to PARAMOUNT
-		sleep(30)
-	addtimer(CALLBACK(psi, TYPE_PROC_REF(/datum/psi_complexus, check_latency_trigger), 100, source, TRUE), 4.5 SECONDS)
+	custom_pain(SPAN_DANGER(FONT_LARGE("[pick(psi_operancy_messages)]")), 25)
+	set_psi_rank(PSI_RANK_HARMONIOUS)
+	sleep(30)
+	addtimer(CALLBACK(psi, TYPE_PROC_REF(/datum/psi_complexus, check_psionic_trigger), 100, source, TRUE), 4.5 SECONDS)
 
 /mob/living/carbon/human/get_resist_power()
 	return species.resist_mod
@@ -349,8 +346,7 @@
 /mob/living/carbon/human/proc/pressure_resistant()
 	if(HAS_FLAG(mutations, COLD_RESISTANCE))
 		return TRUE
-	var/datum/changeling/changeling = get_antag_datum(MODE_CHANGELING)
-	if(changeling?.space_adapted)
+	if(HAS_TRAIT(src, TRAIT_PRESSURE_IMMUNITY))
 		return TRUE
 	return FALSE
 
@@ -412,13 +408,13 @@
 /mob/living/carbon/human/proc/set_tail_style(var/new_style)
 	tail_style = new_style
 	if(tail_style)
-		verbs |= /mob/living/carbon/human/proc/open_tail_storage
+		add_verb(src, /mob/living/carbon/human/proc/open_tail_storage)
 	else
-		verbs -= /mob/living/carbon/human/proc/open_tail_storage
+		remove_verb(src, /mob/living/carbon/human/proc/open_tail_storage)
 
 /mob/living/carbon/human/proc/get_tail_accessory()
 	var/obj/item/organ/external/groin/G = organs_by_name[BP_GROIN]
-	if(!G)
+	if(!istype(G))
 		return
 	if(!G.tail_storage)
 		return
