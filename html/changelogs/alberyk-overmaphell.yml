@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - rscadd: "The meteor gamemode now spawns meteor hazards on the overmap when it starts the meteor waves."
