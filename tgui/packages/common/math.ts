@@ -4,6 +4,8 @@
  * @license MIT
  */
 
+// Further modified for Aurora
+
 /**
  * Limits a number to the range between 'min' and 'max'.
  */
@@ -95,4 +97,30 @@ export const numberOfDecimalDigits = (value) => {
     return value.toString().split('.')[1].length || 0;
   }
   return 0;
+};
+
+// Linear interpolation between two values.
+export const lerp = (value1: number, value2: number, amount: number) => {
+  amount = amount < 0 ? 0 : amount;
+  amount = amount > 1 ? 1 : amount;
+  return value1 + (value2 - value1) * amount;
+};
+
+// Color lerp, takes hex colors like '#FFAA00'.
+export const lerpColor = (a: string, b: string, amount: number) => {
+  var ah = parseInt(a.replace(/#/g, ''), 16),
+    ar = ah >> 16,
+    ag = (ah >> 8) & 0xff,
+    ab = ah & 0xff,
+    bh = parseInt(b.replace(/#/g, ''), 16),
+    br = bh >> 16,
+    bg = (bh >> 8) & 0xff,
+    bb = bh & 0xff,
+    rr = ar + amount * (br - ar),
+    rg = ag + amount * (bg - ag),
+    rb = ab + amount * (bb - ab);
+
+  return (
+    '#' + (((1 << 24) + (rr << 16) + (rg << 8) + rb) | 0).toString(16).slice(1)
+  );
 };

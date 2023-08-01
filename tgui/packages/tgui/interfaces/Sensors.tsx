@@ -1,8 +1,8 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useSharedState } from '../backend';
-import { Box, Button, Section, Table, ProgressBar, Slider, RoundGauge } from '../components';
+import { Box, Button, Section, Table, ProgressBar, Slider } from '../components';
 import { NtosWindow } from '../layouts';
-import { round } from 'common/math';
+import { round, lerpColor } from 'common/math';
 
 export type SensorsData = {
   viewing: BooleanLike;
@@ -80,6 +80,12 @@ const SensorSection = function (act, data: SensorsData) {
               step={1}
               stepPixelSize={16}
               value={data.desired_range}
+              // color={lerpColor(
+              //   '#1b9638',
+              //   '#bd2020',
+              //   data.range / range_choice_max
+              // )}
+              color="purple"
               minValue={1}
               maxValue={range_choice_max}
               onChange={(e, value) =>
@@ -116,6 +122,11 @@ const SensorSection = function (act, data: SensorsData) {
           <Table.Cell>
             <ProgressBar
               animated
+              // color={lerpColor(
+              //   '#1b9638',
+              //   '#bd2020',
+              //   data.health / data.max_health
+              // )}
               minValue={0}
               maxValue={data.max_health}
               value={data.health}>
