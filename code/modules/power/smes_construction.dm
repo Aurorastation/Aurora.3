@@ -116,8 +116,8 @@
 	component_parts += new /obj/item/smes_coil/super_capacity(src)
 	input_attempt = TRUE
 	output_attempt = TRUE
-	input_level = 1500000
-	output_level = 1500000
+	input_level = 2300000
+	output_level = 2300000
 	charge = 5.55e+007
 
 
