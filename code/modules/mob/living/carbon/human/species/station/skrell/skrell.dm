@@ -109,7 +109,7 @@
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
 	has_psionics = PSI_RANK_SENSITIVE
-	character_creation_psi_points = 4
+	character_creation_psi_points = 2
 
 /datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
 	var/list/trail_info = ..()
