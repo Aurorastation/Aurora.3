@@ -33,6 +33,7 @@
 	num_alternate_languages = 3
 	language = LANGUAGE_SKRELLIAN
 	name_language = LANGUAGE_SKRELLIAN
+	secondary_langs = list(LANGUAGE_SOL_COMMON)
 	rarity_value = 3
 
 	grab_mod = 2
