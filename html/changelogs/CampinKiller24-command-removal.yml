@@ -1,0 +1,6 @@
+author: CampinKiller24
+
+delete-after: True
+
+changes:
+  - rscdel: "Removes psionic command ability."
