@@ -71,7 +71,7 @@ const SensorSection = function (act, data: SensorsData) {
         <Table.Row>
           <Table.Cell>Range:</Table.Cell>
           <Table.Cell>
-            {data.range_choices.map((range: number) => (
+            {data.range_choices?.map((range: number) => (
               <Button
                 content={range}
                 disabled={range == data.desired_range}
@@ -219,7 +219,7 @@ const CompassSection = function (context, act, data: SensorsData) {
               />
             ))}
             {data.contacts
-              .filter((c) => c.distance)
+              ?.filter((c) => c.distance)
               .map((contact: ContactData, i) => (
                 <rect
                   width="1"
@@ -230,7 +230,7 @@ const CompassSection = function (context, act, data: SensorsData) {
                   transform={'rotate(' + (contact.bearing + 180) + ' 50 50)'}
                 />
               ))}
-            {data.contacts.map((contact: ContactData, i) => (
+            {data.contacts?.map((contact: ContactData, i) => (
               <>
                 <circle
                   r={3}
@@ -302,7 +302,7 @@ export const Sensors = (props, context) => {
 
     let bearing_color_map: Map<number, string> = new Map();
 
-    data.contacts.forEach((contact, i) => {
+    data.contacts?.forEach((contact, i) => {
       if (!bearing_color_map[contact.bearing]) {
         bearing_color_map[contact.bearing] = colors[color_i];
         color_i++;
