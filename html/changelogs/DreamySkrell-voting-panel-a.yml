@@ -39,4 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - tweak: "Gamemodes in the mode vote panel are sorted by required players to start."
-  - tweak: "Gamemodes in the mode vote panel have grayed out required player numbers, if there's less players connected than required."
+  - tweak: "Gamemodes in the mode vote panel have grayed out required player numbers, if there are less players readied up than required."

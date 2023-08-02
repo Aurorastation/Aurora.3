@@ -19,7 +19,8 @@ export type VotingData = {
   allow_vote_restart: boolean;
   allow_vote_mode: boolean;
   allow_extra_antags: boolean;
-  clients_connected: number;
+  total_players: number;
+  total_players_ready: number;
 };
 
 export const Voting = (props, context) => {
@@ -95,11 +96,13 @@ export const VoteWindow = (props, context) => {
             {required_players_column && (
               <Table.Cell
                 textAlign="center"
-                color={
-                  choice.required_players > data.clients_connected
-                    ? 'gray'
-                    : false
-                }>
+                color={(() => {
+                  if (choice.required_players < data.total_players_ready)
+                    return 'white';
+                  else if (choice.required_players < data.total_players)
+                    return 'lightgray';
+                  else return 'gray';
+                })()}>
                 {choice.required_players ? choice.required_players : ''}
               </Table.Cell>
             )}

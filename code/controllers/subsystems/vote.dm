@@ -439,7 +439,8 @@ var/datum/controller/subsystem/vote/SSvote
 	data["is_staff"] = user.client.holder && (user.client.holder.rights & (R_ADMIN|R_MOD))
 	var/slevel = get_security_level()
 	data["is_code_red"] = (slevel == "red" || slevel == "delta")
-	data["clients_connected"] = clients.len
+	data["total_players"] = SSticker.total_players
+	data["total_players_ready"] = SSticker.total_players_ready
 	return data
 
 /mob/verb/vote()
