@@ -39,7 +39,7 @@ export const VoteWindow = (props, context) => {
 
   const extra_column =
     data.choices.filter((choice) => {
-      return choice.extra && choice.extra != '';
+      return choice.extra && choice.extra !== '';
     }).length > 0;
 
   const required_players_column =
@@ -74,7 +74,7 @@ export const VoteWindow = (props, context) => {
           <Table.Cell textAlign="right">
             <Box bold>Votes</Box>
           </Table.Cell>
-          {extra_column && <Table.Cell textAlign="center"></Table.Cell>}
+          {extra_column && <Table.Cell textAlign="center" />}
           {required_players_column && (
             <Table.Cell textAlign="center">Minimum Players</Table.Cell>
           )}
