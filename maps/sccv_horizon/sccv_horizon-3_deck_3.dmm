@@ -275,12 +275,15 @@
 "agd" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
-	dir = 4;
-	id = "cmowindowshutters";
-	name = "Window Shutters"
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, medical equipment room"
 	},
@@ -1594,25 +1597,6 @@
 /obj/machinery/disposal/small/south,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
-"beL" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "cmowindowshutters";
-	name = "Window Shutters"
-	},
-/turf/simulated/floor/plating,
-/area/crew_quarters/heads/cmo)
 "bfL" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -6530,16 +6514,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
 "foR" = (
-/obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
+/obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
@@ -8815,9 +8791,12 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "cmowindowshutters";
-	name = "Window Shutters"
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
 	},
 /turf/simulated/floor/reinforced,
 /area/medical/smoking)
@@ -9418,12 +9397,15 @@
 "hse" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "cmowindowshutters";
-	name = "Window Shutters"
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, medical equipment room"
 	},
@@ -11280,23 +11262,8 @@
 /obj/machinery/button/remote/blast_door{
 	id = "LCKDshutters";
 	name = "MedBay Lockdown Control";
-	pixel_x = 12;
-	pixel_y = -24;
-	req_access = list(40);
-	dir = 1
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Control";
 	pixel_x = -28;
 	pixel_y = -23;
-	req_access = list(40)
-	},
-/obj/machinery/button/remote/airlock{
-	id = "CMOdoor";
-	name = "Office Door Control";
-	pixel_x = -7;
-	pixel_y = -34;
 	req_access = list(40);
 	dir = 1
 	},
@@ -11313,6 +11280,14 @@
 	dir = 1
 	},
 /obj/machinery/light,
+/obj/machinery/button/remote/airlock{
+	id = "CMOdoor";
+	name = "Office Door Control";
+	pixel_x = 11;
+	pixel_y = -24;
+	req_access = list(40);
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "iTU" = (
@@ -14020,24 +13995,16 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "kXa" = (
-/obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
+/obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, CMO office"
-	},
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "cmowindowshutters";
 	name = "Window Shutters"
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, CMO office"
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/cmo)
@@ -14868,20 +14835,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
-"lyk" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/medical/smoking)
 "lyA" = (
 /obj/item/stock_parts/subspace/treatment,
 /obj/item/stock_parts/subspace/treatment,
@@ -16508,14 +16461,6 @@
 "mPi" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, operations office aux"
@@ -18038,6 +17983,14 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 8
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
 	},
 /turf/simulated/floor/reinforced,
 /area/medical/equipment)
@@ -22174,7 +22127,7 @@
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	density = 0;
-	dir = 8;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "MedBay Lockdown Shutters";
@@ -29800,12 +29753,15 @@
 "wZU" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "cmowindowshutters";
-	name = "Window Shutters"
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/equipment)
 "xaL" = (
@@ -30644,14 +30600,6 @@
 "xKm" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/operations/office_aux)
@@ -30780,17 +30728,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
-"xPJ" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	dir = 4;
-	id = "cmowindowshutters";
-	name = "Window Shutters"
-	},
-/turf/simulated/floor/plating,
-/area/medical/equipment)
 "xPP" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -43726,13 +43663,13 @@ wGH
 wGH
 wGH
 gZR
-lyk
+pnL
 rvF
-lyk
+pnL
 rnX
 rnX
-beL
-beL
+foR
+foR
 kXa
 foR
 rnX
@@ -44126,7 +44063,7 @@ wGH
 wGH
 wGH
 nTv
-xPJ
+wZU
 agd
 xGf
 lTQ
