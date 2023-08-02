@@ -1606,6 +1606,11 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "cmowindowshutters";
+	name = "Window Shutters"
+	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/cmo)
 "bfL" = (
@@ -5174,7 +5179,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/obj/machinery/firealarm/west,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/operations/office_aux)
 "erV" = (
@@ -6536,6 +6541,11 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "cmowindowshutters";
+	name = "Window Shutters"
+	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/cmo)
 "foT" = (
@@ -11900,12 +11910,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
-"jvs" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/starboard)
 "jvA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -14029,6 +14033,11 @@
 /obj/machinery/door/firedoor,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, CMO office"
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "cmowindowshutters";
+	name = "Window Shutters"
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/cmo)
@@ -18029,11 +18038,6 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal{
 	dir = 8
-	},
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "cmowindowshutters";
-	name = "Window Shutters"
 	},
 /turf/simulated/floor/reinforced,
 /area/medical/equipment)
@@ -44344,7 +44348,7 @@ acp
 oIL
 eny
 hCi
-jvs
+iya
 rJh
 iHj
 gqw
