@@ -1,5 +1,5 @@
 /turf/simulated/wall/r_wall
-	icon_state = "map_white"
+	icon_state = "map_dark"
 	desc_info = "You can deconstruct this by with the following steps:<br>\
 	Cut the outer grill with wirecutters, then unscrew them.<br>\
 	Slice the cover with a welder, then pry it off with a crowbar.<br>\

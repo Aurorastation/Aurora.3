@@ -2,7 +2,7 @@
 	name = "fire alarm"
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
 	icon = 'icons/obj/monitors.dmi'
-	icon_state = "firealarm"
+	icon_state = "firep"
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/detecting = 1
 	var/working = 1
