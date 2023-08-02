@@ -18613,14 +18613,12 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/requests_console{
-	department = "Representative's Office";
-	departmentType = 5;
-	pixel_x = 32
-	},
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations -  Aux Desk";
 	dir = 8
+	},
+/obj/machinery/requests_console{
+	pixel_x = 30
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office_aux)
