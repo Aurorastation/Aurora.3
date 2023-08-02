@@ -68,5 +68,6 @@
 	name = "Kazhkz Privateer Ship - Treasure Room"
 	icon_state = "raider"
 
+//Shuttle
 /area/shuttle/dominian_unathi
-	name = "Kazhkz Privateer Shuttle"
+	name = "Kazhkz Privateer Fighter"
