@@ -26,6 +26,7 @@
 	aspect = ASPECT_UNSTABLE
 
 /obj/item/spell/gambit/on_use_cast(mob/living/carbon/human/user)
+	. = ..()
 	if(pay_energy(200))
 		adjust_instability(3)
 		if(check_for_scepter())
