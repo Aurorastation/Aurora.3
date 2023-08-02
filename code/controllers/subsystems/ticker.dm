@@ -465,29 +465,16 @@ var/datum/controller/subsystem/ticker/SSticker
 		)
 
 	var/datum/space_sector/current_sector = SSatlas.current_sector
-	if(istype(current_sector))
-		var/list/sites = SSatlas.current_sector.possible_sites_in_sector()
-		// var/list/ruins = SSatlas.current_sector.possible_ruins_in_sector()
-		var/list/no_shuttles = list()
-		var/list/with_shuttles = list()
-		for(var/datum/map_template/ruin/site in sites)
-			if(site.shuttles_to_initialise && site.shuttles_to_initialise.len)
-				with_shuttles += site
-			else
-				no_shuttles += site
-		var/no_shuttles_str = english_list(no_shuttles)
-		var/with_shuttles_str = english_list(with_shuttles)
-		var/html = {"\
-			<span class='notice' onclick='document.getElementById("current_sector_show_sites_id").style.display="";'> \
-				Current sector: [current_sector]. Click to see every possible site/ship that can potentially spawn here. \
-			</span> \
-			<span class='notice' id='current_sector_show_sites_id' style='display:none'> \
-				<br> Sites: [sites]; <br> Ruins: ; <br> \
-			</span> \
-		"}
-		to_world(html)
-				//		<br> Sites: ; \
-				//<br> Sites (with shuttles): ; \
+	var/html = {"\
+		<span class='info'>\
+			Current sector: [current_sector]. \
+			<a href='?src=\ref[src];current_sector_show_sites_id=1'>\
+				Click here \
+			</a>\
+			to see every possible site/ship that can potentially spawn here.\
+		</span>\
+	"}
+	to_world(html)
 
 	callHook("pregame_start")
 
@@ -770,6 +757,33 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	LAZYADD(roundstart_callbacks, callback)
 
+/datum/controller/subsystem/ticker/Topic(href, href_list)
+	if(href_list["current_sector_show_sites_id"])
+		var/datum/space_sector/current_sector = SSatlas.current_sector
+		var/list/sites = SSatlas.current_sector.possible_sites_in_sector()
+		var/list/site_names = list()
+		var/list/ship_names = list()
+		for(var/datum/map_template/ruin/site in sites)
+			if(site.ship_cost)
+				ship_names += site.name
+			else
+				site_names += site.name
+
+		var/datum/browser/sites_win = new(
+			usr,
+			"Sector: " + current_sector.name,
+			"Sector: " + current_sector.name,
+			500, 500,
+		)
+		var/html = "<h1>Ships and sites that spawn in this sector:</h1>"
+		html += "<h3>Ships:</h3>"
+		html += english_list(ship_names)
+		html += "<h3>Sites:</h3>"
+		html += english_list(site_names)
+		sites_win.set_content(html)
+		sites_win.open()
+		return TRUE
+	. = ..()
 
 #undef SETUP_OK
 #undef SETUP_REVOTE
