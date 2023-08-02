@@ -180,6 +180,7 @@
 				if(force)
 					force *= 1.1
 					armor_penetration *= 1.1
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(check_owner))
 
 	update_icon()
 
@@ -191,6 +192,11 @@
 	owner = null
 	core = null
 	return ..()
+
+/// Check if we're still being held. Otherwise... time to qdel.
+/obj/item/spell/proc/check_owner()
+	if(!(loc == owner) && NOT_FLAG(cast_methods, CAST_THROW))
+		qdel_self()
 
 // Proc: unref_spells()
 // Parameters: 0
@@ -299,13 +305,16 @@
 		if(cast_methods & CAST_RANGED) //Try to use a ranged method if a melee one doesn't exist.
 			on_ranged_cast(target, user)
 	if(cooldown)
-		var/effective_cooldown
-		if(aspect == ASPECT_PSIONIC)
-			effective_cooldown = cooldown
-		else
-			effective_cooldown = round(cooldown * core.cooldown_modifier, 5)
-		user.setClickCooldown(effective_cooldown)
-		flick("cooldown_[effective_cooldown]",src)
+		apply_cooldown(user)
+
+/obj/item/spell/proc/apply_cooldown(mob/user)
+	var/effective_cooldown
+	if(aspect == ASPECT_PSIONIC)
+		effective_cooldown = cooldown
+	else
+		effective_cooldown = round(cooldown * core.cooldown_modifier, 5)
+	user.setClickCooldown(effective_cooldown)
+	flick("cooldown_[effective_cooldown]",src)
 
 /obj/item/spell/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
 	. = ..()
@@ -358,9 +367,8 @@
 // Description: Deletes the spell object immediately.
 /obj/item/spell/dropped()
 	. = ..()
-	spawn(1)
-		if(src)
-			qdel(src)
+	qdel_self()
+
 
 // Proc: throw_impact()
 // Parameters: 1 (hit_atom - the atom that got hit by the spell as it was thrown)
@@ -372,7 +380,7 @@
 
 	// If we miss or hit an obstacle, we still want to delete the spell.
 	spawn(20)
-		if(src)
+		if(!QDELETED(src))
 			qdel(src)
 
 /obj/item/spell/damage_flags()

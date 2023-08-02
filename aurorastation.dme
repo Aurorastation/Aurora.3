@@ -2898,7 +2898,6 @@
 #include "code\modules\psionics\abilities\barrier.dm"
 #include "code\modules\psionics\abilities\bubble.dm"
 #include "code\modules\psionics\abilities\charge.dm"
-#include "code\modules\psionics\abilities\command.dm"
 #include "code\modules\psionics\abilities\commune.dm"
 #include "code\modules\psionics\abilities\electrocute.dm"
 #include "code\modules\psionics\abilities\emotional_suggestion.dm"
