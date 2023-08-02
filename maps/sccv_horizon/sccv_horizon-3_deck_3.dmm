@@ -19928,7 +19928,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "prh" = (
-/obj/effect/shuttle_landmark/lift/operations_second_deck,
+/obj/effect/shuttle_landmark/lift/operations_third_deck,
 /turf/simulated/open,
 /area/operations/office_aux)
 "psa" = (
