@@ -1,9 +1,12 @@
 /datum/map_template/ruin/away_site/dominian_unathi
 	name = "Kazhkz Privateer Ship"
 	description = "Dominian Unathi pirates"
-	sectors = list(SECTOR_BADLANDS)
-	spawn_weight = 1
-	ship_cost = 1
+	suffixes = list("ships/dominia/dominian_unathi_privateer/dominian_unathi_privateer.dmm")
+	//sectors = list(SECTOR_BADLANDS)
+	//spawn_weight = 1
+	//ship_cost = 1
+	sectors = ALL_POSSIBLE_SECTORS //DELETE THIS
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED //THIS TOO
 	id = "dominian_unathi"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/dominian_unathi_shuttle)
 
@@ -41,7 +44,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/dominian_unathi/New()
-	designation = "[pick()]"
+	designation = "[pick("Old Grudges", "Redhorn", "Seryo's Revenge", "Spiritbound", "Hammer of the Goddess", "Come Try Me", "Beating Wardrum", "Grudgetaker", "Our Lady's Talon", "Hunter", "Bloodied Claws", "Steelscale")]"
 	..()
 
 /obj/effect/shuttle_landmark/dominian_unathi/nav1
@@ -100,14 +103,14 @@
 	logging_home_tag = "nav_hangar_kazhkz"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/dominian_unathi
+/obj/effect/shuttle_landmark/dominian_unathi_shuttle/hangar
 	name = "Kazhkz Privateer Ship - Fighter Bay"
 	landmark_tag = "nav_hangar_kazhkz"
 	base_area = /area/ship/dominian_unathi/hangar
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/shuttle_landmark/dominian_shuttle/transit
+/obj/effect/shuttle_landmark/dominian_unathi_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_kazhkz_shuttle"
 	base_turf = /turf/space/transit/north
