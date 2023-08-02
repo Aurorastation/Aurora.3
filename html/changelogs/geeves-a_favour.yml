@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Viscerator grenades now only spawn 3 viscerators instead of 5."
-  - tweak: "Lubed viscerator grenades now cost 3 TC instead of 4."
