@@ -1,0 +1,4 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "The holomap in the deck 3 port hallway should no longer be in the middle of the floor."
