@@ -7,6 +7,7 @@ type VoteChoice = {
   choice: string;
   votes: number;
   extra: string;
+  required_players: number;
 };
 
 export type VotingData = {
@@ -18,6 +19,7 @@ export type VotingData = {
   allow_vote_restart: boolean;
   allow_vote_mode: boolean;
   allow_extra_antags: boolean;
+  clients_connected: number;
 };
 
 export const Voting = (props, context) => {
@@ -34,6 +36,25 @@ export const Voting = (props, context) => {
 
 export const VoteWindow = (props, context) => {
   const { act, data } = useBackend<VotingData>(context);
+
+  const extra_column =
+    data.choices.filter((choice) => {
+      return choice.extra && choice.extra != '';
+    }).length > 0;
+
+  const required_players_column =
+    data.choices.filter((choice) => {
+      return choice.required_players && choice.required_players > 0;
+    }).length > 0;
+
+  if (required_players_column) {
+    data.choices.sort((a, b) => {
+      if (a.required_players < b.required_players) return -1;
+      else if (a.required_players > b.required_players) return +1;
+      else return 0;
+    });
+  }
+
   return (
     <Section
       collapsing
@@ -53,7 +74,8 @@ export const VoteWindow = (props, context) => {
           <Table.Cell textAlign="right">
             <Box bold>Votes</Box>
           </Table.Cell>
-          {data.mode === 'gamemode' && (
+          {extra_column && <Table.Cell textAlign="center"></Table.Cell>}
+          {required_players_column && (
             <Table.Cell textAlign="center">Minimum Players</Table.Cell>
           )}
         </Table.Row>
@@ -67,8 +89,19 @@ export const VoteWindow = (props, context) => {
               />
             </Table.Cell>
             <Table.Cell textAlign="center">{choice.votes}</Table.Cell>
-            {data.mode === 'gamemode' && (
+            {extra_column && (
               <Table.Cell textAlign="center">{choice.extra}</Table.Cell>
+            )}
+            {required_players_column && (
+              <Table.Cell
+                textAlign="center"
+                color={
+                  choice.required_players > data.clients_connected
+                    ? 'gray'
+                    : false
+                }>
+                {choice.required_players ? choice.required_players : ''}
+              </Table.Cell>
             )}
           </Table.Row>
         ))}
