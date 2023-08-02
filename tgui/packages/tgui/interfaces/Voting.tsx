@@ -97,11 +97,13 @@ export const VoteWindow = (props, context) => {
               <Table.Cell
                 textAlign="center"
                 color={(() => {
-                  if (choice.required_players < data.total_players_ready)
+                  if (choice.required_players < data.total_players_ready) {
                     return 'white';
-                  else if (choice.required_players < data.total_players)
+                  } else if (choice.required_players < data.total_players) {
                     return 'lightgray';
-                  else return 'gray';
+                  } else {
+                    return 'gray';
+                  }
                 })()}>
                 {choice.required_players ? choice.required_players : ''}
               </Table.Cell>
