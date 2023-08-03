@@ -2574,6 +2574,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bhR" = (
@@ -5470,6 +5471,10 @@
 "cHM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
+	},
+/obj/machinery/computer/shuttle_control/multi/lift/robotics{
+	pixel_y = 21;
+	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/robotics_lift)
@@ -25802,11 +25807,6 @@
 /area/horizon/hydroponics)
 "mzL" = (
 /obj/machinery/light,
-/obj/machinery/computer/shuttle_control/lift/wall{
-	dir = 1;
-	pixel_y = -26;
-	shuttle_tag = "Robotics Lift"
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
@@ -25815,10 +25815,17 @@
 	id = "shutters_deck2_portstairwellsec";
 	name = "Elevator Security Shutters";
 	pixel_y = -37;
-	req_one_access = list(1,19)
+	req_one_access = list(1,19);
+	pixel_x = 7
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/computer/shuttle_control/multi/lift/wall/robotics{
+	dir = 1;
+	pixel_y = -28;
+	pixel_x = 7
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -27148,7 +27155,8 @@
 /obj/structure/sign/drop{
 	desc = "A warning sign which reads 'DANGER: FALLING HAZARD' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY'.";
 	name = "\improper DANGER: FALLING HAZARD sign";
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
@@ -41669,12 +41677,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/effect/shuttle_landmark/lift/robotics_top,
-/obj/machinery/computer/shuttle_control/lift{
-	pixel_x = 12;
-	pixel_y = 22;
-	shuttle_tag = "Robotics Lift"
-	},
+/obj/effect/shuttle_landmark/lift/robotics_second_deck,
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/robotics_lift)
 "uoY" = (
@@ -49640,6 +49643,10 @@
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 8
 	},
+/obj/structure/sign/crush{
+	pixel_y = -32;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "xZI" = (
@@ -50260,6 +50267,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "ylu" = (
