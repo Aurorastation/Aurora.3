@@ -21,7 +21,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/wood/coloured/walnut{
+/turf/simulated/floor/wood/walnut{
 	icon_state = "woodcolour_broken5"
 	},
 /area/ship/freebooter_ship/pod7)
@@ -270,7 +270,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "awK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -432,7 +432,7 @@
 	pixel_y = 23;
 	density = 0
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "aHv" = (
 /obj/effect/floor_decal/corner/beige{
@@ -529,10 +529,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "aMB" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -651,10 +651,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "aTX" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
@@ -710,11 +710,11 @@
 /area/ship/freebooter_ship/thruster2)
 "aZw" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "baj" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "bcf" = (
 /obj/structure/railing/mapped{
@@ -1140,7 +1140,7 @@
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask{
 	pixel_y = 23
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "bPT" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -1407,10 +1407,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod6)
 "cMs" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/structure/sink{
@@ -1959,7 +1959,7 @@
 /obj/structure/bed/stool/chair/sofa/left/brown{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/walnut{
+/turf/simulated/floor/wood/walnut{
 	icon_state = "woodcolour_broken6"
 	},
 /area/ship/freebooter_ship/pod7)
@@ -2431,7 +2431,7 @@
 	pixel_y = 18;
 	pixel_x = 5
 	},
-/turf/simulated/floor/wood/coloured/walnut{
+/turf/simulated/floor/wood/walnut{
 	icon_state = "woodcolour_broken3"
 	},
 /area/ship/freebooter_ship/pod7)
@@ -2478,10 +2478,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod1)
 "fTT" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
@@ -3039,7 +3039,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "hyy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
@@ -3333,7 +3333,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "ijJ" = (
 /obj/effect/decal/cleanable/molten_item,
@@ -3959,7 +3959,7 @@
 	icon_state = "tube1";
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "kkT" = (
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
@@ -4034,7 +4034,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "kqx" = (
 /obj/structure/lattice/catwalk,
@@ -4093,10 +4093,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "kuV" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -4535,7 +4535,7 @@
 /obj/structure/bed/stool/chair/sofa/right/brown{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/walnut{
+/turf/simulated/floor/wood/walnut{
 	icon_state = "woodcolour_broken5"
 	},
 /area/ship/freebooter_ship/pod7)
@@ -4767,10 +4767,10 @@
 /turf/simulated/wall,
 /area/ship/freebooter_ship/engineering)
 "lJW" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/structure/sink{
@@ -5462,10 +5462,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod6)
 "nwD" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/structure/sink{
@@ -5533,7 +5533,7 @@
 	},
 /area/ship/freebooter_ship/thruster1)
 "nDn" = (
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "nEK" = (
 /obj/effect/floor_decal/corner/orange{
@@ -5671,10 +5671,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "nYr" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -5722,10 +5722,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship)
 "odX" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/structure/sink{
@@ -5771,7 +5771,7 @@
 /obj/structure/bed/stool/chair/office/bridge{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/walnut{
+/turf/simulated/floor/wood/walnut{
 	icon_state = "woodcolour_broken6"
 	},
 /area/ship/freebooter_ship/pod7)
@@ -5841,10 +5841,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "opX" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -6416,10 +6416,10 @@
 /area/ship/freebooter_ship/thruster2)
 "pzX" = (
 /obj/structure/toilet,
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -6462,7 +6462,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/walnut{
+/turf/simulated/floor/wood/walnut{
 	icon_state = "woodcolour_broken0"
 	},
 /area/ship/freebooter_ship/pod7)
@@ -6483,10 +6483,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
 "pDZ" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
@@ -6672,10 +6672,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "pZO" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
@@ -6909,7 +6909,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "qzx" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7331,10 +7331,10 @@
 /turf/template_noop,
 /area/ship/freebooter_ship)
 "rtt" = (
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/item/device/paicard,
@@ -7870,7 +7870,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "sLP" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -8498,10 +8498,10 @@
 /obj/structure/mirror{
 	pixel_x = 24
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8746,7 +8746,7 @@
 	req_access = null;
 	name = "Hacked Booze-O-Mat"
 	},
-/turf/simulated/floor/wood/coloured/walnut{
+/turf/simulated/floor/wood/walnut{
 	icon_state = "woodcolour_broken3"
 	},
 /area/ship/freebooter_ship/pod7)
@@ -9039,10 +9039,10 @@
 	dir = 4
 	},
 /obj/structure/curtain/open/shower,
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9540,7 +9540,7 @@
 /area/ship/freebooter_ship/engineering)
 "wLs" = (
 /obj/structure/bed/stool/bar/padded/brown,
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "wLV" = (
 /obj/machinery/shower{
@@ -9717,7 +9717,7 @@
 "xbK" = (
 /obj/structure/bed/stool/bar/padded/brown,
 /obj/machinery/firealarm/south,
-/turf/simulated/floor/wood/coloured/walnut{
+/turf/simulated/floor/wood/walnut{
 	icon_state = "woodcolour_broken1"
 	},
 /area/ship/freebooter_ship/pod7)
@@ -9940,7 +9940,7 @@
 /area/ship/freebooter_ship/bridge)
 "xOG" = (
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood/walnut,
 /area/ship/freebooter_ship/pod7)
 "xPD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
