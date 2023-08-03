@@ -241,8 +241,8 @@
 	dir = 1
 	},
 /obj/machinery/firealarm{
-	pixel_y = 18;
-	dir = 1
+	dir = 1;
+	pixel_y = 18
 	},
 /turf/simulated/floor/wood/birch,
 /area/construction/solars)
@@ -293,9 +293,9 @@
 /area/construction/solars)
 "gH" = (
 /obj/machinery/camera/network{
-	pixel_y = 22;
 	dir = 4;
-	pixel_x = -13
+	pixel_x = -13;
+	pixel_y = 22
 	},
 /obj/machinery/light/small{
 	dir = 8
@@ -699,8 +699,8 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 8
+	dir = 8;
+	icon_state = "1-4"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -750,8 +750,8 @@
 "qo" = (
 /obj/structure/cable{
 	d2 = 2;
-	icon_state = "0-2";
-	dir = 4
+	dir = 4;
+	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -780,6 +780,10 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor,
 /area/construction/qmaint)
+"rb" = (
+/obj/structure/platform,
+/turf/simulated/floor/wood/birch,
+/area/construction/storage)
 "rw" = (
 /obj/machinery/door/airlock/generic/external{
 	dir = 4
@@ -997,8 +1001,8 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 8
+	dir = 8;
+	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1091,8 +1095,8 @@
 "yO" = (
 /obj/structure/table/wood,
 /obj/item/folder/sec{
-	pixel_y = 3;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 3
 	},
 /obj/item/pen/blue{
 	pixel_x = 6;
@@ -1206,8 +1210,8 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 1
+	dir = 1;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
@@ -1244,8 +1248,8 @@
 	},
 /obj/machinery/newscaster{
 	dir = 1;
-	pixel_y = 18;
-	pixel_x = 16
+	pixel_x = 16;
+	pixel_y = 18
 	},
 /obj/structure/table/wood,
 /obj/machinery/camera/network{
@@ -1362,8 +1366,8 @@
 	},
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/security/hos{
-	pixel_y = 8;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 8
 	},
 /obj/machinery/requests_console{
 	dir = 4;
@@ -1392,6 +1396,10 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
+"Gt" = (
+/obj/structure/platform_stairs,
+/turf/simulated/floor/wood/birch,
+/area/construction/storage)
 "GO" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -1428,8 +1436,8 @@
 "Hs" = (
 /obj/structure/cable{
 	d2 = 2;
-	icon_state = "0-2";
-	dir = 8
+	dir = 8;
+	icon_state = "0-2"
 	},
 /obj/machinery/power/apc{
 	dir = 4;
@@ -1502,8 +1510,8 @@
 /area/construction/hallway)
 "Jx" = (
 /obj/machinery/firealarm{
-	pixel_y = 18;
-	dir = 1
+	dir = 1;
+	pixel_y = 18
 	},
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
@@ -1667,8 +1675,8 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc{
-	pixel_y = 14;
-	dir = 1
+	dir = 1;
+	pixel_y = 14
 	},
 /turf/simulated/floor,
 /area/construction/supplyshuttle)
@@ -2066,8 +2074,8 @@
 /area/antag/mercenary)
 "VE" = (
 /obj/machinery/power/apc{
-	pixel_y = 14;
-	dir = 1
+	dir = 1;
+	pixel_y = 14
 	},
 /turf/simulated/floor/tiled/dark,
 /area/construction/solarscontrol)
@@ -2163,9 +2171,9 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/keycard_auth{
+	dir = 8;
 	pixel_x = 20;
-	pixel_y = 6;
-	dir = 8
+	pixel_y = 6
 	},
 /obj/item/modular_computer/console/preset/security/hos{
 	dir = 8
@@ -2198,8 +2206,8 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4";
-	dir = 8
+	dir = 8;
+	icon_state = "1-4"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -27858,7 +27866,7 @@ pz
 st
 Cr
 tl
-tl
+Gt
 tl
 wD
 Tx
@@ -28115,7 +28123,7 @@ pz
 st
 Ix
 tl
-tl
+rb
 tl
 ZE
 Ci
@@ -28372,7 +28380,7 @@ pz
 Re
 Cr
 tl
-tl
+rb
 tl
 jU
 Ci
@@ -28629,7 +28637,7 @@ pz
 Re
 Cr
 Cr
-tl
+rb
 tl
 tl
 Ci
