@@ -15,8 +15,8 @@
 	. = ..()
 
 /obj/structure/table/standard
-	icon = 'icons/obj/structure/tables/table.dmi'
-	icon_state = "plastic_preview"
+	icon = 'icons/obj/structure/tables/steel_table.dmi'
+	icon_state = "steel_preview"
 	table_mat = DEFAULT_TABLE_MATERIAL
 
 /obj/structure/table/steel
@@ -25,6 +25,7 @@
 	table_mat = DEFAULT_WALL_MATERIAL
 
 /obj/structure/table/stone
+	icon = 'icons/obj/structure/tables/marble_table.dmi'
 	icon_state = "stone_preview"
 	table_mat = MATERIAL_SANDSTONE
 
@@ -32,22 +33,24 @@
 	table_mat = MATERIAL_MARBLE
 
 /obj/structure/table/reinforced
-	icon = 'icons/obj/structure/tables/greyscale_table.dmi'
+	icon = 'icons/obj/structure/tables/reinforced_table.dmi'
 	icon_state = "reinf_preview"
 	table_mat = DEFAULT_TABLE_MATERIAL
 	table_reinf = DEFAULT_WALL_MATERIAL
 
 /obj/structure/table/reinforced/steel
-	icon = 'icons/obj/structure/tables/steel_table.dmi'
 	table_mat = DEFAULT_WALL_MATERIAL
 
 /obj/structure/table/reinforced/wood
 	icon = 'icons/obj/structure/tables/wood_table.dmi'
+	icon_state = "wood_preview"
 	table_mat = MATERIAL_WOOD
 	table_reinf = MATERIAL_WOOD
+	material_alteration = MATERIAL_ALTERATION_ALL
 
 /obj/structure/table/reinforced/glass
-	icon = 'icons/obj/structure/tables/glass_table.dmi'
+	icon = 'icons/obj/structure/tables/rglass_table.dmi'
+	icon_state = "rglass_preview"
 	table_mat = MATERIAL_GLASS_REINFORCED
 	table_reinf = MATERIAL_GLASS_REINFORCED
 
@@ -67,16 +70,21 @@
 	table_mat = MATERIAL_GLASS
 
 /obj/structure/table/skrell
+	icon = 'icons/obj/structure/tables/skrell_table.dmi'
 	icon_state = "skrell_preview"
 	table_mat = MATERIAL_SHUTTLE_SKRELL
 
 /obj/structure/table/diona
+	icon = 'icons/obj/structure/tables/diona_table.dmi'
 	icon_state = "biomass_preview"
 	table_mat = MATERIAL_DIONA
 
 /obj/structure/table/holotable
-	icon_state = "holo_preview"
+	icon = 'icons/obj/structure/tables/steel_table.dmi'
+	icon_state = "steel_preview"
 	table_mat = MATERIAL_PLASTIC_HOLO
 
 /obj/structure/table/holotable/holowood
+	icon = 'icons/obj/structure/tables/wood_table.dmi'
+	icon_state = "wood_preview"
 	table_mat = MATERIAL_WOOD_HOLO
