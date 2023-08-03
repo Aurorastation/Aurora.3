@@ -719,8 +719,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(113)
 	},
@@ -1452,8 +1451,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
 "dC" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(113)
 	},
@@ -1492,8 +1490,7 @@
 /turf/space,
 /area/kataphract_chapter/port_solars_array)
 "dG" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 25;
 	pixel_y = 0;
 	req_one_access = list(113)
@@ -1610,8 +1607,7 @@
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	icon_state = "alarm0";
 	pixel_x = -24;
 	req_one_access = list(113)
@@ -1643,8 +1639,7 @@
 /obj/item/gun/energy/pistol/hegemony,
 /obj/item/gun/energy/pistol/hegemony,
 /obj/item/gun/energy/pistol/hegemony,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 25;
 	pixel_y = 0;
 	req_one_access = list(113)
@@ -1656,8 +1651,7 @@
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	icon_state = "alarm0";
 	pixel_x = -22;
 	req_one_access = list(113)
@@ -2293,8 +2287,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	icon_state = "alarm0";
 	pixel_x = -22;
 	req_one_access = list(113)
@@ -2513,8 +2506,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "fv" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(113)
 	},
@@ -2649,8 +2641,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "fH" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(113)
 	},
@@ -3244,8 +3235,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
 "gT" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	icon_state = "alarm0";
 	pixel_x = 24;
 	req_one_access = list(113)
@@ -3811,8 +3801,7 @@
 /obj/structure/sign/securearea{
 	pixel_x = 32
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(113)
 	},
@@ -3853,8 +3842,7 @@
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "io" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	icon_state = "alarm0";
 	pixel_x = -22;
 	req_one_access = list(113)
@@ -5154,8 +5142,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "kH" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	icon_state = "alarm0";
 	pixel_x = -22;
 	req_one_access = list(113)
@@ -5403,8 +5390,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
 "li" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	icon_state = "alarm0";
 	pixel_x = 24;
 	req_one_access = list(113)
@@ -5587,8 +5573,7 @@
 	dir = 9;
 	pixel_y = 0
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	icon_state = "alarm0";
 	pixel_x = 24;
 	req_one_access = list(24,11,55)
@@ -5751,8 +5736,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	icon_state = "alarm0";
 	pixel_x = 24;
 	req_one_access = list(113)
@@ -6052,8 +6036,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "mM" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -24;
 	req_one_access = list(113)
 	},
@@ -6673,8 +6656,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "pi" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -28;
 	req_one_access = list(113)
 	},
@@ -7240,8 +7222,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "ul" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
@@ -7766,8 +7747,7 @@
 /turf/simulated/floor,
 /area/kataphract_chapter/entry)
 "zL" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	icon_state = "alarm0";
 	pixel_x = 24;
 	req_one_access = list(113)
@@ -8646,8 +8626,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "HX" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -28;
 	req_one_access = list(113)
 	},
@@ -10176,8 +10155,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
@@ -10254,8 +10232,7 @@
 /turf/simulated/wall,
 /area/kataphract_chapter/janitorial)
 "Xy" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(113)
 	},
@@ -10310,8 +10287,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	icon_state = "alarm0";
 	pixel_x = 24;
 	req_one_access = list(113)
@@ -10355,8 +10331,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28;
 	req_one_access = list(113)
 	},

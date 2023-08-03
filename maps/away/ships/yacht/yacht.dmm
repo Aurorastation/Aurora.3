@@ -82,8 +82,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/bridge)
 "ar" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -22
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -891,8 +890,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
@@ -933,8 +931,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -23
 	},
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -1289,8 +1286,7 @@
 /turf/simulated/floor/airless,
 /area/shuttle/yacht/engine)
 "kt" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -22
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -1400,8 +1396,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "pb" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 24
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1503,8 +1498,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/bridge)
 "zA" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/carpet/purple,
@@ -1598,8 +1592,7 @@
 	pixel_y = 30;
 	req_access = null
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 24
 	},
 /turf/simulated/floor/wood/yew,

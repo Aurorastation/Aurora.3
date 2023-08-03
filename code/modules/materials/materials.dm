@@ -159,12 +159,12 @@
 		if ("solid")
 			wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 		if ("stone")
-			wall_icon = 'icons/turf/smooth/material/brick_weathered.dmi'
+			wall_icon = 'icons/turf/smooth/composite_stone.dmi'
 			multipart_reinf_icon = 'icons/turf/smooth/composite_stone_reinf.dmi'
 		if ("metal")
 			wall_icon = 'icons/turf/smooth/composite_metal.dmi'
 		if ("wood")
-			wall_icon = 'icons/turf/smooth/material/plank.dmi'
+			wall_icon = 'icons/turf/smooth/composite_wood.dmi'
 		if ("cult")
 			wall_icon = 'icons/turf/smooth/cult_wall.dmi'
 			skip_blend = TRUE
@@ -360,7 +360,7 @@
 	icon_base = "stone"
 	icon_reinf = "reinf_stone"
 	icon_colour = "#d9c179"
-	wall_icon = 'icons/turf/smooth/material/brick_weathered.dmi'
+	wall_icon = 'icons/turf/smooth/composite_stone.dmi'
 	multipart_reinf_icon = 'icons/turf/smooth/composite_stone_reinf.dmi'
 	shard_type = SHARD_STONE_PIECE
 	weight = 22
@@ -719,7 +719,7 @@
 	icon_colour = WOOD_COLOR_GENERIC
 	integrity = 50
 	icon_base = "wood"
-	wall_icon = 'icons/turf/smooth/material/plank.dmi'
+	wall_icon = 'icons/turf/smooth/composite_wood.dmi'
 	explosion_resistance = 2
 	shard_type = SHARD_SPLINTER
 	shard_can_repair = 0 // you can't weld splinters back into planks

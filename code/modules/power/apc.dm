@@ -68,6 +68,18 @@
 // may be opened to change power cell
 // three different channels (lighting/equipment/environ) - may each be set to on, off, or auto
 
+/obj/machinery/power/apc/north
+	dir = NORTH
+
+/obj/machinery/power/apc/east
+	dir = EAST
+
+/obj/machinery/power/apc/west
+	dir = WEST
+
+/obj/machinery/power/apc/south
+	dir = SOUTH
+
 /obj/machinery/power/apc/critical
 	is_critical = TRUE
 
@@ -221,7 +233,7 @@
 		return FALSE
 
 	if(surge && !emagged)
-		flick("apc-spark", src)
+		flick_overlay("apc-spark", src)
 		emagged = TRUE
 		locked = FALSE
 		update_icon()
@@ -236,14 +248,9 @@
 	. = ..(mapload)
 	wires = new(src)
 
-	// offset 28 pixels in direction of dir
 	// this allows the APC to be embedded in a wall, yet still inside an area
 	if (building)
 		set_dir(ndir)
-
-	pixel_x = DIR2PIXEL_X(dir)
-	pixel_y = DIR2PIXEL_Y(dir)
-
 	if (!building)
 		init(mapload)
 	else
@@ -254,6 +261,9 @@
 		name = "[area.name] APC"
 		stat |= MAINT
 		update_icon()
+
+	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 12 : -(12)))
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 22 : -(0)) : 0)
 
 /obj/machinery/power/apc/Destroy()
 	update()
@@ -817,7 +827,7 @@
 		else if(stat & (BROKEN|MAINT))
 			to_chat(user, "Nothing happens.")
 		else
-			flick("apc-spark", src)
+			flick_overlay("apc-spark", src)
 			if(do_after(user, 6))
 				if(prob(50))
 					emagged = TRUE

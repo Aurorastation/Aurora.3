@@ -511,7 +511,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
 "bJi" = (
-/obj/machinery/alarm,
+/obj/machinery/alarm{
+  dir = 1
+  },
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Bridge)
 "bLU" = (
@@ -987,9 +989,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "ekC" = (
-/obj/machinery/alarm{
-	dir = 8
-	},
+/obj/machinery/alarm/west,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Engine2)
 "ekF" = (
@@ -1327,7 +1327,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "fiF" = (
-/obj/machinery/alarm,
+/obj/machinery/alarm{
+  dir = 1
+  },
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship)
 "fkj" = (
@@ -1576,7 +1578,9 @@
 /turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship)
 "gka" = (
-/obj/machinery/alarm,
+/obj/machinery/alarm{
+  dir = 1
+  },
 /turf/simulated/wall,
 /area/ship/sfa_patrol_ship/Engineering)
 "gkM" = (
@@ -1916,9 +1920,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "hyz" = (
-/obj/machinery/alarm{
-	dir = 8
-	},
+/obj/machinery/alarm/west,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/medbay)
 "hBs" = (
@@ -2100,9 +2102,7 @@
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
 "imn" = (
-/obj/machinery/alarm{
-	dir = 8
-	},
+/obj/machinery/alarm/west,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Officer)
 "imx" = (
@@ -2248,9 +2248,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Engineering)
 "iMA" = (
-/obj/machinery/alarm{
-	dir = 1
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship)
 "iNb" = (
@@ -2795,9 +2793,7 @@
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
 /area/ship/sfa_patrol_ship/Bridge)
 "lfp" = (
-/obj/machinery/alarm{
-	dir = 4
-	},
+/obj/machinery/alarm/east,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Bridge)
 "lfE" = (
@@ -2883,7 +2879,9 @@
 "lrG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/girder,
-/obj/machinery/alarm,
+/obj/machinery/alarm{
+  dir = 1
+  },
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Telecoms)
 "ltd" = (
@@ -3011,9 +3009,7 @@
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engine2)
 "mgf" = (
-/obj/machinery/alarm{
-	dir = 8
-	},
+/obj/machinery/alarm/west,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "mhc" = (
@@ -3863,9 +3859,7 @@
 /turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship)
 "qcH" = (
-/obj/machinery/alarm{
-	dir = 4
-	},
+/obj/machinery/alarm/east,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship)
 "qeD" = (
@@ -4081,8 +4075,7 @@
 	dir = 4
 	},
 /obj/machinery/meter,
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -4210,9 +4203,7 @@
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engine1)
 "rzY" = (
-/obj/machinery/alarm{
-	dir = 4
-	},
+/obj/machinery/alarm/east,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Engine1)
 "rCw" = (
@@ -4644,9 +4635,7 @@
 "tVV" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/machinery/alarm{
-	dir = 4
-	},
+/obj/machinery/alarm/east,
 /obj/structure/girder,
 /turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship)
@@ -4895,8 +4884,7 @@
 /obj/item/laser_components/modifier/scope{
 	pixel_y = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -4943,8 +4931,7 @@
 "vus" = (
 /obj/structure/bed,
 /obj/item/bedsheet/red,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -5241,9 +5228,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "wYN" = (
-/obj/machinery/alarm{
-	dir = 1
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "xbK" = (
@@ -5329,9 +5314,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "xmZ" = (
-/obj/machinery/alarm{
-	dir = 4
-	},
+/obj/machinery/alarm/east,
 /turf/simulated/wall,
 /area/ship/sfa_patrol_ship/Ammo_Closet)
 "xxU" = (

@@ -1,7 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ad" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = 18
 	},
 /turf/simulated/floor/tiled,
@@ -86,8 +85,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = 18
 	},
 /obj/structure/closet/secure_closet/hos,
@@ -257,7 +255,7 @@
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
 "gi" = (
-/obj/machinery/alarm{
+/obj/machinery/alarm/north{
 	locked = 0;
 	pixel_y = 23
 	},
@@ -1065,7 +1063,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
+/obj/machinery/alarm/north{
 	locked = 0;
 	pixel_y = -6
 	},
@@ -1895,8 +1893,7 @@
 /turf/simulated/floor/tiled,
 /area/construction/solars)
 "Rj" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = 18
 	},
 /obj/structure/table/wood,
@@ -2191,7 +2188,7 @@
 /turf/simulated/floor,
 /area/construction/qmaint)
 "ZE" = (
-/obj/machinery/alarm{
+/obj/machinery/alarm/north{
 	locked = 0;
 	pixel_y = -6
 	},

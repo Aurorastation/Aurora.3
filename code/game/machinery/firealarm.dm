@@ -2,7 +2,7 @@
 	name = "fire alarm"
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
 	icon = 'icons/obj/monitors.dmi'
-	icon_state = "firep"
+	icon_state = "firealarm"
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/detecting = 1
 	var/working = 1
@@ -53,19 +53,7 @@
 			set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = COLOR_RED)
 		else
 			add_overlay("fire0")
-			switch(seclevel)
-				if("green")
-					set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = LIGHT_COLOR_GREEN)
-				if("blue")
-					set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = LIGHT_COLOR_BLUE)
-				if("yellow")
-					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_YELLOW)
-				if("red")
-					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_RED)
-				if("delta")
-					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_ORANGE)
-
-		add_overlay(image(icon, "overlay_[seclevel]", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
+			set_light(0)
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
 	if(src.detecting)
@@ -229,17 +217,15 @@
 /obj/machinery/firealarm/set_emergency_state(var/new_security_level)
 	if(seclevel != new_security_level)
 		seclevel = new_security_level
-		update_icon()
 
 /obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
 	. = ..(mapload, ndir)
 
-	seclevel = get_security_level()
+	// Overwrite the mapped in values.
+	pixel_x = ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? 22 : -22))
+	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 32 : -17) : 0)
 	update_icon()
 
-	// Overwrite the mapped in values.
-	pixel_x = DIR2PIXEL_X(dir)
-	pixel_y = DIR2PIXEL_Y(dir)
 	if(isContactLevel(z))
 		set_security_level(security_level ? get_security_level() : "green")
 	soundloop = new(src, FALSE)
@@ -260,6 +246,7 @@
 
 /obj/machinery/firealarm/west
 	dir = WEST
+
 /obj/machinery/firealarm/south
 	dir = SOUTH
 

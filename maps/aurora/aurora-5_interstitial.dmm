@@ -19,9 +19,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "ag" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "ah" = (
@@ -500,8 +498,7 @@
 /obj/structure/closet/toolcloset,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -592,8 +589,7 @@
 	dir = 1;
 	icon_state = "preview_threethirds"
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1067,9 +1063,7 @@
 /turf/simulated/open,
 /area/turbolift/cargo_mid)
 "cq" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/table/reinforced/steel,
 /obj/item/hoist_kit{
 	pixel_y = 5
@@ -1475,8 +1469,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -1611,8 +1604,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -1796,8 +1788,7 @@
 /turf/simulated/floor/tiled,
 /area/security/range)
 "eb" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
@@ -1870,8 +1861,7 @@
 /turf/simulated/floor/tiled,
 /area/security/training_crimescene)
 "ei" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
@@ -2114,8 +2104,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/camera/network/security{
@@ -2370,8 +2359,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
@@ -2590,8 +2578,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2737,8 +2724,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/landmark/start{
@@ -3256,8 +3242,7 @@
 /turf/simulated/floor/plating,
 /area/bridge/selfdestruct)
 "iz" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3440,7 +3425,6 @@
 /area/bridge/selfdestruct)
 "iR" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -4012,9 +3996,7 @@
 /area/medical/psych)
 "kr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
@@ -4025,8 +4007,7 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -4533,9 +4514,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/table/wood,
 /obj/item/book/manual/psych,
 /obj/item/paper_bin{
@@ -4826,8 +4805,7 @@
 /area/maintenance/medbay_interstitial)
 "mb" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4953,7 +4931,6 @@
 /area/medical/psych)
 "mv" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/corner_wide/green{
@@ -5289,9 +5266,7 @@
 	pixel_x = 1;
 	pixel_y = 3
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "cobweb1"
 	},
@@ -5773,9 +5748,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/plating,
@@ -5796,8 +5769,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/structure/disposalpipe/up{
@@ -6091,7 +6063,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/plating,
@@ -6675,8 +6646,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/ringer{
@@ -6720,7 +6690,6 @@
 /area/mine/unexplored)
 "xi" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/structure/closet/crate,
@@ -6995,8 +6964,7 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_interstitial)
 "yZ" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -8020,9 +7988,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
 "FF" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/material/cardboard,
 /turf/simulated/floor/tiled/white,
@@ -8115,8 +8081,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_cargo)
 "Gm" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner_wide/green{
@@ -8369,9 +8334,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/plating,
@@ -8882,8 +8845,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -9157,9 +9119,7 @@
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
 "Kw" = (
@@ -9585,8 +9545,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -9880,8 +9839,7 @@
 /obj/item/roller{
 	pixel_y = 14
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -9996,9 +9954,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled,
@@ -10012,8 +9968,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
@@ -10252,8 +10207,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -10856,8 +10810,7 @@
 	},
 /area/mine/unexplored)
 "Ub" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -11147,8 +11100,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -11189,9 +11141,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -11293,7 +11243,6 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/machinery/camera/network/civilian_surface{
@@ -11364,9 +11313,7 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_interstitial)
 "WO" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/landmark{
 	name = "Revenant"
 	},
@@ -11651,9 +11598,7 @@
 /turf/simulated/floor/tiled/white,
 /area/security/break_room)
 "YW" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
 "YX" = (
@@ -11803,8 +11748,7 @@
 /area/mine/unexplored)
 "ZU" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/plating,

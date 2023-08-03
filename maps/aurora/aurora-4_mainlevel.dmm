@@ -259,9 +259,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aaJ" = (
@@ -299,9 +297,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -875,8 +871,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/power/sensor{
@@ -971,8 +966,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
@@ -1040,7 +1034,6 @@
 /area/medical/surgerywing)
 "acs" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1133,8 +1126,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -1358,8 +1350,7 @@
 /area/security/brig)
 "acR" = (
 /obj/structure/reagent_dispensers/keg,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -1585,8 +1576,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -1702,7 +1692,6 @@
 /area/maintenance/vault)
 "adA" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/structure/cable{
@@ -1726,8 +1715,7 @@
 	set_temperature = 80;
 	use_power = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1993,9 +1981,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "adW" = (
@@ -2072,14 +2058,11 @@
 /area/maintenance/security_starboard)
 "aef" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "aeg" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3199,8 +3182,7 @@
 /area/security/main)
 "agq" = (
 /obj/machinery/disposal,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/light{
@@ -3603,7 +3585,6 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -3619,8 +3600,7 @@
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/white,
@@ -3750,9 +3730,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "ahw" = (
@@ -3862,8 +3840,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -4036,9 +4013,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "ahT" = (
@@ -4089,9 +4064,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "aib" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/landmark{
 	name = "JoinLateCyborg"
 	},
@@ -4127,9 +4100,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "aig" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/atmos_control)
@@ -4141,9 +4112,7 @@
 "aii" = (
 /obj/structure/closet,
 /obj/random/loot,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
 "aij" = (
@@ -4316,8 +4285,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/main)
 "aiB" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -4519,8 +4487,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aje" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -5094,15 +5061,12 @@
 /turf/simulated/floor/reinforced,
 /area/security/nuke_storage)
 "akj" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/anti_bluespace,
 /turf/simulated/floor/reinforced,
 /area/security/nuke_storage)
 "akk" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
@@ -5799,8 +5763,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "alB" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
@@ -6053,7 +6016,6 @@
 /area/maintenance/vault)
 "amd" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/structure/table/rack,
@@ -6129,9 +6091,7 @@
 	dir = 1
 	},
 /obj/machinery/mech_recharger,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "amk" = (
@@ -6526,8 +6486,7 @@
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "amZ" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/bed/stool/chair{
@@ -7098,7 +7057,6 @@
 	dir = 10
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/structure/table/standard,
@@ -7371,9 +7329,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_smes)
 "aoD" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -7555,9 +7511,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/item/device/flashlight/heavy,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
@@ -7958,8 +7912,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -9187,9 +9140,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/tiled/dark,
@@ -9951,9 +9902,7 @@
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Corridor Camera 8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/closet,
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -10213,9 +10162,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -10657,9 +10604,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "atU" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
@@ -10708,7 +10653,6 @@
 	dir = 10
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/machinery/light{
@@ -10717,9 +10661,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engine_airlock)
 "atZ" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
 	},
@@ -10871,9 +10813,7 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "auo" = (
@@ -10908,9 +10848,7 @@
 /obj/structure/closet/secure_closet/engineering_personal,
 /obj/item/device/flashlight,
 /obj/item/device/gps/engineering,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/item/storage/belt/utility,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -11328,8 +11266,7 @@
 /area/bridge)
 "avj" = (
 /obj/structure/table/reinforced,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/light{
@@ -11683,8 +11620,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/disposalpipe/trunk,
@@ -11699,8 +11635,7 @@
 /area/engineering/engineering_hallway_main)
 "avP" = (
 /obj/machinery/computer/atmos_alert,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -12945,9 +12880,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "axM" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
@@ -13031,8 +12964,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "axT" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -13961,8 +13893,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/light{
@@ -14189,8 +14120,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
@@ -14816,9 +14746,7 @@
 	name = "Powernet Sensor - Engineering Subgrid";
 	name_tag = "Engineering Subgrid"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -14963,7 +14891,6 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/plating,
@@ -14974,7 +14901,6 @@
 	},
 /obj/item/modular_computer/console/preset/security,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
@@ -14994,7 +14920,6 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/structure/table/standard,
@@ -15017,8 +14942,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -15625,8 +15549,7 @@
 "aCb" = (
 /obj/item/toy/figure/journalist,
 /obj/structure/flora/pottedplant/random,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/wood,
@@ -16381,9 +16304,7 @@
 /turf/simulated/floor/tiled,
 /area/teleporter)
 "aDg" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/teleporter)
 "aDh" = (
@@ -16509,9 +16430,7 @@
 /obj/item/clothing/suit/space/void/captain,
 /obj/item/clothing/head/helmet/space/void/captain,
 /obj/item/clothing/shoes/magboots,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Captain's Quarters"
 	},
@@ -17045,9 +16964,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aEq" = (
@@ -18142,9 +18059,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aFW" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
@@ -19095,8 +19010,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aHu" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -20152,8 +20066,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/ringer{
@@ -20586,7 +20499,6 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
@@ -20801,9 +20713,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aKd" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aKe" = (
@@ -20911,9 +20821,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
@@ -21076,9 +20984,7 @@
 "aKE" = (
 /obj/structure/table/wood,
 /obj/item/storage/secure/briefcase,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aKF" = (
@@ -21155,7 +21061,6 @@
 /area/engineering/engine_room)
 "aKO" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
@@ -21228,8 +21133,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/photocopier,
@@ -22387,9 +22291,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "aMN" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/photocopier,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -22887,7 +22789,6 @@
 /area/hallway/primary/starboard)
 "aNI" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
@@ -23272,7 +23173,6 @@
 	dir = 6
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/machinery/disposal,
@@ -23549,8 +23449,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "aOU" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/table/wood,
@@ -23693,7 +23592,6 @@
 /area/security/brig/control_room)
 "aPg" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/corner_wide/lime{
@@ -24848,7 +24746,6 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
@@ -24884,8 +24781,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -25727,9 +25623,7 @@
 /turf/simulated/floor/plating,
 /area/security/lobby)
 "aSt" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aSu" = (
@@ -25770,9 +25664,7 @@
 /area/security/prison)
 "aSx" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aSy" = (
@@ -26103,8 +25995,7 @@
 /turf/simulated/wall/r_wall,
 /area/bridge/ailobby)
 "aTg" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -26119,8 +26010,7 @@
 /obj/item/storage/box/rxglasses,
 /obj/item/cane/crutch,
 /obj/item/cane/crutch,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -26460,7 +26350,6 @@
 /area/maintenance/engineering)
 "aTJ" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -26550,7 +26439,6 @@
 /area/security/lobby)
 "aTR" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/structure/cable/green{
@@ -26704,9 +26592,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -27178,9 +27064,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge/ailobby)
 "aUP" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -27397,7 +27281,6 @@
 /area/engineering/foyer)
 "aVi" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/structure/disposalpipe/segment{
@@ -27413,7 +27296,6 @@
 /area/hallway/primary/port)
 "aVk" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/structure/bed/stool/chair/plastic{
@@ -27706,8 +27588,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aVK" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/carpet,
@@ -27873,9 +27754,7 @@
 /area/janitor)
 "aWc" = (
 /obj/vehicle/train/cargo/trolley/pussywagon,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "aWd" = (
@@ -27916,9 +27795,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "aWj" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "aWk" = (
@@ -27961,7 +27838,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/machinery/bodyscanner{
@@ -28013,8 +27889,7 @@
 /area/hallway/primary/port)
 "aWu" = (
 /obj/structure/table/standard,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -28040,8 +27915,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -28519,7 +28393,6 @@
 /area/bridge/meeting_room)
 "aXv" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -29066,8 +28939,7 @@
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Corridor Camera 1"
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -29498,7 +29370,6 @@
 /obj/structure/table/standard,
 /obj/machinery/recharger,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -29705,8 +29576,7 @@
 /area/hallway/primary/port)
 "aZi" = (
 /obj/structure/table/standard,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -29730,7 +29600,6 @@
 	dir = 9
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/machinery/light,
@@ -29754,8 +29623,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "aZl" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -30131,9 +29999,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/disposalpipe/junction{
 	dir = 4
 	},
@@ -30306,7 +30172,6 @@
 "baj" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/grass,
@@ -30455,7 +30320,6 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
@@ -30616,8 +30480,7 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/structure/cable{
@@ -30852,8 +30715,7 @@
 /turf/simulated/wall,
 /area/assembly/robotics)
 "bbv" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/reinforced,
@@ -30861,7 +30723,6 @@
 "bbw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/wood,
@@ -30870,8 +30731,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/white,
@@ -30938,8 +30798,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -30949,8 +30808,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bbE" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -30982,9 +30840,7 @@
 	name = "\improper ELEVATOR AHEAD";
 	pixel_x = 32
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bbJ" = (
@@ -31047,9 +30903,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Chemistry Lab Bravo";
 	dir = 4
@@ -31108,9 +30962,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Chemistry Lab Alpha";
 	dir = 8
@@ -31145,14 +30997,11 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bbX" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -31290,9 +31139,7 @@
 /area/crew_quarters/medbreak)
 "bcj" = (
 /obj/structure/flora/pottedplant/random,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "bck" = (
@@ -31470,8 +31317,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "bcA" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/light_switch{
@@ -31621,9 +31467,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -31650,8 +31494,7 @@
 "bcZ" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -31916,8 +31759,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/wood,
@@ -31948,8 +31790,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
@@ -32041,8 +31882,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bdH" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/light{
@@ -32137,9 +31977,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "bdR" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -32219,8 +32057,7 @@
 	c_tag = "Bridge - Head of Personnel's Office";
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/carpet,
@@ -32409,7 +32246,6 @@
 	dir = 9
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/structure/cable/green{
@@ -32422,7 +32258,6 @@
 "beo" = (
 /obj/machinery/disposal,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/structure/disposalpipe/trunk{
@@ -32575,8 +32410,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "beF" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -32598,14 +32432,12 @@
 /area/maintenance/research_port)
 "beH" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "beI" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
@@ -32667,7 +32499,6 @@
 /area/assembly/robotics_cyborgification)
 "beN" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -32738,7 +32569,6 @@
 /area/medical/pharmacy)
 "beU" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/structure/closet/emcloset,
@@ -32931,8 +32761,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
@@ -33086,8 +32915,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/wood,
@@ -33141,8 +32969,7 @@
 "bfF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/large_stock_marker,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
@@ -33302,8 +33129,7 @@
 /turf/simulated/floor/plating,
 /area/assembly/robotics/workshop)
 "bfU" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -33388,8 +33214,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
@@ -33603,8 +33428,7 @@
 "bgr" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/flora/pottedplant/random,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/white,
@@ -34497,8 +34321,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/bed/roller,
@@ -34881,9 +34704,7 @@
 	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "biB" = (
@@ -35039,8 +34860,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -35337,8 +35157,7 @@
 /area/medical/exam_room)
 "bjj" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/structure/disposalpipe/trunk{
@@ -35387,8 +35206,7 @@
 /obj/item/device/eftpos{
 	eftpos_name = "Medbay EFTPOS scanner"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/full{
@@ -36755,9 +36573,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "blJ" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -37278,8 +37094,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bmX" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner_wide/green{
@@ -37522,9 +37337,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -38496,8 +38309,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/camera/network/research{
@@ -41911,8 +41723,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/structure/disposalpipe/segment,
@@ -41936,8 +41747,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bwA" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/camera/network/medbay{
@@ -42076,8 +41886,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bwP" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -42295,9 +42104,7 @@
 	pixel_x = -1;
 	pixel_y = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/table/steel,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/misc_lab)
@@ -42531,9 +42338,7 @@
 	},
 /obj/item/storage/firstaid/fire,
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "bxx" = (
@@ -43378,8 +43183,7 @@
 	dir = 4
 	},
 /obj/structure/flora/pottedplant/random,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -43956,9 +43760,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bAy" = (
@@ -44197,8 +43999,7 @@
 /area/medical/first_responder)
 "bBc" = (
 /obj/structure/flora/pottedplant/random,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/white,
@@ -44248,8 +44049,7 @@
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "bBh" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/camera/network/medbay{
@@ -44351,8 +44151,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/carpet/blue,
@@ -44539,8 +44338,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "bBR" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -44736,9 +44534,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -45343,9 +45139,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "bDA" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -45596,9 +45390,7 @@
 	},
 /obj/structure/table/standard,
 /obj/machinery/reagentgrinder,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 8
 	},
@@ -46237,8 +46029,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
@@ -46591,8 +46382,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "bGB" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/closet/emcloset,
@@ -46794,8 +46584,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -47785,8 +47574,7 @@
 	dir = 6
 	},
 /obj/structure/disposalpipe/trunk,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/newscaster{
@@ -49800,8 +49588,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bOD" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/reinforced,
@@ -49995,8 +49782,7 @@
 	pixel_x = -1;
 	pixel_y = 12
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/white,
@@ -50150,8 +49936,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/structure/bookcase/libraryspawn/fiction,
@@ -50419,8 +50204,7 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -50547,8 +50331,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bQH" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/cable{
@@ -50644,7 +50427,6 @@
 "bQT" = (
 /obj/machinery/lapvend,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/machinery/camera/network/civilian_main{
@@ -50658,8 +50440,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -51480,9 +51261,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bTo" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
@@ -51513,8 +51292,7 @@
 	pixel_x = 3;
 	pixel_y = 7
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/lino/diamond,
@@ -52894,9 +52672,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -54124,8 +53900,7 @@
 /area/quartermaster/lobby)
 "bZH" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -54564,8 +54339,7 @@
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
 /obj/item/stack/packageWrap,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/item/stack/wrapping_paper,
@@ -54638,7 +54412,6 @@
 	},
 /obj/effect/floor_decal/corner/brown/full,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -55201,9 +54974,7 @@
 	pixel_y = 7
 	},
 /obj/item/pen,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
@@ -55237,9 +55008,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/disposal)
@@ -55957,7 +55726,6 @@
 /area/maintenance/cargo)
 "cdn" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -56111,7 +55879,6 @@
 "cdE" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
@@ -56770,9 +56537,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "ceH" = (
@@ -56932,8 +56697,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
@@ -56946,9 +56710,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/power/apc/super{
 	dir = 8;
 	name = "west bump";
@@ -57384,8 +57146,7 @@
 /area/outpost/mining_main/eva)
 "cfY" = (
 /obj/machinery/recharge_station,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
@@ -57444,9 +57205,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cgf" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cgg" = (
@@ -58178,8 +57937,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -59752,8 +59510,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
@@ -60216,8 +59973,7 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "eZE" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -60513,8 +60269,7 @@
 /area/maintenance/library)
 "frq" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/flora/pottedplant/random,
@@ -60783,9 +60538,7 @@
 	name = "Powernet Sensor - Civilian (Main Level)";
 	name_tag = "Civilian (Main Level) Subgrid"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
 "fSR" = (
@@ -60893,9 +60646,7 @@
 /area/engineering/storage_hard)
 "gbQ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "gcr" = (
@@ -61559,9 +61310,7 @@
 /area/maintenance/library)
 "hiV" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -61712,9 +61461,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "hwc" = (
@@ -62025,8 +61772,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "hRJ" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
@@ -62306,9 +62052,7 @@
 /area/maintenance/vault)
 "itk" = (
 /obj/machinery/mech_recharger,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
 "itx" = (
@@ -62531,8 +62275,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "iTH" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/wood,
@@ -62715,9 +62458,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "jvm" = (
@@ -62863,8 +62604,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/white,
@@ -62905,9 +62645,7 @@
 /area/maintenance/vault)
 "kbF" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
@@ -63194,8 +62932,7 @@
 "kEs" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/largecrate/animal/goat,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/light{
@@ -63394,8 +63131,7 @@
 /area/maintenance/research_port)
 "lbN" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
@@ -63726,8 +63462,7 @@
 /obj/structure/table/wood{
 	table_reinf = "wood"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/item/material/ashtray/bronze,
@@ -64144,9 +63879,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "mCz" = (
@@ -64915,9 +64648,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "nQe" = (
@@ -65402,8 +65133,7 @@
 "oOw" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/white,
@@ -65471,9 +65201,7 @@
 /area/outpost/mining_main/eva)
 "oUb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "oUD" = (
@@ -65765,8 +65493,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "pnC" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/table/wood,
@@ -66513,9 +66240,7 @@
 	name = "Security - Investigations Office"
 	})
 "qJD" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "qKU" = (
@@ -66670,9 +66395,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "qSv" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/closet,
 /obj/random/loot,
 /turf/simulated/floor/plating,
@@ -67298,8 +67021,7 @@
 /area/assembly/chargebay)
 "saq" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
@@ -67583,8 +67305,7 @@
 "ssY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/tile/wood,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
@@ -67687,8 +67408,7 @@
 /turf/simulated/floor/plating,
 /area/lawoffice/consular)
 "sJu" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/lino/diamond,
@@ -67712,8 +67432,7 @@
 /area/medical/surgeryobs)
 "sJS" = (
 /obj/machinery/computer/rdconsole/robotics,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/ringer{
@@ -67757,9 +67476,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "sOQ" = (
@@ -69046,9 +68763,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "uLu" = (
@@ -70398,8 +70113,7 @@
 "wZe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/structure/disposalpipe/segment,
@@ -71203,8 +70917,7 @@
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/white,

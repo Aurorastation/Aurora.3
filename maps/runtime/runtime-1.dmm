@@ -35,7 +35,7 @@
 /turf/simulated/wall/r_wall,
 /area/engineering/gravity_gen)
 "aj" = (
-/obj/machinery/alarm{
+/obj/machinery/alarm/north{
 	locked = 0;
 	pixel_y = 23
 	},
@@ -70,9 +70,10 @@
 /turf/template_noop,
 /area/template_noop)
 "an" = (
-/obj/machinery/alarm{
+/obj/machinery/alarm/north{
 	locked = 0;
-	pixel_y = 23
+	pixel_y = 23;
+	dir = 1
 	},
 /obj/machinery/power/apc{
 	dir = 8;
@@ -98,7 +99,7 @@
 /turf/simulated/floor/plating,
 /area/engineering)
 "aq" = (
-/obj/machinery/alarm{
+/obj/machinery/alarm/north{
 	locked = 0;
 	pixel_y = 23
 	},
@@ -451,7 +452,9 @@
 	c_tag = "Engineering - Engine Airlock";
 	dir = 4
 	},
-/obj/machinery/firealarm/west,
+/obj/machinery/firealarm/west{
+	pixel_x = -22
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "be" = (
@@ -608,7 +611,7 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/obj/machinery/alarm{
+/obj/machinery/alarm/north{
 	locked = 0;
 	pixel_y = 23
 	},
@@ -635,7 +638,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bD" = (
-/obj/machinery/alarm{
+/obj/machinery/alarm/north{
 	locked = 0;
 	pixel_y = 23
 	},
@@ -717,7 +720,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "bQ" = (
-/obj/machinery/alarm{
+/obj/machinery/alarm/north{
 	locked = 0;
 	pixel_y = 23
 	},
@@ -1203,9 +1206,8 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "cT" = (
-/obj/machinery/alarm{
-	locked = 0;
-	pixel_y = 23
+/obj/machinery/alarm/north{
+	locked = 0
 	},
 /obj/structure/cable,
 /obj/machinery/power/apc{
@@ -1236,9 +1238,10 @@
 /turf/simulated/floor/tiled,
 /area/construction)
 "cX" = (
-/obj/machinery/alarm{
+/obj/machinery/alarm/north{
 	locked = 0;
-	pixel_y = 23
+	pixel_y = 23;
+	dir = 1
 	},
 /obj/machinery/power/apc{
 	dir = 8;
@@ -1332,9 +1335,6 @@
 "dm" = (
 /turf/simulated/wall,
 /area/storage/primary)
-"do" = (
-/turf/simulated/floor/tiled/full,
-/area/storage/primary)
 "dp" = (
 /obj/structure/window_frame/empty,
 /turf/simulated/floor/tiled/full,
@@ -1411,6 +1411,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/runtime)
+"eH" = (
+/obj/machinery/firealarm/south,
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "eI" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Central Corridor 1";
@@ -1483,6 +1488,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering)
+"kP" = (
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "mn" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -1546,6 +1555,10 @@
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"tr" = (
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "tT" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1640,10 +1653,18 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/construction)
+"BP" = (
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "Ct" = (
 /obj/machinery/door/airlock/glass,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
+/area/storage/primary)
+"DL" = (
+/obj/machinery/power/apc/south,
+/turf/simulated/floor/tiled,
 /area/storage/primary)
 "Eu" = (
 /obj/effect/landmark/entry_point/aft,
@@ -1654,6 +1675,14 @@
 /obj/machinery/shipsensors,
 /turf/template_noop,
 /area/engineering)
+"Fw" = (
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
+"Fx" = (
+/obj/machinery/power/apc/north,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/recharge_station,
@@ -1695,6 +1724,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction)
+"HV" = (
+/obj/machinery/alarm/east,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "In" = (
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled,
@@ -1718,7 +1751,13 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "KE" = (
-/obj/machinery/firealarm/north,
+/obj/machinery/firealarm/north{
+	pixel_y = -17
+	},
+/turf/simulated/floor/tiled,
+/area/storage/primary)
+"Lp" = (
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "Ly" = (
@@ -1740,6 +1779,10 @@
 "Qe" = (
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"Qf" = (
+/obj/machinery/power/apc/west,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "Qi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1778,6 +1821,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
+"Sz" = (
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "Tq" = (
 /obj/effect/overmap/visitable/ship/landable/runtime,
 /turf/simulated/floor/shuttle,
@@ -1812,6 +1859,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"UO" = (
+/obj/machinery/power/apc/east,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "UP" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
@@ -1829,7 +1880,9 @@
 /area/hallway/primary/central_one)
 "WH" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/firealarm/north,
+/obj/machinery/firealarm/north{
+	pixel_y = -17
+	},
 /turf/simulated/floor/tiled,
 /area/construction)
 "WP" = (
@@ -1846,7 +1899,9 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 8
 	},
-/obj/machinery/firealarm/west,
+/obj/machinery/firealarm/west{
+	pixel_x = -22
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "Yc" = (
@@ -8798,7 +8853,7 @@ da
 da
 da
 da
-da
+HV
 da
 dg
 da
@@ -9054,10 +9109,10 @@ dm
 da
 dm
 da
+tr
 dm
-cZ
-cZ
-dm
+Sz
+da
 da
 cP
 ae
@@ -9311,10 +9366,10 @@ cZ
 da
 cZ
 da
-cZ
-do
-do
-cZ
+da
+Fw
+da
+da
 da
 cP
 ae
@@ -9568,10 +9623,10 @@ cZ
 da
 cZ
 da
-cZ
-cZ
-cZ
-cZ
+da
+BP
+da
+da
 da
 cP
 ae
@@ -9825,10 +9880,10 @@ dm
 da
 dm
 da
-cZ
-do
-do
-cZ
+Lp
+dm
+eH
+da
 da
 cP
 ae
@@ -10082,10 +10137,10 @@ cZ
 da
 cZ
 da
-cZ
-do
-do
-cZ
+da
+kP
+da
+da
 da
 cP
 ae
@@ -10339,10 +10394,10 @@ dm
 da
 dm
 da
-dm
-cZ
-cZ
-dm
+da
+UO
+da
+da
 da
 cP
 ae
@@ -10596,9 +10651,9 @@ da
 da
 cZ
 da
-da
-da
-da
+DL
+dm
+Fx
 da
 da
 cP
@@ -10854,7 +10909,7 @@ da
 da
 da
 da
-da
+Qf
 da
 da
 da

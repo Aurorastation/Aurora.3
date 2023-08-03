@@ -686,9 +686,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/reinforced,
 /area/bridge/selfdestruct)
 "azM" = (
@@ -1128,9 +1126,7 @@
 	name = "Distro to Airlock";
 	target_pressure = 200
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -1158,9 +1154,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
@@ -2695,9 +2689,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "cAG" = (
@@ -3046,9 +3038,7 @@
 /turf/simulated/floor,
 /area/maintenance/substation/command)
 "cQN" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
@@ -3717,8 +3707,7 @@
 	c_tag = "Third Deck - Cafe";
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
@@ -4025,8 +4014,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4327,8 +4315,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 22
 	},
 /turf/simulated/floor,
@@ -4463,8 +4450,7 @@
 	dir = 6
 	},
 /obj/structure/reagent_dispensers/water_cooler,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4618,9 +4604,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/central)
 "eny" = (
@@ -5039,9 +5023,7 @@
 "eDD" = (
 /obj/structure/bed/stool/padded/black,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "eDN" = (
@@ -5114,9 +5096,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
 "eFH" = (
@@ -5129,8 +5109,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/camera/motion{
@@ -5896,9 +5875,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "fkC" = (
@@ -6099,8 +6076,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/light{
@@ -7080,8 +7056,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "gcM" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/table/wood,
@@ -7283,8 +7258,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "gmF" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/flora/pottedplant{
@@ -7724,8 +7698,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "gHT" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/papershredder,
@@ -7906,8 +7879,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
 "gPb" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -8731,8 +8703,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "hou" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/newscaster{
@@ -8770,7 +8741,6 @@
 	req_one_access = list(38,19,72)
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -8828,9 +8798,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "hsD" = (
@@ -9132,9 +9100,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "hDQ" = (
@@ -9281,7 +9247,6 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
@@ -10083,8 +10048,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -10092,8 +10056,7 @@
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "izW" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -10951,8 +10914,7 @@
 /obj/item/storage/firstaid/surgery,
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/regular,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner/blue/full{
@@ -11359,9 +11321,7 @@
 "jEO" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/light/spot{
 	dir = 1
 	},
@@ -11809,7 +11769,6 @@
 	},
 /obj/structure/table/glass,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/machinery/reagentgrinder{
@@ -11924,9 +11883,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -12193,9 +12150,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor,
 /area/bridge/aibunker)
 "kof" = (
@@ -12369,9 +12324,7 @@
 	name = "interrogation";
 	network = list("Interrogation")
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/interrogation)
 "ksn" = (
@@ -12733,8 +12686,7 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -12965,9 +12917,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "kSF" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
@@ -13221,9 +13171,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "lak" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
@@ -13262,9 +13210,7 @@
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "lbI" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 1
 	},
@@ -13989,9 +13935,7 @@
 /area/crew_quarters/captain)
 "lzQ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "lzS" = (
@@ -14054,8 +13998,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "lCW" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -14070,7 +14013,6 @@
 	dir = 10
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/machinery/light,
@@ -14598,8 +14540,7 @@
 /obj/structure/closet/secure_closet/evidence{
 	name = "evidence storage locker A"
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 31
 	},
 /turf/simulated/floor/tiled/dark,
@@ -15366,7 +15307,6 @@
 /area/horizon/hallway/deck_three/primary/central)
 "mNY" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -15462,8 +15402,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "mRd" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner/green/full{
@@ -15480,9 +15419,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "mSs" = (
@@ -16120,7 +16057,6 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/green/full,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/white,
@@ -16822,7 +16758,6 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -16955,8 +16890,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "nYE" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -17373,8 +17307,7 @@
 /obj/structure/cable/green,
 /obj/effect/floor_decal/industrial/outline/medical,
 /obj/structure/closet/secure_closet/personal,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	pixel_y = 0;
 	req_one_access = list(24,11,55)
@@ -18335,8 +18268,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -19196,8 +19128,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -19367,8 +19298,7 @@
 /turf/simulated/wall,
 /area/horizon/holodeck_control)
 "qii" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -19454,9 +19384,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "qkE" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -19564,9 +19492,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -20132,8 +20058,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "qSM" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner_wide/green{
@@ -20303,9 +20228,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
 "rbM" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/table/rack,
 /obj/item/clothing/ears/earmuffs,
 /obj/item/clothing/ears/earmuffs,
@@ -20375,9 +20298,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
 "rgd" = (
@@ -20621,8 +20542,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/wood,
@@ -21199,9 +21119,7 @@
 "rNN" = (
 /obj/structure/bed/stool/chair/sofa/left/red,
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/light/spot{
 	dir = 1
 	},
@@ -22406,8 +22324,7 @@
 	pixel_x = 5;
 	pixel_y = 4
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/camera/network/security{
@@ -22473,9 +22390,7 @@
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "sHO" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/closet/secure_closet/investigator,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 32;
@@ -22921,8 +22836,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -23157,8 +23071,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -23928,8 +23841,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/filingcabinet/chestdrawer,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/dark,
@@ -24100,8 +24012,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/camera/network/security{
@@ -24349,7 +24260,6 @@
 /area/bridge/controlroom)
 "ulh" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -25096,7 +25006,6 @@
 	dir = 5
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/machinery/camera/network/medbay{
@@ -25171,9 +25080,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -25415,8 +25322,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/wood,
@@ -26178,7 +26084,6 @@
 /area/security/vacantoffice)
 "vLH" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/corner/green/diagonal{
@@ -26544,8 +26449,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor,
@@ -26629,8 +26533,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -26778,8 +26681,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
 "wjr" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/light/small/emergency{
@@ -27004,9 +26906,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "wqO" = (
@@ -27256,8 +27156,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28;
 	req_one_access = list(24,11,55)
 	},
@@ -27402,8 +27301,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor,
@@ -28237,9 +28135,7 @@
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Captain's Private Office 1"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "xmW" = (
@@ -28664,8 +28560,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/lawoffice/consular)
 "xIn" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/random/junk,
@@ -28846,7 +28741,6 @@
 /area/horizon/security/meeting_room)
 "xPy" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/corner/paleblue{

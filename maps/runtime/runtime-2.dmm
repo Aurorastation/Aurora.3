@@ -282,7 +282,7 @@
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "nc" = (
-/obj/machinery/alarm{
+/obj/machinery/alarm/north{
 	locked = 0;
 	pixel_y = 23
 	},

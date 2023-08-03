@@ -511,8 +511,7 @@
 "bQB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -772,8 +771,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -32;
 	req_one_access = null
 	},
@@ -878,8 +876,7 @@
 	pixel_x = 1;
 	pixel_y = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -1898,8 +1895,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
 "kdD" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -2345,8 +2341,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -2549,8 +2544,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -2713,8 +2707,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/pharmacy)
 "qmd" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -3155,8 +3148,7 @@
 /area/space)
 "sPi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -32;
 	req_one_access = null
 	},

@@ -364,8 +364,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/bridge)
 "fh" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(113)
 	},
@@ -1199,8 +1198,7 @@
 /turf/simulated/floor/plating,
 /area/miners_guild/hangar)
 "or" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	icon_state = "alarm0";
 	pixel_x = -24;
 	req_one_access = list(113)
@@ -1665,8 +1663,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
 "uk" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -28;
 	req_one_access = list(113)
 	},
@@ -1840,8 +1837,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/canteen)
 "wt" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(113)
 	},
@@ -3551,8 +3547,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "RZ" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	icon_state = "alarm0";
 	pixel_x = -22;
 	req_one_access = list(113)
@@ -3831,8 +3826,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/bridge)
 "VZ" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	icon_state = "alarm0";
 	pixel_x = 24
 	},

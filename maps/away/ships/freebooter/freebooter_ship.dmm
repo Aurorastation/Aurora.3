@@ -2190,8 +2190,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -2732,8 +2731,7 @@
 /area/ship/freebooter_ship)
 "gyH" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -3005,8 +3003,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -32;
 	req_one_access = null
 	},
@@ -3894,8 +3891,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -4138,8 +4134,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -4635,8 +4630,7 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -5567,8 +5561,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -7042,8 +7035,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -8115,8 +8107,7 @@
 /obj/effect/floor_decal/corner{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -8677,8 +8668,7 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -9366,8 +9356,7 @@
 	icon_state = "box_1"
 	},
 /obj/item/handcuffs/cable,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -32;
 	req_one_access = null
 	},

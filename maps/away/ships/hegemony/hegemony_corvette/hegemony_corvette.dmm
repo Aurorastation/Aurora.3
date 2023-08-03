@@ -412,8 +412,7 @@
 	pixel_x = 4
 	},
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = null
 	},
@@ -1886,8 +1885,7 @@
 /area/hegemony_ship/gun_deck_bruiser)
 "mG" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28;
 	req_one_access = null
 	},
@@ -2121,8 +2119,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = null
 	},
@@ -2422,8 +2419,7 @@
 	dir = 9;
 	pixel_y = 0
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = null
 	},
@@ -3557,8 +3553,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = null
 	},
@@ -4235,8 +4230,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28;
 	req_one_access = null
 	},
@@ -4263,8 +4257,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28;
 	req_one_access = null
 	},
@@ -5383,8 +5376,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/gun_deck_bruiser)
 "GF" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28;
 	req_one_access = null
 	},
@@ -5610,8 +5602,7 @@
 "HB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency,
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -5683,8 +5674,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -5976,8 +5966,7 @@
 /area/hegemony_ship/armory)
 "JO" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = null
 	},
@@ -7744,8 +7733,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},

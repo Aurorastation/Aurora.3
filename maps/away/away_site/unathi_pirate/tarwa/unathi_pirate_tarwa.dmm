@@ -333,8 +333,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28;
 	req_one_access = list(210)
 	},
@@ -999,8 +998,7 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "nX" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(210)
 	},
@@ -1769,8 +1767,7 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "Ba" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(210)
 	},
@@ -1931,8 +1928,7 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "Dk" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28;
 	req_one_access = list(210)
 	},
@@ -2399,8 +2395,7 @@
 /turf/simulated/floor/carpet/orange,
 /area/tarwa_ship/captain)
 "JW" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 25;
 	pixel_y = 0;
 	req_one_access = list(215)
@@ -2569,8 +2564,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28;
 	req_one_access = list(210)
 	},
@@ -3320,8 +3314,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(210)
 	},

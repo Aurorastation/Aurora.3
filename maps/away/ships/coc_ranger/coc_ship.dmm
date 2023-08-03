@@ -138,8 +138,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "aMc" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -32;
 	req_one_access = null
 	},
@@ -288,8 +287,7 @@
 /area/ship/ranger_corvette/brig)
 "bsL" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -492,8 +490,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -1135,8 +1132,7 @@
 	desc = "A disk for storing data. This one is labeled, Greatest Hits of 2450.";
 	name = "\improper Greatest Hits of The 2450's disk"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -32;
 	req_one_access = null
 	},
@@ -1389,8 +1385,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -1593,8 +1588,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -1644,8 +1638,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "itk" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -32;
 	req_one_access = null
 	},
@@ -1712,8 +1705,7 @@
 /area/ship/ranger_corvette/foyer)
 "iIr" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -32;
 	req_one_access = null
 	},
@@ -2776,8 +2768,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "oED" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -32;
 	req_one_access = null
 	},
@@ -2819,8 +2810,7 @@
 	dir = 4
 	},
 /obj/machinery/meter,
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -3028,8 +3018,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -3316,8 +3305,7 @@
 "qBn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -3564,8 +3552,7 @@
 "rMA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -3642,8 +3629,7 @@
 /area/ship/ranger_corvette/telecomms)
 "slH" = (
 /obj/machinery/firealarm/east,
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -3892,8 +3878,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -32;
 	req_one_access = null
 	},
@@ -4097,8 +4082,7 @@
 	dir = 1
 	},
 /obj/machinery/firealarm/south,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -4257,8 +4241,7 @@
 /area/ship/ranger_corvette/foyer)
 "tXz" = (
 /obj/structure/bed/stool/chair,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 32;
 	req_one_access = null
 	},
@@ -4956,8 +4939,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -5203,8 +5185,7 @@
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
 "yjm" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},

@@ -86,6 +86,18 @@
 
 	var/report_danger_level = 1
 
+/obj/machinery/alarm/north
+	dir = NORTH
+
+/obj/machinery/alarm/east
+	dir = EAST
+
+/obj/machinery/alarm/west
+	dir = WEST
+
+/obj/machinery/alarm/south
+	dir = SOUTH
+
 /obj/machinery/alarm/nobreach
 	breach_detection = 0
 	desc = "A device that controls the local air regulation machinery."
@@ -157,16 +169,17 @@
 			src.set_dir(dir)
 		buildstage = 0
 		wiresexposed = 1
-		pixel_x = DIR2PIXEL_X(dir)
-		pixel_y = DIR2PIXEL_Y(dir)
-		if(dir & NORTH)
-			alpha = 127
+		pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 10 : -10))
+		pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 21 : 0) : 0)
 		update_icon()
 		return
 
 	first_run()
 
 	set_frequency(frequency)
+
+	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 10 : -10))
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 21 : 0) : 0)
 
 	update_icon()
 

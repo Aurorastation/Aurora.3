@@ -307,8 +307,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/casino/casino_maintenance)
 "bd" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 24
 	},
 /obj/effect/decal/cleanable/blood/drip,
@@ -459,8 +458,7 @@
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
 "bA" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/rust,
@@ -1043,8 +1041,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/light_switch{
@@ -1191,8 +1188,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -1332,8 +1328,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
@@ -2137,8 +2132,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "gl" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25
 	},
 /turf/simulated/floor/wood/birch,
@@ -2475,15 +2469,13 @@
 /turf/simulated/wall,
 /area/casino/casino_kitchen)
 "hp" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25
 	},
 /turf/simulated/floor/wood/birch,
 /area/casino/casino_private2)
 "hq" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25
 	},
 /turf/simulated/floor/wood/birch,
@@ -2594,8 +2586,7 @@
 /area/casino/casino_kitchen)
 "hM" = (
 /obj/structure/coatrack,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -3455,8 +3446,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -4435,8 +4425,7 @@
 /area/casino/casino_private2)
 "mB" = (
 /obj/random/coin,
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25
 	},
 /turf/simulated/floor/tiled/white,
@@ -4987,8 +4976,7 @@
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25
 	},
 /turf/simulated/floor/tiled,
@@ -5443,8 +5431,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "In" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,

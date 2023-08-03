@@ -835,7 +835,6 @@
 	dir = 10
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
@@ -915,8 +914,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
@@ -1146,8 +1144,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/store)
 "aOw" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/table/standard,
@@ -1473,8 +1470,7 @@
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	name = "Surface - Pool Air alarm";
 	pixel_x = -28;
 	target_temperature = 303.15
@@ -2063,8 +2059,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
 "bGO" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner/lime/full,
@@ -4226,9 +4221,7 @@
 /area/hallway/secondary/entry/dock)
 "dyX" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
@@ -5639,8 +5632,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -6393,9 +6385,7 @@
 /turf/simulated/floor/plating,
 /area/turret_protected/tcomsat)
 "fCu" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled,
@@ -6527,7 +6517,6 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -7069,8 +7058,7 @@
 "gko" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/mime,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -7412,8 +7400,7 @@
 /turf/simulated/floor/grass,
 /area/hydroponics/garden)
 "gAs" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/structure/cable{
@@ -7656,9 +7643,7 @@
 /area/shuttle/research)
 "gKx" = (
 /obj/vehicle/train/cargo/engine,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
@@ -8003,8 +7988,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "gZQ" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/cable/green{
@@ -8155,9 +8139,7 @@
 	dir = 4
 	},
 /obj/structure/flora/pottedplant/random,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "hfz" = (
@@ -8187,8 +8169,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
 "hgg" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/bed/stool/chair/padded/black,
@@ -8205,9 +8186,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "hgG" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -8218,8 +8197,7 @@
 /area/sconference_room)
 "hgU" = (
 /obj/effect/floor_decal/corner/red/full,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -8330,8 +8308,7 @@
 /obj/machinery/meter{
 	name = "Air supply"
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/blue,
@@ -8361,7 +8338,6 @@
 /area/tcommsat/computer)
 "hnc" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
@@ -8789,8 +8765,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/wood,
@@ -9599,8 +9574,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
@@ -10380,8 +10354,7 @@
 	},
 /area/shuttle/research)
 "jcE" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -10434,8 +10407,7 @@
 /area/tcommsat/lounge)
 "jei" = (
 /obj/item/beach_ball,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	name = "Surface - Pool Air alarm";
 	pixel_x = -28;
 	target_temperature = 303.15
@@ -10531,8 +10503,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/dark,
@@ -10692,9 +10663,7 @@
 "jtc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/storage/tools)
 "jts" = (
@@ -11077,8 +11046,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "jHH" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -11088,9 +11056,7 @@
 /area/tcommsat/lounge)
 "jIt" = (
 /obj/structure/weightlifter,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
@@ -11540,8 +11506,7 @@
 	name = "plastic table frame"
 	},
 /obj/random/coin,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
@@ -12176,9 +12141,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled,
@@ -12638,9 +12601,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
 "lbw" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "lcs" = (
@@ -13084,9 +13045,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/random/booze,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/random/junk,
 /obj/random/junk,
 /obj/random/booze,
@@ -13694,9 +13653,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/starboardsolar)
 "lVF" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
@@ -14645,8 +14602,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
@@ -14720,8 +14676,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/wood,
@@ -15152,8 +15107,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/structure/cable/cyan{
@@ -15267,8 +15221,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
@@ -15623,7 +15576,6 @@
 "nDO" = (
 /obj/machinery/light,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
@@ -15661,8 +15613,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/item/gun/energy/mousegun/xenofauna,
@@ -15773,7 +15724,6 @@
 /area/hydroponics/garden)
 "nJm" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -15987,8 +15937,7 @@
 /area/shuttle/research)
 "nWL" = (
 /obj/structure/closet/secure_closet/personal,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -16066,7 +16015,6 @@
 "obF" = (
 /obj/structure/cable,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/machinery/power/apc{
@@ -16614,8 +16562,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/machinery/camera/network/supply{
@@ -17026,9 +16973,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled,
@@ -17074,8 +17019,7 @@
 	c_tag = "Bridge - Surface Research Dock";
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
@@ -17432,8 +17376,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -17930,9 +17873,7 @@
 /area/mine/explored)
 "pBM" = (
 /obj/machinery/cryopod,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -18137,8 +18078,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "pIu" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/camera/network/telecom{
@@ -18772,8 +18712,7 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/starboardsolar)
 "qic" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/disposalpipe/segment,
@@ -19432,8 +19371,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/plating,
@@ -19495,9 +19433,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "qUJ" = (
@@ -19524,8 +19460,7 @@
 /obj/structure/table/standard,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/random/tech_supply,
@@ -19693,7 +19628,6 @@
 	dir = 5
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/corner/lime{
@@ -20686,9 +20620,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "rMt" = (
@@ -20811,8 +20743,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research)
 "rRR" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/structure/closet,
@@ -20862,9 +20793,7 @@
 /area/hallway/secondary/entry/locker)
 "rUQ" = (
 /obj/structure/reagent_dispensers/extinguisher,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "rVc" = (
@@ -21075,8 +21004,7 @@
 	pixel_y = 4
 	},
 /obj/item/stack/cable_coil/yellow,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
@@ -21190,9 +21118,7 @@
 /area/solar/port)
 "skS" = (
 /obj/machinery/vending/coffee,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/lino/diamond,
 /area/hallway/secondary/entry/departure_lounge)
 "sli" = (
@@ -21520,9 +21446,7 @@
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "swy" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -22580,8 +22504,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
 "tul" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
@@ -23046,7 +22969,6 @@
 	dir = 5
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/plating,
@@ -24668,7 +24590,6 @@
 "vhQ" = (
 /obj/effect/floor_decal/corner/lime/full,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
@@ -25259,9 +25180,7 @@
 /area/hallway/secondary/entry/fore)
 "vHn" = (
 /obj/machinery/computer/telecomms/traffic,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "vHp" = (
@@ -25316,8 +25235,7 @@
 	pixel_y = 8
 	},
 /obj/structure/table/rack,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -26332,7 +26250,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/lino/diamond,
@@ -26895,8 +26812,7 @@
 /area/tcommsat/chamber)
 "wYE" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /obj/structure/table/standard,
@@ -27154,8 +27070,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
@@ -27226,9 +27141,7 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "xqL" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/plating,
@@ -27321,9 +27234,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "xwS" = (
@@ -27767,8 +27678,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/east{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/dark,
@@ -27887,8 +27797,7 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,

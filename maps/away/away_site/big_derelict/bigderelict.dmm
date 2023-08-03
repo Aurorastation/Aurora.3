@@ -806,8 +806,7 @@
 /area/derelict)
 "cv" = (
 /obj/structure/cable/blue,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	icon_state = "alarm0";
 	pixel_x = 24
 	},

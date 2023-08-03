@@ -236,8 +236,7 @@
 /area/bluespaceriver/ship)
 "aW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -25;
 	rcon_setting = 3
 	},
@@ -377,8 +376,7 @@
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -25;
 	rcon_setting = 3
 	},
@@ -853,7 +851,6 @@
 /area/bluespaceriver/ship)
 "AW" = (
 /obj/machinery/alarm{
-	dir = 1;
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/white,
