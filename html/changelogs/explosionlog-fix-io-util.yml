@@ -1,0 +1,6 @@
+author: io-util
+
+delete-after: True
+
+changes:
+  - bugfix: "all explosion adminglogs now have a button to jump to the coordinates"
