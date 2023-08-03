@@ -190,15 +190,15 @@ if(Datum.isprocessing) {\
 			if(machine in processing)
 				processing.Remove(machine)
 				machine.isprocessing = null
-				stack_trace("[log_info_line(machine)] was found illegally queued on SSmachines.")
+				WARNING("[log_info_line(machine)] was found illegally queued on SSmachines.")
 				continue
 			else if(resumed)
 				queue.Cut() // Abandon current run; assuming that we were improperly resumed with the wrong process queue.
-				stack_trace("[log_info_line(machine)] was in the wrong subqueue on SSmachines on a resumed fire.")
+				WARNING("[log_info_line(machine)] was in the wrong subqueue on SSmachines on a resumed fire.")
 				process_machinery(0)
 				return
 			else // ??? possibly dequeued by another machine or something ???
-				stack_trace("[log_info_line(machine)] was in the wrong subqueue on SSmachines on an unresumed fire.")
+				WARNING("[log_info_line(machine)] was in the wrong subqueue on SSmachines on an unresumed fire.")
 				continue
 
 		if (QDELETED(machine))
