@@ -1,20 +1,21 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from '../components';
+import { Box, Button, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type HelmData = {
   sector: string;
   sector_info: string;
   landed: string;
-  s_x: number;
-  s_y: number;
+  ship_coord_x: number;
+  ship_coord_y: number;
   dest: BooleanLike;
-  d_x: number;
-  d_y: number;
+  autopilot_x: number;
+  autopilot_y: number;
   speedlimit: string;
   accel: number;
   heading: number;
+  direction: number;
   autopilot: BooleanLike;
   manual_control: BooleanLike;
   canburn: BooleanLike;
@@ -22,6 +23,8 @@ export type HelmData = {
   cancombatturn: BooleanLike;
   accellimit: number;
   speed: number;
+  ship_speed_x: number;
+  ship_speed_y: number;
   ETAnext: number;
   locations: Location[];
 };
@@ -31,6 +34,15 @@ type Location = {
   x: number;
   y: number;
   reference: string;
+};
+
+const bearing_unbounded = function (x, y) {
+  let res = 0;
+  res = Math.atan2(x, y); // radians
+  res = (res * 180) / 3.14; // convert to degrees
+  res = (res + 360.0) % 360.0;
+  res = Math.round(res);
+  return res;
 };
 
 const FlightSection = function (act, data) {
@@ -51,7 +63,13 @@ const FlightSection = function (act, data) {
         </Table.Row>
         <Table.Row>
           <Table.Cell>Heading:</Table.Cell>
-          <Table.Cell>{data.heading}°</Table.Cell>
+          <Table.Cell>
+            {bearing_unbounded(data.ship_speed_x, data.ship_speed_y)}°
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Direction:</Table.Cell>
+          <Table.Cell>{data.direction}°</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>Acceleration limiter:</Table.Cell>
@@ -63,6 +81,124 @@ const FlightSection = function (act, data) {
           </Table.Cell>
         </Table.Row>
       </Table>
+    </Section>
+  );
+};
+
+const BearingsSection = function (act, data) {
+  return (
+    <Section title="Heading and Direction">
+      <Box textAlign="center">
+        <svg height={100} width={100} viewBox="0 0 100 100">
+          <rect width="100" height="100" />
+          {data.speed ? (
+            <polygon
+              points="50,25 70,70 30,70"
+              fill="#3e6189"
+              transform={
+                'rotate(' +
+                bearing_unbounded(data.ship_speed_x, data.ship_speed_y) +
+                ' 50 50)'
+              }
+            />
+          ) : (
+            ''
+          )}
+          <polygon
+            points="50,35 60,60 40,60"
+            fill="#5c83b0"
+            stroke="white"
+            stroke-width="1"
+            transform={'rotate(' + data.direction + ' 50 50)'}
+          />
+          <text
+            x="50"
+            y="10"
+            text-anchor="middle"
+            fill="white"
+            transform={'rotate(0 50 50)'}>
+            0
+          </text>
+          <text
+            x="50"
+            y="5"
+            text-anchor="middle"
+            fill="white"
+            transform={'rotate(45 50 50)'}>
+            45
+          </text>
+          <text
+            x="50"
+            y="10"
+            text-anchor="middle"
+            fill="white"
+            transform={'rotate(90 50 50)'}>
+            90
+          </text>
+          <text
+            x="50"
+            y="5"
+            text-anchor="middle"
+            fill="white"
+            transform={'rotate(135 50 50)'}>
+            135
+          </text>
+          <text
+            x="50"
+            y="10"
+            text-anchor="middle"
+            fill="white"
+            transform={'rotate(180 50 50)'}>
+            180
+          </text>
+          <text
+            x="50"
+            y="5"
+            text-anchor="middle"
+            fill="white"
+            transform={'rotate(225 50 50)'}>
+            225
+          </text>
+          <text
+            x="50"
+            y="10"
+            text-anchor="middle"
+            fill="white"
+            transform={'rotate(270 50 50)'}>
+            270
+          </text>
+          <text
+            x="50"
+            y="5"
+            text-anchor="middle"
+            fill="white"
+            transform={'rotate(315 50 50)'}>
+            315
+          </text>
+        </svg>
+        <svg height={20} width={20} />
+        <svg height={100} width={100} viewBox="0 0 100 100">
+          <rect width="100" height="100" />
+          <text x="50" y="10" text-anchor="middle" fill="white">
+            N
+          </text>
+          <text x="50" y="25" text-anchor="middle" fill="white">
+            {data.ship_speed_y}
+          </text>
+          <text x="95" y="43" text-anchor="end" fill="white">
+            {data.ship_speed_x} E
+          </text>
+          <text x="50" y="95" text-anchor="middle" fill="white">
+            S
+          </text>
+          <text x="50" y="80" text-anchor="middle" fill="white">
+            {-data.ship_speed_y}
+          </text>
+          <text x="5" y="57" text-anchor="start" fill="white">
+            W {-data.ship_speed_x}
+          </text>
+        </svg>
+      </Box>
     </Section>
   );
 };
@@ -110,7 +246,7 @@ const ManualSection = function (act, data) {
                 <Table.Cell title="Slow / Stop / Inertia Dampener">
                   <Button
                     icon="stop"
-                    disabled={!data.canburn}
+                    disabled={!data.canburn || data.speed === 0}
                     onClick={() => act('brake', { move: 1 })}
                   />
                 </Table.Cell>
@@ -150,12 +286,12 @@ const AutopilotSection = function (act, data) {
               <>
                 <Button
                   width="25%"
-                  content={data.d_x}
+                  content={data.autopilot_x}
                   onClick={() => act('setx', { setx: true })}
                 />
                 <Button
                   width="25%"
-                  content={data.d_y}
+                  content={data.autopilot_y}
                   onClick={() => act('sety', { sety: true })}
                 />
               </>
@@ -205,7 +341,7 @@ const NavSection = function (act, data) {
         <Table.Row>
           <Table.Cell>Coordinates:</Table.Cell>
           <Table.Cell>
-            {data.s_x} : {data.s_y}
+            {data.ship_coord_x} : {data.ship_coord_y}
           </Table.Cell>
         </Table.Row>
         <Table.Row>
@@ -284,8 +420,11 @@ export const Helm = (props, context) => {
   return (
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
-        {FlightSection(act, data)}
         <Table>
+          <Table.Row>
+            <Table.Cell width="50%">{FlightSection(act, data)}</Table.Cell>
+            <Table.Cell width="50%">{BearingsSection(act, data)}</Table.Cell>
+          </Table.Row>
           <Table.Row>
             <Table.Cell width="50%">{ManualSection(act, data)}</Table.Cell>
             <Table.Cell width="50%">{AutopilotSection(act, data)}</Table.Cell>

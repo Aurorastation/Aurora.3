@@ -575,7 +575,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/window/reinforced{
-	dir = 8
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 10
@@ -3409,6 +3409,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 9
 	},
+/obj/structure/sign/directions/prop{
+	dir = 8;
+	pixel_y = -22
+	},
+/obj/structure/sign/directions/prop{
+	pixel_y = -28
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "cwa" = (
@@ -3970,7 +3977,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/window/southleft{
-	dir = 8;
+	dir = 4;
 	name = "Atmospheric Tanks";
 	req_access = list(24)
 	},
@@ -6233,6 +6240,11 @@
 	name = "\improper DISPOSALS sign";
 	pixel_y = 32
 	},
+/obj/structure/sign/directions/prop{
+	dir = 8;
+	pixel_y = -10;
+	pixel_x = -32
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "evr" = (
@@ -7179,6 +7191,9 @@
 	icon_state = "cobweb1"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/landmark{
+	name = "Revenant"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "faK" = (
@@ -8807,22 +8822,6 @@
 	dir = 2;
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	cycle_to_external_air = 1;
-	dir = 4;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo";
-	layer = 3.3;
-	master_tag = "intrepid_shuttle";
-	pixel_x = -22;
-	pixel_y = -8;
-	tag_airpump = "intrepid_shuttle_cargo_pump";
-	tag_chamber_sensor = "intrepid_shuttle_cargo_sensor";
-	tag_exterior_door = "intrepid_shuttle_cargo_out";
-	tag_exterior_sensor = "intrepid_shuttle_cargo_exterior_sensor";
-	tag_interior_door = "intrepid_shuttle_cargo_in";
-	tag_interior_sensor = "intrepid_shuttle_cargo_interior_sensor"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
@@ -12256,20 +12255,6 @@
 	pixel_x = -10;
 	pixel_y = 25
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	cycle_to_external_air = 1;
-	frequency = 1385;
-	id_tag = "intrepid_shuttle_cargo";
-	layer = 3.3;
-	master_tag = "intrepid_shuttle";
-	pixel_y = 22;
-	tag_airpump = "intrepid_shuttle_cargo_pump";
-	tag_chamber_sensor = "intrepid_shuttle_cargo_sensor";
-	tag_exterior_door = "intrepid_shuttle_cargo_out";
-	tag_exterior_sensor = "intrepid_shuttle_cargo_exterior_sensor";
-	tag_interior_door = "intrepid_shuttle_cargo_in";
-	tag_interior_sensor = "intrepid_shuttle_cargo_interior_sensor"
-	},
 /obj/machinery/button/remote/blast_door{
 	id = "intrepid_bay_outer";
 	name = "inner cargo hold blast doors";
@@ -14013,6 +13998,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
+"jMq" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Port Propulsion";
+	req_one_access = list(11,24)
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/propulsion)
 "jNq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -16664,6 +16656,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "lMA" = (
@@ -17558,16 +17551,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "mmA" = (
-/obj/machinery/computer/shuttle_control/lift/wall{
-	dir = 1;
-	pixel_y = -32;
-	shuttle_tag = "Robotics Lift"
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "shutters_deck2_portstairwellsec";
+	name = "Elevator Security Shutters";
+	pixel_y = -37;
+	req_one_access = list(1,19);
+	dir = 1
+	},
+/obj/machinery/computer/shuttle_control/multi/lift/wall/robotics{
+	dir = 1;
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
@@ -19306,6 +19305,10 @@
 	dir = 2;
 	id = "shutters_deck2_portstairwellsec";
 	name = "Security Shutter"
+	},
+/obj/structure/sign/crush{
+	pixel_y = 8;
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/eva)
@@ -25844,6 +25847,13 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/rnd/isolation_a)
+"sdW" = (
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "seU" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
@@ -27091,6 +27101,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
+"sYf" = (
+/obj/structure/sign/fire{
+	desc = "A caution sign which reads 'PORT PROPULSION'.";
+	name = "\improper PORT PROPULSION sign";
+	pixel_x = -32
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "sYZ" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -27383,7 +27401,8 @@
 	dir = 8
 	},
 /obj/structure/sign/crush{
-	pixel_y = 32
+	pixel_y = 32;
+	pixel_x = 16
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Expedition EVA Storage";
@@ -28138,9 +28157,6 @@
 /obj/machinery/light/spot{
 	dir = 1
 	},
-/obj/structure/sign/crush{
-	pixel_y = 32
-	},
 /obj/structure/flora/pottedplant/random,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -28817,10 +28833,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "ugY" = (
-/obj/machinery/computer/shuttle_control/lift/wall{
-	pixel_y = 26;
-	shuttle_tag = "Robotics Lift"
-	},
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_deck2_portstairwellsec";
 	name = "Elevator Security Shutters";
@@ -28836,6 +28848,10 @@
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/machinery/computer/shuttle_control/multi/lift/wall/robotics{
+	dir = 2;
+	pixel_y = 28
+	},
 /turf/simulated/floor/wood,
 /area/hangar/auxiliary)
 "uhE" = (
@@ -29271,7 +29287,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "uwf" = (
-/obj/effect/shuttle_landmark/lift/robotics_bottom,
+/obj/effect/shuttle_landmark/lift/robotics_first_deck,
 /turf/simulated/floor/plating,
 /area/rnd/eva)
 "uwm" = (
@@ -30223,6 +30239,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/sign/directions/prop{
+	pixel_y = -22;
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "vdn" = (
@@ -32868,6 +32888,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"wXZ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/directions/prop{
+	pixel_y = 22;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "wYp" = (
 /obj/structure/sign/fire{
 	desc = "A caution sign which reads 'STARBOARD PROPULSION'.";
@@ -33021,14 +33049,9 @@
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
 /obj/machinery/alarm{
-	pixel_y = 28
-	},
-/obj/effect/landmark{
-	name = "Revenant"
+	dir = 4;
+	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -34404,7 +34427,7 @@
 	dir = 5
 	},
 /obj/structure/window/reinforced{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
@@ -59582,7 +59605,7 @@ hRF
 fCd
 uzC
 uVL
-lUr
+riL
 riL
 jYy
 baS
@@ -59783,10 +59806,10 @@ fKe
 uKh
 hRF
 fCd
-uni
-uVL
-lUr
-lUr
+uzC
+jMq
+sYf
+riL
 lUr
 qJg
 lUr
@@ -59988,7 +60011,7 @@ tkS
 mKb
 lMv
 uVL
-riL
+jAM
 riL
 riL
 riL
@@ -60191,7 +60214,7 @@ aoh
 uPx
 uVL
 uVL
-rsL
+haI
 xdF
 cTm
 pom
@@ -60398,7 +60421,7 @@ gyD
 eKc
 mhf
 pom
-mhf
+wXZ
 mhf
 tFd
 lrg
@@ -60599,7 +60622,7 @@ uVL
 uVL
 tnb
 eKc
-tFd
+sdW
 grP
 wJK
 iSc

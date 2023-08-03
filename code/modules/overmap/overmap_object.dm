@@ -3,6 +3,7 @@
 	icon = 'icons/obj/overmap/overmap_effects.dmi'
 	icon_state = "object"
 	color = "#fffffe"
+	mouse_opacity = MOUSE_OPACITY_ICON
 
 //RP fluff details to appear on scan readouts for any object we want to include these details with
 	var/scanimage = "no_data.png"

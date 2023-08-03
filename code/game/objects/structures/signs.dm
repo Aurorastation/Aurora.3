@@ -240,6 +240,11 @@
 	desc = "A multi-coloured direction sign, pointing out in which all main departments are located."
 	icon_state = "direction_all"
 
+/obj/structure/sign/directions/prop
+	name = "\improper PROPULSION sign"
+	desc = "A direction sign, pointing out which way the nearest propulsion area is."
+	icon_state = "direction_prop"
+
 //
 // Danger, Warning, and Hazard Signs
 //
