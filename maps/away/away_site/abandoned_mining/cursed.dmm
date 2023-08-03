@@ -2787,9 +2787,7 @@
 /turf/simulated/floor,
 /area/cursed/medical)
 "qiJ" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
@@ -3266,9 +3264,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "swq" = (
@@ -3753,9 +3749,7 @@
 /turf/simulated/wall,
 /area/cursed/bridge)
 "vAa" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "vFJ" = (

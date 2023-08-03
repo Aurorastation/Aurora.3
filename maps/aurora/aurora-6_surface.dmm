@@ -834,9 +834,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "aDJ" = (
@@ -6516,9 +6514,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "fJc" = (
@@ -8337,9 +8333,7 @@
 /turf/simulated/wall/r_wall,
 /area/tcommsat/computer)
 "hnc" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "hoo" = (
@@ -15575,9 +15569,7 @@
 /area/security/vacantoffice)
 "nDO" = (
 /obj/machinery/light,
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "nEc" = (
@@ -15723,9 +15715,7 @@
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "nJm" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
@@ -16014,9 +16004,7 @@
 /area/crew_quarters/fitness/pool)
 "obF" = (
 /obj/structure/cable,
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "east bump";
@@ -19627,9 +19615,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
@@ -22968,9 +22954,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
 "tKg" = (
@@ -24589,9 +24573,7 @@
 /area/hallway/secondary/entry/aft)
 "vhQ" = (
 /obj/effect/floor_decal/corner/lime/full,
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "vjl" = (
@@ -26249,9 +26231,7 @@
 "wGu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/lino/diamond,
 /area/store)
 "wGw" = (

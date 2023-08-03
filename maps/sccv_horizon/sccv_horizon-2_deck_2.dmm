@@ -1706,9 +1706,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "aNL" = (
@@ -2169,9 +2167,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light,
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "aXf" = (
@@ -2431,9 +2427,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/belt/medical/first_responder,
 /obj/item/storage/belt/medical/first_responder,
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/item/device/radio{
 	pixel_x = -6;
 	pixel_y = 6
@@ -2512,9 +2506,7 @@
 	dir = 8
 	},
 /obj/machinery/light,
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "bgN" = (
@@ -6295,9 +6287,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "ddH" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -10184,8 +10174,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /obj/structure/disposalpipe/segment{
@@ -10532,8 +10521,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/office)
 "fln" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /obj/structure/table/stone/marble,
@@ -10926,8 +10914,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /obj/machinery/camera/network/service{
@@ -18447,9 +18434,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/hor)
 "iVO" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -20152,9 +20137,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain,
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/tesla)
 "jIW" = (
@@ -20206,9 +20189,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -25162,9 +25143,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "mnt" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -25727,8 +25706,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "mCz" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /obj/machinery/camera/network/service{
@@ -28352,9 +28330,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Lobby";
 	dir = 1
@@ -31326,9 +31302,7 @@
 "pmK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
 	target_pressure = 15000
@@ -31371,9 +31345,7 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering/tesla)
 "pnY" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
@@ -31761,9 +31733,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "pDn" = (
@@ -38661,9 +38631,7 @@
 /turf/simulated/floor/tiled/dark/cooled,
 /area/turret_protected/ai)
 "sYI" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -39608,9 +39576,7 @@
 	dir = 10
 	},
 /obj/machinery/light,
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "txy" = (
@@ -41127,8 +41093,7 @@
 /area/medical/cryo)
 "uhw" = (
 /obj/structure/table/wood,
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /obj/machinery/light{
@@ -42261,9 +42226,7 @@
 /turf/simulated/floor/wood,
 /area/rnd/conference)
 "uHh" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/suit_cycler/engineering,
 /turf/simulated/floor/tiled/dark/full,
@@ -42680,8 +42643,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /obj/structure/disposalpipe/junction{
@@ -43184,9 +43146,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "veP" = (
@@ -45027,9 +44987,7 @@
 	dir = 4;
 	pixel_x = 13
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/light/small,
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4

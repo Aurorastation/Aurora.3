@@ -1174,9 +1174,7 @@
 /obj/item/aiModule/reset{
 	pixel_y = -4
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "aVg" = (
@@ -8580,9 +8578,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "fZr" = (
@@ -9555,9 +9551,7 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
@@ -11514,9 +11508,7 @@
 	dir = 10
 	},
 /obj/machinery/light,
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "ifu" = (
@@ -11548,9 +11540,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
@@ -11920,9 +11910,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "iAs" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
 "iAL" = (
@@ -17803,9 +17791,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "mHe" = (
@@ -31491,9 +31477,7 @@
 	dir = 4;
 	id = "cargo_1"
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "wlT" = (
@@ -32336,9 +32320,7 @@
 /turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "wTM" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Spectrometry";
 	dir = 1
@@ -32685,9 +32667,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "xff" = (
@@ -33674,9 +33654,7 @@
 /turf/space/dynamic,
 /area/template_noop)
 "xGQ" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},

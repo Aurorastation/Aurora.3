@@ -8740,9 +8740,7 @@
 	pixel_y = 4;
 	req_one_access = list(38,19,72)
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
@@ -9246,9 +9244,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "hOi" = (
@@ -11179,8 +11175,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /obj/machinery/light{
@@ -11768,9 +11763,7 @@
 	dir = 10
 	},
 /obj/structure/table/glass,
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/reagentgrinder{
 	pixel_y = 7
 	},
@@ -14012,9 +14005,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -15306,9 +15297,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/central)
 "mNY" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -16056,9 +16045,7 @@
 	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/green/full,
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/showers)
 "nrf" = (
@@ -16757,9 +16744,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
 "nRO" = (
@@ -19694,8 +19679,7 @@
 /obj/item/gun/energy/rifle/laser/practice{
 	pixel_y = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -24259,9 +24243,7 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/bridge/controlroom)
 "ulh" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
@@ -25005,9 +24987,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Staff Smoking Lounge";
 	dir = 1
@@ -26083,9 +26063,7 @@
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "vLH" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 8
 	},
@@ -28740,9 +28718,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "xPy" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},

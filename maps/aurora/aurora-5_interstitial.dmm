@@ -3424,9 +3424,7 @@
 /turf/simulated/floor/reinforced,
 /area/bridge/selfdestruct)
 "iR" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -4930,9 +4928,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "mv" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
@@ -6062,9 +6058,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "sQ" = (
@@ -6689,9 +6683,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "xi" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -11242,9 +11234,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Access Stairwell";
 	dir = 1

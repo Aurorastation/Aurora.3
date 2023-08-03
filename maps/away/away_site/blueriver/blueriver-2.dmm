@@ -801,8 +801,7 @@
 /area/bluespaceriver/ship)
 "ge" = (
 /obj/structure/curtain/open/bed,
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
@@ -850,9 +849,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "AW" = (
-/obj/machinery/alarm{
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Co" = (
@@ -862,8 +859,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "Ed" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
@@ -875,8 +871,7 @@
 	},
 /area/bluespaceriver/ground)
 "Iz" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/dark,
