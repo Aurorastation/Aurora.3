@@ -184,21 +184,21 @@ if(Datum.isprocessing) {\
 	for (var/i = queue.len to 1 step -1)
 		machine = queue[i]
 
-		if(!istype(M)) // Below is a debugging and recovery effort. This should never happen, but has been observed recently.
-			if(!M)
+		if(!istype(machine)) // Below is a debugging and recovery effort. This should never happen, but has been observed recently.
+			if(!machine)
 				continue // Hard delete; unlikely but possible. Soft deletes are handled below and expected.
-			if(M in processing)
-				processing.Remove(M)
-				M.is_processing = null
-				stack_trace("[log_info_line(M)] was found illegally queued on SSmachines.")
+			if(machine in processing)
+				processing.Remove(machine)
+				machine.is_processing = null
+				stack_trace("[log_info_line(machine)] was found illegally queued on SSmachines.")
 				continue
 			else if(resumed)
 				current_run.Cut() // Abandon current run; assuming that we were improperly resumed with the wrong process queue.
-				stack_trace("[log_info_line(M)] was in the wrong subqueue on SSmachines on a resumed fire.")
+				stack_trace("[log_info_line(machine)] was in the wrong subqueue on SSmachines on a resumed fire.")
 				process_machinery(0)
 				return
 			else // ??? possibly dequeued by another machine or something ???
-				stack_trace("[log_info_line(M)] was in the wrong subqueue on SSmachines on an unresumed fire.")
+				stack_trace("[log_info_line(machine)] was in the wrong subqueue on SSmachines on an unresumed fire.")
 				continue
 
 		if (QDELETED(machine))
