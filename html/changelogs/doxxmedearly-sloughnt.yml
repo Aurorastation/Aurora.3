@@ -1,0 +1,4 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Mobs dying with heaps of genetic damage should no longer spam the chat about their flesh being sloughed off."
