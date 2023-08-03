@@ -230,7 +230,8 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1
+	dir = 1;
+	target_pressure = 15000
 	},
 /turf/simulated/floor/tiled/dark,
 /area/light_cruiser/starboard_thrusters)
@@ -430,7 +431,8 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1
+	dir = 1;
+	target_pressure = 15000
 	},
 /turf/simulated/floor/tiled/dark,
 /area/light_cruiser/port_thrusters)
@@ -1748,7 +1750,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1
+	dir = 1;
+	target_pressure = 15000
 	},
 /turf/simulated/floor/tiled/dark,
 /area/light_cruiser/port_thrusters)
@@ -2035,9 +2038,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/light_cruiser/starboard_aft_hall)
 "drK" = (
-/obj/machinery/shipsensors{
-	pixel_y = 1
-	},
+/obj/machinery/shipsensors/strong,
 /turf/simulated/floor/reinforced,
 /area/light_cruiser/cic)
 "dsh" = (
@@ -3606,13 +3607,6 @@
 /obj/effect/shuttle_landmark/sfa_light_cruiser/nav4,
 /turf/template_noop,
 /area/space)
-"giV" = (
-/obj/structure/railing/mapped,
-/obj/structure/shuttle/engine/heater{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/port_thrusters)
 "gjg" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -8128,7 +8122,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1
+	dir = 1;
+	target_pressure = 15000
 	},
 /turf/simulated/floor/tiled/dark,
 /area/light_cruiser/starboard_thrusters)
@@ -47459,7 +47454,7 @@ xRX
 xRX
 xRX
 qEg
-giV
+dAA
 fdD
 dCU
 oIr

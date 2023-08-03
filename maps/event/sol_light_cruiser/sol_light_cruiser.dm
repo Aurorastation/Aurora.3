@@ -30,13 +30,14 @@
 	moving_state = "light_cruiser_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
-	vessel_mass = 250000
+	vessel_mass = 105000
+	colors = list("#9dc04c", "#52c24c")
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_LARGE
-	designer = "Hephaestus"
+	designer = "Solarian Navy, Southern Fleet Administration"
 	sizeclass = "Yincheng-class Cruiser"
-	shiptype = "Military patrol and pirate hunting"
-	weapons = "Two hull mounted naval coil guns, one hull affixed grauwolf"
+	shiptype = "Leading patrols and pirate hunting"
+	weapons = "Two twin-hull mounted coil guns, one hull affixed grauwolf"
 
 	initial_generic_waypoints = list(
 		"nav_sfa_light_cruiser_1",
