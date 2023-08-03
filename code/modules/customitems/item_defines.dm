@@ -1541,7 +1541,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Nralakk division cloak - Eden Li - huntime
-	name = "zeng-hu cloak: nralakk division"
+	name = "\improper Zeng-Hu cloak: Nralakk division"
 	desc = "A cloak worn by Zeng-Hu personnel who worked with or in the Nralakk Federation."
 	icon = 'icons/obj/custom_items/eden_cloak.dmi'
 	icon_override = 'icons/obj/custom_items/eden_cloak.dmi'
