@@ -22034,9 +22034,6 @@
 /turf/simulated/wall,
 /area/maintenance/substation/security)
 "pAP" = (
-/obj/effect/landmark/start{
-	name = "Gardener"
-	},
 /obj/effect/floor_decal/corner/green/full,
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
@@ -24755,6 +24752,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics/lower)
 "rtC" = (
@@ -27277,9 +27275,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "tlt" = (
-/obj/effect/landmark/start{
-	name = "Gardener"
-	},
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
