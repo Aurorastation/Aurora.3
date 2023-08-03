@@ -189,11 +189,11 @@ if(Datum.isprocessing) {\
 				continue // Hard delete; unlikely but possible. Soft deletes are handled below and expected.
 			if(machine in processing)
 				processing.Remove(machine)
-				machine.is_processing = null
+				machine.isprocessing = null
 				stack_trace("[log_info_line(machine)] was found illegally queued on SSmachines.")
 				continue
 			else if(resumed)
-				current_run.Cut() // Abandon current run; assuming that we were improperly resumed with the wrong process queue.
+				queue.Cut() // Abandon current run; assuming that we were improperly resumed with the wrong process queue.
 				stack_trace("[log_info_line(machine)] was in the wrong subqueue on SSmachines on a resumed fire.")
 				process_machinery(0)
 				return
