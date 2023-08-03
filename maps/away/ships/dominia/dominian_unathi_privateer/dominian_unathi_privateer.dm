@@ -18,8 +18,8 @@
 	name = "Kazhkz Privateer Ship"
 	class = "ICV"
 	desc = "A Dragoon-class corvette - the predecessor to the Empire of Dominia's modern Lammergier-class. Though these once served a similar role in the early days of the Imperial Fleet, they have since been entirely decomissioned in favor of the Lammergier. This one's IFF marks it as a civilian vessel, of no specific affiliation."
-	icon_state = "generic"
-	moving_state = "generic_moving"
+	icon_state = "dragoon"
+	moving_state = "dragoon_moving"
 	colors = list("#e67f09", "#fcf9f5")
 	designer = "Zhurong Naval Arsenal, Empire of Dominia"
 	volume = "54 meters length, 25 meters beam/width, 17 meters vertical height"
