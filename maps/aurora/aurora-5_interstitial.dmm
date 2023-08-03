@@ -2409,7 +2409,7 @@
 /area/security/training)
 "fr" = (
 /obj/machinery/firealarm/west,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -4012,7 +4012,7 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 8
 	},
@@ -4023,7 +4023,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
 	},
@@ -4814,7 +4814,7 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
 	},
@@ -4995,7 +4995,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "my" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 4
 	},
@@ -7105,7 +7105,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
 "zQ" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -28
 	},
@@ -8351,7 +8351,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/pink/full{
 	dir = 1
 	},
@@ -11311,7 +11311,7 @@
 	},
 /area/mine/unexplored)
 "WF" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},

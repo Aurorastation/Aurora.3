@@ -375,7 +375,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "bl" = (
@@ -419,7 +419,7 @@
 /area/grand_romanovich)
 "bp" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "bu" = (
@@ -804,7 +804,7 @@
 	dir = 10;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1;
 	icon_state = "spline_fancy_corner"
@@ -937,7 +937,7 @@
 	dir = 10;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "cu" = (
@@ -1382,7 +1382,7 @@
 /area/grand_romanovich)
 "ds" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 2;
 	icon_state = "tube1"
@@ -1444,7 +1444,7 @@
 	dir = 9;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "dA" = (
@@ -1485,7 +1485,7 @@
 /area/grand_romanovich)
 "dF" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "dG" = (
@@ -2049,7 +2049,7 @@
 	dir = 6;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "fd" = (
@@ -2099,7 +2099,7 @@
 	dir = 5;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "fj" = (
@@ -2320,7 +2320,7 @@
 	dir = 10;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/item/device/radio/intercom{
 	dir = 1;
 	pixel_x = 0;
@@ -2342,7 +2342,7 @@
 	dir = 6;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -2812,7 +2812,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
@@ -2937,7 +2937,7 @@
 /obj/item/storage/secure/safe{
 	pixel_y = 32
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/lino/grey,
 /area/grand_romanovich)
 "hh" = (
@@ -3055,7 +3055,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "hx" = (
@@ -3177,7 +3177,7 @@
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "hK" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "hL" = (
@@ -3188,7 +3188,7 @@
 /area/grand_romanovich)
 "hM" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/item/device/radio/intercom{
 	dir = 8;
 	pixel_x = 24
@@ -3196,7 +3196,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "hN" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
@@ -3635,7 +3635,7 @@
 	dir = 1;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "jj" = (
@@ -3670,7 +3670,7 @@
 	icon_state = "spline_fancy"
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "jp" = (
@@ -4292,7 +4292,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lv" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
 	icon_state = "corner_white"
@@ -4348,7 +4348,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lB" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8;
 	icon_state = "corner_white_full"
@@ -4360,7 +4360,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lD" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
 	icon_state = "corner_white"
@@ -4394,7 +4394,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lI" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
 	icon_state = "corner_white"
@@ -4945,7 +4945,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "mY" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
 	icon_state = "corner_white_full"
@@ -5024,7 +5024,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nk" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4;
 	icon_state = "corner_white_full"
@@ -5433,7 +5433,7 @@
 /obj/machinery/atm{
 	pixel_y = -32
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4;
 	icon_state = "corner_white_full"
@@ -5865,7 +5865,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "ub" = (
@@ -6656,7 +6656,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "FQ" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
 "FR" = (
@@ -6803,7 +6803,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Iz" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow/full{
 	icon_state = "corner_white_full"
 	},
@@ -6877,7 +6877,7 @@
 	dir = 6;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -7455,7 +7455,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Sg" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10;
 	icon_state = "spline_fancy"
