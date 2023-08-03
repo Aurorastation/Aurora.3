@@ -71,7 +71,7 @@
 
 /turf/simulated/wall/sandstone
 	icon = 'icons/turf/smooth/composite_stone.dmi'
-	icon_state = "sandstone_example"
+	icon_state = "stone"
 
 /turf/simulated/wall/sandstone/Initialize(mapload)
 	canSmoothWith = list(src.type)
