@@ -217,7 +217,7 @@
 	desc = "A mishmash of parts taken from Unathi pirate-made raider suits and hardware commonly found in the Southern frontier of the Spur, all held together by Diona bark, a common crafting method among the Unathi fleet of the Tarwa Conglomerate. \
 	It's relatively light, and yet appears to protect against a variety of hazards."
 	icon_state = "rig-tarwapirate"
-	item_state = "rig-tarwapirate-held"
+	item_state = "rig-tarwapirate"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -232,7 +232,7 @@
 	desc = "A mishmash of parts taken from Unathi pirate-made raider suits and hardware commonly found in the Southern frontier of the Spur, all held together by Diona bark,  a common crafting method among the Unathi fleet of the Tarwa Conglomerate. \
 	It only seems to fit Unathi, it's relatively light, and yet appears to protect against a variety of hazards. This one features various reinforcements, making it probably fit for more important crew."
 	icon_state = "rig-tarwacaptain"
-	item_state = "rig-tarwacaptain-held"
+	item_state = "rig-tarwacaptain"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_CARBINE,
@@ -246,7 +246,7 @@
 	name = "tarwa conglomerate helmet"
 	desc = "Metals, electronics and diona bark meet in this strange helmet. Quiet rustling can be heard from within."
 	icon_state = "rig-tarwapirate-helmet"
-	item_state = "rig-tarwapirate-helm-held"
+	item_state = "rig-tarwapirate-helmet"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -262,7 +262,7 @@
 	desc = "Metals, electronics and diona bark meet in this strange helmet. Quiet rustling can be heard from within. \
 	This one appears to have been reinforced."
 	icon_state = "rig-tarwacaptain-helmet"
-	item_state = "rig-tarwaetcaptain-helmet-held"
+	item_state = "rig-tarwacaptain-helmet"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_CARBINE,
