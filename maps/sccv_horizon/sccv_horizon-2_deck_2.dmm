@@ -3684,9 +3684,9 @@
 	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/machinery/door/blast/shutters{
+	dir = 4;
 	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter";
-	dir = 4
+	name = "Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
@@ -5148,31 +5148,31 @@
 "cua" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/o2{
-	pixel_y = 8;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
 /obj/item/storage/firstaid/o2{
-	pixel_y = 3;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 3
 	},
 /obj/item/storage/firstaid/toxin{
-	pixel_y = 8;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 8
 	},
 /obj/item/storage/firstaid/toxin{
-	pixel_y = 3;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 3
 	},
 /obj/item/storage/firstaid/fire{
-	pixel_y = 8;
-	pixel_x = 13
+	pixel_x = 13;
+	pixel_y = 8
 	},
 /obj/item/storage/firstaid/fire{
-	pixel_y = 3;
-	pixel_x = 13
+	pixel_x = 13;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -14436,7 +14436,8 @@
 "gUA" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	name = "Research Hallway"
+	name = "Research Hallway";
+	req_access = list(47)
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -16758,9 +16759,9 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/machinery/door/blast/shutters{
+	dir = 4;
 	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter";
-	dir = 4
+	name = "Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
@@ -19907,12 +19908,12 @@
 	dir = 1
 	},
 /obj/item/storage/firstaid/regular{
-	pixel_y = 8;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	pixel_y = 3;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -21296,12 +21297,12 @@
 	},
 /obj/machinery/firealarm/east,
 /obj/item/storage/box/syringes{
-	pixel_y = 15;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 15
 	},
 /obj/item/storage/box/syringes{
-	pixel_y = 15;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 15
 	},
 /obj/item/storage/box/bloodpacks{
 	pixel_x = -4;
@@ -35066,9 +35067,9 @@
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/machinery/door/blast/shutters{
+	dir = 4;
 	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter";
-	dir = 4
+	name = "Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
@@ -45374,9 +45375,9 @@
 	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/machinery/door/blast/shutters{
+	dir = 4;
 	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter";
-	dir = 4
+	name = "Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
