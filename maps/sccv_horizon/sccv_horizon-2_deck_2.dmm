@@ -1265,13 +1265,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/machinery/computer/shuttle_control/lift{
-	pixel_x = 9;
-	pixel_y = 23;
-	shuttle_tag = "Operations Lift"
+/obj/effect/shuttle_landmark/lift/operations_second_deck,
+/obj/machinery/computer/shuttle_control/multi/lift/operations{
+	pixel_x = 11;
+	pixel_y = 18
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/turbolift/scc_ship/cargo_lift)
+/area/turbolift/scc_ship/operations_lift)
 "aBr" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -15616,7 +15616,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/turbolift/scc_ship/cargo_lift)
+/area/turbolift/scc_ship/operations_lift)
 "hzC" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -16320,13 +16320,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/computer/shuttle_control/lift{
-	pixel_x = -7;
-	pixel_y = -2;
-	shuttle_tag = "Operations Lift"
-	},
 /turf/simulated/floor/tiled/dark/full,
-/area/turbolift/scc_ship/cargo_lift)
+/area/turbolift/scc_ship/operations_lift)
 "hQI" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -23196,12 +23191,11 @@
 /turf/simulated/floor/tiled/full,
 /area/engineering/engine_airlock)
 "llp" = (
-/obj/effect/shuttle_landmark/lift/cargo_top,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/turbolift/scc_ship/cargo_lift)
+/area/turbolift/scc_ship/operations_lift)
 "llB" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -26231,14 +26225,14 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/machinery/computer/shuttle_control/lift/wall{
-	dir = 8;
-	pixel_x = 32;
-	shuttle_tag = "Operations Lift"
-	},
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations -  Upper Warehouse Port";
 	dir = 8
+	},
+/obj/machinery/computer/shuttle_control/multi/lift/wall/operations{
+	dir = 8;
+	pixel_x = 26;
+	pixel_y = -8
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
@@ -50203,10 +50197,10 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
-/obj/machinery/computer/shuttle_control/lift/wall{
+/obj/machinery/computer/shuttle_control/multi/lift/wall/operations{
 	dir = 8;
-	pixel_x = 32;
-	shuttle_tag = "Operations Lift"
+	pixel_x = 26;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)

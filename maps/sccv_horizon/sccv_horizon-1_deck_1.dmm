@@ -3054,6 +3054,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/turbolift/research/deck_1)
+"clf" = (
+/obj/effect/shuttle_landmark/lift/operations_first_deck,
+/turf/simulated/floor/plating,
+/area/operations/loading)
 "clG" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -3287,6 +3291,29 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"crZ" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/computer/shuttle_control/multi/lift/wall/operations{
+	dir = 2;
+	pixel_x = -26;
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled,
+/area/operations/loading)
 "cty" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/corner/brown{
@@ -5549,10 +5576,6 @@
 /mob/living/simple_animal/chicken,
 /turf/simulated/floor/grass/alt,
 /area/horizon/hydroponics/lower)
-"dWC" = (
-/obj/effect/shuttle_landmark/lift/cargo_bottom,
-/turf/simulated/floor/plating,
-/area/operations/loading)
 "dWD" = (
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining - Suit Storage";
@@ -24771,6 +24794,11 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
+/obj/machinery/computer/shuttle_control/multi/lift/wall/operations{
+	dir = 2;
+	pixel_x = -8;
+	pixel_y = 26
+	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "rpB" = (
@@ -25892,10 +25920,6 @@
 	dir = 4;
 	name = "Deck 1 Warehouse - Operations Shuttle";
 	sortType = "Deck 1 Warehouse - Operations Shuttle"
-	},
-/obj/machinery/computer/shuttle_control/lift/wall{
-	pixel_y = 32;
-	shuttle_tag = "Operations Lift"
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -47854,7 +47878,7 @@ gvZ
 uzB
 uzB
 ulE
-ehD
+crZ
 qDJ
 wlh
 gvZ
@@ -48054,8 +48078,8 @@ pqh
 qkh
 vqU
 gvZ
+clf
 uzB
-dWC
 hRn
 ehD
 qDJ
