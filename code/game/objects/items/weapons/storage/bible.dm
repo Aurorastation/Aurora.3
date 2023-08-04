@@ -42,14 +42,18 @@
 		playsound(src.loc, src.use_sound, 50, 1, -5)
 	return ..()
 
-/obj/item/storage/bible/proc/Set_Religion(mob/user)
+/obj/item/storage/bible/verb/Set_Religion(mob/user)
+	set name = "Set Religion"
+	set desc = "Set your own religion."
+	set src in usr
+
 	if(use_check(user))
 		return
 	if(!ishuman(user))
 		return
 
 	var/religion_name = "Christianity"
-	var/new_religion = sanitize(input(user, "Would you like to change your religion? Default is Christianity, in SPACE.", "Name change", religion_name), MAX_NAME_LEN)
+	var/new_religion = sanitize(input(user, "Would you like to change your religion? Default is Christianity.", "Name change", religion_name), MAX_NAME_LEN)
 
 	if(!new_religion)
 		new_religion = religion_name
@@ -129,4 +133,4 @@
 		SSticker.Bible_icon_state = icon_state
 		SSticker.Bible_item_state = item_state
 
-	verbs -= /obj/item/storage/bible/proc/Set_Religion
+	verbs -= /obj/item/storage/bible/verb/Set_Religion
