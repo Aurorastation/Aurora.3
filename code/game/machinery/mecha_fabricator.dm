@@ -1,8 +1,8 @@
 /obj/machinery/mecha_part_fabricator
 	name = "mechatronic fabricator"
 	desc = "A general purpose fabricator that can be used to fabricate robotic equipment."
-	icon = 'icons/obj/robotics.dmi'
-	icon_state = "fab-idle"
+	icon = 'icons/obj/machinery/robotics.dmi'
+	icon_state = "fab-base"
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 20
@@ -21,8 +21,8 @@
 
 	var/list/categories = list()
 	var/category = null
-	var/manufacturer = null
 	var/sync_message = ""
+	var/limb_manufacturer
 
 	component_types = list(
 		/obj/item/circuitboard/mechfab,
@@ -36,7 +36,7 @@
 	. = ..()
 
 	files = new /datum/research(src) //Setup the research data holder.
-	manufacturer = basic_robolimb.company
+	limb_manufacturer = basic_robolimb.company
 	update_categories()
 
 /obj/machinery/mecha_part_fabricator/process()
@@ -53,12 +53,11 @@
 
 /obj/machinery/mecha_part_fabricator/update_icon()
 	cut_overlays()
-	if(panel_open)
-		icon_state = "fab-o"
-	else
-		icon_state = "fab-idle"
+	icon_state = "fab-base"
 	if(busy)
 		add_overlay("fab-active")
+	if(panel_open)
+		add_overlay("fab-panel")
 
 /obj/machinery/mecha_part_fabricator/dismantle()
 	for(var/f in materials)
@@ -105,7 +104,7 @@
 			var/datum/robolimb/R = fabricator_robolimbs[A]
 			T += list(list("id" = A, "company" = R.company))
 		data["manufacturers"] = T
-		data["manufacturer"] = manufacturer
+		data["manufacturer"] = limb_manufacturer
 	data["materials"] = get_materials()
 	data["maxres"] = res_max_amount
 	data["sync"] = sync_message
@@ -136,7 +135,7 @@
 
 	if(href_list["manufacturer"])
 		if(href_list["manufacturer"] in fabricator_robolimbs)
-			manufacturer = href_list["manufacturer"]
+			limb_manufacturer = href_list["manufacturer"]
 
 	if(href_list["eject"])
 		eject_materials(href_list["eject"], text2num(href_list["amount"]))
@@ -173,9 +172,10 @@
 	if(materials[M.material.name] + M.perunit <= res_max_amount)
 		if(M.amount >= 1)
 			var/count = 0
-
-			add_overlay("fab-load-[M.material.name]")
-			CUT_OVERLAY_IN("fab-load-[M.material.name]", 6)
+			var/icon/load = icon(icon, "load")
+			load.Blend(M.material.icon_colour,ICON_MULTIPLY)
+			add_overlay(load)
+			CUT_OVERLAY_IN(load, 6)
 
 			while(materials[M.material.name] + M.perunit <= res_max_amount && M.amount >= 1)
 				materials[M.material.name] += M.perunit
@@ -343,25 +343,10 @@
 /obj/machinery/mecha_part_fabricator/proc/eject_materials(var/material, var/amount) // 0 amount = 0 means ejecting a full stack; -1 means eject everything
 	var/recursive = amount == -1 ? 1 : 0
 	material = lowertext(material)
-	var/mattype
-	switch(material)
-		if(MATERIAL_STEEL)
-			mattype = /obj/item/stack/material/steel
-		if(MATERIAL_GLASS)
-			mattype = /obj/item/stack/material/glass
-		if(MATERIAL_GOLD)
-			mattype = /obj/item/stack/material/gold
-		if(MATERIAL_SILVER)
-			mattype = /obj/item/stack/material/silver
-		if(MATERIAL_DIAMOND)
-			mattype = /obj/item/stack/material/diamond
-		if(MATERIAL_PHORON)
-			mattype = /obj/item/stack/material/phoron
-		if(MATERIAL_URANIUM)
-			mattype = /obj/item/stack/material/uranium
-		else
-			return
-	var/obj/item/stack/material/S = new mattype(loc)
+	var/material/mattype = SSmaterials.get_material_by_name(material)
+	var/stack_type = mattype.stack_type
+
+	var/obj/item/stack/material/S = new stack_type(loc)
 	if(amount <= 0)
 		amount = S.max_amount
 	var/ejected = min(round(materials[material] / S.perunit), amount)

@@ -13,8 +13,9 @@ var/datum/controller/subsystem/processing/SSprocessing
 /datum/controller/subsystem/processing/New()
 	NEW_SS_GLOBAL(SSprocessing)
 
-/datum/controller/subsystem/processing/stat_entry()
-	..("[stat_tag]:[processing.len]")
+/datum/controller/subsystem/processing/stat_entry(msg)
+	msg = "[stat_tag]:[processing.len]"
+	return ..()
 
 /datum/controller/subsystem/processing/fire(resumed = 0)
 	if (!resumed)

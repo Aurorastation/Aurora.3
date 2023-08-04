@@ -241,7 +241,7 @@
 	else
 		A.name = "alien creature"
 		A.real_name = "alien creature"
-		A.verbs |= /mob/living/simple_animal/proc/name_species
+		add_verb(A, /mob/living/simple_animal/proc/name_species)
 		if(istype(A, /mob/living/simple_animal/hostile))
 			var/mob/living/simple_animal/hostile/AH = A
 			AH.tolerated_types = mobs_to_tolerate.Copy()
@@ -276,7 +276,7 @@
 		if(istype(A,species_type))
 			A.name = newname
 			A.real_name = newname
-			A.verbs -= /mob/living/simple_animal/proc/name_species
+			remove_verb(A, /mob/living/simple_animal/proc/name_species)
 	return TRUE
 
 //This tries to generate "num" landing spots on the map.

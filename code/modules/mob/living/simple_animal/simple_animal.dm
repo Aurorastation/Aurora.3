@@ -14,6 +14,9 @@
 	mob_swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 
+	/// The type of damage this mob deals.
+	var/damage_type = DAMAGE_BRUTE
+
 	var/show_stat_health = 1	//does the percentage health show in the stat panel for the mob
 
 	var/icon_living = ""
@@ -161,7 +164,7 @@
 	seek_move_delay = (1 / seek_speed) * 10	//number of ds between moves
 	turns_since_scan = rand(min_scan_interval, max_scan_interval)//Randomise this at the start so animals don't sync up
 	health = maxHealth
-	verbs -= /mob/verb/observe
+	remove_verb(src, /mob/verb/observe)
 	health = maxHealth
 	if (mob_size)
 		update_nutrition_stats()
@@ -538,7 +541,7 @@
 	simple_harm_attack(user)
 
 /mob/living/simple_animal/proc/simple_harm_attack(var/mob/living/user)
-	apply_damage(harm_intent_damage, DAMAGE_BRUTE, used_weapon = "Attack by [user.name]")
+	apply_damage(harm_intent_damage, damage_type, used_weapon = "Attack by [user.name]")
 	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	poke(TRUE)
@@ -682,12 +685,12 @@
 		stop_automated_movement = 1
 		walk_to(src, movement_target, 0, DS2TICKS(seek_move_delay))
 
-/mob/living/simple_animal/Stat()
-	..()
+/mob/living/simple_animal/get_status_tab_items()
+	. = ..()
 
-	if(statpanel("Status") && show_stat_health)
-		stat(null, "Health: [round((health / maxHealth) * 100)]%")
-		stat(null, "Nutrition: [nutrition]/[max_nutrition]")
+	if(show_stat_health)
+		. += "Health: [round((health / maxHealth) * 100)]%"
+		. += "Nutrition: [nutrition]/[max_nutrition]"
 
 /mob/living/simple_animal/updatehealth()
 	..()

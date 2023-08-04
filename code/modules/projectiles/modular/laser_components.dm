@@ -412,7 +412,7 @@
 	projectile = /obj/item/projectile/energy/dart
 	damage = 0.25
 	icon_state = "dart"
-	firing_sound = 'sound/weapons/genhit.ogg'
+	firing_sound = 'sound/weapons/Genhit.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 3)
 
 /obj/item/laser_components/modulator/blaster

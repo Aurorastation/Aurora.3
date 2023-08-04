@@ -11,19 +11,15 @@
 	required_access_download = access_hop
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 	usage_flags = PROGRAM_TELESCREEN
-	nanomodule_path = /datum/nano_module/program/crushercontrol
-
-/datum/nano_module/program/crushercontrol
-	name = "Crusher Control"
+	tgui_id = "CrusherControl"
 	var/message = "" // Message to return to the user
 	var/extending = FALSE //If atleast one of the pistons is extending
 	var/list/pistons = list() //List of pistons linked to the program
 	var/list/airlocks = list() //List of airlocks linked to the program
-	var/list/status_airlocks = list() //Status of the airlocks
 	var/list/status_pistons = list() //Status of the pistons
 
-/datum/nano_module/program/crushercontrol/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-	var/list/data = host.initial_data()
+/datum/computer_file/program/crushercontrol/ui_data(mob/user)
+	var/list/data = initial_data()
 
 	status_pistons = list()
 	extending = FALSE
@@ -47,56 +43,58 @@
 	data["message"] = message
 	data["airlock_count"] = airlocks.len
 	data["piston_count"] = pistons.len
-	data["status_airlocks"] = status_airlocks
 	data["status_pistons"] = status_pistons
 	data["extending"] = extending
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "crushercontrol.tmpl", name, 500, 350, state = state)
-		ui.auto_update_layout = TRUE
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(TRUE)
 
-/datum/nano_module/program/crushercontrol/Topic(href, href_list)
+	return data
+
+/datum/computer_file/program/crushercontrol/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
 	if(..())
-		return TRUE
+		return
 
-	if(href_list["initialize"])
-		pistons = list()
-		for(var/obj/machinery/crusher_base/pstn in orange(10, src.ui_host()))
-			pistons += pstn
+	switch(action)
+		if("initialize")
+			pistons = list()
+			for(var/obj/machinery/crusher_base/pstn in orange(10, ui_host()))
+				pistons += pstn
 
-		airlocks = list()
-		for(var/obj/machinery/door/airlock/arlk in orange(10, src.ui_host()))
-			if(arlk.id_tag != "compactor_access")
-				continue
-			airlocks += arlk
+			airlocks = list()
+			for(var/obj/machinery/door/airlock/arlk in orange(10, ui_host()))
+				if(arlk.id_tag != "compactor_access")
+					continue
+				airlocks += arlk
 
-		airlock_open()
+			airlock_open()
+			. = TRUE
 
-	if(href_list["hatch_open"])
-		message = "Opening the Hatch"
-		airlock_open()
+		if("hatch_open")
+			message = "Opening the Hatch"
+			airlock_open()
+			. = TRUE
 
-	if(href_list["hatch_close"])
-		message = "Closing the Hatch"
-		airlock_close()
+		if("hatch_close")
+			message = "Closing the Hatch"
+			airlock_close()
+			. = TRUE
 
-	if(href_list["crush"])
-		message = "Crushing"
-		airlock_close()
-		crush_start()
+		if("crush")
+			message = "Crushing"
+			airlock_close()
+			crush_start()
+			. = TRUE
 
-	if(href_list["abort"])
-		message = "Aborting"
-		crush_stop()
+		if("abort")
+			message = "Aborting"
+			crush_stop()
+			. = TRUE
 
-	if(href_list["close"])
-		message = null
+		if("close")
+			message = null
+			. = TRUE
 
 
-/datum/nano_module/program/crushercontrol/proc/airlock_open()
+/datum/computer_file/program/crushercontrol/proc/airlock_open()
 	for(var/thing in airlocks)
 		var/obj/machinery/door/airlock/arlk = thing
 		if(!arlk.cur_command)
@@ -104,17 +102,17 @@
 			arlk.cur_command = "secure_open"
 			arlk.execute_current_command()
 
-/datum/nano_module/program/crushercontrol/proc/airlock_close()
+/datum/computer_file/program/crushercontrol/proc/airlock_close()
 	for(var/thing in airlocks)
 		var/obj/machinery/door/airlock/arlk = thing
 		if(!arlk.cur_command)
 			arlk.cur_command = "secure_close"
 			arlk.execute_current_command()
 
-/datum/nano_module/program/crushercontrol/proc/crush_start()
+/datum/computer_file/program/crushercontrol/proc/crush_start()
 	for(var/obj/machinery/crusher_base/pstn in pistons)
 		pstn.crush_start()
 
-/datum/nano_module/program/crushercontrol/proc/crush_stop()
+/datum/computer_file/program/crushercontrol/proc/crush_stop()
 	for(var/obj/machinery/crusher_base/pstn in pistons)
 		pstn.crush_abort()

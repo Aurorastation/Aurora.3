@@ -12,7 +12,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weldingtool/hugetank,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "ck" = (
 /obj/effect/decal/cleanable/dirt,
@@ -42,23 +42,23 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/material/shard{
-	pixel_y = -10;
-	pixel_x = 10
+	pixel_x = 10;
+	pixel_y = -10
 	},
 /obj/item/material/shard{
 	icon_state = "small"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "dQ" = (
 /obj/item/material/shard,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "fE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "gb" = (
 /obj/effect/decal/cleanable/dirt,
@@ -72,7 +72,7 @@
 /area/template_noop)
 "gj" = (
 /obj/item/spacecash/c10,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "gu" = (
 /obj/structure/railing/mapped{
@@ -80,7 +80,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "hw" = (
 /obj/effect/decal/cleanable/dirt,
@@ -89,8 +89,8 @@
 /obj/structure/grille/broken,
 /obj/structure/grille/diagonal,
 /obj/item/material/shard{
-	pixel_y = -7;
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = -7
 	},
 /obj/item/material/shard{
 	icon_state = "small"
@@ -104,7 +104,7 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "la" = (
 /obj/effect/decal/cleanable/dirt,
@@ -126,7 +126,7 @@
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "lR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -135,7 +135,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "nM" = (
 /turf/simulated/wall/shuttle/raider,
@@ -161,12 +161,12 @@
 /area/template_noop)
 "rK" = (
 /obj/item/pocketwatch,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "rY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "sW" = (
 /turf/simulated/mineral/random/high_chance,
@@ -193,15 +193,15 @@
 /area/template_noop)
 "vS" = (
 /mob/living/simple_animal/hostile/gnat,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "xK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/visible{
-	pixel_y = 3;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 3
 	},
 /obj/item/ammo_magazine/c45m{
 	pixel_x = -9;
@@ -214,10 +214,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/material/shard{
-	pixel_y = 4;
-	pixel_x = 18
+	pixel_x = 18;
+	pixel_y = 4
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "xX" = (
 /obj/effect/decal/cleanable/dirt,
@@ -242,7 +242,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white/airless,
+/turf/template_noop,
 /area/template_noop)
 "Du" = (
 /obj/effect/decal/cleanable/dirt,
@@ -268,7 +268,7 @@
 /area/template_noop)
 "Dz" = (
 /obj/item/material/shard,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "DH" = (
 /obj/effect/decal/cleanable/dirt,
@@ -296,9 +296,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/portables_connector{
-	pixel_y = -4;
+	dir = 8;
 	pixel_x = 16;
-	dir = 8
+	pixel_y = -4
 	},
 /obj/item/storage/field_ration,
 /turf/simulated/floor/tiled/white/airless,
@@ -335,18 +335,18 @@
 	pixel_y = 23
 	},
 /obj/structure/grille/diagonal{
-	pixel_y = 9;
-	dir = 4
+	dir = 4;
+	pixel_y = 9
 	},
 /obj/structure/grille/broken,
 /obj/item/material/shard{
-	pixel_y = -3;
-	pixel_x = 16
+	pixel_x = 16;
+	pixel_y = -3
 	},
 /obj/item/material/shard{
 	icon_state = "small";
-	pixel_y = -10;
-	pixel_x = -14
+	pixel_x = -14;
+	pixel_y = -10
 	},
 /obj/item/material/shard{
 	icon_state = "small";
@@ -379,10 +379,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/wrench,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "MT" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "MX" = (
 /obj/effect/decal/cleanable/dirt,
@@ -392,7 +392,7 @@
 /area/template_noop)
 "OW" = (
 /obj/item/spacecash/c1,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "Qr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -438,13 +438,13 @@
 /area/template_noop)
 "SP" = (
 /obj/item/clothing/head/helmet/space/santahat,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "Tr" = (
 /obj/machinery/atmospherics/portables_connector{
-	pixel_y = -4;
+	dir = 8;
 	pixel_x = 16;
-	dir = 8
+	pixel_y = -4
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -453,7 +453,7 @@
 /area/template_noop)
 "TG" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "VD" = (
 /obj/effect/decal/cleanable/dirt,
@@ -481,7 +481,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/turf/template_noop,
 /area/template_noop)
 "Zf" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,

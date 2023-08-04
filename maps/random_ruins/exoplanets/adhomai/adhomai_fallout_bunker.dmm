@@ -339,7 +339,6 @@
 "mZ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/standard,
-/obj/item/board,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},

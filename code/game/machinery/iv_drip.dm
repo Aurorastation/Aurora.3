@@ -37,8 +37,14 @@
 	var/epp = TRUE // Emergency Positive Pressure system. Can be toggled if you want to turn it off
 	var/epp_active = FALSE
 
+	//What we accept as a container for IV transfers. Prevents attaching food and organs to IVs.
+	var/list/accepted_containers = list(
+		/obj/item/reagent_containers/blood,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle)
+
 	var/list/mask_blacklist = list(
-		/obj/item/clothing/mask/breath/vaurca,
+		/obj/item/clothing/mask/gas/vaurca,
 		/obj/item/clothing/mask/breath/skrell,
 		/obj/item/clothing/mask/breath/lyodsuit,
 		/obj/item/clothing/mask/breath/infiltrator)
@@ -210,7 +216,7 @@
 
 			if(!tank_active) // Activates and sets the kPa to a safe pressure. This keeps from it constantly resetting itself
 				tank.distribute_pressure = safe_pressure_min
-				src.visible_message(SPAN_NOTICE("\The [src] chimes and adjusts \the [tank]'s release pressure"))
+				src.visible_message(SPAN_NOTICE("\The [src] chimes and adjusts \the [tank]'s release pressure."))
 				playsound(src, 'sound/machines/chime.ogg', 50)
 				tank_active = TRUE
 			if(L.checking_rupture == FALSE) // Safely retracts in case the lungs are about to rupture
@@ -349,6 +355,8 @@
 					to_chat(usr, SPAN_WARNING("You must remove \the [breather]'s [breather.wear_mask] first!"))
 					breather = null
 					return
+				if(tank)
+					tank_on()
 				visible_message("<b>[usr]</b> secures the mask over \the <b>[breather]'s</b> face.")
 				playsound(breather, 'sound/effects/buckle.ogg', 50)
 				breath_mask.forceMove(breather.loc)
@@ -415,7 +423,7 @@
 	if(istype(W, /obj/item/reagent_containers/blood/ripped))
 		to_chat(user, "You can't use a ripped bloodpack.")
 		return TRUE
-	if(istype(W, /obj/item/reagent_containers))
+	if(is_type_in_list(W, accepted_containers))
 		if(beaker)
 			to_chat(user, "There is already a reagent container loaded!")
 			return TRUE
@@ -587,6 +595,16 @@
 	breather = null
 	update_icon()
 
+/obj/machinery/iv_drip/proc/tank_on()
+	playsound(src, 'sound/effects/internals.ogg', 100)
+	tank.forceMove(breather)
+	breather.internal = tank
+	if(breather.internals)
+		breather.internals.icon_state = "internal1"
+	valve_open = TRUE
+	update_icon()
+	return
+
 /obj/machinery/iv_drip/proc/tank_off()
 	tank.forceMove(src)
 	if(breather.internals)
@@ -636,22 +654,17 @@
 
 	if(!valve_open)
 		usr.visible_message("<b>[usr]</b> opens \the [tank]'s valve.", SPAN_NOTICE("You open \the [tank]'s valve."))
-		playsound(src, 'sound/effects/internals.ogg', 100)
-		tank.forceMove(breather)
-		breather.internal = tank
-		if(breather.internals)
-			breather.internals.icon_state = "internal1"
-		valve_open = TRUE
-		update_icon()
+		tank_on()
 		return
-	if(epp_active)
-		var/response = alert(usr, "Are you sure you want to close \the [tank]'s valve? The Emergency Positive Pressure system is currently active!", "Toggle Valve", "Yes", "No")
-		if(response == "No")
-			return
-		epp_active = FALSE
-	usr.visible_message("<b>[usr]</b> closes \the [tank]'s valve.", SPAN_NOTICE("You close \the [tank]'s valve."))
-	playsound(src, 'sound/effects/internals.ogg', 100)
-	tank_off()
+	if(valve_open)
+		if(epp_active)
+			var/response = alert(usr, "Are you sure you want to close \the [tank]'s valve? The Emergency Positive Pressure system is currently active!", "Toggle Valve", "Yes", "No")
+			if(response == "No")
+				return
+			epp_active = FALSE
+		usr.visible_message("<b>[usr]</b> closes \the [tank]'s valve.", SPAN_NOTICE("You close \the [tank]'s valve."))
+		tank_off()
+		return
 
 /obj/machinery/iv_drip/verb/toggle_epp()
 	set category = "Object"

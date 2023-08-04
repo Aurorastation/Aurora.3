@@ -16,8 +16,6 @@ body:
     options:
       - label: I have searched the bug with a few keywords, and I confirm this bug was not yet reported.
         required: true
-      - label: The round I am reporting the bug from, or I am going to talk about, has already ended.
-        required: true
 
 - type: dropdown
   id: location

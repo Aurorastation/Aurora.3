@@ -9,7 +9,7 @@
 	anchored = 1
 	density = 0
 	layer = OBJ_LAYER + 0.9
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	animate_movement = 0
 	var/solid_time = 120
 	var/amount = 3

@@ -108,32 +108,31 @@
 
 /obj/machinery/sleeper/attack_hand(var/mob/user)
 	if(..())
-		return 1
+		return TRUE
 
 	ui_interact(user)
 
-/obj/machinery/sleeper/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+/obj/machinery/sleeper/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "medical-sleeper", 1200, 800, "Sleeper")
-		ui.auto_update_content = TRUE
-	ui.open()
+		ui = new(user, src, "Sleeper", "Sleeper", 1200, 800)
+		ui.open()
 
-/obj/machinery/sleeper/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = list()
+/obj/machinery/sleeper/ui_data(mob/user)
+	var/list/data = list()
 	data["power"] = stat & (NOPOWER|BROKEN) ? FALSE : TRUE
 
 	if(occupant)
 		data["occupant"] = TRUE
 		data["stat"] = occupant.stat
-		data["stasis"] = stasis == 1 ? "Inactive" : stasis
+		data["stasis"] = stasis
 		data["species"] = occupant.get_species()
 		data["brain_activity"] = occupant.get_brain_result()
 		data["blood_pressure"] = occupant.get_blood_pressure()
 		data["blood_pressure_level"] = occupant.get_blood_pressure_alert()
 		data["blood_o2"] = occupant.get_blood_oxygenation()
-		data["bloodreagents"] = FALSE
-		var/list/list/blood_reagents
+		data["bloodreagents"] = list()
+		var/list/blood_reagents = list()
 		for(var/_R in occupant.reagents.reagent_volumes)
 			var/list/blood_reagent = list()
 			var/singleton/reagent/R = GET_SINGLETON(_R)
@@ -143,7 +142,7 @@
 		if(LAZYLEN(blood_reagents))
 			data["bloodreagents"] = blood_reagents.Copy()
 		data["hasstomach"] = FALSE
-		data["stomachreagents"] = FALSE
+		data["stomachreagents"] = list()
 		var/obj/item/organ/internal/stomach/S = occupant.internal_organs_by_name[BP_STOMACH]
 		if(S)
 			data["hasstomach"] = TRUE
@@ -172,44 +171,51 @@
 	else
 		data["occupant"] = FALSE
 	if(beaker)
-		data["beaker"] = REAGENTS_FREE_SPACE(beaker.reagents)
+		data["beaker"] = TRUE
+		data["beakerfreespace"] = REAGENTS_FREE_SPACE(beaker.reagents)
 	else
-		data["beaker"] = -1
+		data["beaker"] = FALSE
 	data["filtering"] = filtering
 	data["pump"] = pump
 
 	return data
 
-// #TODO-MERGE: Reimport Nanako's bucklesleeperBS
-/obj/machinery/sleeper/Topic(href, href_list)
-	if(..())
-		return 1
+/obj/machinery/sleeper/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
 	if(usr == occupant)
-		to_chat(usr, "<span class='warning'>You can't reach the controls from the inside.</span>")
-		return
+		to_chat(usr, SPAN_WARNING("You can't reach the controls from the inside."))
+		return FALSE
 
 	add_fingerprint(usr)
 
-	if(href_list["eject"])
-		go_out()
-	if(href_list["beaker"])
-		remove_beaker()
-	if(href_list["filter"])
-		if(filtering != text2num(href_list["filter"]))
+	switch(action)
+		if("eject")
+			go_out()
+			. = TRUE
+		if("beaker")
+			remove_beaker()
+			. = TRUE
+		if("filter")
 			toggle_filter()
-	if(href_list["pump"])
-		if(pump != text2num(href_list["pump"]))
+			. = TRUE
+		if("pump")
 			toggle_pump()
-	if(href_list["chemical"] && href_list["amount"])
-		if(occupant?.stat != DEAD)
-			if(text2path(href_list["chemical"]) in available_chemicals)
-				inject_chemical(usr, text2path(href_list["chemical"]), text2num(href_list["amount"]))
-	if(href_list["stasis"])
-		var/nstasis = text2num(href_list["stasis"])
-		if(stasis != nstasis && (nstasis in stasis_settings))
-			stasis = text2num(href_list["stasis"])
-			change_power_consumption(parts_power_usage + (stasis_power * (stasis-1)), POWER_USE_ACTIVE)
+			. = TRUE
+		if("chemical")
+			if(occupant?.stat != DEAD)
+				var/chemical = text2path(params["chemical"])
+				if(chemical in available_chemicals)
+					inject_chemical(usr, chemical, text2num(params["amount"]))
+					. = TRUE
+		if("stasis")
+			var/nstasis = text2num(params["stasis"])
+			if(stasis != nstasis)
+				stasis = text2num(params["stasis"])
+				change_power_consumption(parts_power_usage + (stasis_power * (stasis-1)), POWER_USE_ACTIVE)
+				. = TRUE
 
 	return TRUE
 
@@ -238,7 +244,7 @@
 			return TRUE
 
 		if(!istype(L))
-			to_chat(user, "<span class='warning'>\The machine won't accept that.</span>")
+			to_chat(user, "<span class='warning'>The machine won't accept that.</span>")
 			return TRUE
 
 		if(display_loading_message)

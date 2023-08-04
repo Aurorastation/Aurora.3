@@ -1,9 +1,3 @@
-#define ALL_SPELLS "All"
-#define OFFENSIVE_SPELLS "Offensive"
-#define DEFENSIVE_SPELLS "Defensive"
-#define UTILITY_SPELLS "Utility"
-#define SUPPORT_SPELLS "Support"
-
 var/list/all_technomancer_spells = typesof(/datum/technomancer/spell) - /datum/technomancer/spell
 var/list/all_technomancer_equipment = typesof(/datum/technomancer/equipment) - /datum/technomancer/equipment
 var/list/all_technomancer_consumables = typesof(/datum/technomancer/consumable) - /datum/technomancer/consumable
@@ -362,7 +356,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				return
 			var/obj/item/technomancer_core/core = H.get_technomancer_core()
 			if(core)
-				for(var/obj/spellbutton/spell in core.spells)
+				for(var/obj/spellbutton/technomancer/spell in core.spells)
 					for(var/datum/technomancer/spell/spell_datum in spell_instances)
 						if(spell_datum.obj_path == spell.spellpath)
 							budget += spell_datum.cost
@@ -387,7 +381,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				// We sadly need to do special stuff here or else people who refund cores with spells will lose points permanently.
 				if(istype(AM, /obj/item/technomancer_core))
 					var/obj/item/technomancer_core/core = AM
-					for(var/obj/spellbutton/spell in core.spells)
+					for(var/obj/spellbutton/technomancer/spell in core.spells)
 						for(var/datum/technomancer/spell/spell_datum in spell_instances)
 							if(spell_datum.obj_path == spell.spellpath)
 								budget += spell_datum.cost

@@ -105,7 +105,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/flame/match/proc/light()
 	lit = TRUE
-	damtype = "burn"
+	damtype = "fire"
 	icon_state = "match_lit"
 	item_state = "match_lit"
 	if(ismob(loc))
@@ -723,6 +723,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	thrower.drop_from_inventory(src)
 
 /obj/item/flame/lighter/zippo/augment/dropped()
+	. = ..()
 	loc = null
 	qdel(src)
 

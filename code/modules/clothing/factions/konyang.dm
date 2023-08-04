@@ -88,10 +88,22 @@
 	name = "gat"
 	desc = "A traditional hat worn on Konyang and originating on Earth."
 	desc_extended = "Although traditionally made from horsehair, many different types of fabrics, including water-resistant fibres from feathers are now used."
-	icon = 'icons/clothing/head/konyang_gat.dmi'
-	icon_state = "konyang_gat"
-	item_state = "konyang_gat"
+	icon = 'icons/obj/item/clothing/head/konyang_caps.dmi'
+	icon_state = "gat"
+	item_state = "gat"
 	contained_sprite = TRUE
+	var/veilup = 0
+
+/obj/item/clothing/head/konyang/attack_self(mob/user as mob)
+	src.veilup = !src.veilup
+	if(src.veilup)
+		icon_state = "[icon_state]_up"
+		to_chat(user, "You raise the rain veil on the gat.")
+	else
+		src.icon_state = initial(icon_state)
+		to_chat(user, "You lower the rain veil on the gat.")
+	update_icon()
+	update_clothing_icon()
 
 /obj/item/clothing/under/konyangdress
 	name = "konyanger dress"

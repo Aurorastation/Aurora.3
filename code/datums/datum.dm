@@ -33,8 +33,6 @@
 	var/ui_key = SOFTREF(src)
 	if(LAZYISIN(SSnanoui.open_uis, ui_key))
 		SSnanoui.close_uis(src)
-	if(LAZYISIN(SSvueui.open_uis, ui_key))
-		SSvueui.close_uis(src)
 	tag = null
 	var/list/timers = active_timers
 	active_timers = null

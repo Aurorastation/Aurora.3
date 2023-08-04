@@ -270,7 +270,7 @@ var/list/datum/power/changeling/powerinstances = list()
 
 // Modularchangling, totally stolen from the new player panel.  YAYY
 //I'm too afraid to touch this, you win this time, oldcode - Geeves
-// After an HTML course, I finally conquered this. Convert into VueUi eventually. - Geeves
+// After an HTML course, I finally conquered this. Convert into TGUI eventually. - Geeves
 /datum/changeling/proc/EvolutionMenu()//The new one
 	set category = "Changeling"
 	set desc = "Buy new abilities with the genomes we obtained."

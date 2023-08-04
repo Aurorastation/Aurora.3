@@ -52,6 +52,10 @@
 	var/emergency_shuttle_leaving_dock
 	var/emergency_shuttle_recall_message
 	var/emergency_shuttle_called_message
+	var/bluespace_docked_message
+	var/bluespace_leaving_dock
+	var/bluespace_called_message
+	var/bluespace_recall_message
 
 	var/evac_controller_type = /datum/evacuation_controller
 
@@ -213,6 +217,9 @@
 	return list(spawn_cost, player_cost, ship_cost)
 
 /datum/map/proc/send_welcome()
+	return
+
+/datum/map/proc/load_holodeck_programs()
 	return
 
 /datum/map/proc/build_away_sites()

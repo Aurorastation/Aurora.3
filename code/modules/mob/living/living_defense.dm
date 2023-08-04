@@ -18,6 +18,10 @@
 	var/natural_armor = GetComponent(/datum/component/armor)
 	if(natural_armor)
 		. += natural_armor
+	if(psi)
+		var/armor = psi.GetComponent(/datum/component/armor/psionic)
+		if(armor)
+			. += armor
 
 /mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone, var/used_weapon = null)
 
@@ -105,7 +109,7 @@
 		apply_effect(agony_amount / 10, STUTTER)
 		apply_effect(agony_amount / 10, EYE_BLUR)
 
-/mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/tesla_shock = 0, var/ground_zero)
+/mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	return 0 //only carbon liveforms have this proc
 
 /mob/living/emp_act(severity)
@@ -224,7 +228,7 @@
 /mob/living/proc/embed(var/obj/O, var/def_zone=null)
 	O.forceMove(src)
 	src.embedded += O
-	src.verbs += /mob/proc/yank_out_object
+	add_verb(src, /mob/proc/yank_out_object)
 
 /mob/living/proc/turf_collision(var/atom/T, var/speed = THROWFORCE_SPEED_DIVISOR, var/sound_to_play = 'sound/effects/bangtaper.ogg')
 	visible_message("<span class='danger'>[src] slams into \the [T]!</span>")
@@ -247,7 +251,7 @@
 
 // End BS12 momentum-transfer code.
 
-/mob/living/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags)
+/mob/living/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags, var/damage_type = DAMAGE_BRUTE)
 	if(!damage)
 		return
 
@@ -257,7 +261,7 @@
 		src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
 	user.do_attack_animation(src)
 
-	apply_damage(damage, DAMAGE_BRUTE, user.zone_sel?.selecting, armor_pen = armor_penetration, damage_flags = attack_flags)
+	apply_damage(damage, damage_type, user.zone_sel?.selecting, armor_pen = armor_penetration, damage_flags = attack_flags)
 	updatehealth()
 
 	return TRUE
