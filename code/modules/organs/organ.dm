@@ -331,7 +331,7 @@
 
 //Immunosuppressants
 /obj/item/organ/proc/handle_immunosuppressants()
-	if(!owner || !(CE_ANTIIMMUNE in owner.chem_effects))
+	if(!owner || !(CE_ANTIIMMUNE in owner.chem_effects) || !rejecting)
 		return
 
 	var/antiimmune = owner.chem_effects[CE_ANTIIMMUNE]
