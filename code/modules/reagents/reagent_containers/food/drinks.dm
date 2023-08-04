@@ -321,6 +321,15 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	else
 		icon_state = "water_cup_e"
 
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris
+	name = "takeaway cup"
+	desc = "A takeaway cup, sporting the Idris logo."
+	icon_state = "takeaway_cup_idris"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	possible_transfer_amounts = null
+	volume = 30
+
 //////////////////////////JUICES AND STUFF ///////////////////////
 
 /obj/item/reagent_containers/food/drinks/carton
@@ -731,3 +740,57 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
 	reagents_to_add = list(/singleton/reagent/drink/milk/strawberry = 20)
+
+/obj/item/reagent_containers/food/drinks/jyalra
+	name = "jyalra"
+	desc = "A popular junk food item from the Nralakk Federation. Jyalra is a savoury puree made from dyn that has been peeled and mashed into a dark blue pulp."
+	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
+	icon_state = "jyalra"
+	item_state = "jyalra"
+	drink_flags = UNIQUE_EMPTY_ICON
+	empty_icon_state = "jyalra_empty"
+	drop_sound = 'sound/items/drop/disk.ogg'
+	pickup_sound = 'sound/items/pickup/disk.ogg'
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/jyalra = 40)
+
+/obj/item/reagent_containers/food/drinks/jyalracheese
+	name = "jyalra with nycii"
+	desc = "A popular junk food item from the Nralakk Federation. Jyalra is a savoury puree made from dyn that has been peeled and mashed into a dark blue pulp. Nycii, a type of Skrellian cheese, has been added to the puree for flavour."
+	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
+	icon_state = "jyalracheese"
+	item_state = "jyalracheese"
+	drink_flags = UNIQUE_EMPTY_ICON
+	empty_icon_state = "jyalra_empty"
+	drop_sound = 'sound/items/drop/disk.ogg'
+	pickup_sound = 'sound/items/pickup/disk.ogg'
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/jyalracheese = 40)
+
+/obj/item/reagent_containers/food/drinks/jyalraapple
+	name = "jyalra with apples"
+	desc = "A popular junk food item from the Nralakk Federation. Jyalra is a savoury puree made from dyn that has been peeled and mashed into a dark blue pulp. Apples have been added to make the meal sweeter."
+	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
+	icon_state = "jyalraapple"
+	item_state = "jyalraapple"
+	drink_flags = UNIQUE_EMPTY_ICON
+	empty_icon_state = "jyalra_empty"
+	drop_sound = 'sound/items/drop/disk.ogg'
+	pickup_sound = 'sound/items/pickup/disk.ogg'
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/jyalraapple = 40)
+
+/obj/item/reagent_containers/food/drinks/jyalracherry
+	name = "jyalra with cherries"
+	desc = "A popular junk food item from the Nralakk Federation. Jyalra is a savoury puree made from dyn that has been peeled and mashed into a dark blue pulp. Cherries have been added to make the meal sweeter."
+	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
+	icon_state = "jyalracherry"
+	item_state = "jyalracherry"
+	drink_flags = UNIQUE_EMPTY_ICON
+	empty_icon_state = "jyalra_empty"
+	drop_sound = 'sound/items/drop/disk.ogg'
+	pickup_sound = 'sound/items/pickup/disk.ogg'
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/jyalracherry = 40)
+
+

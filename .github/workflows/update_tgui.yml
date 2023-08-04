@@ -1,11 +1,6 @@
 name: "Build TGUI"
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
-    paths:
-      - 'tgui/**'
 
 jobs:
   update-tgui:
@@ -15,7 +10,7 @@ jobs:
     - name: Install Node
       uses: actions/setup-node@v3
       with:
-        node-version: 14 
+        node-version: 14
 
     - name: Checkout Repository
       uses: actions/checkout@v3
@@ -33,7 +28,7 @@ jobs:
 
     - name: Update TGUI
       run: |
-        tools/bootstrap/node tools/build/build.js tgui 
+        tools/bootstrap/node tools/build/build.js tgui
 
     - name: Commit TGUI
       run: |

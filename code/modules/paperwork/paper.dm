@@ -108,6 +108,7 @@
 		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
+	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
 	paper_win.set_content(get_content(user, can_read(user, forceshow)))
 	paper_win.add_stylesheet("paper_languages", 'html/browser/paper_languages.css')

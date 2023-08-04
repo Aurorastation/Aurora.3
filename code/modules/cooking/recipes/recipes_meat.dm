@@ -69,6 +69,15 @@
 	result = /obj/item/reagent_containers/food/snacks/sausage
 	result_quantity = 2
 
+/singleton/recipe/pepperoni
+	appliance = SKILLET
+	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/spacespice = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sausage
+	)
+	result = /obj/item/reagent_containers/food/snacks/pepperoni
+	result_quantity = 1
+
 /singleton/recipe/nugget
 	appliance = FRYER
 	reagents = list(/singleton/reagent/nutriment/flour = 5)
