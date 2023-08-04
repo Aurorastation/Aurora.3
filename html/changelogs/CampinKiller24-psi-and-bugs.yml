@@ -1,0 +1,6 @@
+author: CampinKiller24
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed being able to crush people when they're not in viewing range."
