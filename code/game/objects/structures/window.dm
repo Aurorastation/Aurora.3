@@ -11,7 +11,7 @@
 	icon_state = "pane"
 	density = TRUE
 	w_class = ITEMSIZE_NORMAL
-	layer = 3.2 // Just above doors.
+	layer = 3.2
 	anchored = TRUE
 	flags = ON_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
@@ -58,6 +58,10 @@
 	queue_smooth_neighbors(src)
 
 /obj/structure/window/update_icon()
+	if(dir == SOUTH)
+		layer = ABOVE_MOB_LAYER
+	else
+		layer = 3.2
 	queue_smooth(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)

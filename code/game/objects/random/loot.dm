@@ -62,7 +62,7 @@
 		/obj/item/device/flashlight/heavy = 0.5,
 		/obj/item/device/flashlight/lantern = 0.4,
 		/obj/item/device/flashlight/maglight = 0.4,
-		/obj/item/device/floor_painter = 0.6,
+		/obj/item/device/paint_sprayer = 0.6,
 		/obj/item/device/gps/engineering = 0.6,
 		/obj/item/device/kinetic_analyzer = 0.1,
 		/obj/item/device/laser_pointer/purple = 0.1,

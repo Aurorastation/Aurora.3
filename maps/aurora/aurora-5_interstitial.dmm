@@ -5177,7 +5177,7 @@
 /obj/item/storage/box/lights/coloredmixed,
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /obj/structure/closet/crate,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)

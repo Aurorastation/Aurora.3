@@ -6085,10 +6085,10 @@
 	dir = 4;
 	pixel_x = 12
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood,
@@ -6272,7 +6272,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/abandoned_industrial_station/quarters)
 "uB" = (
 /obj/structure/bed/stool/chair/sofa/corner/red{
@@ -6960,10 +6960,10 @@
 	dir = 4;
 	pixel_x = 12
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -7310,10 +7310,10 @@
 	dir = 4;
 	pixel_x = 12
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -8067,7 +8067,7 @@
 /area/abandoned_industrial_station/medical)
 "As" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/abandoned_industrial_station/quarters)
 "At" = (
 /obj/effect/floor_decal/corner/beige{
@@ -8100,7 +8100,7 @@
 "Aw" = (
 /obj/machinery/vending/cigarette/hacked,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/abandoned_industrial_station/quarters)
 "Ax" = (
 /obj/structure/bed/stool/chair/office/dark,
@@ -10314,10 +10314,10 @@
 	dir = 4;
 	pixel_x = 12
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
 /obj/item/toy/plushie/spider{
@@ -10358,7 +10358,7 @@
 	pixel_x = 32;
 	req_one_access = null
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/abandoned_industrial_station/quarters)
 "HD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -11221,10 +11221,10 @@
 	dir = 4;
 	pixel_x = 12
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/light{
+/obj/effect/floor_decal/corner{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -13849,7 +13849,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood/birch,
 /area/abandoned_industrial_station/quarters)
 "Tf" = (
 /obj/effect/floor_decal/industrial/warning{

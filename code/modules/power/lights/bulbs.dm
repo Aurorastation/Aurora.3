@@ -4,7 +4,7 @@
 // will fit into empty /obj/machinery/light of the corresponding type
 
 /obj/item/light
-	icon = 'icons/obj/structure/lighting/wall_lights.dmi'
+	icon = 'icons/obj/lights.dmi'
 	force = 2
 	throwforce = 5
 	w_class = ITEMSIZE_TINY
