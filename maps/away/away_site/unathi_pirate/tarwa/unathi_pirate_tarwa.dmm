@@ -333,7 +333,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/alarm/west{
+/obj/machinery/alarm{
+	dir = 4;
 	pixel_x = -28;
 	req_one_access = list(210)
 	},
@@ -998,7 +999,8 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "nX" = (
-/obj/machinery/alarm/north{
+/obj/machinery/alarm{
+	dir = 1;
 	pixel_y = -25;
 	req_one_access = list(210)
 	},
@@ -1159,8 +1161,10 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/unathi_pirate,
-/obj/item/clothing/head/helmet/space/void/unathi_pirate,
+/obj/item/clothing/suit/space/void/unathi_pirate/tarwa,
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "qK" = (
@@ -1551,16 +1555,16 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "xl" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
 	pixel_x = 0;
 	pixel_y = 24;
-	req_access = list(113)
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
+	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
@@ -1767,7 +1771,8 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "Ba" = (
-/obj/machinery/alarm/north{
+/obj/machinery/alarm{
+	dir = 1;
 	pixel_y = -25;
 	req_one_access = list(210)
 	},
@@ -1928,7 +1933,8 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "Dk" = (
-/obj/machinery/alarm/west{
+/obj/machinery/alarm{
+	dir = 4;
 	pixel_x = -28;
 	req_one_access = list(210)
 	},
@@ -2147,7 +2153,7 @@
 	name = "north bump";
 	pixel_x = 0;
 	pixel_y = 24;
-	req_access = list(113)
+	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
@@ -2392,16 +2398,21 @@
 	pixel_y = 25;
 	req_one_access = list(210)
 	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain,
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa/captain,
 /turf/simulated/floor/carpet/orange,
 /area/tarwa_ship/captain)
 "JW" = (
-/obj/machinery/alarm/east{
-	pixel_x = 25;
-	pixel_y = 0;
-	req_one_access = list(215)
-	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/machinery/alarm{
+	pixel_x = 28;
+	dir = 8;
+	req_one_access = list(210)
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
@@ -2524,16 +2535,16 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/structure/bed/stool/padded/green,
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
 	pixel_x = 0;
 	pixel_y = 24;
-	req_access = list(113)
-	},
-/obj/structure/bed/stool/padded/green,
-/obj/machinery/light{
-	dir = 1
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/canteen)
@@ -2548,6 +2559,9 @@
 "Ly" = (
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/sink{
+	pixel_y = 25
 	},
 /turf/simulated/floor/lino,
 /area/tarwa_ship/canteen)
@@ -2564,7 +2578,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm/west{
+/obj/machinery/alarm{
+	dir = 4;
 	pixel_x = -28;
 	req_one_access = list(210)
 	},
@@ -2754,7 +2769,7 @@
 	name = "north bump";
 	pixel_x = 0;
 	pixel_y = 24;
-	req_access = list(113)
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
@@ -2818,7 +2833,7 @@
 	name = "north bump";
 	pixel_x = 0;
 	pixel_y = 24;
-	req_access = list(113)
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship)
@@ -2958,8 +2973,10 @@
 /area/tarwa_ship/engineering1)
 "Ql" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/unathi_pirate,
-/obj/item/clothing/head/helmet/space/void/unathi_pirate,
+/obj/item/clothing/suit/space/void/unathi_pirate/tarwa,
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "QA" = (
@@ -3314,7 +3331,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/alarm/north{
+/obj/machinery/alarm{
+	dir = 1;
 	pixel_y = -25;
 	req_one_access = list(210)
 	},
@@ -3411,7 +3429,7 @@
 	name = "north bump";
 	pixel_x = 0;
 	pixel_y = 24;
-	req_access = list(113)
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)

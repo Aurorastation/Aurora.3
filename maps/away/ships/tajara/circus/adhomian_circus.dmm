@@ -581,7 +581,7 @@
 	},
 /area/adhomian_circus/clown)
 "cJz" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},

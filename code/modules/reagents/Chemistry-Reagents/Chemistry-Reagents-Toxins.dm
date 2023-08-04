@@ -229,12 +229,12 @@
 	reagent_state = SOLID
 	color = "#FFFFFF"
 	strength = 0
-	overdose = 5
-	od_minimum_dose = 20
+	metabolism = REM * 0.5
+	overdose = 15
+	od_minimum_dose = 5
 	taste_description = "salt"
 
-/singleton/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	..()
+/singleton/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
@@ -250,13 +250,12 @@
 	description = "Potassium Chlorophoride is an expensive, vastly improved variant of Potassium Chloride. Potassium Chlorophoride, unlike the original drug, acts immediately to block neuromuscular junctions, causing general paralysis."
 	reagent_state = SOLID
 	color = "#FFFFFF"
-	strength = 10
+	strength = 0
 	overdose = 5
 	od_minimum_dose = 20
 	taste_description = "salt"
 
 /singleton/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	..()
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return

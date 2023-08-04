@@ -1481,7 +1481,8 @@
 	dir = 1
 	},
 /obj/machinery/conveyor{
-	dir = 8
+	dir = 8;
+	id = "freebooter_1"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod3)
@@ -2375,6 +2376,7 @@
 	pixel_x = 7
 	},
 /obj/machinery/firealarm/east,
+/obj/item/rig/eva,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "fGM" = (
@@ -4589,10 +4591,10 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
 "lpe" = (
-/obj/machinery/bodyscanner{
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/sleeper{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
 "lqh" = (
@@ -5149,9 +5151,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/conveyor{
-	dir = 8
-	},
 /obj/structure/plasticflaps,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
@@ -5627,6 +5626,10 @@
 	color = "#E14644"
 	},
 /area/ship/freebooter_ship/pod4)
+"nWh" = (
+/obj/machinery/body_scanconsole,
+/turf/template_noop,
+/area/space)
 "nXu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
@@ -6608,7 +6611,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "pXP" = (
-/mob/living/heavy_vehicle/premade/miner,
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -8808,7 +8810,9 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/conveyor_switch,
+/obj/machinery/conveyor_switch{
+	id = "freebooter_1"
+	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
@@ -9641,7 +9645,8 @@
 	layer = 2.71
 	},
 /obj/machinery/conveyor{
-	dir = 8
+	dir = 8;
+	id = "freebooter_1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
@@ -43396,7 +43401,7 @@ mGn
 wyp
 xRX
 xRX
-xRX
+nWh
 xRX
 fGM
 xRX

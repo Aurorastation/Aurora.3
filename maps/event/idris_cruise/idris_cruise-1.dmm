@@ -31,7 +31,7 @@
 	layer = 4.1;
 	opacity = 0
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
@@ -506,7 +506,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -1510,7 +1510,7 @@
 	layer = 4.1;
 	opacity = 0
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -1865,7 +1865,7 @@
 	},
 /area/cruise/main_bar/aft)
 "bog" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -1922,7 +1922,7 @@
 	},
 /area/cruise/pool)
 "boX" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -2457,7 +2457,7 @@
 	},
 /area/cruise/pool)
 "bOl" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -3629,7 +3629,7 @@
 /area/cruise/arcade)
 "cOM" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -3995,7 +3995,7 @@
 	},
 /area/cruise/library)
 "dcL" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
@@ -4059,7 +4059,7 @@
 /area/cruise/arcade)
 "dek" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -4182,7 +4182,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -4961,7 +4961,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/light{
 	dir = 8
@@ -7520,7 +7520,7 @@
 /area/template_noop)
 "fXe" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -7666,7 +7666,7 @@
 /area/cruise/beach)
 "gbW" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -10395,7 +10395,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -11558,7 +11558,7 @@
 	},
 /area/cruise/main_bar/aft)
 "jfO" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
@@ -11954,7 +11954,7 @@
 	},
 /area/cruise/beach)
 "jvf" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -12336,7 +12336,7 @@
 	},
 /area/cruise/pool/sauna1)
 "jRv" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/sign/flag/idris{
 	pixel_y = 32
 	},
@@ -12351,7 +12351,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -13009,7 +13009,7 @@
 /area/cruise/security)
 "ksy" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/decal/fake_object{
 	desc = "A descriptive sign.";
 	icon = 'icons/effects/ship_idris_cruise.dmi';
@@ -14170,7 +14170,7 @@
 	},
 /area/cruise/security)
 "loo" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -14236,7 +14236,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -15299,7 +15299,7 @@
 /area/cruise/centerline)
 "mdJ" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -16699,7 +16699,7 @@
 /area/cruise/virtual_reality)
 "nfM" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -16937,7 +16937,7 @@
 	},
 /area/cruise/hangar)
 "nvO" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -17856,7 +17856,7 @@
 	},
 /area/cruise/virtual_reality)
 "oeV" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -17925,7 +17925,7 @@
 	},
 /area/cruise/escort)
 "ojt" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/sign/flag/idris{
 	pixel_y = 32
 	},
@@ -18057,7 +18057,7 @@
 	},
 /area/template_noop)
 "omS" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/sign/flag/idris{
 	pixel_y = 32
 	},
@@ -18150,7 +18150,7 @@
 	name = "elevator button";
 	pixel_y = 34
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -18233,7 +18233,7 @@
 	},
 /area/cruise/fore_s)
 "otQ" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -18680,7 +18680,7 @@
 	},
 /area/template_noop)
 "oQb" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "turquoise"
 	},
@@ -19415,7 +19415,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/railing/mapped,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -19553,7 +19553,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -20091,7 +20091,7 @@
 	layer = 4.1;
 	opacity = 0
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -21680,7 +21680,7 @@
 	},
 /area/cruise/jungle)
 "rtn" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
@@ -21903,7 +21903,7 @@
 /area/cruise/e_supplies)
 "rEV" = (
 /obj/structure/railing/mapped,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -22418,7 +22418,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -24137,7 +24137,7 @@
 	},
 /area/cruise/virtual_reality)
 "tul" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -24726,7 +24726,7 @@
 	},
 /area/template_noop)
 "tQP" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/atm{
 	pixel_y = 28
 	},
@@ -24749,7 +24749,7 @@
 	},
 /area/cruise/dining_hall)
 "tRu" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/item/device/radio/intercom{
 	dir = 4;
 	pixel_x = -24
@@ -25090,7 +25090,7 @@
 	},
 /area/cruise/e_supplies)
 "ucr" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -25367,7 +25367,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -26437,7 +26437,7 @@
 	},
 /area/cruise/library)
 "vdp" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light,
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -27073,14 +27073,14 @@
 /area/template_noop)
 "vIP" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
 /area/cruise/aft)
 "vJi" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -27257,7 +27257,7 @@
 	},
 /area/cruise/escort)
 "vSy" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -28902,7 +28902,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -29109,7 +29109,7 @@
 	},
 /area/cruise/virtual_reality)
 "xqd" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"

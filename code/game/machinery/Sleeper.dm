@@ -171,9 +171,10 @@
 	else
 		data["occupant"] = FALSE
 	if(beaker)
-		data["beaker"] = REAGENTS_FREE_SPACE(beaker.reagents)
+		data["beaker"] = TRUE
+		data["beakerfreespace"] = REAGENTS_FREE_SPACE(beaker.reagents)
 	else
-		data["beaker"] = -1
+		data["beaker"] = FALSE
 	data["filtering"] = filtering
 	data["pump"] = pump
 

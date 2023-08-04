@@ -503,8 +503,26 @@
 	icon_state = "2,1"
 	layer = ABOVE_ALL_MOB_LAYER
 
-//--Floors--//
+//Spark pieces
+/turf/simulated/wall/shuttle/unique/scc/mining
+	name = "pickaxe class shuttle hull"
+	desc = "The hull and reinforcement of a Pickaxe class corporate mining shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Spark."
+	icon = 'icons/turf/shuttles_unique/scc/mining_shuttle/complete_hull.dmi'
+	icon_state = "1,8"
 
+/obj/structure/shuttle_part/scc/mining
+	name = "pickaxe class shuttle hull"
+	desc = "The hull and reinforcement of a Pickaxe class corporate mining shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Spark."
+	icon = 'icons/turf/shuttles_unique/scc/mining_shuttle/complete_hull.dmi'
+	icon_state = "1,0"
+
+/obj/structure/window/shuttle/unique/scc/mining
+	name = "pickaxe class shuttle hull"
+	desc = "The hull and reinforcement of a Pickaxe class corporate mining shuttle. This particular piece looks fragile and frames a viewport."
+	icon = 'icons/turf/shuttles_unique/scc/mining_shuttle/complete_hull.dmi'
+	icon_state = "5,2"
+
+//--Floors--//
 /turf/simulated/floor/shuttle
 	name = "shuttle floor"
 	icon = 'icons/turf/shuttle.dmi'

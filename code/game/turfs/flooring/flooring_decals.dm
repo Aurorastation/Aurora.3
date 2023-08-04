@@ -300,6 +300,16 @@
 	icon_state = "preview_threethirds"
 	blend_state = "threethirds"
 
+/obj/effect/floor_decal/corner/teal
+	name = "teal corner"
+	color = "#00fbff"
+
+/obj/effect/floor_decal/corner/teal/diagonal
+	icon_state = "corner_white_diagonal"
+
+/obj/effect/floor_decal/corner/teal/full
+	icon_state = "corner_white_full"
+
 
 //Wide Corners// - Works better with some kinds of floors when you want the line of corner decals to connect
 
