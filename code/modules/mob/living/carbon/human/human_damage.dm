@@ -12,7 +12,7 @@
 
 	if(stat == DEAD)
 		var/genetic_damage = getCloneLoss()
-		if(genetic_damage > 100)
+		if(genetic_damage > 100 && !(HAS_FLAG(mutations, SKELETON))) //They need flesh to slough off
 			visible_message(SPAN_WARNING("\The [src]'s flesh sloughs off [get_pronoun("his")] body into a puddle of viscera and goop."), SPAN_WARNING("Your flesh sloughs off your body into a puddle of viscera and goop."), range = 5)
 			ChangeToSkeleton(FALSE)
 		else

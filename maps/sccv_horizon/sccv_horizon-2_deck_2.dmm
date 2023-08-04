@@ -27,7 +27,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 32
 	},
@@ -468,7 +468,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "amI" = (
@@ -596,6 +596,10 @@
 	},
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
+	},
+/obj/structure/sign/directions/prop{
+	dir = 4;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
@@ -2050,6 +2054,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/seed_extractor,
+/obj/machinery/media/jukebox/audioconsole/wall{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics)
 "aUh" = (
@@ -3082,6 +3089,9 @@
 	pixel_x = -35;
 	pixel_y = -7
 	},
+/obj/effect/landmark/start{
+	name = "Gardener"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "buG" = (
@@ -3674,9 +3684,9 @@
 	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/machinery/door/blast/shutters{
+	dir = 4;
 	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter";
-	dir = 4
+	name = "Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
@@ -5138,31 +5148,31 @@
 "cua" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/o2{
-	pixel_y = 8;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
 /obj/item/storage/firstaid/o2{
-	pixel_y = 3;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 3
 	},
 /obj/item/storage/firstaid/toxin{
-	pixel_y = 8;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 8
 	},
 /obj/item/storage/firstaid/toxin{
-	pixel_y = 3;
-	pixel_x = -2
+	pixel_x = -2;
+	pixel_y = 3
 	},
 /obj/item/storage/firstaid/fire{
-	pixel_y = 8;
-	pixel_x = 13
+	pixel_x = 13;
+	pixel_y = 8
 	},
 /obj/item/storage/firstaid/fire{
-	pixel_y = 3;
-	pixel_x = 13
+	pixel_x = 13;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -5676,7 +5686,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "cMc" = (
@@ -7257,7 +7267,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "dBX" = (
@@ -7966,6 +7976,11 @@
 /obj/machinery/camera/network/service{
 	c_tag = "Service - Deck 2 - Booth 1";
 	dir = 4
+	},
+/obj/machinery/alarm{
+	req_one_access = list(24,11,55);
+	dir = 4;
+	pixel_x = -28
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/crew_quarters/lounge/bar)
@@ -9211,7 +9226,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "eCR" = (
@@ -10906,10 +10921,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/structure/bed/stool/bar/padded/black,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "ftS" = (
@@ -11192,20 +11204,18 @@
 /area/engineering/locker_room)
 "fCE" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/firealarm/south,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "lounge_window_shutters";
-	name = "Viewing Shutters";
-	pixel_y = -37
-	},
 /obj/machinery/light,
+/obj/machinery/alarm{
+	pixel_y = -28;
+	req_one_access = list(24,11,55);
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "fCI" = (
@@ -13194,14 +13204,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "gsY" = (
+/obj/machinery/door/firedoor,
 /obj/structure/grille/diagonal,
 /obj/structure/window/shuttle/scc_space_ship,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "lounge_window_shutters";
-	name = "lounge window shutter"
-	},
 /turf/simulated/floor/reinforced,
 /area/horizon/crew_quarters/lounge/bar)
 "gtk" = (
@@ -14431,7 +14436,8 @@
 "gUA" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	name = "Research Hallway"
+	name = "Research Hallway";
+	req_access = list(47)
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -15715,6 +15721,9 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
+/obj/effect/landmark/start{
+	name = "Gardener"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "hBJ" = (
@@ -16029,7 +16038,7 @@
 	c_tag = "Second Deck - Dinner Entrance 1";
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "hGJ" = (
@@ -16750,9 +16759,9 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/machinery/door/blast/shutters{
+	dir = 4;
 	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter";
-	dir = 4
+	name = "Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
@@ -17793,7 +17802,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "iDt" = (
@@ -19899,12 +19908,12 @@
 	dir = 1
 	},
 /obj/item/storage/firstaid/regular{
-	pixel_y = 8;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	pixel_y = 3;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -20019,6 +20028,13 @@
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
+	},
+/obj/machinery/firealarm/south,
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "lounge_window_shutters";
+	name = "Viewing Shutters";
+	pixel_y = -37
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
@@ -20175,7 +20191,7 @@
 	c_tag = "Service - Deck 2 - Dining Hall 2";
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
 "jHd" = (
@@ -21281,12 +21297,12 @@
 	},
 /obj/machinery/firealarm/east,
 /obj/item/storage/box/syringes{
-	pixel_y = 15;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = 15
 	},
 /obj/item/storage/box/syringes{
-	pixel_y = 15;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 15
 	},
 /obj/item/storage/box/bloodpacks{
 	pixel_x = -4;
@@ -21639,16 +21655,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "kvd" = (
+/obj/machinery/door/firedoor,
 /obj/structure/grille/diagonal{
 	dir = 4
 	},
 /obj/structure/window/shuttle/scc_space_ship,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "lounge_window_shutters";
-	name = "lounge window shutter"
-	},
 /turf/simulated/floor/reinforced,
 /area/horizon/crew_quarters/lounge/bar)
 "kvs" = (
@@ -25106,7 +25117,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 9
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/computer/guestpass{
 	pixel_x = -32
 	},
@@ -25410,7 +25421,7 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "mqR" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/green/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
@@ -26231,6 +26242,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
+"mKD" = (
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "shutters_deck2_hydroponicswindows";
+	name = "Window Shutter"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/hydroponics)
 "mKJ" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -28477,6 +28497,17 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"nKX" = (
+/obj/structure/bed/stool/chair/padded/red{
+	dir = 8
+	},
+/obj/machinery/alarm{
+	req_one_access = list(24,11,55);
+	dir = 8;
+	pixel_x = 28
+	},
+/turf/simulated/floor/carpet/red,
+/area/horizon/crew_quarters/lounge/bar)
 "nLg" = (
 /obj/machinery/porta_turret/stationary{
 	req_access = list(19);
@@ -29196,6 +29227,17 @@
 	dir = 8
 	},
 /area/maintenance/wing/starboard)
+"ogf" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 8;
+	id = "lounge_window_shutters";
+	name = "Lounge Window Shutter"
+	},
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
+/turf/simulated/floor/plating,
+/area/horizon/crew_quarters/lounge/bar)
 "ogu" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -29463,7 +29505,6 @@
 /area/hallway/engineering)
 "oml" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/obj/structure/bed/stool/bar/padded/black,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "omA" = (
@@ -29821,7 +29862,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 4
 	},
@@ -30187,7 +30228,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -31135,7 +31176,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "pfb" = (
@@ -31281,7 +31322,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "piz" = (
@@ -31343,7 +31384,7 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "pjK" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/newscaster/security_unit{
 	pixel_y = -30
 	},
@@ -32180,7 +32221,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "pHJ" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
 	},
@@ -32905,9 +32946,9 @@
 	},
 /obj/machinery/camera/network/service{
 	c_tag = "Service - Deck 2 - Dining Hall 2";
-	dir = 1
+	dir = 4
 	},
-/obj/structure/table/rack/fancy_table/black,
+/obj/structure/synthesized_instrument/synthesizer/piano,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "qaf" = (
@@ -33546,7 +33587,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "qrK" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
@@ -35026,9 +35067,9 @@
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/machinery/door/blast/shutters{
+	dir = 4;
 	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter";
-	dir = 4
+	name = "Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
@@ -35258,7 +35299,7 @@
 /turf/simulated/wall/r_wall,
 /area/operations/lower/machinist)
 "rgc" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
@@ -36373,7 +36414,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "rJn" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
@@ -37288,7 +37329,7 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "seZ" = (
@@ -38692,7 +38733,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "sUI" = (
@@ -42849,10 +42890,6 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
-	req_one_access = list(24,11,55)
-	},
 /obj/structure/disposalpipe/junction{
 	dir = 4
 	},
@@ -43014,7 +43051,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "uUz" = (
@@ -43144,7 +43181,7 @@
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "uZh" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "uZi" = (
@@ -43411,17 +43448,17 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/armoury)
 "vgh" = (
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship,
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "lounge_window_shutters";
-	name = "lounge window shutter"
-	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, dining hall"
 	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "lounge_window_shutters";
+	name = "Lounge Window Shutter"
+	},
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/horizon/crew_quarters/lounge/bar)
 "vgt" = (
@@ -43766,14 +43803,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "vtX" = (
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "lounge_window_shutters";
-	name = "lounge window shutter"
+	name = "Lounge Window Shutter"
 	},
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/horizon/crew_quarters/lounge/bar)
 "vua" = (
@@ -43879,7 +43916,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/synthesized_instrument/synthesizer/piano,
+/obj/structure/table/rack/fancy_table/black,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "vxe" = (
@@ -44297,12 +44337,13 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
+	},
+/obj/item/device/radio/intercom{
+	dir = 4;
+	pixel_x = -24
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
@@ -44497,6 +44538,17 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/morgue_lift)
+"vKP" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "lounge_window_shutters";
+	name = "Lounge Window Shutter"
+	},
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship,
+/turf/simulated/floor/plating,
+/area/horizon/crew_quarters/lounge/bar)
 "vLu" = (
 /obj/structure/closet/secure_closet/guncabinet/sci,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -45323,9 +45375,9 @@
 	},
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/machinery/door/blast/shutters{
+	dir = 4;
 	id = "shutters_deck2_hydroponicswindowssafety";
-	name = "Viewing Shutter";
-	dir = 4
+	name = "Viewing Shutter"
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
@@ -46381,7 +46433,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/hallway/engineering)
 "wzM" = (
@@ -46583,6 +46635,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
+"wDX" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "lounge_window_shutters";
+	name = "Lounge Window Shutter"
+	},
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor/plating,
+/area/horizon/crew_quarters/lounge/bar)
 "wEc" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -48237,6 +48300,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/sign/directions/prop{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "xpJ" = (
@@ -49796,7 +49863,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "yct" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -69243,7 +69310,7 @@ nNF
 vGT
 vwx
 pZX
-eeQ
+wDX
 xVu
 cbK
 cbK
@@ -69445,7 +69512,7 @@ uTY
 gRh
 oml
 ftB
-eeQ
+wDX
 tMp
 xXW
 gNm
@@ -69648,7 +69715,7 @@ hQI
 jDZ
 sKJ
 eeQ
-vtX
+ogf
 kvd
 xVu
 qgN
@@ -71061,7 +71128,7 @@ usD
 jGa
 vNF
 rGX
-kRB
+nKX
 kRB
 vtX
 xVu
@@ -71264,7 +71331,7 @@ upP
 rRS
 upP
 mPl
-vtX
+vKP
 gsY
 xVu
 qgN
@@ -71859,7 +71926,7 @@ maV
 maV
 qZb
 gEf
-dvw
+mKD
 uPW
 vxK
 rGj
