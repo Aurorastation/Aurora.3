@@ -12877,7 +12877,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "khp" = (
-/turf/simulated/wall,
+/turf/simulated/wall/r_wall,
 /area/crew_quarters/heads/cmo)
 "khy" = (
 /obj/structure/cable/green{
@@ -19467,6 +19467,9 @@
 "oVU" = (
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/alphadeck)
+"oWf" = (
+/turf/simulated/wall/r_wall,
+/area/operations/office_aux)
 "oWq" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1337;
@@ -43877,7 +43880,7 @@ fHD
 bWc
 hzU
 gzJ
-rhm
+oWf
 svx
 svx
 fxk
@@ -44079,7 +44082,7 @@ rUd
 heB
 vLH
 iSt
-rhm
+oWf
 prh
 svx
 snv
@@ -44281,7 +44284,7 @@ qUP
 mcf
 aLV
 cBU
-rhm
+oWf
 hdq
 acp
 oIL
@@ -44483,7 +44486,7 @@ wfV
 jvq
 kdj
 nLA
-rhm
+oWf
 fhd
 opw
 rTk
@@ -44685,7 +44688,7 @@ rOF
 jKd
 rOF
 rOF
-rhm
+oWf
 rhm
 rhm
 rhm
