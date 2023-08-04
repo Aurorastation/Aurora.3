@@ -473,7 +473,7 @@ var/list/preferences_datums = list()
 
 	character.headset_choice = headset_choice
 
-	if(length(psionics) && character.client)
+	if(length(psionics))
 		for(var/power in psionics)
 			var/singleton/psionic_power/P = GET_SINGLETON(text2path(power))
 			if(istype(P) && (P.ability_flags & PSI_FLAG_CANON))
