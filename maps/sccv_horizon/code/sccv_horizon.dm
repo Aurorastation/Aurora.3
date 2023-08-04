@@ -99,9 +99,9 @@
 
 
 	map_shuttles = list(
-		/datum/shuttle/autodock/ferry/lift/scc_ship/cargo,
 		/datum/shuttle/autodock/ferry/lift/scc_ship/morgue,
-		/datum/shuttle/autodock/ferry/lift/scc_ship/robotics,
+		/datum/shuttle/autodock/multi/lift/operations,
+		/datum/shuttle/autodock/multi/lift/robotics,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod2,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
@@ -193,3 +193,13 @@
 
 	post_comm_message("SCCV Horizon Sensor Readings", welcome_text)
 	priority_announcement.Announce(message = "Long-range sensor readings have been printed out at all communication consoles.")
+
+/datum/map/sccv_horizon/load_holodeck_programs()
+	// loads only if at least two engineers are present
+	// so as to not drain power on deadpop
+	// also only loads if no program is loaded already
+	var/list/roles = number_active_with_role()
+	if(roles && roles["Engineer"] && roles["Engineer"] >= 2)
+		for(var/obj/machinery/computer/HolodeckControl/holo in holodeck_controls)
+			if(!holo.active)
+				holo.load_random_program()

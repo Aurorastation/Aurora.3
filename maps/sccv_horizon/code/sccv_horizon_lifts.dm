@@ -73,32 +73,6 @@
 	lift_floor_label = "Deck 2"
 	lift_floor_name = "Main Deck"
 
-//Cargo Lift
-/datum/shuttle/autodock/ferry/lift/scc_ship/cargo
-	name = "Operations Lift"
-	location = 1
-	shuttle_area = /area/turbolift/scc_ship/cargo_lift
-	waypoint_station = "nav_cargo_lift_bottom"
-	waypoint_offsite = "nav_cargo_lift_top"
-
-/obj/effect/shuttle_landmark/lift/cargo_top
-	name = "Operations Top"
-	landmark_tag = "nav_cargo_lift_top"
-	base_area = /area/operations/storage
-	base_turf = /turf/simulated/open
-
-/obj/effect/shuttle_landmark/lift/cargo_bottom
-	name = "Operations Bottom"
-	landmark_tag = "nav_cargo_lift_bottom"
-	flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/operations/loading
-	base_turf = /turf/simulated/floor/plating
-
-/area/turbolift/scc_ship/cargo_lift
-	name = "Operations Lift"
-	sound_env = STANDARD_STATION
-	ambience = AMBIENCE_HANGAR
-
 //Morgue Lift
 /datum/shuttle/autodock/ferry/lift/scc_ship/morgue
 	name = "Morgue Lift"
@@ -125,28 +99,91 @@
 	sound_env = TUNNEL_ENCLOSED
 	ambience = AMBIENCE_GHOSTLY
 
-//Robotics Lift
-/datum/shuttle/autodock/ferry/lift/scc_ship/robotics
-	name = "Robotics Lift"
-	location = 1
-	shuttle_area = /area/turbolift/scc_ship/robotics_lift
-	waypoint_station = "nav_robotics_lift_bottom"
-	waypoint_offsite = "nav_robotics_lift_top"
+//Operations Lift
+/datum/shuttle/autodock/multi/lift/operations
+	name = "Operations Lift"
+	current_location = "nav_operations_lift_second_deck"
+	shuttle_area = /area/turbolift/scc_ship/operations_lift
+	destination_tags = list(
+		"nav_operations_lift_first_deck",
+		"nav_operations_lift_second_deck",
+		"nav_operations_lift_third_deck"
+		)
 
-/obj/effect/shuttle_landmark/lift/robotics_top
-	name = "Robotics Top"
-	landmark_tag = "nav_robotics_lift_top"
-	base_area = /area/hallway/medical
+/obj/effect/shuttle_landmark/lift/operations_first_deck
+	name = "Operations Lift - First Deck"
+	landmark_tag = "nav_operations_lift_first_deck"
+	flags = SLANDMARK_FLAG_AUTOSET
+	base_area = /area/operations/loading
+	base_turf = /turf/simulated/floor/plating
+
+/obj/effect/shuttle_landmark/lift/operations_second_deck
+	name = "Operations Lift - Second Deck"
+	landmark_tag = "nav_operations_lift_second_deck"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_area = /area/operations/storage
 	base_turf = /turf/simulated/open
 
-/obj/effect/shuttle_landmark/lift/robotics_bottom
-	name = "Robotics Bottom"
-	landmark_tag = "nav_robotics_lift_bottom"
+/obj/effect/shuttle_landmark/lift/operations_third_deck
+	name = "Operations Lift - Third Deck"
+	landmark_tag = "nav_operations_lift_third_deck"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_area = /area/operations/office_aux
+	base_turf = /turf/simulated/open
+
+/obj/machinery/computer/shuttle_control/multi/lift/operations
+	shuttle_tag = "Operations Lift"
+
+/obj/machinery/computer/shuttle_control/multi/lift/wall/operations
+	shuttle_tag = "Operations Lift"
+
+/area/turbolift/scc_ship/operations_lift
+	name = "Operations Lift"
+	sound_env = TUNNEL_ENCLOSED
+	ambience = AMBIENCE_GHOSTLY
+
+
+//Robotics Lift
+/datum/shuttle/autodock/multi/lift/robotics
+	name = "Robotics Lift 2"
+	current_location = "nav_robotics_lift_second_deck"
+	shuttle_area = /area/turbolift/scc_ship/robotics_lift
+	destination_tags = list(
+		"nav_robotics_lift_first_deck",
+		"nav_robotics_lift_second_deck",
+		"nav_robotics_lift_third_deck"
+		)
+
+/obj/effect/shuttle_landmark/lift/robotics_first_deck
+	name = "Robotics Lift - First Deck"
+	landmark_tag = "nav_robotics_lift_first_deck"
 	flags = SLANDMARK_FLAG_AUTOSET
 	base_area = /area/rnd/eva
 	base_turf = /turf/simulated/floor/plating
+
+/obj/effect/shuttle_landmark/lift/robotics_second_deck
+	name = "Robotics Lift - Second Deck"
+	landmark_tag = "nav_robotics_lift_second_deck"
+	// landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_area = /area/hallway/medical
+	base_turf = /turf/simulated/open
+
+/obj/effect/shuttle_landmark/lift/robotics_third_deck
+	name = "Robotics Lift - Third Deck"
+	landmark_tag = "nav_robotics_lift_third_deck"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_area = /area/hallway/medical
+	base_turf = /turf/simulated/open
+
+/obj/machinery/computer/shuttle_control/multi/lift/robotics
+	shuttle_tag = "Robotics Lift 2"
+
+/obj/machinery/computer/shuttle_control/multi/lift/wall/robotics
+	shuttle_tag = "Robotics Lift 2"
 
 /area/turbolift/scc_ship/robotics_lift
 	name = "Robotics Lift"
 	sound_env = TUNNEL_ENCLOSED
 	ambience = AMBIENCE_GHOSTLY
+
+

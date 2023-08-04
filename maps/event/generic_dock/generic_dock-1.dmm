@@ -1479,7 +1479,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -2019,7 +2019,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "aWC" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
 "aWD" = (
@@ -4940,7 +4940,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
 "eIJ" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -8704,7 +8704,7 @@
 /turf/unsimulated/floor,
 /area/tdome/tdomeadmin)
 "juP" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -10625,7 +10625,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -12719,7 +12719,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "oQw" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -13632,7 +13632,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "qcl" = (
@@ -16985,7 +16985,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "wbN" = (
@@ -17599,7 +17599,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 5
 	},
@@ -17688,7 +17688,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "wYn" = (
