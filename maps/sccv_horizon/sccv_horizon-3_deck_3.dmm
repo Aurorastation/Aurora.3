@@ -18545,10 +18545,6 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 35
-	},
 /turf/simulated/floor/tiled,
 /area/operations/office_aux)
 "ooU" = (
@@ -18575,6 +18571,9 @@
 	dir = 8
 	},
 /obj/machinery/requests_console{
+	department = "Operations Office (Aux)";
+	departmentType = 2;
+	name = "Operations (Aux) Requests Console";
 	pixel_x = 30
 	},
 /turf/simulated/floor/tiled,
@@ -22781,6 +22780,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/item/device/radio/intercom{
+	dir = 8;
+	pixel_x = 22
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office_aux)
