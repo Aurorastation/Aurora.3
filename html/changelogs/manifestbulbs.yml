@@ -1,0 +1,5 @@
+author: Sparky_hotdog
+delete-after: True
+
+changes:
+  - bugfix: "Fixed the status bulbs on the manifest showing white for several statuses"
