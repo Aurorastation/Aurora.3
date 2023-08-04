@@ -249,7 +249,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	if(!epicenter)
 		return
 
-	message_admins("Explosion with size ([power]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z])")
+	message_admins("Explosion with size ([power]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</a>)")
 	log_game("Explosion with size ([power]) in area [epicenter.loc.name] ")
 
 	log_debug("iexpl: Beginning discovery phase.")

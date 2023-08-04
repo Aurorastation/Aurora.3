@@ -311,7 +311,7 @@
 	},
 /area/exoplanet/adhomai)
 "Ic" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},

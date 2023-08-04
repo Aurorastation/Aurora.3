@@ -441,7 +441,6 @@
 	var/obj/structure/flora/pottedplant/P = null
 	var/list/unwanted = list(
 		/obj/structure/flora/pottedplant, // don't want parent base obj
-		/obj/structure/flora/pottedplant/random, // depreciated
 		/obj/structure/flora/pottedplant/dead2, // does not fit horizon's aesthetic
 		/obj/structure/flora/pottedplant/empty
 	)
