@@ -1,6 +1,0 @@
-author: Doxxmedearly
-delete-after: True
-changes:
-  - bugfix: "Potassium Chloride/Chlorophoride now properly stop the heart as intended."
-  - tweak: "Potassium Chloride takes time to kick in, and metabolizes a little faster. It still requires 20u minimum to stop the heart."
-  - tweak: "Potassium Chloride/Chlorophoride no longer cause toxins damage. Stopping the heart is enough."
