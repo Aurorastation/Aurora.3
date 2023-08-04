@@ -212,6 +212,14 @@
 /obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/plating/cooled,
 /area/ship/dominian_unathi/portthrust)
+"cp" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, fighter bay"
+	},
+/turf/unsimulated/wall/fakepdoor{
+	dir = 4
+	},
+/area/ship/dominian_unathi/hangar)
 "cs" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/floor/plating,
@@ -668,6 +676,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/armory)
+"hN" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/borosilicate/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, port"
+	},
+/turf/simulated/floor/plating,
+/area/ship/dominian_unathi/portthrust)
 "hO" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -997,6 +1013,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
+"lN" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, mess hall"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi/canteen)
 "lO" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -1176,6 +1198,12 @@
 	},
 /turf/simulated/floor/carpet/orange,
 /area/ship/dominian_unathi/captain)
+"nm" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, main gun"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi/gun)
 "np" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
@@ -1359,6 +1387,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
+"oY" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, gun battery"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi/gun)
 "pd" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1567,6 +1601,12 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
+/area/ship/dominian_unathi)
+"qD" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port hallway"
+	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi)
 "qG" = (
 /obj/machinery/light{
@@ -1893,6 +1933,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
+"ue" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard hallway"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi)
 "um" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1
@@ -2110,6 +2156,11 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"vW" = (
+/obj/structure/window/shuttle,
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
+/area/shuttle/dominian_unathi)
 "wb" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2173,10 +2224,28 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
+"wv" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, engineering"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi/engineering)
 "wE" = (
 /obj/effect/floor_decal/corner/orange,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
+"wO" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, central hall"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi)
+"wT" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, treasure room"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi/loot)
 "wV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -2217,6 +2286,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
+"xL" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, starboard hall"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi/starboardhall)
 "xM" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2280,6 +2355,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
+"yq" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/dominian_unathi)
 "yt" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2318,6 +2397,10 @@
 	},
 /turf/simulated/floor/carpet/orange,
 /area/ship/dominian_unathi/captain)
+"yV" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/dominian_unathi)
 "yY" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2725,6 +2808,13 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/crew)
+"CN" = (
+/obj/structure/window/shuttle/crescent,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, captain's quarters"
+	},
+/turf/simulated/floor/plating,
+/area/ship/dominian_unathi/captain)
 "CR" = (
 /obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor/plating,
@@ -2902,6 +2992,13 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
+"Eh" = (
+/obj/structure/window/shuttle/crescent,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/ship/dominian_unathi/bridge)
 "Ej" = (
 /obj/machinery/vending/boozeomat/unathi_pirate{
 	req_access = null
@@ -3033,6 +3130,12 @@
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
+"Fj" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, locker room"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi/crew)
 "Fq" = (
 /obj/structure/cable/green{
 	dir = 1
@@ -3160,6 +3263,12 @@
 	req_access = list(212)
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/dominian_unathi/armory)
+"Gb" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, ammunition storage"
+	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_unathi/armory)
 "Gc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3624,6 +3733,12 @@
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
+"Ls" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, central hall"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi)
 "Lt" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3924,6 +4039,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
+"Pj" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, main hall"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi)
 "Pp" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
@@ -4237,6 +4358,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
+"SH" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, EVA storage"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi/eva)
 "SM" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -4319,6 +4446,12 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/blue,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
+"Tn" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, hangar"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi/hangar)
 "Tq" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -4587,6 +4720,12 @@
 	},
 /turf/simulated/floor/carpet/orange,
 /area/ship/dominian_unathi/captain)
+"VC" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, port hall"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi/porthall)
 "VF" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4613,6 +4752,14 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
+"VZ" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/borosilicate/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines, starboard"
+	},
+/turf/simulated/floor/plating,
+/area/ship/dominian_unathi/starboardthrust)
 "Wa" = (
 /obj/structure/closet/crate/weapon,
 /obj/item/stack/material/gold/full,
@@ -4698,6 +4845,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
+"WY" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, temple"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi/chapel)
 "Xb" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4886,6 +5039,17 @@
 /obj/item/device/radio,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
+"Yn" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port hallway"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/dominian_unathi)
 "Yo" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -5059,6 +5223,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/loot)
+"ZJ" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, auxiliary bridge"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/ship/dominian_unathi/cic)
 "ZK" = (
 /obj/structure/table/rack,
 /obj/item/device/gps,
@@ -13604,32 +13774,32 @@ RY
 sz
 sz
 sz
-sz
+wT
 sz
 sz
 sz
 MA
 bo
-bo
+CN
 bo
 MA
 MA
 cP
-cP
+Fj
 cP
 cP
 cP
 cP
 Un
 Un
-Un
+Gb
 Un
 Un
 Un
 pU
 pU
 pU
-pU
+nm
 pU
 pU
 pU
@@ -14244,7 +14414,7 @@ Wf
 Wf
 Wf
 Wf
-RY
+Pj
 RY
 gy
 gy
@@ -14768,7 +14938,7 @@ Nn
 QF
 pp
 cK
-pU
+oY
 Wf
 Wf
 Wf
@@ -15571,7 +15741,7 @@ nr
 nr
 nr
 aI
-Pd
+xL
 Wf
 Wf
 Wf
@@ -15693,7 +15863,7 @@ Wf
 Wf
 Wf
 Wf
-RY
+ue
 RY
 gy
 gy
@@ -16659,7 +16829,7 @@ Wf
 Wf
 Wf
 Wf
-oH
+VZ
 ei
 GR
 GR
@@ -17987,7 +18157,7 @@ Nx
 Lz
 RC
 np
-CI
+Eh
 Wf
 Wf
 Wf
@@ -18116,7 +18286,7 @@ Wf
 Wf
 Wf
 Wf
-QM
+wv
 oE
 Hx
 Hx
@@ -19575,7 +19745,7 @@ Wf
 Wf
 Wf
 Wf
-fx
+hN
 cs
 nv
 nv
@@ -19593,7 +19763,7 @@ iH
 xN
 iH
 iH
-RY
+wO
 Wf
 Wf
 Wf
@@ -20554,7 +20724,7 @@ Wf
 Wf
 Wf
 Wf
-RY
+qD
 RY
 gy
 gy
@@ -20594,7 +20764,7 @@ VF
 VF
 Wr
 hQ
-UC
+VC
 Wf
 Wf
 Wf
@@ -21248,7 +21418,7 @@ BQ
 BQ
 BQ
 BQ
-BQ
+yq
 BQ
 oA
 zW
@@ -21727,7 +21897,7 @@ vR
 gY
 Ur
 Xj
-YL
+Yn
 YL
 Wm
 YL
@@ -21739,9 +21909,9 @@ Fc
 sl
 Bf
 Hy
-RS
+vW
 zW
-Rr
+cp
 Wf
 Wf
 Wf
@@ -21858,7 +22028,7 @@ Wf
 Wf
 Wf
 Wf
-RY
+Ls
 RY
 gy
 gy
@@ -22220,7 +22390,7 @@ BQ
 BQ
 BQ
 BQ
-BQ
+yV
 BQ
 BQ
 BQ
@@ -22513,28 +22683,28 @@ Wf
 RY
 xu
 xu
+ZJ
 xu
 xu
-xu
 TF
 TF
 TF
-TF
+WY
 TF
 TF
 YT
 YT
+lN
 YT
 YT
 YT
-YT
 IB
 IB
 IB
+SH
 IB
 IB
 IB
-IB
 IZ
 IZ
 IZ
@@ -22543,7 +22713,7 @@ IZ
 IZ
 IZ
 IZ
-IZ
+Tn
 IZ
 IZ
 IZ
