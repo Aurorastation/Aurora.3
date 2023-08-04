@@ -597,6 +597,10 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
+/obj/structure/sign/directions/prop{
+	dir = 4;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "aqo" = (
@@ -48236,6 +48240,10 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/sign/directions/prop{
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
