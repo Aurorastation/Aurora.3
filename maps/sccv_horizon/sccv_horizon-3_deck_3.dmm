@@ -19943,7 +19943,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/station_map{
-	dir = 1;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
