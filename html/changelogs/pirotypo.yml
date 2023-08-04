@@ -1,0 +1,6 @@
+author: Pirouette
+
+delete-after: True
+
+changes:
+  - spellcheck: "Fixed typos in the ore detector menu, sarlacc attacks, Adhomian fish soup taste, and beach overlays."
