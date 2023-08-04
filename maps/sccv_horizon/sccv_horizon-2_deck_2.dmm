@@ -27,7 +27,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 32
 	},
@@ -468,7 +468,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "amI" = (
@@ -596,6 +596,10 @@
 	},
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
+	},
+/obj/structure/sign/directions/prop{
+	dir = 4;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
@@ -2574,6 +2578,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bhR" = (
@@ -4337,6 +4342,9 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/structure/sign/directions/prop{
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
 "bWT" = (
@@ -5468,6 +5476,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/machinery/computer/shuttle_control/multi/lift/robotics{
+	pixel_y = 21;
+	pixel_x = 10
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/robotics_lift)
 "cIr" = (
@@ -5668,7 +5680,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "cMc" = (
@@ -7249,7 +7261,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "dBX" = (
@@ -9203,7 +9215,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "eCR" = (
@@ -10901,9 +10913,6 @@
 /obj/item/device/radio/intercom{
 	dir = 1;
 	pixel_y = -24
-	},
-/obj/structure/bed/stool/chair/padded/red{
-	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
@@ -16024,7 +16033,7 @@
 	c_tag = "Second Deck - Dinner Entrance 1";
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "hGJ" = (
@@ -17788,7 +17797,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "iDt" = (
@@ -20170,7 +20179,7 @@
 	c_tag = "Service - Deck 2 - Dining Hall 2";
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/lino/grey,
 /area/horizon/crew_quarters/lounge/bar)
 "jHd" = (
@@ -23832,6 +23841,11 @@
 	c_tag = "Engineering - Hallway 5";
 	dir = 8
 	},
+/obj/structure/sign/directions/prop{
+	pixel_x = 32;
+	dir = 4;
+	pixel_y = 10
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
 "lFE" = (
@@ -25096,7 +25110,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 9
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/computer/guestpass{
 	pixel_x = -32
 	},
@@ -25400,7 +25414,7 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/washroom/central)
 "mqR" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/green/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
@@ -25797,11 +25811,6 @@
 /area/horizon/hydroponics)
 "mzL" = (
 /obj/machinery/light,
-/obj/machinery/computer/shuttle_control/lift/wall{
-	dir = 1;
-	pixel_y = -26;
-	shuttle_tag = "Robotics Lift"
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
@@ -25810,10 +25819,17 @@
 	id = "shutters_deck2_portstairwellsec";
 	name = "Elevator Security Shutters";
 	pixel_y = -37;
-	req_one_access = list(1,19)
+	req_one_access = list(1,19);
+	pixel_x = 7
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/computer/shuttle_control/multi/lift/wall/robotics{
+	dir = 1;
+	pixel_y = -28;
+	pixel_x = 7
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -27143,7 +27159,8 @@
 /obj/structure/sign/drop{
 	desc = "A warning sign which reads 'DANGER: FALLING HAZARD' and 'THIS EQUIPMENT STARTS AND STOPS AUTOMATICALLY'.";
 	name = "\improper DANGER: FALLING HAZARD sign";
-	pixel_x = 32
+	pixel_x = 32;
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
@@ -27311,6 +27328,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/structure/sign/directions/prop{
+	dir = 4;
+	pixel_y = -22
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
@@ -29446,6 +29467,7 @@
 /area/hallway/engineering)
 "oml" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/structure/bed/stool/bar/padded/black,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "omA" = (
@@ -29803,7 +29825,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 4
 	},
@@ -30169,7 +30191,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -30234,6 +30256,13 @@
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
+/area/hallway/engineering)
+"oEV" = (
+/obj/structure/railing/mapped,
+/obj/structure/sign/directions/prop{
+	pixel_y = 32
+	},
+/turf/simulated/open,
 /area/hallway/engineering)
 "oFp" = (
 /obj/effect/floor_decal/spline/plain/cee{
@@ -31110,7 +31139,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "pfb" = (
@@ -31256,7 +31285,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "piz" = (
@@ -31318,7 +31347,7 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "pjK" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/newscaster/security_unit{
 	pixel_y = -30
 	},
@@ -32155,7 +32184,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "pHJ" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
 	},
@@ -32878,18 +32907,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/table/wood,
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_x = -3
-	},
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = 3
-	},
-/obj/item/flame/candle,
 /obj/machinery/camera/network/service{
 	c_tag = "Service - Deck 2 - Dining Hall 2";
 	dir = 1
 	},
+/obj/structure/table/rack/fancy_table/black,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "qaf" = (
@@ -33528,7 +33550,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "qrK" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
@@ -35240,7 +35262,7 @@
 /turf/simulated/wall/r_wall,
 /area/operations/lower/machinist)
 "rgc" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
@@ -36355,7 +36377,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "rJn" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
@@ -37270,7 +37292,7 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "seZ" = (
@@ -38674,7 +38696,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "sUI" = (
@@ -41659,12 +41681,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/effect/shuttle_landmark/lift/robotics_top,
-/obj/machinery/computer/shuttle_control/lift{
-	pixel_x = 12;
-	pixel_y = 22;
-	shuttle_tag = "Robotics Lift"
-	},
+/obj/effect/shuttle_landmark/lift/robotics_second_deck,
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/robotics_lift)
 "uoY" = (
@@ -43001,7 +43018,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "uUz" = (
@@ -43131,7 +43148,7 @@
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "uZh" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "uZi" = (
@@ -43866,7 +43883,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/bed/stool/chair/padded/red,
+/obj/structure/synthesized_instrument/synthesizer/piano,
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "vxe" = (
@@ -46368,7 +46385,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/hallway/engineering)
 "wzM" = (
@@ -48224,6 +48241,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/sign/directions/prop{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "xpJ" = (
@@ -49630,6 +49651,10 @@
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 8
 	},
+/obj/structure/sign/crush{
+	pixel_y = -32;
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "xZI" = (
@@ -49779,7 +49804,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "yct" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -50250,6 +50275,7 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "ylu" = (
@@ -68752,7 +68778,7 @@ xZI
 qCs
 vgt
 iSx
-jsA
+oEV
 uyq
 voz
 gfX

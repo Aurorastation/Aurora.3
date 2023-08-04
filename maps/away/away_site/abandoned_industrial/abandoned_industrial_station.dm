@@ -8,7 +8,6 @@
 	suffixes = list("away_site/abandoned_industrial/abandoned_industrial_station.dmm")
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/abandoned_industrial_station//Arbitrary duplicates of the above name/desc
 	map = "abandoned industrial station"

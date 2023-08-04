@@ -2,6 +2,7 @@
 	name = "Spaceborn"
 	desc = "Whether colonists in the far reaches of space, pirates that have forsaken their lives to find a new culture, or those that are merely living on ships and roaming or serving the Hegemon, the Spaceborn Unathi are a vast collective of emerging or niche cultures found across the Orion Spur."
 	possible_origins = list(
+		/singleton/origin_item/origin/ouerea,
 		/singleton/origin_item/origin/unathi_pirate,
 		/singleton/origin_item/origin/colonist,
 		/singleton/origin_item/origin/mictlan_unathi
@@ -15,9 +16,18 @@
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_OTHER, RELIGION_NONE)
 
+/singleton/origin_item/origin/ouerea
+	name = "Ouerea"
+	desc = "Established in 2390, Ouerea was the first colony of the Izweski Hegemony, which quickly became home to large numbers of human and Skrell immigrants following first contact. During the Contact War, the Hegemony was incapable of governing it, and the planet was administrated by the Sol Alliance and Nralakk Federation. \
+	This period led to the establishment of a fledgeling democracy, until Hegemon Sk'resti Izweski restored Hegemony control of the planet, reestablishing the feudal system. Following the Ouerean Revolution of 2460, Ouerea's democracy was restored, though still as a vassal of the Hegemon. Today, it is a society defined by contrasts, \
+	with human, Skrell and Unathi culture blending into something strange, new and altogether unique within the Orion Spur."
+	possible_accents = list(ACCENT_OUEREA)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_OTHER, RELIGION_NONE)
+
 /singleton/origin_item/origin/colonist
 	name = "Colonist"
-	desc = "Regardless of what country you serve and the religion you hold, you became a colonist, living on a gritty world with little infrastructure to carve out a new life for yourself. It could be a Dominian Primary helping guide a colony, relegated with this tiny responsibility as a means to keep you out of the way; it could be living on Ouerea and Gakal'zaal and being one of the first Unathi to settle down and find your way among xenos; it could be living on a nomadic vessel, trading and salvaging, to earn your keep and see the cosmos. By whatever means you acquired, you found your way to the Horizon to move up in the world."
+	desc = "Regardless of what country you serve and the religion you hold, you became a colonist, living on a gritty world with little infrastructure to carve out a new life for yourself. It could be a Dominian Primary helping guide a colony, relegated with this tiny responsibility as a means to keep you out of the way; it could be living on an outlying colony and being one of the first Unathi to settle down and find your way among xenos; it could be living on a nomadic vessel, trading and salvaging, to earn your keep and see the cosmos. By whatever means you acquired, you found your way to the Horizon to move up in the world."
 	possible_accents = list(ACCENT_TRAD_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_HEARTLAND_PEASANT, ACCENT_HEARTLAND_NOBLE, ACCENT_WASTELAND, ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH, ACCENT_UNATHI_SPACER, ACCENT_TZA_PEASANT, ACCENT_TZA_NOBLE, ACCENT_SOUTHLANDS_NOBLE, ACCENT_SOUTHLANDS_PEASANT, ACCENT_TORN, ACCENT_ZAZ_LOW, ACCENT_ZAZ_HIGH, ACCENT_BROKEN_PEASANT, ACCENT_BROKEN_NOBLE)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_OTHER, RELIGION_MOROZ, RELIGION_NONE)
