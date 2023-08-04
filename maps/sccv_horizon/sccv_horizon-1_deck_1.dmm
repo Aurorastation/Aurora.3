@@ -28,7 +28,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "acn" = (
@@ -17403,16 +17403,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "mmA" = (
-/obj/machinery/computer/shuttle_control/lift/wall{
-	dir = 1;
-	pixel_y = -32;
-	shuttle_tag = "Robotics Lift"
-	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "shutters_deck2_portstairwellsec";
+	name = "Elevator Security Shutters";
+	pixel_y = -37;
+	req_one_access = list(1,19);
+	dir = 1
+	},
+/obj/machinery/computer/shuttle_control/multi/lift/wall/robotics{
+	dir = 1;
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
@@ -19151,6 +19157,10 @@
 	dir = 2;
 	id = "shutters_deck2_portstairwellsec";
 	name = "Security Shutter"
+	},
+/obj/structure/sign/crush{
+	pixel_y = 8;
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/eva)
@@ -21014,7 +21024,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "oQa" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -23117,7 +23127,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/grass/alt,
 /area/hallway/primary/aft)
 "qog" = (
@@ -27196,7 +27206,8 @@
 	dir = 8
 	},
 /obj/structure/sign/crush{
-	pixel_y = 32
+	pixel_y = 32;
+	pixel_x = 16
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Expedition EVA Storage";
@@ -27951,10 +27962,7 @@
 /obj/machinery/light/spot{
 	dir = 1
 	},
-/obj/structure/sign/crush{
-	pixel_y = 32
-	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -28641,17 +28649,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "ugY" = (
-/obj/machinery/computer/shuttle_control/lift/wall{
-	pixel_y = 26;
-	shuttle_tag = "Robotics Lift"
-	},
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_deck2_portstairwellsec";
 	name = "Elevator Security Shutters";
 	pixel_y = 37;
 	req_one_access = list(1,19)
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -28660,6 +28664,10 @@
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/machinery/computer/shuttle_control/multi/lift/wall/robotics{
+	dir = 2;
+	pixel_y = 28
+	},
 /turf/simulated/floor/wood,
 /area/hangar/auxiliary)
 "uhE" = (
@@ -29095,7 +29103,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "uwf" = (
-/obj/effect/shuttle_landmark/lift/robotics_bottom,
+/obj/effect/shuttle_landmark/lift/robotics_first_deck,
 /turf/simulated/floor/plating,
 /area/rnd/eva)
 "uwm" = (

@@ -91,6 +91,10 @@
 			var/psionic_path = text2path(params["buy"])
 			if(ispath(psionic_path))
 				var/singleton/psionic_power/P = GET_SINGLETON(psionic_path)
-				P.apply(owner)
-				to_chat(owner, SPAN_NOTICE("You are now capable of using [P.name]."))
-				return TRUE
+				if(P.point_cost > owner.psi.psi_points)
+					to_chat(owner, SPAN_WARNING("You can't afford that!"))
+					return
+				if(P.apply(owner))
+					to_chat(owner, SPAN_NOTICE("You are now capable of using [P.name]."))
+					owner.psi.psi_points = max(owner.psi.psi_points - P.point_cost, 0)
+					return TRUE
