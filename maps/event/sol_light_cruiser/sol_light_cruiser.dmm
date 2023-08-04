@@ -332,17 +332,18 @@
 /turf/simulated/floor/tiled,
 /area/light_cruiser/starboard_engineering)
 "axt" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "north bump";
-	pixel_x = -24;
-	req_access = list(203)
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/obj/structure/cable/green{
-	icon_state = "0-4"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/port_aft_hall)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/light_cruiser/medical)
 "axx" = (
 /obj/machinery/atmospherics/pipe/tank/phoron,
 /turf/simulated/floor/tiled,
@@ -1705,19 +1706,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/light_cruiser/port_engineering)
-"cRB" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
-	req_access = null;
-	req_one_access = list(203)
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/light_cruiser/starboard_aft_hall)
 "cRW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6214,19 +6202,6 @@
 "lkj" = (
 /turf/simulated/wall/shuttle/raider,
 /area/light_cruiser/starboard_maintenance_exit)
-"lkE" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/light_cruiser/starboard_aft_hall)
 "llV" = (
 /obj/structure/barricade/metal,
 /turf/simulated/floor/plating,
@@ -6683,19 +6658,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/light_cruiser/port_coilgun_ammo_1)
-"mgz" = (
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/obj/machinery/power/apc/high{
-	dir = 4;
-	pixel_x = 24;
-	req_one_access = list(203);
-	req_access = null
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/white,
-/area/light_cruiser/medical)
 "mhE" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, CIC hallway"
@@ -7302,9 +7264,6 @@
 	dir = 1
 	},
 /obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/structure/cable/green{
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -7412,9 +7371,6 @@
 "nTG" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
@@ -8095,9 +8051,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -8678,9 +8631,6 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -10343,9 +10293,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -40288,7 +40235,7 @@ eAr
 gMt
 gMt
 gMt
-lkE
+gMt
 gMt
 ydn
 iuz
@@ -40545,7 +40492,7 @@ jll
 ozF
 ozF
 pLN
-cRB
+ozF
 ozF
 eKG
 ozF
@@ -47229,7 +47176,7 @@ awO
 yhw
 mUu
 fcI
-uoN
+axt
 xlL
 uPu
 cwv
@@ -47741,7 +47688,7 @@ uPu
 uPu
 uPu
 uPu
-mgz
+yhw
 sTR
 jMQ
 hHd
@@ -48256,7 +48203,7 @@ agg
 agg
 nvs
 agg
-axt
+agg
 kor
 agg
 dbv
