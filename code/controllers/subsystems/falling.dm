@@ -17,8 +17,9 @@
 /datum/controller/subsystem/falling/New()
 	NEW_SS_GLOBAL(SSfalling)
 
-/datum/controller/subsystem/falling/stat_entry()
-	..("F:[falling.len]")
+/datum/controller/subsystem/falling/stat_entry(msg)
+	msg = "F:[falling.len]"
+	return ..()
 
 /datum/controller/subsystem/falling/fire(resumed = 0)
 	if (!resumed)

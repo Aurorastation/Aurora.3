@@ -26,7 +26,8 @@ var/list/preferences_datums = list()
 	var/sfx_toggles = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
-	var/html_UI_style = "Nano"
+	var/tgui_fancy = TRUE
+	var/tgui_lock = FALSE
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
@@ -97,6 +98,8 @@ var/list/preferences_datums = list()
 
 	var/culture
 	var/origin
+
+	var/list/psionics = list()
 
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/static/list/preview_screen_locs = list(
@@ -247,7 +250,7 @@ var/list/preferences_datums = list()
 	dat += player_setup.header()
 	dat += "<br><HR></center>"
 	dat += player_setup.content(user)
-	send_theme_resources(user)
+
 	winshow(user, "preferences_window", TRUE)
 	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 1400, 1000)
 	popup.set_content(dat)
@@ -425,6 +428,8 @@ var/list/preferences_datums = list()
 
 	character.s_tone = s_tone
 
+	character.lipstick_color = null
+
 	character.citizenship = citizenship
 	character.employer_faction = faction
 	character.religion = religion
@@ -468,6 +473,12 @@ var/list/preferences_datums = list()
 
 	character.headset_choice = headset_choice
 
+	if(length(psionics))
+		for(var/power in psionics)
+			var/singleton/psionic_power/P = GET_SINGLETON(text2path(power))
+			if(istype(P) && (P.ability_flags & PSI_FLAG_CANON))
+				P.apply(character)
+
 	if(icon_updates)
 		character.force_update_limbs()
 		character.update_mutations(0)
@@ -510,9 +521,12 @@ var/list/preferences_datums = list()
 	dat += "<hr>"
 	dat += "<a href='?src=\ref[src];close_load_dialog=1'>Close</a><br>"
 	dat += "</center></tt>"
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
 
+	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
+	load_diag.width = 300
+	load_diag.height = 390
+	load_diag.set_content(dat)
+	load_diag.open()
 
 /datum/preferences/proc/open_load_dialog_file(mob/user)
 	var/dat = "<tt><center>"
@@ -531,11 +545,13 @@ var/list/preferences_datums = list()
 
 	dat += "<hr>"
 	dat += "</center></tt>"
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
+
+	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
+	load_diag.set_content(dat)
+	load_diag.open()
 
 /datum/preferences/proc/close_load_dialog(mob/user)
-	user << browse(null, "window=saves")
+	user << browse(null, "window=load_diag")
 
 // Logs a character to the database. For statistics.
 /datum/preferences/proc/log_character(var/mob/living/carbon/human/H)
@@ -630,6 +646,7 @@ var/list/preferences_datums = list()
 
 		ccia_actions = list()
 		disabilities = list()
+		psionics = list()
 
 		economic_status = ECONOMICALLY_AVERAGE
 

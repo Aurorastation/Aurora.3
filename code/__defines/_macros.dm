@@ -30,11 +30,11 @@
 #define FONT_SIZE_HUGE 4
 #define FONT_SIZE_GIANT 5
 
-#define FONT_SMALL(X) ("<font size='1'>" + X + "</font>")
-#define FONT_NORMAL(X) ("<font size='2'>" + X + "</font>")
-#define FONT_LARGE(X) ("<font size='3'>" + X + "</font>")
-#define FONT_HUGE(X) ("<font size='4'>" + X + "</font>")
-#define FONT_GIANT(X) ("<font size='5'>" + X + "</font>")
+#define FONT_SMALL(X) ("<font size=1>" + X + "</font>")
+#define FONT_NORMAL(X) ("<font size=2>" + X + "</font>")
+#define FONT_LARGE(X) ("<font size=3>" + X + "</font>")
+#define FONT_HUGE(X) ("<font size=4>" + X + "</font>")
+#define FONT_GIANT(X) ("<font size=5>" + X + "</font>")
 
 #define MATRIX_DANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
 #define MATRIX_NOTICE(X) (FONT_LARGE(SPAN_NOTICE(X)))
@@ -157,3 +157,6 @@
 
 /// Decrease the size of L by 1 from the end. Is the old last entry index.
 #define LIST_DEC(L) ((L).len--)
+
+/// Radial input menu
+#define RADIAL_INPUT(user, choices) show_radial_menu(user, user, choices, tooltips = TRUE)

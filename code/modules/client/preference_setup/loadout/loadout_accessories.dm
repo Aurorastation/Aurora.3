@@ -339,9 +339,23 @@
 	gear_tweaks += new /datum/gear_tweak/path(badge)
 
 /datum/gear/accessory/namepin
-	display_name = "pin tag (colourable)"
+	display_name = "pins selection"
 	path = /obj/item/clothing/accessory/badge/namepin
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/namepin/New()
+	..()
+	var/list/pin = list()
+	pin["pin, name tag"] = /obj/item/clothing/accessory/badge/namepin
+	pin["pin, any/all pronouns"] = /obj/item/clothing/accessory/pronoun
+	pin["pin, he/him pronouns"] = /obj/item/clothing/accessory/pronoun/hehim
+	pin["pin, he/they pronouns"] = /obj/item/clothing/accessory/pronoun/hethey
+	pin["pin, she/her pronouns"] = /obj/item/clothing/accessory/pronoun/sheher
+	pin["pin, she/they pronouns"] = /obj/item/clothing/accessory/pronoun/shethey
+	pin["pin, they/them pronouns"] = /obj/item/clothing/accessory/pronoun/theythem
+	pin["pin, it/its pronouns"] = /obj/item/clothing/accessory/pronoun/itits
+	pin["pin, please ask! pronouns"] = /obj/item/clothing/accessory/pronoun/ask
+	gear_tweaks += new /datum/gear_tweak/path(pin)
 
 /datum/gear/accessory/ribbon
 	display_name = "ribbon (colourable)"
@@ -514,12 +528,20 @@
 	path = /obj/item/clothing/accessory/bandanna/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/flagpatch_colorable
-	display_name = "generic flagpatch"
-	path = /obj/item/clothing/accessory/flagpatch
+/datum/gear/accessory/flagpatch
+	display_name = "generic flagpatch selection"
+	path = /obj/item/clothing/accessory/flagpatch/rectangular
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	cost = 0
 
+/datum/gear/accessory/flagpatch/New()
+	..()
+	var/list/flagpatch = list()
+	flagpatch["rectangular flagpatch"] =  /obj/item/clothing/accessory/flagpatch/rectangular
+	flagpatch["triangular flagpatch"] = /obj/item/clothing/accessory/flagpatch/triangular
+	flagpatch["circular flagpatch"] =  /obj/item/clothing/accessory/flagpatch/circular
+	flagpatch["square flagpatch"] =  /obj/item/clothing/accessory/flagpatch/square
+	gear_tweaks += new /datum/gear_tweak/path(flagpatch)
 
 /datum/gear/accessory/flagpatch_national
 	display_name = "flagpatch selection"

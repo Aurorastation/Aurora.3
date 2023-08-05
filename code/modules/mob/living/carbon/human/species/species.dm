@@ -295,6 +295,13 @@
 
 	var/use_alt_hair_layer = FALSE
 
+	/// Species psionics. FALSE for no psionics. Otherwise, set to the PSI_RANK define you want.
+	var/has_psionics = FALSE
+	/// Number of psi points in character creation.
+	var/character_creation_psi_points = 0
+	/// Is this species psionically deaf?
+	var/psi_deaf = FALSE
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
@@ -434,7 +441,7 @@
 /datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
-			H.verbs -= verb_path
+			remove_verb(H, verb_path)
 
 	if(inherent_spells)
 		for(var/spell_path in inherent_spells)
@@ -446,7 +453,7 @@
 /datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
 		for(var/verb_path in inherent_verbs)
-			H.verbs |= verb_path
+			add_verb(H, verb_path)
 
 	if(inherent_spells)
 		for(var/spell_path in inherent_spells)
@@ -470,6 +477,8 @@
 	if(!H.client || !H.client.prefs || !H.client.prefs.gender)
 		H.gender = pick(default_genders)
 		H.pronouns = H.gender
+	if(has_psionics)
+		H.set_psi_rank(has_psionics)
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
@@ -520,10 +529,16 @@
 	var/list/vision = H.get_accumulated_vision_handlers()
 	H.update_sight()
 	if(H.machine && H.machine.check_eye(H) >= 0 && H.client.eye != H)
+		var/sight_flags = H.sight
+
 		// we inherit sight flags from the machine
-		H.sight &= ~(get_vision_flags(H))
-		H.sight &= ~(H.equipment_vision_flags)
-		H.sight &= ~(vision[1])
+		sight_flags &= ~(get_vision_flags(H))
+		sight_flags &= ~(H.equipment_vision_flags)
+		sight_flags &= ~(vision[1])
+
+		sight_flags |= H.machine.check_eye(H)
+
+		H.set_sight(sight_flags)
 	else
 		H.set_sight(H.sight|get_vision_flags(H)|H.equipment_vision_flags|vision[1])
 
@@ -733,11 +748,8 @@
 /datum/species/proc/get_digestion_product()
 	return /singleton/reagent/nutriment
 
-/datum/species/proc/can_commune()
-	return FALSE
-
-/datum/species/proc/has_psi_potential()
-	return TRUE
+/datum/species/proc/has_psionics()
+	return has_psionics
 
 /datum/species/proc/handle_despawn()
 	return

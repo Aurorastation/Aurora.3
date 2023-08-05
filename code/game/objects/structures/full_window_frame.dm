@@ -115,7 +115,7 @@
 		if(!WT.isOn())
 			to_chat(user, SPAN_NOTICE("\The [WT] isn't turned on."))
 			return
-		playsound(src, 'sound/items/welder.ogg', 50, TRUE)
+		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
 		user.visible_message(
 			SPAN_WARNING("\The [user] starts welding \the [src] apart!"),
 			SPAN_NOTICE("You start welding \the [src] apart..."),
@@ -162,6 +162,12 @@
 				return
 		else
 			to_chat(user, SPAN_WARNING("You need at least [glass_needed] sheets of [MATERIAL_GLASS_REINFORCED_PHORON] to finished the window."))
+
+/obj/structure/window_frame/hitby(atom/movable/AM, speed)
+	. = ..()
+	var/obj/structure/window/W = locate() in get_turf(src)
+	if(istype(W))
+		W.hitby(AM)
 
 /obj/structure/window_frame/unanchored // Used during in-game construction.
 	should_check_mapload = FALSE // No glass.

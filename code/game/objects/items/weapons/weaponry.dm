@@ -8,6 +8,7 @@
 	var/net_type = /obj/effect/energy_net
 
 /obj/item/energy_net/dropped()
+	. = ..()
 	if(!QDELETED(src))
 		QDEL_IN(src, 1)
 

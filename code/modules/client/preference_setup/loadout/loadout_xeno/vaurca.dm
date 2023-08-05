@@ -8,7 +8,7 @@
 
 /datum/gear/mask/vaurca
 	display_name = "mandible garment"
-	path = /obj/item/clothing/mask/breath/vaurca
+	path = /obj/item/clothing/mask/gas/vaurca
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
@@ -16,7 +16,7 @@
 
 /datum/gear/mask/filterport
 	display_name = "filter port"
-	path = /obj/item/clothing/mask/breath/vaurca/filter
+	path = /obj/item/clothing/mask/gas/vaurca/filter
 	cost = 1
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"

@@ -123,7 +123,7 @@
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -9239,7 +9239,7 @@
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "cafeteria"
 	},
@@ -12452,7 +12452,7 @@
 /obj/item/storage/box/practiceshells,
 /obj/item/storage/box/trackingslugs,
 /obj/effect/decal/warning_stripes,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor,
 /area/antag/loner)
 "enU" = (
@@ -13720,10 +13720,10 @@
 "fdr" = (
 /obj/structure/table/wood,
 /obj/random/coin,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -15183,7 +15183,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/computer/station_alert,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "fWO" = (
@@ -18229,7 +18228,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1;
 	name = "adjusted spotlight";
 	pixel_x = -16
@@ -21925,8 +21924,8 @@
 /obj/structure/table/wood{
 	table_reinf = "wood"
 	},
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -22664,9 +22663,6 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "kNJ" = (
-/obj/item/circuitboard/rcon_console{
-	name = "circuit board (Ticket Kiosk Console)"
-	},
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
@@ -33285,10 +33281,10 @@
 "rPi" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/handheld/pda/syndicate,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -33997,7 +33993,7 @@
 /obj/machinery/computer/shuttle_control{
 	req_access = null;
 	req_one_access = list(38,72);
-	shuttle_tag = "Agent Shuttle"
+	shuttle_tag = "SCC Shuttle";
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
@@ -36678,7 +36674,7 @@
 /area/centcom/specops)
 "ujT" = (
 /obj/structure/table/standard,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -36724,12 +36720,12 @@
 	pixel_y = 6
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -40897,7 +40893,7 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "wNC" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},

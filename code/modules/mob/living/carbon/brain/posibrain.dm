@@ -59,6 +59,8 @@
 	if(istype(A, /area/assembly/robotics))
 		global_announcer.autosay("A positronic brain has completed its boot process in: [A.name].", "Robotics Oversight", "Science")
 
+	brainmob.client.init_verbs()
+
 	return src
 
 /obj/item/device/mmi/digital/posibrain/update_name()

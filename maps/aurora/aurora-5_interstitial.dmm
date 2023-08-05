@@ -3138,7 +3138,6 @@
 /turf/simulated/wall,
 /area/medical/psych)
 "ib" = (
-/obj/item/clothing/head/fedora/brown,
 /obj/item/ammo_casing/c38{
 	pixel_x = 8;
 	pixel_y = -9
@@ -6725,7 +6724,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site/zone_2)
 "xa" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "xi" = (

@@ -1481,7 +1481,8 @@
 	dir = 1
 	},
 /obj/machinery/conveyor{
-	dir = 8
+	dir = 8;
+	id = "freebooter_1"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod3)
@@ -2376,6 +2377,7 @@
 	pixel_x = 7
 	},
 /obj/machinery/firealarm/east,
+/obj/item/rig/eva,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "fGM" = (
@@ -3619,6 +3621,7 @@
 	pixel_y = -24;
 	req_access = null
 	},
+/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "jgM" = (
@@ -3932,6 +3935,9 @@
 	name = "lattice"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod4)
 "kfJ" = (
@@ -4590,10 +4596,10 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
 "lpe" = (
-/obj/machinery/bodyscanner{
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/machinery/sleeper{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
 "lqh" = (
@@ -5151,9 +5157,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/conveyor{
-	dir = 8
-	},
 /obj/structure/plasticflaps,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
@@ -5630,6 +5633,10 @@
 	color = "#E14644"
 	},
 /area/ship/freebooter_ship/pod4)
+"nWh" = (
+/obj/machinery/body_scanconsole,
+/turf/template_noop,
+/area/space)
 "nXu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
@@ -6505,6 +6512,9 @@
 /area/ship/freebooter_ship/gunnery)
 "pEW" = (
 /obj/effect/decal/cleanable/blood,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "pHN" = (
@@ -6608,7 +6618,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "pXP" = (
-/mob/living/heavy_vehicle/premade/miner,
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -8589,7 +8598,7 @@
 	},
 /obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor/airless,
-/area/ship/freebooter_ship)
+/area/shuttle/freebooter_shuttle)
 "uGz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8811,7 +8820,9 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/conveyor_switch,
+/obj/machinery/conveyor_switch{
+	id = "freebooter_1"
+	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
@@ -9310,7 +9321,7 @@
 	},
 /obj/machinery/shipsensors/weak,
 /turf/simulated/floor/airless,
-/area/ship/freebooter_ship)
+/area/shuttle/freebooter_shuttle)
 "wdL" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -9645,7 +9656,8 @@
 	layer = 2.71
 	},
 /obj/machinery/conveyor{
-	dir = 8
+	dir = 8;
+	id = "freebooter_1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
@@ -9831,7 +9843,9 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/cobweb2,
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "xBh" = (
@@ -43398,7 +43412,7 @@ mGn
 wyp
 xRX
 xRX
-xRX
+nWh
 xRX
 fGM
 xRX

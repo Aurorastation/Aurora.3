@@ -1,83 +1,42 @@
+var/regex/is_http_protocol = regex("^https?://")
+
+/*!
+ * Copyright (c) 2020 Aleksej Komarov
+ * SPDX-License-Identifier: MIT
+ */
+
 var/datum/controller/subsystem/chat/SSchat
 
 /datum/controller/subsystem/chat
 	name = "Chat"
+	flags = SS_TICKER
 	wait = 1
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	priority = SS_PRIORITY_CHAT
 	init_order = SS_INIT_CHAT
-	var/list/payload = list()
 
-/datum/controller/subsystem/chat/Initialize()
-	NEW_SS_GLOBAL(SSchat)
+	var/list/payload_by_client = list()
 
 /datum/controller/subsystem/chat/fire()
-	for(var/i in payload)
-		var/client/C = i
-		to_target(C, output(payload[C], "browseroutput:output"))
-		payload -= C
-
+	for(var/key in payload_by_client)
+		var/client/client = key
+		var/payload = payload_by_client[key]
+		payload_by_client -= key
+		if(client)
+			// Send to tgchat
+			client.tgui_panel?.window.send_message("chat/message", payload)
+			// Send to old chat
+			for(var/message in payload)
+				to_target(client, message_to_html(message))
 		if(MC_TICK_CHECK)
 			return
 
-/datum/controller/subsystem/chat/proc/queue(target, message, handle_whitespace = TRUE, trailing_newline = TRUE)
-	if(!target || !message)
-		return
-
-	if(!istext(message))
-		CRASH("to_chat called with invalid input type")
-
-	if(target == world)
-		target = clients
-
-	//Some macros remain in the string even after parsing and fuck up the eventual output
-	var/original_message = message
-	message = replacetext(message, "\improper", "")
-	message = replacetext(message, "\proper", "")
-	if(handle_whitespace)
-		message = replacetext(message, "\n", "<br>")
-		message = replacetext(message, "\t", "[FOURSPACES][FOURSPACES]")
-	if (trailing_newline)
-		message += "<br>"
-
-
-	//url_encode it TWICE, this way any UTF-8 characters are able to be decoded by the Javascript.
-	//Do the double-encoding here to save nanoseconds
-	var/twiceEncoded = url_encode(url_encode(message))
-
+/datum/controller/subsystem/chat/proc/queue(target, message)
 	if(islist(target))
-		for(var/I in target)
-			var/client/C = CLIENT_FROM_VAR(I) //Grab us a client if possible
-
-			if(!C)
-				return
-
-			//Send it to the old style output window.
-			legacy_chat(C, original_message)
-
-			if(!C?.chatOutput || C.chatOutput.broken) //A player who hasn't updated his skin file.
-				continue
-
-			if(!C.chatOutput.loaded) //Client still loading, put their messages in a queue
-				C.chatOutput.messageQueue += message
-				continue
-
-			payload[C] += twiceEncoded
-
-	else
-		var/client/C = CLIENT_FROM_VAR(target) //Grab us a client if possible
-
-		if(!C)
-			return
-
-		//Send it to the old style output window.
-		legacy_chat(C, original_message)
-
-		if(!C?.chatOutput || C.chatOutput.broken) //A player who hasn't updated his skin file.
-			return
-
-		if(!C.chatOutput.loaded) //Client still loading, put their messages in a queue
-			C.chatOutput.messageQueue += message
-			return
-
-		payload[C] += twiceEncoded
+		for(var/_target in target)
+			var/client/client = CLIENT_FROM_VAR(_target)
+			if(client)
+				LAZYADD(payload_by_client[client], list(message))
+		return
+	var/client/client = CLIENT_FROM_VAR(target)
+	if(client)
+		LAZYADD(payload_by_client[client], list(message))

@@ -293,9 +293,12 @@
 	new /obj/item/device/camera/detective(src)
 	new /obj/item/device/camera_film(src)
 	new /obj/item/stamp/investigations(src)
+	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
+	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/clothing/accessory/storage/pouches/black(src)
+	new /obj/item/storage/belt/security(src)
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"

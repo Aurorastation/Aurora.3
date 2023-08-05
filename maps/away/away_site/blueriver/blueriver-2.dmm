@@ -80,7 +80,6 @@
 /turf/simulated/floor,
 /area/bluespaceriver/ship)
 "ao" = (
-/obj/machinery/computer/power_monitor,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "ap" = (
