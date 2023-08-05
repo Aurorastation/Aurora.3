@@ -2,7 +2,8 @@ import { BooleanLike } from '../../common/react';
 import { useBackend, useSharedState } from '../backend';
 import { Box, Button, Section, Table, ProgressBar, Slider } from '../components';
 import { NtosWindow } from '../layouts';
-import { round, lerpColor } from 'common/math';
+import { round, clamp, lerpColor } from 'common/math';
+import { Color } from 'common/color';
 
 export type SensorsData = {
   viewing: BooleanLike;
@@ -80,12 +81,6 @@ const SensorSection = function (act, data: SensorsData) {
               step={1}
               stepPixelSize={16}
               value={data.desired_range}
-              // color={lerpColor(
-              //   '#1b9638',
-              //   '#bd2020',
-              //   data.range / range_choice_max
-              // )}
-              color="purple"
               minValue={1}
               maxValue={range_choice_max}
               onChange={(e, value) =>
@@ -95,6 +90,11 @@ const SensorSection = function (act, data: SensorsData) {
             </Slider>
             <ProgressBar
               animated
+              backgroundColor={Color.lerp(
+                new Color(62, 97, 137),
+                new Color(189, 32, 32),
+                data.range / range_choice_max
+              )}
               minValue={0}
               maxValue={range_choice_max}
               value={data.range}>
@@ -122,11 +122,20 @@ const SensorSection = function (act, data: SensorsData) {
           <Table.Cell>
             <ProgressBar
               animated
-              // color={lerpColor(
-              //   '#1b9638',
-              //   '#bd2020',
-              //   data.health / data.max_health
-              // )}
+              backgroundColor={Color.lerp(
+                Color.fromHex('#20b142'),
+                Color.fromHex('#db2828'),
+                data.health / data.max_health
+              )}
+              color={(() => {
+                if (data.health > (data.max_health / 3) * 2) {
+                  return 'green';
+                } else if (data.health > (data.max_health / 3) * 1) {
+                  return 'yellow';
+                } else {
+                  return 'red';
+                }
+              })()}
               minValue={0}
               maxValue={data.max_health}
               value={data.health}>
@@ -139,6 +148,20 @@ const SensorSection = function (act, data: SensorsData) {
           <Table.Cell>
             <ProgressBar
               animated
+              backgroundColor={Color.lerp(
+                Color.fromHex('#20b142'),
+                Color.fromHex('#db2828'),
+                data.heat / data.critical_heat
+              )}
+              color={(() => {
+                if (data.heat > (data.critical_heat / 3) * 2) {
+                  return 'red';
+                } else if (data.heat > (data.critical_heat / 3) * 1) {
+                  return 'yellow';
+                } else {
+                  return 'green';
+                }
+              })()}
               minValue={0}
               maxValue={data.critical_heat}
               value={data.heat}>
@@ -162,7 +185,7 @@ const ContactsSection = function (act, data: SensorsData) {
             <Table.Cell>X</Table.Cell>
             <Table.Cell>Y</Table.Cell>
             <Table.Cell>D</Table.Cell>
-            <Table.Cell>Color</Table.Cell>
+            <Table.Cell>C</Table.Cell>
           </Table.Row>
           {data.contacts.map((contact: ContactData, i) => (
             <Table.Row>
@@ -174,7 +197,9 @@ const ContactsSection = function (act, data: SensorsData) {
                   <Table.Cell>{contact.bearing}</Table.Cell>
                   <Table.Cell>{contact.x}</Table.Cell>
                   <Table.Cell>{contact.y}</Table.Cell>
-                  <Table.Cell>{round(contact.distance, 2)}</Table.Cell>
+                  <Table.Cell>
+                    {new String(round(contact.distance, 2)).padStart(5, '0')}
+                  </Table.Cell>
                   <Table.Cell color={contact.color}>██</Table.Cell>
                 </>
               )}
@@ -264,7 +289,7 @@ const CompassSection = function (context, act, data: SensorsData) {
                     width="4"
                     height="4"
                     x={50 - 2}
-                    y={50 - 2 - contact.distance * 8}
+                    y={50 - 2 - clamp((contact.distance / 2) * 8, 0, 40)}
                     fill={contact.color}
                     transform={'rotate(' + contact.bearing + ' 50 50)'}
                   />
