@@ -77,7 +77,7 @@
 
 		//If the result is still null, the test have runtimed or not returned a valid result, either way rise an error
 		if (isnull(current_test_result))
-				test.fail("Unit Test runtimed or returned an illicit result: [test.name]", __FILE__, __LINE__)
+			test.fail("Unit Test runtimed or returned an illicit result: [test.name]", __FILE__, __LINE__)
 
 		TEST_GROUP_CLOSE("[test.name]")
 
