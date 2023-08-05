@@ -64,6 +64,10 @@
 #define DO_NOT_DEFER_ASSETS
 //Test at full capacity, the extra cost doesn't matter
 #define TIMER_DEBUG
+//Other debugs/tests, aurora specific snowflake
+#define FIREDBG
+#define SQL_PREF_DEBUG
+#define ZASDBG
 #endif
 
 //Poor man's code to try to catch people that are running the codebase without compiling tgui, aka in an unsupported way

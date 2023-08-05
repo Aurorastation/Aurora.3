@@ -38,6 +38,10 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 
 	#ifdef REFERENCE_TRACKING
 	var/list/reference_find_on_fail = list()
+	#ifdef REFERENCE_TRACKING_DEBUG
+	//Should we save found refs. Used for unit testing
+	var/should_save_refs = FALSE
+	#endif
 	#endif
 
 /datum/controller/subsystem/garbage_collector/New()
@@ -276,9 +280,6 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 // Only present if the appropriate define is set   //
 #ifdef REFERENCE_TRACKING
 
-/datum/var/running_find_references
-/datum/var/last_find_references = 0
-
 /datum/verb/find_refs()
 	set category = "Debug"
 	set name = "Find References"
@@ -361,6 +362,10 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	SSgarbage.enable() //restart the garbage collector
 
 /datum/proc/search_var(potential_container, container_name, recursive_limit = 64, search_time = world.time)
+	#ifdef REFERENCE_TRACKING_DEBUG
+	if(SSgarbage.should_save_refs && !found_refs)
+		found_refs = list()
+	#endif
 
 	if(usr?.client && !usr.client.running_find_references)
 		return
@@ -391,6 +396,11 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 			var/variable = vars_list[varname]
 
 			if(variable == src)
+				#ifdef REFERENCE_TRACKING_DEBUG
+				if(SSgarbage.should_save_refs)
+					found_refs[varname] = TRUE
+					continue //End early, don't want these logging
+				#endif
 				testing("Found [type] [text_ref(src)] in [datum_container.type]'s [text_ref(datum_container)] [varname] var. [container_name]")
 				continue
 
@@ -406,6 +416,11 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 			#endif
 			// Check normal entries
 			if(element_in_list == src)
+				#ifdef REFERENCE_TRACKING_DEBUG
+				if(SSgarbage.should_save_refs)
+					found_refs[potential_cache] = TRUE
+					continue //End early, don't want these logging
+				#endif
 				testing("Found [type] [text_ref(src)] in list [container_name]\[[element_in_list]\]")
 				continue
 
@@ -414,6 +429,11 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 				assoc_val = potential_cache[element_in_list]
 			// Check assoc entries
 			if(assoc_val == src)
+				#ifdef REFERENCE_TRACKING_DEBUG
+				if(SSgarbage.should_save_refs)
+					found_refs[potential_cache] = TRUE
+					continue //End early, don't want these logging
+				#endif
 				testing("Found [type] [text_ref(src)] in list [container_name]\[[element_in_list]\]")
 				continue
 
