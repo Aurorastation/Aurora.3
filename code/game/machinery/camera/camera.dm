@@ -63,9 +63,9 @@
 	if(assembly)
 		QDEL_NULL(assembly)
 
-	QDEL_NULL(wires)
-
 	cancelCameraAlarm(force = TRUE)
+
+	QDEL_NULL(wires)
 
 	cameranet.remove_source(src)
 	cameranet.cameras -= src
