@@ -97,9 +97,15 @@
 		/obj/screen/click_catcher,
 		/obj/screen/new_player/selection/polls,
 
+		//Temporary exclusion while matt fixes it
+		/obj/item/projectile/beam/psi_lightning/wide,
+
 	)
 
 	// Paths and all the subpaths excluded
+
+	//Materials cannot be destroyed, they are used in maps, and it doesn't make sense to poof the concept of one out of existence either
+	ignore += typesof(/material)
 
 	//Needs a holodeck area linked to it which is not guarenteed to exist and technically is supposed to have a 1:1 relationship with computer anyway.
 	ignore += typesof(/obj/machinery/computer/HolodeckControl)
