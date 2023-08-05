@@ -14,7 +14,7 @@
 
 
 //Since we do not currently use some of the flags that TG uses, we have to perform a bit of an adaptation
-#if defined(UNIT_TEST) || defined(OPENDREAM)
+#if defined(UNIT_TEST)
 #define CIBUILDING
 #define TESTING
 #endif
@@ -54,7 +54,7 @@
 
 
 //Enable various trackings and debugs if we're running the unit tests
-#if defined(UNIT_TEST) || defined(OPENDREAM)
+#if defined(UNIT_TEST)
 //Hard del testing defines
 #define REFERENCE_TRACKING
 #define REFERENCE_TRACKING_DEBUG
