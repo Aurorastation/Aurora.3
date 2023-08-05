@@ -7,6 +7,12 @@ Nothing should ever be included before this file.
 #include "___linters\spaceman_dmm.dm"
 
 //OpenDream, only included if OPENDREAM is defined, as otherwise SpacemanDMM isn't happy about the pragma directives
+
 #ifdef OPENDREAM
+//The file with the OpenDream specific settings/pragmas
 #include "___linters\odlint.dm"
+
+//Defines to extend its code coverage
+#define TIMER_DEBUG
+
 #endif
