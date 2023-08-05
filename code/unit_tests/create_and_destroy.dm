@@ -97,9 +97,6 @@
 		/obj/screen/click_catcher,
 		/obj/screen/new_player/selection/polls,
 
-		//To be removed when Matt fix the infinite recursion
-		/obj/item/projectile/beam/psi_lightning/wide,
-
 	)
 
 	// Paths and all the subpaths excluded

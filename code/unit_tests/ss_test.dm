@@ -72,6 +72,7 @@
 				test.fail("Test Runtimed: [test.name]", __FILE__, __LINE__)
 		catch(var/exception/exception)
 			test.fail("Test run encountered an exception: [test.name] - Exception: [json_encode(exception)]", __FILE__, __LINE__)
+			stack_trace("Stack tracing the exception: [json_encode(exception)]")
 
 		TEST_GROUP_CLOSE("[test.name]")
 
