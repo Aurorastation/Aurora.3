@@ -362,9 +362,9 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	SSgarbage.enable() //restart the garbage collector
 
 #define GC_RESTORE_LOOP_CHECK_AND_RETURN \
-#if defined(FIND_REF_NO_CHECK_TICK) \
+#if defined(FIND_REF_NO_CHECK_TICK); \
 world.loop_checks = TRUE; \
-#endif \
+#endif; \
 return
 
 /datum/proc/search_var(potential_container, container_name, recursive_limit = 64, search_time = world.time)
