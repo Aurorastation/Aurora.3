@@ -103,9 +103,11 @@
 			owner.contact_datums -= effect
 		owner = null
 
-	// Remove the effect opacity and null the effect
+	// Remove the effect opacity, effect, marker and radar
 	effect.opacity = 0
 	effect = null
+	marker = null
+	radar = null
 
 	QDEL_NULL_LIST(images)
 	. = ..()

@@ -1229,7 +1229,7 @@
 /area/wrecked_nt_ship)
 "Ao" = (
 /obj/item/trash/spitgum,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "AD" = (
@@ -1520,7 +1520,7 @@
 /area/wrecked_nt_ship)
 "HS" = (
 /obj/item/trash/grease,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Ih" = (
@@ -1833,7 +1833,7 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "Px" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Py" = (

@@ -15,11 +15,18 @@ env:
   MACRO_COUNT: 0
   GENDER_COUNT: 6
   TO_WORLD_COUNT: 185
-  TGM_CHECK: "//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE"
+  BYOND_MAJOR: ""
+  BYOND_MINOR: ""
+  RUST_G_VERSION: ""
+  FLYWAY_BUILD: ""
+  SPACEMAN_DMM_VERSION: ""
+  NODE_VERSION: ""
+  NODE_VERSION_PRECISE: ""
+  PYTHON_VERSION: ""
 
 jobs:
   lint:
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
     runs-on: ubuntu-22.04
     name: Run Linters
     concurrency:
@@ -37,7 +44,7 @@ jobs:
       - name: Restore OpenDream cache
         uses: actions/cache@v3
         with:
-          path: ~/OpenDream
+          path: ~/OpenDream/*
           key: ${{ runner.os }}-opendream
       - name: Restore Yarn cache
         uses: actions/cache@v3
@@ -48,13 +55,27 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       # Install Dependencies
+      - name: "Set ENV variables"
+        run: bash dependencies.sh
+      - name: Restore Python Cache
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache-dependency-path: tgui/yarn.lock
+          node-version: ${{ env.NODE_VERSION_PRECISE }}
+          cache: 'yarn'
+      - name: Install Python Packages
+        run: |
+          pip install -r tools/requirements.txt
       - name: Install Tools
         run: |
           pip3 install setuptools
-          bash tools/ci/install_node.sh
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           bash tools/ci/install_od.sh
-          tools/bootstrap/python -c ''
       - name: Check Filedirs
         run: |
           bash tools/ci/check_filedirs.sh aurorastation.dme
@@ -97,7 +118,7 @@ jobs:
           outputFile: output-annotations.txt
 
   unit-test-linux:
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
     strategy:
       matrix:
         map: [runtime, aurora, sccv_horizon, away_sites_testing, exoplanet_testing]
@@ -119,35 +140,44 @@ jobs:
           MYSQL_ROOT_PASSWORD: root
     steps:
       - uses: actions/checkout@v3
+      - name: "Set ENV variables"
+        run: source dependencies.sh
       - name: Restore BYOND cache
         uses: actions/cache@v3
         with:
-          path: ~/BYOND
-          key: ${{ runner.os }}-byond
+          path: ~/BYOND/*
+          key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
         uses: actions/cache@v3
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway
+      - name: Prepare OS Environtment
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt-get update
+      - name: Install OS Packages
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
+          version: 1.0
+      - name: Install OS Packages (Native)
+        run: |
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
       - name: Install BYOND
         run: |
           source dependencies.sh
-          sudo dpkg --add-architecture i386
-          sudo apt-get update
-          sudo apt-get install -y gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
       - name: Install Flyway
         run: |
-          source dependencies.sh
           tools/ci/install_flyway.sh
       - name: Migrate database
         env:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
-          source dependencies.sh
           $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game"
       - name: Build
         run: |
@@ -164,3 +194,9 @@ jobs:
           $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
+      - name: Upload Condensed UT Log
+        uses: actions/upload-artifact@v3
+        with:
+          name: condensed-${{ matrix.map }}.log
+          path: ./data/logs/**/condensed.log
+          retention-days: 5

@@ -87,7 +87,7 @@ var/datum/controller/subsystem/timer/SStimer
 			to_log += get_timer_debug_string(I)
 
 	// Dump all the logged data to the world log
-	log_ss("timers", to_log.Join("\n"))
+	log_subsystem("timers", to_log.Join("\n"))
 
 /datum/controller/subsystem/timer/fire(resumed = FALSE)
 	// Store local references to datum vars as it is faster to access them

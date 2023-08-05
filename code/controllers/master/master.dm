@@ -115,7 +115,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 					msg += "\t [varname] = [D]([D.type])\n"
 				else
 					msg += "\t [varname] = [varval]\n"
-	log_mc(msg)
+	log_subsystem_mastercontroller(msg)
 
 	var/datum/controller/subsystem/BadBoy = Master.last_type_processed
 	var/FireHim = FALSE
@@ -131,7 +131,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 				BadBoy.flags |= SS_NO_FIRE
 		if(msg)
 			admin_notice("<span class='danger'>[msg]</span>", R_DEBUG | R_DEV)
-			log_mc(msg)
+			log_subsystem_mastercontroller(msg)
 
 	if (istype(Master.subsystems))
 		if(FireHim)
@@ -155,7 +155,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		init_subtypes(/datum/controller/subsystem, subsystems)
 
 	world.log <<  "Initializing subsystems..."
-	log_mc("Initializing subsystems...")
+	log_subsystem_mastercontroller("Initializing subsystems...")
 
 	initializing = TRUE
 	init_stage_completed = 0
@@ -206,7 +206,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 	initialization_time_taken = time
 
 	var/msg = "Initializations complete within [time] second\s!"
-	log_mc(msg)
+	log_subsystem_mastercontroller(msg)
 	admin_notice(SPAN_DANGER(msg), R_DEBUG)
 	world.log <<  msg
 
@@ -384,7 +384,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 
 		if (CheckQueue(subsystems_to_check) <= 0)
 			if (!SoftReset(tickersubsystems, runlevel_sorted_subsystems))
-				log_mc("SoftReset() failed, crashing")
+				log_subsystem_mastercontroller("SoftReset() failed, crashing")
 				return
 			if (!error_level)
 				iteration++
@@ -396,7 +396,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		if (queue_head)
 			if (RunQueue() <= 0)
 				if (!SoftReset(tickersubsystems, runlevel_sorted_subsystems))
-					log_mc("SoftReset() failed, crashing")
+					log_subsystem_mastercontroller("SoftReset() failed, crashing")
 					return
 				if (!error_level)
 					iteration++
@@ -586,9 +586,9 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 //	called if any mc's queue procs runtime or exit improperly.
 /datum/controller/master/proc/SoftReset(list/ticker_SS, list/runlevel_SS)
 	. = 0
-	log_mc("SoftReset called, resetting MC queue state.")
+	log_subsystem_mastercontroller("SoftReset called, resetting MC queue state.")
 	if (!istype(subsystems) || !istype(ticker_SS) || !istype(runlevel_SS))
-		log_mc("SoftReset: Bad list contents: '[subsystems]' '[ticker_SS]' '[runlevel_SS]' Crashing!")
+		log_subsystem_mastercontroller("SoftReset: Bad list contents: '[subsystems]' '[ticker_SS]' '[runlevel_SS]' Crashing!")
 		return
 	var/subsystemstocheck = subsystems + ticker_SS
 	for(var/I in runlevel_SS)
@@ -602,26 +602,26 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			ticker_SS -= list(SS)
 			for(var/I in runlevel_SS)
 				I -= list(SS)
-			log_mc("SoftReset: Found bad entry in subsystem list, '[SS]'")
+			log_subsystem_mastercontroller("SoftReset: Found bad entry in subsystem list, '[SS]'")
 			continue
 		if (SS.queue_next && !istype(SS.queue_next))
-			log_mc("SoftReset: Found bad data in subsystem queue, queue_next = '[SS.queue_next]'")
+			log_subsystem_mastercontroller("SoftReset: Found bad data in subsystem queue, queue_next = '[SS.queue_next]'")
 		SS.queue_next = null
 		if (SS.queue_prev && !istype(SS.queue_prev))
-			log_mc("SoftReset: Found bad data in subsystem queue, queue_prev = '[SS.queue_prev]'")
+			log_subsystem_mastercontroller("SoftReset: Found bad data in subsystem queue, queue_prev = '[SS.queue_prev]'")
 		SS.queue_prev = null
 		SS.queued_priority = 0
 		SS.queued_time = 0
 		SS.state = SS_IDLE
 	if (queue_head && !istype(queue_head))
-		log_mc("SoftReset: Found bad data in subsystem queue, queue_head = '[queue_head]'")
+		log_subsystem_mastercontroller("SoftReset: Found bad data in subsystem queue, queue_head = '[queue_head]'")
 	queue_head = null
 	if (queue_tail && !istype(queue_tail))
-		log_mc("SoftReset: Found bad data in subsystem queue, queue_tail = '[queue_tail]'")
+		log_subsystem_mastercontroller("SoftReset: Found bad data in subsystem queue, queue_tail = '[queue_tail]'")
 	queue_tail = null
 	queue_priority_count = 0
 	queue_priority_count_bg = 0
-	log_mc("SoftReset: Finished.")
+	log_subsystem_mastercontroller("SoftReset: Finished.")
 	. = 1
 
 /datum/controller/master/proc/laggy_byond_map_update_incoming()

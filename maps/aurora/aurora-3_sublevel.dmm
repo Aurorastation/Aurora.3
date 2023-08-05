@@ -2055,7 +2055,7 @@
 /area/engineering/atmos)
 "aeW" = (
 /obj/structure/window/borosilicate/reinforced,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -3691,7 +3691,7 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -4289,7 +4289,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "ajQ" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "ajR" = (
@@ -4939,7 +4939,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/table/reinforced/wood,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
 "alp" = (
@@ -5145,7 +5145,7 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "alP" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -13148,7 +13148,7 @@
 /turf/simulated/floor/plating,
 /area/medical/patient_wing)
 "azC" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 8
 	},
@@ -18639,7 +18639,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/morgue)
 "aMm" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -19516,7 +19516,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
 "aOo" = (
@@ -20000,7 +20000,7 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/test_area)
 "aPE" = (
@@ -20590,7 +20590,7 @@
 	dir = 8
 	},
 /obj/structure/window/borosilicate/reinforced,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -20602,7 +20602,7 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -22236,7 +22236,7 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 22
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 8
 	},
@@ -24097,7 +24097,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
 "bgd" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -24231,7 +24231,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/airless{
@@ -31531,7 +31531,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -31881,7 +31881,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony/warden)
 "oki" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "olc" = (
@@ -32032,7 +32032,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel_port)
 "ozn" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/lime/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
