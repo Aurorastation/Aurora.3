@@ -45,6 +45,18 @@
 				<li class="tweak">Gamemodes in the mode vote panel are sorted by required players to start.</li>
 				<li class="tweak">Gamemodes in the mode vote panel have grayed out required player numbers, if there are less players readied up than required.</li>
 			</ul>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Refactored the logging handling module/system.</li>
+				<li class="refactor">Most of the larger / more relevant subsystems now have a specific logging function.</li>
+				<li class="backend">Most of each logging submodule can now be set on/off and directed to a dedicated file.</li>
+				<li class="backend">Most of each logging submodule can now be turned on/off at runtime via an admin verb.</li>
+				<li class="backend">All logging functions now write to a condensed logfile and to output during unit tests.</li>
+				<li class="backend">At the end of the unit tests, an artifact for each UT with the condensed logs is uploaded to the job, so everyone can review the logs. Does not include the UT logging, just the standard one.</li>
+				<li class="backend">It is now possible during development / at runtime to panic write the logs to the chat. This is dev environment or panic case only, don&#x27;t turn it on in production unless things went very bad.</li>
+				<li class="backend">Runtime exceptions variables are now unwrapped on logging.</li>
+				<li class="backend">All item attacks are now logged under the log_attack function.</li>
+			</ul>
 
 			<h2 class="date">04 August 2023</h2>
 			<h3 class="author">Doxxmedearly updated:</h3>
