@@ -8260,7 +8260,7 @@
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Cp" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "Cx" = (
@@ -8551,7 +8551,7 @@
 /area/kataphract_chapter/cic)
 "Fc" = (
 /obj/structure/table/steel,
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	pixel_y = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
