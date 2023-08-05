@@ -133,6 +133,8 @@
 //This is only valid during unit tests
 /world/Error(var/exception/e)
 
+	var/datum/unit_test/UT = new
+
 	UT.fail("**** !!! Encountered a world exception during unit testing !!! \n \
 	Exception name: [e.name] @@@ [e.file]:[e.line] \n \
 	Description: [e.desc]")
