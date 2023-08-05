@@ -361,18 +361,31 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 
 	SSgarbage.enable() //restart the garbage collector
 
+#define GC_RESTORE_LOOP_CHECK_AND_RETURN \
+#if defined(FIND_REF_NO_CHECK_TICK) \
+world.loop_checks = TRUE; \
+#endif \
+return
+
 /datum/proc/search_var(potential_container, container_name, recursive_limit = 64, search_time = world.time)
+	//If we are performing a search without a check tick, force the loop to stay here, we should not sleep
+	//and byond should not send us in background
+	#if defined(FIND_REF_NO_CHECK_TICK)
+	world.loop_checks = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
+	#endif
+
 	#ifdef REFERENCE_TRACKING_DEBUG
 	if(SSgarbage.should_save_refs && !found_refs)
 		found_refs = list()
 	#endif
 
 	if(usr?.client && !usr.client.running_find_references)
-		return
+		GC_RESTORE_LOOP_CHECK_AND_RETURN
 
 	if(!recursive_limit)
 		testing("Recursion limit reached. [container_name]")
-		return
+		GC_RESTORE_LOOP_CHECK_AND_RETURN
 
 	//Check each time you go down a layer. This makes it a bit slow, but it won't effect the rest of the game at all
 	#ifndef FIND_REF_NO_CHECK_TICK
@@ -382,7 +395,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	if(isdatum(potential_container))
 		var/datum/datum_container = potential_container
 		if(datum_container.last_find_references == search_time)
-			return
+			GC_RESTORE_LOOP_CHECK_AND_RETURN
 
 		datum_container.last_find_references = search_time
 		var/list/vars_list = datum_container.vars
@@ -444,6 +457,10 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 			// Check assoc sublists
 			if(islist(assoc_val))
 				search_var(potential_container[element_in_list], "[container_name]\[[element_in_list]\] -> [assoc_val] (list)", recursive_limit - 1, search_time)
+
+	GC_RESTORE_LOOP_CHECK_AND_RETURN
+
+#undef GC_RESTORE_LOOP_CHECK_AND_RETURN
 
 /proc/qdel_and_find_ref_if_fail(datum/thing_to_qdel, force = FALSE)
 	thing_to_qdel.qdel_and_find_ref_if_fail(force)

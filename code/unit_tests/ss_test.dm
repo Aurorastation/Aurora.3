@@ -135,7 +135,7 @@
 
 	var/datum/unit_test/UT = new
 
-	UT.fail("**** !!! Encountered a world exception during unit testing !!! - Exception name: [e.name] → @@@ [e.file]:[e.line] ****")
+	UT.fail("**** !!! Encountered a world exception during unit testing !!! - Exception name: [e.name] → @@@ [e.file]:[e.line] ****", __FILE__, __LINE__)
 
 	return ..(e)
 
