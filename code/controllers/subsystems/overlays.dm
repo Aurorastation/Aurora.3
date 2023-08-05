@@ -52,7 +52,7 @@ var/datum/controller/subsystem/overlays/SSoverlays
 
 /datum/controller/subsystem/overlays/proc/Flush()
 	if(processing.len)
-		log_ss("overlays", "Flushing [processing.len] overlays.")
+		log_subsystem("overlays", "Flushing [processing.len] overlays.")
 		fire(mc_check = FALSE)
 
 /atom/proc/compile_overlays()

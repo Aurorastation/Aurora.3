@@ -27,7 +27,7 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 
 	if (world.system_type == UNIX && enabled)
 		enabled = FALSE
-		log_ss("fail2topic", "Subsystem disabled due to it not supporting UNIX.", log_world = FALSE, severity = SEVERITY_NOTICE)
+		log_subsystem_fail2topic("Subsystem disabled due to it not supporting UNIX.")
 
 	if (!enabled)
 		suspended = TRUE
@@ -97,11 +97,11 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	. = shell("netsh advfirewall firewall add rule name=\"[config.fail2topic_rule_name]\" dir=in interface=any action=block remoteip=[ip]")
 
 	if (.)
-		log_ss("fail2topic", "Failed to ban [ip]. Exit code: [.].", log_world = FALSE, severity = SEVERITY_ERROR)
+		log_subsystem_fail2topic("Failed to ban [ip]. Exit code: [.].")
 	else if (isnull(.))
-		log_ss("fail2topic", "Failed to invoke ban script.", log_world = FALSE, severity = SEVERITY_ERROR)
+		log_subsystem_fail2topic("Failed to invoke ban script.")
 	else
-		log_ss("fail2topic", "Banned [ip].", log_world = FALSE, severity = SEVERITY_NOTICE)
+		log_subsystem_fail2topic("Banned [ip].")
 
 /datum/controller/subsystem/fail2topic/proc/DropFirewallRule()
 	if (!enabled)
@@ -112,8 +112,8 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	. = shell("netsh advfirewall firewall delete rule name=\"[config.fail2topic_rule_name]\"")
 
 	if (.)
-		log_ss("fail2topic", "Failed to drop firewall rule. Exit code: [.].", log_world = FALSE, severity = SEVERITY_ERROR)
+		log_subsystem_fail2topic("Failed to drop firewall rule. Exit code: [.].")
 	else if (isnull(.))
-		log_ss("fail2topic", "Failed to invoke ban script.", log_world = FALSE, severity = SEVERITY_ERROR)
+		log_subsystem_fail2topic("Failed to invoke ban script.")
 	else
-		log_ss("fail2topic", "Firewall rule dropped.", log_world = FALSE, severity = SEVERITY_INFO)
+		log_subsystem_fail2topic("Firewall rule dropped.")

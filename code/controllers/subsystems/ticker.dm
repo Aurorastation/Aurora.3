@@ -421,7 +421,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if (is_revote)
 		pregame_timeleft = LOBBY_TIME
-		log_debug("SSticker: lobby reset due to game setup failure, using pregame time [LOBBY_TIME]s.")
+		LOG_DEBUG("SSticker: lobby reset due to game setup failure, using pregame time [LOBBY_TIME]s.")
 	else
 		var/mc_init_time = round(Master.initialization_time_taken, 1)
 		var/dynamic_time = LOBBY_TIME - mc_init_time
@@ -430,10 +430,10 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		if (dynamic_time <= config.vote_autogamemode_timeleft)
 			pregame_timeleft = config.vote_autogamemode_timeleft + 10
-			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [config.vote_autogamemode_timeleft]s, clamping.")
+			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [config.vote_autogamemode_timeleft]s, clamping.")
 		else
 			pregame_timeleft = dynamic_time
-			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was greater than configured autogamemode time, not clamping.")
+			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was greater than configured autogamemode time, not clamping.")
 
 		setup_player_ready_list()
 
@@ -569,11 +569,11 @@ var/datum/controller/subsystem/ticker/SSticker
 	callHook("roundstart")
 	INVOKE_ASYNC(src, PROC_REF(roundstart))
 
-	log_debug("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
+	LOG_DEBUG("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
 	run_callback_list(roundstart_callbacks)
 	roundstart_callbacks = null
 
-	log_debug("SSticker: Round-start setup took [(REALTIMEOFDAY - starttime)/10] seconds.")
+	LOG_DEBUG("SSticker: Round-start setup took [(REALTIMEOFDAY - starttime)/10] seconds.")
 
 	return SETUP_OK
 

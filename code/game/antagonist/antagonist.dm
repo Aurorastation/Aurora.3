@@ -103,19 +103,19 @@
 	// Note that this is done before jobs are handed out.
 	for(var/datum/mind/player in SSticker.mode.get_players_for_role(role_type, id))
 		if(ghosts_only && !istype(player.current, /mob/abstract))
-			log_debug("[key_name(player)] is not eligible to become a [role_text]: Only ghosts may join as this role!")
+			log_traitor("[key_name(player)] is not eligible to become a [role_text]: Only ghosts may join as this role!")
 		else if(!allow_animals && isanimal(player.current))
-			log_debug("[key_name(player)] is not eligible to become a [role_text]: Simple animals cannot be this role!")
+			log_traitor("[key_name(player)] is not eligible to become a [role_text]: Simple animals cannot be this role!")
 		else if(player.special_role)
-			log_debug("[key_name(player)] is not eligible to become a [role_text]: They already have a special role ([player.special_role])!")
+			log_traitor("[key_name(player)] is not eligible to become a [role_text]: They already have a special role ([player.special_role])!")
 		else if(player in pending_antagonists)
-			log_debug("[key_name(player)] is not eligible to become a [role_text]: They have already been selected for this role!")
+			log_traitor("[key_name(player)] is not eligible to become a [role_text]: They have already been selected for this role!")
 		else if(!can_become_antag(player))
-			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are blacklisted for this role!")
+			log_traitor("[key_name(player)] is not eligible to become a [role_text]: They are blacklisted for this role!")
 		else if(player_is_antag(player))
-			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are already an antagonist!")
+			log_traitor("[key_name(player)] is not eligible to become a [role_text]: They are already an antagonist!")
 		else if(establish_db_connection(dbcon) && required_age && required_age > player.current.client?.player_age)
-			log_debug("[key_name(player)] is not eligible to become a [role_text]: Their playtime age is too low!")
+			log_traitor("[key_name(player)] is not eligible to become a [role_text]: Their playtime age is too low!")
 		else
 			candidates += player
 
@@ -133,25 +133,25 @@
 
 	update_current_antag_max()
 	var/active_antags = get_active_antag_count()
-	log_debug("[uppertext(id)]: Found [active_antags]/[cur_max] active [role_text_plural].")
+	log_traitor("[uppertext(id)]: Found [active_antags]/[cur_max] active [role_text_plural].")
 
 	if(active_antags >= cur_max)
-		log_debug("Could not auto-spawn a [role_text], active antag limit reached.")
+		log_traitor("Could not auto-spawn a [role_text], active antag limit reached.")
 		return 0
 
 	build_candidate_list(flags & (ANTAG_OVERRIDE_MOB|ANTAG_OVERRIDE_JOB))
 	if(!candidates.len)
-		log_debug("Could not auto-spawn a [role_text], no candidates found.")
+		log_traitor("Could not auto-spawn a [role_text], no candidates found.")
 		return 0
 
 	attempt_spawn(1) //auto-spawn antags one at a time
 	if(!pending_antagonists.len)
-		log_debug("Could not auto-spawn a [role_text], none of the available candidates could be selected.")
+		log_traitor("Could not auto-spawn a [role_text], none of the available candidates could be selected.")
 		return 0
 
 	var/datum/mind/player = pending_antagonists[1]
 	if(!add_antagonist(player,0,0,0,1,1))
-		log_debug("Could not auto-spawn a [role_text], failed to add antagonist.")
+		log_traitor("Could not auto-spawn a [role_text], failed to add antagonist.")
 		return 0
 
 	pending_antagonists -= player
@@ -184,17 +184,17 @@
 /datum/antagonist/proc/draft_antagonist(var/datum/mind/player)
 	//Check if the player can join in this antag role, or if the player has already been given an antag role.
 	if(!can_become_antag(player))
-		log_debug("[player.key] was selected for [role_text] by lottery, but is not allowed to be that role.")
+		log_traitor("[player.key] was selected for [role_text] by lottery, but is not allowed to be that role.")
 		return 0
 	if(player.special_role)
-		log_debug("[player.key] was selected for [role_text] by lottery, but they already have a special role.")
+		log_traitor("[player.key] was selected for [role_text] by lottery, but they already have a special role.")
 		return 0
 	if(!(flags & ANTAG_OVERRIDE_JOB) && (!player.current || istype(player.current, /mob/abstract/new_player)))
-		log_debug("[player.key] was selected for [role_text] by lottery, but they have not joined the game.")
+		log_traitor("[player.key] was selected for [role_text] by lottery, but they have not joined the game.")
 		return 0
 
 	pending_antagonists |= player
-	log_debug("[player.key] has been selected for [role_text] by lottery.")
+	log_traitor("[player.key] has been selected for [role_text] by lottery.")
 
 	//Ensure that antags with ANTAG_OVERRIDE_JOB do not occupy job slots.
 	if(flags & ANTAG_OVERRIDE_JOB)

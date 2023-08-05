@@ -42,17 +42,18 @@
 	assembly.state = 4
 	SSmachinery.all_cameras += src
 
-	/* // Use this to look for cameras that have the same c_tag.
-	for(var/obj/machinery/camera/C in cameranet.cameras)
-		var/list/tempnetwork = C.network&src.network
-		if(C != src && C.c_tag == src.c_tag && tempnetwork.len)
-			world.log <<  "[src.c_tag] [src.x] [src.y] [src.z] conflicts with [C.c_tag] [C.x] [C.y] [C.z]"
-	*/
+	// Use this to look for cameras that have the same c_tag.
+	if(!isnull(src.c_tag))
+		for(var/obj/machinery/camera/C in cameranet.cameras)
+			var/list/tempnetwork = C.network&src.network
+			if(C != src && C.c_tag == src.c_tag && tempnetwork.len)
+				log_mapping_error("The camera [src.c_tag] at [src.x]-[src.y]-[src.z] conflicts with the c_tag of the camera in [C.x]-[C.y]-[C.z]!")
+
 	if(!src.network || src.network.len < 1)
 		if(loc)
-			log_error("[src.name] in [get_area(src)] (x:[src.x] y:[src.y] z:[src.z] has errored. [src.network?"Empty network list":"Null network list"]")
+			log_mapping_error("[src.name] in [get_area(src)] (x:[src.x] y:[src.y] z:[src.z] has errored. [src.network?"Empty network list":"Null network list"]")
 		else
-			log_error("[src.name] in [get_area(src)]has errored. [src.network?"Empty network list":"Null network list"]")
+			log_mapping_error("[src.name] in [get_area(src)]has errored. [src.network?"Empty network list":"Null network list"]")
 		ASSERT(src.network)
 		ASSERT(src.network.len > 0)
 	return ..()
