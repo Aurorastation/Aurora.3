@@ -289,7 +289,7 @@
 	qdel(src)
 
 /obj/item/clothing/shoes/magboots/vaurca/aug/negates_gravity()
-	return 1
+	return TRUE
 
 /obj/item/clothing/suit/space/void/scout
 	name = "scout armor"
