@@ -126,4 +126,4 @@
 
 /proc/log_ipintel(text)
 	log_game("IPINTEL: [text]")
-	log_debug("IPINTEL: [text]")
+	LOG_DEBUG("IPINTEL: [text]")

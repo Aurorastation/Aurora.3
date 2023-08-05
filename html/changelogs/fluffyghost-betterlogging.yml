@@ -1,0 +1,49 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.
+author: Fluffyghost
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - refactor: "Refactored the logging handling module/system."
+  - refactor: "Most of the larger / more relevant subsystems now have a specific logging function."
+  - backend: "Most of each logging submodule can now be set on/off and directed to a dedicated file."
+  - backend: "Most of each logging submodule can now be turned on/off at runtime via an admin verb."
+  - backend: "All logging functions now write to a condensed logfile and to output during unit tests."
+  - backend: "At the end of the unit tests, an artifact for each UT with the condensed logs is uploaded to the job, so everyone can review the logs. Does not include the UT logging, just the standard one."
+  - backend: "It is now possible during development / at runtime to panic write the logs to the chat. This is dev environment or panic case only, don't turn it on in production unless things went very bad."
+  - backend: "Runtime exceptions variables are now unwrapped on logging."
+  - backend: "All item attacks are now logged under the log_attack function."

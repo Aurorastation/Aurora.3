@@ -48,57 +48,6 @@ JOBS_HAVE_MINIMAL_ACCESS
 # What to subtract power by when crossing Z-levels.
 #EXPLOSION_Z_SUB 2
 
-## log OOC channel
-LOG_OOC
-
-## log client Say
-LOG_SAY
-
-## log admin actions
-LOG_ADMIN
-
-## log signaler actions
-LOG_SIGNALER
-
-## log client access (logon/logoff)
-LOG_ACCESS
-
-## log game actions (start of round, results, etc.)
-LOG_GAME
-
-## log player votes
-LOG_VOTE
-
-## log client Whisper
-LOG_WHISPER
-
-## log emotes
-LOG_EMOTE
-
-## log attack messages
-LOG_ATTACK
-
-## log pda messages
-LOG_PDA
-
-## log asset caching
-# LOG_ASSET
-
-## log world.log messages
-# LOG_WORLD_OUTPUT
-
-## log all Topic() calls (for use by coders in tracking down Topic issues)
-# LOG_HREFS
-
-## log runtime errors and hard-deletes to a file
-## 0 - no such logging will be done. (Same effect if simply commented out.)
-## 1 - all runtimes and hard-deletes will be logged to a file.
-## 2 - all runtimes will also be broadcast to log_debug() to make them easier to spot ingame.
-# LOG_RUNTIME 0
-
-## log admin warning messages
-##LOG_ADMINWARN  ## Also duplicates a bunch of other messages.
-
 ## sql switching
 # SQL_ENABLED
 
