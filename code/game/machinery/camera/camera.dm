@@ -65,8 +65,6 @@
 
 	QDEL_NULL(wires)
 
-	alarm_handler
-
 	cancelCameraAlarm(force = TRUE)
 
 	cameranet.remove_source(src)
