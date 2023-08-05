@@ -8,7 +8,7 @@
 	//We'll spawn everything here
 	var/turf/spawn_at = locate()
 
-	/**
+	/*
 	 * EXCLUSIONS FROM THE TEST
 	 *
 	 * This is to be used when there's no other possible way to make this test work, to exclude a specific path from being scrutinized
@@ -159,7 +159,7 @@
 	// do_spread sleeps and tries to addtimer after the src is qdeleted
 	ignore += typesof(/obj/effect/plant)
 
-	/**
+	/*
 	 * END EXCLUSIONS OF THE TEST
 	 */
 

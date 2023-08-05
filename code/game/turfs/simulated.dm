@@ -141,7 +141,7 @@
 		new /obj/effect/decal/cleanable/blood/oil(src)
 
 /turf/simulated/Destroy()
-	if (zone)
+	if (zone && !zone.invalid)
 		// Try to remove it gracefully first.
 		if (can_safely_remove_from_zone())
 			c_copy_air()
