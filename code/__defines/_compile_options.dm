@@ -65,7 +65,11 @@
 //Test at full capacity, the extra cost doesn't matter
 #define TIMER_DEBUG
 //Other debugs/tests, aurora specific snowflake
-#define FIREDBG
+
+//These needs some logging rework before being uncommented
+// #define FIREDBG
+// #define ZASDBG
+
 #define SQL_PREF_DEBUG
 #endif
 
