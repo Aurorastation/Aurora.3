@@ -229,9 +229,11 @@
 			garbage_queue_processed = TRUE
 			break
 
+		#if !defined(REFERENCE_TRACKING)
 		if(world.time > start_time + time_needed + 30 MINUTES) //If this gets us gitbanned I'm going to laugh so hard
 			result = TEST_FAIL("Something has gone horribly wrong, the garbage queue has been processing for well over 30 minutes. What the hell did you do")
 			break
+		#endif
 
 		//Immediately fire the gc right after
 		SSgarbage.next_fire = 1
