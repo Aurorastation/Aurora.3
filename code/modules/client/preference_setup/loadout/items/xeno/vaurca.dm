@@ -191,6 +191,7 @@
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_NO_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/klatxatl, /singleton/origin_item/origin/mikuetz)
 
 /datum/gear/augment/auxiliary_processor/New()
 	..()
