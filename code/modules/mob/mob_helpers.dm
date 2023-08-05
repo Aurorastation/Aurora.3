@@ -1209,13 +1209,14 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 			if(hearer && hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
 				return {"<a href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'>([a.text_tag])</a>"}
 			else
-				var/final_icon = a.tag_icon
-				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/chat)
+				var/final_icon = "accent-[a.tag_icon]"
 				return {"<span onclick="window.location.href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'">[S.icon_tag(final_icon)]</span>"}
 
 /mob/assign_player(var/mob/user)
 	ckey = user.ckey
 	resting = FALSE // ghosting sets resting to true
+	client.init_verbs()
 	return src
 
 /mob/proc/get_standard_pixel_x()
@@ -1250,8 +1251,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 /mob/proc/in_neck_grab()
 	for(var/thing in grabbed_by)
 		var/obj/item/grab/G = thing
-		if(G.state >= GRAB_NECK)
-			return TRUE
+		if(istype(G))
+			if(G.state >= GRAB_NECK)
+				return TRUE
 	return FALSE
 
 /mob/get_cell()

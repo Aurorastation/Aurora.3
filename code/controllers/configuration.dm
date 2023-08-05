@@ -17,6 +17,7 @@ var/list/gamemode_cache = list()
 	var/log_attack = 0					// log attack messages
 	var/log_adminchat = 0				// log admin chat messages
 	var/log_pda = 0						// log NTIRC messages
+	var/log_asset = 0					// log asset caching
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtime = 0					// logs world.log to a file
 	var/log_world_output = 0			// log world.log <<  messages
@@ -261,6 +262,9 @@ var/list/gamemode_cache = list()
 	var/ipintel_save_bad = 1
 	var/ipintel_domain = "check.getipintel.net"
 
+	// BYOND Tracy
+	var/enable_byond_tracy = 0
+
 	// Access control/Panic bunker settings.
 	var/access_deny_new_players = 0
 	var/access_deny_new_accounts = -1
@@ -322,6 +326,14 @@ var/list/gamemode_cache = list()
 	var/lore_summary
 
 	var/current_space_sector
+
+	var/cache_assets = TRUE
+
+	var/asset_transport = "simple"
+
+	var/asset_simple_preload
+	var/asset_cdn_webroot = ""
+	var/asset_cdn_url = null
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -436,6 +448,9 @@ var/list/gamemode_cache = list()
 
 				if ("log_pda")
 					config.log_pda = 1
+
+				if ("log_asset")
+					config.log_asset = 1
 
 				if ("log_world_output")
 					config.log_world_output = 1
@@ -874,6 +889,9 @@ var/list/gamemode_cache = list()
 				if("ipintel_save_bad")
 					ipintel_save_bad = text2num(value)
 
+				if("enable_byond_tracy")
+					enable_byond_tracy = 1
+
 				if("access_deny_new_accounts")
 					access_deny_new_accounts = text2num(value) >= 0 ? text2num(value) : -1
 				if("access_deny_vms")
@@ -974,6 +992,17 @@ var/list/gamemode_cache = list()
 
 				if("lore_summary")
 					lore_summary = value
+
+				if("cache_assets")
+					cache_assets = text2num(value)
+				if("asset_transport")
+					asset_transport = value
+				if("asset_simple_preload")
+					asset_simple_preload = TRUE
+				if("asset_cdn_webroot")
+					asset_cdn_webroot = (value[length(value)] != "/" ? (value + "/") : value)
+				if("asset_cdn_url")
+					asset_cdn_url = (value[length(value)] != "/" ? (value + "/") : value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

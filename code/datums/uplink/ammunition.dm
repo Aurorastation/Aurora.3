@@ -67,7 +67,18 @@
 /datum/uplink_item/item/ammo/peac
 	name = "Anti-materiel Cannon Cartridge"
 	path = /obj/item/ammo_casing/peac
-	desc = "Contains one anti-materiel cannon cartridge."
+	desc = "Contains one AP anti-materiel cannon cartridge."
+
+/datum/uplink_item/item/ammo/peac/he
+	name = "HE Anti-materiel Cannon Cartridge"
+	telecrystal_cost = 2
+	path = /obj/item/ammo_casing/peac/he
+	desc = "Contains one HE anti-materiel cannon cartridge."
+
+/datum/uplink_item/item/ammo/peac/shrapnel
+	name = "Fragmentation Anti-materiel Cannon Cartridge"
+	path = /obj/item/ammo_casing/peac/shrapnel
+	desc = "Contains one fragmentation anti-materiel cannon cartridge."
 
 /datum/uplink_item/item/ammo/super_heavy
 	name = "K2557 Magazine"

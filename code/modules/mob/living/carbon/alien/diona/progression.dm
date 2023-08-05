@@ -77,6 +77,8 @@
 	set_stat(CONSCIOUS)
 	gestalt = adult
 
+	adult.client.init_verbs()
+
 	//What do you call a person with no arms or no legs?
 	var/list/organ_removal_priorities = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
 	var/limbs_to_remove = (6 - limbs_can_grow)

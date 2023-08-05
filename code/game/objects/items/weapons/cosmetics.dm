@@ -4,96 +4,112 @@
 	desc = "A generic brand of lipstick."
 	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "lipstick"
+	item_state = "lipstick"
+	build_from_parts = TRUE
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
-	var/colour = "red"
+	update_icon_on_init = TRUE
+	var/lipstick_color = "#DC253A"
 	var/open = 0
 	drop_sound = 'sound/items/drop/screwdriver.ogg'
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 
+/obj/item/lipstick/update_icon()
+	cut_overlays()
+	if(open)
+		worn_overlay = "open_overlay"
+		worn_overlay_color = lipstick_color
+		icon_state = "[initial(icon_state)]_open"
+		var/image/stick_overlay = image('icons/obj/cosmetics.dmi', null, "[initial(icon_state)]_open_overlay")
+		stick_overlay.color = lipstick_color
+		add_overlay(stick_overlay)
+	else
+		icon_state = initial(icon_state)
+		worn_overlay = initial(worn_overlay)
+
 /obj/item/lipstick/purple
 	name = "purple lipstick"
-	colour = "purple"
+	lipstick_color = "#9471C9"
 
 /obj/item/lipstick/jade
 	name = "jade lipstick"
-	colour = "jade"
+	lipstick_color = "#3EB776"
 
 /obj/item/lipstick/black
 	name = "black lipstick"
-	colour = "black"
+	lipstick_color = "#56352F"
 
 /obj/item/lipstick/amberred
 	name = "amberred lipstick"
-	colour = "amberred"
+	lipstick_color = "#BA2E2A"
 
 /obj/item/lipstick/cherry
 	name = "cherry lipstick"
-	colour = "cherry"
+	lipstick_color = "#BD1E35"
 
 /obj/item/lipstick/orange
 	name = "orange lipstick"
-	colour = "orange"
+	lipstick_color = "#F75F51"
 
 /obj/item/lipstick/gold
 	name = "gold lipstick"
-	colour = "gold"
-
-/obj/item/lipstick/purple
-	name = "purple lipstick"
-	colour = "purple"
+	lipstick_color = "#DA8118"
 
 /obj/item/lipstick/deepred
 	name = "deepred lipstick"
-	colour = "deepred"
+	lipstick_color = "#850A1C"
 
 /obj/item/lipstick/pink
 	name = "pink lipstick"
-	colour = "pink"
+	lipstick_color = "#E84272"
 
 /obj/item/lipstick/rosepink
 	name = "rosepink lipstick"
-	colour = "rosepink"
+	lipstick_color = "#E2A4B1"
 
 /obj/item/lipstick/nude
 	name = "nude lipstick"
-	colour = "nude"
+	lipstick_color = "#E7A097"
 
 /obj/item/lipstick/wine
 	name = "wine lipstick"
-	colour = "wine"
+	lipstick_color = "#D25674"
 
 /obj/item/lipstick/peach
 	name = "peach lipstick"
-	colour = "peach"
+	lipstick_color = "#D05049"
 
 /obj/item/lipstick/forestgreen
 	name = "forestgreen lipstick"
-	colour = "forestgreen"
+	lipstick_color = "#82B33B"
 
 /obj/item/lipstick/skyblue
 	name = "skyblue lipstick"
-	colour = "skyblue"
+	lipstick_color = "#60C2C5"
 
 /obj/item/lipstick/teal
 	name = "teal lipstick"
-	colour = "teal"
+	lipstick_color = "#0A857C"
+
+/obj/item/lipstick/custom
+	name = "lipstick"
 
 /obj/item/lipstick/random
 	name = "lipstick"
 
-/obj/item/lipstick/random/New()
-	colour = pick("red","purple","jade","black","amberred","cherry","orange","gold","purple","deepred","pink","rosepink","nude","wine","peach","forestgreen","skyblue","teal")
-	name = "[colour] lipstick"
+/obj/item/lipstick/random/Initialize()
+	var/list/lipstick_subtypes = subtypesof(/obj/item/lipstick) - /obj/item/lipstick/random
+	var/obj/item/lipstick/chosen_lipstick = pick(lipstick_subtypes)
+	name = initial(chosen_lipstick.name)
+	lipstick_color = initial(chosen_lipstick.lipstick_color)
+	return ..()
 
 
 /obj/item/lipstick/attack_self(mob/user as mob)
 	to_chat(user, "<span class='notice'>You twist \the [src] [open ? "closed" : "open"].</span>")
 	open = !open
-	if(open)
-		icon_state = "[initial(icon_state)]_[colour]"
-	else
-		icon_state = initial(icon_state)
+	update_icon()
 
 /obj/item/lipstick/attack(mob/M as mob, mob/user as mob)
 	if(!open)	return
@@ -102,13 +118,13 @@
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.lip_style)	//if they already have lipstick on
+		if(H.lipstick_color)	//if they already have lipstick on
 			to_chat(user, "<span class='notice'>You need to wipe off the old lipstick first!</span>")
 			return
 		if(H == user)
 			user.visible_message("<span class='notice'>[user] does their lips with \the [src].</span>", \
 								 "<span class='notice'>You take a moment to apply \the [src]. Perfect!</span>")
-			H.lip_style = colour
+			H.lipstick_color = lipstick_color
 			H.update_body()
 		else
 			user.visible_message("<span class='warning'>[user] begins to do [H]'s lips with \the [src].</span>", \
@@ -116,7 +132,7 @@
 			if(do_after(user, 20) && do_after(H, 20, 0))	//user needs to keep their active hand, H does not.
 				user.visible_message("<span class='notice'>[user] does [H]'s lips with \the [src].</span>", \
 									 "<span class='notice'>You apply \the [src].</span>")
-				H.lip_style = colour
+				H.lipstick_color = lipstick_color
 				H.update_body()
 	else
 		to_chat(user, "<span class='notice'>Where are the lips on that?</span>")

@@ -130,16 +130,16 @@
 		return 1
 	return
 
-// Helper for adding verbs with timers.
-/atom/proc/add_verb(the_verb, datum/callback/callback)
-	if (callback && !callback.Invoke())
-		return
 
-	verbs += the_verb
-
-// Checks if user can use this object. Set use_flags to customize what checks are done.
-// Returns 0 if they can use it, a value representing why they can't if not.
-// Flags are in "code/__defines/misc.dm".
+/**
+ * Checks if user can use this object. Set use_flags to customize what checks are done
+ * Returns 0 (FALSE) if they can use it, a value representing why they can't if not
+ * See `code\__defines\misc.dm` for the list of flags and return codes
+ *
+ * * user - The `mob` to check against, if it can perform said use
+ * * use_flags - The flags to modify the check behavior, eg. `USE_ALLOW_NON_ADJACENT`, see `code\__defines\misc.dm` for the list of flags
+ * * show_messages - A boolean, to indicate if a feedback message should be shown, about the reason why someone can't use the atom
+ */
 /atom/proc/use_check(mob/user, use_flags = 0, show_messages = FALSE)
 	. = USE_SUCCESS
 	if(NOT_FLAG(use_flags, USE_ALLOW_NONLIVING) && !isliving(user)) // No message for ghosts.
@@ -180,6 +180,14 @@
 			to_chat(user, SPAN_NOTICE("You need to be holding [src] to do that."))
 		return USE_FAIL_NOT_IN_USER
 
+/**
+ * Checks if a mob can use an atom, message the user if not with an appropriate reason
+ * Returns 0 (FALSE) if they can use it, a value representing why they can't if not
+ * See `code\__defines\misc.dm` for the list of flags and return codes
+ *
+ * * user - The `mob` to check against, if it can perform said use
+ * * use_flags - The flags to modify the check behavior, eg. `USE_ALLOW_NON_ADJACENT`, see `code\__defines\misc.dm` for the list of flags
+ */
 /atom/proc/use_check_and_message(mob/user, use_flags = 0)
 	. = use_check(user, use_flags, TRUE)
 
@@ -298,6 +306,30 @@
 
 	if(href_list["examine_fluff"])
 		examine_fluff(usr)
+
+	var/client/usr_client = usr.client
+	var/list/paramslist = list()
+	if(href_list["statpanel_item_click"])
+		switch(href_list["statpanel_item_click"])
+			if("left")
+				paramslist[LEFT_CLICK] = "1"
+			if("right")
+				paramslist[RIGHT_CLICK] = "1"
+			if("middle")
+				paramslist[MIDDLE_CLICK] = "1"
+			else
+				return
+
+		if(href_list["statpanel_item_shiftclick"])
+			paramslist[SHIFT_CLICK] = "1"
+		if(href_list["statpanel_item_ctrlclick"])
+			paramslist[CTRL_CLICK] = "1"
+		if(href_list["statpanel_item_altclick"])
+			paramslist[ALT_CLICK] = "1"
+
+		var/mouseparams = list2params(paramslist)
+		usr_client.Click(src, loc, null, mouseparams)
+		return TRUE
 
 // Called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled_to var set.
 // See code/modules/mob/mob_movement.dm for more.
@@ -697,7 +729,7 @@
 			bullet_mark.set_dir(pick(NORTH,SOUTH,EAST,WEST)) // Pick random scorch design
 		else
 			bullet_mark.icon_state = "light_scorch"
-	
+
 /atom/proc/clear_bulletholes()
 	for(var/obj/effect/overlay/bmark/bullet_mark in src)
 		qdel(bullet_mark)

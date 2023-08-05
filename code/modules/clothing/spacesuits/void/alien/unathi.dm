@@ -211,3 +211,64 @@
 	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. This one bears a purple insignia, marking the wearer as a Sk'akh priest within the Izweski Navy."
 	icon_state = "hegemony-voidhelm-priest"
 	item_state = "hegemony-voidhelm-priest_item"
+
+/obj/item/clothing/suit/space/void/unathi_pirate/tarwa
+	name = "tarwa conglomerate voidsuit"
+	desc = "A mishmash of parts taken from Unathi pirate-made raider suits and hardware commonly found in the Southern frontier of the Spur, all held together by Diona bark, a common crafting method among the Unathi fleet of the Tarwa Conglomerate. \
+	It's relatively light, and yet appears to protect against a variety of hazards."
+	icon_state = "rig-tarwapirate"
+	item_state = "rig-tarwapirate-held"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED //it has diona growing on and in it to absorb rads. if i could make it regenerate breaches that would be neat
+	)
+
+/obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain
+	name = "tarwa conglomerate captain's voidsuit"
+	desc = "A mishmash of parts taken from Unathi pirate-made raider suits and hardware commonly found in the Southern frontier of the Spur, all held together by Diona bark,  a common crafting method among the Unathi fleet of the Tarwa Conglomerate. \
+	It only seems to fit Unathi, it's relatively light, and yet appears to protect against a variety of hazards. This one features various reinforcements, making it probably fit for more important crew."
+	icon_state = "rig-tarwacaptain"
+	item_state = "rig-tarwacaptain-held"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_PISTOL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED //it has diona growing on and in it to absorb rads
+	)
+
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa
+	name = "tarwa conglomerate helmet"
+	desc = "Metals, electronics and diona bark meet in this strange helmet. Quiet rustling can be heard from within."
+	icon_state = "rig-tarwapirate-helmet"
+	item_state = "rig-tarwapirate-helm-held"
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
+	light_overlay = "helmet_light_green"
+
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa/captain
+	name = "tarwa conglomerate captain's helmet"
+	desc = "Metals, electronics and diona bark meet in this strange helmet. Quiet rustling can be heard from within. \
+	This one appears to have been reinforced."
+	icon_state = "rig-tarwacaptain-helmet"
+	item_state = "rig-tarwaetcaptain-helmet-held"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_PISTOL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
+	light_overlay = "helmet_light_dual_green"

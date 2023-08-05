@@ -91,7 +91,7 @@ var/global/datum/repository/crew/crew_repository = new()
 					crewmemberData["y"] = pos.y
 					crewmemberData["z"] = pos.z
 
-				crewmembers[++crewmembers.len] = crewmemberData
+				crewmembers += list(crewmemberData)
 
 	crewmembers = sortByKey(crewmembers, "name")
 	cache_entry.timestamp = world.time + 5 SECONDS

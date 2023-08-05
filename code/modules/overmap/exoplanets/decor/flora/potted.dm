@@ -71,10 +71,14 @@
 		return 1
 	return ..()
 
-// Added random icon selection for potted plants.
-// It was silly they always used the same sprite when we have 26 sprites of them in the icon file.
+/obj/structure/flora/pottedplant/random
+	name = "potted plant (DEPRECATED)"
+	desc = "use /obj/random/pottedplant/ instead"
+
 /obj/structure/flora/pottedplant/random/New()
 	..()
+	name = "potted plant"
+	desc = "A potted plant."
 	var/number = rand(1,36)
 	if (number == 36)
 		if (prob(90)) // Make the weird one rarer
@@ -126,3 +130,216 @@
 	if (number < 10)
 		number = "0[number]"
 	icon_state = "plant-[number]"
+
+/obj/structure/flora/pottedplant/applebush
+	name = "decorative potted plant"
+	desc = "This is a decorative shrub. It's been trimmed into the shape of an apple."
+	icon_state = "applebush"
+
+/obj/structure/flora/pottedplant/fern
+	name = "potted fern"
+	desc = "This is an ordinary looking fern. It has some big leaves."
+	icon_state = "plant-01"
+
+/obj/structure/flora/pottedplant/fern
+	name = "potted fern"
+	desc = "This is an ordinary looking fern. It looks like it could do with some water."
+	icon_state = "plant-02"
+
+/obj/structure/flora/pottedplant/overgrown
+	name = "overgrown potted plants"
+	desc = "This is an assortment of colourful plants. Some parts are overgrown."
+	icon_state = "plant-03"
+
+/obj/structure/flora/pottedplant/bamboo
+	name = "potted bamboo"
+	desc = "These are bamboo shoots. The tops looks like they've been cut short."
+	icon_state = "plant-04"
+
+/obj/structure/flora/pottedplant/largebush
+	name = "large potted bush"
+	desc = "This is a large bush. The leaves stick upwards in an odd fashion."
+	icon_state = "plant-05"
+
+/obj/structure/flora/pottedplant/thinbush
+	name = "thin potted bush"
+	desc = "This is a thin bush. It appears to be flowering."
+	icon_state = "plant-06"
+
+/obj/structure/flora/pottedplant/mysterious
+	name = "reedy potted bulbs"
+	desc = "A reedy plant mostly used for decoration in Skrell homes, admired for its luxuriant stalks. Touching the bulbs causes them to shrink."
+	icon_state = "plant-07"
+
+/obj/structure/flora/pottedplant/smalltree
+	name = "small potted tree"
+	desc = "This is a small tree. It is rather pleasant."
+	icon_state = "plant-08"
+
+/obj/structure/flora/pottedplant/unusual
+	name = "unusual potted plant"
+	desc = "A fleshy cave dwelling plant with huge nodules for flowers. It's bulbous ends emit a soft blue light."
+	icon_state = "plant-09"
+
+/obj/structure/flora/pottedplant/unusual/Initialize()
+	. = ..()
+	set_light(l_range = 2, l_power = 2, l_color = "#007fff")
+
+/obj/structure/flora/pottedplant/orientaltree
+	name = "potted oriental tree"
+	desc = "This is a rather oriental style tree. It's flowers are bright pink."
+	icon_state = "plant-10"
+
+/obj/structure/flora/pottedplant/smallcactus
+	name = "small potted cactus"
+	desc = "A scrubby cactus adapted to the Moghes deserts."
+	icon_state = "plant-11"
+
+/obj/structure/flora/pottedplant/tall
+	name = "tall potted plant"
+	desc = "A hardy succulent adapted to the Moghes deserts. Tiny pores line its surface."
+	icon_state = "plant-12"
+
+/obj/structure/flora/pottedplant/sticky
+	name = "sticky potted plant"
+	desc = "This is an odd plant. Its sticky leaves trap insects."
+	icon_state = "plant-13"
+
+/obj/structure/flora/pottedplant/smelly
+	name = "smelly potted plant"
+	desc = "That's a huge flower. Previously, the petals would be used in dyes for unathi garb. Now it's more of a decorative plant. It reeks of rotten eggs."
+	icon_state = "plant-14"
+
+/obj/structure/flora/pottedplant/bouquet
+	name = "tiny potted bouquet"
+	desc = "A pitiful pot of assorted small flora. Some look familiar."
+	icon_state = "plant-15"
+
+/obj/structure/flora/pottedplant/aquatic
+	name = "aquatic potted plant"
+	desc = "An aquatic plant originating in Qerrbalak. This one has been gene-engineered to also live on land."
+	icon_state = "plant-16"
+
+/obj/structure/flora/pottedplant/shoot
+	name = "small potted shoot"
+	desc = "This is a small shoot. It still needs time to grow."
+	icon_state = "plant-17"
+
+/obj/structure/flora/pottedplant/orchid
+	name = "sweet potted orchid"
+	desc = "An orchid plant, as beautiful as it is delicate. Sweet smelling flowers are supported by spindly stems."
+	icon_state = "plant-18"
+
+/obj/structure/flora/pottedplant/crystal
+	name = "crystalline potted plant"
+	desc = "A ropey, aquatic plant. Odd crystal formations grow on the end."
+	icon_state = "plant-19"
+
+/obj/structure/flora/pottedplant/subterranean
+	name = "subterranean potted plant-fungus"
+	desc = "A bioluminescent subterranean half-plant half-fungus hybrid, it's bulbous ends glow faintly. Said to come from Sedantis I."
+	icon_state = "plant-20"
+
+/obj/structure/flora/pottedplant/subterranean/Initialize()
+	. = ..()
+	set_light(l_range = 1, l_power = 0.5, l_color = "#ff6633")
+
+/obj/structure/flora/pottedplant/minitree
+	name = "potted tree"
+	desc = "This is a miniature tree. It has tiny leaves, delicate and soft to touch."
+	icon_state = "plant-21"
+
+/obj/structure/flora/pottedplant/stoutbush
+	name = "stout potted bush"
+	desc = "This is a stout bush. Its leaves point up and outwards."
+	icon_state = "plant-22"
+
+/obj/structure/flora/pottedplant/drooping
+	name = "drooping potted plant"
+	desc = "This is a small plant. The drooping leaves make it look like it's wilted."
+	icon_state = "plant-23"
+
+/obj/structure/flora/pottedplant/tropical
+	name = "tropical potted plant"
+	desc = "This is some kind of tropical plant. It hasn't begun to flower yet."
+	icon_state = "plant-24"
+
+/obj/structure/flora/pottedplant/flowerbush
+	name = "potted flower bush"
+	desc = "This large shrub is thriving. It has lots of tiny flowers on display, in many different colors."
+	icon_state = "plant-25"
+
+/obj/structure/flora/pottedplant/bulrush
+	name = "small potted grass"
+	desc = "A bulrush, wetland grass-like plant. Commonly referred to as cattail."
+	icon_state = "plant-26"
+
+/obj/structure/flora/pottedplant/rosebush
+	name = "thorny potted rose bush"
+	desc = "A flowering rose bush. It has sharp thorns on its stems."
+	icon_state = "plant-27"
+
+/obj/structure/flora/pottedplant/floorleaf
+	name = "waxy leafy floor plant"
+	desc = "This plant has remarkably waxy leaves."
+	icon_state = "plant-28"
+
+/obj/structure/flora/pottedplant/fernovergrown
+	name = "overgrown potted fern"
+	desc = "This leafy fern really needs a trimming."
+	icon_state = "plant-29"
+
+/obj/structure/flora/pottedplant/ferntrim
+	name = "trimmed potted fern"
+	desc = "This leafy fern seems to have been trimmed too much."
+	icon_state = "plant-30"
+
+/obj/structure/flora/pottedplant/whitetulip
+	name = "potted tulip"
+	desc = "A potted plant, with large white flower buds."
+	icon_state = "plant-31"
+
+/obj/structure/flora/pottedplant/woodyshrub
+	name = "woody potted shrub"
+	desc = "A woody shrub."
+	icon_state = "plant-32"
+
+/obj/structure/flora/pottedplant/woodyshrubdying
+	name = "dying woody potted shrub"
+	desc = "A woody shrub. Seems to be in need of watering."
+	icon_state = "plant-33"
+
+/obj/structure/flora/pottedplant/woodyshrubbloom
+	name = "blooming woody potted shrub"
+	desc = "A woody shrub. This one seems to be in bloom."
+	icon_state = "plant-34"
+
+/obj/structure/flora/pottedplant/bluefern
+	name = "blueish potted fern"
+	desc = "A fern, with big dark blue leaves."
+	icon_state = "plant-35"
+
+/obj/structure/flora/pottedplant/eye
+	name = "eye bulb plant"
+	desc = "A decorative plant borne from a genetic mishap in a Zeng-Hu genetics lab. \
+	        Scientists assure, the blinking \"eye\" is simply just a form of heat regulation, \
+			and other than that, this plant is same as any other greenery."
+	icon_state = "plant-36"
+
+/obj/structure/flora/pottedplant/dead
+	name = "dead potted plant"
+	desc = "A dead potted plant."
+	icon_state = "plant-dead"
+	dead = TRUE
+
+/obj/structure/flora/pottedplant/dead2
+	name = "dead potted plant"
+	desc = "A dead potted plant."
+	icon_state = "plant-dead-2"
+	dead = TRUE
+
+/obj/structure/flora/pottedplant/empty
+	name = "empty plant pot"
+	desc = "An empty plant pot."
+	icon_state = "plant_empty"
+	dead = TRUE

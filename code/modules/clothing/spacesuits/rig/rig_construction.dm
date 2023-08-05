@@ -72,6 +72,14 @@
 	board_type = /obj/item/circuitboard/rig_assembly/civilian/eva
 	rig_type = /obj/item/rig/eva
 
+/obj/item/rig_assembly/eva/pilot
+	name = "pilot suit control module assembly"
+	desc = "The assembly frame for a light hardsuit that is designed for pilots."
+	icon_base = "eva"
+	icon_state = "eva1"
+	board_type = /obj/item/circuitboard/rig_assembly/civilian/eva/pilot
+	rig_type = /obj/item/rig/eva/pilot
+
 /obj/item/rig_assembly/industrial
 	name = "industrial suit control module assembly"
 	desc = "The assembly frame for a sturdy hardsuit used by construction crews and mining corporations."

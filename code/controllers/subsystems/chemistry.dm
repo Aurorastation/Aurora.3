@@ -5,6 +5,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	priority = SS_PRIORITY_CHEMISTRY
 	init_order = SS_INIT_MISC_FIRST
 	runlevels = RUNLEVELS_PLAYING
+	init_stage = INITSTAGE_EARLY
 
 	var/list/active_holders = list()
 	var/list/chemical_reactions
@@ -77,8 +78,9 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	for(var/_R in subtypesof(/singleton/reagent/))
 		check_specific_heat(_R)
 
-/datum/controller/subsystem/chemistry/stat_entry()
-	..("AH:[active_holders.len]")
+/datum/controller/subsystem/chemistry/stat_entry(msg)
+	msg = "AH:[active_holders.len]"
+	return ..()
 
 /datum/controller/subsystem/chemistry/New()
 	NEW_SS_GLOBAL(SSchemistry)

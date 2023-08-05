@@ -81,6 +81,9 @@ LOG_ATTACK
 ## log pda messages
 LOG_PDA
 
+## log asset caching
+# LOG_ASSET
+
 ## log world.log messages
 # LOG_WORLD_OUTPUT
 
@@ -504,6 +507,13 @@ LOG_GELF_ENABLED 0
 ## Domain name to query (leave commented out for the default, only needed if you pay getipintel.net for more querys)
 #IPINTEL_DOMAIN check.getipintel.net
 
+### BYOND Tracy:
+### Uncomment this option to enable profiling with byond-tracy. Admins and Developers have the ability to use the appropriate debug verb
+### to start the profiler in the middle of the round even if this option is uncommented, otherwise tracy will start on /world/New().
+### Warning: Do not uncomment this configuration option unless you know what you are doing and need it. It will create a gigabyte-large file
+### everytime you start the server, which will grow as the server continues to run.
+#ENABLE_BYOND_TRACY
+
 ### ACCESS CONTROL:
 ### This allows you to adjust various parametres by which potentially malicious users can by identified.
 ### Note that none of these are 100% accurate, and should only be used in cases where a "panic bunker" is warranted.
@@ -615,3 +625,48 @@ FAIL2TOPIC_ENABLED 0
 ## Lore Summary
 ## The text that will appear when the player clicks the lore button at the start screen
 LORE_SUMMARY
+
+## Assets can opt-in to caching their results into `tmp`.
+## This is important, as preferences assets take upwards of 30 seconds (without sleeps) to collect.
+## The cache is assumed to be cleared by TGS recompiling, which deletes `tmp`.
+## This should be disabled (through `CACHE_ASSETS 0`) on development,
+## but enabled on production (the default).
+CACHE_ASSETS 0
+
+########################
+# Browser Asset Config #
+########################
+# Browser assets are any file included in interfaces. css, images, javascript, etc.
+# This handles configuring how we get these to the player so interfaces can access them.
+
+# Asset Transport
+# The normal way of getting assets to clients is to use the internal byond system. This can be slow and delay the opening of interface windows. It also doesn't allow the internal IE windows byond uses to cache anything.
+# You can instead have the server save them to a website via a folder within the game server that the web server can read. This could be a simple webserver or something backed by a CDN.
+# Valid values: simple, webroot. Simple is the default.
+#ASSET_TRANSPORT simple
+
+
+# Simple asset transport configurable values.
+
+# Uncomment this to have the server passively send all browser assets to each client in the background. (instead of waiting for them to be needed)
+# This should be uncommented in production and commented in development
+#ASSET_SIMPLE_PRELOAD
+
+
+# Webroot asset transport configurable values.
+
+# Local folder to save assets to.
+# Assets will be saved in the format of asset.MD5HASH.EXT or in namespaces/hash/ as ASSET_FILE_NAME or asset.MD5HASH.EXT
+#ASSET_CDN_WEBROOT data/asset-store/
+
+# URL the folder from above can be accessed from.
+# for best results the webserver powering this should return a long cache validity time, as all assets sent via this transport use hash based urls
+# Encryption (https) is supported here, but linux clients will have issues if you require higher then tls 1.0. Windows clients down to windows 7 can handle tls 1.2 no issue.
+# if you want to test this locally, you simpily run the `localhost-asset-webroot-server.py` python3 script to host assets stored in `data/asset-store/` via http://localhost:58715/
+#ASSET_CDN_URL http://localhost:58715/
+
+# CDN webservers must provide CORS headers, or TGUI will break and not be able to load all elements. The following example is for IIS:
+# <add name="Access-Control-Allow-Origin" value="*" />
+# <add name="Vary" value="Origin" />
+# <add name="Access-Control-Allow-Methods" value="GET, POST, OPTIONS" />
+# <add name="Access-Control-Max-Age" value="0" />

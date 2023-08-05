@@ -89,13 +89,13 @@
 	if(current)					//remove ourself from our old body's mind variable
 		if(changeling)
 			current.remove_changeling_powers()
-			current.verbs -= /datum/changeling/proc/EvolutionMenu
+			remove_verb(current, /datum/changeling/proc/EvolutionMenu)
 		if(vampire)
 			current.remove_vampire_powers()
 		current.mind = null
 
-		SSnanoui.user_transferred(current, new_character) // transfer active NanoUI instances to new user
-		SSvueui.user_transferred(current, new_character)
+		SSnanoui.user_transferred(current, new_character)
+		SStgui.on_transfer(current, new_character)
 		if(current.client && ticket_panels[current.client])
 			var/datum/ticket_panel/tp = ticket_panels[current.client]
 			tp.ticket_panel_window.user = new_character
@@ -112,6 +112,7 @@
 		new_character.make_vampire()
 	if(active)
 		new_character.key = key		//now transfer the key to link the client to our new body
+
 
 /datum/mind/proc/store_memory(new_text)
 	. = length(memory + new_text)
@@ -177,11 +178,6 @@
 
 /datum/mind/Topic(href, href_list)
 	if(!check_rights(R_ADMIN))	return
-
-	if(current && isliving(current))
-		if(href_list["set_psi_faculty"] && href_list["set_psi_faculty_rank"])
-			current.set_psi_rank(href_list["set_psi_faculty"], text2num(href_list["set_psi_faculty_rank"]))
-			return TRUE
 
 	if(href_list["add_antagonist"])
 		var/datum/antagonist/antag = all_antag_types[href_list["add_antagonist"]]
@@ -373,7 +369,7 @@
 				to_chat(H, "<span class='danger'><font size =3>You somehow have become the recipient of a loyalty transplant, and it just activated!</font></span>")
 				H.implant_loyalty(H, override = TRUE)
 				log_admin("[key_name_admin(usr)] has loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
-			else
+
 	else if (href_list["silicon"])
 		BITSET(current.hud_updateflag, SPECIALROLE_HUD)
 		switch(href_list["silicon"])
@@ -440,6 +436,16 @@
 		for(var/datum/objective/objective in objectives)
 			to_chat(current, "<B>Objective #[obj_count]</B>: [objective.explanation_text]")
 			obj_count++
+
+	else if(href_list["set_psi_rank"])
+		current.set_psi_rank(text2num(href_list["set_psi_rank"]))
+		return
+	else if(href_list["set_psi_rank_limitless"])
+		var/sure = input(usr, "Limitless is INTENTIONALLY STUPIDLY OVERPOWERED! YOU SHOULD NOT BE USING THIS WITHOUT KNOWING EXACTLY WHAT YOU'RE DOING!", "Don't Get A Staff Complaint") as anything in list("I know what I'm doing!", "I fear no man. But that thing... it scares me!")
+		if(sure == "I know what I'm doing!")
+			current.set_psi_rank(PSI_RANK_LIMITLESS)
+		return
+
 	edit_memory()
 
 /datum/mind/proc/find_syndicate_uplink()

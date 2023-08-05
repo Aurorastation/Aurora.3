@@ -186,7 +186,7 @@
 	if(!do_after(src, delay = 3 SECONDS, needhand = FALSE))
 		return
 	if(E.detach_nymph_limb() && my_nymph_limbs.len == 1)
-		verbs -= /mob/living/carbon/human/proc/detach_nymph_limb
+		remove_verb(src, /mob/living/carbon/human/proc/detach_nymph_limb)
 
 	regenerate_icons()
 
@@ -388,7 +388,7 @@
 	E.replaced(H)
 	for(var/obj/item/organ/external/child in E.children)
 		nymphize(H, child.organ_tag, TRUE)
-	H.verbs |= /mob/living/carbon/human/proc/detach_nymph_limb
+	add_verb(H, /mob/living/carbon/human/proc/detach_nymph_limb)
 
 /datum/species/diona/nymph_limb // For use on nymph-limb organs only
 	name = "Nymph Limb"

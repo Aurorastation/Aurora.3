@@ -188,7 +188,7 @@
 			to_chat(user, "\The [src] has no padding to remove.")
 			return
 		to_chat(user, "You remove the padding from \the [src].")
-		playsound(src, 'sound/items/wirecutter.ogg', 100, 1)
+		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 		painted_colour = null
 		remove_padding()
 
@@ -199,7 +199,7 @@
 		else
 			anchored = TRUE
 			to_chat(user, "You fasten \the [src] to the floor.")
-		playsound(src, 'sound/items/screwdriver.ogg', 100, 1)
+		playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
 
 	else if(istype(W, /obj/item/grab))
 		var/obj/item/grab/G = W
@@ -326,6 +326,25 @@
 /obj/structure/bed/padded/New(var/newloc)
 	..(newloc, MATERIAL_PLASTIC, MATERIAL_CLOTH)
 
+/obj/structure/bed/padded/bunk
+	pixel_y = 16
+	var/sleeby_shift = 16
+
+/obj/structure/bed/padded/bunk/post_buckle(atom/movable/MA)
+	. = ..()
+	if(MA == buckled)
+		if(istype(MA, /mob/living))
+			var/mob/living/M = MA
+			M.old_y = sleeby_shift
+		buckled.pixel_y = sleeby_shift
+		update_icon()
+	else
+		if(istype(MA, /mob/living))
+			var/mob/living/M = MA
+			M.old_y = 0
+		MA.pixel_y = 0
+		update_icon()
+
 /obj/structure/bed/aqua
 	name = "aquabed"
 	icon_state = "aquabed"
@@ -353,6 +372,12 @@
 	var/obj/item/vitals_monitor/vitals
 	var/iv_attached = 0
 	var/iv_stand = TRUE
+	var/iv_transfer_rate = 4 //Same as max for regular IV drips
+	//Items that can be attached to an IV
+	var/list/accepted_containers = list(
+		/obj/item/reagent_containers/blood,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle)
 	var/patient_shift = 9 //How much are mobs moved up when they are buckled_to.
 	slowdown = 0
 
@@ -400,7 +425,7 @@
 		vitals.bed = src
 		update_icon()
 		return
-	if(iv_stand && !beaker && (istype(I, /obj/item/reagent_containers/glass/beaker) || istype(I, /obj/item/reagent_containers/blood)))
+	if(iv_stand && !beaker && is_type_in_list(I, accepted_containers))
 		if(!user.unEquip(I, target = src))
 			return
 		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
@@ -428,7 +453,7 @@
 		return
 
 	if(beaker.volume > 0)
-		beaker.reagents.trans_to_mob(buckled, beaker.amount_per_transfer_from_this, CHEM_BLOOD)
+		beaker.reagents.trans_to_mob(buckled, min(iv_transfer_rate, beaker.amount_per_transfer_from_this), CHEM_BLOOD)
 		update_icon()
 
 /obj/structure/bed/roller/proc/remove_beaker(mob/user)

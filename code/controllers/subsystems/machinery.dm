@@ -188,8 +188,11 @@ if(Datum.isprocessing) {\
 				machine.isprocessing = null
 			processing -= machine
 			continue
-		if (machine.process_all() == PROCESS_KILL)
-			processing -= machine
+		//process_all was moved here because of calls overhead for no benefits
+		if(HAS_FLAG(machine.processing_flags, MACHINERY_PROCESS_SELF))
+			if(machine.process() == PROCESS_KILL)
+				STOP_PROCESSING_MACHINE(machine, MACHINERY_PROCESS_SELF)
+				processing -= machine
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
@@ -234,8 +237,8 @@ if(Datum.isprocessing) {\
 			queue.Cut(i)
 			return
 
-/datum/controller/subsystem/machinery/stat_entry()
-	..({"\n\
+/datum/controller/subsystem/machinery/stat_entry(msg)
+	msg = {"\n\
 		Queues: \
 		Pipes [pipenets.len] \
 		Machines [processing.len] \
@@ -247,7 +250,8 @@ if(Datum.isprocessing) {\
 		Networks [round(cost_powernets, 1)] \
 		Objects [round(cost_power_objects, 1)]\n\
 		Overall [round(cost ? processing.len / cost : 0, 0.1)]
-	"})
+	"}
+	return ..()
 
 /datum/controller/subsystem/machinery/ExplosionStart()
 	suspend()
