@@ -2,7 +2,7 @@
 // It initializes last in the subsystem order, and queues
 // the tests to start about 20 seconds after init is done.
 
-/**
+/*
  * Wondering if you should change this to run the tests? NO!
  * Because the preproc checks for this in other areas too, set it in code\__defines\manual_unit_testing.dm instead!
  */
@@ -69,9 +69,7 @@
 
 		var/current_test_result = null
 
-			current_test_result = test.start_test()
-			test.fail("Test run encountered an exception: [test.name] - Exception: [json_encode(exception)]", __FILE__, __LINE__)
-			world.Error(exception)
+		current_test_result = test.start_test()
 
 		//If the result is still null, the test have runtimed or not returned a valid result, either way rise an error
 		if (isnull(current_test_result))
@@ -131,5 +129,14 @@
 			else
 				UT.fail("**** \[[unit_tests_failures]\] Errors Encountered! Read the logs above! ****", __FILE__, __LINE__)
 			del world
+
+//This is only valid during unit tests
+/world/Error(var/exception/e)
+
+	UT.fail("**** !!! Encountered a world exception during unit testing !!! \n \
+	Exception name: [e.name] @@@ [e.file]:[e.line] \n \
+	Description: [e.desc]")
+
+	return ..(e)
 
 #endif
