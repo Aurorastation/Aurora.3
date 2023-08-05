@@ -16,5 +16,7 @@ Nothing should ever be included before this file.
 #define TIMER_DEBUG
 #define TESTING
 #define UNIT_TEST
+#define ZASDBG
+#define FIREDBG
 
 #endif

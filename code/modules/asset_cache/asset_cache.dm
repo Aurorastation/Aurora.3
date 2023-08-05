@@ -346,7 +346,11 @@ var/list/asset_datums = list()
 	return out.Join("\n")
 
 /datum/asset/spritesheet/proc/should_load_immediately()
+#ifdef DO_NOT_DEFER_ASSETS
 	return TRUE
+#else
+	return load_immediately
+#endif
 
 /datum/asset/spritesheet/proc/Insert(sprite_name, icon/I, icon_state="", dir=SOUTH, frame=1, moving=FALSE, icon/forced=FALSE)
 	if(should_load_immediately())
