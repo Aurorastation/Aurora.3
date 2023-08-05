@@ -67,7 +67,6 @@
 //Other debugs/tests, aurora specific snowflake
 #define FIREDBG
 #define SQL_PREF_DEBUG
-#define ZASDBG
 #endif
 
 //Poor man's code to try to catch people that are running the codebase without compiling tgui, aka in an unsupported way
