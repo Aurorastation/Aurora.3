@@ -252,7 +252,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 			if (QDEL_HINT_FINDREFERENCE)//qdel will, if REFERENCE_TRACKING is enabled, display all references to this object, then queue the object for deletion.
 				SSgarbage.QueueForQueuing(D)
 				#ifdef REFERENCE_TRACKING
-				D.find_references()
+				INVOKE_ASYNC(D, TYPE_PROC_REF(/datum, find_references))
 				#endif
 			if (QDEL_HINT_IFFAIL_FINDREFERENCE) // qdel will, if REFERENCE_TRACKING is enabled and the object fails to collect, display all references to this object
 				SSgarbage.QueueForQueuing(D)
