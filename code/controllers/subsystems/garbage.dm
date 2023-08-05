@@ -32,7 +32,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	// of the immortality qdel hints
 	var/list/noforcerespect = list()
 
-	#ifdef TESTING
+	#ifdef REFERENCE_TRACKING
 	var/list/qdel_list = list()	// list of all types that have been qdel()eted
 	#endif
 
@@ -209,7 +209,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 /proc/qdel(datum/D, force=FALSE)
 	if(!D)
 		return
-#ifdef TESTING
+#ifdef REFERENCE_TRACKING
 	SSgarbage.qdel_list += "[D.type]"
 #endif
 	if(!istype(D))
