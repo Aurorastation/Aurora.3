@@ -361,11 +361,18 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 
 	SSgarbage.enable() //restart the garbage collector
 
+#if defined(FIND_REF_NO_CHECK_TICK)
+
 #define GC_RESTORE_LOOP_CHECK_AND_RETURN \
-#if defined(FIND_REF_NO_CHECK_TICK); \
 world.loop_checks = TRUE; \
-#endif; \
 return
+
+#else
+
+#define GC_RESTORE_LOOP_CHECK_AND_RETURN \
+return
+
+#endif
 
 /datum/proc/search_var(potential_container, container_name, recursive_limit = 64, search_time = world.time)
 	//If we are performing a search without a check tick, force the loop to stay here, we should not sleep
