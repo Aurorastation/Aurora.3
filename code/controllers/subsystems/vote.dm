@@ -253,7 +253,7 @@ var/datum/controller/subsystem/vote/SSvote
 					var/datum/game_mode/M = gamemode_cache[F]
 					if(!M)
 						continue
-					AddChoice(F, capitalize(M.name), "[M.required_players]")
+					AddChoice(F, capitalize(M.name), "", M.required_players)
 				AddChoice(ROUNDTYPE_STR_SECRET, "Secret")
 				if(ROUNDTYPE_STR_MIXED_SECRET in choices)
 					AddChoice(ROUNDTYPE_STR_MIXED_SECRET, "Mixed Secret")
@@ -315,10 +315,15 @@ var/datum/controller/subsystem/vote/SSvote
 		return 1
 	return 0
 
-/datum/controller/subsystem/vote/proc/AddChoice(name, display_name, extra_text)
+/datum/controller/subsystem/vote/proc/AddChoice(name, display_name, extra_text = "", required_players = 0)
 	if(!display_name)
 		display_name = name
-	choices[name] = list("name" = display_name, "extra" = extra_text, "votes" = 0)
+	choices[name] = list(
+		"name" = display_name,
+		"extra" = extra_text,
+		"required_players" = required_players,
+		"votes" = 0
+	)
 
 /datum/controller/subsystem/vote/ui_state(mob/user)
     return always_state
@@ -416,7 +421,8 @@ var/datum/controller/subsystem/vote/SSvote
 		data["choices"] += list(list(
 			"choice" = choice,
 			"votes" = choices[choice]["votes"],
-			"extra" = choices[choice]["extra"]
+			"extra" = choices[choice]["extra"],
+			"required_players" = choices[choice]["required_players"],
 		))
 
 	data["mode"] = mode
@@ -433,6 +439,8 @@ var/datum/controller/subsystem/vote/SSvote
 	data["is_staff"] = user.client.holder && (user.client.holder.rights & (R_ADMIN|R_MOD))
 	var/slevel = get_security_level()
 	data["is_code_red"] = (slevel == "red" || slevel == "delta")
+	data["total_players"] = SSticker.total_players
+	data["total_players_ready"] = SSticker.total_players_ready
 	return data
 
 /mob/verb/vote()
