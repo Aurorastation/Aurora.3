@@ -247,7 +247,6 @@ var/global/list/frozen_crew = list()
 	on_exit_sound = 'sound/machines/cryopod/lift_exit.ogg'
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
 	allow_occupant_types = list(/mob/living/silicon/robot)
-	disallow_occupant_types = list(/mob/living/silicon/robot/drone)
 
 /obj/machinery/cryopod/living_quarters
 	name = "living quarters lift"

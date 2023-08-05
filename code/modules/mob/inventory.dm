@@ -413,8 +413,9 @@ var/list/slot_equipment_priority = list( \
 				return TRUE //Something is stopping us. Takes off throw mode.
 
 		if(unEquip(I))
-			make_item_drop_sound(I)
-			I.forceMove(T)
+			if(!QDELETED(I))
+				make_item_drop_sound(I)
+				I.forceMove(T)
 			return TRUE
 
 	if(!unEquip(item) && !ismob(item)) //ismob override is here for grab throwing mobs

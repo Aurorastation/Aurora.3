@@ -925,7 +925,8 @@
 	var/list/data = list()
 	var/isAdmin = isobserver(user) && check_rights(R_ADMIN, FALSE, user)
 	data["locked"] = (locked && !emagged)
-	data["power_cell_status"] = cell?.percent()
+	data["power_cell_inserted"] = cell != null
+	data["power_cell_charge"] = cell?.percent()
 	data["fail_time"] = failure_timer * 2
 	data["silicon_user"] = isAdmin || issilicon(user)
 	data["total_load"] = round(lastused_total)

@@ -16,6 +16,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	var/list/initial_generic_waypoints //store landmark_tag of landmarks that should be added to the actual lists below on init.
 	var/list/initial_restricted_waypoints //For use with non-automatic landmarks (automatic ones add themselves).
+	var/list/tracked_dock_tags //landmark_tag of landmarks of docks that will be tracked in the docks computer program
 
 	var/list/generic_waypoints = list()    //waypoints that any shuttle can use
 	var/list/restricted_waypoints = list() //waypoints for specific shuttles
