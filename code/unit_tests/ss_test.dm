@@ -69,11 +69,9 @@
 
 		var/current_test_result = null
 
-		try
 			current_test_result = test.start_test()
-		catch(var/exception/exception)
 			test.fail("Test run encountered an exception: [test.name] - Exception: [json_encode(exception)]", __FILE__, __LINE__)
-			stack_trace("Stack tracing the exception: [json_encode(exception)]")
+			world.Error(exception)
 
 		//If the result is still null, the test have runtimed or not returned a valid result, either way rise an error
 		if (isnull(current_test_result))
