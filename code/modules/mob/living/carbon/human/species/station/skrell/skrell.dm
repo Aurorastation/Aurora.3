@@ -33,6 +33,7 @@
 	num_alternate_languages = 3
 	language = LANGUAGE_SKRELLIAN
 	name_language = LANGUAGE_SKRELLIAN
+	secondary_langs = list(LANGUAGE_SOL_COMMON)
 	rarity_value = 3
 
 	grab_mod = 2
@@ -108,7 +109,7 @@
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH)
 
 	has_psionics = PSI_RANK_SENSITIVE
-	character_creation_psi_points = 4
+	character_creation_psi_points = 2
 
 /datum/species/skrell/handle_trail(var/mob/living/carbon/human/H, var/turf/T)
 	var/list/trail_info = ..()

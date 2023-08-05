@@ -43,9 +43,9 @@ var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psioni
 		complete_nlom_time = world.time + 2 MINUTES
 		completing_nlom = TRUE
 	if(completing_nlom && world.time >= complete_nlom_time)
-		var/highest_emotion = "Happy"
+		var/highest_emotion = "Calm"
 		for(var/emotion in nlom_votes)
-			if(nlom_votes[highest_emotion] < nlom_votes[emotion])
+			if(nlom_votes[emotion] > nlom_votes[highest_emotion])
 				highest_emotion = emotion
 		for(var/datum/psi_complexus/PC in all_psi_complexes)
 			if(PC.psionic_rank >= PSI_RANK_SENSITIVE)
