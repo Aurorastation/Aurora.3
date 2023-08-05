@@ -1,7 +1,7 @@
 //include unit test files in this module in this ifdef
 //Keep this sorted alphabetically
 
-// #if defined(UNIT_TESTS) || defined(SPACEMAN_DMM) //tgstation style, not relevant for us, for now
+// #if defined(UNIT_TEST) || defined(SPACEMAN_DMM) //tgstation style, not relevant for us, for now
 
 /// Constants indicating unit test completion status
 #define UNIT_TEST_FAILED null
