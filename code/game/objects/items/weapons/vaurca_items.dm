@@ -285,7 +285,6 @@
 
 /obj/item/clothing/shoes/magboots/vaurca/aug/dropped()
 	. = ..()
-	loc = null
 	qdel(src)
 
 /obj/item/clothing/shoes/magboots/vaurca/aug/negates_gravity()
