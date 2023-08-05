@@ -66,8 +66,13 @@
 			continue
 
 		TEST_GROUP_OPEN("[test.name]")
-		if (test.start_test() == null)	// Runtimed.
-			test.fail("Test Runtimed: [test.name]", __FILE__, __LINE__)
+
+		try
+			if (test.start_test() == null)	// Runtimed.
+				test.fail("Test Runtimed: [test.name]", __FILE__, __LINE__)
+		catch(var/exception/exception)
+			test.fail("Test run encountered an exception: [test.name] - Exception: [json_encode(exception)]", __FILE__, __LINE__)
+
 		TEST_GROUP_CLOSE("[test.name]")
 
 		if (test.async)
