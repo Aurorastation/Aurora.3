@@ -15,5 +15,6 @@ Nothing should ever be included before this file.
 //Defines to extend its code coverage
 #define TIMER_DEBUG
 #define TESTING
+#define UNIT_TEST
 
 #endif
