@@ -40,7 +40,7 @@
 
 //Additional code for the above flags.
 //A warning on compile is treated as an error in the CI, therefore unlike TG we must avoid the warn if it's running in the CI
-#if defined(TESTING) && !defined(UNIT_TEST)
+#if defined(TESTING) && !defined(CIBUILDING)
 #warn compiling in TESTING mode. testing() debug messages will be visible.
 #endif
 
@@ -74,7 +74,7 @@
 #define CBT
 #endif
 
-#if !defined(CBT) && !defined(SPACEMAN_DMM) && !defined(OPENDREAM) && !defined(UNIT_TEST)
+#if !defined(CBT) && !defined(SPACEMAN_DMM) && !defined(OPENDREAM) && !defined(CIBUILDING)
 #warn Building with Dream Maker is no longer supported and will result in errors.
 #warn In order to build, run BUILD.bat in the root directory.
 #warn Consider switching to VSCode editor instead, where you can press Ctrl+Shift+B to build.
