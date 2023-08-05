@@ -40,7 +40,7 @@
 
 //Additional code for the above flags.
 //A warning on compile is treated as an error in the CI, therefore unlike TG we must avoid the warn if it's running in the CI
-#if defined(TESTING) && !defined(CIBUILDING)
+#if defined(TESTING) && !defined(CIBUILDING) && !defined(OPENDREAM)
 #warn compiling in TESTING mode. testing() debug messages will be visible.
 #endif
 
