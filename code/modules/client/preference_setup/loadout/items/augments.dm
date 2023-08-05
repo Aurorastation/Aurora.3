@@ -208,7 +208,7 @@
 	path = /obj/item/organ/internal/augment/tool/drill
 	whitelisted = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WORKER)
 	allowed_roles = list("Shaft Miner")
-	cost = 5
+	cost = 3
 
 /datum/gear/augment/head_fluff
 	display_name = "custom head augmentation"

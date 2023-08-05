@@ -223,10 +223,11 @@
 /datum/gear/augment/vaurcatool
 	display_name = "vaurca integrated toolset"
 	description = "A heavy arm-mounted toolset designed for use by Bound Workers and Bulwarks."
-	cost = 5
+	cost = 2
 	path = /obj/item/organ/internal/augment/tool/combitool/vaurca
 	sort_category = "Xenowear - Vaurca"
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK)
+	allowed_roles = list("Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist")
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARRIOR)
 
 /datum/gear/augment/vaurcatool/New()
 	..()
@@ -234,3 +235,23 @@
 	augs["vaurca integrated toolset, right hand"] = /obj/item/organ/internal/augment/tool/combitool/vaurca
 	augs["vaurca integrated toolset, left hand"] = /obj/item/organ/internal/augment/tool/combitool/vaurca/left
 	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/augment/vaurcasec
+	display_name = "vaurca integrated electric weapon"
+	description = "A Vaurca-designed robotic hand that can deliver a painful electric shock."
+	cost = 2
+	path = /obj/item/organ/external/hand/right/vaurca/security
+	whitelisted = list(SPECIES_VAURCA_WARRIOR)
+	sort_category = "Xenowear - Vaurca"
+	allowed_roles = list("Security Officer", "Warden")
+	flags = GEAR_NO_SELECTION
+
+/datum/gear/augment/vaurcamed
+	display_name = "vaurca integrated biological analyser"
+	description = "A Vaurca-designed robotic hand capable of providing a medical scan of a target."
+	cost = 2
+	path = /obj/item/organ/external/hand/right/vaurca/medical
+	whitelisted = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
+	sort_category = "Xenowear - Vaurca"
+	allowed_roles = list("Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
+	flags = GEAR_NO_SELECTION
