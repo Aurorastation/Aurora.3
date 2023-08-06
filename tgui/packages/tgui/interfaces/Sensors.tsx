@@ -500,7 +500,7 @@ const DistressSection = function (act, data: SensorsData) {
           ))}
         </Table>
       ) : (
-        'None Received'
+        'None received.'
       )}
     </Section>
   );
