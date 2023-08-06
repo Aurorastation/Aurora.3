@@ -55,16 +55,6 @@ type ContactData = {
   color: string; // assigned in ts
 };
 
-// type DatalinkRequestData = {
-//   name: string;
-//   ref: string;
-// };
-
-// type DatalinkedData = {
-//   name: string;
-//   ref: string;
-// };
-
 type DistressBeaconData = {
   caller: string;
   sender: string;
@@ -89,7 +79,8 @@ const SensorSection = function (act, data: SensorsData) {
         <Table.Row>
           <Table.Cell>State:</Table.Cell>
           <Table.Cell>
-            {data.on ? 'Active ' : 'Inactive '}
+            {data.on ? 'Active' : 'Inactive'}
+            {', '}
             <Button content="on/off" onClick={() => act('toggle')} />
           </Table.Cell>
         </Table.Row>
@@ -126,21 +117,25 @@ const SensorSection = function (act, data: SensorsData) {
             </ProgressBar>
           </Table.Cell>
         </Table.Row>
-        <Table.Row>
-          <Table.Cell>{data.deep_scan_name}:</Table.Cell>
-          <Table.Cell>
-            Effective Range: {data.deep_scan_range}
-            {', '}
-            {data.deep_scan_toggled ? 'Active' : 'Inactive'}
-            {', '}
-            <Button
-              content={'on/off'}
-              onClick={() =>
-                act('deep_scan_toggle', { deep_scan_toggle: true })
-              }
-            />
-          </Table.Cell>
-        </Table.Row>
+        {data.deep_scan_range > 0 ? (
+          <Table.Row>
+            <Table.Cell>{data.deep_scan_name}:</Table.Cell>
+            <Table.Cell>
+              Effective Range: {data.deep_scan_range}
+              {', '}
+              {data.deep_scan_toggled ? 'Active' : 'Inactive'}
+              {', '}
+              <Button
+                content={'on/off'}
+                onClick={() =>
+                  act('deep_scan_toggle', { deep_scan_toggle: true })
+                }
+              />
+            </Table.Cell>
+          </Table.Row>
+        ) : (
+          ''
+        )}
         <Table.Row>
           <Table.Cell>Integrity:</Table.Cell>
           <Table.Cell>
@@ -432,7 +427,8 @@ const IFFSection = function (act, data: SensorsData) {
         <Table.Row>
           <Table.Cell>State:</Table.Cell>
           <Table.Cell>
-            {data.id_on ? 'Active ' : 'Inactive '}
+            {data.id_on ? 'Active' : 'Inactive'}
+            {', '}
             <Button content="on/off" onClick={() => act('toggle_id')} />
           </Table.Cell>
         </Table.Row>
