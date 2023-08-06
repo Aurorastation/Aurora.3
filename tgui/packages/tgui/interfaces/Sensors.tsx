@@ -1,8 +1,8 @@
 import { BooleanLike } from '../../common/react';
-import { useBackend, useSharedState } from '../backend';
+import { useBackend } from '../backend';
 import { Box, Button, Section, Table, ProgressBar, Slider } from '../components';
 import { NtosWindow } from '../layouts';
-import { round, clamp, lerpColor } from 'common/math';
+import { round, clamp } from 'common/math';
 import { Color } from 'common/color';
 
 export type SensorsData = {
@@ -207,7 +207,7 @@ const ContactsSection = function (act, data: SensorsData) {
             <Table.Cell title="Color">C</Table.Cell>
           </Table.Row>
           {data.contacts.map((contact: ContactData, i) => (
-            <Table.Row>
+            <Table.Row key={contact.name}>
               <Table.Cell title="Designation">{contact.name}</Table.Cell>
               {contact.landed ? (
                 ''
@@ -243,6 +243,7 @@ const CompassSection = function (context, act, data: SensorsData) {
           <g>
             {[8, 16, 24, 32, 40, 48].map((r) => (
               <circle
+                key={r}
                 r={r}
                 cx={50}
                 cy={50}
@@ -260,6 +261,7 @@ const CompassSection = function (context, act, data: SensorsData) {
             />
             {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
               <rect // compass bearings
+                key={b}
                 width="0.5"
                 height={32}
                 x="50"
@@ -272,6 +274,7 @@ const CompassSection = function (context, act, data: SensorsData) {
               ?.filter((c) => !c.landed)
               .map((contact: ContactData, i) => (
                 <rect // contact lines
+                  key={i}
                   width="1.0"
                   height={32}
                   x="49.5"
@@ -305,6 +308,7 @@ const CompassSection = function (context, act, data: SensorsData) {
               ))}
             {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
               <text // compass bearings on edge of compass
+                key={b}
                 x="50"
                 y="8"
                 text-anchor="middle"
@@ -329,8 +333,8 @@ const DatalinksSection = function (act, data: SensorsData) {
           <Table.Row header>
             <Table.Cell>Datalink Requests:</Table.Cell>
           </Table.Row>
-          {data.datalink_requests.map((request, i) => (
-            <Table.Row>
+          {data.datalink_requests.map((request) => (
+            <Table.Row key={request.name}>
               <Table.Cell>
                 <Button
                   content={'Accept'}
@@ -363,8 +367,8 @@ const DatalinksSection = function (act, data: SensorsData) {
           <Table.Row header>
             <Table.Cell>Active Datalinks:</Table.Cell>
           </Table.Row>
-          {data.datalinked.map((datalinked, i) => (
-            <Table.Row>
+          {data.datalinked.map((datalinked) => (
+            <Table.Row key={datalinked.name}>
               <Table.Cell>{datalinked.name}</Table.Cell>
               <Table.Cell>
                 <Button
@@ -392,7 +396,7 @@ const DatalinksSection = function (act, data: SensorsData) {
           {data.contacts
             .filter((contact) => contact.can_datalink)
             .map((contact) => (
-              <Table.Row>
+              <Table.Row key={contact.name}>
                 <Table.Cell>{contact.name}</Table.Cell>
                 <Table.Cell>
                   <Button
@@ -475,11 +479,12 @@ const DistressSection = function (act, data: SensorsData) {
         <Table>
           <Table.Row header>
             <Table.Cell></Table.Cell>
+            <Table.Cell>Vessel</Table.Cell>
             <Table.Cell>Bearing</Table.Cell>
             <Table.Cell>Sender</Table.Cell>
           </Table.Row>
-          {data.distress_beacons.map((beacon: DistressBeaconData, i) => (
-            <Table.Row>
+          {data.distress_beacons.map((beacon: DistressBeaconData) => (
+            <Table.Row key={beacon.caller}>
               <Table.Cell>
                 <Button
                   content={'Listen'}
@@ -488,6 +493,7 @@ const DistressSection = function (act, data: SensorsData) {
                   }
                 />
               </Table.Cell>
+              <Table.Cell>{beacon.caller}</Table.Cell>
               <Table.Cell>{beacon.bearing}</Table.Cell>
               <Table.Cell>{beacon.sender}</Table.Cell>
             </Table.Row>
