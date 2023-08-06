@@ -53,3 +53,5 @@ changes:
   - bugfix: "Fixed material Delete(), now dumps a stack trace and returns the hint to not be harddel'd."
   - refactor: "SSMaterials now stack_trace on receiving a request for a material that was not found."
   - refactor: "Added some dmdocs and some variables names expansion to SSMaterials."
+  - bugfix: "Fixed a spawn long-term sleep for the startup logout report by turning it into a timer (also more efficient)."
+  - bugfix: "Fixed the mob subsystem, that could try to run on removed mobs on a resumed fire."
