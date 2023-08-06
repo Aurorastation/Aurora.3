@@ -29,6 +29,15 @@ export type SensorsData = {
   desired_range: number;
   range_choices: number[];
   contacts: ContactData[];
+
+  // IFF
+  id_on: BooleanLike;
+  id_status: string;
+  id_class: string;
+  id_name: string;
+  can_change_class: BooleanLike;
+  can_change_name: BooleanLike;
+  contact_details: string;
 };
 
 type ContactData = {
@@ -327,6 +336,62 @@ const CompassSection = function (context, act, data: SensorsData) {
   );
 };
 
+const DatalinksSection = function (act, data: SensorsData) {
+  return (
+    <Section title="IFF Management">
+      <Table>
+        <Table.Row>
+          <Table.Cell>State:</Table.Cell>
+          <Table.Cell>
+            {data.id_on ? 'Active ' : 'Inactive '}
+            <Button content="on/off" onClick={() => act('toggle')} />
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Status:</Table.Cell>
+          <Table.Cell>{data.id_status}</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Class:</Table.Cell>
+          <Table.Cell>{data.id_class}</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Designation:</Table.Cell>
+          <Table.Cell>{data.id_name}</Table.Cell>
+        </Table.Row>
+      </Table>
+    </Section>
+  );
+};
+
+const IFFSection = function (act, data: SensorsData) {
+  return (
+    <Section title="IFF Management">
+      <Table>
+        <Table.Row>
+          <Table.Cell>State:</Table.Cell>
+          <Table.Cell>
+            {data.id_on ? 'Active ' : 'Inactive '}
+            <Button content="on/off" onClick={() => act('toggle')} />
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Status:</Table.Cell>
+          <Table.Cell>{data.id_status}</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Class:</Table.Cell>
+          <Table.Cell>{data.id_class}</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Designation:</Table.Cell>
+          <Table.Cell>{data.id_name}</Table.Cell>
+        </Table.Row>
+      </Table>
+    </Section>
+  );
+};
+
 export const Sensors = (props, context) => {
   const { act, data } = useBackend<SensorsData>(context);
 
@@ -361,6 +426,8 @@ export const Sensors = (props, context) => {
   return (
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
+        {IFFSection(act, data)}
+        {DatalinksSection(act, data)}
         {SensorSection(act, data)}
         {ContactsSection(act, data)}
         {CompassSection(context, act, data)}
