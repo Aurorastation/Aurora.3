@@ -113,17 +113,21 @@ export const Users = (props, context) => {
             onClick={() => act('set_active', { set_active: null })}>
             All
           </Tabs.Tab>
-          {data.channels
-            .filter((chn) => chn.can_interact)
-            .map((channel) => (
-              <Tabs.Tab
-                height="10%"
-                key={channel.ref}
-                selected={data.active && data.active.ref === channel.ref}
-                onClick={() => act('set_active', { set_active: channel.ref })}>
-                {channel.title}
-              </Tabs.Tab>
-            ))}
+          {data.channels &&
+            data.channels.length &&
+            data.channels
+              .filter((chn) => chn.can_interact)
+              .map((channel) => (
+                <Tabs.Tab
+                  height="10%"
+                  key={channel.ref}
+                  selected={data.active && data.active.ref === channel.ref}
+                  onClick={() =>
+                    act('set_active', { set_active: channel.ref })
+                  }>
+                  {channel.title}
+                </Tabs.Tab>
+              ))}
         </Tabs>
       </Section>
       {data.active && data.active.can_interact ? <Chat /> : <AllUsers />}
@@ -153,19 +157,21 @@ export const AllUsers = (props, context) => {
         }}
         value={searchTerm}
       />
-      {data.users
-        .filter(
-          (usr) =>
-            usr.username?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
-        )
-        .map((user) => (
-          <Stack.Item key={user.ref}>
-            <Button
-              content={user.username}
-              onClick={() => act('direct', { direct: user.ref })}
-            />
-          </Stack.Item>
-        ))}
+      {data.users &&
+        data.users.length &&
+        data.users
+          .filter(
+            (usr) =>
+              usr.username?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+          )
+          .map((user) => (
+            <Stack.Item key={user.ref}>
+              <Button
+                content={user.username}
+                onClick={() => act('direct', { direct: user.ref })}
+              />
+            </Stack.Item>
+          ))}
     </Stack>
   );
 };
@@ -368,44 +374,46 @@ export const ChannelsWindow = (props, context) => {
           }}
           value={channelSearchTerm}
         />
-        {data.channels
-          .filter(
-            (chn) =>
-              chn.title
-                ?.toLowerCase()
-                .indexOf(channelSearchTerm.toLowerCase()) > -1 && !chn.direct
-          )
-          .map((channel) => (
-            <Stack.Item key={channel.ref}>
-              {channel.password ? (
-                <>
+        {data.channels &&
+          data.channels.length &&
+          data.channels
+            .filter(
+              (chn) =>
+                chn.title
+                  ?.toLowerCase()
+                  .indexOf(channelSearchTerm.toLowerCase()) > -1 && !chn.direct
+            )
+            .map((channel) => (
+              <Stack.Item key={channel.ref}>
+                {channel.password ? (
+                  <>
+                    <Button
+                      content={channel.title}
+                      onClick={() => setJoinPassword('Password')}
+                    />
+                    {joinPassword ? (
+                      <Input
+                        value={joinPassword}
+                        onInput={(e, v) => setJoinPassword(v)}
+                        onChange={(e, v) =>
+                          act('join', {
+                            target: channel.ref,
+                            password: joinPassword,
+                          })
+                        }
+                      />
+                    ) : (
+                      ''
+                    )}
+                  </>
+                ) : (
                   <Button
                     content={channel.title}
-                    onClick={() => setJoinPassword('Password')}
+                    onClick={() => act('join', { target: channel.ref })}
                   />
-                  {joinPassword ? (
-                    <Input
-                      value={joinPassword}
-                      onInput={(e, v) => setJoinPassword(v)}
-                      onChange={(e, v) =>
-                        act('join', {
-                          target: channel.ref,
-                          password: joinPassword,
-                        })
-                      }
-                    />
-                  ) : (
-                    ''
-                  )}
-                </>
-              ) : (
-                <Button
-                  content={channel.title}
-                  onClick={() => act('join', { target: channel.ref })}
-                />
-              )}
-            </Stack.Item>
-          ))}
+                )}
+              </Stack.Item>
+            ))}
       </Stack>
     </Section>
   );

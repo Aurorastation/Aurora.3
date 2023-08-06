@@ -64,6 +64,12 @@
 			to_chat(usr, SPAN_NOTICE("You try to insert \the [O], but \the [src] buzzes. There is already a [O] inside!"))
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
 			return TRUE
+
+		if(O.name != "Scan ([victim])")
+			to_chat(usr, SPAN_NOTICE("This scan is of a different patient! Please insert the scan of the correct patient."))
+			playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
+			return TRUE
+
 		user.drop_from_inventory(O, src)
 		input_scan = O
 		input_scan.color = "#272727"

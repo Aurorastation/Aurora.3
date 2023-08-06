@@ -158,24 +158,13 @@
 			detonate(FALSE)
 
 /obj/item/reagent_containers/food/drinks/cans/proc/detonate(var/instant)
-	var/fuel = REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 	if(instant)
-		fuselength = 0
-	else if(prob(fuselength * 6)) // the longer the fuse, the higher chance it will fizzle out (18% chance minimum)
-		var/fizzle = rand(1, fuselength - 1)
-		sleep(fizzle * 1 SECOND)
-
-		fuselength -= fizzle
-		visible_message(SPAN_WARNING("The fuse on \the [name] fizzles out early."))
-		playsound(get_turf(src), 'sound/items/cigs_lighters/cig_snuff.ogg', 50)
-		fuselit = FALSE
-		set_light(0, 0)
-		update_icon()
-		return
+		handle_detonation()
 	else
-		fuselength += rand(-2, 2) // if the fuse isn't fizzling out or detonating instantly, make it a little harder to predict the fuse by +2/-2 seconds
-	sleep(fuselength * 1 SECOND)
+		addtimer(CALLBACK(src, PROC_REF(handle_detonation)), (fuselength + rand(-2, 2)) SECONDS)
 
+/obj/item/reagent_containers/food/drinks/cans/proc/handle_detonation()
+	var/fuel = REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 	switch(round(fuel))
 		if(0)
 			visible_message(SPAN_NOTICE("\The [name]'s fuse burns out and nothing happens."))
@@ -184,7 +173,7 @@
 			update_icon()
 			set_light(0, 0)
 			return
-		if(1 to FUSELENGTH_MAX) // baby explosion.
+		if(1 to 10) // baby explosion.
 			var/obj/item/trash/can/popped_can = new(get_turf(src))
 			popped_can.icon_state = icon_state
 			popped_can.name = "popped can"
@@ -195,15 +184,13 @@
 			playsound(get_turf(src), 'sound/effects/bang.ogg', 50)
 			visible_message(SPAN_WARNING("\The [name] bursts violently into pieces!"))
 		if(LETHAL_FUEL_CAPACITY to INFINITY) // boom
-			fragem(src, shrapnelcount, shrapnelcount, 1, 0, 5, 1, TRUE, 2) // The main aim of the grenade should be to hit and wound people with shrapnel instead of causing a lot of station damage, hence the small explosion radius
+			fragem(src, shrapnelcount, shrapnelcount, 3, 5, 15, 3, TRUE, 5)
 			playsound(get_turf(src), 'sound/effects/Explosion1.ogg', 50)
 			visible_message(SPAN_DANGER("<b>\The [name] explodes!</b>"))
-	fuselit = FALSE
-	update_icon()
 	qdel(src)
 
 /obj/item/reagent_containers/food/drinks/cans/proc/can_light() // just reverses the fuselit var to return a TRUE or FALSE, should hopefully make things a little easier if someone adds more fuse interactions later.
-    return !fuselit && fuselength
+	return !fuselit && fuselength
 
 /obj/item/reagent_containers/food/drinks/cans/proc/FuseRemove(var/CableRemoved = fuselength)
 	fuselength -= CableRemoved

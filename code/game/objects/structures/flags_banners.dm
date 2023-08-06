@@ -458,6 +458,78 @@
 /obj/structure/sign/flag/hegemony/large/west/New()
 	..(loc, WEST)
 
+/obj/item/flag/ouerea
+	name = "\improper Ouerea flag"
+	desc = "The modern day flag of Ouerea. Due to the incorporation of red stripes to symbolize the blood of the nobility spilled in the rebellion, this is not the current official flag of the planet."
+	flag_path = "ouerea"
+	flag_structure = /obj/structure/sign/flag/ouerea
+
+/obj/structure/sign/flag/ouerea
+	name = "\improper Ouerea flag"
+	desc = "The modern day flag of Ouerea. Due to the incorporation of red stripes to symbolize the blood of the nobility spilled in the rebellion, this is not the current official flag of the planet."
+	icon_state = "ouerea"
+	flag_path = "ouerea"
+	flag_item = /obj/item/flag/ouerea
+
+/obj/item/flag/ouerea/l
+	name = "large Ouerea flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ouerea/large
+
+/obj/structure/sign/flag/ouerea/large
+	icon_state = "ouerea_l"
+	flag_path = "ouerea"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ouerea/l
+
+/obj/structure/sign/flag/ouerea/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/ouerea/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/ouerea/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/ouerea/large/west/New()
+	..(loc, WEST)
+
+/obj/item/flag/ouerea/old
+	name = "old Ouerea flag"
+	desc = "The old flag of Ouerea, dating back to its days as a joint mandate between the Nralakk Federation and, to a lesser extent, the Solarian Alliance. Due to controversy over the current flag, it remains the official flag of Ouerea."
+	flag_path = "ouerea_old"
+	flag_structure = /obj/structure/sign/flag/ouerea/old
+
+/obj/structure/sign/flag/ouerea/old
+	name = "old Ouerea flag"
+	desc = "The old flag of Ouerea, dating back to its days as a joint mandate between the Nralakk Federation and, to a lesser extent, the Solarian Alliance. Due to controversy over the current flag, it remains the official flag of Ouerea."
+	icon_state = "ouerea_old"
+	flag_path = "ouerea_old"
+	flag_item = /obj/item/flag/ouerea/old
+
+/obj/item/flag/ouerea/old/l
+	name = "large old Ouerea flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ouerea/old/large
+
+/obj/structure/sign/flag/ouerea/old/large
+	icon_state = "ouerea_old_l"
+	flag_path = "ouerea_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ouerea/old/l
+
+/obj/structure/sign/flag/ouerea/old/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/ouerea/old/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/ouerea/old/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/ouerea/old/large/west/New()
+	..(loc, WEST)
+
 // Nralakk
 
 /obj/item/flag/nralakk

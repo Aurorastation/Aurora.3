@@ -52,7 +52,7 @@
 	if(current_map.use_overmap)
 		var/area/map = global.map_overmap
 		for(var/turf/T in map)
-			T.overlays += image('icons/obj/overmap/overmap_effects.dmi', "meteor[rand(1,4)]")
+			new/obj/effect/overmap/event/meteor(T)
 	next_wave = round_duration_in_ticks + meteor_wave_delay
 
 /datum/game_mode/meteor/process()

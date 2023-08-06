@@ -172,7 +172,6 @@
 /datum/outfit/admin/syndicate/mercenary/loner
 	name = "Loner"
 
-	head = /obj/item/clothing/head/helmet/space/psi_amp/lesser
 	l_ear = /obj/item/device/radio/headset/syndicate
 	r_pocket = /obj/item/device/special_uplink/burglar
 
@@ -290,8 +289,7 @@
 		/obj/item/clothing/head/beanie/random,
 		/obj/item/clothing/head/beaverhat,
 		/obj/item/clothing/head/cowboy,
-		/obj/item/clothing/head/fedora/brown,
-		/obj/item/clothing/head/fedora/grey,
+		/obj/item/clothing/head/fedora,
 		/obj/item/clothing/head/fez,
 		/obj/item/clothing/head/flatcap,
 		/obj/item/clothing/head/headbando/random,

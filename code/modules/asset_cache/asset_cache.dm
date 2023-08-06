@@ -481,6 +481,7 @@ var/list/asset_datums = list()
 
 /datum/asset/simple/paper
 	legacy = TRUE
+	keep_local_name = TRUE
 	assets = list(
 		"talisman.png" = 'html/images/talisman.png',
 		"barcode0.png" = 'html/images/barcode0.png',
@@ -659,7 +660,7 @@ var/list/asset_datums = list()
 
 /datum/asset/spritesheet/chem_master
 	name = "chemmaster"
-	cross_round_cachable = TRUE
+	cross_round_cachable = FALSE
 	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4", "bottle-5", "bottle-6")
 	var/max_pill_sprite = 20
 
