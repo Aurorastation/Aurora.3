@@ -256,6 +256,7 @@ const CompassSection = function (context, act, data: SensorsData) {
               fill="#5c83b0"
               stroke="white"
               stroke-width="0.5"
+              transform={'rotate(' + data.direction + ' 50 50)'}
             />
             {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
               <rect // compass bearings
@@ -283,13 +284,6 @@ const CompassSection = function (context, act, data: SensorsData) {
               ?.filter((c) => !c.landed)
               .map((contact: ContactData, i) => (
                 <>
-                  {/* <circle // contact circle
-                    r={3}
-                    cx={50}
-                    cy={50 - contact.distance * 8}
-                    fill={contact.color}
-                    transform={'rotate(' + contact.bearing + ' 50 50)'}
-                  /> */}
                   <rect
                     width="4"
                     height="4"
