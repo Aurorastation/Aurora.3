@@ -1,6 +1,11 @@
 /material
 	var/value = 1
 
+/material/Destroy(force)
+	stack_trace("Some genius is trying to delete a /material ...")
+	. = ..()
+	return QDEL_HINT_LETMELIVE //Materials cannot be deleted, as you cannot poof the concept out of existence
+
 /material/uranium
 	value = 100
 
