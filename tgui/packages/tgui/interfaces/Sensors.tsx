@@ -444,7 +444,7 @@ const IFFSection = function (act, data: SensorsData) {
         </Table.Row>
         {data.can_change_class || data.can_change_name ? (
           <Table.Row>
-            <Table.Cell></Table.Cell>
+            <Table.Cell />
             <Table.Cell>
               {data.can_change_class ? (
                 <Button
@@ -478,7 +478,7 @@ const DistressSection = function (act, data: SensorsData) {
       {data.distress_beacons && data.distress_beacons.length ? (
         <Table>
           <Table.Row header>
-            <Table.Cell></Table.Cell>
+            <Table.Cell />
             <Table.Cell>Vessel</Table.Cell>
             <Table.Cell>Bearing</Table.Cell>
             <Table.Cell>Sender</Table.Cell>
@@ -540,13 +540,11 @@ export const Sensors = (props, context) => {
   return (
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
-        {data.status == 'MISSING' ? (
-          <>
-            <Button
-              content={'Link up with the sensor suite'}
-              onClick={() => act('link')}
-            />
-          </>
+        {data.status === 'MISSING' ? (
+          <Button
+            content={'Link up with the sensor suite'}
+            onClick={() => act('link')}
+          />
         ) : (
           ''
         )}
