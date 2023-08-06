@@ -24,13 +24,10 @@ export type SensorsData = {
   heat: number;
   critical_heat: number;
   status: string;
-  distress_beacons: DistressBeaconData[];
-  distress_range: number;
   desired_range: number;
   range_choices: number[];
   contacts: ContactData[];
 
-  // IFF
   id_on: BooleanLike;
   id_status: string;
   id_class: string;
@@ -38,6 +35,12 @@ export type SensorsData = {
   can_change_class: BooleanLike;
   can_change_name: BooleanLike;
   contact_details: string;
+
+  distress_beacons: DistressBeaconData[];
+  distress_range: number;
+
+  datalink_requests: { name: string; ref: string }[];
+  datalinked: { name: string; ref: string }[];
 };
 
 type ContactData = {
@@ -51,6 +54,16 @@ type ContactData = {
   y: number;
   color: string; // assigned in ts
 };
+
+// type DatalinkRequestData = {
+//   name: string;
+//   ref: string;
+// };
+
+// type DatalinkedData = {
+//   name: string;
+//   ref: string;
+// };
 
 type DistressBeaconData = {
   caller: string;
@@ -66,15 +79,17 @@ const SensorSection = function (act, data: SensorsData) {
       title="Sensor Array Control"
       buttons={
         <Button
-          content={data.viewing ? 'Engaged' : 'Disengaged'}
+          content={
+            'Sector Map View ' + (data.viewing ? 'Engaged' : 'Disengaged')
+          }
           onClick={() => act('viewing')}
         />
       }>
       <Table>
         <Table.Row>
           <Table.Cell>State:</Table.Cell>
-          <Table.Cell>{data.on ? 'Active' : 'Inactive'}</Table.Cell>
           <Table.Cell>
+            {data.on ? 'Active ' : 'Inactive '}
             <Button content="on/off" onClick={() => act('toggle')} />
           </Table.Cell>
         </Table.Row>
@@ -100,11 +115,11 @@ const SensorSection = function (act, data: SensorsData) {
             <ProgressBar
               animated
               backgroundColor={Color.lerp(
-                new Color(62, 97, 137),
+                new Color(62, 97, 137, 0),
                 new Color(189, 32, 32),
                 data.range / range_choice_max
               )}
-              minValue={0}
+              minValue={1}
               maxValue={range_choice_max}
               value={data.range}>
               Current Range: {data.range} / {range_choice_max}
@@ -114,10 +129,10 @@ const SensorSection = function (act, data: SensorsData) {
         <Table.Row>
           <Table.Cell>{data.deep_scan_name}:</Table.Cell>
           <Table.Cell>
-            Effective Range: {data.deep_scan_range},{' '}
+            Effective Range: {data.deep_scan_range}
+            {', '}
             {data.deep_scan_toggled ? 'Active' : 'Inactive'}
-          </Table.Cell>
-          <Table.Cell>
+            {', '}
             <Button
               content={'on/off'}
               onClick={() =>
@@ -189,27 +204,29 @@ const ContactsSection = function (act, data: SensorsData) {
       {data.contacts && data.contacts.length ? (
         <Table>
           <Table.Row header>
-            <Table.Cell>Designation</Table.Cell>
-            <Table.Cell>B</Table.Cell>
-            <Table.Cell>X</Table.Cell>
-            <Table.Cell>Y</Table.Cell>
-            <Table.Cell>D</Table.Cell>
-            <Table.Cell>C</Table.Cell>
+            <Table.Cell title="Designation">Designation</Table.Cell>
+            <Table.Cell title="Bearing">B</Table.Cell>
+            <Table.Cell title="X Grid Coordinate">X</Table.Cell>
+            <Table.Cell title="Y Grid Coordinate">Y</Table.Cell>
+            <Table.Cell title="Distance">D</Table.Cell>
+            <Table.Cell title="Color">C</Table.Cell>
           </Table.Row>
           {data.contacts.map((contact: ContactData, i) => (
             <Table.Row>
-              <Table.Cell>{contact.name}</Table.Cell>
+              <Table.Cell title="Designation">{contact.name}</Table.Cell>
               {contact.landed ? (
                 ''
               ) : (
                 <>
-                  <Table.Cell>{contact.bearing}</Table.Cell>
-                  <Table.Cell>{contact.x}</Table.Cell>
-                  <Table.Cell>{contact.y}</Table.Cell>
-                  <Table.Cell>
-                    {new String(round(contact.distance, 2)).padStart(5, '0')}
+                  <Table.Cell title="Bearing">{contact.bearing}</Table.Cell>
+                  <Table.Cell title="X Grid Coordinate">{contact.x}</Table.Cell>
+                  <Table.Cell title="Y Grid Coordinate">{contact.y}</Table.Cell>
+                  <Table.Cell title="Distance">
+                    {new String(round(contact.distance, 2)).padStart(6, '0')}
                   </Table.Cell>
-                  <Table.Cell color={contact.color}>██</Table.Cell>
+                  <Table.Cell title="Color" color={contact.color}>
+                    ██
+                  </Table.Cell>
                 </>
               )}
             </Table.Row>
@@ -223,23 +240,12 @@ const ContactsSection = function (act, data: SensorsData) {
 };
 
 const CompassSection = function (context, act, data: SensorsData) {
-  const [relativeDirection, setRelativeDirection] = useSharedState(
-    context,
-    'relativeDirection',
-    false
-  );
-
   return (
     <Section title="Sensor Contacts Compass">
       <Box textAlign="center">
         <svg height={200} width={200} viewBox="0 0 100 100">
           <rect width="100" height="100" />
-          <g
-            transform={
-              'rotate(' +
-              (relativeDirection ? -data.direction : '0') +
-              ' 50 50)'
-            }>
+          <g>
             {[8, 16, 24, 32, 40, 48].map((r) => (
               <circle
                 r={r}
@@ -255,11 +261,6 @@ const CompassSection = function (context, act, data: SensorsData) {
               fill="#5c83b0"
               stroke="white"
               stroke-width="0.5"
-              transform={
-                'rotate(' +
-                (relativeDirection ? data.direction : data.direction) +
-                ' 50 50)'
-              }
             />
             {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
               <rect // compass bearings
@@ -326,11 +327,6 @@ const CompassSection = function (context, act, data: SensorsData) {
             ))}
           </g>
         </svg>
-        <Button.Checkbox
-          content="Relative Direction"
-          checked={relativeDirection}
-          onClick={() => setRelativeDirection(!relativeDirection)}
-        />
       </Box>
     </Section>
   );
@@ -338,28 +334,93 @@ const CompassSection = function (context, act, data: SensorsData) {
 
 const DatalinksSection = function (act, data: SensorsData) {
   return (
-    <Section title="IFF Management">
-      <Table>
-        <Table.Row>
-          <Table.Cell>State:</Table.Cell>
-          <Table.Cell>
-            {data.id_on ? 'Active ' : 'Inactive '}
-            <Button content="on/off" onClick={() => act('toggle')} />
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Status:</Table.Cell>
-          <Table.Cell>{data.id_status}</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Class:</Table.Cell>
-          <Table.Cell>{data.id_class}</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Designation:</Table.Cell>
-          <Table.Cell>{data.id_name}</Table.Cell>
-        </Table.Row>
-      </Table>
+    <Section title="Datalinks">
+      {data.datalink_requests && data.datalink_requests.length ? (
+        <Table>
+          <Table.Row header>
+            <Table.Cell>Datalink Requests:</Table.Cell>
+          </Table.Row>
+          {data.datalink_requests.map((request, i) => (
+            <Table.Row>
+              <Table.Cell>
+                <Button
+                  content={'Accept'}
+                  onClick={() =>
+                    act('accept_datalink_requests', {
+                      accept_datalink_requests: request.ref,
+                    })
+                  }
+                />
+              </Table.Cell>
+              <Table.Cell>
+                <Button
+                  content={'Decline'}
+                  onClick={() =>
+                    act('decline_datalink_requests', {
+                      decline_datalink_requests: request.ref,
+                    })
+                  }
+                />
+              </Table.Cell>
+              <Table.Cell>{request.name}</Table.Cell>
+            </Table.Row>
+          ))}
+        </Table>
+      ) : (
+        ''
+      )}
+      {data.datalinked && data.datalinked.length ? (
+        <Table>
+          <Table.Row header>
+            <Table.Cell>Active Datalinks:</Table.Cell>
+          </Table.Row>
+          {data.datalinked.map((datalinked, i) => (
+            <Table.Row>
+              <Table.Cell>{datalinked.name}</Table.Cell>
+              <Table.Cell>
+                <Button
+                  content={'Rescind'}
+                  onClick={() =>
+                    act('remove_datalink', {
+                      remove_datalink: datalinked.ref,
+                    })
+                  }
+                />
+              </Table.Cell>
+            </Table.Row>
+          ))}
+        </Table>
+      ) : (
+        ''
+      )}
+      {data.contacts &&
+      data.contacts.length &&
+      data.contacts.some((contact) => contact.can_datalink) ? (
+        <Table>
+          <Table.Row header>
+            <Table.Cell>Potential Datalinks:</Table.Cell>
+          </Table.Row>
+          {data.contacts
+            .filter((contact) => contact.can_datalink)
+            .map((contact) => (
+              <Table.Row>
+                <Table.Cell>{contact.name}</Table.Cell>
+                <Table.Cell>
+                  <Button
+                    content={'Request'}
+                    onClick={() =>
+                      act('request_datalink', {
+                        request_datalink: contact.ref,
+                      })
+                    }
+                  />
+                </Table.Cell>
+              </Table.Row>
+            ))}
+        </Table>
+      ) : (
+        ''
+      )}
     </Section>
   );
 };
@@ -372,7 +433,7 @@ const IFFSection = function (act, data: SensorsData) {
           <Table.Cell>State:</Table.Cell>
           <Table.Cell>
             {data.id_on ? 'Active ' : 'Inactive '}
-            <Button content="on/off" onClick={() => act('toggle')} />
+            <Button content="on/off" onClick={() => act('toggle_id')} />
           </Table.Cell>
         </Table.Row>
         <Table.Row>
@@ -387,7 +448,64 @@ const IFFSection = function (act, data: SensorsData) {
           <Table.Cell>Designation:</Table.Cell>
           <Table.Cell>{data.id_name}</Table.Cell>
         </Table.Row>
+        {data.can_change_class || data.can_change_name ? (
+          <Table.Row>
+            <Table.Cell></Table.Cell>
+            <Table.Cell>
+              {data.can_change_class ? (
+                <Button
+                  content={'Change Class'}
+                  onClick={() => act('change_ship_class')}
+                />
+              ) : (
+                ''
+              )}
+              {data.can_change_name ? (
+                <Button
+                  content={'Change Designation'}
+                  onClick={() => act('change_ship_name')}
+                />
+              ) : (
+                ''
+              )}
+            </Table.Cell>
+          </Table.Row>
+        ) : (
+          ''
+        )}
       </Table>
+    </Section>
+  );
+};
+
+const DistressSection = function (act, data: SensorsData) {
+  return (
+    <Section title="Distress Beacons">
+      {data.distress_beacons && data.distress_beacons.length ? (
+        <Table>
+          <Table.Row header>
+            <Table.Cell></Table.Cell>
+            <Table.Cell>Bearing</Table.Cell>
+            <Table.Cell>Sender</Table.Cell>
+          </Table.Row>
+          {data.distress_beacons.map((beacon: DistressBeaconData, i) => (
+            <Table.Row>
+              <Table.Cell>
+                <Button
+                  content={'Listen'}
+                  onClick={() =>
+                    act('play_message', { play_message: beacon.caller })
+                  }
+                />
+              </Table.Cell>
+              <Table.Cell>{beacon.bearing}</Table.Cell>
+              <Table.Cell>{beacon.sender}</Table.Cell>
+            </Table.Row>
+          ))}
+        </Table>
+      ) : (
+        'None Received'
+      )}
     </Section>
   );
 };
@@ -426,11 +544,22 @@ export const Sensors = (props, context) => {
   return (
     <NtosWindow resizable>
       <NtosWindow.Content scrollable>
-        {IFFSection(act, data)}
-        {DatalinksSection(act, data)}
+        {data.status == 'MISSING' ? (
+          <>
+            <Button
+              content={'Link up with the sensor suite'}
+              onClick={() => act('link')}
+            />
+          </>
+        ) : (
+          ''
+        )}
         {SensorSection(act, data)}
-        {ContactsSection(act, data)}
         {CompassSection(context, act, data)}
+        {ContactsSection(act, data)}
+        {DatalinksSection(act, data)}
+        {IFFSection(act, data)}
+        {DistressSection(act, data)}
       </NtosWindow.Content>
     </NtosWindow>
   );
