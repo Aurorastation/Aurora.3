@@ -1,0 +1,6 @@
+author: Pirouette
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed Nralakk work uniforms and jackets not being available in the Dionae loadout."
