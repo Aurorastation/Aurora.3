@@ -1425,6 +1425,9 @@
 /area/point_verdant/outdoors)
 "WJ" = (
 /obj/effect/floor_decal/industrial/warning/dust,
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior)
 "Xf" = (
