@@ -313,6 +313,7 @@
 	icon_state = "eng_glass"
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#caa638"
+	stripe_color = "#ff7f43"
 	glass = 1
 
 /obj/machinery/door/airlock/generic/engineering_green
@@ -387,20 +388,16 @@
 /obj/machinery/door/airlock/generic/external//External airlocks start here
 	name = "External Airlock"
 	icon = 'icons/obj/doors/basic/single/external/door.dmi'
-	icon_state = "preview_external"
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	icon_state = "preview"
+	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_frame_color = "#81838b"//Meant to connect to external scc spaceship walls like the horizon hull
 	door_color = "#813c3c"
-	stripe_color = "#ffffff"//base file is already colored
 	hashatch = FALSE
 	insecure = 0
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	fill_file = 'icons/obj/doors/basic/single/external/fill_steel.dmi'
 	color_file = 'icons/obj/doors/basic/single/external/color.dmi'
-	frame_color_file = 'icons/obj/doors/basic/single/external/frame_color.dmi'
 	color_fill_file = 'icons/obj/doors/basic/single/external/fill_color.dmi'
-	stripe_file = 'icons/obj/doors/basic/single/external/stripe.dmi'
-	stripe_fill_file = 'icons/obj/doors/basic/single/external/stripe.dmi'
 
 /obj/machinery/door/airlock/generic/external/khaki
 	door_frame_color = "#ac8b78"
@@ -1211,9 +1208,9 @@ About the new airlock wires panel:
 	add_overlay(frame_color_overlay)
 	add_overlay(color_overlay)
 	add_overlay(panel_overlay)
+	add_overlay(filling_overlay)
 	add_overlay(stripe_overlay)
 	add_overlay(stripe_filling_overlay)
-	add_overlay(filling_overlay)
 	add_overlay(weld_overlay)
 	add_overlay(brace_overlay)
 	add_overlay(lights_overlay)
