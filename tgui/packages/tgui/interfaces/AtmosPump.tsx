@@ -57,7 +57,7 @@ export const AtmosPump = (props, context) => {
                 />
                 <Button
                   ml={1}
-                  icon="plus"
+                  icon="maximize"
                   content="Max"
                   disabled={rate === max_rate}
                   onClick={() =>
@@ -85,7 +85,7 @@ export const AtmosPump = (props, context) => {
                 />
                 <Button
                   ml={1}
-                  icon="plus"
+                  icon="maximize"
                   content="Max"
                   disabled={pressure === max_pressure}
                   onClick={() =>

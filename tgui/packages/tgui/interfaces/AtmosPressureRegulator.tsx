@@ -26,7 +26,7 @@ export const AtmosPressureRegulator = (props, context) => {
   } = data;
 
   return (
-    <Window width={320} height={150}>
+    <Window width={350} height={175}>
       <Window.Content>
         <Section>
           <LabeledList>
@@ -41,19 +41,19 @@ export const AtmosPressureRegulator = (props, context) => {
 
             <LabeledList.Item label="Pressure Regulation">
               <Button
-                icon={regulate_mode === 0 ? 'power-off' : 'times'}
+                icon={'ban'}
                 content="Off"
                 selected={regulate_mode === 0}
                 onClick={() => act('regulate_off')}
               />
               <Button
-                icon={regulate_mode === 1 ? 'power-off' : 'times'}
+                icon={'arrow-right-to-bracket'}
                 content="Input"
                 selected={regulate_mode === 1}
                 onClick={() => act('regulate_input')}
               />
               <Button
-                icon={regulate_mode === 2 ? 'power-off' : 'times'}
+                icon={'arrow-right-from-bracket'}
                 content="Output"
                 selected={regulate_mode === 2}
                 onClick={() => act('regulate_output')}
@@ -76,7 +76,7 @@ export const AtmosPressureRegulator = (props, context) => {
               />
               <Button
                 ml={1}
-                icon="plus"
+                icon="maximize"
                 content="Max"
                 disabled={pressure === max_pressure}
                 onClick={() =>
@@ -102,7 +102,7 @@ export const AtmosPressureRegulator = (props, context) => {
               />
               <Button
                 ml={1}
-                icon="plus"
+                icon="maximize"
                 content="Max"
                 disabled={rate === max_rate}
                 onClick={() =>
