@@ -37,6 +37,12 @@
 	layer = 9
 	anchored = TRUE
 
+/obj/structure/utility_pole/gwok
+	name = "Go Go Gwok street sign"
+	desc = "A very tall street sign which alerts you of a Go Go Gwok eating establishment, where you can eat establishments."
+	icon = 'icons/obj/structure/urban/konyang64x96.dmi'
+	icon_state = "nice_gwok"
+
 /obj/structure/utility_pole/street
 	desc = "A tall light source. This one seems to be off."
 	icon = 'icons/obj/structure/urban/poles.dmi'
