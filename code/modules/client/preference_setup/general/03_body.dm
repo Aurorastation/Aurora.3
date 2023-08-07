@@ -174,14 +174,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			try
 				pref.body_markings = json_decode(pref.body_markings)
 			catch (var/exception/e)
-				log_debug("BODY MARKINGS: Caught [e]. Initial value: [before]")
+				LOG_DEBUG("BODY MARKINGS: Caught [e]. Initial value: [before]")
 				pref.body_markings = list()
 		if (istext(pref.disabilities))
 			var/before = pref.disabilities
 			try
 				pref.disabilities = json_decode(pref.disabilities)
 			catch (var/exception/e)
-				log_debug("DISABILITIES: Caught [e]. Initial value: [before]")
+				LOG_DEBUG("DISABILITIES: Caught [e]. Initial value: [before]")
 				pref.disabilities = list()
 
 	var/datum/species/mob_species = all_species[pref.species]
@@ -892,8 +892,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		dat += "\[<a href='?src=\ref[src];set_species=[html_encode(pref.species_preview)]'>select</a>\]"
 	dat += "</center>"
 
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat.Join()), "window=species;size=700x400")
+
+	user << browse(dat.Join(), "window=species;size=700x400")
 
 /*/datum/category_item/player_setup_item/general/body/proc/reset_limbs()
 

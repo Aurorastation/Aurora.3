@@ -643,3 +643,8 @@ var/const/access_kataphract_knight = 114
 /datum/access/access_dpra
 	id = access_dpra
 	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_merchants_guild = 215
+/datum/access/access_merchants_guild
+	id = access_merchants_guild
+	access_type = ACCESS_TYPE_CENTCOM

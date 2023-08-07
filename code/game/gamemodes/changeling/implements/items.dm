@@ -10,6 +10,7 @@
 	sharp = TRUE
 	edge = TRUE
 	anchored = TRUE
+	armor_penetration = 20
 	throwforce = 0 //Just to be on the safe side
 	throw_range = 0
 	throw_speed = 0
@@ -28,6 +29,7 @@
 	return ..()
 
 /obj/item/melee/arm_blade/dropped(var/mob/living/user)
+	. = ..()
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their arm blade into an arm!</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
@@ -85,6 +87,7 @@
 	return ..()
 
 /obj/item/shield/riot/changeling/dropped(var/mob/living/user)
+	. = ..()
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their shield into an arm!</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
@@ -114,7 +117,7 @@
 
 /obj/item/bone_dart
 	name = "bone dart"
-	desc = "A sharp piece of bone shapped as small dart."
+	desc = "A sharp piece of bone in the shape of a small dart."
 	icon = 'icons/obj/changeling.dmi'
 	icon_state = "bone_dart"
 	item_state = "bolt"
@@ -135,6 +138,7 @@
 		to_chat(loc, SPAN_NOTICE("We shape our finger to fit inside electronics, and are ready to force them open."))
 
 /obj/item/finger_lockpick/dropped(mob/user)
+	. = ..()
 	to_chat(user, SPAN_NOTICE("We discreetly shape our finger back to a less suspicious form."))
 	QDEL_IN(src, 1)
 

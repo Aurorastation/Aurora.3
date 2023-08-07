@@ -1,0 +1,36 @@
+name: "Build Changelog"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - 'html/changelogs/**'
+
+jobs:
+  update-changelog:
+    concurrency: changelog
+    runs-on: ubuntu-22.04
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.BOT_TOKEN_AURORA }}
+
+    - name: Update Changelogs
+      run: |
+        tools/bootstrap/python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs
+
+    - name: Commit Changelogs
+      run: |
+        git pull origin master
+        git config --local user.email "action@github.com"
+        git config --local user.name "AuroraBuildBot"
+        git add --force html/*
+        git commit -m "Automatic Changelog compile [ci skip]" -a || true
+
+    - name: Push
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.BOT_TOKEN_AURORA }}

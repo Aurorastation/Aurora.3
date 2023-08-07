@@ -19,13 +19,14 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 /datum/controller/subsystem/icon_smooth/Recover()
 	smooth_queue = SSicon_smooth.smooth_queue
 
-/datum/controller/subsystem/icon_smooth/stat_entry()
-	..("Q:[smooth_queue.len]")
+/datum/controller/subsystem/icon_smooth/stat_entry(msg)
+	msg = "Q:[smooth_queue.len]"
+	return ..()
 
 /datum/controller/subsystem/icon_smooth/fire()
 	if (explosion_in_progress)
 		return
-		
+
 	while(smooth_queue.len)
 		var/atom/A = smooth_queue[smooth_queue.len]
 		smooth_queue.len--
@@ -46,7 +47,7 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 		smooth_zlevel(zlevel, FALSE)
 
 	if (config.fastboot)
-		log_debug("icon_smoothing: Skipping prebake, fastboot enabled.")
+		LOG_DEBUG("icon_smoothing: Skipping prebake, fastboot enabled.")
 		..()
 		return
 

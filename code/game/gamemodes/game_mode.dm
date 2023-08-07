@@ -149,7 +149,7 @@ var/global/list/additional_antag_types = list()
 ///Checks to see if the game can be setup and ran with the current number of players or whatnot.
 /datum/game_mode/proc/can_start()
 
-	log_debug("GAMEMODE: Checking gamemode possibility selection for: [name]...")
+	log_game_mode("Checking gamemode possibility selection for: [name]...")
 
 	var/returning = GAME_FAILURE_NONE
 
@@ -158,25 +158,25 @@ var/global/list/additional_antag_types = list()
 		if(player.client && player.ready)
 			playerC++
 
-	log_debug("GAMEMODE: [playerC] players checked and readied.")
+	log_traitor("[playerC] players checked and readied.")
 
 	if(required_players && playerC < required_players)
-		log_debug("GAMEMODE: There aren't enough players ([playerC]/[required_players]) to start [name]!")
+		log_game_mode("There aren't enough players ([playerC]/[required_players]) to start [name]!")
 		returning |= GAME_FAILURE_NO_PLAYERS
 
 	if(max_players && playerC > max_players)
-		log_debug("GAMEMODE: There are too many players ([playerC]/[max_players]) to start [name]!")
+		log_game_mode("There are too many players ([playerC]/[max_players]) to start [name]!")
 		returning |= GAME_FAILURE_TOO_MANY_PLAYERS
 
 	if(antag_templates && antag_templates.len)
-		log_debug("GAMEMODE: Checking antag templates...")
+		log_game_mode("Checking antag templates...")
 		if(antag_tags && antag_tags.len)
-			log_debug("GAMEMODE: Checking antag tags...")
+			log_game_mode("Checking antag tags...")
 			for(var/antag_tag in antag_tags)
 				var/datum/antagonist/antag = all_antag_types[antag_tag]
 				if(!antag)
 					continue
-				log_debug("GAMEMODE: Checking antag tag: [antag.role_text]...")
+				log_game_mode("Checking antag tag: [antag.role_text]...")
 				var/list/potential = list() //List of potential players to spawn as antagonists
 				if(antag.flags & ANTAG_OVERRIDE_JOB)
 					potential = antag.pending_antagonists
@@ -188,7 +188,7 @@ var/global/list/additional_antag_types = list()
 						if(!(antag.flags & ANTAG_OVERRIDE_JOB) && (player.assigned_role in antag.restricted_jobs))
 							potential -= potential_antag
 							antag.candidates -= player
-							log_debug("GAMEMODE: Player [player.name] ([player.key]) was removed from the potential antags list due to being given the role [player.assigned_role] which is a restricted job!")
+							log_traitor("GAMEMODE: Player [player.name] ([player.key]) was removed from the potential antags list due to being given the role [player.assigned_role] which is a restricted job!")
 
 			// Split the for loop here so that we can have a complete set of potential lists for each antag_tag before continuing
 			var/list/total_enemies = list()
@@ -202,19 +202,19 @@ var/global/list/additional_antag_types = list()
 				else
 					potential = antag.candidates
 				if(potential.len)
-					log_debug("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
+					log_traitor("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
 					total_enemies |= potential //Only count candidates once for our total enemy pool
 					if(antag.initial_spawn_req && require_all_templates && potential.len < antag.initial_spawn_req)
-						log_debug("GAMEMODE: There are not enough antagonists ([potential.len]/[antag.initial_spawn_req]) for the role [antag.role_text]!")
+						log_game_mode("There are not enough antagonists ([potential.len]/[antag.initial_spawn_req]) for the role [antag.role_text]!")
 						returning |= GAME_FAILURE_NO_ANTAGS
 
-			log_debug("GAMEMODE: Found [total_enemies.len] total enemies for [name].")
+			log_traitor("GAMEMODE: Found [total_enemies.len] total enemies for [name].")
 
 			if(required_enemies && total_enemies.len < required_enemies)
-				log_debug("GAMEMODE: There are not enough total antagonists ([total_enemies.len]/[required_enemies]) to start [name]!")
+				log_traitor("GAMEMODE: There are not enough total antagonists ([total_enemies.len]/[required_enemies]) to start [name]!")
 				returning |= GAME_FAILURE_NO_ANTAGS
 
-	log_debug("GAMEMODE: Finished gamemode checking. [name] returned [returning].")
+	log_game_mode("Finished gamemode checking. [name] returned [returning].")
 
 	return returning
 
@@ -279,6 +279,8 @@ var/global/list/additional_antag_types = list()
 
 	var/welcome_delay = rand(waittime_l, waittime_h)
 	addtimer(CALLBACK(current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)
+
+	addtimer(CALLBACK(current_map, TYPE_PROC_REF(/datum/map, load_holodeck_programs)), 5 MINUTES)
 
 	//Assign all antag types for this game mode. Any players spawned as antags earlier should have been removed from the pending list, so no need to worry about those.
 	for(var/datum/antagonist/antag in antag_templates)
@@ -388,12 +390,17 @@ var/global/list/additional_antag_types = list()
 				ghosts++
 
 	var/text = ""
+	var/escape_text
+	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
+		escape_text = "escaped"
+	else
+		escape_text = "transfered"
 	if(surviving_total > 0)
 		text += "<br>There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]"
-		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "bluespace jumped"]</b>) and <b>[ghosts] ghosts</b>.<br>"
+		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [escape_text]</b>) and <b>[ghosts] ghosts</b>.<br>"
 
 		discord_text += "There [surviving_total>1 ? "were **[surviving_total] survivors**" : "was **one survivor**"]"
-		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [evacuation_controller.emergency_evacuation ? "escaped" : "bluespace jumped"]) and **[ghosts] ghosts**."
+		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [escape_text]) and **[ghosts] ghosts**."
 	else
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>)."
 
@@ -433,7 +440,7 @@ var/global/list/additional_antag_types = list()
 			if(istype(player, /mob/abstract/new_player))
 				continue
 			if(!role || (role in player.client.prefs.be_special_role))
-				log_debug("[player.key] had [antag_id] enabled, so we are drafting them.")
+				log_traitor("[player.key] had [antag_id] enabled, so we are drafting them.")
 				candidates |= player.mind
 	else
 		// Assemble a list of active players without jobbans.
@@ -444,7 +451,7 @@ var/global/list/additional_antag_types = list()
 		// Get a list of all the people who want to be the antagonist for this round
 		for(var/mob/abstract/new_player/player in players)
 			if(!role || (role in player.client.prefs.be_special_role))
-				log_debug("[player.key] had [antag_id] enabled, so we are drafting them.")
+				log_traitor("[player.key] had [antag_id] enabled, so we are drafting them.")
 				candidates += player.mind
 				players -= player
 

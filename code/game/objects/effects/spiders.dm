@@ -27,7 +27,7 @@
 		var/obj/item/weldingtool/WT = W
 		if(WT.use(0, user))
 			damage = 15
-			playsound(loc, 'sound/items/welder.ogg', 100, 1)
+			playsound(loc, 'sound/items/Welder.ogg', 100, 1)
 		return TRUE
 	else
 		user.do_attack_animation(src)
@@ -139,6 +139,7 @@
 	anchored = 0
 	layer = 2.7
 	health = 3
+	mouse_opacity = MOUSE_OPACITY_ICON
 	var/last_itch = 0
 	var/amount_grown = -1
 	var/growth_rate = 1

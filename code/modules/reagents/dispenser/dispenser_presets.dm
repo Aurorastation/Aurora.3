@@ -73,6 +73,7 @@
 	accept_drinking = 1
 	density = 0//It's a half-height machine that sits on a table, this allows small things to walk under that table
 	pass_flags = PASSTABLE // put it back on the table
+	manufacturer = "idris"
 
 /obj/machinery/chemical_dispenser/bar_soft/full
 	spawn_cartridges = list(
@@ -110,6 +111,7 @@
 	accept_drinking = 1
 	density = 0//It's a half-height machine that sits on a table, this allows small things to walk under that table
 	pass_flags = PASSTABLE // put it back on the table
+	manufacturer = "idris"
 
 /obj/machinery/chemical_dispenser/bar_alc/full
 	spawn_cartridges = list(
@@ -136,7 +138,7 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/cream
 		)
 
-/obj/machinery/chemical_dispenser/bar_alc/full/space //Spacebar away site. Gets much more to make the best drinks, hassle-free. 
+/obj/machinery/chemical_dispenser/bar_alc/full/space //Spacebar away site. Gets much more to make the best drinks, hassle-free.
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime,
 			/obj/item/reagent_containers/chem_disp_cartridge/sugar,
@@ -176,6 +178,7 @@
 	accept_drinking = 1
 	density = 0
 	pass_flags = PASSTABLE // put it back on the table
+	manufacturer = "idris"
 
 /obj/machinery/chemical_dispenser/coffeemaster/full
 	spawn_cartridges = list(
@@ -201,6 +204,7 @@
 	icon_state_active = null
 	accept_drinking = 1
 	pass_flags = PASSTABLE // put it back on the table
+	manufacturer = "idris"
 
 /obj/machinery/chemical_dispenser/coffee/full
 	spawn_cartridges = list(

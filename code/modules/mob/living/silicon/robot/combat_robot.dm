@@ -31,7 +31,7 @@
 
 /mob/living/silicon/robot/combat/Initialize()
 	. = ..()
-	verbs += /mob/living/silicon/robot/proc/choose_icon
+	add_verb(src, /mob/living/silicon/robot/proc/choose_icon)
 	var/datum/robot_component/C = components["surge"]
 	C.installed = TRUE
 	C.wrapped = new C.external_type
@@ -46,6 +46,7 @@
 		if(assigned_antagonist.get_antag_radio())
 			module.channels[assigned_antagonist.get_antag_radio()] = TRUE
 			radio.recalculateChannels()
+	client.init_verbs()
 	say("Boot sequence complete!")
 	return src
 

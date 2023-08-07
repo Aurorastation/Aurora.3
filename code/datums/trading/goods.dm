@@ -36,7 +36,6 @@
 		/obj/item/toy/katana                  = TRADER_THIS_TYPE,
 		/obj/item/toy/sword                   = TRADER_THIS_TYPE,
 		/obj/item/toy/bosunwhistle            = TRADER_THIS_TYPE,
-		/obj/item/board                = TRADER_THIS_TYPE,
 		/obj/item/deck                 = TRADER_SUBTYPES_ONLY,
 		/obj/item/pack                 = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/dice                 = TRADER_ALL,
@@ -202,8 +201,7 @@
 		/obj/item/clothing/head/welding                 = TRADER_BLACKLIST,
 		/obj/item/clothing/head/fluff                   = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/det/fluff               = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/winterhood              = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/beret/engineering/fluff = TRADER_BLACKLIST_ALL
+		/obj/item/clothing/head/winterhood              = TRADER_BLACKLIST_ALL
 	)
 
 /*

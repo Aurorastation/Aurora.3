@@ -50,6 +50,7 @@
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
 	set category = "Object"
+	set src in usr
 
 	if(show_above_suit == -1)
 		to_chat(usr, SPAN_NOTICE("\The [src] cannot be worn above your suit!"))

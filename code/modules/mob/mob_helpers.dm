@@ -333,6 +333,9 @@ var/list/global/organ_rel_size = list(
 		if(point_blank)
 			return zone //Point blank shots don't miss.
 
+	return target.calculate_zone_with_miss_chance(zone, miss_chance_mod)
+
+/mob/proc/calculate_zone_with_miss_chance(var/zone, var/miss_chance_mod)
 	var/miss_chance = 10
 	if (zone in base_miss_chance)
 		miss_chance = base_miss_chance[zone]
@@ -343,6 +346,15 @@ var/list/global/organ_rel_size = list(
 		return pick(base_miss_chance)
 	return zone
 
+// never a chance to miss, but you might not hit what you want to hit
+/mob/living/heavy_vehicle/calculate_zone_with_miss_chance(zone, miss_chance_mod)
+	var/miss_chance = 10
+	if(zone in base_miss_chance)
+		miss_chance = base_miss_chance[zone]
+	miss_chance = max(miss_chance + miss_chance_mod, 0)
+	if(prob(miss_chance))
+		return pick(base_miss_chance)
+	return zone
 
 /proc/stars(n, pr)
 	if (pr == null)
@@ -1197,13 +1209,14 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 			if(hearer && hearer.client && hearer.client.prefs?.toggles_secondary & ACCENT_TAG_TEXT)
 				return {"<a href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'>([a.text_tag])</a>"}
 			else
-				var/final_icon = a.tag_icon
-				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/goonchat)
+				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/chat)
+				var/final_icon = "accent-[a.tag_icon]"
 				return {"<span onclick="window.location.href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'">[S.icon_tag(final_icon)]</span>"}
 
 /mob/assign_player(var/mob/user)
 	ckey = user.ckey
 	resting = FALSE // ghosting sets resting to true
+	client.init_verbs()
 	return src
 
 /mob/proc/get_standard_pixel_x()
@@ -1238,8 +1251,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 /mob/proc/in_neck_grab()
 	for(var/thing in grabbed_by)
 		var/obj/item/grab/G = thing
-		if(G.state >= GRAB_NECK)
-			return TRUE
+		if(istype(G))
+			if(G.state >= GRAB_NECK)
+				return TRUE
 	return FALSE
 
 /mob/get_cell()

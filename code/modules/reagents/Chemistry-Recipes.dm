@@ -389,6 +389,13 @@
 	required_reagents = list(/singleton/reagent/thetamycin = 2, /singleton/reagent/sterilizine = 1, /singleton/reagent/radium = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/cytophenolate
+	name = "Cytophenolate"
+	id = "cytophenolate"
+	result = /singleton/reagent/cytophenolate
+	required_reagents = list(/singleton/reagent/fluvectionem = 1, /singleton/reagent/alcohol = 1, /singleton/reagent/sugar = 1)
+	result_amount = 3
+
 /datum/chemical_reaction/antiparasitic
 	name = "Helmizole"
 	id = "helmizole"
@@ -1228,7 +1235,6 @@
 	/obj/item/reagent_containers/food/snacks/bananabreadslice,
 	/obj/item/reagent_containers/food/snacks/tofubreadslice,
 	/obj/item/reagent_containers/food/snacks/cakeslice/carrot,
-	/obj/item/reagent_containers/food/snacks/cakeslice/brain,
 	/obj/item/reagent_containers/food/snacks/cakeslice/cheese,
 	/obj/item/reagent_containers/food/snacks/cakeslice/plain,
 	/obj/item/reagent_containers/food/snacks/cakeslice/orange,
@@ -3972,4 +3978,90 @@
 	id = "ichor"
 	result = /singleton/reagent/drink/toothpaste/ichor
 	required_reagents = list(/singleton/reagent/alcohol/butanol/xuizijuice = 1, /singleton/reagent/kois/clean = 1, /singleton/reagent/drink/toothpaste = 1)
+	result_amount = 3
+
+// dominian cocktails - Glory to Her name! Glory to Her liquor!
+
+/datum/chemical_reaction/drink/universalist
+	name = "the universalist"
+	id = "universalist"
+	result = /singleton/reagent/alcohol/universalist
+	required_reagents = list(/singleton/reagent/alcohol/wine/dominian = 1, /singleton/reagent/alcohol/beepsky_smash = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/martyrgarita
+	name = "martyrgarita"
+	id = "martyrgarita"
+	result = /singleton/reagent/alcohol/martyrgarita
+	required_reagents = list(/singleton/reagent/alcohol/wine/dominian = 1, /singleton/reagent/drink/limejuice = 1, /singleton/reagent/water/holywater = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/ceasefire
+	name = "ceasefire"
+	id = "ceasefire"
+	result = /singleton/reagent/alcohol/ceasefire
+	required_reagents = list(/singleton/reagent/alcohol/wine/dominian = 1, /singleton/reagent/alcohol/kvass = 1, /singleton/reagent/drink/sodawater = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/scramegg
+	name = "scramegg"
+	id = "scramegg"
+	result = /singleton/reagent/alcohol/scramegg
+	required_reagents = list(/singleton/reagent/alcohol/kvass = 25, /singleton/reagent/nutriment/protein/egg = 3)
+	result_amount = 25
+
+/datum/chemical_reaction/drink/govinexile
+	name = "government in exile"
+	id = "governmentinexile"
+	result = /singleton/reagent/alcohol/governmentinexile
+	required_reagents = list(/singleton/reagent/alcohol/kvass = 1, /singleton/reagent/alcohol/permanent_revolution = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/instrument
+	name = "instrument of surrender"
+	id = "instrumentofsurrender"
+	result = /singleton/reagent/alcohol/instrument
+	required_reagents = list(/singleton/reagent/alcohol/wine/algae = 1, /singleton/reagent/alcohol/kvass = 1, /singleton/reagent/alcohol/tarasun = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/armsalchemy
+	name = "armsman's alchemy"
+	id = "armsalchemy"
+	result = /singleton/reagent/alcohol/armsalchemy
+	required_reagents = list(/singleton/reagent/alcohol/wine/algae = 1, /singleton/reagent/drink/zorasoda/klax = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/inquisitrix
+	name = "inquisitrix"
+	id = "inquisitrix"
+	result = /singleton/reagent/alcohol/inquisitrix
+	required_reagents = list(/singleton/reagent/alcohol/wine/algae = 1, /singleton/reagent/alcohol/tarasun = 1, /singleton/reagent/drink/dr_gibb = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/songwater
+	name = "songwater"
+	id = "songwater"
+	result = /singleton/reagent/alcohol/songwater
+	required_reagents = list(/singleton/reagent/alcohol/tarasun = 5, /singleton/reagent/spacespice = 1, /singleton/reagent/blackpepper = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/threefold
+	name = "threefold"
+	id = "threefold"
+	result = /singleton/reagent/alcohol/threefold
+	required_reagents = list(/singleton/reagent/alcohol/wine/algae = 1, /singleton/reagent/alcohol/wine/valokki = 1, /singleton/reagent/alcohol/wine/dominian =1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/godhead
+	name = "godhead"
+	id = "godhead"
+	result = /singleton/reagent/alcohol/godhead
+	required_reagents = list(/singleton/reagent/alcohol/wine/dominian = 1, /singleton/reagent/alcohol/kvass = 1, /singleton/reagent/alcohol/tarasun = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/tribunal
+	name = "tribunal"
+	id = "tribunal"
+	result = /singleton/reagent/alcohol/tribunal
+	required_reagents = list(/singleton/reagent/alcohol/threefold = 1, /singleton/reagent/alcohol/godhead = 1, /singleton/reagent/water/holywater = 1)
 	result_amount = 3

@@ -1,3 +1,12 @@
+/// Nothing preventing download
+#define DL_OK			0
+/// Can't download due to insufficient access
+#define DL_ERR_ACCESS	1
+/// Can't download due to incompatible / missing hardware
+#define DL_ERR_HARDWARE	2
+/// Can't download without being emagged
+#define DL_ERR_SYNDIE	3
+
 /datum/computer_file/program/ntnetdownload
 	filename = "ntndownloader"
 	filedesc = "NTNet Software Download Tool"
@@ -12,6 +21,8 @@
 	requires_ntnet_feature = NTNET_SOFTWAREDOWNLOAD
 	available_on_ntnet = 0
 	ui_header = "downloader_finished.gif"
+	tgui_id = "NTOSDownloader"
+
 	var/list/download_queue = list()
 	var/list/download_files = list()
 	var/queue_size = 0
@@ -19,87 +30,65 @@
 	var/last_update = 0
 	var/speed = 0
 
-
-/datum/computer_file/program/ntnetdownload/ui_interact(mob/user, var/datum/topic_state/state = default_state)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-system-downloader", 575, 700, "NTNet Download Program", state = state)
-	ui.open()
-
-/datum/computer_file/program/ntnetdownload/vueui_transfer(oldobj)
-	SSvueui.transfer_uis(oldobj, src, "mcomputer-system-downloader", 575, 700, "NTNet Download Program")
-	return TRUE
-
-// Gaters data for ui
-/datum/computer_file/program/ntnetdownload/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data || list("queue" = download_queue)
-
-	if(!istype(computer))
-		return
-
-	// Gather data for computer header
-	var/headerdata = get_header_data(data["_PC"])
-	if(headerdata)
-		data["_PC"] = headerdata
-		. = data
-
-	// Let's send all installed programs
-	LAZYINITLIST(data["installed"])
-	for(var/datum/computer_file/program/I in hard_drive.stored_files)
-		LAZYINITLIST(data["installed"][I.filename])
-		VUEUI_SET_CHECK(data["installed"][I.filename]["name"], I.filedesc, ., data)
-		VUEUI_SET_CHECK(data["installed"][I.filename]["size"], I.size, ., data)
-
-	// Now lets send all available programs with their status.
-	// Statuses (rest): 0 - ALL OK, 1 - can't download due to access, 2 - unsuported hardware, 3 - sindies only
-	LAZYINITLIST(data["available"])
+/datum/computer_file/program/ntnetdownload/ui_static_data(mob/user)
+	var/list/data = list()
 	for(var/datum/computer_file/program/P in ntnet_global.available_software)
-		LAZYINITLIST(data["available"][P.filename])
-		VUEUI_SET_CHECK(data["available"][P.filename]["name"], P.filedesc, ., data)
-		VUEUI_SET_CHECK(data["available"][P.filename]["desc"], P.extended_desc, ., data)
-		VUEUI_SET_CHECK(data["available"][P.filename]["size"], P.size, ., data)
-		if(computer_emagged)
-			if(!P.is_supported_by_hardware(computer.hardware_flag))
-				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 2, ., data)
-			else
-				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 0, ., data)
-		else
-			if(!P.available_on_ntnet)
-				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 3, ., data)
-			else if(!P.can_download(user) && P.requires_access_to_download)
-				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 1, ., data)
-			else if(!P.is_supported_by_hardware(computer.hardware_flag))
-				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 2, ., data)
-			else
-				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 0, ., data)
+		if(hard_drive.find_file_by_name(P.filename))
+			continue
 
-	VUEUI_SET_CHECK(data["disk_size"], hard_drive.max_capacity, ., data)
-	VUEUI_SET_CHECK(data["disk_used"], hard_drive.used_capacity, ., data)
-	VUEUI_SET_CHECK(data["queue_size"], queue_size, ., data)
-	VUEUI_SET_CHECK(data["speed"], speed, ., data)
+		if(P.filename in download_queue)
+			continue
 
+		data["available"] += list(list(
+			"filename" = P.filename,
+			"name" = P.filedesc,
+			"desc" = P.extended_desc,
+			"size" = P.size,
+			"stat" = get_download_status(P, user)
+		))
+
+	data["disk_size"] = hard_drive.max_capacity
+	data["disk_used"] = hard_drive.used_capacity
+	return data
+
+/datum/computer_file/program/ntnetdownload/ui_data(mob/user)
+	var/list/data = list()
+	data["queue_size"] = queue_size
+	data["speed"] = speed
+	data["active_download"] = active_download
+	data["queue"] = list()
 	for(var/name in download_queue)
-		VUEUI_SET_CHECK(data["queue"][name], download_queue[name], ., data)
+		var/datum/computer_file/program/PRG = download_files[name]
+		data["queue"] += list(list(
+			"name" = PRG ? PRG.filedesc : name,
+			"filename" = name,
+			"progress" = download_queue[name],
+			"size" = PRG?.size
+		))
+	return data
 
+/datum/computer_file/program/ntnetdownload/proc/get_download_status(datum/computer_file/program/P, mob/user)
+	if(!computer_emagged)
+		if(!P.available_on_ntnet)
+			return DL_ERR_SYNDIE
+		if(!P.can_download(user) && P.requires_access_to_download)
+			return DL_ERR_ACCESS
 
-/datum/computer_file/program/ntnetdownload/Topic(href, href_list)
+	return P.is_supported_by_hardware(computer.hardware_flag) ? DL_OK : DL_ERR_HARDWARE
+
+/datum/computer_file/program/ntnetdownload/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
-		return 1
+		return TRUE
 
-	var/datum/vueui/ui = href_list["vueui"]
-	if(!istype(ui))
-		return
+	if(action == "download")
+		var/datum/computer_file/program/PRG = ntnet_global.find_ntnet_file_by_name(params["filename"])
+		if(istype(PRG))
+			add_to_queue(PRG, usr)
+		. = TRUE
 
-	if(href_list["download"])
-		var/datum/computer_file/program/PRG = ntnet_global.find_ntnet_file_by_name(href_list["download"])
-
-		if(!istype(PRG))
-			return 1
-		return add_to_queue(PRG, ui.user)
-
-	if(href_list["cancel"])
-		return cancel_from_queue(href_list["cancel"])
+	if(action == "cancel")
+		cancel_from_queue(params["filename"])
+		. = TRUE
 
 /datum/computer_file/program/ntnetdownload/proc/add_to_queue(var/datum/computer_file/program/PRG, var/mob/user)
 	// Attempting to download antag only program, but without having emagged computer. No.
@@ -126,14 +115,13 @@
 	else
 		generate_network_log("Began downloading file [PRG.filename].[PRG.filetype] from unspecified server.")
 
+	if(!length(download_queue))
+		last_update = world.time
 
 	download_files[PRG.filename] = PRG.clone(FALSE, computer)
 	queue_size += PRG.size
 	download_queue[PRG.filename] = 0
-	for(var/i in SSvueui.get_open_uis(src))
-		var/datum/vueui/ui = i
-		ui.data["queue"][PRG.filename] = 0
-		ui.push_change()
+	computer.update_static_data_for_all_viewers()
 	return TRUE
 
 /datum/computer_file/program/ntnetdownload/proc/cancel_from_queue(var/name)
@@ -145,10 +133,7 @@
 	download_queue -= name
 	download_files -= name
 	queue_size -= PRG.size
-	for(var/i in SSvueui.get_open_uis(src))
-		var/datum/vueui/ui = i
-		ui.data["queue"] -= name
-		ui.push_change()
+	computer.update_static_data_for_all_viewers()
 
 /datum/computer_file/program/ntnetdownload/proc/finish_from_queue(var/name)
 	if(!download_files[name])
@@ -159,24 +144,20 @@
 	generate_network_log("Completed download of file [hacked_download ? "**ENCRYPTED**" : PRG.filename].[PRG.filetype].")
 	if(!computer?.hard_drive?.store_file(PRG))
 		download_queue[name] = -1
-		for(var/i in SSvueui.get_open_uis(src))
-			var/datum/vueui/ui = i
-			ui.data["queue"] = -1
-			ui.push_change()
+		computer.update_static_data_for_all_viewers()
 		return
 
 	download_queue -= name
 	download_files -= name
 	queue_size -= PRG.size
-	for(var/i in SSvueui.get_open_uis(src))
-		var/datum/vueui/ui = i
-		ui.data["queue"] -= name
-		ui.push_change()
-
+	computer.update_static_data_for_all_viewers()
 
 /datum/computer_file/program/ntnetdownload/process_tick()
 	if(!queue_size)
+		var/old_header = ui_header
 		ui_header = "downloader_finished.gif"
+		if(old_header != ui_header)
+			computer.update_static_data_for_all_viewers()
 		return
 	ui_header = "downloader_running.gif"
 
@@ -229,4 +210,8 @@
 		computer.output_message("[icon2html(computer, viewers(get_turf(computer)), computer.icon_state)] <b>[capitalize_first_letters(computer.name)]</b> pings: \"[active_download_file.filedesc ? active_download_file.filedesc : active_download_file.filename] downloaded successfully!\"", 1)
 		active_download = null
 
-	SSvueui.check_uis_for_change(src)
+
+#undef DL_OK
+#undef DL_ERR_ACCESS
+#undef DL_ERR_HARDWARE
+#undef DL_ERR_SYNDIE

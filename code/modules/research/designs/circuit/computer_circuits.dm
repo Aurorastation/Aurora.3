@@ -56,19 +56,10 @@
 	name = "Atmosphere Monitoring Console"
 	build_path = /obj/item/circuitboard/air_management
 
-/datum/design/circuit/computer/rcon_console
-	name = "RCON Remote Control Console"
-	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3, TECH_POWER = 5)
-	build_path = /obj/item/circuitboard/rcon_console
-
 /datum/design/circuit/computer/dronecontrol
 	name = "Drone Control Console"
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/circuitboard/drone_control
-
-/datum/design/circuit/computer/powermonitor
-	name = "Power Monitoring Console"
-	build_path = /obj/item/circuitboard/powermonitor
 
 /datum/design/circuit/computer/solarcontrol
 	name = "Solar Control Console"

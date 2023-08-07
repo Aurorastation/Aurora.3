@@ -105,7 +105,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/flame/match/proc/light()
 	lit = TRUE
-	damtype = "burn"
+	damtype = "fire"
 	icon_state = "match_lit"
 	item_state = "match_lit"
 	if(ismob(loc))
@@ -723,6 +723,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	thrower.drop_from_inventory(src)
 
 /obj/item/flame/lighter/zippo/augment/dropped()
+	. = ..()
 	loc = null
 	qdel(src)
 
@@ -741,8 +742,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "solzippo"
 
 /obj/item/flame/lighter/zippo/tcfl
-	name = "\improper Bieselite Zippo lighter"
-	desc = "A zippo lighter with a depiction of the Bieselite flag."
+	name = "\improper Biesellite Zippo lighter"
+	desc = "A zippo lighter with a depiction of the Biesellite flag."
 	desc_extended = "In their rush to expand the Tau Ceti Foreign Legion, the Republic of Biesel manufactured thousands of Biesel-patterned zippo lighters to compliment the jackets and berets that were so often touted by recruiters. In the wake of Frost's Invasion, the popularity of such lighters has only increased and they serve as a small show of patriotism. A small NanoTrasen logo is stenciled on the base."
 	icon_state = "tcflzippo"
 	item_state = "tcflzippo"
@@ -843,6 +844,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "luceianzippo"
 	flame_light_color = LIGHT_COLOR_WHITE
 	flame_light_range = 2
+
+/obj/item/flame/lighter/zippo/sancolette
+	name = "\improper San Colette Zippo lighter"
+	desc = "A tricolor zippo lighter depicting the flag of San Colette."
+	desc_extended = "Among Solarian nations, it's popular to carry a lighter depicting the flag of the Sol Alliance as a proclaimation of \
+	one's patriotism. After being recognised as the Sovereign Solarian Republic of San Colette, this tradition continued on with the Colettish, \
+	now opting to pridefully bare their own tricolor flag instead."
+	icon_state = "sancolettezippo"
+	item_state = "sancolettezippo"
 
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()

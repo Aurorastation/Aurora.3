@@ -16,8 +16,8 @@
 /datum/ship_engine/maneuvering/get_thrust()
 	return thruster.get_thrust()
 
-/datum/ship_engine/maneuvering/burn()
-	return thruster.burn()
+/datum/ship_engine/maneuvering/burn(var/power_modifier = 1)
+	return thruster.burn(power_modifier)
 
 /datum/ship_engine/maneuvering/set_thrust_limit(new_limit)
 	thruster.thrust_limit = new_limit
@@ -59,8 +59,8 @@
 	.+= "Location: [get_area(src)]."
 	. = jointext(.,"<br>")
 
-/obj/machinery/maneuvering_engine/proc/burn()
-	. = thrust_limit * generated_thrust
+/obj/machinery/maneuvering_engine/proc/burn(var/power_modifier = 1)
+	. = thrust_limit * generated_thrust * power_modifier
 
 /obj/machinery/maneuvering_engine/proc/get_thrust()
 	return thrust_limit * generated_thrust * on

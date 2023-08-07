@@ -427,8 +427,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat += "<B>ERROR: Newscaster unit cannot access main news server!</B></BR>"
 				dat += "<BR><A href='?src=\ref[src];setScreen=[0]'>ATTEMPT RESET</A>"
 
-		send_theme_resources(human_or_robot_user)
-		human_or_robot_user << browse(enable_ui_theme(human_or_robot_user, dat), "window=newscaster_main;size=600x900")
+		var/datum/browser/newscaster_main = new(user, "newscaster_main", "Newscaster", 450, 500)
+		newscaster_main.set_content(dat)
+		newscaster_main.open()
 		onclose(human_or_robot_user, "newscaster_main")
 
 /obj/machinery/newscaster/Topic(href, href_list)
@@ -918,8 +919,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="I'm sorry to break your immersion. This shit's bugged. Report this bug to Agouri, polyxenitopalidou@gmail.com"
 
 		dat+="<BR><HR><div align='center'>[src.curr_page+1]</div>"
-		send_theme_resources(src)
-		human_user << browse(enable_ui_theme(human_user, dat), "window=newspaper_main;size=300x400")
+
+		human_user << browse(dat, "window=newspaper_main;size=300x400")
 		onclose(human_user, "newspaper_main")
 	else
 		to_chat(user, "The paper is full of intelligible symbols!")

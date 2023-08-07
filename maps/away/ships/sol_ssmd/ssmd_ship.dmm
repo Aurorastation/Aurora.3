@@ -995,7 +995,7 @@
 /area/ship/ssmd_corvette/dorms)
 "cVG" = (
 /obj/effect/floor_decal/corner_wide/green/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light/colored/blue,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/medbay)
@@ -7211,7 +7211,6 @@
 /area/ship/ssmd_corvette/hangar)
 "vRd" = (
 /obj/structure/table/wood,
-/obj/item/board,
 /turf/simulated/floor/wood/coloured/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "vTv" = (

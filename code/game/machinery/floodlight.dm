@@ -17,7 +17,7 @@
 
 /obj/machinery/floodlight/Initialize()
 	. = ..()
-	cell = new /obj/item/cell/device(src) // 41minutes @ 200W
+	cell = new /obj/item/cell(src)
 
 /obj/machinery/floodlight/examine(mob/user)
 	. = ..()

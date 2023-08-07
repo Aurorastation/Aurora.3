@@ -54,7 +54,8 @@
 	new /obj/item/pinpointer/nukeop(src)
 	new /obj/item/modular_computer/handheld/pda/syndicate(src)
 	var/obj/item/device/radio/uplink/U = new(src)
-	U.hidden_uplink.uses = 40
+	U.hidden_uplink.telecrystals = 40
+	U.hidden_uplink.bluecrystals = 20
 	return
 
 /obj/structure/closet/syndicate/resources

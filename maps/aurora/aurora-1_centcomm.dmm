@@ -123,7 +123,7 @@
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -749,7 +749,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "abG" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "abH" = (
@@ -1688,7 +1688,7 @@
 /area/holodeck/source_courtroom)
 "aeG" = (
 /obj/effect/floor_decal/carpet,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "aeH" = (
@@ -5774,7 +5774,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -6904,7 +6904,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "aWC" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
 "aWD" = (
@@ -8865,7 +8865,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
 "bZd" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "bZv" = (
@@ -8969,11 +8969,7 @@
 	pixel_x = 5;
 	pixel_y = 16
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "ccF" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -9243,7 +9239,7 @@
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "cafeteria"
 	},
@@ -9459,7 +9455,7 @@
 	},
 /area/centcom/legion)
 "crN" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -10273,7 +10269,7 @@
 	},
 /area/centcom/holding)
 "cUR" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -10807,11 +10803,7 @@
 /obj/structure/ore_box{
 	icon_state = "orebox1"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "dio" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -10953,11 +10945,7 @@
 /obj/effect/landmark{
 	name = "skrell_entry"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "dob" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -12464,7 +12452,7 @@
 /obj/item/storage/box/practiceshells,
 /obj/item/storage/box/trackingslugs,
 /obj/effect/decal/warning_stripes,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor,
 /area/antag/loner)
 "enU" = (
@@ -13096,7 +13084,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
 "eIJ" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -13732,10 +13720,10 @@
 "fdr" = (
 /obj/structure/table/wood,
 /obj/random/coin,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -14090,11 +14078,7 @@
 	can_buckle = 0;
 	name = "dusty chair"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "fri" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -15199,7 +15183,6 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/computer/station_alert,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "fWO" = (
@@ -17776,7 +17759,7 @@
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
 "hwY" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/window/basic{
 	dir = 8
 	},
@@ -18245,7 +18228,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1;
 	name = "adjusted spotlight";
 	pixel_x = -16
@@ -20688,7 +20671,7 @@
 	},
 /area/antag/ninja)
 "juP" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -21941,8 +21924,8 @@
 /obj/structure/table/wood{
 	table_reinf = "wood"
 	},
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -22525,7 +22508,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "kIp" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -22680,9 +22663,6 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "kNJ" = (
-/obj/item/circuitboard/rcon_console{
-	name = "circuit board (Ticket Kiosk Console)"
-	},
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
@@ -23500,7 +23480,7 @@
 	},
 /area/antag/raider)
 "loa" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
 	},
@@ -24435,7 +24415,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -25243,7 +25223,7 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant)
 "mrx" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/sign/vacuum{
 	pixel_y = 32
 	},
@@ -26264,11 +26244,7 @@
 	},
 /area/centcom/bar)
 "mZh" = (
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "mZj" = (
 /turf/unsimulated/mineral/asteroid,
@@ -27079,7 +27055,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "nzt" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -28002,11 +27978,7 @@
 	icon_state = "boulder1";
 	name = "rubble"
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "nYo" = (
 /obj/structure/bed/stool/chair/office/bridge{
@@ -28296,7 +28268,7 @@
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "ohs" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "ohC" = (
@@ -28626,7 +28598,7 @@
 	},
 /area/centcom/legion)
 "oww" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant)
@@ -29015,7 +28987,7 @@
 	},
 /area/centcom/specops)
 "oNu" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -29145,7 +29117,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "oQw" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -29968,11 +29940,7 @@
 /area/centcom/bar)
 "pux" = (
 /obj/item/pickaxe,
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "puD" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -30682,7 +30650,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -30824,11 +30792,7 @@
 	pixel_x = 11;
 	pixel_y = -6
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "pUh" = (
 /obj/structure/shuttle_part/merchant{
@@ -31034,7 +30998,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "qcl" = (
@@ -31753,11 +31717,7 @@
 	name = "beacon";
 	pixel_y = -2
 	},
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "qGr" = (
 /obj/structure/window/shuttle/unique/merchant{
@@ -33321,10 +33281,10 @@
 "rPi" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/handheld/pda/syndicate,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -34033,7 +33993,7 @@
 /obj/machinery/computer/shuttle_control{
 	req_access = null;
 	req_one_access = list(38,72);
-	shuttle_tag = "Agent Shuttle"
+	shuttle_tag = "SCC Shuttle";
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
@@ -36481,7 +36441,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
@@ -36714,7 +36674,7 @@
 /area/centcom/specops)
 "ujT" = (
 /obj/structure/table/standard,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -36760,12 +36720,12 @@
 	pixel_y = 6
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -38613,11 +38573,7 @@
 "vze" = (
 /obj/structure/table/steel,
 /obj/item/deck/cards,
-/turf/unsimulated/floor/asteroid/ash/rocky{
-	nitrogen = 82.1472;
-	oxygen = 21.8366;
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "vzG" = (
 /obj/machinery/vending/snack{
@@ -39539,7 +39495,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "wbM" = (
@@ -39748,7 +39704,7 @@
 /area/template_noop)
 "whV" = (
 /obj/structure/table/wood,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_dininghall)
 "whZ" = (
@@ -40937,7 +40893,7 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "wNC" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
@@ -41045,7 +41001,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 5
 	},
@@ -41232,7 +41188,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "wXJ" = (
@@ -42380,7 +42336,7 @@
 	},
 /area/centcom/legion/hangar5)
 "xEw" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "xFd" = (

@@ -62,7 +62,8 @@ var/datum/controller/subsystem/timer/SStimer
 	bucket_resolution = world.tick_lag
 
 /datum/controller/subsystem/timer/stat_entry(msg)
-	..("B:[bucket_count] P:[length(second_queue)] H:[length(hashes)] C:[length(clienttime_timers)] S:[length(timer_id_dict)] RST:[bucket_reset_count]")
+	msg = "B:[bucket_count] P:[length(second_queue)] H:[length(hashes)] C:[length(clienttime_timers)] S:[length(timer_id_dict)] RST:[bucket_reset_count]"
+	return ..()
 
 /datum/controller/subsystem/timer/proc/dump_timer_buckets(full = TRUE)
 	var/list/to_log = list("Timer bucket reset. world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
@@ -86,7 +87,7 @@ var/datum/controller/subsystem/timer/SStimer
 			to_log += get_timer_debug_string(I)
 
 	// Dump all the logged data to the world log
-	log_ss("timers", to_log.Join("\n"))
+	log_subsystem("timers", to_log.Join("\n"))
 
 /datum/controller/subsystem/timer/fire(resumed = FALSE)
 	// Store local references to datum vars as it is faster to access them
@@ -233,7 +234,7 @@ var/datum/controller/subsystem/timer/SStimer
   * Destroys the existing buckets and creates new buckets from the existing timed events
   */
 /datum/controller/subsystem/timer/proc/reset_buckets()
-	log_debug("Timer buckets have been reset, this may cause timers to lag")
+	LOG_DEBUG("Timer buckets have been reset, this may cause timers to lag")
 	bucket_reset_count++
 
 	var/list/bucket_list = src.bucket_list // Store local reference to datum var, this is faster

@@ -191,8 +191,8 @@
 
 /obj/item/gun/energy/rifle/laser/tachyon/verb/scope()
 	set category = "Object"
-	set name = "Use Rifle Scope"
-	set popup_menu = 1
+	set name = "Use Scope"
+	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)

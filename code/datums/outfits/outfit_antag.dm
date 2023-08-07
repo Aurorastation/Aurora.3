@@ -38,7 +38,8 @@
 	var/obj/item/device/radio/uplink/U = H.r_store
 	if(istype(U))
 		U.hidden_uplink.uplink_owner = H.mind
-		U.hidden_uplink.uses = uplink_uses
+		U.hidden_uplink.telecrystals = uplink_uses
+		U.hidden_uplink.bluecrystals = round(uplink_uses / 2)
 		U.hidden_uplink.nanoui_menu = 1
 
 /datum/outfit/admin/syndicate/get_id_access()
@@ -171,7 +172,6 @@
 /datum/outfit/admin/syndicate/mercenary/loner
 	name = "Loner"
 
-	head = /obj/item/clothing/head/helmet/space/psi_amp/lesser
 	l_ear = /obj/item/device/radio/headset/syndicate
 	r_pocket = /obj/item/device/special_uplink/burglar
 
@@ -289,8 +289,7 @@
 		/obj/item/clothing/head/beanie/random,
 		/obj/item/clothing/head/beaverhat,
 		/obj/item/clothing/head/cowboy,
-		/obj/item/clothing/head/fedora/brown,
-		/obj/item/clothing/head/fedora/grey,
+		/obj/item/clothing/head/fedora,
 		/obj/item/clothing/head/fez,
 		/obj/item/clothing/head/flatcap,
 		/obj/item/clothing/head/headbando/random,

@@ -72,7 +72,7 @@
 	log_admin("CCIASAY: [key_name(src)] : [msg]",admin_key=key_name(src))
 
 	if(check_rights((R_CCIAA|R_ADMIN),0))
-		msg = "<span class='cciaasay'><span class='prefix'>CCIAAgent:</span> <EM>[key_name(usr, 0, 1, 0)]</EM>: <span class='message linkify'>[msg]</span></span>"
+		msg = "<span class='cciaasay'>[create_text_tag("CCIA")] <EM>[key_name(usr, 0, 1, 0)]</EM>: <span class='message linkify'>[msg]</span></span>"
 		for(var/s in staff)
 			var/client/C = s
 			if(C.holder.rights & (R_ADMIN|R_CCIAA))
