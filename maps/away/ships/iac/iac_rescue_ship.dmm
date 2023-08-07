@@ -1111,7 +1111,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
 "fqs" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/ship/iac_rescue_ship/hallway)
 "fqz" = (
@@ -2868,7 +2868,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
 "rmz" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/cable,
 /obj/machinery/power/apc{
 	dir = 8;

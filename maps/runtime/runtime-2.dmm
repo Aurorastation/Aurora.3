@@ -29,7 +29,7 @@
 	},
 /area/tcommsat/computer)
 "bl" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	desc = "I like moster truck";
 	name = "walter"
 	},

@@ -1786,7 +1786,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "iSh" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/racers)
 "iVB" = (
@@ -3297,7 +3297,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "qje" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"

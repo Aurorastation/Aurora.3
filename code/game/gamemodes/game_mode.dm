@@ -280,6 +280,8 @@ var/global/list/additional_antag_types = list()
 	var/welcome_delay = rand(waittime_l, waittime_h)
 	addtimer(CALLBACK(current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)
 
+	addtimer(CALLBACK(current_map, TYPE_PROC_REF(/datum/map, load_holodeck_programs)), 5 MINUTES)
+
 	//Assign all antag types for this game mode. Any players spawned as antags earlier should have been removed from the pending list, so no need to worry about those.
 	for(var/datum/antagonist/antag in antag_templates)
 		if(!(antag.flags & ANTAG_OVERRIDE_JOB))

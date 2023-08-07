@@ -287,7 +287,7 @@ var/const/enterloopsanity = 100
 				break
 			objects++
 
-			if (oAM.simulated)
+			if (oAM.simulated && (oAM.flags & PROXMOVE))
 				AM.proximity_callback(oAM)
 
 /turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color="#A10808")

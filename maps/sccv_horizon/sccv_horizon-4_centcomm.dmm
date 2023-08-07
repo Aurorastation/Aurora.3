@@ -241,7 +241,7 @@
 	},
 /area/centcom/control)
 "aaQ" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -740,7 +740,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -777,7 +777,7 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "acs" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -5382,7 +5382,7 @@
 	pixel_x = 4;
 	pixel_y = -2
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/lino,
 /area/merchant_station)
 "alP" = (
 /obj/structure/undies_wardrobe,
@@ -5819,7 +5819,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/lino,
 /area/merchant_station)
 "amH" = (
 /obj/structure/bed/stool/padded/brown{
@@ -5828,7 +5828,7 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/lino,
 /area/merchant_station)
 "amI" = (
 /obj/effect/landmark{
@@ -5898,7 +5898,7 @@
 	icon_state = "tube1"
 	},
 /obj/machinery/media/jukebox,
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/lino,
 /area/merchant_station)
 "amU" = (
 /obj/structure/noticeboard{
@@ -6098,14 +6098,14 @@
 /obj/structure/bed/stool/padded/brown{
 	dir = 1
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/lino,
 /area/merchant_station)
 "anr" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/merchant_station)
 "ant" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "anu" = (
@@ -6286,14 +6286,14 @@
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "aog" = (
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/lino,
 /area/merchant_station)
 "aoh" = (
 /obj/machinery/door/airlock/glass{
 	name = "Lounge";
 	req_access = list(110)
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/lino,
 /area/merchant_station)
 "aoj" = (
 /turf/simulated/floor/tiled,
@@ -6649,7 +6649,7 @@
 /obj/machinery/vending/cigarette/merchant{
 	pixel_x = 2
 	},
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/lino,
 /area/merchant_station)
 "apk" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
@@ -6871,12 +6871,12 @@
 /area/centcom/evac)
 "aqb" = (
 /obj/structure/bed/stool/padded/brown,
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/lino,
 /area/merchant_station)
 "aqc" = (
 /obj/item/material/ashtray/bronze,
 /obj/structure/table/wood,
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/lino,
 /area/merchant_station)
 "aqd" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -8604,8 +8604,8 @@
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant)
 "auX" = (
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/lino/diamond,
+/obj/random/pottedplant,
+/turf/simulated/floor/lino,
 /area/merchant_station)
 "auY" = (
 /obj/effect/floor_decal/corner/beige/full,
@@ -9676,7 +9676,8 @@
 	dir = 4;
 	req_access = null;
 	req_one_access = list(38,72);
-	shuttle_tag = "Agent Shuttle"
+	shuttle_tag = "SCC Shuttle";
+	can_rename_ship = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
@@ -12327,7 +12328,7 @@
 	},
 /area/centcom/specops)
 "aDe" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -13800,7 +13801,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aHd" = (
@@ -13814,7 +13815,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aHe" = (
@@ -15301,7 +15302,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -16057,7 +16058,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aOg" = (
@@ -16393,7 +16394,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 5
 	},
@@ -18514,7 +18515,7 @@
 	},
 /area/centcom/legion/hangar5)
 "aUb" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -21038,7 +21039,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "aZr" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
 	},
@@ -22604,7 +22605,7 @@
 	},
 /area/antag/burglar)
 "bcL" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -24663,7 +24664,7 @@
 /turf/unsimulated/floor,
 /area/antag/burglar)
 "bgx" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "bgy" = (
@@ -26633,7 +26634,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "blc" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bld" = (
@@ -28579,7 +28580,7 @@
 	},
 /area/antag/raider)
 "bpm" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -29096,7 +29097,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
@@ -30841,7 +30842,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -31807,7 +31808,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "bwh" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -31816,7 +31817,7 @@
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "bwi" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -34190,7 +34191,7 @@
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/horizon/holodeck/source_gym)
 "bFS" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/holofloor/lino,
 /area/horizon/holodeck/source_meetinghall)
 "bFT" = (
@@ -34251,7 +34252,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
 "bFX" = (
@@ -34299,7 +34300,7 @@
 	name = "Dominian Empire flag";
 	pixel_x = -30
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_tribunal)
 "bGd" = (
@@ -34910,7 +34911,7 @@
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/source_jupiter)
 "bHC" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_pool)
 "bHD" = (
@@ -35872,7 +35873,7 @@
 /turf/simulated/floor/holofloor/lino,
 /area/horizon/holodeck/source_meetinghall)
 "bKu" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_boxingcourt)
 "bKv" = (
@@ -36862,7 +36863,7 @@
 /turf/simulated/floor/plating/snow,
 /area/centcom/shared_dream)
 "cWp" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_battlemonsters)
 "cWC" = (
@@ -37069,7 +37070,7 @@
 	},
 /area/horizon/holodeck/source_moghes)
 "dMF" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_dininghall)
 "dMG" = (
@@ -37140,7 +37141,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
@@ -37589,7 +37590,7 @@
 	name = "post";
 	pixel_y = -4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/decal/fake_object{
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
@@ -39054,7 +39055,7 @@
 	},
 /area/horizon/holodeck/source_desert)
 "lDX" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -39702,7 +39703,7 @@
 	name = "post";
 	pixel_y = -4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/decal/fake_object{
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
@@ -39821,7 +39822,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_gym)
 "oPh" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
@@ -40268,7 +40269,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
 "qHa" = (
@@ -40573,7 +40574,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/window/reinforced/holowindow{
 	dir = 4
 	},
@@ -40783,7 +40784,7 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "sZZ" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_sauna)
@@ -41230,7 +41231,7 @@
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_tribunal)
 "uGe" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/holofloor/lino,
 /area/horizon/holodeck/source_chapel)
 "uHb" = (
@@ -41717,7 +41718,7 @@
 	},
 /area/horizon/holodeck/source_moghes)
 "xbL" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},

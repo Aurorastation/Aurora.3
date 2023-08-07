@@ -6,7 +6,7 @@
 // the standard tube light fixture
 /obj/machinery/light
 	name = "light fixture"
-	icon = 'icons/obj/structure/lighting/wall_lights.dmi'
+	icon = 'icons/obj/lights.dmi'
 	var/base_state = "tube"		// base description and icon_state
 	icon_state = "tube_empty"
 	desc = "A lighting fixture."
@@ -130,6 +130,9 @@
 /obj/machinery/light/colored/dying
 	brightness_color = LIGHT_COLOR_DYING
 	randomize_color = FALSE
+
+/obj/machinery/light/broken
+	status = LIGHT_BROKEN
 
 /obj/machinery/light/spot
 	name = "spotlight fixture"

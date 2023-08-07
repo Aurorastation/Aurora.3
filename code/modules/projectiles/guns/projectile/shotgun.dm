@@ -1,6 +1,9 @@
 /obj/item/gun/projectile/shotgun
 	name = "strange shotgun"
 	desc = DESC_PARENT
+	desc_info = "This is a shotgun, chambered for various shells and slugs. To fire the weapon, toggle the safety with CTRL-Click or enable 'HARM' intent, then click where \
+	you want to fire. To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen. To reload, insert shells or a magazine \
+	into the shotgun, then pump the shotgun to chamber a fresh round."
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
@@ -121,7 +124,6 @@
 /obj/item/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
 	desc = "A true classic."
-	desc_info = "Use in hand to unload, alt click to change firemodes."
 	icon = 'icons/obj/guns/dshotgun.dmi'
 	icon_state = "dshotgun"
 	item_state = "dshotgun"

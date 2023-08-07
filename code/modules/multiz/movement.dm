@@ -809,7 +809,10 @@
 	qdel(src)
 
 /atom/movable/z_observer/z_down/follow()
-	forceMove(get_step(tile_shifted ? src : owner, DOWN))
+	var/turf/down_step = get_step(tile_shifted ? src : owner, DOWN)
+	/// If we move down more than 1 step, don't move down again.
+	if((GET_Z(owner) - down_step.z) < 2)
+		forceMove(down_step)
 	var/turf/T = get_turf(tile_shifted ? get_step(owner, owner.dir) : owner)
 	if(T && TURF_IS_MIMICING(T))
 		return

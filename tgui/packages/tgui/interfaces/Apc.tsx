@@ -5,7 +5,8 @@ import { Window } from '../layouts';
 
 export type APCData = {
   locked: BooleanLike;
-  power_cell_status: number;
+  power_cell_inserted: BooleanLike;
+  power_cell_charge: number;
   fail_time: number;
   silicon_user: BooleanLike;
   total_load: number;
@@ -99,14 +100,14 @@ export const APCWindow = (props, context) => {
             )}
           </LabeledList.Item>
           <LabeledList.Item label="Power Cell">
-            {data.power_cell_status ? (
+            {data.power_cell_inserted ? (
               <ProgressBar
                 ranges={{
                   good: [75, 100],
                   average: [30, 75],
                   bad: [0, 30],
                 }}
-                value={data.power_cell_status}
+                value={data.power_cell_charge}
                 minValue={0}
                 maxValue={100}
               />
@@ -114,7 +115,7 @@ export const APCWindow = (props, context) => {
               <Box color="bad">Power cell removed.</Box>
             )}
           </LabeledList.Item>
-          {data.power_cell_status ? (
+          {data.power_cell_inserted ? (
             <LabeledList.Item label="Charge Mode">
               {!data.silicon_user && data.locked ? (
                 <Box color={data.charge_mode ? 'good' : 'bad'}>

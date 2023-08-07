@@ -198,15 +198,15 @@
 	allowed_directions = UP|DOWN
 	icon_state = "ladder11"
 
-// Stairs
 /obj/structure/ladder/away //a ladder that just looks like it's going down
 	icon_state = "ladderawaydown"
 
+/// Note that stairs facing left/right may need the stairs_lower structure if they're not placed against walls.
 /obj/structure/stairs
 	name = "stairs"
 	desc = "Stairs leading to another floor. Not too useful if the gravity goes out."
 	icon = 'icons/obj/stairs.dmi'
-	icon_state = "solid"
+	icon_state = "stairs_3d"
 	layer = TURF_LAYER
 	density = FALSE
 	opacity = FALSE
@@ -240,7 +240,7 @@
 		return
 	if(target.z > (z + 1)) //Prevents wheelchair fuckery. Basically, you teleport twice because both the wheelchair + your mob collide with the stairs.
 		return
-	if(target.Enter(A, src))
+	if(target.Enter(A, src) && A.dir == dir)
 		A.forceMove(target)
 		if(isliving(A))
 			var/mob/living/L = A
@@ -288,12 +288,48 @@
 /obj/structure/stairs/east
 	dir = EAST
 	bound_width = 64
-	bound_x = -32
-	pixel_x = -32
 
 /obj/structure/stairs/west
 	dir = WEST
 	bound_width = 64
+
+/obj/structure/stairs/flat
+	icon_state = "flat"
+
+/// Snowflake railing object for 64x64 stairs.
+/obj/structure/stairs_railing
+	name = "railing"
+	desc = "A railing for stairs."
+	icon = 'icons/obj/stairs.dmi'
+	icon_state = "railing"
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/stairs_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(istype(mover,/obj/item/projectile))
+		return TRUE
+	if(!istype(mover) || mover.checkpass(PASSRAILING))
+		return TRUE
+	if(mover.throwing)
+		return TRUE
+	if(get_dir(loc, target) == dir)
+		return !density
+	return TRUE
+
+/obj/structure/stairs_railing/CheckExit(var/atom/movable/O, var/turf/target)
+	if(istype(O) && CanPass(O, target))
+		return TRUE
+	if(get_dir(O.loc, target) == dir)
+		if(!density)
+			return TRUE
+		return FALSE
+	return TRUE
+
+/obj/structure/stairs_lower
+	name = "stairs"
+	desc = "Stairs leading to another floor. Not too useful if the gravity goes out."
+	anchored = TRUE
+	density = FALSE
 
 /// These stairs are used for fake depth. They don't go up z-levels.
 /obj/structure/platform_stairs

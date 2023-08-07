@@ -144,6 +144,10 @@
 /obj/structure/railing/update_icon(var/update_neighbors = TRUE)
 	NeighborsCheck(update_neighbors)
 	overlays.Cut()
+	if(dir == SOUTH)
+		layer = ABOVE_MOB_LAYER
+	else
+		layer = initial(layer)
 	if(!neighbor_status || !anchored)
 		icon_state = "railing0-[density]"
 	else

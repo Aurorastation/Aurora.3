@@ -1290,7 +1290,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "WC" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "WN" = (
