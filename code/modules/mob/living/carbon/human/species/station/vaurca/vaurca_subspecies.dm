@@ -80,6 +80,7 @@
 
 	age_max = 1000
 	default_genders = list(FEMALE)
+	selectable_pronouns = null
 	economic_modifier = 3
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
