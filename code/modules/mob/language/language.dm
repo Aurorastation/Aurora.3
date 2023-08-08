@@ -181,7 +181,7 @@
 	return list(src, message_mode)
 
 /datum/language/proc/check_speech_restrict(mob/speaker) //for languages with special physical requirements to speak
-	return 1
+	return TRUE
 
 // Language handling.
 /mob/proc/add_language(var/language)
