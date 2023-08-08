@@ -199,6 +199,7 @@ const ContactsSection = function (act, data: SensorsData) {
       {data.contacts && data.contacts.length ? (
         <Table>
           <Table.Row header>
+            <Table.Cell></Table.Cell>
             <Table.Cell title="Designation">Designation</Table.Cell>
             <Table.Cell title="Bearing">B</Table.Cell>
             <Table.Cell title="X Grid Coordinate">X</Table.Cell>
@@ -208,6 +209,12 @@ const ContactsSection = function (act, data: SensorsData) {
           </Table.Row>
           {data.contacts.map((contact: ContactData, i) => (
             <Table.Row key={contact.name}>
+              <Table.Cell title="Scan">
+                <Button
+                  content={'Scan'}
+                  onClick={() => act('scan', { scan: contact.ref })}
+                />
+              </Table.Cell>
               <Table.Cell title="Designation">{contact.name}</Table.Cell>
               {contact.landed ? (
                 ''
@@ -231,6 +238,35 @@ const ContactsSection = function (act, data: SensorsData) {
         ''
       )}
     </Section>
+  );
+};
+
+const ContactDetailsSection = function (act, data: SensorsData) {
+  return (
+    <>
+      {data.contact_details && data.contact_details !== '' ? (
+        <Section title="Sensor Contact Details">
+          <div dangerouslySetInnerHTML={{ __html: data.contact_details }}></div>
+          <Box textAlign="center">
+            {/* {{:helper.link('Print', 'search', { 'scan-action' : 'print' })}} */}
+            {/* {{:helper.link('Clear', 'refresh', { 'scan-action' : 'clear' })}} */}
+            <Button
+              content={'Print'}
+              onClick={() => act('scan_action', { scan_action: 'print' })}
+            />
+            <Button
+              content={'Clear'}
+              onClick={() => {
+                act('scan_action', { scan_action: 'clear' });
+                data.contact_details = '';
+              }}
+            />
+          </Box>
+        </Section>
+      ) : (
+        ''
+      )}
+    </>
   );
 };
 
@@ -551,6 +587,7 @@ export const Sensors = (props, context) => {
         {SensorSection(act, data)}
         {CompassSection(context, act, data)}
         {ContactsSection(act, data)}
+        {ContactDetailsSection(act, data)}
         {DatalinksSection(act, data)}
         {IFFSection(act, data)}
         {DistressSection(act, data)}

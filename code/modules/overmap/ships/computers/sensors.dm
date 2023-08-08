@@ -295,8 +295,8 @@
 			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship designation registered.\"</i>"))
 			return TOPIC_REFRESH
 
-	if (action == "scan-action")
-		switch(params["scan-action"])
+	if (action == "scan_action")
+		switch(params["scan_action"])
 			if("clear")
 				contact_details = null
 			if("print")
