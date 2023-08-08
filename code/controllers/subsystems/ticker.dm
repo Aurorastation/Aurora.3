@@ -466,13 +466,9 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/datum/space_sector/current_sector = SSatlas.current_sector
 	var/html = {"\
-		<span class='notice'>\
-			Current sector: [current_sector]. \
-		</span>\
+		<span class='notice'>Current sector: [current_sector].</span> \
 		<span>\
-			<a href='?src=\ref[src];current_sector_show_sites_id=1'>\
-				Click here\
-			</a> \
+			<a href='?src=\ref[src];current_sector_show_sites_id=1'>Click here</a> \
 			to see every possible site/ship that can potentially spawn here.\
 		</span>\
 	"}
