@@ -42,3 +42,4 @@ changes:
   - bugfix: "Fixed relogging giving you more psi-points."
   - bugfix: "Fixed medborgs being unable to download suit sensors."
   - rscdel: "Removed the Gambit technomancer spell as it was a hacky and now buggy implementation."
+  - bugfix: "Fixed roller bags unbuckling themselves."
