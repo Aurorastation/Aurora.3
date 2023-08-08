@@ -180,7 +180,14 @@
 /datum/language/proc/handle_message_mode(var/message_mode)
 	return list(src, message_mode)
 
-/datum/language/proc/check_speech_restrict(mob/speaker) //for languages with special physical requirements to speak
+/**
+ * Checks if a language with special physical requirements can be spoken by a mob
+ * Returns `TRUE` if allowed to, `FALSE` otherwise
+ *
+ * * speaker - A `mob` to check for the ability to speak the language
+ */
+/datum/language/proc/check_speech_restrict(mob/speaker)
+	SHOULD_NOT_SLEEP(TRUE)
 	return TRUE
 
 // Language handling.
