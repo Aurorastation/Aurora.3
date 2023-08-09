@@ -229,3 +229,8 @@
 
 // Returns distance between two points
 #define DIST_BETWEEN_TWO_POINTS(ax, ay, bx, by) (sqrt((bx-ax)*(bx-ax))+((by-ay)*(by-ay)))
+
+// Returns bearing of object relative to observer (0-360)
+// a is observer, b is other object
+#define BEARING_RELATIVE(ax, ay, bx, by) (90 - Atan2(bx - ax, by - ay))
+

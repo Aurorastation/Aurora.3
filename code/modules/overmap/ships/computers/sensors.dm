@@ -162,7 +162,7 @@
 				contact_x += contact_ship.position[1] / 2.0
 				contact_y += contact_ship.position[2] / 2.0
 
-			var/bearing = round(90 - Atan2(contact_x - linked_x, contact_y - linked_y),5)
+			var/bearing = round(BEARING_RELATIVE(linked_x, linked_y, contact_x, contact_y),5)
 			if(bearing < 0)
 				bearing += 360
 
