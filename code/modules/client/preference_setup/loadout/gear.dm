@@ -35,7 +35,6 @@
 	if(!islist(tags))
 		tags = list(tags)
 	fill_automatic_tags_on_item(src)
-	grab_manual_tags_from_item(src)
 
 /datum/gear_data
 	var/path
