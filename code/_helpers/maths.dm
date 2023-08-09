@@ -227,7 +227,7 @@
 	return line
 
 
-// Returns distance between two points
+/// Returns the distance between two points
 #define DIST_BETWEEN_TWO_POINTS(ax, ay, bx, by) (sqrt((bx-ax)*(bx-ax))+((by-ay)*(by-ay)))
 
 /**
