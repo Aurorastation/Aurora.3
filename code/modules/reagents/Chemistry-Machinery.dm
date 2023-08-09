@@ -54,7 +54,7 @@
 		if(Adjacent(usr))
 			usr.put_in_hands(beaker, TRUE)
 		else
-			beaker:loc = get_turf(src)
+			beaker.loc = get_turf(src)
 		beaker = null
 		reagents.clear_reagents()
 		icon_state = "mixer0"
