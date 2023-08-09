@@ -18,28 +18,35 @@ var/list/tag_group_corp = list(
 	"Hephaestus Industries",
 	"NanoTrasen",
 	"Orion Express",
+	"Stellar Corporate Conglomerate", // as anyone can take SCC items, this tag needs to be manually added
 )
 var/list/tag_group_slot = list() // filled below
 var/list/tag_group_size = list("Tiny", "Small", "Normal", "Large", "Huge") // filled below
 var/list/tag_group_species = list("Human", "IPC", "Skrell", "Unathi", "Tajara", "Diona", "Vaurca")
 
 // ------------------------------ manual/automatic tag groups
-var/list/tag_group_other = list(
+var/list/tag_group_other = list( // (manual tags need to be manually added to the item like `tags = list("Toy")`)
 	"Toy",		// manual
 	"Smoking",	// manual
-	"Religion",	// manual		(needs to be manually added to the item like `tags = list("Toy")`)
-	"Augment",	// manual	(automatically added)
+	"Religion",	// manual
+	"Augment",	// manual
 	"Computer",	// manual
 )
 
 // ------------------------------ all tag groups
+#define TAG_GROUP_DEPT "Department restriction tags"
+#define TAG_GROUP_CORP "Corporation tags"
+#define TAG_GROUP_SLOT "Item slot tags"
+#define TAG_GROUP_SIZE "Item size tags"
+#define TAG_GROUP_SPECIES "Species restriction tags"
+#define TAG_GROUP_OTHER "Other tags"
 var/list/tag_groups_all = list(
-	"Department restriction tags" = tag_group_department,
-	"Corporation tags" = tag_group_corp,
-	"Item slot tags" = tag_group_slot,
-	"Item size tags" = tag_group_size,
-	"Species restriction tags" = tag_group_species,
-	"Other tags" = tag_group_other,
+	TAG_GROUP_DEPT = tag_group_department,
+	TAG_GROUP_CORP = tag_group_corp,
+	TAG_GROUP_SLOT = tag_group_slot,
+	TAG_GROUP_SIZE = tag_group_size,
+	TAG_GROUP_SPECIES = tag_group_species,
+	TAG_GROUP_OTHER = tag_group_other,
 )
 
 // ------------------------------ functions

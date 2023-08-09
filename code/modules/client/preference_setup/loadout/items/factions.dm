@@ -649,7 +649,7 @@
 	display_name = "SCC armband"
 	path = /obj/item/clothing/accessory/armband/scc
 	slot = slot_tie
-	sort_category = "Factions"
+	tags = list("Stellar Corporate Conglomerate")
 	cost = 1
 	faction = null
 
@@ -657,7 +657,7 @@
 	display_name = "SCC sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/scc
 	slot = slot_tie
-	sort_category = "Factions"
+	tags = list("Stellar Corporate Conglomerate")
 	cost = 1
 	faction = null
 
@@ -666,7 +666,7 @@
 	description = "A selection of SCC coats"
 	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc
 	slot = slot_wear_suit
-	sort_category = "Factions"
+	tags = list("Stellar Corporate Conglomerate")
 	cost = 1
 	faction = null
 
@@ -685,7 +685,7 @@
 	description = "A selection of SCC headwear"
 	path = /obj/item/clothing/head/beret/scc
 	slot = slot_head
-	sort_category = "Factions"
+	tags = list("Stellar Corporate Conglomerate")
 	cost = 1
 	faction = null
 

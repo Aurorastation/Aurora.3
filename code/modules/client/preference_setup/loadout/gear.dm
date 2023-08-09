@@ -10,7 +10,7 @@
 	var/faction            //Is this item whitelisted for a faction?
 	var/list/culture_restriction //Is this item restricted to certain cultures? The contents are paths.
 	var/list/origin_restriction //Is this item restricted to certain origins? The contents are paths.
-	var/sort_category = "General"
+	var/sort_category = "General" // DEPRECATED
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
 	var/flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	var/augment = FALSE
@@ -33,6 +33,8 @@
 		gear_tweaks += list(gear_tweak_free_desc)
 	if(flags & GEAR_HAS_COLOR_ROTATION_SELECTION)
 		gear_tweaks += list(gear_tweak_color_rotation)
+	if(!islist(tags))
+		tags = list(tags)
 	fill_automatic_tags_on_item(src)
 	grab_manual_tags_from_item(src)
 
