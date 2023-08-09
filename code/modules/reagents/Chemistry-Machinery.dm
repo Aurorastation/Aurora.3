@@ -52,7 +52,7 @@
 /obj/machinery/chem_master/proc/eject()
 	if(beaker && usr)
 		if(Adjacent(usr))
-			usr.put_in_hands(beaker)
+			usr.put_in_hands(beaker, TRUE)
 		else
 			beaker:loc = get_turf(src)
 		beaker = null
@@ -61,7 +61,8 @@
 		return TRUE
 
 /obj/machinery/chem_master/AltClick()
-	eject()
+	if(usr.Adjacent(src))
+		eject()
 
 /obj/machinery/chem_master/attackby(var/obj/item/B, mob/user)
 

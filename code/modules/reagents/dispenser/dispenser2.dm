@@ -79,17 +79,18 @@
 	cartridges -= label
 	SStgui.update_uis(src)
 
-/obj/machinery/chemical_dispenser/proc/try_eject()
+/obj/machinery/chemical_dispenser/proc/eject()
 	if(container && usr)
 		var/obj/item/reagent_containers/B = container
-		usr.put_in_hands(B)
+		usr.put_in_hands(B, TRUE)
 		container = null
 		if(icon_state_active)
 			icon_state = initial(icon_state)
 		return TRUE
 
 /obj/machinery/chemical_dispenser/AltClick(mob/user)
-	try_eject()
+	if(usr.Adjacent(src))
+		eject()
 
 /obj/machinery/chemical_dispenser/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
@@ -192,7 +193,7 @@
 				. = TRUE
 
 		if("ejectBeaker")
-			if(try_eject())
+			if(eject())
 				. = TRUE
 
 	add_fingerprint(usr)
