@@ -1,7 +1,4 @@
 
-
-
-
 // ------------------------------ automatic tag groups
 var/list/tag_group_department = list(
 	DEPARTMENT_COMMAND,
@@ -31,7 +28,7 @@ var/list/tag_group_other = list(
 	"Toy",		// manual
 	"Smoking",	// manual
 	"Religion",	// manual		(needs to be manually added to the item like `tags = list("Toy")`)
-	"Augment",	// automatic	(automatically added)
+	"Augment",	// manual	(automatically added)
 	"Computer",	// manual
 )
 
@@ -46,7 +43,7 @@ var/list/tag_groups_all = list(
 )
 
 // ------------------------------ functions
-proc/grab_manual_tags_from_item(var/datum/gear/gear)
+/proc/grab_manual_tags_from_item(var/datum/gear/gear)
 	// this grabs any tags from an item
 	// that are not already present in the tag groups
 	// and adds them to tag_group_other
@@ -61,7 +58,7 @@ proc/grab_manual_tags_from_item(var/datum/gear/gear)
 		// if(!found)
 			// tag_group_other |= tag
 
-proc/slot_to_string(var/slot)
+/proc/slot_to_string(var/slot)
 	switch (slot)
 		if(slot_wear_mask)
 			return "Mask"
@@ -90,7 +87,7 @@ proc/slot_to_string(var/slot)
 		else
 			return null
 
-proc/w_class_to_string(var/w_class)
+/proc/w_class_to_string(var/w_class)
 	switch(w_class)
 		if(ITEMSIZE_TINY)
 			return "Tiny"
@@ -107,7 +104,7 @@ proc/w_class_to_string(var/w_class)
 		else
 			return null
 
-proc/fill_automatic_tags_on_item(var/datum/gear/gear)
+/proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 	// ---- tag_group_department
 	var/list/departments_and_jobs = list(
 		DEPARTMENT_COMMAND = command_positions,
@@ -141,7 +138,7 @@ proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 		gear.tags |= size
 		tag_group_size |= size
 	// ---- dedup
-	// ---- tagless tag
+	// ---- tagless tag, shouldn't happen ever, but kept as a failsafe
 	if(gear.tags.len == 0)
 		tag_group_other |= "tagless"
 		gear.tags |= "tagless"
