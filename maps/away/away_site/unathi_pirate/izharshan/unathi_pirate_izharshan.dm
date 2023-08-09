@@ -79,12 +79,19 @@
 	icon_state = "generic"
 	moving_state = "generic_moving"
 	colors = list("#95de9c")
+	scanimage = "unathi_freighter1.png"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 7500 //This truck is too damn big
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
 	comms_name = "modified"
+
+/obj/effect/overmap/visitable/ship/landable/unathi_pirate_izharshan/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "unathi_freighter1")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/machinery/computer/shuttle_control/explore/unathi_pirate_izharshan
 	name = "shuttle control console"

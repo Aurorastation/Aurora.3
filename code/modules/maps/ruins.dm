@@ -2,13 +2,13 @@ var/list/banned_ruin_ids = list()
 
 /proc/seedRuins(list/zlevels, budget, list/potentialRuins, allowed_area = /area/space, var/maxx = world.maxx, var/maxy = world.maxy, ignore_sector = FALSE)
 	if (!length(zlevels))
-		UNLINT(WARNING("No Z levels provided - Not generating ruins"))
+		UNLINT(log_module_ruins_warning("No Z levels provided - Not generating ruins"))
 		return
 
 	for (var/z in zlevels)
 		var/turf/check = locate(1, 1, z)
 		if (!check)
-			UNLINT(WARNING("Z level [z] does not exist - Not generating ruins"))
+			UNLINT(log_module_ruins_warning("Z level [z] does not exist - Not generating ruins"))
 			return
 
 	var/list/available = list()
@@ -27,7 +27,7 @@ var/list/banned_ruin_ids = list()
 		available[ruin] = ruin.spawn_weight
 
 	if(!length(available) && !length(force_spawn))
-		UNLINT(WARNING("No ruins available - Not generating ruins"))
+		UNLINT(log_module_ruins_warning("No ruins available - Not generating ruins"))
 
 	for(var/datum/map_template/ruin/ruin in force_spawn)
 		var/turf/choice = validate_ruin(ruin, zlevels, filter_area = allowed_area, max_x = maxx, max_y = maxy)
@@ -62,7 +62,7 @@ var/list/banned_ruin_ids = list()
 		log_admin("Ruin loader had no ruins to pick from with [budget] left to spend.")
 
 	if (length(selected))
-		log_debug("Finished selecting planet ruins ([english_list(selected)]) for [budget - remaining] cost of [budget] budget.")
+		log_module_ruins("Finished selecting planet ruins ([english_list(selected)]) for [budget - remaining] cost of [budget] budget.")
 
 	return selected
 

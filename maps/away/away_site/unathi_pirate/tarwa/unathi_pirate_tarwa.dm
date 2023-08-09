@@ -2,7 +2,7 @@
 	name = "Tarwa Conglomerate Ship"
 	description = "Ship with pirate lizards, pirate plants"
 	suffixes = list("away_site/unathi_pirate/tarwa/unathi_pirate_tarwa.dmm")
-	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL) //lights edge, weeping stars sectors whenever they're in
+	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_LIGHTS_EDGE, SECTOR_WEEPING_STARS)
 	spawn_weight = 1
 	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tarwa_shuttle)
@@ -18,7 +18,8 @@
 	class = "ICV"
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
-	colors = list("#c2c1ac", "#1b4720")
+	colors = list("#c2c1ac", "#1b7325")
+	scanimage = "unathi_diona_freighter.png"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -31,7 +32,7 @@
 	sizeclass = "Modified Azkrazal-class cargo freighter"
 	shiptype = "Unknown"
 	initial_restricted_waypoints = list(
-		"Tarwa Shuttle" = list()
+		"Tarwa Conglomerate Shuttle" = list("nav_hangar_tarwa")
 	)
 	initial_generic_waypoints = list(
 		"nav_tarwa1",
@@ -39,10 +40,17 @@
 		"nav_tarwa3",
 		"nav_tarwa4"
 	)
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/tarwa/New()
 	designation = "[pick("Silent Sentinel", "Symbiosis", "Flying Dead", "Immortal", "Blood for Blood", "Unnatural Compatibility", "Barkscale", "Boneclaw", "Watcher in the Dark")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/tarwa/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "unathi_diona_freighter")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/tarwa_ship
 	base_turf = /turf/space/dynamic

@@ -10,6 +10,7 @@
 	idle_power_usage = 5
 	active_power_usage = 100
 	flags = NOREACT
+	var/ui_sort_alphabetically = TRUE
 	var/global/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.
 	var/icon_on = "smartfridge"
 	var/icon_off = "smartfridge-off"
@@ -37,7 +38,7 @@
 	)
 
 	var/datum/wires/smartfridge/wires = null
-	atmos_canpass = CANPASS_NEVER
+	atmos_canpass = CANPASS_DENSITY
 
 /obj/machinery/smartfridge/secure
 	is_secure = 1
@@ -114,7 +115,13 @@
 	icon_state = "smartfridge_food"
 	icon_on = "smartfridge_food"
 	icon_off = "smartfridge_food-off"
+	opacity = FALSE
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
+
+/obj/machinery/smartfridge/foodheater/abandoned
+	// badly stocked, with trash, junk, etc
+	desc = "Used to keep food nice and warm in the past, now it is all dirty, and doesn't look like it'll ever run again."
+	use_power = 0
 
 /obj/machinery/smartfridge/seeds
 	name = "\improper MegaSeed Storage"
@@ -205,7 +212,6 @@
 		if(S.on_dry(src)) //Drying rack keeps the item but changes the name. This prevents pre-dried item lingering in the UI as vendable
 			item_quants[S.name]++
 			item_quants[old_name]--
-	SSvueui.check_uis_for_change(src)
 	return
 
 /obj/machinery/smartfridge/process()
@@ -258,7 +264,6 @@
 		cut_overlays()
 		if(panel_open)
 			add_overlay(icon_panel)
-		SSvueui.check_uis_for_change(src)
 		return
 
 	if(O.iswrench())
@@ -315,8 +320,6 @@
 		O.forceMove(src)
 		item_quants[O.name]++
 		user.visible_message("<b>[user]</b> adds \a [O] to [src].", SPAN_NOTICE("You add [O] to [src]."))
-
-		SSvueui.check_uis_for_change(src)
 		return
 
 	if(istype(O, /obj/item/storage))
@@ -333,7 +336,6 @@
 			user.visible_message("<b>[user]</b> loads [src] with [P].", SPAN_NOTICE("You load [src] with [P]."))
 			if(length(P.contents) > 0)
 				to_chat(user, SPAN_NOTICE("Some items are refused."))
-		SSvueui.check_uis_for_change(src)
 		return TRUE
 	to_chat(user, SPAN_NOTICE("[src] smartly refuses [O]."))
 	return TRUE
@@ -361,23 +363,24 @@
 *   SmartFridge Menu
 ********************/
 
-/obj/machinery/smartfridge/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+/obj/machinery/smartfridge/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "machinery-smartfridge", 400, 500, name)
-	ui.open()
+		ui = new(user, src, "SmartFridge", name, 400, 500)
+		ui.open()
 
-/obj/machinery/smartfridge/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = list()
+/obj/machinery/smartfridge/ui_data(mob/user)
+	var/list/data = list()
 
 	data["contents"] = null
 	data["electrified"] = seconds_electrified > 0
 	data["shoot_inventory"] = shoot_inventory
 	data["locked"] = locked
 	data["secure"] = is_secure
+	data["sort_alphabetically"] = ui_sort_alphabetically
 
-	var/list/items[0]
-	for (var/i=1 to length(item_quants))
+	var/list/items = list()
+	for (var/i = 1 to length(item_quants))
 		var/K = item_quants[i]
 		var/count = item_quants[K]
 		if(count > 0)
@@ -387,42 +390,38 @@
 		data["contents"] = items
 	return data
 
-/obj/machinery/smartfridge/Topic(href, href_list)
-	if(..())
-		return TRUE
+/obj/machinery/smartfridge/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
 	add_fingerprint(usr)
 
-	if(href_list["close"])
-		var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
-		usr.unset_machine()
-		ui.close()
-		return FALSE
+	switch(action)
+		if("vendItem")
+			var/index = text2num(params["vendItem"])
+			var/amount = text2num(params["amount"])
+			var/K = item_quants[index]
+			var/count = item_quants[K]
 
-	if(href_list["vendItem"])
-		var/index = text2num(href_list["vendItem"])
-		var/amount = text2num(href_list["amount"])
-		var/K = item_quants[index]
-		var/count = item_quants[K]
+			// Sanity check, there are probably ways to press the button when it shouldn't be possible.
+			if(count > 0 && anchored)
+				item_quants[K] = max(count - amount, 0)
 
-		// Sanity check, there are probably ways to press the button when it shouldn't be possible.
-		if(count > 0 && anchored)
-			item_quants[K] = max(count - amount, 0)
+				var/i = amount
+				for(var/obj/O in contents)
+					if(O.name == K)
+						if(Adjacent(usr))
+							usr.put_in_hands(O)
+						else
+							O.forceMove(loc)
+						i--
+						if(i <= 0)
+							break
+		if("switch_sort_alphabetically")
+			ui_sort_alphabetically = !ui_sort_alphabetically
 
-			var/i = amount
-			for(var/obj/O in contents)
-				if(O.name == K)
-					if(Adjacent(usr))
-						usr.put_in_hands(O)
-					else
-						O.forceMove(loc)
-					i--
-					if(i <= 0)
-						break
-
-		SSvueui.check_uis_for_change(src)
-		return TRUE
-	return FALSE
+	. = TRUE
 
 /obj/machinery/smartfridge/proc/throw_item()
 	var/obj/throw_item = null

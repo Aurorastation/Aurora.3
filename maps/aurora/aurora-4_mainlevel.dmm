@@ -226,7 +226,7 @@
 	pixel_x = 10;
 	pixel_y = 24
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics_cyborgification)
 "aaF" = (
@@ -1525,12 +1525,7 @@
 	icon_state = "map_vent_out";
 	use_power = 1
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "adh" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2178,20 +2173,10 @@
 	dir = 8
 	},
 /obj/machinery/r_n_d/server/advanced/core,
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "aes" = (
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "aet" = (
 /obj/item/material/shard{
@@ -2906,12 +2891,7 @@
 	pump_direction = 0;
 	use_power = 1
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "afH" = (
 /obj/structure/cable/green{
@@ -5462,7 +5442,7 @@
 /turf/simulated/floor,
 /area/security/security_office)
 "akO" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
@@ -8502,7 +8482,7 @@
 /turf/simulated/floor/tiled,
 /area/security/security_office)
 "aqC" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
@@ -9926,7 +9906,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/ringer{
 	department = "Security";
 	id = "brig_ringer";
@@ -10404,7 +10384,6 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "atx" = (
-/obj/machinery/computer/power_monitor,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -15597,7 +15576,7 @@
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Sublevel EVA"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
 	},
@@ -15638,7 +15617,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aCa" = (
-/obj/machinery/computer/station_alert/engineering,
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
@@ -15646,7 +15624,7 @@
 /area/engineering/foyer)
 "aCb" = (
 /obj/item/toy/figure/journalist,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
@@ -18696,12 +18674,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "aGI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -18889,7 +18862,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/sign/poster{
 	icon_state = "tcflposter2";
 	pixel_y = 32;
@@ -18901,12 +18874,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/server,
 /area/server)
 "aHa" = (
 /obj/structure/grille,
@@ -20446,7 +20414,7 @@
 	name = "east bump";
 	pixel_x = 24
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aJy" = (
@@ -23691,7 +23659,6 @@
 /area/security/brig/control_room)
 "aPc" = (
 /obj/machinery/firealarm/south,
-/obj/machinery/computer/station_alert/security,
 /turf/simulated/floor/tiled,
 /area/security/brig/control_room)
 "aPd" = (
@@ -24220,7 +24187,7 @@
 /area/crew_quarters/captain)
 "aPT" = (
 /obj/item/toy/figure/captain,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aPU" = (
@@ -24834,7 +24801,7 @@
 /turf/simulated/floor/plating,
 /area/journalistoffice)
 "aRa" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "aRb" = (
@@ -25121,7 +25088,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aRB" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aRC" = (
@@ -25613,7 +25580,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aSg" = (
-/obj/machinery/computer/station_alert/engineering,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
@@ -31323,7 +31289,7 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/medbreak)
 "bcj" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
@@ -33252,10 +33218,6 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/circuitboard/powermonitor{
-	pixel_x = -2;
-	pixel_y = 2
-	},
 /obj/item/circuitboard/security/engineering,
 /obj/item/circuitboard/atmos_alert{
 	pixel_x = 3;
@@ -33640,7 +33602,7 @@
 /area/medical/icu)
 "bgr" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
@@ -33667,7 +33629,7 @@
 /area/medical/exam_room2)
 "bgu" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "east bump";
@@ -36426,7 +36388,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
 	},
@@ -36626,7 +36588,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
@@ -36659,7 +36621,7 @@
 	name = "\improper Medical - Psych Stairway"
 	})
 "bly" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 8
 	},
@@ -36711,7 +36673,7 @@
 	name = "\improper Medical - Psych Stairway"
 	})
 "blB" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Psych Stairway"
 	},
@@ -39696,7 +39658,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "brI" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/ringer_button{
 	id = "medbay_ringer";
 	pixel_x = 26
@@ -41271,11 +41233,11 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "buI" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/item/device/radio/intercom{
 	pixel_y = 22
 	},
@@ -41413,7 +41375,7 @@
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "bvh" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 1
 	},
@@ -41463,7 +41425,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvo" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 4
 	},
@@ -41840,7 +41802,7 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 27
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
 	},
@@ -43415,7 +43377,7 @@
 	c_tag = "Bridge - Lift Lobby";
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
@@ -43793,7 +43755,7 @@
 "bzY" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/window/reinforced,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "bzZ" = (
@@ -44234,7 +44196,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "bBc" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/alarm{
 	dir = 4;
 	pixel_x = -28
@@ -45570,7 +45532,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bEa" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/turbolift/command_sub)
@@ -47920,7 +47882,7 @@
 /turf/simulated/floor/plating,
 /area/hydroponics)
 "bJS" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "bJU" = (
@@ -48279,7 +48241,7 @@
 	network = list("Service")
 	},
 /obj/item/storage/toolbox/mechanical,
-/obj/item/device/nanoquikpay,
+/obj/item/device/quikpay,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -50604,7 +50566,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "bQI" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/firealarm/south,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -51456,7 +51418,7 @@
 /turf/simulated/floor/carpet,
 /area/chapel/main)
 "bTg" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/carpet,
 /area/chapel/main)
 "bTh" = (
@@ -51537,7 +51499,7 @@
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
-/obj/item/device/nanoquikpay,
+/obj/item/device/quikpay,
 /obj/item/storage/box/fancy/matches,
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/storage/box/fancy/candle_box,
@@ -52525,7 +52487,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "bVE" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4;
 	must_start_working = 1
 	},
@@ -52577,7 +52539,7 @@
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "bVN" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "east bump";
@@ -53346,7 +53308,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	pixel_x = 16;
 	pixel_y = 16
 	},
@@ -56698,7 +56660,7 @@
 /obj/structure/track{
 	icon_state = "track12"
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/asteroid/airless,
@@ -57415,7 +57377,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid/airless,
@@ -59597,7 +59559,7 @@
 	c_tag = "Hydroponics - West";
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "dFK" = (
@@ -60501,7 +60463,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8;
 	must_start_working = 1
 	},
@@ -60555,7 +60517,7 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "ftD" = (
@@ -61051,7 +61013,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "ghU" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -61193,7 +61155,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "gxX" = (
@@ -62267,7 +62229,7 @@
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "ijX" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/wood,
 /area/journalistoffice)
@@ -62639,7 +62601,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "jcx" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/asteroid/airless,
@@ -63217,7 +63179,6 @@
 /area/maintenance/vault)
 "kAL" = (
 /obj/structure/table/wood,
-/obj/item/board,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
 "kAV" = (
@@ -67266,7 +67227,7 @@
 "rOK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
@@ -68648,7 +68609,7 @@
 /turf/simulated/floor/carpet,
 /area/maintenance/bar)
 "tZz" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 22
 	},
@@ -69203,7 +69164,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
@@ -71235,7 +71196,7 @@
 	},
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/laceup,
-/obj/item/device/nanoquikpay{
+/obj/item/device/quikpay{
 	pixel_y = 8
 	},
 /obj/item/clothing/gloves/latex/nitrile/tajara,

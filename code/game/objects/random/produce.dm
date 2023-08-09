@@ -40,7 +40,7 @@
 	if(chosen_seed)
 		chosen_seed.spawn_seed(src.loc)
 	else
-		log_debug("Cannot spawn random produce [seed_chosen]! Fix this by editing [type]'s produce_list!",SEVERITY_ERROR)
+		LOG_DEBUG("Cannot spawn random produce [seed_chosen]! Fix this by editing [type]'s produce_list!")
 
 	return INITIALIZE_HINT_QDEL
 
@@ -67,3 +67,35 @@
 			"cherry" = 0.25,
 			"onion" = 0.5
 					   )
+
+/obj/random/seed
+	name = "random seed"
+	desc = "This is a random normal seed."
+	icon = 'icons/obj/seeds.dmi'
+	icon_state = "random"
+	spawnlist = list(
+		/obj/item/seeds/limeseed,
+		/obj/item/seeds/lemonseed,
+		/obj/item/seeds/orangeseed,
+		/obj/item/seeds/grapeseed,
+		/obj/item/seeds/berryseed,
+		/obj/item/seeds/appleseed,
+		/obj/item/seeds/bananaseed,
+		/obj/item/seeds/watermelonseed,
+		/obj/item/seeds/pumpkinseed,
+		/obj/item/seeds/wheatseed,
+		/obj/item/seeds/cornseed,
+		/obj/item/seeds/riceseed,
+		/obj/item/seeds/sugarcaneseed,
+		/obj/item/seeds/carrotseed,
+		/obj/item/seeds/garlicseed,
+		/obj/item/seeds/onionseed,
+		/obj/item/seeds/potatoseed,
+		/obj/item/seeds/whitebeetseed,
+		/obj/item/seeds/tomatoseed,
+		/obj/item/seeds/chiliseed,
+		/obj/item/seeds/eggplantseed,
+		/obj/item/seeds/peanutseed,
+		/obj/item/seeds/soyaseed,
+		/obj/item/seeds/cabbageseed
+	)

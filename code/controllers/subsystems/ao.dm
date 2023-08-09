@@ -12,8 +12,9 @@
 /datum/controller/subsystem/ao/New()
 	NEW_SS_GLOBAL(SSocclusion)
 
-/datum/controller/subsystem/ao/stat_entry()
-	..("P:[queue.len]")
+/datum/controller/subsystem/ao/stat_entry(msg)
+	msg = "P:[queue.len]"
+	return ..()
 
 /datum/controller/subsystem/ao/Initialize()
 	fire(FALSE, TRUE)

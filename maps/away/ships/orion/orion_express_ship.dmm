@@ -70,10 +70,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
-"ayD" = (
-/obj/structure/window/shuttle/scc,
-/turf/template_noop,
-/area/shuttle/orion_express_shuttle)
 "aDL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -1155,9 +1151,8 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/ramp{
-	dir = 4;
-	nitrogen = 0;
-	oxygen = 0
+	dir = 8;
+	initial_gas = list()
 	},
 /area/ship/orion_express_ship)
 "iCX" = (
@@ -2353,9 +2348,8 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/ramp{
-	dir = 8;
-	nitrogen = 0;
-	oxygen = 0
+	dir = 4;
+	initial_gas = list()
 	},
 /area/ship/orion_express_ship)
 "rvq" = (
@@ -35191,7 +35185,7 @@ xRX
 xRX
 xRX
 xRX
-ayD
+hvo
 qUy
 sTK
 oqT

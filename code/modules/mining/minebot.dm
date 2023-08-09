@@ -24,7 +24,7 @@
 /mob/living/silicon/robot/drone/mining/Initialize()
 	. = ..()
 
-	verbs |= /mob/living/proc/hide
+	add_verb(src, /mob/living/proc/hide)
 
 	//They are unable to be upgraded, so let's give them a bit of a better battery.
 	cell.maxcharge = 10000
@@ -41,8 +41,8 @@
 			var/datum/robot_component/C = components[V]
 			C.max_damage = 15
 
-	verbs -= /mob/living/silicon/robot/verb/Namepick
-	verbs -= /mob/living/silicon/robot/drone/verb/set_mail_tag
+	remove_verb(src, /mob/living/silicon/robot/verb/Namepick)
+	remove_verb(src, /mob/living/silicon/robot/drone/verb/set_mail_tag)
 	update_icon()
 	density = FALSE
 
@@ -73,6 +73,8 @@
 	src.ckey = user.ckey
 	seeking_player = FALSE
 	welcome_drone()
+
+	client.init_verbs()
 
 	return src
 

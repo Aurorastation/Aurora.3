@@ -16,10 +16,11 @@
 	aspect = ASPECT_TELE
 
 /obj/item/spell/apportation/on_ranged_cast(atom/hit_atom, mob/user)
+	. = ..()
 	if(istype(hit_atom, /atom/movable))
 		var/atom/movable/AM = hit_atom
 
-		if(!AM.loc) //Don't teleport HUD telements to us.
+		if(!AM.loc) //Don't teleport HUD elements to us.
 			return
 		if(AM.anchored)
 			to_chat(user, "<span class='warning'>\The [hit_atom] is firmly secured and anchored, you can't move it!</span>")

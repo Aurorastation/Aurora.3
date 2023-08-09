@@ -5,4 +5,4 @@
 	. = ..()
 	if(!.)
 		return
-	SSrecords.open_manifest_vueui(user)
+	SSrecords.open_manifest_tgui(user)

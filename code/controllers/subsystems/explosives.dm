@@ -146,7 +146,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 					var/dist = get_dist(M_turf, epicenter)
 					var/explosion_dir = angle2text(Get_Angle(M_turf, epicenter))
 					if (reception == 2 && (M.ear_deaf <= 0 || !M.ear_deaf)) //Dont play sounds to deaf people
-						
+
 						// Anyone with sensitive hearing gets a bonus to hearing explosions
 						var/extendeddist = closedist
 						if(ishuman(M))
@@ -249,10 +249,10 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	if(!epicenter)
 		return
 
-	message_admins("Explosion with size ([power]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z])")
+	message_admins("Explosion with size ([power]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</a>)")
 	log_game("Explosion with size ([power]) in area [epicenter.loc.name] ")
 
-	log_debug("iexpl: Beginning discovery phase.")
+	LOG_DEBUG("iexpl: Beginning discovery phase.")
 	var/time = world.time
 
 	explosion_in_progress = TRUE
@@ -326,8 +326,8 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 		CHECK_TICK
 
-	log_debug("iexpl: Discovery completed in [(world.time-time)/10] seconds.")
-	log_debug("iexpl: Beginning SFX phase.")
+	LOG_DEBUG("iexpl: Discovery completed in [(world.time-time)/10] seconds.")
+	LOG_DEBUG("iexpl: Beginning SFX phase.")
 	time = world.time
 
 	var/volume = 10 + (power * 20)
@@ -376,8 +376,8 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 		CHECK_TICK
 
-	log_debug("iexpl: SFX phase completed in [(world.time-time)/10] seconds.")
-	log_debug("iexpl: Beginning application phase.")
+	LOG_DEBUG("iexpl: SFX phase completed in [(world.time-time)/10] seconds.")
+	LOG_DEBUG("iexpl: Beginning application phase.")
 	time = world.time
 
 	var/turf_tally = 0
@@ -412,7 +412,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		turf_tally++
 
 	explosion_in_progress = FALSE
-	log_debug("iexpl: Application completed in [(world.time-time)/10] seconds; processed [turf_tally] turfs and [movable_tally] movables.")
+	LOG_DEBUG("iexpl: Application completed in [(world.time-time)/10] seconds; processed [turf_tally] turfs and [movable_tally] movables.")
 
 #undef SEARCH_DIR
 
@@ -427,8 +427,9 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	if (suspended)
 		wake()
 
-/datum/controller/subsystem/explosives/stat_entry()
-	..("P:[work_queue.len]")
+/datum/controller/subsystem/explosives/stat_entry(msg)
+	msg ="P:[work_queue.len]"
+	return ..()
 
 // The data datum for explosions.
 /datum/explosiondata

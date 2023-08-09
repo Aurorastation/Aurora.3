@@ -45,10 +45,7 @@
 /area/template_noop)
 "aj" = (
 /obj/structure/computerframe,
-/turf/simulated/floor/shuttle/skrell{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "al" = (
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -60,8 +57,7 @@
 	name = "Command Copula"
 	},
 /turf/simulated/floor/shuttle/skrell/ramp{
-	nitrogen = 0;
-	oxygen = 0
+	initial_gas = list()
 	},
 /area/template_noop)
 "an" = (
@@ -79,10 +75,7 @@
 /obj/structure/table/skrell,
 /obj/item/paper_scanner,
 /obj/item/pen/black,
-/turf/simulated/floor/shuttle/skrell{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "ap" = (
 /turf/simulated/wall/shuttle/skrell,
@@ -109,20 +102,14 @@
 	},
 /obj/structure/table/skrell,
 /obj/item/skrell_projector,
-/turf/simulated/floor/shuttle/skrell{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "av" = (
 /obj/structure/bed/stool/chair/office/hover/command{
 	icon_state = "hover_command";
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/skrell{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "aw" = (
 /obj/structure/closet/crate/freezer,
@@ -134,10 +121,7 @@
 	},
 /obj/structure/table/skrell,
 /obj/item/stack/rods,
-/turf/simulated/floor/shuttle/skrell{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "ay" = (
 /obj/effect/decal/cleanable/blood/tracks/footprints{
@@ -150,10 +134,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/floor/shuttle/skrell{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "aA" = (
 /obj/machinery/bodyscanner,
@@ -303,10 +284,7 @@
 	},
 /obj/structure/table/skrell,
 /obj/item/material/shard/phoron,
-/turf/simulated/floor/shuttle/skrell{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "bb" = (
 /obj/machinery/door/airlock/skrell/grey,
@@ -477,10 +455,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/item/material/shard/phoron,
-/turf/simulated/floor/shuttle/skrell{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "bG" = (
 /obj/item/device/t_scanner,
@@ -658,9 +633,6 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
-"cl" = (
-/turf/simulated/floor/shuttle/skrell,
-/area/template_noop)
 "cm" = (
 /obj/structure/cryofeed{
 	icon_state = "cryo_rear";
@@ -824,22 +796,13 @@
 /obj/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell/blue/airless,
 /area/template_noop)
-"IN" = (
-/turf/simulated/floor/shuttle/skrell/blue{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/template_noop)
 "OB" = (
 /obj/structure/closet/skrell,
 /obj/random/weapon_and_ammo,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "Th" = (
-/turf/simulated/floor/shuttle/skrell{
-	oxygen = 0;
-	nitrogen = 0
-	},
+/turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "Ug" = (
 /turf/simulated/floor/shuttle/skrell/blue/airless,
@@ -1031,7 +994,7 @@ aq
 aq
 aq
 ap
-cl
+aH
 cC
 aL
 ck
@@ -1264,7 +1227,7 @@ Vf
 ba
 au
 az
-IN
+Ug
 aI
 Ug
 ap
@@ -1473,7 +1436,7 @@ aq
 aq
 aq
 ap
-cl
+aH
 bX
 aH
 aH

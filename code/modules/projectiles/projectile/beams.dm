@@ -469,15 +469,6 @@
 	if(isliving(target))
 		tesla_zap(target, 5, 5000)
 
-/obj/item/projectile/beam/tesla/master
-	damage = 15
-
-/obj/item/projectile/beam/tesla/grandmaster
-	damage = 20
-
-/obj/item/projectile/beam/tesla/paramount
-	damage = 25
-
 /obj/item/projectile/beam/freezer
 	name = "freezing ray"
 	icon_state = "bluelaser"

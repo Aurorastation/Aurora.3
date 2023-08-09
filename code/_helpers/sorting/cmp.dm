@@ -49,7 +49,9 @@
 	return sorttext(b.last_name, a.last_name)
 
 /proc/cmp_uplink_item(datum/uplink_item/a, datum/uplink_item/b)
-	return b.cost(INFINITY) - a.cost(INFINITY)
+	var/total_crystal_cost_a = a.telecrystal_cost(INFINITY) + a.bluecrystal_cost(INFINITY)
+	var/total_crystal_cost_b = b.telecrystal_cost(INFINITY) + b.bluecrystal_cost(INFINITY)
+	return total_crystal_cost_b - total_crystal_cost_a
 
 /proc/cmp_access(datum/access/a, datum/access/b)
 	return sorttext("[b.access_type][b.desc]", "[a.access_type][a.desc]")

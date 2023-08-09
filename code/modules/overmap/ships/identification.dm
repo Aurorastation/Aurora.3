@@ -3,6 +3,7 @@
 	desc = "A complex set of various bluespace and subspace arrays that transmit a ship's identification tags."
 	icon = 'icons/obj/machinery/iff_transponder.dmi'
 	icon_state = "iff"
+	anchored = TRUE
 	idle_power_usage = 500
 	var/datum/wires/iff/wires
 	var/disabled = FALSE
@@ -68,6 +69,10 @@
 /obj/machinery/iff_beacon/horizon
 	can_change_class = FALSE
 	can_change_name = FALSE
+
+/obj/machinery/iff_beacon/horizon/shuttle
+	icon = 'icons/obj/spaceship/scc/helm_pieces.dmi'
+	icon_state = "iff"
 
 /obj/machinery/iff_beacon/name_change
 	can_change_name = TRUE

@@ -180,7 +180,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 /proc/jobban_loaddatabase()
 	// No database. Weee.
 	if (!establish_db_connection(dbcon))
-		log_error("Database connection failed. Reverting to the legacy ban system.")
+		log_world("ERROR: Database connection failed. Reverting to the legacy ban system.")
 		log_misc("Database connection failed. Reverting to the legacy ban system.")
 		config.ban_legacy_system = 1
 		jobban_loadbanfile()
@@ -230,7 +230,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	CKEY_OR_MOB(ckey, player)
 
 	if (!ckey)
-		log_debug("JOBBAN: jobban_unban called without a mob and a backup ckey.")
+		LOG_DEBUG("JOBBAN: jobban_unban called without a mob and a backup ckey.")
 		return
 
 	// Check for a player record.

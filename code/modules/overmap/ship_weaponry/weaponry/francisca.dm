@@ -9,6 +9,10 @@
 	caliber = SHIP_CALIBER_40MM
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 
+/obj/machinery/ship_weapon/francisca/compact//Franky but small, for shuttles with very little space
+	name = "compact francisca rotary gun"
+	icon = 'icons/obj/machinery/ship_guns/francisca_compact.dmi'
+
 /obj/machinery/ammunition_loader/francisca
 	name = "francisca ammunition loader"
 

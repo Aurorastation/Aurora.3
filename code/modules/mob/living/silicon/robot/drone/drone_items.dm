@@ -5,6 +5,7 @@
 	desc = "Eating trash, bits of glass, or other debris will replenish your stores."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "decompiler"
+	var/is_decompiling = FALSE
 
 	//Metal, glass, wood, plastic.
 	var/datum/matter_synth/metal
@@ -12,12 +13,17 @@
 	var/datum/matter_synth/wood
 	var/datum/matter_synth/plastic
 
-/obj/item/matter_decompiler/attack(mob/living/carbon/M, mob/living/carbon/user)
+/obj/item/matter_decompiler/attack(mob/living/M, mob/living/user)
 	return
 
 /obj/item/matter_decompiler/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, proximity, params)
 	if(!proximity)
 		return //Not adjacent.
+
+	//If we're clicking on a mob, focus only on that mob
+	if(ismob(target))
+		attempt_decompile_creature(target, user)
+		return
 
 	//We only want to deal with using this on turfs. Specific items aren't important.
 	var/turf/T = get_turf(target)
@@ -26,47 +32,6 @@
 
 	//Used to give the right message.
 	var/grabbed_something = 0
-
-	for(var/mob/M in T)
-		if(istype(M,/mob/living/silicon/robot/drone) && !M.client)
-			var/mob/living/silicon/robot/D = src.loc
-			if(!istype(D))
-				return
-
-			to_chat(D, SPAN_NOTICE("You begin decompiling [M]."))
-
-			if(!do_after(D,50))
-				to_chat(D, SPAN_WARNING("You need to remain still while decompiling such a large object."))
-				return
-
-			if(!M || !D)
-				return
-
-			to_chat(D, SPAN_NOTICE("You carefully and thoroughly decompile \the [M], storing as much of its resources as you can within yourself."))
-			qdel(M)
-			new /obj/effect/decal/cleanable/blood/oil(get_turf(src))
-
-			if(metal)
-				metal.add_charge(15000)
-			if(glass)
-				glass.add_charge(15000)
-			if(wood)
-				wood.add_charge(2000)
-			if(plastic)
-				plastic.add_charge(1000)
-
-		else if(istype(M,/mob/living/simple_animal) && M.mob_size <= 3 && !istype(M, /mob/living/simple_animal/cat)) //includes things like rats, lizards, tindalos while excluding bigger things and station pets.
-			src.loc.visible_message(SPAN_DANGER("\The [src.loc] sucks \the [M] into its decompiler. There's a horrible crunching noise."), SPAN_NOTICE("It's a bit of a struggle, but you manage to suck \the [M] into your decompiler. It makes a series of visceral crunching noises."))
-			new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
-			playsound(src.loc, 'sound/effects/squelch1.ogg')
-			qdel(M)
-			if(wood)
-				wood.add_charge(2000)
-			if(plastic)
-				plastic.add_charge(2000)
-			return
-		else
-			continue
 
 	for(var/obj/W in T)
 		//Different classes of items give different commodities.
@@ -108,6 +73,9 @@
 			if(glass)
 				glass.add_charge(2000)
 		else if(istype(W, /obj/item/ammo_casing))
+			var/obj/item/ammo_casing/AC = W
+			if(AC.BB) //My new cover band
+				continue //We only decompile spent ammo
 			if(metal)
 				metal.add_charge(1000)
 		else if(istype(W, /obj/item/material/shard/shrapnel))
@@ -120,7 +88,7 @@
 			if(wood)
 				wood.add_charge(4000)
 		else if(istype(W, /obj/item/pipe))
-			// This allows drones and engiborgs to clear pipe assemblies from floors.
+			continue // This allows drones and engiborgs to clear pipe assemblies from floors.
 		else if(istype(W, /obj/item/broken_bottle))
 			if(glass)
 				glass.add_charge(2000)
@@ -142,6 +110,65 @@
 		to_chat(user, SPAN_NOTICE("You deploy your decompiler and clear out the contents of \the [T]."))
 	else
 		to_chat(user, SPAN_WARNING("Nothing on \the [T] is useful to you."))
+	return
+
+/obj/item/matter_decompiler/proc/attempt_decompile_creature(mob/living/M, mob/living/user)
+	if(is_decompiling)
+		return //we're busy
+
+	//First, let's see if we're cannibalizing an inert drone as a drone
+	if(isDrone(M) && !M.client)
+		var/mob/living/silicon/robot/D = src.loc
+		if(!istype(D))
+			return //If we're not also a drone, begone
+
+		to_chat(D, SPAN_NOTICE("You begin decompiling [M]."))
+		is_decompiling = TRUE
+
+		if(!do_after(D,50))
+			to_chat(D, SPAN_WARNING("You need to remain still while decompiling such a large object."))
+			is_decompiling = FALSE
+			return
+			
+		is_decompiling = FALSE
+		if(!M || !D)
+			return
+
+		to_chat(D, SPAN_NOTICE("You carefully and thoroughly decompile \the [M], storing as much of its resources as you can within yourself."))
+		qdel(M)
+		new /obj/effect/decal/cleanable/blood/oil(get_turf(src))
+
+		if(metal)
+			metal.add_charge(15000)
+		if(glass)
+			glass.add_charge(15000)
+		if(wood)
+			wood.add_charge(2000)
+		if(plastic)
+			plastic.add_charge(1000)
+		return
+
+	//If we're not cannibalizing, check if we're removing a small pest.
+	//Only small, organic pests, like rats, lizards, tindalos, etc.
+	if(!isanimal(M) || M.isSynthetic() || M.mob_size > 3)
+		return
+
+	var/mob/living/simple_animal/victim = M
+
+	//Do not let drones suck up antag borers. They can clean the bodies tho.
+	if(istype(victim, /mob/living/simple_animal/borer) && M.stat != DEAD)
+		to_chat(user, SPAN_WARNING("You can't seem to get \the [victim] into your [name]!"))
+		return
+	
+	//We're good to crunch them up
+	var/turf/T = get_turf(src)
+	T.visible_message(SPAN_DANGER("\The [user] sucks \the [victim] into its decompiler. There's a horrible crunching noise."), 
+		SPAN_NOTICE("It's a bit of a struggle, but you manage to suck \the [victim] into your decompiler. It makes a series of visceral crunching noises."))
+	new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+	playsound(get_turf(user), 'sound/effects/squelch1.ogg')
+	if(wood)
+		wood.add_charge(1000)
+	qdel(victim)
 	return
 
 //PRETTIER TOOL LIST. // bullshit

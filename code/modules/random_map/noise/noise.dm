@@ -29,7 +29,7 @@
 		limit_y = limit_x
 	else if(limit_y > limit_x)
 		limit_x = limit_y
-	log_debug("Generating Noise map with limits: [limit_x], [limit_y]")
+	LOG_DEBUG("Generating Noise map with limits: [limit_x], [limit_y]")
 	..()
 
 // Diamond-square algorithm.

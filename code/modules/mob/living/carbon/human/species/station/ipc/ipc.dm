@@ -143,6 +143,7 @@
 	var/move_charge_factor = 1
 
 	use_alt_hair_layer = TRUE
+	psi_deaf = TRUE
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
@@ -372,9 +373,6 @@
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
-
-/datum/species/machine/has_psi_potential()
-	return FALSE
 
 /datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
 	if(H.get_total_health() <= config.health_threshold_dead)

@@ -80,6 +80,23 @@
 
 	. = ..()
 
+/obj/item/reagent_containers/pill/attackby(obj/item/W, mob/user)
+	if(is_sharp(W) || istype(W, /obj/item/card/id))
+		var/obj/item/reagent_containers/powder/J = new /obj/item/reagent_containers/powder(loc)
+		user.visible_message(
+			SPAN_WARNING("\The [user] gently cuts up \the [src] with \a [W]!"),
+			SPAN_NOTICE("You gently cut up \the [src] with \the [W]."),
+			SPAN_WARNING("You hear quiet grinding.")
+		)
+		playsound(loc, 'sound/effects/chop.ogg', 50, 1)
+
+		if(reagents)
+			reagents.trans_to_obj(J, reagents.total_volume)
+		J.get_appearance()
+		qdel(src)
+
+	return ..()
+
 ////////////////////////////////////////////////////////////////////////////////
 /// Pills. END
 ////////////////////////////////////////////////////////////////////////////////
@@ -294,7 +311,25 @@
 	reagents_to_add = list(/singleton/reagent/iron = 5, /singleton/reagent/sugar = 10)
 
 /obj/item/reagent_containers/pill/antidexafen
-	name = "15u antidexafen"
+	name = "15u Antidexafen"
 	desc = "Common cold mediciation. Safe for babies!"
 	icon_state = "pill4"
 	reagents_to_add = list(/singleton/reagent/antidexafen = 10, /singleton/reagent/drink/lemonjuice = 5, /singleton/reagent/nutriment/mint = REM*0.2)
+
+/obj/item/reagent_containers/pill/antiparasitic
+	name = "5u Helmizole"
+	desc = "An antiparasitic used to treat worms."
+	icon_state = "pill11"
+	reagents_to_add = list(/singleton/reagent/antiparasitic = 5)
+
+/obj/item/reagent_containers/pill/asinodryl
+	name = "10u Asinodryl"
+	desc = "An antiemetic which prevents vomiting."
+	icon_state = "pill20"
+	reagents_to_add = list(/singleton/reagent/asinodryl = 10)
+
+/obj/item/reagent_containers/pill/steramycin
+	name = "5u Steramycin"
+	desc = "A prophylactic antibiotic that kills infections before they start."
+	icon_state = "pill8"
+	reagents_to_add = list(/singleton/reagent/steramycin = 5)
