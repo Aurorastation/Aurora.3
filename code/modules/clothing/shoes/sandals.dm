@@ -53,22 +53,5 @@
 	color = COLOR_CHESTNUT
 
 /obj/item/clothing/shoes/sandals/caligae/socks
-	var/additional_color = COLOR_GRAY20
-
-/obj/item/clothing/shoes/sandals/caligae/socks/update_icon()
-	cut_overlays()
-	var/image/socks = image(icon, null, "[icon_state]_socks")
-	socks.appearance_flags = RESET_COLOR
-	socks.color = additional_color
-	add_overlay(socks)
-
-/obj/item/clothing/shoes/sandals/caligae/socks/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
-	var/image/I = ..()
-	auto_adapt_species(src)
-	var/state = "[icon_species_tag ? "[icon_species_tag]_" : ""][item_state]_socks[WORN_SHOES]"
-	if(slot == slot_shoes_str)
-		var/image/socks = image(mob_icon, null, state)
-		socks.appearance_flags = RESET_COLOR
-		socks.color = additional_color
-		I.add_overlay(socks)
-	return I
+	has_accents = TRUE
+	accent_color  = COLOR_GRAY20
