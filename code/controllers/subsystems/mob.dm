@@ -71,7 +71,7 @@
 		src.currentrun = mob_list.Copy()
 		src.currentrun += processing.Copy()
 
-	//Mobs might have been removed between the previous and a resumed fire, yet we want to mantain the priority to process
+	//Mobs might have been removed between the previous and a resumed fire, yet we want to maintain the priority to process
 	//the mobs that we didn't in the previous run, hence we have to pay the price of a list subtraction
 	//with &= we say to remove any item in the first list that is not in the second one
 	//of course, if we haven't resumed, this comparison would be useless, hence we skip it
