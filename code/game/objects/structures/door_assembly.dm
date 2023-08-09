@@ -258,7 +258,7 @@
 			to_chat(user, SPAN_WARNING("\The [src]'s wires cannot be reached, take out the electronics first."))
 			return
 
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("<b>[user]</b> starts cutting the wires from the airlock assembly.", SPAN_NOTICE("You start cutting the wires from airlock assembly."))
 
 		if(W.use_tool(src, user, 40, volume = 50))
@@ -277,7 +277,7 @@
 			return
 		var/obj/item/airlock_electronics/EL = W
 		if(!EL.is_installed)
-			playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			user.visible_message("<b>[user]</b> starts installing \the [EL] into the airlock assembly.", SPAN_NOTICE("You start installing \the [EL] into the airlock assembly."))
 			EL.is_installed = TRUE
 			if(W.use_tool(src, user, 40, volume = 50) && state == STATE_WIRED)
@@ -299,7 +299,7 @@
 		//This should never happen, but just in case I guess
 		if(!electronics)
 			to_chat(user, SPAN_WARNING("There was nothing to remove."))
-			log_debug("[src] had the ELECTRONICS_INSTALLED state, but didn't actually have electronics installed")
+			LOG_DEBUG("[src] had the ELECTRONICS_INSTALLED state, but didn't actually have electronics installed")
 			state = STATE_WIRED
 			return
 

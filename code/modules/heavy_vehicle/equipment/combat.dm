@@ -363,7 +363,7 @@
 	layer = ABOVE_MOB_LAYER
 	pixel_x = 8
 	pixel_y = 4
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/aura/mechshield/added_to(mob/living/target)
 	..()

@@ -37,6 +37,8 @@
 	desc = "You are the captain of a pirate crew of the Tarwa Conglomerate - also called the living-dead fleet. Lead your crew to profit and glory, for the sake of your fleet. NOT AN ANTAGONIST! Do not act as such."
 	max_count = 1
 	uses_species_whitelist = TRUE
+	assigned_role = "Tarwa Conglomerate Captain"
+	special_role = "Tarwa Conglomerate Captain"
 	spawnpoints = list("tarwa_captain")
 	outfit = /datum/outfit/admin/tarwa/captain
 

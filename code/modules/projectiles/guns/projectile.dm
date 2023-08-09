@@ -1,22 +1,6 @@
-#define HOLD_CASINGS	0 //do not do anything after firing. Manual action, like pump shotguns, or guns that want to define custom behaviour
-#define EJECT_CASINGS	1 //drop spent casings on the ground after firing
-#define CYCLE_CASINGS 	2 //experimental: cycle casings, like a revolver. Also works for multibarrelled guns
-#define DELETE_CASINGS	3 //deletes the casing, used in caseless ammunition guns or something
-#define ROF_SMG 2 //ROF stands for "RATE OF FIRE"
-#define ROF_PISTOL 3
-#define ROF_INTERMEDIATE 4
-#define ROF_RIFLE 5
-#define ROF_HEAVY 8
-#define ROF_SUPERHEAVY 12	
-#define ROF_UNWIELDY 16
-#define ROF_SPECIAL 40
-
 /obj/item/gun/projectile
 	name = "gun"
 	desc = "A gun that fires bullets."
-	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  To reload, click the weapon in your hand to unload (if needed), then add the appropiate ammo.  The description \
-	will tell you what caliber you need."
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	w_class = ITEMSIZE_NORMAL
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
@@ -50,6 +34,8 @@
 
 /obj/item/gun/projectile/Initialize()
 	. = ..()
+	desc_info = "This is a ballistic weapon. It fires [caliber] ammunition. To fire the weapon, toggle the safety with ctrl-click (or enable HARM intent), \
+	then click where you want to fire.  To reload, click the gun with an empty hand to remove any spent casings or magazines, and then insert new ones."
 	if(ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
 		for(var/i in 1 to max_shells)
 			loaded += new ammo_type(src)

@@ -260,13 +260,13 @@
 /obj/effect/overmap/event/meteor
 	name = "asteroid field"
 	events = list(/datum/event/meteor_wave/overmap)
+	opacity = 1
 	event_icon_states = list("meteor1", "meteor2", "meteor3", "meteor4")
 	difficulty = EVENT_LEVEL_MAJOR
 
 /obj/effect/overmap/event/electric
 	name = "electrical storm"
 	events = list(/datum/event/electrical_storm)
-	opacity = 0
 	event_icon_states = list("electrical1", "electrical2")
 	difficulty = EVENT_LEVEL_MAJOR
 	can_be_destroyed = FALSE
@@ -274,13 +274,13 @@
 /obj/effect/overmap/event/dust
 	name = "dust cloud"
 	events = list(/datum/event/meteor_wave/dust/overmap)
+	opacity = 1
 	event_icon_states = list("dust1", "dust2", "dust3", "dust4")
 	can_be_destroyed = FALSE
 
 /obj/effect/overmap/event/ion
 	name = "ion cloud"
 	events = list(/datum/event/ionstorm)
-	opacity = 0
 	event_icon_states = list("ion1", "ion2", "ion3", "ion4")
 	difficulty = EVENT_LEVEL_MAJOR
 	can_be_destroyed = FALSE
@@ -288,19 +288,18 @@
 /obj/effect/overmap/event/carp
 	name = "carp shoal"
 	events = list(/datum/event/carp_migration/overmap)
-	opacity = 0
 	difficulty = EVENT_LEVEL_MODERATE
 	event_icon_states = list("carp")
 	movable_event_chance = 5
 
 /obj/effect/overmap/event/carp/major
 	name = "carp school"
+	opacity = 1
 	difficulty = EVENT_LEVEL_MAJOR
 
 /obj/effect/overmap/event/gravity
 	name = "dark matter influx"
 	events = list(/datum/event/gravity)
-	opacity = 0
 	can_be_destroyed = FALSE
 
 //These now are basically only used to spawn hazards. Will be useful when we need to spawn group of moving hazards
@@ -309,13 +308,14 @@
 	var/radius = 2
 	var/count = 6
 	var/hazards
-	var/opacity = 1
+	var/opacity = 0
 	var/continuous = TRUE //if it should form continous blob, or can have gaps
 
 /datum/overmap_event/meteor
 	name = "asteroid field"
 	count = 15
 	radius = 4
+	opacity = 1
 	continuous = FALSE
 	hazards = /obj/effect/overmap/event/meteor
 
@@ -323,27 +323,25 @@
 	name = "electrical storm"
 	count = 11
 	radius = 3
-	opacity = 0
 	hazards = /obj/effect/overmap/event/electric
 
 /datum/overmap_event/dust
 	name = "dust cloud"
 	count = 16
 	radius = 4
+	opacity = 1
 	hazards = /obj/effect/overmap/event/dust
 
 /datum/overmap_event/ion
 	name = "ion cloud"
 	count = 8
 	radius = 3
-	opacity = 0
 	hazards = /obj/effect/overmap/event/ion
 
 /datum/overmap_event/carp
 	name = "carp shoal"
 	count = 8
 	radius = 3
-	opacity = 0
 	continuous = FALSE
 	hazards = /obj/effect/overmap/event/carp
 
@@ -351,11 +349,11 @@
 	name = "carp school"
 	count = 5
 	radius = 4
+	opacity = 1
 	hazards = /obj/effect/overmap/event/carp/major
 
 /datum/overmap_event/gravity
 	name = "dark matter influx"
 	count = 12
 	radius = 4
-	opacity = 0
 	hazards = /obj/effect/overmap/event/gravity

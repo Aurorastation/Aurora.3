@@ -6,7 +6,7 @@
 			log_admin("[key_name(usr)] has left build mode.",admin_key=key_name(usr))
 			M.client.buildmode = 0
 			M.client.show_popup_menus = 1
-			M.verbs -= /verb/load_template_verb
+			remove_verb(M, /verb/load_template_verb)
 			for(var/obj/effect/bmode/buildholder/H)
 				if(H.cl == M.client)
 					qdel(H)
@@ -14,7 +14,7 @@
 			log_admin("[key_name(usr)] has entered build mode.",admin_key=key_name(usr))
 			M.client.buildmode = 1
 			M.client.show_popup_menus = 0
-			M.verbs += /verb/load_template_verb
+			add_verb(M, /verb/load_template_verb)
 			var/obj/effect/bmode/buildholder/H = new/obj/effect/bmode/buildholder()
 			var/obj/effect/bmode/builddir/A = new/obj/effect/bmode/builddir(H)
 			A.master = H
@@ -42,10 +42,11 @@
 /obj/effect/bmode//Cleaning up the tree a bit
 	density = 1
 	anchored = 1
-	layer = SCREEN_LAYER
+	layer = SCREEN_LAYER + 1
 	dir = NORTH
 	icon = 'icons/misc/buildmode.dmi'
-	var/obj/effect/bmode/buildholder/master = null
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
+	var/obj/effect/bmode/buildholder/master
 
 /obj/effect/bmode/Destroy()
 	if(master && master.cl)
@@ -332,7 +333,7 @@
 	try
 		templates = json_decode(return_file_text("config/templates_list.json"))
 	catch(var/exception/ej)
-		log_debug("Warning: Could not load the templates config as templates_list.json is missing - [ej]")
+		LOG_DEBUG("Warning: Could not load the templates config as templates_list.json is missing - [ej]")
 		return
 
 	if(!templates || !templates["templates_list"] || templates["templates_folder"] == "")
@@ -340,13 +341,13 @@
 
 	var/turf/T = get_turf(user)
 	var/name = input(user, "Which template would you like to load?", "Load Template", null) as null|anything in templates["templates_list"]
-	
+
 	if (!name || !T)
 		return
 
 	var/datum/map_template/maploader = new (templates["templates_folder"] + name, name)
 	if (!maploader)
-		log_debug("Error, unable to load maploader in proc load_template!")
+		LOG_DEBUG("Error, unable to load maploader in proc load_template!")
 		return
 
 	var/centered = input(user, "Do you want template to load as center or Edge?", "Load Template", null) as null|anything in list("Center", "Edge")

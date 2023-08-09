@@ -57,8 +57,8 @@
 /mob/living/simple_animal/hostile/morph/Initialize()
 	. = ..()
 
-	verbs += /mob/living/proc/ventcrawl
-	verbs -= /mob/living/simple_animal/verb/change_name
+	add_verb(src, /mob/living/proc/ventcrawl)
+	add_verb(src, /mob/living/simple_animal/verb/change_name)
 
 	var/list/morph_spells = list(/spell/aoe_turf/conjure/node, /spell/aoe_turf/conjure/nest)
 	for(var/spell in morph_spells)

@@ -2055,7 +2055,7 @@
 /area/engineering/atmos)
 "aeW" = (
 /obj/structure/window/borosilicate/reinforced,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -3691,7 +3691,7 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -4289,7 +4289,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "ajQ" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "ajR" = (
@@ -4939,7 +4939,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/table/reinforced/wood,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
 "alp" = (
@@ -5145,7 +5145,7 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "alP" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -8684,7 +8684,6 @@
 	c_tag = "Medical - Patient Wing Library";
 	dir = 1
 	},
-/obj/item/board,
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
 "aqG" = (
@@ -13149,7 +13148,7 @@
 /turf/simulated/floor/plating,
 /area/medical/patient_wing)
 "azC" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 8
 	},
@@ -14241,11 +14240,6 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
-/obj/machinery/computer/atmoscontrol/laptop{
-	monitored_alarm_ids = list("1501","1502","1503","1504");
-	name = "Isolation Atmospheric Controls";
-	req_one_access = list(7,11,24,47)
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "aCq" = (
@@ -18645,7 +18639,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/morgue)
 "aMm" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -19522,7 +19516,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
 "aOo" = (
@@ -19596,10 +19590,6 @@
 /area/rnd/xenobiology)
 "aOy" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/atmoscontrol/laptop{
-	monitored_alarm_ids = list("xenobio_alpha","xenobio_bravo","xenobio_charlie","xenobio_delta","xenobio_echo","xenobio_foxtrot","xenobio_golf","xenobio_hotel");
-	req_one_access = list(47,24,11)
-	},
 /obj/effect/floor_decal/corner/white{
 	dir = 1
 	},
@@ -20010,7 +20000,7 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/test_area)
 "aPE" = (
@@ -20600,7 +20590,7 @@
 	dir = 8
 	},
 /obj/structure/window/borosilicate/reinforced,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -20612,7 +20602,7 @@
 /obj/structure/window/borosilicate/reinforced{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -22246,7 +22236,7 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 22
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 8
 	},
@@ -24107,7 +24097,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
 "bgd" = (
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -24241,7 +24231,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 4
 	},
 /turf/simulated/floor/airless{
@@ -31451,7 +31441,6 @@
 /area/maintenance/medsublevel_port)
 "ntd" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/computer/station_alert,
 /obj/machinery/ringer{
 	department = "Engineering";
 	id = "engie_ringer";
@@ -31542,7 +31531,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -31892,7 +31881,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony/warden)
 "oki" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "olc" = (
@@ -32043,7 +32032,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel_port)
 "ozn" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner_wide/lime/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -33546,13 +33535,6 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/machinery/computer/atmoscontrol/laptop{
-	monitored_alarm_ids = list("1601");
-	name = "Hazardous Specimens Atmospheric Controls";
-	pixel_x = -2;
-	req_access = null;
-	req_one_access = list(55,24,11)
-	},
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 6
 	},
@@ -35896,7 +35878,6 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "wuX" = (
-/obj/machinery/computer/station_alert,
 /turf/simulated/floor/tiled,
 /area/engineering/backup_SMES)
 "wve" = (
@@ -35974,7 +35955,6 @@
 /area/maintenance/medsublevel)
 "wHR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/computer/power_monitor,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "wIo" = (

@@ -1239,7 +1239,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
 "aSY" = (
@@ -4020,7 +4020,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
 "drA" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
@@ -7600,7 +7600,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "gGx" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
@@ -8154,7 +8154,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
@@ -11881,7 +11881,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
 "kuZ" = (
@@ -13863,9 +13863,6 @@
 /turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "mev" = (
-/obj/machinery/computer/power_monitor{
-	name = "telecoms power monitoring"
-	},
 /obj/machinery/power/sensor{
 	long_range = 1;
 	name = "Powernet Sensor - Telecommunications Grid";
@@ -15100,7 +15097,7 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 8
 	},
 /obj/machinery/airlock_sensor{
@@ -19668,7 +19665,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/status_display{
 	pixel_y = -32
 	},
@@ -20778,7 +20775,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/item/device/nanoquikpay,
+/obj/item/device/quikpay,
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "rRi" = (
@@ -21468,7 +21465,7 @@
 /obj/machinery/newscaster{
 	pixel_y = -30
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "sux" = (
@@ -21526,7 +21523,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
@@ -21548,7 +21545,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "syt" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/cable/blue{
 	d1 = 2;
 	d2 = 8;
@@ -24721,7 +24718,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "vkh" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "vkX" = (
@@ -25207,7 +25204,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"

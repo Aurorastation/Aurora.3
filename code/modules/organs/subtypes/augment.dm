@@ -119,7 +119,8 @@
 	M.canremove = FALSE
 	M.item_flags |= NOMOVE
 	owner.equip_to_slot(M, aug_slot)
-	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [owner.organs_by_name[parent_organ]]."), SPAN_NOTICE("You deploy \the [M]!"))
+	var/obj/item/organ/O = owner.organs_by_name[parent_organ]
+	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [O.name]."), SPAN_NOTICE("You deploy \the [M]!"))
 
 /obj/item/organ/internal/augment/tool/combitool
 	name = "retractable combitool"
@@ -528,7 +529,6 @@
 	organ_tag = BP_AUG_COCHLEAR
 	parent_organ = BP_HEAD
 
-// Snakebitten!
 /obj/item/organ/internal/augment/psi
 	name = "psionic receiver"
 	desc = "An augment installed into the head that functions as a surrogate for a missing zona bovinae, also functioning as a filter for the psionically-challenged."

@@ -20,7 +20,7 @@
 	for (var/z in 1 to world.maxz)
 		holo_minimaps[z] = generateHoloMinimap(z)
 
-	log_debug("SSholomap: [holo_minimaps.len] maps.")
+	LOG_DEBUG("SSholomap: [holo_minimaps.len] maps.")
 
 	for (var/z in current_map.station_levels)
 		generateStationMinimap(z)

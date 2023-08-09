@@ -48,6 +48,25 @@
 			to_chat(L, SPAN_WARNING("You climb out of \the [src]."))
 	..()
 
+/turf/simulated/lava/airless
+	initial_gas = null
+
+/turf/simulated/floor/exoplanet/basalt
+	name = "basalt"
+	icon = 'icons/turf/basalt.dmi'
+	icon_state = "basalt"
+	desc = "Dark volcanic rock."
+	base_name = "basalt"
+	base_desc = "Dark volcanic rock."
+	base_icon = 'icons/turf/basalt.dmi'
+	base_icon_state = "basalt"
+	light_color = LIGHT_COLOR_LAVA
+	smooth = SMOOTH_FALSE
+	canSmoothWith = null
+	openspace_override_type = /turf/simulated/open/chasm/airless
+
+	footstep_sound = /singleton/sound_category/asteroid_footstep
+
 // Special asteroid variant that goes with lava better.
 /turf/unsimulated/floor/asteroid/basalt
 	name = "basalt"
@@ -89,6 +108,9 @@
 	ChangeTurf(baseturf)
 	new /obj/structure/lattice(src)
 
+/turf/unsimulated/floor/asteroid/basalt/air
+	initial_gas = list("oxygen" = MOLES_O2STANDARD, "nitrogen" = MOLES_N2STANDARD)
+
 /turf/unsimulated/floor/asteroid/ash
 	name = "ash"
 	icon_state = "ash"
@@ -112,3 +134,4 @@
 	base_icon_state = "rockyash"
 	base_icon = 'icons/turf/smooth/rocky_ash.dmi'
 	desc = "A fine grey ash. Seems to contain medium-sized rocks."
+

@@ -109,6 +109,10 @@
 	name = "Engineering Maintenance"
 	icon_state = "maint_engineering"
 
+/area/maintenance/engineering/auxillary
+	name = "Auxillary Engineering Maintenance"
+	icon_state = "maint_engineering"
+
 /area/maintenance/sublevel
 	name = "Sub-level Maintenance"
 	icon_state = "maint_engineering"

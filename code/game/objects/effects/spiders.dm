@@ -5,6 +5,7 @@
 	icon = 'icons/effects/effects.dmi'
 	anchored = TRUE
 	density = FALSE
+	mouse_opacity = MOUSE_OPACITY_ICON
 	var/health = 15
 
 //similar to weeds, but only barfed out by nurses manually
@@ -27,7 +28,7 @@
 		var/obj/item/weldingtool/WT = W
 		if(WT.use(0, user))
 			damage = 15
-			playsound(loc, 'sound/items/welder.ogg', 100, 1)
+			playsound(loc, 'sound/items/Welder.ogg', 100, 1)
 		return TRUE
 	else
 		user.do_attack_animation(src)

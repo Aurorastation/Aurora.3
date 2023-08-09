@@ -400,7 +400,6 @@ var/list/worths = list(
 					/obj/item/forensics = 65,
 					/obj/item/evidencebag = 5,
 					/obj/item/sample = 15,
-					/obj/item/board = 15,
 					/obj/item/storage/card = 10,
 					/obj/item/pack = 6,
 					/obj/item/holo = 0,

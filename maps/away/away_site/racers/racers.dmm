@@ -1786,7 +1786,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "iSh" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/racers)
 "iVB" = (
@@ -2464,7 +2464,6 @@
 	icon_state = "tube1"
 	},
 /obj/structure/table/glass,
-/obj/item/board,
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_x = 30
 	},
@@ -3298,7 +3297,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "qje" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -4625,7 +4624,6 @@
 /area/racers)
 "wEw" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/board,
 /turf/simulated/floor/plating,
 /area/racers)
 "wGR" = (

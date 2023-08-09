@@ -42,7 +42,7 @@
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "am" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -156,7 +156,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/lino/grey,
 /area/city/mendell/interior)
 "aW" = (
@@ -245,7 +245,7 @@
 /area/city/mendell/interior)
 "bu" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -832,7 +832,7 @@
 /area/city/mendell/interior)
 "eA" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/decal/fake_object{
 	desc = "It's used to monitor rooms.";
 	dir = 8;
@@ -1632,7 +1632,7 @@
 /area/city/mendell)
 "is" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/city/mendell)
 "iu" = (
@@ -2072,7 +2072,7 @@
 /area/city/mendell)
 "kY" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "kZ" = (
@@ -2099,7 +2099,7 @@
 	},
 /area/city/mendell/interior)
 "lc" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "le" = (
@@ -2429,7 +2429,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/lino/grey,
 /area/city/mendell/interior)
 "nm" = (
@@ -2462,7 +2462,7 @@
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "nu" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
@@ -2500,7 +2500,7 @@
 	pixel_x = 25;
 	req_access = list(101)
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
@@ -2973,7 +2973,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "qX" = (
@@ -4730,7 +4730,7 @@
 /turf/simulated/floor/lino/grey,
 /area/city/mendell/interior)
 "AN" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -4747,7 +4747,7 @@
 /area/city/mendell)
 "AU" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -4850,7 +4850,7 @@
 /area/city/mendell/interior)
 "BI" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -6434,7 +6434,7 @@
 /area/city/mendell/interior)
 "Lx" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -6939,7 +6939,7 @@
 	name = "shelf";
 	pixel_y = 35
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "NN" = (
@@ -7480,7 +7480,7 @@
 /area/city/mendell/interior)
 "Qu" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -8180,7 +8180,7 @@
 	},
 /area/city/mendell/interior)
 "Us" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -8866,7 +8866,7 @@
 /turf/simulated/floor/carpet,
 /area/city/mendell/interior)
 "YD" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/decal/fake_object{
 	desc = "A nondescript vent.";
 	icon = 'icons/effects/city.dmi';

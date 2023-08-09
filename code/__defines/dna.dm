@@ -39,6 +39,13 @@
 #define MUTE  0x2
 #define DEAF  0x4
 
+#define DNA_BLOCK_SIZE 3
+
+// Buffer datatype flags.
+#define DNA2_BUF_UI 1
+#define DNA2_BUF_UE 2
+#define DNA2_BUF_SE 4
+
 // The way blocks are handled badly needs a rewrite, this is horrible.
 // Too much of a project to handle at the moment, TODO for later.
 var/BLINDBLOCK    = 0

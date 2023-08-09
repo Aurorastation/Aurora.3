@@ -1,6 +1,3 @@
-#define RELIGIONS_SOLARIAN list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_SHINTO, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER, RELIGION_TRINARY)
-#define CITIZENSHIPS_SOLARIAN list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION)
-
 /singleton/origin_item/culture/solarian
 	name = "Solarian"
 	desc = "Despite the loss of much of its territory during the Solarian Collapse of 2463, most of those that fall under the general umbrella of Solarian culture are citizens or belong to statelets affiliated with the Alliance of Sovereign Solarian Nations (ASSN). By and large, Solarians are generally perceived as xenophobic, nationalistic, and militarist. Non-humans, aside from Skrell, are generally rare on Solarian worlds, and many that do reside on them are treated as second-class citizens at best."
@@ -23,7 +20,8 @@
 		/singleton/origin_item/origin/visegrad,
 		/singleton/origin_item/origin/mictlan,
 		/singleton/origin_item/origin/antillia,
-		/singleton/origin_item/origin/sancolette
+		/singleton/origin_item/origin/sancolette,
+		/singleton/origin_item/origin/ouerea_human
 	)
 
 /singleton/origin_item/origin/sol_system
@@ -174,6 +172,8 @@
 	possible_accents = list(ACCENT_ANTILLIA)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the heat")
 
 /singleton/origin_item/origin/sancolette
 	name = "San Colette"
@@ -187,3 +187,16 @@
 	possible_accents = list(ACCENT_SANCOLETTE)
 	possible_citizenships = list(CITIZENSHIP_SOL, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
+
+/singleton/origin_item/origin/ouerea_human
+	name = "Ouerea"
+	desc = "The planet of Ouerea, in the Uueoa-Esa system, is unique among the human-populated worlds of the Spur. Human colonists originally came to Ouerea shortly after first contact was made with the Unathi race, who had recently established their own colony on the planet. \
+	As megacorporations began to set up operations on Ouerea, colonists came from across Alliance space to work and live there. Following the Alliance's withdrawal from the planet and the ceding of control to the Hegemony, many of the human colonists remained, having made Ouerea their home \
+	for decades. Through strife and revolution, the humans of Ouerea have persisted alongside their Skrell and Unathi neighbours, building a world that occupies a unique place among all three species. Many of the humans of Ouerea fought in the revolution of 2460 to abolish the Unathi feudal system on their world, \
+	and following their success human ideas of governance have played an important role in the establishment of the new and fragile Ouerean democracy. Humans born on Ouerea must be born on or after 2403."
+	important_information = "Despite being categorised as culturally Solarian, those humans who chose to remain on Ouerea have not been ruled by the Alliance directly in decades, and would be considered as Izweski Hegemony citizens if they have not emigrated elsewhere."
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_SOL, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_accents = list(ACCENT_OUEREA)
+	possible_religions = RELIGIONS_SOLARIAN
+	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the heat")

@@ -985,6 +985,15 @@
 
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
 
+/obj/item/reagent_containers/food/snacks/pepperoni
+	name = "pepperoni"
+	desc = "A stick of pepperoni sausage."
+	icon_state = "pepperoni"
+	filling_color = "#DB0000"
+	bitesize = 2
+
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
+
 /obj/item/reagent_containers/food/snacks/jalapeno_poppers
 	name = "jalapeno popper"
 	desc = "A battered, deep-fried chili pepper"
@@ -1031,16 +1040,6 @@
 	reagents.add_reagent(/singleton/reagent/drink/doctorsdelight, 5)
 	reagents.add_reagent(/singleton/reagent/hyperzine, 1.5)
 	reagents.add_reagent(/singleton/reagent/synaptizine, 1.25)
-
-/obj/item/reagent_containers/food/snacks/burger/brain
-	name = "brainburger"
-	desc = "A strange looking burger. It looks almost sentient."
-	icon_state = "brainburger"
-	filling_color = "#F2B6EA"
-	center_of_mass = list("x"=15, "y"=11)
-	bitesize = 2
-
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 6, /singleton/reagent/alkysine = 6)
 
 /obj/item/reagent_containers/food/snacks/burger/ghost
 	name = "ghost burger"
@@ -2771,32 +2770,6 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 5, "sweetness" = 5, "carrot" = 5))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/sliceable/cake/brain
-	name = "brain cake"
-	desc = "A squishy cake-thing."
-	icon_state = "braincake"
-	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/brain
-	slices_num = 5
-	filling_color = "#E6AEDB"
-	center_of_mass = list("x"=16, "y"=10)
-	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 25, /singleton/reagent/alkysine = 10)
-	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 10, "sweetness" = 10, "slime" = 15))
-	bitesize = 2
-
-/obj/item/reagent_containers/food/snacks/cakeslice/brain
-	name = "brain cake slice"
-	desc = "Lemme tell you something about prions. THEY'RE DELICIOUS."
-	icon_state = "braincakeslice"
-	trash = /obj/item/trash/plate
-	filling_color = "#E6AEDB"
-	bitesize = 2
-	center_of_mass = list("x"=16, "y"=12)
-
-/obj/item/reagent_containers/food/snacks/cakeslice/brain/filled
-	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/protein = 5, /singleton/reagent/alkysine = 2)
-	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 2, "sweetness" = 2, "slime" = 3))
-	bitesize = 2
-
 /obj/item/reagent_containers/food/snacks/sliceable/cake/cheese
 	name = "cheese cake"
 	desc = "DANGEROUSLY cheesy."
@@ -3315,6 +3288,29 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/drink/tomatojuice = 2, /singleton/reagent/oculine = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("pizza crust" = 5, "eggplant" = 5, "carrot" = 5, "corn" = 5))
 
+/obj/item/reagent_containers/food/snacks/sliceable/pizza/pepperoni
+	name = "pepperoni pizza"
+	desc = "Who doesn't love a good pepperoni pizza after a hard day in the Chainlink?"
+	icon_state = "pepperonipizza"
+	slice_path = /obj/item/reagent_containers/food/snacks/pepperonipizzaslice
+	slices_num = 6
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 10, /singleton/reagent/nutriment/protein = 44, /singleton/reagent/nutriment/protein/cheese = 10, /singleton/reagent/drink/tomatojuice = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("pizza crust" = 10, "tomato" = 10, "pepperoni" = 15))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/pepperonipizzaslice
+	name = "pepperoni pizza slice"
+	desc = "A slice of pepperoni pizza."
+	icon_state = "pepperonipizzaslice"
+	filling_color = "#BAA14C"
+	bitesize = 2
+	center_of_mass = list("x"=18, "y"=13)
+
+/obj/item/reagent_containers/food/snacks/pepperonipizzaslice/filled
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/protein = 7, /singleton/reagent/nutriment/protein/cheese = 2, /singleton/reagent/drink/tomatojuice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("pizza crust" = 5, "tomato" = 5))
+
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/crunch
 	name = "pizza crunch"
 	desc = "This was once a normal pizza, but it has been coated in batter and deep-fried. Whatever toppings it once had are a mystery, but they're still under there, somewhere..."
@@ -3395,7 +3391,7 @@
 
 		if( pizza )
 			var/image/pizzaimg = image(icon, icon_state = pizza.icon_state)
-			pizzaimg.pixel_y = -3
+			pizzaimg.pixel_y = -2
 			add_overlay(pizzaimg)
 
 		return
@@ -3530,6 +3526,10 @@
 /obj/item/pizzabox/pineapple
 	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/pineapple
 	boxtag = "Silversun Sunrise"
+
+/obj/item/pizzabox/pepperoni
+	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/pepperoni
+	boxtag = "Pepperoni Power"
 
 /obj/item/reagent_containers/food/snacks/sliceable/dionaroast
 	name = "roast diona"
@@ -4350,6 +4350,14 @@
 	bitesize = 2
 	filling_color = "#cca628"
 
+/obj/item/reagent_containers/food/snacks/chip/hummus
+	name = "hummus chip"
+	desc = "A portion sized chip good for dipping. This one has hummus on it."
+	icon_state = "chip_hummus"
+	bitten_state = "chip_half_hummus"
+	bitesize = 2
+	filling_color = "#cca628"
+
 /obj/item/reagent_containers/food/snacks/chip/nacho
 	name = "nacho chip"
 	desc = "A nacho ship stray from a plate of cheesy nachos."
@@ -4391,6 +4399,14 @@
 	filling_color = "#e4e4e4"
 
 /obj/item/reagent_containers/food/snacks/chip/nacho/tajhummus
+	name = "nacho chip"
+	desc = "A stray nacho chip from a plate of cheesy nachos. This one has extra hummus on it."
+	icon_state = "chip_nacho_hummus"
+	bitten_state = "chip_half_hummus"
+	bitesize = 2
+	filling_color = "#cca628"
+
+/obj/item/reagent_containers/food/snacks/chip/nacho/hummus
 	name = "nacho chip"
 	desc = "A stray nacho chip from a plate of cheesy nachos. This one has extra hummus on it."
 	icon_state = "chip_nacho_hummus"
@@ -4540,6 +4556,17 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 20)
 	reagent_data = list(/singleton/reagent/nutriment = list("sweet hummus" = 20))
 	filling_color = "#cca628"
+
+/obj/item/reagent_containers/food/snacks/dip/hummus
+	name = "hummus"
+	desc = "A tasty spread made from chickpeas and sesame seed paste."
+	nachotrans = /obj/item/reagent_containers/food/snacks/chip/nacho/hummus
+	avahtrans = /obj/item/reagent_containers/food/snacks/chip/miniavah/hummus
+	chiptrans = /obj/item/reagent_containers/food/snacks/chip/hummus
+	icon_state = "hummus"
+	reagents_to_add = list(/singleton/reagent/nutriment = 20)
+	reagent_data = list(/singleton/reagent/nutriment = list("smooth chickpeas" = 20, "garlic" = 5))
+	filling_color = "#F1DA96"
 
 // Roasted Peanuts (under chips/nachos because finger food)
 /obj/item/reagent_containers/food/snacks/roasted_peanut
@@ -5576,7 +5603,7 @@
 	icon_state = "adhomian_fish_soup"
 	trash = /obj/item/trash/snack_bowl
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/drink/milk/cream = 4, /singleton/reagent/water = 4)
-	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("creamy, sweet fish." = 3))
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("creamy, sweet fish" = 3))
 
 /obj/item/reagent_containers/food/snacks/hardbread_pudding
 	name = "hardbread pudding"
@@ -5676,6 +5703,14 @@
 /obj/item/reagent_containers/food/snacks/chip/miniavah/tajhummus
 	name = "hummus mini-avah"
 	desc = "A miniature avah filled with meat. This one has sweet hummus on it."
+	icon_state = "avah_full_hummus"
+	bitten_state = "avah_half_hummus"
+	bitesize = 2
+	filling_color = "#cca628"
+
+/obj/item/reagent_containers/food/snacks/chip/miniavah/hummus
+	name = "hummus mini-avah"
+	desc = "A miniature avah filled with meat. This one has hummus on it."
 	icon_state = "avah_full_hummus"
 	bitten_state = "avah_half_hummus"
 	bitesize = 2
@@ -5860,16 +5895,6 @@
 	bitesize = 2
 	trash = /obj/item/trash/plate
 
-/obj/item/reagent_containers/food/snacks/hummus
-	name = "hummus"
-	desc = "A tasty spread made from chickpeas and sesame seed paste."
-	icon_state = "hummus"
-	filling_color = "#F1DA96"
-	reagents_to_add = list(/singleton/reagent/nutriment = 4)
-	reagent_data = list(/singleton/reagent/nutriment = list("smooth chickpeas" = 4, "garlic" = 1))
-	bitesize = 3
-	trash = /obj/item/trash/snack_bowl
-
 /obj/item/reagent_containers/food/snacks/fairy_bread
 	name = "fairy bread"
 	desc = "A piece of bread covered in sprinkles. Absolutely delicious!"
@@ -5899,3 +5924,130 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("spicy chickpeas" = 4))
 	bitesize = 2
 	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/jyalrafresh
+	name = "jyalra"
+	desc = "Dyn leaves peeled and mashed into a savoury puree."
+	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
+	icon_state = "jyalrafresh"
+	filling_color = "#321b85"
+	reagents_to_add = list(/singleton/reagent/nutriment = 10, /singleton/reagent/drink/dynjuice = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("dry mush" = 2, "something savoury" = 4))
+	bitesize = 2
+	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/seafoodmousse
+	name = "seafood mousse"
+	desc = "A culinary classic on Adhomai that relies on gelatin to hold its shape. It even has a smile traced on it! Aw.."
+	icon_state = "fish_mousse"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein/seafood = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("sour cream" = 2), /singleton/reagent/nutriment/protein/seafood = list("jiggly seafood" = 3))
+	filling_color = "#FF7F7F"
+	trash = /obj/item/trash/snacktray
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/sliceable/vegello
+	name = "garden vegetable gelatin salad"
+	desc = "Shredded Messa's Tears, chopped earthenroot, and dirtberries make up the many layers of this salad, with the whole thing set in savory gelatin."
+	icon_state = "vegello_salad"
+	slice_path = /obj/item/reagent_containers/food/snacks/vegello_slice
+	slices_num = 6
+	filling_color = "#B7BA8F"
+	reagents_to_add = list(/singleton/reagent/nutriment = 24)
+	reagent_data = list(/singleton/reagent/nutriment = list("jiggly vegetables" = 10, "bouncy gelatin" = 10))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/vegello_slice
+	name = "garden vegetable gelatin salad slice"
+	desc = "A slice of jiggly, bouncy veggie-laden gelatin. Scrumptious!"
+	icon_state = "vegello_salad_slice"
+	trash = /obj/item/trash/plate
+	filling_color = "#B7BA8F0"
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/fruitgello
+	name = "gelatin dessert"
+	desc = "Sweet, fruity gelatin with a decadent cream topping, sprinkled with dirtberries."
+	icon_state = "fruitgello_dessert"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/drink/milk/cream = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("jiggly fruit" = 4), /singleton/reagent/drink/milk/cream = list("whipped cream" = 3))
+	filling_color = "#F3C5CF"
+	trash = /obj/item/trash/plate
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/sliceable/aspicfatshouter
+	name = "fatshouter in aspic"
+	desc = "A large solid chunk of Adhomian meat, with hard-boiled tunneler eggs interspersed, contained within a savory aspic package and topped with sarmikhir. Great at parties!"
+	icon_state = "meatjello_cube"
+	slice_path = /obj/item/reagent_containers/food/snacks/aspicfatshouter_slice
+	slices_num = 5
+	filling_color = "#967951"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 15, /singleton/reagent/nutriment = 10, /singleton/reagent/nutriment/protein/egg = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("sour cream" = 5, "bouncy gelatin" = 5), /singleton/reagent/nutriment/protein = list("jiggly meat" = 15), /singleton/reagent/nutriment/protein/egg = list("hard-boiled eggs" = 3))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/aspicfatshouter_slice
+	name = "slice of fatshouter in aspic"
+	desc = "The amount of meat contained in this chunk of wobbly aspic is intimidating."
+	icon_state = "meatjello_cube_slice"
+	trash = /obj/item/trash/plate
+	filling_color = "#967951"
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/sliceable/fatshouterbake
+	name = "fatshouter bake"
+	desc = "Made popular during the war, due to the rationing restrictions, the fatshouter bake is merely a canned cube of fatshouter meat roasted with sugar tree candy stuffed inside."
+	icon_state = "fatshouter_bake"
+	slice_path = /obj/item/reagent_containers/food/snacks/fatshouterbake_slice
+	slices_num = 4
+	trash = /obj/item/trash/grease
+	filling_color = "#94372A"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 16, /singleton/reagent/nutriment = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("roasted, sweet fruit" = 3), /singleton/reagent/nutriment/protein = list("jiggly meat" = 3))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/fatshouterbake_slice
+	name = "slice of fatshouter bake"
+	desc = "A slice of slow-cooked canned meat smothered in roasted sugar tree fruit."
+	icon_state = "fatshouter_bake_slice"
+	trash = /obj/item/trash/plate
+	filling_color = "#94372A"
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/chipplate/crownfurter
+	name = "crown roast of adhomian frankfurters"
+	desc = "A party favorite, several adhomian sausages have been set upright around a center of sarmikhir for ease of dipping. It's finger food!"
+	icon_state = "crownfurter14"
+	trash = /obj/item/trash/tray
+	vendingobject = /obj/item/reagent_containers/food/snacks/tajfurter
+	reagent_data = list(/singleton/reagent/nutriment = list("sour cream" = 2), /singleton/reagent/nutriment/protein = list("roasted sausage"  = 2))
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment = 14, /singleton/reagent/nutriment/protein = 14)
+	unitname = "dipped frankfurter"
+	filling_color = "#94372A"
+
+/obj/item/reagent_containers/food/snacks/chipplate/crownfurter/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 7)
+			icon_state = "crownfurter2"
+		if(8 to 11)
+			icon_state = "crownfurter4"
+		if(12 to 15)
+			icon_state = "crownfurter6"
+		if(16 to 19)
+			icon_state = "crownfurter8"
+		if(20 to 23)
+			icon_state = "crownfurter10"
+		if(24 to 27)
+			icon_state = "crownfurter12"
+		if(28 to INFINITY)
+			icon_state = "crownfurter14"
+
+/obj/item/reagent_containers/food/snacks/tajfurter
+	name = "dipped frankfurter"
+	desc = "Traditional adhomian sausage dipped in sarmikhir. Delicious!."
+	icon_state = "franksingle"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/protein = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("sour cream" = 2), /singleton/reagent/nutriment/protein = list("roasted sausage" = 2))
+	bitesize = 1
+	filling_color = "#94372A"

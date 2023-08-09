@@ -58,9 +58,9 @@
 	},
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -241,7 +241,7 @@
 	},
 /area/centcom/control)
 "aaQ" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -740,7 +740,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -777,7 +777,7 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "acs" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -1259,9 +1259,6 @@
 "adG" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
-	},
-/obj/machinery/computer/station_alert{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -3651,7 +3648,7 @@
 /turf/unsimulated/floor,
 /area/centcom/bar)
 "aim" = (
-/obj/machinery/light/spot/weak,
+/obj/machinery/light/spot,
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
@@ -4963,9 +4960,6 @@
 	},
 /area/centcom/bar)
 "alb" = (
-/obj/item/circuitboard/rcon_console{
-	name = "circuit board (Ticket Kiosk Console)"
-	},
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
@@ -6006,11 +6000,11 @@
 	dir = 1
 	},
 /obj/effect/decal/fake_object{
-	name = "automatic shuttle mainframe";
-	desc = "An automatic shuttle's mainframe.";
 	density = 1;
+	desc = "An automatic shuttle's mainframe.";
 	icon = 'icons/obj/mainframe.dmi';
-	icon_state = "left"
+	icon_state = "left";
+	name = "automatic shuttle mainframe"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
@@ -6058,11 +6052,11 @@
 	dir = 1
 	},
 /obj/effect/decal/fake_object{
-	name = "automatic shuttle mainframe";
-	desc = "An automatic shuttle's mainframe.";
 	density = 1;
+	desc = "An automatic shuttle's mainframe.";
 	icon = 'icons/obj/mainframe.dmi';
-	icon_state = "right-closed"
+	icon_state = "right-closed";
+	name = "automatic shuttle mainframe"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
@@ -6111,7 +6105,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/merchant_station)
 "ant" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "anu" = (
@@ -8610,7 +8604,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant)
 "auX" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/lino/grey,
 /area/merchant_station)
 "auY" = (
@@ -9682,7 +9676,8 @@
 	dir = 4;
 	req_access = null;
 	req_one_access = list(38,72);
-	shuttle_tag = "Agent Shuttle"
+	shuttle_tag = "SCC Shuttle";
+	can_rename_ship = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
@@ -12333,7 +12328,7 @@
 	},
 /area/centcom/specops)
 "aDe" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -13291,8 +13286,8 @@
 /area/centcom/holding)
 "aFF" = (
 /turf/simulated/floor/holofloor/beach/sand{
-	icon_state = "beach";
-	dir = 6
+	dir = 6;
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_beach)
 "aFG" = (
@@ -13806,7 +13801,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aHd" = (
@@ -13820,7 +13815,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aHe" = (
@@ -14444,7 +14439,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/spot/weak{
+/obj/machinery/light/spot{
 	dir = 1;
 	name = "adjusted spotlight";
 	pixel_x = -16
@@ -15307,7 +15302,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 18
 	},
@@ -16063,7 +16058,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aOg" = (
@@ -16399,7 +16394,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	anchored = 1;
 	pixel_y = 5
 	},
@@ -17369,11 +17364,11 @@
 	dir = 1
 	},
 /obj/effect/decal/fake_object{
-	name = "automatic shuttle mainframe";
-	desc = "An automatic shuttle's mainframe.";
 	density = 1;
+	desc = "An automatic shuttle's mainframe.";
 	icon = 'icons/obj/mainframe.dmi';
-	icon_state = "aimainframe"
+	icon_state = "aimainframe";
+	name = "automatic shuttle mainframe"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
@@ -18520,7 +18515,7 @@
 	},
 /area/centcom/legion/hangar5)
 "aUb" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -21044,7 +21039,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "aZr" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
 	},
@@ -22610,7 +22605,7 @@
 	},
 /area/antag/burglar)
 "bcL" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -24669,7 +24664,7 @@
 /turf/unsimulated/floor,
 /area/antag/burglar)
 "bgx" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "bgy" = (
@@ -26639,7 +26634,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "blc" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bld" = (
@@ -28585,7 +28580,7 @@
 	},
 /area/antag/raider)
 "bpm" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -29102,7 +29097,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
@@ -30847,7 +30842,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -31813,7 +31808,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "bwh" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -31822,7 +31817,7 @@
 /turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "bwi" = (
-/obj/structure/flora/pottedplant/random{
+/obj/random/pottedplant{
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -33975,8 +33970,8 @@
 /area/horizon/holodeck/source_tribunal)
 "bFr" = (
 /turf/simulated/floor/holofloor/beach/sand{
-	icon_state = "beach";
-	dir = 4
+	dir = 4;
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_beach)
 "bFs" = (
@@ -33984,27 +33979,27 @@
 /area/horizon/holodeck/source_courtroom)
 "bFt" = (
 /obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A vine-covered, decrepit stone pillar.";
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/moghes/64x128.dmi';
 	icon_state = "arch_l";
 	layer = 9;
-	name = "giant overgrown pillar";
-	desc = "A vine-covered, decrepit stone pillar.";
-	density = 1
+	name = "giant overgrown pillar"
 	},
 /turf/simulated/floor/holofloor/grass{
+	dir = 4;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "edge";
-	name = "overgrowth";
-	dir = 4
+	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
 "bFu" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "lounge_bed";
-	name = "lounging chair";
-	layer = 2.9
+	layer = 2.9;
+	name = "lounging chair"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -34021,27 +34016,27 @@
 /area/horizon/holodeck/source_dininghall)
 "bFx" = (
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "rope-railing";
 	layer = 5;
-	name = "short rope";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy."
+	name = "short rope"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	pixel_y = -1;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = -1
 	},
 /turf/simulated/floor/holofloor/grass{
+	desc = "Lush, mossy grass. A staple of Konyang.";
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "grass";
-	name = "mossy grass";
-	desc = "Lush, mossy grass. A staple of Konyang."
+	name = "mossy grass"
 	},
 /area/horizon/holodeck/source_konyang)
 "bFy" = (
@@ -34090,12 +34085,12 @@
 	name = "floor planks"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A lovely umbrella for those rainy Konyanger days.";
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/64x64.dmi';
 	icon_state = "umbrella2";
 	layer = 9;
 	name = "traditional Konyanger umbrella";
-	desc = "A lovely umbrella for those rainy Konyanger days.";
 	pixel_x = -31;
 	pixel_y = 3
 	},
@@ -34107,10 +34102,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 8;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "beachcorner";
-	name = "shallow water";
-	dir = 8
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "bFF" = (
@@ -34144,10 +34139,10 @@
 /area/horizon/holodeck/source_adhomai)
 "bFL" = (
 /turf/simulated/floor/holofloor/grass{
+	dir = 4;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "edge";
-	name = "overgrowth";
-	dir = 4
+	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
 "bFM" = (
@@ -34158,9 +34153,9 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/sofa/black{
+	desc = "A pew, how holy!";
 	dir = 4;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -34196,7 +34191,7 @@
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/horizon/holodeck/source_gym)
 "bFS" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/holofloor/lino,
 /area/horizon/holodeck/source_meetinghall)
 "bFT" = (
@@ -34216,30 +34211,30 @@
 /area/horizon/holodeck/source_sauna)
 "bFV" = (
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "rope-railing";
 	layer = 5;
 	name = "short rope";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	pixel_y = 5;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = 5
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	pixel_y = -1;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = -1
 	},
 /turf/simulated/floor/holofloor/grass{
+	desc = "Lush, mossy grass. A staple of Konyang.";
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "grass";
-	name = "mossy grass";
-	desc = "Lush, mossy grass. A staple of Konyang."
+	name = "mossy grass"
 	},
 /area/horizon/holodeck/source_konyang)
 "bFW" = (
@@ -34247,8 +34242,8 @@
 	desc = "The flag of the Trinary Perfection.";
 	icon = 'icons/obj/structure/flags.dmi';
 	icon_state = "trinaryperfection";
-	name = "Trinary Perfection flag";
 	layer = 2.9;
+	name = "Trinary Perfection flag";
 	pixel_x = -30
 	},
 /obj/structure/railing/mapped{
@@ -34257,7 +34252,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
 "bFX" = (
@@ -34269,7 +34264,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/item/gamehelm/pink,
+/obj/item/device/versebook/biesel,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_biesel)
 "bFZ" = (
@@ -34301,11 +34296,11 @@
 	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia.";
 	icon = 'icons/obj/structure/flags.dmi';
 	icon_state = "dominia";
-	name = "Dominian Empire flag";
 	layer = 2.9;
+	name = "Dominian Empire flag";
 	pixel_x = -30
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_tribunal)
 "bGd" = (
@@ -34347,10 +34342,10 @@
 /area/horizon/holodeck/source_courtroom)
 "bGg" = (
 /turf/simulated/floor/holofloor/grass{
+	dir = 4;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "corner";
-	name = "overgrowth";
-	dir = 4
+	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
 "bGh" = (
@@ -34369,8 +34364,8 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "lounge_bed";
-	name = "lounging chair";
-	layer = 2.9
+	layer = 2.9;
+	name = "lounging chair"
 	},
 /obj/structure/railing/mapped{
 	layer = 6;
@@ -34386,9 +34381,9 @@
 /area/horizon/holodeck/source_thunderdomecourt)
 "bGk" = (
 /obj/structure/bed/stool/chair/sofa/right/black{
+	desc = "A pew, how holy!";
 	dir = 4;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -34410,25 +34405,25 @@
 	name = "passing vessel shadows"
 	},
 /obj/effect/decal{
+	anchored = 1;
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "fog_roll";
 	layer = 2.02;
-	name = "rolling fog";
-	anchored = 1
+	name = "rolling fog"
 	},
 /obj/effect/decal/fake_object{
+	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/props/holodeck/biesel/384x224.dmi';
 	icon_state = "foreground";
-	desc = "The distant cityscape of Mendell City.";
-	name = "holographic Mendell City";
-	layer = 2.03
+	layer = 2.03;
+	name = "holographic Mendell City"
 	},
 /obj/effect/decal/fake_object{
+	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/props/holodeck/biesel/384x224.dmi';
 	icon_state = "background";
-	desc = "The distant cityscape of Mendell City.";
-	name = "holographic Mendell City";
-	layer = 2.01
+	layer = 2.01;
+	name = "holographic Mendell City"
 	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/source_biesel)
@@ -34449,10 +34444,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "water";
-	name = "shallow water";
-	dir = 6
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "bGo" = (
@@ -34491,12 +34486,12 @@
 /area/horizon/holodeck/source_boxingcourt)
 "bGu" = (
 /obj/effect/decal/fake_object{
+	color = "#ff0000";
 	desc = "A soft cotton towel.";
 	icon = 'icons/obj/weapons.dmi';
 	icon_state = "towel_flat";
-	name = "lounging seat";
-	color = "#ff0000";
-	layer = 2.9
+	layer = 2.9;
+	name = "lounging seat"
 	},
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert4"
@@ -34646,13 +34641,13 @@
 /area/horizon/holodeck/source_pool)
 "bGT" = (
 /obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A decrepit stone pillar.";
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/moghes/32x64.dmi';
 	icon_state = "pillar2";
 	layer = 9;
-	name = "giant pillar";
-	desc = "A decrepit stone pillar.";
-	density = 1
+	name = "giant pillar"
 	},
 /turf/simulated/floor/holofloor/grass{
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
@@ -34757,10 +34752,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "water";
-	name = "shallow water";
-	dir = 6
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "bHh" = (
@@ -34806,9 +34801,9 @@
 /area/horizon/holodeck/source_dininghall)
 "bHo" = (
 /obj/structure/bed/stool/chair/sofa/right/black{
+	desc = "A pew, how holy!";
 	dir = 4;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -34856,14 +34851,14 @@
 /area/horizon/holodeck/source_pool)
 "bHw" = (
 /obj/effect/decal{
+	anchored = 1;
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "blue";
 	layer = 2.03;
 	name = "blue lights";
-	pixel_y = 11;
 	pixel_x = -8;
-	anchored = 1
+	pixel_y = 11
 	},
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -34873,11 +34868,11 @@
 	name = "passing vessel shadows"
 	},
 /obj/effect/decal{
+	anchored = 1;
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "fog_roll";
 	layer = 2.02;
-	name = "rolling fog";
-	anchored = 1
+	name = "rolling fog"
 	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/source_biesel)
@@ -34900,23 +34895,23 @@
 /area/horizon/holodeck/source_adhomai)
 "bHB" = (
 /obj/effect/decal{
+	anchored = 1;
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "fog_roll";
 	layer = 2.02;
-	name = "rolling fog";
-	anchored = 1
+	name = "rolling fog"
 	},
 /obj/item/device/flashlight/lamp/holodeck{
+	brightness_on = 12;
 	light_color = "#C48A18";
 	light_power = 2;
 	light_range = 14;
-	on = 0;
-	brightness_on = 12
+	on = 0
 	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/source_jupiter)
 "bHC" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_pool)
 "bHD" = (
@@ -35064,10 +35059,10 @@
 "bIa" = (
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/grass{
+	desc = "Lush, mossy grass. A staple of Konyang.";
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "grass";
-	name = "mossy grass";
-	desc = "Lush, mossy grass. A staple of Konyang."
+	name = "mossy grass"
 	},
 /area/horizon/holodeck/source_konyang)
 "bIb" = (
@@ -35158,20 +35153,20 @@
 	name = "floor planks"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	pixel_y = -1;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = -1
 	},
 /turf/simulated/floor/holofloor/grass{
+	desc = "Lush, mossy grass. A staple of Konyang.";
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "grass";
-	name = "mossy grass";
-	desc = "Lush, mossy grass. A staple of Konyang."
+	name = "mossy grass"
 	},
 /area/horizon/holodeck/source_konyang)
 "bIn" = (
@@ -35179,9 +35174,9 @@
 /area/horizon/holodeck/source_dininghall)
 "bIp" = (
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beachcorner";
+	dir = 4;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	dir = 4
+	icon_state = "beachcorner"
 	},
 /area/horizon/holodeck/source_moghes)
 "bIq" = (
@@ -35235,27 +35230,27 @@
 /area/horizon/holodeck/source_theatre)
 "bIz" = (
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
-	pixel_y = -1;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = -1
 	},
 /turf/simulated/floor/holofloor/grass{
+	desc = "Lush, mossy grass. A staple of Konyang.";
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "grass";
-	name = "mossy grass";
-	desc = "Lush, mossy grass. A staple of Konyang."
+	name = "mossy grass"
 	},
 /area/horizon/holodeck/source_konyang)
 "bIC" = (
 /obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "water";
-	icon = 'icons/turf/flooring/exoplanet/moghes.dmi'
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
+	icon_state = "water"
 	},
 /area/horizon/holodeck/source_moghes)
 "bID" = (
@@ -35284,10 +35279,10 @@
 /area/horizon/holodeck/source_chapel)
 "bIH" = (
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 9;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
-	name = "coast";
-	dir = 9
+	icon_state = "beach";
+	name = "coast"
 	},
 /area/horizon/holodeck/source_konyang)
 "bII" = (
@@ -35327,10 +35322,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "water";
-	name = "shallow water";
-	dir = 6
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "bIO" = (
@@ -35352,9 +35347,9 @@
 	density = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beachcorner";
+	dir = 8;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	dir = 8
+	icon_state = "beachcorner"
 	},
 /area/horizon/holodeck/source_moghes)
 "bIR" = (
@@ -35478,34 +35473,34 @@
 	name = "floor planks"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "rope-railing";
 	layer = 5;
-	name = "short rope";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4
+	name = "short rope"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
 	pixel_y = -4
 	},
 /obj/machinery/door/window/holowindoor{
 	dir = 1
 	},
 /obj/effect/decal/fake_object{
+	desc = "A lovely umbrella for those rainy Konyanger days.";
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/64x64.dmi';
 	icon_state = "umbrella";
 	layer = 9;
 	name = "traditional Konyanger umbrella";
-	desc = "A lovely umbrella for those rainy Konyanger days.";
-	pixel_y = 4;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 4
 	},
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -35515,10 +35510,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "water";
-	name = "shallow water";
-	dir = 6
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "bJk" = (
@@ -35560,10 +35555,10 @@
 	on = 0
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "water";
-	name = "shallow water";
-	dir = 6
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "bJo" = (
@@ -35595,19 +35590,19 @@
 	name = "floor planks"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "rope-railing";
 	layer = 5;
-	name = "short rope";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy."
+	name = "short rope"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
 	pixel_y = -4
 	},
 /obj/effect/decal/fake_object{
@@ -35618,10 +35613,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "beach";
-	name = "shallow water";
-	dir = 1
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "bJs" = (
@@ -35718,8 +35713,8 @@
 /area/horizon/holodeck/source_adhomai)
 "bJP" = (
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "water";
-	icon = 'icons/turf/flooring/exoplanet/konyang.dmi'
+	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
+	icon_state = "water"
 	},
 /area/horizon/holodeck/source_konyang)
 "bJR" = (
@@ -35738,11 +35733,11 @@
 /area/horizon/holodeck/source_picnicarea)
 "bJU" = (
 /obj/effect/decal{
+	anchored = 1;
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "fog_roll";
 	layer = 2.02;
-	name = "rolling fog";
-	anchored = 1
+	name = "rolling fog"
 	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/source_biesel)
@@ -35795,9 +35790,9 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/sofa/left/black{
+	desc = "A pew, how holy!";
 	dir = 4;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -35832,9 +35827,9 @@
 /area/horizon/holodeck/source_theatre)
 "bKm" = (
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	dir = 1
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
 "bKn" = (
@@ -35878,16 +35873,16 @@
 /turf/simulated/floor/holofloor/lino,
 /area/horizon/holodeck/source_meetinghall)
 "bKu" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_boxingcourt)
 "bKv" = (
 /obj/effect/decal{
+	anchored = 1;
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "fog_roll";
 	layer = 2.02;
-	name = "rolling fog";
-	anchored = 1
+	name = "rolling fog"
 	},
 /obj/structure/railing/mapped{
 	layer = 6;
@@ -35900,10 +35895,10 @@
 	icon_state = "bushb1"
 	},
 /turf/simulated/floor/holofloor/grass{
+	dir = 9;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "edge";
-	name = "overgrowth";
-	dir = 9
+	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
 "bKx" = (
@@ -35960,9 +35955,9 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/sofa/right/black{
+	desc = "A pew, how holy!";
 	dir = 8;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 8
@@ -35974,8 +35969,8 @@
 	icon_state = "grassa2"
 	},
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beachcorner";
-	icon = 'icons/turf/flooring/exoplanet/moghes.dmi'
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
+	icon_state = "beachcorner"
 	},
 /area/horizon/holodeck/source_moghes)
 "bKJ" = (
@@ -36047,9 +36042,9 @@
 "bKY" = (
 /obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 4;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	dir = 4
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
 "bKZ" = (
@@ -36079,10 +36074,10 @@
 /area/horizon/holodeck/source_snowfield)
 "bLf" = (
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beachcorner";
+	dir = 5;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
-	name = "coast";
-	dir = 5
+	icon_state = "beachcorner";
+	name = "coast"
 	},
 /area/horizon/holodeck/source_konyang)
 "bLg" = (
@@ -36094,9 +36089,9 @@
 "bLh" = (
 /obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 8;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	dir = 8
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
 "bLi" = (
@@ -36126,9 +36121,9 @@
 	},
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -36270,9 +36265,9 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -36673,9 +36668,9 @@
 	dir = 5
 	},
 /obj/structure/bed/stool/chair/sofa/left/black{
+	desc = "A pew, how holy!";
 	dir = 4;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -36717,12 +36712,12 @@
 /area/centcom/shared_dream)
 "cnO" = (
 /obj/effect/decal/fake_object{
+	desc = "The proudly waving flag of the Izweski Nation.";
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/moghes/32x64.dmi';
 	icon_state = "flag";
 	layer = 9;
-	name = "hegemony flag";
-	desc = "The proudly waving flag of the Izweski Nation."
+	name = "hegemony flag"
 	},
 /turf/simulated/floor/holofloor/grass{
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
@@ -36761,19 +36756,19 @@
 /area/horizon/holodeck/source_pool)
 "crx" = (
 /turf/simulated/floor/holofloor/grass{
+	dir = 10;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "edge";
-	name = "overgrowth";
-	dir = 10
+	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
 "cvH" = (
 /obj/effect/decal{
+	anchored = 1;
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "fog_roll";
 	layer = 2.02;
-	name = "rolling fog";
-	anchored = 1
+	name = "rolling fog"
 	},
 /obj/machinery/door/window/holowindoor,
 /turf/simulated/floor/holofloor/reinforced,
@@ -36824,10 +36819,10 @@
 /area/centcom/shared_dream)
 "cTG" = (
 /turf/simulated/floor/holofloor/grass{
+	dir = 9;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "edge";
-	name = "overgrowth";
-	dir = 9
+	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
 "cTS" = (
@@ -36846,14 +36841,14 @@
 /area/centcom/shared_dream)
 "cWa" = (
 /obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A vine-covered, decrepit stone pillar.";
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/moghes/64x128.dmi';
 	icon_state = "arch_r";
 	layer = 9;
 	name = "giant overgrown pillar";
-	desc = "A vine-covered, decrepit stone pillar.";
-	pixel_x = -32;
-	density = 1
+	pixel_x = -32
 	},
 /turf/simulated/floor/holofloor/grass{
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
@@ -36868,7 +36863,7 @@
 /turf/simulated/floor/plating/snow,
 /area/centcom/shared_dream)
 "cWp" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_battlemonsters)
 "cWC" = (
@@ -36932,10 +36927,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "water";
-	name = "shallow water";
-	dir = 6
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "doG" = (
@@ -36948,21 +36943,21 @@
 /area/centcom/shared_dream)
 "drw" = (
 /obj/effect/decal{
+	anchored = 1;
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "blink";
 	layer = 2.03;
 	name = "flashing lights";
-	pixel_y = 14;
 	pixel_x = 7;
-	anchored = 1
+	pixel_y = 14
 	},
 /obj/effect/decal{
+	anchored = 1;
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "fog_roll";
 	layer = 2.02;
-	name = "rolling fog";
-	anchored = 1
+	name = "rolling fog"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -36997,9 +36992,9 @@
 	},
 /obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 8;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	dir = 8
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
 "duV" = (
@@ -37069,13 +37064,13 @@
 "dMn" = (
 /obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	dir = 6
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
 "dMF" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_dininghall)
 "dMG" = (
@@ -37146,7 +37141,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
@@ -37191,11 +37186,11 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "cargo_shuttle";
-	pixel_x = 25;
-	req_one_access = list(13,31);
-	tag_door = "cargo_shuttle_airlock";
 	name = "cargo shuttle docking controller";
-	pixel_y = 26
+	pixel_x = 25;
+	pixel_y = 26;
+	req_one_access = list(13,31);
+	tag_door = "cargo_shuttle_airlock"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
@@ -37264,9 +37259,9 @@
 	dir = 4;
 	icon = 'icons/effects/city.dmi';
 	icon_state = "flatscreen";
+	layer = 6.1;
 	name = "expensive flatscreen holovision";
-	pixel_y = 15;
-	layer = 6.1
+	pixel_y = 15
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -37401,8 +37396,8 @@
 "fsa" = (
 /obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beachcorner";
-	icon = 'icons/turf/flooring/exoplanet/moghes.dmi'
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
+	icon_state = "beachcorner"
 	},
 /area/horizon/holodeck/source_moghes)
 "ftO" = (
@@ -37460,10 +37455,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "water";
-	name = "shallow water";
-	dir = 6
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "fPJ" = (
@@ -37510,9 +37505,9 @@
 /obj/item/reagent_containers/food/drinks/bottle/bluecuracao,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
@@ -37534,9 +37529,9 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/sofa/left/black{
+	desc = "A pew, how holy!";
 	dir = 4;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -37557,9 +37552,9 @@
 	},
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
@@ -37572,30 +37567,30 @@
 	name = "floor planks"
 	},
 /obj/effect/decal/fake_object{
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	layer = 5;
-	name = "short rope";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy."
-	},
-/obj/effect/decal/fake_object{
-	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
-	icon_state = "rope-railing";
-	layer = 5;
-	name = "short rope";
 	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4
+	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
+	icon_state = "rope-railing";
+	layer = 5;
+	name = "short rope"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
+	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
+	icon_state = "rope-railing";
+	layer = 5;
+	name = "short rope"
+	},
+/obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
 	pixel_y = -4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/decal/fake_object{
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
@@ -37604,10 +37599,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "beach";
-	name = "shallow water";
-	dir = 1
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "gkn" = (
@@ -37639,8 +37634,8 @@
 /area/centcom/shared_dream)
 "gpe" = (
 /turf/simulated/floor/holofloor/beach/sand{
-	icon_state = "beach";
-	dir = 10
+	dir = 10;
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_beach)
 "gpw" = (
@@ -37823,9 +37818,9 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/sofa/left/black{
+	desc = "A pew, how holy!";
 	dir = 8;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
@@ -37862,10 +37857,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 4;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "beach";
-	name = "shallow water";
-	dir = 4
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "hep" = (
@@ -37901,20 +37896,20 @@
 	name = "floor planks"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "rope-railing";
 	layer = 5;
-	name = "short rope";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4
+	name = "short rope"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
 	pixel_y = -4
 	},
 /obj/effect/decal/fake_object{
@@ -37925,10 +37920,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "beach";
-	name = "shallow water";
-	dir = 6
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "hlt" = (
@@ -37961,9 +37956,9 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/sofa/right/black{
+	desc = "A pew, how holy!";
 	dir = 8;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
@@ -37975,9 +37970,9 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/sofa/right/black{
+	desc = "A pew, how holy!";
 	dir = 4;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -38051,9 +38046,9 @@
 /obj/effect/floor_decal/spline/plain/cee,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -38062,9 +38057,9 @@
 /obj/effect/floor_decal/spline/plain/corner,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
@@ -38105,13 +38100,13 @@
 /area/centcom/shared_dream)
 "ide" = (
 /obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A decrepit stone pillar.";
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/moghes/32x64.dmi';
 	icon_state = "pillar1";
 	layer = 9;
-	name = "giant pillar";
-	desc = "A decrepit stone pillar.";
-	density = 1
+	name = "giant pillar"
 	},
 /turf/simulated/floor/holofloor/grass{
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
@@ -38134,9 +38129,9 @@
 /obj/effect/mist,
 /obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 8;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	dir = 8
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
 "ihm" = (
@@ -38148,28 +38143,28 @@
 	name = "floor planks"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "rope-railing";
 	layer = 5;
-	name = "short rope";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy."
+	name = "short rope"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
 	pixel_y = -4
 	},
 /obj/effect/decal/fake_object{
+	color = "#8934eb";
 	desc = "A soft cotton cloth strewn across the floor. Cozy.";
 	icon = 'icons/obj/weapons.dmi';
 	icon_state = "towel_flat";
-	name = "flooring cloth";
-	color = "#8934eb";
 	layer = 2.9;
+	name = "flooring cloth";
 	pixel_y = 13
 	},
 /obj/effect/decal/fake_object{
@@ -38180,10 +38175,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "beach";
-	name = "shallow water";
-	dir = 1
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "ipe" = (
@@ -38225,8 +38220,8 @@
 	dir = 9
 	},
 /obj/effect/decal/battlemonsters_logo{
-	pixel_y = -4;
-	pixel_x = 13
+	pixel_x = 13;
+	pixel_y = -4
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
@@ -38304,9 +38299,9 @@
 "iTm" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/beach/water/alt,
 /area/centcom/shared_dream)
@@ -38319,9 +38314,9 @@
 "iWv" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
@@ -38332,11 +38327,11 @@
 /area/shuttle/skipjack)
 "iWH" = (
 /obj/effect/decal{
+	anchored = 1;
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "fog_roll";
 	layer = 2.02;
-	name = "rolling fog";
-	anchored = 1
+	name = "rolling fog"
 	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/source_jupiter)
@@ -38391,19 +38386,19 @@
 /area/centcom/shared_dream)
 "jdv" = (
 /obj/effect/decal/fake_object{
+	desc = "A vine-covered shrine to the three faces of Sk'akh, a prominent faith in the Unathi people.";
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/moghes/64x128.dmi';
 	icon_state = "arch_center";
 	layer = 9;
 	name = "The Faces of Sk'akh";
-	desc = "A vine-covered shrine to the three faces of Sk'akh, a prominent faith in the Unathi people.";
-	pixel_y = -31;
-	pixel_x = -16
+	pixel_x = -16;
+	pixel_y = -31
 	},
 /obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "water";
-	icon = 'icons/turf/flooring/exoplanet/moghes.dmi'
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
+	icon_state = "water"
 	},
 /area/horizon/holodeck/source_moghes)
 "jgw" = (
@@ -38429,12 +38424,12 @@
 	},
 /obj/structure/table/wood,
 /obj/effect/decal/fake_object{
+	desc = "A table cover featuring the emblem of the planet of Konyang quite proudly.";
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/64x96.dmi';
 	icon_state = "table";
 	layer = 2.81;
-	name = "luxurious Konyang table cover";
-	desc = "A table cover featuring the emblem of the planet of Konyang quite proudly."
+	name = "luxurious Konyang table cover"
 	},
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -38444,18 +38439,18 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "water";
-	name = "shallow water";
-	dir = 6
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "jhw" = (
 /turf/simulated/floor/holofloor/grass{
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "edge";
-	name = "overgrowth";
-	dir = 6
+	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
 "jjH" = (
@@ -38608,9 +38603,9 @@
 	pixel_y = -9
 	},
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 4;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	dir = 4
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
 "jTO" = (
@@ -38619,6 +38614,10 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
+"jWJ" = (
+/obj/effect/shuttle_landmark/canary/transit,
+/turf/space/transit/north,
+/area/template_noop)
 "kcw" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/marble/dark,
@@ -38718,9 +38717,9 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/sofa/black{
+	desc = "A pew, how holy!";
 	dir = 8;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/marble,
@@ -38751,9 +38750,9 @@
 /area/centcom/shared_dream)
 "kAM" = (
 /obj/structure/bed/stool/chair/sofa/black{
+	desc = "A pew, how holy!";
 	dir = 4;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -38826,10 +38825,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 5;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "beach";
-	name = "shallow water";
-	dir = 5
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "kOG" = (
@@ -38868,12 +38867,12 @@
 "kUJ" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/decal/fake_object{
+	color = "#ff0000";
 	desc = "A soft cotton towel.";
 	icon = 'icons/obj/weapons.dmi';
 	icon_state = "towel_flat";
-	name = "towel";
-	color = "#ff0000";
-	layer = 2.9
+	layer = 2.9;
+	name = "towel"
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_sauna)
@@ -38910,10 +38909,10 @@
 	pixel_y = -16
 	},
 /turf/simulated/floor/holofloor/grass{
+	dir = 9;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "edge";
-	name = "overgrowth";
-	dir = 9
+	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
 "lfP" = (
@@ -38968,11 +38967,11 @@
 /area/horizon/holodeck/source_dininghall)
 "lqT" = (
 /obj/effect/decal{
+	anchored = 1;
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "fog_roll";
 	layer = 2.02;
-	name = "rolling fog";
-	anchored = 1
+	name = "rolling fog"
 	},
 /obj/structure/railing/mapped{
 	dir = 4
@@ -38993,18 +38992,18 @@
 /area/shuttle/merchant)
 "lxi" = (
 /obj/effect/decal/fake_object/light_source{
+	icon = 'icons/effects/props/holodeck/konyang/32x96.dmi';
 	icon_state = "lamp_on";
+	layer = 9.1;
 	light_color = "#FA644B";
 	light_range = 6;
-	name = "dangling lamp";
-	icon = 'icons/effects/props/holodeck/konyang/32x96.dmi';
-	layer = 9.1
+	name = "dangling lamp"
 	},
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
-	name = "coast";
-	dir = 1
+	icon_state = "beach";
+	name = "coast"
 	},
 /area/horizon/holodeck/source_konyang)
 "lxW" = (
@@ -39024,9 +39023,9 @@
 	},
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -39043,8 +39042,8 @@
 	dir = 4
 	},
 /obj/item/reagent_containers/food/drinks/cans/dyn{
-	pixel_y = -20;
-	pixel_x = 13
+	pixel_x = 13;
+	pixel_y = -20
 	},
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
@@ -39056,7 +39055,7 @@
 	},
 /area/horizon/holodeck/source_desert)
 "lDX" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -39101,9 +39100,9 @@
 /area/centcom/shared_dream)
 "lSe" = (
 /obj/structure/bed/stool/chair/sofa/left/black{
+	desc = "A pew, how holy!";
 	dir = 4;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -39146,17 +39145,17 @@
 /area/horizon/holodeck/source_trinary)
 "lXS" = (
 /turf/simulated/floor/holofloor/grass{
+	dir = 8;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "edge";
-	name = "overgrowth";
-	dir = 8
+	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
 "lXV" = (
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	dir = 6
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
 "lYo" = (
@@ -39213,18 +39212,18 @@
 /area/horizon/holodeck/source_courtroom)
 "mmQ" = (
 /turf/simulated/floor/holofloor/grass{
+	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "corner";
-	name = "overgrowth";
-	dir = 1
+	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
 "mrZ" = (
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 8;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
-	name = "coast";
-	dir = 8
+	icon_state = "beach";
+	name = "coast"
 	},
 /area/horizon/holodeck/source_konyang)
 "mun" = (
@@ -39242,19 +39241,19 @@
 	name = "floor planks"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "rope-railing";
 	layer = 5;
-	name = "short rope";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy."
+	name = "short rope"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
 	pixel_y = -4
 	},
 /obj/effect/decal/fake_object{
@@ -39265,10 +39264,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 8;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "beachcorner";
-	name = "shallow water";
-	dir = 8
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "mvn" = (
@@ -39338,21 +39337,21 @@
 /area/centcom/shared_dream)
 "mEQ" = (
 /obj/effect/decal{
+	anchored = 1;
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "red";
 	layer = 2.03;
 	name = "red lights";
-	pixel_y = 14;
 	pixel_x = 7;
-	anchored = 1
+	pixel_y = 14
 	},
 /obj/effect/decal{
+	anchored = 1;
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "fog_roll";
 	layer = 2.02;
-	name = "rolling fog";
-	anchored = 1
+	name = "rolling fog"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -39375,9 +39374,9 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/sofa/black{
+	desc = "A pew, how holy!";
 	dir = 8;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
@@ -39667,10 +39666,10 @@
 /area/centcom/shared_dream)
 "olV" = (
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beachcorner";
+	dir = 8;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
-	name = "coast";
-	dir = 8
+	icon_state = "beachcorner";
+	name = "coast"
 	},
 /area/horizon/holodeck/source_konyang)
 "omk" = (
@@ -39689,22 +39688,22 @@
 	name = "floor planks"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "rope-railing";
 	layer = 5;
-	name = "short rope";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy."
+	name = "short rope"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
 	pixel_y = -4
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/decal/fake_object{
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
@@ -39713,10 +39712,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "grass";
-	name = "grass";
-	dir = 6
+	name = "grass"
 	},
 /area/horizon/holodeck/source_konyang)
 "oqe" = (
@@ -39734,18 +39733,18 @@
 "oyi" = (
 /obj/effect/decal/fake_object/light_source{
 	density = 1;
+	desc = "A decrepit stone pillar.";
+	icon = 'icons/effects/props/holodeck/moghes/32x64.dmi';
 	icon_state = "pillar_torch";
 	light_color = "#FA644B";
 	light_range = 6;
-	name = "giant pillar";
-	desc = "A decrepit stone pillar.";
-	icon = 'icons/effects/props/holodeck/moghes/32x64.dmi'
+	name = "giant pillar"
 	},
 /turf/simulated/floor/holofloor/grass{
+	dir = 4;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "edge";
-	name = "overgrowth";
-	dir = 4
+	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
 "oyz" = (
@@ -39823,7 +39822,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_gym)
 "oPh" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
@@ -39897,8 +39896,8 @@
 	desc = "The flag of the Trinary Perfection.";
 	icon = 'icons/obj/structure/flags.dmi';
 	icon_state = "trinaryperfection";
-	name = "Trinary Perfection flag";
 	layer = 2.9;
+	name = "Trinary Perfection flag";
 	pixel_x = -30
 	},
 /turf/simulated/floor/marble,
@@ -39911,10 +39910,10 @@
 /area/centcom/shared_dream)
 "oYm" = (
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beachcorner";
+	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
-	name = "coast";
-	dir = 1
+	icon_state = "beachcorner";
+	name = "coast"
 	},
 /area/horizon/holodeck/source_konyang)
 "oZf" = (
@@ -40018,18 +40017,18 @@
 /area/centcom/shared_dream)
 "pro" = (
 /obj/effect/decal/fake_object{
+	desc = "A distant, chaotic cloud layer below. A familiar depiction of Jupiter and its chaotic environment.";
 	icon = 'icons/effects/props/holodeck/jupiter/384x224.dmi';
 	icon_state = "background";
-	desc = "A distant, chaotic cloud layer below. A familiar depiction of Jupiter and its chaotic environment.";
-	name = "holographic Jupiter Atmosphere";
-	layer = 2.01
+	layer = 2.01;
+	name = "holographic Jupiter Atmosphere"
 	},
 /obj/effect/decal{
+	anchored = 1;
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "fog_roll";
 	layer = 2.02;
-	name = "rolling fog";
-	anchored = 1
+	name = "rolling fog"
 	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/source_jupiter)
@@ -40075,9 +40074,9 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -40220,10 +40219,10 @@
 /area/horizon/holodeck/source_trinary)
 "qza" = (
 /turf/simulated/floor/holofloor/grass{
+	desc = "Lush, mossy grass. A staple of Konyang.";
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "grass";
-	name = "mossy grass";
-	desc = "Lush, mossy grass. A staple of Konyang."
+	name = "mossy grass"
 	},
 /area/horizon/holodeck/source_konyang)
 "qzV" = (
@@ -40270,7 +40269,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
 "qHa" = (
@@ -40372,19 +40371,19 @@
 /area/horizon/holodeck/source_theatre)
 "rbx" = (
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
-	name = "coast";
-	dir = 1
+	icon_state = "beach";
+	name = "coast"
 	},
 /area/horizon/holodeck/source_konyang)
 "rdh" = (
 /obj/effect/decal{
+	anchored = 1;
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "fog_roll";
 	layer = 2.02;
-	name = "rolling fog";
-	anchored = 1
+	name = "rolling fog"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -40470,9 +40469,9 @@
 /obj/structure/table/wood,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
@@ -40575,7 +40574,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/structure/window/reinforced/holowindow{
 	dir = 4
 	},
@@ -40632,10 +40631,10 @@
 	on = 0
 	},
 /turf/simulated/floor/holofloor/grass{
+	desc = "Lush, mossy grass. A staple of Konyang.";
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "grass";
-	name = "mossy grass";
-	desc = "Lush, mossy grass. A staple of Konyang."
+	name = "mossy grass"
 	},
 /area/horizon/holodeck/source_konyang)
 "skt" = (
@@ -40666,8 +40665,8 @@
 "szG" = (
 /obj/structure/bonfire/fireplace,
 /obj/item/clothing/accessory/scarf/zebra{
-	pixel_y = 27;
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 27
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -40785,7 +40784,7 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "sZZ" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_sauna)
@@ -40813,8 +40812,8 @@
 /area/horizon/holodeck/source_beach)
 "tdq" = (
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
+	icon_state = "beach";
 	name = "coast"
 	},
 /area/horizon/holodeck/source_konyang)
@@ -40866,24 +40865,24 @@
 /area/centcom/shared_dream)
 "tnA" = (
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "rope-railing";
 	layer = 5;
-	name = "short rope";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy."
+	name = "short rope"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
 	pixel_y = -4
 	},
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beachcorner";
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
+	icon_state = "beachcorner";
 	name = "coast"
 	},
 /area/horizon/holodeck/source_konyang)
@@ -40945,9 +40944,9 @@
 /obj/structure/flora/ausbushes/leafybush,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
@@ -41053,12 +41052,12 @@
 "tSH" = (
 /obj/effect/decal/fake_object/light_source{
 	density = 1;
+	desc = "A decrepit stone pillar.";
+	icon = 'icons/effects/props/holodeck/moghes/32x64.dmi';
 	icon_state = "pillar_torch";
 	light_color = "#FA644B";
 	light_range = 6;
-	name = "giant pillar";
-	desc = "A decrepit stone pillar.";
-	icon = 'icons/effects/props/holodeck/moghes/32x64.dmi'
+	name = "giant pillar"
 	},
 /turf/simulated/floor/holofloor/grass{
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
@@ -41175,9 +41174,9 @@
 	dir = 5
 	},
 /obj/structure/bed/stool/chair/sofa/left/black{
+	desc = "A pew, how holy!";
 	dir = 4;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -41193,19 +41192,19 @@
 	name = "floor planks"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "rope-railing";
 	layer = 5;
-	name = "short rope";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy."
+	name = "short rope"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
 	pixel_y = -4
 	},
 /obj/structure/table/wood,
@@ -41217,10 +41216,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "beach";
-	name = "shallow water";
-	dir = 1
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "uFh" = (
@@ -41232,7 +41231,7 @@
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_tribunal)
 "uGe" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/holofloor/lino,
 /area/horizon/holodeck/source_chapel)
 "uHb" = (
@@ -41322,10 +41321,10 @@
 	name = "bench"
 	},
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 1;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
-	name = "coast";
-	dir = 1
+	icon_state = "beach";
+	name = "coast"
 	},
 /area/horizon/holodeck/source_konyang)
 "vdb" = (
@@ -41363,9 +41362,9 @@
 "vha" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -41376,11 +41375,11 @@
 "vlQ" = (
 /obj/effect/floor_decal/carpet,
 /obj/item/device/flashlight/lamp/holodeck{
+	brightness_on = 12;
 	light_color = "#C48A18";
 	light_power = 2;
 	light_range = 14;
-	on = 0;
-	brightness_on = 12
+	on = 0
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_biesel)
@@ -41508,9 +41507,9 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/chair/sofa/left/black{
+	desc = "A pew, how holy!";
 	dir = 8;
-	name = "pew";
-	desc = "A pew, how holy!"
+	name = "pew"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/marble,
@@ -41524,10 +41523,10 @@
 	name = "bench"
 	},
 /turf/simulated/floor/holofloor/grass{
+	desc = "Lush, mossy grass. A staple of Konyang.";
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "grass";
-	name = "mossy grass";
-	desc = "Lush, mossy grass. A staple of Konyang."
+	name = "mossy grass"
 	},
 /area/horizon/holodeck/source_konyang)
 "waQ" = (
@@ -41546,8 +41545,8 @@
 	},
 /obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "water";
-	icon = 'icons/turf/flooring/exoplanet/moghes.dmi'
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
+	icon_state = "water"
 	},
 /area/horizon/holodeck/source_moghes)
 "wcr" = (
@@ -41630,9 +41629,9 @@
 /area/centcom/shared_dream)
 "wxl" = (
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 9;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	dir = 9
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
 "wxV" = (
@@ -41674,19 +41673,19 @@
 /obj/structure/flora/grass/jungle,
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
+	light_power = 0.75;
 	light_range = 4;
-	name = "srom green light";
-	light_power = 0.75
+	name = "srom green light"
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "wUz" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/grass{
+	desc = "Lush, mossy grass. A staple of Konyang.";
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "grass";
-	name = "mossy grass";
-	desc = "Lush, mossy grass. A staple of Konyang."
+	name = "mossy grass"
 	},
 /area/horizon/holodeck/source_konyang)
 "wWn" = (
@@ -41713,13 +41712,13 @@
 "wZP" = (
 /obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
-	icon_state = "beach";
+	dir = 9;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
-	dir = 9
+	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
 "xbL" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
@@ -41800,16 +41799,16 @@
 	pixel_y = -10
 	},
 /turf/simulated/floor/holofloor/grass{
+	dir = 8;
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi';
 	icon_state = "edge";
-	name = "overgrowth";
-	dir = 8
+	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
 "xrA" = (
 /obj/item/reagent_containers/food/snacks/skrellsnacks{
-	pixel_y = 12;
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 12
 	},
 /turf/simulated/floor/beach/sand{
 	icon_state = "desert"
@@ -42008,31 +42007,31 @@
 	name = "floor planks"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "rope-railing";
 	layer = 5;
-	name = "short rope";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4
+	name = "short rope"
 	},
 /obj/effect/decal/fake_object{
+	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
+	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "post";
 	layer = 5;
 	name = "post";
-	desc = "A rudimentary, poorly utilized railing mechanism. Stepping over it is easy.";
-	dir = 4;
 	pixel_y = -4
 	},
 /obj/effect/decal/fake_object{
+	color = "#ff0000";
 	desc = "A soft cotton cloth strewn across the floor. Cozy.";
 	icon = 'icons/obj/weapons.dmi';
 	icon_state = "towel_flat";
-	name = "flooring cloth";
-	color = "#ff0000";
 	layer = 2.9;
-	pixel_y = 11;
-	pixel_x = -6
+	name = "flooring cloth";
+	pixel_x = -6;
+	pixel_y = 11
 	},
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -42042,10 +42041,10 @@
 	name = "floor planks"
 	},
 /turf/simulated/floor/holofloor/wood{
+	dir = 6;
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
 	icon_state = "water";
-	name = "shallow water";
-	dir = 6
+	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
 "ygU" = (
@@ -51401,43 +51400,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -51658,43 +51657,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -51915,43 +51914,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -52172,43 +52171,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -52429,43 +52428,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -52686,43 +52685,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -52943,43 +52942,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -53200,43 +53199,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -53457,43 +53456,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -53714,43 +53713,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -53971,43 +53970,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -54228,43 +54227,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -54485,43 +54484,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -54742,43 +54741,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -54999,43 +54998,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -55256,43 +55255,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -55513,43 +55512,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+jWJ
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -55770,43 +55769,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -56027,43 +56026,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -56284,43 +56283,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -56541,43 +56540,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -56798,43 +56797,43 @@ aac
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -57055,43 +57054,43 @@ aab
 aab
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -57312,43 +57311,43 @@ aac
 aac
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -57569,43 +57568,43 @@ aac
 aac
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -57826,43 +57825,43 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -58083,43 +58082,43 @@ aab
 aab
 aab
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -58340,43 +58339,43 @@ aac
 aac
 aab
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -58597,43 +58596,43 @@ aac
 aac
 aab
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -58854,43 +58853,43 @@ aac
 aac
 aab
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -59111,43 +59110,43 @@ aac
 aac
 aab
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -59368,43 +59367,43 @@ aac
 aac
 aab
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -59625,43 +59624,43 @@ aac
 aac
 aab
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aaa
 aaa
 aaa
@@ -59882,43 +59881,43 @@ aac
 aac
 aab
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+bFb
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aaa
 aaa
 aaa

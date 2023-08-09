@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/revolver
 	name = "revolver"
-	desc = "The revised Mark II Zavodskoi Interstellar revolver, chambering .357 rounds and utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon with a beautiful cedar grip and a transparent plastic cover so as to not splinter your hands while firing."
+	desc = "The revised Mark II Zavodskoi Interstellar revolver, utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon, with a beautiful cedar grip and a transparent plastic cover(so as to not splinter your hands while firing)."
 	icon = 'icons/obj/guns/revolver.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
@@ -21,6 +21,7 @@
 	set name = "Spin cylinder"
 	set desc = "Fun when you're bored out of your skull."
 	set category = "Object"
+	set src in usr
 
 	chamber_offset = 0
 	usr.visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", "<span class='warning'>You spin the cylinder of \the [src]!</span>", "<span class='notice'>You hear something metallic spin and click.</span>")
@@ -88,7 +89,7 @@
 
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
-	desc = "An old, obsolete revolver. It has no identifying marks. Chambered in the antiquated .38 caliber. Maybe the Tajara made it?"
+	desc = "An old, obsolete revolver. It has no identifying marks, and is chambered in an equally antiquated caliber. Maybe the Tajara made it?"
 	icon = 'icons/obj/guns/detective.dmi'
 	icon_state = "detective"
 	item_state = "detective"
@@ -105,6 +106,7 @@
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Click to rename your gun. If you're the detective."
+	set src in usr
 
 	var/mob/M = usr
 	if(!M.mind)	return 0
@@ -121,7 +123,7 @@
 
 /obj/item/gun/projectile/revolver/derringer
 	name = "derringer"
-	desc = "A small pocket pistol, easily concealed. Uses .357 rounds."
+	desc = "A small pocket pistol, easily concealed."
 	icon = 'icons/obj/guns/derringer.dmi'
 	icon_state = "derringer"
 	item_state = "derringer"
@@ -161,7 +163,7 @@
 
 /obj/item/gun/projectile/revolver/lemat
 	name = "grapeshot revolver"
-	desc = "A six shot revolver with a secondary firing barrel loading shotgun shells. Uses .38-Special and 12g rounds depending on the barrel."
+	desc = "A six shot revolver, with a secondary firing barrel for loading shotgun shells."
 	icon = 'icons/obj/guns/lemat.dmi'
 	icon_state = "lemat"
 	item_state = "lemat"
@@ -183,6 +185,9 @@
 
 /obj/item/gun/projectile/revolver/lemat/Initialize()
 	. = ..()
+	desc_info = "This is a unique ballistic weapon. It fires .38 ammunition, but may also load shotgun shells into a secondary barrel. To fire the weapon, toggle the safety \
+	with ctrl-click (or enable HARM intent), then click where you want to fire. By using the Unique-Action macro, you can switch from one barrel to the other. To reload, click the gun \
+	with an empty hand to remove any spent casings or shells, then insert new ones."
 	for(var/i in 1 to secondary_max_shells)
 		secondary_loaded += new secondary_ammo_type(src)
 
@@ -226,6 +231,7 @@
 	set name = "Spin cylinder"
 	set desc = "Fun when you're bored out of your skull."
 	set category = "Object"
+	set src in usr
 
 	chamber_offset = 0
 	visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", \
@@ -266,7 +272,7 @@
 
 /obj/item/gun/projectile/revolver/knife
 	name = "knife-revolver"
-	desc = "An adhomian revolver with a blade attached to its barrel."
+	desc = "An Adhomian revolver with a blade attached to its barrel."
 	icon = 'icons/obj/guns/knifegun.dmi'
 	icon_state = "knifegun"
 	item_state = "knifegun"

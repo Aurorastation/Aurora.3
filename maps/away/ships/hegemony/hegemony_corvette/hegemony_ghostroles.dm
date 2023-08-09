@@ -93,7 +93,7 @@
 /datum/outfit/admin/izweski/klax
 
 	uniform = /obj/item/clothing/under/vaurca
-	mask = /obj/item/clothing/mask/breath/vaurca/filter
+	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	belt = /obj/item/melee/energy/sword/hegemony
 	shoes = /obj/item/clothing/shoes/vaurca
 	id = /obj/item/card/id/distress/kataphract

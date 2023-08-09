@@ -1,7 +1,6 @@
 /datum/computer_file/program/card_mod
 	filename = "cardmod"
 	filedesc = "ID Card Modification Program"
-	nanomodule_path = /datum/nano_module/program/card_mod
 	program_icon_state = "id"
 	program_key_icon_state = "lightblue_key"
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
@@ -11,36 +10,57 @@
 	requires_ntnet = FALSE
 	size = 8
 	color = LIGHT_COLOR_BLUE
-
-/datum/nano_module/program/card_mod
-	name = "ID card modification program"
+	tgui_id = "IDCardModification"
+	ui_auto_update = FALSE
 	var/is_centcom = FALSE
 	var/show_assignments = FALSE
 
-/datum/nano_module/program/card_mod/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-	var/list/data = host.initial_data()
+/datum/computer_file/program/card_mod/ui_data(mob/user)
+	var/list/data = initial_data()
 
-	data["src"] = "\ref[src]"
 	data["station_name"] = station_name()
 	data["assignments"] = show_assignments
-	if(program?.computer)
-		data["have_id_slot"] = !!program.computer.card_slot
-		data["have_printer"] = !!program.computer.nano_printer
-		data["authenticated"] = program.can_run(user)
-	else
-		data["have_id_slot"] = 0
-		data["have_printer"] = 0
-		data["authenticated"] = 0
+	data["have_id_slot"] = !!computer.card_slot
+	data["have_printer"] = !!computer.nano_printer
+	data["authenticated"] = can_run(user)
 	data["centcom_access"] = is_centcom
 
-	if(program && program.computer && program.computer.card_slot)
-		var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
-		data["has_id"] = !!id_card
-		data["id_account_number"] = id_card ? id_card.associated_account_number : null
-		data["id_rank"] = id_card && id_card.assignment ? id_card.assignment : "Unassigned"
-		data["id_owner"] = id_card && id_card.registered_name ? id_card.registered_name : "-----"
-		data["id_name"] = id_card ? id_card.name : "-----"
+	var/obj/item/card/id/id_card = computer.card_slot.stored_card
+	data["has_id"] = !!id_card
+	data["id_account_number"] = id_card ? id_card.associated_account_number : null
+	data["id_rank"] = id_card && id_card.assignment ? id_card.assignment : "Unassigned"
+	data["id_owner"] = id_card && id_card.registered_name ? id_card.registered_name : "-----"
+	data["id_name"] = id_card ? id_card.name : "-----"
 
+	if(computer.card_slot.stored_card)
+		if(is_centcom)
+			var/list/all_centcom_access = list()
+			for(var/access in get_all_centcom_access())
+				all_centcom_access.Add(list(list(
+					"desc" = get_centcom_access_desc(access),
+					"ref" = access,
+					"allowed" = (access in id_card.access) ? TRUE : FALSE)))
+			data["all_centcom_access"] = all_centcom_access
+		else
+			var/list/regions = list()
+			for(var/i = 1; i <= 7; i++)
+				var/list/accesses = list()
+				for(var/access in get_region_accesses(i))
+					if (get_access_desc(access))
+						accesses.Add(list(list(
+							"desc" = get_access_desc(access),
+							"ref" = access,
+							"allowed" = (access in id_card.access) ? TRUE : FALSE)))
+
+				regions.Add(list(list(
+					"name" = get_region_accesses_name(i),
+					"accesses" = accesses)))
+			data["regions"] = regions
+
+	return data
+
+/datum/computer_file/program/card_mod/ui_static_data(mob/user)
+	var/list/data = list()
 	data["command_support_jobs"] = format_jobs(command_support_positions)
 	data["engineering_jobs"] = format_jobs(engineering_positions)
 	data["medical_jobs"] = format_jobs(medical_positions)
@@ -50,73 +70,33 @@
 	data["service_jobs"] = format_jobs(service_positions)
 	data["civilian_jobs"] = format_jobs(civilian_positions)
 	data["centcom_jobs"] = format_jobs(get_all_centcom_jobs())
+	return data
 
-	data["all_centcom_access"] = is_centcom ? get_accesses(1) : null
-	data["regions"] = get_accesses()
-
-	if(program.computer.card_slot.stored_card)
-		var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
-		if(is_centcom)
-			var/list/all_centcom_access = list()
-			for(var/access in get_all_centcom_access())
-				all_centcom_access.Add(list(list(
-					"desc" = replacetext(get_centcom_access_desc(access), " ", "&nbsp"),
-					"ref" = access,
-					"allowed" = (access in id_card.access) ? 1 : 0)))
-			data["all_centcom_access"] = all_centcom_access
-		else
-			var/list/regions = list()
-			for(var/i = 1; i <= 7; i++)
-				var/list/accesses = list()
-				for(var/access in get_region_accesses(i))
-					if (get_access_desc(access))
-						accesses.Add(list(list(
-							"desc" = replacetext(get_access_desc(access), " ", "&nbsp"),
-							"ref" = access,
-							"allowed" = (access in id_card.access) ? 1 : 0)))
-
-				regions.Add(list(list(
-					"name" = get_region_accesses_name(i),
-					"accesses" = accesses)))
-			data["regions"] = regions
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "identification_computer.tmpl", name, 600, 700, state = state)
-		ui.auto_update_layout = TRUE
-		ui.set_initial_data(data)
-		ui.open()
-
-/datum/nano_module/program/card_mod/proc/format_jobs(list/jobs)
-	var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
+/datum/computer_file/program/card_mod/proc/format_jobs(list/jobs)
+	var/obj/item/card/id/id_card = computer.card_slot.stored_card
 	var/list/formatted = list()
 	for(var/job in jobs)
 		formatted.Add(list(list(
-			"display_name" = replacetext(job, " ", "&nbsp"),
 			"target_rank" = id_card && id_card.assignment ? id_card.assignment : "Unassigned",
 			"job" = job)))
 
 	return formatted
 
-/datum/nano_module/program/card_mod/proc/get_accesses(var/is_centcom = 0)
-	return null
-
-
-/datum/computer_file/program/card_mod/Topic(href, href_list)
+/datum/computer_file/program/card_mod/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
-		return TRUE
+		return
 
 	var/mob/user = usr
 	var/obj/item/card/id/user_id_card = user.GetIdCard()
 	var/obj/item/card/id/id_card = computer.card_slot.stored_card
-	var/datum/nano_module/program/card_mod/module = NM
-	switch(href_list["action"])
-
+	switch(action)
 		if("togglea")
-			if(module.show_assignments)
-				module.show_assignments = FALSE
+			if(show_assignments)
+				show_assignments = FALSE
 			else
-				module.show_assignments = TRUE
+				show_assignments = TRUE
+			. = TRUE
+
 		if("print")
 			if(computer?.nano_printer && can_run(user, 1)) //This option should never be called if there is no printer
 				var/contents = {"<h4>Access Report</h4>
@@ -139,6 +119,8 @@
 					return
 				else
 					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+					. = TRUE
+
 		if("eject")
 			if(computer && computer.card_slot)
 				if(id_card)
@@ -155,25 +137,31 @@
 						R.rank = id_card.assignment
 						R.real_rank = real_title
 				computer.eject_id()
+				. = TRUE
+
 		if("suspend")
 			if(computer && can_run(user, 1))
 				id_card.assignment = "Suspended"
 				remove_nt_access(id_card)
 				callHook("suspend_employee", list(id_card))
+				. = TRUE
+
 		if("edit")
 			if(computer && can_run(user, 1))
-				if(href_list["name"])
+				if(params["name"])
 					var/temp_name = sanitizeName(input("Enter name.", "Name", id_card.registered_name))
 					if(temp_name)
 						id_card.registered_name = temp_name
 					else
 						computer.visible_message("<span class='notice'>[computer] buzzes rudely.</span>")
-				else if(href_list["account"])
+				else if(params["account"])
 					var/account_num = text2num(input("Enter account number.", "Account", id_card.associated_account_number))
 					id_card.associated_account_number = account_num
+				. = TRUE
+
 		if("assign")
 			if(computer && can_run(user, 1) && id_card)
-				var/t1 = href_list["assign_target"]
+				var/t1 = params["assign_target"]
 				if(t1 == "Custom")
 					var/temp_t = sanitize(input("Enter a custom job assignment.","Assignment", id_card.assignment), 45)
 					//let custom jobs function as an impromptu alt title, mainly for sechuds
@@ -181,7 +169,7 @@
 						id_card.assignment = temp_t
 				else
 					var/list/access = list()
-					if(module.is_centcom)
+					if(is_centcom)
 						access = get_centcom_access(t1)
 					else
 						var/datum/job/jobdatum
@@ -203,19 +191,20 @@
 
 				SSrecords.reset_manifest()
 				callHook("reassign_employee", list(id_card))
+				. = TRUE
+
 		if("access")
-			if(href_list["allowed"] && computer && can_run(user, 1))
-				var/access_type = text2num(href_list["access_target"])
-				var/access_allowed = text2num(href_list["allowed"])
+			if(isnum(params["allowed"]) && computer && can_run(user, 1))
+				var/access_type = text2num(params["access_target"])
+				var/access_allowed = text2num(params["allowed"])
 				if(access_type in get_access_ids(ACCESS_TYPE_STATION|ACCESS_TYPE_CENTCOM))
 					id_card.access -= access_type
 					if(!access_allowed)
 						id_card.access += access_type
+						. = TRUE
 	if(id_card)
 		id_card.name = text("[id_card.registered_name]'s ID Card ([id_card.assignment])")
-
-	SSnanoui.update_uis(NM)
-	return TRUE
+		. = TRUE
 
 /datum/computer_file/program/card_mod/proc/remove_nt_access(var/obj/item/card/id/id_card)
 	id_card.access -= get_access_ids(ACCESS_TYPE_STATION|ACCESS_TYPE_CENTCOM)

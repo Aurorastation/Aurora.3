@@ -74,7 +74,7 @@
 	//Select a spawnpoint (if available)
 	var/turf/T = select_spawnlocation()
 	if(!T)
-		log_debug("GhostSpawner: Unable to select spawnpoint for [short_name]")
+		LOG_DEBUG("GhostSpawner: Unable to select spawnpoint for [short_name]")
 		return FALSE
 
 	//Pick a species
