@@ -3,7 +3,7 @@
 var/list/gear_datums = list()
 
 // all gear names that have a tag
-// index is tag name, value is list of initial(gear.display_name)
+// index is tag name, value is a list of initial(gear.display_name)
 var/list/tag_gear_names = list()
 
 // index is tag name, value is any tags of items that also have this tag

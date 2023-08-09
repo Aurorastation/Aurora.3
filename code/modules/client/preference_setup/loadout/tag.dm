@@ -33,6 +33,7 @@ var/list/tag_group_other = list( // (manual tags need to be manually added to th
 	"Augment",	// manual
 	"Computer",	// manual
 	"Utility",	// manual
+	// any other new special tags should be added here
 )
 
 // ------------------------------ all tag groups
@@ -52,20 +53,6 @@ var/list/tag_groups_all = list(
 )
 
 // ------------------------------ functions
-/proc/grab_manual_tags_from_item(var/datum/gear/gear)
-	// this grabs any tags from an item
-	// that are not already present in the tag groups
-	// and adds them to tag_group_other
-	// for(var/tag in gear.tags)
-		// var/found = FALSE
-		// for(var/group_name in tag_groups_all)
-		// 	var/list/group_list = tag_groups_all[group_name]
-		// 	for(var/tag_in_group in group_list)
-		// 		if(tag in tag_in_group)
-		// 			found = TRUE
-		// 			break
-		// if(!found)
-			// tag_group_other |= tag
 
 /proc/slot_to_string(var/slot)
 	switch (slot)
@@ -112,8 +99,6 @@ var/list/tag_groups_all = list(
 			return "Immense"
 		else
 			return null
-
-
 
 /proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 	// ---- tag_group_department
