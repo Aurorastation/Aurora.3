@@ -102,6 +102,16 @@
 	icon_state = "dumpster"
 	anchored = TRUE
 
+/obj/structure/structural_support
+	name = "support structure"
+	desc = "A big, sturdy support beam to hold up a huge mass above your head."
+	icon = 'icons/obj/structure/industrial/infrastructure.dmi'
+	icon_state = "truss"
+	density = TRUE
+
+/obj/structure/structural_support/side
+	icon_state = "truss_side"
+
 /obj/structure/manhole
 	name = "sewer access manhole"
 	desc = "Probably a bad idea to open this."
@@ -150,6 +160,14 @@
 	icon = 'icons/obj/structure/urban/tailoring.dmi'
 	icon_state = "divider1"
 	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/neon_sign
+	name = "large neon sign"
+	desc = "A bright neon sign, an advertisement of some dystopian sort."
+	icon = 'icons/obj/structure/urban/konyang_neon.dmi'
+	icon_state = "sign1"
+	anchored = TRUE
+	layer = 7
 
 /obj/structure/shipping_container
 	name = "freight container"
