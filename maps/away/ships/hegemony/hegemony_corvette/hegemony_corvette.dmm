@@ -1962,8 +1962,8 @@
 /obj/machinery/light/colored/red{
 	dir = 4
 	},
-/obj/item/gun/energy/hegemonyrifle,
-/obj/item/gun/energy/hegemonyrifle,
+/obj/item/gun/energy/rifle/hegemony,
+/obj/item/gun/energy/rifle/hegemony,
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(113)
 	},
