@@ -2,7 +2,6 @@
 	display_name = "idris advanced service cloth"
 	path = /obj/item/reagent_containers/glass/rag/advanced/idris
 	slot = slot_in_backpack
-	sort_category = "Factions"
 	cost = 1
 	faction = "Idris Incorporated"
 

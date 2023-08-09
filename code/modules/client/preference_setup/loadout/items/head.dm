@@ -2,7 +2,6 @@
 	display_name = "green boonie hat"
 	path = /obj/item/clothing/head/bucket/boonie/green
 	slot = slot_head
-	sort_category = "Hats and Headwear"
 
 /datum/gear/head/New()
 	..()

@@ -21,16 +21,18 @@ var/list/tag_group_corp = list(
 	"Stellar Corporate Conglomerate", // as anyone can take SCC items, this tag needs to be manually added
 )
 var/list/tag_group_slot = list() // filled below
-var/list/tag_group_size = list("Tiny", "Small", "Normal", "Large", "Huge") // filled below
+var/list/tag_group_size = list("Tiny", "Small", "Normal", "Large", "Huge")
 var/list/tag_group_species = list("Human", "IPC", "Skrell", "Unathi", "Tajara", "Diona", "Vaurca")
 
 // ------------------------------ manual/automatic tag groups
 var/list/tag_group_other = list( // (manual tags need to be manually added to the item like `tags = list("Toy")`)
 	"Toy",		// manual
+	"Cosmetic",	// manual
 	"Smoking",	// manual
 	"Religion",	// manual
 	"Augment",	// manual
 	"Computer",	// manual
+	"Utility",	// manual
 )
 
 // ------------------------------ all tag groups
@@ -111,6 +113,8 @@ var/list/tag_groups_all = list(
 		else
 			return null
 
+
+
 /proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 	// ---- tag_group_department
 	var/list/departments_and_jobs = list(
@@ -144,7 +148,13 @@ var/list/tag_groups_all = list(
 		var/size = w_class_to_string(item.w_class)
 		gear.tags |= size
 		tag_group_size |= size
-	// ---- dedup
+	// ---- tag_group_species
+	for(var/tag in tag_group_species)
+		for(var/specie in gear.whitelisted)
+			if(findtext(specie, tag))
+				gear.tags |= tag
+			if(findtext(specie, "Frame"))
+				gear.tags |= "IPC"
 	// ---- tagless tag, shouldn't happen ever, but kept as a failsafe
 	if(gear.tags.len == 0)
 		tag_group_other |= "tagless"

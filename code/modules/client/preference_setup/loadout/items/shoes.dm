@@ -3,7 +3,6 @@
 	display_name = "sandals"
 	path = /obj/item/clothing/shoes/sandal
 	slot = slot_shoes
-	sort_category = "Shoes and Footwear"
 
 /datum/gear/shoes/New()
 	..()

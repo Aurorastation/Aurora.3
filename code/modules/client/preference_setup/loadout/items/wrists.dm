@@ -3,7 +3,6 @@
 	path = /obj/item/clothing/wrists/bracelet
 	cost = 1
 	slot = slot_wrists
-	sort_category = "Wristwear"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/wrists/beaded

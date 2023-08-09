@@ -3,7 +3,6 @@
 	display_name = "dust mask"
 	path = /obj/item/clothing/mask/dust
 	slot = slot_wear_mask
-	sort_category = "Masks"
 
 /datum/gear/mask/surgical
 	display_name = "surgical mask selection"

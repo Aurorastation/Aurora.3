@@ -6,11 +6,10 @@
 	var/cost = 1           //Number of points used. Items in general cost 1 point, storage/armor/gloves/special use costs 2 points.
 	var/slot               //Slot to equip to.
 	var/list/allowed_roles //Roles that can spawn with this item.
-	var/whitelisted        //Term to check the whitelist for..
+	var/list/whitelisted   //Species that can spawn with this item.
 	var/faction            //Is this item whitelisted for a faction?
 	var/list/culture_restriction //Is this item restricted to certain cultures? The contents are paths.
 	var/list/origin_restriction //Is this item restricted to certain origins? The contents are paths.
-	var/sort_category = "General" // DEPRECATED
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
 	var/flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	var/augment = FALSE

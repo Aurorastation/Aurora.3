@@ -3,7 +3,6 @@
 	description = "A generic colorable belt."
 	path = /obj/item/storage/belt/generic
 	slot = slot_belt
-	sort_category = "Belts"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/belt/resize

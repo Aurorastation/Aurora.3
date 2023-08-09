@@ -1,7 +1,7 @@
 /datum/gear/toy
 	display_name = "pack of dice"
 	path = /obj/item/storage/pill_bottle/dice
-	sort_category = "Toys"
+	tags = list("Toy")
 
 /datum/gear/toy/dicegaming
 	display_name = "pack of gaming dice"
