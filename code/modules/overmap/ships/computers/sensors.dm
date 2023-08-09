@@ -166,7 +166,7 @@
 			if(bearing < 0)
 				bearing += 360
 
-			var/distance = dist_between_two_points(linked_x, linked_y, contact_x, contact_y)
+			var/distance = DIST_BETWEEN_TWO_POINTS(linked_x, linked_y, contact_x, contact_y)
 
 			contacts.Add(list(list(
 				"name"=contact.name,

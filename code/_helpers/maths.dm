@@ -228,5 +228,4 @@
 
 
 // Returns distance between two points
-/proc/dist_between_two_points(ax, ay, bx, by)
-	return sqrt((bx-ax)*(bx-ax))+((by-ay)*(by-ay))
+#define DIST_BETWEEN_TWO_POINTS(ax, ay, bx, by) (sqrt((bx-ax)*(bx-ax))+((by-ay)*(by-ay)))
