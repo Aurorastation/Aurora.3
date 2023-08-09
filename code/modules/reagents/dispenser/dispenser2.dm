@@ -79,6 +79,18 @@
 	cartridges -= label
 	SStgui.update_uis(src)
 
+/obj/machinery/chemical_dispenser/proc/try_eject()
+	if(container && usr)
+		var/obj/item/reagent_containers/B = container
+		usr.put_in_hands(B)
+		container = null
+		if(icon_state_active)
+			icon_state = initial(icon_state)
+		return TRUE
+
+/obj/machinery/chemical_dispenser/AltClick(mob/user)
+	try_eject()
+
 /obj/machinery/chemical_dispenser/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "un" : ""]fasten [src]."))
@@ -180,12 +192,7 @@
 				. = TRUE
 
 		if("ejectBeaker")
-			if(container)
-				var/obj/item/reagent_containers/B = container
-				usr.put_in_hands(B)
-				container = null
-				if(icon_state_active)
-					icon_state = initial(icon_state)
+			if(try_eject())
 				. = TRUE
 
 	add_fingerprint(usr)

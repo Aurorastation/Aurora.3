@@ -49,6 +49,19 @@
 				qdel(src)
 				return
 
+/obj/machinery/chem_master/proc/eject()
+	if(beaker && usr)
+		if(Adjacent(usr))
+			usr.put_in_hands(beaker)
+		else
+			beaker:loc = get_turf(src)
+		beaker = null
+		reagents.clear_reagents()
+		icon_state = "mixer0"
+		return TRUE
+
+/obj/machinery/chem_master/AltClick()
+	eject()
 
 /obj/machinery/chem_master/attackby(var/obj/item/B, mob/user)
 
@@ -215,16 +228,8 @@
 			return TRUE
 
 		else if (action == "eject")
-			if(beaker)
-				if(Adjacent(usr))
-					usr.put_in_hands(beaker)
-				else
-					beaker:loc = get_turf(src)
-				beaker = null
-				reagents.clear_reagents()
-				icon_state = "mixer0"
-			CHEMMASTER_BOTTLE_SOUND
-			return TRUE
+			if(eject())
+				return TRUE
 
 	if (action == "toggle")
 		mode = !mode
