@@ -199,7 +199,7 @@ const ContactsSection = function (act, data: SensorsData) {
       {data.contacts && data.contacts.length ? (
         <Table>
           <Table.Row header>
-            <Table.Cell></Table.Cell>
+            <Table.Cell />
             <Table.Cell title="Designation">Designation</Table.Cell>
             <Table.Cell title="Bearing">B</Table.Cell>
             <Table.Cell title="X Grid Coordinate">X</Table.Cell>
@@ -242,32 +242,33 @@ const ContactsSection = function (act, data: SensorsData) {
 };
 
 const ContactDetailsSection = function (act, data: SensorsData) {
-  return (
-    <>
-      {data.contact_details && data.contact_details !== '' ? (
-        <Section title="Sensor Contact Details">
-          <div dangerouslySetInnerHTML={{ __html: data.contact_details }}></div>
-          <Box textAlign="center">
-            {/* {{:helper.link('Print', 'search', { 'scan-action' : 'print' })}} */}
-            {/* {{:helper.link('Clear', 'refresh', { 'scan-action' : 'clear' })}} */}
-            <Button
-              content={'Print'}
-              onClick={() => act('scan_action', { scan_action: 'print' })}
-            />
-            <Button
-              content={'Clear'}
-              onClick={() => {
-                act('scan_action', { scan_action: 'clear' });
-                data.contact_details = '';
-              }}
-            />
-          </Box>
-        </Section>
-      ) : (
-        ''
-      )}
-    </>
-  );
+  if (data.contact_details && data.contact_details !== '') {
+    /* eslint-disable react/no-danger */
+    const contact_details = (
+      <div dangerouslySetInnerHTML={{ __html: data.contact_details }} />
+    );
+    /* eslint-enable */
+    return (
+      <Section title="Sensor Contact Details">
+        <Box textAlign="center">
+          {contact_details}
+          <Button
+            content={'Print'}
+            onClick={() => act('scan_action', { scan_action: 'print' })}
+          />
+          <Button
+            content={'Clear'}
+            onClick={() => {
+              act('scan_action', { scan_action: 'clear' });
+              data.contact_details = '';
+            }}
+          />
+        </Box>
+      </Section>
+    );
+  } else {
+    return '';
+  }
 };
 
 const CompassSection = function (context, act, data: SensorsData) {
