@@ -1621,6 +1621,7 @@
 #include "code\modules\client\preference_setup\loadout\_defines.dm"
 #include "code\modules\client\preference_setup\loadout\gear_tweaks.dm"
 #include "code\modules\client\preference_setup\loadout\loadout.dm"
+#include "code\modules\client\preference_setup\loadout\tag.dm"
 #include "code\modules\client\preference_setup\loadout\items\accessories.dm"
 #include "code\modules\client\preference_setup\loadout\items\augments.dm"
 #include "code\modules\client\preference_setup\loadout\items\belt.dm"
