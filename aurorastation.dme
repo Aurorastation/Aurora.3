@@ -2599,6 +2599,7 @@
 #include "code\modules\modular_computers\file_system\programs\civilian\crusher_control.dm"
 #include "code\modules\modular_computers\file_system\programs\civilian\janitor.dm"
 #include "code\modules\modular_computers\file_system\programs\command\account_database.dm"
+#include "code\modules\modular_computers\file_system\programs\command\away_manifest.dm"
 #include "code\modules\modular_computers\file_system\programs\command\card.dm"
 #include "code\modules\modular_computers\file_system\programs\command\command_and_communications.dm"
 #include "code\modules\modular_computers\file_system\programs\command\docks.dm"
