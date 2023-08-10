@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Fixed material Delete(), now dumps a stack trace and returns the hint to not be harddel'd."
+  - bugfix: "Fixed material Destroy(), now dumps a stack trace and returns the hint to not be harddel'd."
