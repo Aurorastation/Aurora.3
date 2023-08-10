@@ -33,40 +33,40 @@
 	var/load_from_file = 0
 
 	if (config.sql_enabled)
-		log_debug("Custom Items: Loading from SQL")
+		log_module_customitems("Loading from SQL")
 		//If we have sql enabled we check if the db is empty. If so we migrate the json file to the db
 		//If the db is not empty we dont load the json file
 		if(!establish_db_connection(dbcon))
-			log_debug("Custom Items: Unable to establish database connection. - Aborting")
+			log_module_customitems("Unable to establish database connection. - Aborting")
 			return 1
 
 		var/DBQuery/query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_characters_custom_items")
 		query.Execute()
 
 		if (!query.NextRow())
-			log_debug("Custom Items: Unable to fetch custom item count from database. - Aborting")
+			log_module_customitems("Unable to fetch custom item count from database. - Aborting")
 			return 1
 		var/item_count = text2num(query.item[1])
 		if(item_count > 0)
 			return 1
 		//If there are no items in the db, migrate them
 		load_from_file = 2
-		log_debug("Custom Items: No items found in the database - attempting migration")
+		log_module_customitems("No items found in the database - attempting migration")
 	else
 		//If we dont have a db, we need to load the json file
 		load_from_file = 1
 
 	if(load_from_file)
-		log_debug("Custom Items: Loading from File")
+		log_module_customitems("Loading from File")
 		//Check if the json file exists
 		if(fexists("config/custom_items.json"))
-			log_debug("Custom Items: Loading from json")
+			log_module_customitems("Loading from json")
 			var/list/loaded_items = list()
 			var/item_id = 0
 			try
 				loaded_items = json_decode(return_file_text("config/custom_items.json"))
 			catch(var/exception/e)
-				log_debug("Custom Items: Failed to load custom_items.json: [e]")
+				log_module_customitems("Failed to load custom_items.json: [e]")
 
 			for(var/item in loaded_items)
 				//TODO: Check for existance of the vars first
@@ -85,9 +85,9 @@
 				ci.additional_data = item["additional_data"]
 				ci.req_titles = item["req_titles"]
 				custom_items.Add(ci)
-			log_debug("Custom Items: Loaded [length(custom_items)] custom items")
+			log_module_customitems("Loaded [length(custom_items)] custom items")
 		else if(fexists("config/custom_items.txt")) //TODO: Retire that at some point down the line
-			log_debug("Custom Items: Loading from txt")
+			log_module_customitems("Loading from txt")
 			log_and_message_admins("The deprecated custom_items.txt file is used. Migrate to SQL or JSON.")
 			//If we dont have the json file, we might have the old file so lets try that
 			var/datum/custom_item/current_data
@@ -140,15 +140,15 @@
 					if("additional_data")
 						current_data.additional_data = field_data
 	if(load_from_file == 2 && length(custom_items)) //insert the item into the db
-		log_debug("Custom Items: Migrating custom_items to database")
+		log_module_customitems("Migrating custom_items to database")
 		var/success_count = 0
 		var/error_count = 0
 		for(var/item in custom_items)
 			var/datum/custom_item/ci = item
-			log_debug("Custom Items: Migrating Item for: [ci.usr_ckey] - [ci.usr_charname]")
+			log_module_customitems("Migrating Item for: [ci.usr_ckey] - [ci.usr_charname]")
 
 			if(!ci.item_path || ci.item_path == "")
-				log_debug("Custom Items: Invalid Item path")
+				log_module_customitems("Invalid Item path")
 				error_count += 1
 				continue
 
@@ -156,7 +156,7 @@
 			var/DBQuery/char_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: AND name = :name: AND deleted_at IS NULL ORDER BY id DESC")
 			char_query.Execute(list("ckey"=ckey(ci.usr_ckey),"name"=ci.usr_charname))
 			if (!char_query.NextRow())
-				log_debug("Custom Items: Unable to find matching character for: ckey: [ci.usr_ckey] name: [ci.usr_charname]")
+				log_module_customitems("Unable to find matching character for: ckey: [ci.usr_ckey] name: [ci.usr_charname]")
 				error_count += 1
 				continue
 			var/char_id = text2num(char_query.item[1])
@@ -165,7 +165,7 @@
 				var/DBQuery/item_insert_query = dbcon.NewQuery("INSERT INTO ss13_characters_custom_items (`char_id`, `item_path`, `item_data`, `req_titles`, `additional_data`) VALUES (:char_id:, :item_path:, :item_data:, :req_titles:, :additional_data:)")
 				item_insert_query.Execute(list("char_id"=char_id,"item_path"="[ci.item_path]","item_data"=json_encode(ci.item_data),"req_titles"=json_encode(ci.req_titles),"additional_data"=ci.additional_data))
 			catch(var/exception/e)
-				log_debug("Custom Items: Failed to save item to db: [e]")
+				log_module_customitems("Failed to save item to db: [e]")
 				error_count += 1
 			success_count += 1
 
@@ -202,7 +202,7 @@
 		try
 			item.vars[var_name] = item_data[var_name]
 		catch(var/exception/e)
-			log_debug("Custom Item: Bad variable name [var_name] in custom item with id [id]: [e]")
+			log_module_customitems("Bad variable name [var_name] in custom item with id [id]: [e]")
 
 	// for snowflake implants
 	if(istype(item, /obj/item/implanter/fluff))
@@ -218,7 +218,7 @@
 	//Fetch the custom items for the mob
 	if(config.sql_enabled)
 		if(!establish_db_connection(dbcon))
-			log_debug("Custom Items: Unable to establish database connection while loading item. - Aborting")
+			log_module_customitems("Unable to establish database connection while loading item. - Aborting")
 			return
 
 		var/DBQuery/char_item_query = dbcon.NewQuery("SELECT ss13_characters_custom_items.id, ss13_characters_custom_items.char_id, ss13_characters.ckey as usr_ckey, ss13_characters.name as usr_charname, item_path, item_data, req_titles, additional_data FROM ss13_characters_custom_items LEFT JOIN ss13_characters ON ss13_characters.id = ss13_characters_custom_items.char_id WHERE char_id = :char_id:")

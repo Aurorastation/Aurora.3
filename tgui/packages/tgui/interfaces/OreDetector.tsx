@@ -24,7 +24,7 @@ export const OreDetector = (props, context) => {
       return 'CANT ENABLE - SELECT ORES';
     }
     if (data.enabled) {
-      return 'ENALBED';
+      return 'ENABLED';
     } else {
       return 'DISABLED';
     }

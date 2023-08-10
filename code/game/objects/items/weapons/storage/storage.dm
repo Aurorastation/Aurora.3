@@ -659,7 +659,7 @@
 	. = ..()
 
 	if (max_storage_space > STORAGE_SPACE_CAP)
-		log_debug("STORAGE: [type] exceed STORAGE_SPACE_CAP. It has been reset to [STORAGE_SPACE_CAP].")
+		LOG_DEBUG("STORAGE: [type] exceed STORAGE_SPACE_CAP. It has been reset to [STORAGE_SPACE_CAP].")
 		max_storage_space = STORAGE_SPACE_CAP
 
 	fill()

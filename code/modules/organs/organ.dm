@@ -97,7 +97,7 @@
 			dna = holder.dna.Clone()
 			species = all_species[dna.species]
 		else
-			log_debug("[src] at [loc] spawned without a proper DNA.")
+			LOG_DEBUG("[src] at [loc] spawned without a proper DNA.")
 		var/mob/living/carbon/human/H = holder
 		if(istype(H))
 			if(internal)
@@ -145,7 +145,7 @@
 		owner = null
 
 	if (QDELETED(src))
-		log_debug("QDELETED organ [DEBUG_REF(src)] had process() called!")
+		LOG_DEBUG("QDELETED organ [DEBUG_REF(src)] had process() called!")
 		STOP_PROCESSING(SSprocessing, src)
 		return
 
@@ -167,7 +167,7 @@
 
 	if(!owner)
 		if (QDELETED(reagents))
-			log_debug("Organ [DEBUG_REF(src)] had QDELETED reagents! Regenerating.")
+			LOG_DEBUG("Organ [DEBUG_REF(src)] had QDELETED reagents! Regenerating.")
 			create_reagents(5)
 
 		if(REAGENT_VOLUME(reagents, /singleton/reagent/blood) && !(status & ORGAN_ROBOT) && prob(40))

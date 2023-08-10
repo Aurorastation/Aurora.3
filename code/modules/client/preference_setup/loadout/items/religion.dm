@@ -1,14 +1,28 @@
 /datum/gear/religion
-	display_name = "trinary perfection robes"
-	path = /obj/item/clothing/suit/trinary_robes
-	slot = slot_w_uniform
-	sort_category = "Religion"
-	flags = GEAR_HAS_DESC_SELECTION
-
-/datum/gear/religion/trinary/mask
 	display_name = "trinary perfection mask"
 	path = /obj/item/clothing/mask/trinary_mask
 	slot = slot_wear_mask
+	sort_category = "Religion"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/religion/trinary
+	display_name = "trinary perfection brooch"
+	path = /obj/item/clothing/accessory/badge/trinary
+	slot = slot_tie
+
+/datum/gear/religion/trinary/robe
+	display_name = "trinary perfection robes selection"
+	description = "A selection of robes worn by adherents of the Trinary Perfection."
+	path = /obj/item/clothing/suit/trinary_robes
+	slot = slot_w_uniform
+
+/datum/gear/religion/trinary/robe/New()
+	..()
+	var/list/trinaryrobe = list()
+	trinaryrobe["trinary perfection robes"] = /obj/item/clothing/suit/trinary_robes
+	trinaryrobe["trinary perfection habit"] = /obj/item/clothing/suit/trinary_robes/habit
+	trinaryrobe["templeist robes"] = /obj/item/clothing/suit/trinary_robes/templeist
+	gear_tweaks += new /datum/gear_tweak/path(trinaryrobe)
 
 /datum/gear/religion/trinary/cape
 	display_name = "trinary perfection cape selection"
@@ -33,6 +47,11 @@
 	display_name = "The Order"
 	description = "The holy text of the Trinary Perfection."
 	path = /obj/item/device/versebook/trinary
+
+/datum/gear/religion/trinary/book
+	display_name = "The Voice of Temple"
+	description = "A supplementary holy text belonging to the Lodge of Temple Architect, an order within the Trinary Perfection."
+	path = /obj/item/device/versebook/templeist
 
 /datum/gear/religion/rosary
 	display_name = "rosary"
