@@ -294,7 +294,7 @@
 	name = "psionic pistol"
 	desc = "A pistol issued to Federation diplomats that utilises psionics. It's made from a lightweight alloy."
 	desc_extended = "A sidearm issued to Federation Representatives, the Psi Pistol has a psionically-linked firing pin that checks for a developed Zona Bovinae in its user before it can be fired. A wire can be attached to the user's wrist to allow for mode switching using psionics rather than changing it physically, enabling the weapon to be used entirely one-handed."
-	icon = 'icons/obj/guns/PsiPistol.dmi'
+	icon = 'icons/obj/guns/psi_pistol.dmi'
 	icon_state = "psipistolstun100"
 	item_state = "psipistolstun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
