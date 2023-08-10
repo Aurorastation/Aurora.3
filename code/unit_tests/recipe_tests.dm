@@ -60,7 +60,6 @@
 						else
 							TEST_WARN("Recipe '[R.title]' on material '[D.name]' creates product with material '[mat]', but that material is not required by the recipe.")
 				qdel(I)
-		qdel(D)
 
 	if(error_count)
 		TEST_FAIL("[error_count] stack recipe error(s) found. Every stack recipe should cost more than what its product is worth when recycled.")

@@ -210,7 +210,7 @@
 
 // Makes the ability be triggered.  The subclasses of this are responsible for carrying it out in whatever way it needs to.
 /obj/screen/ability/proc/activate()
-	log_debug("[src] had activate() called.")
+	LOG_DEBUG("[src] had activate() called.")
 
 // This checks if the ability can be used.
 /obj/screen/ability/proc/can_activate()

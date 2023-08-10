@@ -6,7 +6,7 @@
 
 /datum/event/ccia_general_notice/start()
 	if (!establish_db_connection(dbcon))
-		log_debug("CCIA Autoamtic General Notice - Could not establish database connection")
+		LOG_DEBUG("CCIA Autoamtic General Notice - Could not establish database connection")
 		return
 	var/DBQuery/query = dbcon.NewQuery("SELECT SQL_NO_CACHE title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL AND automatic = 1 ORDER BY RAND() LIMIT 1;")
 	query.Execute()

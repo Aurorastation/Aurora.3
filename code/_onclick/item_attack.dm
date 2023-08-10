@@ -25,6 +25,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 /obj/item/proc/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	pre_attack(A, user)
 	add_fingerprint(user)
+	_log_attack("[A] at [A?.loc]/[A.x]-[A.y]-[A.z] got ITEM attacked by [usr]/[usr?.ckey] on INTENT [usr?.a_intent] with [src]")
 	return A.attackby(src, user, click_parameters)
 
 // attackby should return TRUE if all desired actions are resolved from that attack, within attackby. This prevents afterattack being called.
