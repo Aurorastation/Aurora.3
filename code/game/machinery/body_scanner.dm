@@ -525,7 +525,7 @@
 				else
 					unk += 1
 			if (unk)
-				wounds += "has an abnormal mass present"
+				wounds += "has unknown object(s) present"
 			var/friends = length(organic)
 			if(friends)
 				wounds += friends > 1 ? "multiple abnormal organic bodies present" : "abnormal organic body present"
@@ -675,7 +675,7 @@
 	dat += text("[]\tRadiation Level %: []</font><br>", ("<font color='[occ["rads"] < 10  ? "blue" : "red"]'>"), occ["rads"])
 	dat += text("Genetic Tissue Damage: []<br>", occ["cloneloss"])
 	dat += text("Paralysis Summary %: [] ([] seconds left!)<br>", occ["paralysis"], round(occ["paralysis"] / 4))
-	dat += text("Body Temperature: [occ["bodytemp"]]&deg;C ([occ["bodytemp"] + T0C ]K)<br><HR>")
+	dat += text("Body Temperature: [occ["bodytemp"]]&deg;C<br><HR>")
 
 	if(occ["borer_present"])
 		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
@@ -701,9 +701,9 @@
 		dat += "<tr>"
 
 		if(e.status & ORGAN_ARTERY_CUT)
-			wounds += "arterial bleeding"
+			wounds += "severed [e.artery_name]"
 		if(e.tendon_status() & TENDON_CUT)
-			wounds += "severed tendon"
+			wounds += "severed [e.tendon.name]"
 		if(istype(e, /obj/item/organ/external/chest) && occ["lung_ruptured"])
 			wounds += "lung ruptured"
 		if(e.status & ORGAN_SPLINTED)
@@ -727,22 +727,20 @@
 			wounds += infection
 
 		if (e.implants.len)
-			var/unknown_body = 0
+			var/unk = 0
 			var/list/organic = list()
-			var/imp
-			for(var/I in e.implants)
-				if(is_type_in_list(I,known_implants))
-					imp += "[I] implanted:"
+			for (var/atom/movable/I in e.implants)
+				if(is_type_in_list(I, known_implants))
+					wounds += "\a [I.name] implanted:"
 				else if(istype(I, /obj/effect/spider))
 					organic += I
 				else
-					unknown_body++
-			if(unknown_body)
-				imp += "Unknown body present:"
+					unk += 1
+			if (unk)
+				wounds += "has unknown object(s) present:"
 			var/friends = length(organic)
 			if(friends)
-				imp += friends > 1 ? "multiple abnormal organic bodies present" : "abnormal organic body present"
-				wounds += imp
+				wounds += friends > 1 ? "multiple abnormal organic bodies present" : "abnormal organic body present"
 		if(!length(wounds))
 			wounds += "none"
 		if(!e.is_stump())
@@ -761,7 +759,7 @@
 
 		var/infection = get_infection_level(i.germ_level)
 		if(infection == "")
-			infection = "No Infection."
+			infection = "No infection."
 		else
 			infection = "[infection] infection."
 		if(i.rejecting)
