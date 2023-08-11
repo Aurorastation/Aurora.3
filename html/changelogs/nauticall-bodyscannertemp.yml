@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - bugfix: "Fixed incorrect temperature readout, and implants/shrapnel not being displayed, when printing scans from body scanner consoles."
   - tweak: "Tweaked some wording in the body scanner printouts to be more consistent with the GUI version."
+  - tweak: "Added alt-click eject functionality to the body scanner and to the sleeper."
