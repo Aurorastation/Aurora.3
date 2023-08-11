@@ -88,6 +88,10 @@
 	add_fingerprint(usr)
 	return
 
+/obj/machinery/bodyscanner/AltClick()
+	if(usr.Adjacent(src))
+		eject()
+
 /obj/machinery/bodyscanner/verb/move_inside()
 	set src in oview(1)
 	set category = "Object"
