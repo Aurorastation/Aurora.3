@@ -675,7 +675,7 @@
 	dat += text("[]\tRadiation Level %: []</font><br>", ("<font color='[occ["rads"] < 10  ? "blue" : "red"]'>"), occ["rads"])
 	dat += text("Genetic Tissue Damage: []<br>", occ["cloneloss"])
 	dat += text("Paralysis Summary %: [] ([] seconds left!)<br>", occ["paralysis"], round(occ["paralysis"] / 4))
-	dat += text("Body Temperature: [occ["bodytemp"] - T0C]&deg;C ([occ["bodytemp"]]&deg;K)<br><HR>")
+	dat += text("Body Temperature: [occ["bodytemp"]]&deg;C ([occ["bodytemp"] + T0C ]K)<br><HR>")
 
 	if(occ["borer_present"])
 		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
