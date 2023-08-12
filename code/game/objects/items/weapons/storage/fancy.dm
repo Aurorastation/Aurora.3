@@ -330,7 +330,7 @@
 
 	if(target_zone == BP_MOUTH && contents.len > 0)
 		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(M)
-		if(!(M == user))
+		if(M != user)
 			var/response = ""
 			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."))
 			response = alert(M, "\The [user] offers you \a [W.name]. Do you accept?", "Smokable offer", "Accept", "Decline")
