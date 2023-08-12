@@ -529,7 +529,7 @@
 				else
 					unk += 1
 			if (unk)
-				wounds += "has unknown object(s) present"
+				wounds += "has unknown objects present"
 			var/friends = length(organic)
 			if(friends)
 				wounds += friends > 1 ? "multiple abnormal organic bodies present" : "abnormal organic body present"
@@ -733,15 +733,15 @@
 		if (e.implants.len)
 			var/unk = 0
 			var/list/organic = list()
-			for (var/atom/movable/I in e.implants)
+			for(var/atom/movable/I in e.implants)
 				if(is_type_in_list(I, known_implants))
 					wounds += "\a [I.name] implanted:"
 				else if(istype(I, /obj/effect/spider))
 					organic += I
 				else
 					unk += 1
-			if (unk)
-				wounds += "has unknown object(s) present:"
+			if(unk)
+				wounds += "has unknown objects present:"
 			var/friends = length(organic)
 			if(friends)
 				wounds += friends > 1 ? "multiple abnormal organic bodies present" : "abnormal organic body present"
