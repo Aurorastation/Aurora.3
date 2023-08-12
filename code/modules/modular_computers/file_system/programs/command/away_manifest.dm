@@ -8,11 +8,10 @@
 	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_run = access_heads
-	required_access_download = access_heads //change to || others?
+	required_access_download = access_heads
 	usage_flags = PROGRAM_ALL_REGULAR
 	tgui_id = "AwayShuttleManifest"
-	var/datum/record/shuttle_manifest/active_record //do I need this? Or should I do like, a custom type with the vars from the tgui file
+	var/datum/record/shuttle_manifest/active_record
 
 /datum/computer_file/program/away_manifest/ui_data(mob/user)
 	var/list/data = list()
@@ -20,16 +19,18 @@
 	if(active_record)
 		data["active_record"] = list(
 			"name" = active_record.name,
-			"shuttle" = active_record.shuttle
+			"shuttle" = active_record.shuttle,
+			"id" = active_record.id
 		)
 	else
 		var/list/allshuttles = list()
 		for (var/datum/record/shuttle_manifest/m in SSrecords.shuttle_manifests)
 			allshuttles += list(list(
 				"name" = m.name,
-				"shuttle" = m.shuttle
+				"shuttle" = m.shuttle,
+				"id" = m.id
 			))
-		data["allshuttles"] = allshuttles
+		data["shuttle_manifest"] = allshuttles
 		data["active_record"] = null
 	return data
 	
@@ -65,22 +66,10 @@
 	switch(action)
 		if("addentry")
 			. = TRUE
-			//do I need to make a new record type for this?
-			//probably add a 'shuttle manifest' or whatever record to the datums
 			var/datum/record/shuttle_manifest/m = new()
-			var/temp = sanitize(input(usr, "Which shuttle is this for?") as null|anything in list("Canary", "Intrepid", "Spark"))
 			if(!computer.use_check_and_message(user))
-				if(temp == "Canary")
-					m.name = "Unknown"
-					m.shuttle = "Canary"
-				if(temp == "Intrepid")
-					m.name = "Unknown"
-					m.shuttle = "Intrepid"
-				if(temp == "Spark")
-					m.name = "Unknown"
-					m.shuttle = "Spark"
-				if(isnull(temp))
-					return
+				m.name = "Unknown"
+				m.shuttle = "Unknown"
 				active_record = m
 			
 		if("saveentry")
@@ -111,3 +100,10 @@
 				if(!newname)
 					return
 				active_record.name = newname
+		if("editentryshuttle")
+			. = TRUE
+			var/newshuttle = sanitize(input("Please enter shuttle.") as null|anything in list("SCCV Canary", "SCCV Intrepid", "SCCV Spark"))
+			if(!computer.use_check_and_message(user))
+				if(!newshuttle)
+					return
+				active_record.shuttle = newshuttle

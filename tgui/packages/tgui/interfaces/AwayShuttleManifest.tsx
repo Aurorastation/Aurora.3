@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section, Table } from '../components';
+import { Button, LabeledList, NoticeBox, Section, Flex, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type AwayShuttleData = {
@@ -60,106 +60,59 @@ export const ManifestEntryEdit = (props, context) => {
 					onClick={() => act('editentrynamecustom')}
 				/>
 			</LabeledList.Item>
-			/*<LabeledList.Item label="Shuttle">
+			<LabeledList.Item label ="Shuttle">
 				{data.active_record.shuttle}&nbsp;
 				<Button
-					icon="sticky-note"
-					tooltip="Edit shuttle."
+					icon="info"
+					tooltip="Change the shuttle for this entry."
 					onClick={() => act('editentryshuttle')}
 				/>
-			</LabeledList.Item>*/
+			</LabeledList.Item>
 		</LabeledList>
-	</Section>
+  </Section>
 	);
 };
 
 export const AllShuttles = (props, context) => {
-	const { act, data} = useBackend<AwayShuttleData>(context);
+
+	const { act, data } = useBackend<AwayShuttleData>(context);
 	
 	return (
 		<>
-			<Section
-				title="SCCV Canary"
-				buttons={
-					<Button content="Add Entry" onClick={() => act ('addentry')} />
-				}>
-				{data.shuttle_manifest && data.shuttle_manifest.length ? (
-					<Table>
-						<Table.Row header>
-							<Table.Cell>Name</Table.Cell>
-						</Table.Row>
-						{data.shuttle_manifest
-							.filter((w) => w.shuttle === 'Canary')
-							.map((ShuttleCrew) => (
-								<Table.Row key={ShuttleCrew.id}>
-									<Table.Cell>
-										<Button
-											content={ShuttleCrew.name}
-											onClick={() =>
-												act('editentry', { editentry: ShuttleCrew.id })
-											}
-										/>
-									</Table.Cell>
-									<Table.Cell>{ShuttleCrew.shuttle}</Table.Cell>
-								</Table.Row>
-							))}
-						</Table>
-					) : (
-						<NoticeBox>No crew detected.</NoticeBox>
-					)}
 				<Section
-				title="SCCV Intrepid"
-				buttons={
-					<Button content="Add Entry" onClick={() => act ('addentry')} />
-				}>
-				{data.shuttle_manifest && data.shuttle_manifest.length ? (
-					<Table>
-						<Table.Row header>
-							<Table.Cell>Name</Table.Cell>
-						</Table.Row>
-						{data.shuttle_manifest
-							.filter((w) => w.shuttle === 'Intrepid')
-							.map((ShuttleCrew) => (
-								<Table.Row key={ShuttleCrew.id}>
-									<Table.Cell>
-										<Button
-											content={ShuttleCrew.name}
-											onClick={() =>
-												act('editentry', { editentry: ShuttleCrew.id })
-											}
-										/>
-									</Table.Cell>
-									<Table.Cell>{ShuttleCrew.shuttle}</Table.Cell>
+					title="SCCV Horizon Shuttle Manifest"
+					buttons={<Button content="Add Entry" onClick={() => act('addentry')} />
+					}>
+					{data.shuttle_manifest && data.shuttle_manifest.length ? (
+						<Flex>
+							<Table>
+								<Table.Row header>
+									<Table.Cell>Name</Table.Cell>
+									<Table.Cell>Shuttle</Table.Cell>
 								</Table.Row>
-							))}
-						</Table>
-					) : (
-						<NoticeBox>No crew detected.</NoticeBox>
-				<Section
-				title="SCCV Spark"
-				buttons={
-					<Button content="Add Entry" onClick={() => act ('addentry')} />
-				}>
-				{data.shuttle_manifest && data.shuttle_manifest.length ? (
-					<Table>
-						<Table.Row header>
-							<Table.Cell>Name</Table.Cell>
-						</Table.Row>
-						{data.shuttle_manifest
-							.filter((w) => w.shuttle === 'Spark')
-							.map((ShuttleCrew) => (
-								<Table.Row key={ShuttleCrew.id}>
-									<Table.Cell>
-										<Button
-											content={ShuttleCrew.name}
-											onClick={() =>
-												act('editentry', { editentry: ShuttleCrew.id })
-											}
-										/>
-									</Table.Cell>
-									<Table.Cell>{ShuttleCrew.shuttle}</Table.Cell>
-								</Table.Row>
-							))}
-						</Table>
-					) : (
-						<NoticeBox>No crew detected.</NoticeBox>
+								{data.shuttle_manifest
+									.map((ShuttleCrew) => (
+									<Table.Row key={ShuttleCrew.id}>
+										<Table.Cell>
+											<Flex.Item>
+												<Button
+													content={ShuttleCrew.name}
+													onClick={() =>
+														act('editentry', { editentry: ShuttleCrew.id })
+													}
+												/>
+											</Flex.Item>
+										</Table.Cell>
+										<Flex.Item>
+											{ShuttleCrew.shuttle}
+										</Flex.Item>
+									</Table.Row>
+									))}
+							</Table>
+						</Flex>
+							) : (<NoticeBox>No crew detected.</NoticeBox>
+							)}
+					</Section>
+		</>
+	);
+};
