@@ -92,7 +92,7 @@
 		if(owned_matrix)
 			if(!(owned_matrix in range(1, src) && get_dir(owned_matrix, src) == owned_matrix.dir && owned_matrix.anchored))
 				if(owned_matrix.owned_capacitor == src)
-					owned_matrix.owned_capacictor = null
+					owned_matrix.owned_capacitor = null
 				owned_matrix = null
 	if(!owned_matrix)
 		for(var/obj/machinery/shield_matrix/matrix in range(1, src))

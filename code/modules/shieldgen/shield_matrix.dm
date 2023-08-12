@@ -15,11 +15,18 @@
 	var/list/owned_projectors = list()
 	var/list/modulators = list()
 	var/list/available_modulators = list()
+	var/list/mod_boards = list()
 	var/max_renwick_draw = 100 //Need to test numbers on this
 	var/renwick_draw = 100
 
 /obj/machinery/shield_matrix/Initialize()
 	update_shield_parts()
+	for(var/M in subtypesof(/obj/item/modulator_board))
+		var/obj/item/modulator_board/MB = new M(src)
+		if(istype(MB) && MB.origin_tech[TECH_ENGINEERING] <= 2)
+			LAZYADD(mod_boards, MB)
+			LAZYADD(available_modulators, MB.mod)
+
 	return
 
 /obj/machinery/shield_matrix/proc/update_shield_parts()
@@ -35,7 +42,7 @@
 			break
 
 	for(var/obj/machinery/shield_gen/possible_projector in range(2, src))
-		if(get_dir(possible_projector, src) == swith_dir(possible_projector.dir))
+		if(get_dir(possible_projector, src) == switch_dir(possible_projector.dir))
 			LAZYADD(owned_projectors, possible_projector)
 
 	return owned_capacitor && owned_projectors.len
@@ -77,7 +84,7 @@
 		return
 	interact(user)
 
-/obj/machinery/shield_gen/interact(mob/user)
+/obj/machinery/shield_matrix/interact(mob/user)
 	if(locked)
 		to_chat(user, SPAN_WARNING("The device is locked. Swipe your ID to unlock it."))
 		return
@@ -97,7 +104,7 @@
 			toggle()
 			return PROCESS_KILL
 
-	var/renwicks = min(floor(owned_capacitor.stored_charge RENWICKS), renwick_draw)
+	var/renwicks = min(Floor(owned_capacitor.stored_charge RENWICKS), renwick_draw)
 
 	if(!renwicks)
 		return
@@ -131,6 +138,15 @@
 		for(var/mob/M as anything in hearers(5,src))
 			to_chat(M, "[icon2html(src, M)] You hear heavy droning fade out.")
 
+/obj/machinery/shield_matrix/proc/get_modulators_by_name(var/available=TRUE, exclude_datums=TRUE)
+	var/list/mods = list()
+	for(var/datum/shield_mode/M in available ? available_modulators : modulators)
+		if(exclude_datums)
+			LAZYADD(mods, M.mode_name)
+		else
+			LAZYSET(mods, M.mode_name, M)
+	return mods
+
 /obj/machinery/shield_matrix/update_icon()
 	if(stat & BROKEN)
 		icon_state = "matrix_broke"
@@ -155,8 +171,8 @@
 	data["strength_ratio"] = strength_ratio
 	data["charge_ratio"] = charge_ratio
 	data["modulator_ratio"] = modulator_ratio
-	data["modulators"] = modulators
-	data["available_modulators"] = available_modulators
+	data["available_modulators"] = get_modulators_by_name()
+	data["modulators"] = get_modulators_by_name(FALSE)
 	data["max_renwick_draw"] = max_renwick_draw
 	data["renwick_draw"] = renwick_draw
 
@@ -173,8 +189,16 @@
 		if("setRenwickDraw")
 			renwick_draw = between(0, params["renwick_draw"], max_renwick_draw)
 		if("setNewRatios")
-			var/A = sqrt((params["x"]-25)^2 + (params["y"]-31)^2)
-			strength_ratio = 1 - (A / 87)
-			var/B = sqrt((params["x"]-125)^2 + (params["y"]-31)^2)
-			charge_ratio = 1 - (B / 87)
+			strength_ratio = params["str"]
+			charge_ratio = min(params["cha"], 1-strength_ratio)
 			modulator_ratio = 1 - (strength_ratio + charge_ratio)
+			update_static_data_for_all_viewers()
+		if("changeModulators")
+			var/list/available_mods = get_modulators_by_name(TRUE, FALSE)
+			var/datum/shield_mode/M = available_mods[params["modulator"]]
+			if(!M)
+				return
+			if(M in modulators)
+				LAZYREMOVE(modulators, M)
+			else
+				LAZYADD(modulators, M)

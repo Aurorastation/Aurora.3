@@ -70,19 +70,19 @@
 
 		if(active)
 			toggle()
-		if(anchored)
-			for(var/obj/machinery/shield_capacitor/cap in range(1, src))
-				if(cap.owned_gen)
-					continue
-				if(get_dir(cap, src) == cap.dir && cap.anchored)
-					owned_capacitor = cap
-					owned_capacitor.owned_gen = src
-					updateDialog()
-					break
-		else
-			if(owned_capacitor && owned_capacitor.owned_gen == src)
-				owned_capacitor.owned_gen = null
-			owned_capacitor = null
+		// if(anchored)
+		// 	// for(var/obj/machinery/shield_capacitor/cap in range(1, src))
+		// 	// 	if(cap.owned_gen)
+		// 	// 		continue
+		// 	// 	if(get_dir(cap, src) == cap.dir && cap.anchored)
+		// 	// 		owned_capacitor = cap
+		// 	// 		owned_capacitor.owned_gen = src
+		// 	// 		updateDialog()
+		// 	// 		break
+		// else
+		// 	if(owned_capacitor && owned_capacitor.owned_gen == src)
+		// 		owned_capacitor.owned_gen = null
+		// 	owned_capacitor = null
 	else
 		..()
 
@@ -103,21 +103,21 @@
 	if(!anchored)
 		to_chat(user, SPAN_WARNING("The device needs to be bolted to the ground first."))
 		return
-	else
-		if(owned_capacitor)
-			if(!(owned_capacitor in range(1, src) && get_dir(owned_capacitor, src) == owned_capacitor.dir && owned_capacitor.anchored))
-				if(owned_capacitor.owned_gen == src)
-					owned_capacitor.owned_gen = null
-				owned_capacitor = null
-	if(!owned_capacitor)
-		for(var/obj/machinery/shield_capacitor/cap in range(1, src))
-			if(cap.owned_gen)
-				continue
-			if(get_dir(cap, src) == cap.dir && cap.anchored)
-				owned_capacitor = cap
-				owned_capacitor.owned_gen = src
-				updateDialog()
-				break
+	// else
+	// 	if(owned_capacitor)
+	// 		if(!(owned_capacitor in range(1, src) && get_dir(owned_capacitor, src) == owned_capacitor.dir && owned_capacitor.anchored))
+	// 			if(owned_capacitor.owned_gen == src)
+	// 				owned_capacitor.owned_gen = null
+	// 			owned_capacitor = null
+	// if(!owned_capacitor)
+	// 	for(var/obj/machinery/shield_capacitor/cap in range(1, src))
+	// 		if(cap.owned_gen)
+	// 			continue
+	// 		if(get_dir(cap, src) == cap.dir && cap.anchored)
+	// 			owned_capacitor = cap
+	// 			owned_capacitor.owned_gen = src
+	// 			updateDialog()
+	// 			break
 	return ui_interact(user)
 
 /obj/machinery/shield_gen/process()
