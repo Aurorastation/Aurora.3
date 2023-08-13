@@ -82,7 +82,10 @@
 /obj/machinery/chemical_dispenser/proc/eject()
 	if(container && usr)
 		var/obj/item/reagent_containers/B = container
-		usr.put_in_hands(B, TRUE)
+		if(use_check_and_message(usr))
+			usr.put_in_hands(B, TRUE)
+		else
+			B.loc = get_turf(src)
 		container = null
 		if(icon_state_active)
 			icon_state = initial(icon_state)
