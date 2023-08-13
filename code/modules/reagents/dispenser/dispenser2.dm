@@ -89,7 +89,7 @@
 		return TRUE
 
 /obj/machinery/chemical_dispenser/AltClick(mob/user)
-	if(usr.Adjacent(src))
+	if(use_check_and_message(usr))
 		eject()
 
 /obj/machinery/chemical_dispenser/attackby(obj/item/W, mob/user)
