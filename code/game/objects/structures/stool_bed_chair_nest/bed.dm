@@ -373,6 +373,7 @@
 	var/iv_attached = 0
 	var/iv_stand = TRUE
 	var/iv_transfer_rate = 4 //Same as max for regular IV drips
+	var/has_iv_light = TRUE
 	//Items that can be attached to an IV
 	var/list/accepted_containers = list(
 		/obj/item/reagent_containers/blood,
@@ -409,8 +410,11 @@
 		if(percentage < 25)
 			iv.add_overlay(image(icon, "light_low"))
 		if(density)
-			iv.pixel_y = 6
+			iv.pixel_y = 7
 		add_overlay(iv)
+		if(density && has_iv_light)
+			var/image/light = image(icon, "iv[iv_attached]_l")
+			add_overlay(light)
 	if(vitals)
 		vitals.update_monitor()
 		vis_contents += vitals
@@ -557,7 +561,7 @@
 	base_icon = "hover"
 	makes_rolling_sound = FALSE
 	held_item = /obj/item/roller/hover
-	patient_shift = 6
+	has_iv_light = FALSE
 
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
