@@ -563,6 +563,9 @@
 	.=..()
 	set_light(2,1,LIGHT_COLOR_CYAN)
 
+/obj/structure/bed/roller/hover/AltClick()
+	return
+
 /obj/item/roller
 	name = "roller bed"
 	desc = "A collapsed roller bed that can be carried around."
