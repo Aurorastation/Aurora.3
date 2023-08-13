@@ -394,7 +394,10 @@
 	cut_overlays()
 	vis_contents = list()
 	if(density)
-		icon_state = "[base_icon]_up"
+		if(anchored)
+			icon_state = "[base_icon]_br"
+		else
+			icon_state = "[base_icon]_up"
 	else
 		icon_state = "[base_icon]_down"
 	if(beaker)
@@ -439,6 +442,12 @@
 		remove_beaker(user)
 	else
 		..()
+
+/obj/structure/bed/roller/AltClick(mob/user)
+	if(density)
+		anchored = !anchored
+		user.visible_message(SPAN_NOTICE("[user] [anchored ? "locks" : "releases"] \the [src]'s brakes."))
+		update_icon()
 
 /obj/structure/bed/roller/proc/collapse()
 	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), SPAN_NOTICE("You collapse \the [src]"))
@@ -537,6 +546,7 @@
 			if(iv_attached)
 				detach_iv(M, usr)
 		density = FALSE
+		anchored = FALSE
 		MA.pixel_y = 0
 		update_icon()
 
@@ -580,10 +590,12 @@
 /obj/item/roller/afterattack(obj/target, mob/user, proximity)
 	if(!proximity)
 		return
-	if(isturf(target))
-		var/turf/T = target
+	var/turf/T = target
+	if(is_type_in_list(target, list(/obj/effect, /obj/structure/lattice)))
+		T = get_turf(target)
+	if(istype(T))
 		if(!T.density)
-			deploy_roller(user, target)
+			deploy_roller(user, T)
 
 /obj/item/roller/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/roller_holder))
