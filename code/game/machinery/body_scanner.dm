@@ -89,7 +89,7 @@
 	return
 
 /obj/machinery/bodyscanner/AltClick()
-	if(usr.Adjacent(src))
+	if(usr.use_check_and_message(src))
 		eject()
 
 /obj/machinery/bodyscanner/verb/move_inside()

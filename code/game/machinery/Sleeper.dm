@@ -366,7 +366,7 @@
 	toggle_pump()
 
 /obj/machinery/sleeper/AltClick()
-	if(usr.Adjacent(src))
+	if(usr.use_check_and_message(src))
 		go_out()
 
 /obj/machinery/sleeper/proc/remove_beaker()
