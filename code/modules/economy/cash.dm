@@ -73,7 +73,7 @@
 
 	add_overlay(ovr)
 	compile_overlays()	// The delay looks weird, so we force an update immediately.
-	src.desc = "They are worth [worth] credits."
+	src.desc = "A bundle of Biesel Standard Credit chips. Combined, this is worth [worth] credits."
 
 /obj/item/spacecash/bundle/attack_self(mob/user as mob)
 	var/amount = input(user, "How many credits do you want to take? (0 to [src.worth])", "Take Money", 20) as num
@@ -108,49 +108,49 @@
 /obj/item/spacecash/c1
 	name = "1 credit chip"
 	icon_state = "spacecash1"
-	desc = "It's worth 1 credit."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 1 credit."
 	worth = 1
 
 /obj/item/spacecash/c10
 	name = "10 credit chip"
 	icon_state = "spacecash10"
-	desc = "It's worth 10 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 10 credits."
 	worth = 10
 
 /obj/item/spacecash/c20
 	name = "20 credit chip"
 	icon_state = "spacecash20"
-	desc = "It's worth 20 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 20 credits."
 	worth = 20
 
 /obj/item/spacecash/c50
 	name = "50 credit chip"
 	icon_state = "spacecash50"
-	desc = "It's worth 50 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 50 credits."
 	worth = 50
 
 /obj/item/spacecash/c100
 	name = "100 credit chip"
 	icon_state = "spacecash100"
-	desc = "It's worth 100 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 100 credits."
 	worth = 100
 
 /obj/item/spacecash/c200
 	name = "200 credit chip"
 	icon_state = "spacecash200"
-	desc = "It's worth 200 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 200 credits."
 	worth = 200
 
 /obj/item/spacecash/c500
 	name = "500 credit chip"
 	icon_state = "spacecash500"
-	desc = "It's worth 500 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 500 credits."
 	worth = 500
 
 /obj/item/spacecash/c1000
 	name = "1000 credit chip"
 	icon_state = "spacecash1000"
-	desc = "It's worth 1000 credits."
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 1000 credits."
 	worth = 1000
 
 /proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
