@@ -5,6 +5,18 @@
 	icon = 'icons/obj/flora/snowflora.dmi'
 	density = FALSE
 
+/obj/structure/flora/grass/attackby(var/obj/item/W, var/mob/user)
+	if(istype(W, /obj/item/material/scythe))
+		shake_animation()
+		if(W.use_tool(src, user, 10, volume = 50))
+			to_chat(user, SPAN_NOTICE("You slice the grass away with the scythe!"))
+			qdel(src)
+	if(istype(W, /obj/item/material/hatchet))
+		shake_animation()
+		if(W.use_tool(src, user, 50, volume = 50))
+			to_chat(user, SPAN_NOTICE("You chop at the grass!"))
+			qdel(src)
+
 /obj/structure/flora/grass/brown
 	icon_state = "snowgrass1bb"
 
@@ -25,15 +37,3 @@
 /obj/structure/flora/grass/both/New()
 	..()
 	icon_state = "snowgrassall[rand(1, 3)]"
-
-// Bushes
-/obj/structure/flora/bush
-	name = "bush"
-	desc = "A bush."
-	icon = 'icons/obj/flora/snowflora.dmi'
-	icon_state = "snowbush1"
-	density = FALSE
-
-/obj/structure/flora/bush/Initialize()
-	. = ..()
-	icon_state = "snowbush[rand(1, 6)]"

@@ -43,6 +43,14 @@
 		if(T.use(1))
 			playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 			ChangeTurf(/turf/simulated/floor, FALSE, FALSE, FALSE, TRUE)
+	else if(diggable && istype(C,/obj/item/material/minihoe))
+		visible_message("<span class='notice'>\The [user] starts clearing \the [src]</span>")
+		if(C.use_tool(src, user, 50, volume = 50))
+			to_chat(user,"<span class='notice'>You make a small clearing.</span>")
+			new /obj/structure/clearing(src)
+			diggable = 0
+		else
+			to_chat(user,"<span class='notice'>You stop shoveling.</span>")
 
 /turf/simulated/floor/exoplanet/ex_act(severity)
 	switch(severity)
