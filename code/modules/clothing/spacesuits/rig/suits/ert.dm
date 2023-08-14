@@ -124,6 +124,8 @@
 	suit_type = "SCC ERT commander"
 	icon = 'icons/clothing/rig/scc_ert/scc_commander.dmi'
 	icon_state = "scc_rig"
+	icon_supported_species_tags = null
+	species_restricted = list(BODYTYPE_HUMAN)
 
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
