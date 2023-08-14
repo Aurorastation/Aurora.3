@@ -361,6 +361,7 @@
 				breather.equip_to_slot(breath_mask, slot_wear_mask)
 				breather.update_inv_wear_mask()
 				update_icon()
+				tank_on()
 				return
 
 /obj/machinery/iv_drip/AltClick(mob/user)
@@ -605,6 +606,7 @@
 	return
 
 /obj/machinery/iv_drip/proc/tank_off()
+	playsound(src, 'sound/effects/internals.ogg', 100)
 	tank.forceMove(src)
 	if(breather.internals)
 		breather.internals.icon_state = "internal0"
