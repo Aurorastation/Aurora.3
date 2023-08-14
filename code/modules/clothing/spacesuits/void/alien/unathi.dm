@@ -217,7 +217,7 @@
 	desc = "A mishmash of parts taken from Unathi pirate-made raider suits and hardware commonly found in the Southern frontier of the Spur, all held together by Diona bark, a common crafting method among the Unathi fleet of the Tarwa Conglomerate. \
 	It's relatively light, and yet appears to protect against a variety of hazards."
 	icon_state = "rig-tarwapirate"
-	item_state = "rig-tarwapirate-held"
+	item_state = "rig-tarwapirate"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -232,7 +232,7 @@
 	desc = "A mishmash of parts taken from Unathi pirate-made raider suits and hardware commonly found in the Southern frontier of the Spur, all held together by Diona bark,  a common crafting method among the Unathi fleet of the Tarwa Conglomerate. \
 	It only seems to fit Unathi, it's relatively light, and yet appears to protect against a variety of hazards. This one features various reinforcements, making it probably fit for more important crew."
 	icon_state = "rig-tarwacaptain"
-	item_state = "rig-tarwacaptain-held"
+	item_state = "rig-tarwacaptain"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_CARBINE,
@@ -246,7 +246,7 @@
 	name = "tarwa conglomerate helmet"
 	desc = "Metals, electronics and diona bark meet in this strange helmet. Quiet rustling can be heard from within."
 	icon_state = "rig-tarwapirate-helmet"
-	item_state = "rig-tarwapirate-helm-held"
+	item_state = "rig-tarwapirate-helmet"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -262,7 +262,7 @@
 	desc = "Metals, electronics and diona bark meet in this strange helmet. Quiet rustling can be heard from within. \
 	This one appears to have been reinforced."
 	icon_state = "rig-tarwacaptain-helmet"
-	item_state = "rig-tarwaetcaptain-helmet-held"
+	item_state = "rig-tarwacaptain-helmet"
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_CARBINE,
@@ -271,4 +271,106 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
 	)
-	light_overlay = "helmet_light_dual_green"
+
+/obj/item/clothing/suit/space/void/unathi_pirate/kazu
+	name = "techraider voidsuit"
+	desc = "This appears to be an Unathi-fitted voidsuit. It has been modified and reinforced with sleeker plates of advanced materials, recognisable to a keen eye as pieces of Solarian and Skrell military-grade suits. It's surprisingly light and quite popular among the members of the Unathi fleet known as Kazu's Techraiders."
+	icon_state = "rig-kazupirate"
+	item_state = "rig-kazupirate"
+	armor = list( //taken from qukala voidsuit
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
+
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/kazu
+	name = "techraider helmet"
+	desc = "An advanced helmet made to fit in a large assembly. Its multi-optic visor is reminiscent of some Vaurca designs."
+	icon_state = "rig-kazupirate-helmet"
+	item_state = "rig-kazupirate-helmet"
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
+	light_overlay = "helmet_light_jargon_rig"
+
+/obj/item/clothing/suit/space/void/unathi_pirate/kazu/captain
+	name = "techraider captain's voidsuit"
+	desc = "This appears to be an Unathi-fitted voidsuit. It has been modified and reinforced with sleeker plates of advanced materials, recognisable to a keen eye as pieces of Solarian and Skrell military-grade suits. It's surprisingly light and quite popular among the members of the Unathi fleet known as Kazu's Techraiders.\
+	Various improvements have been made to this specific suit, implying it's probably made for higher-ranking crew."
+	icon_state = "rig-kazucaptain"
+	item_state = "rig-kazucaptain"
+	armor = list( //looked at combat hardsuits then toned them down slightly. still an upgrade but not ridiculous.
+		melee = ARMOR_MELEE_KEVLAR,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
+
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/kazu/captain
+	name = "techraider captain's helmet"
+	desc = "A reinforced and advanced helmet made to fit in a large assembly. Its multi-optic visor is reminiscent of Vaurca designs."
+	icon_state = "rig-kazucaptain-helmet"
+	item_state = "rig-kazucaptain-helmet"
+	armor = list(
+		melee = ARMOR_MELEE_KEVLAR,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
+
+/obj/item/clothing/suit/space/void/unathi_pirate/hiskyn
+	name = "hiskyn revanchist voidsuit"
+	desc = "A bastardized version of an older Dominian voidsuit mixed with parts taken from the infamous Raider suit used by pirate Unathi, popular among members of the Hiskyn Revanchist fleet. The result is a tough and somewhat sluggish suit."
+	icon_state = "rig-hiskynpirate"
+	item_state = "rig-hiskynpirate"
+
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/hiskyn
+	name = "hiskyn revanchist helmet"
+	desc = "A mix of older Dominian and homemade Unathi pirate hardware in a single helmet; made to fit in a larger assembly."
+	icon_state = "rig-hiskynpirate-helmet"
+	item_state = "rig-hiskynpirate-helmet"
+	light_overlay = "helmet_light_red"
+
+/obj/item/clothing/suit/space/void/unathi_pirate/hiskyn/captain
+	name = "hiskyn revanchist captain's voidsuit"
+	desc =  "A bastardized version of an older Dominian voidsuit mixed with parts taken from the infamous Raider suit used by pirate Unathi, popular among members of the Hiskyn Revanchist fleet. The result is a tough and somewhat sluggish suit. This one is even more reinforced, and is probably made for a Captain or some kind of high-ranking crew member"
+	icon_state = "rig-hiskyncaptain"
+	item_state = "rig-hiskyncaptain"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_PISTOL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)
+
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/hiskyn/captain
+	name = "hiskyn revanchist captain's helmet"
+	desc =  "A reinforced mix of older Dominian and homemade Unathi pirate hardware in a single helmet; made to fit in a larger assembly."
+	icon_state = "rig-hiskyncaptain-helmet"
+	item_state = "rig-hiskyncaptain-helmet"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_PISTOL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_RESISTANT
+	)

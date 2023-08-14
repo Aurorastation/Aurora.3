@@ -462,6 +462,14 @@
 	name = "C'thur language processor"
 	augment_languages = list(LANGUAGE_SKRELLIAN)
 
+/obj/item/organ/internal/augment/language/mikuetz
+	name = "Mi'kuetz language processor"
+	augment_languages = list(LANGUAGE_AZAZIBA)
+
+/obj/item/organ/internal/augment/language/zino
+	name = "Zino language processor"
+	augment_languages = list(LANGUAGE_GUTTER)
+
 /obj/item/organ/internal/augment/gustatorial
 	name = "gustatorial centre"
 	action_button_name = "Activate Gustatorial Centre (tongue)"

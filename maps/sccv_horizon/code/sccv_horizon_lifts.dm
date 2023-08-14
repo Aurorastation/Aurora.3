@@ -120,7 +120,6 @@
 /obj/effect/shuttle_landmark/lift/operations_second_deck
 	name = "Operations Lift - Second Deck"
 	landmark_tag = "nav_operations_lift_second_deck"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
 	base_area = /area/operations/storage
 	base_turf = /turf/simulated/open
 
