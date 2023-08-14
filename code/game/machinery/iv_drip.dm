@@ -82,31 +82,6 @@
 			return
 		if(M.incapacitated())
 			return
-		if(tipped)
-			if(M.m_intent == M_RUN && M.a_intent == I_HURT)
-				if(breath_mask)
-					if(prob(60))
-						if(breather)
-							src.visible_message(
-								SPAN_WARNING("[M] trips on \the [src]'s [breath_mask] cable, pulling it off from \the [breather]!"),
-								SPAN_WARNING("You trip on \the [src]'s [breath_mask] cable, pulling it off from \the [breather]!"))
-							M.Weaken(3)
-							breath_mask_rip()
-							return
-						src.visible_message(SPAN_WARNING("[M] trips on \the [src]'s [breath_mask] cable!"), SPAN_WARNING("You trip on \the [src]'s [breath_mask] cable!"))
-						breath_mask.forceMove(src.loc)
-						breath_mask = null
-						M.Weaken(4)
-						update_icon()
-						return
-					src.visible_message(SPAN_WARNING("[M] barely avoids tripping on \the [src]'s [breath_mask] cable."), SPAN_WARNING("You barely avoid tripping on \the [src]'s [breath_mask] cable."))
-					return
-				if(prob(25))
-					src.visible_message(SPAN_WARNING("[M] trips on \the [src]!"), SPAN_WARNING("You trip on \the [src]!"))
-					M.Weaken(3)
-					return
-				src.visible_message(SPAN_WARNING("[M] almost trips on \the [src]!"), SPAN_WARNING("You almost trip on \the [src]!"))
-				return
 		if(M.m_intent == M_RUN && M.a_intent == I_HURT)
 			src.visible_message(SPAN_WARNING("[M] bumps into \the [src], knocking it over!"), SPAN_WARNING("You bump into \the [src], knocking it over!"))
 			do_crash()
