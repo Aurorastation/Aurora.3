@@ -2,13 +2,12 @@
 	filename = "awayshuttlemanifest"
 	filedesc = "Shuttle Manifest Program"
 	extended_desc = "Used to view the manifest of the Horizon's shuttles."
-	program_icon_state = "away"
+	program_icon_state = "menu"
 	program_key_icon_state = "lightblue_key"
 	color = LIGHT_COLOR_BLUE
 	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_download = access_heads
 	usage_flags = PROGRAM_ALL_REGULAR
 	tgui_id = "AwayShuttleManifest"
 	var/datum/record/shuttle_manifest/active_record
@@ -54,12 +53,12 @@
 			active_record = null
 			SStgui.update_uis(computer)
 			
-	//Check ID for command/ops/research
+	//Check ID for command/mining/research access to edit
 	var/mob/user = usr
 	if(!istype(user))
 		return
 	var/obj/item/card/id/I = user.GetIdCard()
-	if(!istype(I) || !I.registered_name || !(access_heads in I.access) || issilicon(user) || !(access_research in I.access) || !(access_cargo in I.access))
+	if(!istype(I) || !I.registered_name || issilicon(user) || (!(access_heads in I.access) && !(access_research in I.access) && !(access_mining in I.access)))
 		to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return
 			
@@ -107,3 +106,4 @@
 				if(!newshuttle)
 					return
 				active_record.shuttle = newshuttle
+				

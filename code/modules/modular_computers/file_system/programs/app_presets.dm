@@ -476,7 +476,8 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargocontrol(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
-		new /datum/computer_file/program/civilian/cargodelivery(comp)
+		new /datum/computer_file/program/civilian/cargodelivery(comp),
+		new /datum/computer_file/program/away_manifest(comp)
 	)
 	return _prg_list
 

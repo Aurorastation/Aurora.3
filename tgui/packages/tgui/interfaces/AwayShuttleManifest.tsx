@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section, Flex, Table } from '../components';
+import { Button, LabeledList, NoticeBox, Section, Flex, Table, Collapsible } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type AwayShuttleData = {
@@ -60,7 +60,7 @@ export const ManifestEntryEdit = (props, context) => {
 					onClick={() => act('editentrynamecustom')}
 				/>
 			</LabeledList.Item>
-			<LabeledList.Item label ="Shuttle">
+			<LabeledList.Item label="Shuttle">
 				{data.active_record.shuttle}&nbsp;
 				<Button
 					icon="info"
@@ -79,8 +79,11 @@ export const AllShuttles = (props, context) => {
 	
 	return (
 		<>
+			<Collapsible
+				title="SCCV Canary"
+				color="blue">
 				<Section
-					title="SCCV Horizon Shuttle Manifest"
+					title="SCCV Canary"
 					buttons={<Button content="Add Entry" onClick={() => act('addentry')} />
 					}>
 					{data.shuttle_manifest && data.shuttle_manifest.length ? (
@@ -88,9 +91,9 @@ export const AllShuttles = (props, context) => {
 							<Table>
 								<Table.Row header>
 									<Table.Cell>Name</Table.Cell>
-									<Table.Cell>Shuttle</Table.Cell>
 								</Table.Row>
 								{data.shuttle_manifest
+									.filter((m) => m.shuttle === 'SCCV Canary')
 									.map((ShuttleCrew) => (
 									<Table.Row key={ShuttleCrew.id}>
 										<Table.Cell>
@@ -103,16 +106,84 @@ export const AllShuttles = (props, context) => {
 												/>
 											</Flex.Item>
 										</Table.Cell>
-										<Flex.Item>
-											{ShuttleCrew.shuttle}
-										</Flex.Item>
 									</Table.Row>
 									))}
 							</Table>
 						</Flex>
 							) : (<NoticeBox>No crew detected.</NoticeBox>
 							)}
-					</Section>
+				</Section>
+			</Collapsible>
+			<Collapsible
+				title="SCCV Intrepid"
+				color="purple">
+				<Section
+					title="SCCV Intrepid"
+					buttons={<Button content="Add Entry" onClick={() => act('addentry')} />
+					}>
+					{data.shuttle_manifest && data.shuttle_manifest.length ? (
+						<Flex>
+							<Table>
+								<Table.Row header>
+									<Table.Cell>Name</Table.Cell>
+								</Table.Row>
+								{data.shuttle_manifest
+									.filter((m) => m.shuttle === 'SCCV Intrepid')
+									.map((ShuttleCrew) => (
+									<Table.Row key={ShuttleCrew.id}>
+										<Table.Cell>
+											<Flex.Item>
+												<Button
+													content={ShuttleCrew.name}
+													onClick={() =>
+														act('editentry', { editentry: ShuttleCrew.id })
+													}
+												/>
+											</Flex.Item>
+										</Table.Cell>
+									</Table.Row>
+									))}
+							</Table>
+						</Flex>
+							) : (<NoticeBox>No crew detected.</NoticeBox>
+							)}
+				</Section>
+			</Collapsible>
+			<Collapsible
+				title="SCCV Spark"
+				color="brown">
+				<Section
+					title="SCCV Spark"
+					buttons={<Button content="Add Entry" onClick={() => act('addentry')} />
+					}>
+					{data.shuttle_manifest && data.shuttle_manifest.length ? (
+						<Flex>
+							<Table>
+								<Table.Row header>
+									<Table.Cell>Name</Table.Cell>
+								</Table.Row>
+								{data.shuttle_manifest
+									.filter((m) => m.shuttle === 'SCCV Spark')
+									.map((ShuttleCrew) => (
+									<Table.Row key={ShuttleCrew.id}>
+										<Table.Cell>
+											<Flex.Item>
+												<Button
+													content={ShuttleCrew.name}
+													onClick={() =>
+														act('editentry', { editentry: ShuttleCrew.id })
+													}
+												/>
+											</Flex.Item>
+										</Table.Cell>
+									</Table.Row>
+									))}
+							</Table>
+						</Flex>
+							) : (<NoticeBox>No crew detected.</NoticeBox>
+							)}
+				</Section>
+			</Collapsible>
 		</>
 	);
 };
