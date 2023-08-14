@@ -463,7 +463,7 @@
 	name = "high-waisted men's wear"
 	desc = "Dark, black, and high-waisted trousers with accompanying vibrant yellow shirt, for the modern and fashionable men."
 	desc_extended = "Fashion for men, much like for women, is slowly moving away from many-layered outfits and extravagant and flashy suits and dresses; one would be hard-pressed to find young men sporting three-piece suits any longer. Teenage boys and young adults are drawn more and more to relaxing styles and more comfortable fits that would never have found root on Adhomai before. Now, though, up-and-coming businessmen and well-to-do middle-class boys would rather wear trousers and a dress shirt than waste time with vests and oxfords."
-	icon = 'icons/obj/item/clothing/under/tajaran/high_waisted_wear.dmi"
+	icon = 'icons/obj/item/clothing/under/tajaran/high_waisted_wear.dmi'
 	icon_state = "high_waisted"
 	item_state = "high_waisted"
 
@@ -479,7 +479,7 @@
 	name = "relaxed men's wear"
 	desc = "Plaid pants and an unbuttoned silk shirt mean comfort and style."
 	desc_extended = "Fashion for men, much like for women, is slowly moving away from many-layered outfits and extravagant and flashy suits and dresses; one would be hard-pressed to find young men sporting three-piece suits any longer. Teenage boys and young adults are drawn more and more to relaxing styles and more comfortable fits that would never have found root on Adhomai before. Now, though, up-and-coming businessmen and well-to-do middle-class boys would rather wear trousers and a dress shirt than waste time with vests and oxfords."
-	icon = 'icons/obj/item/clothing/under/tajaran/relaxed_wear.dmi"
+	icon = 'icons/obj/item/clothing/under/tajaran/relaxed_wear.dmi'
 	icon_state = "relaxed_wear"
 	item_state = "relaxed_wear"
 
@@ -495,6 +495,6 @@
 	name = "smart study outfit"
 	desc = "A brown, interwoven argyle sweater with accompanying trousers - for the modern academian in all of us."
 	desc_extended = "Fashion for men, much like for women, is slowly moving away from many-layered outfits and extravagant and flashy suits and dresses; one would be hard-pressed to find young men sporting three-piece suits any longer. Teenage boys and young adults are drawn more and more to relaxing styles and more comfortable fits that would never have found root on Adhomai before. Now, though, up-and-coming businessmen and well-to-do middle-class boys would rather wear trousers and a dress shirt than waste time with vests and oxfords."
-	icon = 'icons/obj/item/clothing/under/tajaran/smart_study_outfit.dmi"
+	icon = 'icons/obj/item/clothing/under/tajaran/smart_study_outfit.dmi'
 	icon_state = "study_outfit"
 	item_state = "study_outfit"

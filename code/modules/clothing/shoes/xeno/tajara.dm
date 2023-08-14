@@ -203,7 +203,7 @@
 /obj/item/clothing/shoes/heels/tajara
 	name = "black high-heeled adhomian shoes"
 	desc = "A pair of black heels adapted specifically for tajara anatomy, in the latest style."
-	icon = 'icons/obj/item/clothing/shoes/heels/tajaran/heels.dmi'
+	icon = 'icons/obj/item/clothing/shoes/heels/tajara/heels.dmi'
 	icon_state = "heels_black"
 	item_state = "heels_black"
 	species_restricted = list(BODYTYPE_TAJARA)
