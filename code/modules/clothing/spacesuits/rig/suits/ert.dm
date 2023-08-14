@@ -119,10 +119,10 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/rig/ert/scc
-	name = "SCC ERT-C hardsuit control module"
+	name = "\improper SCC ERT-C hardsuit control module"
 	desc = "A suit worn by the commander of an Emergency Response Team sent to crisis situations by the Stellar Corporate Conglomerate. This one features SCC colouring."
 	suit_type = "SCC ERT commander"
-	icon = 'icons/clothing/rig/scc_ert/scc_commander.dmi'
+	icon = 'icons/clothing/rig/scc_ert/commander.dmi'
 	icon_state = "scc_rig"
 	icon_supported_species_tags = null
 	species_restricted = list(BODYTYPE_HUMAN)
@@ -146,34 +146,34 @@
 		)
 
 /obj/item/rig/ert/scc/engineer
-	name = "SCC ERT-E hardsuit control module"
+	name = "\improper SCC ERT-E hardsuit control module"
 	desc = "A suit worn by the engineer of an Emergency Response Team sent to crisis situations by the Stellar Corporate Conglomerate. This one features SCC colouring."
 	suit_type = "SCC ERT engineer"
-	icon = 'icons/clothing/rig/scc_ert/scc_engineer.dmi'
+	icon = 'icons/clothing/rig/scc_ert/engineer.dmi'
 	icon_state = "scc_rig"
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_UTILITY
 
 /obj/item/rig/ert/scc/medical
-	name = "SCC ERT-M hardsuit control module"
+	name = "\improper SCC ERT-M hardsuit control module"
 	desc = "A suit worn by the medical specialist of an Emergency Response Team sent to crisis situations by the Stellar Corporate Conglomerate. This one features SCC colouring."
 	suit_type = "SCC ERT medic"
-	icon = 'icons/clothing/rig/scc_ert/scc_medic.dmi'
+	icon = 'icons/clothing/rig/scc_ert/medic.dmi'
 	icon_state = "scc_rig"
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL
 
 /obj/item/rig/ert/scc/security
-	name = "SCC ERT-S hardsuit control module"
+	name = "\improper SCC ERT-S hardsuit control module"
 	desc = "A suit worn by the security specialist of an Emergency Response Team sent to crisis situations by the Stellar Corporate Conglomerate. This one features SCC colouring."
 	suit_type = "SCC ERT security"
-	icon = 'icons/clothing/rig/scc_ert/scc_security.dmi'
+	icon = 'icons/clothing/rig/scc_ert/security.dmi'
 	icon_state = "scc_rig"
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/rig/ert/assetprotection
-	name = "heavy asset protection suit control module"
+	name = "\improper heavy asset protection suit control module"
 	desc = "A heavy suit worn by the highest level of Asset Protection, don't mess with the person wearing this. Armored and space ready."
 	suit_type = "heavy asset protection"
 	icon = 'icons/clothing/rig/asset_protection.dmi'
