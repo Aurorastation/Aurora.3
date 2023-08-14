@@ -89,7 +89,7 @@
 	return
 
 /obj/machinery/bodyscanner/AltClick()
-	if(usr.use_check_and_message(src))
+	if(use_check_and_message(usr))
 		eject()
 
 /obj/machinery/bodyscanner/verb/move_inside()
