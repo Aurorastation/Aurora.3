@@ -412,7 +412,7 @@
 		if(density)
 			iv.pixel_y = 7
 		add_overlay(iv)
-		if(density && has_iv_light)
+		if(has_iv_light)
 			var/image/light = image(icon, "iv[iv_attached]_l")
 			add_overlay(light)
 	if(vitals)
@@ -566,9 +566,6 @@
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
 	set_light(2,1,LIGHT_COLOR_CYAN)
-
-/obj/structure/bed/roller/hover/AltClick()
-	return
 
 /obj/item/roller
 	name = "roller bed"
