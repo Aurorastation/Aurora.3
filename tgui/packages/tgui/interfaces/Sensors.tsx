@@ -222,7 +222,7 @@ const ContactsSection = function (act, data: SensorsData) {
             <Table.Cell title="Bearing">B</Table.Cell>
             <Table.Cell title="X Grid Coordinate">X</Table.Cell>
             <Table.Cell title="Y Grid Coordinate">Y</Table.Cell>
-            <Table.Cell title="Distance">D</Table.Cell>
+            <Table.Cell title="Grid Coordinate Distance/Range">D</Table.Cell>
             <Table.Cell title="Color">C</Table.Cell>
           </Table.Row>
           {data.contacts.map((contact: ContactData, i) => (
@@ -243,7 +243,7 @@ const ContactsSection = function (act, data: SensorsData) {
                   <Table.Cell title="Bearing">{contact.bearing}</Table.Cell>
                   <Table.Cell title="X Grid Coordinate">{contact.x}</Table.Cell>
                   <Table.Cell title="Y Grid Coordinate">{contact.y}</Table.Cell>
-                  <Table.Cell title="Distance">
+                  <Table.Cell title="Grid Coordinate Distance/Range">
                     {new String(round(contact.distance, 2)).padStart(6, '0')}
                   </Table.Cell>
                   <Table.Cell title="Color" color={contact.color}>
