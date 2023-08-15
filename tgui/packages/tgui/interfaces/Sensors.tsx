@@ -89,7 +89,23 @@ const SensorSection = function (act, data: SensorsData) {
         </Table.Row>
         <Table.Row>
           <Table.Cell>Status:</Table.Cell>
-          <Table.Cell>{data.status}</Table.Cell>
+          <Table.Cell
+            color={(() => {
+              switch (data.status) {
+                case 'DESTROYED':
+                  return 'bad';
+                case 'NO POWER':
+                  return 'bad';
+                case 'VACUUM SEAL BROKEN':
+                  return 'blue';
+                case 'OK':
+                  return 'good';
+                default:
+                  return null;
+              }
+            })()}>
+            {data.status}
+          </Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>Range:</Table.Cell>
