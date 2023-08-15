@@ -4,6 +4,7 @@ import { Box, Button, Section, Table, ProgressBar, Slider } from '../components'
 import { NtosWindow } from '../layouts';
 import { round, clamp } from 'common/math';
 import { Color } from 'common/color';
+import { capitalizeAll } from 'common/string';
 
 export type SensorsData = {
   viewing: BooleanLike;
@@ -232,7 +233,9 @@ const ContactsSection = function (act, data: SensorsData) {
                   onClick={() => act('scan', { scan: contact.ref })}
                 />
               </Table.Cell>
-              <Table.Cell title="Designation">{contact.name}</Table.Cell>
+              <Table.Cell title="Designation">
+                {capitalizeAll(contact.name)}
+              </Table.Cell>
               {contact.landed ? (
                 ''
               ) : (
@@ -409,7 +412,7 @@ const DatalinksSection = function (act, data: SensorsData) {
                   }
                 />
               </Table.Cell>
-              <Table.Cell>{request.name}</Table.Cell>
+              <Table.Cell>{capitalizeAll(request.name)}</Table.Cell>
             </Table.Row>
           ))}
         </Table>
@@ -423,7 +426,7 @@ const DatalinksSection = function (act, data: SensorsData) {
           </Table.Row>
           {data.datalinked.map((datalinked) => (
             <Table.Row key={datalinked.name}>
-              <Table.Cell>{datalinked.name}</Table.Cell>
+              <Table.Cell>{capitalizeAll(datalinked.name)}</Table.Cell>
               <Table.Cell>
                 <Button
                   content={'Rescind'}
@@ -451,7 +454,7 @@ const DatalinksSection = function (act, data: SensorsData) {
             .filter((contact) => contact.can_datalink)
             .map((contact) => (
               <Table.Row key={contact.name}>
-                <Table.Cell>{contact.name}</Table.Cell>
+                <Table.Cell>{capitalizeAll(contact.name)}</Table.Cell>
                 <Table.Cell>
                   <Button
                     content={'Request'}
