@@ -2,7 +2,7 @@
 	display_name = "trinary perfection mask"
 	path = /obj/item/clothing/mask/trinary_mask
 	slot = slot_wear_mask
-	sort_category = "Religion"
+	tags = list("Religion")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/religion/trinary
