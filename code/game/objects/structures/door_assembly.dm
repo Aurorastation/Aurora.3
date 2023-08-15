@@ -304,7 +304,7 @@
 		//This should never happen, but just in case I guess
 		if(!electronics)
 			to_chat(user, SPAN_WARNING("There was nothing to remove."))
-			log_debug("[src] had the ELECTRONICS_INSTALLED state, but didn't actually have electronics installed")
+			LOG_DEBUG("[src] had the ELECTRONICS_INSTALLED state, but didn't actually have electronics installed")
 			state = STATE_WIRED
 			return
 

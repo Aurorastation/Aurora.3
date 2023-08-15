@@ -165,13 +165,13 @@
 	var/list/possible_exoplanets = sector.possible_exoplanets
 
 	if(!length(possible_exoplanets))
-		log_debug("No valid exoplanets found!")
+		log_module_exoplanets("No valid exoplanets found!")
 		return
 
 	var/exoplanets_to_spawn = min(possible_exoplanets.len, num_exoplanets)
 	for(var/i = 0, i < exoplanets_to_spawn, i++)
 		var/exoplanet_type = pick_n_take(possible_exoplanets)
-		log_debug("Building new exoplanet with type: [exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
+		log_module_exoplanets("Building new exoplanet with type: [exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
 		var/obj/effect/overmap/visitable/sector/exoplanet/new_planet = new exoplanet_type(null, planet_size[1], planet_size[2])
 		new_planet.build_level()
 

@@ -53,7 +53,7 @@
 
 	var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 	if (!vampire)
-		log_debug("[src] has a vampire power but is not a vampire.")
+		LOG_DEBUG("[src] has a vampire power but is not a vampire.")
 		return
 	if (vampire.holder && !ignore_holder)
 		to_chat(src, "<span class='warning'>You cannot use this power while walking through the Veil.</span>")

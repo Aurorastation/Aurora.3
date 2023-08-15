@@ -19,15 +19,15 @@ DROP TABLE IF EXISTS `ss13_directives`;
 -- Fix data issues
 UPDATE ss13_ban SET expiration_time = bantime WHERE expiration_time = 0;
 UPDATE ss13_library SET uploadtime = "2015-04-26" WHERE uploadtime = 0;
-UPDATE 
-	ss13_news_stories 
-SET 
-	publish_at = created_at, 
-	publish_until = DATE_ADD(created_at, INTERVAL 7 DAY), 
+UPDATE
+	ss13_news_stories
+SET
+	publish_at = created_at,
+	publish_until = DATE_ADD(created_at, INTERVAL 7 DAY),
 	ic_timestamp = DATE_ADD(created_at, INTERVAL 442 YEAR)
 WHERE
 	publish_at = 0 OR
-	publish_until = 0 OR 
+	publish_until = 0 OR
 	ic_timestamp = 0;
 
 -- Update charset and collation
@@ -278,7 +278,7 @@ ALTER TABLE `ss13_ccia_reports_transcripts`
 ALTER TABLE `ss13_ccia_reports_transcripts`
 	CHANGE COLUMN `interviewer` `interviewer` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `character_id`,
 	CHANGE COLUMN `text` `text` LONGTEXT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `character_id`;
-  
+
 ALTER TABLE `ss13_characters`
 	COLLATE='utf8mb4_unicode_ci',
 	CONVERT TO CHARSET utf8mb4;
@@ -741,7 +741,7 @@ ALTER TABLE `ss13_tickets`
 
 ALTER TABLE `ss13_warnings`
 	COLLATE='utf8mb4_unicode_ci',
-	CONVERT TO CHARSET utf8mb4; 
+	CONVERT TO CHARSET utf8mb4;
 ALTER TABLE `ss13_warnings`
 	ALTER `ckey` DROP DEFAULT,
 	ALTER `computerid` DROP DEFAULT,
@@ -825,9 +825,9 @@ ALTER TABLE `ss13_antag_log`
 
 INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid)
 SELECT ss13_ban.ckey, ss13_ban.bantime AS first, ss13_ban.bantime AS last, ss13_ban.computerid, ss13_ban.ip
-FROM ss13_ban 
-LEFT JOIN ss13_player 
-  ON ss13_player.ckey = ss13_ban.ckey 
+FROM ss13_ban
+LEFT JOIN ss13_player
+  ON ss13_player.ckey = ss13_ban.ckey
 WHERE ss13_player.ckey IS NULL
 ON DUPLICATE KEY UPDATE byond_version = null;
 
@@ -855,8 +855,8 @@ UPDATE `ss13_notes` SET `ckey` = REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(`
 
 INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid)
 SELECT ss13_notes.ckey, ss13_notes.adddate AS first, ss13_notes.adddate AS lst, ss13_notes.computerid, ss13_notes.ip
-FROM ss13_notes 
-LEFT JOIN ss13_player 
+FROM ss13_notes
+LEFT JOIN ss13_player
   ON ss13_player.ckey = ss13_notes.ckey
 WHERE ss13_player.ckey IS NULL
 ON DUPLICATE KEY UPDATE ss13_player.byond_version = NULL;

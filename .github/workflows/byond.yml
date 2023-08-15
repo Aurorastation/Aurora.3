@@ -14,7 +14,7 @@ on:
 env:
   MACRO_COUNT: 0
   GENDER_COUNT: 6
-  TO_WORLD_COUNT: 185
+  TO_WORLD_COUNT: 186
   BYOND_MAJOR: ""
   BYOND_MINOR: ""
   RUST_G_VERSION: ""
@@ -194,3 +194,9 @@ jobs:
           $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
+      - name: Upload Condensed UT Log
+        uses: actions/upload-artifact@v3
+        with:
+          name: condensed-${{ matrix.map }}.log
+          path: ./data/logs/**/condensed.log
+          retention-days: 5
