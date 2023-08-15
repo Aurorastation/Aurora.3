@@ -203,7 +203,7 @@ CREATE TABLE `ss13_ccia_general_notice_list` (
 
 CREATE TABLE `ss13_player` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ckey` varchar(32) CHARACTER SET latin1 NOT NULL,
+  `ckey` varchar(32) CHARACTER SET utf8mb4 NOT NULL,
   `firstseen` datetime NOT NULL,
   `lastseen` datetime NOT NULL,
   `ip` varchar(18) CHARACTER SET latin1 NOT NULL,
@@ -331,7 +331,7 @@ CREATE TABLE `ss13_characters` (
   KEY `ss13_characters_ckey` (`ckey`),
   KEY `ss13_characteres_name` (`name`),
   CONSTRAINT `ss13_characters_fk_ckey` FOREIGN KEY (`ckey`) REFERENCES `ss13_player` (`ckey`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Table for character flavour text
