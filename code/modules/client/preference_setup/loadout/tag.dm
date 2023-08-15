@@ -63,23 +63,23 @@ var/list/tag_groups_all = list(
 		if(slot_glasses)
 			return "Glasses"
 		if(slot_gloves)
-			return "Glove"
+			return "Gloves"
 		if(slot_head)
 			return "Head"
 		if(slot_shoes)
-			return "Shoe"
+			return "Shoes"
 		if(slot_wear_suit)
-			return "Suit/overwear"
+			return "Suits/Overwear"
 		if(slot_w_uniform)
 			return "Uniform"
 		if(slot_in_backpack)
-			return "Slot-in-backpack"
+			return "?Slot-in-backpack?"
 		if(slot_r_ear)
-			return "Ear"
+			return "Ears"
 		if(slot_tie)
 			return "Accessory"
 		if(slot_wrists)
-			return "Wrist"
+			return "Wrists"
 		else
 			return null
 
