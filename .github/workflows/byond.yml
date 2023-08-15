@@ -40,7 +40,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/SpacemanDMM
-          key: ${{ runner.os }}-spacemandmm
+          key: ${{ runner.os }}-spacemandmm-${{ env.SPACEMAN_DMM_VERSION }}
       - name: Restore OpenDream cache
         uses: actions/cache@v3
         with:
@@ -152,7 +152,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/flyway
-          key: ${{ runner.os }}-flyway
+          key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
       - name: Prepare OS Environtment
         run: |
           sudo dpkg --add-architecture i386
