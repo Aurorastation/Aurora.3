@@ -1,5 +1,8 @@
 
 // ------------------------------ automatic tag groups
+// Automatic tags are added automatically, depending on how the item is defined.
+// For example, it means that if you give an item some species restrictions,
+// then you do not need to manually also add the species restriction tag.
 var/list/tag_group_department = list(
 	DEPARTMENT_COMMAND,
 	DEPARTMENT_COMMAND_SUPPORT,
@@ -24,8 +27,9 @@ var/list/tag_group_slot = list() // filled below
 var/list/tag_group_size = list("Tiny", "Small", "Normal", "Large", "Huge")
 var/list/tag_group_species = list("Human", "Skrell", "Tajara", "Unathi", "Diona", "Vaurca", "IPC")
 
-// ------------------------------ manual/automatic tag groups
-var/list/tag_group_other = list( // (manual tags need to be manually added to the item like `tags = list("Toy")`)
+// ------------------------------ manual/other tag groups
+// Manual tags need to be manually added to the item, like `tags = list("Toy")`.
+var/list/tag_group_other = list(
 	"Augment",	// manual
 	"Computer",	// manual
 	"Cosmetic",	// manual
