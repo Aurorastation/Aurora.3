@@ -1,0 +1,6 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Corporate reporters once again have their intended basic access to most departments."
+  - bugfix: "Fixed an issue with tech support being unable to access certain program functions."
+  - tweak: "Apprentice alt-titles now come with basic access to their specified departments, such as atmospherics access for atmos apprentices, forensics access for investigator interns, etc."
