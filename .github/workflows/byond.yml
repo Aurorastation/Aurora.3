@@ -130,7 +130,7 @@ jobs:
     needs: lint
     services:
       mariadb:
-        image: mariadb:latest
+        image: mariadb:10.10
         ports:
           - 3306
         env:
