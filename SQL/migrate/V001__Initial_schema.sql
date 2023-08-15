@@ -805,7 +805,7 @@ CREATE TABLE `ss13_warnings` (
   `severity` tinyint(1) DEFAULT '0',
   `reason` text CHARACTER SET latin1 NOT NULL,
   `notes` text CHARACTER SET latin1,
-  `ckey` varchar(32) CHARACTER SET latin1 NOT NULL,
+  `ckey` varchar(32) CHARACTER SET utf8mb4 NOT NULL,
   `computerid` varchar(32) CHARACTER SET latin1 NOT NULL,
   `ip` varchar(32) CHARACTER SET latin1 NOT NULL,
   `a_ckey` varchar(32) CHARACTER SET latin1 NOT NULL,
