@@ -35,7 +35,94 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">15 August 2023</h2>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes Alt-Click removal from chemical dispensers.</li>
+				<li class="bugfix">Fixes chemical dispensers not ejecting into hand.</li>
+			</ul>
+
+			<h2 class="date">14 August 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added link to see sites and ships that can spawn in current sector, shown near the round start.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed material Destroy(), now dumps a stack trace and returns the hint to not be harddel&#x27;d.</li>
+			</ul>
+			<h3 class="author">Ramke updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Adhomian crown roast now doesn&#x27;t disappear when you take a sausage out of it.</li>
+			</ul>
+			<h3 class="author">nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Containers can now be ejected from chem dispensers, chem masters, drink fountains, etc. using alt-click.</li>
+				<li class="bugfix">Fixed incorrect temperature readout, and implants/shrapnel not being displayed, when printing scans from body scanner consoles.</li>
+				<li class="tweak">Tweaked some wording in the body scanner printouts to be more consistent with the GUI version.</li>
+				<li class="tweak">Added alt-click eject functionality to the body scanner and to the sleeper.</li>
+			</ul>
+
+			<h2 class="date">12 August 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Added a temporary exclusion for the psi_lightning/wide psionic projectile that is failing the UT, while matt fix it.</li>
+				<li class="backend">Added a define check, if we&#x27;re running with REFERENCE_TRACKING on the CI, do not abort the test after 30 minutes.</li>
+				<li class="refactor">SSMaterials now stack_trace on receiving a request for a material that was not found.</li>
+				<li class="refactor">Added some dmdocs and some variables names expansion to SSMaterials.</li>
+				<li class="spellcheck">Fixed shumalia&#x27;s painting extended description.</li>
+			</ul>
+			<h3 class="author">Leudoberct1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Added cryptobiolin and impedrezene to the list of anomaly toxin triggers.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added two additional flags/banners to the loadout: Orion Express and the Imperial Frontier.</li>
+			</ul>
+
+			<h2 class="date">10 August 2023</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Adjust some wording for tips of the round and the meteor game mode announcement.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Ported the Pressure Regulator and Pipe Pump to TGUI.</li>
+				<li class="backend">Updated FontAwesome from 5.9.0 to 6.4.2</li>
+				<li class="rscadd">Added Investigator Interns and Warden Cadets for Security.</li>
+				<li class="rscadd">Added Atmospherics Apprentices for Engineering.</li>
+				<li class="rscadd">Added Pharmacy Interns and Resident Psychiatrists for Medical.</li>
+				<li class="balance">The Surgeon Intern has been renamed to the Resident Surgeon, and now has a minimum age restriction of 28 for humans.</li>
+				<li class="tweak">All medical intern alt-titles have changes to their outfits, similar to their intended roles in medical.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed debug logs not being tagged as debug in the chat.</li>
+				<li class="bugfix">Fixed relogging giving you more psi-points.</li>
+				<li class="bugfix">Fixed medborgs being unable to download suit sensors.</li>
+				<li class="rscdel">Removed the Gambit technomancer spell as it was a hacky and now buggy implementation.</li>
+				<li class="bugfix">Fixed roller bags unbuckling themselves.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added secondary language processors for Vaurcae in the loadout under Xenowear - Vaurca. They should only be taken by the groups mentioned in the selections.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Replaces the oxycomorphine produced by changeling&#x27;s adrenaline sacs ability with mortaphenyl. Properly syncs the chemical amounts to all metabolize out at the same time.</li>
+			</ul>
+			<h3 class="author">Stryker, Lancer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Trinary habit, Templeist robe, and coif to the loadout religion tab.</li>
+				<li class="rscadd">Adds a Templeist versebook to the loadout religion tab.</li>
+			</ul>
+
 			<h2 class="date">09 August 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Hopefully fixes the ops lift getting stuck on third deck.</li>
+			</ul>
 			<h3 class="author">FluffyGhost updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">Fixed material unit test, that was deleting materials out of existence.</li>
