@@ -482,9 +482,12 @@ const IFFSection = function (act, data: SensorsData) {
         <Table.Row>
           <Table.Cell>State:</Table.Cell>
           <Table.Cell>
-            {data.id_on ? 'Active' : 'Inactive'}
-            {', '}
-            <Button content="on/off" onClick={() => act('toggle_id')} />
+            <Button
+              content={data.id_on ? 'Active' : 'Inactive'}
+              color={data.id_on ? 'good' : 'bad'}
+              icon={data.id_on ? 'toggle-on' : 'toggle-off'}
+              onClick={() => act('toggle_id')}
+            />
           </Table.Cell>
         </Table.Row>
         <Table.Row>
