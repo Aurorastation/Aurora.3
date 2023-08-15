@@ -203,7 +203,7 @@ CREATE TABLE `ss13_ccia_general_notice_list` (
 
 CREATE TABLE `ss13_player` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ckey` varchar(32) CHARACTER SET utf8mb4 NOT NULL,
+  `ckey` varchar(32) CHARACTER SET latin1 NOT NULL,
   `firstseen` datetime NOT NULL,
   `lastseen` datetime NOT NULL,
   `ip` varchar(18) CHARACTER SET latin1 NOT NULL,
