@@ -47,6 +47,9 @@ var/list/tag_related_tags = list()
 			for(var/related_tag in gear.tags)
 				tag_related_tags[tag] |= related_tag
 
+	// sort tag_group_slot
+	sortTim(tag_group_slot, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
+
 	return TRUE
 
 /datum/category_item/player_setup_item/loadout

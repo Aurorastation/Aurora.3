@@ -11,27 +11,27 @@ var/list/tag_group_department = list(
 	DEPARTMENT_SERVICE,
 )
 var/list/tag_group_corp = list(
-	"Idris Incorporated",
-	"Zavodskoi Interstellar",
-	"Private Military Contracting Group",
-	"Zeng-Hu Pharmaceuticals",
+	"Stellar Corporate Conglomerate", // as anyone can take SCC items, this tag needs to be manually added
 	"Hephaestus Industries",
+	"Idris Incorporated",
 	"NanoTrasen",
 	"Orion Express",
-	"Stellar Corporate Conglomerate", // as anyone can take SCC items, this tag needs to be manually added
+	"Private Military Contracting Group",
+	"Zavodskoi Interstellar",
+	"Zeng-Hu Pharmaceuticals",
 )
 var/list/tag_group_slot = list() // filled below
 var/list/tag_group_size = list("Tiny", "Small", "Normal", "Large", "Huge")
-var/list/tag_group_species = list("Human", "IPC", "Skrell", "Unathi", "Tajara", "Diona", "Vaurca")
+var/list/tag_group_species = list("Human", "Skrell", "Tajara", "Unathi", "Diona", "Vaurca", "IPC")
 
 // ------------------------------ manual/automatic tag groups
 var/list/tag_group_other = list( // (manual tags need to be manually added to the item like `tags = list("Toy")`)
-	"Toy",		// manual
-	"Cosmetic",	// manual
-	"Smoking",	// manual
-	"Religion",	// manual
 	"Augment",	// manual
 	"Computer",	// manual
+	"Cosmetic",	// manual
+	"Religion",	// manual
+	"Smoking",	// manual
+	"Toy",		// manual
 	"Utility",	// manual
 	// any other new special tags should be added here
 )
