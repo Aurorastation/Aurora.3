@@ -201,8 +201,7 @@
 		/obj/item/clothing/head/welding                 = TRADER_BLACKLIST,
 		/obj/item/clothing/head/fluff                   = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/det/fluff               = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/winterhood              = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/beret/engineering/fluff = TRADER_BLACKLIST_ALL
+		/obj/item/clothing/head/winterhood              = TRADER_BLACKLIST_ALL
 	)
 
 /*

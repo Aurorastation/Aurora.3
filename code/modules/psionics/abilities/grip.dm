@@ -29,7 +29,8 @@
 		return
 	if(world.time < next_squeeze_time)
 		return
-	if(!length(get_line(user, victim)))
+	var/rangecheck = length(get_line(user, victim))
+	if(!length(get_line(user, victim)) || rangecheck > 8)
 		to_chat(user, SPAN_WARNING("You need to have direct line of sight to your target!"))
 		return
 	. = ..()
