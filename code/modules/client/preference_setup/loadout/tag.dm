@@ -24,7 +24,6 @@ var/list/tag_group_corp = list(
 	"Zeng-Hu Pharmaceuticals",
 )
 var/list/tag_group_slot = list() // filled below
-var/list/tag_group_size = list("Tiny", "Small", "Normal", "Large", "Huge")
 var/list/tag_group_species = list("Human", "Skrell", "Tajara", "Unathi", "Diona", "Vaurca", "IPC")
 
 // ------------------------------ manual/other tag groups
@@ -44,14 +43,12 @@ var/list/tag_group_other = list(
 #define TAG_GROUP_DEPT "Department restriction tags"
 #define TAG_GROUP_CORP "Corporation tags"
 #define TAG_GROUP_SLOT "Item slot tags"
-#define TAG_GROUP_SIZE "Item size tags"
 #define TAG_GROUP_SPECIES "Species restriction tags"
 #define TAG_GROUP_OTHER "Other tags"
 var/list/tag_groups_all = list(
 	TAG_GROUP_DEPT = tag_group_department,
 	TAG_GROUP_CORP = tag_group_corp,
 	TAG_GROUP_SLOT = tag_group_slot,
-	TAG_GROUP_SIZE = tag_group_size,
 	TAG_GROUP_SPECIES = tag_group_species,
 	TAG_GROUP_OTHER = tag_group_other,
 )
@@ -77,30 +74,13 @@ var/list/tag_groups_all = list(
 		if(slot_w_uniform)
 			return "Uniform"
 		if(slot_in_backpack)
-			return "?Slot-in-backpack?"
+			return "Slot-in-backpack"
 		if(slot_r_ear)
 			return "Ears"
 		if(slot_tie)
 			return "Accessory"
 		if(slot_wrists)
 			return "Wrists"
-		else
-			return null
-
-/proc/w_class_to_string(var/w_class)
-	switch(w_class)
-		if(ITEMSIZE_TINY)
-			return "Tiny"
-		if(ITEMSIZE_SMALL)
-			return "Small"
-		if(ITEMSIZE_NORMAL)
-			return "Normal"
-		if(ITEMSIZE_LARGE)
-			return "Large"
-		if(ITEMSIZE_HUGE)
-			return "Huge"
-		if(ITEMSIZE_IMMENSE)
-			return "Immense"
 		else
 			return null
 
@@ -130,13 +110,6 @@ var/list/tag_groups_all = list(
 		if(s)
 			tag_group_slot |= s
 			gear.tags |= s
-	// ---- tag_group_size
-	var/list/paths = gear.get_paths()
-	for(var/path in paths)
-		var/obj/item/item = new path
-		var/size = w_class_to_string(item.w_class)
-		gear.tags |= size
-		tag_group_size |= size
 	// ---- tag_group_species
 	for(var/tag in tag_group_species)
 		for(var/specie in gear.whitelisted)
