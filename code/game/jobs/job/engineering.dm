@@ -224,7 +224,6 @@
 	selection_color = "#c67519"
 	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
-	title_accesses = list("Atmospherics Apprentice" = access_atmospherics)
 	outfit = /datum/outfit/job/intern_eng
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 

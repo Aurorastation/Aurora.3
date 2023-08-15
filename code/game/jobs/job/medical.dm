@@ -342,7 +342,6 @@
 	selection_color = "#15903a"
 	access = list(access_medical, access_medical_equip)
 	minimal_access = list(access_medical, access_medical_equip)
-	title_accesses = list("Resident Surgeon" = access_surgery, "Pharmacy Intern" = access_pharmacy, "First Responder Trainee" = access_first_responder, "Resident Psychiatrist" = access_psychiatrist)
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
 		SPECIES_SKRELL = 50,
