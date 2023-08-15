@@ -331,7 +331,7 @@ CREATE TABLE `ss13_characters` (
   KEY `ss13_characters_ckey` (`ckey`),
   KEY `ss13_characteres_name` (`name`),
   CONSTRAINT `ss13_characters_fk_ckey` FOREIGN KEY (`ckey`) REFERENCES `ss13_player` (`ckey`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Table for character flavour text
@@ -805,7 +805,7 @@ CREATE TABLE `ss13_warnings` (
   `severity` tinyint(1) DEFAULT '0',
   `reason` text CHARACTER SET latin1 NOT NULL,
   `notes` text CHARACTER SET latin1,
-  `ckey` varchar(32) CHARACTER SET utf8mb4 NOT NULL,
+  `ckey` varchar(32) CHARACTER SET latin1 NOT NULL,
   `computerid` varchar(32) CHARACTER SET latin1 NOT NULL,
   `ip` varchar(32) CHARACTER SET latin1 NOT NULL,
   `a_ckey` varchar(32) CHARACTER SET latin1 NOT NULL,
