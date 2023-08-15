@@ -79,9 +79,12 @@ const SensorSection = function (act, data: SensorsData) {
         <Table.Row>
           <Table.Cell>State:</Table.Cell>
           <Table.Cell>
-            {data.on ? 'Active' : 'Inactive'}
-            {', '}
-            <Button content="on/off" onClick={() => act('toggle')} />
+            <Button
+              content={data.on ? 'Active' : 'Inactive'}
+              color={data.on ? 'good' : 'bad'}
+              icon={data.on ? 'toggle-on' : 'toggle-off'}
+              onClick={() => act('toggle')}
+            />
           </Table.Cell>
         </Table.Row>
         <Table.Row>
