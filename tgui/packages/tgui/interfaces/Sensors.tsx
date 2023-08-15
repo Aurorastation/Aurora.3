@@ -126,13 +126,11 @@ const SensorSection = function (act, data: SensorsData) {
             <Table.Cell>
               Effective Range: {data.deep_scan_range}
               {', '}
-              {data.deep_scan_toggled ? 'Active' : 'Inactive'}
-              {', '}
               <Button
-                content={'on/off'}
-                onClick={() =>
-                  act('deep_scan_toggle', { deep_scan_toggle: true })
-                }
+                content={data.deep_scan_toggled ? 'Active' : 'Inactive'}
+                color={data.deep_scan_toggled ? 'good' : null}
+                icon={data.deep_scan_toggled ? 'toggle-on' : 'toggle-off'}
+                onClick={() => act('deep_scan_toggle')}
               />
             </Table.Cell>
           </Table.Row>
