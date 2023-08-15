@@ -279,39 +279,6 @@ ALTER TABLE `ss13_ccia_reports_transcripts`
 	CHANGE COLUMN `interviewer` `interviewer` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `character_id`,
 	CHANGE COLUMN `text` `text` LONGTEXT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `character_id`;
 
-ALTER TABLE `ss13_player`
-	COLLATE='utf8mb4_unicode_ci',
-	CONVERT TO CHARSET utf8mb4;
-ALTER TABLE `ss13_player`
-	ALTER `ckey` DROP DEFAULT,
-	ALTER `ip` DROP DEFAULT,
-	ALTER `computerid` DROP DEFAULT;
-ALTER TABLE `ss13_player`
-	CHANGE COLUMN `ckey` `ckey` VARCHAR(32) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `id`,
-	CHANGE COLUMN `ip` `ip` VARCHAR(18) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `lastseen`,
-	CHANGE COLUMN `computerid` `computerid` VARCHAR(32) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `ip`,
-	CHANGE COLUMN `lastadminrank` `lastadminrank` VARCHAR(32) NOT NULL DEFAULT 'Player' COLLATE 'utf8mb4_unicode_ci' AFTER `byond_build`,
-	CHANGE COLUMN `rank` `rank` VARCHAR(32) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `migration_status`,
-	CHANGE COLUMN `discord_id` `discord_id` VARCHAR(45) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `flags`;
-
-ALTER TABLE `ss13_customsynths`
-	COLLATE='utf8mb4_unicode_ci',
-	CONVERT TO CHARSET utf8mb4;
-ALTER TABLE `ss13_customsynths`
-	ALTER `synthname` DROP DEFAULT,
-	ALTER `synthckey` DROP DEFAULT,
-	ALTER `synthicon` DROP DEFAULT,
-	ALTER `aichassisicon` DROP DEFAULT,
-	ALTER `aiholoicon` DROP DEFAULT,
-	ALTER `paiicon` DROP DEFAULT;
-ALTER TABLE `ss13_customsynths`
-	CHANGE COLUMN `synthname` `synthname` VARCHAR(128) NOT NULL COLLATE 'utf8mb4_unicode_ci' FIRST,
-	CHANGE COLUMN `synthckey` `synthckey` VARCHAR(32) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `synthname`,
-	CHANGE COLUMN `synthicon` `synthicon` VARCHAR(26) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `synthckey`,
-	CHANGE COLUMN `aichassisicon` `aichassisicon` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `synthicon`,
-	CHANGE COLUMN `aiholoicon` `aiholoicon` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `aichassisicon`,
-	CHANGE COLUMN `paiicon` `paiicon` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `aiholoicon`;
-
 ALTER TABLE `ss13_characters`
 	COLLATE='utf8mb4_unicode_ci',
 	CONVERT TO CHARSET utf8mb4;
@@ -427,6 +394,24 @@ ALTER TABLE `ss13_connection_log`
 	CHANGE COLUMN `ip` `ip` VARCHAR(18) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `serverip`,
 	CHANGE COLUMN `computerid` `computerid` VARCHAR(32) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `ip`,
 	CHANGE COLUMN `game_id` `game_id` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `byond_build`;
+
+ALTER TABLE `ss13_customsynths`
+	COLLATE='utf8mb4_unicode_ci',
+	CONVERT TO CHARSET utf8mb4;
+ALTER TABLE `ss13_customsynths`
+	ALTER `synthname` DROP DEFAULT,
+	ALTER `synthckey` DROP DEFAULT,
+	ALTER `synthicon` DROP DEFAULT,
+	ALTER `aichassisicon` DROP DEFAULT,
+	ALTER `aiholoicon` DROP DEFAULT,
+	ALTER `paiicon` DROP DEFAULT;
+ALTER TABLE `ss13_customsynths`
+	CHANGE COLUMN `synthname` `synthname` VARCHAR(128) NOT NULL COLLATE 'utf8mb4_unicode_ci' FIRST,
+	CHANGE COLUMN `synthckey` `synthckey` VARCHAR(32) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `synthname`,
+	CHANGE COLUMN `synthicon` `synthicon` VARCHAR(26) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `synthckey`,
+	CHANGE COLUMN `aichassisicon` `aichassisicon` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `synthicon`,
+	CHANGE COLUMN `aiholoicon` `aiholoicon` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `aichassisicon`,
+	CHANGE COLUMN `paiicon` `paiicon` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `aiholoicon`;
 
 ALTER TABLE `ss13_death`
 	COLLATE='utf8mb4_unicode_ci',
@@ -558,6 +543,21 @@ ALTER TABLE `ss13_notes`
 	CHANGE COLUMN `a_ckey` `a_ckey` VARCHAR(32) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `computerid`,
 	CHANGE COLUMN `content` `content` MEDIUMTEXT NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `a_ckey`,
 	CHANGE COLUMN `lasteditor` `lasteditor` VARCHAR(32) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `edited`;
+
+ALTER TABLE `ss13_player`
+	COLLATE='utf8mb4_unicode_ci',
+	CONVERT TO CHARSET utf8mb4;
+ALTER TABLE `ss13_player`
+	ALTER `ckey` DROP DEFAULT,
+	ALTER `ip` DROP DEFAULT,
+	ALTER `computerid` DROP DEFAULT;
+ALTER TABLE `ss13_player`
+	CHANGE COLUMN `ckey` `ckey` VARCHAR(32) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `id`,
+	CHANGE COLUMN `ip` `ip` VARCHAR(18) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `lastseen`,
+	CHANGE COLUMN `computerid` `computerid` VARCHAR(32) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `ip`,
+	CHANGE COLUMN `lastadminrank` `lastadminrank` VARCHAR(32) NOT NULL DEFAULT 'Player' COLLATE 'utf8mb4_unicode_ci' AFTER `byond_build`,
+	CHANGE COLUMN `rank` `rank` VARCHAR(32) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `migration_status`,
+	CHANGE COLUMN `discord_id` `discord_id` VARCHAR(45) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `flags`;
 
 ALTER TABLE `ss13_player_linking`
 	COLLATE='utf8mb4_unicode_ci',
