@@ -19219,7 +19219,7 @@
 	dir = 8
 	},
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BEWARE OF HIGH-YIELD DEFENSIVE TURRETS. DO NOT PASS WITHOUT PROPER AUTHORIZATION. EXTREME DANGER WITHIN THIS PERIMETER.\".";
+	desc = "A warning sign which reads 'WARNING: BEWARE OF HIGH-YIELD DEFENSIVE TURRETS. DO NOT PASS WITHOUT PROPER AUTHORIZATION. EXTREME DANGER WITHIN THIS PERIMETER.'.";
 	name = "\improper WARNING: PRIMARY ARMAMENT sign";
 	pixel_x = 32
 	},
@@ -27252,7 +27252,7 @@
 	req_one_access = list(19,43)
 	},
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BEWARE OF HIGH-YIELD DEFENSIVE TURRETS. DO NOT PASS WITHOUT PROPER AUTHORIZATION. EXTREME DANGER WITHIN THIS PERIMETER.\".";
+	desc = "A warning sign which reads 'WARNING: BEWARE OF HIGH-YIELD DEFENSIVE TURRETS. DO NOT PASS WITHOUT PROPER AUTHORIZATION. EXTREME DANGER WITHIN THIS PERIMETER.'.";
 	name = "\improper WARNING: PRIMARY ARMAMENT sign";
 	pixel_x = -32
 	},
@@ -33753,9 +33753,7 @@
 	name = "cold storage tiles";
 	temperature = 278
 	},
-/area/medical/surgery{
-	name = "Medical - Operating Theatre"ss
-	})
+/area/medical/surgery)
 "qvb" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-6"
