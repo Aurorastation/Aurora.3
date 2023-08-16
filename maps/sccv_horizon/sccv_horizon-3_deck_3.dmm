@@ -5348,9 +5348,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/structure/fireaxecabinet{
-	pixel_y = 32
-	},
+/obj/structure/fireaxecabinet/north,
 /obj/machinery/papershredder,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
