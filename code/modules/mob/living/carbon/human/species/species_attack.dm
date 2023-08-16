@@ -265,7 +265,7 @@
 	if(target.species.mob_size < user.species.mob_size)
 		if(prob(25))
 			playsound(user, 'sound/weapons/push_connect.ogg', 50, 1, -1)
-			user.visible_message(SPAN_DANGER("[user] sends [target] flying with the impact!"))
+			user.visible_message(SPAN_DANGER("[user] sends \the [target] flying with the impact!"))
 			var/turf/target_turf = get_ranged_target_turf(target, user.dir, 4)
 			target.throw_at(target_turf, 4, 1, user)
 			target.apply_effect(4, WEAKEN, armor)
