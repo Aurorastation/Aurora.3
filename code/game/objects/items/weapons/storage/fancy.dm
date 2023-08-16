@@ -327,7 +327,9 @@
 	if(!opened)
 		to_chat(user, SPAN_NOTICE("\The [src] is closed."))
 		return
-
+	if(use_check(M))
+		to_chat(usr, SPAN_WARNING("[target.name] is in no condition to handle items!"))
+		return
 	if(target_zone == BP_MOUTH && contents.len > 0)
 		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(src)
 		if(!istype(W) || M.wear_mask)
