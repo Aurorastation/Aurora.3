@@ -1,3 +1,15 @@
+### Update Notice
+
+To decrease the run time of the migration unit test, the database migrations have been compacted into a single one.
+Before you run the new migration script complete the following steps:
+* Update your database schema to the current V80
+* Create a backup
+
+Then you can proceed to delete your flyway migration history table and run flyway on the database.
+The initial schema is set up with `CREATE IF NOT EXISTS` statements, so there *should* not be any issues if you run the migration script on your production setup.
+
+As usual, do that at your own risk.
+
 ### Prerequisites
 
 The server connects to a mysql-compatible server (mysql, mariadb, percona), so you'll need one of those with a database and user/password pair ready.
