@@ -329,7 +329,12 @@
 		return
 
 	if(target_zone == BP_MOUTH && contents.len > 0)
-		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(M)
+		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(src)
+		if(!istype(W) || M.wear_mask)
+			to_chat(user, SPAN_NOTICE("\The [M.wear_mask] is in the way."))
+			if(M != user)
+				to_chat(M, SPAN_NOTICE("\The [M.wear_mask] is in the way."))
+			return
 		if(M != user)
 			var/response = ""
 			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."))
@@ -341,11 +346,6 @@
 				to_chat(user, SPAN_WARNING("You need to stay in reaching distance while giving an object."))
 				to_chat(M, SPAN_WARNING("\The [user] moved too far away."))
 				return
-		if(!istype(W) || M.wear_mask)
-			to_chat(user, SPAN_NOTICE("\The [M.wear_mask] is in the way."))
-			if(!(M == user))
-				to_chat(M, SPAN_NOTICE("\The [M.wear_mask] is in the way."))
-			return
 		//Checking contents of packet so lighters won't be cigarettes.
 		for (var/i = contents.len; i > 0; i--)
 			W = contents[i]
