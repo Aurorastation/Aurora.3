@@ -10,8 +10,28 @@
 	var/obj/item/extinguisher/has_extinguisher
 	var/opened = 0
 
+/obj/structure/extinguisher_cabinet/north
+	dir = NORTH
+	pixel_y = 24
+
+/obj/structure/extinguisher_cabinet/east
+	dir = EAST
+	pixel_x = 21
+	pixel_y = 4
+
+/obj/structure/extinguisher_cabinet/west
+	dir = WEST
+	pixel_x = -21
+	pixel_y = 4
+
+/obj/structure/extinguisher_cabinet/south
+	dir = SOUTH
+	pixel_y = -23
+
 /obj/structure/extinguisher_cabinet/Initialize()
 	. = ..()
+	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 21 : 4))
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 24 : -(-23)) : 4)
 	has_extinguisher = new/obj/item/extinguisher(src)
 	update_icon()
 
