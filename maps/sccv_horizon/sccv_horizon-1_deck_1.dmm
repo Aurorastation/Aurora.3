@@ -21213,7 +21213,7 @@
 	dir = 8;
 	pixel_x = 28
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hallway/primary/aft)
 "oQZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -23313,7 +23313,7 @@
 	dir = 1
 	},
 /obj/random/pottedplant,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/hallway/primary/aft)
 "qog" = (
 /obj/effect/landmark/entry_point/fore{
