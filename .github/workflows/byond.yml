@@ -123,14 +123,14 @@ jobs:
       matrix:
         map: [runtime, aurora, sccv_horizon, away_sites_testing, exoplanet_testing]
       fail-fast: false
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     concurrency:
       group: unit-test-linux-${{ github.head_ref || github.run_id }}-${{ matrix.map }}
       cancel-in-progress: true
     needs: lint
     services:
       mariadb:
-        image: mariadb:10.4
+        image: mariadb:10.10
         ports:
           - 3306
         env:
@@ -152,7 +152,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/flyway
-          key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
+          key: ${{ runner.os }}-flyway
       - name: Prepare OS Environtment
         run: |
           sudo dpkg --add-architecture i386
@@ -161,7 +161,7 @@ jobs:
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
-          version: 1.0
+          version: 1.1
       - name: Install OS Packages (Native)
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386
