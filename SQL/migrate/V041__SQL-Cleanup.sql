@@ -278,7 +278,7 @@ ALTER TABLE `ss13_ccia_reports_transcripts`
 ALTER TABLE `ss13_ccia_reports_transcripts`
 	CHANGE COLUMN `interviewer` `interviewer` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `character_id`,
 	CHANGE COLUMN `text` `text` LONGTEXT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `character_id`;
-
+  
 ALTER TABLE `ss13_characters`
 	COLLATE='utf8mb4_unicode_ci',
 	CONVERT TO CHARSET utf8mb4;
