@@ -2,7 +2,7 @@
 
 To decrease the run time of the migration unit test, the database migrations have been compacted into a single one.
 Before you run the new migration script complete the following steps:
-* Update your database schema to the current V80
+* Update your database schema to the current V81
 * Create a backup
 
 Then you can proceed to delete your flyway migration history table and run flyway on the database.
