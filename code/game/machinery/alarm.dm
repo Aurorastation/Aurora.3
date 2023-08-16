@@ -88,12 +88,15 @@
 
 /obj/machinery/alarm/north
 	dir = NORTH
+	pixel_y = 21
 
 /obj/machinery/alarm/east
 	dir = EAST
+	pixel_x = 10
 
 /obj/machinery/alarm/west
 	dir = WEST
+	pixel_x = -10
 
 /obj/machinery/alarm/south
 	dir = SOUTH
@@ -102,10 +105,40 @@
 	breach_detection = 0
 	desc = "A device that controls the local air regulation machinery."
 
+/obj/machinery/alarm/nobreach/north
+	dir = NORTH
+	pixel_y = 21
+
+/obj/machinery/alarm/nobreach/east
+	dir = EAST
+	pixel_x = 10
+
+/obj/machinery/alarm/nobreach/west
+	dir = WEST
+	pixel_x = -10
+
+/obj/machinery/alarm/nobreach/south
+	dir = SOUTH
+
 /obj/machinery/alarm/monitor
 	report_danger_level = 0
 	breach_detection = 0
 	desc = "A device that controls the local air regulation machinery."
+
+/obj/machinery/alarm/monitor/north
+	dir = NORTH
+	pixel_y = 21
+
+/obj/machinery/alarm/monitor/east
+	dir = EAST
+	pixel_x = 10
+
+/obj/machinery/alarm/monitor/west
+	dir = WEST
+	pixel_x = -10
+
+/obj/machinery/alarm/monitor/south
+	dir = SOUTH
 
 /obj/machinery/alarm/server
 	req_one_access = list(access_rd, access_atmospherics, access_engine_equip)
@@ -113,18 +146,78 @@
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in small server rooms."
 	highpower = 1
 
+/obj/machinery/alarm/server/north
+	dir = NORTH
+	pixel_y = 21
+
+/obj/machinery/alarm/server/east
+	dir = EAST
+	pixel_x = 10
+
+/obj/machinery/alarm/server/west
+	dir = WEST
+	pixel_x = -10
+
+/obj/machinery/alarm/server/south
+	dir = SOUTH
+
 /obj/machinery/alarm/tcom
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in server halls."
 	req_access = list(access_tcomsat)
 	highpower = 1
+
+/obj/machinery/alarm/tcom/north
+	dir = NORTH
+	pixel_y = 21
+
+/obj/machinery/alarm/tcom/east
+	dir = EAST
+	pixel_x = 10
+
+/obj/machinery/alarm/tcom/west
+	dir = WEST
+	pixel_x = -10
+
+/obj/machinery/alarm/tcom/south
+	dir = SOUTH
 
 /obj/machinery/alarm/freezer
 	req_one_access = list(access_kitchen, access_atmospherics, access_engine_equip)
 	highpower = 1
 	target_temperature = T0C - 20
 
+/obj/machinery/alarm/freezer/north
+	dir = NORTH
+	pixel_y = 21
+
+/obj/machinery/alarm/freezer/east
+	dir = EAST
+	pixel_x = 10
+
+/obj/machinery/alarm/freezer/west
+	dir = WEST
+	pixel_x = -10
+
+/obj/machinery/alarm/freezer/south
+	dir = SOUTH
+
 /obj/machinery/alarm/cold
 	target_temperature = T0C + 5
+
+/obj/machinery/alarm/cold/north
+	dir = NORTH
+	pixel_y = 21
+
+/obj/machinery/alarm/cold/east
+	dir = EAST
+	pixel_x = 10
+
+/obj/machinery/alarm/cold/west
+	dir = WEST
+	pixel_x = -10
+
+/obj/machinery/alarm/cold/south
+	dir = SOUTH
 
 /obj/machinery/alarm/server/Initialize()
 	. = ..()
