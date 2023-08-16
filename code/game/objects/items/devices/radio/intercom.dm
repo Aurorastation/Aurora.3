@@ -40,6 +40,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/west
 	PRESET_WEST
 
@@ -55,6 +56,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/ship/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/ship/west
 	PRESET_WEST
 
@@ -89,6 +91,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/ship/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/ship/west
 	PRESET_WEST
 
@@ -104,6 +107,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/custom/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/custom/west
 	PRESET_WEST
 
@@ -123,6 +127,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/hailing/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/hailing/west
 	PRESET_WEST
 
@@ -141,6 +146,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/interrogation/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/interrogation/west
 	PRESET_WEST
 
@@ -156,6 +162,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/interrogation/broadcasting/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/interrogation/broadcasting/west
 	PRESET_WEST
 
@@ -175,6 +182,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/private/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/private/west
 	PRESET_WEST
 
@@ -193,6 +201,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/specops/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/specops/west
 	PRESET_WEST
 
@@ -211,6 +220,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/department/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/department/west
 	PRESET_WEST
 
@@ -230,6 +240,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/department/medbay/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/department/medbay/west
 	PRESET_WEST
 
@@ -249,6 +260,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/department/security/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/department/security/west
 	PRESET_WEST
 
@@ -272,6 +284,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/entertainment/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/entertainment/west
 	PRESET_WEST
 
@@ -312,6 +325,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/syndicate/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/syndicate/west
 	PRESET_WEST
 
@@ -334,6 +348,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/raider/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/raider/west
 	PRESET_WEST
 
@@ -410,6 +425,7 @@ pixel_x = 24;
 
 /obj/item/device/radio/intercom/locked/south
 	PRESET_SOUTH
+
 /obj/item/device/radio/intercom/locked/west
 	PRESET_WEST
 
