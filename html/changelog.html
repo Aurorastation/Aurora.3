@@ -35,7 +35,287 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">15 August 2023</h2>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes Alt-Click removal from chemical dispensers.</li>
+				<li class="bugfix">Fixes chemical dispensers not ejecting into hand.</li>
+			</ul>
+
+			<h2 class="date">14 August 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added link to see sites and ships that can spawn in current sector, shown near the round start.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed material Destroy(), now dumps a stack trace and returns the hint to not be harddel&#x27;d.</li>
+			</ul>
+			<h3 class="author">Ramke updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Adhomian crown roast now doesn&#x27;t disappear when you take a sausage out of it.</li>
+			</ul>
+			<h3 class="author">nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Containers can now be ejected from chem dispensers, chem masters, drink fountains, etc. using alt-click.</li>
+				<li class="bugfix">Fixed incorrect temperature readout, and implants/shrapnel not being displayed, when printing scans from body scanner consoles.</li>
+				<li class="tweak">Tweaked some wording in the body scanner printouts to be more consistent with the GUI version.</li>
+				<li class="tweak">Added alt-click eject functionality to the body scanner and to the sleeper.</li>
+			</ul>
+
+			<h2 class="date">12 August 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Added a temporary exclusion for the psi_lightning/wide psionic projectile that is failing the UT, while matt fix it.</li>
+				<li class="backend">Added a define check, if we&#x27;re running with REFERENCE_TRACKING on the CI, do not abort the test after 30 minutes.</li>
+				<li class="refactor">SSMaterials now stack_trace on receiving a request for a material that was not found.</li>
+				<li class="refactor">Added some dmdocs and some variables names expansion to SSMaterials.</li>
+				<li class="spellcheck">Fixed shumalia&#x27;s painting extended description.</li>
+			</ul>
+			<h3 class="author">Leudoberct1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Added cryptobiolin and impedrezene to the list of anomaly toxin triggers.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added two additional flags/banners to the loadout: Orion Express and the Imperial Frontier.</li>
+			</ul>
+
+			<h2 class="date">10 August 2023</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Adjust some wording for tips of the round and the meteor game mode announcement.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Ported the Pressure Regulator and Pipe Pump to TGUI.</li>
+				<li class="backend">Updated FontAwesome from 5.9.0 to 6.4.2</li>
+				<li class="rscadd">Added Investigator Interns and Warden Cadets for Security.</li>
+				<li class="rscadd">Added Atmospherics Apprentices for Engineering.</li>
+				<li class="rscadd">Added Pharmacy Interns and Resident Psychiatrists for Medical.</li>
+				<li class="balance">The Surgeon Intern has been renamed to the Resident Surgeon, and now has a minimum age restriction of 28 for humans.</li>
+				<li class="tweak">All medical intern alt-titles have changes to their outfits, similar to their intended roles in medical.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed debug logs not being tagged as debug in the chat.</li>
+				<li class="bugfix">Fixed relogging giving you more psi-points.</li>
+				<li class="bugfix">Fixed medborgs being unable to download suit sensors.</li>
+				<li class="rscdel">Removed the Gambit technomancer spell as it was a hacky and now buggy implementation.</li>
+				<li class="bugfix">Fixed roller bags unbuckling themselves.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added secondary language processors for Vaurcae in the loadout under Xenowear - Vaurca. They should only be taken by the groups mentioned in the selections.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Replaces the oxycomorphine produced by changeling&#x27;s adrenaline sacs ability with mortaphenyl. Properly syncs the chemical amounts to all metabolize out at the same time.</li>
+			</ul>
+			<h3 class="author">Stryker, Lancer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a Trinary habit, Templeist robe, and coif to the loadout religion tab.</li>
+				<li class="rscadd">Adds a Templeist versebook to the loadout religion tab.</li>
+			</ul>
+
+			<h2 class="date">09 August 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Hopefully fixes the ops lift getting stuck on third deck.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed material unit test, that was deleting materials out of existence.</li>
+			</ul>
+
+			<h2 class="date">08 August 2023</h2>
+			<h3 class="author">ClemTheDuck updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed the shading on the Skrelmet, hopefully so it will look more in line with the current security armour pallette.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a spawn long-term sleep for the startup logout report by turning it into a timer (also more efficient).</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds voidsuits for the Kazu&#x27;s Techraiders and Hiskyn Revanchists pirate groups.</li>
+				<li class="bugfix">Fixes the onmob sprites for the Tarwa Conglomerate voidsuits.</li>
+				<li class="tweak">Turns the Izharshan&#x27;s Raiders crate into a generic pirate crate with modkits for other pirate groups&#x27; voidsuits.</li>
+				<li class="tweak">Updates the descriptions of guild mantle items to reflect Hephaestus&#x27;s new position in the Hegemony.</li>
+				<li class="maptweak">Disables the Merchants&#x27; Guild Freighter due to recent lore developments.</li>
+			</ul>
+			<h3 class="author">SimpleMaroon updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">NanoMed Plus vending machines now contain 2 bottles of thetamycin, up from 1.</li>
+			</ul>
+
+			<h2 class="date">07 August 2023</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Greimorian webs, egg clusters, and cocoons, as well as energy nets, are once more able to be attacked and interacted with.</li>
+			</ul>
+			<h3 class="author">Pirouette updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">Fixed typos in the ore detector menu, sarlacc attacks, Adhomian fish soup taste, and beach overlays.</li>
+				<li class="bugfix">Fixed Nralakk work uniforms and jackets not being available in the Dionae loadout.</li>
+			</ul>
+			<h3 class="author">Ramke updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added canned fatshouter meat to Getmore vendors.</li>
+			</ul>
+			<h3 class="author">Sue, Ramke updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added gelatin, obtainable from grinding nm&#x27;shaan (sugar tree) fruit.</li>
+				<li class="rscadd">Added 6 new gelatin-based dishes.</li>
+			</ul>
+
+			<h2 class="date">05 August 2023</h2>
+			<h3 class="author">CampinKiller24 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed being able to crush people when they&#x27;re not in viewing range.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Gamemodes in the mode vote panel are sorted by required players to start.</li>
+				<li class="tweak">Gamemodes in the mode vote panel have grayed out required player numbers, if there are less players readied up than required.</li>
+			</ul>
+			<h3 class="author">Fluffyghost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Refactored the logging handling module/system.</li>
+				<li class="refactor">Most of the larger / more relevant subsystems now have a specific logging function.</li>
+				<li class="backend">Most of each logging submodule can now be set on/off and directed to a dedicated file.</li>
+				<li class="backend">Most of each logging submodule can now be turned on/off at runtime via an admin verb.</li>
+				<li class="backend">All logging functions now write to a condensed logfile and to output during unit tests.</li>
+				<li class="backend">At the end of the unit tests, an artifact for each UT with the condensed logs is uploaded to the job, so everyone can review the logs. Does not include the UT logging, just the standard one.</li>
+				<li class="backend">It is now possible during development / at runtime to panic write the logs to the chat. This is dev environment or panic case only, don&#x27;t turn it on in production unless things went very bad.</li>
+				<li class="backend">Runtime exceptions variables are now unwrapped on logging.</li>
+				<li class="backend">All item attacks are now logged under the log_attack function.</li>
+			</ul>
+
+			<h2 class="date">04 August 2023</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Potassium Chloride/Chlorophoride now properly stop the heart as intended.</li>
+				<li class="tweak">Potassium Chloride takes time to kick in, and metabolizes a little faster. It still requires 20u minimum to stop the heart.</li>
+				<li class="tweak">Potassium Chloride/Chlorophoride no longer cause toxins damage. Stopping the heart is enough.</li>
+				<li class="bugfix">Being pacified, such as via Paxazide, now properly prevents switching to harm intent unless the user is also berserk.</li>
+				<li class="bugfix">Drones can now enter robotic storage.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Extends the operations lift to third deck, to a new auxiliary operations office.</li>
+				<li class="maptweak">Top deck medbay is rearranged slightly to accomodate the new auxiliary operations office.</li>
+				<li class="tweak">Turning uses less propellant than a proper burn.</li>
+				<li class="bugfix">Adhomian Circus ship now uses the ship spawn pool.</li>
+			</ul>
+			<h3 class="author">Leudoberct1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Expanded Xenoarchaeology slightly to add anomaly storage.</li>
+				<li class="maptweak">Added an access requirement to the door in the Research hallway.</li>
+			</ul>
+			<h3 class="author">OolongCow updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Adds white webbings to medical lockers.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Miners now have access to the flight room on Deck 1.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Added a labeller to hydroponics and a audioconsole.</li>
+				<li class="maptweak">Tweaked the cafe.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Allows wallets to hold the Tajaran portraits and Dominian icons.</li>
+				<li class="bugfix">Fixed the status bulbs on the manifest showing white for several statuses</li>
+			</ul>
+			<h3 class="author">io-util updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">all explosion adminglogs now have a button to jump to the coordinates</li>
+			</ul>
+			<h3 class="author">nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new immunosuppressant drug, Cytophenolate. It slowly but surely mitigates the effects of organ damage above 10 units and cures organ rejection after some timestamps.</li>
+				<li class="balance">Cytophenolate does not fully cure rejected transplanted organs from other species; it only prevents the effects from worsening as long as the drug is in their system.</li>
+				<li class="balance">Cytophenolate is an actual immunosuppressant, and reduces the effectiveness of antibiotics while in a patient&#x27;s system.</li>
+			</ul>
+
+			<h2 class="date">03 August 2023</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Mobs dying with heaps of genetic damage should no longer spam the chat about their flesh being sloughed off.</li>
+				<li class="bugfix">The holomap in the deck 3 port hallway should no longer be in the middle of the floor.</li>
+				<li class="maptweak">Adds two more signs that will direct lazy engineers to a shorter route to port propulsion. Check maintenance behind the elevator.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Refactors the loadout items folder structure.</li>
+				<li class="maptweak">Replaces deprecated /obj/structure/flora/pottedplant/random with /obj/random/pottedplant/.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Fixes unit test fails.</li>
+			</ul>
+
+			<h2 class="date">02 August 2023</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Viscerator grenades now only spawn 3 viscerators instead of 5.</li>
+				<li class="tweak">Lubed viscerator grenades now cost 3 TC instead of 4.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the Invite to Revolutionaries/Loyalists verbs.</li>
+				<li class="bugfix">Fixed the bible Set Religion verb.</li>
+			</ul>
+			<h3 class="author">MattAtlas (Code), Atteria (Sound) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Re-added UI interaction sounds to modular computers.</li>
+			</ul>
+
+			<h2 class="date">01 August 2023</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">The meteor gamemode now spawns meteor hazards on the overmap when it starts the meteor waves.</li>
+			</ul>
+			<h3 class="author">ClemTheDuck updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added worn sprites for modular pouches on plate carriers, so they are now visible on your sprite.</li>
+			</ul>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Drones and borgs can now properly use the Toggle Open verb for closets and crates.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Effects such as spiderlings and overmap objects can once again be clicked.</li>
+				<li class="bugfix">Psi points are now actually deducted when using the shop.</li>
+				<li class="bugfix">Spell objects should delete more reliably.</li>
+				<li class="bugfix">Nlom Awareness should function correctly.</li>
+				<li class="tweak">Psionic Grip now only freezes the victim for a short amount of time when activated.</li>
+				<li class="tweak">Psionic Grip now only does damage to the head when activated.</li>
+				<li class="bugfix">Psionic Grip now actually has a cooldown on activation.</li>
+				<li class="bugfix">Skrell now have 2 loadout psionic points instead of 4, as was intended.</li>
+				<li class="rscdel">Command has been removed.</li>
+			</ul>
+			<h3 class="author">RyverStyx updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds Sol Common as an option for Skrell.</li>
+			</ul>
+			<h3 class="author">nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">When putting a breath mask on someone via the IV drip with an oxygen mask attached, the valve now opens automatically.</li>
+			</ul>
+
 			<h2 class="date">31 July 2023</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes spawning with psionics.</li>
+				<li class="bugfix">Fixes a error when sanitizing a character that doesnt have psionics.</li>
+			</ul>
 			<h3 class="author">ClemTheDuck updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="rscadd">Added the the ability to choose how your goggles are layered. You can now choose to layer them OVER headgear as well as the usual over or under hair.</li>

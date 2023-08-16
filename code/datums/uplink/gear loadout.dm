@@ -117,15 +117,15 @@
 	path = /obj/structure/closet/crate/secure/gear_loadout/kataphract/single
 	telecrystal_cost = 10
 
-/datum/uplink_item/item/gear_loadout/izharshan
-	name = "Izharshan's Raiders Assets (Group)"
+/datum/uplink_item/item/gear_loadout/unathi_pirate
+	name = "Unathi Pirate Assets (Group)"
 	desc = "A crate containing gear for a group. The voidsuits are only usable by Unathi."
-	path = /obj/structure/closet/crate/secure/gear_loadout/izharshan
+	path = /obj/structure/closet/crate/secure/gear_loadout/unathi_pirate
 
-/datum/uplink_item/item/gear_loadout/izharshan_single
-	name = "Izharshan's Raiders Assets (Single)"
+/datum/uplink_item/item/gear_loadout/unathi_pirate_single
+	name = "Unathi Pirate Assets (Single)"
 	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Unathi."
-	path = /obj/structure/closet/crate/secure/gear_loadout/izharshan/single
+	path = /obj/structure/closet/crate/secure/gear_loadout/unathi_pirate/single
 	telecrystal_cost = 10
 
 /datum/uplink_item/item/gear_loadout/pvsm

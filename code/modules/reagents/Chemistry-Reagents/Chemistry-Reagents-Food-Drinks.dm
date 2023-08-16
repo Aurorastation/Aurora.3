@@ -914,6 +914,18 @@
 	color = "#441a03"
 	taste_description = "chocolate"
 
+/singleton/reagent/nutriment/gelatin
+	name = "Gelatin"
+	description = "A translucent, typically flavorless powder used in cooking."
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#CBBCA9"
+	taste_description = "jiggliness"
+	condiment_name = "Gelatin Box"
+	condiment_icon_state = "gello"
+	condiment_desc = "An unassuming box of raw powdered gelatin. Let's get jiggly."
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
 /* Drinks */
 
 /singleton/reagent/drink
