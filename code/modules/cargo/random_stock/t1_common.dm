@@ -372,7 +372,7 @@ STOCK_ITEM_COMMON(plant, 3.5)
 			if (turf_clear(U))
 				T = U
 				break
-	new /obj/structure/flora/pottedplant/random(T)
+	new /obj/random/pottedplant(T)
 
 STOCK_ITEM_COMMON(bag, 2)
 	var/type = pick( \

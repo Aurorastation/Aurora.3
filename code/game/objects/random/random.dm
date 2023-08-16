@@ -27,7 +27,7 @@
 	return 0
 
 /obj/random/proc/post_spawn(obj/thing)
-	log_debug("random_obj: [DEBUG_REF(src)] registered itself as having post_spawn, but did not override post_spawn()!")
+	LOG_DEBUG("random_obj: [DEBUG_REF(src)] registered itself as having post_spawn, but did not override post_spawn()!")
 
 // creates the random item
 /obj/random/proc/spawn_item()
@@ -44,7 +44,7 @@
 		. = new itemtype(loc)
 
 	if (!.)
-		log_debug("random_obj: [DEBUG_REF(src)] returned null item!")
+		LOG_DEBUG("random_obj: [DEBUG_REF(src)] returned null item!")
 
 /obj/random/single
 	name = "randomly spawned object"
