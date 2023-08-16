@@ -22204,9 +22204,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "pMP" = (
-/obj/effect/shuttle_landmark/distress/blue{
-	base_turf = /turf/simulated/floor/plating
-	},
+/obj/effect/shuttle_landmark/distress/blue,
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "pMX" = (
