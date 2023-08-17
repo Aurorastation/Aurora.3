@@ -120,7 +120,7 @@
 	name = "grate"
 	desc = "A metal grate."
 	icon = 'icons/obj/grate.dmi'
-	icon_state = "grate_dark"
+	icon_state = "grate"
 	return_amount = 1
 	smooth = null
 	color = COLOR_TILED
