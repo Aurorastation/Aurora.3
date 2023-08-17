@@ -30,9 +30,9 @@
 
 /obj/structure/extinguisher_cabinet/Initialize()
 	. = ..()
-	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 21 : 4))
-	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 24 : -(-23)) : 4)
-	has_extinguisher = new/obj/item/extinguisher(src)
+	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 21 : 4)
+	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? 24 : -23) : 4
+	has_extinguisher = new /obj/item/extinguisher(src)
 	update_icon()
 
 /obj/structure/extinguisher_cabinet/attackby(obj/item/O, mob/user)

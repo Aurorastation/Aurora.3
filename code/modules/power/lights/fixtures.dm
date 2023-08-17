@@ -177,8 +177,8 @@
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
 
-	pixel_x = DIR2PIXEL_X(dir)
-	pixel_y = DIR2PIXEL_Y(dir)
+	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET))
+	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : 0) : 0
 
 	if (!has_power())
 		stat |= NOPOWER

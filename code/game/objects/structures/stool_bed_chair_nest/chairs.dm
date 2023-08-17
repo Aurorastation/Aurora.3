@@ -164,7 +164,7 @@
 	base_icon = "hover_command"
 
 /obj/structure/bed/stool/chair/plastic
-	name = "plastic chair"
+	name = "chair"
 	desc = "The monobloc chair. You'll have to take it, whether you like it or not."
 	icon_state = "plastic_chair"
 	base_icon = "plastic_chair"
@@ -282,7 +282,7 @@
 	name = "chair"
 	desc = "Bar brawl essential. Now all that's missing is a ragtime piano."
 	desc_info = "Click it while in-hand to right it."
-	icon = 'icons/obj/furniture.dmi'
+	icon = 'icons/obj/structure/chairs.dmi'
 	icon_state = "chair_item"
 	item_state = "chair"
 	base_icon = "chair"

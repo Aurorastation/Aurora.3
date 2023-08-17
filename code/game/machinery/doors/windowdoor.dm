@@ -238,6 +238,7 @@
 
 /obj/machinery/door/window/northleft
 	dir = NORTH
+	pixel_y = -14
 
 /obj/machinery/door/window/eastleft
 	dir = EAST
@@ -252,6 +253,7 @@
 	dir = NORTH
 	icon_state = "right"
 	base_state = "right"
+	pixel_y = -14
 
 /obj/machinery/door/window/eastright
 	dir = EAST

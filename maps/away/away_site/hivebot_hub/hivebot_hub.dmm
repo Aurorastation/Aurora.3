@@ -482,12 +482,12 @@
 /obj/item/stack/material/steel,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "bc" = (
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "bd" = (
@@ -628,7 +628,7 @@
 /obj/structure/table/standard,
 /mob/living/simple_animal/hostile/hivebot/bomber,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "by" = (
@@ -891,7 +891,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "cl" = (
@@ -937,13 +937,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "ct" = (
 /mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "cu" = (
@@ -997,7 +997,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "cC" = (
@@ -1049,7 +1049,7 @@
 "cJ" = (
 /obj/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "cK" = (
@@ -1121,7 +1121,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "cW" = (
@@ -1207,13 +1207,13 @@
 /area/derelict)
 "dj" = (
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "dk" = (
 /mob/living/simple_animal/hostile/hivebot,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "dl" = (
@@ -1249,7 +1249,7 @@
 "dq" = (
 /mob/living/simple_animal/hostile/hivebot/range/rapid,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "dr" = (
@@ -1283,7 +1283,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "dx" = (
@@ -1453,7 +1453,7 @@
 "es" = (
 /mob/living/simple_animal/hostile/hivebot/range,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "et" = (
@@ -1485,7 +1485,7 @@
 "eE" = (
 /mob/living/simple_animal/hostile/hivebot/bomber,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/derelict)
 "eF" = (
@@ -1547,7 +1547,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/derelict)
 "eV" = (

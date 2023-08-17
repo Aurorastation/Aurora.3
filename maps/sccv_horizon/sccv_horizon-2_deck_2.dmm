@@ -2314,13 +2314,6 @@
 /obj/random/bad_ai{
 	pixel_y = 9
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
 /obj/machinery/door/window/northright{
 	name = "Storage";
 	req_access = list(20)
@@ -4123,9 +4116,6 @@
 	name = "Machinist Workshop Desk";
 	req_access = list(29)
 	},
-/obj/machinery/door/window/westright{
-	name = "Machinist Workshop Desk"
-	},
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "shutters_deck2_workshopdesk";
@@ -4496,7 +4486,6 @@
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/atmos,
-/obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
@@ -7578,9 +7567,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_a)
 "dLn" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "sorting";
@@ -7596,9 +7582,6 @@
 /area/operations/mail_room)
 "dLo" = (
 /obj/machinery/bodyscanner,
-/obj/machinery/status_display{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
@@ -8061,9 +8044,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/hallway)
@@ -8273,9 +8253,6 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/full,
@@ -9427,9 +9404,6 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
 	},
 /obj/machinery/door/window/southleft{
 	name = "Storage";
@@ -12809,9 +12783,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/machinery/door/window/southright{
 	name = "Welding Fuel Tank Storage"
 	},
@@ -12925,13 +12896,6 @@
 /obj/random/vault_rig{
 	pixel_y = 10
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
 /obj/machinery/door/window/northleft{
 	name = "Storage";
 	req_access = list(20)
@@ -12950,9 +12914,6 @@
 	dir = 4
 	},
 /obj/machinery/door/window/westleft,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
@@ -13401,7 +13362,6 @@
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/atmos,
-/obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/light{
 	dir = 8
@@ -15660,6 +15620,9 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 5
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
 "hCo" = (
@@ -15856,6 +15819,9 @@
 /obj/item/auto_cpr{
 	pixel_x = 6;
 	pixel_y = -5
+	},
+/obj/machinery/status_display{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
@@ -19152,9 +19118,6 @@
 	name = "Engineering Front Desk Internal";
 	req_access = list(10)
 	},
-/obj/machinery/door/window/eastright{
-	name = "Engineering Front Desk External"
-	},
 /obj/structure/table/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
@@ -20612,8 +20575,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "jUG" = (
-/obj/structure/bed/stool/chair/sofa/corner/concave/red{
-	dir = 1
+/obj/structure/bed/stool/chair/sofa/corner/convex/red{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
@@ -26785,7 +26748,6 @@
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "naD" = (
-/obj/machinery/door/window/southright,
 /obj/machinery/door/window/northright,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/far)
@@ -27255,9 +27217,6 @@
 /obj/machinery/door/window/westright{
 	name = "Operations Desk Interior Access";
 	req_access = list(50)
-	},
-/obj/machinery/door/window/eastleft{
-	name = "Operations Desk Exterior Access"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/office)
@@ -28472,17 +28431,10 @@
 /turf/simulated/wall,
 /area/maintenance/substation/medical)
 "nRx" = (
-/obj/machinery/door/window{
-	base_state = "right";
-	dir = 1;
-	icon_state = "right";
-	name = "Research Desk";
-	req_access = list(7)
-	},
 /obj/machinery/ringer_button{
 	id = "sci_ringer";
-	pixel_x = 5;
-	pixel_y = 5
+	pixel_x = 7;
+	pixel_y = -2
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -28494,8 +28446,9 @@
 	opacity = 0
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/southright{
-	name = "Research Desk"
+/obj/machinery/door/window/northright{
+	name = "Research Desk";
+	req_access = list(7)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/research)
@@ -30649,9 +30602,6 @@
 /obj/machinery/door/window/southleft{
 	name = "Auxiliary Custodial Closet Desk Interior";
 	req_access = list(26)
-	},
-/obj/machinery/door/window/northleft{
-	name = "Auxiliary Custodial Closet Desk Exterior"
 	},
 /obj/machinery/door/blast/shutters{
 	id = "shutters_deck2_auxcustdesk";
@@ -37922,7 +37872,6 @@
 /obj/item/clothing/suit/space/void/atmos,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/atmos,
-/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -39737,9 +39686,6 @@
 /obj/machinery/door/window/northleft{
 	name = "Operations Desk Interior Access";
 	req_access = list(50)
-	},
-/obj/machinery/door/window/southleft{
-	name = "Operations Desk Exterior Access"
 	},
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark/full,
@@ -42527,9 +42473,6 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
 	},
 /obj/machinery/door/window/southright{
 	name = "Storage";
@@ -46511,13 +46454,6 @@
 	pixel_x = 1;
 	pixel_y = 7
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
 /obj/machinery/door/window/northright{
 	name = "Storage";
 	req_access = list(20)
@@ -46567,8 +46503,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
 "wKa" = (
-/obj/structure/bed/stool/chair/sofa/corner/concave/red{
-	dir = 4
+/obj/structure/bed/stool/chair/sofa/corner/convex/red{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
@@ -49254,11 +49190,11 @@
 "xWa" = (
 /obj/item/rig/medical/equipped{
 	pixel_x = 4;
-	pixel_y = -2
+	pixel_y = 5
 	},
 /obj/item/rig/medical/equipped{
 	pixel_x = -5;
-	pixel_y = -2
+	pixel_y = 5
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -49266,10 +49202,9 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/structure/table/rack{
+	pixel_y = 5
 	},
-/obj/structure/table/rack,
 /obj/machinery/door/window/southleft,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)

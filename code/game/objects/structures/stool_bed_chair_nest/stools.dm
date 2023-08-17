@@ -171,7 +171,7 @@
 // Stool Items
 
 /obj/item/material/stool
-	icon = 'icons/obj/furniture.dmi'
+	icon = 'icons/obj/structure/chairs.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_chairs.dmi',

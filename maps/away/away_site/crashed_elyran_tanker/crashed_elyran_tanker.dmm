@@ -2743,7 +2743,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/crashed_elyran_tanker/engineering)
 "Bw" = (
@@ -2798,7 +2798,7 @@
 "BP" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/crashed_elyran_tanker/engineering)
 "BT" = (
@@ -3069,7 +3069,7 @@
 /obj/random/junk,
 /obj/random/junk,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/crashed_elyran_tanker/engineering)
 "EK" = (

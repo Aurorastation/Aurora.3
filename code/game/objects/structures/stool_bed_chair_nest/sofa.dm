@@ -123,8 +123,7 @@
 
 
 /obj/structure/bed/stool/chair/sofa/corner
-	name = "impossible sofa corner"
-	desc = "This kind of sofa shouldn't even exist at all. If you see this non-euclidean specimen, contact your station's Anti-Couch Surfing Department."
+	name = "sofa corner"
 	icon_state = "sofa_cursed"
 
 /obj/structure/bed/stool/chair/sofa/corner/concave
