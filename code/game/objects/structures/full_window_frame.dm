@@ -9,7 +9,7 @@
 	anchored = TRUE
 	density = TRUE
 	climbable = TRUE
-	smooth = SMOOTH_TRUE
+	smooth = SMOOTH_MORE
 	breakable = TRUE
 	can_be_unanchored = TRUE
 	canSmoothWith = list(

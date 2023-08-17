@@ -646,13 +646,16 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
 "ecW" = (
-/obj/structure/lattice,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	layer = 2.31;
+	name = "lattice"
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -1897,6 +1900,13 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 4
+	},
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	layer = 2.31;
+	name = "lattice"
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)

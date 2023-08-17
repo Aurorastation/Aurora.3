@@ -235,7 +235,6 @@
 		return SSmaterials.get_material_by_name(mineral)
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 
-//new airlocks dont fucking delete it this time dingus
 /obj/machinery/door/airlock/generic // the start
 	icon = 'icons/obj/doors/basic/single/generic/door.dmi'
 	door_color = "#909299"//The color of the door itself

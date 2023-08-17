@@ -11,7 +11,7 @@
 	icon_state = "pane"
 	density = TRUE
 	w_class = ITEMSIZE_NORMAL
-	layer = 3.2
+	layer = WINDOW_PANE_LAYER
 	anchored = TRUE
 	flags = ON_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
@@ -28,6 +28,7 @@
 	var/glasstype = null // Set this in subtypes. Null is assumed strange or otherwise impossible to dismantle, such as for shuttle glass.
 	var/silicate = 0 // number of units of silicate
 	var/base_frame = null
+	var/full = FALSE
 
 	atmos_canpass = CANPASS_PROC
 
@@ -58,10 +59,11 @@
 	queue_smooth_neighbors(src)
 
 /obj/structure/window/update_icon()
-	if(dir == SOUTH)
-		layer = ABOVE_MOB_LAYER
-	else
-		layer = 3.2
+	if(!full)
+		if(dir == SOUTH)
+			layer = ABOVE_MOB_LAYER
+		else
+			layer = WINDOW_PANE_LAYER
 	queue_smooth(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
@@ -351,9 +353,8 @@
 
 /obj/structure/window/Initialize(mapload, start_dir = null, constructed = 0)
 	. = ..()
-
-	if (constructed)
-		anchored = 0
+	if(!full && constructed)
+		anchored = FALSE
 
 	if (!mapload && constructed)
 		state = 0
@@ -367,6 +368,7 @@
 
 	update_nearby_tiles(need_rebuild=1)
 	update_nearby_icons()
+	update_icon()
 
 /obj/structure/window/Destroy()
 	density = 0
@@ -377,7 +379,6 @@
 		W.update_icon()
 	loc = location
 	return ..()
-
 
 /obj/structure/window/Move()
 	var/ini_dir = dir
@@ -620,6 +621,7 @@
 	maxhealth = 28 // Two glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	glasstype = /obj/item/stack/material/glass
 	shardtype = /obj/item/material/shard
+	full = TRUE
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
 	smooth = SMOOTH_MORE
@@ -632,24 +634,6 @@
 		/obj/machinery/door,
 		/obj/machinery/door/airlock
 	)
-
-/obj/structure/window/full/Initialize(mapload, start_dir = null, constructed = 0)
-	if (!mapload && constructed)
-		state = 0
-
-	if (start_dir)
-		set_dir(start_dir)
-
-	health = maxhealth
-
-	ini_dir = dir
-
-	update_nearby_tiles(need_rebuild=1)
-	update_icon()
-	update_nearby_icons()
-	initialized = TRUE
-
-	return INITIALIZE_HINT_NORMAL
 
 /obj/structure/window/full/Destroy()
 	var/obj/structure/window_frame/WF = locate(/obj/structure/window_frame) in get_turf(src)

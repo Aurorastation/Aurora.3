@@ -56,6 +56,9 @@
 			log_mapping_error("[src.name] in [get_area(src)]has errored. [src.network?"Empty network list":"Null network list"]")
 		ASSERT(src.network)
 		ASSERT(src.network.len > 0)
+
+	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? -13 : 13)
+	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? -3 : DEFAULT_WALL_OFFSET) : 0
 	return ..()
 
 /obj/machinery/camera/Destroy()
