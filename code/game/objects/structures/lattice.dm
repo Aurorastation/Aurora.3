@@ -124,7 +124,7 @@
 	return_amount = 1
 	smooth = null
 	color = COLOR_TILED
-	var/base_icon_state = "grate_dark"
+	var/base_icon_state = "grate"
 	var/damaged = FALSE
 
 /obj/structure/lattice/catwalk/indoor/grate/attackby(obj/item/C, mob/user)
