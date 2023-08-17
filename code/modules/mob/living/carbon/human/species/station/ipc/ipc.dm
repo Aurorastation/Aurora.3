@@ -131,8 +131,7 @@
 		/singleton/origin_item/culture/ipc_tau_ceti,
 		/singleton/origin_item/culture/golden_deep,
 		/singleton/origin_item/culture/megacorporate,
-		/singleton/origin_item/culture/scrapper,
-		/singleton/origin_item/culture/orepit_trinary
+		/singleton/origin_item/culture/scrapper
 	)
 
 	alterable_internal_organs = list()
