@@ -297,7 +297,7 @@
 	description = "Empyrean Federal Freespeak is a creole of Coalition Freespeak and Ministerial Common which features a multitude of Solarian Common loanwords due to most residents of Empyrean being bilingual, and often speaking \
 	Freespeak and Solarian Common. Compared to Svarogite Freespeak it features a heavier influence from foreign Freespeak and Solarian Common dialects due to Empyrean's status as a major point of entry for the Yggdrasil System. "
 	tag_icon = "empyrean"
-	text_tag = "EMP"
+	text_tag = "EMY"
 
 /datum/accent/svarog
 	name = ACCENT_SVAROG
