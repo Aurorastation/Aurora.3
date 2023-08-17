@@ -1438,19 +1438,11 @@
 /area/security/checkpoint2)
 "aFK" = (
 /obj/structure/table/reinforced/wood,
-/obj/machinery/door/window/westright{
-	name = "Library Desk"
-	},
 /obj/machinery/door/window/eastleft{
 	name = "Library Desk";
 	req_access = list(37)
 	},
-/obj/machinery/door/blast/shutters{
-	dir = 8;
-	id = "shutters_deck2_librarydesk";
-	name = "Desk Shutter"
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/wood,
 /area/horizon/library)
 "aGx" = (
 /obj/structure/disposalpipe/segment,
@@ -20683,7 +20675,7 @@
 /area/medical/icu)
 "jUG" = (
 /obj/structure/bed/stool/chair/sofa/corner/convex/red{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
@@ -28525,6 +28517,7 @@
 	},
 /obj/machinery/door/window/northleft{
 	name = "Secure Storage";
+	pixel_y = 0;
 	req_access = list(47)
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -30135,7 +30128,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/wood,
 /area/horizon/library)
 "oCk" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -38153,6 +38146,7 @@
 	},
 /obj/machinery/door/window/northright{
 	name = "Secure Storage";
+	pixel_y = 0;
 	req_access = list(7)
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -46687,7 +46681,7 @@
 /area/horizon/security/warden)
 "wKa" = (
 /obj/structure/bed/stool/chair/sofa/corner/convex/red{
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
