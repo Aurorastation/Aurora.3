@@ -329,7 +329,7 @@
 	)
 
 /obj/item/voidsuit_modkit/zeng_skrell
-	name = "zeng-hu pharmaceuticals voidsuit kit"
+	name = "\improper Zeng-Hu Pharmaceuticals voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Zeng-Hu Dragon suit into its Skrell-fitted counterpart and vice versa. Practical!"
 	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
