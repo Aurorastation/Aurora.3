@@ -625,14 +625,31 @@
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
 	smooth = SMOOTH_MORE
+	alpha = 196
 	canSmoothWith = list(
-		/obj/structure/window/full/reinforced,
-		/obj/structure/window/full/reinforced/polarized,
-		/obj/structure/window/full/phoron/reinforced,
 		/turf/simulated/wall,
-		/turf/unsimulated/wall,
+		/turf/simulated/wall/r_wall,
+		/turf/unsimulated/wall/steel,
+		/turf/unsimulated/wall/darkshuttlewall,
+		/turf/unsimulated/wall/riveted,
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty,
+		/obj/structure/window/full/reinforced,
+		/obj/structure/window/full/reinforced/indestructible,
+		/obj/structure/window/full/reinforced/polarized,
+		/obj/structure/window/full/reinforced/polarized/indestructible,
+		/obj/structure/window/full/phoron/reinforced,
+		/obj/structure/window/shuttle/scc_space_ship,
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/obj/machinery/door
+	)
+	blend_overlay = "wall"
+	attach_overlay = "attach"
+	can_blend_with = list(
+		/turf/simulated/wall,
 		/obj/machinery/door,
-		/obj/machinery/door/airlock
+		/obj/structure/window_frame
 	)
 
 /obj/structure/window/full/Destroy()
@@ -761,31 +778,6 @@
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
 	smooth = SMOOTH_MORE
-	canSmoothWith = list(
-		/turf/simulated/wall,
-		/turf/simulated/wall/r_wall,
-		/turf/unsimulated/wall/steel,
-		/turf/unsimulated/wall/darkshuttlewall,
-		/turf/unsimulated/wall/riveted,
-		/obj/structure/window_frame,
-		/obj/structure/window_frame/unanchored,
-		/obj/structure/window_frame/empty,
-		/obj/structure/window/full/reinforced,
-		/obj/structure/window/full/reinforced/indestructible,
-		/obj/structure/window/full/reinforced/polarized,
-		/obj/structure/window/full/reinforced/polarized/indestructible,
-		/obj/structure/window/full/phoron/reinforced,
-		/obj/structure/window/shuttle/scc_space_ship,
-		/turf/simulated/wall/shuttle/scc_space_ship,
-		/obj/machinery/door
-	)
-	blend_overlay = "wall"
-	attach_overlay = "attach"
-	can_blend_with = list(
-		/turf/simulated/wall,
-		/obj/machinery/door,
-		/obj/structure/window_frame
-	)
 
 /obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
 	dir_mods = handle_blending(adjacencies, dir_mods)
