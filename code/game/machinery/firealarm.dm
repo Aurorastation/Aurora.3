@@ -240,15 +240,19 @@
 // Convenience subtypes for mappers.
 /obj/machinery/firealarm/north
 	dir = NORTH
+	pixel_y = 32
 
 /obj/machinery/firealarm/east
 	dir = EAST
+	pixel_x = 22
 
 /obj/machinery/firealarm/west
 	dir = WEST
+	pixel_x = -22
 
 /obj/machinery/firealarm/south
 	dir = SOUTH
+	pixel_y = -17
 
 /*
 FIRE ALARM CIRCUIT

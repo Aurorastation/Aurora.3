@@ -70,48 +70,180 @@
 
 /obj/machinery/power/apc/north
 	dir = NORTH
+	pixel_y = 22
 
 /obj/machinery/power/apc/east
 	dir = EAST
+	pixel_x = 12
 
 /obj/machinery/power/apc/west
 	dir = WEST
+	pixel_x = -12
 
 /obj/machinery/power/apc/south
 	dir = SOUTH
+	pixel_y = 0
 
 /obj/machinery/power/apc/critical
 	is_critical = TRUE
 
+/obj/machinery/power/apc/critical/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/critical/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/critical/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/critical/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/low
 	cell_type = /obj/item/cell
 
+/obj/machinery/power/apc/low/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/low/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/low/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/low/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/high
 	cell_type = /obj/item/cell/high
+
+/obj/machinery/power/apc/high/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/high/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/high/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/high/south
+	dir = SOUTH
+	pixel_y = 0
 
 /obj/machinery/power/apc/isolation
 	cell_type = /obj/item/cell
 	req_access = null
 	req_one_access = list(access_engine_equip,access_research,access_xenobiology)
 
+/obj/machinery/power/apc/isolation/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/isolation/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/isolation/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/isolation/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/vault
 	cell_type = /obj/item/cell
 	req_access = list(access_captain)
+
+/obj/machinery/power/apc/vault/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/vault/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/vault/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/vault/south
+	dir = SOUTH
+	pixel_y = 0
 
 /obj/machinery/power/apc/intrepid
 	cell_type = /obj/item/cell/high
 	req_access = null
 	req_one_access = list(access_intrepid,access_engine_equip)
 
+/obj/machinery/power/apc/intrepid/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/intrepid/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/intrepid/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/intrepid/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/canary
 	cell_type = /obj/item/cell/high
 	req_access = null
 	req_one_access = list(access_intrepid,access_engine_equip)
 
+/obj/machinery/power/apc/canary/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/canary/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/canary/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/canary/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/mining_shuttle
 	cell_type = /obj/item/cell/high
 	req_access = null
 	req_one_access = list(access_mining,access_engine_equip)
+
+/obj/machinery/power/apc/mining_shuttle/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/mining_shuttle/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/mining_shuttle/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/mining_shuttle/south
+	dir = SOUTH
+	pixel_y = 0
 
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
@@ -123,17 +255,98 @@
 	coverlocked = FALSE
 	start_charge = 100
 
+/obj/machinery/power/apc/canary/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/canary/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/canary/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/canary/south
+	dir = SOUTH
+	pixel_y = 0
+
+
 /obj/machinery/power/apc/super
 	cell_type = /obj/item/cell/super
+
+/obj/machinery/power/apc/super/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/super/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/super/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/super/south
+	dir = SOUTH
+	pixel_y = 0
 
 /obj/machinery/power/apc/super/critical
 	is_critical = TRUE
 
+/obj/machinery/power/apc/super/critical/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/super/critical/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/super/critical/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/super/critical/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/hyper
 	cell_type = /obj/item/cell/hyper
 
+/obj/machinery/power/apc/hyper/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/hyper/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/hyper/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/hyper/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/empty
 	start_charge = 0
+
+/obj/machinery/power/apc/empty/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/empty/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/empty/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/empty/south
+	dir = SOUTH
+	pixel_y = 0
 
 /obj/machinery/power/apc
 	name = "area power controller"
