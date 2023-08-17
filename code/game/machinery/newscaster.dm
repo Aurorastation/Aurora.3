@@ -73,18 +73,21 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 /obj/machinery/newscaster/Initialize()         //Constructor, ho~
 	. = ..()                                //I just realised the newscasters weren't in the global machines list. The superconstructor call will tend to that
 	allCasters += src
-	src.paper_remaining = 15            // Will probably change this to something better
-	src.unit_no = allCasters.len + 1
-	pixel_x = DIR2PIXEL_X(dir)
-	pixel_y = DIR2PIXEL_Y(dir)
+	paper_remaining = 15            // Will probably change this to something better
+	unit_no = allCasters.len + 1
 	if(dir & NORTH)
 		alpha = 127
-	src.generate_overlays()
-	src.update_icon() //for any custom ones on the map...
+	generate_overlays()
+	update_icon() //for any custom ones on the map...
+	set_pixel_offsets()
 
 /obj/machinery/newscaster/Destroy()
 	allCasters -= src
 	return ..()
+
+/obj/machinery/newscaster/set_pixel_offsets()
+	pixel_x = DIR2PIXEL_X(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/machinery/newscaster/update_icon()
 	if(!ispowered || isbroken)

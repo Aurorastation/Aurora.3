@@ -14,12 +14,12 @@
 #define PIPE_LAYER 2.4 //under wires with their 2.44
 #define CABLE_LAYER 2.44
 #define ABOVE_CABLE_LAYER (CABLE_LAYER + 0.1)
-#define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6
 #define LAYER_TABLE 2.8
 #define LAYER_UNDER_TABLE 2.79
 #define LAYER_ABOVE_TABLE 2.81
 #define BELOW_OBJ_LAYER 2.9
 // OBJ_LAYER			3
+#define DOOR_OPEN_LAYER 3
 #define ABOVE_OBJ_LAYER 3.01
 #define UNDERDOOR 3.09		//Just barely under a closed door.
 #define WINDOW_PANE_LAYER 3.2

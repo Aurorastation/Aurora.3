@@ -20,16 +20,20 @@
 	. = ..()
 	if(id)
 		ringers = new(id, src)
-	pixel_x = DIR2PIXEL_X(src.dir)
-	pixel_y = DIR2PIXEL_Y(src.dir)
+
 	if(src.dir & NORTH)
 		alpha = 127
 	generate_overlays()
 	update_icon()
+	set_pixel_offsets()
 
 /obj/machinery/ringer/power_change()
 	..()
 	update_icon()
+
+/obj/machinery/ringer/set_pixel_offsets()
+	pixel_x = DIR2PIXEL_X(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/machinery/ringer/Destroy()
 	QDEL_NULL(ringers)

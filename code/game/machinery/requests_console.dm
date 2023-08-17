@@ -109,16 +109,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(building)
 		if(dir)
 			src.set_dir(dir)
-		pixel_x = DIR2PIXEL_X(src.dir)
-		pixel_y = DIR2PIXEL_Y(src.dir)
 		if(src.dir & NORTH)
 			alpha = 127
 		generate_overlays()
 		update_icon()
+		set_pixel_offsets()
 		return
 
-	pixel_x = DIR2PIXEL_X(src.dir)
-	pixel_y = DIR2PIXEL_Y(src.dir)
 	if(dir & NORTH)
 		alpha = 127
 
@@ -135,6 +132,11 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		req_console_information |= department
 	generate_overlays()
 	update_icon()
+	set_pixel_offsets()
+
+/obj/machinery/requests_console/set_pixel_offsets()
+	pixel_x = DIR2PIXEL_X(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/machinery/requests_console/Destroy()
 	allConsoles -= src

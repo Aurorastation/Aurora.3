@@ -177,9 +177,6 @@
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
 
-	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 12 : -12)
-	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : 0) : 0
-
 	if (!has_power())
 		stat |= NOPOWER
 	if (start_with_cell && !no_emergency)
@@ -201,10 +198,15 @@
 		brightness_color = pick(randomized_colors)
 	default_color = brightness_color // We need a different var so the new color doesn't get wiped away. Initial() wouldn't work since brightness_color is overridden.
 	update(0)
+	set_pixel_offsets()
 
 /obj/machinery/light/Destroy()
 	QDEL_NULL(cell)
 	return ..()
+
+/obj/machinery/light/set_pixel_offsets()
+	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 12 : -12)
+	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : 0) : 0
 
 /obj/machinery/light/update_icon()
 	cut_overlays()

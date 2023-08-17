@@ -38,9 +38,9 @@
 	var/maxhealth = 300
 	var/health
 	/// Integer. How many strong hits it takes to destroy the door.
-	var/destroy_hits = 10 
+	var/destroy_hits = 10
 	/// Integer. Minimum amount of force needed to damage the door with a melee weapon.
-	var/min_force = 10 
+	var/min_force = 10
 	var/hitsound = 'sound/weapons/smash.ogg' //sound door makes when hit with a weapon
 	var/hitsound_light = 'sound/effects/glass_hit.ogg'//Sound door makes when hit very gently
 	var/block_air_zones = 1 //If set, air zones cannot merge across the door even when it is opened.
@@ -506,7 +506,6 @@
 				playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
 	return
 
-
 /obj/machinery/door/proc/open(var/forced = 0)
 	set waitfor = FALSE
 
@@ -522,7 +521,7 @@
 	sleep(3)
 	src.density = 0
 	update_nearby_tiles()
-	sleep(7)
+	sleep(2)
 	src.layer = open_layer
 	explosion_resistance = 0
 	update_icon()
@@ -560,7 +559,7 @@
 	explosion_resistance = initial(explosion_resistance)
 	src.layer = closed_layer
 	update_nearby_tiles()
-	sleep(7)
+	sleep(2)
 	update_icon()
 	if(visible && !glass)
 		set_opacity(1)	//caaaaarn!

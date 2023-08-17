@@ -13,7 +13,7 @@
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 	var/state = STATE_UNWIRED
 	var/base_icon_state = ""
-	var/base_name = "Airlock"
+	var/base_name = "airlock"
 	var/obj/item/airlock_electronics/electronics = null
 	var/airlock_type = "" //the type path of the airlock once completed
 	var/glass_type = "/glass"
@@ -140,13 +140,13 @@
 
 /obj/structure/door_assembly/door_assembly_skrell
 	base_icon_state = "skrell_purple"
-	base_name = "Airlock"
+	base_name = "airlock"
 	airlock_type = "/skrell"
 	glass = -1
 
 /obj/structure/door_assembly/door_assembly_skrell/grey
 	base_icon_state = "skrell_grey"
-	base_name = "Airlock"
+	base_name = "airlock"
 	airlock_type = "/skrell/grey"
 
 /obj/structure/door_assembly/multi_tile

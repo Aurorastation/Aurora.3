@@ -221,9 +221,6 @@
 /obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
 	. = ..(mapload, ndir)
 
-	// Overwrite the mapped in values.
-	pixel_x = ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? 22 : -22))
-	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 32 : -17) : 0)
 	update_icon()
 
 	if(isContactLevel(z))
@@ -232,10 +229,16 @@
 
 	var/area/A = get_area(src)
 	RegisterSignal(A, COMSIG_AREA_FIRE_ALARM, TYPE_PROC_REF(/atom, update_icon))
+	set_pixel_offsets()
 
 /obj/machinery/firealarm/Destroy()
 	QDEL_NULL(soundloop)
 	. = ..()
+
+/obj/machinery/firealarm/set_pixel_offsets()
+	// Overwrite the mapped in values.
+	pixel_x = ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? 22 : -22))
+	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 32 : -17) : 0)
 
 // Convenience subtypes for mappers.
 /obj/machinery/firealarm/north

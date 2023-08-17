@@ -30,10 +30,13 @@
 
 /obj/structure/extinguisher_cabinet/Initialize()
 	. = ..()
-	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 21 : 4)
-	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? 24 : -23) : 4
 	has_extinguisher = new /obj/item/extinguisher(src)
 	update_icon()
+	set_pixel_offsets()
+
+/obj/structure/extinguisher_cabinet/set_pixel_offsets()
+	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 21 : 4)
+	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? 24 : -23) : 4
 
 /obj/structure/extinguisher_cabinet/attackby(obj/item/O, mob/user)
 	if(isrobot(user))

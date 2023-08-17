@@ -474,7 +474,9 @@
 		name = "[area.name] APC"
 		stat |= MAINT
 		update_icon()
+	set_pixel_offsets()
 
+/obj/machinery/power/apc/set_pixel_offsets()
 	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 12 : -(12)))
 	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 22 : -(0)) : 0)
 

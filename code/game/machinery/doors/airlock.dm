@@ -349,7 +349,7 @@
 	stripe_color = "#e943ff"
 
 /obj/machinery/door/airlock/glass_science
-	name = "Glass Airlocks"
+	name = "glass airlocks"
 	icon = 'icons/obj/doors/doorsciglass.dmi'
 	opacity = FALSE
 	assembly_type = /obj/structure/door_assembly/door_assembly_science
@@ -359,7 +359,7 @@
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass
-	name = "Glass Airlock"
+	name = "glass airlock"
 	icon_state = "preview_glass"
 	glass = 1
 	hitsound = 'sound/effects/glass_hit.ogg'
@@ -543,7 +543,7 @@
 	open_sound_unpowered = 'sound/machines/airlock/hatchforced.ogg'
 
 /obj/machinery/door/airlock/glass_command
-	name = "Glass Airlock"
+	name = "glass airlock"
 	icon_state = "cmd_glass"
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
@@ -557,7 +557,7 @@
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 
 /obj/machinery/door/airlock/glass_engineering
-	name = "Glass Airlock"
+	name = "glass airlock"
 	icon_state = "eng_glass"
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
@@ -571,7 +571,7 @@
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_security
-	name = "Glass Airlock"
+	name = "glass airlock"
 	icon_state = "sec_glass"
 	icon_state = "preview_glass"
 	paintable = AIRLOCK_PAINTABLE_MAIN
@@ -579,7 +579,7 @@
 	glass = 1
 
 /obj/machinery/door/airlock/glass_medical
-	name = "Glass Airlock"
+	name = "glass airlock"
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
@@ -606,14 +606,14 @@
 	stripe_color = "#62ff43"
 
 /obj/machinery/door/airlock/research
-	name = "Airlock"
+	name = "airlock"
 	icon_state = "sci"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#d6c8ee"
 	stripe_color = "#e943ff"
 
 /obj/machinery/door/airlock/glass_research
-	name = "Glass Airlock"
+	name = "glass airlock"
 	icon_state = "sci_glass"
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
@@ -627,7 +627,7 @@
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_mining
-	name = "Glass Airlock"
+	name = "glass airlock"
 	icon = 'icons/obj/doors/Doorminingglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
@@ -641,7 +641,7 @@
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_atmos
-	name = "Glass Airlock"
+	name = "glass airlock"
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
