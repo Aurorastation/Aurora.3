@@ -380,7 +380,7 @@
 
 /obj/item/clothing/suit/space/void/hephaestus/unathi
 	name = "caiman drop suit"
-	desc = "A superheavy Hephaestus designed terraforming suit, iconic for its usage in orbital drops onto hostile jungle worlds. This one looks to have been refitted for an Unathi wearer."
+	desc = "A superheavy Hephaestus-designed terraforming suit, iconic for its usage in orbital drops onto hostile jungle worlds. This one looks to have been refitted for an Unathi wearer."
 	species_restricted = list(BODYTYPE_UNATHI)
 	icon_state = "caiman_unathi"
 	item_state = "caiman_unathi"
