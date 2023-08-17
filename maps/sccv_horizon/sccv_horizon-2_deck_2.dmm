@@ -39,6 +39,7 @@
 /area/horizon/bar)
 "aau" = (
 /obj/machinery/door/airlock/glass_atmos{
+	dir = 4;
 	name = "Atmospherics Locker Room";
 	req_access = list(24)
 	},
@@ -1652,6 +1653,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/service{
+	dir = 4;
 	name = "Chaplain's Office and Chapel Storage";
 	req_access = list(22)
 	},
@@ -1840,6 +1842,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
+	dir = 4;
 	id_tag = "cell_1";
 	name = "Cell A";
 	req_access = list(2)
@@ -5662,6 +5665,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering EVA Storage";
 	req_one_access = list(11,24)
 	},
@@ -5928,6 +5932,7 @@
 "cRu" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
+	dir = 4;
 	name = "Engineering Hard Storage";
 	req_one_access = list(11,24)
 	},
@@ -6481,7 +6486,9 @@
 /area/horizon/bar/backroom)
 "dit" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
 "djj" = (
@@ -7436,6 +7443,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Deck 2 Central Washroom Maintenance";
 	req_access = list(12)
 	},
@@ -8208,6 +8216,7 @@
 "ebT" = (
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
+	dir = 4;
 	id_tag = "cell_2";
 	name = "Cell B";
 	req_access = list(2)
@@ -8381,6 +8390,14 @@
 	},
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
+"ehS" = (
+/obj/machinery/door/airlock{
+	dir = 4;
+	name = "Brig Showers"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
+/area/horizon/security/brig)
 "ehU" = (
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 8
@@ -8802,6 +8819,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Tesla Reactor";
 	req_access = list(11)
 	},
@@ -11110,6 +11128,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering Locker Room";
 	req_access = list(11)
 	},
@@ -11420,6 +11439,7 @@
 /area/horizon/exterior)
 "fJX" = (
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering Hallway";
 	req_one_access = list(10)
 	},
@@ -13915,6 +13935,7 @@
 "gKt" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Security Maintenance";
 	req_access = list(63)
 	},
@@ -14901,7 +14922,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
 "hlc" = (
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "hlu" = (
@@ -15644,7 +15667,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
@@ -16413,6 +16438,7 @@
 /area/operations/office)
 "hUW" = (
 /obj/machinery/door/airlock/glass_service{
+	dir = 8;
 	name = "Kitchen";
 	req_access = list(28)
 	},
@@ -16915,6 +16941,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Security Maintenance";
 	req_access = list(63)
 	},
@@ -17933,11 +17960,12 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering Hallway";
 	req_one_access = list(10)
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
 	},
@@ -18611,7 +18639,9 @@
 /turf/simulated/wall/r_wall,
 /area/turret_protected/ai)
 "iYf" = (
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
@@ -20027,6 +20057,7 @@
 /area/maintenance/wing/port/far)
 "jFi" = (
 /obj/machinery/door/airlock/glass_command{
+	dir = 4;
 	id_tag = "server_door_lock";
 	name = "Server Room";
 	req_access = list(30)
@@ -20330,6 +20361,7 @@
 "jMB" = (
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
+	dir = 4;
 	id_tag = "cell_3";
 	name = "Cell C";
 	req_access = list(2)
@@ -22427,6 +22459,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Security Maintenance";
 	req_access = list(63)
 	},
@@ -22541,6 +22574,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Operations Maintenance";
 	req_one_access = list(26,29,31,48,67)
 	},
@@ -23623,6 +23657,7 @@
 "lBS" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Public Garden Maintenance";
 	req_access = list(12)
 	},
@@ -24585,7 +24620,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
@@ -25887,7 +25924,9 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "mFs" = (
@@ -26393,6 +26432,7 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/door/airlock/security{
+	dir = 4;
 	id_tag = "HoSdoor";
 	name = "Head of Security's Office";
 	req_access = list(58);
@@ -26814,7 +26854,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
 "mYL" = (
@@ -30285,6 +30327,7 @@
 "oHX" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
+	dir = 4;
 	name = "Deck 2 Central Washroom"
 	},
 /obj/effect/floor_decal/spline/plain/corner,
@@ -31481,6 +31524,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering Hallway";
 	req_access = list(10)
 	},
@@ -31806,6 +31850,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/engineering{
+	dir = 4;
 	name = "Deck 2 Research Substation";
 	req_one_access = list(11,24)
 	},
@@ -32854,6 +32899,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering Front Desk";
 	req_access = list(10)
 	},
@@ -33520,7 +33566,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
@@ -35907,6 +35955,7 @@
 /area/maintenance/wing/port)
 "ryy" = (
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering EVA Storage";
 	req_one_access = list(11,24)
 	},
@@ -36633,6 +36682,7 @@
 /area/maintenance/wing/port/far)
 "rRS" = (
 /obj/machinery/door/airlock/glass_service{
+	dir = 4;
 	name = "Kitchen";
 	req_access = list(28)
 	},
@@ -37144,6 +37194,7 @@
 /area/maintenance/wing/starboard/far)
 "sem" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Operations Maintenance";
 	req_one_access = list(26,29,31,48,67)
 	},
@@ -37815,6 +37866,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass_service{
+	dir = 4;
 	name = "Bar - Preparations";
 	req_access = list(25)
 	},
@@ -37980,6 +38032,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Chaplain Office's Maintenance";
 	req_access = list(22)
 	},
@@ -38501,6 +38554,7 @@
 "sSZ" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/freezer{
+	dir = 4;
 	name = "Freezer";
 	req_access = list(28)
 	},
@@ -40239,6 +40293,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
+	dir = 8;
 	name = "Research and Development";
 	req_access = list(7)
 	},
@@ -40867,6 +40922,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/airlock/glass_research{
+	dir = 4;
 	name = "Autopsy and Incineration"
 	},
 /obj/effect/map_effect/door_helper/unres{
@@ -41199,6 +41255,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
+	dir = 4;
 	id_tag = "cell_isolation";
 	name = "Isolation Cell";
 	req_access = list(2)
@@ -41219,6 +41276,7 @@
 /area/chapel/main)
 "uje" = (
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Tesla Reactor Monitoring Room";
 	req_access = list(11)
 	},
@@ -42416,6 +42474,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
+	dir = 4;
 	name = "Exploratory Chemistry";
 	req_access = list(7)
 	},
@@ -43047,6 +43106,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Security Maintenance";
 	req_access = list(63)
 	},
@@ -44328,6 +44388,7 @@
 /area/horizon/bar)
 "vKf" = (
 /obj/machinery/door/airlock/glass_service{
+	dir = 4;
 	name = "Kitchen";
 	req_access = list(28)
 	},
@@ -44868,6 +44929,7 @@
 /area/engineering/engine_room)
 "vVo" = (
 /obj/machinery/door/airlock/glass_service{
+	dir = 4;
 	name = "Bar - Preparations";
 	req_access = list(25)
 	},
@@ -45138,6 +45200,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Tesla Reactor Monitoring Room";
 	req_access = list(11)
 	},
@@ -46765,6 +46828,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
+	dir = 4;
 	name = "Research and Development";
 	req_access = list(7)
 	},
@@ -46879,6 +46943,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
@@ -47906,6 +47971,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
+	dir = 4;
 	name = "Communal Interior";
 	req_access = list(2)
 	},
@@ -49438,6 +49504,7 @@
 /area/horizon/security/head_of_security)
 "xWL" = (
 /obj/machinery/door/airlock/glass_atmos{
+	dir = 4;
 	name = "Atmospherics Locker Room";
 	req_access = list(24)
 	},
@@ -49912,6 +49979,7 @@
 "yeT" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_security{
+	dir = 4;
 	name = "Communal Exterior";
 	req_access = list(2)
 	},
@@ -50181,6 +50249,7 @@
 /area/maintenance/wing/port/far)
 "ykd" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	req_access = list(12)
 	},
 /obj/machinery/door/firedoor,
@@ -80268,7 +80337,7 @@ bDo
 iOg
 baJ
 bDo
-dYR
+ehS
 bDo
 bDo
 bDo

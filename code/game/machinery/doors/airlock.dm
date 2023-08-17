@@ -23,7 +23,7 @@
 
 /obj/machinery/door/airlock
 	name = "airlock"
-	icon = 'icons/obj/doors/station/door.dmi'
+	icon = 'icons/obj/doors/basic/single/generic/door.dmi'
 	icon_state = "preview"
 	power_channel = ENVIRON
 	hatch_colour = "#7d7d7d"
@@ -31,6 +31,8 @@
 	explosion_resistance = 10
 	autoclose = TRUE
 	normalspeed = TRUE
+	pixel_x = -16
+	pixel_y = -16
 	/// Boolean. Whether or not the AI control mechanism is disabled.
 	var/ai_control_disabled = FALSE
 	/// Boolean. If set, the door cannot by hacked or bypassed by the AI.
@@ -58,7 +60,7 @@
 	/// Boolean. Whether or not the airlock's lights are enabled. Tied to the bolt light wire.
 	var/lights = TRUE
 	/// Path. The assembly structure used to create this door. Used during disassembly steps.
-	var/assembly_type = /obj/structure/door_assembly
+	var/assembly_type = /obj/structure/door_assembly/door_assembly_generic
 	/// Boolean. Whether or not the ID scanner is enabled. Tied to the ID scan wire.
 	var/ai_disabled_id_scanner = FALSE
 	/// Boolean. Whether or not the AI is currently hacking the door.
@@ -105,21 +107,25 @@
 	/// Soundfile. The sound played when the door is locked/bolted.
 	var/bolts_dropping = 'sound/machines/boltsdown.ogg'
 
-	var/fill_file = 'icons/obj/doors/station/fill_steel.dmi'
-	var/color_file = 'icons/obj/doors/station/color.dmi'
-	var/frame_color_file = 'icons/obj/doors/station/color.dmi'
-	var/color_fill_file = 'icons/obj/doors/station/fill_color.dmi'
-	var/stripe_file = 'icons/obj/doors/station/stripe.dmi'
-	var/stripe_fill_file = 'icons/obj/doors/station/fill_stripe.dmi'
-	var/glass_file = 'icons/obj/doors/station/fill_glass.dmi'
-	var/bolts_file = 'icons/obj/doors/station/lights_bolts.dmi'
-	var/deny_file = 'icons/obj/doors/station/lights_deny.dmi'
-	var/lights_file = 'icons/obj/doors/station/lights_green.dmi'
-	var/panel_file = 'icons/obj/doors/station/panel.dmi'
-	var/sparks_damaged_file = 'icons/obj/doors/station/sparks_damaged.dmi'
-	var/sparks_broken_file = 'icons/obj/doors/station/sparks_broken.dmi'
-	var/welded_file = 'icons/obj/doors/station/welded.dmi'
-	var/emag_file = 'icons/obj/doors/station/emag.dmi'
+	var/frame_color_file = 'icons/obj/doors/basic/single/generic/frame_color.dmi'
+
+	var/color_file = 'icons/obj/doors/basic/single/generic/color.dmi'
+	var/color_fill_file = 'icons/obj/doors/basic/single/generic/fill_color.dmi'
+
+	var/stripe_file = 'icons/obj/doors/basic/single/generic/stripe.dmi'
+	var/stripe_fill_file = 'icons/obj/doors/basic/single/generic/fill_stripe.dmi'
+
+	var/glass_file = 'icons/obj/doors/basic/single/generic/fill_glass.dmi'
+	var/fill_file = 'icons/obj/doors/basic/single/generic/fill_steel.dmi'
+
+	var/bolts_file = 'icons/obj/doors/basic/single/generic/lights_bolts.dmi'
+	var/deny_file = 'icons/obj/doors/basic/single/generic/lights_deny.dmi'
+	var/lights_file = 'icons/obj/doors/basic/single/generic/lights_green.dmi'
+	var/panel_file = 'icons/obj/doors/basic/single/generic/panel.dmi'
+	var/sparks_damaged_file = 'icons/obj/doors/basic/single/generic/sparks_damaged.dmi'
+	var/sparks_broken_file = 'icons/obj/doors/basic/single/generic/sparks_broken.dmi'
+	var/welded_file = 'icons/obj/doors/basic/single/generic/welded.dmi'
+	var/emag_file = 'icons/obj/doors/basic/single/generic/emag.dmi'
 
 	//Airlock 2.0 Aesthetics Properties
 	//The variables below determine what color the airlock and decorative stripes will be -Cakey
@@ -128,9 +134,9 @@
 	/// Bitflag (Any of `AIRLOCK_PAINTABLE_*`). Determines what parts of the airlock can be recolored with paint.
 	var/paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	/// Color. The color of the main door body.
-	var/door_color = null
+	var/door_color = "#909299"
 	/// Frame color. The color of the door frame connecting it to walls if applicable.
-	var/door_frame_color = null
+	var/door_frame_color = COLOR_GRAY20
 	/// Color. The color of the stripe detail.
 	var/stripe_color = null
 	/// Color. The color of the symbol detail.
@@ -151,7 +157,6 @@
 	/// Boolean. If TRUE, the door will open when power runs out.
 	var/insecure = TRUE
 	var/securitylock = FALSE
-
 
 /obj/machinery/door/airlock/Initialize(mapload, dir, populate_components, obj/structure/door_assembly/assembly = null)
 	var/on_admin_z = FALSE
@@ -235,155 +240,6 @@
 		return SSmaterials.get_material_by_name(mineral)
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 
-/obj/machinery/door/airlock/generic // the start
-	icon = 'icons/obj/doors/basic/single/generic/door.dmi'
-	door_color = "#909299"//The color of the door itself
-	door_frame_color = COLOR_GRAY20//The color of the frame that surrounds the door connecting its sprite to walls
-	pixel_x = -16
-	pixel_y = -16
-	assembly_type = /obj/structure/door_assembly/door_assembly_generic
-	frame_color_file = 'icons/obj/doors/basic/single/generic/frame_color.dmi'
-
-	color_file = 'icons/obj/doors/basic/single/generic/color.dmi'
-	color_fill_file = 'icons/obj/doors/basic/single/generic/fill_color.dmi'
-
-	stripe_file = 'icons/obj/doors/basic/single/generic/stripe.dmi'
-	stripe_fill_file = 'icons/obj/doors/basic/single/generic/fill_stripe.dmi'
-
-	glass_file = 'icons/obj/doors/basic/single/generic/fill_glass.dmi'
-	fill_file = 'icons/obj/doors/basic/single/generic/fill_steel.dmi'
-
-	bolts_file = 'icons/obj/doors/basic/single/generic/lights_bolts.dmi'
-	deny_file = 'icons/obj/doors/basic/single/generic/lights_deny.dmi'
-	lights_file = 'icons/obj/doors/basic/single/generic/lights_green.dmi'
-	panel_file = 'icons/obj/doors/basic/single/generic/panel.dmi'
-	sparks_damaged_file = 'icons/obj/doors/basic/single/generic/sparks_damaged.dmi'
-	sparks_broken_file = 'icons/obj/doors/basic/single/generic/sparks_broken.dmi'
-	welded_file = 'icons/obj/doors/basic/single/generic/welded.dmi'
-	emag_file = 'icons/obj/doors/basic/single/generic/emag.dmi'
-
-/obj/machinery/door/airlock/generic_glass
-	icon_state = "preview_glass"
-	glass = 1
-
-/obj/machinery/door/airlock/generic/command
-	icon_state = "cmd"
-	door_color = "#353c4b"
-
-/obj/machinery/door/airlock/generic/command_glass
-	icon_state = "cmd_glass"
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#516487"
-	stripe_color = "#ffc443"
-	glass = 1
-
-/obj/machinery/door/airlock/generic/command_gold
-	icon_state = "cmdgold"
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#475057"
-	stripe_color = "#ffc443"
-
-/obj/machinery/door/airlock/generic/security
-	icon_state = "sec"
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#2b4b68"
-	stripe_color = "#ff4343"
-
-/obj/machinery/door/airlock/generic/security_glass
-	icon_state = "sec_glass"
-	icon_state = "preview_glass"
-	paintable = AIRLOCK_PAINTABLE_MAIN
-	door_color = "#2b4b68"
-	glass = 1
-
-/obj/machinery/door/airlock/generic/security_gold
-	icon_state = "sec"
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#2b4b68"
-	stripe_color = "#ffc443"
-
-/obj/machinery/door/airlock/generic/engineering
-	icon_state = "eng"
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#caa638"
-	stripe_color = "#ff7f43"
-
-/obj/machinery/door/airlock/generic/engineering_glass
-	icon_state = "eng_glass"
-	paintable = AIRLOCK_PAINTABLE_MAIN
-	door_color = "#caa638"
-	stripe_color = "#ff7f43"
-	glass = 1
-
-/obj/machinery/door/airlock/generic/engineering_green
-	icon_state = "eng"
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#caa638"
-	stripe_color = "#62ff43"
-
-/obj/machinery/door/airlock/generic/maintenance
-	icon_state = "grey"
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#4d4d4d"
-	stripe_color = "#a88029"
-
-/obj/machinery/door/airlock/generic/maintenance/external//for connecting to the horizons hull, duh
-	door_frame_color = "#81838b"//Meant to connect to external scc spaceship walls like the horizon hull
-
-/obj/machinery/door/airlock/generic/service
-	icon_state = "ser"
-	paintable = AIRLOCK_PAINTABLE_MAIN
-	door_color = "#6f8751"
-
-/obj/machinery/door/airlock/generic/service_glass
-	icon_state = "ser_glass"
-	paintable = AIRLOCK_PAINTABLE_MAIN
-	door_color = "#6f8751"
-	glass = 1
-
-/obj/machinery/door/airlock/generic/research
-	icon_state = "sci"
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#d6c8ee"
-	stripe_color = "#e943ff"
-
-/obj/machinery/door/airlock/generic/research_glass
-	icon_state = "sci_glass"
-	paintable = AIRLOCK_PAINTABLE_MAIN
-	door_color = "#d6c8ee"
-	glass = 1
-
-/obj/machinery/door/airlock/generic/khaki
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#364664"
-	stripe_color = "#ff4343"
-	door_frame_color = "#8d8078"
-
-/obj/machinery/door/airlock/generic/merc
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#534663"
-	stripe_color = "#fac826"
-	door_frame_color = "#8b7d86"
-
-/obj/machinery/door/airlock/generic/red
-	paintable = AIRLOCK_PAINTABLE_MAIN
-	door_color = "#364664"
-	door_frame_color = "#c24f4f"
-
-/obj/machinery/door/airlock/generic/purple
-	paintable = AIRLOCK_PAINTABLE_MAIN
-	door_color = "#596170"
-	door_frame_color = "#7846b1"
-
-/obj/machinery/door/airlock/generic/blue
-	paintable = AIRLOCK_PAINTABLE_MAIN
-	door_color = "#63584a"
-	door_frame_color = "#6176a1"
-
-/obj/machinery/door/airlock/generic/freezer
-	paintable = AIRLOCK_PAINTABLE_MAIN
-	door_color = "#b9b8b6"
-
 /obj/machinery/door/airlock/generic/external//External airlocks start here
 	name = "External Airlock"
 	icon = 'icons/obj/doors/basic/single/external/door.dmi'
@@ -414,27 +270,26 @@
 	door_frame_color = "#7846b1"
 
 /obj/machinery/door/airlock/service // Service Airlock
-	icon = 'icons/obj/doors/doorser.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_ser
-	hatch_colour = "#6f8751"
+	icon_state = "ser"
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#6f8751"
 
 /obj/machinery/door/airlock/glass_service // Service Airlock (Glass)
-	name = "Glass Airlock"
-	icon = 'icons/obj/doors/doorserglass.dmi'
-	hitsound = 'sound/effects/glass_hit.ogg'
-	maxhealth = 300
-	explosion_resistance = 5
-	opacity = FALSE
-	assembly_type = /obj/structure/door_assembly/door_assembly_ser
+	icon_state = "ser_glass"
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#6f8751"
 	glass = 1
-	hatch_colour = "#6f8751"
-	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
-	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/command
-	icon = 'icons/obj/doors/Doorcom.dmi'
+	icon_state = "cmd"
+	door_color = "#353c4b"
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
-	hatch_colour = "#446892"
+
+/obj/machinery/door/airlock/command/gold
+	icon_state = "cmdgold"
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#475057"
+	stripe_color = "#ffc443"
 
 /obj/machinery/door/airlock/sac
 	icon = 'icons/obj/doors/DoorSAC.dmi'
@@ -446,14 +301,22 @@
 	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
 
 /obj/machinery/door/airlock/security
-	icon = 'icons/obj/doors/Doorsec.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_sec
-	hatch_colour = "#677c97"
+	icon_state = "sec"
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#2b4b68"
+	stripe_color = "#ff4343"
+
+/obj/machinery/door/airlock/security/gold
+	icon_state = "sec"
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#2b4b68"
+	stripe_color = "#ffc443"
 
 /obj/machinery/door/airlock/engineering
-	icon = 'icons/obj/doors/Dooreng.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_eng
-	hatch_colour = "#caa638"
+	icon_state = "eng"
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#caa638"
+	stripe_color = "#ff7f43"
 
 /obj/machinery/door/airlock/medical
 	icon = 'icons/obj/doors/doormed.dmi'
@@ -462,11 +325,13 @@
 
 /obj/machinery/door/airlock/maintenance
 	name = "Maintenance Access"
-	icon = 'icons/obj/doors/Doormaint.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_mai
-	hatch_colour = "#7d7d7d"
-	open_sound_powered = 'sound/machines/airlock/door2o.ogg'
-	close_sound_powered = 'sound/machines/airlock/door2c.ogg'
+	icon_state = "grey"
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#4d4d4d"
+	stripe_color = "#a88029"
+
+/obj/machinery/door/airlock/generic/maintenance/external//for connecting to the horizons hull, duh
+	door_frame_color = "#81838b"//Meant to connect to external scc spaceship walls like the horizon hull
 
 /obj/machinery/door/airlock/external
 	name = "External Airlock"
@@ -478,9 +343,10 @@
 	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
 
 /obj/machinery/door/airlock/science
-	icon = 'icons/obj/doors/doorsci.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_science
-	hatch_colour = "#d2d2d2"
+	icon_state = "sci"
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#d6c8ee"
+	stripe_color = "#e943ff"
 
 /obj/machinery/door/airlock/glass_science
 	name = "Glass Airlocks"
@@ -494,12 +360,12 @@
 
 /obj/machinery/door/airlock/glass
 	name = "Glass Airlock"
-	icon = 'icons/obj/doors/Doorglass.dmi'
+	icon_state = "preview_glass"
+	glass = 1
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
 	opacity = FALSE
-	glass = 1
 	panel_visible_while_open = TRUE
 	hatch_colour = "#eaeaea"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
@@ -630,12 +496,11 @@
 
 /obj/machinery/door/airlock/freezer
 	name = "Freezer Airlock"
-	icon = 'icons/obj/doors/Doorfreezer.dmi'
+	door_color = "#b9b8b6"
 	desc = "An extra thick, double-insulated door to preserve the cold atmosphere. Keep closed at all times."
 	maxhealth = 800
 	opacity = TRUE
-	assembly_type = /obj/structure/door_assembly/door_assembly_fre
-	hatch_colour = "#ffffff"
+	paintable = AIRLOCK_PAINTABLE_MAIN
 	open_duration = 20
 
 /obj/machinery/door/airlock/freezer_maint
@@ -670,10 +535,8 @@
 
 /obj/machinery/door/airlock/maintenance_hatch
 	name = "Maintenance Hatch"
-	icon = 'icons/obj/doors/Doorhatchmaint2.dmi'
 	explosion_resistance = 20
 	opacity = TRUE
-	assembly_type = /obj/structure/door_assembly/door_assembly_mhatch
 	hatch_colour = "#7d7d7d"
 	open_sound_powered = 'sound/machines/airlock/hatchopen.ogg'
 	close_sound_powered = 'sound/machines/airlock/hatchclose.ogg'
@@ -681,47 +544,42 @@
 
 /obj/machinery/door/airlock/glass_command
 	name = "Glass Airlock"
-	icon = 'icons/obj/doors/Doorcomglass.dmi'
+	icon_state = "cmd_glass"
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
 	opacity = FALSE
-	assembly_type = /obj/structure/door_assembly/door_assembly_com
 	glass = 1
-	hatch_colour = "#3e638c"
+	door_color = "#516487"
+	stripe_color = "#ffc443"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 
 /obj/machinery/door/airlock/glass_engineering
 	name = "Glass Airlock"
-	icon = 'icons/obj/doors/Doorengglass.dmi'
+	icon_state = "eng_glass"
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
 	opacity = FALSE
-	assembly_type = /obj/structure/door_assembly/door_assembly_eng
 	glass = 1
-	hatch_colour = "#caa638"
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#caa638"
+	stripe_color = "#ff7f43"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_security
 	name = "Glass Airlock"
-	hitsound = 'sound/effects/glass_hit.ogg'
-	maxhealth = 300
-	explosion_resistance = 5
-	opacity = FALSE
-	assembly_type = /obj/structure/door_assembly/door_assembly_sec
-	glass = TRUE
-	hatch_colour = "#677c97"
-	door_color = "#677c97"
-	stripe_color = "#9A8E48"
-	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
-	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
+	icon_state = "sec_glass"
+	icon_state = "preview_glass"
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#2b4b68"
+	glass = 1
 
 /obj/machinery/door/airlock/glass_medical
 	name = "Glass Airlock"
-	icon = 'icons/obj/doors/doormedglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
@@ -729,6 +587,8 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_med
 	glass = 1
 	hatch_colour = "#d2d2d2"
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#395837"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
@@ -740,27 +600,29 @@
 
 /obj/machinery/door/airlock/atmos
 	name = "Atmospherics Airlock"
-	icon = 'icons/obj/doors/Dooratmo.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_atmo
-	hatch_colour = "#caa638"
+	icon_state = "eng"
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#caa638"
+	stripe_color = "#62ff43"
 
 /obj/machinery/door/airlock/research
 	name = "Airlock"
-	icon = 'icons/obj/doors/doorresearch.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_research
-	hatch_colour = "#d2d2d2"
+	icon_state = "sci"
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#d6c8ee"
+	stripe_color = "#e943ff"
 
 /obj/machinery/door/airlock/glass_research
 	name = "Glass Airlock"
-	icon = 'icons/obj/doors/doorresearchglass.dmi'
+	icon_state = "sci_glass"
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
 	opacity = FALSE
-	assembly_type = /obj/structure/door_assembly/door_assembly_research
 	glass = 1
 	heat_proof = 1
-	hatch_colour = "#d2d2d2"
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#d6c8ee"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
@@ -771,53 +633,81 @@
 	maxhealth = 300
 	explosion_resistance = 5
 	opacity = FALSE
-	assembly_type = /obj/structure/door_assembly/door_assembly_min
 	glass = 1
+	door_color = "#967032"
+	stripe_color = "#5f350b"
 	hatch_colour = "#c29142"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_atmos
 	name = "Glass Airlock"
-	icon = 'icons/obj/doors/Dooratmoglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
 	opacity = FALSE
 	assembly_type = /obj/structure/door_assembly/door_assembly_atmo
 	glass = 1
-	hatch_colour = "#caa638"
+	door_color = "#caa638"
+	stripe_color = "#295773"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
+/obj/machinery/door/airlock/khaki
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#364664"
+	stripe_color = "#ff4343"
+	door_frame_color = "#8d8078"
+
+/obj/machinery/door/airlock/merc
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#534663"
+	stripe_color = "#fac826"
+	door_frame_color = "#8b7d86"
+
+/obj/machinery/door/airlock/red
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#364664"
+	door_frame_color = "#c24f4f"
+
+/obj/machinery/door/airlock/purple
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#596170"
+	door_frame_color = "#7846b1"
+
+/obj/machinery/door/airlock/blue
+	paintable = AIRLOCK_PAINTABLE_MAIN
+	door_color = "#63584a"
+	door_frame_color = "#6176a1"
+
 /obj/machinery/door/airlock/gold
 	name = "Gold Airlock"
-	icon = 'icons/obj/doors/Doorgold.dmi'
+	door_color = COLOR_GOLD
 	mineral = "gold"
 	hatch_colour = "#dbbb2b"
 
 /obj/machinery/door/airlock/silver
 	name = "Silver Airlock"
-	icon = 'icons/obj/doors/Doorsilver.dmi'
+	door_color = COLOR_SILVER
 	mineral = "silver"
 	hatch_colour = "#ffffff"
 
 /obj/machinery/door/airlock/diamond
 	name = "Diamond Airlock"
-	icon = 'icons/obj/doors/Doordiamond.dmi'
+	door_color = COLOR_DIAMOND
 	mineral = "diamond"
 	hatch_colour = "#66eeee"
 	maxhealth = 2000
 
 /obj/machinery/door/airlock/sandstone
 	name = "Sandstone Airlock"
-	icon = 'icons/obj/doors/Doorsand.dmi'
+	door_color = COLOR_BEIGE
 	mineral = "sandstone"
 	hatch_colour = "#efc8a8"
 
 /obj/machinery/door/airlock/palepurple
 	name = "airlock"
-	icon = 'icons/obj/doors/Doorpalepurple.dmi'
+	door_color = COLOR_PURPLE
 	hashatch = FALSE
 
 /obj/machinery/door/airlock/highsecurity
@@ -836,7 +726,7 @@
 
 /obj/machinery/door/airlock/skrell
 	name = "airlock"
-	icon = 'icons/obj/doors/purple_skrell_door.dmi'
+	door_color = COLOR_PURPLE_GRAY
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = 600
@@ -848,7 +738,7 @@
 
 /obj/machinery/door/airlock/diona
 	name = "biomass airlock"
-	icon = 'icons/obj/doors/Door_dionae_airlock.dmi'
+	door_color = COLOR_GREEN
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = 600
@@ -862,7 +752,7 @@
 /obj/machinery/door/airlock/uranium
 	name = "Uranium Airlock"
 	desc = "And they said I was crazy."
-	icon = 'icons/obj/doors/Dooruranium.dmi'
+	door_color = COLOR_GREEN
 	mineral = "uranium"
 	var/last_event = 0
 	hatch_colour = "#004400"
@@ -878,7 +768,7 @@
 /obj/machinery/door/airlock/phoron
 	name = "Phoron Airlock"
 	desc = "No way this can end badly."
-	icon = 'icons/obj/doors/Doorphoron.dmi'
+	door_color = COLOR_VIOLET
 	mineral = MATERIAL_PHORON
 	hatch_colour = "#891199"
 
