@@ -296,15 +296,15 @@ var/global/list/radial_menus = list()
 /**
  * Presents a radial menu to an user, over an anchor point
  *
- * user - A `/mob` whose user to show the radial menu to
- * anchor - An `/atom` to where to overlay the radial menu to
- * choices - A list of choices, where the list keys are movables or text used for element names and return value, and values are movables/icons/images used for element icons
- * uniqueid - An unique ID to identify the radial menu with
- * radius - A radius, aka how big the radial menu is
- * custom_check - A `/datum/callback` to invoke, to validate that the menu should still be waited on
- * require_near - Boolean, if the menu should disappear when the user is not in range anymore
- * tooltips - Boolean, if to show tooltips to the user
- * no_repeat_close - Boolean, if an unique ID is used and this is set, close the menu instead of repeating the displaying of it
+ * * user - A `/mob` whose user to show the radial menu to
+ * * anchor - An `/atom` to where to overlay the radial menu to
+ * * choices - A list of choices, where the list keys are movables or text used for element names and return value, and values are movables/icons/images used for element icons
+ * * uniqueid - An unique ID to identify the radial menu with
+ * * radius - A radius, aka how big the radial menu is
+ * * custom_check - A `/datum/callback` to invoke, to validate that the menu should still be waited on
+ * * require_near - Boolean, if the menu should disappear when the user is not in range anymore
+ * * tooltips - Boolean, if to show tooltips to the user
+ * * no_repeat_close - Boolean, if an unique ID is used and this is set, close the menu instead of repeating the displaying of it
  */
 /proc/show_radial_menu(mob/user, atom/anchor, list/choices, uniqueid, radius, datum/callback/custom_check, require_near = FALSE, tooltips = FALSE, no_repeat_close = FALSE)
 	if(!user || !anchor || !length(choices))
