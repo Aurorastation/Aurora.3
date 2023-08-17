@@ -342,12 +342,6 @@
 	open_sound_powered = 'sound/machines/airlock/space1o.ogg'
 	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
 
-/obj/machinery/door/airlock/science
-	icon_state = "sci"
-	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#d6c8ee"
-	stripe_color = "#e943ff"
-
 /obj/machinery/door/airlock/glass_science
 	name = "glass airlocks"
 	icon = 'icons/obj/doors/doorsciglass.dmi'

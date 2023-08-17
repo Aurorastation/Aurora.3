@@ -1143,7 +1143,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
-	icon_state = "door_locked";
 	id_tag = "xeno_entrance";
 	locked = 1;
 	name = "Xenobiology Department";
@@ -7504,6 +7503,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/atmos{
+	dir = 4;
 	name = "Deck 2 Starboard Auxiliary Atmospherics";
 	req_one_access = list(11,24)
 	},
@@ -9267,9 +9267,6 @@
 	layer = 4;
 	pixel_y = 32
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /mob/living/simple_animal/hostile/commanded/dog/columbo,
 /turf/simulated/floor/carpet,
 /area/horizon/security/head_of_security)
@@ -9780,7 +9777,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "eUY" = (
@@ -22341,6 +22340,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_research{
+	dir = 4;
 	name = "Xenobotany Decontamination";
 	req_access = list(52)
 	},
@@ -24548,7 +24548,9 @@
 /area/rnd/research)
 "lXo" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "lXt" = (
@@ -26332,6 +26334,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/engineering{
+	dir = 4;
 	name = "Deck 1, 2, and 3 Medical Substation";
 	req_one_access = list(11,24)
 	},
@@ -27698,7 +27701,9 @@
 "nqs" = (
 /obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "nqE" = (
@@ -28408,6 +28413,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	req_one_access = list(5,10,12)
 	},
 /obj/machinery/door/firedoor,
@@ -30241,6 +30247,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
+"oDV" = (
+/obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/far)
 "oEr" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
 	dir = 1
@@ -35055,6 +35069,7 @@
 /area/horizon/crew_quarters/washroom/central)
 "rck" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	req_one_access = list(5,10,12)
 	},
 /obj/machinery/door/firedoor,
@@ -36547,6 +36562,7 @@
 "rOx" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_service{
+	dir = 4;
 	name = "Library"
 	},
 /obj/structure/disposalpipe/segment{
@@ -39953,6 +39969,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
+	dir = 4;
 	name = "Xenobiology";
 	req_access = list(55)
 	},
@@ -42601,6 +42618,7 @@
 /area/horizon/bar)
 "uMM" = (
 /obj/machinery/door/airlock/glass_medical{
+	dir = 4;
 	name = "First Responder Quarters";
 	req_access = list(67)
 	},
@@ -42964,6 +42982,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/door/airlock/glass_medical{
+	dir = 4;
 	name = "First Responder Quarters";
 	req_access = list(67)
 	},
@@ -48673,6 +48692,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
+	dir = 4;
 	name = "Main Storage";
 	req_access = list(66)
 	},
@@ -56886,10 +56906,10 @@ kHx
 vcH
 vcH
 dEz
-xqo
+oDV
 dEz
 dEz
-xqo
+oDV
 dEz
 dEz
 dEz
@@ -57896,7 +57916,7 @@ fsf
 qdY
 dEz
 dEz
-xqo
+oDV
 dEz
 dEz
 uOq
