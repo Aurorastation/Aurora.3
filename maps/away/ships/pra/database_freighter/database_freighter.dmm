@@ -318,7 +318,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/science{
+/obj/machinery/door/airlock/research{
 	req_access = list(209);
 	name = "Laboratory"
 	},
@@ -1064,7 +1064,7 @@
 	},
 /area/database_freighter)
 "eA" = (
-/obj/machinery/door/airlock/science{
+/obj/machinery/door/airlock/research{
 	req_access = list(209);
 	name = "Equipment Storage"
 	},
@@ -2509,7 +2509,7 @@
 /area/database_freighter/barracks)
 "mA" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/science{
+/obj/machinery/door/airlock/research{
 	req_access = list(209);
 	name = "Spectrometry"
 	},

@@ -164,7 +164,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "aG" = (
-/obj/machinery/door/airlock/science,
+/obj/machinery/door/airlock/research,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -807,7 +807,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "hN" = (
-/obj/machinery/door/airlock/science,
+/obj/machinery/door/airlock/research,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},

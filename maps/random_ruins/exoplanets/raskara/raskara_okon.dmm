@@ -1678,7 +1678,7 @@
 	},
 /area/raskara_okon/engineer)
 "vJ" = (
-/obj/machinery/door/airlock/science{
+/obj/machinery/door/airlock/research{
 	req_access = list(209);
 	name = "Laboratory"
 	},

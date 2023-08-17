@@ -240,8 +240,8 @@
 		return SSmaterials.get_material_by_name(mineral)
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 
-/obj/machinery/door/airlock/generic/external//External airlocks start here
-	name = "External Airlock"
+/obj/machinery/door/airlock/external//External airlocks start here
+	name = "external airlock"
 	icon = 'icons/obj/doors/basic/single/external/door.dmi'
 	icon_state = "preview"
 	paintable = AIRLOCK_PAINTABLE_MAIN
@@ -249,24 +249,23 @@
 	door_color = "#813c3c"
 	hashatch = FALSE
 	insecure = 0
-	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	fill_file = 'icons/obj/doors/basic/single/external/fill_steel.dmi'
 	color_file = 'icons/obj/doors/basic/single/external/color.dmi'
 	color_fill_file = 'icons/obj/doors/basic/single/external/fill_color.dmi'
 
-/obj/machinery/door/airlock/generic/external/khaki
+/obj/machinery/door/airlock/external/khaki
 	door_frame_color = "#ac8b78"
 
-/obj/machinery/door/airlock/generic/external/merc
+/obj/machinery/door/airlock/external/merc
 	door_frame_color = "#8b7d86"
 
-/obj/machinery/door/airlock/generic/external/red
+/obj/machinery/door/airlock/external/red
 	door_frame_color = "#c24f4f"
 
-/obj/machinery/door/airlock/generic/external/blue
+/obj/machinery/door/airlock/external/blue
 	door_frame_color = "#6176a1"
 
-/obj/machinery/door/airlock/generic/external/purple
+/obj/machinery/door/airlock/external/purple
 	door_frame_color = "#7846b1"
 
 /obj/machinery/door/airlock/service // Service Airlock
@@ -319,8 +318,8 @@
 	stripe_color = "#ff7f43"
 
 /obj/machinery/door/airlock/medical
-	icon = 'icons/obj/doors/doormed.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_med
+	door_color = "#A7A9A0"
+	stripe_color = "#345731"
 	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/maintenance
@@ -489,7 +488,7 @@
 	locked = TRUE
 
 /obj/machinery/door/airlock/freezer
-	name = "Freezer Airlock"
+	name = "freezer airlock"
 	door_color = "#b9b8b6"
 	desc = "An extra thick, double-insulated door to preserve the cold atmosphere. Keep closed at all times."
 	maxhealth = 800
@@ -580,17 +579,19 @@
 	opacity = FALSE
 	assembly_type = /obj/structure/door_assembly/door_assembly_med
 	glass = 1
+	paintable = AIRLOCK_PAINTABLE_MAIN|AIRLOCK_PAINTABLE_STRIPE
+	door_color = "#A7A9A0"
+	stripe_color = "#345731"
 	hatch_colour = "#d2d2d2"
-	paintable = AIRLOCK_PAINTABLE_MAIN
-	door_color = "#395837"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/mining
-	name = "Mining Airlock"
-	icon = 'icons/obj/doors/Doormining.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_min
+	name = "mining airlock"
+	door_color = "#956F30"
+	stripe_color = "#5E340B"
 	hatch_colour = "#c29142"
+	paintable = AIRLOCK_PAINTABLE_MAIN|AIRLOCK_PAINTABLE_STRIPE
 
 /obj/machinery/door/airlock/atmos
 	name = "Atmospherics Airlock"
@@ -603,7 +604,7 @@
 	name = "airlock"
 	icon_state = "sci"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#d6c8ee"
+	door_color = "#A18A9C"
 	stripe_color = "#e943ff"
 
 /obj/machinery/door/airlock/glass_research
@@ -616,21 +617,20 @@
 	glass = 1
 	heat_proof = 1
 	paintable = AIRLOCK_PAINTABLE_MAIN
-	door_color = "#d6c8ee"
+	door_color = "#A18A9C"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/glass_mining
 	name = "glass airlock"
-	icon = 'icons/obj/doors/Doorminingglass.dmi'
+	door_color = "#956F30"
+	stripe_color = "#5E340B"
+	hatch_colour = "#c29142"
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
 	opacity = FALSE
 	glass = 1
-	door_color = "#967032"
-	stripe_color = "#5f350b"
-	hatch_colour = "#c29142"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
@@ -640,7 +640,6 @@
 	maxhealth = 300
 	explosion_resistance = 5
 	opacity = FALSE
-	assembly_type = /obj/structure/door_assembly/door_assembly_atmo
 	glass = 1
 	door_color = "#caa638"
 	stripe_color = "#295773"

@@ -1623,9 +1623,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/item/shield/riot,
 /obj/item/shield/riot,
 /obj/item/clothing/suit/armor/carrier/riot,
@@ -10686,6 +10683,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	req_access = list(12)
 	},
 /obj/machinery/door/firedoor,
@@ -18329,9 +18327,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/item/clothing/suit/armor/carrier/ablative,
 /obj/item/clothing/suit/armor/carrier/ablative,
 /obj/item/clothing/head/helmet/ablative,
@@ -20278,7 +20273,7 @@
 /area/horizon/security/equipment)
 "jKd" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/brown{
-	dir = 1
+	dir = 4
 	},
 /obj/machinery/newscaster{
 	pixel_x = -32
@@ -35449,6 +35444,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4;
 	req_access = list(12)
 	},
 /obj/machinery/door/firedoor,
@@ -36410,9 +36406,6 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
 	},
 /obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/suit/armor/carrier/ballistic,
@@ -42023,6 +42016,7 @@
 /area/horizon/bar)
 "uxE" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Atmospherics Locker Room Maintenance";
 	req_access = list(24)
 	},
@@ -48462,9 +48456,6 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
 	},
 /obj/machinery/door/window/brigdoor/southright{
 	name = "Heavy Armour";
