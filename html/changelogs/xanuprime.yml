@@ -1,0 +1,7 @@
+author: Pirouette
+
+delete-after: True
+
+changes:
+  - rscadd: "Added minority religions (Luceism, Tribunalism, Stolitism) to Xanu origin."
+  - tweak: "Edited Xanu origin and accent descriptions to be more up-to-date lorewise."
