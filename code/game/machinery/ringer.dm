@@ -1,18 +1,18 @@
 #define PRESET_NORTH \
-dir = SOUTH; \
+dir = NORTH; \
 pixel_y = 24;
 
 #define PRESET_SOUTH \
-dir = NORTH; \
+dir = SOUTH; \
 pixel_y = -24;
 
 #define PRESET_WEST \
-dir = EAST; \
-pixel_x = -24;
+dir = WEST; \
+pixel_x = -8;
 
 #define PRESET_EAST \
-dir = WEST; \
-pixel_x = 24;
+dir = EAST; \
+pixel_x = 8;
 
 /obj/machinery/ringer
 	name = "ringer terminal"

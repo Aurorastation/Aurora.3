@@ -1,18 +1,18 @@
 #define PRESET_NORTH \
-dir = SOUTH; \
-pixel_y = 24;
+dir = NORTH; \
+pixel_y = 20;
 
 #define PRESET_SOUTH \
-dir = NORTH; \
-pixel_y = -24;
+dir = SOUTH; \
+pixel_y = -6;
 
 #define PRESET_WEST \
-dir = EAST; \
-pixel_x = -24;
+dir = WEST; \
+pixel_x = -8;
 
 #define PRESET_EAST \
-dir = WEST; \
-pixel_x = 24;
+dir = EAST; \
+pixel_x = 8;
 
 
 /obj/item/device/radio/intercom

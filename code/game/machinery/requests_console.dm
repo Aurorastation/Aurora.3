@@ -2,20 +2,20 @@
 /** Originally written by errorage, updated by: Carn, needs more work though. I just added some security fixes */
 
 #define PRESET_NORTH \
-dir = SOUTH; \
-pixel_y = 24;
+dir = NORTH; \
+pixel_y = 30;
 
 #define PRESET_SOUTH \
-dir = NORTH; \
+dir = SOUTH; \
 pixel_y = -24;
 
 #define PRESET_WEST \
-dir = EAST; \
-pixel_x = -24;
+dir = WEST; \
+pixel_x = -12;
 
 #define PRESET_EAST \
-dir = WEST; \
-pixel_x = 24;
+dir = EAST; \
+pixel_x = 12;
 
 
 //Requests Console Department Types

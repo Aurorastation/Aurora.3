@@ -3,20 +3,20 @@
 //###-Agouri###################################
 
 #define PRESET_NORTH \
-dir = SOUTH; \
-pixel_y = 24;
+dir = NORTH; \
+pixel_y = 30;
 
 #define PRESET_SOUTH \
-dir = NORTH; \
-pixel_y = -24;
+dir = SOUTH; \
+pixel_y = -26;
 
 #define PRESET_WEST \
-dir = EAST; \
-pixel_x = -24;
+dir = WEST; \
+pixel_x = -8;
 
 #define PRESET_EAST \
-dir = WEST; \
-pixel_x = 24;
+dir = EAST; \
+pixel_x = 8;
 
 ///Global list that contains reference to all newscasters in existence.
 var/list/obj/machinery/newscaster/allCasters = list()
