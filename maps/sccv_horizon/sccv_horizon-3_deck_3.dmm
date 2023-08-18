@@ -634,11 +634,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/longbow)
 "auq" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
 /obj/structure/platform{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
 /turf/simulated/floor/reinforced,
 /area/bridge/controlroom)
@@ -12037,13 +12037,13 @@
 	pixel_y = -32
 	},
 /obj/machinery/light,
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/random/pottedplant,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/reinforced,
 /area/bridge/controlroom)
 "jxS" = (
@@ -15032,11 +15032,11 @@
 /turf/simulated/floor/lino,
 /area/horizon/cafeteria)
 "lFK" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
 /obj/structure/platform{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
 /turf/simulated/floor/reinforced,
 /area/bridge/controlroom)
