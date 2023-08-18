@@ -18,6 +18,9 @@
 	var/list/mod_boards = list()
 	var/max_renwick_draw = 100 //Need to test numbers on this
 	var/renwick_draw = 100
+	var/field_radius = 3
+	var/max_field_radius = 100
+	var/multi_z = TRUE
 
 /obj/machinery/shield_matrix/Initialize()
 	update_shield_parts()
@@ -42,7 +45,7 @@
 			break
 
 	for(var/obj/machinery/shield_gen/possible_projector in range(2, src))
-		if(get_dir(possible_projector, src) == switch_dir(possible_projector.dir))
+		if(!possible_projector.directional || (get_dir(possible_projector, src) == switch_dir(possible_projector.dir)))
 			LAZYADD(owned_projectors, possible_projector)
 
 	return owned_capacitor && owned_projectors.len
@@ -120,8 +123,8 @@
 	var/c_renwicks_per_projector = (renwicks * charge_ratio) / owned_projectors.len
 	var/m_renwicks_per_projector = (renwicks * modulator_ratio) / owned_projectors.len
 
-	// for(var/obj/machinery/shield_gen/P in owned_projectors)
-	// 	P.generate_field(s_renwicks_per_projector, c_renwicks_per_projector, m_renwicks_per_projector, modulators)
+	for(var/obj/machinery/shield_gen/P in owned_projectors)
+		P.generate_field(s_renwicks_per_projector, c_renwicks_per_projector, m_renwicks_per_projector)
 
 /obj/machinery/shield_matrix/ex_act(var/severity)
 	if(active)
@@ -202,3 +205,13 @@
 				LAZYREMOVE(modulators, M)
 			else
 				LAZYADD(modulators, M)
+
+/obj/machinery/shield_matrix/proc/has_modulator(var/flag)
+	if(!(flag && LAZYLEN(modulators)))
+		return FALSE
+
+	var/modes = 0
+	for(var/datum/shield_mode/M in modulators)
+		modes |= M.mode_flag
+
+	return (modes & flag)

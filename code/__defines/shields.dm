@@ -1,5 +1,9 @@
-#define RENWICKS / 500
-#define JOULES * 500
+#define RENWICKS / 20 //Much lower than the old conversion rate, but shields are MUCH more renwick hungry now
+#define JOULES * 20
+
+#define SHIELD_DISCHARGE_RATE 0.03
+#define SHIELD_DISCHARGE_MINIMUM 0.01
+#define SHIELD_STRENGTH_MAX 10
 
 #define MODEFLAG_HYPERKINETIC 1
 #define MODEFLAG_PHOTONIC 2
@@ -10,3 +14,15 @@
 #define MODEFLAG_HULL 7
 #define MODEFLAG_MODULATE 8
 #define MODEFLAG_OVERCHARGE 9
+
+#define ADAPTION_LASER_SUPER 1
+#define ADAPTION_LASER_HIGH 2
+#define ADAPTION_LASER_MEDIUM 3
+#define ADAPTION_LASER_LOW 4
+#define ADAPTION_NEUTRAL 5
+#define ADAPTION_BALLISTIC_LOW 6
+#define ADAPTION_BALLISTIC_MEDIUM 7
+#define ADAPTION_BALLISTIC_HIGH 8
+#define ADAPTION_BALLISTIC_SUPER 9
+
+#define GEN_MODULATED(G, M) G.parent_matrix.has_modulator(M)

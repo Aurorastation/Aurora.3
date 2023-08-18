@@ -3087,6 +3087,7 @@
 #include "code\modules\shieldgen\shield_capacitor.dm"
 #include "code\modules\shieldgen\shield_diffuser.dm"
 #include "code\modules\shieldgen\shield_gen.dm"
+#include "code\modules\shieldgen\shield_gen_dir.dm"
 #include "code\modules\shieldgen\shield_gen_external.dm"
 #include "code\modules\shieldgen\shield_matrix.dm"
 #include "code\modules\shieldgen\shield_modes.dm"
