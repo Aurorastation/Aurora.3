@@ -178,7 +178,10 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			alpha = 127
 		generate_overlays()
 		update_icon()
-		set_pixel_offsets()
+
+		if(!mapload)
+			set_pixel_offsets()
+
 		return
 
 	if(dir & NORTH)
@@ -197,7 +200,9 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		req_console_information |= department
 	generate_overlays()
 	update_icon()
-	set_pixel_offsets()
+
+	if(!mapload)
+		set_pixel_offsets()
 
 /obj/machinery/requests_console/set_pixel_offsets()
 	pixel_x = DIR2PIXEL_X(dir)

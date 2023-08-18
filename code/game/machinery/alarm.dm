@@ -24,6 +24,21 @@
 #define MAX_TEMPERATURE 90
 #define MIN_TEMPERATURE -40
 
+#define PRESET_NORTH \
+dir = NORTH; \
+pixel_y = 21;
+
+#define PRESET_SOUTH \
+dir = SOUTH;
+
+#define PRESET_WEST \
+dir = WEST; \
+pixel_x = -10;
+
+#define PRESET_EAST \
+dir = EAST; \
+pixel_x = 10;
+
 //all air alarms in area are connected via magic
 /area
 	var/list/air_vent_names = list()
@@ -87,38 +102,32 @@
 	var/report_danger_level = 1
 
 /obj/machinery/alarm/north
-	dir = NORTH
-	pixel_y = 21
+	PRESET_NORTH
 
 /obj/machinery/alarm/east
-	dir = EAST
-	pixel_x = 10
+	PRESET_EAST
 
 /obj/machinery/alarm/west
-	dir = WEST
-	pixel_x = -10
+	PRESET_WEST
 
 /obj/machinery/alarm/south
-	dir = SOUTH
+	PRESET_SOUTH
 
 /obj/machinery/alarm/nobreach
 	breach_detection = 0
 	desc = "A device that controls the local air regulation machinery."
 
 /obj/machinery/alarm/nobreach/north
-	dir = NORTH
-	pixel_y = 21
+	PRESET_NORTH
 
 /obj/machinery/alarm/nobreach/east
-	dir = EAST
-	pixel_x = 10
+	PRESET_EAST
 
 /obj/machinery/alarm/nobreach/west
-	dir = WEST
-	pixel_x = -10
+	PRESET_WEST
 
 /obj/machinery/alarm/nobreach/south
-	dir = SOUTH
+	PRESET_SOUTH
 
 /obj/machinery/alarm/monitor
 	report_danger_level = 0
@@ -126,19 +135,16 @@
 	desc = "A device that controls the local air regulation machinery."
 
 /obj/machinery/alarm/monitor/north
-	dir = NORTH
-	pixel_y = 21
+	PRESET_NORTH
 
 /obj/machinery/alarm/monitor/east
-	dir = EAST
-	pixel_x = 10
+	PRESET_EAST
 
 /obj/machinery/alarm/monitor/west
-	dir = WEST
-	pixel_x = -10
+	PRESET_WEST
 
 /obj/machinery/alarm/monitor/south
-	dir = SOUTH
+	PRESET_SOUTH
 
 /obj/machinery/alarm/server
 	req_one_access = list(access_rd, access_atmospherics, access_engine_equip)
@@ -147,19 +153,16 @@
 	highpower = 1
 
 /obj/machinery/alarm/server/north
-	dir = NORTH
-	pixel_y = 21
+	PRESET_NORTH
 
 /obj/machinery/alarm/server/east
-	dir = EAST
-	pixel_x = 10
+	PRESET_EAST
 
 /obj/machinery/alarm/server/west
-	dir = WEST
-	pixel_x = -10
+	PRESET_WEST
 
 /obj/machinery/alarm/server/south
-	dir = SOUTH
+	PRESET_SOUTH
 
 /obj/machinery/alarm/tcom
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in server halls."
@@ -167,19 +170,16 @@
 	highpower = 1
 
 /obj/machinery/alarm/tcom/north
-	dir = NORTH
-	pixel_y = 21
+	PRESET_NORTH
 
 /obj/machinery/alarm/tcom/east
-	dir = EAST
-	pixel_x = 10
+	PRESET_EAST
 
 /obj/machinery/alarm/tcom/west
-	dir = WEST
-	pixel_x = -10
+	PRESET_WEST
 
 /obj/machinery/alarm/tcom/south
-	dir = SOUTH
+	PRESET_SOUTH
 
 /obj/machinery/alarm/freezer
 	req_one_access = list(access_kitchen, access_atmospherics, access_engine_equip)
@@ -187,37 +187,31 @@
 	target_temperature = T0C - 20
 
 /obj/machinery/alarm/freezer/north
-	dir = NORTH
-	pixel_y = 21
+	PRESET_NORTH
 
 /obj/machinery/alarm/freezer/east
-	dir = EAST
-	pixel_x = 10
+	PRESET_EAST
 
 /obj/machinery/alarm/freezer/west
-	dir = WEST
-	pixel_x = -10
+	PRESET_WEST
 
 /obj/machinery/alarm/freezer/south
-	dir = SOUTH
+	PRESET_SOUTH
 
 /obj/machinery/alarm/cold
 	target_temperature = T0C + 5
 
 /obj/machinery/alarm/cold/north
-	dir = NORTH
-	pixel_y = 21
+	PRESET_NORTH
 
 /obj/machinery/alarm/cold/east
-	dir = EAST
-	pixel_x = 10
+	PRESET_EAST
 
 /obj/machinery/alarm/cold/west
-	dir = WEST
-	pixel_x = -10
+	PRESET_WEST
 
 /obj/machinery/alarm/cold/south
-	dir = SOUTH
+	PRESET_SOUTH
 
 /obj/machinery/alarm/server/Initialize()
 	. = ..()
@@ -270,7 +264,8 @@
 
 	set_frequency(frequency)
 
-	set_pixel_offsets()
+	if(!mapload)
+		set_pixel_offsets()
 
 	update_icon()
 
@@ -972,3 +967,8 @@ Just a object used in constructing air alarms
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 // Fire Alarms moved to firealarm.dm
+
+#undef PRESET_NORTH
+#undef PRESET_SOUTH
+#undef PRESET_WEST
+#undef PRESET_EAST

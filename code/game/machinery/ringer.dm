@@ -52,7 +52,7 @@ pixel_x = 24;
 /obj/machinery/ringer/east
 	PRESET_EAST
 
-/obj/machinery/ringer/Initialize()
+/obj/machinery/ringer/Initialize(mapload)
 	. = ..()
 	if(id)
 		ringers = new(id, src)
@@ -61,7 +61,9 @@ pixel_x = 24;
 		alpha = 127
 	generate_overlays()
 	update_icon()
-	set_pixel_offsets()
+
+	if(!mapload)
+		set_pixel_offsets()
 
 /obj/machinery/ringer/power_change()
 	..()

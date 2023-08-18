@@ -65,7 +65,12 @@
 	..()
 	fireaxe = new(src)
 	update_icon()
-	set_pixel_offsets()
+
+/obj/structure/fireaxecabinet/Initialize(mapload)
+	. = ..()
+
+	if(!mapload)
+		set_pixel_offsets()
 
 /obj/structure/fireaxecabinet/set_pixel_offsets()
 	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 19 : -(19)))

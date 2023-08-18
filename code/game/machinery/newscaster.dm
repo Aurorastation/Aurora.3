@@ -129,7 +129,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 /obj/machinery/newscaster/security_unit/east
 	PRESET_EAST
 
-/obj/machinery/newscaster/Initialize()
+/obj/machinery/newscaster/Initialize(mapload)
 	. = ..()                                //I just realised the newscasters weren't in the global machines list. The superconstructor call will tend to that
 	allCasters += src
 	paper_remaining = 15            // Will probably change this to something better
@@ -138,7 +138,9 @@ var/list/obj/machinery/newscaster/allCasters = list()
 		alpha = 127
 	generate_overlays()
 	update_icon() //for any custom ones on the map...
-	set_pixel_offsets()
+
+	if(!mapload)
+		set_pixel_offsets()
 
 /obj/machinery/newscaster/Destroy()
 	allCasters -= src
