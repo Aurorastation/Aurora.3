@@ -13266,9 +13266,6 @@
 	name = "Hangar Technician"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "gwy" = (
@@ -14230,6 +14227,9 @@
 /area/horizon/hydroponics)
 "gRw" = (
 /obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
 	dir = 4
 	},
 /turf/simulated/open,
@@ -15404,9 +15404,6 @@
 /obj/machinery/light/floor{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "hvH" = (
@@ -15630,9 +15627,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/brown/full{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -15949,6 +15943,7 @@
 /obj/structure/platform_deco/ledge{
 	dir = 10
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/operations/office)
 "hGx" = (
@@ -15977,6 +15972,9 @@
 	},
 /obj/structure/platform/ledge{
 	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/open,
 /area/operations/office)
@@ -17893,6 +17891,12 @@
 /obj/structure/platform_deco/ledge{
 	dir = 10
 	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/open,
 /area/operations/office)
 "iGG" = (
@@ -18598,9 +18602,6 @@
 	icon_state = "2-8"
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /turf/simulated/open,
 /area/operations/office)
 "iWN" = (
@@ -23000,9 +23001,6 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 4
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /turf/simulated/floor/wood,
 /area/operations/office)
 "lhU" = (
@@ -23482,9 +23480,6 @@
 /obj/machinery/light/floor{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "lvM" = (
@@ -23922,6 +23917,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
+"lIc" = (
+/obj/structure/lattice,
+/obj/structure/platform/ledge{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/open,
+/area/operations/office)
 "lIz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -25765,6 +25768,21 @@
 	},
 /turf/simulated/floor/wood,
 /area/rnd/conference)
+"mBg" = (
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/structure/platform/ledge{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/operations/office)
 "mBk" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
@@ -28180,9 +28198,6 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /turf/simulated/open,
 /area/operations/office)
 "nFm" = (
@@ -29719,13 +29734,13 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "otm" = (
-/obj/structure/railing/mapped,
 /obj/structure/platform/ledge{
 	dir = 1
 	},
 /obj/structure/platform/ledge{
 	dir = 8
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/operations/office)
 "otr" = (
@@ -31137,9 +31152,6 @@
 	dir = 8
 	},
 /obj/random/pottedplant,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "pfb" = (
@@ -33267,6 +33279,9 @@
 	dir = 8
 	},
 /obj/structure/platform_deco/ledge,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/open,
 /area/operations/office)
 "qja" = (
@@ -35375,6 +35390,12 @@
 /obj/structure/platform/ledge{
 	dir = 8
 	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/open,
 /area/operations/office)
 "rjK" = (
@@ -35387,10 +35408,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "rkq" = (
-/obj/structure/railing/mapped,
 /obj/structure/platform/ledge{
 	dir = 1
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/operations/office)
 "rkO" = (
@@ -37436,9 +37457,6 @@
 "skq" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
-	},
-/obj/structure/railing/mapped{
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
@@ -45873,6 +45891,9 @@
 /obj/structure/platform/ledge{
 	dir = 4
 	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
 /turf/simulated/open,
 /area/operations/office)
 "wmV" = (
@@ -47088,6 +47109,9 @@
 "wPj" = (
 /obj/structure/lattice,
 /obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
 	dir = 4
 	},
 /turf/simulated/open,
@@ -48637,6 +48661,9 @@
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 9
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/open,
 /area/operations/office)
@@ -61346,7 +61373,7 @@ dLD
 qrh
 qEQ
 qEQ
-hKh
+lIc
 iWz
 nES
 nES
@@ -61550,9 +61577,9 @@ rSG
 qEQ
 boG
 qih
-qpB
+mBg
 rju
-qpB
+mBg
 iGE
 jIW
 rtF
