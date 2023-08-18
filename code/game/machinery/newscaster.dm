@@ -2,7 +2,24 @@
 //################### NEWSCASTERS BE HERE! ####
 //###-Agouri###################################
 
-var/list/obj/machinery/newscaster/allCasters = list() //Global list that will contain reference to all newscasters in existence.
+#define PRESET_NORTH \
+dir = SOUTH; \
+pixel_y = 24;
+
+#define PRESET_SOUTH \
+dir = NORTH; \
+pixel_y = -24;
+
+#define PRESET_WEST \
+dir = EAST; \
+pixel_x = -24;
+
+#define PRESET_EAST \
+dir = WEST; \
+pixel_x = 24;
+
+///Global list that contains reference to all newscasters in existence.
+var/list/obj/machinery/newscaster/allCasters = list()
 
 /obj/machinery/newscaster
 	name = "newscaster"
@@ -12,48 +29,78 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/isbroken = 0  //1 if someone banged it with something heavy
-	var/ispowered = 1 //starts powered, changes with power_change()
-	//var/list/datum/feed_channel/channel_list = list() //This list will contain the names of the feed channels. Each name will refer to a data region where the messages of the feed channels are stored.
-	//OBSOLETE: We're now using a global news network
-	var/screen = 0                  //Or maybe I'll make it into a list within a list afterwards... whichever I prefer, go fuck yourselves :3
-		// 0 = welcome screen - main menu
-		// 1 = view feed channels
-		// 2 = create feed channel
-		// 3 = create feed story
-		// 4 = feed story submited sucessfully
-		// 5 = feed channel created successfully
-		// 6 = ERROR: Cannot create feed story
-		// 7 = ERROR: Cannot create feed channel
-		// 8 = print newspaper
-		// 9 = viewing channel feeds
-		// 10 = censor feed story
-		// 11 = censor feed channel
-		//Holy shit this is outdated, made this when I was still starting newscasters :3
+
+	///If the newscaster is broken, boolean
+	var/isbroken = FALSE
+
+	///If it starts powered on, boolean
+	var/ispowered = TRUE //starts powered, changes with power_change()
+
+	/**
+	 * What the screen is displaying
+	 *
+	 * 0 = welcome screen - main menu
+	 * 1 = view feed channels
+	 * 2 = create feed channel
+	 * 3 = create feed story
+	 * 4 = feed story submited sucessfully
+	 * 5 = feed channel created successfully
+	 * 6 = ERROR: Cannot create feed story
+	 * 7 = ERROR: Cannot create feed channel
+	 * 8 = print newspaper
+	 * 9 = viewing channel feeds
+	 * 10 = censor feed story
+	 * 11 = censor feed channel
+	 */
+	var/screen = 0
+
 	var/paper_remaining = 0
-	var/securityCaster = 0
-		// 0 = Caster cannot be used to issue wanted posters
-		// 1 = the opposite
+
+	///If the caster can be used to issue wanted posters, boolean
+	var/securityCaster = FALSE
+
+	///Unique newscaster unit number
 	var/unit_no = 0 //Each newscaster has a unit number
-	//var/datum/feed_message/wanted //We're gonna use a feed_message to store data of the wanted person because fields are similar
-	//var/wanted_issue = 0          //OBSOLETE
-		// 0 = there's no WANTED issued, we don't need a special icon_state
-		// 1 = Guess what.
+
 	var/alert_delay = 500
-	var/alert = 0
-		// 0 = there hasn't been a news/wanted update in the last alert_delay
-		// 1 = there has
-	var/scanned_user = "Unknown" //Will contain the name of the person who currently uses the newscaster
-	var/msg = "";                //Feed message
+
+	///If there hasn't been a news/wanted update in the last alert_delay, boolean
+	var/alert = FALSE
+
+	///Contains the name of the person who currently uses the newscaster
+	var/scanned_user = "Unknown"
+
+	///Feed message
+	var/msg = "";
+
 	var/datum/news_photo/photo_data = null
 	var/paper_data = ""
 	var/paper_name = ""
-	var/channel_name = ""; //the feed channel which will be receiving the feed, or being created
-	var/c_locked=0;        //Will our new channel be locked to public submissions?
-	var/hitstaken = 0      //Death at 3 hits from an item with force>=15
+
+	///The feed channel which will be receiving the feed, or being created
+	var/channel_name = "";
+
+	///If our new channel will be locked to public submissions, boolean
+	var/c_locked=FALSE
+
+	///How many hits the newscaster has taken
+	var/hitstaken = 0
+
 	var/datum/feed_channel/viewing_channel = null
 	var/datum/feed_message/viewing_message = null
 	var/global/list/screen_overlays
+
+/obj/machinery/newscaster/north
+	PRESET_NORTH
+
+/obj/machinery/newscaster/south
+	PRESET_SOUTH
+
+/obj/machinery/newscaster/west
+	PRESET_WEST
+
+/obj/machinery/newscaster/east
+	PRESET_EAST
 
 /obj/machinery/newscaster/proc/generate_overlays(var/force = 0)
 	if(LAZYLEN(screen_overlays) && !force)
@@ -66,11 +113,23 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	for(var/i in 1 to 3)
 		screen_overlays["crack[i]"] = make_screen_overlay(icon, "crack[i]")
 
-/obj/machinery/newscaster/security_unit                   //Security unit
+/obj/machinery/newscaster/security_unit
 	name = "Security Newscaster"
 	securityCaster = 1
 
-/obj/machinery/newscaster/Initialize()         //Constructor, ho~
+/obj/machinery/newscaster/security_unit/north
+	PRESET_NORTH
+
+/obj/machinery/newscaster/security_unit/south
+	PRESET_SOUTH
+
+/obj/machinery/newscaster/security_unit/west
+	PRESET_WEST
+
+/obj/machinery/newscaster/security_unit/east
+	PRESET_EAST
+
+/obj/machinery/newscaster/Initialize()
 	. = ..()                                //I just realised the newscasters weren't in the global machines list. The superconstructor call will tend to that
 	allCasters += src
 	paper_remaining = 15            // Will probably change this to something better
@@ -1050,3 +1109,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 /obj/machinery/newscaster/proc/clearAlert()
 	alert = 0
 	update_icon()
+
+#undef PRESET_NORTH
+#undef PRESET_SOUTH
+#undef PRESET_WEST
+#undef PRESET_EAST

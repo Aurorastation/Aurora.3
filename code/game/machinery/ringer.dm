@@ -1,3 +1,19 @@
+#define PRESET_NORTH \
+dir = SOUTH; \
+pixel_y = 24;
+
+#define PRESET_SOUTH \
+dir = NORTH; \
+pixel_y = -24;
+
+#define PRESET_WEST \
+dir = EAST; \
+pixel_x = -24;
+
+#define PRESET_EAST \
+dir = WEST; \
+pixel_x = 24;
+
 /obj/machinery/ringer
 	name = "ringer terminal"
 	desc = "A ringer terminal, PDAs can be linked to it."
@@ -9,12 +25,32 @@
 	req_access = list() //what access it needs to link your pda
 
 	var/id = null
-	var/list/obj/item/modular_computer/rings_pdas = list() //A list of PDAs to alert upon someone touching the machine
+
+	///A list of PDAs to alert upon someone touching the machine
+	var/list/obj/item/modular_computer/rings_pdas = list()
+
 	var/listener/ringers
 	var/on = TRUE
-	var/department = "Somewhere" //whatever department/desk you put this thing
-	var/pinged = FALSE //for cooldown
+
+	///Whatever department/desk you put this thing
+	var/department = "Somewhere"
+
+	///If the pinging is in cooldown, boolean
+	var/pinged = FALSE
+
 	var/global/list/screen_overlays
+
+/obj/machinery/ringer/north
+	PRESET_NORTH
+
+/obj/machinery/ringer/south
+	PRESET_SOUTH
+
+/obj/machinery/ringer/west
+	PRESET_WEST
+
+/obj/machinery/ringer/east
+	PRESET_EAST
 
 /obj/machinery/ringer/Initialize()
 	. = ..()
@@ -168,3 +204,8 @@
 		var/obj/machinery/ringer/C = L.target
 		if (istype(C))
 			C.ring_pda()
+
+#undef PRESET_NORTH
+#undef PRESET_SOUTH
+#undef PRESET_WEST
+#undef PRESET_EAST
