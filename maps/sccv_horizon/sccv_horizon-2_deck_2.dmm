@@ -1153,7 +1153,8 @@
 	icon_state = "pdoor0";
 	id = "xenobio";
 	name = "Xenobiology Blast Door";
-	opacity = 0
+	opacity = 0;
+	dir = 4
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/white,
@@ -5768,7 +5769,7 @@
 /area/maintenance/wing/port)
 "cOj" = (
 /obj/machinery/door/blast/regular{
-	dir = 4;
+	dir = 2;
 	id = "shutters_deck1_security_cell_2";
 	name = "Cell B Blast Door"
 	},
@@ -6467,14 +6468,13 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "dim" = (
-/obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/coffeemaster/full{
-	pixel_y = 5
-	},
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/vending/boozeomat{
+	opacity = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "din" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -9592,6 +9592,10 @@
 	id = "bar_shutter";
 	name = "Bar Shutter"
 	},
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_y = 16;
+	pixel_x = -16
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "ePC" = (
@@ -9633,7 +9637,7 @@
 /area/engineering/lobby)
 "eQv" = (
 /obj/machinery/door/blast/regular{
-	dir = 4;
+	dir = 2;
 	id = "cannon_external";
 	name = "Primary Armament Shielding"
 	},
@@ -10485,11 +10489,6 @@
 "fkr" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "bar_shutter";
-	name = "Bar Shutter"
-	},
 /obj/item/flame/candle{
 	pixel_x = -11;
 	pixel_y = 16
@@ -10499,6 +10498,11 @@
 	name = "tip jar";
 	pixel_x = 2;
 	pixel_y = 18
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "bar_shutter";
+	name = "Bar Shutter"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
@@ -11751,7 +11755,8 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/blast/regular{
 	_wifi_id = "chapel_driver";
-	id = "chapel_driver"
+	id = "chapel_driver";
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/reinforced,
@@ -13269,10 +13274,12 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "gwy" = (
-/obj/machinery/smartfridge/drinks{
-	opacity = 1
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_y = 16;
+	pixel_x = -8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "gwP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -13935,7 +13942,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 8;
+	dir = 2;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -16942,7 +16949,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 8;
+	dir = 2;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -17987,14 +17994,7 @@
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 4
 	},
-/obj/machinery/button/remote/blast_door{
-	dir = 8;
-	id = "bar_shutter";
-	name = "Desk Shutters";
-	pixel_x = 25;
-	pixel_y = 25;
-	req_access = list(25)
-	},
+/obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/lino,
 /area/horizon/bar)
 "iIB" = (
@@ -19864,12 +19864,12 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/disposalpipe/segment,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "bar_shutter";
 	name = "Bar Shutter"
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "jCL" = (
@@ -20021,13 +20021,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "bar_shutter";
-	name = "Desk Shutters";
-	pixel_x = -25;
-	req_access = list(25)
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -21167,13 +21160,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "kgS" = (
-/obj/machinery/vending/boozeomat{
-	opacity = 1
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	pixel_y = 16;
+	pixel_x = -1
 	},
-/obj/machinery/light{
-	dir = 1
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = 2;
+	pixel_y = 2
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "kgT" = (
 /obj/machinery/light{
@@ -22445,7 +22441,7 @@
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 8;
+	dir = 2;
 	icon_state = "pdoor0";
 	id = "Security Lockdown";
 	name = "Security Blast Door";
@@ -24043,10 +24039,7 @@
 /area/rnd/hallway)
 "lLl" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/southright{
-	name = "Bar Access";
-	req_access = list(25)
-	},
+/obj/structure/table/stone/marble,
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "bar_shutter";
@@ -28724,9 +28717,32 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/starboard)
 "nUh" = (
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/vending/dinnerware/bar,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_y = 16;
+	pixel_x = -16
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/chocolate{
+	pixel_x = -12;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/caramel{
+	pixel_x = -4;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = 7;
+	pixel_y = 17
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
+	pixel_x = 4;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/vanilla{
+	pixel_x = 12;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "nUN" = (
 /turf/simulated/wall/r_wall,
@@ -29018,13 +29034,6 @@
 /area/operations/office)
 "obs" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/drinks/shaker{
-	pixel_x = 7;
-	pixel_y = 14
-	},
-/obj/item/reagent_containers/glass/rag{
-	pixel_x = 10
-	},
 /obj/item/storage/box/fancy/cigarettes/cigar{
 	pixel_x = -5;
 	pixel_y = 4
@@ -29793,6 +29802,23 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/brig)
+"out" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/window/southright{
+	name = "Bar Access";
+	req_access = list(25);
+	dir = 8
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 8;
+	id = "bar_shutter";
+	name = "Bar Shutter"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/bar)
 "ouK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -29862,12 +29888,19 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "owr" = (
-/obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 1
 	},
 /obj/machinery/atm{
 	pixel_y = 28
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 2;
+	id = "bar_shutter";
+	name = "Desk Shutters";
+	pixel_x = 25;
+	req_access = list(25);
+	pixel_y = 32
 	},
 /turf/simulated/floor/lino,
 /area/horizon/bar)
@@ -33118,16 +33151,16 @@
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "qfR" = (
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
 	opacity = 0
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/structure/cable/green{
-	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/brig)
@@ -36042,6 +36075,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "rAi" = (
@@ -38398,7 +38432,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular{
 	density = 0;
-	dir = 4;
+	dir = 2;
 	icon_state = "pdoor0";
 	id = "Brig Lockdown";
 	name = "Brig Lockdown Blast Door";
@@ -39295,19 +39329,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/heads/hor)
 "tje" = (
-/obj/structure/table/stone/marble,
-/obj/structure/curtain/black{
-	icon_state = "open";
-	opacity = 0
-	},
-/obj/machinery/chemical_dispenser/bar_alc/full{
-	pixel_y = 15
-	},
-/obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/smartfridge/drinks{
+	opacity = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "tjk" = (
 /obj/machinery/light{
@@ -40254,6 +40282,28 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
+"tIt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 2;
+	id = "bar_shutter";
+	name = "Desk Shutters";
+	pixel_x = -25;
+	req_access = list(25);
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/horizon/bar)
 "tIB" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain{
@@ -40844,7 +40894,7 @@
 /area/rnd/research)
 "tYB" = (
 /obj/machinery/door/blast/regular{
-	dir = 4;
+	dir = 2;
 	id = "shutters_deck1_security_cell_1";
 	name = "Cell A Blast Door"
 	},
@@ -49388,7 +49438,7 @@
 /area/rnd/hallway)
 "xSM" = (
 /obj/machinery/door/blast/regular{
-	dir = 4;
+	dir = 2;
 	id = "shutters_deck1_security_cell_3";
 	name = "Cell C Blast Door"
 	},
@@ -49620,14 +49670,6 @@
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 8;
-	id = "bar_shutter";
-	name = "Desk Shutters";
-	pixel_x = 25;
-	pixel_y = -24;
-	req_access = list(25)
 	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
@@ -67868,7 +67910,7 @@ aqT
 miP
 xCr
 nxI
-vZy
+out
 tQA
 vZy
 obs
@@ -68070,7 +68112,7 @@ lRe
 eDK
 ekw
 jFc
-xsH
+tIt
 xsH
 juh
 jCt
