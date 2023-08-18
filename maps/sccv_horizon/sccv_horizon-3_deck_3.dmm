@@ -124,9 +124,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/machinery/newscaster{
-	pixel_y = 32
-	},
+/obj/machinery/newscaster/north,
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 8
 	},
@@ -254,10 +252,9 @@
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "afn" = (
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/west{
 	department = "Consular's Office";
-	departmentType = 5;
-	pixel_x = -32
+	departmentType = 5
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -537,9 +534,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "aob" = (
-/obj/machinery/newscaster{
-	pixel_x = 32
-	},
+/obj/machinery/newscaster/east,
 /obj/effect/floor_decal/corner/teal/diagonal,
 /obj/machinery/smartfridge/drinks{
 	opacity = 1
@@ -1117,9 +1112,7 @@
 	pixel_x = 10;
 	pixel_y = 24
 	},
-/obj/machinery/newscaster{
-	pixel_y = 32
-	},
+/obj/machinery/newscaster/north,
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -2876,11 +2869,10 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/north{
 	department = "Bridge";
 	departmentType = 5;
-	name = "Bridge RC";
-	pixel_y = 32
+	name = "Bridge RC"
 	},
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled,
@@ -3025,12 +3017,11 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/south{
 	announcementConsole = 1;
 	department = "Chief Medical Officer's Desk";
 	departmentType = 5;
-	name = "Chief Medical Officer RC";
-	pixel_y = -32
+	name = "Chief Medical Officer RC"
 	},
 /obj/machinery/light_switch{
 	dir = 1;
@@ -3141,10 +3132,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/north{
 	department = "Morgue";
-	departmentType = 5;
-	pixel_y = 32
+	departmentType = 5
 	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Forensic Laboratory Autopsy"
@@ -3869,9 +3859,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/obj/machinery/newscaster{
-	pixel_y = -32
-	},
+/obj/machinery/newscaster/south,
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
@@ -3926,9 +3914,7 @@
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "dqe" = (
-/obj/machinery/newscaster{
-	pixel_x = 32
-	},
+/obj/machinery/newscaster/east,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
@@ -4104,10 +4090,7 @@
 	c_tag = "Third Deck - Cafe";
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
+/obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/corner/teal/diagonal,
 /obj/item/reagent_containers/food/drinks/shaker{
 	pixel_x = 5;
@@ -4299,10 +4282,7 @@
 /turf/simulated/wall,
 /area/maintenance/substation/civilian_east)
 "dHD" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
@@ -4670,9 +4650,7 @@
 "ebR" = (
 /obj/machinery/anti_bluespace,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/device/radio/intercom{
-	pixel_y = 24
-	},
+/obj/item/device/radio/intercom/north,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -4787,10 +4765,7 @@
 	dir = 1
 	},
 /obj/machinery/disposal/small/east,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -25
-	},
+/obj/item/device/radio/intercom/west,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "eeW" = (
@@ -4910,10 +4885,7 @@
 	pixel_x = 7;
 	pixel_y = 1
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/autopsy_laboratory)
 "ehK" = (
@@ -5102,9 +5074,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
 "emK" = (
-/obj/item/device/radio/intercom{
-	pixel_y = 24
-	},
+/obj/item/device/radio/intercom/north,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -5445,9 +5415,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
-/obj/machinery/newscaster{
-	pixel_x = 32
-	},
+/obj/machinery/newscaster/east,
 /obj/machinery/disposal/small/west{
 	pixel_y = -5
 	},
@@ -5938,10 +5906,7 @@
 	dir = 5
 	},
 /obj/machinery/hologram/holopad,
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/tiled/dark,
 /area/medical/smoking)
 "eUF" = (
@@ -6026,9 +5991,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/standard,
 /obj/item/deck/cards,
-/obj/machinery/newscaster{
-	pixel_y = 30
-	},
+/obj/machinery/newscaster/north,
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
 "eYA" = (
@@ -6481,9 +6444,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/machinery/newscaster{
-	layer = 3.3;
-	pixel_y = -30
+/obj/machinery/newscaster/south{
+	layer = 3.3
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -7101,9 +7063,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/machinery/newscaster{
-	pixel_y = -32
-	},
+/obj/machinery/newscaster/south,
 /obj/machinery/photocopier,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/white,
@@ -8267,10 +8227,9 @@
 	dir = 9
 	},
 /obj/structure/table/glass,
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/west{
 	department = "Forensics Lab";
-	departmentType = 5;
-	pixel_x = -32
+	departmentType = 5
 	},
 /obj/item/folder/sec,
 /obj/item/folder/sec,
@@ -8294,9 +8253,7 @@
 /obj/item/device/megaphone,
 /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2,
 /obj/item/storage/box/gloves,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -21;
+/obj/item/device/radio/intercom/west{
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
@@ -9034,9 +8991,8 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "hep" = (
-/obj/machinery/requests_console{
-	department = "Journalist's Office";
-	pixel_x = 32
+/obj/machinery/requests_console/east{
+	department = "Journalist's Office"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -9250,8 +9206,7 @@
 /obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
-/obj/machinery/newscaster{
-	pixel_x = 29;
+/obj/machinery/newscaster/east{
 	pixel_y = 10
 	},
 /obj/effect/floor_decal/corner_wide/green{
@@ -9266,10 +9221,7 @@
 /obj/structure/bed/stool/chair/plastic{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
@@ -9417,9 +9369,7 @@
 /area/engineering/break_room)
 "hou" = (
 /obj/machinery/alarm/west,
-/obj/machinery/newscaster{
-	pixel_y = -30
-	},
+/obj/machinery/newscaster/south,
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/structure/table/standard,
 /obj/item/device/radio/off,
@@ -9570,11 +9520,10 @@
 /obj/machinery/recharger{
 	pixel_y = 3
 	},
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/south{
 	department = "Engineering";
 	departmentType = 1;
-	name = "Engineering RC";
-	pixel_y = -32
+	name = "Engineering RC"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -9890,12 +9839,11 @@
 /area/horizon/cafeteria)
 "hGZ" = (
 /obj/structure/table/reinforced/wood,
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/north{
 	announcementConsole = 1;
 	department = "Captain's Desk";
 	departmentType = 5;
-	name = "Captain RC";
-	pixel_y = 30
+	name = "Captain RC"
 	},
 /obj/item/storage/secure/briefcase,
 /obj/machinery/light{
@@ -10495,9 +10443,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/item/device/radio/intercom/interrogation{
-	pixel_y = 24
-	},
+/obj/item/device/radio/intercom/interrogation/north,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
@@ -10922,10 +10868,7 @@
 	req_access = list(1)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /obj/item/storage/box/practiceshells,
 /obj/item/storage/box/practiceshells,
 /obj/item/storage/box/practiceshells,
@@ -11684,9 +11627,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "jdI" = (
-/obj/machinery/newscaster{
-	pixel_y = -32
-	},
+/obj/machinery/newscaster/south,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "jeq" = (
@@ -11895,10 +11836,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/machinery/ringer{
+/obj/machinery/ringer/south{
 	department = "Head of Personnel's Office";
 	id = "hop_ringer";
-	pixel_y = -32;
 	req_access = list(57)
 	},
 /obj/structure/filingcabinet/filingcabinet{
@@ -12427,10 +12367,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/east{
 	department = "Representative's Office";
-	departmentType = 5;
-	pixel_x = 32
+	departmentType = 5
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
@@ -12546,10 +12485,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
@@ -13032,10 +12968,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
@@ -13064,10 +12997,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/tiled/dark/full,
 /area/tcommsat/entrance)
 "klQ" = (
@@ -13171,9 +13101,7 @@
 	c_tag = "Bridge - Representative's Office";
 	dir = 8
 	},
-/obj/machinery/newscaster{
-	pixel_x = 32
-	},
+/obj/machinery/newscaster/east,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "kqe" = (
@@ -13334,10 +13262,7 @@
 /obj/item/storage/box/fancy/crayons,
 /obj/item/storage/box/fancy/crayons,
 /obj/item/toy/figure/assistant,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
@@ -13558,10 +13483,9 @@
 	pixel_x = -9;
 	pixel_y = 1
 	},
-/obj/machinery/ringer{
+/obj/machinery/ringer/south{
 	department = "Consular";
-	id = "Consular";
-	pixel_y = -32
+	id = "Consular"
 	},
 /obj/machinery/papershredder{
 	pixel_x = 7
@@ -13907,8 +13831,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "kRs" = (
-/obj/machinery/newscaster{
-	pixel_x = 32;
+/obj/machinery/newscaster/east{
 	pixel_y = -32
 	},
 /obj/effect/floor_decal/corner/dark_green{
@@ -14442,10 +14365,7 @@
 /obj/machinery/firealarm/west{
 	pixel_x = -28
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -32
-	},
+/obj/item/device/radio/intercom/west,
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury/foyer)
@@ -15094,8 +15014,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/item/device/radio/intercom{
-	pixel_x = 32;
+/obj/item/device/radio/intercom/east{
 	pixel_y = 36
 	},
 /obj/machinery/keycard_auth{
@@ -15188,10 +15107,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "lIN" = (
-/obj/item/device/radio/intercom/interrogation/broadcasting{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/item/device/radio/intercom/interrogation/broadcasting/south,
 /obj/machinery/light/small,
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -16197,11 +16113,10 @@
 	c_tag = "Security - Investigations Office";
 	dir = 8
 	},
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/east{
 	department = "Investigations";
 	departmentType = 5;
-	name = "Investigation's Office Requests Console";
-	pixel_x = 32
+	name = "Investigation's Office Requests Console"
 	},
 /turf/simulated/floor/lino,
 /area/horizon/security/investigators_office)
@@ -16873,10 +16788,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/south{
 	department = "Conference Room";
-	name = "Conference Room Requests Console";
-	pixel_y = -32
+	name = "Conference Room Requests Console"
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
@@ -17031,10 +16945,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -32
-	},
+/obj/item/device/radio/intercom/south,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -17048,10 +16959,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -17213,9 +17121,7 @@
 	c_tag = "Medical - Examination Office 1"
 	},
 /obj/structure/bed/padded,
-/obj/item/device/radio/intercom{
-	pixel_y = 25
-	},
+/obj/item/device/radio/intercom/north,
 /obj/item/bedsheet/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
@@ -17238,9 +17144,7 @@
 /obj/item/pen{
 	pixel_x = -3
 	},
-/obj/machinery/newscaster/security_unit{
-	pixel_y = 30
-	},
+/obj/machinery/newscaster/security_unit/north,
 /obj/machinery/light/small{
 	dir = 1;
 	pixel_x = -11
@@ -17688,10 +17592,9 @@
 	dir = 10
 	},
 /obj/structure/table/glass,
-/obj/machinery/ringer{
+/obj/machinery/ringer/south{
 	department = "Security";
 	id = "investigation_ringer";
-	pixel_y = -32;
 	req_access = list(1)
 	},
 /obj/item/device/hand_labeler{
@@ -17799,9 +17702,7 @@
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "nIt" = (
-/obj/machinery/newscaster{
-	pixel_y = -32
-	},
+/obj/machinery/newscaster/south,
 /turf/simulated/floor/lino,
 /area/horizon/security/investigators_office)
 "nIW" = (
@@ -18597,10 +18498,7 @@
 	dir = 5
 	},
 /obj/structure/bed/stool/chair/office/bridge/pilot,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "onk" = (
@@ -18648,9 +18546,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/office_aux)
 "ooU" = (
-/obj/machinery/newscaster{
-	pixel_x = 32
-	},
+/obj/machinery/newscaster/east,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -18670,11 +18566,10 @@
 	c_tag = "Operations -  Aux Desk";
 	dir = 8
 	},
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/east{
 	department = "Operations Office (Aux)";
 	departmentType = 2;
-	name = "Operations (Aux) Requests Console";
-	pixel_x = 30
+	name = "Operations (Aux) Requests Console"
 	},
 /turf/simulated/floor/tiled,
 /area/operations/office_aux)
@@ -18917,10 +18812,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "ozN" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -25
-	},
+/obj/item/device/radio/intercom/west,
 /obj/structure/table/wood,
 /obj/item/paper_scanner,
 /obj/item/device/hand_labeler,
@@ -19581,10 +19473,7 @@
 /area/horizon/hallway/deck_three/primary/port)
 "oWy" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "oWK" = (
@@ -20359,12 +20248,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/newscaster/security_unit{
-	pixel_x = 32
-	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 20;
+/obj/machinery/newscaster/security_unit/east,
+/obj/item/device/radio/intercom/east{
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled,
@@ -20448,10 +20333,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
@@ -20703,9 +20585,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/requests_console{
-	department = "Vacant Office";
-	pixel_x = -32
+/obj/machinery/requests_console/west{
+	department = "Vacant Office"
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -21586,10 +21467,7 @@
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "qSY" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/item/device/radio/intercom/south,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -21711,9 +21589,7 @@
 /obj/item/storage/box/fancy/donut{
 	pixel_y = 5
 	},
-/obj/machinery/newscaster{
-	pixel_x = 29
-	},
+/obj/machinery/newscaster/east,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
 "qWk" = (
@@ -22300,10 +22176,7 @@
 	dir = 10
 	},
 /obj/structure/window/reinforced,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 18
-	},
+/obj/item/device/radio/intercom/east,
 /obj/structure/filingcabinet{
 	pixel_x = -9
 	},
@@ -22643,9 +22516,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
-/obj/machinery/newscaster{
-	pixel_x = -32
-	},
+/obj/machinery/newscaster/west,
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
 "rLM" = (
@@ -22726,10 +22597,7 @@
 	pixel_x = 24;
 	pixel_y = -9
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
@@ -22880,10 +22748,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/tiled,
 /area/operations/office_aux)
 "rTt" = (
@@ -22971,9 +22836,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -35;
+/obj/item/device/radio/intercom/west{
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
@@ -23160,10 +23023,7 @@
 	dir = 10
 	},
 /obj/structure/window/reinforced,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 18
-	},
+/obj/item/device/radio/intercom/east,
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck - Holodeck Beta 1";
 	dir = 8
@@ -23295,8 +23155,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/item/device/radio/intercom{
-	pixel_x = -32;
+/obj/item/device/radio/intercom/west{
 	pixel_y = 36
 	},
 /obj/machinery/keycard_auth{
@@ -24750,10 +24609,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
 "tni" = (
@@ -24796,9 +24652,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "tpN" = (
-/obj/item/device/radio/intercom{
-	pixel_y = 24
-	},
+/obj/item/device/radio/intercom/north,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -25651,9 +25505,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/machinery/newscaster{
-	pixel_x = -32
-	},
+/obj/machinery/newscaster/west,
 /obj/structure/sink/kitchen{
 	dir = 4;
 	name = "water fountain";
@@ -25992,9 +25844,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -21;
+/obj/item/device/radio/intercom/west{
 	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/white,
@@ -26005,10 +25855,7 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
 "ufU" = (
@@ -26480,9 +26327,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/newscaster/security_unit{
-	pixel_y = -32
-	},
+/obj/machinery/newscaster/security_unit/south,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -28123,9 +27968,7 @@
 /obj/machinery/photocopier/faxmachine{
 	department = "Chief Medical Officer's Office"
 	},
-/obj/machinery/newscaster{
-	pixel_y = 30
-	},
+/obj/machinery/newscaster/north,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "vMN" = (
@@ -28225,9 +28068,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -35;
+/obj/item/device/radio/intercom/west{
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
@@ -28841,12 +28682,11 @@
 /area/horizon/security/autopsy_laboratory)
 "woS" = (
 /obj/item/modular_computer/console/preset/command/account,
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/north{
 	announcementConsole = 1;
 	department = "Executive Officer's Desk";
 	departmentType = 5;
-	name = "Executive Officer RC";
-	pixel_y = 32
+	name = "Executive Officer RC"
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Executive Officer's Office"
@@ -29111,10 +28951,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/cryo/washroom)
 "wzB" = (
@@ -29163,9 +29000,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -23;
+/obj/item/device/radio/intercom/west{
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
@@ -30085,10 +29920,9 @@
 /obj/machinery/papershredder{
 	pixel_x = 7
 	},
-/obj/machinery/ringer{
+/obj/machinery/ringer/east{
 	department = "Representative";
-	id = "Representative";
-	pixel_x = 32
+	id = "Representative"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -30437,9 +30271,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
 	},
-/obj/machinery/requests_console{
-	pixel_x = -30
-	},
+/obj/machinery/requests_console/west,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "xvw" = (
@@ -30780,10 +30612,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /obj/item/device/flashlight/lamp{
 	on = 0
 	},
@@ -31095,9 +30924,7 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
 "yfg" = (
-/obj/machinery/newscaster{
-	pixel_x = 32
-	},
+/obj/machinery/newscaster/east,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},

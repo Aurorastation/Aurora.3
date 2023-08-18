@@ -680,10 +680,7 @@
 	name = "sink";
 	pixel_x = 21
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -25
-	},
+/obj/item/device/radio/intercom/south,
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 4
 	},
@@ -745,8 +742,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "aFx" = (
-/obj/item/device/radio/intercom{
-	pixel_x = -11;
+/obj/item/device/radio/intercom/west{
 	pixel_y = 21
 	},
 /obj/structure/bed/stool/chair/sofa/left/red,
@@ -2316,10 +2312,7 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
 	id = "hangarlockdown";
@@ -2697,9 +2690,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/newscaster{
-	pixel_x = 29
-	},
+/obj/machinery/newscaster/east,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
@@ -2888,11 +2879,10 @@
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/toolbox/mechanical,
-/obj/machinery/ringer{
+/obj/machinery/ringer/south{
 	department = "Custodial";
 	id = "ringers_custodial";
 	name = "\improper Custodial Ringer Terminal";
-	pixel_y = -32;
 	req_access = list(26)
 	},
 /obj/effect/floor_decal/corner/purple/full,
@@ -2913,10 +2903,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -21
-	},
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod3)
 "ceP" = (
@@ -3537,9 +3524,7 @@
 	pixel_x = -23;
 	req_access = null
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = -9;
+/obj/item/device/radio/intercom/west{
 	pixel_y = -21
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3576,11 +3561,10 @@
 	c_tag = "Research - Xenoarchaeology 3";
 	dir = 4
 	},
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/west{
 	department = "Xenoarchaeology";
 	departmentType = 2;
-	name = "Xenoarchaeology Requests Console";
-	pixel_x = -30
+	name = "Xenoarchaeology Requests Console"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -4982,9 +4966,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/newscaster{
-	pixel_x = -32
-	},
+/obj/machinery/newscaster/west,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
@@ -5084,10 +5066,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -21
-	},
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod1)
 "dFQ" = (
@@ -6415,10 +6394,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "eDa" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/item/device/radio/intercom/south,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
@@ -6502,9 +6478,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/newscaster{
-	pixel_x = 32
-	},
+/obj/machinery/newscaster/east,
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
@@ -8021,9 +7995,7 @@
 /obj/machinery/atmospherics/binary/pump/fuel{
 	name = "Fuel Tank to Thrusters"
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 26;
+/obj/item/device/radio/intercom/east{
 	pixel_y = 6
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -8558,9 +8530,7 @@
 "fUG" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/newscaster{
-	pixel_y = -32
-	},
+/obj/machinery/newscaster/south,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -8774,10 +8744,9 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/south{
 	department = "Deck 1 - Pilots' Room";
-	name = "Pilots' Room Requests Console";
-	pixel_y = -32
+	name = "Pilots' Room Requests Console"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -10114,9 +10083,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/item/device/radio/intercom{
-	pixel_y = 24
-	},
+/obj/item/device/radio/intercom/north,
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
@@ -10179,9 +10146,7 @@
 /area/hangar/auxiliary)
 "hcq" = (
 /obj/structure/bed/stool/chair/office/bridge,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -21;
+/obj/item/device/radio/intercom/west{
 	pixel_y = 2
 	},
 /obj/machinery/button/remote/blast_door{
@@ -13447,9 +13412,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 7;
+/obj/item/device/radio/intercom/east{
 	pixel_y = -16
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -13480,9 +13443,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/newscaster{
-	pixel_y = 32
-	},
+/obj/machinery/newscaster/north,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "jyY" = (
@@ -13603,10 +13564,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "jDs" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/item/device/radio/intercom/south,
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations - Lower Warehouse 4";
 	dir = 1
@@ -14708,10 +14666,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /obj/machinery/teleport/pad,
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 1
@@ -14799,10 +14754,7 @@
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 18
-	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "kyq" = (
@@ -14856,9 +14808,7 @@
 /obj/effect/landmark/start{
 	name = "Janitor"
 	},
-/obj/machinery/newscaster{
-	pixel_x = -32
-	},
+/obj/machinery/newscaster/west,
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 8
 	},
@@ -15401,11 +15351,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/west{
 	department = "Mining";
 	departmentType = 2;
-	name = "Mining Requests Console";
-	pixel_x = -30
+	name = "Mining Requests Console"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
@@ -16173,8 +16122,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	pixel_x = 7;
+/obj/item/device/radio/intercom/east{
 	pixel_y = 21
 	},
 /obj/structure/cable/green{
@@ -17369,9 +17317,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = -11;
+/obj/item/device/radio/intercom/west{
 	pixel_y = -16
 	},
 /turf/simulated/floor/tiled/white,
@@ -17577,9 +17523,7 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/hangar/starboard)
 "msF" = (
-/obj/machinery/newscaster{
-	pixel_y = -32
-	},
+/obj/machinery/newscaster/south,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
@@ -18217,8 +18161,7 @@
 	outside_part = 0
 	},
 /obj/structure/table/wood,
-/obj/item/device/radio/intercom{
-	pixel_x = 7;
+/obj/item/device/radio/intercom/east{
 	pixel_y = 21
 	},
 /obj/item/device/binoculars{
@@ -18845,10 +18788,7 @@
 /area/medical/emergency_storage)
 "nmF" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /obj/machinery/light/small,
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled/dark,
@@ -18862,11 +18802,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "nmQ" = (
-/obj/machinery/ringer{
+/obj/machinery/ringer/west{
 	department = "Custodial";
 	id = "ringers_custodial";
 	name = "\improper Custodial Ringer Terminal";
-	pixel_x = -32;
 	pixel_y = 5;
 	req_access = list(26)
 	},
@@ -20120,9 +20059,7 @@
 /area/security/checkpoint)
 "ocJ" = (
 /obj/machinery/firealarm/north,
-/obj/machinery/newscaster{
-	pixel_x = -32
-	},
+/obj/machinery/newscaster/west,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -21901,10 +21838,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -21
-	},
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod2)
 "pyQ" = (
@@ -23020,10 +22954,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 18
-	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/carpet/lightblue,
 /area/shuttle/intrepid/quarters)
 "qmn" = (
@@ -23417,10 +23348,9 @@
 /obj/machinery/camera/network/service{
 	c_tag = "Custodial - Garage"
 	},
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/north{
 	department = "Custodial";
-	departmentType = 1;
-	pixel_y = 29
+	departmentType = 1
 	},
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/landmark/start{
@@ -23630,10 +23560,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -21
-	},
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod4)
 "qIl" = (
@@ -28303,10 +28230,7 @@
 /turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
 "tYN" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/item/device/radio/intercom/south,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
@@ -30446,10 +30370,7 @@
 /area/maintenance/hangar/starboard)
 "vsW" = (
 /obj/effect/floor_decal/corner/dark_green/full,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
@@ -30655,9 +30576,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/machinery/newscaster{
-	pixel_x = 32
-	},
+/obj/machinery/newscaster/east,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
 "vDu" = (
@@ -30813,9 +30732,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/radio/intercom{
-	pixel_y = 24
-	},
+/obj/item/device/radio/intercom/north,
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
@@ -33130,9 +33047,7 @@
 	pixel_y = 9
 	},
 /obj/item/stack/nanopaste,
-/obj/item/device/radio/intercom{
-	pixel_y = 22
-	},
+/obj/item/device/radio/intercom/north,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/xenoarch_atrium)
@@ -33334,10 +33249,7 @@
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 18
-	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "xqv" = (
