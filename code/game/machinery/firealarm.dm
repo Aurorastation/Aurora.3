@@ -229,7 +229,9 @@
 
 	var/area/A = get_area(src)
 	RegisterSignal(A, COMSIG_AREA_FIRE_ALARM, TYPE_PROC_REF(/atom, update_icon))
-	set_pixel_offsets()
+
+	if(!mapload)
+		set_pixel_offsets()
 
 /obj/machinery/firealarm/Destroy()
 	QDEL_NULL(soundloop)

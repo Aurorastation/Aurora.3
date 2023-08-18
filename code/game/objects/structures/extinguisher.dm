@@ -28,11 +28,13 @@
 	dir = SOUTH
 	pixel_y = -23
 
-/obj/structure/extinguisher_cabinet/Initialize()
+/obj/structure/extinguisher_cabinet/Initialize(mapload)
 	. = ..()
 	has_extinguisher = new /obj/item/extinguisher(src)
 	update_icon()
-	set_pixel_offsets()
+
+	if(!mapload)
+		set_pixel_offsets()
 
 /obj/structure/extinguisher_cabinet/set_pixel_offsets()
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 21 : 4)

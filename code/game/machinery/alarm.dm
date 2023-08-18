@@ -270,7 +270,8 @@
 
 	set_frequency(frequency)
 
-	set_pixel_offsets()
+	if(!mapload)
+		set_pixel_offsets()
 
 	update_icon()
 

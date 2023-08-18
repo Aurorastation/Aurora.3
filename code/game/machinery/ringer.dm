@@ -25,7 +25,9 @@
 		alpha = 127
 	generate_overlays()
 	update_icon()
-	set_pixel_offsets()
+
+	if(!mapload)
+		set_pixel_offsets()
 
 /obj/machinery/ringer/power_change()
 	..()
