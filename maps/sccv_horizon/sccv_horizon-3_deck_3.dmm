@@ -11,7 +11,8 @@
 /area/horizon/longbow)
 "aaz" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12)
+	req_one_access = list(12);
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
@@ -35,7 +36,8 @@
 	id_tag = "specops_dock_airlock_outer";
 	locked = 1;
 	name = "Port Docking Hatch";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -158,7 +160,8 @@
 "adv" = (
 /obj/machinery/door/airlock{
 	id_tag = "sec_deck3_toilet";
-	name = "Washroom"
+	name = "Washroom";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -419,7 +422,8 @@
 	locked = 1;
 	name = "Command Bunker";
 	req_access = list(19);
-	secured_wires = 1
+	secured_wires = 1;
+	dir = 1
 	},
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -549,7 +553,8 @@
 /obj/machinery/door/airlock/glass_security{
 	desc = "It opens and closes. Hazardous lifeforms ahead. Caution advised!";
 	name = "Security Wing";
-	req_access = list(63)
+	req_access = list(63);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -914,7 +919,8 @@
 	id_tag = "processing_airlock_exterior";
 	locked = 1;
 	name = "Isolation Ward Exterior";
-	req_access = list(66)
+	req_access = list(66);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -998,7 +1004,8 @@
 "aLA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Cafe"
+	name = "Cafe";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1133,7 +1140,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
 	name = "Theoretical Training";
-	req_access = list(63)
+	req_access = list(63);
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1296,7 +1304,8 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19,38,72)
+	req_one_access = list(19,38,72);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -1312,7 +1321,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12,19)
+	req_one_access = list(12,19);
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
@@ -1512,7 +1522,8 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "consular_office";
 	name = "Consular Office";
-	req_access = list(72)
+	req_access = list(72);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1764,7 +1775,8 @@
 "bnC" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Evidence Storage";
-	req_access = list(4)
+	req_access = list(4);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -1879,7 +1891,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Investigators' Office";
-	req_access = list(4)
+	req_access = list(4);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/investigators_office)
@@ -1960,7 +1973,8 @@
 	id_tag = "specops_dock_airlock_inner";
 	locked = 1;
 	name = "Port Docking Hatch";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2045,7 +2059,8 @@
 "bDH" = (
 /obj/machinery/door/airlock/freezer{
 	id_tag = "main_unit_2";
-	name = "Unit 2"
+	name = "Unit 2";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
@@ -2221,7 +2236,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Deck 3 Medical Maintenance";
-	req_access = list(5)
+	req_access = list(5);
+	dir = 4
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -2586,7 +2602,8 @@
 "cfr" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Security Maintenance";
-	req_access = list(63)
+	req_access = list(63);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -2784,7 +2801,8 @@
 	id_tag = "dock_horizon_3_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -2806,7 +2824,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Lounge"
+	name = "Lounge";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/lounge/secondary)
@@ -2908,7 +2927,8 @@
 	id_tag = "dock_horizon_1_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -3063,7 +3083,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/engineering{
 	name = "Deck 3 Command Substation";
-	req_one_access = list(11,24,57)
+	req_one_access = list(11,24,57);
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
@@ -4131,7 +4152,8 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Security Maintenance";
-	req_access = list(63)
+	req_access = list(63);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/investigations_hallway)
@@ -4552,7 +4574,8 @@
 "dUp" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Firing Range";
-	req_access = list(63)
+	req_access = list(63);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4977,7 +5000,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_security{
 	name = "Crew Armoury Desk";
-	req_one_access = list(1,19)
+	req_one_access = list(1,19);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -5012,7 +5036,8 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "captaindoor";
 	name = "Captain's Office";
-	req_access = list(20)
+	req_access = list(20);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
@@ -5171,7 +5196,8 @@
 "eqr" = (
 /obj/machinery/door/airlock/freezer{
 	id_tag = "main_unit_1";
-	name = "Unit 1"
+	name = "Unit 1";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
@@ -5393,7 +5419,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass{
-	name = "Holodeck Alpha"
+	name = "Holodeck Alpha";
+	dir = 4
 	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -5513,7 +5540,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 3 Port Stairwell"
+	name = "Deck 3 Port Stairwell";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port)
@@ -5590,7 +5618,8 @@
 "eFn" = (
 /obj/machinery/door/airlock/security{
 	name = "Evidence Storage";
-	req_access = list(4)
+	req_access = list(4);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5733,7 +5762,8 @@
 /area/bridge)
 "eJa" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5,12)
+	req_one_access = list(5,12);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -6468,7 +6498,8 @@
 /area/tcommsat/chamber)
 "fmL" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5,12)
+	req_one_access = list(5,12);
+	dir = 4
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -6822,7 +6853,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38,72)
+	req_one_access = list(19,38,72);
+	dir = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6969,7 +7001,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38,72)
+	req_one_access = list(19,38,72);
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
@@ -7110,7 +7143,8 @@
 "fHn" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(11,24)
+	req_one_access = list(11,24);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/maintenance/engineering_ladder)
@@ -7372,7 +7406,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Interrogation Monitoring";
-	req_access = list(1)
+	req_access = list(1);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7458,7 +7493,8 @@
 	},
 /obj/machinery/door/airlock/medical{
 	name = "Staff Facilities";
-	req_access = list(5)
+	req_access = list(5);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -7715,7 +7751,8 @@
 "gcV" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5,12)
+	req_one_access = list(5,12);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/maintenance/bridge)
@@ -8164,7 +8201,8 @@
 	id_tag = "dock_horizon_1_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -8695,7 +8733,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
 	name = "Forensic Laboratory";
-	req_access = list(4)
+	req_access = list(4);
+	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -8722,7 +8761,8 @@
 /area/horizon/security/meeting_room)
 "gTR" = (
 /obj/machinery/door/airlock{
-	name = "Public Office"
+	name = "Public Office";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8803,7 +8843,8 @@
 "gYe" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Hallway"
+	name = "Deck 3 Starboard Hallway";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -8986,7 +9027,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38);
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
@@ -9254,7 +9296,8 @@
 /area/horizon/crew_armoury)
 "hmd" = (
 /obj/machinery/door/airlock{
-	name = "Washroom"
+	name = "Washroom";
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -9346,7 +9389,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5,12)
+	req_one_access = list(5,12);
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -10652,7 +10696,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Docks"
+	name = "Deck 3 Starboard Docks";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -10748,7 +10793,8 @@
 "izr" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecommunications - Server Hall";
-	req_access = list(61)
+	req_access = list(61);
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
@@ -10862,7 +10908,8 @@
 "iEg" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Docks"
+	name = "Deck 3 Starboard Docks";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -11005,7 +11052,8 @@
 /area/storage/shields)
 "iIe" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5,12)
+	req_one_access = list(5,12);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -11033,7 +11081,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/glass_medical{
-	name = "Medical Equipment"
+	name = "Medical Equipment";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/equipment)
@@ -11237,7 +11286,8 @@
 /obj/machinery/door/airlock/medical{
 	id_tag = "deck2_medicaltoilet";
 	name = "Washroom Stall";
-	req_access = list(5)
+	req_access = list(5);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -11266,8 +11316,8 @@
 /area/crew_quarters/captain)
 "iQy" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	name = "Deck 3 Port Stairwell"
+	name = "Deck 3 Port Stairwell";
+	dir = 4
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -11290,7 +11340,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12)
+	req_one_access = list(12);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -11727,7 +11778,8 @@
 /area/maintenance/security_starboard)
 "jiW" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(2,3,4)
+	req_one_access = list(2,3,4);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/horizon/security/evidence_storage)
@@ -11874,7 +11926,8 @@
 	id_tag = "nuke_shuttle_dock_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -12061,7 +12114,8 @@
 /area/medical/washroom)
 "jyf" = (
 /obj/machinery/door/airlock{
-	name = "Restroom"
+	name = "Restroom";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -12169,7 +12223,8 @@
 "jCt" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Deck 3 Civilian Substation";
-	req_one_access = list(11,24)
+	req_one_access = list(11,24);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -12280,7 +12335,8 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "captaindoor";
 	name = "Captain's Office";
-	req_access = list(20)
+	req_access = list(20);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -12307,7 +12363,8 @@
 	id_tag = "dock_horizon_1_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/full,
@@ -12381,7 +12438,8 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "CMOdoor";
 	name = "Chief Medical Officer's Office";
-	req_access = list(40)
+	req_access = list(40);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -12401,7 +12459,8 @@
 "jKp" = (
 /obj/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_access = list(20)
+	req_access = list(20);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -12756,7 +12815,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock{
-	name = "Showers"
+	name = "Showers";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -14415,7 +14475,8 @@
 "lkl" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Executive Officer's Office Maintenance";
-	req_access = list(57)
+	req_access = list(57);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -14450,7 +14511,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Docks"
+	name = "Deck 3 Starboard Docks";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -14737,7 +14799,8 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -15166,7 +15229,8 @@
 	id_tag = "green_dock_aft_exterior";
 	locked = 1;
 	name = "Emergency Services Dock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -15278,7 +15342,8 @@
 	id_tag = "nuke_shuttle_dock_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -15830,7 +15895,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Helm";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -15997,7 +16063,8 @@
 	id_tag = "sat2";
 	locked = 1;
 	name = "Scuttling Device Chamber";
-	req_access = list(20)
+	req_access = list(20);
+	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	id = "sat_blast";
@@ -16087,7 +16154,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Lounge"
+	name = "Deck 3 Starboard Lounge";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/lounge/secondary)
@@ -16446,7 +16514,8 @@
 /area/horizon/security/washroom)
 "mOc" = (
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Port Docks"
+	name = "Deck 3 Port Docks";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -16476,7 +16545,8 @@
 /obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12)
+	req_one_access = list(12);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
@@ -16591,7 +16661,8 @@
 "mTh" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
-	name = "Crew Armoury"
+	name = "Crew Armoury";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular{
 	dir = 8;
@@ -17055,7 +17126,8 @@
 "nkE" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Deck 3 Civilian Substation";
-	req_one_access = list(11,24)
+	req_one_access = list(11,24);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -17066,7 +17138,8 @@
 "nkF" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Security Maintenance";
-	req_access = list(63)
+	req_access = list(63);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -17077,7 +17150,8 @@
 "nkG" = (
 /obj/machinery/door/airlock{
 	id_tag = "cryo_toilet_2";
-	name = "Toilet 2"
+	name = "Toilet 2";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/washroom)
@@ -17230,7 +17304,8 @@
 /area/horizon/crew_quarters/fitness/changing)
 "nro" = (
 /obj/machinery/door/airlock/glass{
-	name = "Lounge"
+	name = "Lounge";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -17691,7 +17766,8 @@
 	id_tag = "processing_airlock_interior";
 	locked = 1;
 	name = "Isolation Ward Interior";
-	req_access = list(66)
+	req_access = list(66);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -17704,7 +17780,8 @@
 	id_tag = "green_dock_aft_interior";
 	locked = 1;
 	name = "Emergency Services Dock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -17775,7 +17852,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_one_access = list(19,38,72)
+	req_one_access = list(19,38,72);
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor,
@@ -17799,7 +17877,8 @@
 "nLV" = (
 /obj/machinery/door/airlock/command{
 	name = "Executive Officer's Office";
-	req_access = list(57)
+	req_access = list(57);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -18324,7 +18403,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Lounge"
+	name = "Deck 3 Starboard Lounge";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/lounge)
@@ -18635,7 +18715,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Hallway"
+	name = "Deck 3 Starboard Hallway";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -18689,7 +18770,8 @@
 "ouq" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12)
+	req_one_access = list(12);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
@@ -18697,7 +18779,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
 	name = "Telecommunications - Spare Parts";
-	req_access = list(61)
+	req_access = list(61);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
@@ -18853,7 +18936,8 @@
 	id_tag = "dock_horizon_3_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -19139,7 +19223,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge Officer Preparation";
-	req_access = list(19)
+	req_access = list(19);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -19423,7 +19508,8 @@
 "oUJ" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Autopsy Lab";
-	req_access = list(4)
+	req_access = list(4);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -19477,7 +19563,8 @@
 	id_tag = "green_dock_aft_exterior";
 	locked = 1;
 	name = "Emergency Services Dock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
@@ -19818,7 +19905,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12,63)
+	req_one_access = list(12,63);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -19969,7 +20057,8 @@
 /obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12)
+	req_one_access = list(12);
+	dir = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -20014,7 +20103,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Hallway"
+	name = "Deck 3 Starboard Hallway";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -20086,7 +20176,8 @@
 	id_tag = "dock_horizon_3_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -20426,7 +20517,8 @@
 	},
 /obj/machinery/door/airlock/medical{
 	name = "Staff Facilities";
-	req_access = list(5)
+	req_access = list(5);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -20514,7 +20606,8 @@
 	id_tag = "nuke_shuttle_dock_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -20919,7 +21012,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -20979,7 +21073,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Investigators' Office";
-	req_access = list(4)
+	req_access = list(4);
+	dir = 1
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -21220,7 +21315,8 @@
 /area/horizon/hallway/deck_three/primary/central)
 "qGg" = (
 /obj/machinery/door/airlock/mining{
-	req_one_access = list(26,29,31,48,67)
+	req_one_access = list(26,29,31,48,67);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -21329,7 +21425,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12,19)
+	req_one_access = list(12,19);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/horizon/hallway/deck_three/primary/central)
@@ -21541,7 +21638,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge Officer Preparation";
-	req_access = list(19)
+	req_access = list(19);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/bridge/bridge_crew)
@@ -21592,7 +21690,8 @@
 	},
 /obj/machinery/door/airlock/glass_security{
 	name = "Crew Armoury";
-	req_one_access = list(1,19)
+	req_one_access = list(1,19);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury/foyer)
@@ -21699,7 +21798,8 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(11,24)
+	req_one_access = list(11,24);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering_ladder)
@@ -21793,7 +21893,8 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19,38,72)
+	req_one_access = list(19,38,72);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -22161,7 +22262,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
 	name = "Deck 3 Medical";
-	req_access = list(5)
+	req_access = list(5);
+	dir = 1
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -22401,7 +22503,8 @@
 /area/lawoffice/consular)
 "rFk" = (
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Port Docks"
+	name = "Deck 3 Port Docks";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -22530,7 +22633,8 @@
 "rKs" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list(12);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
@@ -23358,7 +23462,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5,12)
+	req_one_access = list(5,12);
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -23482,7 +23587,8 @@
 	id_tag = "dock_horizon_1_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -23620,7 +23726,8 @@
 "ssS" = (
 /obj/machinery/door/airlock/service{
 	name = "Journalist's Office";
-	req_access = list(70)
+	req_access = list(70);
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor,
@@ -23683,7 +23790,8 @@
 "sum" = (
 /obj/machinery/door/airlock{
 	id_tag = "cryo_toilet_1";
-	name = "Toilet 1"
+	name = "Toilet 1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/washroom)
@@ -23752,7 +23860,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12)
+	req_one_access = list(12);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -23978,7 +24087,8 @@
 /obj/machinery/firealarm/south,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Port Hallway"
+	name = "Deck 3 Port Hallway";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port)
@@ -24016,7 +24126,8 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "hopdoor";
 	name = "Executive Officer's Office";
-	req_access = list(57)
+	req_access = list(57);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -24422,7 +24533,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38);
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
@@ -24434,7 +24546,8 @@
 	id_tag = "dock_horizon_4_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -24482,7 +24595,8 @@
 "tfE" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5,12)
+	req_one_access = list(5,12);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
@@ -24547,7 +24661,8 @@
 "tjt" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Docks"
+	name = "Deck 3 Starboard Docks";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -24814,7 +24929,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Docks"
+	name = "Deck 3 Starboard Docks";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -24824,7 +24940,8 @@
 "tse" = (
 /obj/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_access = list(20)
+	req_access = list(20);
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -25014,7 +25131,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12,63)
+	req_one_access = list(12,63);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/security_starboard)
@@ -25196,7 +25314,8 @@
 	id_tag = "green_dock_aft_interior";
 	locked = 1;
 	name = "Emergency Services Dock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -25593,7 +25712,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12)
+	req_one_access = list(12);
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
@@ -25648,7 +25768,8 @@
 	},
 /obj/machinery/door/airlock/medical{
 	name = "Recovery";
-	req_access = list(5)
+	req_access = list(5);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
@@ -26098,7 +26219,8 @@
 /area/horizon/security/evidence_storage)
 "uri" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 3 Central Stairwell"
+	name = "Deck 3 Central Stairwell";
+	dir = 1
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 8
@@ -26209,7 +26331,8 @@
 	id_tag = "dock_horizon_4_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/full,
@@ -26266,7 +26389,8 @@
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Break Room";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38);
+	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -26412,7 +26536,8 @@
 "uDR" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5,12)
+	req_one_access = list(5,12);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -26701,7 +26826,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38);
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
@@ -26789,7 +26915,8 @@
 "uQt" = (
 /obj/machinery/door/airlock/command{
 	name = "Direct Fire Artillery System";
-	req_one_access = list(75)
+	req_one_access = list(75);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -26966,7 +27093,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
 	name = "Telecommunications - Control Room";
-	req_access = list(61)
+	req_access = list(61);
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
@@ -27042,7 +27170,8 @@
 "vcX" = (
 /obj/machinery/door/airlock/security{
 	name = "Investigators' Office";
-	req_access = list(4)
+	req_access = list(4);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -27070,7 +27199,8 @@
 "vdC" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecommunications - Control Room";
-	req_access = list(61)
+	req_access = list(61);
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -27142,7 +27272,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock{
-	name = "Locker Room"
+	name = "Locker Room";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
@@ -27225,7 +27356,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass{
-	name = "Holodeck Beta"
+	name = "Holodeck Beta";
+	dir = 4
 	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -27477,7 +27609,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge Officer Preparation";
-	req_access = list(19)
+	req_access = list(19);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/bridge/bridge_crew)
@@ -27576,7 +27709,8 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "rep_office";
 	name = "Representative Office";
-	req_access = list(38)
+	req_access = list(38);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -27619,7 +27753,8 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Shield Generator";
 	req_one_access = list(11,24);
-	secured_wires = 1
+	secured_wires = 1;
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -27655,7 +27790,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Hallway"
+	name = "Deck 3 Starboard Hallway";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -28278,7 +28414,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Port Hallway"
+	name = "Deck 3 Port Hallway";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port)
@@ -28343,7 +28480,8 @@
 "vZP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Port Hallway"
+	name = "Deck 3 Port Hallway";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port)
@@ -28439,7 +28577,8 @@
 	id_tag = "dock_horizon_3_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark/full,
@@ -28525,7 +28664,8 @@
 /area/bridge/controlroom)
 "wik" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(4)
+	req_access = list(4);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/horizon/security/evidence_storage)
@@ -28620,7 +28760,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	name = "Break Room";
-	req_one_access = list(19,38)
+	req_one_access = list(19,38);
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -28787,7 +28928,8 @@
 /area/horizon/hallway/deck_three/primary/central)
 "wqS" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(11,24)
+	req_one_access = list(11,24);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -28840,7 +28982,8 @@
 "wtM" = (
 /obj/machinery/door/airlock/security{
 	name = "Evidence Storage";
-	req_one_access = list(2,3,4)
+	req_one_access = list(2,3,4);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -29054,7 +29197,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5,12)
+	req_one_access = list(5,12);
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
@@ -29103,7 +29247,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(11,24)
+	req_one_access = list(11,24);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
@@ -29262,7 +29407,8 @@
 /obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(12,19)
+	req_one_access = list(12,19);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
@@ -29625,7 +29771,8 @@
 /area/horizon/hallway/deck_three/primary/central)
 "wVu" = (
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Port Docks"
+	name = "Deck 3 Port Docks";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -29829,7 +29976,8 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "conference_room";
 	name = "Conference Room";
-	req_one_access = list(19,38,72)
+	req_one_access = list(19,38,72);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
@@ -30412,7 +30560,8 @@
 "xDg" = (
 /obj/machinery/door/airlock/security{
 	name = "Interrogation";
-	req_access = list(1)
+	req_access = list(1);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -30829,7 +30978,8 @@
 "xXk" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Hallway"
+	name = "Deck 3 Starboard Hallway";
+	dir = 4
 	},
 /obj/structure/sign/directions/all{
 	dir = 4;
@@ -30890,7 +31040,8 @@
 	id_tag = "dock_horizon_4_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -31049,6 +31200,20 @@
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/captain)
+"AAA" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_security{
+	name = "Crew Armoury";
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	dir = 8;
+	id = "crew_armory";
+	name = "Crew Armoury Blast Door"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
+/area/horizon/crew_armoury)
 
 (1,1,1) = {"
 dSF
@@ -54168,7 +54333,7 @@ iLB
 bdE
 qnC
 lvQ
-mTh
+AAA
 nVR
 xaT
 rIg
