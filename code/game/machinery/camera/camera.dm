@@ -36,7 +36,7 @@
 
 	var/affected_by_emp_until = 0
 
-/obj/machinery/camera/Initialize(mapload)
+/obj/machinery/camera/Initialize()
 	wires = new(src)
 	assembly = new(src)
 	assembly.state = 4
@@ -57,8 +57,7 @@
 		ASSERT(src.network)
 		ASSERT(src.network.len > 0)
 
-	if(!mapload)
-		set_pixel_offsets()
+	set_pixel_offsets()
 
 	return ..()
 

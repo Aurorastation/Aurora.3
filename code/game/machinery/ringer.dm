@@ -52,7 +52,7 @@ pixel_x = 24;
 /obj/machinery/ringer/east
 	PRESET_EAST
 
-/obj/machinery/ringer/Initialize()
+/obj/machinery/ringer/Initialize(mapload)
 	. = ..()
 	if(id)
 		ringers = new(id, src)
