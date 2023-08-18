@@ -409,6 +409,7 @@
 
 /obj/structure/platform/cutout
 	icon_state = "platform_cutout"
+	density = 0
 
 /// No special CanPass for this one.
 /obj/structure/platform_deco
