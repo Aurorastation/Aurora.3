@@ -1,7 +1,0 @@
-author: io-util
-
-delete-after: True
-
-changes:
-  - rscadd: "Added new SCC ERT Hardsuits for event and admin use."
-  - imageadd: "Added new sprites, made by Kyres, for the SCC ERT hardsuits."
