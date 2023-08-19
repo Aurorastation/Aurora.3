@@ -761,6 +761,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "messy hair"
 
+/datum/sprite_accessory/hair/messy_alt
+	name = "Messy, Alt"
+	icon_state = "hair_messy_alt"
+	length = 2
+	chatname = "messy hair"
+
 /datum/sprite_accessory/hair/messy2
 	name = "Messy 2"
 	icon_state = "hair_messy2"
