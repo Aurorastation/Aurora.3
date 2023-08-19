@@ -1,14 +1,23 @@
-### Update Notice
+### Compacted Migrations
 
-To decrease the run time of the migration unit test, the database migrations have been compacted into a single one.
-Before you run the new migration script complete the following steps:
-* Update your database schema to the current V81
-* Create a backup
+To decrease the runtime of the migration unit test, the database migrations will be compacted into a single migration on a regular base.
+In order to do so, a new "migrate-VERSION" subfolder is created.
+The initial migration in these subfolders is always a migration with the current db-schema as of the current PR.
 
-Then you can proceed to delete your flyway migration history table and run flyway on the database.
-The initial schema is set up with `CREATE IF NOT EXISTS` statements, so there *should* not be any issues if you run the migration script on your production setup.
+In addition the flayway.conf file in the root of the project is updated to use the new migration folder and create a new schema history table (that tracks the applied migrations).
 
-As usual, do that at your own risk.
+#### How does this impact you?
+
+If you set up a new database:
+
+Make sure to use the latest migration folder, it will contain everything needed to create a "fresh" database.
+
+If you have a existing database:
+Update to the latest migration in the migration folder that you have used so far.
+Then switch to the next migration folder (and a new schema version table)
+
+As usual, always make sure that you have a backup.
+
 
 ### Prerequisites
 
