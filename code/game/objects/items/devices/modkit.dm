@@ -272,6 +272,48 @@
 		/obj/item/clothing/suit/space/void/dominia = /obj/item/clothing/suit/space/void/dominia/voidsman
 	)
 
+/obj/item/voidsuit_modkit/tarwa
+	name = "tarwa conglomerate voidsuit kit"
+	desc = "A highly complicated device that allows you to convert an Unathi pirate suit into its Tarwa Conglomerate counterpart. Practical!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/unathi_pirate = /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa,
+		/obj/item/clothing/suit/space/void/unathi_pirate = /obj/item/clothing/suit/space/void/unathi_pirate/tarwa,
+		/obj/item/clothing/head/helmet/space/void/unathi_pirate/captain = /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa/captain,
+		/obj/item/clothing/suit/space/void/unathi_pirate/captain = /obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain
+	)
+
+/obj/item/voidsuit_modkit/kazu
+	name = "kazu's techraiders voidsuit kit"
+	desc = "A highly complicated device that allows you to convert an Unathi pirate suit into its Techraider counterpart. Practical!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/unathi_pirate = /obj/item/clothing/head/helmet/space/void/unathi_pirate/kazu,
+		/obj/item/clothing/suit/space/void/unathi_pirate = /obj/item/clothing/suit/space/void/unathi_pirate/kazu,
+		/obj/item/clothing/head/helmet/space/void/unathi_pirate/captain = /obj/item/clothing/head/helmet/space/void/unathi_pirate/kazu/captain,
+		/obj/item/clothing/suit/space/void/unathi_pirate/captain = /obj/item/clothing/suit/space/void/unathi_pirate/kazu/captain
+	)
+
+/obj/item/voidsuit_modkit/hiskyn
+	name = "hiskyn revanchist voidsuit kit"
+	desc = "A highly complicated device that allows you to convert an Unathi pirate suit into its Hiskyn Revanchist counterpart. Practical!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/unathi_pirate = /obj/item/clothing/head/helmet/space/void/unathi_pirate/hiskyn,
+		/obj/item/clothing/suit/space/void/unathi_pirate = /obj/item/clothing/suit/space/void/unathi_pirate/hiskyn,
+		/obj/item/clothing/head/helmet/space/void/unathi_pirate/captain = /obj/item/clothing/head/helmet/space/void/unathi_pirate/hiskyn/captain,
+		/obj/item/clothing/suit/space/void/unathi_pirate/captain = /obj/item/clothing/suit/space/void/unathi_pirate/hiskyn/captain
+	)
+
 /obj/item/storage/box/srf
 	name = "srf modkit box"
 	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."
@@ -311,6 +353,21 @@
 	name = "dominian voidsman's modkit box"
 	desc = "Contains modkits to convert Dominian voidsuits into a voidsman's variant."
 	starts_with = list(/obj/item/voidsuit_modkit/dominianvoid = 4)
+
+/obj/item/storage/box/tarwa
+	name = "tarwa conglomerate modkit box"
+	desc = "Contains modkits to convert Unathi pirate voidsuits into a Tarwa Conglomerate variant."
+	starts_with = list(/obj/item/voidsuit_modkit/tarwa = 4)
+
+/obj/item/storage/box/kazu
+	name = "kazu's techraiders modkit box"
+	desc = "Contains modkits to convert Unathi pirate voidsuits into a Techraider variant."
+	starts_with = list(/obj/item/voidsuit_modkit/kazu = 4)
+
+/obj/item/storage/box/hiskyn
+	name = "hiskyn revanchists modkit box"
+	desc = "Contains modkits to convert Unathi pirate voidsuits into a Hiskyn Revanchist variant."
+	starts_with = list(/obj/item/voidsuit_modkit/hiskyn = 4)
 
 
 #undef MODKIT_HELMET

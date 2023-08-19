@@ -295,7 +295,7 @@
 		if(L != src)
 			L.apply_damage(15,DAMAGE_BRUTE)
 			possible_targets += L
-			to_chat(L, "<span class='danger'>\The [src] wraps around you tightly with its spiny teeth+!</span>")
+			to_chat(L, "<span class='danger'>\The [src] wraps around you tightly with its spiny teeth!</span>")
 	if(Adjacent(originator) && possible_targets.len)
 		var/mob/living/L = pick(possible_targets)
 		to_chat(L, "<span class='danger'>\The [src] flings you into \the [originator]'s maw!</span>")
