@@ -107,6 +107,14 @@
 	icon_state = "surgcap_pmc_alt"
 	item_state = "surgcap_pmc_alt"
 
+/obj/item/clothing/head/surgery/pmc/epmc
+	icon_state = "surgcap_epmc"
+	item_state = "surgcap_epmc"
+
+/obj/item/clothing/head/surgery/pmc/vekatak_phalanx
+	icon_state = "surgcap_phalanx"
+	item_state = "surgcap_phalanx"
+
 // Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
 /obj/item/clothing/head/surgery/zavod

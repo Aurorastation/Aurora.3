@@ -374,6 +374,7 @@
 	pmcg_sec_uniforms["EPMC detective uniform"] = /obj/item/clothing/under/det/pmc/alt
 	pmcg_sec_uniforms["wildlands squadron uniform"] = /obj/item/clothing/under/rank/security/pmc/wildlands_squadron
 	pmcg_sec_uniforms["Dagamuir Freewater uniform"] = /obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
+	pmcg_sec_uniforms["Ve'katak Phalanx uniform"] = /obj/item/clothing/under/rank/security/pmc/vekatak_phalanx
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
 
 /datum/gear/faction/erisec_patch
@@ -396,32 +397,68 @@
 	gear_tweaks += new /datum/gear_tweak/path(pmc_patch)
 
 /datum/gear/faction/epmc_uniform_phys_med
-	display_name = "PMCG physician uniform"
-	path = /obj/item/clothing/under/rank/medical/pmc/alt
+	display_name = "PMCG physician uniform selection"
+	path = /obj/item/clothing/under/rank/medical/pmc
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Physician")
 
+/datum/gear/faction/epmc_uniform_phys_med/New()
+	..()
+	var/list/epmc_uniform_phys_med = list()
+	epmc_uniform_phys_med["PMCG physician uniform"] = /obj/item/clothing/under/rank/medical/pmc
+	epmc_uniform_phys_med["PMCG physician uniform, alt"] = /obj/item/clothing/under/rank/medical/pmc/alt
+	epmc_uniform_phys_med["EPMC physician uniform"] = /obj/item/clothing/under/rank/medical/pmc/epmc
+	epmc_uniform_phys_med["Ve'katak Phalanx physician uniform"] = /obj/item/clothing/under/rank/medical/pmc/vekatak_phalanx
+	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_phys_med)
+
 /datum/gear/faction/epmc_uniform_pharm_med
-	display_name = "PMCG pharmacist uniform"
-	path = /obj/item/clothing/under/rank/medical/pharmacist/pmc/alt
+	display_name = "PMCG pharmacist uniform selection"
+	path = /obj/item/clothing/under/rank/medical/pharmacist/pmc
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Pharmacist")
 
+/datum/gear/faction/epmc_uniform_pharm_med/New()
+	..()
+	var/list/epmc_uniform_pharm_med = list()
+	epmc_uniform_pharm_med["PMCG pharmacist uniform"] = /obj/item/clothing/under/rank/medical/pharmacist/pmc
+	epmc_uniform_pharm_med["PMCG pharmacist uniform, alt"] = /obj/item/clothing/under/rank/medical/pharmacist/pmc/alt
+	epmc_uniform_pharm_med["EPMC pharmacist uniform"] = /obj/item/clothing/under/rank/medical/pharmacist/pmc/epmc
+	epmc_uniform_pharm_med["Ve'katak Phalanx pharmacist uniform"] = /obj/item/clothing/under/rank/medical/pharmacist/pmc/vekatak_phalanx
+	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_pharm_med)
+
 /datum/gear/faction/epmc_uniform_psych_med
-	display_name = "PMCG psychiatrist uniform"
-	path = /obj/item/clothing/under/rank/medical/psych/pmc/alt
+	display_name = "PMCG psychiatrist uniform selection"
+	path = /obj/item/clothing/under/rank/medical/psych/pmc
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Psychiatrist")
 
+/datum/gear/faction/epmc_uniform_psych_med/New()
+	..()
+	var/list/epmc_uniform_psych_med = list()
+	epmc_uniform_psych_med["PMCG psychiatrist uniform"] = /obj/item/clothing/under/rank/medical/psych/pmc
+	epmc_uniform_psych_med["PMCG psychiatrist uniform, alt"] = /obj/item/clothing/under/rank/medical/psych/pmc/alt
+	epmc_uniform_psych_med["EPMC psychiatrist uniform"] = /obj/item/clothing/under/rank/medical/psych/pmc/epmc
+	epmc_uniform_psych_med["Ve'katak Phalanx psychiatrist uniform"] = /obj/item/clothing/under/rank/medical/psych/pmc/vekatak_phalanx
+	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_psych_med)
+
 /datum/gear/faction/epmc_uniform_intern_med
-	display_name = "PMCG medical intern uniform"
-	path = /obj/item/clothing/under/rank/medical/intern/pmc/alt
+	display_name = "PMCG medical intern uniform selection"
+	path = /obj/item/clothing/under/rank/medical/intern/pmc
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Medical Intern")
+
+/datum/gear/faction/epmc_uniform_intern_med/New()
+	..()
+	var/list/epmc_uniform_intern_med = list()
+	epmc_uniform_intern_med["PMCG medical intern uniform"] = /obj/item/clothing/under/rank/medical/intern/pmc
+	epmc_uniform_intern_med["PMCG medical intern uniform, alt"] = /obj/item/clothing/under/rank/medical/intern/pmc/alt
+	epmc_uniform_intern_med["EPMC medical intern uniform"] = /obj/item/clothing/under/rank/medical/intern/pmc/epmc
+	epmc_uniform_intern_med["Ve'katak Phalanx medical intern uniform"] = /obj/item/clothing/under/rank/medical/intern/pmc/vekatak_phalanx
+	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_intern_med)
 
 /datum/gear/faction/epmc_uniform_fr_med
 	display_name = "PMCG/EPMC first responder uniform"
@@ -436,7 +473,24 @@
 	epmc_uniform_fr_med["EPMC first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
 	epmc_uniform_fr_med["PMCG first responder uniform, alt"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/alt
 	epmc_uniform_fr_med["Sekhmet Intergalactic first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/sekh
+	epmc_uniform_fr_med["Ve'katak Phalanx uniform"] = /obj/item/clothing/under/rank/security/pmc/vekatak_phalanx
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_fr_med)
+
+/datum/gear/faction/epmc_uniform_surgeon_med
+	display_name = "PMCG surgical scrubs selection"
+	path = /obj/item/clothing/under/rank/medical/surgeon/pmc
+	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+	allowed_roles = list("Surgeon")
+
+/datum/gear/faction/epmc_uniform_surgeon_med/New()
+	..()
+	var/list/epmc_uniform_surgeon_med = list()
+	epmc_uniform_surgeon_med["PMCG surgical scrubs"] = /obj/item/clothing/under/rank/medical/surgeon/pmc
+	epmc_uniform_surgeon_med["PMCG psurgical scrubs, alt"] = /obj/item/clothing/under/rank/medical/surgeon/pmc/alt
+	epmc_uniform_surgeon_med["EPMC surgical scrubs"] = /obj/item/clothing/under/rank/medical/surgeon/pmc/epmc
+	epmc_uniform_surgeon_med["Ve'katak Phalanx surgical scrubs"] = /obj/item/clothing/under/rank/medical/surgeon/pmc/vekatak_phalanx
+	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_surgeon_med)
 
 //Zeng-Hu
 /datum/gear/faction/zenghu_beret

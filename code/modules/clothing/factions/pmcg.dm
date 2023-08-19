@@ -64,13 +64,17 @@
 /obj/item/clothing/under/rank/security/pmc/wildlands_squadron
 	name = "wildlands squadron uniform"
 	desc = "A set of uniform fatigues used by employees of the Wildlands Squadron, a Private Military Contracting Group subsidiary. The original design is remarkably similar to the Mictlan System Defense Force's uniform, of which many of the original members of the Wildlands Squadron were members."
-	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "pmc_ws"
 	item_state = "pmc_ws"
 
 /obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
 	name = "\improper Dagamuir Freewater Private Forces uniform"
 	desc = "An Unathi-style uniform used by the mercenaries of Dagamuir Freewater Private Forces, an Unathi-run PMCG subsidiary. The chest and back are emblazoned with a stylised red and golden eye, once the emblem of the Dagamuir clan."
-	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	icon_state = "pmc_dpf"
 	item_state = "pmc_dpf"
+
+/obj/item/clothing/under/rank/security/pmc/vekatak_phalanx
+	name = "\improper Ve'katak Phalanx uniform"
+	desc = "A set of uniform fatigues used by members of the Ve'katak Phalanx, a Vaurca-run PMCG subsidiary. It is simple and utilitarian in its design, with the only embellishment being two red stripes on the shoulders."
+	icon_state = "phalanx_fatigues"
+	item_state = "phalanx_fatigues"

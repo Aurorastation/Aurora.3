@@ -151,6 +151,14 @@
 	icon_state = "pmc_alt_phys"
 	item_state = "pmc_alt_phys"
 
+/obj/item/clothing/under/rank/medical/pmc/epmc
+	icon_state = "epmc_phys"
+	item_state = "epmc_phys"
+
+/obj/item/clothing/under/rank/medical/pmc/vekatak_phalanx
+	icon_state = "phalanx_phys"
+	item_state = "phalanx_phys"
+
 // Intern
 
 /obj/item/clothing/under/rank/medical/intern
@@ -170,6 +178,14 @@
 /obj/item/clothing/under/rank/medical/intern/pmc/alt
 	icon_state = "pmc_alt_intern"
 	item_state = "pmc_alt_intern"
+
+/obj/item/clothing/under/rank/medical/intern/pmc/epmc
+	icon_state = "epmc_intern"
+	item_state = "epmc_intern"
+
+/obj/item/clothing/under/rank/medical/intern/pmc/vekatak_phalanx
+	icon_state = "phalanx_intern"
+	item_state = "phalanx_intern"
 
 // First Responder
 
@@ -219,6 +235,14 @@
 	icon_state = "pmc_alt_surgeon"
 	item_state = "pmc_alt_surgeon"
 
+/obj/item/clothing/under/rank/medical/surgeon/pmc/epmc
+	icon_state = "epmc_surgeon"
+	item_state = "epmc_surgeon"
+
+/obj/item/clothing/under/rank/medical/surgeon/pmc/vekatak_phalanx
+	icon_state = "phalanx_surgeon"
+	item_state = "phalanx_surgeon"
+
 // Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
 /obj/item/clothing/under/rank/medical/surgeon/zavod
@@ -249,6 +273,14 @@
 	icon_state = "pmc_alt_psych"
 	item_state = "pmc_alt_psych"
 
+/obj/item/clothing/under/rank/medical/psych/pmc/epmc
+	icon_state = "epmc_psych"
+	item_state = "epmc_psych"
+
+/obj/item/clothing/under/rank/medical/psych/pmc/vekatak_phalanx
+	icon_state = "phalanx_psych"
+	item_state = "phalanx_psych"
+
 // Pharmacist
 
 /obj/item/clothing/under/rank/medical/pharmacist
@@ -268,3 +300,11 @@
 /obj/item/clothing/under/rank/medical/pharmacist/pmc/alt
 	icon_state = "pmc_chemist"
 	item_state = "pmc_chemist"
+
+/obj/item/clothing/under/rank/medical/pharmacist/pmc/epmc
+	icon_state = "epmc_chemist"
+	item_state = "epmc_chemist"
+
+/obj/item/clothing/under/rank/medical/pharmacist/pmc/vekatak_phalanx
+	icon_state = "phalanx_chemist"
+	item_state = "phalanx_chemist"
