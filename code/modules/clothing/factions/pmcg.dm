@@ -75,6 +75,12 @@
 
 /obj/item/clothing/under/rank/security/pmc/vekatak_phalanx
 	name = "\improper Ve'katak Phalanx uniform"
-	desc = "A set of uniform fatigues used by members of the Ve'katak Phalanx, a Vaurca-run PMCG subsidiary. It is simple and utilitarian in its design, with the only embellishment being two red stripes on the shoulders."
+	desc = "A security uniforn worn by members of the Ve'katak Phalanx, a Vaurca-run PMCG subsidiary. It is simple and utilitarian in its design, with the only embellishment being two red stripes on the shoulders."
 	icon_state = "phalanx_fatigues"
 	item_state = "phalanx_fatigues"
+
+/obj/item/clothing/under/rank/medical/first_responder/pmc/vekatak_phalanx
+	icon_state = "phalanx_medical"
+	item_state = "phalanx_medical"
+	name = "\improper Ve'katak Phalanx uniform"
+	desc = "A uniform worn by medical staff of the Ve'katak Phalanx, a Vaurca-run PMCG subsidiary. It is simple and utilitarian in its design, with the only embellishment being two red stripes on the shoulders."
