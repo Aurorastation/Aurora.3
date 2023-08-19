@@ -51,7 +51,7 @@
 // Used in job equipping so shit doesn't pile up at the start loc.
 /mob/living/carbon/human/proc/equip_or_collect(var/obj/item/W, var/slot)
 	if(!istype(W))
-		log_debug("MobEquip: Error when equipping [W] for [src] in [slot]")
+		LOG_DEBUG("MobEquip: Error when equipping [W] for [src] in [slot]")
 		return
 	if(W.mob_can_equip(src, slot, TRUE, TRUE))
 		//Mob can equip.  Equip it.

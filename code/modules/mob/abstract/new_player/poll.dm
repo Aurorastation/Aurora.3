@@ -42,7 +42,7 @@
 		if(link && link != "")
 			send_link(usr, link)
 		else
-			log_debug("Polling: [usr.ckey] tried to open poll [pollid] with a invalid link: [link]")
+			LOG_DEBUG("Polling: [usr.ckey] tried to open poll [pollid] with a invalid link: [link]")
 
 /mob/abstract/new_player/proc/poll_player(var/pollid = -1)
 	if(pollid == -1) return

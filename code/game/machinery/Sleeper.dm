@@ -365,6 +365,10 @@
 	toggle_filter()
 	toggle_pump()
 
+/obj/machinery/sleeper/AltClick()
+	if(use_check_and_message(usr))
+		go_out()
+
 /obj/machinery/sleeper/proc/remove_beaker()
 	if(beaker)
 		beaker.forceMove(get_turf(src))
