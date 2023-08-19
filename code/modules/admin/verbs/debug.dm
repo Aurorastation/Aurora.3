@@ -333,6 +333,7 @@
 		if("Cancel")
 			return
 		if("ERT")
+			outfit_catagories["SCC-ERT"] = typesof(/datum/outfit/admin/ert/scc)
 			outfit_catagories["NT-ERT"] = typesof(/datum/outfit/admin/ert/nanotrasen)
 			outfit_catagories["Deathsquad"] = typesof(/datum/outfit/admin/deathsquad)
 			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/ert/legion)
