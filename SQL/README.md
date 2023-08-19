@@ -15,8 +15,9 @@ Make sure to use the latest migration folder, it will contain everything needed 
 If you have a existing database:
 Update to the latest migration in the migration folder that you have used so far.
 Then switch to the next migration folder (and a new schema version table)
+You should use flyway with `-baselineVersion="1" baseline` instead of the usual migrate for the initial migration
 
-As usual, always make sure that you have a backup.
+As usual, always make sure that you have a backup and test it first on a non-production copy
 
 
 ### Prerequisites
