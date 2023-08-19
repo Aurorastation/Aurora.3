@@ -47,7 +47,7 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 		smooth_zlevel(zlevel, FALSE)
 
 	if (config.fastboot)
-		log_debug("icon_smoothing: Skipping prebake, fastboot enabled.")
+		LOG_DEBUG("icon_smoothing: Skipping prebake, fastboot enabled.")
 		..()
 		return
 

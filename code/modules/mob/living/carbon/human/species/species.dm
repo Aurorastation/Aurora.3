@@ -295,6 +295,13 @@
 
 	var/use_alt_hair_layer = FALSE
 
+	/// Species psionics. FALSE for no psionics. Otherwise, set to the PSI_RANK define you want.
+	var/has_psionics = FALSE
+	/// Number of psi points in character creation.
+	var/character_creation_psi_points = 0
+	/// Is this species psionically deaf?
+	var/psi_deaf = FALSE
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
@@ -470,6 +477,8 @@
 	if(!H.client || !H.client.prefs || !H.client.prefs.gender)
 		H.gender = pick(default_genders)
 		H.pronouns = H.gender
+	if(has_psionics)
+		H.set_psi_rank(has_psionics)
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
@@ -598,7 +607,7 @@
 	if(H.is_drowsy())
 		cost *= 1.25
 	if (H.stamina == -1)
-		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
+		LOG_DEBUG("Error: Species with special sprint mechanics has not overridden cost function.")
 		return 0
 
 	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
@@ -739,11 +748,8 @@
 /datum/species/proc/get_digestion_product()
 	return /singleton/reagent/nutriment
 
-/datum/species/proc/can_commune()
-	return FALSE
-
-/datum/species/proc/has_psi_potential()
-	return TRUE
+/datum/species/proc/has_psionics()
+	return has_psionics
 
 /datum/species/proc/handle_despawn()
 	return

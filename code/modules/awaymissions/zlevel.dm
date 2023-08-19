@@ -42,7 +42,7 @@
 		var/file = file(map)
 		if(isfile(file))
 			loader.load_map(file)
-			log_debug("away mission loaded: [map]")
+			LOG_DEBUG("away mission loaded: [map]")
 
 		for(var/obj/effect/landmark/L in landmarks_list)
 			if (L.name != "awaystart")

@@ -313,6 +313,8 @@
 			else
 				if(M.max_stamina > 0)
 					disarm_cost = M.max_stamina / 6
+					if(attacker_style && attacker_style.disarm_act(H, src))
+						return TRUE
 					if(M.is_drowsy())
 						disarm_cost *= 1.25
 					if(M.stamina <= disarm_cost)
@@ -325,9 +327,6 @@
 						to_chat(M, SPAN_DANGER("You don't have enough power to disarm someone!"))
 						return FALSE
 					M.nutrition = Clamp(M.nutrition - disarm_cost, 0, M.max_nutrition)
-
-			if(attacker_style && attacker_style.disarm_act(H, src))
-				return TRUE
 
 			M.attack_log += text("\[[time_stamp()]\] <span class='warning'>Disarmed [src.name] ([src.ckey])</span>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>")

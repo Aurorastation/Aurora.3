@@ -29,6 +29,12 @@ var/datum/controller/subsystem/profiler/SSprofiler
 
 	..()
 
+/datum/controller/subsystem/profiler/Shutdown()
+	. = ..()
+	if (config.profiler_is_enabled)
+		DumpData()
+		world.Profile(PROFILE_CLEAR, type="sendmaps")
+
 /datum/controller/subsystem/profiler/fire()
 	. = world.timeofday
 
@@ -36,6 +42,7 @@ var/datum/controller/subsystem/profiler/SSprofiler
 		last_fire_rt = .
 		next_restart = world.time + restart_period
 		world.Profile(PROFILE_START)
+		world.Profile(PROFILE_START, type="sendmaps")
 
 	if (. - last_fire_rt > threshold)
 		DumpData()
@@ -45,12 +52,14 @@ var/datum/controller/subsystem/profiler/SSprofiler
 	last_fire_rt = .
 
 /datum/controller/subsystem/profiler/proc/DumpData()
-	log_debug("Profiler: dump profile after CPU spike.")
+	log_perf("Profiler: dump profile after CPU spike.")
 	admin_notice(SPAN_DANGER("Profiler: dump profile after CPU spike."), R_SERVER|R_DEV)
 
 	var/name = "[game_id]_[time2text(world.timeofday, "hh-mm-ss")]"
-	text2file(world.Profile(0, "json"), "data/logs/profiler/[game_id]/[name].json")
+	text2file(world.Profile(PROFILE_REFRESH, "json"), "data/logs/profiler/[game_id]/[name].json")
+	text2file(world.Profile(PROFILE_REFRESH, type = "sendmaps", format = "json"), "data/logs/profiler/[game_id]/[name]_sendmaps.json")
 
 /datum/controller/subsystem/profiler/proc/RestartProfiler()
 	world.Profile(PROFILE_CLEAR)
+	world.Profile(PROFILE_CLEAR, type="sendmaps")
 	next_restart = world.time + restart_period

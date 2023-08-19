@@ -44,7 +44,7 @@
 
 
 	if(!note)
-		log_error("Hardware without description: [C]")
+		log_world("ERROR: Hardware without description: [C]")
 		return
 
 	var/confirmation = alert("[note] - Is this what you want?", "Hardware selection", "Yes", "No")

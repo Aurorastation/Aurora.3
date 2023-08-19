@@ -458,6 +458,78 @@
 /obj/structure/sign/flag/hegemony/large/west/New()
 	..(loc, WEST)
 
+/obj/item/flag/ouerea
+	name = "\improper Ouerea flag"
+	desc = "The modern day flag of Ouerea. Due to the incorporation of red stripes to symbolize the blood of the nobility spilled in the rebellion, this is not the current official flag of the planet."
+	flag_path = "ouerea"
+	flag_structure = /obj/structure/sign/flag/ouerea
+
+/obj/structure/sign/flag/ouerea
+	name = "\improper Ouerea flag"
+	desc = "The modern day flag of Ouerea. Due to the incorporation of red stripes to symbolize the blood of the nobility spilled in the rebellion, this is not the current official flag of the planet."
+	icon_state = "ouerea"
+	flag_path = "ouerea"
+	flag_item = /obj/item/flag/ouerea
+
+/obj/item/flag/ouerea/l
+	name = "large Ouerea flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ouerea/large
+
+/obj/structure/sign/flag/ouerea/large
+	icon_state = "ouerea_l"
+	flag_path = "ouerea"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ouerea/l
+
+/obj/structure/sign/flag/ouerea/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/ouerea/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/ouerea/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/ouerea/large/west/New()
+	..(loc, WEST)
+
+/obj/item/flag/ouerea/old
+	name = "old Ouerea flag"
+	desc = "The old flag of Ouerea, dating back to its days as a joint mandate between the Nralakk Federation and, to a lesser extent, the Solarian Alliance. Due to controversy over the current flag, it remains the official flag of Ouerea."
+	flag_path = "ouerea_old"
+	flag_structure = /obj/structure/sign/flag/ouerea/old
+
+/obj/structure/sign/flag/ouerea/old
+	name = "old Ouerea flag"
+	desc = "The old flag of Ouerea, dating back to its days as a joint mandate between the Nralakk Federation and, to a lesser extent, the Solarian Alliance. Due to controversy over the current flag, it remains the official flag of Ouerea."
+	icon_state = "ouerea_old"
+	flag_path = "ouerea_old"
+	flag_item = /obj/item/flag/ouerea/old
+
+/obj/item/flag/ouerea/old/l
+	name = "large old Ouerea flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ouerea/old/large
+
+/obj/structure/sign/flag/ouerea/old/large
+	icon_state = "ouerea_old_l"
+	flag_path = "ouerea_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ouerea/old/l
+
+/obj/structure/sign/flag/ouerea/old/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/ouerea/old/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/ouerea/old/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/ouerea/old/large/west/New()
+	..(loc, WEST)
+
 // Nralakk
 
 /obj/item/flag/nralakk
@@ -2067,4 +2139,88 @@
 	..(loc, EAST)
 
 /obj/structure/sign/flag/cthur/large/west/New()
+	..(loc, WEST)
+
+// Orion Express
+
+/obj/item/flag/orion_express
+	name = "\improper Orion Express flag"
+	desc = "The flag of Orion Express."
+	flag_path = "orion"
+	flag_structure = /obj/structure/sign/flag/orion_express
+
+/obj/structure/sign/flag/orion_express
+	name = "\improper Orion Express flag"
+	desc = "The flag of Orion Express."
+	flag_path = "orion"
+	icon_state = "orion"
+	flag_item = /obj/item/flag/orion_express
+
+/obj/structure/sign/flag/orion_express/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/orion_express/l
+	name = "large Orion Express flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/orion_express/large
+
+/obj/structure/sign/flag/orion_express/large
+	icon_state = "orion_l"
+	flag_path = "orion"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/orion_express/l
+
+/obj/structure/sign/flag/orion_express/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/orion_express/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/orion_express/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/orion_express/large/west/New()
+	..(loc, WEST)
+
+// Imperial Frontier
+
+/obj/item/flag/imperial_frontier
+	name = "\improper Imperial Frontier flag"
+	desc = "The multi-colored flag of the Dominian Empire's frontier regions known as the Imperial Frontier. This flag is a common sight on worlds such as Sun Reach."
+	desc_extended = "The four colors of this flag are symbolic of the most important actors of the Imperial Frontier. Dark red represents the Imperial Army under House Strelitz, purple represents the missionary (and financial) work of House Caladius, red represents the Empire, and white represents the Imperial Fleet under House Zhao."
+	flag_path = "imperial_frontier"
+	flag_structure = /obj/structure/sign/flag/imperial_frontier
+
+/obj/structure/sign/flag/imperial_frontier
+	name = "\improper Imperial Frontier flag"
+	desc = "The multi-colored flag of the Dominian Empire's frontier regions known as the Imperial Frontier. This flag is a common sight on worlds such as Sun Reach."
+	desc_extended = "The four colors of this flag are symbolic of the most important actors of the Imperial Frontier. Dark red represents the Imperial Army under House Strelitz, purple represents the missionary (and financial) work of House Caladius, red represents the Empire, and white represents the Imperial Fleet under House Zhao."
+	flag_path = "imperial_frontier"
+	icon_state = "imperial_frontier"
+	flag_item = /obj/item/flag/imperial_frontier
+
+/obj/structure/sign/flag/imperial_frontier/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/imperial_frontier/l
+	name = "large Imperial Frontier flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/imperial_frontier/large
+
+/obj/structure/sign/flag/imperial_frontier/large
+	icon_state = "imperial_frontier_l"
+	flag_path = "imperial_frontier"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/imperial_frontier/l
+
+/obj/structure/sign/flag/imperial_frontier/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/imperial_frontier/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/imperial_frontier/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/imperial_frontier/large/west/New()
 	..(loc, WEST)

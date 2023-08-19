@@ -18,6 +18,8 @@ If you wish to develop and host this codebase in a closed source manner you may 
 
 See [here](https://www.gnu.org/licenses/why-affero-gpl.html) for more information.
 
+All assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
+
 ### GETTING THE CODE
 The simplest way to obtain the code is using the github .zip feature.
 

@@ -1,6 +1,10 @@
 // Update asset_cache.dm if you change these.
 #define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4", "bottle-5", "bottle-6") //list of available bottle sprites
 
+#define CHEMMASTER_BOTTLE_SOUND playsound(src, 'sound/items/pickup/bottle.ogg', 75, 1)
+#define CHEMMASTER_DISPENSE_SOUND playsound(src, 'sound/machines/reagent_dispense.ogg', 75, 1)
+#define CHEMMASTER_CHANGESETTINGS_SOUND playsound(src, 'sound/machines/slide_change.ogg', 75, 1)
+#define CHEMMASTER_SWITCH_SOUND playsound(src, 'sound/machines/switch1.ogg', 75, 1)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -16,18 +20,20 @@
 	layer = 2.9
 	clicksound = /singleton/sound_category/button_sound
 
-	var/beaker = null
+	var/obj/item/reagent_containers/glass/beaker = null
 	var/obj/item/storage/pill_bottle/loaded_pill_bottle = null
 	var/mode = TRUE
 	var/condi = 0
 	var/useramount = 30 // Last used amount
 	var/pillamount = 10
 	var/bottlesprite = "bottle-1" //yes, strings
-	var/pillsprite = "1"
+	var/pillsprite = "pill1"
 	var/max_pill_count = 20
 	flags = OPENCONTAINER
 	var/datum/asset/spritesheet/chem_master/chem_asset
 	var/list/forbidden_containers = list(/obj/item/reagent_containers/glass/bucket) //For containers we don't want people to shove into the chem machine. Like big-ass buckets.
+	var/datum/tgui/ui = null
+	var/list/analysis = list()
 
 /obj/machinery/chem_master/Initialize()
 	. = ..()
@@ -42,6 +48,21 @@
 			if (prob(50))
 				qdel(src)
 				return
+
+/obj/machinery/chem_master/proc/eject()
+	if(beaker && usr)
+		if(!use_check_and_message(usr))
+			usr.put_in_hands(beaker, TRUE)
+		else
+			beaker.loc = get_turf(src)
+		beaker = null
+		reagents.clear_reagents()
+		icon_state = "mixer0"
+		return TRUE
+
+/obj/machinery/chem_master/AltClick()
+	if(!use_check_and_message(usr))
+		eject()
 
 /obj/machinery/chem_master/attackby(var/obj/item/B, mob/user)
 
@@ -58,6 +79,7 @@
 		to_chat(user, "You add the beaker to the machine!")
 		src.updateUsrDialog()
 		icon_state = "mixer1"
+		CHEMMASTER_BOTTLE_SOUND
 
 	else if(istype(B, /obj/item/storage/pill_bottle))
 		if(condi)
@@ -75,161 +97,212 @@
 		to_chat(user, "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground")
 		playsound(src.loc, B.usesound, 75, 1)
 
+	ui = SStgui.try_update_ui(user, src, ui)
 
-/obj/machinery/chem_master/Topic(href, href_list)
-	if(..())
-		return 1
 
-	if (href_list["ejectp"])
+/obj/machinery/chem_master/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ChemMaster")
+		ui.open()
+
+/obj/machinery/chem_master/ui_data(mob/user)
+	var/list/data = list()
+
+	var/list/reagents_in_internal_storage = list()
+	var/list/reagents_in_beaker = list()
+
+	data["mode"] = src.mode
+	data["loaded_beaker"] = !isnull(src.beaker)
+	data["loaded_pill_bottle"] = !isnull(src.loaded_pill_bottle)
+	data["current_bottle_icon"] = bottlesprite
+	data["current_pill_icon"] = pillsprite
+	data["analysis"] = analysis
+
+
+	// Process the beaker
+	if(beaker)
+		var/datum/reagents/beaker_reagents = beaker:reagents
+		for(var/reagent in beaker_reagents.reagent_volumes)
+
+			var/singleton/reagent/reagent_singleton = GET_SINGLETON(reagent)
+			reagents_in_beaker += list(list("name" = reagent_singleton.name, "volume" = REAGENT_VOLUME(beaker_reagents, reagent), "typepath" = reagent_singleton.type))
+
+	data["reagents_in_beaker"] = reagents_in_beaker
+
+	//Process the machine content
+	for(var/reagent in src.reagents.reagent_volumes)
+		var/singleton/reagent/reagent_singleton = GET_SINGLETON(reagent)
+		reagents_in_internal_storage += list(list("name" = reagent_singleton.name, "volume" = REAGENT_VOLUME(reagents, reagent), "typepath" = reagent_singleton.type))
+	data["reagents_in_internal_storage"] = reagents_in_internal_storage
+
+
+	return data
+
+/obj/machinery/chem_master/LateInitialize()
+	if(!chem_asset)
+		chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
+
+/obj/machinery/chem_master/ui_assets(mob/user)
+	return list(
+		get_asset_datum(/datum/asset/spritesheet/chem_master)
+	)
+
+/obj/machinery/chem_master/ui_static_data(mob/user)
+	. = ..()
+	var/list/data = list()
+
+	var/list/bottle_icons = list()
+	var/list/pill_icons = list()
+
+	if(!chem_asset)
+		chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
+
+	for(var/sprite in BOTTLE_SPRITES)
+		bottle_icons += chem_asset.icon_tag(sprite, FALSE)
+
+	for(var/i = 1 to MAX_PILL_SPRITE)
+		var/pillicon = "pill[i]"
+		pill_icons += chem_asset.icon_tag(pillicon, FALSE)
+
+	data["bottle_icons"] = bottle_icons
+	data["pill_icons"] = pill_icons
+	data["machine_name"] = name
+	data["is_condimaster"] = condi
+
+
+	return data
+
+
+/obj/machinery/chem_master/ui_act(action, params)
+	. = ..()
+
+	if(.)
+		return
+
+	playsound(src, 'sound/machines/button3.ogg', 75, 1) //Buttons clicky
+
+	if(action == "ejectp")
 		if(loaded_pill_bottle)
 			if(Adjacent(usr))
 				usr.put_in_hands(loaded_pill_bottle)
 			else
 				loaded_pill_bottle.forceMove(get_turf(src))
 			loaded_pill_bottle = null
-	else if(href_list["close"])
-		usr << browse(null, "window=chemmaster")
-		usr.unset_machine()
-		return
+		return TRUE
 
+	else if(action == "close")
+		ui.ui_close()
+		return TRUE
+
+	// These actions makes sense only if there's a beaker in
 	if(beaker)
-		var/datum/reagents/R = beaker:reagents
-		if (href_list["analyze"])
-			var/dat = ""
+		if(action == "analyze")
+			var/datum/reagents/R = beaker:reagents
 			if(!condi)
-				if(href_list["name"] == "Blood")
+				if(params["name"] == "Blood")
 					var/singleton/reagent/blood/G = GET_SINGLETON(/singleton/reagent/blood)
 					var/Gdata = REAGENT_DATA(R, /singleton/reagent/blood)
-					var/A = G.name
-					var/B = Gdata["blood_type"]
-					var/C = Gdata["blood_DNA"]
-					dat += "<TITLE>Chemmaster 3000</TITLE>Chemical infos:<BR><BR>Name:<BR>[A]<BR><BR>Description:<BR>Blood Type: [B]<br>DNA: [C]<BR><BR><BR><A href='?src=\ref[src];main=1'>(Back)</A>"
-				else
-					dat += "<TITLE>Chemmaster 3000</TITLE>Chemical infos:<BR><BR>Name:<BR>[href_list["name"]]<BR><BR>Description:<BR>[href_list["desc"]]<BR><BR><BR><A href='?src=\ref[src];main=1'>(Back)</A>"
-			else
-				dat += "<TITLE>Condimaster 3000</TITLE>Condiment infos:<BR><BR>Name:<BR>[href_list["name"]]<BR><BR>Description:<BR>[href_list["desc"]]<BR><BR><BR><A href='?src=\ref[src];main=1'>(Back)</A>"
-			usr << browse(dat, "window=chem_master;size=575x400")
-			return
+					analysis["name"] = G.name
+					analysis["type"] = Gdata["blood_type"]
+					analysis["DNA"] = Gdata["blood_DNA"]
+				else if(params["name"] == "Close")
+					analysis = list()
+			CHEMMASTER_SWITCH_SOUND
+			return TRUE
 
-		else if (href_list["add"])
+		else if(action == "add")
+			if(params["amount"])
+				var/rtype = text2path(params["add"])
+				var/amount = Clamp((text2num(params["amount"])), 0, 200)
+				beaker.reagents.trans_type_to(src, rtype, amount)
+			return TRUE
 
-			if(href_list["amount"])
-				var/rtype = text2path(href_list["add"])
-				var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
-				R.trans_type_to(src, rtype, amount)
-
-		else if (href_list["addcustom"])
-
-			var/rtype = text2path(href_list["addcustom"])
-			useramount = input("Select the amount to transfer.", 30, useramount) as num
-			useramount = Clamp(useramount, 0, 200)
-			src.Topic(null, list("amount" = "[useramount]", "add" = "[rtype]"))
-
-		else if (href_list["remove"])
-
-			if(href_list["amount"])
-				var/rtype = text2path(href_list["remove"])
-				var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
+		else if (action == "remove")
+			if(params["amount"])
+				var/rtype = text2path(params["remove"])
+				var/amount = Clamp((text2num(params["amount"])), 0, 200)
 				if(mode)
 					reagents.trans_type_to(beaker, rtype, amount)
 				else
 					reagents.remove_reagent(rtype, amount)
+			return TRUE
+
+		else if (action == "eject")
+			if(eject())
+				return TRUE
+
+	if (action == "toggle")
+		mode = !mode
+		CHEMMASTER_CHANGESETTINGS_SOUND
+		return TRUE
+
+	else if(action == "createbottle")
+		if(!condi)
+			var/name = sanitizeSafe(input(usr,"Name:","Name your bottle!",reagents.get_primary_reagent_name()), MAX_NAME_LEN)
+			var/obj/item/reagent_containers/glass/bottle/P = new/obj/item/reagent_containers/glass/bottle(get_turf(src))
+			if(!name) name = reagents.get_primary_reagent_name()
+			P.name = "[name] bottle"
+			P.pixel_x = rand(-7, 7) //random position
+			P.pixel_y = rand(-7, 7)
+			P.icon_state = bottlesprite
+			reagents.trans_to_obj(P,60)
+			P.update_icon()
+		else
+			var/obj/item/reagent_containers/food/condiment/P = new/obj/item/reagent_containers/food/condiment(get_turf(src))
+			reagents.trans_to_obj(P,50)
+		CHEMMASTER_BOTTLE_SOUND
+		return TRUE
+
+	else if (action == "createpill" || action == "createpill_multiple")
+		var/count = 1
+
+		if(reagents.total_volume/count < 1) //Sanity checking.
+			return TRUE
+
+		if (action == "createpill_multiple")
+			count = input("Select the number of pills to make.", "Max [max_pill_count]", pillamount) as num
+			count = Clamp(count, 1, max_pill_count)
+
+		if(reagents.total_volume/count < 1) //Sanity checking.
+			return TRUE
+
+		var/amount_per_pill = reagents.total_volume/count
+		if (amount_per_pill > 60) amount_per_pill = 60
+
+		var/name = sanitizeSafe(input(usr,"Name:","Name your pill!","[reagents.get_primary_reagent_name()] ([amount_per_pill] units)"), MAX_NAME_LEN)
+
+		if(reagents.total_volume/count < 1) //Sanity checking.
+			return TRUE
+		while (count-- && count >= 0)
+			var/obj/item/reagent_containers/pill/P = new/obj/item/reagent_containers/pill(get_turf(src))
+			if(!name) name = reagents.get_primary_reagent_name()
+			P.name = "[name] pill"
+			P.pixel_x = rand(-7, 7) //random position
+			P.pixel_y = rand(-7, 7)
+			P.icon_state = pillsprite
+			reagents.trans_to_obj(P,amount_per_pill)
+			if(src.loaded_pill_bottle)
+				loaded_pill_bottle.insert_into_storage(P)
+		CHEMMASTER_DISPENSE_SOUND
+		return TRUE
+
+	else if(action == "pill_sprite")
+		pillsprite = sanitizeSafe(params["pill_sprite"])
+		CHEMMASTER_CHANGESETTINGS_SOUND
+		return TRUE
+
+	else if(action == "bottle_sprite")
+		bottlesprite = sanitizeSafe(params["bottle_sprite"])
+		CHEMMASTER_CHANGESETTINGS_SOUND
+		return TRUE
+	return TRUE
 
 
-		else if (href_list["removecustom"])
 
-			var/rtype = text2path(href_list["removecustom"])
-			useramount = input("Select the amount to transfer.", 30, useramount) as num
-			useramount = Clamp(useramount, 0, 200)
-			src.Topic(null, list("amount" = "[useramount]", "remove" = "[rtype]"))
-
-		else if (href_list["toggle"])
-			mode = !mode
-
-		else if (href_list["main"])
-			attack_hand(usr)
-			return
-		else if (href_list["eject"])
-			if(beaker)
-				if(Adjacent(usr))
-					usr.put_in_hands(beaker)
-				else
-					beaker:loc = get_turf(src)
-				beaker = null
-				reagents.clear_reagents()
-				icon_state = "mixer0"
-		else if (href_list["createpill"] || href_list["createpill_multiple"])
-			var/count = 1
-
-			if(reagents.total_volume/count < 1) //Sanity checking.
-				return
-
-			if (href_list["createpill_multiple"])
-				count = input("Select the number of pills to make.", "Max [max_pill_count]", pillamount) as num
-				count = Clamp(count, 1, max_pill_count)
-
-			if(reagents.total_volume/count < 1) //Sanity checking.
-				return
-
-			var/amount_per_pill = reagents.total_volume/count
-			if (amount_per_pill > 60) amount_per_pill = 60
-
-			var/name = sanitizeSafe(input(usr,"Name:","Name your pill!","[reagents.get_primary_reagent_name()] ([amount_per_pill] units)"), MAX_NAME_LEN)
-
-			if(reagents.total_volume/count < 1) //Sanity checking.
-				return
-			while (count-- && count >= 0)
-				var/obj/item/reagent_containers/pill/P = new/obj/item/reagent_containers/pill(get_turf(src))
-				if(!name) name = reagents.get_primary_reagent_name()
-				P.name = "[name] pill"
-				P.pixel_x = rand(-7, 7) //random position
-				P.pixel_y = rand(-7, 7)
-				P.icon_state = "pill"+pillsprite
-				reagents.trans_to_obj(P,amount_per_pill)
-				if(src.loaded_pill_bottle)
-					loaded_pill_bottle.insert_into_storage(P)
-
-		else if (href_list["createbottle"])
-			if(!condi)
-				var/name = sanitizeSafe(input(usr,"Name:","Name your bottle!",reagents.get_primary_reagent_name()), MAX_NAME_LEN)
-				var/obj/item/reagent_containers/glass/bottle/P = new/obj/item/reagent_containers/glass/bottle(get_turf(src))
-				if(!name) name = reagents.get_primary_reagent_name()
-				P.name = "[name] bottle"
-				P.pixel_x = rand(-7, 7) //random position
-				P.pixel_y = rand(-7, 7)
-				P.icon_state = bottlesprite
-				reagents.trans_to_obj(P,60)
-				P.update_icon()
-			else
-				var/obj/item/reagent_containers/food/condiment/P = new/obj/item/reagent_containers/food/condiment(get_turf(src))
-				reagents.trans_to_obj(P,50)
-		else if(href_list["change_pill"])
-			if(!chem_asset)
-				chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
-			var/dat = chem_asset.css_tag()
-			dat += "<table>"
-			for(var/i = 1 to MAX_PILL_SPRITE)
-				var/pillicon = "pill[i]"
-				dat += "<tr><td><a href=\"?src=\ref[src]&pill_sprite=[i]\">[chem_asset.icon_tag(pillicon)]</a></td></tr>"
-			dat += "</table>"
-			usr << browse(dat, "window=chem_master")
-			return
-		else if(href_list["change_bottle"])
-			if(!chem_asset)
-				chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
-			var/dat = chem_asset.css_tag()
-			dat += "<table>"
-			for(var/sprite in BOTTLE_SPRITES)
-				dat += "<tr><td><a href=\"?src=\ref[src]&bottle_sprite=[sprite]\">[chem_asset.icon_tag(sprite)]</a></td></tr>"
-			dat += "</table>"
-			usr << browse(dat, "window=chem_master")
-			return
-		else if(href_list["pill_sprite"])
-			pillsprite = href_list["pill_sprite"]
-		else if(href_list["bottle_sprite"])
-			bottlesprite = href_list["bottle_sprite"]
-
-	src.updateUsrDialog()
+/obj/machinery/chem_master/Topic(href, href_list)
+	if(..())
+		return 1
 	return
 
 /obj/machinery/chem_master/attack_ai(mob/user as mob)
@@ -241,67 +314,7 @@
 	if(inoperable())
 		return
 	user.set_machine(src)
-
-	if(!chem_asset)
-		chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
-	var/dat = chem_asset.css_tag()
-	if(!beaker)
-		dat = "Please insert beaker.<BR>"
-		if(src.loaded_pill_bottle)
-			dat += "<A href='?src=\ref[src];ejectp=1'>Eject Pill Bottle \[[loaded_pill_bottle.contents.len]/[loaded_pill_bottle.max_storage_space]\]</A><BR><BR>"
-		else if(!condi)
-			dat += "No pill bottle inserted.<BR><BR>"
-		dat += "<A href='?src=\ref[src];close=1'>Close</A>"
-	else
-		var/datum/reagents/R = beaker:reagents
-		dat += "<A href='?src=\ref[src];eject=1'>Eject beaker and Clear Buffer</A><BR>"
-		if(src.loaded_pill_bottle)
-			dat += "<A href='?src=\ref[src];ejectp=1'>Eject Pill Bottle \[[loaded_pill_bottle.contents.len]/[loaded_pill_bottle.max_storage_space]\]</A><BR><BR>"
-		else if(!condi)
-			dat += "No pill bottle inserted.<BR><BR>"
-		if(!R.total_volume)
-			dat += "Beaker is empty."
-		else
-			dat += "Add to buffer:<BR>"
-			for(var/_G in R.reagent_volumes)
-				var/singleton/reagent/G = GET_SINGLETON(_G)
-				dat += "[G.name] , [REAGENT_VOLUME(R, _G)] Units - "
-				dat += "<A href='?src=\ref[src];analyze=1;desc=[G.description];name=[G.name]'>(Analyze)</A> "
-				dat += "<A href='?src=\ref[src];add=[_G];amount=1'>(1)</A> "
-				dat += "<A href='?src=\ref[src];add=[_G];amount=5'>(5)</A> "
-				dat += "<A href='?src=\ref[src];add=[_G];amount=10'>(10)</A> "
-				dat += "<A href='?src=\ref[src];add=[_G];amount=30'>(30)</A> "
-				dat += "<A href='?src=\ref[src];add=[_G];amount=60'>(60)</A> "
-				dat += "<A href='?src=\ref[src];add=[_G];amount=[REAGENT_VOLUME(R, _G)]'>(All)</A> "
-				dat += "<A href='?src=\ref[src];addcustom=[_G]'>(Custom)</A><BR>"
-
-		dat += "<HR>Transfer to <A href='?src=\ref[src];toggle=1'>[(!mode ? "disposal" : "beaker")]:</A><BR>"
-		if(reagents.total_volume)
-			for(var/_N in reagents.reagent_volumes)
-				var/singleton/reagent/N = GET_SINGLETON(_N)
-				dat += "[N.name] , [REAGENT_VOLUME(reagents, _N)] Units - "
-				dat += "<A href='?src=\ref[src];analyze=1;desc=[N.description];name=[N.name]'>(Analyze)</A> "
-				dat += "<A href='?src=\ref[src];remove=[_N];amount=1'>(1)</A> "
-				dat += "<A href='?src=\ref[src];remove=[_N];amount=5'>(5)</A> "
-				dat += "<A href='?src=\ref[src];remove=[_N];amount=10'>(10)</A> "
-				dat += "<A href='?src=\ref[src];remove=[_N];amount=30'>(30)</A> "
-				dat += "<A href='?src=\ref[src];remove=[_N];amount=60'>(60)</A> "
-				dat += "<A href='?src=\ref[src];remove=[_N];amount=[REAGENT_VOLUME(reagents, _N)]'>(All)</A> "
-				dat += "<A href='?src=\ref[src];removecustom=[_N]'>(Custom)</A><BR>"
-		else
-			dat += "Empty<BR>"
-		if(!condi)
-			dat += "<HR><BR><A href='?src=\ref[src];createpill=1'>Create pill (60 units max)</A><a href=\"?src=\ref[src]&change_pill=1\">[chem_asset.icon_tag("pill[pillsprite]")]</a><BR>"
-			dat += "<A href='?src=\ref[src];createpill_multiple=1'>Create multiple pills</A><BR>"
-			dat += "<A href='?src=\ref[src];createbottle=1'>Create bottle (60 units max)<a href=\"?src=\ref[src]&change_bottle=1\">[chem_asset.icon_tag(bottlesprite)]</A>"
-		else
-			dat += "<A href='?src=\ref[src];createbottle=1'>Create bottle (50 units max)</A>"
-	if(!condi)
-		user << browse("<TITLE>Chemmaster 3000</TITLE>Chemmaster menu:<BR><BR>[dat]", "window=chem_master;size=575x400")
-	else
-		user << browse("<TITLE>Condimaster 3000</TITLE>Condimaster menu:<BR><BR>[dat]", "window=chem_master;size=575x400")
-	onclose(user, "chem_master")
-	return
+	ui_interact(user)
 
 /obj/machinery/chem_master/condimaster
 	name = "CondiMaster 3000"
@@ -611,3 +624,8 @@
 
 	eject()
 	detach()
+
+#undef CHEMMASTER_DISPENSE_SOUND
+#undef CHEMMASTER_CHANGESETTINGS_SOUND
+#undef CHEMMASTER_SWITCH_SOUND
+#undef CHEMMASTER_BOTTLE_SOUND

@@ -100,7 +100,7 @@ var/list/forum_groupids_to_ranks = list()
 			var/datum/admin_rank/rank_object = admin_ranks[rank]
 
 			if (!rank_object)
-				log_error("Unrecognized rank in admins.txt: \"[rank]\"")
+				log_world("ERROR: Unrecognized rank in admins.txt: \"[rank]\"")
 				continue
 
 			//create the admin datum and store it for later use
@@ -109,12 +109,12 @@ var/list/forum_groupids_to_ranks = list()
 			//find the client for a ckey if they are connected and associate them with the new admin datum
 			D.associate(directory[ckey])
 
-			log_debug("AdminRanks: Updated Admins from Legacy System")
+			LOG_DEBUG("AdminRanks: Updated Admins from Legacy System")
 
 	else
 		//The current admin system uses SQL
 		if(!establish_db_connection(dbcon))
-			log_error("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
+			log_world("ERROR: AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
 			log_misc("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
 			config.admin_legacy_system = 1
 			load_admins()
@@ -134,7 +134,7 @@ var/list/forum_groupids_to_ranks = list()
 			D.associate(directory[ckey])
 
 		if(!admin_datums)
-			log_error("AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
+			log_world("ERROR: AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
 			log_misc("AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
 			config.admin_legacy_system = 1
 			load_admins()
@@ -203,16 +203,16 @@ var/list/forum_groupids_to_ranks = list()
 	if (reload_once_done)
 		load_admins()
 
-	log_debug("AdminRanks: Updated Admins from ForumUserAPI")
+	LOG_DEBUG("AdminRanks: Updated Admins from ForumUserAPI")
 
 	return TRUE
 
 /proc/insert_user_to_admins_table(datum/forum_user/user)
 	if(isnull(user.ckey))
-		log_debug("AdminRanks: [user.forum_name] does not have a ckey linked - Ignoring")
+		LOG_DEBUG("AdminRanks: [user.forum_name] does not have a ckey linked - Ignoring")
 		return
 	if(user.psync_game_disabled)
-		log_debug("AdminRanks: [user.forum_name] has permsync-game disabled - Ignoring")
+		LOG_DEBUG("AdminRanks: [user.forum_name] has permsync-game disabled - Ignoring")
 		return
 	var/rights = 0
 

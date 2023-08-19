@@ -176,6 +176,11 @@
 	icon_state = "quartoffice"
 	sound_env = MEDIUM_SOFTFLOOR
 
+/area/operations/office_aux
+	name = "Operations Office (Aux)"
+	icon_state = "quartoffice"
+	sound_env = MEDIUM_SOFTFLOOR
+
 /area/operations/mail_room
 	name = "Operations Mail Room"
 	icon_state = "red"
@@ -653,6 +658,7 @@
 /area/horizon/bar/backroom
 	name = "Horizon - Bar - Backroom"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	flags = RAD_SHIELDED
 
 // Cafeteria
 /area/horizon/cafeteria

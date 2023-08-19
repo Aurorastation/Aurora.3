@@ -89,7 +89,7 @@
 		var/mob/M = thing
 
 		if (QDELETED(M))
-			log_debug("SSmob: QDELETED mob [DEBUG_REF(M)] left in processing list!")
+			LOG_DEBUG("SSmob: QDELETED mob [DEBUG_REF(M)] left in processing list!")
 			// We can just go ahead and remove them from all the mob lists.
 			mob_list -= M
 			dead_mob_list -= M
@@ -107,7 +107,7 @@
 		if (time != world.time && !slept[M.type])
 			slept[M.type] = TRUE
 			var/diff = world.time - time
-			log_debug("SSmob: Type '[M.type]' slept for [diff] ds in Life()! Suppressing further warnings.")
+			LOG_DEBUG("SSmob: Type '[M.type]' slept for [diff] ds in Life()! Suppressing further warnings.")
 
 		if (MC_TICK_CHECK)
 			return
