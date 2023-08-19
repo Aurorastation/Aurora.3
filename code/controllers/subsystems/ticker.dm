@@ -464,6 +464,15 @@ var/datum/controller/subsystem/ticker/SSticker
 			+ "<br>" \
 		)
 
+	var/datum/space_sector/current_sector = SSatlas.current_sector
+	var/html = SPAN_NOTICE("Current sector: [current_sector].") + {"\
+		<span> \
+			<a href='?src=\ref[src];current_sector_show_sites_id=1'>Click here</a> \
+			to see every possible site/ship that can potentially spawn here.\
+		</span>\
+	"}
+	to_world(html)
+
 	callHook("pregame_start")
 
 /datum/controller/subsystem/ticker/proc/setup()
@@ -745,6 +754,33 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	LAZYADD(roundstart_callbacks, callback)
 
+/datum/controller/subsystem/ticker/Topic(href, href_list)
+	if(href_list["current_sector_show_sites_id"])
+		var/datum/space_sector/current_sector = SSatlas.current_sector
+		var/list/sites = SSatlas.current_sector.possible_sites_in_sector()
+		var/list/site_names = list()
+		var/list/ship_names = list()
+		for(var/datum/map_template/ruin/site in sites)
+			if(site.ship_cost)
+				ship_names += site.name
+			else
+				site_names += site.name
+
+		var/datum/browser/sites_win = new(
+			usr,
+			"Sector: " + current_sector.name,
+			"Sector: " + current_sector.name,
+			500, 500,
+		)
+		var/html = "<h1>Ships and sites that spawn in this sector:</h1>"
+		html += "<h3>Ships:</h3>"
+		html += english_list(ship_names)
+		html += "<h3>Sites:</h3>"
+		html += english_list(site_names)
+		sites_win.set_content(html)
+		sites_win.open()
+		return TRUE
+	. = ..()
 
 #undef SETUP_OK
 #undef SETUP_REVOTE
