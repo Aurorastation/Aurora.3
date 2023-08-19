@@ -1,0 +1,24 @@
+<h3>Lift panel</h3>
+<div class="item" style="padding-top: 10px">
+  <div class="item">
+    {{:data.shuttle_status}}
+  </div>
+	<div class="itemLabel">
+	    Current Destination:
+	</div>
+	<span class="average">{{:data.destination_name}}</span>
+	<div class="item">
+    {{for data.destinations}}
+      {{:helper.link(value, null, {'pick' : '1', 'destination' : value}, data.can_pick ? null : 'disabled' , null)}}
+    {{empty}}
+    	{{:helper.link('Choose Destination', 'arrowreturn-1-s', {'pick' : '1'}, data.can_pick ? null : 'disabled' , null)}}
+    {{/for}}
+	</div>
+</div>
+<div class="item" style="padding-top: 10px">
+	<div class="item">
+		<div class="itemContent" style="padding-top: 2px; width: 100%">
+			{{:helper.link('Emergency Stop', 'cancel', {'cancel' : '1'}, data.can_cancel ? null : 'disabled' , null)}}
+		</div>
+	</div>
+</div>

@@ -87,7 +87,7 @@ var/datum/controller/subsystem/timer/SStimer
 			to_log += get_timer_debug_string(I)
 
 	// Dump all the logged data to the world log
-	log_ss("timers", to_log.Join("\n"))
+	log_subsystem("timers", to_log.Join("\n"))
 
 /datum/controller/subsystem/timer/fire(resumed = FALSE)
 	// Store local references to datum vars as it is faster to access them
@@ -234,7 +234,7 @@ var/datum/controller/subsystem/timer/SStimer
   * Destroys the existing buckets and creates new buckets from the existing timed events
   */
 /datum/controller/subsystem/timer/proc/reset_buckets()
-	log_debug("Timer buckets have been reset, this may cause timers to lag")
+	LOG_DEBUG("Timer buckets have been reset, this may cause timers to lag")
 	bucket_reset_count++
 
 	var/list/bucket_list = src.bucket_list // Store local reference to datum var, this is faster

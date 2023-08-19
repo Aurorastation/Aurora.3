@@ -328,6 +328,7 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 5,
 		/obj/item/reagent_containers/food/snacks/tuna = 2,
+		/obj/item/reagent_containers/food/snacks/adhomian_can = 2,
 		/obj/item/reagent_containers/food/snacks/ricetub = 2,
 		/obj/item/reagent_containers/food/snacks/riceball = 4,
 		/obj/item/reagent_containers/food/snacks/seaweed = 5,
@@ -366,6 +367,7 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 60,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 40,
 		/obj/item/reagent_containers/food/snacks/tuna = 23,
+		/obj/item/reagent_containers/food/snacks/adhomian_can = 26,
 		/obj/item/reagent_containers/food/snacks/ricetub = 40,
 		/obj/item/reagent_containers/food/snacks/riceball = 15,
 		/obj/item/reagent_containers/food/snacks/seaweed = 20,
@@ -563,7 +565,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 3,
 		/obj/item/reagent_containers/glass/bottle/toxin = 1,
 		/obj/item/reagent_containers/glass/bottle/coagzolug = 2,
-		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 2,
 		/obj/item/reagent_containers/syringe = 12,
 		/obj/item/device/healthanalyzer = 5,
 		/obj/item/device/breath_analyzer = 2,
@@ -967,6 +969,7 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/food/drinks/pitcher = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
+		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 		/obj/item/clothing/accessory/apron/chef = 2,
 		/obj/item/clothing/suit/chef_jacket = 2,
 		/obj/item/material/kitchen/rollingpin = 2,
@@ -984,7 +987,8 @@
 		/obj/item/tray = 12,
 		/obj/item/tray/plate = 10,
 		/obj/item/reagent_containers/bowl = 10,
-		/obj/item/reagent_containers/bowl/plate = 10
+		/obj/item/reagent_containers/bowl/plate = 10,
+		/obj/item/reagent_containers/glass/bottle/syrup = 4,
 	)
 	contraband = list(
 		/obj/item/storage/toolbox/lunchbox/syndicate = 2
@@ -1007,7 +1011,8 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/food/drinks/pitcher = 3,
-		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
+		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 	)
 
 /obj/machinery/vending/dinnerware/bar
@@ -1017,7 +1022,8 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/food/drinks/pitcher = 3,
-		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6
+		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
+		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 	)
 
 /obj/machinery/vending/sovietsoda

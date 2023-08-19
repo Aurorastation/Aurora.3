@@ -240,6 +240,11 @@
 	desc = "A multi-coloured direction sign, pointing out in which all main departments are located."
 	icon_state = "direction_all"
 
+/obj/structure/sign/directions/prop
+	name = "\improper PROPULSION sign"
+	desc = "A direction sign, pointing out which way the nearest propulsion area is."
+	icon_state = "direction_prop"
+
 //
 // Danger, Warning, and Hazard Signs
 //
@@ -449,7 +454,7 @@
 
 /obj/structure/sign/painting_frame/shumaila
 	name = "queen Shumaila portrait"
-	desc = "A portrait of Queen Shumaila Azunja. Despite her short reign, she already has attacted a loyal following."
+	desc = "A portrait of Queen Shumaila Azunja. Despite her short reign, she already has attracted a loyal following."
 	icon_state = "shumaila_painting"
 	desc_extended = "Since entering the public eye in 2459, Shumaila enjoys much support from the women of Kaltir. Many look to her as an inspiration, buying military style jackets to emulate her \
 	look, given that Shumaila became one of the few Tajara women to lead a nation. However, this fame has also led to calls from the nobility and her family to choose a husband. Shumaila retains \
@@ -457,7 +462,7 @@
 
 /obj/item/sign/painting_frame/shumaila
 	name = "queen Shumaila portrait"
-	desc = "A portrait of Queen Shumaila Azunja. Despite her short reign, she already has attacted a loyal following."
+	desc = "A portrait of Queen Shumaila Azunja. Despite her short reign, she already has attracted a loyal following."
 	icon_state = "shumaila_painting"
 	sign_state = "shumaila_painting"
 	desc_extended = "Since entering the public eye in 2459, Shumaila enjoys much support from the women of Kaltir. Many look to her as an inspiration, buying military style jackets to emulate her \

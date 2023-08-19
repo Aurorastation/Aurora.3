@@ -285,7 +285,7 @@ var/list/channel_to_radio_key = new
 
 	//speaking into radios
 	if(length(used_radios))
-		italics = 1
+		italics = TRUE
 		message_range = 1
 		if(speaking)
 			message_range = speaking.get_talkinto_msg_range(message)
@@ -312,7 +312,7 @@ var/list/channel_to_radio_key = new
 				message_range = 1
 
 			if (pressure < ONE_ATMOSPHERE*0.4) //sound distortion pressure, to help clue people in that the air is thin, even if it isn't a vacuum yet
-				italics = 1
+				italics = TRUE
 				sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
 		listening = get_hearers_in_view(message_range, src)
@@ -320,6 +320,8 @@ var/list/channel_to_radio_key = new
 	if(client)
 		for (var/mob/player_mob in player_list)
 			if(!player_mob || player_mob.stat != DEAD || (player_mob in listening))
+				continue
+			if(player_mob.client?.prefs.toggles & CHAT_GHOSTRADIO && length(used_radios)) //If they are talking into a radio and we hear all radio messages, don't duplicate for observers
 				continue
 			if(player_mob.client?.prefs.toggles & CHAT_GHOSTEARS)
 				listening |= player_mob

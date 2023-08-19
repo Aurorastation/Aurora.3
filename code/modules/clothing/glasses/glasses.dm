@@ -31,7 +31,7 @@ BLIND     // can't see anything
 	var/obj/screen/overlay = null
 	var/obj/item/clothing/glasses/hud/hud = null	// Hud glasses, if any
 	var/activated_color = null
-	var/normal_layer = TRUE
+	var/normal_layer = GLASSES_LAYER
 	var/shatter_material = /obj/item/material/shard
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
@@ -49,8 +49,11 @@ BLIND     // can't see anything
 	set name = "Change Glasses Layer"
 	set src in usr
 
-	normal_layer = !normal_layer
-	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "under" : "over"] your hair."))
+	if(normal_layer == GLASSES_LAYER)
+		normal_layer = GLASSES_LAYER_ALT
+	else 
+		normal_layer = GLASSES_LAYER
+	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer == 21 ? "under" : "over"] your hair."))
 	update_clothing_icon()
 
 /obj/item/clothing/glasses/protects_eyestab(var/obj/stab_item, var/stabbed = FALSE)
@@ -272,7 +275,7 @@ BLIND     // can't see anything
 	var/flip_down = "down to protect your eyes."
 	var/flip_up = "up out of your face."
 	var/up = 0
-	normal_layer = FALSE
+	normal_layer = GLASSES_LAYER_ALT
 
 /obj/item/clothing/glasses/safety/goggles/Initialize(mapload, material_key)
 	. = ..()
@@ -309,6 +312,18 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/safety/goggles/proc/handle_additional_changes()
 	return
+
+/obj/item/clothing/glasses/safety/goggles/change_layer()
+	set category = "Object"
+	set name = "Change Glasses Layer"
+	set src in usr
+	
+	var/list/options = list("Under Hair" = GLASSES_LAYER, "Over Hair" = GLASSES_LAYER_ALT, "Over Headwear" = GLASSES_LAYER_OVER)
+	var/new_layer = input(usr, "Position Goggles", "Goggle style") as null|anything in options
+	if(new_layer)
+		normal_layer = options[new_layer]
+		to_chat(usr, SPAN_NOTICE("\The [src] will now layer [new_layer]."))
+		update_clothing_icon()
 
 /obj/item/clothing/glasses/safety/goggles/prescription
 	name = "prescription safety goggles"
@@ -669,7 +684,7 @@ BLIND     // can't see anything
 	item_flags = THICKMATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
-	normal_layer = FALSE
+	normal_layer = GLASSES_LAYER_ALT
 
 /obj/item/clothing/glasses/welding/attack_self()
 	toggle()

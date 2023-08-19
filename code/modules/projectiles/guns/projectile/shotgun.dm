@@ -1,6 +1,9 @@
 /obj/item/gun/projectile/shotgun
 	name = "strange shotgun"
 	desc = DESC_PARENT
+	desc_info = "This is a shotgun, chambered for various shells and slugs. To fire the weapon, toggle the safety with CTRL-Click or enable 'HARM' intent, then click where \
+	you want to fire. To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen. To reload, insert shells or a magazine \
+	into the shotgun, then pump the shotgun to chamber a fresh round."
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
@@ -34,7 +37,7 @@
 // called on a SUCCESSFUL saw-off.
 /obj/item/gun/projectile/shotgun/proc/saw_off(mob/user, obj/item/tool)
 	to_chat(user, "<span class='notice'>You attempt to cut [src]'s barrel with [tool], but nothing happens.</span>")
-	log_debug("shotgun: attempt to saw-off shotgun with no saw-off behavior.")
+	LOG_DEBUG("shotgun: attempt to saw-off shotgun with no saw-off behavior.")
 
 /obj/item/gun/projectile/shotgun/pump
 	name = "pump shotgun"
@@ -121,7 +124,6 @@
 /obj/item/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
 	desc = "A true classic."
-	desc_info = "Use in hand to unload, alt click to change firemodes."
 	icon = 'icons/obj/guns/dshotgun.dmi'
 	icon_state = "dshotgun"
 	item_state = "dshotgun"
