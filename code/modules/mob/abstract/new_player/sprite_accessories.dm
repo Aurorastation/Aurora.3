@@ -773,18 +773,6 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "messy hair"
 
-/datum/sprite_accessory/hair/messy2
-	name = "Messy 2"
-	icon_state = "hair_messy2"
-	length = 2
-	chatname = "messy hair"
-
-/datum/sprite_accessory/hair/messy3
-	name = "Messy 3"
-	icon_state = "hair_messy3"
-	length = 2
-	chatname = "messy hair"
-
 /datum/sprite_accessory/hair/modern
 	name = "Modern"
 	icon_state = "hair_modern"
@@ -1208,6 +1196,18 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair/poofy2
 	name = "Poofy 2"
 	icon_state = "hair_poofy2"
+	length = 2
+	chatname = "poofy hair"
+
+/datum/sprite_accessory/hair/poofy3
+	name = "Poofy 3"
+	icon_state = "hair_poofy3"
+	length = 2
+	chatname = "poofy hair"
+
+/datum/sprite_accessory/hair/poofy4
+	name = "Poofy 4"
+	icon_state = "hair_poofy4"
 	length = 2
 	chatname = "poofy hair"
 
@@ -1749,11 +1749,11 @@ Follow by example and make good judgement based on length which list to include 
 	length = 1
 	chatname = "fringe"
 
-/datum/sprite_accessory/hair/balding/messy4
-	name = "Messy 4"
-	icon_state = "hair_messy4"
-	length = 1
-	chatname = "messy hair"
+/datum/sprite_accessory/hair/balding/poofy5
+	name = "Poofy 5"
+	icon_state = "hair_poofy5"
+	length = 2
+	chatname = "poofy hair"
 
 /datum/sprite_accessory/hair/balding/nia2
 	name = "Nia 2"
