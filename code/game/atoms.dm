@@ -86,6 +86,9 @@
 		return 0
 	return -1
 
+/atom/proc/grants_equipment_vision(var/mob/user)
+	return
+
 /atom/proc/additional_sight_flags()
 	return 0
 

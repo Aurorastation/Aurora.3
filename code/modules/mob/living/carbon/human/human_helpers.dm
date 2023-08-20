@@ -47,7 +47,7 @@
 		return
 	..()
 
-/mob/living/carbon/human/proc/update_equipment_vision()
+/mob/living/carbon/human/proc/update_equipment_vision(var/machine_grants_equipment_vision = FALSE)
 	flash_protection = 0
 	equipment_tint_total = 0
 	equipment_see_invis	= 0
@@ -62,7 +62,7 @@
 	else
 		binoc_check = TRUE
 
-	if(((!client || client.eye == src || client.eye == loc || client.eye == z_eye) && binoc_check) || HAS_TRAIT(src, TRAIT_COMPUTER_VIEW)) // !client is so the unit tests function
+	if(((!client || client.eye == src || client.eye == loc || client.eye == z_eye) && binoc_check) || machine_grants_equipment_vision || HAS_TRAIT(src, TRAIT_COMPUTER_VIEW)) // !client is so the unit tests function
 		if(istype(src.head, /obj/item/clothing/head))
 			add_clothing_protection(head)
 		if(istype(src.glasses, /obj/item/clothing/glasses))
