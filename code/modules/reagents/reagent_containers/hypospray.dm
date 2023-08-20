@@ -113,7 +113,7 @@
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
 	desc_extended = "Funded by the Stellar Corporate Conglomerate, produced by Zeng-Hu Pharmaceuticals, this autoinjector system was rebuilt from the ground up from the old variant to provide maximum user feedback."
-	desc_info = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Use in-hand, or click it while it's in your active hand to prepare it for reuse."
+	desc_info = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Alt-click while it's on your person to prepare it for reuse."
 	icon_state = "autoinjector"
 	item_state = "autoinjector"
 	slot_flags = SLOT_EARS
@@ -137,7 +137,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
 	if(is_open_container())
-		to_chat(user, SPAN_NOTICE("You must secure the reagents inside \the [src] before using it! (Alt-Click to secure)"))
+		to_chat(user, SPAN_NOTICE("You must secure the reagents inside \the [src] before using it!"))
 		return FALSE
 	. = ..()
 
@@ -149,9 +149,10 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
 	if(is_open_container())
-		to_chat(user, SPAN_WARNING("\The [src] hasn't been secured yet! (Alt-Click to secure)"))
+		to_chat(user, SPAN_WARNING("\The [src] hasn't been secured yet!"))
 		return
-	inject(user, user, TRUE)
+	if(do_after(user, 1 SECOND, TRUE))
+		inject(user, user, TRUE)
 
 /obj/item/reagent_containers/hypospray/autoinjector/AltClick(mob/user)
 	if(is_open_container() && user == loc)
