@@ -241,7 +241,7 @@
 
 	// charge the changeling chemical cost for stasis
 	changeling.use_charges(20)
-	to_chat(src, SPAN_NOTICE("<font size='5'>We are ready to rise. Use the <b>Revive</b> verb when we are ready.</font>"))
+	to_chat(src, SPAN_NOTICE(FONT_GIANT("We are ready to rise. Use the <b>Revive</b> verb when we are ready.")))
 	add_verb(src, /mob/proc/changeling_revive)
 
 /mob/proc/changeling_revive()
@@ -261,7 +261,7 @@
 	to_chat(C, "<span class='notice'>We have regenerated fully.</span>")
 	remove_verb(C, /mob/proc/changeling_revive)
 
-// Rip our own head off as a last ditch effort to revive
+/// Rip the changeling's head off as a last ditch effort to revive
 /mob/proc/changeling_emergency_transform()
 	set category = "Changeling"
 	set name = "Emergency Transform (1)"
