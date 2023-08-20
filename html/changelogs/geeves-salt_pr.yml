@@ -5,3 +5,4 @@ delete-after: True
 changes:
   - rscadd: "Lings gain a new free ability called Emergency Transform, where their heads detach from their bodies. They can grow back to normal after 10 minutes has passed."
   - tweak: "Lings can no longer use regenerative stasis while dead. If they die while regenerating, it will fail."
+  - tweak: "Regenerative stasis can now only be used once."
