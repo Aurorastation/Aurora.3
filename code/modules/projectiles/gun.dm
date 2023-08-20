@@ -189,7 +189,10 @@
 
 /obj/item/gun/can_swap_hands(mob/user)
 	if(wielded)
-		return FALSE
+		unwield()
+		var/obj/item/offhand/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
 	return ..()
 
 /obj/item/gun/proc/unique_action(var/mob/user)
@@ -729,6 +732,9 @@
 		if(istype(O))
 			O.unwield()
 	else
+		var/obj/item/offhand_item = user.get_inactive_hand()
+		if(offhand_item)
+			user.unEquip(offhand_item, FALSE, user.loc)
 		if(user.get_inactive_hand())
 			to_chat(user, SPAN_WARNING("You need your other hand to be empty."))
 			return
@@ -778,13 +784,13 @@
 		if(accuracy_wielded)
 			accuracy = initial(accuracy)
 
-/obj/item/gun/mob_can_equip(M as mob, slot, disable_warning, ignore_blocked)
+/obj/item/gun/mob_can_equip(mob/user, slot, disable_warning, ignore_blocked)
 	//Cannot equip wielded items.
 	if(wielded)
-		if(!disable_warning) // unfortunately not sure there's a way to get this to only fire once when it's looped
-			to_chat(M, SPAN_WARNING("Lower \the [initial(name)] first!"))
-		return FALSE
-
+		unwield()
+		var/obj/item/offhand/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
 	return ..()
 
 /obj/item/gun/throw_at()

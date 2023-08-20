@@ -137,7 +137,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
 	if(is_open_container())
-		to_chat(user, SPAN_NOTICE("You must secure the reagents inside \the [src] before using it!"))
+		to_chat(user, SPAN_NOTICE("You must secure the reagents inside \the [src] before using it! (Alt-Click to secure)"))
 		return FALSE
 	. = ..()
 
@@ -149,6 +149,12 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
 	if(is_open_container())
+		to_chat(user, SPAN_WARNING("\The [src] hasn't been secured yet! (Alt-Click to secure)"))
+		return
+	inject(user, user, TRUE)
+
+/obj/item/reagent_containers/hypospray/autoinjector/AltClick(mob/user)
+	if(is_open_container() && user == loc)
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user, SPAN_NOTICE("With a quick twist of \the [src]'s lid, you secure the reagents inside."))
 			spent = FALSE
@@ -156,9 +162,8 @@
 			update_icon()
 		else
 			to_chat(user, SPAN_NOTICE("You can't secure \the [src] without putting reagents in!"))
-	else
-		to_chat(user, SPAN_NOTICE("The reagents inside \the [src] are already secured."))
-	return
+		return
+	return ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver() && !is_open_container())
