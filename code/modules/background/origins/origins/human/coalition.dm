@@ -99,5 +99,5 @@
 	desc = "The human population of Orepit includes the Native Orepitters, who descend from Hephaestus employees following the abandoned mining mission on the planet, as well as immigrants and pilgrims of the Trinary religion."
 	important_information = "All humans from Orepit are vetted Trinary faithful, and their behaviour should reflect that."
 	possible_accents = list(ACCENT_OREPIT, ACCENT_PROVIDENCE)
-	possible_citizenships = list(CITIZENSHIP_NONE)
+	possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_COALITION)
 	possible_religions =  list(RELIGION_TRINARY)
