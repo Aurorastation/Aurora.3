@@ -19,6 +19,8 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/mimicing = ""
 	var/mimiced_accent = "Biesellite"
 	var/justate
+	/// if they've entered stasis before, then we don't want to give them stasis again
+	var/has_entered_stasis = FALSE
 
 /datum/changeling/New(var/gender=FEMALE)
 	..()
@@ -58,12 +60,13 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		changeling.absorbed_dna += newDNA
 
 //Restores our verbs. It will only restore verbs allowed during lesser (monkey) form if we are not human
-/mob/proc/make_changeling()
-
-	if(!mind)
+/mob/proc/make_changeling(var/datum/mind/changeling_mind)
+	if(!changeling_mind)
+		changeling_mind = mind
+	if(!changeling_mind)
 		return
-	if(!mind.antag_datums[MODE_CHANGELING])
-		mind.antag_datums[MODE_CHANGELING] = new /datum/changeling(gender)
+	if(!changeling_mind.antag_datums[MODE_CHANGELING])
+		changeling_mind.antag_datums[MODE_CHANGELING] = new /datum/changeling(gender)
 
 	add_verb(src, /datum/changeling/proc/EvolutionMenu)
 	add_language(LANGUAGE_CHANGELING)
@@ -74,13 +77,13 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		for(var/P in powers)
 			powerinstances += new P()
 
-	var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+	var/datum/changeling/changeling = changeling_mind.antag_datums[MODE_CHANGELING]
 
 	// Code to auto-purchase free powers.
 	for(var/datum/power/changeling/P in powerinstances)
 		if(!P.genomecost) // Is it free?
 			if(!(P in changeling.purchasedpowers)) // Do we not have it already?
-				changeling.purchasePower(mind, P.name, 0) // Purchase it. Don't remake our verbs, we're doing it after this.
+				changeling.purchasePower(changeling_mind, P.name, 0) // Purchase it. Don't remake our verbs, we're doing it after this.
 
 	for(var/datum/power/changeling/P in changeling.purchasedpowers)
 		if(P.isVerb)
@@ -96,6 +99,9 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		var/datum/absorbed_dna/newDNA = new(H.real_name, H.dna, H.species.get_cloning_variant(), H.languages)
 		absorbDNA(newDNA)
 		changeling.mimiced_accent = H.accent
+
+	if(changeling.has_entered_stasis)
+		remove_verb(src, /mob/proc/changeling_fakedeath)
 
 	return TRUE
 

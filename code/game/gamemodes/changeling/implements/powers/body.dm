@@ -202,7 +202,7 @@
 	set category = "Changeling"
 	set name = "Regenerative Stasis (20)"
 
-	var/datum/changeling/changeling = changeling_power(20,1,100,DEAD)
+	var/datum/changeling/changeling = changeling_power(20, 1, 100, UNCONSCIOUS)
 	if(!changeling)
 		return
 
@@ -221,16 +221,28 @@
 	C.emote("gasp")
 	C.tod = worldtime2text()
 
-	spawn(1000)
-		if(changeling_power(20,1,100,DEAD))
-			// charge the changeling chemical cost for stasis
-			changeling.use_charges(20)
+	changeling.has_entered_stasis = TRUE
 
-			to_chat(C, "<span class='notice'><font size='5'>We are ready to rise. Use the <b>Revive</b> verb when you are ready.</font></span>")
-			add_verb(C, /mob/proc/changeling_revive)
+	addtimer(CALLBACK(src, PROC_REF(add_changeling_revive)), 100 SECONDS)
+
+	remove_verb(src, /mob/proc/changeling_fakedeath)
 
 	feedback_add_details("changeling_powers", "FD")
 	return TRUE
+
+/mob/proc/add_changeling_revive()
+	if(stat == DEAD)
+		to_chat(src, SPAN_HIGHDANGER("We died while regenerating! Our last resort is detaching our head now..."))
+		return
+
+	var/datum/changeling/changeling = changeling_power(20, 1, 100, UNCONSCIOUS)
+	if(!changeling)
+		return
+
+	// charge the changeling chemical cost for stasis
+	changeling.use_charges(20)
+	to_chat(src, "<span class='notice'><font size='5'>We are ready to rise. Use the <b>Revive</b> verb when you are ready.</font></span>")
+	add_verb(src, /mob/proc/changeling_revive)
 
 /mob/proc/changeling_revive()
 	set category = "Changeling"
@@ -248,6 +260,80 @@
 	// sending display messages
 	to_chat(C, "<span class='notice'>We have regenerated fully.</span>")
 	remove_verb(C, /mob/proc/changeling_revive)
+
+// Rip our own head off as a last ditch effort to revive
+/mob/proc/changeling_emergency_transform()
+	set category = "Changeling"
+	set name = "Emergency Transform (1)"
+
+	var/datum/changeling/changeling = changeling_power(1, 0, 100, DEAD)
+	if(!changeling)
+		return
+
+	var/mob/living/carbon/human/H = src
+	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
+		return
+
+	var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
+	if(!head)
+		return
+
+	var/list/names = list()
+	for(var/datum/absorbed_dna/DNA in changeling.absorbed_dna)
+		names += "[DNA.name]"
+
+	var/S = input("Select the target DNA to reconfigure in our lesser form: ", "Target DNA", null) as null|anything in names
+	if(!S)
+		return
+
+	var/datum/absorbed_dna/DNA = changeling.GetDNA(S)
+	var/datum/dna/chosen_dna = DNA.dna
+	if(!chosen_dna)
+		return
+
+	if(H.handcuffed)
+		var/cuffs = H.handcuffed
+		H.u_equip(H.handcuffed)
+		qdel(cuffs)
+
+	if(H.buckled_to)
+		H.buckled_to.unbuckle()
+
+	changeling.use_charges(1)
+	changeling.geneticdamage = 70
+
+	H.remove_changeling_powers()
+
+	var/mob/living/simple_animal/hostile/lesser_changeling/revive/ling = new(get_turf(H))
+
+	var/mob/living/carbon/human/O = new /mob/living/carbon/human(ling)
+	if(chosen_dna.GetUIState(DNA_UI_GENDER))
+		O.gender = FEMALE
+	else
+		O.gender = MALE
+	O.set_species(chosen_dna.species)
+	O.dna = chosen_dna.Clone()
+	O.real_name = chosen_dna.real_name
+	O.UpdateAppearance()
+	domutcheck(O, null)
+	O.make_changeling(H.mind)
+	O.changeling_update_languages(changeling.absorbed_languages)
+	O.status_flags |= GODMODE
+
+	if(H.mind)
+		H.mind.transfer_to(ling)
+	else
+		ling.key = H.key
+
+	ling.untransform_occupant = O
+	ling.client.init_verbs()
+
+	H.visible_message(SPAN_HIGHDANGER("[H]'s head decouples from their body in a shower of gore!"))
+	head.droplimb(FALSE, DROPLIMB_BLUNT)
+
+	feedback_add_details("changeling_powers", "EMT")
+
+	return TRUE
 
 //Recover from stuns.
 /mob/proc/changeling_unstun()

@@ -184,14 +184,37 @@
 
 	var/mob/living/carbon/human/occupant = null
 
+	/// after this amount of time, we gain the untransform verb
+	var/untransform_time = 0
+	/// if we don't have an occupant yet, we'll use this one when we gain the untransform verb
+	var/mob/living/carbon/human/untransform_occupant = null
+
+/mob/living/simple_animal/hostile/lesser_changeling/revive
+	untransform_time = 10 MINUTES
+
 /mob/living/simple_animal/hostile/lesser_changeling/Initialize()
 	. = ..()
 	add_verb(src, /mob/living/proc/ventcrawl)
-	add_verb(src, /mob/living/simple_animal/hostile/lesser_changeling/verb/untransform)
+	if(!untransform_time)
+		add_verb(src, /mob/living/simple_animal/hostile/lesser_changeling/proc/untransform)
+	else
+		addtimer(CALLBACK(src, PROC_REF(add_untransform_verb)), untransform_time, TIMER_UNIQUE|TIMER_OVERRIDE)
 
 /mob/living/simple_animal/hostile/lesser_changeling/mind_initialize()
 	..()
 	mind.assigned_role = "Changeling"
+
+/mob/living/simple_animal/hostile/lesser_changeling/Destroy()
+	. = ..()
+	QDEL_NULL(occupant)
+	QDEL_NULL(untransform_occupant)
+
+/mob/living/simple_animal/hostile/lesser_changeling/proc/add_untransform_verb()
+	if(!occupant)
+		occupant = untransform_occupant
+		untransform_occupant = null
+	to_chat(src, SPAN_ALIEN("We are now ready to assume a greater form."))
+	add_verb(src, /mob/living/simple_animal/hostile/lesser_changeling/proc/untransform)
 
 /mob/living/simple_animal/hostile/lesser_changeling/death(gibbed)
 	..()
@@ -202,13 +225,14 @@
 			if(mind)
 				mind.transfer_to(occupant)
 				occupant.client.init_verbs()
+			occupant = null
 
 		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
 		gibs(src.loc)
 		qdel(src)
 		return
 
-/mob/living/simple_animal/hostile/lesser_changeling/verb/untransform()
+/mob/living/simple_animal/hostile/lesser_changeling/proc/untransform()
 	set name = "Return to original form"
 	set desc = "Return to your original form."
 	set category = "Changeling"
@@ -231,6 +255,7 @@
 		if(mind)
 			mind.transfer_to(occupant)
 		occupant.client.init_verbs()
+		occupant = null
 		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
 		gibs(src.loc)
 		qdel(src)
