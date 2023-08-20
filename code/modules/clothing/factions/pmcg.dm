@@ -82,7 +82,7 @@
 
 /obj/item/clothing/under/rank/medical/first_responder/pmc/vekatak_phalanx
 	name = "\improper Ve'katak Phalanx medical uniform"
-	desc = "A uniform used by the forces of the Ve'katak Phalanx, a Vaurca-run private military company. This one has pale blue shoulder stripes and ornamentation, identifying it as belonging to a Phalanx medic in the employ of the Private Military Contracting Group."
+	desc = "A uniform used by the forces of the Ve'katak Phalanx, a Vaurca-run private military company. This one has dark blue shoulder stripes and ornamentation, identifying it as belonging to a Phalanx medic in the employ of the Private Military Contracting Group."
 	desc_extended = "These uniforms are designed to fit under the combat hardsuits favored by the Phalanx. They are utilitarian in design, and reportedly somewhat uncomfortable - though few of the non-Vaurcae bold enough to join Ve'katak seem to complain."
 	icon_state = "phalanx-med_jumpsuit"
 	item_state = "phalanx-med_jumpsuit"
