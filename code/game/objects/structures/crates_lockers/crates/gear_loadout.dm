@@ -228,10 +228,10 @@
 		new /obj/item/clothing/suit/space/syndicate/black/orange(src)
 		new /obj/item/tank/emergency_oxygen/double(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/ram_ranch
+/obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys
 	req_access = list()
 
-/obj/structure/closet/crate/secure/gear_loadout/ram_ranch/fill()
+/obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/fill()
 	for(var/i in 1 to 6)
 		var/obj/item/clothing/under/shorts/khaki/pants = new(src)
 		var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
@@ -253,7 +253,7 @@
 		new /obj/item/melee/whip(src)
 		new /obj/item/gun/projectile/revolver/detective(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/ram_ranch/single/fill()
+/obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/single/fill()
 	var/obj/item/clothing/under/shorts/khaki/pants = new(src)
 	var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
 	var/obj/item/clothing/accessory/chaps/chaps = new(src)
