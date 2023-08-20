@@ -1,0 +1,8 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - imageadd: "Added new roller bed sprites, in the same style as the old ones, but with medical green and orange colouring and larger hitboxes."
+  - rscadd: "Added brakes to roller beds, toggleable with Alt-Click."
+  - tweak: "Roller beds can now be deployed to turfs by clicking on effects and lattices above them."
