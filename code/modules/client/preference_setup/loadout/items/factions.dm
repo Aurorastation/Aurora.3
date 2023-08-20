@@ -436,6 +436,7 @@
 	epmc_uniform_fr_med["EPMC first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
 	epmc_uniform_fr_med["PMCG first responder uniform, alt"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/alt
 	epmc_uniform_fr_med["Sekhmet Intergalactic first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/sekh
+	epmc_uniform_fr_med["Wildlands Squadron first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/wildlands
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_fr_med)
 
 //Zeng-Hu

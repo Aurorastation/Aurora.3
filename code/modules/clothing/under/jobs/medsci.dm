@@ -199,6 +199,10 @@
 	icon_state = "sekh_emt"
 	item_state = "sekh_emt"
 
+/obj/item/clothing/under/rank/medical/first_responder/pmc/wildlands
+	icon_state = "pmc_ws_emt"
+	item_state = "pmc_ws_emt"
+
 // Surgeon
 /obj/item/clothing/under/rank/medical/surgeon
 	name = "surgeon's scrubs"

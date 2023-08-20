@@ -1,0 +1,7 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a Wildlands Squadron first responder uniform to the loadout."
+  - imageadd: "Changed the Wildlands Squadron security uniform to incorporate more of the PMCG colour scheme."
