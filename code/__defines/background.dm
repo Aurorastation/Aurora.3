@@ -116,6 +116,8 @@
 #define ACCENT_OREPIT "Native Orepitter"
 #define ACCENT_PROVIDENCE "Providence Trinarist"
 #define ACCENT_BURZSIA "Burzsia"
+#define ACCENT_OREPIT "Native Orepitter"
+#define ACCENT_PROVIDENCE "Providence Trinarist"
 #define ACCENT_GALATEA "Galatean"
 #define ACCENT_TSUKUYOMI "Tsukuyomian"
 #define ACCENT_EMPYREAN "Empyrean"
