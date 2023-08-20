@@ -402,6 +402,7 @@
 #include "code\datums\outfits\ert\kosmostrelki.dm"
 #include "code\datums\outfits\ert\mercenary.dm"
 #include "code\datums\outfits\ert\nt_ert.dm"
+#include "code\datums\outfits\ert\scc_ert.dm"
 #include "code\datums\outfits\ert\syndicate.dm"
 #include "code\datums\outfits\ert\tcfl.dm"
 #include "code\datums\outfits\event\outfit_events.dm"

@@ -1289,18 +1289,33 @@
 
 /obj/item/flag/kazhkz
 	name = "\improper House Kazhkz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
-	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the great houses of the \
+	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
 	flag_structure = /obj/structure/sign/flag/kazhkz
 
 /obj/structure/sign/flag/kazhkz
 	name = "\improper House Kazhkz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
-	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the great houses of the \
+	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
 	icon_state = "kazkhz"
 	flag_item = /obj/item/flag/kazhkz
+
+/obj/item/flag/hansan
+	name = "\improper House Han'san standard"
+	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the \
+	great House Kazhkz-Han'san. They are known for their conservative and militant nature."
+	flag_path = "hansan"
+	flag_structure = /obj/structure/sign/flag/hansan
+
+/obj/structure/sign/flag/hansan
+	name = "\improper House Han'san standard"
+	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the \
+	great House Kazhkz-Han'san. They are known for their conservative and militant nature."
+	flag_path = "hansan"
+	icon_state = "hansan"
+	flag_item = /obj/item/flag/hansan
 
 /obj/item/flag/caladius
 	name = "\improper House Caladius standard"

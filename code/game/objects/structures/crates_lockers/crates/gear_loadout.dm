@@ -228,10 +228,10 @@
 		new /obj/item/clothing/suit/space/syndicate/black/orange(src)
 		new /obj/item/tank/emergency_oxygen/double(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/ram_ranch
+/obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys
 	req_access = list()
 
-/obj/structure/closet/crate/secure/gear_loadout/ram_ranch/fill()
+/obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/fill()
 	for(var/i in 1 to 6)
 		var/obj/item/clothing/under/shorts/khaki/pants = new(src)
 		var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
@@ -253,7 +253,7 @@
 		new /obj/item/melee/whip(src)
 		new /obj/item/gun/projectile/revolver/detective(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/ram_ranch/single/fill()
+/obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/single/fill()
 	var/obj/item/clothing/under/shorts/khaki/pants = new(src)
 	var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
 	var/obj/item/clothing/accessory/chaps/chaps = new(src)
@@ -283,6 +283,7 @@
 /obj/structure/closet/crate/gear_loadout/zenghu/fill()
 	new /obj/item/clothing/head/helmet/space/void/zenghu(src)
 	new /obj/item/clothing/suit/space/void/zenghu(src)
+	new /obj/item/voidsuit_modkit/zeng_skrell(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
 
@@ -291,6 +292,7 @@
 	new /obj/item/clothing/suit/space/void/hephaestus(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
+	new /obj/item/voidsuit_modkit/heph_unathi(src)
 
 /obj/structure/closet/crate/gear_loadout/einstein/fill()
 	new /obj/item/clothing/head/helmet/space/void/einstein(src)

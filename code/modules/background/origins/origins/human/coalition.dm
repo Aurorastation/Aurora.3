@@ -10,6 +10,7 @@
 		/singleton/origin_item/origin/gadpathur_exile,
 		/singleton/origin_item/origin/assunzione,
 		/singleton/origin_item/origin/ncf,
+		/singleton/origin_item/origin/orepit,
 		/singleton/origin_item/origin/other_coalition
 	)
 
@@ -92,3 +93,11 @@
 	possible_accents = list(ACCENT_COC, ACCENT_NCF)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_COALITION
+
+/singleton/origin_item/origin/orepit
+	name = "Orepit"
+	desc = "The human population of Orepit includes the Native Orepitters, who descend from Hephaestus employees following the abandoned mining mission on the planet, as well as immigrants and pilgrims of the Trinary religion."
+	important_information = "All humans from Orepit are vetted Trinary faithful, and their behaviour should reflect that."
+	possible_accents = list(ACCENT_OREPIT, ACCENT_PROVIDENCE)
+	possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_COALITION)
+	possible_religions =  list(RELIGION_TRINARY)
