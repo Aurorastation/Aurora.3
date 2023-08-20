@@ -190,6 +190,7 @@
 	standards["standard, Strelitz"] = /obj/item/flag/strelitz
 	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
 	standards["standard, Kazhkz"] = /obj/item/flag/kazhkz
+	standards["standard, Han'san"] = /obj/item/flag/hansan
 	standards["standard, Caladius"] = /obj/item/flag/caladius
 	standards["standard, Zhao"] = /obj/item/flag/zhao
 	gear_tweaks += new /datum/gear_tweak/path(standards)
