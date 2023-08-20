@@ -1,5 +1,6 @@
 /obj/item/device/chameleon
 	name = "chameleon projector"
+	desc = "A strange device."
 	desc_antag = "This device can let you disguise as common objects. Click on an object with this in your active hand to scan it, then activate it to use it in your hand."
 	icon_state = "shield0"
 	flags = CONDUCT
@@ -89,6 +90,7 @@
 	desc = ""
 	density = FALSE
 	anchored = TRUE
+	mouse_opacity = MOUSE_OPACITY_ICON
 	var/can_move = TRUE
 	var/obj/item/device/chameleon/master = null
 
