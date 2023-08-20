@@ -1,0 +1,7 @@
+author: KingOfThePing, The Lancer
+
+delete-after: True
+
+changes:
+  - rscadd: "Added two new accents to Orepit, for humans and IPCs."
+  - rscadd: "Added Orepit as a origin to humans and re-made the existing origin to use correct lore, IPCs and humans from Orepit are devout Trinarists."
