@@ -3,4 +3,4 @@ author: KingOfThePing
 delete-after: True
 
 changes:
-  - rscadd: "Replaced the fox sprite, because it was probably older than some players."
+  - rscadd: "Replaced the fox sprite."
