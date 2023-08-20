@@ -1,0 +1,6 @@
+author: KingOfThePing
+
+delete-after: True
+
+changes:
+  - rscadd: "Replaced the fox sprite."
