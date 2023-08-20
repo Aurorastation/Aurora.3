@@ -397,14 +397,14 @@
 	gear_tweaks += new /datum/gear_tweak/path(pmc_patch)
 
 /datum/gear/faction/epmc_uniform_phys_med
-	display_name = "PMCG physician uniform selection"
+	display_name = "PMCG physician uniform"
 	path = /obj/item/clothing/under/rank/medical/pmc/alt
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Physician")
 
 /datum/gear/faction/epmc_uniform_pharm_med
-	display_name = "PMCG pharmacist uniform selection"
+	display_name = "PMCG pharmacist uniform"
 	path = /obj/item/clothing/under/rank/medical/pharmacist/pmc/alt
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
