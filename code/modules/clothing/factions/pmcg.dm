@@ -74,13 +74,15 @@
 	item_state = "pmc_dpf"
 
 /obj/item/clothing/under/rank/security/pmc/vekatak_phalanx
-	name = "\improper Ve'katak Phalanx uniform"
-	desc = "A security uniforn worn by members of the Ve'katak Phalanx, a Vaurca-run PMCG subsidiary. It is simple and utilitarian in its design, with the only embellishment being two red stripes on the shoulders."
-	icon_state = "phalanx_fatigues"
-	item_state = "phalanx_fatigues"
+	name = "\improper Ve'katak Phalanx security uniform"
+	desc = "A uniform used by the forces of the Ve'katak Phalanx, a Vaurca-run private military company. This one has the standard red shoulder stripes, as well as pale blue ornamentation, identifying it as belonging to a Phalanx member in the employ of the Private Military Contracting Group."
+	desc_extended = "These uniforms are designed to fit under the combat hardsuits favored by the Phalanx. They are utilitarian in design, and reportedly somewhat uncomfortable - though few of the non-Vaurcae bold enough to join Ve'katak seem to complain."
+	icon_state = "phalanx-sec-jumpsuit"
+	item_state = "phalanx-sec-jumpsuit"
 
 /obj/item/clothing/under/rank/medical/first_responder/pmc/vekatak_phalanx
-	name = "\improper Ve'katak Phalanx uniform"
-	desc = "A uniform worn by medical staff of the Ve'katak Phalanx, a Vaurca-run PMCG subsidiary. It is simple and utilitarian in its design, with the only embellishment being two red stripes on the shoulders."
-	icon_state = "phalanx_medical"
-	item_state = "phalanx_medical"
+	name = "\improper Ve'katak Phalanx medical uniform"
+	desc = "A uniform used by the forces of the Ve'katak Phalanx, a Vaurca-run private military company. This one has pale blue shoulder stripes and ornamentation, identifying it as belonging to a Phalanx medic in the employ of the Private Military Contracting Group."
+	desc_extended = "These uniforms are designed to fit under the combat hardsuits favored by the Phalanx. They are utilitarian in design, and reportedly somewhat uncomfortable - though few of the non-Vaurcae bold enough to join Ve'katak seem to complain."
+	icon_state = "phalanx-med_jumpsuit"
+	item_state = "phalanx-med_jumpsuit"
