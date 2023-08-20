@@ -241,7 +241,7 @@
 
 	// charge the changeling chemical cost for stasis
 	changeling.use_charges(20)
-	to_chat(src, "<span class='notice'><font size='5'>We are ready to rise. Use the <b>Revive</b> verb when you are ready.</font></span>")
+	to_chat(src, SPAN_NOTICE("<font size='5'>We are ready to rise. Use the <b>Revive</b> verb when we are ready.</font>"))
 	add_verb(src, /mob/proc/changeling_revive)
 
 /mob/proc/changeling_revive()
