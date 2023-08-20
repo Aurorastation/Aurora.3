@@ -440,8 +440,6 @@
 	epmc_uniform_fr_med["Ve'katak Phalanx first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/vekatak_phalanx
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_fr_med)
 
-
-
 //Zeng-Hu
 /datum/gear/faction/zenghu_beret
 	display_name = "zeng-hu headwear selection"
