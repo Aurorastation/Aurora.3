@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes:
-  - bugfix: "Laser projectiles now properly travel through multitiel airlocks."
+  - bugfix: "Laser projectiles now properly travel through multi-tile airlocks."
