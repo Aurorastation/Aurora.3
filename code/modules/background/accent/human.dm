@@ -371,7 +371,7 @@
 
 /datum/accent/providence
 	name = ACCENT_PROVIDENCE
-	description = "While the capital of the Trinarists never had a sole language, its people from all over the Spur have come to adopt a unified accent. Characterised by fast paced speaking and unique intonations to match the style of their \
+	description = "While the capital of the Trinarists never had a sole language, its people from all over the Spur have come to adopt a unified accent. Characterised by fast-paced speaking and unique intonations to match the style of their \
 	synthetic brethren, IPCs have also come to adopt the accent for non-EAL languages."
 	tag_icon = "providence"
 	text_tag = "PDE"
