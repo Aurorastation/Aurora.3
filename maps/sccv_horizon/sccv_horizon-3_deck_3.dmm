@@ -13411,7 +13411,7 @@
 /obj/structure/platform_stairs/south_north_solo{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "kwi" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
