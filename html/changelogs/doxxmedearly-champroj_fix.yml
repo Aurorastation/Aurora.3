@@ -1,0 +1,5 @@
+author: Doxxmedearly
+delete-after: True
+changes:
+  - bugfix: "Chameleon projector projections can now be examined and interacted with normally."
+  - bugfix: "Fixes a runtime issue caused by chameleon projectors having a null description."
