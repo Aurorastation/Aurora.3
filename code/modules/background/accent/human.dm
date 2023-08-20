@@ -361,3 +361,17 @@
 	than the standard dictionary might, Damascene Elyran retains a refined, cultured, and historically resonant weight to its words, much like the storied planet itself."
 	tag_icon = "damascus"
 	text_tag = "DAM"
+
+/datum/accent/orepitter
+	name = ACCENT_OREPIT
+	description = "Native Orepitters developed their own way of speech that stemmed from centuries of complete isolation. The vast distances of the planet's desert surface required loud, high pitched sounds for reliable communication, \
+	making it the primary characteristic of the Orepitter accent."
+	tag_icon = "orepit"
+	text_tag = "ORE"
+
+/datum/accent/providence
+	name = ACCENT_PROVIDENCE
+	description = "While the capital of the Trinarists never had a sole language, its people from all over the Spur have come to adopt a unified accent. Characterised by fast-paced speaking and unique intonations to match the style of their \
+	synthetic brethren, IPCs have also come to adopt the accent for non-EAL languages."
+	tag_icon = "providence"
+	text_tag = "PDE"

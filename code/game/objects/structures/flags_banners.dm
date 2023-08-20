@@ -1289,18 +1289,33 @@
 
 /obj/item/flag/kazhkz
 	name = "\improper House Kazhkz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
-	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the great houses of the \
+	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
 	flag_structure = /obj/structure/sign/flag/kazhkz
 
 /obj/structure/sign/flag/kazhkz
 	name = "\improper House Kazhkz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
-	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the great houses of the \
+	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
 	icon_state = "kazkhz"
 	flag_item = /obj/item/flag/kazhkz
+
+/obj/item/flag/hansan
+	name = "\improper House Han'san standard"
+	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the \
+	great House Kazhkz-Han'san. They are known for their conservative and militant nature."
+	flag_path = "hansan"
+	flag_structure = /obj/structure/sign/flag/hansan
+
+/obj/structure/sign/flag/hansan
+	name = "\improper House Han'san standard"
+	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the \
+	great House Kazhkz-Han'san. They are known for their conservative and militant nature."
+	flag_path = "hansan"
+	icon_state = "hansan"
+	flag_item = /obj/item/flag/hansan
 
 /obj/item/flag/caladius
 	name = "\improper House Caladius standard"
@@ -2139,4 +2154,88 @@
 	..(loc, EAST)
 
 /obj/structure/sign/flag/cthur/large/west/New()
+	..(loc, WEST)
+
+// Orion Express
+
+/obj/item/flag/orion_express
+	name = "\improper Orion Express flag"
+	desc = "The flag of Orion Express."
+	flag_path = "orion"
+	flag_structure = /obj/structure/sign/flag/orion_express
+
+/obj/structure/sign/flag/orion_express
+	name = "\improper Orion Express flag"
+	desc = "The flag of Orion Express."
+	flag_path = "orion"
+	icon_state = "orion"
+	flag_item = /obj/item/flag/orion_express
+
+/obj/structure/sign/flag/orion_express/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/orion_express/l
+	name = "large Orion Express flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/orion_express/large
+
+/obj/structure/sign/flag/orion_express/large
+	icon_state = "orion_l"
+	flag_path = "orion"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/orion_express/l
+
+/obj/structure/sign/flag/orion_express/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/orion_express/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/orion_express/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/orion_express/large/west/New()
+	..(loc, WEST)
+
+// Imperial Frontier
+
+/obj/item/flag/imperial_frontier
+	name = "\improper Imperial Frontier flag"
+	desc = "The multi-colored flag of the Dominian Empire's frontier regions known as the Imperial Frontier. This flag is a common sight on worlds such as Sun Reach."
+	desc_extended = "The four colors of this flag are symbolic of the most important actors of the Imperial Frontier. Dark red represents the Imperial Army under House Strelitz, purple represents the missionary (and financial) work of House Caladius, red represents the Empire, and white represents the Imperial Fleet under House Zhao."
+	flag_path = "imperial_frontier"
+	flag_structure = /obj/structure/sign/flag/imperial_frontier
+
+/obj/structure/sign/flag/imperial_frontier
+	name = "\improper Imperial Frontier flag"
+	desc = "The multi-colored flag of the Dominian Empire's frontier regions known as the Imperial Frontier. This flag is a common sight on worlds such as Sun Reach."
+	desc_extended = "The four colors of this flag are symbolic of the most important actors of the Imperial Frontier. Dark red represents the Imperial Army under House Strelitz, purple represents the missionary (and financial) work of House Caladius, red represents the Empire, and white represents the Imperial Fleet under House Zhao."
+	flag_path = "imperial_frontier"
+	icon_state = "imperial_frontier"
+	flag_item = /obj/item/flag/imperial_frontier
+
+/obj/structure/sign/flag/imperial_frontier/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/imperial_frontier/l
+	name = "large Imperial Frontier flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/imperial_frontier/large
+
+/obj/structure/sign/flag/imperial_frontier/large
+	icon_state = "imperial_frontier_l"
+	flag_path = "imperial_frontier"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/imperial_frontier/l
+
+/obj/structure/sign/flag/imperial_frontier/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/imperial_frontier/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/imperial_frontier/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/imperial_frontier/large/west/New()
 	..(loc, WEST)

@@ -122,7 +122,9 @@
 
 	bst.client.init_verbs()
 
-	log_debug("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
+	bst.client.init_verbs()
+
+	LOG_DEBUG("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
 
 	feedback_add_details("admin_verb","BST")
 

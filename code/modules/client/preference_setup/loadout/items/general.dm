@@ -175,6 +175,8 @@
 	banners["banner, Hive Zo'ra"] = /obj/item/flag/zora
 	banners["banner, Hive K'lax"] = /obj/item/flag/klax
 	banners["banner, Hive C'thur"] = /obj/item/flag/cthur
+	banners["banner, Orion Express"] = /obj/item/flag/orion_express
+	banners["banner, Imperial Frontier"] = /obj/item/flag/imperial_frontier
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -188,6 +190,7 @@
 	standards["standard, Strelitz"] = /obj/item/flag/strelitz
 	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
 	standards["standard, Kazhkz"] = /obj/item/flag/kazhkz
+	standards["standard, Han'san"] = /obj/item/flag/hansan
 	standards["standard, Caladius"] = /obj/item/flag/caladius
 	standards["standard, Zhao"] = /obj/item/flag/zhao
 	gear_tweaks += new /datum/gear_tweak/path(standards)
@@ -240,6 +243,8 @@
 	flags["flag, Hive Zo'ra"] = /obj/item/flag/zora/l
 	flags["flag, Hive K'lax"] = /obj/item/flag/klax/l
 	flags["flag, Hive C'thur"] = /obj/item/flag/cthur/l
+	flags["flag, Orion Express"] = /obj/item/flag/orion_express/l
+	flags["flag, Imperial Frontier"] = /obj/item/flag/imperial_frontier/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
