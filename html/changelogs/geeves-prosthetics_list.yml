@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Prosthetics in the character creation menu will now be in a list format and have the right organ names."
