@@ -1523,6 +1523,7 @@
 	name = "tau ceti foreign legion pamphlet"
 	desc = "A simple pamphlet containing information about the Tau Ceti Foreign Legion."
 	icon_state = "tcfl_pamphlet"
+	item_state = "paper"
 	title = "Tau Ceti foreign legion pamphlet"
 	author = "Tau Ceti foreign legion recruitment center"
 	pickup_sound = 'sound/items/drop/paper.ogg'
