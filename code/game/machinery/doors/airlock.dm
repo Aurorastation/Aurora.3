@@ -324,7 +324,7 @@
 
 /obj/machinery/door/airlock/maintenance
 	name = "Maintenance Access"
-	icon_state = "grey"
+	icon_state = "maintenance"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#4d4d4d"
 	stripe_color = "#a88029"
@@ -530,7 +530,9 @@
 	name = "Maintenance Hatch"
 	explosion_resistance = 20
 	opacity = TRUE
+	icon_state = "maintenance"
 	hatch_colour = "#7d7d7d"
+	stripe_color = "#a88029"
 	open_sound_powered = 'sound/machines/airlock/hatchopen.ogg'
 	close_sound_powered = 'sound/machines/airlock/hatchclose.ogg'
 	open_sound_unpowered = 'sound/machines/airlock/hatchforced.ogg'
