@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Laser projectiles now properly travel through multi-tile airlocks."
