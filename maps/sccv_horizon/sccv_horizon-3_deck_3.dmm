@@ -49,7 +49,7 @@
 	pixel_y = -23;
 	req_access = list(13)
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "abD" = (
 /obj/machinery/button/switch/windowtint{
@@ -790,14 +790,14 @@
 /turf/simulated/floor,
 /area/maintenance/substation/command)
 "aBC" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
@@ -1971,7 +1971,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "bxN" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -2798,15 +2798,6 @@
 /area/horizon/security/interrogation)
 "csI" = (
 /obj/effect/shuttle_landmark/horizon/dock3,
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "dock_horizon_3_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13);
-	dir = 1
-	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1380;
@@ -2816,6 +2807,7 @@
 	pixel_y = -12;
 	req_one_access = list(13)
 	},
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "csY" = (
@@ -2932,7 +2924,7 @@
 	req_access = list(13);
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "czo" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5147,6 +5139,15 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "eoz" = (
@@ -5524,8 +5525,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 3 Port Stairwell";
-	dir = 1
+	name = "Deck 3 Port Stairwell"
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port)
@@ -5800,12 +5800,14 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "ePA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /obj/structure/cable/green{
-	icon_state = "1-4"
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -7771,6 +7773,13 @@
 	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
+"gfz" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/port)
 "ggl" = (
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Corridor Camera 1"
@@ -8161,17 +8170,21 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
 "gxt" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "dock_horizon_1_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13);
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
-/turf/simulated/floor/plating,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/central)
 "gxM" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/flora/pottedplant{
@@ -8797,17 +8810,14 @@
 /turf/simulated/open/airless,
 /area/template_noop)
 "gWp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -9511,6 +9521,15 @@
 "htW" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -10498,15 +10517,6 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "irl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "isu" = (
@@ -10651,16 +10661,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
 "iwx" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Docks";
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
+/area/horizon/hallway/deck_three/primary/starboard)
 "iwW" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
@@ -10869,6 +10887,15 @@
 /area/bridge/controlroom)
 "iEg" = (
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /obj/machinery/door/airlock/glass{
 	name = "Deck 3 Starboard Docks";
 	dir = 4
@@ -11279,7 +11306,7 @@
 "iQy" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Deck 3 Port Stairwell";
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -11529,7 +11556,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "jaj" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -11900,7 +11927,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "jqi" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -12325,17 +12352,9 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/bridge/controlroom)
 "jIO" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "dock_horizon_1_inner";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13);
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/window/shuttle/scc_space_ship,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "jIW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -13807,6 +13826,15 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "kQp" = (
@@ -13901,6 +13929,19 @@
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck - Port Main Hallway Starboard";
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
@@ -14445,14 +14486,14 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Docks";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass{
+	name = "Deck 3 Starboard Docks";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -14983,6 +15024,15 @@
 	},
 /obj/machinery/alarm/south,
 /obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "lEE" = (
@@ -15153,7 +15203,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -15165,7 +15215,7 @@
 	pixel_y = 7;
 	req_access = list(13)
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "lJJ" = (
 /obj/structure/platform/ledge{
@@ -16579,18 +16629,24 @@
 /area/bridge/meeting_room)
 "mTh" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_security{
-	name = "Crew Armoury";
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/machinery/door/blast/regular{
-	dir = 8;
-	id = "crew_armory";
-	name = "Crew Armoury Blast Door"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass{
+	name = "Deck 3 Starboard Hallway";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
-/area/horizon/crew_armoury)
+/area/horizon/hallway/deck_three/primary/starboard)
 "mTq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -17680,16 +17736,8 @@
 /area/medical/ward/isolation)
 "nHe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "green_dock_aft_interior";
-	locked = 1;
-	name = "Emergency Services Dock";
-	req_access = list(13);
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "nHC" = (
 /obj/effect/floor_decal/corner/dark_green,
@@ -18122,7 +18170,8 @@
 "nZt" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Deck 3 Medical Maintenance";
-	req_access = list(5)
+	req_access = list(5);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -18606,21 +18655,20 @@
 /turf/simulated/wall,
 /area/horizon/holodeck_control/beta)
 "orT" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Hallway";
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
 /area/horizon/hallway/deck_three/primary/starboard)
 "otj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -19452,21 +19500,13 @@
 /turf/simulated/wall/r_wall,
 /area/operations/office_aux)
 "oWq" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "green_dock_aft_exterior";
-	locked = 1;
-	name = "Emergency Services Dock";
-	req_access = list(13);
-	dir = 4
-	},
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
 	name = "KEEP CLEAR: DOCKING AREA";
 	pixel_x = -32
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "oWu" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -19921,16 +19961,19 @@
 /turf/simulated/floor,
 /area/bridge)
 "pAs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /obj/structure/disposalpipe/segment{
-	dir = 4
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /obj/structure/cable/green{
-	icon_state = "4-8"
+	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "pAt" = (
@@ -19975,22 +20018,18 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/operations/office_aux)
 "pBP" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Hallway";
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -20051,16 +20090,8 @@
 /turf/simulated/floor/grass,
 /area/horizon/cafeteria)
 "pIp" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "dock_horizon_3_inner";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13);
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/window/shuttle/scc_space_ship,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "pIS" = (
 /obj/effect/floor_decal/corner_wide/green{
@@ -20474,15 +20505,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "qcA" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "nuke_shuttle_dock_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13);
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "qcE" = (
@@ -21542,10 +21568,17 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -22969,6 +23002,12 @@
 /obj/machinery/ai_status_display{
 	pixel_y = -32
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "sca" = (
@@ -23184,10 +23223,20 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "sgZ" = (
@@ -23934,6 +23983,18 @@
 /obj/machinery/door/airlock/glass{
 	name = "Deck 3 Port Hallway";
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port)
@@ -24763,20 +24824,7 @@
 /area/horizon/crew_armoury)
 "trI" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Docks";
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/wall,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "tse" = (
 /obj/machinery/door/airlock/command{
@@ -25159,8 +25207,7 @@
 	id_tag = "green_dock_aft_interior";
 	locked = 1;
 	name = "Emergency Services Dock";
-	req_access = list(13);
-	dir = 4
+	req_access = list(13)
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -25172,7 +25219,7 @@
 	pixel_y = -7;
 	req_access = list(13)
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "tIL" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -25448,6 +25495,20 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
+"tRr" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/horizon/hallway/deck_three/primary/port)
 "tRy" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -25953,7 +26014,6 @@
 	dir = 5
 	},
 /obj/structure/extinguisher_cabinet/north,
-/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "umT" = (
@@ -26025,16 +26085,17 @@
 /area/bridge)
 "uqt" = (
 /obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "uqS" = (
@@ -26055,8 +26116,7 @@
 /area/horizon/security/evidence_storage)
 "uri" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 3 Central Stairwell";
-	dir = 1
+	name = "Deck 3 Central Stairwell"
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 8
@@ -26167,11 +26227,10 @@
 	id_tag = "dock_horizon_4_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13);
-	dir = 4
+	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "uzK" = (
 /obj/structure/toilet{
@@ -26415,7 +26474,15 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "uHl" = (
@@ -26454,21 +26521,14 @@
 /area/horizon/maintenance/deck_three/aft/starboard)
 "uJa" = (
 /obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "uJh" = (
@@ -28228,24 +28288,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
 "vWS" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Port Hallway";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/wall,
 /area/horizon/hallway/deck_three/primary/port)
 "vXb" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -28409,7 +28453,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "weN" = (
 /obj/machinery/meter{
@@ -28510,7 +28554,7 @@
 	frequency = 1380;
 	id_tag = "dock_horizon_3_pump"
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "wjl" = (
 /obj/structure/morgue{
@@ -29599,13 +29643,21 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "wVu" = (
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Port Docks";
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/machinery/firealarm/south,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/full,
-/area/horizon/hallway/deck_three/primary/port/docks)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard)
 "wVy" = (
 /obj/machinery/camera/network/third_deck{
 	c_tag = "Third Deck - Crew Lounge Fore";
@@ -30800,13 +30852,22 @@
 /area/horizon/hallway/deck_three/primary/port/docks)
 "xXk" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Hallway";
-	dir = 4
-	},
 /obj/structure/sign/directions/all{
 	dir = 4;
 	pixel_y = 32
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass{
+	name = "Deck 3 Starboard Hallway";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -30857,15 +30918,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/lawoffice/representative)
 "yce" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "dock_horizon_4_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13);
-	dir = 1
-	},
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "ycu" = (
@@ -31023,10 +31076,6 @@
 /area/crew_quarters/captain)
 "AAA" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_security{
-	name = "Crew Armoury";
-	dir = 4
-	},
 /obj/machinery/door/blast/regular{
 	dir = 8;
 	id = "crew_armory";
@@ -40040,7 +40089,7 @@ wGH
 wGH
 dce
 lPM
-qcA
+pIp
 dce
 wGH
 wGH
@@ -40646,7 +40695,7 @@ wGH
 wGH
 kuk
 joS
-joS
+qcA
 kuk
 wGH
 wGH
@@ -41045,7 +41094,7 @@ wGH
 wGH
 wGH
 wGH
-gxt
+pIp
 shm
 iPk
 jIO
@@ -42463,7 +42512,7 @@ iUA
 wGH
 wGH
 ebZ
-iwx
+ebZ
 lkQ
 ebZ
 wGH
@@ -44081,7 +44130,7 @@ mqJ
 vlC
 wUS
 irl
-oVD
+wVu
 piX
 iYp
 eWn
@@ -47308,8 +47357,8 @@ kYv
 kvl
 oIc
 wUS
-lki
-mqJ
+pBP
+iwx
 gdT
 rBA
 fsj
@@ -47510,8 +47559,8 @@ gKk
 gKk
 gKk
 gYe
-pBP
-gYe
+vlC
+mTh
 vaL
 vaL
 vaL
@@ -47914,7 +47963,7 @@ nup
 iMl
 vaL
 kZV
-mgS
+orT
 saK
 gRw
 gRw
@@ -49934,7 +49983,7 @@ oVU
 oVU
 qhP
 xXk
-orT
+vlC
 vzb
 vIv
 vIv
@@ -53952,7 +54001,7 @@ ejB
 tkI
 ouQ
 lvQ
-mTh
+AAA
 nVR
 xaT
 rIg
@@ -54356,7 +54405,7 @@ kuz
 ayg
 qnC
 lvQ
-mTh
+AAA
 nVR
 xaT
 rIg
@@ -55388,7 +55437,7 @@ udi
 oWu
 pRV
 rIg
-oMk
+gxt
 kTg
 viN
 fSW
@@ -55993,9 +56042,9 @@ iUb
 iAY
 nIt
 ahB
-jEj
-dQu
-oWu
+gfz
+tRr
+otx
 eBw
 nFO
 izW
@@ -58421,9 +58470,9 @@ lwt
 dkM
 lwt
 aKD
-wVu
+tcM
 mOc
-wVu
+tcM
 aKD
 nsP
 nsP
@@ -59835,7 +59884,7 @@ wGH
 wGH
 wGH
 tcM
-wVu
+tcM
 rFk
 tcM
 wGH
@@ -60847,7 +60896,7 @@ fYD
 nHe
 aCP
 akf
-uyH
+nHe
 ffO
 yce
 wGH

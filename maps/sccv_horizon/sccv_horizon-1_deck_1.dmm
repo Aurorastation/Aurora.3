@@ -1339,7 +1339,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Emergency Supplies Storage";
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
@@ -1838,8 +1838,7 @@
 /obj/machinery/door/firedoor/multi_tile,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 1 Central Stairwell";
-	dir = 1
+	name = "Deck 1 Central Stairwell"
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
@@ -2785,6 +2784,21 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "mining_shuttle_controller";
+	name = "interior access button";
+	pixel_x = -25;
+	pixel_y = 20;
+	req_one_access = list(31,48,67)
+	},
+/obj/machinery/airlock_sensor/airlock_interior{
+	frequency = 1380;
+	id_tag = "mining_shuttle_interior_sensor";
+	pixel_x = -25;
+	pixel_y = 27
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "bZR" = (
@@ -6893,14 +6907,23 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "mining_shuttle_external";
-	req_access = list(13);
-	dir = 4
+	req_access = list(13)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	dir = 1;
+	frequency = 1380;
+	master_tag = "mining_shuttle_controller";
+	name = "exterior access button";
+	pixel_x = -21;
+	pixel_y = 11;
+	req_one_access = list(31,48,67)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
@@ -7196,17 +7219,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/crew_compartment)
 "fbJ" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_internal";
-	req_access = list(13);
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,17"
+	},
 /area/shuttle/mining)
 "fbL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7231,23 +7249,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	dir = 4;
-	frequency = 1380;
-	master_tag = "mining_shuttle_controller";
-	name = "interior access button";
-	pixel_x = -21;
-	pixel_y = 20;
-	req_one_access = list(31,48,67)
-	},
-/obj/machinery/airlock_sensor/airlock_interior{
-	dir = 4;
-	frequency = 1380;
-	id_tag = "mining_shuttle_interior_sensor";
-	pixel_x = -20;
-	pixel_y = 31
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "fdA" = (
@@ -8210,9 +8211,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/maintenance/engineering/auxillary)
 "fMM" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 1
-	},
+/obj/machinery/door/airlock/multi_tile/glass,
 /obj/machinery/door/firedoor/multi_tile,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8510,8 +8509,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 1 Port Stairwell Auxiliary Hangar Elevator";
-	dir = 1
+	name = "Deck 1 Port Stairwell Auxiliary Hangar Elevator"
 	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -9535,13 +9533,9 @@
 /area/engineering/atmos/air)
 "gDj" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/red,
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_out";
-	dir = 4
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,17"
 	},
-/turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "gDC" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -12781,16 +12775,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	dir = 1;
-	frequency = 1380;
-	id_tag = "mining_shuttle_dock";
-	name = "\improper Spark docking port controller";
-	pixel_x = 6;
-	pixel_y = -25;
-	req_one_access = list(31,48,67);
-	tag_door = "mining_shuttle_dock_doors"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -14714,7 +14698,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Hangar";
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
@@ -15209,12 +15193,10 @@
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_dock_doors";
-	req_access = list(13);
-	dir = 1
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "mining_shuttle_trunk";
+	name = "Mining Shuttle Exterior"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/operations)
@@ -17739,7 +17721,7 @@
 "mBx" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Hangar";
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
@@ -19383,18 +19365,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
-"nCM" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_dock_doors";
-	req_access = list(13);
-	dir = 1
-	},
-/obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/tiled/full,
-/area/hangar/operations)
 "nCV" = (
 /turf/simulated/floor/tiled,
 /area/operations/storage)
@@ -19471,24 +19441,9 @@
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "nIP" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "mining_shuttle_external";
-	req_access = list(13);
-	dir = 4
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,17"
 	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	dir = 1;
-	frequency = 1380;
-	master_tag = "mining_shuttle_controller";
-	name = "exterior access button";
-	pixel_x = -21;
-	pixel_y = 11;
-	req_one_access = list(31,48,67)
-	},
-/turf/simulated/floor/plating,
 /area/shuttle/mining)
 "nJB" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
@@ -22996,7 +22951,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Hangar";
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 8;
@@ -23359,8 +23314,7 @@
 /area/shuttle/intrepid/engine_compartment)
 "qwK" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Hangar";
-	dir = 1
+	name = "Hangar"
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /obj/structure/cable{
@@ -24915,20 +24869,21 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_c)
 "rBI" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_command{
-	name = "Expedition EVA Storage";
-	req_one_access = list(18,47);
-	dir = 1
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 1;
+	frequency = 1380;
+	id_tag = "mining_shuttle_dock";
+	name = "\improper Spark docking port controller";
+	pixel_x = 6;
+	pixel_y = -25;
+	req_one_access = list(31,48,67);
+	tag_door = "mining_shuttle_dock_doors"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/full,
-/area/storage/eva)
+/turf/simulated/floor/tiled,
+/area/hangar/operations)
 "rBR" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -25858,18 +25813,16 @@
 /turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos/air)
 "soT" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_mining{
-	name = "Operations Hangar";
-	req_one_access = list(26,29,31,48,67);
-	dir = 4
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "mining_shuttle_trunk";
+	name = "Mining Shuttle Exterior";
+	pixel_x = 21;
+	pixel_y = -21;
+	req_access = list(48)
 	},
-/obj/machinery/door/firedoor,
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/full,
-/area/horizon/stairwell/central)
+/turf/simulated/floor/tiled,
+/area/hangar/operations)
 "spL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -27192,24 +27145,11 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "tiM" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /obj/structure/sign/crush{
 	pixel_x = 16;
 	pixel_y = 32
 	},
-/obj/machinery/door/airlock/glass_command{
-	name = "Expedition EVA Storage";
-	req_one_access = list(18,29,47);
-	dir = 4
-	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/wall,
 /area/rnd/eva)
 "tiV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -28030,7 +27970,7 @@
 	autoclose = 0;
 	name = "Warehouse Elevator";
 	req_one_access = list(26,29,31,48,67);
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
@@ -28757,8 +28697,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	autoclose = 0;
 	name = "Warehouse Elevator";
-	req_one_access = list(26,29,31,48,67);
-	dir = 1
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/dark,
@@ -29053,19 +28992,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
-"uuV" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_mining{
-	name = "Warehouse";
-	req_one_access = list(26,29,31,48,67);
-	dir = 4
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/full,
-/area/operations/storage)
 "uuZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -29525,19 +29451,6 @@
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
-"uOO" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 8;
-	id = "hangarlockdown";
-	name = "Hangar Lockdown"
-	},
-/obj/machinery/door/airlock/glass{
-	name = "Hangar";
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
-/area/hangar/intrepid)
 "uPe" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 4
@@ -31522,7 +31435,7 @@
 "wif" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Hangar";
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -31772,13 +31685,9 @@
 /area/shuttle/intrepid/cockpit)
 "wnV" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "intrepid_shuttle_cargo_in";
-	dir = 4
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,17"
 	},
-/turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "wos" = (
 /obj/structure/cable/green{
@@ -34769,16 +34678,16 @@
 "AAE" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/glass_command{
-	name = "Expedition EVA Storage";
-	req_one_access = list(18,47);
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass_command{
+	name = "Expedition EVA Storage";
+	req_one_access = list(18,47);
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/storage/eva)
 
@@ -47073,7 +46982,7 @@ qdE
 qdE
 qdE
 rVt
-uuV
+qdE
 qdE
 qdE
 ukS
@@ -50326,8 +50235,8 @@ tPr
 dNk
 jyX
 rcA
-oXD
-nCM
+rBI
+ukS
 nIP
 vFD
 kVu
@@ -51138,7 +51047,7 @@ wCx
 tEc
 wos
 rcA
-rcA
+soT
 kKc
 vZO
 snD
@@ -51746,7 +51655,7 @@ dNk
 dNk
 dNk
 doE
-soT
+qju
 ukS
 ukS
 ukS
@@ -54988,7 +54897,7 @@ jnS
 mey
 hYy
 apf
-uOO
+wuD
 pvn
 pvn
 nvn
@@ -57423,7 +57332,7 @@ wRE
 wRE
 wRE
 vCG
-vCG
+fQC
 fQC
 fQC
 fQC
@@ -57827,7 +57736,7 @@ gzQ
 cZw
 cZw
 qDq
-rBI
+wRE
 rTG
 ife
 fQC
@@ -58233,7 +58142,7 @@ ppA
 dIS
 rfJ
 oat
-hTa
+wRE
 qaz
 hqa
 fQC

@@ -378,7 +378,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Engineering Lobby";
-	dir = 4
+	dir = 2
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/lobby)
@@ -482,7 +482,6 @@
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 1
 	},
-/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "amI" = (
@@ -732,7 +731,7 @@
 	autoclose = 0;
 	name = "Warehouse Elevator";
 	req_one_access = list(26,29,31,48,67);
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -4902,7 +4901,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Medical Reception";
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -5789,14 +5788,11 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
 "cOk" = (
-/obj/machinery/door/window/northleft{
-	name = "Hydroponics Desk";
-	req_access = list(35)
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/southleft{
-	name = "Hydroponics Desk"
+	name = "Hydroponics Desk";
+	req_access = list(35)
 	},
 /obj/machinery/door/blast/shutters{
 	dir = 2;
@@ -6101,6 +6097,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/engineering/tesla)
+"cWu" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/hallway/deck_two/fore)
 "cWx" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -6489,11 +6488,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar/backroom)
 "dit" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/wall,
 /area/hallway/primary/central_two)
 "djj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -9113,8 +9108,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Research Hallway";
-	req_one_access = list(16,47);
-	dir = 1
+	req_one_access = list(16,47)
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /obj/effect/map_effect/door_helper/unres{
@@ -9604,11 +9598,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "ePC" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	name = "Deck 2 Communal Area";
-	dir = 1
-	},
+/obj/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
 "ePO" = (
@@ -10429,7 +10419,7 @@
 "fhD" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Deck 2 Stairwell";
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
@@ -12676,8 +12666,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor/multi_tile,
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 2 Starboard Docks";
-	dir = 1
+	name = "Deck 2 Starboard Docks"
 	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -14382,7 +14371,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Research Hallway";
 	req_access = list(47);
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -15999,7 +15988,6 @@
 	c_tag = "Second Deck - Dinner Entrance 1";
 	dir = 4
 	},
-/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "hGE" = (
@@ -17590,15 +17578,12 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
 "iwX" = (
-/obj/machinery/door/airlock/glass{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "ixR" = (
@@ -24244,6 +24229,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "lPO" = (
@@ -25987,15 +25973,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "mFs" = (
-/obj/machinery/door/airlock/glass{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 9
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/full,
-/area/hallway/primary/central_one)
+/obj/machinery/door/airlock/multi_tile/glass,
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/hallway/deck_two/fore)
 "mFJ" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -26311,8 +26291,7 @@
 /obj/machinery/door/firedoor/multi_tile,
 /obj/machinery/door/airlock/multi_tile/glass{
 	id_tag = "dinerbolt";
-	name = "Kitchen";
-	dir = 1
+	name = "Kitchen"
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/lounge/bar)
@@ -26918,9 +26897,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
+/obj/machinery/door/firedoor{
 	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 2
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
@@ -28381,8 +28362,7 @@
 /area/horizon/exterior)
 "nJq" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 2 Elevator";
-	dir = 1
+	name = "Deck 2 Elevator"
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -29445,16 +29425,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
 "ojY" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/glass{
-	name = "Deck 2 Communal Area";
-	dir = 1
-	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
 "okk" = (
@@ -34345,7 +34321,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Deck 2 Port Stairwell";
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -34843,9 +34819,7 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "qUt" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 1
-	},
+/obj/machinery/door/airlock/multi_tile/glass,
 /obj/machinery/door/firedoor/multi_tile,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
@@ -35900,7 +35874,7 @@
 "rvf" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Research Hallway";
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -36020,8 +35994,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	autoclose = 0;
 	name = "Warehouse Elevator";
-	req_one_access = list(26,29,31,48,67);
-	dir = 1
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/dark,
@@ -39941,7 +39914,8 @@
 	},
 /obj/machinery/door/window/northleft{
 	name = "Operations Desk Interior Access";
-	req_access = list(50)
+	req_access = list(50);
+	dir = 2
 	},
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark/full,
@@ -47027,8 +47001,7 @@
 "wLZ" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Equipment Room";
-	req_access = list(1);
-	dir = 1
+	req_access = list(1)
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -48678,7 +48651,7 @@
 "xBv" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Public Garden";
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
@@ -49555,12 +49528,11 @@
 /turf/template_noop,
 /area/template_noop)
 "xWr" = (
-/obj/machinery/door/airlock/glass{
-	dir = 1
+/obj/machinery/door/firedoor{
+	dir = 4
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
-/area/hallway/primary/central_one)
+/area/hallway/primary/central_two)
 "xWz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -49697,8 +49669,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 2 Port Stairwell Auxiliary Hangar Elevator";
-	dir = 1
+	name = "Deck 2 Port Stairwell Auxiliary Hangar Elevator"
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 8
@@ -67464,7 +67435,7 @@ uyb
 djj
 aYf
 seZ
-dit
+xWr
 mYK
 dit
 gVn
@@ -69891,7 +69862,7 @@ uyd
 dRk
 hNC
 vXs
-piY
+mFs
 hGC
 tre
 qfC
@@ -70093,7 +70064,7 @@ xjC
 uej
 fZB
 vXs
-ePC
+hMX
 dTI
 uCX
 rNs
@@ -70287,7 +70258,7 @@ siL
 wPF
 fEQ
 bnQ
-mFs
+ayF
 mWs
 cDV
 cDV
@@ -70691,7 +70662,7 @@ siL
 xcS
 nkF
 mCE
-xWr
+eHG
 kta
 pMN
 kta
@@ -70699,7 +70670,7 @@ kta
 kta
 kta
 eZG
-piY
+cWu
 amF
 tQQ
 ncN

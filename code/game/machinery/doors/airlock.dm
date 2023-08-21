@@ -568,7 +568,6 @@
 /obj/machinery/door/airlock/glass_security
 	name = "glass airlock"
 	icon_state = "sec_glass"
-	icon_state = "preview_glass"
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_color = "#2b4b68"
 	glass = 1
@@ -590,6 +589,7 @@
 
 /obj/machinery/door/airlock/mining
 	name = "mining airlock"
+	icon_state = "ops"
 	door_color = "#956F30"
 	stripe_color = "#5E340B"
 	hatch_colour = "#c29142"
@@ -628,6 +628,7 @@
 	door_color = "#956F30"
 	stripe_color = "#5E340B"
 	hatch_colour = "#c29142"
+	icon_state = "ops_glass"
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
@@ -1117,18 +1118,18 @@ About the new airlock wires panel:
 		if("deny")
 			set_airlock_overlays(AIRLOCK_DENY, TRUE)
 			if(density && arePowerSystemsOn())
-				flick("deny", src)
+				flick("denied", src)
 				if(secured_wires)
 					playsound(src.loc, open_failure_access_denied, 50, 0)
 		if("emag")
 			set_airlock_overlays(AIRLOCK_EMAG, TRUE)
 			if(density && arePowerSystemsOn())
-				flick("deny", src)
+				flick("denied", src)
 				playsound(src.loc, open_failure_access_denied, 50, 0)
 		if ("braced")
 			set_airlock_overlays(AIRLOCK_DENY, TRUE)
 			if (arePowerSystemsOn())
-				flick("deny", src)
+				flick("denied", src)
 				playsound(src.loc, 'sound/machines/hydraulic_short.ogg', 50, 0)
 		else
 			update_icon()

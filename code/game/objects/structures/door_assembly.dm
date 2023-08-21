@@ -150,8 +150,8 @@
 	airlock_type = "/skrell/grey"
 
 /obj/structure/door_assembly/multi_tile
-	icon = 'icons/obj/doors/door_assembly2x1.dmi'
-	icon_state = null //only have icons for the glass version
+	icon = 'icons/obj/doors/basic/double/generic/door.dmi'
+	icon_state = "construction" //only have icons for the glass version
 	dir = EAST
 	width = 2
 

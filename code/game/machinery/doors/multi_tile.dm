@@ -2,10 +2,28 @@
 /obj/machinery/door/airlock/multi_tile
 	width = 2
 	dir = EAST
-	hatch_offset_x = 16
-	hatch_colour = "#d2d2d2"
+	pixel_x = -32
+	pixel_y = -32
+	hatch_offset_x = -32
+	hatch_offset_y = -32
 	open_sound_powered = 'sound/machines/airlock/wide1o.ogg'
 	close_sound_powered = 'sound/machines/airlock/wide1c.ogg'
+
+	icon = 'icons/obj/doors/basic/double/generic/door.dmi'
+	icon_state = "preview"
+	frame_color_file = 'icons/obj/doors/basic/double/generic/frame_color.dmi'
+	color_file = 'icons/obj/doors/basic/double/generic/color.dmi'
+	color_fill_file = 'icons/obj/doors/basic/double/generic/fill_color.dmi'
+	glass_file = 'icons/obj/doors/basic/double/generic/fill_glass.dmi'
+	fill_file = 'icons/obj/doors/basic/double/generic/fill_steel.dmi'
+	bolts_file = 'icons/obj/doors/basic/double/generic/lights_bolts.dmi'
+	deny_file = 'icons/obj/doors/basic/double/generic/lights_deny.dmi'
+	lights_file = 'icons/obj/doors/basic/double/generic/lights_green.dmi'
+	panel_file = 'icons/obj/doors/basic/double/generic/panel.dmi'
+	sparks_damaged_file = 'icons/obj/doors/basic/double/generic/sparks_damaged.dmi'
+	sparks_broken_file = 'icons/obj/doors/basic/double/generic/sparks_broken.dmi'
+	welded_file = 'icons/obj/doors/basic/double/generic/welded.dmi'
+	emag_file = 'icons/obj/doors/basic/double/generic/emag.dmi'
 
 /obj/machinery/door/airlock/multi_tile/Initialize()
 	. = ..()
@@ -14,11 +32,9 @@
 
 /obj/machinery/door/airlock/multi_tile/glass
 	name = "glass airlock"
-	icon = 'icons/obj/doors/Door2x1glass.dmi'
 	opacity = 0
 	glass = 1
 	assembly_type = /obj/structure/door_assembly/multi_tile
-
 
 /obj/machinery/door/airlock/multi_tile/setup_hatch()
 	if(overlays != null)
