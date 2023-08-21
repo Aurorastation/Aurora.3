@@ -276,6 +276,37 @@
 	tag_icon = "gadpathur"
 	text_tag = "GAD"
 
+/datum/accent/galatea
+	name = ACCENT_GALATEA
+	description = "Galatean Ministerial Common is one of two Ministerial Common dialects within the Federal Technocracy. Centrally managed by the Ministry of Galatean Culture (MfGC), Galatea proper's \
+	dialect is an unusual Solarian Common dialect characterized by its total lack of loan words and use of antiquated Common terms which date to the early 2300s — when it was established as a dialect — and \
+	have since fallen out of common use. Linguistically it is similar to Gadpathurian Common but lacks the Freespeak influence of Gadpathurian Common due to the MfGC's tight control over the language."
+	tag_icon = "galatea"
+	text_tag = "GAL"
+
+/datum/accent/tsukuyomi
+	name = ACCENT_TSUKUYOMI
+	description = "Significantly more rare abroad than Galatean Ministerial Common, Tsukuyomian Standard is one of two Ministerial Common dialects managed by the Ministry of Galatean Culture (MfGC). Like Galatean Ministerial \
+	Common, it lacks loan words due to central management and sounds comparatively antiquated when compared to more modern Solarian Common dialects. Tsukuyomian Standard is commonly associated with the Galatean Federal Navy, \
+	which has its headquarters on Tsukuyomi."
+	tag_icon = "tsukuyomi"
+	text_tag = "TSU"
+
+/datum/accent/empyrean
+	name = ACCENT_EMPYREAN
+	description = "Empyrean Federal Freespeak is a creole of Coalition Freespeak and Ministerial Common which features a multitude of Solarian Common loanwords due to most residents of Empyrean being bilingual, and often speaking \
+	Freespeak and Solarian Common. Compared to Svarogite Freespeak it features a heavier influence from foreign Freespeak and Solarian Common dialects due to Empyrean's status as a major point of entry for the Yggdrasil System. "
+	tag_icon = "empyrean"
+	text_tag = "EMY"
+
+/datum/accent/svarog
+	name = ACCENT_SVAROG
+	description = "Svarogite Federal Freespeak is an unusual creole which combines Coalition Freespeak with the Ministerial Common dialect of Solarian Common. It features many Solarian Common loanwords and speakers of this dialect \
+	are almost always bilingual, speaking both Solarian Common and Freespeak, which can lead to further linguistic blending. The universal lung bioaugmentations of Svarogites ensure that they, unlike their New Hai Phongese counterparts, \
+	do not suffer from chronic lung issues which would impact their speech."
+	tag_icon = "svarog"
+	text_tag = "SVA"
+
 /datum/accent/pluto
 	name = ACCENT_PLUTO
 	description = "The Plutonian accent is one of many Sol Common accents found throughout the Sol System itself, though it is almost undoubtedly the furthest one out from the Sun itself. Rooted in a combination \
