@@ -596,9 +596,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 /**
  * Timed actions involving one mob user and (optionally) one target.
- * 
+ *
  * Returns TRUE on success or FALSE on failure
- * 
+ *
  * Arguments:
  * * user: The user to check for.
  * * delay: The delay in ticks to wait before returning TRUE.
@@ -606,7 +606,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
  * * do_flags: Flags that determine what the user and target can and cannot do, defined in [mobs.dm]. Defaults to DO_DEFAULT.
  * * incapacitation_flags: Incapacitation flags that determines if the user can be incapacitated. Defaults to INCAPACITATION_DEFAULT.
  * * extra_checks: Optional extra checks, that uses a callback. See [datum/callback].
- * 
+ *
  */
 /proc/do_after(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks)
 	return !do_after_detailed(user, delay, target, do_flags, incapacitation_flags)
@@ -624,38 +624,38 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		return DO_MISSING_USER
 
 	var/initial_handle
-	if (do_flags & DO_USER_UNIQUE_ACT)
+	if (HAS_FLAG(do_flags, DO_USER_UNIQUE_ACT))
 		initial_handle = sequential_id("/proc/do_after")
 		user.do_unique_target_user = initial_handle
 
-	var/do_feedback = do_flags & DO_FAIL_FEEDBACK
+	var/do_feedback = HAS_FLAG(do_flags, DO_FAIL_FEEDBACK)
 
 	if(target?.do_unique_target_user)
 		if (do_feedback)
-			to_chat(user, SPAN_WARNING("\The [target.do_unique_target_user] is already interacting with \the [target]!"))
+			USE_FEEDBACK_FAILURE("\The [target.do_unique_target_user] is already interacting with \the [target]!")
 		return DO_TARGET_UNIQUE_ACT
 
-	if ((do_flags & DO_TARGET_UNIQUE_ACT) && target)
+	if (HAS_FLAG(do_flags, DO_TARGET_UNIQUE_ACT) && target)
 		target.do_unique_target_user = user
 
-	var/atom/user_loc = do_flags & DO_USER_CAN_MOVE ? null : user.loc
-	var/user_dir = do_flags & DO_USER_CAN_TURN ? null : user.dir
-	var/user_hand = do_flags & DO_USER_SAME_HAND ? user.hand : null
+	var/atom/user_loc = HAS_FLAG(do_flags, DO_USER_CAN_MOVE) ? null : user.loc
+	var/user_dir = HAS_FLAG(do_flags, DO_USER_CAN_TURN) ? null : user.dir
+	var/user_hand = HAS_FLAG(do_flags, DO_USER_SAME_HAND) ? user.hand : null
 
-	var/atom/target_loc = do_flags & DO_TARGET_CAN_MOVE ? null : target?.loc
-	var/target_dir = do_flags & DO_TARGET_CAN_TURN ? null : target?.dir
+	var/atom/target_loc = HAS_FLAG(do_flags, DO_TARGET_CAN_MOVE) ? null : target?.loc
+	var/target_dir = HAS_FLAG(do_flags, DO_TARGET_CAN_TURN) ? null : target?.dir
 	var/target_type = target?.type
 
-	var/target_zone = do_flags & DO_USER_SAME_ZONE ? user.zone_sel.selecting : null
+	var/target_zone = HAS_FLAG(do_flags, DO_USER_SAME_ZONE) ? user.zone_sel.selecting : null
 
-	if (do_flags & DO_MOVE_CHECKS_TURFS)
+	if (HAS_FLAG(do_flags, DO_MOVE_CHECKS_TURFS))
 		if (user_loc)
 			user_loc = get_turf(user)
 		if (target_loc)
 			target_loc = get_turf(target)
 
 	var/datum/progressbar/progbar
-	if ((do_flags & DO_SHOW_PROGRESS) && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
+	if (HAS_FLAG(do_flags, DO_SHOW_PROGRESS) && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
 		progbar = new(user, delay, target || user)
 
 	SEND_SIGNAL(user, COMSIG_DO_AFTER_BEGAN)
@@ -678,10 +678,10 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		if (user.incapacitated(incapacitation_flags))
 			. = DO_INCAPACITATED
 			break
-		if (user_loc && user_loc != (do_flags & DO_MOVE_CHECKS_TURFS ? get_turf(user) : user.loc))
+		if (user_loc && user_loc != (HAS_FLAG(do_flags, DO_MOVE_CHECKS_TURFS) ? get_turf(user) : user.loc))
 			. = DO_USER_CAN_MOVE
 			break
-		if (target_loc && target_loc != (do_flags & DO_MOVE_CHECKS_TURFS ? get_turf(target) : target.loc))
+		if (target_loc && target_loc != (HAS_FLAG(do_flags, DO_MOVE_CHECKS_TURFS) ? get_turf(target) : target.loc))
 			. = DO_TARGET_CAN_MOVE
 			break
 		if (user_dir && user_dir != user.dir)
@@ -690,7 +690,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		if (target_dir && target_dir != target.dir)
 			. = DO_TARGET_CAN_TURN
 			break
-		if ((do_flags & DO_USER_SAME_HAND) && user_hand != user.hand)
+		if (HAS_FLAG(do_flags, DO_USER_SAME_HAND) && user_hand != user.hand)
 			. = DO_USER_SAME_HAND
 			break
 		if (initial_handle && initial_handle != user.do_unique_user_handle)
@@ -726,9 +726,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	if(!QDELETED(progbar))
 		progbar.endProgress()
-	if ((do_flags & DO_USER_UNIQUE_ACT) && user.do_unique_user_handle == initial_handle)
+	if (HAS_FLAG(do_flags, DO_USER_UNIQUE_ACT) && user.do_unique_user_handle == initial_handle)
 		user.do_unique_user_handle = 0
-	if ((do_flags & DO_TARGET_UNIQUE_ACT) && target)
+	if (HAS_FLAG(do_flags, DO_TARGET_UNIQUE_ACT) && target)
 		target.do_unique_target_user = null
 
 	SEND_SIGNAL(user, COMSIG_DO_AFTER_ENDED)
