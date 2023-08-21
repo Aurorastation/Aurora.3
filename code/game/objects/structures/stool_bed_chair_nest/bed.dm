@@ -205,7 +205,7 @@
 		var/obj/item/grab/G = W
 		var/mob/living/affecting = G.affecting
 		user.visible_message("<span class='notice'>[user] attempts to buckle [affecting] into \the [src]!</span>")
-		if(do_after(user, 20))
+		if(do_after(user, 20, affecting, DO_UNIQUE))
 			affecting.forceMove(loc)
 			spawn(0)
 				if(buckle(affecting))

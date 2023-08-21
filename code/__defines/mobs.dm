@@ -518,6 +518,8 @@
 
 // Preset do_after flags
 #define DO_UNIQUE (DO_DEFAULT | DO_BOTH_UNIQUE_ACT) // Common flags for actions that should be unique
+#define DO_EXERCISE (DO_USER_UNIQUE_ACT | DO_USER_SAME_HAND) // Flags for exercises. Doesn't show progress, or give any failure feedback.
+#define DO_REPAIR_CONSTRUCT (DO_DEFAULT | DO_TARGET_UNIQUE_ACT) // Flags for repair and construction steps
 #define DO_EQUIP (DO_DEFAULT | DO_USER_UNIQUE_ACT) // Flags for equipping/unequipping mobs. Set to allow a mob to be targeted by multiple sources, but for a source to only be able to perform one action at a time.
 
 // Extra errors

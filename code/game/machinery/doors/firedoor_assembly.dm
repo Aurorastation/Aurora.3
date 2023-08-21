@@ -22,7 +22,7 @@
 			to_chat(user, "<span class='warning'>You need one length of coil to wire \the [src].</span>")
 			return TRUE
 		user.visible_message("[user] wires \the [src].", "You start to wire \the [src].")
-		if(do_after(user, 40) && !wired && anchored)
+		if(do_after(user, 40, do_flags = DO_REPAIR_CONSTRUCT) && !wired && anchored)
 			if (cable.use(1))
 				wired = 1
 				to_chat(user, "<span class='notice'>You wire \the [src].</span>")

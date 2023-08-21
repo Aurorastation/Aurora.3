@@ -28,7 +28,7 @@
 /obj/structure/bed/stool/chair/remote/attackby(obj/item/W, mob/user)
 	if(portable_type && W.iswrench())
 		user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start dismantling \the [src]..."))
-		if(do_after(user, 20 SECONDS, src))
+		if(do_after(user, 20 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
 			var/obj/kit = new portable_type(get_turf(src))
 			user.put_in_hands(kit)
