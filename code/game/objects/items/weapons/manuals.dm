@@ -1459,60 +1459,60 @@
 				<ol>
 					<li><a href="#I">Conduct toward Equals</a></li>
 					<li><a href="#II">Dueling Etiquette</a></li>
-					<li><a href="#III">Conduct of a Soldier</a></li>					
+					<li><a href="#III">Conduct of a Soldier</a></li>
 					<li><a href="#IV">On High and Low</a></li>
 					<li><a href="#V">Behavior amongst Foreigners and Enemies</a></li>
 					<li><a href="#VI">On Duty to Family and Goddess</a></li>
 					<li><a href="#VII">On Duty to Country and Emperor</a></li>
-					<li><a href="#VII">On Duty to Self</a></li>					
+					<li><a href="#VII">On Duty to Self</a></li>
 				</ol>
 				<br>
 
 				<a name="I"><h2>Conduct toward Equals</h2><br></a>
 				An honorable person will conduct himself in a manner that recognizes rich or poor, young or old, all are morally equal. Birth and wealth do not convey honor and a good reputation,
-				your actions do. It is not what one thinks, but one does. Thus, a gentle-being of good repute and standing should avoid conducting himself untowardly to their fellow, 
+				your actions do. It is not what one thinks, but one does. Thus, a gentle-being of good repute and standing should avoid conducting himself untowardly to their fellow,
 				that they may avoid unnecessarily coming to blows. Politeness and civility are the hallmarks of a reputable person. Thus, unless a person is known to of low repute and lacking honor,
 				act civilly to all you meet.<BR><BR>
 
 				<a name="II"><h2>Dueling Etiquette</h2><br></a>
-				There is no justice in the court of law for an offense of Slander, and to be Slandered is worse than death. To live a life of shame and ill repute is the lowest 
-				fate one can receive. It is thus that affairs of honor are brought to the contest of the duel – to satisfy both parties, defender, and accuser. In a duel, a second for 
-				both sides must be present, as well as a physician. In some cases, a legal notary may be present to ensure its validity. In the cases of duels between or people of 
-				differing ages and physical capabilities, to ensure the uprightness, fairness, and honor of the duel, guns may be used. These shall be inspected by both seconds upon 
-				being presented by the defendant in the duel. In a contest between two of equal physical ability, swords are preferable in use, as they do not necessarily inflict a 
+				There is no justice in the court of law for an offense of Slander, and to be Slandered is worse than death. To live a life of shame and ill repute is the lowest
+				fate one can receive. It is thus that affairs of honor are brought to the contest of the duel – to satisfy both parties, defender, and accuser. In a duel, a second for
+				both sides must be present, as well as a physician. In some cases, a legal notary may be present to ensure its validity. In the cases of duels between or people of
+				differing ages and physical capabilities, to ensure the uprightness, fairness, and honor of the duel, guns may be used. These shall be inspected by both seconds upon
+				being presented by the defendant in the duel. In a contest between two of equal physical ability, swords are preferable in use, as they do not necessarily inflict a
 				mortal wound when one is not necessary to satisfy the Honor of the two parties<BR><BR>
 
 				<a name="III"><h2>Conduct of a Soldier</h2><br></a>
-				Soldiers, of all professions, have the greatest responsibilities in society to be fair and gentle in some cases, and be harsh and punishing in others. Looting, bawdiness, 
-				pillaging, a lack of appropriate mercy, cruelty in killing, all hallmarks of a dishonorable soldier. A soldier must be dedicated to their task, dedicated to becoming a master 
-				of their task, and willing to die to complete it. A soldier in defeat, if they have given their all, is a soldier who has learned. No soldier should be afraid of defeat – for 
+				Soldiers, of all professions, have the greatest responsibilities in society to be fair and gentle in some cases, and be harsh and punishing in others. Looting, bawdiness,
+				pillaging, a lack of appropriate mercy, cruelty in killing, all hallmarks of a dishonorable soldier. A soldier must be dedicated to their task, dedicated to becoming a master
+				of their task, and willing to die to complete it. A soldier in defeat, if they have given their all, is a soldier who has learned. No soldier should be afraid of defeat – for
 				no soldier can win every battle – they should be afraid to not learn from it.<BR><BR>
 
 				<a name="IV"><h2>On High and Low</h2><br></a>
-				The Goddess, in Her wisdom, sees fit to place some souls high and some souls low. This does not make them any less equal in matters of honor. A powerful individual, if they 
-				have been seen fit to be head over another, must not, in any case, abuse their authority or position. An individual, if they have been seen fit to be placed under another's 
-				authority, must be dedicated and true in their work. There is no greater stain to a person of honor than to be a cruel task-master or an abuser of the weak and powerless. 
+				The Goddess, in Her wisdom, sees fit to place some souls high and some souls low. This does not make them any less equal in matters of honor. A powerful individual, if they
+				have been seen fit to be head over another, must not, in any case, abuse their authority or position. An individual, if they have been seen fit to be placed under another's
+				authority, must be dedicated and true in their work. There is no greater stain to a person of honor than to be a cruel task-master or an abuser of the weak and powerless.
 				They have a responsibility to ensure those under him work efficiently, and they have a responsibility to not cheat their master.<BR><BR>
 
 				<a name="V"><h2>Behavior amongst Foreigners and Enemies</h2><br></a>
 				When among foreigners, an honorable and respectful soul must be honorable and respectful of their customs as much as he can, unless they are themselves against the code of Honor
-				and the Edicts. Do not expect them to know or recognize our higher Code of Conduct. They, someday, will be brought under its reach – but until then, be as polite and respectful 
-				to them as they deserve. When amongst your enemies, be polite. If they are enemies in war, they are doing their duty as you are. Respect and honor your enemy unless they prove 
+				and the Edicts. Do not expect them to know or recognize our higher Code of Conduct. They, someday, will be brought under its reach – but until then, be as polite and respectful
+				to them as they deserve. When amongst your enemies, be polite. If they are enemies in war, they are doing their duty as you are. Respect and honor your enemy unless they prove
 				themselves unworthy of it. In all cases, show that you are a better individual than they are.<BR><BR>
 
 				<a name="VI"><h2>On Duty to Family and Goddess</h2><br></a>
-				A genteel and honorable person, in all cases, is loyal first to Goddess first, their family second, king third, country fourth, and themselves last. Your family is your closest 
-				friends, allies, and compatriots: you must rely upon them, and they must rely upon you. If a person has no family, they have nothing. Be upright and honest with your family, 
-				loyal, and keep your promises in all things – such as your dealings are with other men. Be loyal to the Goddess first and foremost – for if a soul is without the Goddess, 
+				A genteel and honorable person, in all cases, is loyal first to Goddess first, their family second, king third, country fourth, and themselves last. Your family is your closest
+				friends, allies, and compatriots: you must rely upon them, and they must rely upon you. If a person has no family, they have nothing. Be upright and honest with your family,
+				loyal, and keep your promises in all things – such as your dealings are with other men. Be loyal to the Goddess first and foremost – for if a soul is without the Goddess,
 				it is not living. It is Goddess that gives us this opportunity to be honorable and just people.<BR><BR>
 
 				<a name="VII"><h2>On Duty to Country and Emperor</h2><br></a>
-				Dutiful should describe any honorable person. A person everyone knows will keep their word, honor their word, and faithfully fulfill their word. And no more important word is 
-				given than an oath to King, and to Country. While some argue the Emperor is the Country, this codex is not one of philosophy. Obey the Emperor faithfully, serve him faithfully, 
+				Dutiful should describe any honorable person. A person everyone knows will keep their word, honor their word, and faithfully fulfill their word. And no more important word is
+				given than an oath to King, and to Country. While some argue the Emperor is the Country, this codex is not one of philosophy. Obey the Emperor faithfully, serve him faithfully,
 				and your country will prosper for it. Respectfully question the Emperor at the appropriate time if necessary and obey him in all right and honorable things.<BR><BR>
 
 				<a name="VIII"><h2>On Duty to Self</h2><br></a>
-				Your body, your mind, your honor – these three are the trinity of life. An honorable person keeps themselves in as good shape as they can and abstains from things such as overuse 
+				Your body, your mind, your honor – these three are the trinity of life. An honorable person keeps themselves in as good shape as they can and abstains from things such as overuse
 				of hard liquors and substances which cloud the mind and hamper the body. Without a sound body and mind, nobody can maintain their honor and reputation.<BR><BR>
 
 				</body>
@@ -1522,8 +1522,7 @@
 /obj/item/book/manual/tcfl_pamphlet
 	name = "tau ceti foreign legion pamphlet"
 	desc = "A simple pamphlet containing information about the Tau Ceti Foreign Legion."
-	icon_state = "tcfl_book"
-	item_state = "book13"
+	icon_state = "tcfl_pamphlet"
 	title = "Tau Ceti foreign legion pamphlet"
 	author = "Tau Ceti foreign legion recruitment center"
 	w_class = ITEMSIZE_SMALL
