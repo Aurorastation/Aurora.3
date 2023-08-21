@@ -448,7 +448,7 @@
 		..()
 
 /obj/structure/bed/roller/AltClick(mob/user)
-	if(density && !use_check_and_message(user) && !user.incapacitate())
+	if(density && !use_check_and_message(user) && !user.incapacitated())
 		anchored = !anchored
 		user.visible_message(SPAN_NOTICE("[user] [anchored ? "locks" : "releases"] \the [src]'s brakes."))
 		update_icon()
