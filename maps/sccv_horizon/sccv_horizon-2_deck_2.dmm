@@ -496,6 +496,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/brig)
+"and" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/atmospherics/valve/digital{
+	dir = 4;
+	name = "Thermal Relief Valve"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_room)
 "ang" = (
 /obj/effect/shuttle_landmark/horizon/decktwo/port_fore,
 /turf/template_noop,
@@ -2055,6 +2063,7 @@
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_y = 2
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "aUB" = (
@@ -10060,7 +10069,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	target_pressure = 15000
+	target_pressure = 15000;
+	name = "Intake to Cold Loop"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -11592,7 +11602,8 @@
 /area/maintenance/substation/research)
 "fMh" = (
 /obj/machinery/atmospherics/valve/digital{
-	dir = 4
+	dir = 4;
+	name = "Thermal Relief Valve"
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/plating,
@@ -19806,7 +19817,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	target_pressure = 15000
+	target_pressure = 15000;
+	name = "Intake to Hot Loop"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -22405,6 +22417,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "kUf" = (
@@ -27435,13 +27448,8 @@
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_two/fore)
 "nkK" = (
-/obj/structure/stairs/west{
+/obj/structure/stairs/flat{
 	dir = 4
-	},
-/obj/structure/stairs_railing{
-	dir = 1;
-	layer = 3.1;
-	pixel_y = 15
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
@@ -27681,9 +27689,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "npL" = (
-/obj/structure/stairs/east{
+/obj/structure/stairs/flat{
 	dir = 8
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "nqm" = (
@@ -31526,7 +31535,8 @@
 /obj/machinery/alarm/south,
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	target_pressure = 15000
+	target_pressure = 15000;
+	name = "Intake to Hot Loop"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -34297,7 +34307,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	target_pressure = 15000
+	target_pressure = 15000;
+	name = "Intake to Cold Loop"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -40706,6 +40717,7 @@
 /turf/simulated/floor/tiled/full,
 /area/engineering/storage_hard)
 "tUR" = (
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "tVu" = (
@@ -64567,7 +64579,7 @@ wcr
 hMy
 hMy
 sLp
-fMh
+and
 riM
 ura
 glx

@@ -4241,7 +4241,8 @@
 	dir = 6
 	},
 /obj/machinery/keycard_auth{
-	pixel_x = -23
+	pixel_x = -20;
+	dir = 4
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Center 2";
@@ -13530,7 +13531,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/full,
-/obj/machinery/leviathan_safeguard,
+/obj/machinery/leviathan_safeguard{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "kAR" = (
@@ -26870,7 +26873,8 @@
 	dir = 10
 	},
 /obj/machinery/keycard_auth{
-	pixel_x = 24
+	pixel_x = 20;
+	dir = 8
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Center 1";
