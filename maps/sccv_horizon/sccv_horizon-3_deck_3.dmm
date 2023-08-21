@@ -1235,11 +1235,7 @@
 /area/bridge/controlroom)
 "aVh" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/paper_bin,
-/obj/item/pen,
-/obj/item/folder/blue,
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/item/paper_scanner,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -1251,6 +1247,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/chemical_dispenser/coffee/full{
+	pixel_y = 10
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
@@ -7704,7 +7703,9 @@
 	dir = 6
 	},
 /obj/machinery/light,
-/obj/machinery/chemical_dispenser/coffee,
+/obj/machinery/chemical_dispenser/coffee/full{
+	pixel_y = 10
+	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
 "gcR" = (
@@ -13362,15 +13363,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
-"kvB" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/hallway/medical/upper)
 "kvM" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hallway/deck_three/primary/starboard)
@@ -14668,6 +14660,7 @@
 /area/tcommsat/chamber)
 "lsZ" = (
 /obj/effect/floor_decal/corner_wide/green/full,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "lta" = (
@@ -14803,23 +14796,11 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "lwe" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 6
-	},
 /obj/machinery/light/floor{
 	dir = 4
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/hallway/medical/upper)
+/turf/simulated/floor/wood,
+/area/bridge/minibar)
 "lwt" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -18392,6 +18373,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "ojm" = (
@@ -19689,16 +19673,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/bridge/controlroom)
-"phw" = (
-/obj/structure/railing/mapped,
-/obj/structure/platform/ledge{
-	dir = 1
-	},
-/obj/structure/platform_deco/ledge{
-	dir = 4
-	},
-/turf/simulated/open,
-/area/hallway/medical/upper)
 "piX" = (
 /turf/simulated/wall,
 /area/crew_quarters/lounge)
@@ -22855,6 +22829,9 @@
 /obj/item/device/radio/intercom/west{
 	pixel_y = 0
 	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "rXr" = (
@@ -22951,7 +22928,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
 "rZu" = (
-/obj/machinery/light,
 /obj/machinery/hologram/holopad,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -25894,6 +25870,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/paper_scanner,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "uhy" = (
@@ -26723,7 +26700,9 @@
 /area/horizon/crew_quarters/fitness/changing)
 "uPp" = (
 /obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/machinery/chemical_dispenser/coffee/full{
+	pixel_y = 10
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "uPJ" = (
@@ -28079,9 +28058,6 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
 	},
-/obj/item/device/radio/intercom/west{
-	pixel_y = 0
-	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "vQq" = (
@@ -29013,6 +28989,9 @@
 	},
 /obj/item/device/radio/intercom/west{
 	pixel_y = 0
+	},
+/obj/machinery/light/floor{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -30281,13 +30260,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
 "xuH" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
 	},
-/obj/machinery/requests_console/west,
+/obj/machinery/requests_console/west{
+	department = "Medical";
+	departmentType = 2;
+	name = "Medical Requests Console"
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "xvw" = (
@@ -44892,7 +44872,7 @@ iIt
 rva
 vQi
 wCk
-kvB
+qSM
 qSM
 nUa
 qSM
@@ -45094,7 +45074,7 @@ cQg
 vCW
 ohk
 qmY
-lwe
+qmY
 qmY
 vXo
 qmY
@@ -45300,7 +45280,7 @@ kIZ
 fQq
 kIZ
 kIZ
-phw
+rle
 ode
 jFO
 iGt
@@ -53823,7 +53803,7 @@ txh
 lvm
 khK
 vZO
-vZO
+lwe
 eri
 qsz
 vkb

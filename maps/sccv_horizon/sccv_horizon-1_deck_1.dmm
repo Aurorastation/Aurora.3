@@ -6876,9 +6876,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "eTx" = (
-/obj/structure/stairs/flat{
-	dir = 4
-	},
+/obj/structure/stairs/east,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "eTJ" = (
@@ -8684,9 +8682,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial/disposals)
 "fZu" = (
-/obj/structure/stairs/flat{
-	dir = 4
-	},
+/obj/structure/stairs/west,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "fZv" = (
@@ -10626,10 +10622,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "hqC" = (
-/obj/structure/stairs/flat{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
+/obj/structure/stairs/west,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "hqE" = (
@@ -11376,7 +11369,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "hVn" = (
-/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "hVE" = (
@@ -12588,8 +12580,9 @@
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "iSc" = (
-/turf/simulated/floor/tiled/ramp/bottom,
-/area/maintenance/research_port)
+/obj/structure/stairs_lower/stairs_upper,
+/turf/simulated/wall/r_wall,
+/area/horizon/custodial/disposals)
 "iSn" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "5,26";
@@ -23375,6 +23368,10 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/hangar/intrepid/interstitial)
+"qwT" = (
+/obj/structure/stairs_lower/stairs_upper,
+/turf/simulated/wall/r_wall,
+/area/rnd/xenoarch_atrium)
 "qxn" = (
 /obj/structure/table/standard,
 /obj/machinery/light{
@@ -25140,6 +25137,10 @@
 /area/hangar/intrepid)
 "rMf" = (
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/stairs_lower/stairs_upper{
+	dir = 4;
+	pixel_y = -1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "rMm" = (
@@ -34336,6 +34337,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
+	},
+/obj/structure/stairs_lower{
+	dir = 1;
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
@@ -53122,7 +53127,7 @@ gVx
 trc
 oWg
 fZr
-aJB
+iSc
 hqC
 xVg
 nTh
@@ -60435,7 +60440,7 @@ eKc
 sdW
 grP
 wJK
-iSc
+vil
 xgm
 hgR
 eGG
@@ -62494,7 +62499,7 @@ kLo
 jvA
 spY
 hUC
-xtK
+qwT
 fZu
 lPW
 fEu
