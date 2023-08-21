@@ -334,7 +334,7 @@
 
 /obj/machinery/door/airlock/external
 	name = "External Airlock"
-	icon = 'icons/obj/doors/Doorext.dmi'
+	icon = 'icons/obj/doors/basic/single/external/door.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	hashatch = FALSE
 	insecure = 0

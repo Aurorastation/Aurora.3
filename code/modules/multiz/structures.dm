@@ -286,10 +286,12 @@
 	bound_height = 64
 
 /obj/structure/stairs/east
+	icon_state = "east"
 	dir = EAST
 	bound_width = 64
 
 /obj/structure/stairs/west
+	icon_state = "west"
 	dir = WEST
 	bound_width = 64
 
@@ -332,6 +334,9 @@
 	icon_state = "stairs_lower"
 	anchored = TRUE
 	density = FALSE
+
+/obj/structure/stairs_lower/stairs_upper
+	icon_state = "stairs_upper"
 
 /// These stairs are used for fake depth. They don't go up z-levels.
 /obj/structure/platform_stairs
