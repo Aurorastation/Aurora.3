@@ -1,9 +1,0 @@
-author: SleepyGemmy, SueTheCake
-
-delete-after: True
-
-changes:
-  - rscadd: "Added new tajaran clothes, with sprites made by SueTheCake, including red and black polka dot dresses, a floral dress, plaid, mauve, and yellow housewife dresses, an adhomian evening suit, high-waisted and high-waisted business men's wear, relaxed and stylish relaxed men's wear, and a smart study outfit."
-  - rscadd: "Added new tajaran shoes, with sprites made by SueTheCake, including black high-heeled adhomian shoes, scarlet, mauve, and dark dress flats, black saddle shoes, and black and brown adhomian loafers."
-  - rscadd: "The new clothing articles can be found under the \"Xenowear - Tajara\" category and the \"tajaran uniform selection\", \"tajaran dress selection\", \"tajaran dress flats selection\", \"tajaran footwear\", \"high-heeled adhomian shoes selection\", and \"adhomian loafers selection\" options respectively."
-  - imageadd: "Moved the tajaran dress flats sprites to a contained sprite file."
