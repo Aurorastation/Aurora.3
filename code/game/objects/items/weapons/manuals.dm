@@ -1525,6 +1525,8 @@
 	icon_state = "tcfl_pamphlet"
 	title = "Tau Ceti foreign legion pamphlet"
 	author = "Tau Ceti foreign legion recruitment center"
+	pickup_sound = 'sound/items/drop/paper.ogg'
+	drop_sound = 'sound/items/drop/paper.ogg'
 	w_class = ITEMSIZE_SMALL
 	dat = {"<html>
 				<head>
@@ -1548,3 +1550,11 @@
 				</body>
 			</html>
 			"}
+
+/obj/item/book/manual/tcfl_pamphlet/attack_self(var/mob/user as mob)
+	if(src.dat)
+		user << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
+		user.visible_message("[user] opens a pamphlet titled \"[src.title]\" and begins reading intently.")
+		playsound(loc, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		onclose(user, "book")
+		onclose(playsound(loc, 'sound/bureaucracy/paperfold.ogg', 50, 1))
