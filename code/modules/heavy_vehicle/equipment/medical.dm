@@ -289,7 +289,7 @@
 			health_scan_mob(M, pilot, TRUE, TRUE, sound_scan = sound_scan)
 	else
 		user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
-		if(do_after(user, 7 SECONDS, TRUE))
+		if(do_after(user, 7 SECONDS))
 			print_scan(M, user)
 			add_fingerprint(user)
 

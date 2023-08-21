@@ -89,7 +89,7 @@
 		user.visible_message(SPAN_NOTICE("\The [user] starts slicing the [hide_type] from \the [src]."),
 				SPAN_NOTICE("You start slicing the [hide_type] from \the [src]"),
 				SPAN_NOTICE("You hear the sound of a knife scraping against flesh."))
-		if(do_after(user,50, act_target = src))
+		if(do_after(user, 50, src))
 			if(amount <= 0) //Ensures we don't get multiple products from queuing clicks.
 				return
 			use(1)
@@ -130,7 +130,7 @@
 				return
 			user.visible_message(SPAN_NOTICE("\The [user] starts drying \the [src] with \the [WT]."), SPAN_NOTICE("You start drying the wet leather with \the [WT]..."))
 			being_dried = TRUE
-			while(do_after(user, 20, act_target = src) && wetness > 0)
+			while(do_after(user, 20, src) && wetness > 0)
 				if(!WT.use(1) || !WT.isOn())
 					break
 				if(prob(5))

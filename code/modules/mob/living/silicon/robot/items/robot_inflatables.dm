@@ -67,7 +67,7 @@
 	deploying = 1
 	user.visible_message("<b>[user]</b> starts deploying an inflatable [mode ? "door" : "wall"].", SPAN_NOTICE("You start deploying an inflatable [mode ? "door" : "wall"]!"))
 	playsound(T, 'sound/items/zip.ogg', 75, TRUE)
-	if(do_after(user, 30, needhand = FALSE))
+	if(do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 		new newtype(T)
 		if(mode)
 			stored_doors--

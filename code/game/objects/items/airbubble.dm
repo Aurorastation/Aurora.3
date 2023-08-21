@@ -25,7 +25,7 @@
 		"<span class='warning'>[user] begins deploying \the [src].</span>",
 		"<span class='notice'>You begin deplyoing \the [src].</span>"
 	)
-	if (!do_after(user, 0.45 SECONDS, act_target = src))
+	if (!do_after(user, 0.45 SECONDS))
 		return
 	user.visible_message(
 		"<span class='warning'>[user] deployed \the [src].</span>" ,
@@ -197,7 +197,7 @@
 		"<span class='warning'>[usr] begins folding up the [src.name].</span>",
 		"<span class='notice'>You begin folding up the [src.name].</span>"
 		)
-		if (!do_after(usr, 0.45 SECONDS, act_target = src))
+		if (!do_after(usr, 0.45 SECONDS))
 			return
 		usr.visible_message(
 		"<span class='warning'>[usr] folds up the [src.name].</span>" ,

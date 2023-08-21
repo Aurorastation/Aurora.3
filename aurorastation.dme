@@ -48,6 +48,7 @@
 #include "code\__defines\economy.dm"
 #include "code\__defines\emitter.dm"
 #include "code\__defines\evacuation.dm"
+#include "code\__defines\feedback.dm"
 #include "code\__defines\flags.dm"
 #include "code\__defines\forensic_swabs.dm"
 #include "code\__defines\gamemode.dm"

@@ -40,7 +40,7 @@
 				return
 			M.last_special = world.time
 			M.visible_message(SPAN_WARNING("[M] starts struggling to break free of the sticky flesh..."), SPAN_WARNING("You struggle to break free from the gelatinous flesh..."), SPAN_WARNING("You hear squelching..."))
-			if(do_after(M, NEST_RESIST_TIME, TRUE))
+			if(do_after(M, NEST_RESIST_TIME))
 				unbuckle_buckled_mob(M)
 
 /obj/structure/bed/nest/proc/unbuckle_buckled_mob(var/mob/buck)

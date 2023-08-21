@@ -496,3 +496,32 @@
 		) : FALSE\
 	)\
 )
+
+//used by /proc/do_after
+#define DO_USER_CAN_MOVE FLAG(0)
+#define DO_USER_CAN_TURN FLAG(1)
+#define DO_USER_UNIQUE_ACT FLAG(2)
+#define DO_USER_SAME_HAND FLAG(3)
+#define DO_USER_SAME_ZONE FLAG(4)
+#define DO_TARGET_CAN_MOVE FLAG(5)
+#define DO_TARGET_CAN_TURN FLAG(6)
+#define DO_TARGET_UNIQUE_ACT FLAG(7)
+#define DO_SHOW_PROGRESS FLAG(8)
+#define DO_MOVE_CHECKS_TURFS FLAG(9)
+#define DO_FAIL_FEEDBACK FLAG(10)
+
+// Preset macros
+#define DO_BOTH_CAN_MOVE (DO_USER_CAN_MOVE | DO_TARGET_CAN_MOVE)
+#define DO_BOTH_CAN_TURN (DO_USER_CAN_TURN | DO_TARGET_CAN_TURN)
+#define DO_BOTH_UNIQUE_ACT (DO_USER_UNIQUE_ACT | DO_TARGET_UNIQUE_ACT)
+#define DO_DEFAULT (DO_SHOW_PROGRESS | DO_USER_SAME_HAND | DO_BOTH_CAN_TURN | DO_FAIL_FEEDBACK)
+
+// Preset do_after flags
+#define DO_UNIQUE (DO_DEFAULT | DO_BOTH_UNIQUE_ACT) // Common flags for actions that should be unique
+#define DO_EQUIP (DO_DEFAULT | DO_USER_UNIQUE_ACT) // Flags for equipping/unequipping mobs. Set to allow a mob to be targeted by multiple sources, but for a source to only be able to perform one action at a time.
+
+// Extra errors
+#define DO_MISSING_USER (-1)
+#define DO_MISSING_TARGET (-2)
+#define DO_INCAPACITATED (-3)
+#define DO_EXTRA_CHECKS (-4)

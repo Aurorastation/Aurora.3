@@ -179,7 +179,7 @@
 	if (timeneeded > 0)
 		user.visible_message("[user] starts hoisting \the [src] onto \the [table].", "You start hoisting \the [src] onto \the [table]. This will take about [timeneeded * 0.1] seconds.")
 		user.face_atom(src)
-		if (!do_after(user, timeneeded, needhand = TRUE, act_target = src))
+		if (!do_after(user, timeneeded, src))
 			return FALSE
 		else
 			forceMove(get_turf(table))

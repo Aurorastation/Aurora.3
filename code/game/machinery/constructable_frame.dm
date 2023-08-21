@@ -56,7 +56,7 @@
 /obj/machinery/constructable_frame/machine_frame/attack_hand(mob/user)
 	if(state == BLUEPRINT_STATE)
 		to_chat(user, SPAN_NOTICE("You begin to finalize the blueprint..."))
-		if(do_after(user, 20, act_target = src))
+		if(do_after(user, 20, src))
 			if(state != BLUEPRINT_STATE)
 				return
 			to_chat(user, SPAN_NOTICE("You finalize the blueprint."))
@@ -82,7 +82,7 @@
 					return TRUE
 				playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, TRUE)
 				to_chat(user, SPAN_NOTICE("You start wiring up the blueprint..."))
-				if(do_after(user, 20, act_target = src))
+				if(do_after(user, 20, src))
 					if(state == WIRING_STATE && C.use(5))
 						to_chat(user, SPAN_NOTICE("You wire up the blueprint."))
 						state = CIRCUITBOARD_STATE

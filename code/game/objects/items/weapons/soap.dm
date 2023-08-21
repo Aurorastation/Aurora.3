@@ -78,7 +78,7 @@
 		else
 			clean_msg = FALSE
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
-		if (do_after(user, 25, needhand = 0))
+		if (do_after(user, 25, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 			target.clean_blood()
 			if(clean_msg)
 				to_chat(user, SPAN_NOTICE("You scrub \the [target.name] out."))

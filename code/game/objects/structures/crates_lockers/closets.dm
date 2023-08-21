@@ -339,7 +339,7 @@
 					"You hear a welding torch on metal."
 				)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
-				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, PROC_REF(is_open))))
+				if (!do_after(user, 2 SECONDS, src))
 					return
 				if(!WT.use(0,user))
 					to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
@@ -410,14 +410,14 @@
 		if(screwed)
 			to_chat(user,  SPAN_NOTICE("You start to unscrew \the [src] from the floor..."))
 			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 10/W.toolspeed SECONDS, act_target = src))
+			if (do_after(user, 10/W.toolspeed SECONDS, src))
 				to_chat(user,  SPAN_NOTICE("You unscrew the locker!"))
 				playsound(loc, W.usesound, 50, 1)
 				screwed = FALSE
 		else if(!screwed && wrenched)
 			to_chat(user,  SPAN_NOTICE("You start to screw the \the [src] to the floor..."))
 			playsound(src, 'sound/items/Welder.ogg', 80, 1)
-			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+			if (do_after(user, 15/W.toolspeed SECONDS, src))
 				to_chat(user,  SPAN_NOTICE("You screw \the [src]!"))
 				playsound(loc, W.usesound, 50, 1)
 				screwed = TRUE
@@ -425,7 +425,7 @@
 		if(wrenched && !screwed)
 			to_chat(user,  SPAN_NOTICE("You start to unfasten the bolts holding \the [src] in place..."))
 			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+			if (do_after(user, 15/W.toolspeed SECONDS, src))
 				to_chat(user,  SPAN_NOTICE("You unfasten \the [src]'s bolts!"))
 				playsound(loc, W.usesound, 50, 1)
 				wrenched = FALSE
@@ -433,7 +433,7 @@
 		else if(!wrenched)
 			to_chat(user,  SPAN_NOTICE("You start to fasten the bolts holding the locker in place..."))
 			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+			if (do_after(user, 15/W.toolspeed SECONDS, src))
 				to_chat(user,  SPAN_NOTICE("You fasten the \the [src]'s bolts!"))
 				playsound(loc, W.usesound, 50, 1)
 				wrenched = TRUE
@@ -457,7 +457,7 @@
 				SPAN_WARNING("You start cutting the [src]..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), W)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, user))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting open \the [src] with the [W]."),\
 					SPAN_WARNING("You finish cutting open the [src]."),\
@@ -707,7 +707,7 @@
 		if (bar)
 			bar.update(i)
 
-		if(!do_after(escapee, 50, display_progress = FALSE)) //5 seconds
+		if(!do_after(escapee, 50, do_flags = DO_DEFAULT & ~DO_SHOW_PROGRESS)) //5 seconds
 			breakout = 0
 			qdel(bar)
 			return

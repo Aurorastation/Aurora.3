@@ -90,7 +90,7 @@
 		var/obj/item/stack/cable_coil/C = I
 		if(C.use(1))
 			to_chat(user, SPAN_NOTICE("You start carefully start rewiring \the [src]."))
-			if(do_after(user, 100, TRUE, src))
+			if(do_after(user, 100, src))
 				to_chat(user, SPAN_NOTICE("You successfully rewire \the [src], priming it for use."))
 				deactivated = FALSE
 			return

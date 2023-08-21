@@ -35,7 +35,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] reads, \"Scanning failure, please submit scanner for repairs.\""))
 		return
 	user.visible_message(SPAN_NOTICE("\The [user] starts analyzing \the [M] with \the [src]..."), SPAN_NOTICE("You start analyzing \the [M] with \the [src]..."))
-	if(do_after(user, 50, TRUE, src))
+	if(do_after(user, 50, src))
 		if(!isipc(M))
 			to_chat(user, SPAN_WARNING("You analyze \the [M], but find that they're not an IPC at all!"))
 			return

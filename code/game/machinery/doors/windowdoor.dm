@@ -55,7 +55,7 @@
 
 	if(ishuman(M) || isrobot(M) || isbot(M) || istype(M, /mob/living/simple_animal/spiderbot) || ismech(M))
 		if(inoperable())
-			if(do_after(M, 1 SECOND, TRUE, src))
+			if(do_after(M, 1 SECOND, src))
 				// The VM here is before open and the wording is backwards because density gets set after a background sleep in open
 				visible_message("\The [M] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
 				open()
@@ -204,7 +204,7 @@
 
 	if(allowed(user))
 		if(inoperable())
-			if(!do_after(user, 1 SECOND, TRUE, src))
+			if(!do_after(user, 1 SECOND, src))
 				return TRUE
 			visible_message("\The [user] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
 		if (src.density)

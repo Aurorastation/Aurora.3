@@ -34,7 +34,7 @@
 
 	to_chat(user, "You start marking a line on [target].")
 
-	if (!do_after(user, 1 SECONDS, act_target = target))
+	if (!do_after(user, 1 SECONDS, target))
 		return
 
 	for (var/obj/effect/decal/cleanable/draftingchalk/C in target)

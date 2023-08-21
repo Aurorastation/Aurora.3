@@ -128,7 +128,7 @@
 				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head!"))
 				return
 			user.visible_message(SPAN_WARNING("\The [user] is trying to remove something from \the [H]'s headtails!"))
-			if(do_after(user, HUMAN_STRIP_DELAY, act_target = H))
+			if(do_after(user, HUMAN_STRIP_DELAY, do_flags = DO_EQUIP))
 				var/obj/item/storage/internal/skrell/S = locate() in H.organs_by_name[BP_HEAD]
 				var/obj/item/I = locate() in S
 				if(!I)
