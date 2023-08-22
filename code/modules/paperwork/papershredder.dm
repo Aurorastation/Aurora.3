@@ -161,15 +161,11 @@
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
 		flick("shredp_onfire", src)
 
-		do_after(user, 2 SECONDS, src, DO_UNIQUE | DO_USER_CAN_MOVE)
-			if(get_dist(src, user) < 2 && user.get_active_hand() == P)
-				user.visible_message(span("[class]", "[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap."), \
-				span("[class]", "You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap."))
-				new /obj/effect/decal/cleanable/ash(src.loc)
-				qdel(src)
-
-			else
-				to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
+		if (do_after(user, 2 SECONDS, src, DO_UNIQUE | DO_USER_CAN_MOVE))
+			user.visible_message(span("[class]", "[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap."), \
+			span("[class]", "You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap."))
+			new /obj/effect/decal/cleanable/ash(src.loc)
+			qdel(src)
 
 /obj/item/shreddedp
 	name = "shredded paper"
