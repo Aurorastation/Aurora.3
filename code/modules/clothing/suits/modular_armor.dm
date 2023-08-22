@@ -166,7 +166,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_RIFLE,
+		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	slowdown = 1
@@ -180,7 +180,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
@@ -194,7 +194,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
