@@ -2,7 +2,7 @@
 	name = "Coalition of Colonies"
 	desc = "The Coalition of Colonies was born out of the fires of the Interstellar War, the bloodiest war humanity has seen since its dawn as a species. The majority of its citizens prize their freedom above all else, which has led to problems with governance for the Coalition: to this day, it remains a very decentralized and fragmented entity that can only be brought together as a unified front in moments of extreme crisis. But with the recent growth of the Republic of Biesel, retreat of the Solarian Alliance, and an increasingly militaristic Empire of Dominia, perhaps this matter shall change in the years to come."
 	possible_origins = list(
-		/singleton/origin_item/origin/xanu_free_league,
+		/singleton/origin_item/origin/xanu_prime,
 		/singleton/origin_item/origin/himeo,
 		/singleton/origin_item/origin/vysoka,
 		/singleton/origin_item/origin/galatea,
@@ -15,12 +15,12 @@
 		/singleton/origin_item/origin/other_coalition
 	)
 
-/singleton/origin_item/origin/xanu_free_league
-	name = "Xanu Free League"
-	desc = "The Xanu Free League, and its capital of Xanu Prime, have long been considered some of the most important figures in the Coalition of Colonies. Xanusanii are a diverse body of people that value their freedom highly, and are known throughout the broader Spur as traders. Much of Xanu's surface remains uninhabitable due to damage inflicted upon the planet by the Solarian Alliance during the Interstellar War."
-	possible_accents = list(ACCENT_XANU, ACCENT_COC)
+/singleton/origin_item/origin/xanu_prime
+	name = "Xanu Prime"
+	desc = "Xanu Prime has long been considered one of the most important planets in the Coalition of Colonies, housing its current capital. Xanans are a diverse body of people that value their freedom highly, and are known throughout the broader Spur as traders. Much of Xanu's surface is scarred due to damage inflicted upon the planet by the Solarian Alliance during the Interstellar War."
+	possible_accents = list(ACCENT_XANU)
 	possible_citizenships = CITIZENSHIPS_COALITION
-	possible_religions = RELIGIONS_COALITION
+	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_STOLITISM, RELIGION_MOROZ, RELIGION_LUCEISM)
 
 /singleton/origin_item/origin/himeo
 	name = "United Syndicates of Himeo"
