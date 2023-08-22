@@ -607,7 +607,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/fox
 	name = "fox"
-	icon = 'icons/mob/npc/pets.dmi'
+	icon = 'icons/mob/npc/fox.dmi'
 	icon_state = "fox"
 	item_state = "fox"
 	w_class = ITEMSIZE_NORMAL

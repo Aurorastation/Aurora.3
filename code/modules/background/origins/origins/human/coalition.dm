@@ -5,11 +5,13 @@
 		/singleton/origin_item/origin/xanu_free_league,
 		/singleton/origin_item/origin/himeo,
 		/singleton/origin_item/origin/vysoka,
+		/singleton/origin_item/origin/galatea,
 		/singleton/origin_item/origin/coa_spacer,
 		/singleton/origin_item/origin/gadpathur,
 		/singleton/origin_item/origin/gadpathur_exile,
 		/singleton/origin_item/origin/assunzione,
 		/singleton/origin_item/origin/ncf,
+		/singleton/origin_item/origin/orepit,
 		/singleton/origin_item/origin/other_coalition
 	)
 
@@ -36,6 +38,14 @@
 	possible_accents = list(ACCENT_VYSOKA)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = list(RELIGION_NONE, RELIGION_STOLITISM, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER)
+
+/singleton/origin_item/origin/galatea
+	name = "Federal Technocracy of Galatea"
+	desc = "The Federal Technology of Galatea is an unusual human society which prizes academic knowledge and progress above almost all other things. It is originally descended from a Solarian scientific expedition which was sent to the current Weeping Stars to terraform the Yggdrasil System, and retains a focus on expert guidance. To have a political voice in the Federation, one must have some form of degree, and Galatean academicia is infamously rigorous. The non-degreed population of Galatea is kept in line \
+	through an extensive system of welfare, propaganda, and state surveillance known as the Welfare-Propaganda State. Dissent is rare and confidence in the government is high across the Technocracy. Galatea is widely known for its biotechnology; most of its citizens have some form of biological augmentations, with those lacking them viewed as social oddities. The Federation consists of four member-planets: Galatea, Tsukuyomi, Svarog, and Empyrean."
+	possible_accents = list(ACCENT_GALATEA, ACCENT_TSUKUYOMI, ACCENT_EMPYREAN, ACCENT_SVAROG)
+	possible_citizenships = CITIZENSHIPS_COALITION
+	possible_religions = RELIGIONS_COALITION
 
 /singleton/origin_item/origin/coa_spacer
 	name = "Coalition Offworlders"
@@ -92,3 +102,11 @@
 	possible_accents = list(ACCENT_COC, ACCENT_NCF)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_COALITION
+
+/singleton/origin_item/origin/orepit
+	name = "Orepit"
+	desc = "The human population of Orepit includes the Native Orepitters, who descend from Hephaestus employees following the abandoned mining mission on the planet, as well as immigrants and pilgrims of the Trinary religion."
+	important_information = "All humans from Orepit are vetted Trinary faithful, and their behaviour should reflect that."
+	possible_accents = list(ACCENT_OREPIT, ACCENT_PROVIDENCE)
+	possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_COALITION)
+	possible_religions =  list(RELIGION_TRINARY)
