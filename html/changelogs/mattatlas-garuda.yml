@@ -41,3 +41,4 @@ changes:
   - balance: "Midlasers (the lasers shot by the laser rifle) now have 5 less armor piercing."
   - balance: "Buffed most laser-resistant armour. Midlasers will now do 18 damage to heavy armour instead of the full 30."
   - balance: "Nerfed the laser rifle firing speed a bit."
+  - balance: "Buffed ablatives' laser protection."
