@@ -91,7 +91,7 @@ export const AllShuttles = (props, context) => {
         <Section
           title="SCCV Canary"
           buttons={
-            <Button content="Add Entry" onClick={() => act('addentry')} />
+            <Button icon="plus" color="green" onClick={() => act('addentry')} />
           }>
           {data.shuttle_manifest && data.shuttle_manifest.length ? (
             <Flex>
@@ -126,7 +126,7 @@ export const AllShuttles = (props, context) => {
         <Section
           title="SCCV Intrepid"
           buttons={
-            <Button content="Add Entry" onClick={() => act('addentry')} />
+            <Button icon="plus" color="green" onClick={() => act('addentry')} />
           }>
           {data.shuttle_manifest && data.shuttle_manifest.length ? (
             <Flex>
@@ -161,7 +161,7 @@ export const AllShuttles = (props, context) => {
         <Section
           title="SCCV Spark"
           buttons={
-            <Button content="Add Entry" onClick={() => act('addentry')} />
+            <Button icon="plus" color="green" onClick={() => act('addentry')} />
           }>
           {data.shuttle_manifest && data.shuttle_manifest.length ? (
             <Flex>

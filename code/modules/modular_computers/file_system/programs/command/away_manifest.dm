@@ -40,6 +40,7 @@
 		
 	switch(action)
 		if("am_menu")
+			. = TRUE
 			active_record = null
 			SStgui.update_uis(computer)
 		
@@ -50,33 +51,35 @@
 					break
 		
 		if("back")
+			. = TRUE
 			active_record = null
 			SStgui.update_uis(computer)
 			
 	//Check ID for command/mining/research access to edit
-	var/mob/user = usr
-	if(!istype(user))
+	if(!istype(usr))
 		return
-	var/obj/item/card/id/I = user.GetIdCard()
-	if(!istype(I) || !I.registered_name || issilicon(user) || (!(access_heads in I.access) && !(access_research in I.access) && !(access_mining in I.access)))
-		to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
+	var/obj/item/card/id/I = usr.GetIdCard()
+	if(!istype(I) || !I.registered_name || issilicon(usr) || (!(access_heads in I.access) && !(access_research in I.access) && !(access_mining in I.access)))
+		to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return
 			
 	switch(action)
 		if("addentry")
 			. = TRUE
 			var/datum/record/shuttle_manifest/m = new()
-			if(!computer.use_check_and_message(user))
+			if(!computer.use_check_and_message(usr))
 				m.name = "Unknown"
 				m.shuttle = "Unknown"
 				active_record = m
 			
 		if("saveentry")
+			. = TRUE
 			SSrecords.update_record(active_record)
 			active_record = null
 			SStgui.update_uis(computer)
 		
 		if("deleteentry")
+			. = TRUE
 			SSrecords.remove_record(active_record)
 			active_record = null
 			SStgui.update_uis(computer)
@@ -87,7 +90,7 @@
 			for(var/datum/record/general/r in SSrecords.records)
 				names += r.name
 			var/newname = sanitize(input(usr, "Please enter name.") as null|anything in names)
-			if(!computer.use_check_and_message(user))
+			if(!computer.use_check_and_message(usr))
 				if(!newname)
 					return
 				active_record.name = newname
@@ -95,14 +98,14 @@
 		if("editentrynamecustom")
 			. = TRUE
 			var/newname = sanitize(input("Please enter name.") as null|text)
-			if(!computer.use_check_and_message(user))
+			if(!computer.use_check_and_message(usr))
 				if(!newname)
 					return
 				active_record.name = newname
 		if("editentryshuttle")
 			. = TRUE
 			var/newshuttle = sanitize(input("Please enter shuttle.") as null|anything in list("SCCV Canary", "SCCV Intrepid", "SCCV Spark"))
-			if(!computer.use_check_and_message(user))
+			if(!computer.use_check_and_message(usr))
 				if(!newshuttle)
 					return
 				active_record.shuttle = newshuttle
