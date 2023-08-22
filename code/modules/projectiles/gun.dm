@@ -255,6 +255,7 @@
 	else
 		if(needspin)
 			to_chat(user, SPAN_WARNING("\The [src]'s trigger is locked. This weapon doesn't have a firing pin installed!"))
+			balloon_alert(user, "Trigger locked, firing pin needed!")
 			return FALSE
 		else
 			return TRUE
@@ -440,12 +441,9 @@
 	return (target in check_trajectory(target, user))
 
 //called if there was no projectile to shoot
-/obj/item/gun/proc/handle_click_empty(mob/user)
-	if(user)
-		to_chat(user, SPAN_DANGER("*click*"))
-	else
-		src.visible_message("*click*")
-	playsound(loc, empty_sound, 100, 1)
+/obj/item/gun/proc/handle_click_empty()
+	balloon_alert_to_viewers("*click*")
+	playsound(loc, empty_sound, 30, TRUE)
 
 //called after successfully firing
 /obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
@@ -680,7 +678,7 @@
 	safety_state = !safety_state
 	update_icon()
 	if(user)
-		to_chat(user, SPAN_NOTICE("You switch the safety [safety_state ? "on" : "off"] on \the [src]."))
+		balloon_alert(user, "Safety [safety_state ? "on" : "off"].")
 		if(!safety_state)
 			playsound(src, safetyon_sound, 30, 1)
 		else
@@ -723,7 +721,7 @@
 
 	if(wielded)
 		unwield()
-		to_chat(user, SPAN_NOTICE("You are no-longer stabilizing \the [name] with both hands."))
+		to_chat(user, SPAN_NOTICE("You are no longer stabilizing \the [name] with both hands."))
 
 		var/obj/item/offhand/O = user.get_inactive_hand()
 		if(istype(O))
@@ -843,7 +841,7 @@
 	if(user)
 		var/obj/item/gun/O = user.get_inactive_hand()
 		if(istype(O))
-			to_chat(user, SPAN_NOTICE("You are no-longer stabilizing \the [O] with both hands."))
+			to_chat(user, SPAN_NOTICE("You are no longer stabilizing \the [O] with both hands."))
 			O.unwield()
 			unwield()
 
@@ -893,7 +891,7 @@
 			return ..()
 
 		if(bayonet)
-			to_chat(user, SPAN_DANGER("There is a bayonet attached to \the [src] already."))
+			to_chat(user, SPAN_WARNING("There is a bayonet attached to \the [src] already!"))
 			return TRUE
 
 		user.drop_from_inventory(I,src)

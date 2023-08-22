@@ -371,6 +371,7 @@
 	var/iv_attached = 0
 	var/iv_stand = TRUE
 	var/iv_transfer_rate = 4 //Same as max for regular IV drips
+	var/has_iv_light = TRUE
 	//Items that can be attached to an IV
 	var/list/accepted_containers = list(
 		/obj/item/reagent_containers/blood,
@@ -392,7 +393,10 @@
 	cut_overlays()
 	vis_contents = list()
 	if(density)
-		icon_state = "[base_icon]_up"
+		if(anchored)
+			icon_state = "[base_icon]_br"
+		else
+			icon_state = "[base_icon]_up"
 	else
 		icon_state = "[base_icon]_down"
 	if(beaker)
@@ -404,8 +408,11 @@
 		if(percentage < 25)
 			iv.add_overlay(image(icon, "light_low"))
 		if(density)
-			iv.pixel_y = 6
+			iv.pixel_y = 7
 		add_overlay(iv)
+		if(has_iv_light)
+			var/image/light = image(icon, "iv[iv_attached]_l")
+			add_overlay(light)
 	if(vitals)
 		vitals.update_monitor()
 		vis_contents += vitals
@@ -437,6 +444,12 @@
 		remove_beaker(user)
 	else
 		..()
+
+/obj/structure/bed/roller/AltClick(mob/user)
+	if(density && !use_check_and_message(user))
+		anchored = !anchored
+		user.visible_message(SPAN_NOTICE("[user] [anchored ? "locks" : "releases"] \the [src]'s brakes."))
+		update_icon()
 
 /obj/structure/bed/roller/proc/collapse()
 	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), SPAN_NOTICE("You collapse \the [src]"))
@@ -535,6 +548,7 @@
 			if(iv_attached)
 				detach_iv(M, usr)
 		density = FALSE
+		anchored = FALSE
 		MA.pixel_y = 0
 		update_icon()
 
@@ -545,7 +559,7 @@
 	base_icon = "hover"
 	makes_rolling_sound = FALSE
 	held_item = /obj/item/roller/hover
-	patient_shift = 6
+	has_iv_light = FALSE
 
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
@@ -578,10 +592,12 @@
 /obj/item/roller/afterattack(obj/target, mob/user, proximity)
 	if(!proximity)
 		return
-	if(isturf(target))
-		var/turf/T = target
+	var/turf/T = target
+	if(is_type_in_list(target, list(/obj/effect, /obj/structure/lattice)))
+		T = get_turf(target)
+	if(istype(T))
 		if(!T.density)
-			deploy_roller(user, target)
+			deploy_roller(user, T)
 
 /obj/item/roller/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/roller_holder))
