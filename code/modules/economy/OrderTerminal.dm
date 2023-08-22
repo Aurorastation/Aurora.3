@@ -69,7 +69,6 @@
 	ticket_number++
 	T.set_content_unsafe(tickettname, ticket, sum)
 	stamp_receipt(T)
-	flick("kitchenterminal-receipt",src)
 
 /obj/machinery/orderterminal/proc/stamp_receipt(obj/item/paper/R) // Stamps the papers, made into a proc to avoid copy pasting too much
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')

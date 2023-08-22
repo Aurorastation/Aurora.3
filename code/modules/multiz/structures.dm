@@ -341,7 +341,7 @@
 /// These stairs are used for fake depth. They don't go up z-levels.
 /obj/structure/platform_stairs
 	name = "stairs"
-	desc = "These are stairs."
+	desc = "An archaic form of locomotion along the Z-axis."
 	density = FALSE
 	anchored = TRUE
 	icon = 'icons/obj/structure/stairs.dmi'
@@ -367,13 +367,18 @@
 
 /obj/structure/platform
 	name = "platform"
-	desc = "This is a platform."
+	desc = "An archaic method of preventing travel along the X and Y axes if you are on a lower point on the Z-axis."
 	density = TRUE
 	anchored = TRUE
 	flags = ON_BORDER
 	climbable = TRUE
 	icon = 'icons/obj/structure/platforms.dmi'
 	icon_state = "platform"
+	color = COLOR_TILED
+
+/obj/structure/platform/dark
+	icon_state = "platform_dark"
+	color = COLOR_DARK_GUNMETAL
 
 /obj/structure/platform/CanPass(atom/movable/mover, turf/target, height, air_group)
 	if(istype(mover, /obj/item/projectile))
@@ -414,9 +419,17 @@
 /obj/structure/platform/ledge
 	icon_state = "ledge"
 
+/obj/structure/platform/ledge/dark
+	icon_state = "ledge_dark"
+	color = COLOR_DARK_GUNMETAL
+
 /obj/structure/platform/cutout
 	icon_state = "platform_cutout"
 	density = 0
+
+/obj/structure/platform/cutout/dark
+	icon_state = "platform_cutout_dark"
+	color = COLOR_DARK_GUNMETAL
 
 /obj/structure/platform/cutout/CanPass()
 	return TRUE
@@ -428,6 +441,15 @@
 	anchored = TRUE
 	icon = 'icons/obj/structure/platforms.dmi'
 	icon_state = "platform_deco"
+	color = COLOR_TILED
+
+/obj/structure/platform_deco/dark
+	icon_state = "platform_deco_dark"
+	color = COLOR_DARK_GUNMETAL
 
 /obj/structure/platform_deco/ledge
 	icon_state = "ledge_deco"
+
+/obj/structure/platform_deco/ledge/dark
+	icon_state = "ledge_deco_dark"
+	color = COLOR_DARK_GUNMETAL
