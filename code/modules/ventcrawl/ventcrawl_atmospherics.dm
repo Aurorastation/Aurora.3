@@ -111,7 +111,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/handle_z_crawl(var/mob/living/L, var/direction)
 	to_chat(L, SPAN_NOTICE("You start climbing [travel_direction_name] the pipe. This will take a while..."))
 	playsound(loc, 'sound/machines/ventcrawl.ogg', 100, 1, 3)
-	if(!do_after(L, 100, get_turf(src), do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND) || !can_z_crawl(L, direction))
+	if(!do_after(L, 10 SECONDS, get_turf(src), do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND) || !can_z_crawl(L, direction))
 		to_chat(L, SPAN_DANGER("You gave up on climbing [travel_direction_name] the pipe."))
 		return FALSE
 	return ventcrawl_to(L, node2, null)

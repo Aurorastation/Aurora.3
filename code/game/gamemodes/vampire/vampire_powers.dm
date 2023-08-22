@@ -587,7 +587,7 @@
 
 	log_and_message_admins("activated blood heal.")
 
-	while(do_after(src, 20, do_flags = DO_UNIQUE & ~DO_USER_SAME_HAND))
+	while(do_after(src, 2 SECONDS, do_flags = DO_UNIQUE & ~DO_USER_SAME_HAND))
 		if(!(vampire.status & VAMP_HEALING))
 			to_chat(src, SPAN_WARNING("Your concentration is broken! You are no longer regenerating!"))
 			break

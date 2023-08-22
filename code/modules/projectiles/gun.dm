@@ -558,7 +558,7 @@
 
 	mouthshoot = TRUE
 	M.visible_message(SPAN_DANGER("\The [user] sticks \the [src] in their mouth, their finger ready to pull the trigger..."))
-	if(!do_after(user, 40))
+	if(!do_after(user, 4 SECONDS))
 		M.visible_message(SPAN_GOOD("\The [user] takes \the [src] out of their mouth."))
 		mouthshoot = FALSE
 		return

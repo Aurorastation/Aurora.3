@@ -1114,7 +1114,7 @@ About the new airlock wires panel:
 
 				H.visible_message("<b>[H]</b> begins to pry open \the [src]!", SPAN_NOTICE("You begin to pry open \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
 
-				if(!do_after(H, 120, src))
+				if(!do_after(H, 12 SECONDS, src, DO_UNIQUE))
 					return
 
 				var/check = src.open(1)
@@ -1209,19 +1209,19 @@ About the new airlock wires panel:
 
 	cut_delay *= 0.25
 
-	if(do_after(user, cut_delay, src))
+	if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 		to_chat(user, SPAN_NOTICE("You're a quarter way through."))
 		playsound(src, cut_sound, 100, 1)
 
-		if(do_after(user, cut_delay, src))
+		if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 			to_chat(user, SPAN_NOTICE("You're halfway through."))
 			playsound(src, cut_sound, 100, 1)
 
-			if(do_after(user, cut_delay, src))
+			if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 				to_chat(user, SPAN_NOTICE("You're three quarters through."))
 				playsound(src, cut_sound, 100, 1)
 
-				if(do_after(user, cut_delay, src))
+				if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 					playsound(src, cut_sound, 100, 1)
 
 					if(initial_state != bolt_cut_state)

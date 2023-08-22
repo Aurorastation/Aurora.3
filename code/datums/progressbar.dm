@@ -18,6 +18,7 @@
 	var/listindex = 0
 	///The type of our last value for bar_loc, for debugging
 	var/location_type
+	///Whether to immediately destroy a progress bar when full, rather than wait for an animation
 	var/destroy_on_full = FALSE
 
 /datum/progressbar/New(mob/User, goal_number, atom/target)
@@ -58,6 +59,8 @@
 		return
 	last_progress = progress
 	bar.icon_state = "prog_bar_[round(((progress / goal) * 100), 5)]"
+	if(destroy_on_full && progress == goal)
+		QDEL_IN(src, 5)
 
 ///Called on progress end, be it successful or a failure. Wraps up things to delete the datum and bar.
 /datum/progressbar/proc/endProgress()
@@ -68,6 +71,7 @@
 
 	QDEL_IN(src, PROGRESSBAR_ANIMATION_TIME)
 
+///Called on Destroy(). Removes a listindex and moves a progress bar down.
 /datum/progressbar/proc/shiftDown()
 	--listindex
 	bar.pixel_y = 32 + (PROGRESSBAR_HEIGHT * (listindex - 1))

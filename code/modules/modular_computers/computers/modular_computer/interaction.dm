@@ -290,7 +290,7 @@
 
 		to_chat(user, SPAN_NOTICE("You begin repairing the damage to \the [src]..."))
 		playsound(get_turf(src), 'sound/items/Welder.ogg', 100, 1)
-		if(WT.use(round(damage / 75)) && do_after(user, damage / 10))
+		if(WT.use(round(damage / 75)) && do_after(user, damage / 10, src, DO_REPAIR_CONSTRUCT))
 			damage = 0
 			to_chat(user, SPAN_NOTICE("You fully repair \the [src]."))
 		update_icon()
