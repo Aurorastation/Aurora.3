@@ -592,7 +592,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /// Integer. Unique sequential ID from the `do_after` proc used to validate `DO_USER_UNIQUE_ACT` flag checks.
 /mob/var/do_unique_user_handle = 0
 /// The mob currently interacting with the atom during a `do_after` timer. Used to validate `DO_TARGET_UNIQUE_ACT` flag checks.
-/atom/var/do_unique_target_user
+/mob/var/do_unique_target_user
 
 /**
  * Timed actions involving one mob user and (optionally) one target.
@@ -626,7 +626,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/initial_handle
 	if (HAS_FLAG(do_flags, DO_USER_UNIQUE_ACT))
 		initial_handle = sequential_id("/proc/do_after")
-		user.do_unique_target_user = initial_handle
+		user.do_unique_user_handle = initial_handle
 
 	var/do_feedback = HAS_FLAG(do_flags, DO_FAIL_FEEDBACK)
 
@@ -665,10 +665,10 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	. = FALSE
 
-	for (var/time = world.time, time < end_time, time = world.time)
+	while(world.time < end_time)
 		stoplag(1)
 		if (!QDELETED(progbar))
-			progbar.update(time - start_time)
+			progbar.update(world.time - start_time)
 		if (QDELETED(user))
 			. = DO_MISSING_USER
 			break

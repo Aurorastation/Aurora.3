@@ -24,11 +24,11 @@
 /datum/progressbar/New(mob/User, goal_number, atom/target)
 	. = ..()
 	if (!istype(target))
-		EXCEPTION("Invalid target [target] passed in /datum/progressbar")
+		stack_trace("Invalid target [target] passed in /datum/progressbar")
 		qdel(src)
 		return
 	if (QDELETED(User) || !istype(User))
-		EXCEPTION("[isnull(User) ? "Null" : "Invalid"] user passed in /datum/progressbar")
+		stack_trace("[isnull(User) ? "Null" : "Invalid"] user passed in /datum/progressbar")
 		qdel(src)
 		return
 	if (goal_number)
@@ -71,12 +71,6 @@
 
 	QDEL_IN(src, PROGRESSBAR_ANIMATION_TIME)
 
-///Called on Destroy(). Removes a listindex and moves a progress bar down.
-/datum/progressbar/proc/shiftDown()
-	--listindex
-	bar.pixel_y = 32 + (PROGRESSBAR_HEIGHT * (listindex - 1))
-	var/dist_to_travel = 32 + (PROGRESSBAR_HEIGHT * (listindex - 1)) - PROGRESSBAR_HEIGHT
-	animate(bar, pixel_y = dist_to_travel, time = PROGRESSBAR_ANIMATION_TIME, easing = SINE_EASING)
 
 /datum/progressbar/Destroy()
 	if(user)
@@ -84,7 +78,10 @@
 			var/datum/progressbar/progress_bar = pb
 			if(progress_bar == src || progress_bar.listindex <= listindex)
 				continue
-			progress_bar.shiftDown()
+			--listindex
+			bar.pixel_y = 32 + (PROGRESSBAR_HEIGHT * (listindex - 1))
+			var/dist_to_travel = 32 + (PROGRESSBAR_HEIGHT * (listindex - 1)) - PROGRESSBAR_HEIGHT
+			animate(bar, pixel_y = dist_to_travel, time = PROGRESSBAR_ANIMATION_TIME, easing = SINE_EASING)
 
 		LAZYREMOVEASSOC(user.progressbars, bar_loc, src)
 		user = null
