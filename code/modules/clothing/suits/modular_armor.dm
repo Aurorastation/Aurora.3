@@ -600,7 +600,7 @@
 	fighting in the Northern Wildlands from beyond San Colette."
 	desc_extended = "Unfortunately located between the Solarian Restoration Front and the League of Independent \
 	Corporate-Free Systems was a loosely-aligned cluster of fairly wealthy Middle Ring planets that banded \
-	together to form what they refered to as the Middle Ring Shield Pact, a defensive alliance designed to protect \
+	together to form what they referr	ed to as the Middle Ring Shield Pact, a defensive alliance designed to protect \
 	them from their neighbors. The Pact was formed shortly after the collapse of Solarian authority within the Middle Ring, \
 	and it was one of the first powers to emerge in the warlordism following said retreat of Solarian authority. This, combined \
 	with a robust (if arguably megacorporate-owned) local bureaucracy, led to the Pact becoming an island of relative \
@@ -622,9 +622,9 @@
 	Tenth due to their failings, discipline was lax even before the phoron crisis. Despite doubts from many Solarian naval \
 	officers, the Solarian collapse was a time of many surprises, including the Tenth’s shocking rallying under Admiral \
 	Beauchamp to form the so-called Southern Fleet Administration shortly after the general Solarian withdraw from the region \
-	that would come to be known as the Southern Wildlands. The SFA were all but wiped out my the combined forces of the Southern \
+	that would come to be known as the Southern Wildlands. The SFA were all but wiped out by the combined forces of the Southern \
 	Solarian Military District and the Solarian Provisional Government, and have since become a loose band of bandits and pirates \
-	opperating in lawless regions of space throughout the Spur."
+	operating in lawless regions of space throughout the Spur."
 	icon_state = "flagpatch_sfa"
 	item_state = "flagpatch_sfa"
 
@@ -634,12 +634,12 @@
 	Provisional Government's law enforcement."
 	desc_extended = "In the Southern Human Wildlands lay the Solarian Provisional Government, the remnants of the Solarian \
 	Alliance’s massive bureaucratic apparatus that once lorded over the vast majority of the Middle Ring. While it was a mere rump \
-	state compared to the titanic bureaucracy that once managed planets from Mictlan to New Hai Phong and most of its skilled bureaucrats\
+	state compared to the titanic bureaucracy that once managed planets from Mictlan to New Hai Phong and most of its skilled bureaucrats \
 	fled to the what remained of the Alliance, the SPG managed to hold onto a small amount of ground near the Solarian border with the \
 	Wildlands thanks to the presence of the Sixth Middle Ring Battlegroup and unofficial support from the Alliance itself. The SPG aligned \
 	itself closely with the Alliance and the Alliance responded by offering “humanitarian” aid to the region under the SPG’s control. \
 	In response the provisional government stated its clear intentions to rejoin the Alliance when the region around it stabilized. The \
-	Provisional Government has since merged with the Souther Solarian Military District to form the Southern Solarian Reconstruction \
+	Provisional Government has since merged with the Southern Solarian Military District to form the Southern Solarian Reconstruction \
 	Mandate (SSRM) shortly after the civil war in wake of the unrest and casualties that Szalai and MacPherson sought to undo."
 	icon_state = "flagpatch_spg"
 	item_state = "flagpatch_spg"
@@ -670,5 +670,5 @@
 	and was intent on stabilizing the Southern Wildlands pending their reintegration with the Alliance. The Southern District has since merged with the Solarian \
 	Provisional Government to form the Southern Solarian Reconstruction Mandate (SSRM) shortly after the civil war in wake of the unrest and casualties that \
 	Szalai and MacPherson sought to undo."
-	icon_state = "flagpatch_league"
-	item_state = "flagpatch_league"
+	icon_state = "flagpatch_ssmd"
+	item_state = "flagpatch_ssmd"
