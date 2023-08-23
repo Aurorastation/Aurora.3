@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Removed one pixel from the Unathi cigarette mask slot west/east facing sprites."
