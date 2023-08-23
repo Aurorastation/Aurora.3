@@ -48,7 +48,7 @@
 		if(C.use_tool(src, user, 50, volume = 50))
 			to_chat(user,"<span class='notice'>You make a small clearing.</span>")
 			new /obj/structure/clearing(src)
-			diggable = 0
+			diggable = FALSE
 		else
 			to_chat(user,"<span class='notice'>You stop shoveling.</span>")
 
