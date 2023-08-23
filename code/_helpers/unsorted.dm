@@ -592,7 +592,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /// Integer. Unique sequential ID from the `do_after` proc used to validate `DO_USER_UNIQUE_ACT` flag checks.
 /mob/var/do_unique_user_handle = 0
 /// The mob currently interacting with the atom during a `do_after` timer. Used to validate `DO_TARGET_UNIQUE_ACT` flag checks.
-/mob/var/do_unique_target_user
+/atom/var/mob/do_unique_target_user
 
 /**
  * Timed actions involving one mob user and (optionally) one target.
