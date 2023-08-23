@@ -24,7 +24,7 @@
 				to_chat(user, SPAN_NOTICE("You find some seeds as you hack the bush away."))
 			to_chat(user, SPAN_NOTICE("You slice at the bush!"))
 			qdel(src)
-	if(istype(W, /obj/item/material/hatchet))
+	else if(istype(W, /obj/item/material/hatchet))
 		shake_animation()
 		if(W.use_tool(src, user, 50, volume = 50))
 			to_chat(user, SPAN_NOTICE("You chop at the bush!"))

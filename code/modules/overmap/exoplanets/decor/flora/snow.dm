@@ -11,7 +11,7 @@
 		if(W.use_tool(src, user, 10, volume = 50))
 			to_chat(user, SPAN_NOTICE("You slice the grass away with the scythe!"))
 			qdel(src)
-	if(istype(W, /obj/item/material/hatchet))
+	else if(istype(W, /obj/item/material/hatchet))
 		shake_animation()
 		if(W.use_tool(src, user, 50, volume = 50))
 			to_chat(user, SPAN_NOTICE("You chop at the grass!"))
