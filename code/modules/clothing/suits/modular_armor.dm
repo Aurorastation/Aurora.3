@@ -600,7 +600,7 @@
 	fighting in the Northern Wildlands from beyond San Colette."
 	desc_extended = "Unfortunately located between the Solarian Restoration Front and the League of Independent \
 	Corporate-Free Systems was a loosely-aligned cluster of fairly wealthy Middle Ring planets that banded \
-	together to form what they referr	ed to as the Middle Ring Shield Pact, a defensive alliance designed to protect \
+	together to form what they referred to as the Middle Ring Shield Pact, a defensive alliance designed to protect \
 	them from their neighbors. The Pact was formed shortly after the collapse of Solarian authority within the Middle Ring, \
 	and it was one of the first powers to emerge in the warlordism following said retreat of Solarian authority. This, combined \
 	with a robust (if arguably megacorporate-owned) local bureaucracy, led to the Pact becoming an island of relative \
