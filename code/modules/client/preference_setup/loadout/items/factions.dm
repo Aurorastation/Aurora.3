@@ -451,7 +451,6 @@
 	var/list/wildlands_flag_patches = list()
 	wildlands_flag_patches["flagpatch, free solarian fleets"] = /obj/item/clothing/accessory/flagpatch/fsf
 	wildlands_flag_patches["flagpatch, middle ring shield pact"] = /obj/item/clothing/accessory/flagpatch/pact
-	wildlands_flag_patches["flagpatch, solarian fleet administation"] = /obj/item/clothing/accessory/flagpatch/sfa
 	wildlands_flag_patches["flagpatch, solarian provisional government"] = /obj/item/clothing/accessory/flagpatch/spg
 	wildlands_flag_patches["flagpatch, southern solarian military district"] = /obj/item/clothing/accessory/flagpatch/ssmd
 	gear_tweaks += new /datum/gear_tweak/path(wildlands_flag_patches)

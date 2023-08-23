@@ -572,8 +572,8 @@
 	like many successor states, were formerly a Solarian fleet group, the Free Solarian Fleets did not rule over any \
 	planets or claim any greater goals beyond making money hand over fist as mercenaries in the Wildlands. They had \
 	an utter disinterest in conquering and holding territory of their own, instead opting to serve as a mercenary fleet \
-	for the highest bidder in the Wildlands. Fighting for the Middle Ring Shield Pact during the war in the Northern \
-	Wildlands, the Free Fleets rejoined with the Alliance, now once again part of the Solarian Navy."
+	for the highest bidder in the Wildlands. The group fought alongside the Middle Ring Shield Pact in the war in the \
+	Northern Wildlands."
 	icon_state = "flagpatch_fsf"
 	item_state = "flagpatch_fsf"
 
