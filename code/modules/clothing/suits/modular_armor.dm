@@ -650,7 +650,7 @@
 	of the Front across the Spur, wearing this would be a bold move."
 	desc_extended = "Extremely nationalistic even by the standards of the authoritarian Solarian Alliance, the Solarian \
 	Restoration Front is often rightfully viewed as the most militaristic of the Solarian successor states that jockied for control \
-	of the Wildlands that now made up the former Middle and Outer Rings of the Solarian Alliance. The Front believed that the Alliance’s \
+	of the Wildlands that had made up the former Middle and Outer Rings of the Solarian Alliance. The Front believed that the Alliance’s \
 	third Tajara ban was both not enough and too soft on aliens in the Alliance, and they viewed this softness as the main cause for its collapse. \
 	Thus the Front strived to create a highly-militarized, extremely authoritarian, and human-only state in the Wildlands as a basis for purifying \
 	the Sol Alliance itself of degenerating alien influence, no matter the cost. Defeated by a surprise intervention in the Northern Wildlands by \
