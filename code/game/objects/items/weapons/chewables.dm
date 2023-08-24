@@ -159,6 +159,11 @@
 		/singleton/reagent/drink/dynjuice = 1
 	)
 
+/obj/item/clothing/mask/chewable/oracle
+	name = "chewing oracle"
+	desc = "A chewy wad of oracle. Cut in long strands."
+	reagents_to_add = list(/singleton/reagent/toxin/oracle = 2)
+
 /obj/item/clothing/mask/chewable/candy
 	name = "wad"
 	desc = "A chewy wad of wadding material."

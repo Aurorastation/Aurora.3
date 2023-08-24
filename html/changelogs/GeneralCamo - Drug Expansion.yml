@@ -44,7 +44,7 @@ changes:
   - tweak: "Oxycomorphine is now effective when inhaled."
   - rscadd: "Added heroin, an extremely potent but dangerous drug."
   - rscadd: "Added cocaine, a potent drug that can be refined from coca leaves."
-  - rscadd: "Added oracle, a plant originating from Vysoka that contains caromeg, and can be used as a tobacco alternative."
+  - rscadd: "Added oracle, a plant originating from Vysoka that contains caromeg, and can be used as a tobacco alternative. Sprites by Wezzy."
   - rscadd: "Added caromeg, a nicotine alternative that promotes sociability and pleasure."
   - tweak: "Joy now causes genetic damage, and requires heroin in its recipe instead of oxycomorphine."
   - tweak: "Adhomian cigarettes from the NKA now contain menthol, a minty additive."

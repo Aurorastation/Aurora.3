@@ -520,6 +520,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/cigar/oracle
 	name = "\improper Vedamor cigar"
 	desc = "A premium oracle cigar, originating from Vedamor."
+	icon_state = "vedamor_cigaroff"
+	icon_on = "vedamor_cigaron"
+	icon_off = "vedamor_cigaroff"
+	item_state = "vedamor_cigaroff"
 	reagents_to_add = list(
 		/singleton/reagent/toxin/oracle/rich = 25,
 		/singleton/reagent/mental/caromeg = 5
