@@ -208,6 +208,10 @@
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 12 : -12)
 	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : 0) : 0
 
+/obj/machinery/light/floor/set_pixel_offsets()
+	pixel_x = pixel_x
+	pixel_y = pixel_y
+
 /obj/machinery/light/update_icon()
 	cut_overlays()
 	if ((status == LIGHT_EMPTY) || !fitting_has_empty_icon)
