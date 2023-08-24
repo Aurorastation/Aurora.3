@@ -3514,7 +3514,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "daa" = (
-/obj/machinery/firealarm/north,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Hallway 3"
 	},
@@ -4287,14 +4286,15 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/obj/structure/sign/nosmoking_2{
-	pixel_y = 32
-	},
 /obj/structure/coatrack{
 	pixel_x = -10;
 	pixel_y = 25
 	},
 /obj/machinery/computer/arcade/battle,
+/obj/machinery/camera/motion{
+	c_tag = "Telecommunications - Spare Parts Room";
+	network = list("Command","Security","Telecommunications")
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "dHJ" = (
@@ -4520,6 +4520,9 @@
 	target_pressure = 200
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "dSw" = (
@@ -5174,6 +5177,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/shields)
+"epz" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "eqk" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/security_starboard)
@@ -6025,9 +6037,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Conference Room";
 	dir = 8
@@ -6412,9 +6421,6 @@
 "fjG" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
 	},
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
@@ -7696,6 +7702,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "gcM" = (
@@ -8084,6 +8091,10 @@
 	on = 0
 	},
 /obj/structure/table/standard,
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Morgue";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
 "guk" = (
@@ -11584,6 +11595,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
+"jaP" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/port/docks)
 "jaU" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -13146,10 +13166,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Representative's Office";
-	dir = 8
-	},
 /obj/machinery/newscaster/east,
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
@@ -13211,6 +13227,10 @@
 /obj/item/folder/yellow,
 /obj/item/storage/secure/safe{
 	pixel_x = 32
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Representative's Office";
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
@@ -13791,9 +13811,6 @@
 "kMa" = (
 /obj/machinery/light{
 	dir = 1
-	},
-/obj/structure/sign/nosmoking_2{
-	pixel_y = 32
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -14902,10 +14919,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/camera/motion{
-	c_tag = "Telecommunications - Spare Parts Room";
-	network = list("Command","Security","Telecommunications")
-	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcommsat/entrance)
 "lzn" = (
@@ -16115,6 +16128,9 @@
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Classroom";
 	dir = 8
+	},
+/obj/structure/sign/nosmoking_2{
+	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
 /area/horizon/security/meeting_room)
@@ -18596,6 +18612,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/tiled,
 /area/operations/office_aux)
 "ooU" = (
@@ -19677,6 +19694,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
+"pdq" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/bridge/meeting_room)
 "pem" = (
 /obj/structure/bed/stool/padded/blue,
 /turf/simulated/floor/tiled/dark,
@@ -20128,9 +20157,6 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
-	},
-/obj/machinery/light/small{
-	dir = 1
 	},
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
@@ -22611,10 +22637,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/camera/network/security{
-	c_tag = "Security - Morgue";
-	dir = 8
-	},
 /obj/machinery/light_switch{
 	dir = 8;
 	pixel_x = 24;
@@ -22771,7 +22793,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/tiled,
 /area/operations/office_aux)
 "rTt" = (
@@ -24144,9 +24165,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "sPe" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
@@ -25240,9 +25258,6 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/firealarm/north,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
@@ -25839,7 +25854,7 @@
 	specialfunctions = 4
 	},
 /obj/machinery/button/switch/windowtint{
-	dir = 4;
+	dir = 5;
 	id = "bridgeconf";
 	pixel_x = -4
 	},
@@ -27870,6 +27885,9 @@
 	pixel_y = -7;
 	specialfunctions = 4
 	},
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/washroom)
 "vIe" = (
@@ -28566,9 +28584,6 @@
 /area/horizon/security/evidence_storage)
 "wjr" = (
 /obj/machinery/alarm/east,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "wky" = (
@@ -29746,9 +29761,6 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/power/apc/north,
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -30264,6 +30276,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "xsC" = (
@@ -41704,7 +41717,7 @@ wGH
 wGH
 wGH
 dce
-pTP
+epz
 oRv
 wev
 iPk
@@ -54242,7 +54255,7 @@ ktP
 qbu
 ktP
 eZl
-ktP
+pdq
 uvy
 jCO
 sIz
@@ -60692,7 +60705,7 @@ wGH
 mIx
 mIx
 mIx
-ssw
+jaP
 oLM
 mIx
 nFG
