@@ -373,6 +373,7 @@
 	pmcg_sec_uniforms["EPMC detective uniform"] = /obj/item/clothing/under/det/pmc/alt
 	pmcg_sec_uniforms["wildlands squadron uniform"] = /obj/item/clothing/under/rank/security/pmc/wildlands_squadron
 	pmcg_sec_uniforms["Dagamuir Freewater uniform"] = /obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
+	pmcg_sec_uniforms["Ve'katak Phalanx uniform"] = /obj/item/clothing/under/rank/security/pmc/vekatak_phalanx
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
 
 /datum/gear/faction/erisec_patch
@@ -435,6 +436,7 @@
 	epmc_uniform_fr_med["EPMC first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
 	epmc_uniform_fr_med["PMCG first responder uniform, alt"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/alt
 	epmc_uniform_fr_med["Sekhmet Intergalactic first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/sekh
+	epmc_uniform_fr_med["Ve'katak Phalanx first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/vekatak_phalanx
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_fr_med)
 
 //Zeng-Hu
