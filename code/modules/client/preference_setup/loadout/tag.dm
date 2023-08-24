@@ -12,6 +12,7 @@ var/list/tag_group_department = list(
 	DEPARTMENT_SCIENCE,
 	DEPARTMENT_CARGO,
 	DEPARTMENT_SERVICE,
+	"No Department Restriction"
 )
 var/list/tag_group_corp = list(
 	"Stellar Corporate Conglomerate", // as anyone can take SCC items, this tag needs to be manually added
@@ -22,9 +23,10 @@ var/list/tag_group_corp = list(
 	"Private Military Contracting Group",
 	"Zavodskoi Interstellar",
 	"Zeng-Hu Pharmaceuticals",
+	"No Corporation Restriction",
 )
 var/list/tag_group_slot = list() // filled below
-var/list/tag_group_species = list("Human", "Skrell", "Tajara", "Unathi", "Diona", "Vaurca", "IPC")
+var/list/tag_group_species = list("Human", "Skrell", "Tajara", "Unathi", "Diona", "Vaurca", "IPC", "No Species Restriction")
 
 // ------------------------------ manual/other tag groups
 // Manual tags need to be manually added to the item, like `tags = list("Toy")`.
@@ -40,11 +42,11 @@ var/list/tag_group_other = list(
 )
 
 // ------------------------------ all tag groups
-#define TAG_GROUP_DEPT "Department restriction tags"
-#define TAG_GROUP_CORP "Corporation tags"
-#define TAG_GROUP_SLOT "Item slot tags"
-#define TAG_GROUP_SPECIES "Species restriction tags"
-#define TAG_GROUP_OTHER "Other tags"
+#define TAG_GROUP_DEPT "Department Restriction Tags"
+#define TAG_GROUP_CORP "Corporation Tags"
+#define TAG_GROUP_SLOT "Item Slot Tags"
+#define TAG_GROUP_SPECIES "Species Restriction Tags"
+#define TAG_GROUP_OTHER "Other Tags"
 var/list/tag_groups_all = list(
 	TAG_GROUP_DEPT = tag_group_department,
 	TAG_GROUP_CORP = tag_group_corp,
@@ -96,14 +98,19 @@ var/list/tag_groups_all = list(
 		DEPARTMENT_CARGO = cargo_positions,
 		DEPARTMENT_SERVICE = service_positions
 	)
-	for(var/department in departments_and_jobs)
-		for(var/position in departments_and_jobs[department])
-			if(position in gear.allowed_roles)
-				gear.tags |= department
-				break
+	if(gear.allowed_roles && gear.allowed_roles.len)
+		for(var/department in departments_and_jobs)
+			for(var/position in departments_and_jobs[department])
+				if(position in gear.allowed_roles)
+					gear.tags |= department
+					break
+	else
+		gear.tags |= "No Department Restriction"
 	// ---- tag_group_corp
 	if(gear.faction)
 		gear.tags |= gear.faction
+	else
+		gear.tags |= "No Corporation Restriction"
 	// ---- tag_group_slot
 	if(gear.slot)
 		var/s = slot_to_string(gear.slot)
@@ -111,12 +118,15 @@ var/list/tag_groups_all = list(
 			tag_group_slot |= s
 			gear.tags |= s
 	// ---- tag_group_species
-	for(var/tag in tag_group_species)
-		for(var/specie in gear.whitelisted)
-			if(findtext(specie, tag))
-				gear.tags |= tag
-			if(findtext(specie, "Frame"))
-				gear.tags |= "IPC"
+	if(gear.whitelisted && gear.whitelisted.len)
+		for(var/tag in tag_group_species)
+			for(var/specie in gear.whitelisted)
+				if(findtext(specie, tag))
+					gear.tags |= tag
+				if(findtext(specie, "Frame"))
+					gear.tags |= "IPC"
+	else
+		gear.tags |= "No Species Restriction"
 	// ---- tagless tag, shouldn't happen ever, but kept as a failsafe
 	if(gear.tags.len == 0)
 		tag_group_other |= "tagless"

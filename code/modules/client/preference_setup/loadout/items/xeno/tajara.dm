@@ -520,7 +520,6 @@
 	description = "High-heeled shoes, in a selection of colours. Fitted for Tajara."
 	path = /obj/item/clothing/shoes/tajara
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/shoes/tajara/heels/New()
 	..()
@@ -535,7 +534,6 @@
 	description = "Loafers, in a selection of colours. Fitted for Tajara."
 	path = /obj/item/clothing/shoes/tajara/loafers
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/shoes/tajara/loafers/New()
 	..()

@@ -58,7 +58,8 @@ var/list/tag_related_tags = list()
 	var/current_tab = "General"
 	var/gear_reset = FALSE
 	var/search_input_value = ""
-	var/list/selected_tags = list()
+	/// default tags when loadout is first opened
+	var/list/selected_tags = list("No Species Restriction", "No Department Restriction", "No Corporation Restriction")
 
 /datum/category_item/player_setup_item/loadout/load_character(var/savefile/S)
 	S["gear"] >> pref.gear
@@ -211,6 +212,8 @@ var/list/tag_related_tags = list()
 	var/ticked_items_html = "" // to be added to the top/beginning of the list
 	var/available_items_html = "" // to be added to the middle of the list
 	var/unavailable_items_html = "" // to be added to the end/bottom of the list
+	var/max_visible_items = 100 // max of items to show in the loadout
+	var/items_matching_tags = 0 // items that could potentially be shown in the loadout (but may not be if over max_visible_items)
 
 	var/list/player_valid_gear_choices = valid_gear_choices()
 
@@ -232,6 +235,13 @@ var/list/tag_related_tags = list()
 				has_all_selected_tags = FALSE
 				break
 		if(!has_all_selected_tags)
+			continue
+
+		// now this item matches all tags and could potentially be displayed in the loadout
+		items_matching_tags++
+
+		// to avoid showing too many items and lagging the loadout/server
+		if(items_matching_tags >= max_visible_items)
 			continue
 
 		var/temp_html = ""
@@ -326,6 +336,14 @@ var/list/tag_related_tags = list()
 	. += ticked_items_html
 	. += unavailable_items_html
 	. += available_items_html
+
+	. += "<tr><td colspan=3>"
+	. += "Items displayed: [Clamp(items_matching_tags,0,max_visible_items)]/[max_visible_items]<br>"
+	if(items_matching_tags >= max_visible_items)
+		. += "Items not displayed: [items_matching_tags-max_visible_items]<br>"
+		. += "Select more restrictive tags to see the other items.<br>"
+	. += "</td></tr>"
+
 	. += "</table>"
 	. = jointext(.,null)
 
