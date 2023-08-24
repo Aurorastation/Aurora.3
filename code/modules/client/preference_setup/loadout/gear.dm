@@ -13,7 +13,8 @@
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
 	var/flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	var/augment = FALSE
-	var/list/tags = list() //Tags of this gear. Some tags are added automatically. See `tag.dm`.
+	/// Tags of this gear. Some tags are added automatically. See `tag.dm`.
+	var/list/tags = list()
 
 /datum/gear/New()
 	..()
@@ -103,32 +104,36 @@
 		return FALSE
 	return TRUE
 
-// arg should be a faction name string
+/// True if character of faction can take this item, otherwise false.
+/// Arg is faction name string.
 /datum/gear/proc/check_faction(var/faction_)
 	if((faction && faction_ && faction_ != "None" && faction_ != "Stellar Corporate Conglomerate") && (faction != faction_))
 		return FALSE
 	return TRUE
 
-// arg should be a role name string
+/// True if character of this role can take this item, otherwise false.
+/// Arg is role name string.
 /datum/gear/proc/check_role(var/role)
 	if(role && allowed_roles && !(role in allowed_roles))
 		return FALSE
 	return TRUE
 
-// arg should be a culture path
+/// True if character of this culture can take this item, otherwise false.
+/// Arg is culture path.
 /datum/gear/proc/check_culture(var/culture)
 	if(culture && culture_restriction && !(culture in culture_restriction))
 		return FALSE
 	return TRUE
 
-// arg should be a origin path
+/// True if character of this origin can take this item, otherwise false.
+/// Arg is origin path.
 /datum/gear/proc/check_origin(var/origin)
 	if(origin && origin_restriction && !(origin in origin_restriction))
 		return FALSE
 	return TRUE
 
-// returns the list of any possible item paths of this gear
-// either a list with just the path var, or the paths list from gear tweaks
+/// Returns a list of any possible item paths of this gear.
+/// Either a list with just the path var, or the paths list from gear tweaks.
 /datum/gear/proc/get_paths()
 	var/datum/gear_tweak/path/tweak = locate(/datum/gear_tweak/path) in gear_tweaks
 	if(tweak && istype(tweak))

@@ -1,14 +1,17 @@
-// gear datums list
-// index is initial(gear.display_name), value is actual /datum/gear object
+/// Map of gear datums.
+/// Index is initial(gear.display_name), value is actual /datum/gear object.
 var/list/gear_datums = list()
 
-// all gear names that have a tag
-// index is tag name, value is a list of initial(gear.display_name)
+/// Map of all gear names that have a tag.
+/// Index is tag name, value is a list of initial(gear.display_name).
 var/list/tag_gear_names = list()
 
-// index is tag name, value is any tags of items that also have this tag
-// for example, we have items and their tags: 1{A,B,C}, 2{A,D,E}, 3{B,F,G}
-// then A index in this list will have list(A,B,C,D,E), cause items 1 and 2 have those tags
+/// Map of related tags.
+/// Index is tag name, value is any tags of items that also have this tag.
+/// --
+/// This is a way to show which tags are "related".
+/// "Uniform" and "Zavodskoi Interstellar" are related, as there are zavod uniforms that have both these tags.
+/// "Uniform" and "Glasses" are not related, as there are no items that are at the same time uniform and glasses.
 var/list/tag_related_tags = list()
 
 /datum/loadout_category
@@ -55,10 +58,9 @@ var/list/tag_related_tags = list()
 /datum/category_item/player_setup_item/loadout
 	name = "Loadout"
 	sort_order = 1
-	var/current_tab = "General"
 	var/gear_reset = FALSE
 	var/search_input_value = ""
-	/// default tags when loadout is first opened
+	/// Default tags for when the loadout is first opened.
 	var/list/selected_tags = list("No Species Restriction", "No Department Restriction", "No Corporation Restriction")
 
 /datum/category_item/player_setup_item/loadout/load_character(var/savefile/S)
