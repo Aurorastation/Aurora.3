@@ -5,3 +5,4 @@ delete-after: True
 changes:
   - rscadd: "You can now use an autoinjector on yourself by using it in-hand."
   - tweak: "You can now equip, swap hands, and wield two-handed weapons/guns despite your other hand being occupied, as that hand will automatically drop its item."
+  - tweak: "Securing reagents on autoinjectors is now done via alt click."
