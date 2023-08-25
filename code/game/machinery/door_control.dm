@@ -1,7 +1,6 @@
 /obj/machinery/button/remote
 	name = "remote object control"
 	desc = "It controls objects, remotely."
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "doorctrl0"
 	power_channel = ENVIRON
 	var/desiredstate = 0
