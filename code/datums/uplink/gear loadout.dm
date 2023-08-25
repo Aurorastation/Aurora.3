@@ -58,13 +58,13 @@
 
 /datum/uplink_item/item/gear_loadout/cowboys
 	name = "Frontier Cowboys (Group)"
-	path = /obj/structure/closet/crate/secure/gear_loadout/ram_ranch
-	telecrystal_cost = 35
+	path = /obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys
+	telecrystal_cost = 15
 
 /datum/uplink_item/item/gear_loadout/cowboy_single
 	name = "Frontier Cowboy (Single)"
-	path = /obj/structure/closet/crate/secure/gear_loadout/ram_ranch/single
-	telecrystal_cost = 10
+	path = /obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/single
+	telecrystal_cost = 5
 
 /datum/uplink_item/item/gear_loadout/kosmostrelki
 	name = "Kosmostrelki Assets (Group)"

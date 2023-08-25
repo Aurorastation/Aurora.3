@@ -81,5 +81,10 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/nralakk(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
+		else if(isskrell(H))
+			backpack_contents = list(
+				/obj/item/device/camera = 1,
+				/obj/item/gun/energy/psipistol = 1
+			)
 		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
-	return TRUE
+		return TRUE
