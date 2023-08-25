@@ -508,8 +508,7 @@
 /obj/structure/window/borosilicate
 	name = "borosilicate glass pane"
 	desc = "A borosilicate alloy window. It seems to be quite strong."
-	basestate = "phoronwindow"
-	icon_state = "phoronwindow"
+	color = GLASS_COLOR_PHORON
 	shardtype = /obj/item/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronglass
 	maximal_heat = T0C + 2000
@@ -519,8 +518,7 @@
 /obj/structure/window/borosilicate/reinforced
 	name = "reinforced borosilicate glass pane"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
-	basestate = "phoronrwindow"
-	icon_state = "phoronrwindow"
+	color = GLASS_COLOR_PHORON_R
 	glasstype = /obj/item/stack/material/glass/phoronrglass
 	reinf = TRUE
 	maximal_heat = T0C + 4000
@@ -529,8 +527,7 @@
 /obj/structure/window/borosilicate/reinforced/skrell
 	name = "advanced borosilicate alloy window"
 	desc = "A window made out of a higly advanced borosilicate alloy. It seems to be extremely strong."
-	basestate = "phoronwindow"
-	icon_state = "phoronwindow"
+	color = GLASS_COLOR_PHORON
 	maxhealth = 250
 
 /********** Shuttle Windows **********/

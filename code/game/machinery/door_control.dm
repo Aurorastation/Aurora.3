@@ -183,7 +183,6 @@
 /obj/machinery/button/remote/driver
 	name = "mass driver button"
 	desc = "A remote control switch for a mass driver."
-	icon = 'icons/obj/objects.dmi'
 	icon_state = "launcherbtt"
 
 /obj/machinery/button/remote/driver/trigger(mob/user as mob)

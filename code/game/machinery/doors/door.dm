@@ -606,14 +606,3 @@
 	if(invert)
 		return src.density
 	return !src.density
-
-/obj/machinery/door/morgue
-	icon = 'icons/obj/doors/doormorgue.dmi'
-
-/obj/machinery/door/do_simple_ranged_interaction(var/mob/user)
-	if(!requiresID() || allowed(null))
-		if(can_open())
-			open() //Whoever didn't write a toggle proc for airlocks, I hope you step on a lego.
-		else if(can_close())
-			close()
-	return TRUE

@@ -288,6 +288,9 @@
 /obj/item/stack/packageWrap,
 /obj/item/reagent_containers/food/drinks/shaker,
 /obj/machinery/newscaster/west,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "ahm" = (
@@ -326,6 +329,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/bedsheet/mime,
 /obj/structure/bed/padded,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/carpet,
 /area/horizon/bar/backroom)
 "aic" = (
@@ -1515,9 +1521,6 @@
 /turf/simulated/floor/wood,
 /area/maintenance/wing/starboard)
 "aIj" = (
-/obj/machinery/camera/network/second_deck{
-	c_tag = "Second Deck - Hallway 2"
-	},
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
@@ -1907,9 +1910,6 @@
 /obj/machinery/power/apc/west,
 /obj/structure/cable/green{
 	icon_state = "0-4"
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -2918,6 +2918,7 @@
 "bpF" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/secure_closet/freezer/chicken_and_fish,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -2955,19 +2956,15 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/sign/radiation{
-	pixel_y = 32
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "engineering_storage";
-	name = "Engineering Hard Storage";
-	pixel_x = -25;
-	pixel_y = 25;
-	req_one_access = list(11,24)
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 6;
+	id = "engineering_storage";
+	name = "Engineering Hard Storage";
+	pixel_y = 25;
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
@@ -5049,6 +5046,7 @@
 	dir = 6
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "AICoreFoyer";
 	name = "AI Foyer Maintenance Blast Door";
 	pixel_y = 25;
@@ -5214,9 +5212,9 @@
 /area/horizon/security/brig)
 "cwO" = (
 /obj/machinery/light_switch{
-	dir = 4;
+	dir = 8;
 	pixel_x = -24;
-	pixel_y = -23
+	pixel_y = -29
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -5991,8 +5989,9 @@
 "cSN" = (
 /obj/machinery/button/switch/crematorium{
 	_wifi_id = "xenobio_crema";
-	pixel_x = -32;
-	pixel_y = 25;
+	dir = 8;
+	pixel_x = -20;
+	pixel_y = 34;
 	req_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -7652,6 +7651,7 @@
 	},
 /obj/machinery/button/remote/airlock/screamer{
 	channel = "Command";
+	dir = 1;
 	id = "airlocks_deck2_ammostorage";
 	message = "The secure ammunition storage door bolts have been toggled.";
 	name = "Door Bolt Control";
@@ -7661,6 +7661,7 @@
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "shutters_deck1_ammostorage";
 	name = "Blast Door Control";
 	pixel_x = -40;
@@ -7964,11 +7965,11 @@
 	},
 /obj/structure/railing/mapped,
 /obj/machinery/button/remote/blast_door{
-	dir = 8;
+	dir = 4;
 	id = "shutters_deck2_hydroponicswindowssafety";
 	name = "Viewing Shutters";
-	pixel_x = 25;
-	pixel_y = -7
+	pixel_x = 19;
+	pixel_y = 5
 	},
 /turf/simulated/open,
 /area/horizon/hydroponics)
@@ -8968,6 +8969,30 @@
 /obj/structure/cable/orange{
 	icon_state = "1-2"
 	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the engine control room blast doors.";
+	id = "EngineBlast";
+	name = "Supermatter Reactor Monitoring Room Blast Doors";
+	pixel_y = -3;
+	req_one_access = list(11,24)
+	},
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the engine charging port.";
+	id = "SupermatterPort";
+	name = "Supermatter Reactor Crystal Viewing Blast Doors";
+	pixel_x = -6;
+	pixel_y = 7;
+	req_one_access = list(11,24)
+	},
+/obj/machinery/button/remote/emitter{
+	desc = "A remote control-switch for the supermatter reactor's emitter.";
+	id = "ReactorEmitter";
+	name = "Supermatter Reactor Emitter";
+	pixel_x = 6;
+	pixel_y = 7;
+	req_one_access = list(11,24)
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "exu" = (
@@ -9896,9 +9921,6 @@
 "eWX" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
-	},
-/obj/machinery/camera/network/security{
-	c_tag = "Security - Communal Observation"
 	},
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
@@ -11098,7 +11120,7 @@
 /area/horizon/zta)
 "fAK" = (
 /obj/machinery/button/remote/airlock{
-	dir = 8;
+	dir = 4;
 	id = "CEdoor";
 	name = "Office Door Control";
 	pixel_x = 25;
@@ -11106,16 +11128,20 @@
 	req_access = list(56)
 	},
 /obj/machinery/button/switch/windowtint{
-	dir = 8;
+	dir = 4;
 	id = "ce";
 	pixel_x = 24;
 	pixel_y = 2;
 	range = 9
 	},
 /obj/machinery/light_switch{
-	dir = 8;
+	dir = 4;
 	pixel_x = 24;
-	pixel_y = 9
+	pixel_y = 12
+	},
+/obj/machinery/keycard_auth{
+	dir = 8;
+	pixel_x = 19
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
@@ -12425,9 +12451,6 @@
 /obj/item/clothing/glasses/welding/superior,
 /obj/item/clothing/head/hardhat/firefighter/chief,
 /obj/item/rig/ce/equipped,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/machinery/status_display{
 	pixel_y = 32
 	},
@@ -14755,10 +14778,11 @@
 "hfx" = (
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for engine core.";
-	dir = 4;
+	dir = 8;
 	id = "EngineVent";
 	name = "Supermatter Reactor Emergency Ventilatory Control";
-	pixel_x = -25;
+	pixel_x = -21;
+	pixel_y = 4;
 	req_access = list(10)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -17137,6 +17161,10 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Kitchen Freezer";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -19957,9 +19985,6 @@
 	req_access = list(56)
 	},
 /obj/item/rfd/construction,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/chief)
 "jDt" = (
@@ -20362,8 +20387,8 @@
 /obj/machinery/power/apc/high/south,
 /obj/structure/cable/green,
 /obj/machinery/light_switch{
-	pixel_x = -26;
-	pixel_y = -6
+	dir = 8;
+	pixel_x = -19
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -21216,6 +21241,9 @@
 	icon_state = "2-8"
 	},
 /obj/structure/table/standard,
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Communal Observation"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "khK" = (
@@ -21494,6 +21522,14 @@
 /obj/machinery/camera/network/research{
 	c_tag = "Research - XenoBotanical Lab";
 	dir = 4
+	},
+/obj/machinery/requests_console/north{
+	department = "Xenobotany";
+	departmentType = 2;
+	dir = 8;
+	name = "Xenobotany Requests Console";
+	pixel_x = -19;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
@@ -23400,6 +23436,7 @@
 "lss" = (
 /obj/item/modular_computer/console/preset/supply,
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "cargo_desk";
 	pixel_x = -7;
 	pixel_y = 25
@@ -23748,6 +23785,9 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/camera/network/second_deck{
+	c_tag = "Second Deck - Hallway 2"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "lDs" = (
@@ -25149,9 +25189,6 @@
 /obj/item/material/hatchet/butch,
 /obj/item/material/hook,
 /obj/structure/table/standard,
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -25287,11 +25324,11 @@
 	dir = 5
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 8;
+	dir = 4;
 	id = "engineering_storage";
 	name = "Engineering Hard Storage";
-	pixel_x = 25;
-	pixel_y = 25;
+	pixel_x = 21;
+	pixel_y = 34;
 	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled,
@@ -25696,29 +25733,6 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/obj/machinery/keycard_auth{
-	pixel_x = -5;
-	pixel_y = -25
-	},
-/obj/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for engine core.";
-	dir = 1;
-	id = "EngineVent";
-	name = "Supermatter Reactor Emergency Ventilatory Control";
-	pixel_x = 7;
-	pixel_y = -25;
-	req_access = list(10)
-	},
-/obj/machinery/button/remote/airlock{
-	desc = "A remote control-switch for the engine core airlock hatch bolts.";
-	dir = 1;
-	id = "engine_access_hatch";
-	name = "Supermatter Reactor Crystal Access Bolts Control";
-	pixel_x = 7;
-	pixel_y = -35;
-	req_access = list(10);
-	specialfunctions = 4
-	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "mxO" = (
@@ -26756,6 +26770,23 @@
 /obj/structure/table/standard,
 /obj/item/stamp/ce,
 /obj/item/paper/monitorkey,
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for engine core.";
+	id = "EngineVent";
+	name = "Supermatter Reactor Emergency Ventilatory Control";
+	pixel_x = 7;
+	pixel_y = 10;
+	req_access = list(10)
+	},
+/obj/machinery/button/remote/airlock{
+	desc = "A remote control-switch for the engine core airlock hatch bolts.";
+	id = "engine_access_hatch";
+	name = "Supermatter Reactor Crystal Access Bolts Control";
+	pixel_x = -7;
+	pixel_y = 10;
+	req_access = list(10);
+	specialfunctions = 4
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "mVO" = (
@@ -29724,6 +29755,14 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/machinery/ringer/north{
+	department = "Engineering";
+	dir = 8;
+	id = "engie_ringer";
+	pixel_x = -10;
+	pixel_y = 0;
+	req_access = list(11)
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "osv" = (
@@ -31538,6 +31577,7 @@
 "pmb" = (
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for shutters.";
+	dir = 4;
 	id = "xenobio";
 	name = "Xenobiology Emergency Lockdown Control";
 	pixel_x = 25;
@@ -38508,9 +38548,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring)
 "sOe" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
@@ -38853,10 +38890,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "4-8"
-	},
-/obj/machinery/camera/network/service{
-	c_tag = "Dinner - Kitchen Stairwell";
-	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/stairwell/bridge)
@@ -39678,10 +39711,6 @@
 /area/horizon/exterior)
 "tvk" = (
 /obj/machinery/alarm/freezer/west,
-/obj/machinery/camera/network/service{
-	c_tag = "Dinner - Kitchen Freezer";
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -41279,9 +41308,6 @@
 /obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "uhE" = (
@@ -41735,10 +41761,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 1;
 	id = "AICoreFoyer";
 	name = "AI Foyer Maintenance Blast Door";
-	pixel_y = -25
+	pixel_y = -19
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -42020,6 +42045,9 @@
 /obj/machinery/reagentgrinder{
 	pixel_x = 4;
 	pixel_y = 18
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar)
@@ -44170,6 +44198,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Kitchen Stairwell"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/stairwell/bridge)
 "vDT" = (
@@ -44675,30 +44706,6 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for the engine charging port.";
-	id = "SupermatterPort";
-	name = "Supermatter Reactor Crystal Viewing Blast Doors";
-	pixel_x = -6;
-	pixel_y = 7;
-	req_one_access = list(11,24)
-	},
-/obj/machinery/button/remote/emitter{
-	desc = "A remote control-switch for the supermatter reactor's emitter.";
-	id = "ReactorEmitter";
-	name = "Supermatter Reactor Emitter";
-	pixel_x = 6;
-	pixel_y = 7;
-	req_one_access = list(11,24)
-	},
-/obj/machinery/button/remote/blast_door{
-	desc = "A remote control-switch for the engine control room blast doors.";
-	id = "EngineBlast";
-	name = "Supermatter Reactor Monitoring Room Blast Doors";
-	pixel_y = -3;
-	req_one_access = list(11,24)
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
@@ -44942,6 +44949,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -46722,7 +46732,7 @@
 /area/operations/break_room)
 "wGh" = (
 /obj/machinery/light_switch{
-	dir = 4;
+	dir = 8;
 	pixel_x = -24;
 	pixel_y = 9
 	},
@@ -48088,11 +48098,6 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/ringer/north{
-	department = "Engineering";
-	id = "engie_ringer";
-	req_access = list(11)
-	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -48213,6 +48218,9 @@
 /obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Supermatter Reactor Access";
 	dir = 1
+	},
+/obj/structure/sign/radiation{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/engine_airlock)
@@ -49633,11 +49641,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "xXM" = (
-/obj/machinery/requests_console/north{
-	department = "Xenobotany";
-	departmentType = 2;
-	name = "Xenobotany Requests Console"
-	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},

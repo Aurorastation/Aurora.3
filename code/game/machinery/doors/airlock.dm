@@ -711,7 +711,7 @@
 	hashatch = FALSE
 
 /obj/machinery/door/airlock/highsecurity
-	name = "Secure Airlock"
+	name = "secure airlock"
 	icon = 'icons/obj/doors/hightechsecurity.dmi'
 	explosion_resistance = 20
 	secured_wires = TRUE
