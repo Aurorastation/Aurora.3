@@ -154,11 +154,6 @@
 	icon_state = "construction" //only have icons for the glass version
 	dir = EAST
 	width = 2
-
-/*Temporary until we get sprites.
-	glass_type = "/multi_tile/glass"
-	airlock_type = "/multi_tile/maint"
-	glass = 1*/
 	base_icon_state = "g" //Remember to delete this line when reverting "glass" var to 1.
 	airlock_type = "/multi_tile/glass"
 	glass = -1 //To prevent bugs in deconstruction process.

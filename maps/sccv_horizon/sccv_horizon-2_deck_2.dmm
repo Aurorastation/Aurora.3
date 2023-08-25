@@ -15,6 +15,7 @@
 	dir = 10
 	},
 /obj/machinery/light_switch{
+	dir = 8;
 	pixel_x = -22;
 	pixel_y = 23
 	},
@@ -39,9 +40,9 @@
 /area/horizon/bar)
 "aau" = (
 /obj/machinery/door/airlock/glass_atmos{
+	dir = 4;
 	name = "Atmospherics Locker Room";
-	req_access = list(24);
-	dir = 4
+	req_access = list(24)
 	},
 /obj/effect/floor_decal/corner_wide/blue,
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -149,9 +150,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 1;
 	name = "Engineering Locker Room";
-	req_access = list(11);
-	dir = 1
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -232,8 +233,8 @@
 /area/engineering/atmos/storage)
 "aeC" = (
 /obj/machinery/door/airlock/glass_service{
-	name = "Library";
-	dir = 1
+	dir = 1;
+	name = "Library"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -310,9 +311,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/engineering{
+	dir = 1;
 	name = "Deck 2 Research Substation";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -349,12 +350,12 @@
 "aiP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
+	dir = 4;
 	icon_state = "door_locked";
 	id_tag = "airlocks_deck2_ammostorage";
 	locked = 1;
 	name = "Secure Ammunition Storage";
-	req_one_access = list(75);
-	dir = 4
+	req_one_access = list(75)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
@@ -377,8 +378,8 @@
 "ajN" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Engineering Lobby";
-	dir = 2
+	dir = 2;
+	name = "Engineering Lobby"
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/lobby)
@@ -462,9 +463,9 @@
 "amE" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_atmos{
+	dir = 1;
 	name = "Atmospherics Locker Room";
-	req_access = list(24);
-	dir = 1
+	req_access = list(24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -732,9 +733,9 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	autoclose = 0;
+	dir = 2;
 	name = "Warehouse Elevator";
-	req_one_access = list(26,29,31,48,67);
-	dir = 2
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -888,8 +889,8 @@
 "auG" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/service{
-	name = "Chapel";
-	dir = 1
+	dir = 1;
+	name = "Chapel"
 	},
 /turf/simulated/floor/tiled/full,
 /area/chapel/main)
@@ -938,9 +939,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 1;
 	name = "Tesla Reactor Bay";
-	req_access = list(11);
-	dir = 1
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -983,9 +984,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/hatch{
+	dir = 4;
 	name = "Ship Flak Munitions Bay";
-	req_one_access = list(75);
-	dir = 4
+	req_one_access = list(75)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -1076,9 +1077,6 @@
 "axW" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/secure)
 "aya" = (
@@ -1156,19 +1154,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
+	dir = 1;
 	id_tag = "xeno_entrance";
 	locked = 1;
 	name = "Xenobiology Department";
-	req_access = list(55);
-	dir = 1
+	req_access = list(55)
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
+	dir = 4;
 	icon_state = "pdoor0";
 	id = "xenobio";
 	name = "Xenobiology Blast Door";
-	opacity = 0;
-	dir = 4
+	opacity = 0
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/white,
@@ -1385,9 +1383,9 @@
 "aEt" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
+	dir = 1;
 	name = "Chief Engineer's Office";
-	req_access = list(56);
-	dir = 1
+	req_access = list(56)
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
@@ -1430,9 +1428,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 1;
 	name = "Supermatter Reactor Monitoring Room";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres{
@@ -1666,9 +1664,9 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/service{
+	dir = 4;
 	name = "Chaplain's Office and Chapel Storage";
-	req_access = list(22);
-	dir = 4
+	req_access = list(22)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
@@ -1811,9 +1809,9 @@
 /area/security/checkpoint2)
 "aQc" = (
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 1;
 	name = "Tesla Reactor";
-	req_access = list(11);
-	dir = 1
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1851,10 +1849,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
+	dir = 4;
 	id_tag = "cell_1";
 	name = "Cell A";
-	req_access = list(2);
-	dir = 4
+	req_access = list(2)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1873,9 +1871,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
+	dir = 4;
 	name = "Supermatter Reactor SMES";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes)
@@ -2202,9 +2200,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/atmos{
+	dir = 1;
 	name = "Deck 2 Aft Auxiliary Atmospherics";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
@@ -2518,9 +2516,9 @@
 /area/turret_protected/ai_upload)
 "bgN" = (
 /obj/machinery/door/airlock/highsecurity{
+	dir = 4;
 	name = "AI SMES and External Maintenance";
-	req_access = list(16);
-	dir = 4
+	req_access = list(16)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -2715,8 +2713,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(12);
-	dir = 1
+	dir = 1;
+	req_access = list(12)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -3043,9 +3041,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Engineering Hard Storage Maintenance";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -3087,18 +3085,18 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
+	dir = 8;
 	id = "shutters_deck2_hydroponicsdesk";
 	name = "Desk Shutter";
 	pixel_x = -25;
-	pixel_y = -7
+	pixel_y = -4
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
+	dir = 8;
 	id = "shutters_deck2_hydroponicswindows";
 	name = "Window Shutters";
-	pixel_x = -35;
-	pixel_y = -7
+	pixel_x = -25;
+	pixel_y = 9
 	},
 /obj/effect/landmark/start{
 	name = "Gardener"
@@ -3170,9 +3168,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/engineering{
+	dir = 1;
 	name = "Engineering Substation";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -3701,12 +3699,12 @@
 "bHG" = (
 /obj/machinery/button/remote/airlock/screamer{
 	channel = "Command";
-	dir = 4;
+	dir = 8;
 	id = "Vault_Airlock";
 	message = "The vault door bolts have been toggled.";
 	name = "Door Bolt Control";
-	pixel_x = -38;
-	pixel_y = 32;
+	pixel_x = -19;
+	pixel_y = 29;
 	req_one_access = list(20,41);
 	specialfunctions = 4
 	},
@@ -3874,9 +3872,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/hatch{
+	dir = 1;
 	name = "Supermatter Reactor SMES";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes)
@@ -3924,9 +3922,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Hydroponics Maintenance";
-	req_access = list(35);
-	dir = 1
+	req_access = list(35)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -4077,8 +4075,8 @@
 	dir = 10
 	},
 /obj/machinery/atm{
-	pixel_y = -8;
-	dir = 2
+	dir = 2;
+	pixel_y = -8
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
@@ -4223,6 +4221,10 @@
 	},
 /obj/structure/closet/walllocker/emerglocker/east,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/camera/network/security{
+	c_tag = "Security - Corridor Camera 7";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "bTz" = (
@@ -4327,12 +4329,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/hatch{
+	dir = 1;
 	icon_state = "door_locked";
 	id_tag = "engine_electrical_maintenance";
 	locked = 1;
 	name = "Supermatter Reactor SMES";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -4344,8 +4346,8 @@
 /area/operations/lobby)
 "bWv" = (
 /obj/machinery/door/airlock/glass{
-	name = "Tool Storage";
-	dir = 1
+	dir = 1;
+	name = "Tool Storage"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -4670,9 +4672,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
+	dir = 1;
 	name = "Conference Room";
-	req_access = list(47);
-	dir = 1
+	req_access = list(47)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/structure/disposalpipe/segment,
@@ -4778,9 +4780,9 @@
 "chP" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
+	dir = 1;
 	name = "Intensive Care Unit";
-	req_access = list(5);
-	dir = 1
+	req_access = list(5)
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -4822,9 +4824,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/door/airlock/glass_research{
+	dir = 1;
 	name = "Xenobotany Lab";
-	req_access = list(52);
-	dir = 1
+	req_access = list(52)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4896,8 +4898,8 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Medical Reception";
-	dir = 2
+	dir = 2;
+	name = "Medical Reception"
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -4913,9 +4915,9 @@
 "clz" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
+	dir = 1;
 	name = "Main Storage";
-	req_access = list(66);
-	dir = 1
+	req_access = list(66)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -5463,9 +5465,9 @@
 /area/rnd/xenobiology)
 "cHz" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Machinist Workshop Maintenance";
-	req_access = list(29);
-	dir = 1
+	req_access = list(29)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -5667,9 +5669,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering EVA Storage";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -5930,9 +5932,9 @@
 "cRu" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
+	dir = 4;
 	name = "Engineering Hard Storage";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
@@ -6105,9 +6107,9 @@
 "cWG" = (
 /obj/structure/table/wood,
 /obj/machinery/button/switch/windowtint{
-	dir = 8;
+	dir = 4;
 	id = "psych";
-	pixel_x = 24;
+	pixel_x = 21;
 	pixel_y = -9
 	},
 /obj/machinery/light{
@@ -6125,8 +6127,8 @@
 /area/medical/psych)
 "cWP" = (
 /obj/machinery/door/airlock/glass{
-	name = "Horizon Dining Hall";
-	dir = 1
+	dir = 1;
+	name = "Horizon Dining Hall"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -6167,9 +6169,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/atmos{
+	dir = 4;
 	name = "Deck 2 Aft Auxiliary Atmospherics";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
@@ -6303,9 +6305,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_mining{
+	dir = 1;
 	name = "Break Room";
-	req_one_access = list(26,29,31,48,67);
-	dir = 1
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -6499,13 +6501,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
 	frequency = 1379;
 	icon_state = "door_locked";
 	id_tag = "engine_airlock_exterior";
 	locked = 1;
 	name = "Supermatter Reactor Airlock Exterior";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -6633,9 +6635,9 @@
 /area/horizon/hydroponics)
 "dlQ" = (
 /obj/machinery/door/airlock/glass_mining{
+	dir = 1;
 	name = "Operations Bay";
-	req_one_access = list(26,29,31,48,67);
-	dir = 1
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -7077,7 +7079,8 @@
 	dir = 10
 	},
 /obj/machinery/light_switch{
-	pixel_x = 26
+	dir = 4;
+	pixel_x = 23
 	},
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 4
@@ -7124,9 +7127,9 @@
 "dyU" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Operations Maintenance";
-	req_one_access = list(26,29,31,48,67);
-	dir = 1
+	req_one_access = list(26,29,31,48,67)
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/break_room)
@@ -7440,9 +7443,9 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Deck 2 Central Washroom Maintenance";
-	req_access = list(12);
-	dir = 4
+	req_access = list(12)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -7501,9 +7504,9 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/atmos{
+	dir = 4;
 	name = "Deck 2 Starboard Auxiliary Atmospherics";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
@@ -7649,21 +7652,19 @@
 	},
 /obj/machinery/button/remote/airlock/screamer{
 	channel = "Command";
-	dir = 4;
 	id = "airlocks_deck2_ammostorage";
 	message = "The secure ammunition storage door bolts have been toggled.";
 	name = "Door Bolt Control";
 	pixel_x = -40;
-	pixel_y = -7;
+	pixel_y = -8;
 	req_one_access = list(75);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
 	id = "shutters_deck1_ammostorage";
 	name = "Blast Door Control";
 	pixel_x = -40;
-	pixel_y = 7;
+	pixel_y = 2;
 	req_one_access = list(75)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -8110,8 +8111,8 @@
 /area/maintenance/wing/port)
 "dYR" = (
 /obj/machinery/door/airlock{
-	name = "Brig Showers";
-	dir = 1
+	dir = 1;
+	name = "Brig Showers"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
@@ -8212,10 +8213,10 @@
 "ebT" = (
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
+	dir = 4;
 	id_tag = "cell_2";
 	name = "Cell B";
-	req_access = list(2);
-	dir = 4
+	req_access = list(2)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -8388,8 +8389,8 @@
 /area/maintenance/wing/starboard)
 "ehS" = (
 /obj/machinery/door/airlock{
-	name = "Brig Showers";
-	dir = 4
+	dir = 4;
+	name = "Brig Showers"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
@@ -8484,9 +8485,9 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/hatch{
+	dir = 4;
 	name = "Deck 2 Starboard Pod";
-	req_access = list(12);
-	dir = 4
+	req_access = list(12)
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door"
@@ -8709,10 +8710,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/service{
+	dir = 1;
 	id_tag = "chapdoor";
 	name = "Chaplain's Office";
-	req_access = list(22);
-	dir = 1
+	req_access = list(22)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/dark,
@@ -8817,9 +8818,9 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Tesla Reactor";
-	req_access = list(11);
-	dir = 4
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -9033,9 +9034,9 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/highsecurity{
+	dir = 4;
 	name = "AI Upload";
-	req_access = list(16);
-	dir = 4
+	req_access = list(16)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -9076,9 +9077,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/medical{
+	dir = 1;
 	name = "Operating Theatre 2";
-	req_access = list(45);
-	dir = 1
+	req_access = list(45)
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/ors)
@@ -9285,9 +9286,9 @@
 	pixel_x = -2
 	},
 /obj/machinery/keycard_auth{
+	dir = 4;
 	pixel_x = -21;
-	pixel_y = 1;
-	dir = 4
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled,
 /area/operations/qm)
@@ -9362,8 +9363,8 @@
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12);
-	dir = 1
+	dir = 1;
+	req_access = list(12)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -9593,8 +9594,8 @@
 	name = "Bar Shutter"
 	},
 /obj/machinery/chemical_dispenser/coffeemaster/full{
-	pixel_y = 16;
-	pixel_x = -16
+	pixel_x = -16;
+	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
@@ -10062,8 +10063,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	target_pressure = 15000;
-	name = "Intake to Cold Loop"
+	name = "Intake to Cold Loop";
+	target_pressure = 15000
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -10280,9 +10281,9 @@
 /area/crew_quarters/heads/hor)
 "feu" = (
 /obj/machinery/door/airlock/service{
+	dir = 1;
 	name = "Bar - Backroom";
-	req_access = list(25);
-	dir = 1
+	req_access = list(25)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -10388,9 +10389,9 @@
 /area/horizon/crew_quarters/lounge/bar)
 "fhd" = (
 /obj/machinery/door/airlock/highsecurity{
+	dir = 4;
 	name = "AI Maintenance";
-	req_access = list(16);
-	dir = 4
+	req_access = list(16)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "AICore";
@@ -10426,8 +10427,8 @@
 /area/horizon/zta)
 "fhD" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 2 Stairwell";
-	dir = 2
+	dir = 2;
+	name = "Deck 2 Stairwell"
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
@@ -10646,6 +10647,9 @@
 /area/chapel/office)
 "foU" = (
 /obj/item/modular_computer/console/preset/engineering,
+/obj/structure/sign/nosmoking_2{
+	pixel_x = 32
+	},
 /turf/simulated/floor/reinforced,
 /area/horizon/zta)
 "fpb" = (
@@ -10693,8 +10697,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12);
-	dir = 4
+	dir = 4;
+	req_access = list(12)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -11132,9 +11136,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering Locker Room";
-	req_access = list(11);
-	dir = 4
+	req_access = list(11)
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/locker_room)
@@ -11248,6 +11252,7 @@
 	},
 /obj/structure/closet/hazmat/research,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
 "fEQ" = (
@@ -11446,9 +11451,9 @@
 /area/horizon/exterior)
 "fJX" = (
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering Hallway";
-	req_one_access = list(10);
-	dir = 4
+	req_one_access = list(10)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres{
@@ -11475,8 +11480,8 @@
 	dir = 6
 	},
 /obj/machinery/atm{
-	pixel_x = 16;
-	dir = 4
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
@@ -11762,8 +11767,8 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/blast/regular{
 	_wifi_id = "chapel_driver";
-	id = "chapel_driver";
-	dir = 4
+	dir = 4;
+	id = "chapel_driver"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/reinforced,
@@ -12035,8 +12040,8 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 2 Central Stairwell";
-	dir = 4
+	dir = 4;
+	name = "Deck 2 Central Stairwell"
 	},
 /obj/machinery/door/firedoor/multi_tile,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -12473,37 +12478,33 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "ggA" = (
-/obj/machinery/camera/network/security{
-	c_tag = "Security - Corridor Camera 7";
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/paleblue/full,
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /obj/machinery/button/remote/airlock{
-	dir = 4;
+	dir = 8;
 	id = "cell_isolation";
 	name = "Isolation Cell Door Bolts";
-	pixel_x = -25;
+	pixel_x = -19;
 	pixel_y = 7;
 	req_access = list(2);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
+	dir = 8;
 	id = "cell_isolation";
 	name = "Isolation Cell Blast Door";
-	pixel_x = -35;
+	pixel_x = -25;
 	pixel_y = 7;
 	req_access = list(2)
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
+	dir = 8;
 	id = "cell_isolation_viewing";
 	name = "Isolation Cell Viewing Shutters";
-	pixel_x = -25;
+	pixel_x = -19;
 	pixel_y = -4;
 	req_access = list(2)
 	},
@@ -12716,9 +12717,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/glass_security{
+	dir = 1;
 	name = "Warden's Office";
-	req_access = list(3);
-	dir = 1
+	req_access = list(3)
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/full,
@@ -12860,9 +12861,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_research{
+	dir = 1;
 	name = "Research Storage";
-	req_access = list(47);
-	dir = 1
+	req_access = list(47)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/dark/full,
@@ -13126,9 +13127,9 @@
 /area/horizon/crew_quarters/lounge/bar)
 "gtk" = (
 /obj/machinery/door/airlock/glass_security{
+	dir = 1;
 	name = "Communal Observation";
-	req_access = list(2);
-	dir = 1
+	req_access = list(2)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -13174,9 +13175,9 @@
 "gul" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/freezer{
+	dir = 1;
 	name = "Freezer";
-	req_access = list(28);
-	dir = 1
+	req_access = list(28)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -13286,8 +13287,8 @@
 "gwy" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_y = 16;
-	pixel_x = -5
+	pixel_x = -5;
+	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
@@ -13352,9 +13353,9 @@
 /area/horizon/grauwolf)
 "gzg" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Examination Room Maintenance";
-	req_access = list(5);
-	dir = 1
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -13720,9 +13721,9 @@
 "gFx" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
+	dir = 1;
 	name = "Operations Bay";
-	req_one_access = list(26,29,31,48,67);
-	dir = 1
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -13732,9 +13733,9 @@
 "gFP" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_security{
+	dir = 1;
 	name = "Holding Cell A";
-	req_one_access = list(2,4);
-	dir = 1
+	req_one_access = list(2,4)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -13878,16 +13879,16 @@
 	pixel_y = 24
 	},
 /obj/item/reagent_containers/glass/bottle/syrup/caramel{
-	pixel_y = 18;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = 18
 	},
 /obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
 	pixel_x = 7;
 	pixel_y = 12
 	},
 /obj/item/reagent_containers/glass/bottle/syrup/vanilla{
-	pixel_y = 6;
-	pixel_x = 7
+	pixel_x = 7;
+	pixel_y = 6
 	},
 /turf/simulated/floor/wood,
 /area/horizon/bar)
@@ -13966,9 +13967,9 @@
 "gKt" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Security Maintenance";
-	req_access = list(63);
-	dir = 4
+	req_access = list(63)
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -14371,17 +14372,17 @@
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green,
 /obj/machinery/button/switch/windowtint{
+	dir = 1;
 	id = "Bar_Private_Lounge";
-	pixel_x = 9;
 	pixel_y = 24
 	},
 /turf/simulated/floor/carpet/red,
 /area/horizon/bar)
 "gUA" = (
 /obj/machinery/door/airlock/multi_tile/glass{
+	dir = 2;
 	name = "Research Hallway";
-	req_access = list(47);
-	dir = 2
+	req_access = list(47)
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -14391,12 +14392,12 @@
 "gUB" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
+	dir = 4;
 	icon_state = "door_locked";
 	id_tag = "airlocks_deck2_ammostorage";
 	locked = 1;
 	name = "Secure Ammunition Storage";
-	req_one_access = list(75);
-	dir = 4
+	req_one_access = list(75)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/regular{
@@ -14740,10 +14741,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/command{
+	dir = 1;
 	id_tag = "researchdoor";
 	name = "Research Director's Office";
-	req_access = list(30);
-	dir = 1
+	req_access = list(30)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres{
@@ -14801,9 +14802,9 @@
 /area/security/checkpoint2)
 "hgK" = (
 /obj/machinery/door/airlock{
+	dir = 4;
 	id_tag = "cargobreak_shower";
-	name = "Shower";
-	dir = 4
+	name = "Shower"
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/break_room)
@@ -14914,9 +14915,9 @@
 "hjI" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 1;
 	name = "Engineering Hallway";
-	req_access = list(10);
-	dir = 1
+	req_access = list(10)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -14985,8 +14986,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	name = "Washroom";
-	dir = 4
+	dir = 4;
+	name = "Washroom"
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/break_room)
@@ -15220,9 +15221,9 @@
 /area/horizon/security/brig)
 "hqi" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Aft Research Hallway Maintenance";
-	req_one_access = list(12,47);
-	dir = 1
+	req_one_access = list(12,47)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/hallway)
@@ -15264,11 +15265,11 @@
 	dir = 9
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
+	dir = 8;
 	id = "armory";
 	name = "Armoury Blast Doors";
-	pixel_x = -25;
-	pixel_y = 7;
+	pixel_x = -19;
+	pixel_y = 2;
 	req_access = list(3)
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -15842,7 +15843,7 @@
 /obj/item/pen/black,
 /obj/structure/table/standard,
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
+	dir = 8;
 	id = "shutters_deck2_workshopdesk";
 	name = "Machinist Workshop Desk Shutters";
 	pixel_x = -25;
@@ -15888,8 +15889,8 @@
 /area/operations/lobby)
 "hFg" = (
 /obj/machinery/door/airlock{
-	name = "Emergency Supplies Closet";
-	dir = 1
+	dir = 1;
+	name = "Emergency Supplies Closet"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -16124,9 +16125,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/highsecurity{
+	dir = 1;
 	name = "Armoury";
-	req_access = list(3);
-	dir = 1
+	req_access = list(3)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -16265,9 +16266,9 @@
 "hPH" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Xenobotany Maintenance";
-	req_access = list(52);
-	dir = 4
+	req_access = list(52)
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -16474,9 +16475,9 @@
 /area/operations/office)
 "hUW" = (
 /obj/machinery/door/airlock/glass_service{
+	dir = 4;
 	name = "Kitchen";
-	req_access = list(28);
-	dir = 4
+	req_access = list(28)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -16526,9 +16527,9 @@
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/service{
+	dir = 1;
 	name = "Disposals and Recycling";
-	req_one_access = list(26,67);
-	dir = 1
+	req_one_access = list(26,67)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/custodial/disposals)
@@ -16980,9 +16981,9 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Security Maintenance";
-	req_access = list(63);
-	dir = 4
+	req_access = list(63)
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -16998,9 +16999,9 @@
 "iji" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
+	dir = 1;
 	name = "Engineering Front Desk";
-	req_access = list(10);
-	dir = 1
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/lobby)
@@ -17372,9 +17373,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
+	dir = 1;
 	name = "Operations Bay";
-	req_one_access = list(26,29,31,48,67);
-	dir = 1
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -17505,9 +17506,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
+	dir = 1;
 	name = "Engineering Substation";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/substation/engineering)
@@ -18009,9 +18010,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering Hallway";
-	req_one_access = list(10);
-	dir = 4
+	req_one_access = list(10)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
@@ -18024,22 +18025,21 @@
 	dir = 8
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 8;
+	dir = 4;
 	id = "bar_viewing_shutters";
 	name = "Viewing Shutters";
-	pixel_x = 25;
-	pixel_y = -7
+	pixel_x = 19
 	},
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 8;
+	dir = 4;
 	id = "bar_shutter";
 	name = "Desk Shutters";
-	pixel_x = 25;
-	req_access = list(25);
-	pixel_y = 35
+	pixel_x = 19;
+	pixel_y = 33;
+	req_access = list(25)
 	},
 /turf/simulated/floor/lino,
 /area/horizon/bar)
@@ -18094,9 +18094,9 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/glass_research{
+	dir = 1;
 	name = "Xenobotany Decontamination";
-	req_access = list(52);
-	dir = 1
+	req_access = list(52)
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -18191,9 +18191,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
+	dir = 1;
 	name = "Telescience";
-	req_access = list(7);
-	dir = 1
+	req_access = list(7)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -19394,25 +19394,27 @@
 	dir = 8
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 4;
 	id = "massdriver";
 	layer = 3.2;
 	name = "Mass Driver Interior Blast Door";
 	pixel_x = 25;
-	pixel_y = 3
+	pixel_y = 11
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 4;
 	id = "chapel_driver";
 	layer = 3.2;
 	name = "Mass Driver Exterior Blast Door";
-	pixel_x = 25;
-	pixel_y = -7
+	pixel_x = 25
 	},
 /obj/machinery/button/mass_driver{
 	_wifi_id = "chapel_driver";
+	dir = 8;
 	id = "chapel_driver";
 	layer = 3.2;
 	pixel_x = 35;
-	pixel_y = -3
+	pixel_y = 5
 	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
@@ -19582,13 +19584,13 @@
 /area/security/checkpoint2)
 "jtf" = (
 /obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
 	frequency = 1379;
 	icon_state = "door_locked";
 	id_tag = "engine_airlock_interior";
 	locked = 1;
 	name = "Supermatter Reactor Airlock Interior";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -19851,8 +19853,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	target_pressure = 15000;
-	name = "Intake to Hot Loop"
+	name = "Intake to Hot Loop";
+	target_pressure = 15000
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -20001,10 +20003,11 @@
 	},
 /obj/machinery/firealarm/south,
 /obj/machinery/button/remote/blast_door{
-	dir = 1;
+	dir = 8;
 	id = "lounge_window_shutters";
 	name = "Viewing Shutters";
-	pixel_y = -37
+	pixel_x = 13;
+	pixel_y = -31
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
@@ -20078,10 +20081,10 @@
 /area/maintenance/wing/port/far)
 "jFi" = (
 /obj/machinery/door/airlock/glass_command{
+	dir = 4;
 	id_tag = "server_door_lock";
 	name = "Server Room";
-	req_access = list(30);
-	dir = 4
+	req_access = list(30)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -20380,10 +20383,10 @@
 "jMB" = (
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
+	dir = 4;
 	id_tag = "cell_3";
 	name = "Cell C";
-	req_access = list(2);
-	dir = 4
+	req_access = list(2)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -20402,8 +20405,8 @@
 "jMO" = (
 /obj/machinery/door/airlock/glass_security{
 	desc = "It opens and closes. Hazardous lifeforms ahead. Caution advised!";
-	name = "Security Lobby";
-	dir = 1
+	dir = 1;
+	name = "Security Lobby"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -20851,9 +20854,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Tesla Reactor Maintenance";
-	req_access = list(11);
-	dir = 1
+	req_access = list(11)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/tesla)
@@ -21187,8 +21190,8 @@
 "kgS" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_alc/full{
-	pixel_y = 16;
-	pixel_x = -1
+	pixel_x = -1;
+	pixel_y = 16
 	},
 /obj/item/reagent_containers/glass/rag{
 	pixel_x = 2;
@@ -21528,9 +21531,9 @@
 "ktC" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Research and Development Maintenance";
-	req_access = list(7);
-	dir = 1
+	req_access = list(7)
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
@@ -21775,10 +21778,10 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/command{
+	dir = 4;
 	id_tag = "CEdoor";
 	name = "Chief Engineer's Office";
-	req_access = list(56);
-	dir = 4
+	req_access = list(56)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -21929,15 +21932,16 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "kFa" = (
-/obj/machinery/keycard_auth{
-	pixel_x = -28
-	},
 /obj/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
+	},
+/obj/machinery/keycard_auth{
+	dir = 4;
+	pixel_x = -20
 	},
 /turf/simulated/floor/wood,
 /area/horizon/security/head_of_security)
@@ -21999,9 +22003,9 @@
 /area/horizon/exterior)
 "kHj" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Bar Maintenance";
-	req_one_access = list(12,25);
-	dir = 1
+	req_one_access = list(12,25)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -22015,9 +22019,9 @@
 "kHn" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
+	dir = 1;
 	name = "Pharmacy";
-	req_access = list(33);
-	dir = 1
+	req_access = list(33)
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -22053,9 +22057,9 @@
 /area/horizon/kitchen/freezer)
 "kHx" = (
 /obj/machinery/door/airlock/engineering{
+	dir = 4;
 	name = "Engineering Substation";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -22112,21 +22116,21 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
 /obj/machinery/button/remote/blast_door{
-	dir = 8;
+	dir = 1;
 	id = "shutters_deck1_ammostorage";
 	name = "Blast Door Control";
-	pixel_x = 40;
-	pixel_y = 7;
+	pixel_x = -7;
+	pixel_y = 21;
 	req_one_access = list(75)
 	},
 /obj/machinery/button/remote/airlock/screamer{
 	channel = "Command";
-	dir = 8;
+	dir = 1;
 	id = "airlocks_deck2_ammostorage";
 	message = "The secure ammunition storage door bolts have been toggled.";
 	name = "Door Bolt Control";
-	pixel_x = 40;
-	pixel_y = -7;
+	pixel_x = 7;
+	pixel_y = 21;
 	req_one_access = list(75);
 	specialfunctions = 4
 	},
@@ -22359,9 +22363,9 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_research{
+	dir = 4;
 	name = "Xenobotany Decontamination";
-	req_access = list(52);
-	dir = 4
+	req_access = list(52)
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
@@ -22480,9 +22484,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Security Maintenance";
-	req_access = list(63);
-	dir = 4
+	req_access = list(63)
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/security_starboard)
@@ -22598,9 +22602,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Operations Maintenance";
-	req_one_access = list(26,29,31,48,67);
-	dir = 4
+	req_one_access = list(26,29,31,48,67)
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/office)
@@ -22806,9 +22810,9 @@
 /area/rnd/research)
 "lbN" = (
 /obj/machinery/door/airlock/medical{
+	dir = 1;
 	name = "Psychiatric Office";
-	req_access = list(64);
-	dir = 1
+	req_access = list(64)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres{
@@ -23676,9 +23680,9 @@
 "lBS" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Public Garden Maintenance";
-	req_access = list(12);
-	dir = 4
+	req_access = list(12)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hydroponics/garden)
@@ -23928,12 +23932,12 @@
 "lHY" = (
 /obj/machinery/door/airlock/highsecurity{
 	desc = "A gigantic bunker lock. Warning signs on the exterior dictate the internal contents as high-value, and highly dangerous property. It stresses the absolute importance of only command-level entry.";
+	dir = 1;
 	icon_state = "door_locked";
 	id_tag = "bolts_cannon_entrance";
 	locked = 1;
 	name = "Primary Armament";
-	req_one_access = list(19,43);
-	dir = 1
+	req_one_access = list(19,43)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor,
@@ -24085,12 +24089,12 @@
 	req_access = list(25)
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 8;
+	dir = 4;
 	id = "bar_shutter";
 	name = "Desk Shutters";
-	pixel_x = 25;
-	req_access = list(25);
-	pixel_y = 16
+	pixel_x = 19;
+	pixel_y = 13;
+	req_access = list(25)
 	},
 /obj/machinery/door/blast/shutters{
 	dir = 2;
@@ -24566,9 +24570,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 1;
 	name = "Engineering Hallway";
-	req_access = list(10);
-	dir = 1
+	req_access = list(10)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres{
@@ -24858,10 +24862,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_security{
+	dir = 1;
 	id_tag = "BrigFoyer";
 	name = "Security Wing";
-	req_access = list(63);
-	dir = 1
+	req_access = list(63)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -24907,8 +24911,8 @@
 /area/horizon/security/brig)
 "mdR" = (
 /obj/machinery/door/airlock{
-	name = "Emergency Supplies Closet";
-	dir = 1
+	dir = 1;
+	name = "Emergency Supplies Closet"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -25469,8 +25473,8 @@
 	},
 /obj/machinery/recharger/wallcharger{
 	layer = 3.3;
-	pixel_y = 23;
-	pixel_x = 2
+	pixel_x = 2;
+	pixel_y = 23
 	},
 /obj/structure/sign/nosmoking_2{
 	pixel_x = 15;
@@ -25547,8 +25551,8 @@
 "muK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_service{
-	name = "Library";
-	dir = 1
+	dir = 1;
+	name = "Library"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -25912,9 +25916,9 @@
 /area/crew_quarters/heads/hor)
 "mDa" = (
 /obj/machinery/door/airlock/service{
+	dir = 1;
 	name = "Auxiliary Custodial Closet";
-	req_access = list(26);
-	dir = 1
+	req_access = list(26)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -25925,8 +25929,8 @@
 /area/horizon/zta)
 "mDD" = (
 /obj/machinery/door/airlock/glass{
-	name = "Horizon Dining Hall";
-	dir = 1
+	dir = 1;
+	name = "Horizon Dining Hall"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -25943,8 +25947,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(45);
-	dir = 1
+	dir = 1;
+	req_access = list(45)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -26137,9 +26141,9 @@
 /area/hallway/primary/central_one)
 "mHH" = (
 /obj/machinery/door/airlock/highsecurity{
+	dir = 4;
 	name = "AI SMES";
-	req_access = list(16);
-	dir = 4
+	req_access = list(16)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -26150,9 +26154,9 @@
 /area/turret_protected/ai)
 "mHM" = (
 /obj/machinery/door/airlock/highsecurity{
+	dir = 1;
 	name = "AI SMES";
-	req_access = list(16);
-	dir = 1
+	req_access = list(16)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -26352,9 +26356,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
+	dir = 4;
 	name = "Deck 2 Port Pod";
-	req_access = list(12);
-	dir = 4
+	req_access = list(12)
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/item/tape/engineering{
@@ -26405,9 +26409,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/engineering{
+	dir = 4;
 	name = "Deck 1, 2, and 3 Medical Substation";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -26505,11 +26509,11 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/door/airlock/security{
+	dir = 4;
 	id_tag = "HoSdoor";
 	name = "Head of Security's Office";
 	req_access = list(58);
-	secured_wires = 1;
-	dir = 4
+	secured_wires = 1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/head_of_security)
@@ -26582,9 +26586,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/highsecurity{
+	dir = 1;
 	name = "AI Foyer Maintenance";
-	req_access = list(16);
-	dir = 1
+	req_access = list(16)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -26680,9 +26684,9 @@
 "mUy" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Engineering Locker Room Maintenance";
-	req_access = list(11);
-	dir = 4
+	req_access = list(11)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
@@ -27386,9 +27390,9 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/research{
+	dir = 4;
 	name = "Hazardous Specimens";
-	req_access = list(52);
-	dir = 4
+	req_access = list(52)
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/structure/cable/green{
@@ -27546,9 +27550,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/medical{
+	dir = 1;
 	name = "Operating Theatre 1";
-	req_access = list(45);
-	dir = 1
+	req_access = list(45)
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/ors)
@@ -27683,9 +27687,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/engineering{
+	dir = 1;
 	name = "Deck 1, 2, and 3 Medical Substation";
-	req_access = list(66);
-	dir = 1
+	req_access = list(66)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -27898,9 +27902,9 @@
 /area/horizon/bar)
 "nuF" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Security Maintenance";
-	req_access = list(63);
-	dir = 1
+	req_access = list(63)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -28100,9 +28104,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/engineering{
+	dir = 1;
 	name = "Engineering Substation";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -28468,8 +28472,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5,10,12);
-	dir = 4
+	dir = 4;
+	req_one_access = list(5,10,12)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -28520,9 +28524,9 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
+	dir = 1;
 	name = "Cold Storage";
-	req_access = list(66);
-	dir = 1
+	req_access = list(66)
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/surgery)
@@ -28542,9 +28546,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 1;
 	name = "Engineering Hallway";
-	req_access = list(10);
-	dir = 1
+	req_access = list(10)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -28601,11 +28605,6 @@
 	},
 /obj/machinery/zta_lever{
 	pixel_x = 28
-	},
-/obj/machinery/camera/motion{
-	c_tag = "ZTA Fore Port";
-	dir = 8;
-	network = list("Command","Security")
 	},
 /turf/simulated/floor/reinforced,
 /area/horizon/zta)
@@ -28772,8 +28771,8 @@
 "nUh" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/coffeemaster/full{
-	pixel_y = 16;
-	pixel_x = -13
+	pixel_x = -13;
+	pixel_y = 16
 	},
 /obj/item/reagent_containers/food/drinks/shaker{
 	pixel_x = 7;
@@ -28820,11 +28819,11 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/hatch{
+	dir = 4;
 	icon_state = "door_locked";
 	locked = 1;
 	name = "Supermatter Reactor Crystal Access";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -29199,11 +29198,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "ofb" = (
-/obj/structure/sign/nosmoking_2{
-	pixel_x = 32
-	},
 /obj/structure/table/standard,
 /obj/item/folder/envelope/zta,
+/obj/machinery/camera/motion{
+	c_tag = "ZTA Fore Port";
+	dir = 8;
+	network = list("Command","Security")
+	},
 /turf/simulated/floor/reinforced,
 /area/horizon/zta)
 "off" = (
@@ -29679,18 +29680,17 @@
 /area/operations/lower/machinist)
 "oqv" = (
 /obj/machinery/door/airlock/hatch{
+	dir = 1;
 	name = "Starboard Maneuvering Propulsion";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "oqB" = (
 /obj/machinery/light_switch{
-	dir = 1;
 	pixel_x = 9;
-	pixel_y = -24
+	pixel_y = -19
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -30224,9 +30224,9 @@
 "oCi" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_service{
+	dir = 4;
 	name = "Library Office";
-	req_access = list(37);
-	dir = 4
+	req_access = list(37)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -30402,8 +30402,8 @@
 "oHX" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	name = "Deck 2 Central Washroom";
-	dir = 4
+	dir = 4;
+	name = "Deck 2 Central Washroom"
 	},
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/tiled/full,
@@ -30418,9 +30418,9 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
+	dir = 1;
 	name = "Cold Storage";
-	req_access = list(66);
-	dir = 1
+	req_access = list(66)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -30787,8 +30787,8 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12);
-	dir = 1
+	dir = 1;
+	req_access = list(12)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -31020,10 +31020,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining{
+	dir = 1;
 	id_tag = "qmdoor";
 	name = "Operations Manager";
-	req_access = list(41);
-	dir = 1
+	req_access = list(41)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/wood,
@@ -31103,9 +31103,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 1;
 	name = "Tesla Reactor Bay";
-	req_access = list(11);
-	dir = 1
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -31381,7 +31381,8 @@
 	dir = 1
 	},
 /obj/machinery/light_switch{
-	pixel_x = -9;
+	dir = 1;
+	pixel_x = -7;
 	pixel_y = 24
 	},
 /obj/item/reagent_containers/glass/bucket,
@@ -31439,9 +31440,9 @@
 /area/medical/psych)
 "pjQ" = (
 /obj/machinery/door/airlock{
+	dir = 1;
 	id_tag = "central_stall_1";
-	name = "Stall 1";
-	dir = 1
+	name = "Stall 1"
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/washroom/central)
@@ -31559,8 +31560,8 @@
 /obj/machinery/alarm/south,
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	target_pressure = 15000;
-	name = "Intake to Hot Loop"
+	name = "Intake to Hot Loop";
+	target_pressure = 15000
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -31594,9 +31595,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering Hallway";
-	req_access = list(10);
-	dir = 4
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering/tesla)
@@ -31862,8 +31863,8 @@
 	dir = 4
 	},
 /obj/machinery/keycard_auth{
-	pixel_x = -22;
-	dir = 4
+	dir = 4;
+	pixel_x = -22
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/heads/hor)
@@ -31921,9 +31922,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/engineering{
+	dir = 4;
 	name = "Deck 2 Research Substation";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -32153,9 +32154,9 @@
 "pGn" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining{
+	dir = 4;
 	name = "Machinist Workshop";
-	req_access = list(29);
-	dir = 4
+	req_access = list(29)
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/lower/machinist)
@@ -32213,9 +32214,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 1;
 	name = "External Access";
-	req_access = list(10);
-	dir = 1
+	req_access = list(10)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -32417,10 +32418,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/multi_tile/glass{
+	dir = 4;
 	id_tag = "main_door";
 	name = "Triage Room Main Entrance";
-	req_access = list(5);
-	dir = 4
+	req_access = list(5)
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -32973,9 +32974,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering Front Desk";
-	req_access = list(10);
-	dir = 4
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/lobby)
@@ -33128,6 +33129,7 @@
 	dir = 8
 	},
 /obj/machinery/light_switch{
+	dir = 4;
 	pixel_x = 22
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -33402,8 +33404,8 @@
 /area/horizon/zta)
 "qlm" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12,26,31,48,67);
-	dir = 1
+	dir = 1;
+	req_one_access = list(12,26,31,48,67)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -33441,9 +33443,9 @@
 /area/horizon/security/armoury)
 "qlV" = (
 /obj/machinery/door/airlock/glass_security{
+	dir = 1;
 	name = "Security Desk";
-	req_access = list(1);
-	dir = 1
+	req_access = list(1)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -33579,13 +33581,13 @@
 /area/operations/qm)
 "qqK" = (
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "centcom_shuttle_dock_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13);
-	dir = 1
+	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -33679,13 +33681,13 @@
 /area/rnd/xenobiology)
 "qsZ" = (
 /obj/machinery/door/airlock/hatch{
+	dir = 1;
 	icon_state = "door_locked";
 	id_tag = "bolts_cannon_internal";
 	locked = 1;
 	name = "Primary Armament Interior";
 	req_one_access = list(19,43);
-	secured_wires = 1;
-	dir = 1
+	secured_wires = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor,
@@ -33801,9 +33803,9 @@
 /area/maintenance/research_port)
 "qvd" = (
 /obj/machinery/door/airlock{
+	dir = 1;
 	id_tag = "central_stall_2";
-	name = "Stall 2";
-	dir = 1
+	name = "Stall 2"
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/washroom/central)
@@ -33946,16 +33948,14 @@
 	department = "Operations Manager's Office"
 	},
 /obj/machinery/button/switch/windowtint{
-	dir = 1;
 	id = "OM Windows";
-	pixel_x = 8;
-	pixel_y = -34;
+	pixel_x = 10;
+	pixel_y = -15;
 	req_access = list(41)
 	},
 /obj/machinery/light_switch{
-	dir = 1;
-	pixel_x = 8;
-	pixel_y = -23
+	pixel_x = 3;
+	pixel_y = -15
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/qm)
@@ -34124,10 +34124,10 @@
 /area/hallway/engineering)
 "qCF" = (
 /obj/machinery/door/airlock/mining{
+	dir = 1;
 	id_tag = "qmdoor";
 	name = "Operations Manager";
-	req_access = list(41);
-	dir = 1
+	req_access = list(41)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -34192,10 +34192,10 @@
 "qEe" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
+	dir = 4;
 	id_tag = "CEdoor";
 	name = "Chief Engineer's Office";
-	req_access = list(56);
-	dir = 4
+	req_access = list(56)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -34336,8 +34336,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	target_pressure = 15000;
-	name = "Intake to Cold Loop"
+	name = "Intake to Cold Loop";
+	target_pressure = 15000
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -34346,8 +34346,8 @@
 	dir = 2
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 2 Port Stairwell";
-	dir = 2
+	dir = 2;
+	name = "Deck 2 Port Stairwell"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -34837,8 +34837,8 @@
 /area/maintenance/research_port)
 "qUc" = (
 /obj/machinery/door/airlock{
-	name = "Emergency Supplies Closet";
-	dir = 4
+	dir = 4;
+	name = "Emergency Supplies Closet"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -35130,8 +35130,8 @@
 /area/horizon/crew_quarters/washroom/central)
 "rck" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(5,10,12);
-	dir = 4
+	dir = 4;
+	req_one_access = list(5,10,12)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -35207,9 +35207,9 @@
 /area/template_noop)
 "rdW" = (
 /obj/machinery/door/airlock/hatch{
+	dir = 1;
 	name = "Port Maneuvering Propulsion";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -35517,8 +35517,8 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(12);
-	dir = 4
+	dir = 4;
+	req_access = list(12)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -35899,8 +35899,8 @@
 /area/medical/main_storage)
 "rvf" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Research Hallway";
-	dir = 2
+	dir = 2;
+	name = "Research Hallway"
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -35938,9 +35938,9 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Supermatter Reactor External Access";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/engine_room)
@@ -36040,9 +36040,9 @@
 /area/maintenance/wing/port)
 "ryy" = (
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Engineering EVA Storage";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -36629,8 +36629,8 @@
 "rOx" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_service{
-	name = "Library";
-	dir = 4
+	dir = 4;
+	name = "Library"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -36765,9 +36765,9 @@
 /area/maintenance/wing/port/far)
 "rRS" = (
 /obj/machinery/door/airlock/glass_service{
+	dir = 4;
 	name = "Kitchen";
-	req_access = list(28);
-	dir = 4
+	req_access = list(28)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -37274,9 +37274,9 @@
 /area/maintenance/wing/starboard/far)
 "sem" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Operations Maintenance";
-	req_one_access = list(26,29,31,48,67);
-	dir = 4
+	req_one_access = list(26,29,31,48,67)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -37401,9 +37401,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Security Maintenance";
-	req_access = list(63);
-	dir = 1
+	req_access = list(63)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -37582,9 +37582,9 @@
 /area/medical/psych)
 "snB" = (
 /obj/machinery/door/airlock/security{
+	dir = 1;
 	name = "Deck 2 Starboard Docks - Security Checkpoint";
-	req_access = list(63);
-	dir = 1
+	req_access = list(63)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -37944,9 +37944,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass_service{
+	dir = 4;
 	name = "Bar - Preparations";
-	req_access = list(25);
-	dir = 4
+	req_access = list(25)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -38107,9 +38107,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Chaplain Office's Maintenance";
-	req_access = list(22);
-	dir = 4
+	req_access = list(22)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/wood,
@@ -38625,9 +38625,9 @@
 "sSZ" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/freezer{
+	dir = 4;
 	name = "Freezer";
-	req_access = list(28);
-	dir = 4
+	req_access = list(28)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -39027,9 +39027,9 @@
 "tci" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/glass_research{
+	dir = 1;
 	name = "Telescience";
-	req_access = list(7);
-	dir = 1
+	req_access = list(7)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -39081,31 +39081,31 @@
 	},
 /obj/machinery/light,
 /obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = -24;
-	pixel_y = 7
+	dir = 8;
+	pixel_x = -20;
+	pixel_y = 2
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
+	dir = 8;
 	id = "kitchen_window_shutters";
 	name = "Window Shutters";
-	pixel_x = -25;
-	pixel_y = -4;
+	pixel_x = -20;
+	pixel_y = -8;
 	req_access = list(28)
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
+	dir = 8;
 	id = "shutters_deck2_kitchendesk";
 	name = "Desk Shutters";
-	pixel_x = -35;
+	pixel_x = -28;
 	pixel_y = -4;
 	req_access = list(28)
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
+	dir = 8;
 	id = "shutters_deck2_smartheater";
 	name = "SmartHeater Shutter";
-	pixel_x = -35;
+	pixel_x = -28;
 	pixel_y = 7;
 	req_access = list(28)
 	},
@@ -39438,9 +39438,9 @@
 /area/rnd/xenobiology/xenoflora)
 "tkN" = (
 /obj/machinery/door/airlock/engineering{
+	dir = 4;
 	name = "Engineering Substation";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -39945,9 +39945,9 @@
 	id = "cargo_desk"
 	},
 /obj/machinery/door/window/northleft{
+	dir = 2;
 	name = "Operations Desk Interior Access";
-	req_access = list(50);
-	dir = 2
+	req_access = list(50)
 	},
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark/full,
@@ -39983,9 +39983,9 @@
 /area/rnd/research)
 "tDl" = (
 /obj/machinery/door/airlock/service{
+	dir = 1;
 	name = "Chapel Storage";
-	req_access = list(22);
-	dir = 1
+	req_access = list(22)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/wood,
@@ -40014,9 +40014,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
+	dir = 4;
 	name = "Xenobiology";
-	req_access = list(55);
-	dir = 4
+	req_access = list(55)
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -40366,9 +40366,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
+	dir = 4;
 	name = "Research and Development";
-	req_access = list(7);
-	dir = 4
+	req_access = list(7)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
@@ -40553,6 +40553,9 @@
 	},
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Break Room"
+	},
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
 "tOW" = (
@@ -40634,11 +40637,11 @@
 /area/horizon/bar)
 "tQB" = (
 /obj/machinery/door/airlock/hatch{
+	dir = 1;
 	id_tag = "bolts_cannon_external";
 	name = "Primary Armament Exterior";
 	req_one_access = list(19,43);
-	secured_wires = 1;
-	dir = 1
+	secured_wires = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor,
@@ -40934,9 +40937,9 @@
 "tZL" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
+	dir = 4;
 	name = "Psychiatric Office";
-	req_access = list(64);
-	dir = 4
+	req_access = list(64)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
@@ -41004,8 +41007,8 @@
 	opacity = 0
 	},
 /obj/machinery/door/airlock/glass_research{
-	name = "Autopsy and Incineration";
-	dir = 4
+	dir = 4;
+	name = "Autopsy and Incineration"
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
@@ -41261,9 +41264,9 @@
 /area/horizon/maintenance/deck_two/fore/starboard)
 "uhk" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Cryogenics Control Room";
-	req_access = list(66);
-	dir = 1
+	req_access = list(66)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/green{
@@ -41338,10 +41341,10 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
 	autoclose = 0;
+	dir = 4;
 	id_tag = "cell_isolation";
 	name = "Isolation Cell";
-	req_access = list(2);
-	dir = 4
+	req_access = list(2)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
@@ -41359,9 +41362,9 @@
 /area/chapel/main)
 "uje" = (
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Tesla Reactor Monitoring Room";
-	req_access = list(11);
-	dir = 4
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -41576,9 +41579,6 @@
 /obj/machinery/power/apc/low/north,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
-	},
-/obj/machinery/camera/network/supply{
-	c_tag = "Operations - Break Room"
 	},
 /turf/simulated/floor/tiled,
 /area/operations/break_room)
@@ -41882,9 +41882,9 @@
 /area/horizon/zta)
 "usP" = (
 /obj/machinery/door/airlock{
+	dir = 4;
 	id_tag = "cargobreak_stall";
-	name = "Stall";
-	dir = 4
+	name = "Stall"
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/break_room)
@@ -42033,8 +42033,8 @@
 "uxb" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_service{
-	name = "Bar Lounge";
-	dir = 1
+	dir = 1;
+	name = "Bar Lounge"
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/bar)
@@ -42055,9 +42055,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/engineering{
+	dir = 1;
 	name = "Engineering Substation";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -42088,9 +42088,9 @@
 /area/horizon/bar)
 "uxE" = (
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Atmospherics Locker Room Maintenance";
-	req_access = list(24);
-	dir = 4
+	req_access = list(24)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/spline/plain/corner{
@@ -42149,8 +42149,8 @@
 "uzr" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Tech Storage";
-	dir = 1
+	dir = 1;
+	name = "Tech Storage"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -42229,9 +42229,9 @@
 /area/horizon/grauwolf)
 "uBK" = (
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 1;
 	name = "Engineering Hallway";
-	req_access = list(10);
-	dir = 1
+	req_access = list(10)
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres{
@@ -42552,9 +42552,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
+	dir = 4;
 	name = "Exploratory Chemistry";
-	req_access = list(7);
-	dir = 4
+	req_access = list(7)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
@@ -42679,9 +42679,9 @@
 /area/horizon/bar)
 "uMM" = (
 /obj/machinery/door/airlock/glass_medical{
+	dir = 4;
 	name = "First Responder Quarters";
-	req_access = list(67);
-	dir = 4
+	req_access = list(67)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -42797,9 +42797,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 1;
 	name = "Engineering EVA Storage";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -42940,9 +42940,6 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
 /obj/machinery/firealarm/east,
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/secure)
 "uSj" = (
@@ -43040,9 +43037,9 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/door/airlock/glass_medical{
+	dir = 4;
 	name = "First Responder Quarters";
-	req_access = list(67);
-	dir = 4
+	req_access = list(67)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -43132,8 +43129,8 @@
 /area/horizon/bar/backroom)
 "uZi" = (
 /obj/machinery/door/airlock/service{
-	name = "Bar - Private Lounge";
-	dir = 1
+	dir = 1;
+	name = "Bar - Private Lounge"
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/bar)
@@ -43184,9 +43181,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 4;
 	name = "Security Maintenance";
-	req_access = list(63);
-	dir = 4
+	req_access = list(63)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/hallway)
@@ -43652,10 +43649,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/medical{
+	dir = 1;
 	id_tag = "EXdoor1";
 	name = "Examination Room";
-	req_access = list(5);
-	dir = 1
+	req_access = list(5)
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/exam)
@@ -43778,6 +43775,7 @@
 	pixel_x = -24
 	},
 /obj/machinery/light_switch{
+	dir = 8;
 	pixel_x = -23;
 	pixel_y = -7
 	},
@@ -43810,9 +43808,9 @@
 /area/maintenance/wing/starboard)
 "vvS" = (
 /obj/machinery/door/airlock/service{
+	dir = 4;
 	name = "Auxiliary Custodial Closet";
-	req_access = list(26);
-	dir = 4
+	req_access = list(26)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -43893,9 +43891,9 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_mining{
+	dir = 4;
 	name = "Mail Sorting";
-	req_one_access = list(26,31,67);
-	dir = 4
+	req_one_access = list(26,31,67)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -44145,9 +44143,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Security Maintenance";
-	req_access = list(63);
-	dir = 1
+	req_access = list(63)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -44470,9 +44468,9 @@
 /area/horizon/bar)
 "vKf" = (
 /obj/machinery/door/airlock/glass_service{
+	dir = 4;
 	name = "Kitchen";
-	req_access = list(28);
-	dir = 4
+	req_access = list(28)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -45014,9 +45012,9 @@
 /area/engineering/engine_room)
 "vVo" = (
 /obj/machinery/door/airlock/glass_service{
+	dir = 4;
 	name = "Bar - Preparations";
-	req_access = list(25);
-	dir = 4
+	req_access = list(25)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -45282,9 +45280,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
 	name = "Tesla Reactor Monitoring Room";
-	req_access = list(11);
-	dir = 4
+	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -45394,7 +45392,7 @@
 	pixel_y = -1
 	},
 /obj/machinery/button/remote/airlock{
-	dir = 8;
+	dir = 4;
 	id = "central_stall_2";
 	name = "Stall Door Lock";
 	pixel_x = 24;
@@ -45515,8 +45513,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor/multi_tile,
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Medical Reception";
-	dir = 4
+	dir = 4;
+	name = "Medical Reception"
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -45809,6 +45807,7 @@
 /obj/item/flame/candle,
 /obj/item/flame/candle,
 /obj/machinery/button/switch/windowtint{
+	dir = 8;
 	id = "chapel_outer";
 	pixel_x = -22;
 	pixel_y = 3
@@ -46018,7 +46017,6 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/west,
 /obj/structure/closet/hazmat/research,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/strongroom)
@@ -46077,11 +46075,11 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/hatch{
+	dir = 4;
 	icon_state = "door_locked";
 	locked = 1;
 	name = "Supermatter Reactor Crystal Access";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -46889,9 +46887,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
+	dir = 1;
 	name = "Mail Sorting";
-	req_one_access = list(26,31,67);
-	dir = 1
+	req_one_access = list(26,31,67)
 	},
 /turf/simulated/floor/tiled/full,
 /area/operations/mail_room)
@@ -46910,9 +46908,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
+	dir = 4;
 	name = "Research and Development";
-	req_access = list(7);
-	dir = 4
+	req_access = list(7)
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 8
@@ -47018,8 +47016,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(5);
-	dir = 4
+	dir = 4;
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -47271,9 +47269,9 @@
 /obj/effect/decal/cleanable/cobweb2,
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/hatch{
+	dir = 4;
 	name = "Deck 2 Starboard Pod";
-	req_access = list(12);
-	dir = 4
+	req_access = list(12)
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door"
@@ -47391,7 +47389,7 @@
 	pixel_y = -1
 	},
 /obj/machinery/button/remote/airlock{
-	dir = 4;
+	dir = 8;
 	id = "central_stall_1";
 	name = "Stall Door Lock";
 	pixel_x = -24;
@@ -47508,7 +47506,6 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 8;
 	id = "Security Lockdown";
 	name = "Security Lockdown";
 	pixel_x = 38;
@@ -47516,21 +47513,18 @@
 	req_access = list(58)
 	},
 /obj/machinery/button/remote/airlock{
-	dir = 8;
 	id = "HoSdoor";
 	name = "Office Door";
 	pixel_x = 27;
 	pixel_y = 38
 	},
 /obj/machinery/button/switch/windowtint{
-	dir = 4;
 	id = "HoS Windows";
 	pixel_x = 26;
 	pixel_y = 28;
 	req_access = list(58)
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 8;
 	id = "armory";
 	name = "Armory Shutters";
 	pixel_x = 38;
@@ -47872,9 +47866,9 @@
 "xgZ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_security{
+	dir = 1;
 	name = "Holding Cell B";
-	req_one_access = list(2,4);
-	dir = 1
+	req_one_access = list(2,4)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -47919,12 +47913,12 @@
 /area/maintenance/wing/starboard/far)
 "xhP" = (
 /obj/machinery/door/airlock/external{
+	dir = 1;
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "merchant_shuttle_dock_inner";
 	locked = 1;
-	req_access = list(13);
-	dir = 1
+	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/access_button{
@@ -48051,9 +48045,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
+	dir = 4;
 	name = "Communal Interior";
-	req_access = list(2);
-	dir = 4
+	req_access = list(2)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -48106,9 +48100,9 @@
 /area/engineering/lobby)
 "xlE" = (
 /obj/machinery/door/airlock/glass_service{
+	dir = 1;
 	name = "Hydroponics";
-	req_access = list(35);
-	dir = 1
+	req_access = list(35)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -48296,9 +48290,9 @@
 /area/rnd/xenobiology/xenoflora)
 "xqk" = (
 /obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
 	name = "Supermatter Reactor Waste Management";
-	req_one_access = list(11,24);
-	dir = 1
+	req_one_access = list(11,24)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
@@ -48431,9 +48425,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/mining{
+	dir = 1;
 	name = "Machinist Workshop";
-	req_access = list(29);
-	dir = 1
+	req_access = list(29)
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/full,
@@ -48658,9 +48652,9 @@
 /area/engineering/engine_room)
 "xzM" = (
 /obj/machinery/door/airlock/glass_medical{
+	dir = 1;
 	name = "Medical";
-	req_access = list(5);
-	dir = 1
+	req_access = list(5)
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
@@ -48690,8 +48684,8 @@
 /area/horizon/security/brig)
 "xBv" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	name = "Public Garden";
-	dir = 2
+	dir = 2;
+	name = "Public Garden"
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	dir = 1
@@ -48754,9 +48748,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
+	dir = 4;
 	name = "Main Storage";
-	req_access = list(66);
-	dir = 4
+	req_access = list(66)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -49337,9 +49331,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/medical{
+	dir = 1;
 	name = "Psychiatric Office";
-	req_access = list(64);
-	dir = 1
+	req_access = list(64)
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/full,
@@ -49566,9 +49560,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/maintenance{
+	dir = 1;
 	name = "Aft Research Hallway Maintenance";
-	req_one_access = list(12,47);
-	dir = 1
+	req_one_access = list(12,47)
 	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/hallway)
@@ -49596,9 +49590,9 @@
 /area/horizon/security/head_of_security)
 "xWL" = (
 /obj/machinery/door/airlock/glass_atmos{
+	dir = 4;
 	name = "Atmospherics Locker Room";
-	req_access = list(24);
-	dir = 4
+	req_access = list(24)
 	},
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 1
@@ -50058,9 +50052,9 @@
 "yeT" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_security{
+	dir = 4;
 	name = "Communal Exterior";
-	req_access = list(2);
-	dir = 4
+	req_access = list(2)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -50094,15 +50088,16 @@
 	name = "Kitchen";
 	req_access = list(28)
 	},
-/obj/machinery/door/window/northleft{
-	name = "Hydroponics";
-	req_access = list(35)
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey,
+/obj/machinery/door/window/northleft{
+	name = "Hydroponics";
+	pixel_y = -15;
+	req_access = list(35)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
 "yfL" = (
@@ -50328,8 +50323,8 @@
 /area/maintenance/wing/port/far)
 "ykd" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12);
-	dir = 4
+	dir = 4;
+	req_access = list(12)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,

@@ -73,22 +73,26 @@
 	var/ai_unbolt_delay = 4
 	/// Timer object. Makes it so that the AI can only do one thing.
 	var/ai_action_timer = null
-	var/obj/machinery/door/airlock/close_other = null
-	var/close_other_id = null
+	/// The connected door to close.
+	var/obj/machinery/door/airlock/close_other
+	/// The ID of the connected door to close.
+	var/close_other_id
 	/// String (One of `MATERIAL_*`). The material the door is made from. If not set, defaults to steel.
-	var/mineral = null
+	var/mineral
 	/// Boolean. Whether or not the door's safeties are enabled. Tied to the safety wire.
 	var/safe = TRUE
-
-	var/obj/item/airlock_electronics/electronics = null
+	/// Airlock electronics.
+	var/obj/item/airlock_electronics/electronics
 	/// Boolean. Whether or not the door has just electrocuted someone.
 	var/has_shocked = FALSE
 	/// Boolean. Whether or not the door has secure wiring that scrambles the wire panel.
 	var/secured_wires = FALSE
-	var/datum/wires/airlock/wires = null
-	var/obj/item/device/magnetic_lock/bracer = null
+	/// Wires datum.
+	var/datum/wires/airlock/wires
+	/// Any active brace.
+	var/obj/item/device/magnetic_lock/bracer
+	/// If the panel is visible when open.
 	var/panel_visible_while_open = FALSE
-
 
 	/// Soundfile. The sound played when opening the door while powered.
 	var/open_sound_powered = 'sound/machines/airlock/covert1o.ogg'

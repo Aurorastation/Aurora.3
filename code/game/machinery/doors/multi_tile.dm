@@ -6,6 +6,7 @@
 	pixel_y = -32
 	hatch_offset_x = -32
 	hatch_offset_y = -32
+	airlock_type = "Multi-Tile"
 	open_sound_powered = 'sound/machines/airlock/wide1o.ogg'
 	close_sound_powered = 'sound/machines/airlock/wide1c.ogg'
 
