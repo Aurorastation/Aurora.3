@@ -75,7 +75,7 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "ao" = (
-/obj/machinery/door/airlock/sac,
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "ap" = (
@@ -99,7 +99,7 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "as" = (
-/obj/machinery/door/airlock/sac,
+/obj/machinery/door/airlock/external,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)

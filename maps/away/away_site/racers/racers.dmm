@@ -1241,7 +1241,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "fZJ" = (
-/obj/machinery/door/airlock/sac,
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/racers)
 "gaA" = (

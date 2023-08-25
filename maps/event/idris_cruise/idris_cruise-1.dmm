@@ -13380,7 +13380,7 @@
 	},
 /area/cruise/jungle)
 "kFQ" = (
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12)
 	},
@@ -14102,7 +14102,7 @@
 	name = "Romanovich Cloud, Tau Ceti"
 	})
 "lky" = (
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12)
 	},
@@ -23778,7 +23778,7 @@
 /area/cruise/tcomms_sat)
 "teH" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/sac,
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
@@ -29152,7 +29152,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12)
 	},

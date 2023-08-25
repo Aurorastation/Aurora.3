@@ -160,7 +160,7 @@
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "aW" = (
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12)
 	},
@@ -3452,7 +3452,7 @@
 /turf/simulated/floor/plating,
 /area/city/mendell/interior)
 "tC" = (
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12)
 	},
@@ -3544,7 +3544,7 @@
 /area/city/mendell/interior)
 "tY" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/sac,
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "uc" = (
@@ -7019,7 +7019,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12)
 	},

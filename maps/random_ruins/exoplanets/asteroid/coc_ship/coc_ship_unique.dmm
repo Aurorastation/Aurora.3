@@ -1605,7 +1605,7 @@
 	},
 /area/template_noop)
 "Iv" = (
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	electrified_until = 0
 	},
 /obj/effect/decal/cleanable/dirt,

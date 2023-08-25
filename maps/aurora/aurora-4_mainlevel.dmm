@@ -45500,7 +45500,7 @@
 /obj/structure/plasticflaps/airtight,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/freezer_maint{
+/obj/machinery/door/airlock/maintenance_hatch{
 	name = "Transfusion Supplies";
 	req_access = null;
 	req_one_access = list(12,66)
@@ -70669,7 +70669,7 @@
 "xmZ" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/freezer_maint{
+/obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(28)
 	},
 /obj/structure/disposalpipe/segment,

@@ -294,7 +294,7 @@
 	door_color = "#475057"
 	stripe_color = "#ffc443"
 
-/obj/machinery/door/airlock/sac
+/obj/machinery/door/airlock/external
 	icon = 'icons/obj/doors/DoorSAC.dmi'
 	assembly_type = null
 	ai_control_disabled = 1
@@ -327,7 +327,7 @@
 	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/maintenance
-	name = "Maintenance Access"
+	name = "maintenance access"
 	icon_state = "maintenance"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#4d4d4d"
@@ -337,7 +337,7 @@
 	door_frame_color = "#81838b"//Meant to connect to external scc spaceship walls like the horizon hull
 
 /obj/machinery/door/airlock/external
-	name = "External Airlock"
+	name = "external airlock"
 	icon = 'icons/obj/doors/basic/single/external/door.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	hashatch = FALSE
@@ -346,10 +346,10 @@
 	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
 
 /obj/machinery/door/airlock/glass_science
-	name = "glass airlocks"
-	icon = 'icons/obj/doors/doorsciglass.dmi'
+	name = "glass airlock"
+	icon_state = "sci_glass"
+	door_color = "#A18A9C"
 	opacity = FALSE
-	assembly_type = /obj/structure/door_assembly/door_assembly_science
 	glass = 1
 	hatch_colour = "#d2d2d2"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
@@ -367,13 +367,6 @@
 	hatch_colour = "#eaeaea"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
-
-/obj/machinery/door/airlock/vaurca
-	name = "Alien Biomass Airlock"
-	icon = 'icons/obj/doors/Doorvaurca.dmi'
-	opacity = TRUE
-	hatch_colour = "#606061"
-	hashatch = FALSE
 
 /obj/machinery/door/airlock/centcom
 	icon = 'icons/obj/doors/Doorele.dmi'
@@ -498,15 +491,6 @@
 	maxhealth = 800
 	opacity = TRUE
 	paintable = AIRLOCK_PAINTABLE_MAIN
-	open_duration = 20
-
-/obj/machinery/door/airlock/freezer_maint
-	name = "Freezer Maintenance Access"
-	icon = 'icons/obj/doors/Doormaintfreezer.dmi'
-	desc = "An extra thick, double-insulated door to preserve the cold atmosphere. Keep closed at all times."
-	opacity = TRUE
-	assembly_type = /obj/structure/door_assembly/door_assembly_fma
-	hatch_colour = "#ffffff"
 	open_duration = 20
 
 /obj/machinery/door/airlock/hatch
