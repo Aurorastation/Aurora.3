@@ -1,8 +1,0 @@
-author: kyres1
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a method of clearing paths into exoplanet land by using mini hoes."
-  - tweak: "Scythes and hatchets can now clear grass and bushes on exoplanets."
-  - bugfix: "Changed the paths of jungle decals to be structures instead, so grass can actually be interacted with."
