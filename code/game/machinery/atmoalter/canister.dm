@@ -494,3 +494,15 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()
 	. = ..()
 	src.air_contents.temperature = 283
+
+/obj/machinery/portable_atmospherics/canister/chlorine
+	name = "Canister: \[Cl2\]"
+	icon_state = "poisonous"
+	canister_color = "poisonous"
+	desc = "A canister of Chlorine, with a warning label for poisonous gasses."
+	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/chlorine/Initialize()
+	. = ..()
+
+	src.air_contents.adjust_gas(GAS_CHLORINE, MolesForPressure())

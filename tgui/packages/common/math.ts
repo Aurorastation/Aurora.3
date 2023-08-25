@@ -4,6 +4,8 @@
  * @license MIT
  */
 
+// Further modified for Aurora
+
 /**
  * Limits a number to the range between 'min' and 'max'.
  */
@@ -95,4 +97,11 @@ export const numberOfDecimalDigits = (value) => {
     return value.toString().split('.')[1].length || 0;
   }
   return 0;
+};
+
+// Linear interpolation between two values.
+export const lerp = (value1: number, value2: number, amount: number) => {
+  amount = amount < 0 ? 0 : amount;
+  amount = amount > 1 ? 1 : amount;
+  return value1 + (value2 - value1) * amount;
 };

@@ -389,6 +389,13 @@
 	required_reagents = list(/singleton/reagent/thetamycin = 2, /singleton/reagent/sterilizine = 1, /singleton/reagent/radium = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/cytophenolate
+	name = "Cytophenolate"
+	id = "cytophenolate"
+	result = /singleton/reagent/cytophenolate
+	required_reagents = list(/singleton/reagent/fluvectionem = 1, /singleton/reagent/alcohol = 1, /singleton/reagent/sugar = 1)
+	result_amount = 3
+
 /datum/chemical_reaction/antiparasitic
 	name = "Helmizole"
 	id = "helmizole"
@@ -4058,4 +4065,3 @@
 	result = /singleton/reagent/alcohol/tribunal
 	required_reagents = list(/singleton/reagent/alcohol/threefold = 1, /singleton/reagent/alcohol/godhead = 1, /singleton/reagent/water/holywater = 1)
 	result_amount = 3
-	

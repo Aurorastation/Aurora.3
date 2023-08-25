@@ -512,5 +512,5 @@
 		else
 			height_descriptor = "to tower over"
 	if(height_string)
-		return height_string += "[get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
+		return height_string += " [get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
 	return "[get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
