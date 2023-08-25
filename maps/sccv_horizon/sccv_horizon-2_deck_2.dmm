@@ -19985,6 +19985,12 @@
 	req_access = list(56)
 	},
 /obj/item/rfd/construction,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Chief Engineer's Office"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/chief)
 "jDt" = (
@@ -22435,9 +22441,6 @@
 /obj/machinery/power/apc/low/north,
 /obj/structure/cable/green{
 	icon_state = "0-2"
-	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Chief Engineer's Office"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -69062,7 +69065,7 @@ iSx
 iSx
 sen
 hSr
-xNO
+voz
 jDb
 wAT
 tCk
@@ -69264,7 +69267,7 @@ vXX
 pWB
 uxn
 krC
-xNO
+voz
 gho
 wAT
 ybH
