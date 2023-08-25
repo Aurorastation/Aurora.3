@@ -2751,6 +2751,7 @@
 #include "code\modules\overmap\exoplanets\decor\flora\marsh.dm"
 #include "code\modules\overmap\exoplanets\decor\flora\potted.dm"
 #include "code\modules\overmap\exoplanets\decor\flora\snow.dm"
+#include "code\modules\overmap\exoplanets\decor\objs\clearing.dm"
 #include "code\modules\overmap\exoplanets\decor\objs\monolith.dm"
 #include "code\modules\overmap\exoplanets\decor\objs\pit.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\barren.dm"
