@@ -294,15 +294,6 @@
 	door_color = "#475057"
 	stripe_color = "#ffc443"
 
-/obj/machinery/door/airlock/external
-	icon = 'icons/obj/doors/DoorSAC.dmi'
-	assembly_type = null
-	ai_control_disabled = 1
-	hack_proof = TRUE
-	electrified_until = -1
-	open_sound_powered = 'sound/machines/airlock/space1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
-
 /obj/machinery/door/airlock/security
 	icon_state = "sec"
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
@@ -342,6 +333,9 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	hashatch = FALSE
 	insecure = 0
+	ai_control_disabled = 1
+	hack_proof = TRUE
+	electrified_until = -1
 	open_sound_powered = 'sound/machines/airlock/space1o.ogg'
 	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
 
@@ -716,9 +710,6 @@
 	maxhealth = 600
 	insecure = 0
 	hashatch = FALSE
-
-/obj/machinery/door/airlock/skrell/grey
-	icon = 'icons/obj/doors/grey_skrell_door.dmi'
 
 /obj/machinery/door/airlock/diona
 	name = "biomass airlock"
