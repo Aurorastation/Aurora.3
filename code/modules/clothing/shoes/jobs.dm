@@ -84,6 +84,9 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
+/obj/item/clothing/shoes/workboots/all_species
+	species_restricted = null
+
 /obj/item/clothing/shoes/workboots/toeless
 	name = "toe-less workboots"
 	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."

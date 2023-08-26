@@ -138,7 +138,7 @@
 	if(!user || !user.client)
 		return
 	to_chat(user, "That's \a <b>[src]</b>.")
-	to_chat(user, desc)
+	if(desc) to_chat(user, desc)
 	if(LAZYLEN(pilots) && (!hatch_closed || body.pilot_coverage < 100 || body.transparent_cabin))
 		if(length(pilots) == 0)
 			to_chat(user, "It has <b>no pilot</b>.")

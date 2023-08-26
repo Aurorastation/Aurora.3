@@ -452,6 +452,10 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	name = "sponsored uplink"
 	starting_telecrystals = 20
 
+/obj/item/device/special_uplink/jockey
+	name = "jockey uplink"
+	starting_telecrystals = 10
+
 /obj/item/device/special_uplink/raider
 	name = "underground uplink"
 	starting_telecrystals = 3

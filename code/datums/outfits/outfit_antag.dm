@@ -489,6 +489,66 @@
 	if(W)
 		W.handle_item_insertion(passport)
 
+
+/datum/outfit/admin/syndicate/jockey
+	name = "Jockey"
+	allow_backbag_choice = FALSE
+
+	uniform = list(
+		/obj/item/clothing/under/color/darkred,
+		/obj/item/clothing/under/color/red,
+		/obj/item/clothing/under/color/lightred
+	)
+
+	suit = list(
+		/obj/item/clothing/suit/storage/hazardvest,
+		/obj/item/clothing/suit/storage/hazardvest/green,
+		/obj/item/clothing/suit/storage/hazardvest/red
+	)
+
+	back = /obj/item/storage/backpack/duffel/syndie
+
+	belt = /obj/item/storage/belt/utility/very_full
+	shoes = /obj/item/clothing/shoes/workboots/all_species
+	glasses = null
+	head = /obj/item/clothing/head/welding
+
+	gloves = /obj/item/clothing/gloves/yellow // glubbs
+
+	backpack_contents = list(
+		/obj/item/storage/box/survival/engineer = 1,
+		/obj/item/device/flashlight = 1,
+		/obj/item/card/emag = 1
+	)
+
+	l_ear = /obj/item/device/radio/headset/jockey
+	r_pocket = /obj/item/device/special_uplink/jockey
+	id = /obj/item/storage/wallet
+
+	id_iff = IFF_JOCKEY
+
+/datum/outfit/admin/syndicate/jockey/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	var/turf/T = get_turf(H)
+	var/obj/item/gun/projectile/primary = new /obj/item/gun/projectile/silenced(T)
+	var/obj/item/magazine = new primary.magazine_type(T)
+	H.equip_to_slot_or_del(magazine, slot_l_store)
+	var/obj/item/clothing/accessory/holster/armpit/holster = new /obj/item/clothing/accessory/holster/armpit(T)
+	holster.holstered = primary
+	primary.forceMove(holster)
+
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	uniform.attackby(holster, H)
+
+	var/obj/item/storage/wallet/W = H.wear_id
+	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
+	passport.name = "[H.real_name]'s Passport"
+	if(W)
+		W.handle_item_insertion(passport)
+
 // Non-syndicate antag outfits
 
 /datum/outfit/admin/highlander
