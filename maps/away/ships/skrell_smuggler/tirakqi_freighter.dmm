@@ -59,7 +59,7 @@
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "azW" = (
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	name = "Maintenance";
 	req_access = "208"
 	},
@@ -174,7 +174,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "cqy" = (
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	name = "Hangar";
 	req_access = "208"
 	},
@@ -627,7 +627,7 @@
 /area/ship/tirakqi_freighter)
 "gcq" = (
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	name = "Maintenance";
 	req_access = "208"
 	},
@@ -839,7 +839,7 @@
 /area/ship/tirakqi_freighter)
 "hAg" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	name = "Bridge";
 	req_access = "208"
 	},
@@ -928,7 +928,7 @@
 /turf/simulated/wall/shuttle/skrell/cardinal,
 /area/shuttle/tirakqi_shuttle)
 "ifl" = (
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	name = "Bridge";
 	req_access = "208"
 	},
@@ -2031,7 +2031,7 @@
 /area/ship/tirakqi_freighter)
 "vUm" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	name = "Hangar";
 	req_access = "208"
 	},

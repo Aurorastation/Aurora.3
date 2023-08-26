@@ -287,7 +287,7 @@
 /turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "bb" = (
-/obj/machinery/door/airlock/skrell/grey,
+/obj/machinery/door/airlock/skrell,
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "bc" = (
@@ -765,7 +765,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "cN" = (
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	locked = 1
 	},
 /turf/simulated/floor/shuttle/advanced,
