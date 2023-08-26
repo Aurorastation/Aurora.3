@@ -486,9 +486,17 @@
 
 /obj/machinery/door/airlock/hatch
 	name = "Airtight Hatch"
-	icon = 'icons/obj/doors/Doorhatchele.dmi'
 	explosion_resistance = 20
 	opacity = TRUE
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	icon = 'icons/obj/doors/basic/single/hatch/door.dmi'
+	fill_file = 'icons/obj/doors/basic/single/hatch/fill_steel.dmi'
+	color_file = 'icons/obj/doors/basic/single/hatch/color.dmi'
+	color_fill_file = 'icons/obj/doors/basic/single/hatch/fill_color.dmi'
+	stripe_file = 'icons/obj/doors/basic/single/hatch/stripe.dmi'
+	stripe_fill_file = 'icons/obj/doors/basic/single/hatch/stripe.dmi'
+	door_color = "#4e5170"
+	stripe_color = "#ffc443"
 	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
 	insecure = 0
 	open_sound_powered = 'sound/machines/airlock/hatchopen.ogg'
@@ -499,7 +507,14 @@
 	name = "Maintenance Hatch"
 	explosion_resistance = 20
 	opacity = TRUE
-	icon_state = "maintenance"
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
+	icon = 'icons/obj/doors/basic/single/hatch/door.dmi'
+	fill_file = 'icons/obj/doors/basic/single/hatch/fill_steel.dmi'
+	color_file = 'icons/obj/doors/basic/single/hatch/color.dmi'
+	color_fill_file = 'icons/obj/doors/basic/single/hatch/fill_color.dmi'
+	stripe_file = 'icons/obj/doors/basic/single/hatch/stripe.dmi'
+	stripe_fill_file = 'icons/obj/doors/basic/single/hatch/stripe.dmi'
+	door_color = "#4d4d4d"
 	stripe_color = "#a88029"
 	open_sound_powered = 'sound/machines/airlock/hatchopen.ogg'
 	close_sound_powered = 'sound/machines/airlock/hatchclose.ogg'
