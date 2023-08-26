@@ -484,6 +484,7 @@
 	weight = 15
 	protectiveness = 0 // 0%
 	conductivity = 1 // Glass shards don't conduct.
+	icon_base = "glass"
 	door_icon_base = "stone"
 	destruction_desc = "shatters"
 	window_options = list("One Direction" = 1, "Full Window" = 4)

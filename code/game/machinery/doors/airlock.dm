@@ -26,7 +26,6 @@
 	icon = 'icons/obj/doors/basic/single/generic/door.dmi'
 	icon_state = "preview"
 	power_channel = ENVIRON
-	hatch_colour = "#7d7d7d"
 
 	explosion_resistance = 10
 	autoclose = TRUE
@@ -138,7 +137,7 @@
 	/// Bitflag (Any of `AIRLOCK_PAINTABLE_*`). Determines what parts of the airlock can be recolored with paint.
 	var/paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	/// Color. The color of the main door body.
-	var/door_color = "#909299"
+	var/door_color = COLOR_GRAY20
 	/// Frame color. The color of the door frame connecting it to walls if applicable.
 	var/door_frame_color = COLOR_GRAY20
 	/// Color. The color of the stripe detail.
@@ -225,6 +224,20 @@
 	QDEL_NULL(wifi_receiver)
 	return ..()
 
+/obj/machinery/door/airlock/Click(location, control, params)
+	if(ishuman(usr))
+		var/mob/living/carbon/human/H = usr
+		var/list/modifiers = params2list(params)
+		var/obj/item/device/paint_sprayer/paint_sprayer = H.get_active_hand()
+		if(istype(paint_sprayer))
+			if(!istype(H.buckled_to))
+				H.face_atom(src)
+			if(modifiers["ctrl"] && paint_sprayer.pick_color(src, H))
+				return
+			if(modifiers["shift"] && paint_sprayer.remove_paint(src, H))
+				return
+	. = ..()
+
 /obj/machinery/door/airlock/attack_generic(var/mob/user, var/damage)
 	if(stat & (BROKEN|NOPOWER))
 		if(damage >= 10)
@@ -248,6 +261,7 @@
 	name = "external airlock"
 	icon = 'icons/obj/doors/basic/single/external/door.dmi'
 	icon_state = "preview"
+	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	door_frame_color = "#81838b"//Meant to connect to external scc spaceship walls like the horizon hull
 	door_color = "#813c3c"
@@ -271,6 +285,20 @@
 
 /obj/machinery/door/airlock/external/purple
 	door_frame_color = "#7846b1"
+
+/obj/machinery/door/airlock/glass
+	name = "glass airlock"
+	icon_state = "preview_glass"
+	glass = 1
+	hitsound = 'sound/effects/glass_hit.ogg'
+	maxhealth = 300
+	explosion_resistance = 5
+	opacity = FALSE
+	panel_visible_while_open = TRUE
+	door_color = COLOR_GRAY20
+	door_frame_color = COLOR_GRAY20
+	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/service // Service Airlock
 	icon_state = "ser"
@@ -315,11 +343,11 @@
 /obj/machinery/door/airlock/medical
 	door_color = "#A7A9A0"
 	stripe_color = "#345731"
-	hatch_colour = "#d2d2d2"
 
 /obj/machinery/door/airlock/maintenance
 	name = "maintenance access"
 	icon_state = "maintenance"
+	assembly_type = /obj/structure/door_assembly/door_assembly_mai
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#4d4d4d"
 	stripe_color = "#a88029"
@@ -345,27 +373,12 @@
 	door_color = "#A18A9C"
 	opacity = FALSE
 	glass = 1
-	hatch_colour = "#d2d2d2"
-	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
-	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
-
-/obj/machinery/door/airlock/glass
-	name = "glass airlock"
-	icon_state = "preview_glass"
-	glass = 1
-	hitsound = 'sound/effects/glass_hit.ogg'
-	maxhealth = 300
-	explosion_resistance = 5
-	opacity = FALSE
-	panel_visible_while_open = TRUE
-	hatch_colour = "#eaeaea"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/centcom
 	icon = 'icons/obj/doors/Doorele.dmi'
 	opacity = TRUE
-	hatch_colour = "#606061"
 	hashatch = FALSE
 	hack_proof = TRUE
 	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
@@ -405,7 +418,6 @@
 	icon = 'icons/obj/doors/Dooreleglass.dmi'
 	opacity = FALSE
 	glass = 1
-	hatch_colour = "#606061"
 	hashatch = FALSE
 	hack_proof = TRUE
 	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
@@ -458,22 +470,6 @@
 		window_color = GLASS_COLOR
 	update_icon()
 
-/obj/machinery/door/airlock/vault
-	name = "Vault"
-	icon = 'icons/obj/doors/vault.dmi'
-	explosion_resistance = 20
-	opacity = TRUE
-	secured_wires = TRUE
-	assembly_type = /obj/structure/door_assembly/door_assembly_vault
-	hashatch = FALSE
-	maxhealth = 800
-	panel_visible_while_open = TRUE
-	insecure = 0
-	ai_bolting_delay = 12
-	ai_unbolt_delay = 8
-	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/vault1c.ogg'
-
 /obj/machinery/door/airlock/vault/bolted
 	icon_state = "door_locked"
 	locked = TRUE
@@ -482,6 +478,7 @@
 	name = "freezer airlock"
 	door_color = "#b9b8b6"
 	desc = "An extra thick, double-insulated door to preserve the cold atmosphere. Keep closed at all times."
+	assembly_type = /obj/structure/door_assembly/door_assembly_fre
 	maxhealth = 800
 	opacity = TRUE
 	paintable = AIRLOCK_PAINTABLE_MAIN
@@ -493,27 +490,16 @@
 	explosion_resistance = 20
 	opacity = TRUE
 	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
-	hatch_colour = "#5b5b5b"
-	var/hatch_colour_bolted = "#695a5a"
 	insecure = 0
 	open_sound_powered = 'sound/machines/airlock/hatchopen.ogg'
 	close_sound_powered = 'sound/machines/airlock/hatchclose.ogg'
 	open_sound_unpowered = 'sound/machines/airlock/hatchforced.ogg'
-
-/obj/machinery/door/airlock/hatch/update_icon()//Special hatch colour setting for this one snowflakey door that changes color when bolted
-	if (hashatch)
-		if(density && locked && lights && src.arePowerSystemsOn())
-			hatch_image.color = hatch_colour_bolted
-		else
-			hatch_image.color = hatch_colour
-	..()
 
 /obj/machinery/door/airlock/maintenance_hatch
 	name = "Maintenance Hatch"
 	explosion_resistance = 20
 	opacity = TRUE
 	icon_state = "maintenance"
-	hatch_colour = "#7d7d7d"
 	stripe_color = "#a88029"
 	open_sound_powered = 'sound/machines/airlock/hatchopen.ogg'
 	close_sound_powered = 'sound/machines/airlock/hatchclose.ogg'
@@ -541,7 +527,7 @@
 	explosion_resistance = 5
 	opacity = FALSE
 	glass = 1
-	paintable = AIRLOCK_PAINTABLE_MAIN
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#caa638"
 	stripe_color = "#ff7f43"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
@@ -550,7 +536,7 @@
 /obj/machinery/door/airlock/glass_security
 	name = "glass airlock"
 	icon_state = "sec_glass"
-	paintable = AIRLOCK_PAINTABLE_MAIN
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#2b4b68"
 	glass = 1
 
@@ -562,10 +548,9 @@
 	opacity = FALSE
 	assembly_type = /obj/structure/door_assembly/door_assembly_med
 	glass = 1
-	paintable = AIRLOCK_PAINTABLE_MAIN|AIRLOCK_PAINTABLE_STRIPE
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#A7A9A0"
 	stripe_color = "#345731"
-	hatch_colour = "#d2d2d2"
 	open_sound_powered = 'sound/machines/airlock/hall3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
@@ -574,8 +559,7 @@
 	icon_state = "ops"
 	door_color = "#956F30"
 	stripe_color = "#5E340B"
-	hatch_colour = "#c29142"
-	paintable = AIRLOCK_PAINTABLE_MAIN|AIRLOCK_PAINTABLE_STRIPE
+	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 
 /obj/machinery/door/airlock/atmos
 	name = "Atmospherics Airlock"
@@ -609,7 +593,6 @@
 	name = "glass airlock"
 	door_color = "#956F30"
 	stripe_color = "#5E340B"
-	hatch_colour = "#c29142"
 	icon_state = "ops_glass"
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
@@ -662,26 +645,22 @@
 	name = "Gold Airlock"
 	door_color = COLOR_GOLD
 	mineral = "gold"
-	hatch_colour = "#dbbb2b"
 
 /obj/machinery/door/airlock/silver
 	name = "Silver Airlock"
 	door_color = COLOR_SILVER
 	mineral = "silver"
-	hatch_colour = "#ffffff"
 
 /obj/machinery/door/airlock/diamond
 	name = "Diamond Airlock"
 	door_color = COLOR_DIAMOND
 	mineral = "diamond"
-	hatch_colour = "#66eeee"
 	maxhealth = 2000
 
 /obj/machinery/door/airlock/sandstone
 	name = "Sandstone Airlock"
 	door_color = COLOR_BEIGE
 	mineral = "sandstone"
-	hatch_colour = "#efc8a8"
 
 /obj/machinery/door/airlock/palepurple
 	name = "airlock"
@@ -694,7 +673,6 @@
 	explosion_resistance = 20
 	secured_wires = TRUE
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
-	hatch_colour = "#5a5a66"
 	maxhealth = 600
 	insecure = 0
 	ai_bolting_delay = 10
@@ -730,7 +708,6 @@
 	door_color = COLOR_GREEN
 	mineral = "uranium"
 	var/last_event = 0
-	hatch_colour = "#004400"
 
 /obj/machinery/door/airlock/uranium/process()
 	if(world.time > last_event+20)
@@ -745,7 +722,6 @@
 	desc = "No way this can end badly."
 	door_color = COLOR_VIOLET
 	mineral = MATERIAL_PHORON
-	hatch_colour = "#891199"
 
 /obj/machinery/door/airlock/phoron/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature > 300)
@@ -983,14 +959,14 @@ About the new airlock wires panel:
 	set_light(0)
 
 	if(door_frame_color && !(door_frame_color == "none"))//frame
-		var/ikey = "[airlock_type]-[door_frame_color]-color"
+		var/ikey = "[airlock_type]-[door_frame_color]-framecolor"
 		frame_color_overlay = SSicon_cache.airlock_icon_cache["[ikey]"]
 		if(!frame_color_overlay)
 			frame_color_overlay = new(frame_color_file)
 			frame_color_overlay.Blend(door_frame_color, ICON_MULTIPLY)
 			SSicon_cache.airlock_icon_cache["[ikey]"] = frame_color_overlay
 	if(door_color && !(door_color == "none"))//door itself
-		var/ikey = "[airlock_type]-[door_color]-color"
+		var/ikey = "[airlock_type]-[door_color]-doorcolor"
 		color_overlay = SSicon_cache.airlock_icon_cache["[ikey]"]
 		if(!color_overlay)
 			color_overlay = new(color_file)
@@ -1678,6 +1654,8 @@ About the new airlock wires panel:
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
+	else if(istype(C, /obj/item/device/paint_sprayer))
+		return FALSE
 	else if(istype(C, /obj/item/pai_cable))	// -- TLE
 		var/obj/item/pai_cable/cable = C
 		cable.plugin(src, user)

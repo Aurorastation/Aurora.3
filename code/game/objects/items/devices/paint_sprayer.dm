@@ -8,8 +8,8 @@
 	desc = "A Hephaestus-made paint gun that uses microbes to replenish its paint storage. Very high-tech and fancy too!"
 	desc_info = "Use control-click on a coloured decal on a turf to copy its colour. You can also use shift-click on a turf with the paint gun in hand to clear all decals on it."
 	icon = 'icons/obj/item/tools/paint_sprayer.dmi'
-	icon_state = "paint_sprayer"
-	item_state = "paint_sprayer"
+	icon_state = "floor_painter"
+	item_state = "floor_painter"
 	contained_sprite = TRUE
 	var/decal =        "remove all decals"
 	var/paint_dir =    "precise"
@@ -73,7 +73,6 @@
 		)
 
 /obj/item/device/paint_sprayer/afterattack(var/atom/A, var/mob/user, proximity, params)
-
 	if(!proximity)
 		return
 
@@ -104,11 +103,10 @@
 	else if (istype(A, /obj/machinery/door/airlock))
 		return paint_airlock(A, user)
 
-	var/turf/simulated/floor/F = A
-	if(!istype(F))
-		to_chat(user, "<span class='warning'>\The [src] can only be used on station flooring.</span>")
-		return
+	else if (istype(A, /turf/simulated/floor))
+		return paint_floor(A, user, params)
 
+/obj/item/device/paint_sprayer/proc/paint_floor(turf/simulated/floor/F, mob/user, params)
 	if(!F.flooring.can_paint)
 		to_chat(user, SPAN_WARNING("\The [src] cannot paint this type of flooring."))
 		return
@@ -216,7 +214,9 @@
 	if (!F.decals || !F.decals.len)
 		return FALSE
 	var/list/available_colors = list()
-	for (var/image/I in F.decals)
+	for (var/img in F.decals)
+		/// This snowflake code is necessary because for some reason images added to the decals list at roundstart become appearances.
+		var/image/I = image(img)
 		available_colors |= isnull(I.color) ? COLOR_WHITE : I.color
 	var/picked_color = available_colors[1]
 	if (available_colors.len > 1)
@@ -264,7 +264,7 @@
 	if (D.paintable & AIRLOCK_PAINTABLE_WINDOW)
 		choices |= AIRLOCK_REGION_WINDOW
 	choice = input(user, input_text) as null|anything in sortList(choices)
-	if (user.use_check_and_message() || !D || !user.Adjacent(D))
+	if (!user.use_check_and_message() || !D || !user.Adjacent(D))
 		return FALSE
 	return choice
 

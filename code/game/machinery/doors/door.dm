@@ -48,14 +48,8 @@
 
 	var/hashatch = 0//If 1, this door has hatches, and certain small creatures can move through them without opening the door
 	var/hatchstate = 0//0: closed, 1: open
-	var/hatchstyle = "1x1"
-	var/hatch_offset_x = 0
-	var/hatch_offset_y = 0
-	var/hatch_colour = "#FFFFFF"
 	var/hatch_open_sound = 'sound/machines/hatch_open.ogg'
 	var/hatch_close_sound = 'sound/machines/hatch_close.ogg'
-
-	var/image/hatch_image
 
 	// Integer. Used for intercepting clicks on our turf. Set 0 to disable click interception. Passed directly to `/datum/extension/turf_hand`.
 	var/turf_hand_priority = 3
@@ -89,8 +83,6 @@
 	health = maxhealth
 
 	update_nearby_tiles(need_rebuild=1)
-	if(hashatch && !(width > 1))
-		setup_hatch()
 	if(turf_hand_priority)
 		AddComponent(/datum/component/turf_hand, turf_hand_priority)
 
@@ -108,15 +100,6 @@
 		else
 			bound_width = world.icon_size
 			bound_height = width * world.icon_size
-
-/obj/machinery/door/proc/setup_hatch()
-	hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
-	hatch_image.color = hatch_colour
-	hatch_image.pixel_x = hatch_offset_x
-	hatch_image.pixel_y = hatch_offset_y
-	hatch_image.dir = dir
-
-	update_icon()
 
 /obj/machinery/door/proc/open_hatch(var/atom/mover = null)
 	if (!hatchstate)
@@ -382,7 +365,8 @@
 				take_damage(W.force)
 		return TRUE
 
-	if(src.operating > 0 || isrobot(user))	return TRUE //borgs can't attack doors open because it conflicts with their AI-like interaction with them.
+	if(src.operating > 0 || isrobot(user))
+		return TRUE //borgs can't attack doors open because it conflicts with their AI-like interaction with them.
 
 	if(src.allowed(user) && operable())
 		if(src.density)

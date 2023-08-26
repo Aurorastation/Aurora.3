@@ -332,7 +332,6 @@
 			for(var/i = 1 to 4)
 				I = image(icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
 				if(material_alteration & MATERIAL_ALTERATION_COLOR) I.color = material.icon_colour
-				I.alpha = 255 * material.opacity
 				add_overlay(I)
 
 		// Reinforcements
@@ -340,7 +339,6 @@
 			for(var/i = 1 to 4)
 				I = image(icon, "[reinforced.icon_reinf]_[connections[i]]", dir = 1<<(i-1))
 				I.color = reinforced.icon_colour
-				I.alpha = 255 * reinforced.opacity
 				add_overlay(I)
 
 		if(carpeted)
@@ -368,7 +366,6 @@
 		if(material)
 			var/image/I = image(icon, "[material.icon_base]_flip[type]")
 			I.color = material.icon_colour
-			I.alpha = 255 * material.opacity
 			add_overlay(I)
 			if(material_alteration & MATERIAL_ALTERATION_NAME)
 				name = "[material.display_name] table"
@@ -378,7 +375,6 @@
 		if(reinforced)
 			var/image/I = image(icon, "[reinforced.icon_reinf]_flip[type]")
 			I.color = reinforced.icon_colour
-			I.alpha = 255 * reinforced.opacity
 			add_overlay(I)
 
 		if(carpeted)

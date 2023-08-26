@@ -22,7 +22,6 @@
 	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.
 	block_air_zones = 0
 	hashatch = 1
-	hatch_colour = "#f7d003"
 
 	var/blocked = 0
 	var/lockdown = 0 // When the door has detected a problem, it locks.
@@ -124,9 +123,6 @@
 					dir = EAST
 				else if(diffarea_directions & WEST)
 					dir = WEST
-
-	if (!density)
-		cut_overlay(hatch_image)	// Parent call adds this, but we don't want it just yet.
 
 /obj/machinery/door/firedoor/Destroy()
 	for(var/area/A in areas_added)
@@ -486,13 +482,6 @@
 					add_overlay("alert_hot_[cdir]")
 
 				do_set_light = TRUE
-
-		if (hashatch && hatch_image)
-			if (hatchstate)
-				hatch_image.icon_state = "[hatchstyle]_open"
-			else
-				hatch_image.icon_state = hatchstyle
-			add_overlay(hatch_image)
 	else
 		icon_state = "door_open"
 		if(blocked)
