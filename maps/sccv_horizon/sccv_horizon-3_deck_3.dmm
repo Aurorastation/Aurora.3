@@ -149,8 +149,9 @@
 	id = "deck2_medicaltoilet";
 	name = "Door Bolt Control";
 	pixel_x = -24;
-	pixel_y = -22;
-	specialfunctions = 4
+	pixel_y = 1;
+	specialfunctions = 4;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
@@ -503,12 +504,32 @@
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "4-8"
 	},
-/obj/machinery/power/apc/super/north,
-/obj/machinery/light/spot{
-	dir = 1
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = 26;
+	pixel_x = 6
+	},
+/obj/machinery/button/switch/windowtint{
+	dir = 1;
+	id = "holodecktint_a";
+	pixel_y = 26;
+	pixel_x = -6
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "holodeck_alpha_shutters";
+	name = "Holodeck Privacy Shutters";
+	pixel_y = 36;
+	pixel_x = -6
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "holodeck_alpha_bigshutters";
+	name = "Holodeck Public Entry Shutters";
+	pixel_x = 6;
+	pixel_y = 36
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
@@ -1360,20 +1381,22 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/button/remote/airlock{
-	id = "airlocks_bunker";
-	name = "Command Bunker Bolts";
-	pixel_x = 27;
-	pixel_y = 23;
-	req_access = list(19);
-	specialfunctions = 4
-	},
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_bunker";
 	name = "Command Bunker Blast Door";
-	pixel_x = 27;
-	pixel_y = 32;
-	req_access = list(19)
+	pixel_x = 22;
+	pixel_y = 21;
+	req_access = list(19);
+	dir = 4
+	},
+/obj/machinery/button/remote/airlock{
+	id = "airlocks_bunker";
+	name = "Command Bunker Bolts";
+	pixel_x = 22;
+	pixel_y = 11;
+	req_access = list(19);
+	specialfunctions = 4;
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -1473,11 +1496,11 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
+	dir = 8;
 	id = "holodeck_alpha_shutters";
 	name = "Holodeck Privacy Shutters";
 	pixel_x = -23;
-	pixel_y = -7;
+	pixel_y = 0;
 	req_one_access = list(38)
 	},
 /obj/effect/floor_decal/corner/dark_green{
@@ -1996,12 +2019,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/medical/washroom)
 "bzq" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 5;
 	pixel_y = 28
-	},
-/obj/effect/floor_decal/corner/dark_blue/full{
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
@@ -3026,15 +3049,15 @@
 	name = "Chief Medical Officer RC"
 	},
 /obj/machinery/light_switch{
-	dir = 1;
-	pixel_x = -25;
-	pixel_y = -33
+	dir = 2;
+	pixel_x = -14;
+	pixel_y = -19
 	},
 /obj/machinery/button/switch/windowtint{
-	dir = 1;
+	dir = 2;
 	id = "cmooffice";
-	pixel_x = -18;
-	pixel_y = -33;
+	pixel_x = -7;
+	pixel_y = -19;
 	req_access = list(40)
 	},
 /obj/item/folder/white,
@@ -3354,6 +3377,10 @@
 /obj/machinery/firealarm/north,
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/light/spot{
+	dir = 4;
+	must_start_working = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
 "cQg" = (
@@ -3376,10 +3403,10 @@
 /turf/simulated/floor,
 /area/maintenance/substation/command)
 "cQN" = (
-/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
 "cQT" = (
@@ -3849,11 +3876,6 @@
 /area/horizon/security/investigations_hallway)
 "dmv" = (
 /obj/machinery/disposal/small/north,
-/obj/machinery/light_switch{
-	dir = 1;
-	pixel_x = -16;
-	pixel_y = -22
-	},
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
@@ -4224,9 +4246,6 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -4497,9 +4516,9 @@
 	},
 /obj/machinery/lapvend,
 /obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = -24;
-	pixel_y = -9
+	dir = 8;
+	pixel_x = -23;
+	pixel_y = 1
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
@@ -4952,13 +4971,22 @@
 /area/horizon/crew_armoury)
 "eks" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/machinery/power/apc/super/north,
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_x = 6;
+	pixel_y = 26
 	},
-/obj/machinery/light/spot{
-	dir = 1
+/obj/machinery/button/switch/windowtint{
+	dir = 1;
+	id = "holodecktint_b";
+	pixel_x = -6;
+	pixel_y = 26
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "holodeck_beta_shutters";
+	name = "Holodeck Privacy Shutters";
+	pixel_y = 36
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
@@ -5566,6 +5594,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
@@ -6214,9 +6245,9 @@
 	dir = 10
 	},
 /obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = -24;
-	pixel_y = 9
+	dir = 8;
+	pixel_x = -23;
+	pixel_y = 6
 	},
 /obj/random/pottedplant,
 /turf/simulated/floor/wood,
@@ -6499,39 +6530,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
-"fnB" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "holodeck_alpha_bigshutters";
-	name = "Holodeck Public Entry Shutters";
-	pixel_x = -32;
-	pixel_y = -7
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "holodeck_alpha_shutters";
-	name = "Holodeck Privacy Shutters";
-	pixel_x = -23;
-	pixel_y = -7
-	},
-/obj/machinery/button/switch/windowtint{
-	dir = 4;
-	id = "holodecktint_a";
-	pixel_x = -22;
-	pixel_y = 2
-	},
-/obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = -22;
-	pixel_y = 10
-	},
-/obj/machinery/light/floor,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck_control)
 "fom" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
@@ -7290,15 +7288,15 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/light_switch{
-	dir = 8;
+	dir = 4;
 	pixel_x = 23;
 	pixel_y = 23
 	},
 /obj/machinery/button/switch/windowtint{
-	dir = 8;
+	dir = 4;
 	id = "cmooffice";
 	pixel_x = 23;
-	pixel_y = 30;
+	pixel_y = 33;
 	req_access = list(40)
 	},
 /turf/simulated/floor/tiled/white,
@@ -7432,24 +7430,28 @@
 	id = "rep_office";
 	name = "representative door bolts";
 	pixel_x = -7;
-	pixel_y = 28;
-	specialfunctions = 4
+	pixel_y = 25;
+	specialfunctions = 4;
+	dir = 1
 	},
 /obj/machinery/button/remote/airlock{
 	id = "rep_office";
 	name = "representative door control";
 	pixel_x = -7;
-	pixel_y = 37
+	pixel_y = 34;
+	dir = 1
 	},
 /obj/machinery/light_switch{
 	pixel_x = 2;
-	pixel_y = 30
+	pixel_y = 27;
+	dir = 1
 	},
 /obj/machinery/button/switch/windowtint{
 	id = "rep";
 	pixel_x = 9;
-	pixel_y = 30;
-	req_access = list(38)
+	pixel_y = 27;
+	req_access = list(38);
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/representative)
@@ -7899,9 +7901,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/light_switch{
-	dir = 1;
+	dir = 2;
 	pixel_x = -26;
-	pixel_y = -22
+	pixel_y = -19
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
@@ -8062,6 +8064,7 @@
 	dir = 6
 	},
 /obj/machinery/recharger,
+/obj/item/device/radio/intercom/north,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "grI" = (
@@ -8285,6 +8288,11 @@
 /obj/item/storage/box/gloves,
 /obj/item/device/radio/intercom/west{
 	pixel_y = 0
+	},
+/obj/machinery/keycard_auth{
+	pixel_x = -27;
+	pixel_y = 7;
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
@@ -8658,11 +8666,11 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
+	dir = 8;
 	id = "holodeck_beta_shutters";
 	name = "Holodeck Privacy Shutters";
 	pixel_x = -23;
-	pixel_y = -7;
+	pixel_y = 0;
 	req_one_access = list(38)
 	},
 /turf/simulated/floor/tiled,
@@ -8675,9 +8683,9 @@
 	},
 /obj/machinery/hologram/holopad,
 /obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = -21;
-	pixel_y = 9
+	dir = 8;
+	pixel_x = -23;
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward/isolation)
@@ -9112,8 +9120,9 @@
 /area/medical/ward)
 "hhm" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/modular_computer/laptop/preset/command/captain,
-/obj/item/device/taperecorder,
+/obj/item/modular_computer/laptop/preset/command/captain{
+	pixel_y = -6
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "hhn" = (
@@ -9897,6 +9906,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/device/taperecorder{
+	pixel_x = 6
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "hIp" = (
@@ -10259,6 +10271,7 @@
 	dir = 8;
 	pixel_x = -12
 	},
+/obj/machinery/newscaster/security_unit/west,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "icU" = (
@@ -10765,11 +10778,12 @@
 /area/maintenance/engineering_ladder)
 "izo" = (
 /obj/machinery/button/remote/airlock{
-	dir = 4;
+	dir = 8;
 	id = "cryo_toilet_2";
 	name = "Door Bolt Control";
-	pixel_x = -32;
-	specialfunctions = 4
+	pixel_x = -24;
+	specialfunctions = 4;
+	pixel_y = 6
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -11373,32 +11387,28 @@
 	dir = 10
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 1;
+	dir = 2;
 	id = "LCKDshutters";
 	name = "MedBay Lockdown Control";
 	pixel_x = -28;
-	pixel_y = -23;
+	pixel_y = -19;
 	req_access = list(40)
 	},
-/obj/machinery/keycard_auth{
-	pixel_x = -27;
-	pixel_y = -34
-	},
 /obj/machinery/button/remote/blast_door{
-	dir = 1;
+	dir = 2;
 	id = "cmowindowshutters";
 	name = "Window Shutters";
-	pixel_x = -7;
-	pixel_y = -24;
+	pixel_x = -2;
+	pixel_y = -19;
 	req_access = list(40)
 	},
 /obj/machinery/light,
 /obj/machinery/button/remote/airlock{
-	dir = 1;
+	dir = 2;
 	id = "CMOdoor";
 	name = "Office Door Control";
-	pixel_x = 11;
-	pixel_y = -24;
+	pixel_x = 9;
+	pixel_y = -19;
 	req_access = list(40)
 	},
 /turf/simulated/floor/tiled/white,
@@ -12532,15 +12542,15 @@
 /area/horizon/hallway/deck_three/primary/central)
 "jOn" = (
 /obj/machinery/button/switch/windowtint{
-	dir = 1;
+	dir = 2;
 	id = "journalist";
 	pixel_x = -2;
-	pixel_y = -24
+	pixel_y = -19
 	},
 /obj/machinery/light_switch{
-	dir = 1;
+	dir = 2;
 	pixel_x = -9;
-	pixel_y = -24
+	pixel_y = -19
 	},
 /obj/machinery/papershredder{
 	pixel_x = -6
@@ -13078,6 +13088,10 @@
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
+/obj/machinery/light/spot{
+	dir = 4;
+	must_start_working = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "kmD" = (
@@ -13292,9 +13306,9 @@
 /area/bridge/controlroom)
 "kso" = (
 /obj/machinery/light_switch{
-	dir = 1;
-	pixel_x = 9;
-	pixel_y = -24
+	dir = 2;
+	pixel_x = 8;
+	pixel_y = -19
 	},
 /obj/effect/floor_decal/corner/beige/full,
 /obj/machinery/light,
@@ -13334,15 +13348,15 @@
 /area/security/vacantoffice)
 "ktq" = (
 /obj/machinery/button/switch/windowtint{
-	dir = 1;
+	dir = 2;
 	id = "investigator_office";
 	pixel_x = -2;
-	pixel_y = -24
+	pixel_y = -19
 	},
 /obj/machinery/light_switch{
-	dir = 1;
+	dir = 2;
 	pixel_x = -9;
-	pixel_y = -24
+	pixel_y = -19
 	},
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 10;
@@ -13437,6 +13451,7 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
+/obj/item/device/radio/intercom/north,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "kwf" = (
@@ -13783,15 +13798,6 @@
 /obj/structure/bed/stool/chair/padded/beige,
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
-"kKU" = (
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Captain's Office Aft"
-	},
-/obj/structure/bed/stool/chair/padded/beige{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/crew_quarters/captain)
 "kLs" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -14088,11 +14094,15 @@
 	},
 /obj/structure/bed/stool/chair/office/light,
 /obj/machinery/light_switch{
-	pixel_x = 26
+	pixel_x = 26;
+	pixel_y = 0;
+	dir = 4
 	},
 /obj/machinery/button/switch/windowtint{
 	id = "Recovery1";
-	pixel_x = 33
+	pixel_x = 26;
+	dir = 4;
+	pixel_y = -8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ward)
@@ -14241,6 +14251,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/power/apc/super/north,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "lcM" = (
@@ -14293,27 +14308,31 @@
 	id = "hangarlockdown";
 	name = "Hangar Lockdoor";
 	pixel_x = -5;
-	pixel_y = -33
+	pixel_y = -27;
+	dir = 10
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "bridge blast";
 	name = "Bridge Lockdown";
 	pixel_x = -5;
-	pixel_y = -23;
-	req_access = list(19)
+	pixel_y = -18;
+	req_access = list(19);
+	dir = 10
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "crew_armory";
 	name = "Crew Armory";
 	pixel_x = 6;
-	pixel_y = -33;
-	req_access = list(60)
+	pixel_y = -27;
+	req_access = list(60);
+	dir = 6
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_deck3_bridgesafety";
 	name = "Bridge Safety Shutters";
 	pixel_x = 6;
-	pixel_y = -23
+	pixel_y = -18;
+	dir = 6
 	},
 /obj/structure/railing/mapped{
 	dir = 4
@@ -15131,7 +15150,8 @@
 	id = "medicalisolation";
 	name = "Isolation Ward Shutters";
 	pixel_y = 30;
-	req_access = list(66)
+	req_access = list(66);
+	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
@@ -17447,15 +17467,15 @@
 	dir = 9
 	},
 /obj/machinery/light_switch{
-	dir = 4;
+	dir = 8;
 	pixel_x = -24;
-	pixel_y = 9
+	pixel_y = 7
 	},
 /obj/machinery/button/switch/windowtint{
-	dir = 4;
+	dir = 8;
 	id = "sec_autopsy";
 	pixel_x = -24;
-	pixel_y = 2
+	pixel_y = -2
 	},
 /obj/structure/sink/kitchen{
 	dir = 4;
@@ -17929,11 +17949,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
@@ -18526,6 +18546,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/light_switch{
+	pixel_x = 24;
+	pixel_y = 1;
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "olE" = (
@@ -18567,7 +18592,6 @@
 	dir = 5
 	},
 /obj/structure/bed/stool/chair/office/bridge/pilot,
-/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "onk" = (
@@ -18797,32 +18821,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard)
-"ovx" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "holodeck_beta_shutters";
-	name = "Holodeck Privacy Shutters";
-	pixel_x = -23;
-	pixel_y = -7
-	},
-/obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = -22;
-	pixel_y = 10
-	},
-/obj/machinery/button/switch/windowtint{
-	dir = 4;
-	id = "holodecktint_b";
-	pixel_x = -22;
-	pixel_y = 2
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/light/floor,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/holodeck_control/beta)
 "owI" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -19531,11 +19529,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
-"oWy" = (
-/obj/structure/bed/stool/chair/office/bridge/pilot,
-/obj/item/device/radio/intercom/east,
-/turf/simulated/floor/carpet/rubber,
-/area/bridge/controlroom)
 "oWK" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -19923,6 +19916,9 @@
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "pum" = (
@@ -19968,9 +19964,9 @@
 	},
 /obj/machinery/firealarm/east,
 /obj/machinery/light_switch{
-	dir = 8;
-	pixel_x = 24;
-	pixel_y = -9
+	dir = 4;
+	pixel_x = 23;
+	pixel_y = -6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
@@ -20297,7 +20293,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/newscaster/security_unit/east,
 /obj/item/device/radio/intercom/east{
 	pixel_y = 1
 	},
@@ -20682,24 +20677,24 @@
 "qjr" = (
 /obj/structure/table/wood,
 /obj/machinery/button/switch/windowtint{
-	dir = 4;
+	dir = 8;
 	id = "consular";
 	pixel_x = -24;
-	pixel_y = -4
+	pixel_y = -9
 	},
 /obj/machinery/button/remote/airlock{
-	dir = 4;
+	dir = 8;
 	id = "consular_office";
 	name = "consular door control";
-	pixel_x = -35;
-	pixel_y = 7
+	pixel_x = -30;
+	pixel_y = 11
 	},
 /obj/machinery/button/remote/airlock{
-	dir = 4;
+	dir = 8;
 	id = "consular_office";
 	name = "consular door bolts";
-	pixel_x = -35;
-	pixel_y = -7;
+	pixel_x = -30;
+	pixel_y = 0;
 	specialfunctions = 4
 	},
 /obj/item/paper_scanner,
@@ -20710,9 +20705,9 @@
 	},
 /obj/machinery/recharger,
 /obj/machinery/light_switch{
-	dir = 4;
+	dir = 8;
 	pixel_x = -24;
-	pixel_y = 4
+	pixel_y = 2
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
@@ -22031,6 +22026,9 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
 	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Captain's Office Aft"
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "rqU" = (
@@ -22584,10 +22582,6 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 5;
-	pixel_y = 28
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
@@ -22596,6 +22590,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 5;
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/bridge_crew)
@@ -22637,14 +22635,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/light_switch{
-	dir = 8;
-	pixel_x = 24;
-	pixel_y = -9
-	},
 /obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
+	},
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 21;
+	pixel_y = -13
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
@@ -22975,8 +22973,9 @@
 	dir = 8
 	},
 /obj/machinery/light_switch{
-	pixel_x = 9;
-	pixel_y = 24
+	pixel_x = 7;
+	pixel_y = 28;
+	dir = 1
 	},
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark,
@@ -23001,20 +23000,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
 "saF" = (
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
 	},
-/obj/machinery/ringer_button{
-	id = "hop_ringer";
-	pixel_x = 5;
-	pixel_y = -25
-	},
-/obj/machinery/light,
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/hallway/deck_three/primary/central)
+/obj/machinery/power/apc/super/north,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/holodeck_control/beta)
 "saK" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -24113,9 +24106,9 @@
 	dir = 9
 	},
 /obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = -21;
-	pixel_y = 9
+	dir = 8;
+	pixel_x = -23;
+	pixel_y = 4
 	},
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -24238,11 +24231,12 @@
 /area/horizon/cafeteria)
 "sRf" = (
 /obj/machinery/button/remote/airlock{
-	dir = 4;
+	dir = 8;
 	id = "cryo_toilet_1";
 	name = "Door Bolt Control";
-	pixel_x = -32;
-	specialfunctions = 4
+	pixel_x = -24;
+	specialfunctions = 4;
+	pixel_y = 6
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -24713,8 +24707,13 @@
 /area/horizon/exterior)
 "tpv" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/pinpointer,
-/obj/item/disk/nuclear,
+/obj/item/pinpointer{
+	pixel_x = -5
+	},
+/obj/item/disk/nuclear{
+	pixel_y = 13;
+	pixel_x = 1
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "tpN" = (
@@ -25132,19 +25131,22 @@
 "tFa" = (
 /obj/machinery/light_switch{
 	pixel_x = -9;
-	pixel_y = 24
+	pixel_y = 23;
+	dir = 1
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for shutters.";
 	id = "hop_office_desk";
 	name = "Desk Privacy Shutter";
 	pixel_x = 7;
-	pixel_y = 25
+	pixel_y = 24;
+	dir = 1
 	},
 /obj/machinery/button/switch/windowtint{
 	id = "hop";
 	pixel_x = -2;
-	pixel_y = 24
+	pixel_y = 23;
+	dir = 1
 	},
 /obj/structure/table/standard,
 /obj/machinery/recharger,
@@ -25158,8 +25160,9 @@
 	id = "hopdoor";
 	name = "Office Door Control";
 	pixel_x = -7;
-	pixel_y = 35;
-	req_access = list(57)
+	pixel_y = 34;
+	req_access = list(57);
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
@@ -25176,8 +25179,9 @@
 /obj/machinery/button/remote/airlock{
 	id = "main_unit_2";
 	name = "Door Bolt Control";
-	pixel_y = 32;
-	specialfunctions = 4
+	pixel_y = 34;
+	specialfunctions = 4;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/changing)
@@ -25367,8 +25371,9 @@
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/machinery/button/switch/windowtint{
 	id = "cap";
-	pixel_x = -25;
-	pixel_y = -26
+	pixel_x = -22;
+	pixel_y = -24;
+	dir = 10
 	},
 /obj/machinery/computer/security/telescreen{
 	name = "Access Monitor";
@@ -25423,10 +25428,11 @@
 /obj/machinery/button/remote/airlock{
 	id = "sat2";
 	name = "Scuttling Device Bolts";
-	pixel_x = 24;
+	pixel_x = 22;
 	pixel_y = 40;
 	req_access = list(20);
-	specialfunctions = 4
+	specialfunctions = 4;
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -25847,16 +25853,18 @@
 	dir = 6
 	},
 /obj/machinery/button/remote/airlock{
-	dir = 8;
+	dir = 9;
 	id = "conference_room";
 	name = "Conference Room Bolts";
-	pixel_x = 6;
-	specialfunctions = 4
+	pixel_x = -4;
+	specialfunctions = 4;
+	pixel_y = 4
 	},
 /obj/machinery/button/switch/windowtint{
 	dir = 5;
 	id = "bridgeconf";
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = -3
 	},
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
@@ -26563,7 +26571,8 @@
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/recharger{
-	pixel_y = 9
+	pixel_y = 8;
+	pixel_x = -6
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -26920,9 +26929,6 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -26952,6 +26958,7 @@
 /area/maintenance/engineering_ladder)
 "uWn" = (
 /obj/structure/bed/stool/chair/padded/brown,
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/medical/smoking)
 "uWs" = (
@@ -26967,8 +26974,9 @@
 /obj/machinery/button/remote/airlock{
 	id = "main_unit_1";
 	name = "Door Bolt Control";
-	pixel_y = 32;
-	specialfunctions = 4
+	pixel_y = 34;
+	specialfunctions = 4;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/changing)
@@ -27459,7 +27467,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/office_aux)
 "vob" = (
-/obj/machinery/firealarm/south,
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/medical/smoking)
@@ -27878,11 +27885,11 @@
 	dir = 6
 	},
 /obj/machinery/button/remote/airlock{
-	dir = 4;
+	dir = 8;
 	id = "sec_deck3_toilet";
 	name = "Door Bolt Control";
-	pixel_x = -25;
-	pixel_y = -7;
+	pixel_x = -24;
+	pixel_y = 6;
 	specialfunctions = 4
 	},
 /obj/machinery/light/small{
@@ -27955,9 +27962,9 @@
 "vKa" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light_switch{
-	dir = 1;
-	pixel_x = -22;
-	pixel_y = -22
+	dir = 2;
+	pixel_x = -26;
+	pixel_y = -18
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -28668,6 +28675,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/newscaster/security_unit/east,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "wmP" = (
@@ -28965,6 +28973,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
 "wwQ" = (
@@ -29070,6 +29081,11 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
 	},
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = -23;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "wFq" = (
@@ -29110,8 +29126,8 @@
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
 /obj/machinery/light_switch{
-	dir = 8;
-	pixel_x = 23;
+	dir = 4;
+	pixel_x = 22;
 	pixel_y = -16
 	},
 /obj/machinery/disposal/small/south,
@@ -29183,6 +29199,11 @@
 	opacity = 0
 	},
 /obj/structure/table/reinforced/steel,
+/obj/machinery/ringer_button{
+	id = "hop_ringer";
+	pixel_x = 12;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/hop/xo)
 "wIu" = (
@@ -29264,17 +29285,19 @@
 	desc = "A remote control-switch for the office door.";
 	id = "captaindoor";
 	name = "Office Door Control";
-	pixel_x = 30;
-	pixel_y = 10;
-	req_access = list(20)
+	pixel_x = 33;
+	pixel_y = 16;
+	req_access = list(20);
+	dir = 9
 	},
 /obj/machinery/button/remote/airlock{
 	desc = "A remote control-switch for the starboard bridge doors.";
 	id = "sbridgedoor";
 	name = "Bridge Door Control";
-	pixel_x = 30;
-	pixel_y = -2;
-	req_access = list(20)
+	pixel_x = 24;
+	pixel_y = 16;
+	req_access = list(20);
+	dir = 5
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/carpet,
@@ -29424,26 +29447,30 @@
 	name = "Bridge Lockdown";
 	pixel_x = -5;
 	pixel_y = -23;
-	req_access = list(19)
+	req_access = list(19);
+	dir = 10
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_deck3_bridgesafety";
 	name = "Bridge Safety Shutters";
 	pixel_x = 6;
-	pixel_y = -23
+	pixel_y = -23;
+	dir = 6
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "crew_armory";
 	name = "Crew Armory";
 	pixel_x = 6;
 	pixel_y = -33;
-	req_access = list(60)
+	req_access = list(60);
+	dir = 6
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "hangarlockdown";
 	name = "Hangar Lockdoor";
 	pixel_x = -5;
-	pixel_y = -33
+	pixel_y = -33;
+	dir = 10
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
@@ -29488,17 +29515,18 @@
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_bunker";
 	name = "Command Bunker Blast Door";
-	pixel_x = 30;
-	pixel_y = -32;
+	pixel_x = 37;
+	pixel_y = -17;
 	req_access = list(19)
 	},
 /obj/machinery/button/remote/airlock{
 	id = "airlocks_bunker";
 	name = "Command Bunker Bolts";
-	pixel_x = 30;
-	pixel_y = -23;
+	pixel_x = 26;
+	pixel_y = -17;
 	req_access = list(19);
-	specialfunctions = 4
+	specialfunctions = 4;
+	dir = 2
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
@@ -30139,16 +30167,18 @@
 	dir = 5
 	},
 /obj/machinery/light_switch{
-	pixel_x = -9;
-	pixel_y = 24
+	pixel_x = -6;
+	pixel_y = 29;
+	dir = 1
 	},
 /obj/machinery/firealarm/east,
 /obj/machinery/button/remote/blast_door{
 	id = "conferencesafetyshutters";
 	name = "Safety Shutters";
-	pixel_x = 1;
-	pixel_y = 25;
-	req_access = list(40)
+	pixel_x = 3;
+	pixel_y = 30;
+	req_access = list(40);
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
@@ -30571,8 +30601,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "vacant_office";
 	name = "Public Office Shutter";
-	pixel_x = -28;
-	pixel_y = 5
+	pixel_x = -25;
+	pixel_y = 8;
+	dir = 10
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -30905,10 +30936,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "xZy" = (
-/obj/machinery/light_switch{
-	pixel_x = 25;
-	pixel_y = 26
-	},
 /obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -30956,7 +30983,8 @@
 	name = "Scuttling Device Blast Doors Control";
 	pixel_x = 32;
 	pixel_y = 35;
-	req_access = list(20)
+	req_access = list(20);
+	dir = 1
 	},
 /obj/item/storage/secure/safe{
 	pixel_x = 65
@@ -49208,7 +49236,7 @@ lyA
 oSn
 wnD
 wIu
-kKU
+ipX
 ipX
 xAE
 oNi
@@ -49973,7 +50001,7 @@ lzS
 xpu
 hCg
 orG
-xmD
+saF
 eDN
 scL
 gDJ
@@ -50379,7 +50407,7 @@ btY
 orG
 eks
 nOb
-ovx
+leX
 gDJ
 gDJ
 gDJ
@@ -50390,7 +50418,7 @@ gDJ
 qhP
 anz
 fQB
-fnB
+vbS
 oVU
 oVU
 oVU
@@ -51209,7 +51237,7 @@ jbI
 oyK
 cAK
 fNP
-saF
+jYJ
 vIv
 tFa
 idI
@@ -51442,7 +51470,7 @@ lqw
 ldK
 smr
 eFH
-oWy
+vaz
 suj
 mrU
 vkb
