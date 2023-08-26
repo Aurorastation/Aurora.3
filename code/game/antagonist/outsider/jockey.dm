@@ -7,7 +7,7 @@ var/datum/antagonist/jockey/jockeys
 	bantype = "jockey"
 	antag_indicator = "jockey"
 	landmark_id = "jockeyspawn"
-	welcome_text = "You are a Jockey, one of the best damn mech pilots in the spur. You've been sent here to cause mayhem.<br>\
+	welcome_text = "You are a Jockey, one of the best damn mech pilots in the spur.<br>\
 	Your (syndicate) sponsored uplink will grant you access to various tools you may need to attempt to accomplish your goal.<br>\
 	You can use :H or :B to talk on your encrypted channel, which only you and your partner can read.<br>"
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER
