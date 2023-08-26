@@ -19,14 +19,14 @@
 	plant_colors = null//pre colored
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = null
-	place_near_main = list(0, 0)
+	ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/konyang_landing_zone)
+	place_near_main = list(0,0)
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_habitability()
 	return HABITABILITY_IDEAL
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_map()
-	lightlevel = 100
+	lightlevel = 50
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_planet_image()
@@ -36,3 +36,12 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/konyang/update_icon()
 	return
+
+/obj/effect/overmap/visitable/sector/exoplanet/konyang/generate_atmosphere()
+	..()
+	if(atmosphere)
+		atmosphere.remove_ratio(1)
+		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
+		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
+		atmosphere.temperature = T20C
+		atmosphere.update_values()

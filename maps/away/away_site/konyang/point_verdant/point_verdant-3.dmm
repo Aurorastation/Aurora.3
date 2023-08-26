@@ -55,7 +55,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
 "iy" = (
-/obj/effect/shuttle_landmark/point_verdant/nav1,
+/obj/effect/shuttle_landmark/automatic/intrepid,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
 "iC" = (
@@ -212,7 +212,7 @@
 /turf/simulated/floor/plating,
 /area/point_verdant/outdoors)
 "MM" = (
-/obj/effect/shuttle_landmark/point_verdant/nav2,
+/obj/effect/shuttle_landmark/automatic/spark,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
 "NI" = (
@@ -222,7 +222,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
 "NQ" = (
-/obj/effect/shuttle_landmark/point_verdant/nav3,
+/obj/effect/shuttle_landmark/automatic/canary,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
 "Ob" = (
@@ -22975,7 +22975,7 @@ DC
 oa
 bE
 hL
-hL
+MM
 hL
 hL
 hL
@@ -23345,7 +23345,7 @@ hL
 hL
 hL
 hL
-MM
+hL
 hL
 hL
 hL

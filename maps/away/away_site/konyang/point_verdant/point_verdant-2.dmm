@@ -1068,7 +1068,6 @@
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior)
 "hY" = (
-/obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
@@ -2384,13 +2383,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
-"rr" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/wood/coloured/yew,
-/area/point_verdant/interior)
 "rt" = (
 /obj/effect/decal/road_marking/crosswalk{
 	dir = 1
@@ -5570,13 +5562,6 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
-"LP" = (
-/obj/structure/flora/pottedplant/random,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
-	},
-/turf/simulated/floor/wood/coloured/yew,
-/area/point_verdant/interior)
 "LQ" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
@@ -5942,10 +5927,6 @@
 "Oq" = (
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
-/area/point_verdant/outdoors)
-"Ou" = (
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/concrete/square,
 /area/point_verdant/outdoors)
 "Ov" = (
 /obj/effect/decal/road_marking{
@@ -10252,7 +10233,7 @@ IF
 IF
 ku
 oV
-rr
+oa
 IF
 IF
 IF
@@ -10990,7 +10971,7 @@ Kl
 Kl
 hJ
 hJ
-LP
+YE
 Du
 pb
 JT
@@ -19881,7 +19862,7 @@ Ir
 BT
 BT
 hn
-Ou
+su
 su
 im
 hu

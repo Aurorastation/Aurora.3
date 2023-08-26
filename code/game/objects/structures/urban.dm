@@ -121,8 +121,8 @@
 
 /obj/structure/manhole/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iscrowbar())
-	playsound(src.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
-	to_chat(user, "You forcibly relocate the manhole, hopefully in the right way.")
+		playsound(src.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
+		to_chat(user, "You forcibly relocate the manhole, hopefully in the right way.")
 	if(!open)
 		visible_message("<span class='warning'>A horrid smell erupts from the abyss of the manhole, not one any soul should inhale. Some mistakes were made.</span>")
 		icon_state = "manhole_open"
@@ -153,6 +153,12 @@
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "parking"
 	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/television
+	name = "wide-screen television"
+	desc = "A fancy wide-screen television with a wide selection of channels."
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
+	icon_state = "television"
 
 /obj/structure/dressing_divider
 	name = "wardrobe dressing divider"
@@ -287,7 +293,7 @@
 	color = null
 	anchored = TRUE
 	can_be_unanchored = FALSE
-	layer = 3.01
+	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
