@@ -929,5 +929,6 @@
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/bunker/fill()
 	..()
+	new /obj/item/clothing/under/lance(src)
 	new /obj/item/clothing/accessory/holster/armpit/brown(src)
 	new /obj/item/gun/energy/pulse/pistol(src)
