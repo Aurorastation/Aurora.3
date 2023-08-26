@@ -1336,3 +1336,57 @@
 		return
 
 	G.tail_storage.open(usr)
+
+/mob/living/carbon/human/proc/hivenet_transmit()
+	set name = "Emergency Hivenet Transmission"
+	set desc = "Send a direct Hivenet transmission to your superiors in the Hive. Only to be used in dire circumstances, on pain of severe consequences.."
+	set category = "Abilities"
+	var/hives = list("Zo'ra", "K'lax", "C'thur")
+
+	if(!(all_languages[LANGUAGE_VAURCA] in src.languages))
+		to_chat(src, "<span class='danger'>Your mind is dark, unable to communicate with the Hive.</span>")
+		return
+	if(!src.species == SPECIES_VAURCA_BREEDER)
+		to_chat(src, "<span class='warning'>You lack the authority to send such a message.</span>")
+		return
+	var/selected_hive = input(src, "Select a Hive to transmit your message to", "Hive Selection") as null|anything in hives
+
+	if(!selected_hive)
+		return
+	var/msg = sanitize(input(src, "Input your emergency transmission to the [selected_hive] Hive. This transmission is intensive and difficult, only intended for use in the most dire of circumstances. Frivolous use may be met with severe consequences.", "Emergency Hivenet Transmission", null) as text)
+	if(!msg)
+		return
+	if(within_jamming_range(src))
+		to_chat(src, "<span class='warning'>You are unable to transmit your message.</span>")
+		return
+
+	say(",9!an enormous surge of encrypted data, surging out into the wider Hivenet.")
+
+	var/ccia_msg = "<span class='notice'><b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;CentcommHiveReply=\ref[src]'>RPLY</A>):</b> [msg]</span>"
+	var/admin_msg = "<span class='notice'><b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[src]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[src]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[src]'>SM</A>) ([admin_jump_link(src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;BlueSpaceArtillery=\ref[src]'>BSA</A>) (<A HREF='?_src_=holder;CentcommHiveReply=\ref[src]'>RPLY</A>):</b> [msg]</span>"
+
+	var/cciaa_present = 0
+	var/cciaa_afk = 0
+
+	for(var/s in staff)
+		var/client/C = s
+		if(R_ADMIN & C.holder.rights)
+			to_chat(C, admin_msg)
+		else if (R_CCIAA & C.holder.rights)
+			cciaa_present++
+			if (C.is_afk())
+				cciaa_afk++
+
+			to_chat(C, ccia_msg)
+
+	discord_bot.send_to_cciaa("Emergency message from the station: `[msg]`, sent by [src]! Gamemode: [SSticker.mode]")
+
+	var/discord_msg = "[cciaa_present] agents online."
+	if (cciaa_present)
+		if ((cciaa_present - cciaa_afk) <= 0)
+			discord_msg += " **All AFK!**"
+		else
+			discord_msg += " [cciaa_afk] AFK."
+
+	discord_bot.send_to_cciaa(discord_msg)
+	post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("message"=msg, "sender"="[src]", "cciaa_present"=cciaa_present, "cciaa_afk"=cciaa_afk))

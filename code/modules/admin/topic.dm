@@ -870,6 +870,24 @@
 		else
 			to_chat(src.owner, "The person you are trying to contact does not have functional radio equipment.")
 
+	else if(href_list["CentcommHiveReply"])
+		var/mob/living/carbon/human/H = locate(href_list["CentcommHiveReply"])
+		if(!istype(H))
+			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
+			return
+		if(!isvaurca(H))
+			to_chat(usr, "This can only be used on Vaurca.")
+			return
+		if(!(all_languages[LANGUAGE_VAURCA] in H.languages))
+			to_chat(usr, "The person you are trying to contact is incapable of recieving Hivenet transmissions.")
+			return
+		var/input = sanitize(input(src.owner, "Please enter a message to reply to [key_name(H)] via the Hivenet.", "Outgoing transmission from the Hive...", ""))
+		if(!input)	return
+		to_chat(src.owner, "You sent [input] to [H] via a secure Hivenet channel.")
+		log_admin("[src.owner] replied to [key_name(H)]'s Hivenet message with the message [input].", admin_key=key_name(src.owner), ckey=key_name(H))
+		to_chat(H, "<span class='info'>You feel something shifting in the Hivenet, an encrypted whisper transmitted directly to your neural socket. Message as follows.</span>")
+		to_chat(H, "<span class='notice'><b>\"[input]\"</b></span>")
+		to_chat(H, "<span class='info'>Message ends.</span>")
 
 	else if(href_list["SyndicateReply"])
 		var/mob/living/carbon/human/H = locate(href_list["SyndicateReply"])

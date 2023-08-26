@@ -106,7 +106,8 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite
+		/mob/living/carbon/human/proc/bugbite,
+		/mob/living/carbon/human/proc/hivenet_transmit
 	)
 
 	default_h_style = "Bald"
