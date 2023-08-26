@@ -1575,10 +1575,13 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aJp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+/obj/structure/bed/stool/chair/sofa/pew/left{
+	dir = 8
 	},
-/turf/simulated/floor/lino,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/chapel/main)
 "aJS" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -4483,7 +4486,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/lino,
+/obj/structure/bed/stool/chair/sofa/pew/right{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
 /area/chapel/main)
 "bZu" = (
 /obj/machinery/door/window/northright{
@@ -4568,9 +4577,17 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/kitchen/freezer)
 "ccD" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/table/standard,
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
+	dir = 1
+	},
+/obj/item/paper_bin{
+	pixel_x = -2;
+	pixel_y = 5
+	},
+/obj/item/pen,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
@@ -14560,10 +14577,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/structure/bed/stool/chair/sofa/pew{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/lino,
 /area/chapel/main)
 "gZi" = (
 /obj/structure/platform_stairs,
@@ -20607,11 +20621,9 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
 "jQg" = (
-/obj/structure/bed/stool/chair/sofa/pew{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+	dir = 7
 	},
 /turf/simulated/floor/wood,
 /area/chapel/main)
@@ -21667,7 +21679,14 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
 "kvs" = (
-/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "kvE" = (
@@ -23964,16 +23983,10 @@
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_upload_foyer)
 "lHB" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/machinery/alarm/north,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "lHY" = (
@@ -24151,15 +24164,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar)
 "lLn" = (
-/obj/structure/table/standard,
+/obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/paper_bin{
-	pixel_x = -2;
-	pixel_y = 5
-	},
-/obj/item/pen,
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "lLJ" = (
@@ -27911,15 +27919,21 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "nue" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/lino,
-/area/chapel/main)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/chapel/office)
 "nuD" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -33405,15 +33419,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_b)
 "qjl" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/bed/stool/chair/sofa/pew/right{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "qjm" = (
@@ -38113,12 +38121,11 @@
 /turf/simulated/floor/wood,
 /area/maintenance/wing/starboard)
 "sBE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/bed/stool/chair/sofa/pew/left{
+/obj/structure/bed/stool/chair/sofa/pew/right{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
+	dir = 7
 	},
 /turf/simulated/floor/wood,
 /area/chapel/main)
@@ -43666,13 +43673,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair/sofa/pew{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/lino,
 /area/chapel/main)
 "vqi" = (
 /obj/structure/railing/mapped{
@@ -44398,7 +44399,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/lino,
+/obj/structure/bed/stool/chair/sofa/pew/left{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
 /area/chapel/main)
 "vIb" = (
 /obj/effect/floor_decal/corner/dark_green/full{
@@ -44540,13 +44547,18 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/kitchen)
 "vKg" = (
-/obj/structure/bed/stool/chair,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/machinery/alarm/north,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
 /turf/simulated/floor/wood,
-/area/chapel/office)
+/area/chapel/main)
 "vKF" = (
 /turf/simulated/floor/carpet,
 /area/chapel/office)
@@ -44947,7 +44959,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine                Core")
+	sensors = list("engine_sensor"="Engine                                Core")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
@@ -49415,14 +49427,11 @@
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "xQY" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/chapel/main)
@@ -65704,9 +65713,9 @@ fdV
 vXs
 gJj
 vHy
-bQB
-jQg
 aKv
+fWI
+bQB
 bZj
 lBE
 lLn
@@ -65905,14 +65914,14 @@ hEF
 fdV
 vXs
 gJj
-vHy
-hEi
-itX
+xQY
+jQg
+gYP
 kvs
-bZj
-fol
 vKg
-lHB
+eqe
+xJK
+roV
 jEL
 jEL
 oWC
@@ -66109,12 +66118,12 @@ vXs
 gJj
 aJp
 sBE
-gYP
-qjl
+oBv
+aJp
+sBE
+fol
+lHB
 nue
-eqe
-xJK
-roV
 off
 bCD
 vKF
@@ -66309,11 +66318,11 @@ dRk
 kXU
 vXs
 gJj
-fWI
 hEi
-xQY
-kvs
-fWI
+qjl
+oBv
+hEi
+qjl
 fol
 bsM
 uEu
@@ -66511,11 +66520,11 @@ lIH
 mHa
 vXs
 gJj
-fWI
 oWQ
-vqe
 fTW
-fWI
+vqe
+oWQ
+fTW
 fol
 fol
 aMa
