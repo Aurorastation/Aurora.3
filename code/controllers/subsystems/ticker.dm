@@ -67,6 +67,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/total_players_ready = 0
 	var/list/ready_player_jobs
 
+	var/reported_ghost_roles = FALSE
+	var/reported_current_sector = FALSE
+
 /datum/controller/subsystem/ticker/New()
 	NEW_SS_GLOBAL(SSticker)
 
@@ -440,38 +443,43 @@ var/datum/controller/subsystem/ticker/SSticker
 	to_world("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>")
 	to_world("Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
 
-	// Compute and, if available, print the ghost roles in the pre-round lobby. Begone, people who do not ready up to see what ghost roles will be available!
-	var/list/available_ghostroles = list()
+	if(!reported_ghost_roles)
+		// Compute and, if available, print the ghost roles in the pre-round lobby. Begone, people who do not ready up to see what ghost roles will be available!
+		var/list/available_ghostroles = list()
 
-	for(var/s in SSghostroles.spawners)
-		var/datum/ghostspawner/G = SSghostroles.spawners[s]
-		if(G.enabled \
-			&& !("Antagonist" in G.tags) \
-			&& !(G.loc_type == GS_LOC_ATOM && !length(G.spawn_atoms)) \
-			&& (G.req_perms == null) \
-		)
-			available_ghostroles |= G.name
+		for(var/s in SSghostroles.spawners)
+			var/datum/ghostspawner/G = SSghostroles.spawners[s]
+			if(G.enabled \
+				&& !("Antagonist" in G.tags) \
+				&& !(G.loc_type == GS_LOC_ATOM && !length(G.spawn_atoms)) \
+				&& (G.req_perms == null) \
+			)
+				available_ghostroles |= G.name
 
-	// Special case, to list the Merchant in case it is available at roundstart
-	if(SSjobs.type_occupations[/datum/job/merchant].total_positions)
-		available_ghostroles |= SSjobs.type_occupations[/datum/job/merchant].title
+		// Special case, to list the Merchant in case it is available at roundstart
+		if(SSjobs.type_occupations[/datum/job/merchant].total_positions)
+			available_ghostroles |= SSjobs.type_occupations[/datum/job/merchant].title
 
-	if(length(available_ghostroles))
-		to_world("<br>" \
-			+ SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round: ")) \
-			+ "[english_list(available_ghostroles)]. " \
-			+ SPAN_INFO("Actual availability may vary.") \
-			+ "<br>" \
-		)
+		if(length(available_ghostroles))
+			to_world("<br>" \
+				+ SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round: ")) \
+				+ "[english_list(available_ghostroles)]. " \
+				+ SPAN_INFO("Actual availability may vary.") \
+				+ "<br>" \
+			)
 
-	var/datum/space_sector/current_sector = SSatlas.current_sector
-	var/html = SPAN_NOTICE("Current sector: [current_sector].") + {"\
-		<span> \
-			<a href='?src=\ref[src];current_sector_show_sites_id=1'>Click here</a> \
-			to see every possible site/ship that can potentially spawn here.\
-		</span>\
-	"}
-	to_world(html)
+		reported_ghost_roles = TRUE
+
+	if(!reported_current_sector)
+		var/datum/space_sector/current_sector = SSatlas.current_sector
+		var/html = SPAN_NOTICE("Current sector: [current_sector].") + {"\
+			<span> \
+				<a href='?src=\ref[src];current_sector_show_sites_id=1'>Click here</a> \
+				to see every possible site/ship that can potentially spawn here.\
+			</span>\
+		"}
+		to_world(html)
+		reported_current_sector = TRUE
 
 	callHook("pregame_start")
 
@@ -521,25 +529,33 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/fail_reasons = list()
 
-	var/can_start = src.mode.can_start()
+	var/list/can_start = src.mode.can_start()
+	var/game_failure = can_start[1]
 
-	if(can_start & GAME_FAILURE_NO_PLAYERS)
+	if(game_failure & GAME_FAILURE_NO_PLAYERS)
 		var/list/voted_not_ready = list()
 		for(var/mob/abstract/new_player/player in SSvote.round_voters)
 			if((player.client)&&(!player.ready))
 				voted_not_ready += player.ckey
-		message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
-		log_game("Ticker: Players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
-		fail_reasons += "Not enough players, [mode.required_players] player(s) needed"
+		if(length(voted_not_ready))
+			message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
+			log_game("Ticker: Players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
+		fail_reasons += "Not enough players, [mode.required_players] player(s) needed, [can_start[2]] readied"
 
-	if(can_start & GAME_FAILURE_NO_ANTAGS)
-		fail_reasons += "Not enough antagonists, [mode.required_enemies] antagonist(s) needed"
+	if(game_failure & GAME_FAILURE_NO_ANTAGS)
+		fail_reasons += "Not enough antagonists, [mode.required_enemies] antagonist(s) needed, [can_start[3]] available"
 
-	if(can_start & GAME_FAILURE_TOO_MANY_PLAYERS)
-		fail_reasons +=  "Too many players, less than [mode.max_players] antagonist(s) needed"
+	if(game_failure & GAME_FAILURE_TOO_MANY_PLAYERS)
+		fail_reasons += "Too many players, less than [mode.max_players] readied players(s) needed, [can_start[2]] readied"
 
-	if(can_start != GAME_FAILURE_NONE)
-		to_world("<B>Unable to start the game mode, due to lack of available antagonists.</B> [english_list(fail_reasons,"No reason specified",". ",". ")]")
+	if(game_failure != GAME_FAILURE_NONE)
+		var/output = "<ul>"
+		for(var/fail_reason in fail_reasons)
+			output += "<li>[fail_reason]</li>"
+		if(!length(fail_reasons))
+			output += "<li>No reason specified</li>"
+		output += "<ul>"
+		to_world("<B>Couldn't start [mode.name]:</B><br>[output]")
 		current_state = GAME_STATE_PREGAME
 		mode.fail_setup()
 		mode = null

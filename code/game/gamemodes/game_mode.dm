@@ -147,26 +147,28 @@ var/global/list/additional_antag_types = list()
 
 ///can_start()
 ///Checks to see if the game can be setup and ran with the current number of players or whatnot.
+/// returns a list of results, 1: the GAME_FAILURE state, 2: the amount of players ready, 3: the amount of eligible antags
 /datum/game_mode/proc/can_start()
 
 	log_game_mode("Checking gamemode possibility selection for: [name]...")
 
-	var/returning = GAME_FAILURE_NONE
+	var/list/returning = list(GAME_FAILURE_NONE, 0, 0)
 
 	var/playerC = 0
 	for(var/mob/abstract/new_player/player in player_list)
 		if(player.client && player.ready)
 			playerC++
+	returning[2] += playerC
 
 	log_traitor("[playerC] players checked and readied.")
 
 	if(required_players && playerC < required_players)
 		log_game_mode("There aren't enough players ([playerC]/[required_players]) to start [name]!")
-		returning |= GAME_FAILURE_NO_PLAYERS
+		returning[1] |= GAME_FAILURE_NO_PLAYERS
 
 	if(max_players && playerC > max_players)
 		log_game_mode("There are too many players ([playerC]/[max_players]) to start [name]!")
-		returning |= GAME_FAILURE_TOO_MANY_PLAYERS
+		returning[1] |= GAME_FAILURE_TOO_MANY_PLAYERS
 
 	if(antag_templates && antag_templates.len)
 		log_game_mode("Checking antag templates...")
@@ -206,15 +208,16 @@ var/global/list/additional_antag_types = list()
 					total_enemies |= potential //Only count candidates once for our total enemy pool
 					if(antag.initial_spawn_req && require_all_templates && potential.len < antag.initial_spawn_req)
 						log_game_mode("There are not enough antagonists ([potential.len]/[antag.initial_spawn_req]) for the role [antag.role_text]!")
-						returning |= GAME_FAILURE_NO_ANTAGS
+						returning[1] |= GAME_FAILURE_NO_ANTAGS
+					returning[3] += length(potential)
 
 			log_traitor("GAMEMODE: Found [total_enemies.len] total enemies for [name].")
 
 			if(required_enemies && total_enemies.len < required_enemies)
 				log_traitor("GAMEMODE: There are not enough total antagonists ([total_enemies.len]/[required_enemies]) to start [name]!")
-				returning |= GAME_FAILURE_NO_ANTAGS
+				returning[1] |= GAME_FAILURE_NO_ANTAGS
 
-	log_game_mode("Finished gamemode checking. [name] returned [returning].")
+	log_game_mode("Finished gamemode checking. [name] returned [returning[1]].")
 
 	return returning
 

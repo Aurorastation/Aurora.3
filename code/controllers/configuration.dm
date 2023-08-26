@@ -1191,10 +1191,12 @@ var/list/gamemode_cache = list()
 			log_config("GAMEMODE: ERROR: [M] does not exist!")
 			continue
 
-		var/can_start = M.can_start()
-		if(can_start != GAME_FAILURE_NONE)
+		var/list/can_start = M.can_start()
+		var/game_failure = can_start[1]
+
+		if(game_failure != GAME_FAILURE_NONE)
 			#if !defined(UNIT_TEST) // Do not print this useless log during unit tests
-			log_game("GAMEMODE: [M.name] cannot start! Reason: [can_start]")
+			log_game("GAMEMODE: [M.name] cannot start! Reason: [game_failure]")
 			#endif
 
 			continue
