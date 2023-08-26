@@ -342,6 +342,20 @@
 		/obj/item/clothing/suit/space/void/zenghu/skrell = /obj/item/clothing/suit/space/void/zenghu
 	)
 
+/obj/item/voidsuit_modkit/ceres_lance_unathi
+	name = "\improper Ceres' Lance voidsuit kit"
+	desc = "A highly complicated device that allows you to convert a Ceres' Lancer suit into its Unathi-fitted counterpart and vice versa. Practical!"
+	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item. \
+	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/lancer = /obj/item/clothing/head/helmet/space/void/lancer/unathi,
+		/obj/item/clothing/suit/space/void/lancer = /obj/item/clothing/suit/space/void/lancer/unathi,
+		/obj/item/clothing/head/helmet/space/void/lancer/unathi = /obj/item/clothing/head/helmet/space/void/lancer,
+		/obj/item/clothing/suit/space/void/lancer/unathi = /obj/item/clothing/suit/space/void/lancer
+	)
+
 /obj/item/storage/box/srf
 	name = "srf modkit box"
 	desc = "Contains modkits to convert Solarian voidsuits into a warlord variant."

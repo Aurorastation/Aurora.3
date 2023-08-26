@@ -145,3 +145,14 @@
 	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Tajara."
 	path = /obj/structure/closet/crate/secure/gear_loadout/pvsm/single
 	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/ceres_lance
+	name = "Ceres' Lance Assets (Group)"
+	desc = "A crate containing gear for a group. The voidsuits are only usable by humans and unathi. The hardsuit is only usable by humans."
+	path = /obj/structure/closet/crate/secure/gear_loadout/ceres_lance
+
+/datum/uplink_item/item/gear_loadout/ceres_lance_single
+	name = "Ceres' Lance Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by humans and unathi."
+	path = /obj/structure/closet/crate/secure/gear_loadout/ceres_lance/single
+	telecrystal_cost = 10
