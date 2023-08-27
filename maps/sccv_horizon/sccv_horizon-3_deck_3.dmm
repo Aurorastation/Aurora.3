@@ -2845,8 +2845,7 @@
 	pixel_y = -12;
 	req_one_access = list(13)
 	},
-/obj/structure/window/shuttle/scc_space_ship,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "csY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5465,7 +5464,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/shutters/open{
-	dir = 2;
+	dir = 4;
 	id = "holodeck_alpha_shutters";
 	name = "Holodeck Alpha Privacy Shutters"
 	},
@@ -12354,6 +12353,8 @@
 /area/bridge/controlroom)
 "jIO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -13359,12 +13360,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
-"kuk" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/shuttle/scc_space_ship,
-/turf/simulated/floor/plating,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
 "kuz" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -15008,11 +15003,13 @@
 /area/horizon/crew_quarters/fitness/changing)
 "lAS" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/window/brigdoor/southleft,
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "crew_armoury_desk";
 	name = "Crew Armoury Desk Blast Door"
+	},
+/obj/machinery/door/window/desk/southright{
+	req_access = list(1)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/crew_armoury/foyer)
@@ -20161,10 +20158,6 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass,
 /area/horizon/cafeteria)
-"pIp" = (
-/obj/structure/window/shuttle/scc_space_ship,
-/turf/simulated/floor/plating,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
 "pIS" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
@@ -20572,6 +20565,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -27343,7 +27340,7 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/shutters/open{
-	dir = 2;
+	dir = 4;
 	id = "holodeck_beta_shutters";
 	name = "Holodeck Beta Privacy Shutters"
 	},
@@ -27513,7 +27510,7 @@
 	id = "cargo_desk"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/southright{
+/obj/machinery/door/window/desk/southright{
 	name = "Operations Desk Interior Access";
 	req_access = list(50)
 	},
@@ -29255,12 +29252,6 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "wIr" = (
-/obj/machinery/door/window/brigdoor{
-	base_state = "rightsecure";
-	icon_state = "rightsecure";
-	name = "Executive Officer's Desk";
-	req_access = list(57)
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -29283,6 +29274,10 @@
 	id = "hop_ringer";
 	pixel_x = 12;
 	pixel_y = 3
+	},
+/obj/machinery/door/window/desk/southright{
+	name = "Executive Officer's Desk";
+	req_access = list(57)
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/hop/xo)
@@ -29461,14 +29456,14 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/window/southright{
-	name = "Desk Access"
-	},
 /obj/machinery/door/blast/shutters{
 	id = "vacant_office";
 	name = "Public Office Desk Shutter"
 	},
 /obj/structure/table/reinforced,
+/obj/machinery/door/window/desk/southleft{
+	name = "Desk Access"
+	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "wOl" = (
@@ -40207,10 +40202,10 @@ wGH
 wGH
 wGH
 wGH
-dce
+ebZ
 lPM
-pIp
-dce
+ebZ
+ebZ
 wGH
 wGH
 wGH
@@ -40412,7 +40407,7 @@ wGH
 dce
 spJ
 scs
-dce
+ebZ
 wGH
 wGH
 wGH
@@ -40611,7 +40606,7 @@ wGH
 wGH
 wGH
 wGH
-dce
+ebZ
 xMZ
 ajU
 dce
@@ -40813,10 +40808,10 @@ wGH
 wGH
 wGH
 wGH
-kuk
+ebZ
 joS
 qcA
-kuk
+ebZ
 wGH
 wGH
 wGH
@@ -41015,10 +41010,10 @@ wGH
 ebZ
 dce
 dce
-kuk
+ebZ
 bCg
 ojm
-kuk
+ebZ
 wGH
 wGH
 wGH
@@ -41214,7 +41209,7 @@ wGH
 wGH
 wGH
 wGH
-pIp
+ebZ
 shm
 iPk
 jIO
@@ -41619,8 +41614,8 @@ wGH
 wGH
 wGH
 ebZ
-dce
-dce
+ebZ
+ebZ
 ebZ
 sPe
 fOh
@@ -41823,7 +41818,7 @@ wGH
 wGH
 wGH
 wGH
-dce
+ebZ
 epz
 oRv
 wev
@@ -42028,7 +42023,7 @@ wGH
 dce
 unw
 xyA
-pIp
+dce
 aOx
 iYG
 csI
@@ -42231,8 +42226,8 @@ dce
 xgv
 tuN
 ebZ
-dce
-dce
+ebZ
+ebZ
 ebZ
 wGH
 wGH
@@ -42429,10 +42424,10 @@ wGH
 wGH
 wGH
 wGH
-dce
+ebZ
 iHq
 sEe
-dce
+ebZ
 wGH
 wGH
 wGH
