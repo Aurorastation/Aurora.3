@@ -172,7 +172,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/list/cargoconfig = list()
 
 	if(!isfile("config/cargo.json"))
-		log_config("The file config/cargo.json was not found, cargo items will not be loaded")
+		log_config("The file config/cargo.json was not found, cargo items will not be loaded.")
 		return
 
 	try

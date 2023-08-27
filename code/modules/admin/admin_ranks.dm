@@ -58,7 +58,7 @@ var/list/forum_groupids_to_ranks = list()
 	forum_groupids_to_ranks.Cut()
 
 	if(!isfile(rank_file))
-		log_config("The file [rank_file] does not exist, unable to load the admin ranks")
+		log_config("The file [rank_file] does not exist, unable to load the admin ranks.")
 		return
 
 	var/list/data = json_decode(file2text(rank_file))
