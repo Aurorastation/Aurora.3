@@ -13,6 +13,10 @@
 	var/mode
 	var/obj/item/clothing/glasses/glasses
 
+/datum/rig_vision/Destroy(force)
+	. = ..()
+	QDEL_NULL(glasses)
+
 /datum/rig_vision/nvg
 	mode = "night vision"
 
@@ -48,6 +52,8 @@
 
 /datum/rig_vision/medhud/New()
 	glasses = new /obj/item/clothing/glasses/hud/health
+
+
 
 /obj/item/rig_module/vision
 	name = "hardsuit visor"
@@ -216,3 +222,11 @@
 		processed_vision += vision_datum
 
 	vision_modes = processed_vision
+
+/obj/item/rig_module/vision/Destroy()
+	vision = null
+
+	if(holder.visor == src)
+		holder.visor = null
+
+	. = ..()

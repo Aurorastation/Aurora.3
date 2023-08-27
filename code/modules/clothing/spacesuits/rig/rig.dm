@@ -184,13 +184,31 @@
 	update_icon(1)
 
 /obj/item/rig/Destroy()
-	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
-		qdel(piece)
 	STOP_PROCESSING(SSmob, src)
-	qdel(wires)
-	wires = null
-	qdel(spark_system)
-	spark_system = null
+
+	for(var/obj/item/rig_module/module as anything in installed_modules)
+		if(wearer)
+			module.deactivate(wearer)
+		else
+			module.active = FALSE
+
+	//QDEL our components
+	QDEL_NULL(air_supply)
+	QDEL_NULL(cell)
+	QDEL_NULL(selected_module)
+	QDEL_NULL(visor)
+	QDEL_NULL(speech)
+	QDEL_NULL(gloves)
+	QDEL_NULL(boots)
+	QDEL_NULL(helmet)
+	QDEL_NULL(chest)
+	QDEL_NULL(wires)
+	QDEL_NULL(spark_system)
+	QDEL_NULL_LIST(installed_modules)
+
+	//Null the reference to the wearer
+	wearer = null
+
 	return ..()
 
 /obj/item/rig/proc/set_vision(var/active)
@@ -769,7 +787,9 @@
 
 /obj/item/rig/dropped(var/mob/user)
 	..()
-	SSstatpanels.set_action_tabs(user.client, user)
+	if(user.client)
+		SSstatpanels.set_action_tabs(user.client, user)
+
 	null_wearer(user)
 
 
@@ -995,6 +1015,7 @@
 /obj/item/rig/proc/lose_modules(var/probability)
 	for(var/obj/item/rig_module/module in installed_modules)
 		if (probability)
+			src.installed_modules -= module
 			qdel(module)
 
 

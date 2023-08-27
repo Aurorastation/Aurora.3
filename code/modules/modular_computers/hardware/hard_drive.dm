@@ -150,7 +150,7 @@
 /obj/item/computer_hardware/hard_drive/Destroy()
 	if(parent_computer?.hard_drive == src)
 		parent_computer.hard_drive = null
-	stored_files = null
+	QDEL_NULL_LIST(stored_files)
 	return ..()
 
 /obj/item/computer_hardware/hard_drive/Initialize(mapload)

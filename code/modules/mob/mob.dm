@@ -7,23 +7,29 @@
 	dead_mob_list -= src
 	living_mob_list -= src
 	unset_machine()
+
+	//Clean up the hud references from the screen
+	src?.client?.screen -= hud_used?.adding
+	src?.client?.screen -= hud_used?.other
+	src?.client?.screen -= hud_used?.hotkeybuttons
 	QDEL_NULL(hud_used)
+
 	lose_hearing_sensitivity()
 	if(client)
+		client.skybox = null
 		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
 			qdel(spell_master)
 		remove_screen_obj_references()
+
+		//Remove global HUDs, as they are shared and must not be deleted
+		client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
 		for(var/atom/movable/AM in client.screen)
 			qdel(AM)
-		client.screen = list()
+		client.screen = null
 	if (mind)
 		mind.handle_mob_deletion(src)
-	for(var/infection in viruses)
-		qdel(infection)
-	for(var/cc in client_colors)
-		qdel(cc)
-	client_colors = null
-	viruses.Cut()
+	QDEL_NULL_LIST(viruses)
+	QDEL_NULL_LIST(client_colors)
 	item_verbs = null
 
 	//Added this to prevent nonliving mobs from ghostising

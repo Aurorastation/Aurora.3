@@ -9,6 +9,10 @@
 	if(istype(parent_mob))
 		parent = parent_mob
 
+/datum/reagents/metabolism/Destroy()
+	. = ..()
+	parent = null
+
 /datum/reagents/metabolism/proc/metabolize()
 	if(!parent)
 		return

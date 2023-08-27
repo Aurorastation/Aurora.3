@@ -123,6 +123,9 @@
 		m.update_inv_r_hand()
 		m.update_inv_l_hand()
 		src.loc = null
+	QDEL_NULL(action)
+	QDEL_NULL(hidden_uplink)
+	master = null
 	return ..()
 
 /obj/item/update_icon()

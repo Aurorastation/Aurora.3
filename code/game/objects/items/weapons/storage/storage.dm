@@ -51,6 +51,7 @@
 	QDEL_NULL(storage_end)
 	QDEL_NULL_LIST(storage_screens)
 	QDEL_NULL(closer)
+	QDEL_NULL_LIST(starts_with)
 	return ..()
 
 /obj/item/storage/examine(mob/user)

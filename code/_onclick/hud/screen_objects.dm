@@ -16,8 +16,20 @@
 	appearance_flags = NO_CLIENT_COLOR
 
 /obj/screen/Destroy(force = FALSE)
+
+	//I have put this here because the interrelations between screens, mobs, RIG, glasses and other shit makes it impossible to be
+	//reasonably certain that nothing will try to destroy a global_hud screen
+	if(src in list(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science))
+		stack_trace("Someone tried to delete a global_hud!")
+		return QDEL_HINT_LETMELIVE
+
 	master = null
 	screen_loc = null
+	hud = null
+
+	if(istype(appearance, /datum))
+		QDEL_NULL(appearance)
+
 	return ..()
 
 /obj/screen/text

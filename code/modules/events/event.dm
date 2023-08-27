@@ -13,6 +13,11 @@
 	var/list/excluded_gamemodes	// A lazylist of gamemodes during which this event won't fire.
 	var/datum/event/event_type
 
+/datum/event_meta/Destroy(force)
+	. = ..()
+	event_type = null
+
+
 /datum/event_meta/New(var/event_severity, var/event_name, var/datum/event/type, var/event_weight, var/list/job_weights, var/is_one_shot = 0, var/min_event_weight = 0, var/max_event_weight = 0, var/list/excluded_roundtypes, var/add_to_queue = TRUE, var/list/minimum_job_requirement_list, var/pop_needed = 0)
 	name = event_name
 	severity = event_severity
@@ -91,6 +96,14 @@
 
 	var/has_skybox_image = FALSE
 
+/datum/event/Destroy(force)
+	. = ..()
+	event_meta = null
+	affecting_z = null
+
+	SSevents.active_events -= src
+	SSevents.finished_events -= src
+
 /datum/event/nothing
 	no_fake = 1
 
@@ -156,6 +169,7 @@
 	// Everything is done, let's clean up.
 	if(activeFor >= lastProcessAt())
 		kill()
+		qdel(src)
 
 	activeFor++
 

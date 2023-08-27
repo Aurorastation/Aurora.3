@@ -125,6 +125,7 @@ var/const/NO_EMAG_ACT = -50
 	var/iff_faction = IFF_DEFAULT
 
 /obj/item/card/id/Destroy()
+	QDEL_NULL(chat_user)
 	return ..()
 
 /obj/item/card/id/examine(mob/user)

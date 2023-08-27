@@ -5,11 +5,6 @@
 var/datum/global_hud/global_hud	// Initialized in SSatoms.
 var/list/global_huds
 
-/datum/hud/var/obj/screen/grab_intent
-/datum/hud/var/obj/screen/hurt_intent
-/datum/hud/var/obj/screen/disarm_intent
-/datum/hud/var/obj/screen/help_intent
-
 /datum/global_hud
 	var/obj/screen/vr_control
 	var/obj/screen/druggy
@@ -21,6 +16,11 @@ var/list/global_huds
 	var/obj/screen/meson
 	var/obj/screen/science
 	var/obj/screen/holomap
+
+/datum/global_hud/Destroy(force)
+	SHOULD_CALL_PARENT(FALSE)
+	stack_trace("Someone is trying to delete a global_hud!")
+	return QDEL_HINT_LETMELIVE
 
 /datum/global_hud/proc/setup_overlay(var/icon_state, var/color)
 	var/obj/screen/screen = new /obj/screen()
@@ -149,6 +149,11 @@ var/list/global_huds
 	var/obj/screen/action_intent
 	var/obj/screen/movement_intent/move_intent
 
+	var/obj/screen/grab_intent
+	var/obj/screen/hurt_intent
+	var/obj/screen/disarm_intent
+	var/obj/screen/help_intent
+
 	var/list/adding
 	var/list/other
 	var/list/obj/screen/hotkeybuttons
@@ -163,20 +168,44 @@ var/list/global_huds
 
 /datum/hud/Destroy()
 	. = ..()
-	grab_intent = null
-	hurt_intent = null
-	disarm_intent = null
-	help_intent = null
-	lingchemdisplay = null
-	blobpwrdisplay = null
-	blobhealthdisplay = null
-	r_hand_hud_object = null
-	l_hand_hud_object = null
-	action_intent = null
-	move_intent = null
-	adding = null
-	other = null
-	hotkeybuttons = null
+
+	remove()
+
+	mymob?.client?.screen -= adding + other + hotkeybuttons + \
+							list(
+								lingchemdisplay,
+								instability_display,
+								energy_display,
+								blobpwrdisplay,
+								blobhealthdisplay,
+								r_hand_hud_object,
+								l_hand_hud_object,
+								action_intent,
+								move_intent,
+								grab_intent,
+								hurt_intent,
+								disarm_intent,
+								help_intent,
+							)
+
+	QDEL_NULL(lingchemdisplay)
+	QDEL_NULL(instability_display)
+	QDEL_NULL(energy_display)
+	QDEL_NULL(blobpwrdisplay)
+	QDEL_NULL(blobhealthdisplay)
+	QDEL_NULL(r_hand_hud_object)
+	QDEL_NULL(l_hand_hud_object)
+	QDEL_NULL(action_intent)
+	QDEL_NULL(move_intent)
+	QDEL_NULL(grab_intent)
+	QDEL_NULL(hurt_intent)
+	QDEL_NULL(disarm_intent)
+	QDEL_NULL(help_intent)
+
+	QDEL_NULL_LIST(adding)
+	QDEL_NULL_LIST(other)
+	QDEL_NULL_LIST(hotkeybuttons)
+
 //	item_action_list = null // ?
 	mymob = null
 
@@ -310,7 +339,16 @@ var/list/global_huds
 
 	mymob.instantiate_hud(src, ui_style, ui_color, ui_alpha)
 
+/datum/hud/proc/remove()
+	if(!ismob(mymob)) return 0
+	if(!mymob.client) return 0
+
+	mymob.remove_hud(src)
+
 /mob/proc/instantiate_hud(var/datum/hud/HUD, var/ui_style, var/ui_color, var/ui_alpha)
+	return
+
+/mob/proc/remove_hud(var/datum/hud/HUD)
 	return
 
 //Triggered when F12 is pressed (Unless someone changed something in the DMF)

@@ -24,7 +24,6 @@
 		if(hearer.is_blind())
 			continue
 		balloon_alert(hearer, message)
-	balloon_alert(src, self_message)
 
 // Do not use.
 // MeasureText blocks. I have no idea for how long.

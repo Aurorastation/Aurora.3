@@ -114,8 +114,18 @@
 	organs_by_name = null
 	bad_internal_organs = null
 	bad_external_organs = null
+	remoteview_target = null
+
+	hud_list -= global_huds //We do not want to QDEL global HUDs
+	QDEL_NULL_LIST(hud_list)
 
 	QDEL_NULL(vessel)
+	QDEL_NULL(wearing_rig)
+
+	equipment_overlays -= global_huds //We do not want to QDEL global HUDs
+	QDEL_NULL_LIST(equipment_overlays)
+
+	remove_verb(src, /mob/living/carbon/human/proc/listening_close)
 
 	QDEL_NULL(DS)
 	// qdel and null out our equipment.

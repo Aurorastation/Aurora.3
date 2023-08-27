@@ -7,6 +7,10 @@
 	plane = PLANE_SKYBOX
 	blend_mode = BLEND_MULTIPLY
 
+/obj/skybox/Destroy()
+	. = ..()
+
+
 /client
 	var/obj/skybox/skybox
 

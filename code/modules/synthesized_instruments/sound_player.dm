@@ -33,7 +33,7 @@
 	src.instrument = null
 	QDEL_NULL(song)
 	QDEL_NULL(event_manager)
-	tokens.Cut()
+	QDEL_NULL_LIST(tokens)
 	instrument_synchronizer.unregister_global(src, .proc/check_wait)
 	wait = null
 	. = ..()

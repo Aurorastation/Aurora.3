@@ -22,6 +22,12 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 
 	var/last_world_time = 0
 
+/datum/event_container/Destroy(force)
+	. = ..()
+	QDEL_NULL_LIST(available_events)
+	QDEL_NULL_ASSOC(last_event_time)
+	next_event = null
+
 /datum/event_container/process()
 	if(!next_event_time)
 		set_event_delay()
@@ -38,7 +44,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		next_event = acquire_event()
 
 	// Has an event been acquired?
-	if(next_event)
+	if(!QDELETED(next_event))
 		// Set when the event of this type was last fired, and prepare the next event start
 		last_event_time[next_event] = world.time
 		set_event_delay()

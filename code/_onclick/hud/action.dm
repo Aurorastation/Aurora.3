@@ -32,6 +32,7 @@
 /datum/action/Destroy()
 	if(owner)
 		Remove(owner)
+	target = null
 	return ..()
 
 /datum/action/proc/SetTarget(var/atom/Target)
@@ -51,8 +52,7 @@
 	if(button)
 		if(T.client)
 			T.client.screen -= button
-		qdel(button)
-		button = null
+		QDEL_NULL(button)
 	T.actions.Remove(src)
 	T.update_action_buttons()
 	owner = null
@@ -266,4 +266,4 @@
 #undef AB_CHECK_STUNNED
 #undef AB_CHECK_LYING
 #undef AB_CHECK_ALIVE
-#undef AB_CHECK_INSIDE 
+#undef AB_CHECK_INSIDE

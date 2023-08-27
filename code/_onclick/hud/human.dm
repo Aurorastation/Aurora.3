@@ -1,6 +1,64 @@
 /mob/living/carbon/human/instantiate_hud(var/datum/hud/HUD, var/ui_style, var/ui_color, var/ui_alpha)
 	HUD.human_hud(ui_style, ui_color, ui_alpha, src)
 
+/mob/living/carbon/human/remove_hud(var/datum/hud/HUD)
+	HUD.remove_human_hud(src)
+
+/datum/hud/proc/remove_human_hud(var/mob/living/carbon/human/target)
+
+	var/list/hud_elements_to_clear = list(
+		mymob.throw_icon,
+		mymob.pullin,
+		mymob.internals,
+		mymob.oxygen,
+		mymob.toxin,
+		mymob.fire,
+		mymob.paralysis_indicator,
+		mymob.healths,
+		mymob.pressure,
+		mymob.bodytemp,
+		mymob.cells,
+		mymob.hydration_icon,
+		mymob.up_hint,
+		mymob.pain,
+		mymob.instability_display,
+		mymob.energy_display,
+		mymob.zone_sel,
+		mymob.gun_setting_icon,
+		mymob.item_use_icon,
+		mymob.gun_move_icon,
+		mymob.radio_use_icon,
+		mymob.toggle_firing_mode,
+		mymob.unique_action_icon,
+		)
+
+	mymob.client.screen -= (src.adding + src.hotkeybuttons + hud_elements_to_clear)
+
+
+	QDEL_NULL(mymob.throw_icon)
+	QDEL_NULL(mymob.pullin)
+	QDEL_NULL(mymob.internals)
+	QDEL_NULL(mymob.oxygen)
+	QDEL_NULL(mymob.toxin)
+	QDEL_NULL(mymob.fire)
+	QDEL_NULL(mymob.paralysis_indicator)
+	QDEL_NULL(mymob.healths)
+	QDEL_NULL(mymob.pressure)
+	QDEL_NULL(mymob.bodytemp)
+	QDEL_NULL(mymob.cells)
+	QDEL_NULL(mymob.hydration_icon)
+	QDEL_NULL(mymob.up_hint)
+	QDEL_NULL(mymob.pain)
+	QDEL_NULL(mymob.instability_display)
+	QDEL_NULL(mymob.energy_display)
+	QDEL_NULL(mymob.zone_sel)
+	QDEL_NULL(mymob.gun_setting_icon)
+	QDEL_NULL(mymob.item_use_icon)
+	QDEL_NULL(mymob.gun_move_icon)
+	QDEL_NULL(mymob.radio_use_icon)
+	QDEL_NULL(mymob.toggle_firing_mode)
+	QDEL_NULL(mymob.unique_action_icon)
+
 /datum/hud/proc/human_hud(var/ui_style='icons/mob/screen/white.dmi', var/ui_color = "#ffffff", var/ui_alpha = 255, var/mob/living/carbon/human/target)
 	var/datum/hud_data/hud_data
 	if(!istype(target))

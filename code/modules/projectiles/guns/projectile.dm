@@ -43,6 +43,10 @@
 		ammo_magazine = new magazine_type(src)
 	update_icon()
 
+/obj/item/gun/projectile/Destroy()
+	. = ..()
+	QDEL_NULL(ammo_magazine)
+
 /obj/item/gun/projectile/consume_next_projectile()
 	if(jam_num)
 		return FALSE

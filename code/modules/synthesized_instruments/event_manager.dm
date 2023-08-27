@@ -16,7 +16,7 @@
 
 /datum/musical_event/Destroy()
 	source = null
-	token = null
+	QDEL_NULL(token)
 	return ..()
 
 
@@ -42,6 +42,10 @@
 	var/suspended = 0
 	var/active = 0
 	var/kill_loop = 0
+
+/datum/musical_event_manager/Destroy(force)
+	. = ..()
+	QDEL_NULL(events)
 
 
 /datum/musical_event_manager/proc/push_event(datum/sound_player/source, datum/sound_token/token, time, volume)

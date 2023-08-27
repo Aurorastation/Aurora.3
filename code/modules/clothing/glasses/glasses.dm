@@ -40,6 +40,12 @@ BLIND     // can't see anything
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
+/obj/item/clothing/glasses/Destroy()
+	active = FALSE
+	overlay = null
+	hud = null
+	. = ..()
+
 // Called in mob/RangedAttack() and mob/UnarmedAttack.
 /obj/item/clothing/glasses/proc/Look(var/atom/A, mob/user, var/proximity)
 	return 0 // return 1 to cancel attack_hand/RangedAttack()
@@ -51,7 +57,7 @@ BLIND     // can't see anything
 
 	if(normal_layer == GLASSES_LAYER)
 		normal_layer = GLASSES_LAYER_ALT
-	else 
+	else
 		normal_layer = GLASSES_LAYER
 	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer == 21 ? "under" : "over"] your hair."))
 	update_clothing_icon()
@@ -317,7 +323,7 @@ BLIND     // can't see anything
 	set category = "Object"
 	set name = "Change Glasses Layer"
 	set src in usr
-	
+
 	var/list/options = list("Under Hair" = GLASSES_LAYER, "Over Hair" = GLASSES_LAYER_ALT, "Over Headwear" = GLASSES_LAYER_OVER)
 	var/new_layer = input(usr, "Position Goggles", "Goggle style") as null|anything in options
 	if(new_layer)

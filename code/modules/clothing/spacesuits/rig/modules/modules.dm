@@ -139,9 +139,9 @@
 
 
 /obj/item/rig_module/Destroy()
-	for(var/sm in stat_modules)
-		qdel(sm)
-	stat_modules.Cut()
+	suit_overlay = null
+	QDEL_NULL_LIST(stat_modules)
+	QDEL_NULL_ASSOC(charges)
 	holder = null
 	return ..()
 

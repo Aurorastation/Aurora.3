@@ -12,6 +12,15 @@ the HUD updates properly! */
 /image/hud_overlay
 	appearance_flags = APPEARANCE_UI
 
+/image/hud_overlay/Destroy()
+	for(var/mob/mob as anything in mob_list)
+		CHECK_TICK
+		for(var/image/hud_overlay/possibly_us as anything in mob?.client?.images)
+			if(possibly_us == src)
+				mob.client.images -= src
+
+	. = ..()
+
 //Medical HUD outputs. Called by the Life() proc of the mob using it, usually.
 /proc/process_med_hud(var/mob/M, var/local_scanner, var/mob/Alt)
 	if(!can_process_hud(M))
