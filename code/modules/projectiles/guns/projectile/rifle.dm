@@ -13,6 +13,7 @@
 
 	rack_sound = 'sound/weapons/riflebolt.ogg'
 	rack_verb = "pull back the bolt on"
+	cycle_anim = FALSE
 
 	can_bayonet = TRUE
 	knife_x_offset = 23
@@ -379,16 +380,18 @@
 /obj/item/gun/projectile/shotgun/pump/lever_action
 	name = "lever action rifle"
 	desc = "A lever action rifle with a side-loading port, these are still popular with frontiersmen for hunting and self-defense purposes."
-	icon = 'icons/obj/guns/moistnugget.dmi'
-	icon_state = "moistnugget"
-	item_state = "moistnugget"
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 3)
+	icon = 'icons/obj/guns/leveraction.dmi'
+	icon_state = "leveraction"
+	item_state = "leveraction"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_leveraction.ogg'
 	caliber = "45-70 govt"
 	ammo_type = /obj/item/ammo_casing/govt
-	max_shells = 6
+	max_shells = 4
 	load_method = SINGLE_CASING
 	handle_casings = HOLD_CASINGS
+
+	cycle_anim = TRUE
 
 	rack_sound = 'sound/weapons/reloads/lever_action_cock1.ogg'
 	rack_verb = "work the lever on"

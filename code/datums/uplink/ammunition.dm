@@ -54,8 +54,9 @@
 
 /datum/uplink_item/item/ammo/government
 	name = "Box of .45-70 Govt. ammo"
+	telecrystal_cost = 2
 	path = /obj/item/storage/box/governmentammo
-	desc = "Contains six .45-70 Govt. bullets."
+	desc = "Contains eight .45-70 Govt. bullets."
 
 /datum/uplink_item/item/ammo/plasma_mag
 	name = "Plasma Shotgun Magazine"

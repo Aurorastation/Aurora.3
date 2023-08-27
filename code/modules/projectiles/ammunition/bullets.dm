@@ -309,7 +309,7 @@
 	caliber = "45-70 govt"
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
-	max_stack = 6
+	max_stack = 4
 
 /obj/item/ammo_casing/slugger
 	projectile_type = /obj/item/projectile/bullet/rifle/slugger

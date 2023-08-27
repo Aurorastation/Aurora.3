@@ -372,7 +372,7 @@
 	illustration = null
 	drop_sound = 'sound/items/drop/ammobox.ogg'
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
-	starts_with = list(/obj/item/ammo_casing/govt = 6)
+	starts_with = list(/obj/item/ammo_casing/govt = 8)
 
 /obj/item/storage/box/flashbangs
 	name = "box of flashbangs"
