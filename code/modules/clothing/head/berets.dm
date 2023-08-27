@@ -172,7 +172,7 @@
 	icon_state = "orion"
 	item_state = "orion"
 
-// TCFL
+// TCAF
 
 /obj/item/clothing/head/beret/legion
 	name = "TCFL dress beret"
@@ -191,6 +191,20 @@
 	desc = "A hardy, stark purple sentinel beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
 	icon_state = "tcfl_sentinel"
 	item_state = "tcfl_sentinel"
+
+/obj/item/clothing/head/beret/legion/tcaf
+	name = "TCAF dress beret"
+	desc = "A blue dress beret bearing the flag of the Republic of Biesel. Often only seen worn by in-service members of the Tau Ceti Armed Forces."
+	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
+	contained_sprite = TRUE
+	icon_state = "tcaf_dress_beret"
+	item_state = "tcaf_dress_beret"
+
+/obj/item/clothing/head/beret/legion/tcaf/tcaf_field
+	name = "TCAF field beret"
+	desc = "A red beret bearing a golden torch in semblance of the Republic of Biesel. Often only seen worn by in-service members of the Tau Ceti Armed Forces."
+	icon_state = "tcaf_field_beret"
+	item_state = "tcaf_field_beret"
 
 //centcom
 

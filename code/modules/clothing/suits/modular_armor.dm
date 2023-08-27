@@ -93,6 +93,20 @@
 		/obj/item/clothing/accessory/storage/modular_pouch/large
 	)
 
+/obj/item/clothing/suit/armor/carrier/tcaf
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate/tcaf,
+		/obj/item/clothing/accessory/leg_guard/tcaf,
+		/obj/item/clothing/accessory/arm_guard/tcaf,
+		/obj/item/clothing/accessory/storage/chestpouch
+	)
+
+/obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light,
+		/obj/item/clothing/accessory/leg_guard/tcaf,
+	)
+
 /obj/item/clothing/accessory/armor_plate
 	name = "corporate armor plate"
 	desc = "A particularly light-weight armor plate in stylish corporate black. Unfortunately, not very good if you hold it with your hands."
@@ -166,7 +180,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	slowdown = 1
@@ -180,7 +194,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_RIFLE,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
@@ -194,7 +208,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_RIFLE,
+		laser = ARMOR_LASER_MEDIUM,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
@@ -206,6 +220,39 @@
 	icon_state = "plate_blue"
 	item_state = "plate_blue"
 	slowdown = 0 // the SCC is hacking
+
+/obj/item/clothing/accessory/armor_plate/tcaf
+	name = "tcaf legionnaire carapace"
+	desc = "The blue carapace of the Tau Ceti Armed Forces. Polished and proud for Miranda Trasen's favorite soldiers."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "tcaf_plate"
+	item_state = "tcaf_plate"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
+	slowdown = 0 // inherited the hacking from the scc
+
+/obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light
+	name = "tcaf legionnaire light carapace"
+	desc = "A lighter version of the blue carapace of the Tau Ceti Armed Forces. Reserved for recruits, recon, and prissy officers in the field."
+	icon_state = "tcaf_plate_light"
+	item_state = "tcaf_plate_light"
+	slowdown = 0
+
+/obj/item/clothing/accessory/storage/chestpouch
+	name = "chestpouch rig"
+	desc = "A harness made to be worn over a set of armor. Comes with three pouches on the front, and a hidden pouch on the back for your snacks!"
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "tcaf_chestpouches"
+	item_state = "tcaf_chestpouches"
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	slots = 4
 
 /obj/item/clothing/accessory/storage/modular_pouch
 	name = "plate carrier pouches"
@@ -302,6 +349,32 @@
 		bomb = ARMOR_BOMB_PADDED,
 	)
 
+/obj/item/clothing/head/helmet/tcaf
+	name = "tcaf faceplate legionnaire helmet"
+	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces. This one equipped with the signature faceplate."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "tcaf_helm_face"
+	item_state = "tcaf_helm_face"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
+
+/obj/item/clothing/head/helmet/tcaf/tcaf_novisor
+	name = "tcaf legionnaire helmet"
+	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces."
+	icon_state = "tcaf_helm_novisor"
+	item_state = "tcaf_helm_novisor"
+
+/obj/item/clothing/head/helmet/tcaf/tcaf_visor
+	name = "tcaf visored legionnaire helmet"
+	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces. This one is equipped with a stylish visor."
+	icon_state = "tcaf_helm_visor"
+	item_state = "tcaf_helm_visor"
 
 //Cosmetic Accessories
 
@@ -560,3 +633,23 @@
 	insignia of a well known unathi drapers' guild stitched on the back."
 	icon_state = "flagpatch_hegemony"
 	item_state = "flagpatch_hegemony"
+
+/obj/item/clothing/accessory/tcaf_prefect_pauldron
+	name = "tcaf prefect pauldron"
+	desc = "A bright red hard pauldron to indicate the wearer has the rank of Prefect in the Tau Ceti Armed Forces."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "tcaf_prefect_pauldron"
+	item_state = "tcaf_prefect_pauldron"
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_GENERIC
+	flippable = FALSE
+
+/obj/item/clothing/accessory/tcaf_senior_legion_pauldron
+	name = "tcaf senior legionnaire pauldron"
+	desc = "A blue hard pauldron to indicate the wearer has the rank of Senior Legionnaire in the Tau Ceti Armed Forces."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "tcaf_senior_legion_pauldron"
+	item_state = "tcaf_senior_legion_pauldron"
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_GENERIC
+	flippable = FALSE
