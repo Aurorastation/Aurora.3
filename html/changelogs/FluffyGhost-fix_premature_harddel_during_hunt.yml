@@ -41,3 +41,4 @@ changes:
   - bugfix: "The garbage collection should not happen if we're running a reference tracking search."
   - bugfix: "If we're compiled with GC_FAILURE_HARD_LOOKUP, prevent the failsafe controller from gutting the master controller (DEFCON 1)."
   - bugfix: "If we're compiled with GC_FAILURE_HARD_LOOKUP, prevent the master controller from gutting SSgarbage controller."
+  - backend: "Now gives images a chance to be garbage collected, instead of immediately gutting them with an harddel."
