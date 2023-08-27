@@ -125,19 +125,23 @@
 	if(.)
 		return
 
-	add_fingerprint(usr)
-
 	if(action == "move_to_floor")
+		add_fingerprint(usr)
 		lift.queue_move_to(lift.floors[length(lift.floors) - text2num(params["floor"])])
 		pressed(usr)
+		return TRUE
 	if(action == "toggle_doors")
+		add_fingerprint(usr)
 		if(lift.doors_are_open())
 			lift.close_doors()
 		else
 			lift.open_doors()
 		pressed(usr)
+		return TRUE
 	if(action == "emergency_stop")
+		add_fingerprint(usr)
 		lift.emergency_stop()
 		pressed(usr)
+		return TRUE
 
 // End panel.
