@@ -364,6 +364,16 @@
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/c10mm = 10)
 
+/obj/item/storage/box/governmentammo
+	name = "box of .45-70 Govt. rounds"
+	desc = "It has a picture of a rifle shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "ammobox"
+	item_state = "ammobox"
+	illustration = null
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
+	starts_with = list(/obj/item/ammo_casing/govt = 6)
+
 /obj/item/storage/box/flashbangs
 	name = "box of flashbangs"
 	desc = "A box containing 7 antipersonnel flashbang grenades.<br> WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use."

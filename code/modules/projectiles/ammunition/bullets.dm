@@ -303,6 +303,14 @@
 	spent_icon = "lcasing-spent"
 	max_stack = 6
 
+/obj/item/ammo_casing/govt
+	projectile_type = /obj/item/projectile/bullet/rifle/vintage
+	desc = "A .45-70 Government bullet casing."
+	caliber = "45-70 govt"
+	icon_state = "lcasing"
+	spent_icon = "lcasing-spent"
+	max_stack = 6
+
 /obj/item/ammo_casing/slugger
 	projectile_type = /obj/item/projectile/bullet/rifle/slugger
 	caliber = "slugger"
