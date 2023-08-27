@@ -297,18 +297,18 @@
 
 /obj/item/ammo_casing/vintage
 	projectile_type = /obj/item/projectile/bullet/rifle/vintage
-	desc = "Some vintage shell casing. It looks old, and you can't understand the writing stamped on it."
-	caliber = "vintage"
+	desc = "A .30-06 Government bullet casing. It looks old, and you can barely understand the writing stamped on it."
+	caliber = "30-06 govt"
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	max_stack = 6
 
 /obj/item/ammo_casing/govt
-	projectile_type = /obj/item/projectile/bullet/rifle/vintage
+	projectile_type = /obj/item/projectile/bullet/rifle/govt
 	desc = "A .45-70 Government bullet casing."
 	caliber = "45-70 govt"
-	icon_state = "lcasing"
-	spent_icon = "lcasing-spent"
+	icon_state = "gcasing"
+	spent_icon = "gcasing-spent"
 	max_stack = 4
 
 /obj/item/ammo_casing/slugger

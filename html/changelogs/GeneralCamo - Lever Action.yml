@@ -38,6 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a lever action rifle for the frontier cowboys."
+  - rscadd: "Added a lever action rifle for the frontier cowboys, which uses newly added .45-70 Government rounds. Sprites ported from polaris, with modifications by suethecake and GeneralCamo."
   - rscadd: ".45-70 Govt. and .38 rounds are now available on the antagonist uplink."
   - rscadd: "Added support for cycling animations for pump action shotguns (and derivatives)."
+  - tweak: "Renamed the vintage rounds used by the Springfield to .30-06 Government rounds."

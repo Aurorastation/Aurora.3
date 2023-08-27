@@ -204,7 +204,7 @@
 	slot_flags = SLOT_BACK
 	load_method = SINGLE_CASING|SPEEDLOADER
 	handle_casings = HOLD_CASINGS
-	caliber = "vintage"
+	caliber = "30-06 govt"
 	ammo_type = /obj/item/ammo_casing/vintage
 	magazine_type = /obj/item/ammo_magazine/boltaction/vintage
 	can_bayonet = TRUE
