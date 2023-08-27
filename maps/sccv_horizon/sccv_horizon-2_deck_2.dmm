@@ -11310,8 +11310,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "ai_upload";
 	name = "AI Upload Foyer Blast Doors";
-	pixel_y = 25;
-	req_access = list(16)
+	pixel_y = 30;
+	req_access = list(16);
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/turret_protected/ai_upload_foyer)
@@ -13342,8 +13343,9 @@
 	desc = "A remote control-switch for the engine control room blast doors.";
 	id = "EngineEmitterPortWest";
 	name = "Supermatter Reactor Room Blast Doors";
-	pixel_x = -25;
-	req_one_access = list(11,24)
+	pixel_x = -24;
+	req_one_access = list(11,24);
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
@@ -17761,8 +17763,9 @@
 	desc = "A remote control-switch for the engine control room blast doors.";
 	id = "EngineEmitterPortWest";
 	name = "Supermatter Reactor Room Blast Doors";
-	pixel_x = -25;
-	req_one_access = list(11,24)
+	pixel_x = -24;
+	req_one_access = list(11,24);
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
@@ -18474,10 +18477,10 @@
 "iSn" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/button/remote/blast_door{
-	dir = 1;
+	dir = 2;
 	id = "ai_upload";
 	name = "AI Upload Foyer Blast Doors";
-	pixel_y = -25
+	pixel_y = -19
 	},
 /obj/machinery/porta_turret,
 /turf/simulated/floor/reinforced,
@@ -32089,8 +32092,9 @@
 	desc = "A remote control-switch for the engine control room blast doors.";
 	id = "EngineEmitterPortWest";
 	name = "Supermatter Reactor Room Blast Doors";
-	pixel_x = 25;
-	req_one_access = list(11,24)
+	pixel_x = 24;
+	req_one_access = list(11,24);
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -35232,17 +35236,17 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 8;
+	dir = 4;
 	id = "tesla_south";
 	name = "Tesla Reactor Storage Shutters";
-	pixel_x = 25;
+	pixel_x = 24;
 	pixel_y = -7
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 8;
+	dir = 4;
 	id = "tesla_north";
 	name = "Tesla Reactor Storage Shutters";
-	pixel_x = 25;
+	pixel_x = 24;
 	pixel_y = 7
 	},
 /obj/structure/sign/electricshock/tesla{
@@ -47755,10 +47759,10 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
+	dir = 8;
 	id = "ai_upload";
 	name = "AI Upload Foyer Blast Doors";
-	pixel_x = -25
+	pixel_x = -24
 	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
@@ -48909,8 +48913,9 @@
 	desc = "A remote control-switch for the engine control room blast doors.";
 	id = "EngineEmitterPortWest";
 	name = "Supermatter Reactor Room Blast Doors";
-	pixel_x = 25;
-	req_one_access = list(11,24)
+	pixel_x = 24;
+	req_one_access = list(11,24);
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
