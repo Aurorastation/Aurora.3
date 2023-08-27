@@ -201,7 +201,7 @@
 	item_state = "tcaf_dress_beret"
 
 /obj/item/clothing/head/beret/legion/tcaf/tcaf_field
-	name = "TCAF field beret"
+	name = "\improper TCAF field beret"
 	desc = "A red beret bearing a golden torch in semblance of the Republic of Biesel. Often only seen worn by in-service members of the Tau Ceti Armed Forces."
 	icon_state = "tcaf_field_beret"
 	item_state = "tcaf_field_beret"
