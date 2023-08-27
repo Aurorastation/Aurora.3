@@ -21848,10 +21848,6 @@
 /area/engineering/storage/lower)
 "pxY" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/window/westright{
-	name = "Custodial Closet Desk Internal";
-	req_access = list(26)
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	dir = 4;
@@ -21863,6 +21859,10 @@
 	pixel_y = 7
 	},
 /obj/item/pen,
+/obj/machinery/door/window/desk/westright{
+	req_access = list(26);
+	name = "Custodial Closet Desk Internal"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial)
 "pya" = (
@@ -32432,15 +32432,14 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/machinery/door/window/brigdoor/northleft{
-	name = "Arrivals Checkpoint Processing Desk";
-	pixel_y = -15;
-	req_access = list(63)
-	},
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "shutters_hangarseccpdesk";
 	name = "Security Checkpoint Desk Shutter"
+	},
+/obj/machinery/door/window/desk/northleft{
+	name = "Arrivals Checkpoint Processing Desk";
+	req_access = list(63)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint)

@@ -299,3 +299,39 @@
 	dir = SOUTH
 	icon_state = "rightsecure"
 	base_state = "rightsecure"
+
+/obj/machinery/door/window/desk
+	name = "desk door"
+	icon = 'icons/obj/structure/window/desk_windoors.dmi'
+
+/obj/machinery/door/window/desk/northleft
+	dir = NORTH
+
+/obj/machinery/door/window/desk/eastleft
+	dir = EAST
+
+/obj/machinery/door/window/desk/westleft
+	dir = WEST
+
+/obj/machinery/door/window/desk/southleft
+	dir = SOUTH
+
+/obj/machinery/door/window/desk/northright
+	dir = NORTH
+	icon_state = "right"
+	base_state = "right"
+
+/obj/machinery/door/window/desk/eastright
+	dir = EAST
+	icon_state = "right"
+	base_state = "right"
+
+/obj/machinery/door/window/desk/westright
+	dir = WEST
+	icon_state = "right"
+	base_state = "right"
+
+/obj/machinery/door/window/desk/southright
+	dir = SOUTH
+	icon_state = "right"
+	base_state = "right"

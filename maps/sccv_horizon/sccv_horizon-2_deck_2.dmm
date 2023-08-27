@@ -1459,9 +1459,9 @@
 /area/security/checkpoint2)
 "aFK" = (
 /obj/structure/table/reinforced/wood,
-/obj/machinery/door/window/eastleft{
-	name = "Library Desk";
-	req_access = list(37)
+/obj/machinery/door/window/desk/eastleft{
+	req_access = list(37);
+	name = "Library Desk"
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
@@ -4116,14 +4116,14 @@
 "bQE" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/window/eastleft{
-	name = "Machinist Workshop Desk";
-	req_access = list(29)
-	},
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "shutters_deck2_workshopdesk";
 	name = "Machinist Workshop Desk Shutter"
+	},
+/obj/machinery/door/window/desk/eastright{
+	req_access = list(29);
+	name = "Machinist Workshop Desk"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
@@ -5793,14 +5793,14 @@
 "cOk" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/southleft{
-	name = "Hydroponics Desk";
-	req_access = list(35)
-	},
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "shutters_deck2_hydroponicsdesk";
 	name = "Hydroponics Desk Shutter"
+	},
+/obj/machinery/door/window/desk/southleft{
+	name = "Hydroponics Desk";
+	req_access = list(35)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hydroponics)
@@ -6101,9 +6101,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/engineering/tesla)
-"cWu" = (
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/hallway/deck_two/fore)
 "cWx" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -6576,7 +6573,8 @@
 	id = "shutters_deck2_seclobbydesk";
 	name = "Safety Shutter"
 	},
-/obj/machinery/door/window/brigdoor/eastleft{
+/obj/machinery/door/window/desk/eastleft{
+	req_access = list(1);
 	name = "Security Office"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -7316,8 +7314,7 @@
 	id = "CHE3shutters";
 	name = "Pharmacy Desk Shutter"
 	},
-/obj/machinery/door/window/westleft{
-	dir = 4;
+/obj/machinery/door/window/desk/eastright{
 	name = "Pharmacy Desk";
 	req_access = list(33)
 	},
@@ -19303,15 +19300,15 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "jmW" = (
-/obj/machinery/door/window/westleft{
-	name = "Engineering Front Desk Internal";
-	req_access = list(10)
-	},
 /obj/structure/table/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "shutters_deck2_eng_frontdesk";
 	name = "Engineering Front Desk Shutter"
+	},
+/obj/machinery/door/window/desk/westleft{
+	req_access = list(10);
+	name = "Engineering Front Desk Internal"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/lobby)
@@ -22928,6 +22925,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
+"lcY" = (
+/obj/machinery/door/airlock/multi_tile/flipped/glass,
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_two/fore)
 "ldk" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -25995,10 +25996,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
-"mFs" = (
-/obj/machinery/door/airlock/multi_tile/glass,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/hallway/deck_two/fore)
 "mFJ" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -27417,15 +27414,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
-"njl" = (
-/obj/structure/bed/stool/chair/plastic{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/reception)
 "nju" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
@@ -27441,9 +27429,9 @@
 	pixel_x = 6;
 	pixel_y = 5
 	},
-/obj/machinery/door/window/westright{
-	name = "Operations Desk Interior Access";
-	req_access = list(50)
+/obj/machinery/door/window/desk/westright{
+	req_access = list(50);
+	name = "Operations Desk Interior Access"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/office)
@@ -28506,9 +28494,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "nLG" = (
-/obj/structure/bed/stool/chair/plastic{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
 	},
@@ -28666,7 +28651,7 @@
 	opacity = 0
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/door/window/northright{
+/obj/machinery/door/window/desk/northright{
 	name = "Research Desk";
 	req_access = list(7)
 	},
@@ -28728,7 +28713,10 @@
 	id = "CHE3shutters";
 	name = "Pharmacy Desk Shutter"
 	},
-/obj/machinery/door/window/southright,
+/obj/machinery/door/window/desk/southright{
+	req_access = list(33);
+	name = "Pharmacy Desk"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/medical/pharmacy)
 "nTA" = (
@@ -29119,7 +29107,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 9
 	},
-/obj/structure/bed/stool/chair/plastic{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -37902,15 +37890,16 @@
 "swi" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/window/brigdoor/westright{
-	name = "Arrivals Processing Desk"
-	},
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/machinery/door/blast/shutters{
 	dir = 4;
 	id = "seconddeckdockdesk";
 	name = "Security Checkpoint Desk Shutter"
+	},
+/obj/machinery/door/window/desk/westright{
+	req_access = list(1);
+	name = "Arrivals Processing Desk"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
@@ -37985,7 +37974,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
 	},
-/obj/structure/bed/stool/chair/plastic{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -39941,12 +39930,11 @@
 	dir = 2;
 	id = "cargo_desk"
 	},
-/obj/machinery/door/window/northleft{
-	dir = 2;
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/desk/southleft{
 	name = "Operations Desk Interior Access";
 	req_access = list(50)
 	},
-/obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/office)
 "tCk" = (
@@ -40728,11 +40716,11 @@
 /area/horizon/security/armoury)
 "tTM" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/door/window/brigdoor/southright{
-	name = "Warden's Office";
-	req_access = list(3)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/window/desk/southright{
+	req_access = list(3);
+	name = "Warden's Office"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/warden)
 "tTW" = (
@@ -40796,7 +40784,8 @@
 	id = "shutters_deck2_seclobbydesk";
 	name = "Safety Shutter"
 	},
-/obj/machinery/door/window/brigdoor/eastright{
+/obj/machinery/door/window/desk/eastright{
+	req_access = list(1);
 	name = "Security Office"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -50068,18 +50057,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "yfo" = (
-/obj/machinery/door/window/southleft{
-	name = "Kitchen";
-	req_access = list(28)
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey,
-/obj/machinery/door/window/northleft{
+/obj/structure/table/stone/marble,
+/obj/machinery/door/window/desk/southleft{
+	name = "Kitchen";
+	req_access = list(28)
+	},
+/obj/machinery/door/window/desk/northright{
 	name = "Hydroponics";
-	pixel_y = -15;
 	req_access = list(35)
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -69279,7 +69268,7 @@ bPs
 uIM
 gDq
 fOp
-njl
+sxt
 uyd
 hEF
 luo
@@ -69683,7 +69672,7 @@ bPs
 bPd
 gDq
 fOp
-njl
+sxt
 uyd
 hEF
 luo
@@ -69890,7 +69879,7 @@ uyd
 dRk
 hNC
 vXs
-mFs
+ePC
 hGC
 tre
 qfC
@@ -70496,7 +70485,7 @@ gPx
 sZT
 neZ
 vXs
-ePC
+lcY
 dTI
 uCX
 rNs
@@ -70698,7 +70687,7 @@ kta
 kta
 kta
 eZG
-cWu
+hMX
 amF
 tQQ
 ncN

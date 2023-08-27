@@ -30,6 +30,37 @@
 	glass = 1
 	assembly_type = /obj/structure/door_assembly/multi_tile
 
+/obj/machinery/door/airlock/multi_tile/flipped
+	width = 2
+	dir = EAST
+	pixel_x = 0
+	pixel_y = -32
+	airlock_type = "Multi-Tile"
+	open_sound_powered = 'sound/machines/airlock/wide1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/wide1c.ogg'
+
+	icon = 'icons/obj/doors/basic/double/generic/flipped/door.dmi'
+	icon_state = "preview"
+	frame_color_file = 'icons/obj/doors/basic/double/generic/flipped/frame_color.dmi'
+	color_file = 'icons/obj/doors/basic/double/generic/flipped/color.dmi'
+	color_fill_file = 'icons/obj/doors/basic/double/generic/flipped/fill_color.dmi'
+	glass_file = 'icons/obj/doors/basic/double/generic/flipped/fill_glass.dmi'
+	fill_file = 'icons/obj/doors/basic/double/generic/flipped/fill_steel.dmi'
+	bolts_file = 'icons/obj/doors/basic/double/generic/flipped/lights_bolts.dmi'
+	deny_file = 'icons/obj/doors/basic/double/generic/flipped/lights_deny.dmi'
+	lights_file = 'icons/obj/doors/basic/double/generic/flipped/lights_green.dmi'
+	panel_file = 'icons/obj/doors/basic/double/generic/flipped/panel.dmi'
+	sparks_damaged_file = 'icons/obj/doors/basic/double/generic/flipped/sparks_damaged.dmi'
+	sparks_broken_file = 'icons/obj/doors/basic/double/generic/flipped/sparks_broken.dmi'
+	welded_file = 'icons/obj/doors/basic/double/generic/flipped/welded.dmi'
+	emag_file = 'icons/obj/doors/basic/double/generic/flipped/emag.dmi'
+
+/obj/machinery/door/airlock/multi_tile/flipped/glass
+	name = "glass airlock"
+	opacity = 0
+	glass = 1
+	assembly_type = /obj/structure/door_assembly/multi_tile
+
 /obj/machinery/door/firedoor/multi_tile
 	icon = 'icons/obj/doors/DoorHazard2x1.dmi'
 	width = 2
