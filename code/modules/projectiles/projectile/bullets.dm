@@ -245,7 +245,7 @@
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/vintage
-	name = ".30-06 Gov't bullet"
+	name = ".30-06 Govt. bullet"
 	damage = 50
 	weaken = 1
 	penetrating = TRUE
