@@ -384,7 +384,7 @@
 	icon_state = "leveraction"
 	item_state = "leveraction"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/gunshot/gunshot_leveraction.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	caliber = "45-70 govt"
 	ammo_type = /obj/item/ammo_casing/govt
 	max_shells = 4
