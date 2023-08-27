@@ -541,7 +541,7 @@
 	worn_state = "tauceti_pilot"
 
 /obj/item/clothing/under/legion/tcaf
-	name = "Tau Ceti Armed Forces armsman uniform"
+	name = "\improper Tau Ceti Armed Forces armsman uniform"
 	desc = "A black longsleeved top over rough khaki tactical pants. Designed for the use of on-ship legionnaires serving the Republic."
 	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
 	contained_sprite = TRUE
