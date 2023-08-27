@@ -28,12 +28,12 @@
 	instrument_synchronizer.register_global(src, .proc/check_wait)
 
 /datum/sound_player/Destroy()
-	src.song.playing = 0
+	src.song.playing = FALSE
 	src.actual_instrument = null
 	src.instrument = null
 	QDEL_NULL(song)
 	QDEL_NULL(event_manager)
-	QDEL_NULL_LIST(tokens)
+	tokens = null
 	instrument_synchronizer.unregister_global(src, .proc/check_wait)
 	wait = null
 	. = ..()
