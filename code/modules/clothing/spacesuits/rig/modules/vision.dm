@@ -226,7 +226,7 @@
 /obj/item/rig_module/vision/Destroy()
 	vision = null
 
-	if(holder.visor == src)
+	if(holder?.visor == src)
 		holder.visor = null
 
 	. = ..()
