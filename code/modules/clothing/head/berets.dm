@@ -175,7 +175,7 @@
 // TCAF
 
 /obj/item/clothing/head/beret/legion
-	name = "TCFL dress beret"
+	name = "\improper TCFL dress beret"
 	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionaires."
 	icon_state = "tcfl_dress"
 	item_state = "tcfl_dress"
