@@ -1,11 +1,11 @@
 import { useBackend } from '../backend';
-import { Button, Section, LabeledList, Box, Divider } from '../components';
+import { Button, Section, LabeledList, Divider } from '../components';
 import { Window } from '../layouts';
 
 export type TurboLiftData = {
-  floors: Object[];
-  currentFloor: Number;
-  doorsOpen: Boolean;
+  floors: string[];
+  currentFloor: number;
+  doorsOpen: boolean;
 };
 
 export const TurboLift = (props, context) => {
@@ -16,28 +16,31 @@ export const TurboLift = (props, context) => {
       <Window.Content scrollable>
         <Section title="Lift Panel">
           <LabeledList>
-            {
-              data.floors.reverse()
-              .map((floor, index) => (
-                <LabeledList.Item label={floor}>
-                  <Button
-                    content={
-                      data.floors.length - index === data.currentFloor ? 'Current Floor' :
-                      'Go To'
-                    }
-                    icon={
-                      data.floors.length - index === data.currentFloor ? 'elevator' :
-                      'arrow-right-to-bracket'
-                    }
-                    disabled={data.floors.length - index === data.currentFloor}
-                    onClick={() => act('move_to_floor', { floor: index })}
-                    color={data.floors.length - index === data.currentFloor ? '' : 'good'}
-                  />
-                </LabeledList.Item>
-              ))
-            }
+            {data.floors.reverse().map((floor, index) => (
+              <LabeledList.Item label={floor} key={floor}>
+                <Button
+                  content={
+                    data.floors.length - index === data.currentFloor
+                      ? 'Current Floor'
+                      : 'Go To'
+                  }
+                  icon={
+                    data.floors.length - index === data.currentFloor
+                      ? 'elevator'
+                      : 'arrow-right-to-bracket'
+                  }
+                  disabled={data.floors.length - index === data.currentFloor}
+                  onClick={() => act('move_to_floor', { floor: index })}
+                  color={
+                    data.floors.length - index === data.currentFloor
+                      ? ''
+                      : 'good'
+                  }
+                />
+              </LabeledList.Item>
+            ))}
           </LabeledList>
-          <Divider/>
+          <Divider />
           <Button
             icon={data.doorsOpen ? 'door-closed' : 'door-open'}
             content={data.doorsOpen ? 'Close Doors' : 'Open Doors'}
