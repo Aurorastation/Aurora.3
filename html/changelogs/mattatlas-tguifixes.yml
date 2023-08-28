@@ -44,3 +44,5 @@ changes:
   - bugfix: "Shield generator now has colours for when its features are online/offline."
   - bugfix: "The IC notes' money display now uses the credit sign instead of a dollar sign."
   - bugfix: "Vending machines now properly grey out items if they're being vended or have run out."
+  - bugfix: "Drop pods can no longer be used by ghosts."
+  - bugfix: "Psionic deafness should now reset when species is changed."
