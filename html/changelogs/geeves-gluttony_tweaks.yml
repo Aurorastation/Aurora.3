@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Gluttonous mobs must now be on grab intent to devour items and creatures."
