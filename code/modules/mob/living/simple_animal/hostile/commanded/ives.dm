@@ -51,6 +51,11 @@
 
 	psi_pingable = FALSE
 
+/mob/living/simple_animal/hostile/commanded/baby_harvester/think()
+	..()
+	if(prob(4))
+		playsound(src, /singleton/sound_category/hivebot_wail, 100, FALSE, 4)
+
 /mob/living/simple_animal/hostile/commanded/baby_harvester/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
@@ -71,6 +76,7 @@
 		if(istype(H))
 			master = usr
 			audible_emote("bwuups happily!")
+			playsound(src, /singleton/sound_category/hivebot_wail, 100, FALSE, 4)
 			return TRUE
 	else if(usr == master)
 		return TRUE

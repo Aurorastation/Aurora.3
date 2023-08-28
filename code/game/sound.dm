@@ -943,3 +943,15 @@
 		'sound/effects/clownstep1.ogg',
 		'sound/effects/clownstep2.ogg'
 	)
+
+/singleton/sound_category/hivebot_melee
+	sounds = list(
+		'sound/effects/creatures/hivebot/hivebot-attack.ogg',
+		'sound/effects/creatures/hivebot/hivebot-attack-001.ogg'
+	)
+
+/singleton/sound_category/hivebot_wail
+	sounds = list('sound/effects/creatures/hivebot/hivebot-bark-001.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-003.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-005.ogg',
+	)

@@ -13,7 +13,8 @@
 	attack_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE
 	break_stuff_probability = 25
 	attacktext = "slashed"
-	projectilesound = 'sound/weapons/bladeslice.ogg'
+	attack_sound = /singleton/sound_category/hivebot_melee
+	projectilesound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike
 	organ_names = list("head", "core", "side thruster", "bottom thruster")
 	faction = "hivebot"
@@ -35,6 +36,11 @@
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 	psi_pingable = FALSE
+
+/mob/living/simple_animal/hostile/hivebot/think()
+	..()
+	if(prob(4))
+		playsound(src, /singleton/sound_category/hivebot_wail, 100, FALSE, 4)
 
 /mob/living/simple_animal/hostile/hivebot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
