@@ -4,6 +4,7 @@
 
 /obj/structure/door_assembly
 	name = "airlock assembly"
+	desc = "An airlock assembly."
 	icon = 'icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_as_0"
 	anchored = 0
@@ -25,64 +26,14 @@
 	. = ..()
 	update_state()
 
+/obj/structure/door_assembly/examine(mob/user)
+	. = ..()
+	to_chat(user, "It is currently facing [dir2text(dir)].")
+
 /obj/structure/door_assembly/door_assembly_generic
 	base_name = "Generic Airlock"
 	glass_type = "/generic/glass"
 	airlock_type = "/generic"
-
-/obj/structure/door_assembly/door_assembly_ser
-	base_icon_state = "ser"
-	base_name = "Service Airlock"
-	glass_type = "/glass_service"
-	airlock_type = "/service"
-
-/obj/structure/door_assembly/door_assembly_com
-	base_icon_state = "com"
-	base_name = "Command Airlock"
-	glass_type = "/glass_command"
-	airlock_type = "/command"
-
-/obj/structure/door_assembly/door_assembly_sec
-	base_icon_state = "sec"
-	base_name = "Security Airlock"
-	glass_type = "/glass_security"
-	airlock_type = "/security"
-
-/obj/structure/door_assembly/door_assembly_eng
-	base_icon_state = "eng"
-	base_name = "Engineering Airlock"
-	glass_type = "/glass_engineering"
-	airlock_type = "/engineering"
-
-/obj/structure/door_assembly/door_assembly_min
-	base_icon_state = "min"
-	base_name = "Mining Airlock"
-	glass_type = "/glass_mining"
-	airlock_type = "/mining"
-
-/obj/structure/door_assembly/door_assembly_atmo
-	base_icon_state = "atmo"
-	base_name = "Atmospherics Airlock"
-	glass_type = "/glass_atmos"
-	airlock_type = "/atmos"
-
-/obj/structure/door_assembly/door_assembly_research
-	base_icon_state = "res"
-	base_name = "Research Airlock"
-	glass_type = "/glass_research"
-	airlock_type = "/research"
-
-/obj/structure/door_assembly/door_assembly_science
-	base_icon_state = "sci"
-	base_name = "Science Airlock"
-	glass_type = "/glass_science"
-	airlock_type = "/science"
-
-/obj/structure/door_assembly/door_assembly_med
-	base_icon_state = "med"
-	base_name = "Medical Airlock"
-	glass_type = "/glass_medical"
-	airlock_type = "/medical"
 
 /obj/structure/door_assembly/door_assembly_mai
 	base_icon_state = "mai"
@@ -95,19 +46,6 @@
 	base_name = "External Airlock"
 	airlock_type = "/external"
 	glass = -1
-
-/obj/structure/door_assembly/door_assembly_fre
-	base_icon_state = "fre"
-	base_name = "Freezer Airlock"
-	airlock_type = "/freezer"
-	glass = -1
-
-/obj/structure/door_assembly/door_assembly_fma
-	base_icon_state = "mai"
-	base_name = "Freezer Maintenance Access"
-	airlock_type = "/freezer_maint"
-	glass = -1
-
 /obj/structure/door_assembly/door_assembly_hatch
 	base_icon_state = "hatch"
 	base_name = "Airtight Hatch"
@@ -131,17 +69,6 @@
 	base_name = "Elevator Door"
 	airlock_type = "/lift"
 	glass = -1
-
-/obj/structure/door_assembly/door_assembly_skrell
-	base_icon_state = "skrell_purple"
-	base_name = "airlock"
-	airlock_type = "/skrell"
-	glass = -1
-
-/obj/structure/door_assembly/door_assembly_skrell/grey
-	base_icon_state = "skrell_grey"
-	base_name = "airlock"
-	airlock_type = "/skrell/grey"
 
 /obj/structure/door_assembly/multi_tile
 	icon = 'icons/obj/doors/basic/double/generic/door.dmi'

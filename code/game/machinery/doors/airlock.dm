@@ -137,7 +137,7 @@
 	/// Bitflag (Any of `AIRLOCK_PAINTABLE_*`). Determines what parts of the airlock can be recolored with paint.
 	var/paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	/// Color. The color of the main door body.
-	var/door_color = COLOR_GRAY20
+	var/door_color = "#909299"
 	/// Frame color. The color of the door frame connecting it to walls if applicable.
 	var/door_frame_color = COLOR_GRAY20
 	/// Color. The color of the stripe detail.
@@ -314,7 +314,6 @@
 /obj/machinery/door/airlock/command
 	icon_state = "cmd"
 	door_color = "#353c4b"
-	assembly_type = /obj/structure/door_assembly/door_assembly_com
 
 /obj/machinery/door/airlock/command/gold
 	icon_state = "cmdgold"
@@ -478,7 +477,6 @@
 	name = "freezer airlock"
 	door_color = "#b9b8b6"
 	desc = "An extra thick, double-insulated door to preserve the cold atmosphere. Keep closed at all times."
-	assembly_type = /obj/structure/door_assembly/door_assembly_fre
 	maxhealth = 800
 	opacity = TRUE
 	paintable = AIRLOCK_PAINTABLE_MAIN
@@ -561,7 +559,6 @@
 	maxhealth = 300
 	explosion_resistance = 5
 	opacity = FALSE
-	assembly_type = /obj/structure/door_assembly/door_assembly_med
 	glass = 1
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
 	door_color = "#A7A9A0"

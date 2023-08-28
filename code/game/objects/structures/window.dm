@@ -9,6 +9,7 @@
 	desc = "A glass pane."
 	icon = 'icons/obj/structure/window/window_panes.dmi'
 	icon_state = "pane"
+	alpha = 196
 	density = TRUE
 	w_class = ITEMSIZE_NORMAL
 	layer = WINDOW_PANE_LAYER
@@ -622,7 +623,6 @@
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
 	smooth = SMOOTH_MORE
-	alpha = 196
 	canSmoothWith = list(
 		/turf/simulated/wall,
 		/turf/simulated/wall/r_wall,

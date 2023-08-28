@@ -92,7 +92,6 @@
 			new /datum/stack_recipe("standard airlock assembly", /obj/structure/door_assembly, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("maintenance airlock assembly", /obj/structure/door_assembly/door_assembly_mai, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("external airlock assembly", /obj/structure/door_assembly/door_assembly_ext, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("freezer airlock assembly", /obj/structure/door_assembly/door_assembly_fre, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("airtight hatch assembly", /obj/structure/door_assembly/door_assembly_hatch, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("maintenance hatch assembly", /obj/structure/door_assembly/door_assembly_mhatch, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("high security airlock assembly", /obj/structure/door_assembly/door_assembly_highsecurity, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),

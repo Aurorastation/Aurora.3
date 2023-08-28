@@ -4,6 +4,7 @@
 	icon = 'icons/obj/structure/window/window_panes.dmi'
 	icon_state = "left"
 	var/base_state = "left"
+	alpha = 196
 	layer = WINDOW_PANE_LAYER
 	min_force = 4
 	hitsound = 'sound/effects/glass_hit.ogg'

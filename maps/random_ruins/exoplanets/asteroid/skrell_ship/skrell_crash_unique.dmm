@@ -151,7 +151,7 @@
 /area/template_noop)
 "aD" = (
 /obj/structure/blocker/steel,
-/obj/structure/door_assembly/door_assembly_skrell{
+/obj/structure/door_assembly{
 	name = "Bridge"
 	},
 /obj/structure/inflatable/door,
@@ -697,7 +697,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "cw" = (
-/obj/structure/door_assembly/door_assembly_skrell{
+/obj/structure/door_assembly{
 	name = "Cryogenics"
 	},
 /turf/simulated/floor/shuttle/skrell/blue,

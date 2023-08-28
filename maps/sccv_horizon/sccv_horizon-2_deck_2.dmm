@@ -1460,8 +1460,8 @@
 "aFK" = (
 /obj/structure/table/reinforced/wood,
 /obj/machinery/door/window/desk/eastleft{
-	req_access = list(37);
-	name = "Library Desk"
+	name = "Library Desk";
+	req_access = list(37)
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
@@ -4121,8 +4121,8 @@
 	name = "Machinist Workshop Desk Shutter"
 	},
 /obj/machinery/door/window/desk/eastright{
-	req_access = list(29);
-	name = "Machinist Workshop Desk"
+	name = "Machinist Workshop Desk";
+	req_access = list(29)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
@@ -6512,7 +6512,6 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1;
 	frequency = 1379;
-	icon_state = "door_locked";
 	id_tag = "engine_airlock_exterior";
 	locked = 1;
 	name = "Supermatter Reactor Airlock Exterior";
@@ -6580,8 +6579,8 @@
 	name = "Safety Shutter"
 	},
 /obj/machinery/door/window/desk/eastleft{
-	req_access = list(1);
-	name = "Security Office"
+	name = "Security Office";
+	req_access = list(1)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/office)
@@ -7812,8 +7811,8 @@
 	dir = 4
 	},
 /obj/machinery/orderterminal{
-	pixel_y = 32;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/machinery/camera/network/service{
 	c_tag = "Dinner - Kitchen Service"
@@ -8983,6 +8982,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine control room blast doors.";
+	dir = 1;
 	id = "EngineBlast";
 	name = "Supermatter Reactor Monitoring Room Blast Doors";
 	pixel_y = -3;
@@ -8990,6 +8990,7 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine charging port.";
+	dir = 1;
 	id = "SupermatterPort";
 	name = "Supermatter Reactor Crystal Viewing Blast Doors";
 	pixel_x = -6;
@@ -8998,6 +8999,7 @@
 	},
 /obj/machinery/button/remote/emitter{
 	desc = "A remote control-switch for the supermatter reactor's emitter.";
+	dir = 1;
 	id = "ReactorEmitter";
 	name = "Supermatter Reactor Emitter";
 	pixel_x = 6;
@@ -11313,11 +11315,11 @@
 	dir = 4
 	},
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "ai_upload";
 	name = "AI Upload Foyer Blast Doors";
 	pixel_y = 30;
-	req_access = list(16);
-	dir = 1
+	req_access = list(16)
 	},
 /turf/simulated/floor/wood,
 /area/turret_protected/ai_upload_foyer)
@@ -13329,12 +13331,12 @@
 	pixel_y = 16
 	},
 /obj/item/reagent_containers/food/drinks/shaker{
-	pixel_y = 5;
-	pixel_x = 3
+	pixel_x = 3;
+	pixel_y = 5
 	},
 /obj/item/reagent_containers/food/drinks/shaker{
-	pixel_y = 5;
-	pixel_x = -9
+	pixel_x = -9;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
@@ -13345,11 +13347,11 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine control room blast doors.";
+	dir = 8;
 	id = "EngineEmitterPortWest";
 	name = "Supermatter Reactor Room Blast Doors";
 	pixel_x = -24;
-	req_one_access = list(11,24);
-	dir = 8
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
@@ -14847,8 +14849,8 @@
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/gloves{
-	pixel_y = 14;
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 14
 	},
 /obj/item/storage/firstaid/regular{
 	pixel_x = -4;
@@ -17765,11 +17767,11 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine control room blast doors.";
+	dir = 8;
 	id = "EngineEmitterPortWest";
 	name = "Supermatter Reactor Room Blast Doors";
 	pixel_x = -24;
-	req_one_access = list(11,24);
-	dir = 8
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
@@ -19313,8 +19315,8 @@
 	name = "Engineering Front Desk Shutter"
 	},
 /obj/machinery/door/window/desk/westleft{
-	req_access = list(10);
-	name = "Engineering Front Desk Internal"
+	name = "Engineering Front Desk Internal";
+	req_access = list(10)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/lobby)
@@ -19612,7 +19614,6 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1;
 	frequency = 1379;
-	icon_state = "door_locked";
 	id_tag = "engine_airlock_interior";
 	locked = 1;
 	name = "Supermatter Reactor Airlock Interior";
@@ -27438,8 +27439,8 @@
 	pixel_y = 5
 	},
 /obj/machinery/door/window/desk/westright{
-	req_access = list(50);
-	name = "Operations Desk Interior Access"
+	name = "Operations Desk Interior Access";
+	req_access = list(50)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/office)
@@ -28721,8 +28722,8 @@
 	name = "Pharmacy Desk Shutter"
 	},
 /obj/machinery/door/window/desk/southright{
-	req_access = list(33);
-	name = "Pharmacy Desk"
+	name = "Pharmacy Desk";
+	req_access = list(33)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/medical/pharmacy)
@@ -28779,12 +28780,12 @@
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
-	pixel_y = 4;
-	pixel_x = 1
+	pixel_x = 1;
+	pixel_y = 4
 	},
 /obj/item/reagent_containers/glass/bottle/syrup/chocolate{
-	pixel_y = 4;
-	pixel_x = -7
+	pixel_x = -7;
+	pixel_y = 4
 	},
 /obj/item/reagent_containers/glass/bottle/syrup/caramel{
 	pixel_x = -15;
@@ -29936,8 +29937,8 @@
 	dir = 1
 	},
 /obj/machinery/atm{
-	pixel_y = 28;
-	dir = 1
+	dir = 1;
+	pixel_y = 28
 	},
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/lino,
@@ -32094,11 +32095,11 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine control room blast doors.";
+	dir = 4;
 	id = "EngineEmitterPortWest";
 	name = "Supermatter Reactor Room Blast Doors";
 	pixel_x = 24;
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -33561,8 +33562,8 @@
 	dir = 4
 	},
 /obj/machinery/atm{
-	pixel_y = 32;
-	dir = 1
+	dir = 1;
+	pixel_y = 32
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -37912,8 +37913,8 @@
 	name = "Security Checkpoint Desk Shutter"
 	},
 /obj/machinery/door/window/desk/westright{
-	req_access = list(1);
-	name = "Arrivals Processing Desk"
+	name = "Arrivals Processing Desk";
+	req_access = list(1)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
@@ -40731,8 +40732,8 @@
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/desk/southright{
-	req_access = list(3);
-	name = "Warden's Office"
+	name = "Warden's Office";
+	req_access = list(3)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/warden)
@@ -40798,8 +40799,8 @@
 	name = "Safety Shutter"
 	},
 /obj/machinery/door/window/desk/eastright{
-	req_access = list(1);
-	name = "Security Office"
+	name = "Security Office";
+	req_access = list(1)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/office)
@@ -46830,6 +46831,7 @@
 "wKK" = (
 /obj/machinery/button/remote/emitter{
 	desc = "A remote control-switch for the supermatter reactor's emitter.";
+	dir = 1;
 	id = "ReactorEmitter";
 	name = "Supermatter Reactor Emitter";
 	pixel_x = 6;
@@ -46838,6 +46840,7 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine charging port.";
+	dir = 1;
 	id = "SupermatterPort";
 	name = "Supermatter Reactor Crystal Viewing Blast Doors";
 	pixel_x = -6;
@@ -46846,6 +46849,7 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine control room blast doors.";
+	dir = 1;
 	id = "EngineBlast";
 	name = "Supermatter Reactor Monitoring Room Blast Doors";
 	pixel_y = -3;
@@ -48926,11 +48930,11 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine control room blast doors.";
+	dir = 4;
 	id = "EngineEmitterPortWest";
 	name = "Supermatter Reactor Room Blast Doors";
 	pixel_x = 24;
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
