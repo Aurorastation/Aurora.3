@@ -247,7 +247,7 @@
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="sccpistolstun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="sccpistolkill", fire_sound='sound/weapons/energy_repeater.ogg')
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol/scc, modifystate="sccpistolkill", fire_sound='sound/weapons/energy_repeater.ogg')
 		)
 
 /obj/item/gun/energy/gun/skrell
