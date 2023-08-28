@@ -35,6 +35,7 @@
 	dir = EAST
 	pixel_x = 0
 	pixel_y = -32
+	door_color = COLOR_GRAY15
 	airlock_type = "Multi-Tile"
 	open_sound_powered = 'sound/machines/airlock/wide1o.ogg'
 	close_sound_powered = 'sound/machines/airlock/wide1c.ogg'
