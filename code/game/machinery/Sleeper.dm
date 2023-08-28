@@ -171,9 +171,10 @@
 	else
 		data["occupant"] = FALSE
 	if(beaker)
-		data["beaker"] = REAGENTS_FREE_SPACE(beaker.reagents)
+		data["beaker"] = TRUE
+		data["beakerfreespace"] = REAGENTS_FREE_SPACE(beaker.reagents)
 	else
-		data["beaker"] = -1
+		data["beaker"] = FALSE
 	data["filtering"] = filtering
 	data["pump"] = pump
 
@@ -363,6 +364,10 @@
 	update_icon()
 	toggle_filter()
 	toggle_pump()
+
+/obj/machinery/sleeper/AltClick()
+	if(use_check_and_message(usr))
+		go_out()
 
 /obj/machinery/sleeper/proc/remove_beaker()
 	if(beaker)

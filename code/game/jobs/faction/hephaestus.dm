@@ -44,6 +44,7 @@
 		"Engineer" = /datum/outfit/job/engineer/hephaestus,
 		"Atmospheric Technician" = /datum/outfit/job/atmos/hephaestus,
 		"Engineering Apprentice" = /datum/outfit/job/intern_eng/hephaestus,
+		"Atmospherics Apprentice" = /datum/outfit/job/intern_atmos/hephaestus,
 		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus
 	)
 
@@ -106,6 +107,18 @@
 
 /datum/outfit/job/intern_eng/hephaestus
 	name = "Engineering Apprentice - Hephaestus"
+
+	uniform = /obj/item/clothing/under/rank/engineer/apprentice/heph
+	head = /obj/item/clothing/head/beret/corporate/heph
+	id = /obj/item/card/id/hephaestus
+
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
+
+/datum/outfit/job/intern_atmos/hephaestus
+	name = "Atmospherics Apprentice - Hephaestus"
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice/heph
 	head = /obj/item/clothing/head/beret/corporate/heph

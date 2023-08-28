@@ -239,7 +239,7 @@
 	var/datum/job/J = SSjobs.GetJobType(jobtype)
 	if(!J)
 		J = SSjobs.GetJob(H.job)
-	return J.get_access(get_id_assignment(H))
+	return J.get_access(get_id_assignment(H, TRUE))
 
 /datum/outfit/job/get_id_rank(mob/living/carbon/human/H)
 	var/datum/job/J = SSjobs.GetJobType(jobtype)

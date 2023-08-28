@@ -94,13 +94,13 @@
 /obj/machinery/atmospherics/unary/heater/attack_hand(mob/user as mob)
 	ui_interact(user)
 
-/obj/machinery/atmospherics/unary/freezer/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/machinery/atmospherics/unary/heater/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Freezer", "Gas Heating System", 440, 300)
 		ui.open()
 
-/obj/machinery/atmospherics/unary/freezer/ui_data(mob/user)
+/obj/machinery/atmospherics/unary/heater/ui_data(mob/user)
 	var/list/data = list()
 
 	data["on"] = !!use_power
@@ -118,7 +118,7 @@
 
 	return data
 
-/obj/machinery/atmospherics/unary/freezer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/obj/machinery/atmospherics/unary/heater/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return TRUE

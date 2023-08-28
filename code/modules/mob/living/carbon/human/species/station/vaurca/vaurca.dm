@@ -141,11 +141,12 @@
 
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
+	psi_deaf = TRUE
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
-	var/obj/item/clothing/mask/breath/vaurca/filter/M = new /obj/item/clothing/mask/breath/vaurca/filter(H)
+	var/obj/item/clothing/mask/gas/vaurca/filter/M = new /obj/item/clothing/mask/gas/vaurca/filter(H)
 	H.equip_to_slot_or_del(M, slot_wear_mask)
 
 /datum/species/bug/after_equip(var/mob/living/carbon/human/H)
@@ -158,9 +159,6 @@
 	H.gender = NEUTER
 	return ..()
 
-/datum/species/bug/has_psi_potential()
-	return FALSE
-
 /datum/species/bug/is_naturally_insulated()
 	return TRUE
 
@@ -168,3 +166,4 @@
 	if(I.w_class <= ITEMSIZE_SMALL)
 		return TRUE
 	return FALSE
+

@@ -1,10 +1,12 @@
 /obj/effect/rune
+	name = "rune"
 	desc = "A strange collection of symbols drawn in blood."
-	anchored = 1
 	icon = 'icons/obj/rune.dmi'
 	icon_state = "1"
+	anchored = TRUE
 	unacidable = TRUE
 	layer = AO_LAYER
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	var/datum/rune/rune
 
 /obj/effect/rune/Initialize(mapload, var/R)
