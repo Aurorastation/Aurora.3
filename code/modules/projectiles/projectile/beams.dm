@@ -45,7 +45,7 @@
 
 /obj/item/projectile/beam/midlaser
 	damage = 30
-	armor_penetration = 25
+	armor_penetration = 20
 
 /obj/item/projectile/beam/midlaser/skrell
 	armor_penetration = 0

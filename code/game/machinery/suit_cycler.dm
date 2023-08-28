@@ -89,6 +89,7 @@
 	model_text = "Mining"
 	req_access = list(access_mining)
 	departments = list("Mining")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 
 /obj/machinery/suit_cycler/security
 	name = "security suit cycler"
@@ -138,7 +139,7 @@
 	model_text = "Research"
 	req_access = list(access_research)
 	departments = list("Research")
-	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
+	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/freelancer
