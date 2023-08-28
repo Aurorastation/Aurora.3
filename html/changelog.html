@@ -39,6 +39,10 @@
 			<h3 class="author">FluffyGhost updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">Fixed an exception that could be thrown if someone were to examine an atom that has no description (desc), as seen on some floors in centcomm.</li>
+				<li class="bugfix">The garbage collection should not happen if we&#x27;re running a reference tracking search.</li>
+				<li class="bugfix">If we&#x27;re compiled with GC_FAILURE_HARD_LOOKUP, prevent the failsafe controller from gutting the master controller (DEFCON 1).</li>
+				<li class="bugfix">If we&#x27;re compiled with GC_FAILURE_HARD_LOOKUP, prevent the master controller from gutting SSgarbage controller.</li>
+				<li class="backend">Now gives images a chance to be garbage collected, instead of immediately gutting them with an harddel.</li>
 			</ul>
 			<h3 class="author">Geeves updated:</h3>
 			<ul class="changes bgimages16">
