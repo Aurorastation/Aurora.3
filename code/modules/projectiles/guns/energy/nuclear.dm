@@ -221,6 +221,35 @@
 		list(mode_name="full-auto", can_autofire = TRUE, burst = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3), dispersion = list(5, 10, 15, 20))
 		)
 
+/obj/item/gun/energy/repeater/pistol
+	name = "repeater pistol"
+	desc = "A more compact and portable version of the Stellar Corporate Conglomerate Energy Repeater. It has two settings: Stun, and Lethal."
+	desc_extended = "The SCC-ER1-2 was designed to be a reliable yet more compact version of the SCC-ER1, capable of defending Staff and Assets."
+	icon = 'icons/obj/guns/sccpistol.dmi'
+	icon_state = "sccpistolstun100"
+	item_state = "sccpistolstun100"
+	modifystate = "sccpistolstun"
+	has_item_ratio = FALSE
+	fire_sound = 'sound/weapons/Taser.ogg'
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	max_shots = 8
+	fire_delay = 4
+	can_turret = 1
+	secondary_projectile_type = /obj/item/projectile/beam/pistol/scc
+	secondary_fire_sound = 'sound/weapons/energy_repeater.ogg'
+	can_switch_modes = 1
+	turret_sprite_set = "carbine"
+	turret_is_lethal = 0
+
+	projectile_type = /obj/item/projectile/beam/stun
+	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
+	modifystate = "sccpistolstun"
+
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="sccpistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="sccpistolkill", fire_sound='sound/weapons/energy_repeater.ogg')
+		)
+
 /obj/item/gun/energy/gun/skrell
 	self_recharge = TRUE
 	fire_sound = 'sound/weapons/Laser2.ogg'
