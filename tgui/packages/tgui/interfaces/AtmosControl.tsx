@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Section, Box, LabeledList } from '../components';
+import { Section, LabeledList, NoticeBox } from '../components';
 import { capitalize } from '../../common/string';
 
 export type AtmosData = {
@@ -22,35 +22,30 @@ type Datapoint = {
 
 export const AtmosControl = (props, context) => {
   const { act, data } = useBackend<AtmosData>(context);
-  return (
-    <Section title="Sensor Data">
-      {data.sensors.length ? <SensorData /> : 'No sensors connected.'}
-    </Section>
+  return data.sensors.length ? (
+    <SensorData />
+  ) : (
+    <NoticeBox>No sensors connected.</NoticeBox>
   );
 };
 
 export const SensorData = (props, context) => {
   const { act, data } = useBackend<AtmosData>(context);
-  return (
-    <Section>
-      {data.sensors.map((sensor) => (
-        <Box bold key={sensor.id_tag}>
-          {sensor.name}
-          <LabeledList>
-            {sensor.datapoints.map((datapoint) =>
-              datapoint.data !== null ? (
-                <LabeledList.Item
-                  key={datapoint.datapoint}
-                  label={capitalize(datapoint.datapoint)}>
-                  {datapoint.data} {datapoint.unit}
-                </LabeledList.Item>
-              ) : (
-                ''
-              )
-            )}
-          </LabeledList>
-        </Box>
-      ))}
+  return data.sensors.map((sensor) => (
+    <Section title={sensor.name} key={sensor.id_tag}>
+      <LabeledList>
+        {sensor.datapoints.map((datapoint) =>
+          datapoint.data !== null ? (
+            <LabeledList.Item
+              key={datapoint.datapoint}
+              label={capitalize(datapoint.datapoint)}>
+              {datapoint.data} {datapoint.unit}
+            </LabeledList.Item>
+          ) : (
+            ''
+          )
+        )}
+      </LabeledList>
     </Section>
-  );
+  ));
 };

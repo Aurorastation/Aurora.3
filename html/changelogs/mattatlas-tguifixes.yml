@@ -42,3 +42,5 @@ changes:
   - bugfix: "Removed the in-code sensor tag from the atmos control."
   - bugfix: "Fixed the atmos control datapoint display to be neater."
   - bugfix: "Shield generator now has colours for when its features are online/offline."
+  - bugfix: "The IC notes' money display now uses the credit sign instead of a dollar sign."
+  - bugfix: "Vending machines now properly grey out items if they're being vended or have run out."
