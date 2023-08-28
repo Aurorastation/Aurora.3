@@ -171,4 +171,8 @@
 
 //Check to use when seeing if the person has the minimum dose of the reagent. Useful for stopping minimum transfer rate IV drips from applying chem effects
 /singleton/reagent/proc/check_min_dose(var/mob/living/carbon/M, var/min_dose = 1)
-	return (REAGENT_VOLUME(M.reagents, type) >= min_dose)
+	var/dose = REAGENT_VOLUME(M.reagents, type) >= min_dose
+	var/obj/item/organ/internal/stomach/S = M.internal_organs_by_name[BP_STOMACH]
+	if(S)
+		dose += REAGENT_VOLUME(S.ingested, type) >= min_dose
+	return dose

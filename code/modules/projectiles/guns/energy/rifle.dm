@@ -21,7 +21,7 @@
 	turret_is_lethal = 0
 	has_item_ratio = FALSE
 
-	fire_delay_wielded = 4
+	fire_delay_wielded = 5
 	accuracy_wielded = 2
 	sel_mode = 1
 
@@ -47,8 +47,7 @@
 	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
 	fire_sound = 'sound/weapons/laser1.ogg'
 	max_shots = 15
-	fire_delay = 5
-	burst_delay = 5
+	fire_delay = 6
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/beam/midlaser
 	secondary_projectile_type = null

@@ -285,7 +285,7 @@ var/const/enterloopsanity = 100
 				break
 			objects++
 
-			if (oAM.simulated)
+			if (oAM.simulated && (oAM.flags & PROXMOVE))
 				AM.proximity_callback(oAM)
 
 /turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color="#A10808")
@@ -391,7 +391,7 @@ var/const/enterloopsanity = 100
 		if(istype(src, /turf/simulated))
 			var/turf/simulated/T = src
 			T.dirt = 0
-			T.color = null
+			T.color = initial(color)
 		for(var/obj/effect/O in src)
 			if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
 				qdel(O)

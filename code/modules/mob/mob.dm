@@ -1,3 +1,7 @@
+#define UNBUCKLED 0
+#define PARTIALLY_BUCKLED 1
+#define FULLY_BUCKLED 2
+
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
 	mob_list -= src
 	dead_mob_list -= src
@@ -282,9 +286,6 @@
 /mob/proc/Life()
 	return
 
-#define UNBUCKLED 0
-#define PARTIALLY_BUCKLED 1
-#define FULLY_BUCKLED 2
 /mob/proc/buckled_to()
 	// Preliminary work for a future buckle rewrite,
 	// where one might be fully restrained (like an elecrical chair), or merely secured (shuttle chair, keeping you safe but not otherwise restrained from acting)
@@ -293,11 +294,12 @@
 	return restrained() ? FULLY_BUCKLED : PARTIALLY_BUCKLED
 
 /mob/proc/is_physically_disabled()
-	return incapacitated(INCAPACITATION_DISABLED)
+	return MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED)
 
 /mob/proc/cannot_stand()
-	return incapacitated(INCAPACITATION_KNOCKDOWN)
+	return MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
 
+// Inside this file, you should use MOB_IS_INCAPACITATED for performance reasons
 /mob/proc/incapacitated(var/incapacitation_flags = INCAPACITATION_DEFAULT)
 
 	if ((incapacitation_flags & INCAPACITATION_STUNNED) && stunned)
@@ -320,10 +322,6 @@
 			return 1
 
 	return 0
-
-#undef UNBUCKLED
-#undef PARTIALLY_BUCKLED
-#undef FULLY_BUCKLED
 
 /mob/proc/restrained()
 	return
@@ -865,8 +863,8 @@
 			canmove = 0
 			lying = 0
 		else
-			lying = incapacitated(INCAPACITATION_KNOCKDOWN)
-			canmove = !incapacitated(INCAPACITATION_KNOCKOUT)
+			lying = MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
+			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT)
 
 	if(lying)
 		density = 0
@@ -1281,15 +1279,23 @@
 	else
 		throw_mode_on()
 
+#define THROW_MODE_ICON 'icons/effects/cursor/throw_mode.dmi'
+
 /mob/proc/throw_mode_off()
 	src.in_throw_mode = 0
 	if(src.throw_icon) //in case we don't have the HUD and we use the hotkey
 		src.throw_icon.icon_state = "act_throw_off"
+	if(client?.mouse_pointer_icon == THROW_MODE_ICON)
+		client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
 
 /mob/proc/throw_mode_on()
 	src.in_throw_mode = 1
 	if(src.throw_icon)
 		src.throw_icon.icon_state = "act_throw_on"
+	if(client?.mouse_pointer_icon == initial(client.mouse_pointer_icon))
+		client.mouse_pointer_icon = THROW_MODE_ICON
+
+#undef THROW_MODE_ICON
 
 /mob/proc/is_invisible_to(var/mob/viewer)
 	if(isAI(viewer))
@@ -1380,6 +1386,11 @@
  	set hidden = 1
  	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
 
+/client/verb/cycle_target_zone()
+	set name = "cycle-zone"
+	set hidden = 1
+	toggle_zone_sel(BP_ALL_LIMBS)
+
 /client/proc/toggle_zone_sel(list/zones)
 	if(!check_has_body_select())
 		return
@@ -1388,37 +1399,37 @@
 
 /mob/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
 	..()
-	if(assembleHeightString(user))
-		to_chat(user, SPAN_NOTICE(assembleHeightString(user)))
+	if(assemble_height_string(user))
+		to_chat(user, SPAN_NOTICE(assemble_height_string(user)))
 
 //Height String for examine - Runs on the mob being examined.
-/mob/proc/assembleHeightString(mob/examiner)
-	var/heightString = null
-	var/descriptor
+/mob/proc/assemble_height_string(mob/examiner)
+	var/height_string = null
+	var/height_descriptor
 	if(height == HEIGHT_NOT_USED)
-		return heightString
+		return height_string
 
 	if(examiner.height == HEIGHT_NOT_USED)
-		return heightString
+		return height_string
 
 	switch(height - examiner.height)
 		if(-999 to -100)
-			descriptor = "absolutely tiny compared to"
+			height_descriptor = "absolutely tiny compared to"
 		if(-99 to -50)
-			descriptor = "much smaller than"
+			height_descriptor = "much smaller than"
 		if(-49 to -11)
-			descriptor = "shorter than"
+			height_descriptor = "shorter than"
 		if(-10 to 10)
-			descriptor = "about the same height as"
+			height_descriptor = "about the same height as"
 		if(11 to 50)
-			descriptor = "taller than"
+			height_descriptor = "taller than"
 		if(51 to 100)
-			descriptor = "much larger than"
+			height_descriptor = "much larger than"
 		else
-			descriptor = "to tower over"
-	if(heightString)
-		return heightString + ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
-	return "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."
+			height_descriptor = "to tower over"
+	if(height_string)
+		return height_string + " [get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
+	return "[get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
 
 /mob/proc/get_speech_bubble_state_modifier()
 	return "normal"
@@ -1433,3 +1444,7 @@
 /mob/proc/get_actions_for_statpanel()
 	var/list/data = list()
 	return data
+
+#undef UNBUCKLED
+#undef PARTIALLY_BUCKLED
+#undef FULLY_BUCKLED

@@ -126,6 +126,10 @@
 	for(var/obj/screen/ability/A in ability_objects)
 		remove_ability(A)
 
+/obj/screen/movable/ability_master/proc/remove_all_psionic_abilities()
+	for(var/obj/screen/ability/obj_based/psionic/A in ability_objects)
+		remove_ability(A)
+
 /obj/screen/movable/ability_master/proc/get_ability_by_name(name_to_search)
 	for(var/obj/screen/ability/A in ability_objects)
 		if(A.name == name_to_search)
@@ -147,7 +151,7 @@
 /mob/living/LateLogin()
 	. = ..()
 	if(ability_master)
-		ability_master.toggle_open(1)
+		ability_master.toggle_open(2)
 		client.screen -= ability_master
 
 /mob/living/Initialize()
@@ -183,8 +187,13 @@
 
 	overlays += ability_icon_state
 
-/obj/screen/ability/Click()
+/obj/screen/ability/Click(var/location, var/control, var/params)
 	if(!usr)
+		return
+
+	var/list/click_params = params2list(params)
+	if(click_params["shift"])
+		examine(usr)
 		return
 
 	activate()
@@ -201,7 +210,7 @@
 
 // Makes the ability be triggered.  The subclasses of this are responsible for carrying it out in whatever way it needs to.
 /obj/screen/ability/proc/activate()
-	log_debug("[src] had activate() called.")
+	LOG_DEBUG("[src] had activate() called.")
 
 // This checks if the ability can be used.
 /obj/screen/ability/proc/can_activate()
@@ -283,13 +292,44 @@
 //////////////////////////////
 
 /obj/screen/ability/obj_based
-	var/obj/object = null
+	var/obj/object
 
 /obj/screen/ability/obj_based/activate()
 	if(object)
 		object.Click()
 
-// Technomancer
+/// Psionics.
+/obj/screen/ability/obj_based/psionic
+	icon_state = "nano_spell_base"
+	background_base_state = "nano"
+	var/singleton/psionic_power/connected_power
+
+/obj/screen/ability/obj_based/psionic/Destroy()
+	connected_power = null
+	return ..()
+
+/obj/screen/movable/ability_master/proc/add_psionic_ability(var/obj/object_given, var/ability_icon_given, var/singleton/psionic_power/P)
+	if(!object_given)
+		message_admins("ERROR: add_psionic_ability() was not given an object in its arguments.")
+	if(!P)
+		message_admins("Psionic ability added without connected psionic power singleton!")
+	if(get_ability_by_instance(object_given))
+		return // Duplicate
+	var/obj/screen/ability/obj_based/psionic/A = new /obj/screen/ability/obj_based/psionic()
+	A.ability_master = src
+	A.object = object_given
+	A.ability_icon_state = ability_icon_given
+	A.name = object_given.name
+	A.connected_power = P
+	ability_objects.Add(A)
+	if(my_mob.client)
+		toggle_open(2) //forces the icons to refresh on screen
+
+/obj/screen/ability/obj_based/psionic/examine(mob/user)
+	to_chat(user, SPAN_NOTICE("<font size=4>This ability is <b>[connected_power.name]</b>.</font>"))
+	to_chat(user, SPAN_NOTICE("[connected_power.desc]"))
+
+/// Technomancer.
 /obj/screen/ability/obj_based/technomancer
 	icon_state = "wiz_spell_base"
 	background_base_state = "wiz"

@@ -2,12 +2,12 @@
 //returns text as a string if these conditions are met
 /proc/return_file_text(filename)
 	if(fexists(filename) == 0)
-		log_error("File not found ([filename])")
+		log_asset("File not found ([filename])")
 		return
 
 	var/text = file2text(filename)
 	if(!text)
-		log_error("File empty ([filename])")
+		log_asset("File empty ([filename])")
 		return
 
 	return text

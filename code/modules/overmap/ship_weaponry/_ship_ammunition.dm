@@ -128,6 +128,10 @@
 	return
 
 /obj/item/ship_ammunition/proc/wield(var/mob/living/carbon/human/user)
+	var/obj/A = user.get_inactive_hand()
+	if(A)
+		to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
+		return
 	wielded = TRUE
 	var/obj/item/offhand/O = new(user)
 	O.name = "[initial(name)] - offhand"

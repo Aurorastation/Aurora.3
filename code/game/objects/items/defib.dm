@@ -17,7 +17,7 @@
 	action_button_name = "Toggle Paddles"
 
 	var/obj/item/shockpaddles/linked/paddles
-	var/obj/item/cell/bcell = null
+	var/obj/item/cell/bcell
 
 /obj/item/defibrillator/Initialize() //starts without a cell for rnd
 	. = ..()
@@ -120,7 +120,7 @@
 		reattach_paddles(user)
 	else if(istype(W, /obj/item/cell))
 		if(bcell)
-			to_chat(user, SPAN_NOTICE("\the [src] already has a cell."))
+			to_chat(user, SPAN_NOTICE("\The [src] already has a cell."))
 		else
 			if(!user.unEquip(W))
 				return
@@ -251,15 +251,20 @@
 		playsound(src, 'sound/machines/defib_ready.ogg', 50, 0)
 
 /obj/item/shockpaddles/proc/wield()
-	var/mob/living/M = loc
-	if(istype(M) && !wielded)
-		wielded = TRUE
-		name = "[initial(name)] (wielded)"
-		var/obj/item/offhand/O = new(M)
-		O.name = "[initial(name)] - offhand"
-		O.desc = "The second set of paddles."
-		M.put_in_inactive_hand(O)
-		update_icon()
+	var/mob/living/carbon/human/M = loc
+	if(istype(M))
+		var/obj/A = M.get_inactive_hand()
+		if(A)
+			to_chat(M, SPAN_WARNING("Your other hand is occupied!"))
+			return
+		if(!wielded)
+			wielded = TRUE
+			name = "[initial(name)] (wielded)"
+			var/obj/item/offhand/O = new(M)
+			O.name = "[initial(name)] - offhand"
+			O.desc = "The second set of paddles."
+			M.put_in_inactive_hand(O)
+			update_icon()
 
 /obj/item/shockpaddles/proc/unwield()
 	wielded = FALSE
@@ -598,7 +603,7 @@
 /obj/item/shockpaddles/linked/equipped(mob/user, slot, assisted_equip)
 	. = ..()
 	if(ismob(loc))
-		RegisterSignal(loc, COMSIG_MOVABLE_MOVED, PROC_REF(unlatch))
+		RegisterSignal(loc, COMSIG_MOVABLE_MOVED, PROC_REF(unlatch), TRUE)
 
 /obj/item/shockpaddles/linked/proc/unlatch()
 	if(get_dist(loc, base_unit) > 1)
