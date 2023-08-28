@@ -51,6 +51,8 @@
 	// So the GC can qdel this.
 	if (connected)
 		connected.connected = null
+		connected = null
+	occupant = null
 	return ..()
 
 /obj/machinery/bodyscanner/update_icon()
@@ -262,6 +264,8 @@
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
 		connected.connected = null
+		connected = null
+
 	return ..()
 
 /obj/machinery/body_scanconsole/power_change()
