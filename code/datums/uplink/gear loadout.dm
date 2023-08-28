@@ -58,13 +58,13 @@
 
 /datum/uplink_item/item/gear_loadout/cowboys
 	name = "Frontier Cowboys (Group)"
-	path = /obj/structure/closet/crate/secure/gear_loadout/ram_ranch
-	telecrystal_cost = 35
+	path = /obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys
+	telecrystal_cost = 15
 
 /datum/uplink_item/item/gear_loadout/cowboy_single
 	name = "Frontier Cowboy (Single)"
-	path = /obj/structure/closet/crate/secure/gear_loadout/ram_ranch/single
-	telecrystal_cost = 10
+	path = /obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/single
+	telecrystal_cost = 5
 
 /datum/uplink_item/item/gear_loadout/kosmostrelki
 	name = "Kosmostrelki Assets (Group)"
@@ -93,4 +93,48 @@
 /datum/uplink_item/item/gear_loadout/einstein_single
 	name = "Einstein Engines Assets (Single)"
 	path = /obj/structure/closet/crate/secure/gear_loadout/einstein/single
+	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/izweski
+	name = "Izweski Hegemony Assets (Group)"
+	desc = "A crate containing gear for a group. The voidsuits are only usable by Unathi."
+	path = /obj/structure/closet/crate/secure/gear_loadout/hegemony
+
+/datum/uplink_item/item/gear_loadout/izweski_single
+	name = "Izweski Hegemony Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Unathi."
+	path = /obj/structure/closet/crate/secure/gear_loadout/hegemony/single
+	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/kataphract
+	name = "Kataphract Knight Assets (Group)"
+	desc = "A crate containing gear for a group. The voidsuits and hardsuit are only usable by Unathi."
+	path = /obj/structure/closet/crate/secure/gear_loadout/kataphract
+
+/datum/uplink_item/item/gear_loadout/kataphract_single
+	name = "Kataphract Knight Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Unathi."
+	path = /obj/structure/closet/crate/secure/gear_loadout/kataphract/single
+	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/unathi_pirate
+	name = "Unathi Pirate Assets (Group)"
+	desc = "A crate containing gear for a group. The voidsuits are only usable by Unathi."
+	path = /obj/structure/closet/crate/secure/gear_loadout/unathi_pirate
+
+/datum/uplink_item/item/gear_loadout/unathi_pirate_single
+	name = "Unathi Pirate Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Unathi."
+	path = /obj/structure/closet/crate/secure/gear_loadout/unathi_pirate/single
+	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/pvsm
+	name = "People's Volunteer Spacer Militia Assets (Group)"
+	desc = "A crate containing gear for a group. The voidsuits are only usable by Tajara."
+	path = /obj/structure/closet/crate/secure/gear_loadout/pvsm
+
+/datum/uplink_item/item/gear_loadout/pvsm_single
+	name = "People's Volunteer Spacer Militia Assets (Single)"
+	desc = "A crate containing gear for a single individual. The voidsuit is only usable by Tajara."
+	path = /obj/structure/closet/crate/secure/gear_loadout/pvsm/single
 	telecrystal_cost = 10

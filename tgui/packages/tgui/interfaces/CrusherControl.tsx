@@ -56,12 +56,12 @@ export const PistonManagement = (props, context) => {
         <Button
           content="Open"
           icon="door-closed"
-          onClick={() => act('hatch_close')}
+          onClick={() => act('hatch_open')}
         />
         <Button
           content="Close"
           icon="door-open"
-          onClick={() => act('hatch_open')}
+          onClick={() => act('hatch_close')}
         />
       </LabeledList.Item>
       <LabeledList.Item label="Activate">

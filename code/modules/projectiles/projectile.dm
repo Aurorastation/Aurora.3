@@ -372,6 +372,7 @@
 	if(hitscan)
 		return process_hitscan()
 	else
+		generate_muzzle_flash()
 		if(!isprocessing)
 			START_PROCESSING(SSprojectiles, src)
 		pixel_move(1)	//move it now!
@@ -452,9 +453,10 @@
 			pixel_x = trajectory.return_px()
 			pixel_y = trajectory.return_py()
 	else
-		before_move()
-		step_towards(src, T)
-		after_move()
+		if(T != loc)
+			before_move()
+			Move(T)
+			after_move()
 		if(!hitscanning)
 			pixel_x = trajectory.return_px() - trajectory.mpx * trajectory_multiplier
 			pixel_y = trajectory.return_py() - trajectory.mpy * trajectory_multiplier
@@ -615,6 +617,19 @@
 		generate_hitscan_tracers()
 	STOP_PROCESSING(SSprojectiles, src)
 	return ..()
+
+/obj/item/projectile/proc/generate_muzzle_flash(duration = 3)
+	if(duration <= 0)
+		return
+	if(!muzzle_type || silenced)
+		return
+	var/datum/point/p = trajectory
+	var/atom/movable/thing = new muzzle_type
+	p.move_atom_to_src(thing)
+	var/matrix/M = new
+	M.Turn(original_angle)
+	thing.transform = M
+	QDEL_IN(thing, duration)
 
 /obj/item/projectile/proc/generate_hitscan_tracers(cleanup = TRUE, duration = 3)
 	if(!length(beam_segments))

@@ -4,22 +4,129 @@ var/list/gamemode_cache = list()
 	var/server_name = null				// server name (for world name / status)
 	var/server_suffix = 0				// generate numeric suffix based on server port
 
-	var/log_ooc = 0						// log OOC channel
-	var/log_access = 0					// log login/logout
-	var/log_say = 0						// log client say
-	var/log_admin = 0					// log admin actions
-	var/log_signaler = 0				// log signaler actions
-	var/log_debug = 1					// log debug output
-	var/log_game = 0					// log game events
-	var/log_vote = 0					// log voting
-	var/log_whisper = 0					// log client whisper
-	var/log_emote = 0					// log emotes
-	var/log_attack = 0					// log attack messages
-	var/log_adminchat = 0				// log admin chat messages
-	var/log_pda = 0						// log NTIRC messages
-	var/log_asset = 0					// log asset caching
-	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
-	var/log_runtime = 0					// logs world.log to a file
+	/////// START LOGGING SETTINGS ///////
+
+
+	/**
+	 * This is the nuclear option, this will make Hadii proud of you, and the players/other staff VERY VERY
+	 * ANGRY at you if you flip this on in production, also, everyone connected will be able to see the logs
+	 * so once again:
+	 *
+	 *		 NUCLEAR OPTION, TEST ENVIRONMENT/LOCAL INSTANCE/EVERYTHING IS FUCKED ONLY
+	 *
+	 * don't come cry to me if you fuck this up, but at least you can unfuck it just as easily. If the server survives.
+	*/
+	var/all_logs_to_chat = FALSE
+
+	var/condense_all_logs = TRUE
+
+	// Enable/Disable Logging
+	var/list/logsettings = list(
+	"log_access" = FALSE,	// log login/logout
+	"log_say" = FALSE,	// log client say
+	"log_signaler" = FALSE,	// log signaler actions
+	"log_debug" = TRUE,	// log debug output
+	"log_whisper" = FALSE,	// log client whisper
+	"log_attack" = FALSE,	// log attack messages
+	"log_hrefs" = FALSE,	// logs all links clicked in-game. Could be used for debugging and tracking down exploits
+	"log_runtime" = FALSE,	// logs world.log to a file
+	"log_asset" = FALSE,	// Asset loadings and changes
+	"log_job_debug" = FALSE,	// Jobs debugging
+	"log_signals" = FALSE,	// Signals
+	"log_admin" = TRUE,	// Admin actions
+	"log_adminchat" = TRUE,	// Admin chat
+	"log_suspicious_login" = TRUE,
+	"log_traitor" = TRUE,	// Antags
+	"log_uplink" = TRUE,	// Antag uplink
+	"log_game" = TRUE,	// General game events
+	"log_emote" = TRUE,	// Audible emotes (like ME/F4)
+	"log_ooc" = TRUE,	// OOC Chat
+	"log_prayer" = TRUE,	// Prays
+	"log_vote" = FALSE,	// OOC Votes, like transfer
+	"log_pda" = TRUE,	// PDA messages
+	"log_telecomms" = FALSE,	// Radiochat / telecommunications
+	"log_speech_indicators" = FALSE,	// Speech indicator
+	"log_tools" = FALSE,	// Tools
+	"log_manifest" = TRUE,	// Manifest
+	"log_asset" = FALSE,	// log asset caching
+
+	//// SUBSYSTEMS ////
+
+	"log_subsystems" = TRUE,	// General Subsystems
+	"log_subsystems_chemistry" = TRUE,	// SSChemistry
+	"log_subsystems_atlas" = TRUE,	// ATLAS
+	"log_subsystems_ghostroles" = TRUE,	// Ghost Roles
+	"log_subsystems_law" = TRUE,	// Law
+	"log_subsystems_cargo" = TRUE, // Cargo
+	"log_subsystems_documents" = TRUE, // Documents
+	"log_subsystems_fail2topic" = TRUE, // Fail2Topic
+	"log_subsystems_mapfinalization" = TRUE, // Map Finalization
+	"log_subsystems_tgui" = TRUE, // TGUI
+
+	//// MODULES ////
+
+	"log_modules_ghostroles" = TRUE,	// Ghost Roles
+	"log_modules_customitems" = TRUE,	// Custom Items
+	"log_modules_exoplanets" = TRUE,	// Exoplanets
+	"log_modules_sectors" = TRUE,	// Overmap Sectors
+	"world_modules_ruins_log" = TRUE,	// Ruins
+
+	)
+
+	// Files to send the logs to
+	var/list/logfiles = list(
+	"world_asset_log" = "world_asset.log",
+	"config_error_log" = "config_error.log",
+	"filter_log" = "filter.log",
+	"lua_log" = "lua.log",
+	"world_map_error_log" = "world_map_error.log",
+	"perf_log" = "perf.log",
+	"world_qdel_log" = "world_qdel.log",
+	"query_debug_log" = "query_debug.log",
+	"world_runtime_log" = "world_runtime.log",
+	"sql_error_log" = "sql_error.log",
+	"world_game_log" = "world_game.log",
+	"world_job_debug_log" = "world_job_debug.log",
+	"signals_log" = "signals.log",
+	"world_suspicious_login_log" = "world_suspicious_login.log",
+	"world_uplink_log" = "world_uplink.log",
+	"world_attack_log" = "world_attack.log",
+	"combat_log" = "combat.log",
+	"world_pda_log" = "world_pda.log",
+	"world_telecomms_log" = "world_telecomms.log",
+	"world_speech_indicators_log" = "world_speech_indicators.log",
+	"world_tool_log" = "world_tool.log",
+	"world_href_log" = "href.log",
+	"garbage_collector_log" = "garbage_collector.log",
+	"harddel_log" = "harddel.log",
+	"world_paper_log" = "world_paper.log",
+	"world_manifest_log" = "world_manifest.log",
+
+	//// SUBSYSTEMS ////
+
+	"world_subsystems_log" = "subsystems/world_subsystems.log",
+	"world_subsystems_chemistry_log" = "subsystems/chemistry.log",
+	"world_subsystems_atlas_log" = "subsystems/atlas.log",
+	"world_subsystems_ghostroles_log" = "subsystems/ghostroles.log",
+	"world_subsystems_law_log" = "subsystems/law.log",
+	"world_subsystems_cargo_log" = "subsystems/cargo.log",
+	"world_subsystems_documents_log" = "subsystems/documents.log",
+	"world_subsystems_fail2topic_log" = "subsystems/fail2topic.log",
+	"world_subsystems_mapfinalization_log" = "subsystems/mapfinalization.log",
+	"world_subsystems_tgui" = "subsystems/tgui.log",
+
+	//// MODULES ////
+
+	"world_modules_ghostroles_log" = "modules/ghostroles.log",
+	"world_modules_customitems_log" = "modules/customitems.log",
+	"world_modules_exoplanets_log" = "modules/exoplanets.log",
+	"world_modules_sectors_log" = "modules/sectors.log",
+	"world_modules_ruins_log" = "modules/ruins.log",
+	)
+
+
+	/////// END LOGGING SETTINGS ///////
+
 	var/log_world_output = 0			// log world.log <<  messages
 	var/sql_enabled = 0					// for sql switching
 	var/allow_admin_ooccolor = 0		// Allows admins with relevant permissions to have their own ooc colour
@@ -345,7 +452,7 @@ var/list/gamemode_cache = list()
 		if (M.config_tag)
 			gamemode_cache[M.config_tag] = M // So we don't instantiate them repeatedly.
 			if(!(M.config_tag in modes))		// ensure each mode is added only once
-				log_misc("Adding game mode [M.name] ([M.config_tag]) to configuration.")
+				LOG_DEBUG("Adding game mode [M.name] ([M.config_tag]) to configuration.")
 				src.modes += M.config_tag
 				src.mode_names[M.config_tag] = M.name
 				src.probabilities_secret[M.config_tag] = M.probability
@@ -405,62 +512,11 @@ var/list/gamemode_cache = list()
 				if ("use_spreading_explosions")
 					use_spreading_explosions = 1
 
-				if ("log_ooc")
-					config.log_ooc = 1
-
-				if ("log_access")
-					config.log_access = 1
-
 				if ("sql_enabled")
 					config.sql_enabled = 1
 
-				if ("log_say")
-					config.log_say = 1
-
 				if ("debug_paranoid")
 					config.debugparanoid = 1
-
-				if ("log_admin")
-					config.log_admin = 1
-
-				if ("log_signaler")
-					config.log_signaler = 1
-
-				if ("log_debug")
-					config.log_debug = text2num(value)
-
-				if ("log_game")
-					config.log_game = 1
-
-				if ("log_vote")
-					config.log_vote = 1
-
-				if ("log_whisper")
-					config.log_whisper = 1
-
-				if ("log_attack")
-					config.log_attack = 1
-
-				if ("log_emote")
-					config.log_emote = 1
-
-				if ("log_adminchat")
-					config.log_adminchat = 1
-
-				if ("log_pda")
-					config.log_pda = 1
-
-				if ("log_asset")
-					config.log_asset = 1
-
-				if ("log_world_output")
-					config.log_world_output = 1
-
-				if ("log_hrefs")
-					config.log_hrefs = 1
-
-				if ("log_runtime")
-					config.log_runtime = text2num(value)
 
 				if ("dungeon_chance")
 					config.dungeon_chance = text2num(value)
@@ -483,7 +539,7 @@ var/list/gamemode_cache = list()
 				if ("allow_admin_jump")
 					config.allow_admin_jump = 1
 
-				if("allow_admin_rev")
+				if ("allow_admin_rev")
 					config.allow_admin_rev = 1
 
 				if ("allow_admin_spawning")
@@ -525,7 +581,7 @@ var/list/gamemode_cache = list()
 				if ("respawn_delay")
 					config.respawn_delay = text2num(value)
 
-				if("hacked_drones_limit")
+				if ("hacked_drones_limit")
 					config.hacked_drones_limit = text2num(value)
 
 				if ("servername")
@@ -628,9 +684,9 @@ var/list/gamemode_cache = list()
 							else if (prob_type == "ms")
 								config.probabilities_mixed_secret[prob_name] = prob_value
 						else
-							log_misc("Unknown game mode probability configuration definition: [prob_name].")
+							log_config("Unknown game mode probability configuration definition: [prob_name].")
 					else
-						log_misc("Incorrect probability configuration definition: [prob_name]  [prob_value].")
+						log_config("Incorrect probability configuration definition: [prob_name]  [prob_value].")
 
 				if("allow_random_events")
 					config.allow_random_events = 1
@@ -813,7 +869,6 @@ var/list/gamemode_cache = list()
 				if("aggressive_changelog")
 					config.aggressive_changelog = 1
 
-
 				if("sql_whitelists")
 					config.sql_whitelists = 1
 
@@ -870,12 +925,6 @@ var/list/gamemode_cache = list()
 				if("mc_ticklimit_init")
 					config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
 
-				if("log_gelf_enabled")
-					config.log_gelf_enabled = text2num(value)
-
-				if("log_gelf_addr")
-					config.log_gelf_addr = value
-
 				if("ipintel_email")
 					if (value != "ch@nge.me")
 						ipintel_email = value
@@ -905,7 +954,7 @@ var/list/gamemode_cache = list()
 
 				if("fastboot")
 					fastboot = TRUE
-					log_debug("Fastboot is ENABLED.")
+					LOG_DEBUG("Fastboot is ENABLED.")
 
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
@@ -997,7 +1046,7 @@ var/list/gamemode_cache = list()
 				if("cache_assets")
 					cache_assets = text2num(value)
 				if("asset_transport")
-					asset_transport = (value in list("simple", "webroot") ? value : "simple")
+					asset_transport = value
 				if("asset_simple_preload")
 					asset_simple_preload = TRUE
 				if("asset_cdn_webroot")
@@ -1006,11 +1055,11 @@ var/list/gamemode_cache = list()
 					asset_cdn_url = (value[length(value)] != "/" ? (value + "/") : value)
 
 				else
-					log_misc("Unknown setting in configuration: '[name]'")
+					log_config("Unknown setting in configuration: '[name]'")
 
 		else if(type == "game_options")
 			if(!value)
-				log_misc("Unknown value for setting [name] in [filename].")
+				log_config("Unknown value for setting [name] in [filename].")
 			value = text2num(value)
 
 			switch(name)
@@ -1076,7 +1125,7 @@ var/list/gamemode_cache = list()
 					config.sun_target_z = value
 
 				else
-					log_misc("Unknown setting in configuration: '[name]'")
+					log_config("Unknown setting in configuration: '[name]'")
 
 		else if (type == "age_restrictions")
 			name = replacetext(name, "_", " ")
@@ -1085,7 +1134,7 @@ var/list/gamemode_cache = list()
 		else if (type == "discord")
 			// Ideally, this would never happen. But just in case.
 			if (!discord_bot)
-				log_debug("BOREALIS: Attempted to read config/discord.txt before initializing the bot.")
+				LOG_DEBUG("BOREALIS: Attempted to read config/discord.txt before initializing the bot.")
 				return
 
 			switch (name)
@@ -1100,7 +1149,19 @@ var/list/gamemode_cache = list()
 				if ("alert_visibility")
 					discord_bot.alert_visibility = 1
 				else
-					log_misc("Unknown setting in discord configuration: '[name]'")
+					log_config("Unknown setting in discord configuration: '[name]'")
+	load_logging_config()
+
+/datum/configuration/proc/save_logging_config()
+	rustg_file_write(json_encode(config.logsettings), "config/logging.json")
+	rustg_file_write(json_encode(config.logfiles), "config/logging_files.json")
+
+/datum/configuration/proc/load_logging_config()
+	try
+		src.logsettings = json_decode(rustg_file_read("config/logging.json"))
+		src.logfiles = json_decode(rustg_file_read("config/logging_files.json"))
+	catch(var/exception/e)
+		WARNING("Unable to read or restore log config from the configuration files. Exception: [json_encode(e)]")
 
 /datum/configuration/proc/pick_mode(mode_name)
 	// I wish I didn't have to instance the game modes in order to look up
@@ -1112,7 +1173,7 @@ var/list/gamemode_cache = list()
 	return gamemode_cache["extended"]
 
 /datum/configuration/proc/get_runnable_modes(secret_type = ROUNDTYPE_STR_SECRET)
-	log_debug("GAMEMODE: Checking runnable modes with secret_type set to [secret_type]...")
+	log_game("GAMEMODE: Checking runnable modes with secret_type set to [secret_type]...")
 
 	var/list/probabilities = config.probabilities_secret
 
@@ -1128,20 +1189,23 @@ var/list/gamemode_cache = list()
 	for(var/game_mode in gamemode_cache)
 		var/datum/game_mode/M = gamemode_cache[game_mode]
 		if(!M)
-			log_debug("GAMEMODE: ERROR: [M] does not exist!")
+			log_config("GAMEMODE: ERROR: [M] does not exist!")
 			continue
 
 		var/can_start = M.can_start()
 		if(can_start != GAME_FAILURE_NONE)
-			log_debug("GAMEMODE: [M.name] cannot start! Reason: [can_start]")
+			#if !defined(UNIT_TEST) // Do not print this useless log during unit tests
+			log_game("GAMEMODE: [M.name] cannot start! Reason: [can_start]")
+			#endif
+
 			continue
 
 		if(!probabilities[M.config_tag])
-			log_debug("GAMEMODE: ERROR: [M.name] does not have a config associated with it!")
+			log_config("GAMEMODE: ERROR: [M.name] does not have a config associated with it!")
 			continue
 
 		if(probabilities[M.config_tag] <= 0)
-			log_debug("GAMEMODE: ERROR: [M.name] has a probability equal or less than 0!")
+			log_config("GAMEMODE: ERROR: [M.name] has a probability equal or less than 0!")
 			continue
 
 		runnable_modes |= M
@@ -1149,9 +1213,15 @@ var/list/gamemode_cache = list()
 	return runnable_modes
 
 /datum/configuration/proc/post_load()
-	//apply a default value to config.python_path, if needed
+	// Apply a default value to config.python_path, if needed
 	if (!config.python_path)
 		if(world.system_type == UNIX)
 			config.python_path = "/usr/bin/env python2"
 		else //probably windows, if not this should work anyway
 			config.python_path = "python"
+
+	// If we are running the unit tests, turn every logging to on
+	#if defined(UNIT_TEST)
+	for(var/k in config.logsettings)
+		config.logsettings[k] = TRUE
+	#endif

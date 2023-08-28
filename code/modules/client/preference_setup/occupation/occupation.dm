@@ -104,7 +104,7 @@
 				try
 					pref.vars[preference] = text2num(jobs[preference])
 				catch(var/exception/e)
-					log_debug("LOADING: Bad job preference key: [preference].")
+					LOG_DEBUG("LOADING: Bad job preference key: [preference].")
 					log_debug(e.desc)
 
 	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 1, initial(pref.alternate_option))
@@ -482,7 +482,7 @@
 	if((global.all_species[src.species].spawn_flags & NO_AGE_MINIMUM))
 		return choices
 	for(var/t in choices)
-		if (src.age >= (job.get_alt_character_age(t) || job.get_minimum_character_age(species)))
+		if (src.age >= (job.get_alt_character_age(species, t) || job.get_minimum_character_age(species)))
 			continue
 		choices -= t
 	return choices
