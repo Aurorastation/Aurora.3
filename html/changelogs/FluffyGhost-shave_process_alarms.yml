@@ -38,4 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added an air alarm get_danger_level and get_overall_danger_level defines, to be used inside air alarm for often called procs Moved machine's process_all() inside the SSMachinery processing, 1.255M calls in 10 minutes."
+  - refactor: "Added get_danger_level and get_overall_danger_level defines, used inside the air alarm for often called procs."
+  - refactor: "Moved machine's process_all() inside the SSMachinery processing, 1.255M calls in 10 minutes."
