@@ -4071,7 +4071,6 @@
 	dir = 10
 	},
 /obj/machinery/atm{
-	dir = 2;
 	pixel_y = -8
 	},
 /turf/simulated/floor/tiled,
@@ -6489,7 +6488,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar/backroom)
 "dit" = (
-/turf/simulated/wall,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/machinery/door/airlock/side/east,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "djj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -9630,8 +9636,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "ePC" = (
-/obj/machinery/door/airlock/multi_tile/glass,
-/turf/simulated/floor/tiled/full,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/space,
 /area/horizon/hallway/deck_two/fore)
 "ePO" = (
 /obj/structure/ship_weapon_dummy,
@@ -10108,7 +10114,6 @@
 	pixel_y = 2
 	},
 /obj/item/storage/box/sharps{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /turf/simulated/floor/tiled/white,
@@ -12077,7 +12082,6 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 4;
 	name = "Deck 2 Central Stairwell"
 	},
 /obj/machinery/door/firedoor/multi_tile,
@@ -17625,7 +17629,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/machinery/door/airlock/middle/north,
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "ixR" = (
@@ -18477,7 +18481,6 @@
 "iSn" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/button/remote/blast_door{
-	dir = 2;
 	id = "ai_upload";
 	name = "AI Upload Foyer Blast Doors";
 	pixel_y = -19
@@ -21388,6 +21391,10 @@
 	},
 /turf/space/dynamic,
 /area/template_noop)
+"kmI" = (
+/obj/machinery/door/airlock/side/north,
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_two/fore)
 "knA" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 9
@@ -22929,7 +22936,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "lcY" = (
-/obj/machinery/door/airlock/multi_tile/flipped/glass,
+/obj/machinery/door/airlock/side/south,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
 "ldk" = (
@@ -26939,9 +26946,7 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 2
-	},
+/obj/machinery/door/airlock/middle/west,
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
 "mYL" = (
@@ -28613,7 +28618,6 @@
 	},
 /obj/machinery/door/window/northleft{
 	name = "Secure Storage";
-	pixel_y = 0;
 	req_access = list(47)
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -29458,7 +29462,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/door/airlock/middle/north,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
 "okk" = (
@@ -32434,7 +32438,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 4;
 	id_tag = "main_door";
 	name = "Triage Room Main Entrance";
 	req_access = list(5)
@@ -34247,6 +34250,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
+"qFl" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/obj/machinery/door/airlock/side/north,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "qFs" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -38273,7 +38283,6 @@
 	},
 /obj/machinery/door/window/northright{
 	name = "Secure Storage";
-	pixel_y = 0;
 	req_access = list(7)
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -43629,6 +43638,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
+"vqm" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/obj/machinery/door/airlock/side/south,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "vqO" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
@@ -45495,7 +45511,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor/multi_tile,
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 4;
 	name = "Medical Reception"
 	},
 /obj/machinery/door/blast/shutters{
@@ -49561,6 +49576,7 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
+/obj/machinery/door/airlock/side/west,
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
 "xWz" = (
@@ -70086,7 +70102,7 @@ xjC
 uej
 fZB
 vXs
-hMX
+kmI
 dTI
 uCX
 rNs
@@ -70280,7 +70296,7 @@ siL
 wPF
 fEQ
 bnQ
-ayF
+qFl
 mWs
 cDV
 cDV
@@ -70684,7 +70700,7 @@ siL
 xcS
 nkF
 mCE
-eHG
+vqm
 kta
 pMN
 kta
@@ -70692,7 +70708,7 @@ kta
 kta
 kta
 eZG
-hMX
+ePC
 amF
 tQQ
 ncN

@@ -1486,7 +1486,6 @@
 	id = "holodeck_alpha_shutters";
 	name = "Holodeck Privacy Shutters";
 	pixel_x = -23;
-	pixel_y = 0;
 	req_one_access = list(38)
 	},
 /obj/effect/floor_decal/corner/dark_green{
@@ -2527,6 +2526,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
+"cbK" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/side/west,
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/port/docks)
 "ccg" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -3063,12 +3067,10 @@
 	name = "Chief Medical Officer RC"
 	},
 /obj/machinery/light_switch{
-	dir = 2;
 	pixel_x = -14;
 	pixel_y = -19
 	},
 /obj/machinery/button/switch/windowtint{
-	dir = 2;
 	id = "cmooffice";
 	pixel_x = -7;
 	pixel_y = -19;
@@ -3587,8 +3589,7 @@
 	},
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/beaker{
-	pixel_x = 9;
-	pixel_y = 0
+	pixel_x = 9
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
@@ -4069,8 +4070,7 @@
 	name = "Crew Armoury Auxiliary Access";
 	pixel_x = 26;
 	pixel_y = -18;
-	req_access = list(60);
-	dir = 2
+	req_access = list(60)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury/foyer)
@@ -4139,8 +4139,7 @@
 /obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/corner/teal/diagonal,
 /obj/item/reagent_containers/food/drinks/shaker{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/item/storage/toolbox/lunchbox/idris{
 	pixel_x = -2;
@@ -5076,12 +5075,10 @@
 	pixel_y = 6
 	},
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = 2;
-	pixel_y = 0
+	pixel_x = 2
 	},
 /obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_x = 7;
-	pixel_y = 0
+	pixel_x = 7
 	},
 /obj/item/reagent_containers/food/condiment/shaker/sprinkles{
 	pixel_x = -5;
@@ -7892,7 +7889,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/light_switch{
-	dir = 2;
 	pixel_x = -26;
 	pixel_y = -19
 	},
@@ -8280,9 +8276,7 @@
 /obj/item/device/megaphone,
 /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2,
 /obj/item/storage/box/gloves,
-/obj/item/device/radio/intercom/west{
-	pixel_y = 0
-	},
+/obj/item/device/radio/intercom/west,
 /obj/machinery/keycard_auth{
 	pixel_x = -27;
 	pixel_y = 7;
@@ -8665,7 +8659,6 @@
 	id = "holodeck_beta_shutters";
 	name = "Holodeck Privacy Shutters";
 	pixel_x = -23;
-	pixel_y = 0;
 	req_one_access = list(38)
 	},
 /turf/simulated/floor/tiled,
@@ -8834,10 +8827,7 @@
 /area/medical/ward)
 "gYe" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Hallway";
-	dir = 4
-	},
+/obj/machinery/door/airlock/side/west,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "gYl" = (
@@ -8866,6 +8856,11 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/autopsy_laboratory)
+"gZG" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/side/east,
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/starboard/docks)
 "gZO" = (
 /obj/machinery/vending/coffee,
 /obj/machinery/light{
@@ -9663,10 +9658,7 @@
 /area/horizon/hallway/deck_three/primary/central)
 "hzB" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	name = "Deck 3 Starboard Docks"
-	},
+/obj/machinery/door/airlock/middle/west,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "hzK" = (
@@ -10472,6 +10464,11 @@
 "ioQ" = (
 /turf/simulated/wall,
 /area/horizon/security/autopsy_laboratory)
+"iph" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/middle/west,
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/starboard)
 "ipk" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -11366,7 +11363,6 @@
 	dir = 10
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 2;
 	id = "LCKDshutters";
 	name = "MedBay Lockdown Control";
 	pixel_x = -28;
@@ -11374,7 +11370,6 @@
 	req_access = list(40)
 	},
 /obj/machinery/button/remote/blast_door{
-	dir = 2;
 	id = "cmowindowshutters";
 	name = "Window Shutters";
 	pixel_x = -2;
@@ -11383,7 +11378,6 @@
 	},
 /obj/machinery/light,
 /obj/machinery/button/remote/airlock{
-	dir = 2;
 	id = "CMOdoor";
 	name = "Office Door Control";
 	pixel_x = 9;
@@ -12514,13 +12508,11 @@
 /area/horizon/hallway/deck_three/primary/central)
 "jOn" = (
 /obj/machinery/button/switch/windowtint{
-	dir = 2;
 	id = "journalist";
 	pixel_x = -2;
 	pixel_y = -19
 	},
 /obj/machinery/light_switch{
-	dir = 2;
 	pixel_x = -9;
 	pixel_y = -19
 	},
@@ -12904,8 +12896,7 @@
 	},
 /obj/machinery/keycard_auth{
 	pixel_x = 31;
-	pixel_y = 26;
-	dir = 2
+	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -13286,7 +13277,6 @@
 /area/bridge/controlroom)
 "kso" = (
 /obj/machinery/light_switch{
-	dir = 2;
 	pixel_x = 8;
 	pixel_y = -19
 	},
@@ -13328,13 +13318,11 @@
 /area/security/vacantoffice)
 "ktq" = (
 /obj/machinery/button/switch/windowtint{
-	dir = 2;
 	id = "investigator_office";
 	pixel_x = -2;
 	pixel_y = -19
 	},
 /obj/machinery/light_switch{
-	dir = 2;
 	pixel_x = -9;
 	pixel_y = -19
 	},
@@ -14082,7 +14070,6 @@
 /obj/structure/bed/stool/chair/office/light,
 /obj/machinery/light_switch{
 	pixel_x = 26;
-	pixel_y = 0;
 	dir = 4
 	},
 /obj/machinery/button/switch/windowtint{
@@ -14351,7 +14338,6 @@
 /area/horizon/cafeteria)
 "ldV" = (
 /obj/machinery/button/remote/blast_door{
-	dir = 2;
 	id = "crew_armory";
 	name = "Crew Armoury Main Access";
 	pixel_x = 7;
@@ -15099,8 +15085,7 @@
 	},
 /obj/machinery/keycard_auth{
 	pixel_x = 31;
-	pixel_y = 26;
-	dir = 2
+	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -16525,10 +16510,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	name = "Deck 3 Port Docks"
-	},
+/obj/machinery/door/airlock/middle/west,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "mOm" = (
@@ -16677,10 +16659,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Hallway";
-	dir = 4
-	},
+/obj/machinery/door/airlock/side/east,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "mTq" = (
@@ -19638,9 +19617,7 @@
 /area/horizon/hallway/deck_three/primary/central)
 "oZv" = (
 /obj/structure/platform/ledge,
-/obj/structure/platform_deco/ledge{
-	dir = 2
-	},
+/obj/structure/platform_deco/ledge,
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
 "oZE" = (
@@ -20734,7 +20711,6 @@
 	id = "consular_office";
 	name = "consular door bolts";
 	pixel_x = -30;
-	pixel_y = 0;
 	specialfunctions = 4
 	},
 /obj/item/paper_scanner,
@@ -22923,9 +22899,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
 	},
-/obj/item/device/radio/intercom/west{
-	pixel_y = 0
-	},
+/obj/item/device/radio/intercom/west,
 /obj/machinery/light/floor{
 	dir = 8
 	},
@@ -24035,10 +24009,6 @@
 "sHU" = (
 /obj/machinery/firealarm/south,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Port Hallway";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
@@ -24051,6 +24021,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/airlock/side/east,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port)
 "sIz" = (
@@ -24640,6 +24611,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/airlock/side/west,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "tjC" = (
@@ -24822,9 +24794,7 @@
 	pixel_x = 9;
 	pixel_y = -4
 	},
-/obj/item/reagent_containers/food/drinks/takeaway_cup_idris{
-	pixel_y = 0
-	},
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris,
 /obj/item/reagent_containers/food/drinks/takeaway_cup_idris{
 	pixel_x = -7
 	},
@@ -25817,6 +25787,11 @@
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/forensic_laboratory)
+"uao" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/side/east,
+/turf/simulated/floor/tiled/full,
+/area/horizon/hallway/deck_three/primary/port/docks)
 "uba" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/lounge)
@@ -26610,9 +26585,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "uJm" = (
-/obj/structure/platform_deco/ledge{
-	dir = 2
-	},
+/obj/structure/platform_deco/ledge,
 /turf/simulated/open,
 /area/hallway/medical/upper)
 "uJu" = (
@@ -26785,8 +26758,7 @@
 /obj/structure/noticeboard{
 	desc = "A board for uncovering hidden conspiracies.";
 	name = "corkboard";
-	pixel_x = 32;
-	dir = 2
+	pixel_x = 32
 	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
@@ -27763,10 +27735,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Hallway";
-	dir = 4
-	},
+/obj/machinery/door/airlock/side/east,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "vzD" = (
@@ -28030,7 +27999,6 @@
 "vKa" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light_switch{
-	dir = 2;
 	pixel_x = -26;
 	pixel_y = -18
 	},
@@ -28386,7 +28354,8 @@
 /area/medical/equipment)
 "vWS" = (
 /obj/machinery/door/firedoor,
-/turf/simulated/wall,
+/obj/machinery/door/airlock/middle/west,
+/turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port)
 "vXb" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -28448,10 +28417,7 @@
 /area/bridge/minibar)
 "vZP" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Port Hallway";
-	dir = 4
-	},
+/obj/machinery/door/airlock/side/west,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port)
 "waj" = (
@@ -29134,9 +29100,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/item/device/radio/intercom/west{
-	pixel_y = 0
-	},
+/obj/item/device/radio/intercom/west,
 /obj/machinery/light/floor{
 	dir = 8
 	},
@@ -29606,8 +29570,7 @@
 	pixel_x = 26;
 	pixel_y = -17;
 	req_access = list(19);
-	specialfunctions = 4;
-	dir = 2
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
@@ -30988,10 +30951,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass{
-	name = "Deck 3 Starboard Hallway";
-	dir = 4
-	},
+/obj/machinery/door/airlock/side/west,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "xXD" = (
@@ -44043,7 +44003,7 @@ imb
 vlC
 tjt
 hzB
-ebZ
+gZG
 uba
 uba
 uba
@@ -47674,7 +47634,7 @@ gKk
 gKk
 gKk
 gYe
-vlC
+iph
 mTh
 vaL
 vaL
@@ -50098,7 +50058,7 @@ oVU
 oVU
 qhP
 xXk
-vlC
+iph
 vzb
 vIv
 vIv
@@ -58585,9 +58545,9 @@ lwt
 dkM
 lwt
 aKD
-fgF
+cbK
 mOc
-tcM
+uao
 aKD
 nsP
 nsP
