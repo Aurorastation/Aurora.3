@@ -856,6 +856,7 @@
 #include "code\game\machinery\computer\shuttle.dm"
 #include "code\game\machinery\computer\slotmachine.dm"
 #include "code\game\machinery\doors\airlock.dm"
+#include "code\game\machinery\doors\airlock_3tiles.dm"
 #include "code\game\machinery\doors\airlock_control.dm"
 #include "code\game\machinery\doors\airlock_electronics.dm"
 #include "code\game\machinery\doors\blast_door.dm"
