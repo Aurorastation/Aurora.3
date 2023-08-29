@@ -22,12 +22,11 @@
 	QDEL_NULL(rune)
 	return ..()
 
-/obj/effect/rune/examine(mob/user)
-	. = ..()
+/obj/effect/rune/get_examine_text(mob/user, infix = "", suffix = "", show_extended)
 	if(iscultist(user) || isobserver(user))
-		to_chat(user, rune.get_cultist_fluff_text())
-		to_chat(user, "This rune [rune.can_be_talisman() ? SPAN_CULT("can") : "[SPAN_CULT("cannot")]"] be turned into a talisman.")
-		to_chat(user, "This rune [rune.can_memorize() ? SPAN_CULT("can") : "[SPAN_CULT("cannot")]"] be memorized to be scribed without a tome.")
+		. +=  rune.get_cultist_fluff_text()
+		. += "This rune [rune.can_be_talisman() ? SPAN_CULT("can") : "[SPAN_CULT("cannot")]"] be turned into a talisman."
+		. += "This rune [rune.can_memorize() ? SPAN_CULT("can") : "[SPAN_CULT("cannot")]"] be memorized to be scribed without a tome."
 	else
 		to_chat(user, rune.get_normal_fluff_text())
 

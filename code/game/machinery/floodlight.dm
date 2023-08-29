@@ -19,15 +19,15 @@
 	. = ..()
 	cell = new /obj/item/cell(src)
 
-/obj/machinery/floodlight/examine(mob/user)
-	. = ..()
+/obj/machinery/floodlight/get_examine_text(mob/user, distance, infix = "", suffix = "")
 	if(cell)
-		if(!cell.charge)
-			to_chat(user, SPAN_WARNING("The installed [cell.name] is completely flat!"))
-			return
-		to_chat(user, SPAN_NOTICE("The installed [cell.name] has [Percent(cell.charge, cell.maxcharge)]% charge remaining."))
+		if(distance < 3)
+			if(!cell.charge)
+				. += SPAN_WARNING("The installed [cell.name] is completely flat!")
+				return
+			. += SPAN_NOTICE("The installed [cell.name] has [Percent(cell.charge, cell.maxcharge)]% charge remaining.")
 	else
-		to_chat(user, SPAN_WARNING("\The [src] has no cell installed!"))
+		. += SPAN_WARNING("\The [src] has no cell installed!")
 
 /obj/machinery/floodlight/update_icon()
 	cut_overlays()

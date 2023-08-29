@@ -532,3 +532,6 @@ example:
 
 /// Gyrotron power usage modifier.
 #define GYRO_POWER 25000
+
+/// Adds a generic box around whatever message you're sending in chat. Really makes things stand out.
+#define EXAMINE_BLOCK(X) ("<div class='examine_block'>" + X + "</div>")

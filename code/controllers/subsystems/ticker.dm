@@ -405,7 +405,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		message = pick(tip_datum.messages)
 
 	if(message)
-		to_world(SPAN_VOTE(SPAN_BOLD("Tip of the round:") + " [html_encode(message)]"))
+		to_world(EXAMINE_BLOCK(SPAN_VOTE(SPAN_BOLD("Tip of the round:") + " [html_encode(message)]")))
 
 /datum/controller/subsystem/ticker/proc/print_testmerges()
 	var/data = revdata.testmerge_overview()
@@ -437,8 +437,8 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		setup_player_ready_list()
 
-	to_world("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>")
-	to_world("Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
+	to_world(EXAMINE_BLOCK("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>\n\
+	 Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds."))
 
 	// Compute and, if available, print the ghost roles in the pre-round lobby. Begone, people who do not ready up to see what ghost roles will be available!
 	var/list/available_ghostroles = list()
@@ -457,21 +457,20 @@ var/datum/controller/subsystem/ticker/SSticker
 		available_ghostroles |= SSjobs.type_occupations[/datum/job/merchant].title
 
 	if(length(available_ghostroles))
-		to_world("<br>" \
-			+ SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round: ")) \
-			+ "[english_list(available_ghostroles)]. " \
-			+ SPAN_INFO("Actual availability may vary.") \
-			+ "<br>" \
-		)
+//		to_world(EXAMINE_BLOCK(
+//			"[SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round: "))]\n\
+//			[english_list(available_ghostroles)].\n\
+//			[SPAN_INFO("Actual availability may vary.")]"
+//		))
 
 	var/datum/space_sector/current_sector = SSatlas.current_sector
-	var/html = SPAN_NOTICE("Current sector: [current_sector].") + {"\
-		<span> \
-			<a href='?src=\ref[src];current_sector_show_sites_id=1'>Click here</a> \
+	var/html = "[SPAN_NOTICE("Current sector: [current_sector].")]\n\
+		<span>\
+			<a href='?src=\ref[src];current_sector_show_sites_id=1'>Click here</a>\n\
 			to see every possible site/ship that can potentially spawn here.\
 		</span>\
-	"}
-	to_world(html)
+	"
+	to_world(EXAMINE_BLOCK(html))
 
 	callHook("pregame_start")
 
@@ -554,14 +553,19 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/starttime = REALTIMEOFDAY
 
 	if(hide_mode)
-		to_world("<B>The current game mode is - [hide_mode == ROUNDTYPE_SECRET ? "Secret" : "Mixed Secret"]!</B>")
+		var/list/combined_mode_msg = list()
+
+		combined_mode_msg += SPAN_BOLD("The current game mode is - [hide_mode == ROUNDTYPE_SECRET ? "Secret" : "Mixed Secret"]!")
 		if(runnable_modes.len)
 			var/list/tmpmodes = new
 			for (var/datum/game_mode/M in runnable_modes)
 				tmpmodes+=M.name
 			tmpmodes = sortList(tmpmodes)
 			if(tmpmodes.len)
-				to_world("<B>Possibilities:</B> [english_list(tmpmodes)]")
+				combined_mode_msg += "\n"
+				combined_mode_msg += SPAN_NOTICE(SPAN_BOLD("Possibilities:"))
+				combined_mode_msg += SPAN_NOTICE("[english_list(tmpmodes)]")
+		to_world(EXAMINE_BLOCK(jointext(combined_mode_msg, "\n")))
 	else
 		src.mode.announce()
 

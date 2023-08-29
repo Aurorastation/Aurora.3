@@ -326,8 +326,8 @@
 		toggle_open(2) //forces the icons to refresh on screen
 
 /obj/screen/ability/obj_based/psionic/examine(mob/user)
-	to_chat(user, SPAN_NOTICE("<font size=4>This ability is <b>[connected_power.name]</b>.</font>"))
-	to_chat(user, SPAN_NOTICE("[connected_power.desc]"))
+	to_chat(user, EXAMINE_BLOCK(SPAN_NOTICE("<font size=4>This ability is <b>[connected_power.name]</b>.</font>\n\
+	\ [connected_power.desc]")))
 	return TRUE
 
 /// Technomancer.

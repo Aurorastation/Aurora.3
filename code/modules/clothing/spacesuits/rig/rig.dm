@@ -623,7 +623,7 @@
 		var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(usr, capitalize_first_letters(name), armor_details)
 		AV.ui_interact(usr)
 	if(href_list["examine_fluff"])
-		examine_fluff(usr)
+		examine(usr, show_extended = TRUE)
 	if(ismob(href))
 		do_rig_thing(href, href_list)
 		return

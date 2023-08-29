@@ -243,71 +243,84 @@
 			found += A.search_contents_for(path,filter_path)
 	return found
 
-// Examination code for all atoms.
-// Returns TRUE, the caller always expects TRUE
-// This is used rather than SHOULD_CALL_PARENT as it enforces that subtypes of a type that explicitly returns still call parent
-/atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "")
-	var/f_name = "\a [src]. [infix]"
-	if(src.blood_DNA && !istype(src, /obj/effect/decal))
-		if(gender == PLURAL)
-			f_name = "some "
-		else
-			f_name = "a "
-		if(blood_color != COLOR_IPC_BLOOD && blood_color != COLOR_OIL)
-			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
-		else
-			f_name += "oil-stained [name][infix]."
+/**
+ * Called when a user examines the atom. This proc handles displaying the text that appears in chat during examines. 
+ * 
+ * For `infix` and `suffix`, generally, these are inserted at the beginning of the examine text, as:
+ * `That's \a [name][infix]. [suffix]`.
+ * 
+ * Don't override this unless you want to change the standard examine behavior.
+ * For most purposes, such as to add examine text, override [/atom/proc/get_examine_text] instead.
+ * 
+ * Arguments:
+ * * `user` - The user performing the examine
+ * * `distance` - The distance in tiles from user to src
+ * * `infix` String - String that is appended immediately after the atom's name
+ * * `suffix` String - String that is appended after the atom's name and infix
+ * * `show_extended` - Boolean value whether to show the extended information. Defaults to FALSE
+ * 
+ * Returns a signal, COMSIG_PARENT_EXAMINE
+ */
+/atom/proc/examine(mob/user, distance = -1, infix = "", suffix = "", show_extended = FALSE)
+	var/list/examine_strings = get_examine_text(user, distance, infix, suffix)
+	if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind)))
+		examine_strings += get_extra_examine_text(user, show_extended)
+	if(!examine_strings)
+		log_debug("Attempted to create an examine block with no strings! Atom: [src], user : [user]")
+		return
+	to_chat(user, EXAMINE_BLOCK(jointext(examine_strings, "\n")))
+	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, examine_strings)
 
-	to_chat(user, "[icon2html(src, user)] That's [f_name] [suffix]") // Object name. I.e. "This is an Object. It is a normal-sized item."
-
-	if(src.desc)
-		to_chat(user, src.desc)	// Object description.
-
-	// Extra object descriptions examination code.
-	if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available. <a href=?src=\ref[src];examine_fluff=1>\[Show In Chat\]</a>"))) // If any of the above are true, show that the object has more information available.
-		if(desc_extended) // If the item has a extended description, show that it is available.
-			to_chat(user, FONT_SMALL("- This object has an extended description."))
-		if(desc_info) // If the item has a description regarding game mechanics, show that it is available.
-			to_chat(user, FONT_SMALL(SPAN_NOTICE("- This object has additional information about mechanics.")))
-		if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show that it is available.
-			to_chat(user, FONT_SMALL(SPAN_ALERT("- This object has additional information for antagonists.")))
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.glasses)
-			H.glasses.glasses_examine_atom(src, H)
-
-	return TRUE
-
-// Same as examine(), but without the "this object has more info" thing and with the extra information instead.
-/atom/proc/examine_fluff(mob/user, distance, is_adjacent, infix = "", suffix = "")
+/**
+ * Compiles a list of examine text that is used by [/atom/proc/examine]
+ * Override this to add examination text
+ * 
+ * Arguments are same as [/atom/proc/examine]
+ * 
+ * Returns a list of examine text, that is used by [/atom/proc/examine]
+ */
+/atom/proc/get_examine_text(mob/user, distance, infix = "", suffix = "")
+	. = list()
 	var/f_name = "\a [src][infix]."
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
 			f_name = "some "
 		else
 			f_name = "a "
-		if(blood_color != "#030303")
-			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
-		else
-			f_name += "oil-stained [name][infix]."
-
-	to_chat(user, "[icon2html(src, user)] That's [f_name] [suffix]") // Object name. I.e. "This is an Object."
-	to_chat(user, desc) // Object description.
-	if(desc_extended) // If the item has a extended description, show it.
-		to_chat(user, desc_extended)
-	if(desc_info) // If the item has a description regarding game mechanics, show it.
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("- [desc_info]")))
-	if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show it.
-		to_chat(user, FONT_SMALL(SPAN_ALERT("- [desc_antag]")))
-
+		f_name += "[span(blood_color, "stained")] [name][infix]!"
+	. += "[icon2html(src, user)] That's [f_name] [suffix]"
+	if(src.desc)
+		. += desc
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.glasses)
-			H.glasses.glasses_examine_atom(src, H)
+			. += H.glasses.glasses_examine_atom(src, H)
 
-	return TRUE
+/**
+ * Compiles a list of extra examine text that is used by [/atom/proc/examine]
+ * 
+ * Returns a list of examine text, that is used by [/atom/proc/examine]
+ */
+/atom/proc/get_extra_examine_text(mob/user, show_extended)
+	. = list()
+	if(!show_extended)
+		. += SPAN_NOTICE("\[?\] This object has additional examine information available. <a href=?src=\ref[src];examine_fluff=1>\[Show In Chat\]</a>") // If any of the above are true, show that the object has more information available.
+	if(desc_extended) // If the item has a extended description, show that it is available.
+		if(show_extended)
+			. += SPAN_INFO(desc_extended)
+		else
+			. += SPAN_INFO("- This object has an extended description.")
+	if(desc_info) // If the item has a description regarding game mechanics, show that it is available.
+		if(show_extended)
+			. += SPAN_NOTICE("- [desc_info]")
+		else
+			. += SPAN_NOTICE("- This object has additional information about mechanics.")
+	if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show that it is available.
+		if(show_extended)
+			. += SPAN_ALERT("- [desc_antag]")
+		else
+			. += SPAN_ALERT("- This object has additional information for antagonists.")
+	
 
 // Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
 /atom/Topic(href, href_list)

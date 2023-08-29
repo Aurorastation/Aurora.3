@@ -349,9 +349,7 @@ BREATH ANALYZER
 	. = jointext(list(header,.),null)
 
 	if(user)
-		to_chat(user, "<hr>")
-		to_chat(user, .)
-		to_chat(user, "<hr>")
+		to_chat(user, EXAMINE_BLOCK(.), trailing_newline = FALSE)
 
 /obj/item/device/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"

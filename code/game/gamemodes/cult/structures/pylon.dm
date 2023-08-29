@@ -62,18 +62,17 @@
 	lang = new /datum/language/cultcommon()
 	update_icon()
 
-/obj/structure/cult/pylon/examine(var/mob/user)
-	. = ..()
+/obj/structure/cult/pylon/get_examine_text(mob/user, infix = "", suffix = "", show_extended)
 	if(damagetaken)
 		switch(damagetaken)
 			if(1 to 8)
-				to_chat(user, SPAN_WARNING("It has very faint hairline fractures."))
+				. += SPAN_WARNING("It has very faint hairline fractures.")
 			if(8 to 20)
-				to_chat(user, SPAN_WARNING("It has several cracks across its surface."))
+				. += SPAN_WARNING("It has several cracks across its surface.")
 			if(20 to 30)
-				to_chat(user, SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure."))
+				. += SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure.")
 			if(30 to INFINITY)
-				to_chat(user, SPAN_WARNING("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight."))
+				. += SPAN_WARNING("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight.")
 
 
 /obj/structure/cult/pylon/Move()

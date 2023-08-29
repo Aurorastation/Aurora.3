@@ -99,12 +99,11 @@
 	else
 		to_chat(user, SPAN_CULT("The book seems full of illegible scribbles."))
 
-/obj/item/book/tome/examine(mob/user)
-	. = ..()
+/obj/item/book/tome/get_examine_text(mob/user, infix = "", suffix = "", show_extended)
 	if(!iscultist(user) || !isobserver(user))
-		to_chat(user, "An old, dusty tome with frayed edges and a sinister looking cover.")
+		. += "An old, dusty tome with frayed edges and a sinister looking cover."
 	else
-		to_chat(user, "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though.")
+		. += "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though."
 
 /obj/item/book/tome/cultify()
 	return
