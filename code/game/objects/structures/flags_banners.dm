@@ -1750,7 +1750,7 @@
 	unmovable = TRUE
 
 /obj/item/flag/himeo/l
-	name = "large Private Military Contracting Group flag"
+	name = "large United Syndicates of Himeo flag"
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/himeo/large
 
@@ -1791,7 +1791,7 @@
 	unmovable = TRUE
 
 /obj/item/flag/assunzione/l
-	name = "large Private Military Contracting Group flag"
+	name = "large Republic of Assunzione flag"
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/assunzione/large
 
