@@ -376,7 +376,6 @@
 	close_sound_powered = 'sound/machines/airlock/hall3c.ogg'
 
 /obj/machinery/door/airlock/centcom
-	icon = 'icons/obj/doors/Doorele.dmi'
 	opacity = TRUE
 	hashatch = FALSE
 	hack_proof = TRUE
@@ -414,7 +413,6 @@
 	return
 
 /obj/machinery/door/airlock/glass_centcom
-	icon = 'icons/obj/doors/Dooreleglass.dmi'
 	opacity = FALSE
 	glass = 1
 	hashatch = FALSE
@@ -471,6 +469,7 @@
 
 /obj/machinery/door/airlock/vault
 	name = "vault airlock"
+	airlock_type = "Vault"
 	icon = 'icons/obj/doors/basic/single/secure/door.dmi'
 	color_file = 'icons/obj/doors/basic/single/secure/color.dmi'
 	color_fill_file = 'icons/obj/doors/basic/single/secure/fill_color.dmi'
@@ -499,6 +498,7 @@
 
 /obj/machinery/door/airlock/hatch
 	name = "airtight hatch"
+	airlock_type = "Hatch"
 	explosion_resistance = 20
 	opacity = TRUE
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
