@@ -8661,6 +8661,10 @@
 	pixel_x = -23;
 	req_one_access = list(38)
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "gQr" = (
@@ -9332,10 +9336,6 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "hna" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
@@ -9350,6 +9350,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
@@ -17078,16 +17082,13 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 1;
-	icon_state = "pipe-j2"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "njw" = (
@@ -25096,10 +25097,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "tCM" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -25911,11 +25908,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
 /obj/structure/extinguisher_cabinet/east,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "ufc" = (
