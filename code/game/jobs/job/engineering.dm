@@ -229,8 +229,8 @@
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 24,
-		SPECIES_SKRELL = 59,
-		SPECIES_SKRELL_AXIORI = 59
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
 	)
 
 /datum/outfit/job/intern_eng
