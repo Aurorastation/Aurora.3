@@ -32,7 +32,7 @@ export const ShieldGenerator = (props, context) => {
           buttons={
             <Button
               content={data.active ? 'Online' : 'Offline'}
-              color={data.active ? "good" : "bad"}
+              color={data.active ? 'good' : 'bad'}
               icon={data.active ? 'power-off' : 'times'}
               onClick={() => act('toggle')}
             />
@@ -48,7 +48,7 @@ export const ShieldGenerator = (props, context) => {
             <LabeledList.Item label="Multi-Level Shield">
               <Button
                 content={data.multiz ? 'Online' : 'Offline'}
-                color={data.multiz ? "good" : "bad"}
+                color={data.multiz ? 'good' : 'bad'}
                 icon={data.multiz ? 'power-off' : 'times'}
                 onClick={() => act('multiz')}
               />
