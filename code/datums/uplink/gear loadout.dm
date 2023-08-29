@@ -148,7 +148,7 @@
 
 /datum/uplink_item/item/gear_loadout/ceres_lance
 	name = "Ceres' Lance Assets (Group)"
-	desc = "A crate containing gear for a group. The voidsuits are only usable by humans and unathi. The hardsuit is only usable by humans."
+	desc = "A crate containing gear for a group. The voidsuits are only usable by humans and unathi."
 	path = /obj/structure/closet/crate/secure/gear_loadout/ceres_lance
 
 /datum/uplink_item/item/gear_loadout/ceres_lance_single

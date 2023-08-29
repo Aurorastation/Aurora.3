@@ -765,7 +765,6 @@
 	new /obj/item/clothing/under/lance(src)
 	new /obj/item/clothing/under/dress/lance_dress(src)
 	new /obj/item/clothing/under/dress/lance_dress/male(src)
-	new /obj/item/rig/bunker(src)
 	new /obj/item/clothing/suit/space/void/lancer(src)
 	new /obj/item/clothing/head/helmet/space/void/lancer(src)
 	new /obj/item/clothing/suit/space/void/lancer(src)
@@ -779,16 +778,22 @@
 	new /obj/item/voidsuit_modkit/ceres_lance_unathi(src)
 	new /obj/item/voidsuit_modkit/ceres_lance_unathi(src)
 	new /obj/item/gun/energy/rifle/ionrifle(src)
-	new /obj/item/gun/energy/rifle/pulse(src)
-	new /obj/item/gun/energy/rifle/pulse(src)
-	new /obj/item/gun/energy/pulse/pistol(src)
-	new /obj/item/gun/energy/pulse/pistol(src)
-	new /obj/item/gun/energy/pulse/pistol(src)
-	new /obj/item/gun/energy/pulse/pistol(src)
-	new /obj/item/clothing/gloves/force/basic(src)
-	new /obj/item/clothing/gloves/force/basic(src)
-	new /obj/item/clothing/gloves/force/basic(src)
-	new /obj/item/clothing/gloves/force/basic(src)
+	new /obj/item/gun/projectile/heavysniper(src)
+	new /obj/item/ammo_casing/a145(src)
+	new /obj/item/ammo_casing/a145(src)
+	new /obj/item/ammo_casing/a145(src)
+	new /obj/item/ammo_casing/a145(src)
+	new /obj/item/gun/energy/rifle/laser/noctiluca(src)
+	new /obj/item/gun/energy/rifle/laser/noctiluca(src)
+	new /obj/item/gun/energy/rifle/laser/noctiluca(src)
+	new /obj/item/gun/energy/pistol(src)
+	new /obj/item/gun/energy/pistol(src)
+	new /obj/item/gun/energy/pistol(src)
+	new /obj/item/gun/energy/pistol(src)
+	new /obj/item/clothing/gloves/force(src)
+	new /obj/item/clothing/gloves/force(src)
+	new /obj/item/clothing/gloves/force(src)
+	new /obj/item/clothing/gloves/force(src)
 
 
 /obj/structure/closet/crate/secure/gear_loadout/ceres_lance/single/fill()
@@ -796,8 +801,9 @@
 	new /obj/item/clothing/suit/space/void/lancer(src)
 	new /obj/item/clothing/head/helmet/space/void/lancer(src)
 	new /obj/item/voidsuit_modkit/ceres_lance_unathi(src)
-	new /obj/item/gun/energy/rifle/pulse(src)
-	new /obj/item/clothing/gloves/force/basic(src)
+	new /obj/item/gun/energy/rifle/laser/noctiluca(src)
+	new /obj/item/gun/energy/pistol(src)
+	new /obj/item/clothing/gloves/force(src)
 
 //ninja stuff
 /obj/structure/closet/crate/secure/gear_loadout/ninja
@@ -923,12 +929,3 @@
 	new /obj/item/gun/projectile/pistol(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
-
-/obj/structure/closet/crate/secure/gear_loadout/ninja/bunker
-	associated_hardsuit = /obj/item/rig/bunker/ninja
-
-/obj/structure/closet/crate/secure/gear_loadout/ninja/bunker/fill()
-	..()
-	new /obj/item/clothing/under/lance(src)
-	new /obj/item/clothing/accessory/holster/armpit/brown(src)
-	new /obj/item/gun/energy/pulse/pistol(src)
