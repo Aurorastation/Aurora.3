@@ -26,6 +26,10 @@
 	speak_emote = list("roars pitifully", "squeals out a mechanical attempt at a growl")
 	emote_hear = list("roars pitifully", "squeals out a mechanical attempt at a growl")
 	sad_emote = list("bwoops sadly")
+	emote_sounds = list('sound/effects/creatures/hivebot/hivebot-bark-001.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-003.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-005.ogg',
+	)
 
 	ranged = TRUE
 	projectilesound = 'sound/weapons/taser2.ogg'
@@ -50,11 +54,6 @@
 	attack_emote = "blares a tiny siren"
 
 	psi_pingable = FALSE
-
-/mob/living/simple_animal/hostile/commanded/baby_harvester/think()
-	..()
-	if(prob(4))
-		playsound(src, /singleton/sound_category/hivebot_wail, 100, FALSE, 4)
 
 /mob/living/simple_animal/hostile/commanded/baby_harvester/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
