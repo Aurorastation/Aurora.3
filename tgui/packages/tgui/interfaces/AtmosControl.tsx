@@ -31,21 +31,25 @@ export const AtmosControl = (props, context) => {
 
 export const SensorData = (props, context) => {
   const { act, data } = useBackend<AtmosData>(context);
-  return data.sensors.map((sensor) => (
-    <Section title={sensor.name} key={sensor.id_tag}>
-      <LabeledList>
-        {sensor.datapoints.map((datapoint) =>
-          datapoint.data !== null ? (
-            <LabeledList.Item
-              key={datapoint.datapoint}
-              label={capitalize(datapoint.datapoint)}>
-              {datapoint.data} {datapoint.unit}
-            </LabeledList.Item>
-          ) : (
-            ''
-          )
-        )}
-      </LabeledList>
-    </Section>
-  ));
+  return (
+    <>
+      {data.sensors.map((sensor) => (
+        <Section title={sensor.name} key={sensor.id_tag}>
+          <LabeledList>
+            {sensor.datapoints.map((datapoint) =>
+              datapoint.data !== null ? (
+                <LabeledList.Item
+                  key={datapoint.datapoint}
+                  label={capitalize(datapoint.datapoint)}>
+                  {datapoint.data} {datapoint.unit}
+                </LabeledList.Item>
+              ) : (
+                ''
+              )
+            )}
+          </LabeledList>
+        </Section>
+      ))}
+    </>
+  );
 };
