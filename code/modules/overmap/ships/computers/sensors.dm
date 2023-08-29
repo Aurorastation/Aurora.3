@@ -11,7 +11,7 @@
 	var/contact_details = null
 	var/contact_name = null
 
-	var/working_sound = 'sound/machines/sensors/sensor_loop.ogg'
+	var/working_sound = 'sound/machines/sensors/sensorloop.ogg'
 	var/datum/sound_token/sound_token
 	var/sound_id
 
