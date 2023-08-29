@@ -62,15 +62,51 @@
 	attack_verb = list("struck", "hit", "bashed")
 	zoomdevicename = "scope"
 
+/*
+ * Suppression vars
+ */
+
+	///Does the gun have a suppressor attached, or should it be suppressed? This will modify firing messages to obscure their source, and change the firing sound to use suppressed_sound
+	var/suppressed = FALSE
+	///The suppressor item currently attached to the gun
+	var/obj/item/suppressor/suppressor
+	///Whether the weapon can have a suppressor attached
+	var/can_suppress = FALSE
+	///Whether the weapon can have a suppressor unattached
+	var/can_unsuppress = TRUE
+
+/*
+ * Sound vars
+ */
+
+	///Sound of the gun firing
+	var/fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
+	///Whether to vary the frequency of the firing sound
+	var/vary_fire_sound = TRUE
+	///The volume of the firing sound
+	var/fire_sound_volume = 50
+	///Sound of the gun firing when empty (dryfiring)
+	var/empty_sound = /singleton/sound_category/out_of_ammo
+	///Determines what a player should hear in audible_message when the gun is fired. e.g gunshot, blast
+	var/fire_sound_text = "gunshot"
+	///The firing sound to play when suppressed = TRUE
+	var/suppressed_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
+	///The volume of the suppressed sound
+	var/suppressed_volume = 60
+	///The sound of the safety being turned on
+	var/safetyon_sound = 'sound/weapons/blade_open.ogg'
+	///The sound of the safety being turned off
+	var/safetyoff_sound = 'sound/weapons/blade_close.ogg'
+	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
+
 	var/burst = 1
 	var/can_autofire = FALSE
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again
 	var/burst_delay = 1	//delay between shots, if firing in bursts
 	var/move_delay = 0
-	var/fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
-	var/fire_sound_text = "gunshot"
+
 	var/recoil = 0		//screen shake
-	var/silenced = 0
 	var/muzzle_flash = 3
 	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
 	var/offhand_accuracy = 0 // the higher this number, the more accurate this weapon is when fired from the off-hand
@@ -83,8 +119,6 @@
 	var/displays_maptext = FALSE
 	var/can_ammo_display = TRUE
 	var/obj/item/ammo_display
-	var/empty_sound = /singleton/sound_category/out_of_ammo
-	var/casing_drop_sound = /singleton/sound_category/casing_drop_sound
 	maptext_x = 22
 	maptext_y = 2
 
@@ -123,13 +157,6 @@
 	var/image/safety_overlay
 
 	var/iff_capable = FALSE // if true, applies the user's ID iff_faction to the projectile
-
-	// sounds n shit
-	var/safetyon_sound = 'sound/weapons/blade_open.ogg'
-	var/safetyoff_sound = 'sound/weapons/blade_close.ogg'
-
-	drop_sound = 'sound/items/drop/gun.ogg'
-	pickup_sound = 'sound/items/pickup/gun.ogg'
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
@@ -404,16 +431,11 @@
 			P.dispersion = disp
 
 			P.shot_from = src.name
-			P.silenced = silenced
+			P.suppressed =  suppressed
 
 			P.launch_projectile(target)
 
 			handle_post_fire() // should be safe to not include arguments here, as there are failsafes in effect (?)
-
-			if(silenced)
-				playsound(src, fire_sound, 10, 1)
-			else
-				playsound(src, fire_sound, 75, 1, 3, 0.5, 1)
 
 			if (muzzle_flash)
 				set_light(muzzle_flash)
@@ -450,11 +472,8 @@
 
 //called after successfully firing
 /obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
-	if(silenced)
-		playsound(user, fire_sound, 10, 1)
-	else
-		playsound(user, fire_sound, 75, 1, 3, 0.5, 1)
-
+	play_fire_sound()
+	if(!suppressed)
 		if(playemote)
 			if(reflex)
 				user.visible_message(
@@ -483,6 +502,12 @@
 			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
 				S.deactivate()
 	update_icon()
+
+/obj/item/gun/proc/play_fire_sound()
+	if(suppressed)
+		playsound(loc, suppressed_sound, suppressed_volume, vary_fire_sound)
+	else
+		playsound(loc, fire_sound, fire_sound_volume, vary_fire_sound, falloff = 0.5, is_global = TRUE)
 
 /obj/item/gun/proc/process_point_blank(obj/projectile, mob/user, atom/target)
 	var/obj/item/projectile/P = projectile
@@ -578,10 +603,7 @@
 			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
-		if(silenced)
-			playsound(user, fire_sound, 10, 1)
-		else
-			playsound(user, fire_sound, 75, 1, 3, 0.5, 1)
+		play_fire_sound()
 
 		in_chamber.on_hit(M)
 
@@ -633,6 +655,14 @@
 		else
 			accuracy = initial(accuracy)
 			recoil = initial(recoil)
+
+///Handles removing the suppressor from the gun
+/obj/item/gun/proc/clear_suppressor()
+	if(!can_unsuppress)
+		return
+	suppressed = FALSE
+	suppressor = null
+	update_icon()
 
 /obj/item/gun/examine(mob/user)
 	..()
@@ -865,6 +895,8 @@
 		QDEL_NULL(pin)
 	if(bayonet)
 		QDEL_NULL(bayonet)
+	if(istype(suppressor))
+		QDEL_NULL(suppressor)
 	return ..()
 
 
