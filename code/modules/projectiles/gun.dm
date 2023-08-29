@@ -935,6 +935,7 @@
 		user.drop_from_inventory(I,src)
 		bayonet = I
 		to_chat(user, SPAN_NOTICE("You attach \the [I] to the front of \the [src]."))
+		w_class += I.w_class
 		update_icon()
 		return TRUE
 
@@ -955,12 +956,14 @@
 		ammo_display = I
 		displays_maptext = TRUE
 		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
+		w_class += I.w_class
 		return TRUE
 
 	if(I.iscrowbar() && bayonet)
 		to_chat(user, SPAN_NOTICE("You detach \the [bayonet] from \the [src]."))
 		bayonet.forceMove(get_turf(src))
 		user.put_in_hands(bayonet)
+		w_class -= bayonet.w_class
 		bayonet = null
 		update_icon()
 		return TRUE
@@ -969,6 +972,7 @@
 		to_chat(user, SPAN_NOTICE("You wrench the ammo display loose from \the [src]."))
 		ammo_display.forceMove(get_turf(src))
 		user.put_in_hands(ammo_display)
+		w_class -= ammo_display.w_class
 		ammo_display = null
 		displays_maptext = FALSE
 		maptext = ""
