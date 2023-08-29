@@ -473,9 +473,9 @@
 	name = "vault airlock"
 	icon = 'icons/obj/doors/basic/single/secure/door.dmi'
 	color_file = 'icons/obj/doors/basic/single/secure/color.dmi'
+	color_fill_file = 'icons/obj/doors/basic/single/secure/fill_color.dmi'
 	icon_state = "preview"
 	door_color = COLOR_GRAY40
-	door_frame_color = COLOR_GRAY40
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = 600
@@ -698,9 +698,9 @@
 	name = "secure airlock"
 	icon = 'icons/obj/doors/basic/single/secure/door.dmi'
 	color_file = 'icons/obj/doors/basic/single/secure/color.dmi'
+	color_fill_file = 'icons/obj/doors/basic/single/secure/fill_color.dmi'
 	icon_state = "preview"
-	door_color = COLOR_GRAY20
-	door_frame_color = COLOR_GRAY20
+	door_color = COLOR_WALL_GUNMETAL
 	explosion_resistance = 20
 	secured_wires = TRUE
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
