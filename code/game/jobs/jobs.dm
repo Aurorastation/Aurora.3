@@ -141,6 +141,18 @@ var/list/nonhuman_positions = list(
 	"pAI"
 )
 
+var/list/armory_positions = list(
+	"AI",
+	"Warden",
+	"Captain",
+	"Executive Officer",
+	"Head of Security",
+	"Chief Engineer",
+	"Research Director",
+	"Chief Medical Officer",
+	"Operations Manager"
+)
+
 /proc/guest_jobbans(var/job)
 	return ((job in command_positions) || job == "Corporate Liaison" || job == "Consular Officer")
 
