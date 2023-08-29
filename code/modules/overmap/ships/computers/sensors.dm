@@ -534,12 +534,10 @@
 	max_range = 7
 	desc = "Miniturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
 	deep_scan_range = 0
-	working_sound = 'sound/machines/sensors/ping.ogg'
 
 /obj/machinery/shipsensors/weak/scc_shuttle
 	icon_state = "sensors"
 	icon = 'icons/obj/spaceship/scc/helm_pieces.dmi'
-	working_sound = 'sound/machines/sensors/ping.ogg'
 
 /obj/machinery/shipsensors/strong
 	desc = "An upgrade to the standard ship-mounted sensor array, this beast has massive cooling systems running beneath it, allowing it to run hotter for much longer. Can only run in vacuum to protect delicate quantum BS elements."
