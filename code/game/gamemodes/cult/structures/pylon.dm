@@ -62,7 +62,8 @@
 	lang = new /datum/language/cultcommon()
 	update_icon()
 
-/obj/structure/cult/pylon/get_examine_text(mob/user, infix = "", suffix = "", show_extended)
+/obj/structure/cult/pylon/get_examine_text()
+	. = ..()
 	if(damagetaken)
 		switch(damagetaken)
 			if(1 to 8)

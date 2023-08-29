@@ -244,24 +244,24 @@
 	return found
 
 /**
- * Called when a user examines the atom. This proc handles displaying the text that appears in chat during examines. 
- * 
+ * Called when a user examines the atom. This proc handles displaying the text that appears in chat during examines.
+ *
  * For `infix` and `suffix`, generally, these are inserted at the beginning of the examine text, as:
  * `That's \a [name][infix]. [suffix]`.
- * 
+ *
  * Don't override this unless you want to change the standard examine behavior.
  * For most purposes, such as to add examine text, override [/atom/proc/get_examine_text] instead.
- * 
+ *
  * Arguments:
  * * `user` - The user performing the examine
  * * `distance` - The distance in tiles from user to src
  * * `infix` String - String that is appended immediately after the atom's name
  * * `suffix` String - String that is appended after the atom's name and infix
  * * `show_extended` - Boolean value whether to show the extended information. Defaults to FALSE
- * 
+ *
  * Returns a signal, COMSIG_PARENT_EXAMINE
  */
-/atom/proc/examine(mob/user, distance = -1, infix = "", suffix = "", show_extended = FALSE)
+/atom/proc/examine(mob/user, distance, infix = "", suffix = "", show_extended = FALSE)
 	var/list/examine_strings = get_examine_text(user, distance, infix, suffix)
 	if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind)))
 		examine_strings += get_extra_examine_text(user, show_extended)
@@ -274,9 +274,9 @@
 /**
  * Compiles a list of examine text that is used by [/atom/proc/examine]
  * Override this to add examination text
- * 
+ *
  * Arguments are same as [/atom/proc/examine]
- * 
+ *
  * Returns a list of examine text, that is used by [/atom/proc/examine]
  */
 /atom/proc/get_examine_text(mob/user, distance, infix = "", suffix = "")
@@ -298,7 +298,7 @@
 
 /**
  * Compiles a list of extra examine text that is used by [/atom/proc/examine]
- * 
+ *
  * Returns a list of examine text, that is used by [/atom/proc/examine]
  */
 /atom/proc/get_extra_examine_text(mob/user, show_extended)
@@ -320,7 +320,7 @@
 			. += SPAN_ALERT("- [desc_antag]")
 		else
 			. += SPAN_ALERT("- This object has additional information for antagonists.")
-	
+
 
 // Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
 /atom/Topic(href, href_list)

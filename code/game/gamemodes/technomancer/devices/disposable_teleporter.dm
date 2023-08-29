@@ -22,7 +22,8 @@
 	one has been provided to allow you to leave your hideout."
 	uses = 1
 
-/obj/item/disposable_teleporter/get_examine_text(mob/user, infix = "", suffix = "", show_extended)
+/obj/item/disposable_teleporter/get_examine_text()
+	. = ..()
 	. += SPAN_NOTICE("[uses] use\s remaining.")
 
 /obj/item/disposable_teleporter/attack_self(mob/user as mob)

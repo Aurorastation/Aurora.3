@@ -979,7 +979,8 @@ pixel_x = 10;
 	..()
 	queue_icon_update()
 
-/obj/machinery/alarm/get_examine_text(mob/user, infix = "", suffix = "", show_extended)
+/obj/machinery/alarm/get_examine_text()
+	. = ..()
 	if (buildstage < 2)
 		. += "It is not wired."
 	if (buildstage < 1)

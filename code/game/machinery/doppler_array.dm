@@ -19,9 +19,9 @@ var/list/doppler_arrays = list()
 	doppler_arrays -= src
 	return ..()
 
-/obj/machinery/doppler_array/examine(mob/user)
+/obj/machinery/doppler_array/get_examine_text(mob/user)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("\The [src] is [active ? "listening for explosions" : "[SPAN_WARNING("inactive")]"]."))
+	. += SPAN_NOTICE("\The [src] is [active ? "listening for explosions" : "[SPAN_WARNING("inactive")]"].")
 
 /obj/machinery/doppler_array/attack_hand(mob/user)
 	active = !active

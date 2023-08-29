@@ -318,6 +318,7 @@
 	I.forceMove(T)
 
 /obj/item/examine(mob/user, distance)
+	. = ..()
 	var/size
 	switch(src.w_class)
 		if (5.0 to INFINITY)
@@ -333,9 +334,9 @@
 	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
 	//things outside its range ~Nanako
 
-	. = ..(user, distance, "", "It is a [size] item.")
+	. += "It is \a [size] item."
 	if(length(armor))
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>")))
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>"))
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])

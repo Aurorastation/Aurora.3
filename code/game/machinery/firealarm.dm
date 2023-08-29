@@ -20,12 +20,10 @@
 	///looping sound datum for our fire alarm siren.
 	var/datum/looping_sound/firealarm/soundloop
 
-/obj/machinery/firealarm/examine(mob/user)
+/obj/machinery/firealarm/get_examine_text(mob/user)
 	. = ..()
-	if((stat & (NOPOWER|BROKEN)) || buildstage != 2)
-		return
-
-	to_chat(user, "The current alert level is [get_security_level()].")
+	if(!((stat & (NOPOWER|BROKEN)) || buildstage != 2))
+		. += SPAN_NOTICE("The current alert level is [get_security_level()].")
 
 /obj/machinery/firealarm/update_icon()
 	cut_overlays()

@@ -22,7 +22,8 @@
 	QDEL_NULL(rune)
 	return ..()
 
-/obj/effect/rune/get_examine_text(mob/user, infix = "", suffix = "", show_extended)
+/obj/effect/rune/get_examine_text(mob/user)
+	. = ..()
 	if(iscultist(user) || isobserver(user))
 		. +=  rune.get_cultist_fluff_text()
 		. += "This rune [rune.can_be_talisman() ? SPAN_CULT("can") : "[SPAN_CULT("cannot")]"] be turned into a talisman."

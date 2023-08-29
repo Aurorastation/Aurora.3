@@ -99,7 +99,8 @@
 	else
 		to_chat(user, SPAN_CULT("The book seems full of illegible scribbles."))
 
-/obj/item/book/tome/get_examine_text(mob/user, infix = "", suffix = "", show_extended)
+/obj/item/book/tome/get_examine_text(mob/user)
+	. = ..()
 	if(!iscultist(user) || !isobserver(user))
 		. += "An old, dusty tome with frayed edges and a sinister looking cover."
 	else

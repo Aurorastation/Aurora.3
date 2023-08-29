@@ -19,7 +19,8 @@
 	. = ..()
 	cell = new /obj/item/cell(src)
 
-/obj/machinery/floodlight/get_examine_text(mob/user, distance, infix = "", suffix = "")
+/obj/machinery/floodlight/get_examine_text(mob/user, distance)
+	. = ..()
 	if(cell)
 		if(distance < 3)
 			if(!cell.charge)

@@ -15,7 +15,8 @@
 	QDEL_NULL(rune)
 	return ..()
 
-/obj/item/paper/talisman/get_examine_text(mob/user, infix = "", suffix = "", show_extended)
+/obj/item/paper/talisman/get_examine_text(mob/user)
+	. = ..()
 	if(iscultist(user) && rune)
 		to_chat(user, "The spell inscription reads: <span class='cult'><b><i>[rune.name]</i></b></span>.")
 		. += "The spell inscription reads: [SPAN_CULT(rune.name)]."

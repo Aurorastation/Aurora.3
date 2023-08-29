@@ -515,13 +515,14 @@ var/global/list/default_interrogation_channels = list(
 	return get_hearers_in_view(canhear_range, src)
 
 
-/obj/item/device/radio/examine(mob/user, distance, is_adjacent)
+/obj/item/device/radio/get_examine_text(mob/user, distance, is_adjacent)
 	. = ..()
+	if(show_modify_on_examine && (in_range(src, user) || loc == user))
 	if(show_modify_on_examine && (distance <= 1))
 		if (b_stat)
-			user.show_message("<span class='notice'>\The [src] can be attached and modified!</span>")
+			. += SPAN_NOTICE("\The [src] can be attached and modified!")
 		else
-			user.show_message("<span class='notice'>\The [src] can not be modified or attached!</span>")
+			. += SPAN_NOTICE("\The [src] can not be modified or attached!")
 
 /obj/item/device/radio/attackby(obj/item/W as obj, mob/user as mob)
 	..()
