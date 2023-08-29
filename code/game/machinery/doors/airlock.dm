@@ -469,8 +469,23 @@
 		window_color = GLASS_COLOR
 	update_icon()
 
+/obj/machinery/door/airlock/vault
+	name = "vault airlock"
+	icon = 'icons/obj/doors/basic/single/secure/door.dmi'
+	color_file = 'icons/obj/doors/basic/single/secure/color.dmi'
+	icon_state = "preview"
+	door_color = COLOR_GRAY40
+	door_frame_color = COLOR_GRAY40
+	explosion_resistance = 20
+	secured_wires = TRUE
+	maxhealth = 600
+	insecure = 0
+	ai_bolting_delay = 10
+	ai_unbolt_delay = 5
+	open_sound_powered = 'sound/machines/airlock/secure1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/secure1c.ogg'
+
 /obj/machinery/door/airlock/vault/bolted
-	icon_state = "door_locked"
 	locked = TRUE
 
 /obj/machinery/door/airlock/freezer
@@ -483,7 +498,7 @@
 	open_duration = 20
 
 /obj/machinery/door/airlock/hatch
-	name = "Airtight Hatch"
+	name = "airtight hatch"
 	explosion_resistance = 20
 	opacity = TRUE
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
@@ -502,7 +517,7 @@
 	open_sound_unpowered = 'sound/machines/airlock/hatchforced.ogg'
 
 /obj/machinery/door/airlock/maintenance_hatch
-	name = "Maintenance Hatch"
+	name = "maintenance hatch"
 	explosion_resistance = 20
 	opacity = TRUE
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
@@ -681,7 +696,11 @@
 
 /obj/machinery/door/airlock/highsecurity
 	name = "secure airlock"
-	icon = 'icons/obj/doors/hightechsecurity.dmi'
+	icon = 'icons/obj/doors/basic/single/secure/door.dmi'
+	color_file = 'icons/obj/doors/basic/single/secure/color.dmi'
+	icon_state = "preview"
+	door_color = COLOR_GRAY20
+	door_frame_color = COLOR_GRAY20
 	explosion_resistance = 20
 	secured_wires = TRUE
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
@@ -709,9 +728,6 @@
 	maxhealth = 600
 	insecure = FALSE
 	hashatch = FALSE
-
-/obj/machinery/door/airlock/diona/external
-	icon = 'icons/obj/doors/Door_dionae_external.dmi'
 
 //---Uranium doors
 /obj/machinery/door/airlock/uranium
