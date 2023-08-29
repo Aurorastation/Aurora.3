@@ -468,6 +468,8 @@
 
 //This is called when an animal 'speaks'. It does nothing here, but descendants should override it to add audio
 /mob/living/simple_animal/proc/speak_audio()
+	if(emote_sounds.len)
+		make_noise(TRUE)
 	return
 
 /mob/living/simple_animal/proc/visible_emote(var/act_desc)

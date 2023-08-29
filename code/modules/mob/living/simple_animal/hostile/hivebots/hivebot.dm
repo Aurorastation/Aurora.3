@@ -33,14 +33,15 @@
 	smart_melee = FALSE
 	see_in_dark = 8
 	pass_flags = PASSTABLE|PASSRAILING
+	emote_hear = list("emits a harsh noise")
+	emote_sounds = list('sound/effects/creatures/hivebot/hivebot-bark-001.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-003.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-005.ogg',
+	)
+	speak_chance = 5
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 	psi_pingable = FALSE
-
-/mob/living/simple_animal/hostile/hivebot/think()
-	..()
-	if(prob(4))
-		playsound(src, /singleton/sound_category/hivebot_wail, 100, FALSE, 4)
 
 /mob/living/simple_animal/hostile/hivebot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
