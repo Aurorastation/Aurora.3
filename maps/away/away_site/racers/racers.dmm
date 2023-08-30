@@ -944,7 +944,7 @@
 /obj/machinery/light/colored/red{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/racers)
 "eBa" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2814,7 +2814,7 @@
 /obj/machinery/light/colored/red{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/racers)
 "nOM" = (
 /obj/effect/spider/stickyweb,

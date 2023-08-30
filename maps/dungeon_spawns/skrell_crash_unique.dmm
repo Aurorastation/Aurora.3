@@ -756,7 +756,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "cz" = (
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "cA" = (
 /obj/effect/decal/remains/human,

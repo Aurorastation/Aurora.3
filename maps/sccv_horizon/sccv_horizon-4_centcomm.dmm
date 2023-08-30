@@ -9759,7 +9759,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
 "axk" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/mercenary)
 "axl" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -9771,7 +9771,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "axm" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/skipjack)
 "axn" = (
 /obj/effect/floor_decal/corner/red{
@@ -17373,7 +17373,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aRz" = (
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/supply/dock)
 "aRB" = (
 /obj/machinery/door/airlock/command{
@@ -23728,7 +23728,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "beH" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/burglar)
 "beJ" = (
 /obj/structure/window/reinforced/crescent{
@@ -33392,7 +33392,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
 "bBL" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/distress)
 "bBQ" = (
 /obj/structure/table/rack,

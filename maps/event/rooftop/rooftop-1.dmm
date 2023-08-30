@@ -2104,7 +2104,7 @@
 /area/city/mendell/interior)
 "le" = (
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/shuttle/city)
 "li" = (
 /obj/effect/decal/fake_object{
@@ -8848,7 +8848,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "Yw" = (
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/shuttle/city)
 "Yx" = (
 /turf/unsimulated/floor,
@@ -8899,7 +8899,7 @@
 /area/shuttle/city)
 "YL" = (
 /obj/effect/shuttle_landmark/city/start,
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/shuttle/city)
 "YM" = (
 /obj/item/storage/backpack/rucksack/green,

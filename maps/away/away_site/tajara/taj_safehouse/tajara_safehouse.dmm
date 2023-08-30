@@ -314,7 +314,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/tajara_safehouse)
 "iF" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/tajara_safehouse_shuttle)
 "iI" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary{

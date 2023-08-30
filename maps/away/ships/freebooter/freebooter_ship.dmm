@@ -146,13 +146,13 @@
 /area/ship/freebooter_ship/bridge)
 "amu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/freebooter_shuttle)
 "amA" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, engineering"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/engineering)
 "anN" = (
 /obj/effect/decal/fake_object{
@@ -364,7 +364,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, main gun"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/gunnery)
 "aEa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -486,7 +486,7 @@
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/shuttle/freebooter_shuttle)
@@ -593,7 +593,7 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/engineering)
 "aSb" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/freebooter_shuttle)
 "aSi" = (
 /obj/effect/decal/cleanable/dirt,
@@ -706,7 +706,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, reactor room"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster2)
 "aZw" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -1392,7 +1392,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
 "cLC" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#BCA77E"
 	},
 /area/ship/freebooter_ship/pod3)
@@ -1586,10 +1586,10 @@
 	layer = 2.71;
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/freebooter_shuttle)
 "drK" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/freebooter_ship/pod2)
@@ -1921,7 +1921,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "eiL" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/freebooter_ship/pod7)
 "ejm" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
@@ -1945,7 +1945,7 @@
 /area/ship/freebooter_ship/bridge)
 "elW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/shuttle/freebooter_shuttle)
@@ -2040,7 +2040,7 @@
 /turf/template_noop,
 /area/ship/freebooter_ship)
 "ewW" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster1)
 "exg" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
@@ -2073,7 +2073,7 @@
 /area/ship/freebooter_ship/thruster1)
 "eBK" = (
 /obj/effect/map_effect/airlock/w_to_e/long/square,
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship)
 "eDX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2106,13 +2106,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod5)
 "eIb" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#88A866"
 	},
 /area/ship/freebooter_ship/pod5)
 "eMq" = (
 /obj/effect/map_effect/airlock/long/square,
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/freebooter_shuttle)
 "eMT" = (
 /obj/effect/floor_decal/corner/beige{
@@ -2131,13 +2131,13 @@
 /turf/simulated/wall,
 /area/ship/freebooter_ship/pod7)
 "eUq" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/pod1)
 "eWi" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, port storage"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster1)
 "eYy" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -2273,7 +2273,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 6
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/freebooter_shuttle)
 "flG" = (
 /obj/machinery/door/firedoor/noid,
@@ -2290,7 +2290,7 @@
 /area/ship/freebooter_ship/pod6)
 "fnE" = (
 /obj/structure/viewport/unathi,
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/gunnery)
 "foU" = (
 /obj/structure/janitorialcart/full,
@@ -2693,7 +2693,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
 "gwg" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/freebooter_ship/pod4)
@@ -3020,7 +3020,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "htS" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/freebooter_ship/pod8)
 "huE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -3158,7 +3158,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/freebooter_ship/pod4)
@@ -3339,7 +3339,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "imE" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/gunnery)
 "inf" = (
 /obj/effect/floor_decal/corner/beige/full,
@@ -3562,7 +3562,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 10
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/freebooter_shuttle)
 "iTe" = (
 /obj/effect/floor_decal/corner/beige/full{
@@ -3643,7 +3643,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/gunnery)
 "jhL" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/engineering)
 "jjA" = (
 /obj/machinery/door/firedoor/noid,
@@ -5229,7 +5229,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, pod two"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#BCA77E"
 	},
 /area/ship/freebooter_ship/pod2)
@@ -5622,7 +5622,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/freebooter_ship/pod4)
@@ -6570,7 +6570,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, pod one"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/pod1)
 "pRi" = (
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -6655,7 +6655,7 @@
 /area/ship/freebooter_ship/pod7)
 "pZx" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/freebooter_ship/pod4)
@@ -6750,7 +6750,7 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/thruster2)
 "qiz" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#BCA77E"
 	},
 /area/ship/freebooter_ship/pod2)
@@ -6758,7 +6758,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, pod eight"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#90C1DB"
 	},
 /area/ship/freebooter_ship/pod8)
@@ -7178,7 +7178,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, pod six"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/pod6)
 "rcW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7308,7 +7308,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, munitions"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/gunnery)
 "rsE" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -7609,13 +7609,13 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, pod seven"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/freebooter_ship/pod7)
 "saW" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, medbay"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/bridge)
 "sck" = (
 /obj/effect/decal/fake_object{
@@ -7800,7 +7800,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod2)
 "sBA" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/shuttle/freebooter_shuttle)
@@ -7882,7 +7882,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, shower room"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/bridge)
 "sQA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8289,7 +8289,7 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/gunnery)
 "tRo" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/pod6)
 "tSF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -8539,7 +8539,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "uwT" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#90C1DB"
 	},
 /area/ship/freebooter_ship/pod8)
@@ -8743,7 +8743,7 @@
 	},
 /area/ship/freebooter_ship/pod7)
 "uZl" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/thruster2)
 "uZC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9097,7 +9097,7 @@
 /obj/effect/landmark/entry_point/west{
 	name = "starboard, crew compartment"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/shuttle/freebooter_shuttle)
@@ -9199,7 +9199,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/gunnery)
 "vSY" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/pod4)
 "vTv" = (
 /obj/structure/railing/mapped{
@@ -9376,7 +9376,7 @@
 	layer = 2.71;
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/freebooter_shuttle)
 "wnq" = (
 /obj/structure/table/steel,
@@ -9426,7 +9426,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cryo"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/bridge)
 "wtm" = (
 /obj/structure/cable{
@@ -9464,7 +9464,7 @@
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "wyp" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/foyer)
 "wyC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -9490,7 +9490,7 @@
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship)
 "wGc" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship)
 "wHo" = (
 /obj/effect/decal/fake_object{
@@ -10048,7 +10048,7 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/bridge)
 "ydf" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/bridge)
 "yeb" = (
 /obj/machinery/computer/ship/targeting{

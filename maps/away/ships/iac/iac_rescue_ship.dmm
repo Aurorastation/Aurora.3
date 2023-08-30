@@ -135,7 +135,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
 "aAY" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/iac_shuttle)
 "aBb" = (
 /obj/machinery/computer/ship/helm{
@@ -453,13 +453,13 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/pharmacy)
 "bwt" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/hangar)
 "bFk" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/iac_shuttle)
 "bJJ" = (
 /obj/structure/bed/stool/chair{
@@ -590,7 +590,7 @@
 /area/ship/iac_rescue_ship/portengine)
 "ctX" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/iac_shuttle)
 "cvD" = (
 /obj/structure/bed/stool/chair,
@@ -736,7 +736,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/bridge)
 "dgo" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/portengine)
 "dmm" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -805,7 +805,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/surgery)
 "dJD" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/dorms)
 "dTw" = (
 /obj/effect/floor_decal/corner/red/full{
@@ -1050,7 +1050,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, chemistry"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/pharmacy)
 "eWk" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -1102,7 +1102,7 @@
 /area/ship/iac_rescue_ship/medical)
 "fkv" = (
 /obj/structure/sign/pharmacy,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/pharmacy)
 "fkL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
@@ -1240,7 +1240,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/starboardengine)
 "gaE" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1299,7 +1299,7 @@
 /obj/effect/landmark/entry_point/west{
 	name = "starboard, crew compartment"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/iac_shuttle)
 "gzu" = (
 /obj/effect/shuttle_landmark/iac_rescue_ship/nav1,
@@ -1635,7 +1635,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/coord)
 "iiZ" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/starboardengine)
 "iuU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -1658,7 +1658,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/starboardengine)
 "iDd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1766,7 +1766,7 @@
 /turf/simulated/floor/carpet,
 /area/ship/iac_rescue_ship/dorms)
 "jhT" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/mainstorage)
 "jqJ" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -1806,7 +1806,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/iac_shuttle)
 "jMA" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/bathroom)
 "jMF" = (
 /obj/structure/closet,
@@ -1870,7 +1870,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/iac_rescue_ship/hallway)
 "jVS" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/medical)
 "kak" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -1915,7 +1915,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
 "ktN" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/bridge)
 "kAt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2116,7 +2116,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/bridge)
 "mpi" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/hallway)
 "mtm" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
@@ -2611,7 +2611,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, surgery"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/surgery)
 "pCC" = (
 /obj/machinery/portable_atmospherics/canister/air,
@@ -2755,7 +2755,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/iac_rescue_ship/medical)
 "qGN" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/coord)
 "qHm" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -3018,7 +3018,7 @@
 /turf/simulated/floor/wood,
 /area/ship/iac_rescue_ship/dorms)
 "saz" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/pharmacy)
 "sbm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3206,7 +3206,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/portengine)
 "tvU" = (
 /obj/machinery/papershredder,
@@ -3391,7 +3391,7 @@
 /obj/machinery/button/distress{
 	pixel_x = 7
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/bridge)
 "uJC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3404,7 +3404,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard engine"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/starboardengine)
 "uWC" = (
 /obj/structure/closet/crate/bin{
@@ -3590,7 +3590,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port engine"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/portengine)
 "vSL" = (
 /obj/structure/cable{
@@ -3725,7 +3725,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/portengine)
 "xns" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -3735,7 +3735,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/starboardengine)
 "xqw" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/surgery)
 "xsG" = (
 /obj/machinery/door/window/northleft{
@@ -3830,7 +3830,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, equipment room"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/mainstorage)
 
 (1,1,1) = {"

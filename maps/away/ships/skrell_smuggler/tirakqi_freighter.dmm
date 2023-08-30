@@ -818,7 +818,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "hxC" = (
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/shuttle/tirakqi_shuttle)
 "hyn" = (
 /obj/machinery/computer/cryopod{
@@ -906,7 +906,7 @@
 /area/shuttle/tirakqi_shuttle)
 "hRT" = (
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/skrell/corner,
+/turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "hUJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -917,7 +917,7 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/shuttle/tirakqi_shuttle)
 "iaK" = (
 /obj/machinery/computer/ship/sensors,
@@ -925,7 +925,7 @@
 /area/ship/tirakqi_freighter)
 "ibU" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/shuttle/tirakqi_shuttle)
 "ifl" = (
 /obj/machinery/door/airlock/skrell{
@@ -1173,7 +1173,7 @@
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "kfX" = (
-/turf/simulated/wall/shuttle/skrell/corner,
+/turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "kkV" = (
 /obj/machinery/cryopod,
@@ -1291,7 +1291,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tirakqi_freighter)
 "ltf" = (
-/turf/simulated/wall/shuttle/skrell/corner{
+/turf/simulated/wall/shuttle/skrell{
 	dir = 9
 	},
 /area/ship/tirakqi_freighter)
@@ -1741,7 +1741,7 @@
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "qUg" = (
-/turf/simulated/wall/shuttle/skrell/corner{
+/turf/simulated/wall/shuttle/skrell{
 	dir = 4
 	},
 /area/ship/tirakqi_freighter)
@@ -1827,12 +1827,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/tirakqi_freighter)
 "soZ" = (
-/turf/simulated/wall/shuttle/skrell/corner{
+/turf/simulated/wall/shuttle/skrell{
 	dir = 5
 	},
 /area/ship/tirakqi_freighter)
 "spX" = (
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "stK" = (
 /obj/structure/table/skrell,
@@ -2061,7 +2061,7 @@
 /obj/effect/landmark/entry_point/west{
 	name = "starboard, crew compartment"
 	},
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/shuttle/tirakqi_shuttle)
 "wAC" = (
 /obj/effect/floor_decal/industrial/warning{

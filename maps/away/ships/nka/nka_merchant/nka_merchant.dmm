@@ -668,7 +668,7 @@
 	},
 /area/nka_merchant/warehouse)
 "cd" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/mess)
 "ce" = (
 /obj/structure/table/standard,
@@ -1623,7 +1623,7 @@
 	},
 /area/nka_merchant)
 "fJ" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/barracks)
 "fK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1841,7 +1841,7 @@
 	},
 /area/nka_merchant/eva)
 "gY" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/nka_merchant_shuttle)
 "hc" = (
 /obj/structure/table/rack,
@@ -3253,7 +3253,7 @@
 	},
 /area/nka_merchant)
 "pA" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/engineering)
 "pL" = (
 /obj/structure/foamedmetal,
@@ -3684,7 +3684,7 @@
 	},
 /area/nka_merchant/warehouse)
 "yk" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/captain_quarters)
 "yr" = (
 /obj/structure/bed/padded,
@@ -3781,7 +3781,7 @@
 	},
 /area/nka_merchant/bridge)
 "AT" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/engine)
 "AY" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -3853,7 +3853,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/nka_merchant_shuttle)
 "Dj" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/hangar)
 "Do" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4722,7 +4722,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/mess)
 "Vp" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant)
 "Vv" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
@@ -4787,7 +4787,7 @@
 	},
 /area/nka_merchant)
 "WZ" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/warehouse)
 "Xa" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,

@@ -173,7 +173,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, armory"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/armory)
@@ -205,7 +205,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, showers"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette)
@@ -256,7 +256,7 @@
 /turf/template_noop,
 /area/ship/dominian_corvette/exterior)
 "aCZ" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/quarters)
@@ -532,7 +532,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, starboard edge"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/engineering)
 "buA" = (
 /obj/machinery/atmospherics/unary/engine{
@@ -557,7 +557,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, atmospherics and cryo"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/engineering)
@@ -577,10 +577,10 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, port edge"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/franny)
 "bDu" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/quarters)
 "bNV" = (
 /obj/effect/floor_decal/corner/red{
@@ -639,7 +639,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "bYr" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/franny)
@@ -741,7 +741,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)
 "cwi" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/temple)
@@ -764,7 +764,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering)
 "cMo" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/dominian_shuttle)
 "cQs" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -896,7 +896,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/officer)
 "dhp" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/officer)
 "dhS" = (
 /obj/structure/dispenser/oxygen,
@@ -920,13 +920,13 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
 "diE" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/cic)
 "dnW" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, church"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/engineering)
@@ -984,7 +984,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/franny)
 "dBq" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette)
 "dEo" = (
 /obj/effect/floor_decal/corner{
@@ -1082,7 +1082,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "port"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/shuttle/dominian_shuttle)
@@ -1203,7 +1203,7 @@
 /obj/effect/map_effect/airlock/long{
 	required_access = null
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette)
 "ewL" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1269,7 +1269,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, brig"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette)
@@ -1318,7 +1318,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/hangar)
 "eMs" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/cryo)
 "eMT" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
@@ -2304,7 +2304,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, suit storage"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/engineering)
 "iEC" = (
 /obj/effect/floor_decal/corner{
@@ -2473,7 +2473,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, armory"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/armory)
@@ -2611,7 +2611,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, brig"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/brig)
 "kaR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2738,7 +2738,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/shuttle/dominian_shuttle)
@@ -2833,7 +2833,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
 "kTZ" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/brig)
 "kUR" = (
 /obj/effect/floor_decal/corner/red{
@@ -2884,7 +2884,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, starboard airlock"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette)
@@ -2939,7 +2939,7 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering)
 "llL" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/cannon)
 "lme" = (
 /obj/effect/shuttle_landmark/dominian_corvette/nav4,
@@ -3062,7 +3062,7 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/engineering)
 "lwX" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette)
@@ -3070,7 +3070,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "starboard"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/shuttle/dominian_shuttle)
@@ -3088,7 +3088,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, crew quarters"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/quarters)
@@ -3357,7 +3357,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_corvette/armory)
 "mDu" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/exterior)
 "mEE" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -3380,7 +3380,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/dominian_shuttle)
 "mFl" = (
 /turf/simulated/wall,
@@ -3462,7 +3462,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, bridge"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette)
@@ -3518,7 +3518,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "fore, cockpit"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/dominian_shuttle)
 "nke" = (
 /obj/effect/floor_decal/corner/full{
@@ -3574,7 +3574,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/infirmary)
 "nuI" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/armory)
 "nuJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3998,7 +3998,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, aux CIC"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/cic)
@@ -4030,7 +4030,7 @@
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_corvette/temple)
 "oXc" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/engineering)
@@ -4133,14 +4133,14 @@
 /area/ship/dominian_corvette/engineering)
 "piw" = (
 /obj/effect/map_effect/airlock/long/square,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/dominian_shuttle)
 "pku" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor,
 /area/ship/dominian_corvette/engineering)
 "pub" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/franny)
 "puW" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4267,7 +4267,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "pJj" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/shuttle/dominian_shuttle)
@@ -4327,7 +4327,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, port airlock"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette)
@@ -4342,7 +4342,7 @@
 /area/ship/dominian_corvette/exterior)
 "pYB" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/dominian_shuttle)
 "qdL" = (
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -4387,7 +4387,7 @@
 /turf/simulated/floor,
 /area/ship/dominian_corvette/bridge)
 "qlg" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/cic)
@@ -4421,7 +4421,7 @@
 /turf/space/transit/north,
 /area/space)
 "qyg" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/hangar)
@@ -4464,7 +4464,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/dominian_shuttle)
 "qHO" = (
 /obj/effect/shuttle_landmark/dominian_corvette/transit,
@@ -4504,7 +4504,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/infirmary)
 "qJS" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/infirmary)
@@ -4571,7 +4571,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, captain's office"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/brig)
 "qZm" = (
 /obj/effect/floor_decal/corner{
@@ -4871,7 +4871,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, secondary gun"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/franny)
 "stk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4894,7 +4894,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, suit storage"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/engineering)
@@ -5054,7 +5054,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, engineering"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/engineering)
 "tdw" = (
 /obj/structure/table/steel,
@@ -5115,7 +5115,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, crew quarters"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/quarters)
@@ -5347,7 +5347,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 9
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/dominian_shuttle)
 "urz" = (
 /obj/effect/shuttle_landmark/dominian_corvette/nav3,
@@ -5546,7 +5546,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/cannon)
 "uNg" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/engineering)
 "uNN" = (
 /obj/effect/floor_decal/corner/red{
@@ -5600,7 +5600,7 @@
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_corvette/temple)
 "vdX" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/cannon)
@@ -5706,7 +5706,7 @@
 /turf/simulated/wall,
 /area/ship/dominian_corvette/cic)
 "vGe" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/infirmary)
 "vHb" = (
 /obj/machinery/door/firedoor/noid,
@@ -6027,7 +6027,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette)
@@ -6167,7 +6167,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/infirmary)
 "xNk" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/armory)
@@ -6205,7 +6205,7 @@
 /turf/template_noop,
 /area/space)
 "xSa" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#E14644"
 	},
 /area/ship/dominian_corvette/cryo)

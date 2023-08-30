@@ -128,7 +128,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "aBb" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/freighter_shuttle)
 "aCd" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -702,7 +702,7 @@
 /area/ship/tramp_freighter)
 "eoK" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "etL" = (
 /turf/space/transit/north,
@@ -1413,7 +1413,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, starboard side"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "kMq" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1574,7 +1574,7 @@
 /area/ship/tramp_freighter)
 "nMu" = (
 /obj/effect/landmark/entry_point/fore,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "nQT" = (
 /obj/machinery/door/airlock/hatch{
@@ -2113,7 +2113,7 @@
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "wYA" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "wZf" = (
 /turf/simulated/floor,

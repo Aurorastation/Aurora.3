@@ -9451,7 +9451,7 @@
 	},
 /area/abandoned_industrial_station/operations)
 "EE" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/abandoned_industrial_station/docks_a2)
 "EF" = (
 /obj/effect/floor_decal/corner/green/diagonal,

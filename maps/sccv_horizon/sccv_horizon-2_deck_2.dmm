@@ -9658,7 +9658,7 @@
 /area/horizon/bar)
 "ePC" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/space,
+/turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "ePO" = (
 /obj/structure/ship_weapon_dummy,

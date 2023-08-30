@@ -2943,7 +2943,7 @@
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "uNn" = (
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/shuttle/orion_express_shuttle)
 "uOy" = (
 /obj/machinery/light/small{

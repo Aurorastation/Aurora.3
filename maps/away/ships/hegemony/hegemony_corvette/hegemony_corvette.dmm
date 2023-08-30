@@ -4709,7 +4709,7 @@
 /turf/simulated/floor,
 /area/hegemony_ship/engineering)
 "Cr" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship)
 "Cw" = (
 /obj/effect/landmark/entry_point/aft{
@@ -8236,7 +8236,7 @@
 /turf/simulated/floor,
 /area/space)
 "XU" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/aux_cic)
 "XX" = (
 /obj/machinery/appliance/cooker/stove,

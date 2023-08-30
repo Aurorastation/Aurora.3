@@ -715,7 +715,7 @@
 /turf/template_noop,
 /area/template_noop)
 "cz" = (
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/template_noop)
 "cA" = (
 /obj/effect/landmark/clear,

@@ -2,11 +2,18 @@
 //--Walls--//
 
 /turf/simulated/wall/shuttle
-	icon = 'icons/turf/smooth/shuttle_wall.dmi'
+	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	icon_state = "map-shuttle"
 	permit_ao = 0
-	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
+	smooth = SMOOTH_MORE
 	canSmoothWith = list(
+		/turf/unsimulated/wall/steel, // Centcomm wall.
+		/turf/unsimulated/wall/darkshuttlewall, // Centcomm wall.
+		/turf/unsimulated/wall/riveted, // Centcomm wall.
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty,
+		/obj/machinery/door,
 		/turf/simulated/wall/shuttle,
 		/obj/structure/window/shuttle,
 		/obj/machinery/door/airlock,
@@ -15,13 +22,12 @@
 	)
 
 /turf/simulated/wall/shuttle/Initialize(mapload)
-	. = ..(mapload, "shuttle", "shuttle")
+	. = ..(mapload, MATERIAL_SHUTTLE, MATERIAL_SHUTTLE)
 
 /turf/simulated/wall/shuttle/cardinal
 	smooth = SMOOTH_TRUE
 
 /turf/simulated/wall/shuttle/dark
-	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	canSmoothWith = null
 
 /turf/simulated/wall/shuttle/dark/cardinal
@@ -50,7 +56,6 @@
 
 /turf/simulated/wall/shuttle/dark/long_diagonal_2
 	name = "test diagonal"
-	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	icon_state = "d2-we-1"
 	use_set_icon_state = TRUE
 	smooth = null
@@ -58,7 +63,6 @@
 
 /obj/structure/shuttle_part/dark
 	name = "spaceship alloy wall"
-	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	icon_state = "d2-we-1"
 	outside_part = FALSE
 
@@ -108,20 +112,13 @@
 	outside_part = FALSE
 
 /turf/simulated/wall/shuttle/raider
-	icon = 'icons/turf/smooth/composite_metal.dmi'
-	icon_state = "composite_metal"
-	smooth = SMOOTH_TRUE
-	canSmoothWith = null
 	color = "#6C7364"
 
 /turf/simulated/wall/shuttle/legion
-	icon = 'icons/turf/smooth/shuttle_wall_legion.dmi'
-
-/turf/simulated/wall/shuttle/legion/cardinal
-	smooth = SMOOTH_MORE
+	color = "#5F78A0"
 
 /turf/simulated/wall/shuttle/palepurple
-	icon = 'icons/turf/smooth/shuttle_wall_palepurple.dmi'
+	color = COLOR_PALE_PURPLE_GRAY
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/palepurple,
 		/obj/structure/window/shuttle/palepurple,
@@ -130,12 +127,9 @@
 		/obj/structure/shuttle/engine/propulsion
 	)
 
-/turf/simulated/wall/shuttle/palepurple/cardinal
-	smooth = SMOOTH_MORE
 
 /turf/simulated/wall/shuttle/skrell
-	icon_state = "skrell_purple"
-	icon = 'icons/turf/smooth/skrell_purple.dmi'
+	color = COLOR_PURPLE
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/skrell,
 		/obj/structure/window/shuttle,
@@ -147,40 +141,17 @@
 /turf/simulated/wall/shuttle/skrell/Initialize(mapload)
 	. = ..(mapload,"skrell")
 
-/turf/simulated/wall/shuttle/skrell/cardinal
-	smooth = SMOOTH_MORE
-
-/turf/simulated/wall/shuttle/skrell/corner
-	icon = 'icons/turf/shuttle.dmi'
-	icon_state = "skrell_diagonal"
-	use_set_icon_state = TRUE
-	smooth = null
-	canSmoothWith = null
-
 /turf/simulated/wall/shuttle/scc
-	icon = 'icons/turf/smooth/scc_shuttle.dmi'
-
-/turf/simulated/wall/shuttle/scc/cardinal
-	smooth = SMOOTH_MORE
+	color = "#AAAFC7"
 
 //Corporate shuttle and ship walls//
 /turf/simulated/wall/shuttle/idris
-	icon = 'icons/turf/smooth/idris_ship.dmi'
-
-/turf/simulated/wall/shuttle/idris/cardinal
-	smooth = SMOOTH_MORE
+	color = "#4B7A73"
 
 /turf/simulated/wall/shuttle/space_ship
-	icon = 'icons/turf/smooth/generic_shuttle.dmi'
-
-/turf/simulated/wall/shuttle/space_ship/cardinal
-	smooth = SMOOTH_MORE
+	color = "#BDB6AE"
 
 /turf/simulated/wall/shuttle/space_ship/mercenary
-	color = "#5b5b5b"
-
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal
-	smooth = SMOOTH_MORE
 	color = "#5b5b5b"
 
 //--Unique Shuttles--//

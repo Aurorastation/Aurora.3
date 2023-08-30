@@ -1107,7 +1107,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "le" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/crashed_elyran_tanker/crew)
 "lk" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1716,7 +1716,7 @@
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/engineering)
 "qN" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/crashed_elyran_tanker/tanks)
 "qU" = (
 /obj/structure/sign/flag/elyra{
@@ -3472,7 +3472,7 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/crashed_elyran_tanker/tanks)
 "IG" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/space)
 "IM" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
@@ -3763,7 +3763,7 @@
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
 "LC" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/crashed_elyran_tanker/bridge)
 "LE" = (
 /obj/structure/lattice,
@@ -4497,7 +4497,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "Sq" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/crashed_elyran_tanker/engineering)
 "Sr" = (
 /obj/effect/floor_decal/industrial/warning,

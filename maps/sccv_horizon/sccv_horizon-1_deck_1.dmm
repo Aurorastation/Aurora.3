@@ -9005,7 +9005,7 @@
 /turf/simulated/floor/tiled/full,
 /area/hangar/intrepid)
 "gkM" = (
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/shuttle/escape_pod/pod1)
 "gkN" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
@@ -26180,7 +26180,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "syN" = (
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/shuttle/escape_pod/pod2)
 "syS" = (
 /obj/structure/cable/green{
@@ -31786,7 +31786,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "wqR" = (
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/shuttle/escape_pod/pod4)
 "wrD" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -33711,7 +33711,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "xDY" = (
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/shuttle/escape_pod/pod3)
 "xEb" = (
 /obj/machinery/atmospherics/omni/mixer{
