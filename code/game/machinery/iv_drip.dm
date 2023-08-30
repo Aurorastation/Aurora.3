@@ -82,6 +82,8 @@
 			return
 		if(M.incapacitated())
 			return
+		if(tipped)
+			return
 		if(M.m_intent == M_RUN && M.a_intent == I_HURT)
 			src.visible_message(SPAN_WARNING("[M] bumps into \the [src], knocking it over!"), SPAN_WARNING("You bump into \the [src], knocking it over!"))
 			do_crash()

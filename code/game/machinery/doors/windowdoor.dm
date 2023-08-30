@@ -4,6 +4,7 @@
 	icon = 'icons/obj/structure/window/window_panes.dmi'
 	icon_state = "left"
 	var/base_state = "left"
+	alpha = 196
 	layer = WINDOW_PANE_LAYER
 	min_force = 4
 	hitsound = 'sound/effects/glass_hit.ogg'
@@ -38,6 +39,7 @@
 	new /obj/item/material/shard(loc)
 	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
 	CC.amount = 2
+	CC.update_icon()
 	src.density = FALSE
 	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
 	if(display_message)

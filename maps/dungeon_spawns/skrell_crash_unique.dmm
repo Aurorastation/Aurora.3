@@ -167,7 +167,7 @@
 /area/dungeon/skrell_ship)
 "aD" = (
 /obj/structure/blocker/steel,
-/obj/structure/door_assembly/door_assembly_skrell{
+/obj/structure/door_assembly/door_assembly{
 	name = "Bridge"
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -737,7 +737,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "cw" = (
-/obj/structure/door_assembly/door_assembly_skrell{
+/obj/structure/door_assembly/door_assembly{
 	name = "Cryogenics"
 	},
 /turf/simulated/floor/shuttle/skrell/blue,

@@ -41,6 +41,8 @@
 
 	turf_hand_priority = 2 //Lower priority than normal doors to prevent interference
 
+	/// Enables smart generation of firedoor dir.
+	/// So it automatically aligns to face same dir as the door above it, etc.
 	var/enable_smart_generation = TRUE
 
 	var/list/tile_info[4]
@@ -51,10 +53,6 @@
 		"hot",
 		"cold"
 	)
-
-	var/door_directions = 0
-	var/noair_directions = 0
-	var/diffarea_directions = 0
 
 	var/open_sound = 'sound/machines/firelockopen.ogg'
 	var/close_sound = 'sound/machines/firelockclose.ogg'
@@ -78,51 +76,55 @@
 		enable_smart_generation = 0
 
 	for(var/direction in cardinal)
-
 		var/turf/T = get_step(src,direction)
-
-		if(enable_smart_generation)
-			if(locate(src.type) in T)
-				door_directions |= direction
-
-			if(T.initial_gas == null)
-				noair_directions |= direction
-
-			if(get_area(src.loc) != get_area(T))
-				diffarea_directions |= direction
-
 		A = get_area(T)
 		if(istype(A) && !(A in areas_added))
 			A.all_doors.Add(src)
 			areas_added += A
 
-	if(enable_smart_generation)
+	smart_generation()
 
-		var/turf/T = get_turf(src)
-		if(locate(/obj/structure/grille,T))
-			hashatch = 0
+/obj/machinery/door/firedoor/proc/smart_generation()
+	if(!enable_smart_generation)
+		return .
 
-		if(locate(/obj/machinery/door/airlock,T))
-			dir = SOUTH
-		else
-			if(door_directions & (EAST | WEST))
-				if(noair_directions & NORTH)
-					dir = SOUTH
-				else if(noair_directions & SOUTH)
-					dir = NORTH
-				else if(diffarea_directions & NORTH)
-					dir = NORTH
-				else if(diffarea_directions & SOUTH)
-					dir = SOUTH
-			else if(door_directions & (NORTH | SOUTH) )
-				if(noair_directions & EAST)
-					dir = WEST
-				else if(noair_directions & WEST)
-					dir = EAST
-				else if(diffarea_directions & EAST)
-					dir = EAST
-				else if(diffarea_directions & WEST)
-					dir = WEST
+	var/turf/current_turf = get_turf(src)
+	if(locate(/obj/structure/grille, current_turf))
+		hashatch = 0
+
+	// if there is adjacent wall
+	if(istype(get_step(src,NORTH), /turf/simulated/wall))
+		dir = EAST
+		return .
+	if(istype(get_step(src,SOUTH), /turf/simulated/wall))
+		dir = WEST
+		return .
+	if(istype(get_step(src,WEST), /turf/simulated/wall))
+		dir = NORTH
+		return .
+	if(istype(get_step(src,EAST), /turf/simulated/wall))
+		dir = SOUTH
+		return .
+
+	// if there is adjacent firedoor
+	if(locate(/obj/machinery/door/firedoor, get_step(src,NORTH)))
+		dir = EAST
+		return .
+	if(locate(/obj/machinery/door/firedoor, get_step(src,SOUTH)))
+		dir = WEST
+		return .
+	if(locate(/obj/machinery/door/firedoor, get_step(src,WEST)))
+		dir = NORTH
+		return .
+	if(locate(/obj/machinery/door/firedoor, get_step(src,EAST)))
+		dir = SOUTH
+		return .
+
+	// face same dir as door if on the same tile
+	var/obj/machinery/door/airlock/door = locate(/obj/machinery/door/airlock, current_turf)
+	if(istype(door))
+		dir = door.dir
+		return .
 
 /obj/machinery/door/firedoor/Destroy()
 	for(var/area/A in areas_added)
