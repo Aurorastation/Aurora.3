@@ -6,4 +6,4 @@ changes:
   - rscadd: "Ported shield modes from Baystation as shield modulators."
   - experiment: "Shields have been reworked so that their power is now balanced between strength, charge rate and modulator power."
   - rscadd: "Added directional shielding."
-  - imgadd: "Resprited shield generator parts."
+  - imageadd: "Resprited shield generator parts."
