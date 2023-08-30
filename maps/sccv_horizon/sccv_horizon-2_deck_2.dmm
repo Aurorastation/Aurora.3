@@ -6503,7 +6503,9 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/machinery/door/airlock/side/east,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "djj" = (
@@ -17659,8 +17661,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/middle/north,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "ixR" = (
@@ -21409,8 +21411,8 @@
 /turf/space/dynamic,
 /area/template_noop)
 "kmI" = (
-/obj/machinery/door/airlock/side/north,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
 "knA" = (
@@ -22947,11 +22949,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
-"lcY" = (
-/obj/machinery/door/airlock/side/south,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/full,
-/area/horizon/hallway/deck_two/fore)
 "ldk" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -26951,7 +26948,9 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/machinery/door/airlock/middle/west,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
 "mYL" = (
@@ -29464,8 +29463,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/middle/north,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
 "okk" = (
@@ -34269,8 +34268,8 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/machinery/door/airlock/side/north,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "qFs" = (
@@ -43667,8 +43666,8 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/obj/machinery/door/airlock/side/south,
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "vqO" = (
@@ -49612,7 +49611,9 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/machinery/door/airlock/side/west,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
 "xWz" = (
@@ -70552,7 +70553,7 @@ gPx
 sZT
 neZ
 vXs
-lcY
+kmI
 dTI
 uCX
 rNs

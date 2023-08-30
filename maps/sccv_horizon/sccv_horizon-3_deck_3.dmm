@@ -2530,7 +2530,9 @@
 /area/bridge/controlroom)
 "cbK" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/side/west,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "ccg" = (
@@ -8831,11 +8833,6 @@
 /obj/structure/sign/nosmoking_1,
 /turf/simulated/wall,
 /area/medical/ward)
-"gYe" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/side/west,
-/turf/simulated/floor/tiled/full,
-/area/horizon/hallway/deck_three/primary/starboard)
 "gYl" = (
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -8862,11 +8859,6 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/autopsy_laboratory)
-"gZG" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/side/east,
-/turf/simulated/floor/tiled/full,
-/area/horizon/hallway/deck_three/primary/starboard/docks)
 "gZO" = (
 /obj/machinery/vending/coffee,
 /obj/machinery/light{
@@ -9665,7 +9657,9 @@
 /area/horizon/hallway/deck_three/primary/central)
 "hzB" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/middle/west,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "hzK" = (
@@ -10473,7 +10467,9 @@
 /area/horizon/security/autopsy_laboratory)
 "iph" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/middle/west,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "ipk" = (
@@ -16517,7 +16513,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/middle/west,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "mOm" = (
@@ -16666,7 +16664,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/airlock/side/east,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "mTq" = (
@@ -24027,7 +24027,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/side/east,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port)
 "sIz" = (
@@ -24617,7 +24619,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/side/west,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "tjC" = (
@@ -25789,11 +25793,6 @@
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/forensic_laboratory)
-"uao" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/side/east,
-/turf/simulated/floor/tiled/full,
-/area/horizon/hallway/deck_three/primary/port/docks)
 "uba" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/crew_quarters/lounge)
@@ -27740,7 +27739,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/side/east,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "vzD" = (
@@ -28359,7 +28360,9 @@
 /area/medical/equipment)
 "vWS" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/middle/west,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/port)
 "vXb" = (
@@ -28420,11 +28423,6 @@
 "vZO" = (
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
-"vZP" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/side/west,
-/turf/simulated/floor/tiled/full,
-/area/horizon/hallway/deck_three/primary/port)
 "waj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
@@ -30956,7 +30954,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/side/west,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
 "xXD" = (
@@ -44008,7 +44008,7 @@ imb
 vlC
 tjt
 hzB
-gZG
+hzB
 uba
 uba
 uba
@@ -47638,7 +47638,7 @@ fmL
 gKk
 gKk
 gKk
-gYe
+iph
 iph
 mTh
 vaL
@@ -55718,7 +55718,7 @@ wPW
 tVB
 nvW
 qzF
-vZP
+vWS
 vWS
 sHU
 viN
@@ -58552,7 +58552,7 @@ lwt
 aKD
 cbK
 mOc
-uao
+cbK
 aKD
 nsP
 nsP

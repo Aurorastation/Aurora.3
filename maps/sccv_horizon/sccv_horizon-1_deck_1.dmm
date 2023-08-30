@@ -7307,7 +7307,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 1;
+	dir = 4;
 	name = "Hangar"
 	},
 /obj/machinery/door/firedoor/multi_tile,
@@ -34662,21 +34662,31 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
-"ymn" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4
-	},
+"ymi" = (
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/maintenance/wing/starboard/deck1)
-"ymm" = (
-/obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/starboard/deck1)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/glass_command{
+	dir = 1;
+	name = "Expedition EVA Storage";
+	req_one_access = list(18,47)
+	},
+/turf/simulated/floor/tiled/full,
+/area/storage/eva)
+"ymk" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_command{
+	dir = 1;
+	name = "EVA Storage";
+	req_one_access = list(18,47)
+	},
+/turf/simulated/floor/tiled/full,
+/area/storage/eva)
 "yml" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -34694,31 +34704,21 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
-"ymk" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
+"ymm" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_command{
-	dir = 1;
-	name = "EVA Storage";
-	req_one_access = list(18,47)
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/full,
-/area/storage/eva)
-"ymi" = (
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/deck1)
+"ymn" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/glass_command{
-	dir = 1;
-	name = "Expedition EVA Storage";
-	req_one_access = list(18,47)
-	},
-/turf/simulated/floor/tiled/full,
-/area/storage/eva)
+/turf/simulated/floor/tiled,
+/area/maintenance/wing/starboard/deck1)
 
 (1,1,1) = {"
 eSV
