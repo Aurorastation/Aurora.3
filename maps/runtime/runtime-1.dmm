@@ -72,8 +72,7 @@
 "an" = (
 /obj/machinery/alarm/north{
 	locked = 0;
-	pixel_y = 23;
-	dir = 1
+	pixel_y = 23
 	},
 /obj/machinery/power/apc{
 	dir = 8;
@@ -452,9 +451,7 @@
 	c_tag = "Engineering - Engine Airlock";
 	dir = 4
 	},
-/obj/machinery/firealarm/west{
-	pixel_x = -22
-	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "be" = (
@@ -1240,8 +1237,7 @@
 "cX" = (
 /obj/machinery/alarm/north{
 	locked = 0;
-	pixel_y = 23;
-	dir = 1
+	pixel_y = 23
 	},
 /obj/machinery/power/apc{
 	dir = 8;
@@ -1662,10 +1658,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/storage/primary)
-"DL" = (
-/obj/machinery/power/apc/south,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "Eu" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
@@ -1677,10 +1669,6 @@
 /area/engineering)
 "Fw" = (
 /obj/machinery/alarm/west,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
-"Fx" = (
-/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "FZ" = (
@@ -1779,10 +1767,6 @@
 "Qe" = (
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
-"Qf" = (
-/obj/machinery/power/apc/west,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "Qi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1859,10 +1843,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
-"UO" = (
-/obj/machinery/power/apc/east,
-/turf/simulated/floor/tiled,
-/area/storage/primary)
 "UP" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
@@ -1899,9 +1879,7 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 8
 	},
-/obj/machinery/firealarm/west{
-	pixel_x = -22
-	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "Yc" = (
@@ -10395,7 +10373,7 @@ da
 dm
 da
 da
-UO
+da
 da
 da
 da
@@ -10651,9 +10629,9 @@ da
 da
 cZ
 da
-DL
+da
 dm
-Fx
+da
 da
 da
 cP
@@ -10909,7 +10887,7 @@ da
 da
 da
 da
-Qf
+da
 da
 da
 da

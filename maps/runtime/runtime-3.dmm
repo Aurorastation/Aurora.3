@@ -159,6 +159,10 @@
 	},
 /turf/simulated/floor,
 /area/antag/mercenary)
+"eq" = (
+/obj/machinery/firealarm/east,
+/turf/simulated/floor,
+/area/antag/mercenary)
 "er" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/aquablue,
@@ -203,6 +207,10 @@
 /obj/item/modular_computer/console/preset/security/hos,
 /turf/simulated/floor/reinforced,
 /area/construction/solars)
+"fo" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled/dark,
+/area/construction/solarscontrol)
 "fq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -373,6 +381,10 @@
 	},
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
+"ic" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor,
+/area/construction/qmaint)
 "id" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -1024,6 +1036,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor,
 /area/construction/supplyshuttle)
 "yd" = (
@@ -2056,6 +2069,10 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/reinforced,
 /area/construction/solars)
+"Wi" = (
+/obj/machinery/power/apc/west,
+/turf/simulated/floor,
+/area/antag/mercenary)
 "Wk" = (
 /obj/machinery/requests_console{
 	dir = 1;
@@ -26291,7 +26308,7 @@ Um
 wL
 Th
 hf
-GT
+ic
 HJ
 sK
 HJ
@@ -28604,7 +28621,7 @@ MX
 kQ
 ef
 Vr
-yd
+fo
 jD
 Ll
 ZT
@@ -30925,7 +30942,7 @@ cJ
 cJ
 JH
 Bd
-Bd
+Wi
 cJ
 wq
 kb
@@ -31439,7 +31456,7 @@ cJ
 cJ
 AR
 Mp
-Bd
+eq
 cJ
 wq
 Mp

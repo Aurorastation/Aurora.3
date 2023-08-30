@@ -2750,7 +2750,6 @@
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/portengine)
 "hhf" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -2801,7 +2800,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/brig)
 "hoJ" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
