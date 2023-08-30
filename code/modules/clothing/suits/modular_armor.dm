@@ -645,7 +645,7 @@
 	flippable = FALSE
 
 /obj/item/clothing/accessory/tcaf_senior_legion_pauldron
-	name = "tcaf senior legionnaire pauldron"
+	name = "\improper TCAF senior legionnaire pauldron"
 	desc = "A blue hard pauldron to indicate the wearer has the rank of Senior Legionnaire in the Tau Ceti Armed Forces."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "tcaf_senior_legion_pauldron"
