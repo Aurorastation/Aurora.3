@@ -129,6 +129,11 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 /datum/controller/subsystem/chemistry/proc/load_secret_chemicals()
 	. = 0
 	var/list/chemconfig = list()
+
+	if(!isfile("config/secretchem.json"))
+		log_config("The file config/secretchem.json was not found, secret chemicals will not be loaded.")
+		return
+
 	try
 		chemconfig = json_decode(return_file_text("config/secretchem.json"))
 	catch(var/exception/e)
