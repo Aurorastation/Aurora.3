@@ -1,6 +1,8 @@
 /obj/item/modulator_board
 	name = "modulator board"
 	desc = "A circuitboard capable of altering the function of a shield generator."
+	icon = 'icons/obj/machinery/shielding.dmi'
+	icon_state = "modulator"
 	w_class = ITEMSIZE_SMALL
 	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT

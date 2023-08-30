@@ -18,7 +18,7 @@
 	var/locked = FALSE
 	use_power = POWER_USE_OFF //doesn't use APC power
 	var/charge_rate = 100000	//100 kW
-	var/obj/machinery/shield_gen/owned_matrix
+	var/obj/machinery/shield_matrix/owned_matrix
 	req_one_access = list(access_captain, access_security, access_engine)
 
 /obj/machinery/shield_capacitor/Initialize()
@@ -27,9 +27,11 @@
 
 /obj/machinery/shield_capacitor/LateInitialize()
 	for(var/obj/machinery/shield_matrix/possible_matrix in range(1, src))
-		if(get_dir(src, possible_matrix) == dir)
-			possible_matrix.owned_capacitor = src
-			break
+		possible_matrix.update_shield_parts()
+	if(dir == NORTH)
+		pixel_y = 7
+	else
+		pixel_y = 0
 
 /obj/machinery/shield_capacitor/emag_act(var/remaining_charges, var/mob/user)
 	if(prob(75))
@@ -38,6 +40,20 @@
 		. = TRUE
 		updateDialog()
 	spark(src, 5, alldirs)
+
+/obj/machinery/shield_capacitor/update_icon()
+	if(active)
+		icon_state = "capacitor_on"
+	else
+		icon_state = "capacitor"
+	return ..()
+
+/obj/machinery/shield_capacitor/rotate()
+	. = ..()
+	if(dir == NORTH)
+		pixel_y = 7
+	else
+		pixel_y = 0
 
 /obj/machinery/shield_capacitor/attackby(obj/item/W, mob/user)
 
@@ -54,10 +70,7 @@
 
 		if(anchored)
 			for(var/obj/machinery/shield_matrix/matrix in range(1, src))
-				if(get_dir(src, matrix) == src.dir && !matrix.owned_capacitor)
-					owned_matrix = matrix
-					owned_matrix.owned_capacitor = src
-					owned_matrix.updateDialog()
+				matrix.update_shield_parts()
 		else
 			if(owned_matrix && owned_matrix.owned_capacitor == src)
 				owned_matrix.owned_capacitor = null
@@ -122,6 +135,7 @@
 
 		if("toggle")
 			active = !active
+			update_icon()
 
 /obj/machinery/shield_capacitor/process()
 	if (!anchored)
@@ -144,6 +158,8 @@
 		var/power_draw = between(0, max_charge - stored_charge, charge_rate) //what we are trying to draw
 		power_draw = PN.draw_power(power_draw) //what we actually get
 		stored_charge += power_draw
+
+	stored_charge = max_charge //If this is still here when I PR this, someone scream profanities at me
 
 	time_since_fail++
 	if(stored_charge < last_stored_charge)

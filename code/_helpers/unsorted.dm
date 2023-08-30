@@ -1147,15 +1147,3 @@ var/global/known_proc = /proc/get_type_ref_bytes
 	while (world.tick_usage > min(TICK_LIMIT_TO_RUN, CURRENT_TICKLIMIT))
 
 #undef DELTA_CALC
-
-/proc/switch_dir(var/dir)
-	switch(dir)
-		if(NORTH)
-			return SOUTH
-		if(EAST)
-			return WEST
-		if(SOUTH)
-			return NORTH
-		if(WEST)
-			return EAST
-	return FALSE

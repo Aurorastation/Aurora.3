@@ -6,6 +6,7 @@
 	var/mode_desc			// A short description of what the mode does.
 	var/mode_flag			// Mode bitflag. See defines file.
 	var/renwicks			// How many renwicks this mode uses passively. Most modes 0.2 - 0.5. High tier 1-2
+	var/greedy = TRUE
 
 /datum/shield_mode/proc/use_excess(var/renwicks)
 	return
@@ -95,17 +96,18 @@
 	var/delay = 0
 
 /datum/shield_mode/humanoids/use_excess(renwicks)
-	delay = (5 + (60 * renwicks)) SECONDS
+	delay = (5 + (10 * renwicks)) SECONDS
+	delay = 10 //Another test line. Remove when done.
 
 /datum/shield_mode/silicon
 	mode_name = "Silicon Lifeforms"
 	mode_desc = "This mode blocks various silicon based lifeforms."
-	mode_flag = MODEFLAG_ANORGANIC
+	mode_flag = MODEFLAG_INORGANIC
 	renwicks = 1
 	var/delay = 0
 
 /datum/shield_mode/silicon/use_excess(renwicks)
-	delay = (5 + (60 * renwicks)) SECONDS
+	delay = (5 + (10 * renwicks)) SECONDS
 
 /datum/shield_mode/mobs
 	mode_name = "Unknown Lifeforms"
@@ -115,19 +117,21 @@
 	var/delay = 0
 
 /datum/shield_mode/mobs/use_excess(renwicks)
-	delay = (5 + (60 * renwicks)) SECONDS
+	delay = (5 + (10 * renwicks)) SECONDS
 
 /datum/shield_mode/atmosphere
 	mode_name = "Atmospheric Containment"
 	mode_desc = "This mode blocks air flow and acts as atmosphere containment."
 	mode_flag = MODEFLAG_ATMOSPHERIC
 	renwicks = 2
+	greedy = FALSE
 
 /datum/shield_mode/hull
 	mode_name = "Hull Shielding"
 	mode_desc = "This mode recalibrates the field to cover surface of the installation instead of projecting a bubble shaped field."
 	mode_flag = MODEFLAG_HULL
 	renwicks = 0.5
+	greedy = FALSE
 
 /datum/shield_mode/adaptive
 	mode_name = "Adaptive Field Harmonics"
@@ -217,7 +221,7 @@
 
 /datum/shield_mode/overcharge
 	mode_name = "Field Overcharge"
-	mode_desc = "This mode polarises the field, causing damage on contact. Does not work with enabled safety protocols."
+	mode_desc = "This mode polarises the field, causing damage on contact."
 	mode_flag = MODEFLAG_OVERCHARGE
 	renwicks = 3
 	var/charge = 1

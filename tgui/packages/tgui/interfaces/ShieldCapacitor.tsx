@@ -16,7 +16,7 @@ export const ShieldCapacitor = (props, context) => {
   const { act, data } = useBackend<CapacitorData>(context);
 
   return (
-    <Window resizable>
+    <Window resizable theme="hephaestus">
       <Window.Content scrollable>
         <Section
           title="Shield Capacitor Control Console"
@@ -42,7 +42,9 @@ export const ShieldCapacitor = (props, context) => {
             value={data.charge_rate}
             minValue={0}
             maxValue={data.max_charge_rate}
-            onChange={(value) => act('setChargeRate', { charge_rate: value })}>
+            onChange={(e, value) =>
+              act('setChargeRate', { charge_rate: value })
+            }>
             {data.charge_rate} W
           </Slider>
         </Section>

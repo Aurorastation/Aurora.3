@@ -29,16 +29,27 @@
 	update_nearby_tiles()
 	return ..()
 
+/obj/effect/energy_field/update_icon()
+	if(parent_gen && parent_gen.parent_matrix.has_modulator(MODEFLAG_PHOTONIC) && density)
+		set_opacity(1)
+	else
+		set_opacity(0)
+
+	if(parent_gen && parent_gen.parent_matrix.has_modulator(MODEFLAG_OVERCHARGE))
+		icon_state = "shield_overcharged"
+	else
+		icon_state = "shield_normal"
+
 /obj/effect/energy_field/proc/diffuse(var/duration)
 	diffused_for = max(duration, 0)
 
-/obj/effect/energy_field/proc/check_overcharge(var/mob/user)
+/obj/effect/energy_field/proc/check_overcharge(var/mob/living/user)
 	var/datum/shield_mode/overcharge/O = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_OVERCHARGE)
 	if(!O)
 		return FALSE
-	M.adjustFireLoss(rand(20, 40) * O.charge)
-	M.Weaken(5 * O.charge)
-	to_chat(M, SPAN_DANGER("As you come into contact with \the [src] a surge of energy paralyses you!"))
+	user.adjustFireLoss(rand(20, 40) * O.charge)
+	user.Weaken(5 * O.charge)
+	to_chat(user, SPAN_DANGER("As you come into contact with \the [src] a surge of energy paralyses you!"))
 	Stress(10)
 
 /obj/effect/energy_field/attackby(obj/item/I, mob/user)
@@ -61,8 +72,8 @@
 /obj/effect/energy_field/attack_hand(mob/living/carbon/human/H)
 	check_overcharge(H)
 	if(istype(H))
-		if((isipc(H) && !GEN_MODULATED(parent_gen, MODEFLAG_ANORGANIC)) || (!isipc(H) && !GEN_MODULATED(parent_gen, MODEFLAG_HUMANOIDS)))
-			to_chat(H, SPAN_WARNING("You touch \the [src], and your hand passes right through."))#
+		if((isipc(H) && !parent_gen.parent_matrix.has_modulator(MODEFLAG_INORGANIC)) || (!isipc(H) && !parent_gen.parent_matrix.has_modulator(MODEFLAG_HUMANOIDS)))
+			to_chat(H, SPAN_WARNING("You touch \the [src], and your hand passes right through."))
 			return FALSE
 		else if(H.species.can_shred(H))
 			H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -86,11 +97,23 @@
 	Stress(result)
 
 /obj/effect/energy_field/bullet_act(var/obj/item/projectile/Proj)
-	var/result = parent_gen.handle_shield_damage(DAMAGE_BRUTE, DAMAGE_FLAG_BULLET, Proj.get_structure_damage() / 10)
+	var/result = parent_gen.handle_shield_damage(Proj.damage_type, Proj.damage_flags, Proj.get_structure_damage() / 10)
 	if(result < 0)
 		qdel(src)
 		return
 	Stress(result)
+
+/obj/effect/energy_field/emp_act(var/severity)
+	if(density)
+		Stress(rand(30,60) / severity)
+
+/obj/effect/energy_field/fire_act()
+	if(density)
+		var/result = parent_gen.handle_shield_damage(DAMAGE_BURN, null, rand(5, 10))
+		if(result < 0)
+			qdel(src)
+			return
+		Stress(result)
 
 /obj/effect/energy_field/proc/Stress(var/severity)
 	strength -= severity
@@ -106,7 +129,6 @@
 		density_check(TRUE)
 		is_strong = TRUE
 
-//
 /obj/effect/energy_field/proc/density_check(var/turn_on)
 	if(turn_on && !diffused)
 		alpha = 0
@@ -131,7 +153,11 @@
 		density_check(TRUE)
 
 /obj/effect/energy_field/proc/Strengthen(var/severity)
-	strength += severity
+	if(!parent_gen)
+		qdel(src)
+		return
+
+	strength = min(strength + severity, parent_gen.strength)
 	if (strength < 0)
 		strength = 0
 
@@ -150,12 +176,16 @@
 	diffuse_check()
 
 /obj/effect/energy_field/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
+	if(!parent_gen)
+		qdel(src)
+		. = TRUE
+
 	diffuse_check()
 	if(!density)
-		return TRUE
+		. = TRUE
 
 	if(air_group)
-		return !GEN_MODULATED(parent_gen, MODEFLAG_ATMOSPHERIC)
+		. = !parent_gen.parent_matrix.has_modulator(MODEFLAG_ATMOSPHERIC)
 
 	if(mover)
 		if(ishuman(mover) && !isipc(mover))
@@ -163,30 +193,31 @@
 			var/datum/shield_mode/humanoids/M = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_HUMANOIDS)
 			if(istype(M))
 				mover.visible_message(SPAN_NOTICE("[mover] starts pushing through \the [src]."), SPAN_NOTICE("You start pushing through \the [src]"))
-				if(do_after(M.delay))
+				if(do_after(mover, M.delay))
 					mover.visible_message(SPAN_NOTICE("[mover] pushes through \the [src]!"), SPAN_NOTICE("You push through \the [src]!"))
-					return TRUE
-				return FALSE
-			return TRUE
+					. = TRUE
+				. = FALSE
+			. = TRUE
 		else if((ishuman(mover) && isipc(mover)) || isbot(mover) || isrobot(mover) || ispAI(mover) || isDrone(mover))
 			check_overcharge(mover)
-			var/datum/shield_mode/humanoids/M = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_ANORGANIC)
+			var/datum/shield_mode/humanoids/M = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_INORGANIC)
 			if(istype(M))
 				mover.visible_message(SPAN_NOTICE("[mover] starts pushing through \the [src]."), SPAN_NOTICE("You start pushing through \the [src]"))
-				if(do_after(M.delay))
+				if(do_after(mover, M.delay))
 					mover.visible_message(SPAN_NOTICE("[mover] pushes through \the [src]!"), SPAN_NOTICE("You push through \the [src]!"))
-					return TRUE
-				return FALSE
-			return TRUE
+					. = TRUE
+				. = FALSE
+			. = TRUE
 		else if(isanimal(mover))
 			check_overcharge(mover)
 			var/datum/shield_mode/mobs/M = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_NONHUMANS)
 			if(istype(M))
 				mover.visible_message(SPAN_NOTICE("[mover] starts pushing through \the [src]."), SPAN_NOTICE("You start pushing through \the [src]"))
-				if(do_after(M.delay))
+				if(do_after(mover, M.delay))
 					mover.visible_message(SPAN_NOTICE("[mover] pushes through \the [src]!"), SPAN_NOTICE("You push through \the [src]!"))
-					return TRUE
-				return FALSE
-			return TRUE
+					. = TRUE
+				. = FALSE
+			. = TRUE
 
-	return TRUE
+	if(. && istype(mover))
+		mover.forceMove(get_turf(src))

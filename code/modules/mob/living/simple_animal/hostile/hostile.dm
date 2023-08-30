@@ -380,13 +380,16 @@
 			var/obj/found_obj = locate(/obj/effect/energy_field) in target_turf
 			if(found_obj && !found_obj.invisibility && found_obj.density)
 				var/obj/effect/energy_field/e = found_obj
-				e.Stress(rand(0.5, 1.5))
-				visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] [attacktext] \the [e]!"))
-				src.do_attack_animation(e)
-				target_mob = e
-				change_stance(HOSTILE_STANCE_ATTACKING)
-				hostile_last_attack = world.time
-				return TRUE
+				if(istype(found_obj))
+					if(e.parent_gen.parent_matrix.has_modulator(MODEFLAG_NONHUMANS))
+						e.Stress(rand(0.5, 1.5))
+						e.check_overcharge(src)
+						visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] [attacktext] \the [e]!"))
+						src.do_attack_animation(e)
+						target_mob = e
+						change_stance(HOSTILE_STANCE_ATTACKING)
+						hostile_last_attack = world.time
+						return TRUE
 
 			found_obj = locate(/obj/structure/window) in target_turf
 			if(found_obj)
