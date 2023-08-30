@@ -722,12 +722,17 @@
 
 /obj/machinery/door/airlock/diona
 	name = "biomass airlock"
-	door_color = COLOR_GREEN
+	door_color = "#564A27"
+	door_frame_color = "#7E6A40"
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = 600
 	insecure = FALSE
 	hashatch = FALSE
+
+/// Placeholder object until it gets new sprites.
+/obj/machinery/door/airlock/diona/external
+	name = "external biomass airlock"
 
 //---Uranium doors
 /obj/machinery/door/airlock/uranium
