@@ -2420,7 +2420,7 @@
 	},
 /obj/machinery/light_switch{
 	pixel_x = -23;
-	pixel_y = 24
+	pixel_y = 27
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
@@ -19787,10 +19787,6 @@
 /turf/simulated/wall,
 /area/engineering/storage_eva)
 "jwa" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Chemistry Lab Bravo";
-	dir = 8
-	},
 /obj/effect/floor_decal/corner_wide/orange/full{
 	dir = 1
 	},
@@ -31106,6 +31102,10 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Chemistry Lab Bravo";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "paL" = (
@@ -33273,6 +33273,7 @@
 /area/horizon/security/brig)
 "qgL" = (
 /obj/machinery/door/airlock/vault/bolted{
+	dir = 4;
 	id_tag = "Vault_Airlock";
 	req_one_access = list(20,41)
 	},
