@@ -350,7 +350,7 @@
 	)
 
 /obj/item/clothing/head/helmet/tcaf
-	name = "tcaf faceplate legionnaire helmet"
+	name = "\improper TCAF legionnaire faceplate helmet"
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces. This one equipped with the signature faceplate."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
