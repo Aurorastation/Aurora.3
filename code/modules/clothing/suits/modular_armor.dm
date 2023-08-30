@@ -222,7 +222,7 @@
 	slowdown = 0 // the SCC is hacking
 
 /obj/item/clothing/accessory/armor_plate/tcaf
-	name = "tcaf legionnaire carapace"
+	name = "\improper TCAF legionnaire carapace"
 	desc = "The blue carapace of the Tau Ceti Armed Forces. Polished and proud for Miranda Trasen's favorite soldiers."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "tcaf_plate"
