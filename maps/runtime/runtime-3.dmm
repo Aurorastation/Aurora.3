@@ -374,13 +374,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
-"hZ" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 10
-	},
-/turf/simulated/floor/wood/birch,
-/area/construction/storage)
 "ic" = (
 /obj/machinery/firealarm/north,
 /turf/simulated/floor,
@@ -421,10 +414,6 @@
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
-	},
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 10
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
@@ -27330,7 +27319,7 @@ Rj
 Cr
 he
 tl
-hZ
+tl
 vY
 oD
 yo
