@@ -265,7 +265,6 @@
 	if (connected)
 		connected.connected = null
 		connected = null
-
 	return ..()
 
 /obj/machinery/body_scanconsole/power_change()
