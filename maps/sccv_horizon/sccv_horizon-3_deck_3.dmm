@@ -31154,7 +31154,7 @@
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/captain)
-"AAA" = (
+"ymi" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	dir = 8;
@@ -54081,7 +54081,7 @@ ejB
 tkI
 ouQ
 tBH
-AAA
+ymi
 nVR
 xaT
 rIg
@@ -54283,7 +54283,7 @@ iLB
 bdE
 qnC
 tBH
-AAA
+ymi
 nVR
 xaT
 rIg
@@ -54485,7 +54485,7 @@ kuz
 ayg
 qnC
 tBH
-AAA
+ymi
 nVR
 xaT
 rIg
