@@ -365,7 +365,7 @@
 	)
 
 /obj/item/clothing/head/helmet/tcaf/tcaf_novisor
-	name = "tcaf legionnaire helmet"
+	name = "\improper TCAF legionnaire helmet"
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces."
 	icon_state = "tcaf_helm_novisor"
 	item_state = "tcaf_helm_novisor"
