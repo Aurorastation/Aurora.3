@@ -635,7 +635,7 @@
 	item_state = "flagpatch_hegemony"
 
 /obj/item/clothing/accessory/tcaf_prefect_pauldron
-	name = "tcaf prefect pauldron"
+	name = "\improper TCAF prefect pauldron"
 	desc = "A bright red hard pauldron to indicate the wearer has the rank of Prefect in the Tau Ceti Armed Forces."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "tcaf_prefect_pauldron"
