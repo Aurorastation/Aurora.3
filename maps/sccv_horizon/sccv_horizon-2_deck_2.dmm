@@ -33273,6 +33273,7 @@
 /area/horizon/security/brig)
 "qgL" = (
 /obj/machinery/door/airlock/vault/bolted{
+	dir = 4;
 	id_tag = "Vault_Airlock";
 	req_one_access = list(20,41)
 	},
