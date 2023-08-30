@@ -244,11 +244,10 @@
 				return
 			to_chat(user, SPAN_NOTICE("You finish the airlock!"))
 			SetBounds()
-			var/obj/machinery/door/airlock/A
 			if(glass && glass_type)
-				A = new glass_type(loc, dir, FALSE, src)
+				new glass_type(loc, dir, FALSE, src)
 			else
-				A = new airlock_type(loc, dir, FALSE, src)
+				new airlock_type(loc, dir, FALSE, src)
 			qdel(src)
 
 	else if(istype(W, /obj/item/material/twohanded/chainsaw))
