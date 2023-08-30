@@ -271,6 +271,6 @@
 	)
 
 /obj/item/clothing/accessory/arm_guard/tcaf/tcaf_stripe
-	name = "striped tcaf carapace arm guards"
+	name = "striped TCAF carapace arm guards"
 	icon_state = "tcaf_armguards_stripe"
 	item_state = "tcaf_armguards_stripe"
