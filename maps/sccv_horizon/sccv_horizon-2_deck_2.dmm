@@ -1675,7 +1675,8 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/full,
 /area/chapel/office)
 "aMl" = (
 /obj/structure/punching_bag,
@@ -8532,7 +8533,6 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
@@ -9830,10 +9830,10 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "eUY" = (
@@ -13148,7 +13148,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
@@ -15289,6 +15288,7 @@
 	name = "Aft Research Hallway Maintenance";
 	req_one_access = list(12,47)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/hallway)
 "hqC" = (
@@ -15751,11 +15751,11 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "hCe" = (
@@ -17660,6 +17660,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/middle/north,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "ixR" = (
@@ -18732,6 +18733,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
 "iYn" = (
@@ -19340,6 +19342,7 @@
 	name = "Engineering Front Desk Internal";
 	req_access = list(10)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/lobby)
 "jno" = (
@@ -19713,7 +19716,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "juk" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
@@ -21408,6 +21410,7 @@
 /area/template_noop)
 "kmI" = (
 /obj/machinery/door/airlock/side/north,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
 "knA" = (
@@ -22946,6 +22949,7 @@
 /area/rnd/hallway)
 "lcY" = (
 /obj/machinery/door/airlock/side/south,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
 "ldk" = (
@@ -24716,7 +24720,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
@@ -25170,7 +25173,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
@@ -28287,6 +28289,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/horizon/security/brig)
 "nFO" = (
@@ -29460,6 +29465,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/middle/north,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
 "okk" = (
@@ -30333,14 +30339,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
-"oDV" = (
-/obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/starboard/far)
 "oEr" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
 	dir = 1
@@ -33665,7 +33663,6 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
@@ -34256,6 +34253,7 @@
 	dir = 9
 	},
 /obj/machinery/door/airlock/side/north,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "qFs" = (
@@ -35097,6 +35095,7 @@
 	id = "shutters_deck2_hydroponicswindowssafety";
 	name = "Viewing Shutter"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/horizon/hydroponics)
 "rbF" = (
@@ -35956,6 +35955,7 @@
 	name = "Supermatter Reactor External Access";
 	req_one_access = list(11,24)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/engineering/engine_room)
 "rwn" = (
@@ -38125,7 +38125,7 @@
 	req_access = list(22)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/full,
 /area/chapel/office)
 "sDc" = (
 /obj/effect/floor_decal/corner/brown{
@@ -39957,6 +39957,7 @@
 	name = "Operations Desk Interior Access";
 	req_access = list(50)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/office)
 "tCk" = (
@@ -39995,7 +39996,8 @@
 	req_access = list(22)
 	},
 /obj/effect/map_effect/door_helper/unres,
-/turf/simulated/floor/wood,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/full,
 /area/chapel/main)
 "tDZ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -43138,6 +43140,7 @@
 	dir = 1;
 	name = "Bar - Private Lounge"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/horizon/bar)
 "uZs" = (
@@ -43648,6 +43651,7 @@
 	dir = 6
 	},
 /obj/machinery/door/airlock/side/south,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "vqO" = (
@@ -48307,7 +48311,6 @@
 /area/engineering/engine_waste)
 "xqo" = (
 /obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
@@ -48358,7 +48361,9 @@
 "xsp" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille/diagonal,
-/turf/simulated/floor/reinforced,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green,
+/turf/simulated/floor/plating,
 /area/horizon/security/brig)
 "xsH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -49581,6 +49586,7 @@
 	name = "Aft Research Hallway Maintenance";
 	req_one_access = list(12,47)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/rnd/hallway)
 "xWc" = (
@@ -56979,10 +56985,10 @@ kHx
 vcH
 vcH
 dEz
-oDV
+lXo
 dEz
 dEz
-oDV
+lXo
 dEz
 dEz
 dEz
@@ -57989,7 +57995,7 @@ fsf
 qdY
 dEz
 dEz
-oDV
+lXo
 dEz
 dEz
 uOq

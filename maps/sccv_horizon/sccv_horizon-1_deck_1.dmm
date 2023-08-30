@@ -8895,7 +8895,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
@@ -9173,7 +9172,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "grP" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
 	},
@@ -9777,12 +9775,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "gOa" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "gOe" = (
@@ -10281,7 +10278,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
 	req_one_access = list(12,26)
@@ -11063,7 +11059,7 @@
 	name = "Hangar"
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/full,
 /area/hangar/intrepid)
 "hIf" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -11845,6 +11841,7 @@
 	name = "Spectrometry";
 	req_access = list(65)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "iqf" = (
@@ -13836,6 +13833,7 @@
 	name = "Port Propulsion";
 	req_one_access = list(11,24)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "jNq" = (
@@ -15360,6 +15358,9 @@
 "kSq" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
@@ -19131,7 +19132,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance{
 	dir = 1;
@@ -20760,7 +20760,6 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "oFy" = (
@@ -22382,6 +22381,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "pPH" = (
@@ -23703,7 +23703,8 @@
 "qKA" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
-/turf/space/dynamic,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "qLe" = (
 /obj/structure/shuttle_part/scc/scout{
@@ -29932,7 +29933,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "vcF" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
 	req_one_access = list(12,47)
@@ -32675,7 +32675,6 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
@@ -33400,7 +33399,7 @@
 "xst" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/port/deck1)
 "xsx" = (
 /obj/effect/landmark/entry_point/fore{
@@ -34253,10 +34252,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/platform_stairs/full/east_west_cap{
-	dir = 8
+/turf/simulated/floor/tiled/ramp/bottom{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "xUM" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -34388,14 +34386,16 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_a)
 "xXt" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/obj/structure/platform_stairs/full/east_west_cap/half{
-	dir = 8
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/engineering)
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/hangar/auxiliary)
 "xXO" = (
 /obj/effect/map_effect/airlock/w_to_e/long/square/wide{
 	name = "Deck 1 Port Maintenance Airlock (1003)";
@@ -34690,18 +34690,22 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "AAC" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 8;
-	id = "hangarlockdown";
-	name = "Hangar Lockdown"
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/glass{
-	dir = 1;
-	name = "Hangar"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 10
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/hangar/intrepid)
+/area/hangar/auxiliary)
 "AAD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -48825,7 +48829,7 @@ qhZ
 bcG
 kQI
 xTG
-xXt
+mMR
 lIg
 svg
 svg
@@ -54934,7 +54938,7 @@ jnS
 mey
 hYy
 apf
-wuD
+hId
 pvn
 pvn
 nvn
@@ -55137,7 +55141,7 @@ xOV
 kEt
 hYy
 hhv
-AAC
+hId
 pvn
 pvn
 kxk
@@ -61433,8 +61437,8 @@ vKN
 xtK
 xtK
 xtK
-hot
-ows
+xXt
+AAC
 pPV
 pPV
 pPV
@@ -64881,7 +64885,7 @@ hoV
 eSV
 eSV
 eSV
-xst
+qKA
 suT
 gIr
 iEX
@@ -65084,7 +65088,7 @@ hoV
 eSV
 eSV
 eSV
-xst
+qKA
 eVE
 gIr
 iEX
@@ -65287,7 +65291,7 @@ hoV
 eSV
 eSV
 eSV
-xst
+qKA
 dob
 dFg
 iEX
@@ -65490,7 +65494,7 @@ hoV
 eSV
 eSV
 eSV
-xst
+qKA
 ckY
 iUg
 vDP
@@ -65900,7 +65904,7 @@ jKT
 wHY
 fiL
 qKA
-xst
+hoV
 eSV
 eSV
 eSV
@@ -66505,7 +66509,7 @@ eSV
 eSV
 eSV
 eSV
-xst
+qKA
 eVE
 iUg
 qKA
@@ -66708,10 +66712,10 @@ eSV
 eSV
 eSV
 eSV
-xst
+qKA
 suT
 fmi
-xst
+qKA
 eSV
 eSV
 eSV
@@ -67114,10 +67118,10 @@ eSV
 eSV
 eSV
 eSV
-xst
+qKA
 cFo
 iUg
-xst
+qKA
 hoV
 eSV
 eSV
@@ -67317,10 +67321,10 @@ eSV
 eSV
 eSV
 eSV
-xst
+qKA
 hWn
 iUg
-xst
+qKA
 hoV
 eSV
 eSV
@@ -67726,7 +67730,7 @@ eSV
 jKT
 ofh
 qvT
-xst
+qKA
 eSV
 eSV
 eSV
@@ -67929,7 +67933,7 @@ eSV
 jKT
 cye
 pAB
-xst
+qKA
 eSV
 eSV
 eSV

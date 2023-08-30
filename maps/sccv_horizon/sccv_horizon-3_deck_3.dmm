@@ -170,6 +170,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/washroom)
 "adz" = (
@@ -1434,7 +1435,7 @@
 	id = "shutters_deck3_bridgesafety";
 	name = "Safety Shutter"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/crew_quarters/captain)
 "bas" = (
 /turf/simulated/floor/tiled,
@@ -1850,7 +1851,8 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/crew_quarters/captain)
 "bqN" = (
 /obj/effect/floor_decal/corner/dark_green/full,
@@ -4738,7 +4740,7 @@
 	id = "shutters_deck3_bridgesafety";
 	name = "Safety Shutter"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/crew_quarters/captain)
 "ecI" = (
 /obj/structure/cable/green{
@@ -5248,7 +5250,7 @@
 /obj/structure/grille/diagonal{
 	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/plating,
 /area/bridge/minibar)
 "ert" = (
 /obj/structure/bed/stool/chair/padded/brown{
@@ -7856,7 +7858,7 @@
 	id = "shutters_deck3_bridgesafety";
 	name = "Safety Shutter"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/crew_quarters/captain)
 "giQ" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -8042,7 +8044,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/crew_quarters/captain)
 "grs" = (
 /obj/structure/railing/mapped{
@@ -8888,7 +8890,8 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/medical/smoking)
 "hai" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -11527,7 +11530,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/crew_quarters/captain)
 "iXl" = (
 /obj/structure/reagent_dispensers/extinguisher,
@@ -16410,7 +16413,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/crew_quarters/captain)
 "mIx" = (
 /obj/structure/grille,
@@ -18073,7 +18076,8 @@
 	opacity = 0;
 	dir = 2
 	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/medical/equipment)
 "nUa" = (
 /obj/structure/cable/green{
@@ -20797,7 +20801,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, captain's office"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/crew_quarters/captain)
 "qlt" = (
 /obj/structure/cable/green{
@@ -20971,7 +20975,8 @@
 	name = "Bridge Blast Doors";
 	opacity = 0
 	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/bridge/minibar)
 "qub" = (
 /obj/structure/lattice,
@@ -21952,7 +21957,7 @@
 	id = "shutters_deck3_bridgesafety";
 	name = "Safety Shutter"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/crew_quarters/captain)
 "rnK" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
