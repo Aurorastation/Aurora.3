@@ -82,21 +82,15 @@
 			A.all_doors.Add(src)
 			areas_added += A
 
-	smart_generation(mapload)
+	smart_generation()
 
-/obj/machinery/door/firedoor/proc/smart_generation(var/mapload)
+/obj/machinery/door/firedoor/proc/smart_generation()
 	if(!enable_smart_generation)
 		return .
 
 	var/turf/current_turf = get_turf(src)
 	if(locate(/obj/structure/grille, current_turf))
 		hashatch = 0
-
-	// face same dir as door if on the same tile
-	var/obj/machinery/door/airlock/door = locate(/obj/machinery/door/airlock, current_turf)
-	if(istype(door))
-		dir = door.dir
-		return .
 
 	// if there is adjacent wall
 	if(istype(get_step(src,NORTH), /turf/simulated/wall))
@@ -110,6 +104,26 @@
 		return .
 	if(istype(get_step(src,EAST), /turf/simulated/wall))
 		dir = SOUTH
+		return .
+
+	// if there is adjacent firedoor
+	if(locate(/obj/machinery/door/firedoor, get_step(src,NORTH)))
+		dir = EAST
+		return .
+	if(locate(/obj/machinery/door/firedoor, get_step(src,SOUTH)))
+		dir = WEST
+		return .
+	if(locate(/obj/machinery/door/firedoor, get_step(src,WEST)))
+		dir = NORTH
+		return .
+	if(locate(/obj/machinery/door/firedoor, get_step(src,EAST)))
+		dir = SOUTH
+		return .
+
+	// face same dir as door if on the same tile
+	var/obj/machinery/door/airlock/door = locate(/obj/machinery/door/airlock, current_turf)
+	if(istype(door))
+		dir = door.dir
 		return .
 
 /obj/machinery/door/firedoor/Destroy()
