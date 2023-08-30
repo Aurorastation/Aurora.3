@@ -615,7 +615,7 @@
 	name = "solarian fleet administration flagpatch"
 	desc = "A patch bearing the ensign of the Solarian Fleet Administration. It is a rare sight to see anyone \
 	loyal enough to the SFA to have one of these made."
-	desc = "Before the total collapse of Solarian authority in much of the Middle and Outer Rings, the Tenth Middle \
+	desc_extended = "Before the total collapse of Solarian authority in much of the Middle and Outer Rings, the Tenth Middle \
 	Ring Battlegroup under the command of Fleet Admiral F.R. Beauchamp was considered to be the absolute bottom of the \
 	Solarian Navy’s figurative barrel. With much of its enlisted being made up of prisoners conscripted or enlisted into \
 	the Navy for a reduced prison sentence and the vast majority of its officers being washouts deliberately reassigned to the \
