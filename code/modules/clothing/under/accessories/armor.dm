@@ -114,7 +114,7 @@
 	)
 
 /obj/item/clothing/accessory/leg_guard/tcaf
-	name = "tcaf legionnaire leg carapace"
+	name = "\improper TCAF legionnaire leg carapace"
 	desc = "Try to sweep the leg against someone wearing these."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "tcaf_boot_armor"
