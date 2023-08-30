@@ -1558,7 +1558,7 @@
 /area/maintenance/vault)
 "adk" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "adl" = (
 /obj/structure/cable/green{
@@ -2060,7 +2060,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "aee" = (
 /obj/structure/cable{
@@ -2075,7 +2075,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "aeg" = (
 /obj/machinery/alarm{
@@ -2115,7 +2115,7 @@
 "ael" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "aem" = (
 /obj/structure/sign/nosmoking_2{
@@ -2690,7 +2690,7 @@
 "afn" = (
 /obj/structure/table/standard,
 /obj/random/loot,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "afo" = (
 /turf/simulated/wall,
@@ -4131,7 +4131,7 @@
 	pixel_y = 28
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/atmos_control)
 "aih" = (
 /obj/structure/closet,
@@ -31157,7 +31157,7 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/bar)
 "bbY" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
@@ -33351,7 +33351,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bfY" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -41207,7 +41207,7 @@
 /obj/structure/table/standard,
 /obj/item/material/ashtray,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "buF" = (
 /obj/structure/table/rack{
@@ -41216,7 +41216,7 @@
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "buG" = (
 /obj/effect/decal/cleanable/dirt,
@@ -41227,7 +41227,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "buH" = (
 /obj/structure/sign/nosmoking_2{
@@ -42773,7 +42773,7 @@
 	name = "dead plant"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bye" = (
 /obj/structure/window/reinforced{
@@ -46325,7 +46325,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bFT" = (
 /obj/structure/closet,
@@ -47345,13 +47345,13 @@
 "bIr" = (
 /obj/machinery/vending/hydronutrients,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_dark,
+/turf/simulated/floor/tiled,
 /area/maintenance/bar)
 "bIs" = (
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
-/turf/simulated/floor/tiled/old_dark,
+/turf/simulated/floor/tiled,
 /area/maintenance/bar)
 "bIv" = (
 /obj/structure/bed,
@@ -47970,7 +47970,7 @@
 /obj/machinery/vending/hydroseeds{
 	prices = list()
 	},
-/turf/simulated/floor/tiled/old_dark,
+/turf/simulated/floor/tiled,
 /area/maintenance/bar)
 "bKf" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -48615,7 +48615,7 @@
 	pixel_x = 5;
 	pixel_y = -5
 	},
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bLQ" = (
 /obj/machinery/door/airlock/maintenance{
@@ -49219,14 +49219,14 @@
 "bNa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bNb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table,
 /obj/random/loot,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bNd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -49554,7 +49554,7 @@
 "bNU" = (
 /obj/structure/curtain/medical,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bNV" = (
 /obj/structure/window/reinforced/tinted{
@@ -49574,12 +49574,12 @@
 /obj/structure/curtain/medical,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bNX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bNZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
@@ -49644,7 +49644,7 @@
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bOf" = (
 /obj/machinery/light{
@@ -49751,12 +49751,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/iv_drip,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bOx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bOy" = (
 /obj/structure/grille,
@@ -49773,14 +49773,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bOA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/iv_drip,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bOB" = (
 /obj/machinery/access_button{
@@ -50030,7 +50030,7 @@
 /obj/item/bedsheet/medical,
 /obj/random/action_figure,
 /obj/random/plushie,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bPh" = (
 /obj/structure/window/reinforced/tinted,
@@ -50050,7 +50050,7 @@
 /obj/item/bedsheet/medical,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bPj" = (
 /obj/structure/grille,
@@ -50097,7 +50097,7 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bPn" = (
 /obj/structure/table/standard,
@@ -50144,7 +50144,7 @@
 /obj/item/stack/cable_coil,
 /obj/random/junk,
 /obj/structure/table/standard,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bPv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -50259,12 +50259,12 @@
 /area/maintenance/research_port)
 "bPL" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bPM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bPN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -50404,16 +50404,16 @@
 /area/maintenance/medbay)
 "bQh" = (
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bQi" = (
 /obj/random/junk,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bQj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bQm" = (
 /obj/structure/bed/stool/chair/padded/brown{
@@ -50522,14 +50522,14 @@
 "bQC" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/recharger,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bQD" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/stack/tile/floor,
 /obj/random/toolbox,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bQE" = (
 /obj/structure/grille,
@@ -50755,14 +50755,14 @@
 "bRm" = (
 /obj/item/stack/tile/floor,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bRn" = (
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bRo" = (
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bRp" = (
 /obj/item/stack/tile/floor,
@@ -50973,7 +50973,7 @@
 "bSc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "bSd" = (
 /obj/structure/window/reinforced,
@@ -58691,7 +58691,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/atmos_control)
 "cnM" = (
 /obj/structure/closet{
@@ -58702,7 +58702,7 @@
 /obj/random/loot,
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "coB" = (
 /obj/structure/table/steel,
@@ -58814,7 +58814,7 @@
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/bedsheet/medical,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "cva" = (
 /obj/structure/disposalpipe/segment{
@@ -58933,7 +58933,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/constructable_frame/temp_deco,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "cCf" = (
 /obj/machinery/camera/network/civilian_main{
@@ -59280,7 +59280,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/chair,
 /obj/random/loot,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/bar)
 "dhL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -59382,7 +59382,7 @@
 /area/maintenance/medbay)
 "drh" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/cargo)
 "drO" = (
 /obj/structure/girder,
@@ -59414,7 +59414,7 @@
 "dtt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "dwg" = (
 /obj/item/chess_piece/rook,
@@ -59809,7 +59809,7 @@
 "enl" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_dark,
+/turf/simulated/floor/tiled,
 /area/maintenance/bar)
 "enx" = (
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -59840,7 +59840,7 @@
 /obj/item/trash/cigbutt,
 /obj/structure/table/steel,
 /obj/item/material/ashtray,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/bar)
 "erq" = (
 /obj/effect/decal/cleanable/dirt,
@@ -60418,7 +60418,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "fkF" = (
 /obj/effect/floor_decal/corner/lime{
@@ -60719,7 +60719,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "fNI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -60907,7 +60907,7 @@
 	},
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/engineering)
 "gcN" = (
 /obj/structure/disposalpipe/segment{
@@ -60957,7 +60957,7 @@
 "gen" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/engineering)
 "gfh" = (
 /obj/machinery/light/small/emergency{
@@ -60995,7 +60995,7 @@
 /area/hallway/primary/starboard)
 "gfU" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/bar)
 "ggP" = (
 /obj/structure/bed/stool/chair/padded/brown,
@@ -61195,7 +61195,7 @@
 /obj/item/clothing/shoes/white,
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "gCl" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -61257,7 +61257,7 @@
 "gIw" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "gJn" = (
 /obj/effect/decal/cleanable/dirt,
@@ -61277,7 +61277,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
 /obj/random/medical,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "gKH" = (
 /obj/structure/disposalpipe/segment{
@@ -61386,7 +61386,7 @@
 "gXa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/iv_drip,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "gXA" = (
 /obj/effect/decal/cleanable/dirt,
@@ -61568,7 +61568,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "hji" = (
 /obj/structure/table/wood,
@@ -61777,7 +61777,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "hAn" = (
 /obj/structure/disposalpipe/junction{
@@ -61908,7 +61908,7 @@
 /area/maintenance/vault)
 "hKS" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/library)
 "hLy" = (
 /obj/structure/disposalpipe/segment{
@@ -62379,7 +62379,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/chair/plastic,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "iCN" = (
 /obj/structure/kitchenspike,
@@ -62404,7 +62404,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "iHM" = (
 /obj/effect/floor_decal/corner/blue{
@@ -62569,7 +62569,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "iZx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -62588,7 +62588,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "jch" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -62775,7 +62775,7 @@
 /area/maintenance/atmos_control)
 "jCo" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "jDA" = (
 /turf/simulated/wall,
@@ -62828,7 +62828,7 @@
 	req_access = null;
 	req_one_access = list(12,66)
 	},
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "jPX" = (
 /turf/simulated/wall,
@@ -62846,7 +62846,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/engineering)
 "jTV" = (
 /obj/structure/cable/green{
@@ -62867,7 +62867,7 @@
 	dir = 4;
 	pixel_x = -28
 	},
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "jXn" = (
 /obj/item/chess_piece/rook/black,
@@ -62880,7 +62880,7 @@
 	name = "Storeroom 2";
 	req_one_access = list(12,31)
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/cargo)
 "kaa" = (
 /obj/random/loot,
@@ -62889,7 +62889,7 @@
 /obj/random/junk,
 /obj/random/smalltank,
 /obj/item/clothing/mask/gas/alt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/cargo)
 "kaW" = (
 /obj/structure/grille,
@@ -62969,7 +62969,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/curtain/medical,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "keq" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -63104,7 +63104,7 @@
 /obj/random/loot,
 /obj/structure/table/steel,
 /obj/item/crowbar/red,
-/turf/simulated/floor/tiled/old_dark,
+/turf/simulated/floor/tiled,
 /area/maintenance/bar)
 "kxP" = (
 /obj/effect/decal/cleanable/dirt,
@@ -63175,7 +63175,7 @@
 /obj/structure/cable/green{
 	icon_state = "5-10"
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "kAL" = (
 /obj/structure/table/wood,
@@ -63211,7 +63211,7 @@
 "kGv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/cargo)
 "kGA" = (
 /obj/structure/disposalpipe/segment{
@@ -63302,7 +63302,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "kUL" = (
 /obj/structure/bed/stool/chair/office/dark,
@@ -63390,7 +63390,7 @@
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "lbN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -63601,7 +63601,7 @@
 	c_tag = "Maintenance - Atmospherics"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/atmos_control)
 "lAa" = (
 /obj/structure/cable/green{
@@ -63873,7 +63873,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "mdx" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -63955,12 +63955,12 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/engineering)
 "mhb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/paper,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "mhV" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -64107,7 +64107,7 @@
 /obj/structure/curtain/medical,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "mzO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -64292,7 +64292,7 @@
 /area/maintenance/research_port)
 "mMJ" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_dark,
+/turf/simulated/floor/tiled,
 /area/maintenance/bar)
 "mNw" = (
 /obj/structure/closet,
@@ -64333,7 +64333,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/curtain/medical,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "mQI" = (
 /obj/structure/disposalpipe/sortjunction/flipped{
@@ -64380,7 +64380,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/engineering)
 "mUZ" = (
 /obj/effect/floor_decal/corner/blue{
@@ -64494,7 +64494,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/towel/random,
 /obj/random/medical,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "ncH" = (
 /obj/structure/cable/green{
@@ -64777,7 +64777,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "nGA" = (
 /obj/structure/disposalpipe/segment{
@@ -64802,7 +64802,7 @@
 /area/maintenance/medbay)
 "nIf" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "nJe" = (
 /obj/structure/closet{
@@ -64813,7 +64813,7 @@
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "nJZ" = (
 /turf/simulated/floor/marble,
@@ -64839,7 +64839,7 @@
 "nKv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/engineering)
 "nKE" = (
 /obj/structure/table/rack,
@@ -64901,7 +64901,7 @@
 "nOy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "nOE" = (
 /obj/structure/cable{
@@ -65040,14 +65040,14 @@
 	req_access = null;
 	req_one_access = list(12,66)
 	},
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "ohn" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "ohv" = (
 /obj/structure/disposalpipe/segment{
@@ -65064,7 +65064,7 @@
 "ohF" = (
 /obj/machinery/conveyor_switch/oneway,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/cargo)
 "ohL" = (
 /obj/structure/table/rack{
@@ -65109,7 +65109,7 @@
 "oms" = (
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "omB" = (
 /turf/simulated/wall,
@@ -65459,7 +65459,7 @@
 "oSi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/bar)
 "oST" = (
 /obj/structure/cable/green{
@@ -65788,7 +65788,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/engineering)
 "pnV" = (
 /obj/structure/disposalpipe/segment,
@@ -65797,7 +65797,7 @@
 "pok" = (
 /obj/structure/curtain/medical,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "ppp" = (
 /obj/structure/disposalpipe/segment{
@@ -66283,7 +66283,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/rat/brown,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "qoC" = (
 /obj/structure/bed/stool/padded/red,
@@ -66291,7 +66291,7 @@
 	icon_state = "4-10"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "qqx" = (
 /obj/structure/table/standard,
@@ -66494,7 +66494,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "qHj" = (
 /obj/machinery/door/window/northleft{
@@ -66652,7 +66652,7 @@
 "qPd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/junk,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "qPN" = (
 /obj/effect/floor_decal/corner/blue{
@@ -66739,7 +66739,7 @@
 /obj/random/loot,
 /obj/random/junk,
 /obj/structure/closet,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/cargo)
 "qYU" = (
 /obj/machinery/power/apc{
@@ -66760,7 +66760,7 @@
 "qZS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/engineering)
 "raN" = (
 /obj/structure/window/reinforced{
@@ -66908,7 +66908,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/random/loot,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "rmm" = (
 /obj/machinery/camera/network/medbay{
@@ -67038,7 +67038,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/engineering)
 "ryo" = (
 /obj/structure/disposalpipe/trunk,
@@ -67083,7 +67083,7 @@
 /obj/random/junk,
 /obj/random/loot,
 /obj/structure/closet,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/cargo)
 "rBa" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
@@ -67101,7 +67101,7 @@
 	use_power = 0
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/engineering)
 "rEi" = (
 /obj/structure/table/reinforced/steel,
@@ -67117,7 +67117,7 @@
 	name = "Storeroom 1";
 	req_one_access = list(12,31)
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/cargo)
 "rGO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -67135,7 +67135,7 @@
 /obj/structure/table/standard,
 /obj/item/folder/purple,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "rHX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -67229,7 +67229,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/random/pottedplant,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "rPZ" = (
 /obj/machinery/door/firedoor,
@@ -67257,7 +67257,7 @@
 /obj/structure/closet,
 /obj/random/loot,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "rVl" = (
 /obj/structure/cable/green{
@@ -67280,7 +67280,7 @@
 "rWE" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/engineering)
 "rWM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -67318,7 +67318,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "saW" = (
 /obj/structure/closet,
@@ -67462,7 +67462,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "skc" = (
 /obj/structure/table/steel,
@@ -68069,7 +68069,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/toolbox,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "toT" = (
 /obj/structure/cable{
@@ -68187,7 +68187,7 @@
 /obj/structure/curtain/medical,
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "tzT" = (
 /obj/machinery/conveyor{
@@ -68425,7 +68425,7 @@
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "tKz" = (
 /obj/effect/decal/cleanable/dirt,
@@ -68529,7 +68529,7 @@
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "tTC" = (
 /obj/machinery/ringer{
@@ -68620,7 +68620,7 @@
 "uaI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/cargo)
 "ubk" = (
 /obj/effect/decal/cleanable/dirt,
@@ -68828,7 +68828,7 @@
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "ulg" = (
 /obj/machinery/chemical_dispenser/coffee/full{
@@ -68848,7 +68848,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/vault)
 "ump" = (
 /obj/machinery/disposal,
@@ -68912,7 +68912,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet,
 /obj/random/loot,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "utY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -68938,7 +68938,7 @@
 /obj/structure/table/rack,
 /obj/random/loot,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/cargo)
 "uvI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -68989,7 +68989,7 @@
 "uzs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "uzx" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -69000,7 +69000,7 @@
 "uAB" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/cargo)
 "uAI" = (
 /obj/structure/disposalpipe/segment{
@@ -69087,7 +69087,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "uNT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -69539,7 +69539,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/vendor,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/cargo)
 "vCz" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -69696,7 +69696,7 @@
 	icon_state = "plant-dead";
 	name = "dead plant"
 	},
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "vLA" = (
 /obj/structure/disposalpipe/segment,
@@ -69732,7 +69732,7 @@
 "vNh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/atmos_control)
 "vNp" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -69756,7 +69756,7 @@
 /area/maintenance/security_starboard)
 "vOd" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/atmos_control)
 "vOq" = (
 /obj/effect/decal/cleanable/dirt,
@@ -69846,7 +69846,7 @@
 /obj/random/loot,
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/cargo)
 "vVT" = (
 /turf/simulated/wall,
@@ -70241,7 +70241,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/medical,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "wxx" = (
 /obj/effect/map_effect/window_spawner/reinforced/firedoor,
@@ -70274,7 +70274,7 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/item/paper_bin,
 /obj/item/pen,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "wAi" = (
 /obj/item/chess_piece/bishop/black,
@@ -70567,7 +70567,7 @@
 "xhA" = (
 /obj/machinery/constructable_frame/temp_deco,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/maintenance/research_port)
 "xhU" = (
 /obj/structure/bed/stool/padded/red,
@@ -70723,7 +70723,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "xpf" = (
 /obj/machinery/door/airlock/engineering{
@@ -71055,7 +71055,7 @@
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "xQD" = (
-/obj/structure/door_assembly/door_assembly_research{
+/obj/structure/door_assembly/door_assembly_generic{
 	anchored = 1
 	},
 /turf/simulated/floor/plating,
@@ -71270,7 +71270,7 @@
 /obj/item/bedsheet/medical,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/old_white,
+/turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "ylS" = (
 /obj/structure/grille,

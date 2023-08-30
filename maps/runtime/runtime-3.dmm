@@ -47,9 +47,6 @@
 /turf/simulated/floor,
 /area/construction/hallway)
 "aT" = (
-/obj/machinery/door/airlock/generic/command{
-	dir = 4
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -64,8 +61,8 @@
 /turf/simulated/floor,
 /area/construction/qmaint)
 "bb" = (
-/obj/machinery/door/airlock/generic/external/purple,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external/purple,
 /turf/simulated/floor,
 /area/antag/mercenary)
 "bg" = (
@@ -103,7 +100,7 @@
 /turf/simulated/floor,
 /area/construction/hallway)
 "bY" = (
-/obj/machinery/door/airlock/generic/external/red,
+/obj/machinery/door/airlock/external/red,
 /turf/simulated/floor,
 /area/antag/mercenary)
 "cC" = (
@@ -139,7 +136,7 @@
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
 "dT" = (
-/obj/machinery/door/airlock/generic/external/khaki,
+/obj/machinery/door/airlock/external/khaki,
 /turf/simulated/floor,
 /area/antag/mercenary)
 "dX" = (
@@ -156,10 +153,6 @@
 /obj/machinery/light/small,
 /turf/simulated/floor,
 /area/construction/supplyshuttle)
-"ej" = (
-/obj/machinery/door/airlock/generic/external/blue,
-/turf/simulated/floor,
-/area/antag/mercenary)
 "ek" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -170,10 +163,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/aquablue,
 /area/construction/storage)
-"ez" = (
-/obj/machinery/door/airlock/generic/red,
-/turf/simulated/floor,
-/area/antag/mercenary)
 "eC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -234,6 +223,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
+/obj/machinery/door/airlock/khaki,
 /turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "fH" = (
@@ -512,10 +502,6 @@
 /obj/machinery/light,
 /turf/simulated/floor,
 /area/construction/qmaint)
-"kD" = (
-/obj/machinery/door/airlock/generic/external,
-/turf/simulated/floor,
-/area/construction/qmaint)
 "kN" = (
 /obj/structure/window{
 	dir = 8
@@ -643,13 +629,13 @@
 /turf/simulated/floor,
 /area/construction/hallway)
 "nW" = (
-/obj/machinery/door/airlock/generic/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/generic/maintenance,
 /turf/simulated/floor,
 /area/construction/qmaint)
 "ol" = (
-/obj/machinery/door/airlock/generic/external/red,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external/red,
 /turf/simulated/floor,
 /area/antag/mercenary)
 "ox" = (
@@ -711,10 +697,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
 /area/construction/qmaint)
-"oX" = (
-/obj/machinery/door/airlock/generic/khaki,
-/turf/simulated/floor,
-/area/antag/mercenary)
 "pi" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/grille/over,
@@ -785,7 +767,7 @@
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "rw" = (
-/obj/machinery/door/airlock/generic/external{
+/obj/machinery/door/airlock/generic/maintenance{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -844,9 +826,6 @@
 /turf/simulated/floor,
 /area/construction/qmaint)
 "sP" = (
-/obj/machinery/door/airlock/generic/engineering{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/full,
 /area/construction/hallway)
 "td" = (
@@ -925,11 +904,11 @@
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
 "vY" = (
-/obj/machinery/door/airlock/generic/service_glass,
+/obj/machinery/door/airlock/external/merc,
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "wo" = (
-/obj/machinery/door/airlock/generic/blue,
+/obj/machinery/door/airlock/external/blue,
 /turf/simulated/floor,
 /area/antag/mercenary)
 "wq" = (
@@ -1109,17 +1088,17 @@
 /turf/simulated/floor/carpet/aquablue,
 /area/construction/solars)
 "za" = (
-/obj/machinery/door/airlock/generic/external/blue,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external/blue,
 /turf/simulated/floor,
 /area/antag/mercenary)
 "zE" = (
-/obj/machinery/door/airlock/generic/service,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/external/merc,
 /turf/simulated/floor/wood/bamboo,
 /area/construction/qmaint)
 "zM" = (
@@ -1235,7 +1214,7 @@
 /turf/simulated/wall,
 /area/construction/supplyshuttle)
 "Cj" = (
-/obj/machinery/door/airlock/generic/external/purple,
+/obj/machinery/door/airlock/external/purple,
 /turf/simulated/floor,
 /area/antag/mercenary)
 "Cr" = (
@@ -1266,20 +1245,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/construction/solarscontrol)
 "CG" = (
-/obj/machinery/door/airlock/generic/engineering_glass,
+/obj/machinery/door/airlock/external/merc,
 /turf/simulated/floor/tiled/full,
 /area/construction/hallway)
 "CJ" = (
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/antag/mercenary)
 "CW" = (
-/obj/machinery/door/airlock/generic/command,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/external/merc,
 /turf/simulated/floor/tiled/dark/full,
 /area/construction/solars)
 "CX" = (
@@ -1314,13 +1293,13 @@
 /turf/simulated/floor,
 /area/construction/supplyshuttle)
 "Dt" = (
-/obj/machinery/door/airlock/generic/external/khaki,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external/khaki,
 /turf/simulated/floor,
 /area/antag/mercenary)
 "DE" = (
-/obj/machinery/door/airlock/generic/external/merc,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external/merc,
 /turf/simulated/floor,
 /area/antag/mercenary)
 "DH" = (
@@ -1539,7 +1518,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/merc,
 /area/antag/mercenary)
 "Kx" = (
-/obj/machinery/door/airlock/generic/service_glass{
+/obj/machinery/door/airlock/external/merc{
 	dir = 4
 	},
 /turf/simulated/floor/wood/birch,
@@ -1577,7 +1556,7 @@
 /turf/simulated/floor,
 /area/construction/qmaint)
 "KZ" = (
-/obj/machinery/door/airlock/generic/merc,
+/obj/machinery/door/airlock/external/merc,
 /turf/simulated/floor,
 /area/antag/mercenary)
 "Lb" = (
@@ -1756,10 +1735,6 @@
 "Pz" = (
 /turf/simulated/wall/r_wall,
 /area/construction/hallway)
-"PK" = (
-/obj/machinery/door/airlock/generic/purple,
-/turf/simulated/floor,
-/area/antag/mercenary)
 "PO" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
@@ -1795,8 +1770,7 @@
 /area/construction/hallway)
 "Qr" = (
 /obj/machinery/power/terminal{
-	dir = 4;
-	icon_state = "term"
+	dir = 4
 	},
 /obj/structure/cable{
 	d2 = 2;
@@ -1960,11 +1934,9 @@
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
 "SN" = (
-/obj/machinery/door/airlock/generic/external{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced,
-/area/construction/solars)
+/obj/machinery/door/airlock/external/merc,
+/turf/simulated/floor/tiled/full,
+/area/construction/solarscontrol)
 "SV" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -2032,7 +2004,7 @@
 /turf/simulated/wall/r_wall,
 /area/construction/hallway)
 "Us" = (
-/obj/machinery/door/airlock/generic/engineering,
+/obj/machinery/door/airlock/external/red,
 /turf/simulated/floor/tiled/full,
 /area/construction/solarscontrol)
 "Uv" = (
@@ -2123,10 +2095,6 @@
 	},
 /turf/simulated/floor/carpet/aquablue,
 /area/construction/storage)
-"WM" = (
-/obj/machinery/door/airlock/generic/external/merc,
-/turf/simulated/floor,
-/area/antag/mercenary)
 "WY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -2186,15 +2154,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/full,
 /area/construction/hallway)
-"ZD" = (
-/obj/machinery/door/airlock/generic/external{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/construction/qmaint)
 "ZE" = (
 /obj/machinery/alarm/north{
 	locked = 0;
@@ -24535,7 +24494,7 @@ eX
 eX
 eX
 eX
-ZD
+aj
 eX
 eX
 eX
@@ -24798,7 +24757,7 @@ WY
 nW
 KW
 ye
-kD
+pI
 pz
 pz
 pz
@@ -28907,7 +28866,7 @@ WB
 Ll
 ZT
 ZT
-Us
+SN
 yd
 jp
 jp
@@ -31217,7 +31176,7 @@ pz
 pz
 pz
 pz
-ej
+wo
 Vu
 lB
 za
@@ -31451,7 +31410,7 @@ pz
 pz
 pz
 Uv
-SN
+DN
 Uv
 pz
 pz
@@ -32736,7 +32695,7 @@ pz
 pz
 pz
 Uv
-SN
+DN
 Uv
 pz
 pz
@@ -32766,7 +32725,7 @@ bb
 ek
 Bd
 Bd
-PK
+Cj
 Bd
 Bd
 Bd
@@ -34308,7 +34267,7 @@ Dt
 ek
 Bd
 Bd
-oX
+dT
 Bd
 Bd
 Bd
@@ -35850,7 +35809,7 @@ ol
 ek
 Bd
 Bd
-ez
+bY
 Bd
 Bd
 Bd
@@ -37385,7 +37344,7 @@ Uv
 pz
 pz
 pz
-WM
+KZ
 Vu
 lB
 DE

@@ -885,7 +885,7 @@
 /obj/machinery/light_construct{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/store)
 "aEX" = (
 /obj/machinery/door/firedoor,
@@ -4984,7 +4984,7 @@
 "epp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/store)
 "epq" = (
 /obj/structure/window/shuttle/unique/research{
@@ -9733,7 +9733,7 @@
 /obj/random/junk,
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/floodlight,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/store)
 "iuE" = (
 /obj/machinery/space_heater,
@@ -10293,7 +10293,7 @@
 "iXR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/chair,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/store)
 "iYM" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -13616,7 +13616,7 @@
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/store)
 "lQV" = (
 /turf/simulated/wall/r_wall,
@@ -14060,7 +14060,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/store)
 "moB" = (
 /obj/machinery/light{
@@ -15319,7 +15319,7 @@
 /obj/machinery/light_construct{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/store)
 "nvS" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -16902,7 +16902,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/store)
 "oLx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -16936,7 +16936,7 @@
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/store)
 "oNp" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -20840,7 +20840,7 @@
 /area/crew_quarters/sleep/cryo)
 "rSo" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/store)
 "rTT" = (
 /obj/structure/bed/stool/chair/sofa/right/brown,
@@ -21869,7 +21869,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/store)
 "sRe" = (
 /obj/machinery/vending/snack,
@@ -22245,7 +22245,7 @@
 "tje" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/store)
 "tjC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -27116,7 +27116,7 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/old,
+/turf/simulated/floor/tiled,
 /area/store)
 "xlI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{

@@ -357,7 +357,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "bs" = (
-/obj/structure/door_assembly/door_assembly,
+/obj/structure/door_assembly/door_assembly_generic,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "bt" = (
@@ -557,7 +557,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/northeast)
 "ce" = (
-/obj/structure/door_assembly/door_assembly,
+/obj/structure/door_assembly/door_assembly_generic,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "cf" = (
@@ -957,7 +957,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "dx" = (
-/obj/structure/door_assembly/door_assembly,
+/obj/structure/door_assembly/door_assembly_generic,
 /turf/template_noop,
 /area/template_noop)
 "dy" = (
@@ -2279,7 +2279,7 @@
 /turf/template_noop,
 /area/template_noop)
 "hK" = (
-/obj/structure/door_assembly/door_assembly,
+/obj/structure/door_assembly/door_assembly_generic,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -4370,7 +4370,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "oB" = (
-/obj/structure/door_assembly/door_assembly,
+/obj/structure/door_assembly/door_assembly_generic,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "oC" = (
@@ -6622,7 +6622,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "uL" = (
-/obj/structure/door_assembly/door_assembly,
+/obj/structure/door_assembly/door_assembly_generic,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "uM" = (
