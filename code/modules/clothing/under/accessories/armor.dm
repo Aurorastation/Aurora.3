@@ -256,7 +256,7 @@
 	)
 
 /obj/item/clothing/accessory/arm_guard/tcaf
-	name = "tcaf carapace arm guards"
+	name = "\improper TCAF carapace arm guards"
 	desc = "Blue carapace armguards to protect you in the modern battlefield of 2465."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	icon_state = "tcaf_armguards"
