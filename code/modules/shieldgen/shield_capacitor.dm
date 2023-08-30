@@ -30,6 +30,8 @@
 		possible_matrix.update_shield_parts()
 	if(dir == NORTH)
 		pixel_y = 7
+	else if(dir == EAST)
+		pixel_y = 10
 	else
 		pixel_y = 0
 
@@ -52,6 +54,8 @@
 	. = ..()
 	if(dir == NORTH)
 		pixel_y = 7
+	else if(dir == EAST)
+		pixel_y = 10
 	else
 		pixel_y = 0
 

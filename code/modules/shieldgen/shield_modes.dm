@@ -62,7 +62,7 @@
 	if(istype(A))
 		A.RemoveComponent()
 
-	var/list/armor
+	var/list/armor = list()
 	if(renwicks > 1.5)
 		armor = list(laser = ARMOR_LASER_MEDIUM,
 					energy = ARMOR_ENERGY_RESISTANT,
@@ -175,37 +175,37 @@
 			armor = list(melee = ARMOR_MELEE_MAJOR,
 					bullet = ARMOR_BALLISTIC_RIFLE,
 					bomb = ARMOR_BOMB_RESISTANT)
-		else if(ADAPTION_LASER_SUPER)
+		if(ADAPTION_LASER_SUPER)
 			armor = list(laser = ARMOR_LASER_MAJOR,
 					energy = ARMOR_ENERGY_STRONG,
 					bomb = ARMOR_BOMB_RESISTANT)
-		else if(ADAPTION_BALLISTIC_HIGH)
+		if(ADAPTION_BALLISTIC_HIGH)
 			armor = list(melee = ARMOR_MELEE_RESISTANT,
 					bullet = ARMOR_BALLISTIC_CARBINE,
 					bomb = ARMOR_BOMB_RESISTANT)
-		else if(ADAPTION_LASER_HIGH)
+		if(ADAPTION_LASER_HIGH)
 			armor = list(laser = ARMOR_LASER_RIFLE,
 					energy = ARMOR_ENERGY_RESISTANT,
 					bomb = ARMOR_BOMB_RESISTANT)
-		else if(ADAPTION_BALLISTIC_MEDIUM)
+		if(ADAPTION_BALLISTIC_MEDIUM)
 			armor = list(melee = ARMOR_MELEE_KEVLAR,
 					bullet = ARMOR_BALLISTIC_MEDIUM,
 					bomb = ARMOR_BOMB_PADDED,
 					laser = ARMOR_LASER_MINOR,
 					energy = ARMOR_ENERGY_MINOR)
-		else if(ADAPTION_LASER_MEDIUM)
+		if(ADAPTION_LASER_MEDIUM)
 			armor = list(laser = ARMOR_LASER_MEDIUM,
 					energy = ARMOR_ENERGY_RESISTANT,
 					bomb = ARMOR_BOMB_PADDED,
 					melee = ARMOR_MELEE_MINOR,
 					bullet = ARMOR_BALLISTIC_MINOR)
-		else if(ADAPTION_BALLISTIC_LOW)
+		if(ADAPTION_BALLISTIC_LOW)
 			armor = list(melee = ARMOR_MELEE_KNIVES,
 					bullet = ARMOR_BALLISTIC_PISTOL,
 					bomb = ARMOR_BOMB_MINOR,
 					laser = ARMOR_LASER_MINOR,
 					energy = ARMOR_ENERGY_MINOR)
-		else if(ADAPTION_LASER_LOW)
+		if(ADAPTION_LASER_LOW)
 			armor = list(laser = ARMOR_LASER_KEVLAR,
 					energy = ARMOR_ENERGY_SMALL,
 					bomb = ARMOR_BOMB_MINOR,

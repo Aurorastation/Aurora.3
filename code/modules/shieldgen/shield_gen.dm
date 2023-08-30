@@ -74,8 +74,8 @@
 	var/list/covered_turfs = get_shielded_turfs()
 	var/turf/T = get_turf(parent_matrix)
 	for(var/turf/O as anything in covered_turfs - T)
-		var/obj/effect/energy_field/F = locate(/obj/effect/energy_field)
-		if(!F in O))
+		var/obj/effect/energy_field/F = locate(/obj/effect/energy_field) in O
+		if(!F)
 			var/obj/effect/energy_field/E = new(O)
 			E.parent_gen = src
 			LAZYADD(field, E)
