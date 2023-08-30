@@ -238,7 +238,7 @@
 	slowdown = 0 // inherited the hacking from the scc
 
 /obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light
-	name = "tcaf legionnaire light carapace"
+	name = "\improper TCAF legionnaire light carapace"
 	desc = "A lighter version of the blue carapace of the Tau Ceti Armed Forces. Reserved for recruits, recon, and prissy officers in the field."
 	icon_state = "tcaf_plate_light"
 	item_state = "tcaf_plate_light"
