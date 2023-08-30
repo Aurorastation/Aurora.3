@@ -24,7 +24,7 @@
 	eyeblur = 0
 
 /obj/item/projectile/beam/pistol
-	damage = 25
+	damage = 20
 	armor_penetration = 5
 
 /obj/item/projectile/beam/pistol/scc
