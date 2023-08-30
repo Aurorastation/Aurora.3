@@ -362,7 +362,6 @@
 	insecure = 0
 	ai_control_disabled = 1
 	hack_proof = TRUE
-	electrified_until = -1
 	open_sound_powered = 'sound/machines/airlock/space1o.ogg'
 	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
 
