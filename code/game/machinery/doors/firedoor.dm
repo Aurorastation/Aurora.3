@@ -52,10 +52,6 @@
 		"cold"
 	)
 
-	var/door_directions = 0
-	var/noair_directions = 0
-	var/diffarea_directions = 0
-
 	var/open_sound = 'sound/machines/firelockopen.ogg'
 	var/close_sound = 'sound/machines/firelockclose.ogg'
 
@@ -81,48 +77,56 @@
 
 		var/turf/T = get_step(src,direction)
 
-		if(enable_smart_generation)
-			if(locate(src.type) in T)
-				door_directions |= direction
-
-			if(T.initial_gas == null)
-				noair_directions |= direction
-
-			if(get_area(src.loc) != get_area(T))
-				diffarea_directions |= direction
-
 		A = get_area(T)
 		if(istype(A) && !(A in areas_added))
 			A.all_doors.Add(src)
 			areas_added += A
 
-	if(enable_smart_generation)
+	smart_generation(mapload)
 
-		var/turf/T = get_turf(src)
-		if(locate(/obj/structure/grille,T))
-			hashatch = 0
+/obj/machinery/door/firedoor/proc/smart_generation(var/mapload)
+	if(!enable_smart_generation)
+		return .
 
-		if(locate(/obj/machinery/door/airlock,T))
-			dir = SOUTH
-		else
-			if(door_directions & (EAST | WEST))
-				if(noair_directions & NORTH)
-					dir = SOUTH
-				else if(noair_directions & SOUTH)
-					dir = NORTH
-				else if(diffarea_directions & NORTH)
-					dir = NORTH
-				else if(diffarea_directions & SOUTH)
-					dir = SOUTH
-			else if(door_directions & (NORTH | SOUTH) )
-				if(noair_directions & EAST)
-					dir = WEST
-				else if(noair_directions & WEST)
-					dir = EAST
-				else if(diffarea_directions & EAST)
-					dir = EAST
-				else if(diffarea_directions & WEST)
-					dir = WEST
+	var/turf/T = get_turf(src)
+	if(locate(/obj/structure/grille,T))
+		hashatch = 0
+
+	var/door_directions = 0
+	var/noair_directions = 0
+	var/diffarea_directions = 0
+
+	var/obj/machinery/door/airlock/door = locate(/obj/machinery/door/airlock,T)
+	if(istype(door))
+		dir = door.dir
+	else
+		for(var/direction in cardinal)
+			var/turf/turf_stepped = get_step(src,direction)
+			if(locate(src.type) in turf_stepped)
+				door_directions |= direction
+			if(turf_stepped.initial_gas == null)
+				noair_directions |= direction
+			if(get_area(src.loc) != get_area(turf_stepped))
+				diffarea_directions |= direction
+
+		if(door_directions & (EAST | WEST))
+			if(noair_directions & NORTH)
+				dir = SOUTH
+			else if(noair_directions & SOUTH)
+				dir = NORTH
+			else if(diffarea_directions & NORTH)
+				dir = NORTH
+			else if(diffarea_directions & SOUTH)
+				dir = SOUTH
+		else if(door_directions & (NORTH | SOUTH) )
+			if(noair_directions & EAST)
+				dir = WEST
+			else if(noair_directions & WEST)
+				dir = EAST
+			else if(diffarea_directions & EAST)
+				dir = EAST
+			else if(diffarea_directions & WEST)
+				dir = WEST
 
 /obj/machinery/door/firedoor/Destroy()
 	for(var/area/A in areas_added)
