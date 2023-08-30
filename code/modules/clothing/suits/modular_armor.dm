@@ -371,7 +371,7 @@
 	item_state = "tcaf_helm_novisor"
 
 /obj/item/clothing/head/helmet/tcaf/tcaf_visor
-	name = "tcaf visored legionnaire helmet"
+	name = "\improper TCAF legionnaire visored helmet"
 	desc = "A carapace helmet in the traditional colors of the Tau Ceti Armed Forces. This one is equipped with a stylish visor."
 	icon_state = "tcaf_helm_visor"
 	item_state = "tcaf_helm_visor"
