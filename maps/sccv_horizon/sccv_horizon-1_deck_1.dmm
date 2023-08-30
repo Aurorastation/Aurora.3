@@ -9672,9 +9672,6 @@
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
 "gJt" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
@@ -13006,6 +13003,9 @@
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "jkq" = (
@@ -15898,6 +15898,7 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "lpV" = (
@@ -18172,15 +18173,13 @@
 /turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
 "mSd" = (
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/electrical{
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/full,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "mSf" = (
@@ -21860,8 +21859,8 @@
 	},
 /obj/item/pen,
 /obj/machinery/door/window/desk/westright{
-	req_access = list(26);
-	name = "Custodial Closet Desk Internal"
+	name = "Custodial Closet Desk Internal";
+	req_access = list(26)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/custodial)
