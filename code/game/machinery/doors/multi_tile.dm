@@ -5,6 +5,7 @@
 	pixel_x = -32
 	pixel_y = -32
 	airlock_type = "Multi-Tile"
+	assembly_type = /obj/structure/door_assembly/multi_tile
 	open_sound_powered = 'sound/machines/airlock/wide1o.ogg'
 	close_sound_powered = 'sound/machines/airlock/wide1c.ogg'
 

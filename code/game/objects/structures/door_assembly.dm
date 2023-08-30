@@ -5,21 +5,26 @@
 /obj/structure/door_assembly
 	name = "airlock assembly"
 	desc = "An airlock assembly."
-	icon = 'icons/obj/doors/door_assembly.dmi'
-	icon_state = "door_as_0"
-	anchored = 0
-	density = 1
+	desc_info = "To create a glass airlock, add two reinforced glass sheets."
+	icon = 'icons/obj/doors/basic/single/generic/door.dmi'
+	icon_state = "construction"
+	anchored = FALSE
+	density = TRUE
 	w_class = ITEMSIZE_HUGE
 	build_amt = 4
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
+	pixel_x = -16
+	pixel_y = -16
 	var/state = STATE_UNWIRED
-	var/base_icon_state = ""
 	var/base_name = "airlock"
-	var/obj/item/airlock_electronics/electronics = null
-	var/airlock_type = "" //the type path of the airlock once completed
-	var/glass_type = "/glass"
-	var/glass = FALSE // 0 = glass can be installed. -1 = glass can't be installed. 1 = glass is already installed. Text = mineral plating is installed instead.
-	var/created_name = null
+	var/obj/item/airlock_electronics/electronics
+	/// The type path of the airlock once completed.
+	var/airlock_type
+	/// Glass version of this airlock.
+	var/glass_type
+	/// If glass is installed.
+	var/glass = FALSE
+	var/created_name
 	var/width = 1
 
 /obj/structure/door_assembly/Initialize(mapload)
@@ -31,53 +36,41 @@
 	to_chat(user, "It is currently facing [dir2text(dir)].")
 
 /obj/structure/door_assembly/door_assembly_generic
-	base_name = "Generic Airlock"
-	glass_type = "/generic/glass"
-	airlock_type = "/generic"
+	base_name = "airlock"
+	airlock_type = /obj/machinery/door/airlock
+	glass_type = /obj/machinery/door/airlock/glass
 
 /obj/structure/door_assembly/door_assembly_mai
-	base_icon_state = "mai"
-	base_name = "Maintenance Airlock"
-	airlock_type = "/maintenance"
-	glass = -1
+	base_name = "maintenance airlock"
+	airlock_type = /obj/machinery/door/airlock/maintenance
 
 /obj/structure/door_assembly/door_assembly_ext
-	base_icon_state = "ext"
-	base_name = "External Airlock"
-	airlock_type = "/external"
-	glass = -1
+	base_name = "external airlock"
+	airlock_type = /obj/machinery/door/airlock/external
+
 /obj/structure/door_assembly/door_assembly_hatch
-	base_icon_state = "hatch"
-	base_name = "Airtight Hatch"
-	airlock_type = "/hatch"
-	glass = -1
+	base_name = "airtight hatch"
+	icon = 'icons/obj/doors/basic/single/external/door.dmi'
+	airlock_type = /obj/machinery/door/airlock/hatch
 
 /obj/structure/door_assembly/door_assembly_mhatch
-	base_icon_state = "mhatch"
-	base_name = "Maintenance Hatch"
-	airlock_type = "/maintenance_hatch"
-	glass = -1
+	base_name = "maintenance hatch"
+	icon = 'icons/obj/doors/basic/single/external/door.dmi'
+	airlock_type = /obj/machinery/door/airlock/maintenance_hatch
 
 /obj/structure/door_assembly/door_assembly_highsecurity
-	base_icon_state = "highsec"
-	base_name = "High Security Airlock"
-	airlock_type = "/highsecurity"
-	glass = -1
-
-/obj/structure/door_assembly/door_assembly_lift
-	base_icon_state = "lift"
-	base_name = "Elevator Door"
-	airlock_type = "/lift"
-	glass = -1
+	base_name = "high security airlock"
+	icon = 'icons/obj/doors/basic/single/secure/door.dmi'
+	airlock_type = /obj/machinery/door/airlock/highsecurity
 
 /obj/structure/door_assembly/multi_tile
 	icon = 'icons/obj/doors/basic/double/generic/door.dmi'
-	icon_state = "construction" //only have icons for the glass version
 	dir = EAST
+	pixel_x = -32
+	pixel_y = -32
 	width = 2
-	base_icon_state = "g" //Remember to delete this line when reverting "glass" var to 1.
-	airlock_type = "/multi_tile/glass"
-	glass = -1 //To prevent bugs in deconstruction process.
+	airlock_type = /obj/machinery/door/airlock/multi_tile
+	glass_type = /obj/machinery/door/airlock/multi_tile/glass
 
 /obj/structure/door_assembly/multi_tile/Initialize()
 	. = ..()
@@ -102,22 +95,13 @@
 		created_name = door_name
 
 	else if(W.iswelder())
-		if(!(istext(glass) || glass == TRUE || !anchored))
-			to_chat(user, SPAN_WARNING("\The [src] isn't ready to be welded yet. It doesn't have any installed material to remove, and it has to be unsecured to deconstruct it."))
+		if(!glass || anchored)
+			to_chat(user, SPAN_WARNING("\The [src] isn't ready to be welded yet. It doesn't have any installed glass to remove, and it has to be unsecured to deconstruct it."))
 			return
 		var/obj/item/weldingtool/WT = W
 		if(WT.use(0, user))
 			playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
-			if(istext(glass))
-				user.visible_message("<b>[user]</b> starts welding the [glass] plating off the airlock assembly.", SPAN_NOTICE("You start welding the [glass] plating off the airlock assembly."))
-				if(W.use_tool(src, user, 40, volume = 50))
-					if(!src || !WT.isOn())
-						return
-					to_chat(user, SPAN_NOTICE("You weld the [glass] plating off."))
-					var/M = text2path("/obj/item/stack/material/[glass]")
-					new M(src.loc, 2)
-					glass = FALSE
-			else if(glass == TRUE)
+			if(glass)
 				user.visible_message("<b>[user]</b> starts welding the glass panel out of the airlock assembly.", SPAN_NOTICE("You start welding the glass panel out of the airlock assembly."))
 				if(W.use_tool(src, user, 40, volume = 50))
 					if(!src || !WT.isOn())
@@ -234,32 +218,19 @@
 			electronics.forceMove(src.loc)
 			electronics = null
 
-	else if(istype(W, /obj/item/stack/material))
+	else if(istype(W, /obj/item/stack/material) && glass_type)
 		if(glass)
-			to_chat(user, SPAN_WARNING("\The [src] already has material plating installed."))
+			to_chat(user, SPAN_WARNING("\The [src] already has glass installed."))
 			return
 		var/obj/item/stack/S = W
 		var/material_name = S.get_material_name()
-		if(S)
-			if(S.get_amount() >= 1)
-				if(material_name == MATERIAL_GLASS_REINFORCED)
-					user.visible_message("<b>[user]</b> starts installing \the [S] into the airlock assembly.", "You start installing \the [S] into the airlock assembly.")
-					if(W.use_tool(src, user, 40, volume = 50) && !glass)
-						if(S.use(1))
-							to_chat(user, SPAN_NOTICE("You install reinforced glass windows into the airlock assembly."))
-							glass = TRUE
-				else if(material_name)
-					// Ugly hack, will suffice for now. Need to fix it upstream as well, may rewrite mineral walls. ~Z
-					if(!(material_name in list("gold", "silver", "diamond", "uranium", "phoron", "sandstone")))
-						to_chat(user, SPAN_WARNING("You cannot make an airlock out of [S]."))
-						return
-					if(S.get_amount() >= 2)
-						playsound(src.loc, /singleton/sound_category/crowbar_sound, 100, 1)
-						user.visible_message("<b>[user]</b> starts installing [S] into the airlock assembly.", "You start installing [S] into the airlock assembly.")
-						if(W.use_tool(src, user, 40, volume = 50) && !glass)
-							if (S.use(2))
-								to_chat(user, SPAN_NOTICE("You install [SSmaterials.material_display_name(material_name)] plating into the airlock assembly."))
-								glass = material_name
+		if(S.get_amount() >= 2)
+			if(material_name == MATERIAL_GLASS_REINFORCED)
+				user.visible_message("<b>[user]</b> starts installing \the [S] into the airlock assembly.", SPAN_WARNING("You start installing \the [S] into the airlock assembly."))
+				if(W.use_tool(src, user, 40, volume = 50) && !glass)
+					if(S.use(2))
+						to_chat(user, SPAN_NOTICE("You install reinforced glass windows into the airlock assembly."))
+						glass = TRUE
 
 	else if(W.isscrewdriver())
 		if(state != STATE_ELECTRONICS_INSTALLED)
@@ -272,16 +243,12 @@
 			if(!src)
 				return
 			to_chat(user, SPAN_NOTICE("You finish the airlock!"))
-			var/path
-			if(istext(glass))
-				path = text2path("/obj/machinery/door/airlock/[glass]")
-			else if (glass == TRUE)
-				path = text2path("/obj/machinery/door/airlock[glass_type]")
-			else
-				path = text2path("/obj/machinery/door/airlock[airlock_type]")
-
 			SetBounds()
-			new path(loc, dir, FALSE, src)
+			var/obj/machinery/door/airlock/A
+			if(glass && glass_type)
+				A = new glass_type(loc, dir, FALSE, src)
+			else
+				A = new airlock_type(loc, dir, FALSE, src)
 			qdel(src)
 
 	else if(istype(W, /obj/item/material/twohanded/chainsaw))
@@ -318,16 +285,15 @@
 	return (ChainSawVar.powered)
 
 /obj/structure/door_assembly/proc/update_state()
-	icon_state = "door_as_[glass == TRUE ? "g" : ""][istext(glass) ? glass : base_icon_state][state]"
 	name = ""
 	switch (state)
 		if(STATE_UNWIRED)
-			name = anchored ? "Secured " : "Unsecured "
+			name = anchored ? "secured " : "unsecured "
 		if(STATE_WIRED)
-			name = "Wired "
+			name = "wired "
 		if(STATE_ELECTRONICS_INSTALLED)
-			name = "Near-finished "
-	name += "[glass == TRUE ? "Window " : ""][istext(glass) ? "[glass] Airlock" : base_name] Assembly"
+			name = "near-finished "
+	name += "[glass == TRUE ? "window " : ""][glass ? "glass airlock" : base_name] assembly"
 	if(created_name)
 		name += " ([created_name])"
 
