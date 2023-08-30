@@ -1468,8 +1468,7 @@
 /turf/simulated/floor/tiled,
 /area/old_outpost/dorms)
 "vl" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -22
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3187,8 +3186,7 @@
 /turf/simulated/floor/tiled,
 /area/old_outpost/hallway)
 "SV" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -23
 	},
 /obj/machinery/light/colored/decayed{

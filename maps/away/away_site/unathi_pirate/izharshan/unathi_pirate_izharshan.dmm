@@ -544,8 +544,7 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -606,8 +605,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "uK" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/shuttle/black,
@@ -1211,7 +1209,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "Px" = (
-/obj/structure/bed/stool/chair/sofa/corner/orange,
+/obj/structure/bed/stool/chair/sofa/corner/concave/orange,
 /turf/simulated/floor/carpet,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "PN" = (

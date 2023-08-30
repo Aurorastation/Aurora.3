@@ -59,7 +59,7 @@
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "azW" = (
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	name = "Maintenance";
 	req_access = "208"
 	},
@@ -174,7 +174,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "cqy" = (
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	name = "Hangar";
 	req_access = "208"
 	},
@@ -345,7 +345,7 @@
 	identifier = "tirakqi_engineer";
 	name = "igs - tirakqi_engineer"
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell,
@@ -627,7 +627,7 @@
 /area/ship/tirakqi_freighter)
 "gcq" = (
 /obj/structure/plasticflaps/airtight,
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	name = "Maintenance";
 	req_access = "208"
 	},
@@ -762,7 +762,7 @@
 /turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "gWl" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -770,7 +770,7 @@
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
 "gYh" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -818,7 +818,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_freighter)
 "hxC" = (
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/shuttle/tirakqi_shuttle)
 "hyn" = (
 /obj/machinery/computer/cryopod{
@@ -839,7 +839,7 @@
 /area/ship/tirakqi_freighter)
 "hAg" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	name = "Bridge";
 	req_access = "208"
 	},
@@ -906,7 +906,7 @@
 /area/shuttle/tirakqi_shuttle)
 "hRT" = (
 /obj/structure/lattice,
-/turf/simulated/wall/shuttle/skrell/corner,
+/turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "hUJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -917,7 +917,7 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/shuttle/tirakqi_shuttle)
 "iaK" = (
 /obj/machinery/computer/ship/sensors,
@@ -925,10 +925,10 @@
 /area/ship/tirakqi_freighter)
 "ibU" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/shuttle/tirakqi_shuttle)
 "ifl" = (
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	name = "Bridge";
 	req_access = "208"
 	},
@@ -1173,7 +1173,7 @@
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "kfX" = (
-/turf/simulated/wall/shuttle/skrell/corner,
+/turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "kkV" = (
 /obj/machinery/cryopod,
@@ -1291,7 +1291,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tirakqi_freighter)
 "ltf" = (
-/turf/simulated/wall/shuttle/skrell/corner{
+/turf/simulated/wall/shuttle/skrell{
 	dir = 9
 	},
 /area/ship/tirakqi_freighter)
@@ -1741,7 +1741,7 @@
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_freighter)
 "qUg" = (
-/turf/simulated/wall/shuttle/skrell/corner{
+/turf/simulated/wall/shuttle/skrell{
 	dir = 4
 	},
 /area/ship/tirakqi_freighter)
@@ -1827,12 +1827,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/tirakqi_freighter)
 "soZ" = (
-/turf/simulated/wall/shuttle/skrell/corner{
+/turf/simulated/wall/shuttle/skrell{
 	dir = 5
 	},
 /area/ship/tirakqi_freighter)
 "spX" = (
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/ship/tirakqi_freighter)
 "stK" = (
 /obj/structure/table/skrell,
@@ -2031,7 +2031,7 @@
 /area/ship/tirakqi_freighter)
 "vUm" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	name = "Hangar";
 	req_access = "208"
 	},
@@ -2061,7 +2061,7 @@
 /obj/effect/landmark/entry_point/west{
 	name = "starboard, crew compartment"
 	},
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/shuttle/tirakqi_shuttle)
 "wAC" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2102,7 +2102,7 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/tirakqi_freighter)
 "xsx" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/damaged,

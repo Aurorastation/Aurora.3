@@ -87,11 +87,11 @@
 /area/shuttle/elyran_shuttle)
 "afz" = (
 /obj/structure/sign/greencross,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/elyran_strike_craft)
 "ajL" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
@@ -128,8 +128,8 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -166,13 +166,13 @@
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "aBb" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp{
 	dir = 4
 	},
@@ -280,7 +280,7 @@
 /area/ship/elyran_strike_craft)
 "aOo" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -376,7 +376,7 @@
 /area/ship/elyran_strike_craft)
 "bwv" = (
 /obj/structure/bed/stool/chair,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -542,7 +542,7 @@
 /area/ship/elyran_strike_craft)
 "dBa" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
@@ -792,13 +792,13 @@
 /area/ship/elyran_strike_craft)
 "fLL" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "fRM" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -947,7 +947,7 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "hvT" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/elyran_shuttle)
 "hMA" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
@@ -962,7 +962,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -1046,10 +1046,10 @@
 /area/ship/elyran_strike_craft)
 "jab" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1083,7 +1083,7 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "jFf" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/carpet,
 /area/ship/elyran_strike_craft)
 "jGh" = (
@@ -1093,7 +1093,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/elyran_strike_craft)
 "jJJ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
@@ -1119,7 +1119,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -1182,7 +1182,7 @@
 /area/ship/elyran_strike_craft)
 "kVo" = (
 /obj/structure/bed/stool/chair,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/machinery/light{
@@ -1629,7 +1629,7 @@
 /area/ship/elyran_strike_craft)
 "qkJ" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/elyran_strike_craft)
 "qnG" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -1783,7 +1783,7 @@
 /area/ship/elyran_strike_craft)
 "rBF" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1981,10 +1981,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
 "tQU" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp{
 	dir = 4
 	},
@@ -2033,7 +2033,7 @@
 	icon_state = "droppod";
 	name = "SUPB Pod"
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/machinery/light/small/emergency{
@@ -2152,7 +2152,7 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "vOv" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/elyran_strike_craft)
 "vPN" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2390,7 +2390,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "xAw" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/oil,

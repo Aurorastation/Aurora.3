@@ -165,7 +165,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "bgV" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/ee_shuttle)
 "bkQ" = (
 /obj/structure/dispenser/oxygen,
@@ -650,7 +650,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "kwe" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/ee_spy_ship)
 "kzm" = (
 /obj/effect/floor_decal/industrial/warning,

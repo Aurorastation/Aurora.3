@@ -210,7 +210,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -218,7 +218,7 @@
 "aMB" = (
 /obj/structure/table/steel,
 /obj/item/storage/slide_projector,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -306,10 +306,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "bfg" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/light{
@@ -391,7 +391,7 @@
 /turf/space/transit/north,
 /area/space)
 "bOZ" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/ramp,
@@ -696,7 +696,7 @@
 /area/ship/fsf_patrol_ship)
 "far" = (
 /obj/structure/bed/stool,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -863,7 +863,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/fsf_shuttle)
 "fRI" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1247,7 +1247,7 @@
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "inf" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1296,13 +1296,13 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
 "iIT" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/structure/table/rack,
@@ -1531,10 +1531,10 @@
 /obj/machinery/conveyor{
 	name = "running machine"
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1579,7 +1579,7 @@
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "kMV" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1624,10 +1624,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
 "ldz" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/ramp/bottom,
@@ -1994,7 +1994,7 @@
 /area/ship/fsf_patrol_ship)
 "obG" = (
 /obj/machinery/hologram/holopad/long_range,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2545,7 +2545,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "tYU" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/noticeboard{
 	pixel_x = -32
 	},
@@ -2649,7 +2649,7 @@
 /turf/simulated/floor/airless,
 /area/ship/fsf_patrol_ship)
 "vmq" = (
-/obj/effect/floor_decal/spline/plain/corner{
+/obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2665,13 +2665,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "vtl" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/machinery/light/small/emergency{
@@ -2788,7 +2788,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "waK" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -2814,7 +2814,7 @@
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "woR" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor,
@@ -2852,7 +2852,7 @@
 /obj/structure/bed/stool{
 	pixel_y = -9
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -2895,7 +2895,7 @@
 /obj/structure/sign/flag/sol{
 	pixel_x = 32
 	},
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/fsf_patrol_ship)
 "wZc" = (
@@ -2947,13 +2947,13 @@
 /obj/machinery/conveyor{
 	name = "running machine"
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
