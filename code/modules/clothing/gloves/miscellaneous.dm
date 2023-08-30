@@ -285,7 +285,7 @@
 	worn_overlay = "over"
 
 /obj/item/clothing/gloves/tcaf
-	name = "armsman gloves"
+	name = "\improper TCAF armsman gloves"
 	desc = "A pair of khaki tactical gloves with reinforcement at the knuckles and an adjustable strap at the wrist."
 	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
 	contained_sprite = TRUE
