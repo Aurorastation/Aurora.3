@@ -264,7 +264,7 @@
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/tcaf
-	name = "\improper TCAF Carapace Backpack"
+	name = "\improper TCAF carapace backpack"
 	desc = "A hard shelled backpack with the flag of the Republic of Biesel front and center. Made for the Tau Ceti Armed Forces."
 	icon_state = "tcaf_carapace_backpack"
 	item_state = "tcaf_carapace_backpack"
