@@ -34662,14 +34662,14 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
-"AAA" = (
+"ymn" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/deck1)
-"AAB" = (
+"ymm" = (
 /obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -34677,7 +34677,7 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
-"AAC" = (
+"yml" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -34694,7 +34694,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
-"AAD" = (
+"ymk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
@@ -34704,7 +34704,7 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/storage/eva)
-"AAE" = (
+"ymi" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green{
@@ -44961,7 +44961,7 @@ eSV
 eSV
 hTk
 wVV
-AAA
+ymn
 wVV
 wVV
 dLh
@@ -47598,7 +47598,7 @@ eSV
 eSV
 eSV
 hTk
-AAB
+ymm
 wVV
 wVV
 dod
@@ -55927,7 +55927,7 @@ bec
 wLL
 ovg
 qio
-AAD
+ymk
 oYC
 cZw
 gzQ
@@ -57968,7 +57968,7 @@ nLL
 dsG
 doM
 xkw
-AAE
+ymi
 vCJ
 iCb
 fQC
@@ -61426,7 +61426,7 @@ xtK
 xtK
 xtK
 xXt
-AAC
+yml
 pPV
 pPV
 pPV
