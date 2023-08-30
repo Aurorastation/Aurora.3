@@ -357,7 +357,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "bs" = (
-/obj/structure/door_assembly/door_assembly_com,
+/obj/structure/door_assembly/door_assembly,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "bt" = (
@@ -557,7 +557,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/northeast)
 "ce" = (
-/obj/structure/door_assembly/door_assembly_sec,
+/obj/structure/door_assembly/door_assembly,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "cf" = (
@@ -957,7 +957,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "dx" = (
-/obj/structure/door_assembly/door_assembly_sec,
+/obj/structure/door_assembly/door_assembly,
 /turf/template_noop,
 /area/template_noop)
 "dy" = (
@@ -1888,9 +1888,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "gt" = (
-/obj/structure/door_assembly/door_assembly_eng{
-	icon_state = "door_as_eng0"
-	},
+/obj/structure/door_assembly,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "gu" = (
@@ -1998,9 +1996,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "gN" = (
-/obj/structure/door_assembly/door_assembly_com{
-	icon_state = "door_as_gcom0"
-	},
+/obj/structure/door_assembly,
 /turf/template_noop,
 /area/derelict/hallway/northwest)
 "gO" = (
@@ -2170,9 +2166,7 @@
 /turf/template_noop,
 /area/derelict/hallway/northwest)
 "hm" = (
-/obj/structure/door_assembly/door_assembly_com{
-	icon_state = "door_as_gcom0"
-	},
+/obj/structure/door_assembly,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "hn" = (
@@ -2285,7 +2279,7 @@
 /turf/template_noop,
 /area/template_noop)
 "hK" = (
-/obj/structure/door_assembly/door_assembly_sec,
+/obj/structure/door_assembly/door_assembly,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -3376,9 +3370,7 @@
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "lF" = (
-/obj/structure/door_assembly/door_assembly_med{
-	icon_state = "door_as_gmed0"
-	},
+/obj/structure/door_assembly,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "lG" = (
@@ -3692,9 +3684,7 @@
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "mC" = (
-/obj/structure/door_assembly/door_assembly_science{
-	icon_state = "door_as_res0"
-	},
+/obj/structure/door_assembly,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "mE" = (
@@ -3745,9 +3735,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "mK" = (
-/obj/structure/door_assembly/door_assembly_med{
-	icon_state = "door_as_gmed0"
-	},
+/obj/structure/door_assembly,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "mL" = (
@@ -3976,15 +3964,11 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "nt" = (
-/obj/structure/door_assembly/door_assembly_science{
-	icon_state = "door_as_res0"
-	},
+/obj/structure/door_assembly,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "nu" = (
-/obj/structure/door_assembly/door_assembly_science{
-	icon_state = "door_as_res0"
-	},
+/obj/structure/door_assembly,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
@@ -4386,7 +4370,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "oB" = (
-/obj/structure/door_assembly/door_assembly_com,
+/obj/structure/door_assembly/door_assembly,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "oC" = (
@@ -4399,9 +4383,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "oF" = (
-/obj/structure/door_assembly/door_assembly_med{
-	icon_state = "door_as_gmed0"
-	},
+/obj/structure/door_assembly,
 /obj/machinery/holosign/surgery,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -5315,9 +5297,7 @@
 /turf/template_noop,
 /area/template_noop)
 "rv" = (
-/obj/structure/door_assembly/door_assembly_eng{
-	icon_state = "door_as_atmo0"
-	},
+/obj/structure/door_assembly,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "rw" = (
@@ -5442,9 +5422,7 @@
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "rN" = (
-/obj/structure/door_assembly/door_assembly_eng{
-	icon_state = "door_as_gatmo0"
-	},
+/obj/structure/door_assembly,
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "rO" = (
@@ -5762,9 +5740,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "sB" = (
-/obj/structure/door_assembly/door_assembly_med{
-	icon_state = "door_as_med0"
-	},
+/obj/structure/door_assembly,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "sC" = (
@@ -5907,9 +5883,7 @@
 /turf/template_noop,
 /area/template_noop)
 "sZ" = (
-/obj/structure/door_assembly/door_assembly_eng{
-	icon_state = "door_as_gatmo0"
-	},
+/obj/structure/door_assembly,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "ta" = (
@@ -6648,7 +6622,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "uL" = (
-/obj/structure/door_assembly/door_assembly_eng,
+/obj/structure/door_assembly/door_assembly,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "uM" = (
@@ -7326,9 +7300,7 @@
 /turf/template_noop,
 /area/space)
 "HF" = (
-/obj/structure/door_assembly/door_assembly_med{
-	icon_state = "door_as_med0"
-	},
+/obj/structure/door_assembly,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "OM" = (

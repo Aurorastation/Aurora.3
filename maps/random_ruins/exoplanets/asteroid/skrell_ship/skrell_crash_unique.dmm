@@ -53,7 +53,6 @@
 "am" = (
 /obj/structure/windoor_assembly{
 	dir = 2;
-	icon_state = "l_windoor_assembly01";
 	name = "Command Copula"
 	},
 /turf/simulated/floor/shuttle/skrell/ramp{

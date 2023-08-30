@@ -1067,7 +1067,7 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "dD" = (
-/obj/structure/door_assembly/door_assembly_med{
+/obj/structure/door_assembly{
 	name = "Medbay"
 	},
 /turf/simulated/floor/airless,
