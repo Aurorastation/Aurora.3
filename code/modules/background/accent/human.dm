@@ -247,9 +247,9 @@
 
 /datum/accent/xanu
 	name = ACCENT_XANU
-	description = "The Xanu Standard dialect is arguably the most notable Freespeak dialect. Xanu Standard first emerged as an informal creole designed to make communication between the various nationalities \
-	who settled the planet easier and used loan words from upwards of a half-dozen languages during this early period. Over time this creole would morph into the Xanu Standard dialect of Freespeak \
-	and is arguably the oldest and most widespread of the 25th century's common Freespeak dialects. Freespeak taught abroad, such as in the Serene Republic of Elyra and Republic of Biesel, is most often based upon the Xanu Standard dialect."
+	description = "Xanan Freespeak is arguably the most notable Freespeak dialect. Xanan Freespeak first emerged as an informal creole designed to make communication between the various nationalities \
+	who settled the planet easier, being a hybridization of languages from the Indian subcontinent with a large share of loanwords from French and Dutch. Over time this creole would morph into Xanan Freespeak \
+	and is arguably the oldest and most widespread of the 25th century's common Freespeak dialects. Freespeak taught abroad, such as in the Serene Republic of Elyra and Republic of Biesel, is most often based upon Xanan Freespeak."
 	tag_icon = "xanu"
 	text_tag = "XAN"
 
