@@ -147,7 +147,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "aw" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -428,12 +428,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "bj" = (
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -668,8 +665,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/super/critical{
-	pixel_y = -24;
+/obj/machinery/power/apc/super/critical/south{
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -810,8 +806,7 @@
 /area/kataphract_chapter/starboardpropulsion)
 "ce" = (
 /obj/structure/bed/padded,
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -842,8 +837,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "cj" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -1406,10 +1400,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -1483,11 +1474,8 @@
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
 "dD" = (
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -2038,8 +2026,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboard_solars)
 "eJ" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /obj/effect/floor_decal/corner/red{
@@ -2436,9 +2423,7 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/machinery/power/apc/super/critical{
-	dir = 1;
-	pixel_y = 24;
+/obj/machinery/power/apc/super/critical/north{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -2708,10 +2693,7 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "fN" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(113)
 	},
 /obj/structure/cable/green,
@@ -2812,8 +2794,7 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "ga" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/wood,
@@ -2823,11 +2804,8 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/wood,
@@ -2933,11 +2911,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -3283,8 +3258,7 @@
 /area/kataphract_chapter/trading_area)
 "gU" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/high{
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3318,7 +3292,7 @@
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "gZ" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -3980,7 +3954,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "ix" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/effect/decal/fake_object{
 	desc = "A panel controlling an SUPB Pod. This one states the pod is currently offline.";
 	icon = 'icons/obj/computer.dmi';
@@ -4076,10 +4050,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "iJ" = (
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/high/east{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -4100,10 +4071,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -4113,7 +4081,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "iM" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
@@ -4182,8 +4150,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -4519,8 +4486,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -5277,11 +5243,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "kR" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -5340,10 +5303,8 @@
 	icon_state = "intact"
 	},
 /obj/machinery/light/small,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/structure/cable,
@@ -5454,7 +5415,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
 "lk" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -5934,10 +5895,8 @@
 	icon_state = "intact"
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -6734,12 +6693,9 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -7159,10 +7115,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -7407,10 +7360,7 @@
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/starboard_solars_array)
 "vQ" = (
-/obj/machinery/power/apc{
-	dir = 2;
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/south{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -7767,8 +7717,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/wood,
@@ -8124,7 +8073,7 @@
 /turf/template_noop,
 /area/space)
 "CE" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
@@ -8268,10 +8217,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/high/east{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -8329,8 +8275,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "Er" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -8397,8 +8342,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "EQ" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -8551,8 +8495,7 @@
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/port_solars_array)
 "Gx" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /obj/structure/closet/walllocker/medical/secure{
@@ -8660,8 +8603,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bridge)
 "Hr" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -9064,8 +9006,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -9177,7 +9118,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
 "Mv" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -9470,10 +9411,7 @@
 	icon_state = "0-2";
 	pixel_y = 0
 	},
-/obj/machinery/power/apc/high{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/high/west,
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "Ou" = (
@@ -9672,10 +9610,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "QB" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(113)
 	},
 /obj/structure/cable/green,
@@ -9788,7 +9723,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "RL" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "RM" = (
@@ -9876,8 +9811,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -9948,11 +9882,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -10002,7 +9933,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "TH" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled/dark,
@@ -10013,11 +9944,8 @@
 	dir = 9;
 	pixel_y = 0
 	},
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -10147,8 +10075,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -10204,8 +10131,7 @@
 "Wi" = (
 /obj/item/pipewrench,
 /obj/random/tech_supply,
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -10267,8 +10193,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/super/critical{
-	pixel_y = -24;
+/obj/machinery/power/apc/super/critical/south{
 	req_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -10541,10 +10466,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/high/south,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "Zz" = (
@@ -10556,8 +10478,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,

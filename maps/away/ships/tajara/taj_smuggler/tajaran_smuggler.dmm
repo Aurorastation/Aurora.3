@@ -22,9 +22,7 @@
 	},
 /area/shuttle/tajaran_smuggler_cargo)
 "aaJ" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -44,9 +42,8 @@
 /area/tajaran_smuggler/engine)
 "acx" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/obj/machinery/alarm/cold{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -87,9 +84,7 @@
 /area/tajaran_smuggler)
 "ahU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 25
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -110,11 +105,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -300,11 +291,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor{
 	temperature = 278.15
@@ -482,9 +469,8 @@
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -589,9 +575,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 25
-	},
+/obj/structure/extinguisher_cabinet/east,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -865,10 +849,8 @@
 	},
 /area/tajaran_smuggler/engine)
 "eLi" = (
-/obj/machinery/alarm/cold{
-	req_one_access = null;
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = null
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1078,10 +1060,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/wood{
@@ -1446,10 +1425,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = null
 	},
 /turf/simulated/floor/carpet/art{
@@ -1526,10 +1502,8 @@
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
 /obj/random/coin,
-/obj/machinery/alarm/cold{
-	req_one_access = null;
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = null
 	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
@@ -1771,10 +1745,7 @@
 /area/tajaran_smuggler)
 "jbS" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1783,9 +1754,8 @@
 	},
 /area/tajaran_smuggler/hangar)
 "jcn" = (
-/obj/machinery/alarm/cold{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = null
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1813,9 +1783,7 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/random/spacecash,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2229,9 +2197,8 @@
 	},
 /area/tajaran_smuggler)
 "lBm" = (
-/obj/machinery/alarm/cold{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = null
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -2311,10 +2278,7 @@
 	},
 /area/tajaran_smuggler/hangar)
 "lQg" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/structure/cable/green{
@@ -2721,10 +2685,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/north{
 	req_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2816,8 +2777,7 @@
 	},
 /area/tajaran_smuggler)
 "oUn" = (
-/obj/machinery/power/apc{
-	pixel_y = -24;
+/obj/machinery/power/apc/south{
 	req_access = null
 	},
 /obj/structure/cable/green,
@@ -3010,9 +2970,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/tajaran_smuggler/power)
 "quc" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -3196,10 +3154,8 @@
 /area/shuttle/tajaran_smuggler)
 "rDk" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/alarm/cold{
-	req_one_access = null;
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = null
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3287,9 +3243,7 @@
 "sBA" = (
 /obj/structure/table/standard,
 /obj/item/toy/desk/fan,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -3477,10 +3431,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/north{
 	req_access = null
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3813,9 +3764,8 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm/cold{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = null
 	},
 /obj/item/device/gps/engineering,
 /turf/simulated/floor{
@@ -3852,10 +3802,8 @@
 "xpe" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/obj/machinery/alarm/cold{
-	req_one_access = null;
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15

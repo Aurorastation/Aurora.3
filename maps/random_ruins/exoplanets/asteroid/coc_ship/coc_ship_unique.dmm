@@ -1375,9 +1375,7 @@
 /area/template_noop)
 "DB" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
-	},
+/obj/structure/extinguisher_cabinet/north,
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "A no longer functional cryogenic freezer.";

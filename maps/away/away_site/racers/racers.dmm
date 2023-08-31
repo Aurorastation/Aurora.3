@@ -311,9 +311,7 @@
 /turf/simulated/floor/wood,
 /area/racers)
 "aJd" = (
-/obj/machinery/newscaster{
-	pixel_x = 30
-	},
+/obj/machinery/newscaster/east,
 /obj/item/stack/material/wood,
 /turf/simulated/floor/wood,
 /area/racers)
@@ -2985,9 +2983,7 @@
 /turf/simulated/floor/plating,
 /area/racers)
 "opS" = (
-/obj/machinery/newscaster{
-	pixel_x = 30
-	},
+/obj/machinery/newscaster/east,
 /turf/simulated/floor/wood,
 /area/racers)
 "oqx" = (
@@ -4351,9 +4347,7 @@
 /turf/simulated/floor,
 /area/racers)
 "vbz" = (
-/obj/machinery/newscaster{
-	pixel_y = 30
-	},
+/obj/machinery/newscaster/north,
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
 	},

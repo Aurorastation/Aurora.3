@@ -542,10 +542,7 @@
 	dir = 4;
 	icon_state = "spline_fancy"
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8;
 	icon_state = "spline_fancy"
@@ -603,10 +600,7 @@
 	dir = 4;
 	icon_state = "spline_fancy"
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8;
 	icon_state = "spline_fancy"
@@ -1254,9 +1248,7 @@
 /obj/machinery/appliance/cooker/fryer{
 	pixel_y = 2
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 28
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
 "cO" = (
@@ -1858,9 +1850,8 @@
 	dir = 8;
 	req_one_access = list(150)
 	},
-/obj/item/device/radio/intercom{
-	pixel_x = 0;
-	pixel_y = 25
+/obj/item/device/radio/intercom/north{
+	pixel_x = 0
 	},
 /turf/simulated/floor/lino,
 /area/grand_romanovich)
@@ -2466,10 +2457,8 @@
 	icon_state = "spline_fancy"
 	},
 /obj/random/pottedplant,
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = -21
+/obj/item/device/radio/intercom/south{
+	pixel_x = 0
 	},
 /obj/machinery/light{
 	dir = 8;
@@ -2635,10 +2624,7 @@
 	dir = 5;
 	icon_state = "spline_fancy"
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/machinery/vending/casino,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -2835,10 +2821,8 @@
 /area/grand_romanovich)
 "gu" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = -21
+/obj/item/device/radio/intercom/south{
+	pixel_x = 0
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -2850,10 +2834,8 @@
 /area/grand_romanovich/outdoors)
 "gw" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = -21
+/obj/item/device/radio/intercom/south{
+	pixel_x = 0
 	},
 /obj/machinery/light{
 	dir = 2;
@@ -3028,9 +3010,8 @@
 "gV" = (
 /obj/structure/table/wood,
 /obj/item/phone,
-/obj/item/device/radio/intercom{
-	pixel_x = 0;
-	pixel_y = 25
+/obj/item/device/radio/intercom/north{
+	pixel_x = 0
 	},
 /turf/simulated/floor/lino,
 /area/grand_romanovich)
@@ -3382,10 +3363,7 @@
 "hM" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/random/pottedplant,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "hN" = (
@@ -3456,9 +3434,7 @@
 	icon_state = "spline_fancy"
 	},
 /obj/structure/bed/stool/chair/wood,
-/obj/item/device/radio/intercom{
-	pixel_y = 27
-	},
+/obj/item/device/radio/intercom/north,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "hZ" = (
@@ -3832,9 +3808,8 @@
 	dir = 1;
 	icon_state = "spline_fancy"
 	},
-/obj/item/device/radio/intercom{
-	pixel_x = 0;
-	pixel_y = 25
+/obj/item/device/radio/intercom/north{
+	pixel_x = 0
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -4734,9 +4709,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lL" = (
-/obj/item/device/radio/intercom{
-	pixel_x = 0;
-	pixel_y = 25
+/obj/item/device/radio/intercom/north{
+	pixel_x = 0
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
@@ -5319,18 +5293,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nf" = (
-/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/corner/dark_blue,
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "ng" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nh" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 8;
 	icon_state = "corner_white"
 	},
@@ -5365,10 +5339,7 @@
 	dir = 4;
 	icon_state = "spline_fancy"
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = 27
-	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "nq" = (
@@ -5392,14 +5363,14 @@
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "nu" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nv" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9;
 	icon_state = "corner_white"
 	},
@@ -5482,17 +5453,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nF" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nG" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/light{
@@ -5502,17 +5473,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nH" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nI" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9;
 	icon_state = "corner_white"
 	},
@@ -5523,7 +5494,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nJ" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6;
 	icon_state = "corner_white"
 	},
@@ -5567,18 +5538,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nN" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10;
 	icon_state = "corner_white"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nO" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10;
 	icon_state = "corner_white"
 	},
@@ -5589,11 +5560,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nP" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10;
 	icon_state = "corner_white"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6;
 	icon_state = "corner_white"
 	},
@@ -5632,10 +5603,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nT" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
 	icon_state = "corner_white"
@@ -5643,19 +5611,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nU" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nV" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nW" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -5664,7 +5632,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nX" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -5674,7 +5642,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nY" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -5684,7 +5652,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nZ" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1;
 	icon_state = "corner_white"
 	},
@@ -5704,10 +5672,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "oc" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = -21
+/obj/item/device/radio/intercom/south{
+	pixel_x = 0
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
@@ -7617,9 +7583,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/device/radio/intercom{
-	pixel_y = 27
-	},
+/obj/item/device/radio/intercom/north,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Pu" = (

@@ -500,10 +500,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -20
-	},
+/obj/item/device/radio/intercom/south,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1041,10 +1038,7 @@
 	},
 /area/cruise/pool/sauna1)
 "aJq" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -1228,9 +1222,7 @@
 	},
 /area/cruise/central)
 "aQy" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 5;
+/obj/item/device/radio/intercom/east{
 	pixel_y = -22
 	},
 /turf/unsimulated/floor{
@@ -1770,10 +1762,7 @@
 	},
 /area/cruise/centerline)
 "bjA" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -3425,19 +3414,13 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -20
-	},
+/obj/item/device/radio/intercom/south,
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
 	},
 /area/cruise/beach)
 "cFP" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -4972,10 +4955,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -5209,10 +5189,7 @@
 	},
 /area/cruise/library)
 "ejQ" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Passenger"
 	},
@@ -6258,10 +6235,7 @@
 	},
 /area/cruise/escort)
 "eZS" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -6624,10 +6598,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -7530,10 +7501,7 @@
 	},
 /area/cruise/pool)
 "fWc" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/tiled/ramp,
 /area/cruise/aft)
 "fWm" = (
@@ -7593,9 +7561,7 @@
 	},
 /area/cruise/arcade)
 "fXP" = (
-/obj/item/device/radio/intercom{
-	pixel_y = 25
-	},
+/obj/item/device/radio/intercom/north,
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
 	},
@@ -7803,10 +7769,7 @@
 /area/cruise/jungle)
 "gfE" = (
 /obj/structure/bed/stool/padded/red,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -8709,10 +8672,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -8807,10 +8767,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -11552,10 +11509,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -11750,10 +11704,7 @@
 /area/cruise/virtual_reality)
 "jli" = (
 /obj/structure/closet/emcloset,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -11790,10 +11741,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -12439,10 +12387,7 @@
 	},
 /area/cruise/escort)
 "jUE" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -15547,10 +15492,7 @@
 	},
 /area/cruise/e_supplies)
 "mlx" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -20
-	},
+/obj/item/device/radio/intercom/south,
 /turf/unsimulated/floor{
 	dir = 6;
 	icon_state = "carpet"
@@ -15620,10 +15562,7 @@
 	},
 /area/cruise/main_bar/aft)
 "mpp" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -18446,10 +18385,7 @@
 	},
 /area/cruise/security)
 "oAK" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -18796,10 +18732,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /turf/simulated/floor/tiled/ramp,
 /area/cruise/centerline)
 "oVa" = (
@@ -19915,9 +19848,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/radio/intercom{
-	pixel_y = 22
-	},
+/obj/item/device/radio/intercom/north,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -19996,8 +19927,7 @@
 /area/cruise/e_supplies)
 "pSl" = (
 /obj/machinery/vending/tool,
-/obj/structure/fireaxecabinet{
-	pixel_x = -16;
+/obj/structure/fireaxecabinet/west{
 	pixel_y = 29
 	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
@@ -21287,9 +21217,7 @@
 /area/cruise/escort)
 "rcn" = (
 /obj/structure/window/reinforced/crescent,
-/obj/machinery/newscaster{
-	pixel_x = 32
-	},
+/obj/machinery/newscaster/east,
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
 	dir = 8;
@@ -21628,9 +21556,7 @@
 	},
 /area/cruise/escort)
 "rrj" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 5;
+/obj/item/device/radio/intercom/east{
 	pixel_y = -22
 	},
 /turf/unsimulated/floor{
@@ -21888,10 +21814,7 @@
 	},
 /area/cruise/escort)
 "rCz" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -22530,9 +22453,7 @@
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
 "sek" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 5;
+/obj/item/device/radio/intercom/east{
 	pixel_y = -22
 	},
 /turf/unsimulated/floor{
@@ -24786,10 +24707,7 @@
 /area/cruise/dining_hall)
 "tRu" = (
 /obj/random/pottedplant,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
 	},
@@ -26173,10 +26091,7 @@
 	},
 /area/cruise/jungle)
 "uRK" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -26526,10 +26441,7 @@
 /obj/item/device/flashlight/lamp{
 	pixel_y = 5
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -27722,10 +27634,7 @@
 	},
 /area/cruise/arcade)
 "whR" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
 	},
@@ -28188,10 +28097,7 @@
 	},
 /area/cruise/main_bar)
 "wFi" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /turf/unsimulated/floor{
 	icon_state = "floor7"
 	},
@@ -28765,10 +28671,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -28858,10 +28761,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/cruise/aft)
 "xhh" = (
@@ -29115,10 +29015,7 @@
 	},
 /area/template_noop)
 "xpJ" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -24
-	},
+/obj/item/device/radio/intercom/west,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},

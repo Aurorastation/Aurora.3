@@ -428,9 +428,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
 "fRD" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 25
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "fVv" = (
@@ -468,9 +466,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(205)
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
-	},
+/obj/structure/extinguisher_cabinet/north,
 /obj/item/gun/energy/pistol,
 /obj/item/gun/energy/pistol,
 /obj/item/gun/energy/pistol,
@@ -543,9 +539,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
 "hBs" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -638,9 +632,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "kaR" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "kfX" = (

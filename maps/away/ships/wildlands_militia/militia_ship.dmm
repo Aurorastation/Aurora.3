@@ -593,9 +593,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
-	},
+/obj/structure/extinguisher_cabinet/north,
 /obj/item/material/knife/trench,
 /obj/item/material/knife/trench,
 /obj/item/storage/box/shotgunshells,
@@ -704,9 +702,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "hBs" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -972,9 +968,7 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "mlD" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -30
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "mlF" = (
@@ -1027,9 +1021,7 @@
 /area/ship/militia_ship)
 "mNO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -30
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "mPM" = (

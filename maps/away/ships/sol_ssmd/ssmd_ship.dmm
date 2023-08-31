@@ -234,9 +234,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -264,7 +262,7 @@
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/starboardengine)
 "aKs" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/guncabinet{
@@ -424,10 +422,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/medbay)
 "aZG" = (
@@ -518,10 +513,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/extinguisher_cabinet{
-	dir = 1;
-	pixel_y = -32
-	},
+/obj/structure/extinguisher_cabinet/south,
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
@@ -539,9 +531,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/synthroom)
 "buA" = (
@@ -1108,8 +1098,7 @@
 /obj/structure/janitorialcart/full{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1251,7 +1240,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/medbay)
 "dFx" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1630,9 +1619,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/light/colored/blue{
 	dir = 8
 	},
@@ -1667,10 +1654,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/portfoyer)
 "etL" = (
@@ -1775,7 +1759,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/canteen)
 "eFf" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2313,7 +2297,7 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 25
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/structure/filingcabinet{
@@ -2499,8 +2483,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/wood/walnut,
@@ -2548,8 +2531,7 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2584,9 +2566,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2697,10 +2677,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/extinguisher_cabinet{
-	dir = 1;
-	pixel_y = -32
-	},
+/obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/hangar)
 "gVK" = (
@@ -3145,10 +3122,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/mechbay)
 "itD" = (
@@ -3168,10 +3142,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/structure/extinguisher_cabinet{
-	dir = 1;
-	pixel_y = -32
-	},
+/obj/structure/extinguisher_cabinet/south,
 /obj/machinery/light{
 	icon_state = "tube_empty"
 	},
@@ -3280,8 +3251,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3342,7 +3312,7 @@
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/portfoyer)
 "iQW" = (
-/obj/effect/floor_decal/corner/blue/full,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /obj/machinery/papershredder{
 	pixel_x = -8
 	},
@@ -3441,9 +3411,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/bridge)
 "jsi" = (
@@ -3472,7 +3440,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "jwk" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/guncabinet{
@@ -3624,9 +3592,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3837,7 +3803,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/portengine)
 "kLl" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/structure/toilet{
@@ -4051,10 +4017,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -4170,8 +4133,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/canteen)
 "lCM" = (
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4322,8 +4284,7 @@
 /area/shuttle/ssmd_shuttle)
 "moE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -4332,8 +4293,7 @@
 "mpp" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4569,7 +4529,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/ship/ssmd_corvette/captain)
 "mNu" = (
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/guncabinet{
@@ -4680,13 +4640,13 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/brig)
 "niE" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/structure/sink/kitchen{
@@ -4933,8 +4893,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/machinery/light/small/emergency{
@@ -4981,10 +4940,7 @@
 "ody" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -5157,10 +5113,7 @@
 /area/ship/ssmd_corvette/captain)
 "oJJ" = (
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -5384,10 +5337,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "pJZ" = (
@@ -5482,7 +5432,7 @@
 /turf/simulated/floor,
 /area/ship/ssmd_corvette/starboardfoyer)
 "qbs" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5662,8 +5612,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/machinery/light/colored/blue{
@@ -5673,9 +5622,7 @@
 /area/ship/ssmd_corvette/captain)
 "qNt" = (
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -6224,7 +6171,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/grauwolf)
 "sMw" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/structure/curtain/open{
@@ -6870,8 +6817,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/bathroom)
 "uHZ" = (
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -6916,10 +6862,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/portengine)
 "uNN" = (
@@ -7016,9 +6959,7 @@
 /area/ship/ssmd_corvette/starboardengine)
 "vnU" = (
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/starboardfoyer)
 "vor" = (
@@ -7259,10 +7200,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -7287,10 +7225,7 @@
 /turf/simulated/floor/airless,
 /area/ship/ssmd_corvette/grauwolf)
 "wfT" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -7552,10 +7487,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -7625,7 +7557,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/portengine)
 "xbB" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -7838,10 +7770,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/grauwolf)
 "xJQ" = (
@@ -8047,8 +7976,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{

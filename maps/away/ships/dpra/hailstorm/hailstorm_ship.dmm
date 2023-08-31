@@ -131,9 +131,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(214)
 	},
 /obj/structure/cable/green,
@@ -330,10 +328,8 @@
 	},
 /area/hailstorm_ship/bridge)
 "bh" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(214)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -633,10 +629,8 @@
 /obj/item/clothing/under/tajaran/pvsm,
 /obj/item/clothing/shoes/tajara/jackboots,
 /obj/item/clothing/accessory/badge/dpra_passport,
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = list(214)
 	},
 /obj/effect/floor_decal/corner/white/full{
 	dir = 4
@@ -674,9 +668,7 @@
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = -32
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -808,9 +800,7 @@
 /turf/template_noop,
 /area/space)
 "em" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
@@ -939,10 +929,8 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(214)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1014,10 +1002,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/high/east{
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -1123,9 +1108,7 @@
 	dir = 4
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high{
-	dir = 8;
-	pixel_x = -24;
+/obj/machinery/power/apc/high/west{
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -1167,9 +1150,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high{
-	dir = 8;
-	pixel_x = -24;
+/obj/machinery/power/apc/high/west{
 	req_access = list(214)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1285,9 +1266,7 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/gun/projectile/dragunov,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(214)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1310,9 +1289,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(214)
 	},
 /turf/simulated/floor/plating{
@@ -1565,9 +1542,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -1635,9 +1610,8 @@
 /area/hailstorm_ship/engine)
 "lk" = (
 /obj/machinery/computer/ship/sensors,
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(214)
 	},
 /obj/effect/floor_decal/corner/black/full{
 	dir = 8
@@ -1677,10 +1651,8 @@
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = list(214)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1723,9 +1695,7 @@
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(214)
 	},
 /obj/structure/cable/green,
@@ -1752,10 +1722,8 @@
 	},
 /area/hailstorm_ship/gun_deck)
 "mG" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(214)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2118,9 +2086,7 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "rm" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
@@ -2297,10 +2263,7 @@
 	dir = 6
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/high/east{
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -2327,10 +2290,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/high/east{
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -2416,10 +2376,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(214)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -3209,10 +3166,8 @@
 "Jv" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(214)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3464,10 +3419,7 @@
 	dir = 10;
 	pixel_y = 0
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -3884,9 +3836,8 @@
 	dir = 4;
 	target_pressure = 250
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(214)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3901,10 +3852,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(214)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15

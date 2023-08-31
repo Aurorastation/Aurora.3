@@ -274,9 +274,7 @@
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "aLo" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
@@ -389,7 +387,7 @@
 /area/ship/fsf_patrol_ship)
 "bgD" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/blue/full,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /obj/machinery/computer/ship/navigation{
 	dir = 1
 	},
@@ -435,7 +433,7 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -502,7 +500,7 @@
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "cdD" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/machinery/computer/ship/engines{
@@ -1231,9 +1229,7 @@
 /obj/structure/closet/toolcloset,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "hBs" = (
@@ -1522,9 +1518,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
 "jIq" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -1953,7 +1947,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
 "mGs" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/machinery/button/remote/blast_door{

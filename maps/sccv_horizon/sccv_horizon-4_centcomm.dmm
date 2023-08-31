@@ -1550,9 +1550,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 5;
+/obj/item/device/radio/intercom/east{
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3786,12 +3784,11 @@
 	},
 /area/centcom/control)
 "aiD" = (
-/obj/item/device/radio/intercom{
+/obj/item/device/radio/intercom/north{
 	broadcasting = 1;
 	frequency = 1443;
 	listening = 0;
-	name = "Spec Ops Intercom";
-	pixel_y = 28
+	name = "Spec Ops Intercom"
 	},
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -4848,8 +4845,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
 "akQ" = (
-/obj/machinery/newscaster{
-	pixel_x = 5;
+/obj/machinery/newscaster/east{
 	pixel_y = 3
 	},
 /turf/unsimulated/wall/darkshuttlewall,
@@ -5803,9 +5799,7 @@
 /area/centcom/evac)
 "amG" = (
 /obj/structure/table/wood,
-/obj/machinery/newscaster{
-	pixel_y = 30
-	},
+/obj/machinery/newscaster/north,
 /turf/simulated/floor/lino,
 /area/merchant_station)
 "amH" = (
@@ -7812,9 +7806,7 @@
 	dir = 8;
 	req_access = list(110)
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 31
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/wood,
 /area/shuttle/merchant)
 "asT" = (
@@ -9122,8 +9114,7 @@
 	dir = 1
 	},
 /obj/machinery/vending/tool,
-/obj/structure/fireaxecabinet{
-	pixel_x = -16;
+/obj/structure/fireaxecabinet/west{
 	pixel_y = 29
 	},
 /turf/unsimulated/floor/plating,
@@ -9360,10 +9351,9 @@
 	},
 /area/centcom/specops)
 "aws" = (
-/obj/item/device/radio/intercom{
+/obj/item/device/radio/intercom/east{
 	frequency = 1441;
 	name = "Spec Ops Intercom";
-	pixel_x = 4;
 	pixel_y = 20
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -13509,8 +13499,7 @@
 /area/shuttle/specops)
 "aGs" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -30;
+/obj/structure/extinguisher_cabinet/west{
 	pixel_y = 2
 	},
 /obj/structure/closet/walllocker/emerglocker/north{
@@ -13916,11 +13905,9 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
 "aHo" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
+/obj/item/device/radio/intercom/south{
 	frequency = 1443;
-	name = "Spec Ops Intercom";
-	pixel_y = -21
+	name = "Spec Ops Intercom"
 	},
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -18268,9 +18255,7 @@
 "aTz" = (
 /obj/structure/table/reinforced,
 /obj/item/device/multitool,
-/obj/structure/fireaxecabinet{
-	pixel_x = -30
-	},
+/obj/structure/fireaxecabinet/west,
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
 	},
@@ -19216,11 +19201,10 @@
 /area/antag/wizard)
 "aVF" = (
 /obj/structure/table/wood,
-/obj/item/device/radio/intercom{
+/obj/item/device/radio/intercom/north{
 	desc = "Talk through this. Evilly";
 	frequency = 1213;
 	name = "Syndicate Intercom";
-	pixel_y = 22;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -20372,8 +20356,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -24;
+/obj/structure/extinguisher_cabinet/west{
 	pixel_y = -5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -23235,9 +23218,8 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/structure/extinguisher_cabinet{
+/obj/structure/extinguisher_cabinet/east{
 	layer = 3.3;
-	pixel_x = 24;
 	pixel_y = 1
 	},
 /turf/simulated/floor/shuttle/black,
@@ -24055,9 +24037,8 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "bfC" = (
-/obj/structure/extinguisher_cabinet{
+/obj/structure/extinguisher_cabinet/east{
 	layer = 3.3;
-	pixel_x = 27;
 	pixel_y = 1
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -25617,11 +25598,9 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
+/obj/item/device/radio/intercom/west{
 	frequency = 1213;
 	name = "Intercom";
-	pixel_x = -24;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -26038,9 +26017,8 @@
 /area/shuttle/mercenary)
 "bjG" = (
 /obj/structure/table/reinforced,
-/obj/machinery/newscaster{
-	name = "hacked newscaster";
-	pixel_y = 30
+/obj/machinery/newscaster/north{
+	name = "hacked newscaster"
 	},
 /obj/item/folder{
 	pixel_y = 2
@@ -26512,11 +26490,9 @@
 	},
 /area/centcom/distress_prep)
 "bkV" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
+/obj/item/device/radio/intercom/west{
 	frequency = 1213;
 	name = "Intercom";
-	pixel_x = -24;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -29425,9 +29401,7 @@
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -24
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/item/reagent_containers/weldpack{
 	pixel_y = -10
 	},
@@ -29923,11 +29897,9 @@
 /obj/item/weldingtool/largetank{
 	pixel_y = -12
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
+/obj/item/device/radio/intercom/west{
 	frequency = 1213;
 	name = "Intercom";
-	pixel_x = -24;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -30761,11 +30733,9 @@
 /obj/machinery/sleeper{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
+/obj/item/device/radio/intercom/east{
 	frequency = 1213;
 	name = "Intercom";
-	pixel_x = 20;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -33484,9 +33454,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 25
-	},
+/obj/structure/extinguisher_cabinet/east,
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1337;
 	id_tag = "distress_shuttle_aft";

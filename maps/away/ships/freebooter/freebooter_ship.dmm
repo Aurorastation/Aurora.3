@@ -937,9 +937,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1164,7 +1162,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod2)
 "bQe" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1661,9 +1659,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
+/obj/machinery/power/apc/north{
 	req_access = null
 	},
 /obj/structure/cable{
@@ -2007,7 +2003,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod6)
 "ess" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2122,7 +2118,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod5)
 "eHQ" = (
-/obj/effect/floor_decal/corner/green/full,
+/obj/effect/floor_decal/corner/dark_green/full,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod5)
@@ -3445,7 +3441,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "iwL" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -3640,8 +3636,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/power/apc{
-	pixel_y = -24;
+/obj/machinery/power/apc/south{
 	req_access = null
 	},
 /obj/structure/cable,
@@ -3807,8 +3802,7 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -3908,8 +3902,7 @@
 	color = "#CE9175"
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	pixel_y = -24;
+/obj/machinery/power/apc/south{
 	req_access = null
 	},
 /turf/simulated/floor{
@@ -3917,7 +3910,7 @@
 	},
 /area/ship/freebooter_ship/pod7)
 "kbC" = (
-/obj/effect/floor_decal/corner/green/full{
+/obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3976,8 +3969,7 @@
 /obj/structure/bed/stool/chair/office/wheelchair{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/machinery/light{
@@ -4292,8 +4284,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4391,9 +4382,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -4667,8 +4656,7 @@
 	req_one_access = null
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	pixel_y = -24;
+/obj/machinery/power/apc/south{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4748,7 +4736,7 @@
 /obj/structure/closet/walllocker{
 	pixel_x = 32
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5130,9 +5118,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark{
@@ -5191,7 +5177,7 @@
 /obj/structure/closet/walllocker{
 	pixel_x = -32
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -5716,7 +5702,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
 "nZj" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/bed/stool/chair{
 	dir = 8;
 	pixel_x = -8
@@ -5773,9 +5759,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/yellow/full{
@@ -5810,8 +5794,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	pixel_y = -24;
+/obj/machinery/power/apc/south{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6007,7 +5990,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod3)
 "oEs" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/flora/pottedplant{
 	dead = 1;
 	icon_state = "plant-dead";
@@ -6131,7 +6114,7 @@
 	name = "sink";
 	pixel_y = 26
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -6170,7 +6153,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/engineering)
 "oVL" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
@@ -6582,7 +6565,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "pPk" = (
-/obj/effect/floor_decal/corner/green/full{
+/obj/effect/floor_decal/corner/dark_green/full{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -7642,8 +7625,7 @@
 "rZw" = (
 /obj/effect/floor_decal/corner/paleblue/full,
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	pixel_y = -24;
+/obj/machinery/power/apc/south{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7676,7 +7658,7 @@
 	},
 /area/ship/freebooter_ship/pod2)
 "sjD" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -7749,10 +7731,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/machinery/power/apc/high{
-	dir = 4;
-	pixel_x = 32
-	},
+/obj/machinery/power/apc/high/east,
 /obj/structure/cable/yellow{
 	dir = 1
 	},
@@ -7791,9 +7770,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
+/obj/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7818,7 +7795,7 @@
 /area/ship/freebooter_ship/engineering)
 "syV" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8088,7 +8065,7 @@
 /obj/structure/closet/walllocker{
 	pixel_x = -32
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -8196,7 +8173,7 @@
 /area/ship/freebooter_ship/gunnery)
 "tvh" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8207,7 +8184,7 @@
 	pixel_y = 17;
 	density = 0
 	},
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
 "tzw" = (
@@ -8370,8 +8347,7 @@
 /area/ship/freebooter_ship/pod4)
 "tUO" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -8738,7 +8714,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "uQV" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/item/stack/rods,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8778,7 +8754,7 @@
 	},
 /area/ship/freebooter_ship/pod2)
 "uWU" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
 "uYP" = (
@@ -8803,7 +8779,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "vbe" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -8839,9 +8815,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "vdj" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/structure/cable{
@@ -9133,7 +9107,7 @@
 /obj/structure/closet/walllocker{
 	pixel_x = 32
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -9312,16 +9286,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/gunnery)
 "vWd" = (
-/obj/effect/floor_decal/corner/green/full{
+/obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
+/obj/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -9366,7 +9338,7 @@
 /turf/simulated/floor/airless,
 /area/shuttle/freebooter_shuttle)
 "wdL" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
 /obj/item/photo{
@@ -9677,8 +9649,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/machinery/power/apc{
-	pixel_y = -24;
+/obj/machinery/power/apc/south{
 	req_access = null
 	},
 /obj/structure/cable{
@@ -9847,9 +9818,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
+/obj/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,

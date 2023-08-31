@@ -196,10 +196,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -266,9 +263,7 @@
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engine2)
 "aLo" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
@@ -344,10 +339,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 2;
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/south{
 	req_access = list(113)
 	},
 /turf/simulated/floor,
@@ -404,7 +396,7 @@
 /area/ship/sfa_patrol_ship/Bridge)
 "bgD" = (
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/blue/full,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /obj/machinery/computer/ship/navigation{
 	dir = 1
 	},
@@ -492,7 +484,7 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -547,7 +539,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/medbay)
 "cdD" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/machinery/computer/ship/engines{
@@ -1274,10 +1266,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled/white,
@@ -1562,10 +1551,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1895,10 +1881,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(113)
 	},
 /mob/living/heavy_vehicle/premade/ripley/loader/sol/damaged,
@@ -1972,11 +1955,8 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled{
@@ -2006,11 +1986,8 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -2522,9 +2499,7 @@
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
 "jIq" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -3234,7 +3209,7 @@
 /turf/unsimulated/floor,
 /area/ship/sfa_patrol_ship)
 "ngh" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3375,10 +3350,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3682,10 +3654,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(113)
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -3781,10 +3750,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(113)
 	},
 /turf/simulated/floor,
@@ -4123,10 +4089,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/red,
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(113)
 	},
 /turf/simulated/floor/holofloor/wood,
@@ -4210,11 +4173,8 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4673,10 +4633,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(113)
 	},
 /turf/simulated/floor/carpet/art,
@@ -5121,10 +5078,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(113)
 	},
 /turf/unsimulated/floor,

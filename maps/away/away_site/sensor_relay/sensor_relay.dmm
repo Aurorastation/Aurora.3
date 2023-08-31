@@ -203,7 +203,7 @@
 	dir = 1;
 	name = "Oxygen Tank"
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay)
 "dZi" = (
@@ -225,7 +225,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay)
 "eaR" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
@@ -291,7 +291,7 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "ffB" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
@@ -329,7 +329,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/sensor_relay)
 "fKO" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
@@ -358,18 +358,12 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/structure/fireaxecabinet{
-	pixel_x = 32
-	},
+/obj/structure/fireaxecabinet/east,
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay)
 "gct" = (
@@ -382,7 +376,7 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "gfu" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "gvO" = (
@@ -454,7 +448,7 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay)
 "hww" = (
@@ -512,7 +506,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "iOF" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -767,7 +761,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay)
 "mSG" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -997,7 +991,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "qMQ" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/closet/crate/hydroponics,
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/material/hatchet,
@@ -1188,7 +1182,7 @@
 /area/space)
 "sPC" = (
 /obj/machinery/light,
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/seed_storage/garden,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
@@ -1203,7 +1197,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "sWu" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/table/wood,
 /obj/random/seed,
 /obj/random/seed,
@@ -1212,7 +1206,7 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "sYe" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/vending/hydronutrients,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
@@ -1221,7 +1215,7 @@
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay)
 "tay" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)

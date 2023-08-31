@@ -6,9 +6,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "ab" = (
-/obj/structure/extinguisher_cabinet{
-	layer = 3.3;
-	pixel_x = -26
+/obj/structure/extinguisher_cabinet/west{
+	layer = 3.3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
@@ -348,9 +347,7 @@
 	},
 /area/shuttle/tajara_safehouse_shuttle)
 "iK" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "iR" = (
@@ -376,9 +373,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "jR" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -843,9 +838,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "zc" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "zj" = (
@@ -1083,9 +1076,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "JI" = (
-/obj/structure/extinguisher_cabinet{
-	layer = 3.3;
-	pixel_x = 26
+/obj/structure/extinguisher_cabinet/east{
+	layer = 3.3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
@@ -1253,15 +1245,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "RB" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "RS" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "RT" = (
@@ -1344,9 +1332,7 @@
 /area/tajara_safehouse/hangar)
 "UP" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/white,
 /area/tajara_safehouse)
 "UW" = (

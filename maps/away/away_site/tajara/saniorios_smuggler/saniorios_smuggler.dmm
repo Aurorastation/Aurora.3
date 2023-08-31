@@ -714,10 +714,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty{
-	dir = 1;
-	pixel_y = 32
-	},
+/obj/machinery/power/apc/empty/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -858,9 +855,7 @@
 	},
 /area/saniorios_smuggler)
 "Hi" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/shuttle/black{
 	temperature = 278.15
 	},

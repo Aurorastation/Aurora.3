@@ -1143,9 +1143,7 @@
 /area/ala_base)
 "LP" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 31
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},

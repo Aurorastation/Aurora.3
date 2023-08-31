@@ -454,9 +454,7 @@
 /area/pra_base)
 "rN" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 31
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},

@@ -678,11 +678,7 @@
 /area/cursed/living_area)
 "dLX" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc/low{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/low/west,
 /obj/machinery/light_switch{
 	pixel_x = -35
 	},
@@ -1666,11 +1662,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/low/north,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -1839,11 +1831,7 @@
 /turf/simulated/floor/wood,
 /area/cursed/hangar)
 "loq" = (
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/low/north,
 /obj/machinery/light_switch{
 	pixel_y = 34
 	},
@@ -1999,11 +1987,7 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "lQd" = (
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/low/north,
 /obj/machinery/light_switch{
 	pixel_y = 34
 	},
@@ -2207,11 +2191,7 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "mWr" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/machinery/light_switch{
 	pixel_x = -34
 	},
@@ -2547,9 +2527,7 @@
 /area/cursed/hangar)
 "oVA" = (
 /obj/item/trash/broken_electronics,
-/obj/structure/fireaxecabinet{
-	pixel_y = 32
-	},
+/obj/structure/fireaxecabinet/north,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "oVJ" = (
@@ -2698,11 +2676,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/low/north,
 /obj/machinery/light_switch{
 	pixel_y = 34
 	},
@@ -3260,11 +3234,7 @@
 "sjW" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/power/apc/low{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/low/west,
 /obj/machinery/light_switch{
 	pixel_x = -35
 	},
@@ -3841,10 +3811,7 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "vLT" = (
-/obj/machinery/power/apc/low{
-	dir = 4;
-	pixel_x = 25
-	},
+/obj/machinery/power/apc/low/east,
 /obj/machinery/light_switch{
 	pixel_x = 35
 	},
@@ -3986,10 +3953,7 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "xbd" = (
-/obj/machinery/power/apc/hyper{
-	dir = 4;
-	pixel_x = 25
-	},
+/obj/machinery/power/apc/hyper/east,
 /obj/machinery/light_switch{
 	pixel_x = 35
 	},

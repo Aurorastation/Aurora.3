@@ -163,17 +163,14 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
 "abX" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
+/obj/item/device/radio/intercom/south{
 	frequency = 1443;
-	name = "Spec Ops Intercom";
-	pixel_y = -21
+	name = "Spec Ops Intercom"
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
 "aco" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -30;
+/obj/structure/extinguisher_cabinet/west{
 	pixel_y = 2
 	},
 /obj/structure/closet/walllocker/emerglocker/north{
@@ -289,8 +286,7 @@
 	dir = 1
 	},
 /obj/machinery/vending/tool,
-/obj/structure/fireaxecabinet{
-	pixel_x = -16;
+/obj/structure/fireaxecabinet/west{
 	pixel_y = 29
 	},
 /turf/unsimulated/floor/plating,
@@ -679,8 +675,7 @@
 	},
 /area/centcom/holding)
 "aAF" = (
-/obj/machinery/newscaster{
-	pixel_x = 5;
+/obj/machinery/newscaster/east{
 	pixel_y = 3
 	},
 /turf/unsimulated/wall/darkshuttlewall,
@@ -1854,9 +1849,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "aTs" = (
-/obj/item/device/radio/intercom{
-	pixel_y = -30
-	},
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/arrival)
 "aTW" = (
@@ -5632,7 +5625,7 @@
 /area/centcom/control)
 "fHJ" = (
 /obj/machinery/telecomms/server/presets/command,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled{
@@ -5753,9 +5746,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 5;
+/obj/item/device/radio/intercom/east{
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6350,7 +6341,7 @@
 /area/shuttle/administration)
 "gvZ" = (
 /obj/machinery/telecomms/bus/preset_three,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/red{
@@ -7395,12 +7386,11 @@
 	},
 /area/shuttle/transport1)
 "hOC" = (
-/obj/item/device/radio/intercom{
+/obj/item/device/radio/intercom/north{
 	broadcasting = 1;
 	frequency = 1443;
 	listening = 0;
-	name = "Spec Ops Intercom";
-	pixel_y = 28
+	name = "Spec Ops Intercom"
 	},
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -9523,7 +9513,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
@@ -10374,7 +10364,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled{
@@ -10812,7 +10802,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/purple{
@@ -11582,9 +11572,8 @@
 	anchored = 1;
 	pixel_y = 3
 	},
-/obj/machinery/requests_console{
-	department = "Arrival shuttle";
-	pixel_y = 31
+/obj/machinery/requests_console/north{
+	department = "Arrival shuttle"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/arrival)
@@ -11698,10 +11687,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
 "nnf" = (
-/obj/item/device/radio/intercom{
+/obj/item/device/radio/intercom/east{
 	frequency = 1441;
 	name = "Spec Ops Intercom";
-	pixel_x = 4;
 	pixel_y = 20
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -14432,7 +14420,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{

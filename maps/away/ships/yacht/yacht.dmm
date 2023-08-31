@@ -100,9 +100,7 @@
 	icon_state = "0-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/empty{
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/empty/south,
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/bridge)
 "au" = (
@@ -241,9 +239,7 @@
 "aT" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/spider/stickyweb,
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/living)
 "aU" = (
@@ -609,10 +605,7 @@
 	pixel_x = 25;
 	pixel_y = -8
 	},
-/obj/machinery/power/apc/empty{
-	dir = 1;
-	pixel_y = 23
-	},
+/obj/machinery/power/apc/empty/north,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "bW" = (
@@ -872,10 +865,7 @@
 /obj/structure/cable,
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/empty{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/empty/west,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "cD" = (
@@ -1593,9 +1583,7 @@
 /area/shuttle/yacht/living)
 "MX" = (
 /obj/effect/spider/stickyweb,
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/beach/water/alt,
 /area/shuttle/yacht/living)
 "Nb" = (

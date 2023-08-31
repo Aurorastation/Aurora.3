@@ -422,10 +422,7 @@
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/alarm{
-	pixel_x = 28;
-	dir = 8
-	},
+/obj/machinery/alarm/east,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
@@ -457,9 +454,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "re" = (
-/obj/machinery/power/apc/high{
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/high/south,
 /obj/structure/cable/green,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -1049,10 +1044,8 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "JF" = (
-/obj/machinery/power/apc/high{
-	req_access = list(210);
-	dir = 8;
-	pixel_x = -28
+/obj/machinery/power/apc/high/west{
+	req_access = list(210)
 	},
 /obj/structure/cable/green,
 /obj/structure/cable/green{
@@ -1144,10 +1137,8 @@
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "My" = (
-/obj/machinery/power/apc/high{
-	req_access = list(210);
-	dir = 4;
-	pixel_x = 28
+/obj/machinery/power/apc/high/east{
+	req_access = list(210)
 	},
 /obj/structure/cable/green{
 	d2 = 8;

@@ -137,7 +137,7 @@
 	},
 /obj/item/handcuffs,
 /obj/item/handcuffs,
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -204,10 +204,8 @@
 	},
 /obj/item/deck/cards,
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = list(209)
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -276,7 +274,7 @@
 	pixel_x = 32
 	},
 /obj/item/storage/firstaid/regular,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -430,7 +428,7 @@
 	},
 /area/database_freighter)
 "bQ" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -455,10 +453,8 @@
 "bS" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/empty/hydrogen,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -736,10 +732,8 @@
 "cT" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = list(209)
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -775,11 +769,9 @@
 	},
 /area/database_freighter)
 "dk" = (
-/obj/effect/floor_decal/corner/blue/full,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 1;
-	pixel_y = -32
+/obj/effect/floor_decal/corner/dark_blue/full,
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(209)
 	},
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(209)
@@ -795,9 +787,8 @@
 "dm" = (
 /obj/machinery/power/emitter,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -821,7 +812,7 @@
 "du" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/spray/pepper,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/structure/sign/painting_frame/hadii{
@@ -871,9 +862,7 @@
 /area/database_freighter)
 "dG" = (
 /obj/structure/closet/cabinet,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
+/obj/structure/extinguisher_cabinet/north,
 /obj/item/clothing/shoes/tajara/jackboots,
 /obj/item/clothing/under/tajaran/database_freighter,
 /obj/item/storage/backpack/satchel/eng,
@@ -1003,9 +992,7 @@
 	},
 /obj/effect/floor_decal/corner/red/full,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1013,9 +1000,7 @@
 	},
 /area/database_freighter/bridge)
 "ej" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -1224,7 +1209,7 @@
 	},
 /area/database_freighter/engineering)
 "fq" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1287,10 +1272,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(209)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1311,9 +1294,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
+/obj/structure/extinguisher_cabinet/north,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -1327,9 +1308,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -1377,11 +1356,8 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	req_access = list(209);
-	dir = 8;
-	pixel_x = -24
+/obj/machinery/power/apc/high/west{
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1434,9 +1410,7 @@
 /turf/simulated/floor/airless,
 /area/database_freighter/engine)
 "gu" = (
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(209)
 	},
 /obj/structure/cable/green{
@@ -1593,9 +1567,7 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/structure/table/standard,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1769,7 +1741,7 @@
 	req_access = list(209)
 	},
 /obj/item/gun/energy/rifle/icelance,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/machinery/light,
@@ -1796,11 +1768,8 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	req_access = list(209);
-	dir = 8;
-	pixel_x = -24
+/obj/machinery/power/apc/high/west{
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1890,10 +1859,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2060,9 +2027,8 @@
 	},
 /area/database_freighter/engineering)
 "kc" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2372,9 +2338,8 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2407,10 +2372,8 @@
 /obj/item/modular_computer/console/preset/civilian{
 	dir = 1
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = -32;
-	dir = 1
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(209)
 	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -2671,7 +2634,7 @@
 	dir = 8;
 	pixel_x = 32
 	},
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2987,10 +2950,8 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high{
-	req_access = list(209);
-	pixel_x = -24;
-	dir = 8
+/obj/machinery/power/apc/high/west{
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3155,9 +3116,7 @@
 	},
 /area/database_freighter/barracks)
 "wl" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3238,10 +3197,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(209)
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
@@ -3352,9 +3309,7 @@
 	},
 /area/database_freighter)
 "Aa" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
@@ -3465,9 +3420,7 @@
 /turf/simulated/floor,
 /area/shuttle/database_freighter_shuttle)
 "BA" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3556,10 +3509,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /turf/simulated/floor{
@@ -3628,17 +3578,14 @@
 	},
 /area/database_freighter/eva)
 "Dx" = (
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	req_access = list(209);
-	dir = 8;
-	pixel_x = -24
+/obj/machinery/power/apc/high/west{
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3836,10 +3783,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4188,10 +4132,10 @@
 /turf/template_noop,
 /area/space)
 "NZ" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4373,9 +4317,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
+/obj/structure/extinguisher_cabinet/north,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -4542,10 +4484,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /turf/simulated/floor/carpet/art{
@@ -4688,10 +4627,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4755,11 +4691,8 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	req_access = list(209);
-	dir = 8;
-	pixel_x = -24
+/obj/machinery/power/apc/high/west{
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15

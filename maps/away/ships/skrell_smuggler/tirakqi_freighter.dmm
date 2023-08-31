@@ -1974,9 +1974,7 @@
 /turf/unsimulated/wall/fakepdoor,
 /area/ship/tirakqi_freighter)
 "uWn" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},

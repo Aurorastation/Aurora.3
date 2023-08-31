@@ -233,9 +233,7 @@
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "aUn" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},

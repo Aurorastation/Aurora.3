@@ -71,11 +71,8 @@
 /area/nka_merchant/captain_quarters)
 "al" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
@@ -179,10 +176,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/north{
 	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
@@ -262,7 +256,7 @@
 	},
 /area/nka_merchant/engine)
 "aJ" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled{
@@ -339,9 +333,7 @@
 /obj/item/reagent_containers/food/snacks/cone_cake,
 /obj/item/reagent_containers/food/snacks/cone_cake,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/cold{
-	pixel_x = 32;
-	dir = 8;
+/obj/machinery/alarm/cold/east{
 	req_one_access = list(212)
 	},
 /turf/simulated/floor{
@@ -579,7 +571,7 @@
 	},
 /area/nka_merchant/hangar)
 "bV" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -606,9 +598,7 @@
 	},
 /area/nka_merchant/mess)
 "bY" = (
-/obj/machinery/alarm/cold{
-	dir = 1;
-	pixel_y = -32;
+/obj/machinery/alarm/cold/south{
 	req_one_access = list(212)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -631,7 +621,7 @@
 	},
 /area/nka_merchant/hangar)
 "bZ" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -643,7 +633,7 @@
 	},
 /area/nka_merchant)
 "ca" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -703,9 +693,7 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 9
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
@@ -746,7 +734,7 @@
 	},
 /area/nka_merchant/hangar)
 "cm" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled{
@@ -779,8 +767,7 @@
 	},
 /area/nka_merchant/mess)
 "cq" = (
-/obj/machinery/alarm/cold{
-	pixel_y = 32;
+/obj/machinery/alarm/cold/north{
 	req_one_access = list(212)
 	},
 /obj/structure/cable/green{
@@ -870,9 +857,7 @@
 /area/nka_merchant/engine)
 "cH" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/alarm/cold{
-	pixel_x = 32;
-	dir = 8;
+/obj/machinery/alarm/cold/east{
 	req_one_access = list(212)
 	},
 /turf/simulated/floor/tiled{
@@ -902,7 +887,7 @@
 	},
 /area/nka_merchant/hangar)
 "cK" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled{
@@ -1024,9 +1009,7 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 6
 	},
-/obj/machinery/alarm/cold{
-	pixel_x = 32;
-	dir = 8;
+/obj/machinery/alarm/cold/east{
 	req_one_access = list(212)
 	},
 /obj/structure/cable/green{
@@ -1039,14 +1022,14 @@
 	},
 /area/nka_merchant/captain_quarters)
 "df" = (
-/obj/effect/floor_decal/corner/blue/full,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /obj/machinery/vending/cola,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/nka_merchant)
 "dh" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -1250,7 +1233,7 @@
 	},
 /area/nka_merchant/engine)
 "dX" = (
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
 /obj/structure/closet/emcloset,
@@ -1271,9 +1254,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1406,7 +1387,7 @@
 	},
 /area/nka_merchant/engine)
 "eE" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1504,9 +1485,7 @@
 	},
 /area/nka_merchant/captain_quarters)
 "fq" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
+/obj/structure/extinguisher_cabinet/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1515,7 +1494,7 @@
 	},
 /area/nka_merchant/hangar)
 "fv" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -1533,7 +1512,7 @@
 "fy" = (
 /obj/effect/overmap/visitable/ship/nka_merchant,
 /obj/machinery/hologram/holopad/long_range,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1627,7 +1606,7 @@
 	},
 /area/nka_merchant/engine)
 "fI" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/light{
@@ -1824,7 +1803,7 @@
 	},
 /area/nka_merchant/hangar)
 "gM" = (
-/obj/effect/floor_decal/corner/blue/full,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -1971,7 +1950,7 @@
 	},
 /area/nka_merchant)
 "hV" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -2047,7 +2026,7 @@
 	},
 /area/nka_merchant/eva)
 "ih" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled{
@@ -2084,12 +2063,11 @@
 	},
 /area/nka_merchant/mess)
 "iq" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(212);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(212)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2127,7 +2105,7 @@
 	},
 /area/nka_merchant/mess)
 "iz" = (
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2279,9 +2257,8 @@
 	},
 /area/nka_merchant/merchant)
 "jl" = (
-/obj/structure/extinguisher_cabinet{
+/obj/structure/extinguisher_cabinet/east{
 	layer = 3.3;
-	pixel_x = 24;
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled{
@@ -2328,7 +2305,7 @@
 	dir = 1;
 	req_access = null
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled{
@@ -2422,10 +2399,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/north{
 	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
@@ -2520,10 +2494,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(213)
 	},
 /obj/structure/cable/green{
@@ -2588,8 +2559,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
-/obj/machinery/alarm/cold{
-	pixel_y = 32;
+/obj/machinery/alarm/cold/north{
 	req_one_access = list(212)
 	},
 /turf/simulated/floor/plating{
@@ -2605,12 +2575,11 @@
 	},
 /area/shuttle/nka_merchant_shuttle)
 "kF" = (
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(212);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(212)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
@@ -2643,9 +2612,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/bridge)
 "kL" = (
-/obj/machinery/alarm/cold{
-	pixel_x = 32;
-	dir = 8;
+/obj/machinery/alarm/cold/east{
 	req_one_access = list(212)
 	},
 /turf/simulated/floor/tiled{
@@ -2757,9 +2724,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
-/obj/machinery/alarm/cold{
-	dir = 4;
-	pixel_x = -32;
+/obj/machinery/alarm/cold/west{
 	req_one_access = list(212)
 	},
 /obj/structure/sign/flag/nka/large/north,
@@ -2795,7 +2760,7 @@
 	},
 /area/nka_merchant/engineering)
 "lt" = (
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
 /obj/machinery/vending/snack,
@@ -2805,7 +2770,7 @@
 /area/nka_merchant)
 "lu" = (
 /obj/structure/sign/flag/nka/large/south,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled{
@@ -2813,12 +2778,10 @@
 	},
 /area/nka_merchant)
 "lw" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 25
-	},
+/obj/structure/extinguisher_cabinet/east,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -2960,7 +2923,7 @@
 /turf/template_noop,
 /area/space)
 "ms" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3032,16 +2995,13 @@
 /area/nka_merchant)
 "mZ" = (
 /obj/structure/table/standard,
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
@@ -3049,9 +3009,7 @@
 	},
 /area/nka_merchant/bridge)
 "nh" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -3096,7 +3054,7 @@
 /obj/structure/sign/flag/nka{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled{
@@ -3104,9 +3062,7 @@
 	},
 /area/nka_merchant)
 "ny" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
+/obj/structure/extinguisher_cabinet/north,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -3221,9 +3177,7 @@
 	},
 /area/nka_merchant/engineering)
 "pf" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
 	pixel_y = 0
@@ -3282,7 +3236,7 @@
 	},
 /area/nka_merchant)
 "pT" = (
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
 /obj/machinery/recharger/wallcharger{
@@ -3342,7 +3296,7 @@
 	},
 /area/nka_merchant/mess)
 "rc" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled{
@@ -3395,11 +3349,8 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
@@ -3454,12 +3405,10 @@
 	},
 /area/nka_merchant/merchant)
 "tB" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/machinery/alarm/cold{
-	pixel_x = 32;
-	dir = 8;
+/obj/machinery/alarm/cold/east{
 	req_one_access = list(212)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -3471,7 +3420,7 @@
 	},
 /area/nka_merchant)
 "tY" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /turf/simulated/floor/tiled{
@@ -3544,17 +3493,14 @@
 	},
 /area/nka_merchant/eva)
 "wm" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
@@ -3577,7 +3523,7 @@
 	},
 /area/nka_merchant/hangar)
 "wP" = (
-/obj/effect/floor_decal/corner/blue/full,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3693,11 +3639,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(213)
 	},
 /turf/simulated/floor{
@@ -3757,11 +3700,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(213)
 	},
 /turf/simulated/floor/plating{
@@ -3797,7 +3737,7 @@
 /obj/machinery/computer/ship/navigation{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/blue/full,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3806,7 +3746,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/engine)
 "AY" = (
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
@@ -3925,7 +3865,7 @@
 	},
 /area/nka_merchant/captain_quarters)
 "Ea" = (
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled{
@@ -3996,7 +3936,7 @@
 	},
 /area/nka_merchant/engineering)
 "EC" = (
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /obj/machinery/vending/coffee,
@@ -4080,11 +4020,8 @@
 	dir = 4
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
@@ -4158,7 +4095,7 @@
 	},
 /area/nka_merchant/engineering)
 "HS" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/machinery/light,
@@ -4180,7 +4117,7 @@
 	},
 /area/nka_merchant/engineering)
 "IZ" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/machinery/light{
@@ -4259,7 +4196,7 @@
 	},
 /area/nka_merchant/barracks)
 "Ka" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4481,12 +4418,10 @@
 	},
 /area/nka_merchant/engine)
 "OT" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
+/obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -4524,7 +4459,7 @@
 	},
 /area/nka_merchant/barracks)
 "PV" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/machinery/light{
@@ -4556,10 +4491,7 @@
 /obj/item/paper_bin,
 /obj/item/pen/black,
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
@@ -4631,7 +4563,7 @@
 	},
 /area/nka_merchant/engineering)
 "Tk" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/machinery/light{
@@ -4727,7 +4659,7 @@
 	},
 /area/nka_merchant/engineering)
 "UD" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/machinery/light{
@@ -4800,7 +4732,7 @@
 	},
 /area/nka_merchant/eva)
 "WG" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4833,10 +4765,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(213)
 	},
 /turf/simulated/floor/tiled{
@@ -4849,9 +4778,8 @@
 	},
 /obj/item/storage/firstaid/o2,
 /obj/item/storage/firstaid/regular,
-/obj/machinery/alarm/cold{
-	req_one_access = list(212);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(212)
 	},
 /obj/effect/floor_decal/corner/white/full{
 	dir = 1

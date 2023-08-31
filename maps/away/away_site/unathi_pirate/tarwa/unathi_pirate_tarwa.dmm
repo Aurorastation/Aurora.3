@@ -336,9 +336,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28;
+/obj/machinery/alarm/west{
 	req_one_access = list(210)
 	},
 /turf/simulated/floor/diona,
@@ -1007,9 +1005,7 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "nX" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25;
+/obj/machinery/alarm/south{
 	req_one_access = list(210)
 	},
 /turf/simulated/floor/tiled,
@@ -1252,10 +1248,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
@@ -1296,10 +1289,8 @@
 /area/tarwa_ship/bridge)
 "sz" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
@@ -1338,10 +1329,8 @@
 /area/tarwa_ship/captain)
 "tK" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(210)
 	},
 /turf/simulated/floor/carpet/orange,
@@ -1424,9 +1413,7 @@
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "vn" = (
-/obj/machinery/alarm{
-	pixel_x = 28;
-	dir = 8;
+/obj/machinery/alarm/east{
 	req_one_access = list(210)
 	},
 /obj/structure/table/rack,
@@ -1568,11 +1555,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
@@ -1780,9 +1764,7 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "Ba" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25;
+/obj/machinery/alarm/south{
 	req_one_access = list(210)
 	},
 /obj/machinery/iv_drip,
@@ -1944,9 +1926,7 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "Dk" = (
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28;
+/obj/machinery/alarm/west{
 	req_one_access = list(210)
 	},
 /turf/simulated/floor/diona,
@@ -1999,8 +1979,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(210)
 	},
 /turf/simulated/floor/tiled,
@@ -2021,8 +2000,7 @@
 /area/tarwa_ship/bridge)
 "Ei" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(210)
 	},
 /turf/simulated/floor/tiled,
@@ -2032,11 +2010,8 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
@@ -2046,11 +2021,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
+/obj/machinery/power/apc/east{
 	is_critical = 1;
-	name = "east bump";
-	pixel_x = 24;
 	req_access = list(210)
 	},
 /turf/simulated/floor/plating,
@@ -2160,11 +2132,8 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
@@ -2268,10 +2237,8 @@
 /area/tarwa_ship)
 "Hy" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(210)
 	},
 /turf/simulated/floor/tiled/white,
@@ -2355,10 +2322,8 @@
 /area/tarwa_ship/oldhangar)
 "Ik" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(210)
 	},
 /turf/simulated/floor/tiled,
@@ -2408,8 +2373,7 @@
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/canteen)
 "JO" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(210)
 	},
 /obj/structure/table/rack,
@@ -2423,9 +2387,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_x = 28;
-	dir = 8;
+/obj/machinery/alarm/east{
 	req_one_access = list(210)
 	},
 /turf/simulated/floor/plating,
@@ -2553,11 +2515,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(210)
 	},
 /turf/simulated/floor/tiled,
@@ -2592,9 +2551,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28;
+/obj/machinery/alarm/west{
 	req_one_access = list(210)
 	},
 /obj/structure/cable/green{
@@ -2781,11 +2738,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(210)
 	},
 /turf/simulated/floor/tiled,
@@ -2845,11 +2799,8 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(210)
 	},
 /turf/simulated/floor/tiled,
@@ -2936,10 +2887,8 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(210)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -2965,8 +2914,7 @@
 /turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "PL" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(210)
 	},
 /turf/simulated/floor/diona,
@@ -3015,11 +2963,8 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
+/obj/machinery/power/apc/east{
 	is_critical = 1;
-	name = "east bump";
-	pixel_x = 24;
 	req_access = list(210)
 	},
 /obj/structure/table/rack,
@@ -3349,9 +3294,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -25;
+/obj/machinery/alarm/south{
 	req_one_access = list(210)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -3373,8 +3316,7 @@
 /area/tarwa_ship/medical)
 "Wg" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(210)
 	},
 /obj/structure/bed/stool/padded/green,
@@ -3444,11 +3386,8 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(210)
 	},
 /turf/simulated/floor/tiled,
@@ -3465,10 +3404,7 @@
 /area/tarwa_ship/crew)
 "Xr" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(210)
 	},
 /turf/simulated/floor/plating,

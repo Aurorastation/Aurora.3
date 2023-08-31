@@ -82,9 +82,7 @@
 "kL" = (
 /obj/structure/table/standard,
 /obj/item/toy/desk/fan,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},

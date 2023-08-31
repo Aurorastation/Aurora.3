@@ -3336,8 +3336,7 @@
 /area/derelict/hallway/southwest)
 "lp" = (
 /obj/structure/closet/emcloset,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 5;
+/obj/structure/extinguisher_cabinet/east{
 	pixel_y = 30
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -4006,9 +4005,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "nm" = (
-/obj/item/device/radio/intercom{
-	pixel_y = -28
-	},
+/obj/item/device/radio/intercom/south,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
@@ -4239,10 +4236,7 @@
 /turf/simulated/floor/tiled,
 /area/derelict/hallway/southwest)
 "nW" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = 27
-	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/tiled,
 /area/derelict/hallway/southwest)
 "nX" = (

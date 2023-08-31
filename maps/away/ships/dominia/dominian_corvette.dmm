@@ -67,10 +67,8 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/storage/firstaid/surgery,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 4;
-	pixel_x = -32
+/obj/machinery/alarm/west{
+	req_one_access = null
 	},
 /obj/machinery/light{
 	dir = 1;
@@ -616,10 +614,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)
 "bTi" = (
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 4;
-	pixel_x = -32
+/obj/machinery/alarm/west{
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -821,10 +817,8 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/east{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
@@ -881,10 +875,8 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/east{
+	req_one_access = null
 	},
 /turf/simulated/floor,
 /area/ship/dominian_corvette/quarters)
@@ -954,10 +946,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/south{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/officer)
@@ -1142,10 +1132,8 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 4;
-	pixel_x = -32
+/obj/machinery/alarm/west{
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1181,10 +1169,8 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/east{
+	req_one_access = null
 	},
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
@@ -1494,9 +1480,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
@@ -1543,10 +1528,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 4;
-	pixel_x = -32
+/obj/machinery/alarm/west{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/brig)
@@ -1566,10 +1549,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/east{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/quarters)
@@ -1779,10 +1760,8 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/south{
+	req_one_access = null
 	},
 /obj/effect/ghostspawpoint{
 	identifier = "imperial_fleet_voidsman";
@@ -1991,10 +1970,8 @@
 /area/ship/dominian_corvette/hangar)
 "huX" = (
 /obj/effect/floor_decal/corner/orange/full,
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/south{
+	req_one_access = null
 	},
 /obj/machinery/firealarm/west,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -2120,9 +2097,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/franny)
@@ -2211,9 +2187,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor,
@@ -2324,10 +2299,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/south{
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
@@ -2532,10 +2505,8 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/south{
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -2868,9 +2839,8 @@
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_corvette/temple)
 "kXm" = (
-/obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/armory)
@@ -3942,9 +3912,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3975,10 +3944,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/south{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/cic)
@@ -4450,10 +4417,8 @@
 /area/ship/dominian_corvette/hangar)
 "qDA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/south{
+	req_one_access = null
 	},
 /turf/simulated/floor,
 /area/ship/dominian_corvette/hangar)
@@ -4462,9 +4427,8 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/plain/black,
-/obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_corvette/temple)
@@ -4875,10 +4839,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/east{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/officer)
@@ -5248,10 +5210,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/armory)
 "tMb" = (
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/east{
+	req_one_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_corvette/cannon)
@@ -5420,10 +5380,8 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	dir = 4;
-	pixel_x = -32
+/obj/machinery/alarm/west{
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -5473,9 +5431,8 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/franny)
@@ -5855,9 +5812,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
 "wBq" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
@@ -5873,9 +5828,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/brig)
@@ -6329,9 +6283,8 @@
 /area/ship/dominian_corvette/quarters)
 "ygs" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
-/obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /obj/machinery/light{
 	dir = 1;
@@ -6368,9 +6321,8 @@
 /obj/structure/sign/flag/strelitz{
 	pixel_x = -32
 	},
-/obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 32
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/machinery/light{

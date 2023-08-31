@@ -8,10 +8,8 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "ax" = (
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green,
@@ -44,8 +42,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/tiled,
@@ -219,11 +216,8 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -323,11 +317,8 @@
 /turf/simulated/floor/plating,
 /area/merchants_guild/warehouse)
 "dL" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	is_critical = 1;
-	name = "east bump";
-	pixel_x = 24
+/obj/machinery/power/apc/east{
+	is_critical = 1
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -686,8 +677,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/tiled,
@@ -792,8 +782,7 @@
 "jN" = (
 /obj/structure/bed/stool/bar/padded,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/tiled,
@@ -972,10 +961,8 @@
 /area/merchants_guild/portengine)
 "nn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green,
@@ -1034,8 +1021,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/tiled,
@@ -1765,10 +1751,8 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/machinery/light,
@@ -1848,8 +1832,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/tiled,
@@ -1921,11 +1904,8 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -2248,10 +2228,8 @@
 /area/merchants_guild/canteen)
 "DW" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -2450,11 +2428,8 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -2500,11 +2475,8 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -2544,10 +2516,8 @@
 /obj/machinery/hologram/holopad/long_range,
 /obj/machinery/light,
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
@@ -2711,11 +2681,8 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /obj/machinery/light{
@@ -2885,10 +2852,8 @@
 /area/merchants_guild/starboardengine)
 "Ll" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/machinery/light,
@@ -3257,11 +3222,8 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{

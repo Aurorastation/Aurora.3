@@ -295,10 +295,7 @@
 	locked = 0;
 	pixel_y = 23
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/cable{
 	d2 = 2;
@@ -342,9 +339,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/ringer{
-	dir = 1;
-	pixel_x = 15;
+/obj/machinery/ringer/east{
 	pixel_y = 18
 	},
 /turf/simulated/floor/wood/bamboo,
@@ -787,10 +782,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -10
-	},
+/obj/machinery/power/apc/west,
 /turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
 "qp" = (
@@ -1111,10 +1103,7 @@
 /turf/simulated/floor/wood/bamboo,
 /area/construction/storage)
 "yM" = (
-/obj/machinery/newscaster{
-	dir = 1;
-	pixel_y = 18
-	},
+/obj/machinery/newscaster/north,
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
 "yN" = (
@@ -1281,9 +1270,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/newscaster{
-	dir = 1;
-	pixel_x = 16;
+/obj/machinery/newscaster/east{
 	pixel_y = 18
 	},
 /obj/structure/table/wood,
@@ -1414,9 +1401,7 @@
 	pixel_x = -6;
 	pixel_y = 8
 	},
-/obj/machinery/requests_console{
-	dir = 4;
-	pixel_x = 6;
+/obj/machinery/requests_console/east{
 	pixel_y = -6
 	},
 /turf/simulated/floor/carpet/aquablue,
@@ -1484,10 +1469,7 @@
 	dir = 8;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 10
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor,
 /area/construction/qmaint)
 "Hx" = (
@@ -1719,10 +1701,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 14
-	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor,
 /area/construction/supplyshuttle)
 "Na" = (
@@ -1815,10 +1794,7 @@
 	dir = 8;
 	must_start_working = 1
 	},
-/obj/machinery/ringer{
-	dir = 8;
-	pixel_x = -6
-	},
+/obj/machinery/ringer/west,
 /turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
 "Qf" = (
@@ -1870,9 +1846,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/machinery/newscaster{
-	dir = 4;
-	pixel_x = 6;
+/obj/machinery/newscaster/east{
 	pixel_y = 5
 	},
 /obj/machinery/light{
@@ -2115,10 +2089,7 @@
 /turf/simulated/floor,
 /area/antag/mercenary)
 "VE" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 14
-	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark,
 /area/construction/solarscontrol)
 "VG" = (
@@ -2131,10 +2102,7 @@
 /turf/simulated/floor,
 /area/antag/mercenary)
 "Wk" = (
-/obj/machinery/requests_console{
-	dir = 1;
-	pixel_y = 18
-	},
+/obj/machinery/requests_console/north,
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/aquablue,
 /area/construction/storage)

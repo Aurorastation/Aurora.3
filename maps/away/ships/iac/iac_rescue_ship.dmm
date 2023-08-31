@@ -30,9 +30,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
 "aaI" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/power/terminal{
 	dir = 1
 	},
@@ -84,10 +82,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
 "akO" = (
@@ -276,10 +271,7 @@
 	dir = 6;
 	pixel_y = 0
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -372,9 +364,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/bathroom)
 "bfF" = (
@@ -715,8 +705,7 @@
 /obj/structure/toilet{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/machinery/firealarm/south,
@@ -910,10 +899,7 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/surgery)
 "emn" = (
@@ -930,8 +916,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
@@ -1041,10 +1026,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/pharmacy)
 "ePO" = (
@@ -1247,8 +1229,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/holofloor/tiled/ramp{
@@ -1269,9 +1250,7 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/pharmacy)
 "gdk" = (
@@ -1868,10 +1847,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/wood,
 /area/ship/iac_rescue_ship/dorms)
 "jTd" = (
@@ -2498,10 +2474,7 @@
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/lunchbox/nymph/filled,
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -2894,10 +2867,7 @@
 "rmz" = (
 /obj/random/pottedplant,
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/coord)
 "rpZ" = (
@@ -3093,10 +3063,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
 "sDt" = (
@@ -3218,10 +3185,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/item/vitals_monitor,
 /obj/item/vitals_monitor,
 /turf/simulated/floor/tiled/white,
@@ -3549,10 +3513,7 @@
 /area/ship/iac_rescue_ship/starboardengine)
 "vme" = (
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	dir = 4;
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/starboardengine)
 "vqQ" = (
@@ -3563,9 +3524,8 @@
 	},
 /area/ship/iac_rescue_ship/starboardengine)
 "vrt" = (
-/obj/machinery/alarm{
-	req_one_access = null;
-	pixel_y = 28
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/carpet,
 /area/ship/iac_rescue_ship/dorms)
@@ -3800,9 +3760,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 25
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/iac_shuttle)
 "xRX" = (
@@ -3815,10 +3773,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},

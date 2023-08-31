@@ -472,9 +472,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space_bar)
 "fat" = (
-/obj/machinery/newscaster{
-	pixel_y = 30
-	},
+/obj/machinery/newscaster/north,
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
 	},
@@ -891,9 +889,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/space_bar)
 "mkb" = (
-/obj/machinery/newscaster{
-	pixel_x = 30
-	},
+/obj/machinery/newscaster/east,
 /turf/simulated/floor/wood,
 /area/space_bar)
 "muk" = (

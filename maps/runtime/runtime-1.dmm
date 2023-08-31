@@ -74,10 +74,7 @@
 	locked = 0;
 	pixel_y = 23
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/structure/cable{
 	d2 = 4;
@@ -119,11 +116,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "ar" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "Gravity Generator APC";
-	pixel_y = 25
-	},
+/obj/machinery/power/apc/north,
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
@@ -334,9 +327,8 @@
 	pixel_y = 5
 	},
 /obj/structure/table/standard,
-/obj/item/device/radio/intercom{
-	name = "Common Channel";
-	pixel_x = -27
+/obj/item/device/radio/intercom/west{
+	name = "Common Channel"
 	},
 /turf/simulated/floor/plating,
 /area/engineering)
@@ -469,10 +461,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "bg" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
@@ -606,10 +595,7 @@
 /turf/simulated/wall/r_wall,
 /area/hallway/primary/central_one)
 "by" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable,
 /obj/structure/cable{
 	d2 = 2;
@@ -647,17 +633,14 @@
 	locked = 0;
 	pixel_y = 23
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
 	pixel_y = 1
 	},
 /obj/structure/closet/secure_closet/captains,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -686,7 +669,7 @@
 /area/bridge)
 "bI" = (
 /obj/structure/closet/secure_closet/xo,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/machinery/firealarm/east,
@@ -729,17 +712,14 @@
 	locked = 0;
 	pixel_y = 23
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2";
 	pixel_y = 1
 	},
 /obj/structure/closet/firecloset/full,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white{
@@ -757,7 +737,7 @@
 	must_start_working = 1
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white{
@@ -767,7 +747,7 @@
 /area/hallway/secondary/entry)
 "bS" = (
 /obj/structure/closet/secure_closet/hos,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white{
@@ -777,7 +757,7 @@
 /area/hallway/secondary/entry)
 "bT" = (
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white{
@@ -848,7 +828,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -867,7 +847,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -920,7 +900,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white{
@@ -952,12 +932,12 @@
 	must_start_working = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump,
-/obj/effect/floor_decal/corner/blue/full,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /obj/item/modular_computer/console/preset/ai,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "cm" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -967,7 +947,7 @@
 	brightness_range = 16;
 	must_start_working = 1
 	},
-/obj/effect/floor_decal/corner/blue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /obj/item/modular_computer/console/preset/command/account,
@@ -991,7 +971,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "cq" = (
-/obj/machinery/power/apc,
+/obj/machinery/power/apc/south,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
 "cr" = (
@@ -1043,14 +1023,14 @@
 	dir = 1;
 	must_start_working = 1
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "cz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/ai_status_display{
@@ -1062,7 +1042,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
@@ -1081,12 +1061,10 @@
 	dir = 1;
 	must_start_working = 1
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
-/obj/machinery/newscaster{
-	pixel_y = 32
-	},
+/obj/machinery/newscaster/north,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "cC" = (
@@ -1103,7 +1081,7 @@
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white{
@@ -1113,7 +1091,7 @@
 /area/hallway/secondary/entry)
 "cF" = (
 /obj/structure/table,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white{
@@ -1124,10 +1102,10 @@
 /area/hallway/secondary/entry)
 "cG" = (
 /obj/item/storage/box/fancy/donut,
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/corner/dark_blue,
 /obj/effect/floor_decal/corner/white{
 	dir = 8
 	},
@@ -1145,7 +1123,7 @@
 	brightness_range = 16;
 	must_start_working = 1
 	},
-/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/corner/dark_blue,
 /obj/effect/floor_decal/corner/white{
 	dir = 8
 	},
@@ -1157,7 +1135,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/corner/dark_blue,
 /obj/effect/floor_decal/corner/white{
 	dir = 8
 	},
@@ -1166,7 +1144,7 @@
 /area/hallway/secondary/entry)
 "cJ" = (
 /obj/item/device/healthanalyzer,
-/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/corner/dark_blue,
 /obj/effect/floor_decal/corner/white{
 	dir = 8
 	},
@@ -1226,10 +1204,7 @@
 	locked = 0
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -1258,10 +1233,7 @@
 	locked = 0;
 	pixel_y = 23
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
@@ -1460,10 +1432,7 @@
 	c_tag = "Central Corridor 1";
 	dir = 1
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -21
-	},
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "fq" = (
@@ -1532,15 +1501,14 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "mn" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/machinery/requests_console{
+/obj/machinery/requests_console/south{
 	announcementConsole = 1;
 	department = "Bridge";
 	departmentType = 5;
-	name = "Bridge RC";
-	pixel_y = -30
+	name = "Bridge RC"
 	},
 /obj/machinery/computer/security,
 /turf/simulated/floor/tiled,
@@ -1614,7 +1582,7 @@
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "uI" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white{
@@ -1632,7 +1600,7 @@
 /turf/template_noop,
 /area/engineering)
 "wk" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/item/modular_computer/console/preset/command,
@@ -1676,10 +1644,7 @@
 	c_tag = "Central Corridor 2";
 	dir = 1
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -21
-	},
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "zQ" = (
@@ -1839,17 +1804,14 @@
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "RL" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge";
 	dir = 1
 	},
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_y = -21
-	},
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "Sz" = (
@@ -1882,7 +1844,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/status_display{
@@ -1922,7 +1884,7 @@
 /turf/simulated/floor/plating,
 /area/turbolift/main_station)
 "XQ" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white{
@@ -1938,7 +1900,7 @@
 /turf/template_noop,
 /area/template_noop)
 "YP" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/item/modular_computer/console/preset/command/captain,

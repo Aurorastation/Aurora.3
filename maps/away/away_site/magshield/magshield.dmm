@@ -163,11 +163,7 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/obj/machinery/power/apc/low{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/low/east,
 /turf/simulated/floor/airless,
 /area/magshield/north)
 "at" = (
@@ -944,11 +940,7 @@
 /turf/simulated/floor/airless,
 /area/magshield/smes_storage)
 "cH" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
@@ -1168,10 +1160,7 @@
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/power/apc{
-	name = "south bump";
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
@@ -1571,11 +1560,7 @@
 /turf/simulated/floor/airless,
 /area/magshield/north)
 "ex" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -2347,11 +2332,7 @@
 /turf/simulated/wall,
 /area/magshield/west)
 "gQ" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable,
 /turf/simulated/floor/tiled/white/airless,
 /area/magshield/west)
@@ -2478,11 +2459,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"

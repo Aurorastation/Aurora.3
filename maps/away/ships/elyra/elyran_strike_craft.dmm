@@ -894,15 +894,11 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "grH" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "gxW" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -2091,9 +2087,7 @@
 /turf/space/transit/north,
 /area/space)
 "uHF" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
+/obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "uNI" = (
@@ -2172,9 +2166,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
 "vNs" = (
@@ -2260,9 +2252,7 @@
 	},
 /obj/structure/table/steel,
 /obj/item/clothing/ears/earmuffs,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "wqn" = (

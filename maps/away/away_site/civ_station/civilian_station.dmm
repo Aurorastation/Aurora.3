@@ -1151,9 +1151,7 @@
 /area/civilian_station)
 "hON" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "hXZ" = (
