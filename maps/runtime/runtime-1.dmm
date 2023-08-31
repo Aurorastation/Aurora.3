@@ -110,7 +110,7 @@
 	dir = 9
 	},
 /obj/machinery/power/smes/buildable{
-	charge = 1e+006;
+	charge = 1000000;
 	input_attempt = 1;
 	input_level = 200000;
 	output_attempt = 1;
