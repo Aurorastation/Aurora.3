@@ -456,21 +456,17 @@ var/datum/controller/subsystem/ticker/SSticker
 	if(SSjobs.type_occupations[/datum/job/merchant].total_positions)
 		available_ghostroles |= SSjobs.type_occupations[/datum/job/merchant].title
 
-	if(length(available_ghostroles))
-//		to_world(EXAMINE_BLOCK(
-//			"[SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round: "))]\n\
-//			[english_list(available_ghostroles)].\n\
-//			[SPAN_INFO("Actual availability may vary.")]"
-//		))
-
 	var/datum/space_sector/current_sector = SSatlas.current_sector
-	var/html = "[SPAN_NOTICE("Current sector: [current_sector].")]\n\
-		<span>\
-			<a href='?src=\ref[src];current_sector_show_sites_id=1'>Click here</a>\n\
-			to see every possible site/ship that can potentially spawn here.\
-		</span>\
-	"
-	to_world(EXAMINE_BLOCK(html))
+	var/list/sector_intro = list()
+	sector_intro += FONT_SMALL(SPAN_NOTICE("Current sector: [current_sector]."))
+	if(length(available_ghostroles))
+		sector_intro += SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round: "))
+		sector_intro += english_list(available_ghostroles)
+		sector_intro += "\n"
+		sector_intro += SPAN_INFO("Actual availability may vary.")
+	sector_intro += "\n"
+	sector_intro += "<a href='?src=\ref[src];current_sector_show_sites_id=1'>Click here</a> to see every possible site/ship that can potentially spawn here."
+	to_world(EXAMINE_BLOCK(sector_intro))
 
 	callHook("pregame_start")
 
