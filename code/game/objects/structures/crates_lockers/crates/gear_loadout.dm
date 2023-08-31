@@ -269,7 +269,7 @@
 	pants.attach_accessory(null, waistcoat)
 	suspenders.color = "#521600"
 	pants.attach_accessory(null, suspenders)
-	hat.color = "#725E1B"
+	hat.color = "#521600"
 
 	new /obj/item/clothing/shoes/cowboy(src)
 	new /obj/item/clothing/gloves/fingerless(src)
