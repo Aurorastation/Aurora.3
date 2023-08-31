@@ -5339,9 +5339,9 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "cAt" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/tiled/dark/full,
-/area/rnd/hallway)
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/lino,
+/area/horizon/bar)
 "cAx" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -27586,7 +27586,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/tesla)
 "nmD" = (
-/obj/structure/table/stone/marble,
+/obj/structure/table/stone/marble{
+	color = "#ccc3b8"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -30096,9 +30098,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "oAw" = (
-/obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/lino,
-/area/horizon/bar)
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/tiled/dark/full,
+/area/rnd/hallway)
 "oAy" = (
 /obj/structure/closet/crate/freezer{
 	name = "Assorted Blood Packs"
@@ -50100,7 +50102,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey,
-/obj/structure/table/stone/marble,
 /obj/machinery/door/window/desk/southleft{
 	name = "Kitchen";
 	req_access = list(28)
@@ -67719,9 +67720,9 @@ mLL
 gjM
 nxI
 owr
-oAw
-oAw
-oAw
+cAt
+cAt
+cAt
 vug
 nfz
 tag
@@ -68328,7 +68329,7 @@ dim
 lvM
 gKC
 tfl
-oAw
+cAt
 pZs
 qzH
 nxI
@@ -68530,7 +68531,7 @@ kgS
 otr
 odD
 wMr
-oAw
+cAt
 pZs
 qEL
 bOI
@@ -68732,7 +68733,7 @@ gwy
 rIZ
 gBK
 fkr
-oAw
+cAt
 pZs
 gMn
 bOI
@@ -75960,7 +75961,7 @@ cer
 cer
 cer
 cer
-cAt
+oAw
 qhA
 qUz
 bUN

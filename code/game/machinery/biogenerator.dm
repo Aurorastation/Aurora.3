@@ -568,7 +568,7 @@
 	eat_eff = bin_rating
 
 /obj/machinery/biogenerator/small
-	icon_state = "biogen_small_empty"
+	icon_state = "biogen_small"
 	density = FALSE
 	capacity = 25
 
