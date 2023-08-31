@@ -28,9 +28,6 @@
 	dir = 9;
 	pixel_y = 0
 	},
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "ae" = (
@@ -224,20 +221,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
-"ct" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 10
-	},
-/obj/structure/bed/stool/chair/sofa/right/black{
-	dir = 4;
-	name = "pew";
-	desc = "A pew, how holy!"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
 "cF" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/bed/stool/bar/padded/orange,
@@ -432,12 +415,6 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
-"ec" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
 "ee" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -585,9 +562,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "gd" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
 /obj/machinery/alarm{
 	req_one_access = null;
 	pixel_y = 32
@@ -598,9 +572,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "gh" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 10
-	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
@@ -768,12 +739,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
-"iQ" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
 "iV" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1146,15 +1111,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
-"mR" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
 "mS" = (
 /obj/structure/table/steel,
 /obj/item/melee/energy/sword/hegemony,
@@ -1231,12 +1187,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
-"nu" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
 "nv" = (
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/portthrust)
@@ -1418,15 +1368,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
-"pg" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
 "pk" = (
 /obj/machinery/light,
 /turf/simulated/floor/carpet/orange,
@@ -1553,9 +1494,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "qn" = (
@@ -1626,9 +1564,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "qO" = (
@@ -1644,15 +1579,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
-"qU" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
 "rb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1699,9 +1625,6 @@
 /obj/structure/cable/green{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
@@ -1725,29 +1648,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
-"rT" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
-/area/ship/dominian_unathi)
-"rV" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
 "rX" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2067,12 +1967,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
 "vq" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -2435,22 +2329,7 @@
 /obj/item/clothing/accessory/dominia,
 /obj/item/clothing/accessory/poncho/dominia/red/surcoat,
 /obj/item/clothing/head/beret/dominia,
-/obj/effect/floor_decal/corner/light{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 10
-	},
 /obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
-"zx" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 10
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "zA" = (
@@ -2491,15 +2370,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
-"zS" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 10
-	},
-/obj/effect/floor_decal/corner/light{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
 "zU" = (
 /obj/machinery/door/airlock/command{
 	name = "Bridge";
@@ -3226,9 +3096,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
 "FO" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
 /obj/structure/table/stone/marble,
 /obj/item/nullrod/dominia,
 /turf/simulated/floor/tiled/dark,
@@ -3387,12 +3254,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
-"Hg" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
 "Hi" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -3455,17 +3316,6 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/ship/dominian_unathi/gun)
-"Il" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 10
-	},
-/obj/structure/bed/stool/chair/sofa/right/black{
-	dir = 4;
-	name = "pew";
-	desc = "A pew, how holy!"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
 "Im" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/vending/dinnerware,
@@ -4487,15 +4337,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/starboardthrust)
-"TA" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
 "TB" = (
 /obj/machinery/vending/engineering{
 	req_access = null
@@ -5177,7 +5018,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
 "Zg" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
 /area/shuttle/dominian_unathi)
 "Zi" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -5195,17 +5035,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/crew)
-"Zu" = (
-/obj/effect/floor_decal/corner/light{
-	dir = 5
-	},
-/obj/structure/bed/stool/chair/sofa/right/black{
-	dir = 4;
-	name = "pew";
-	desc = "A pew, how holy!"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_unathi/chapel)
 "Zy" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/dominian_unathi/starboardthrust)
@@ -16037,7 +15866,7 @@ iH
 xN
 iH
 iH
-rT
+RY
 Pd
 Pd
 Pd
@@ -20411,7 +20240,7 @@ iH
 xN
 iH
 iH
-rT
+RY
 UC
 UC
 UC
@@ -21229,11 +21058,11 @@ Zc
 xQ
 LP
 kW
-qU
-nu
-rV
-nu
-zS
+kx
+kx
+qm
+kx
+kx
 EV
 pW
 pW
@@ -21391,7 +21220,7 @@ CA
 YU
 zA
 kW
-TA
+vq
 kx
 qm
 kx
@@ -21553,11 +21382,11 @@ Qe
 RI
 Fi
 kW
-Zu
+Je
 mr
 qH
 Je
-Il
+Je
 EV
 pW
 Tq
@@ -21719,7 +21548,7 @@ rN
 lU
 ad
 kx
-Hg
+kx
 EV
 Fq
 Ta
@@ -21877,11 +21706,11 @@ CA
 CA
 Oi
 kW
-Zu
-ct
-zx
 Je
-Il
+Je
+kx
+Je
+Je
 EV
 Mn
 eS
@@ -22041,7 +21870,7 @@ Aa
 kW
 gd
 kx
-pg
+kx
 kx
 gh
 EV
@@ -22201,11 +22030,11 @@ CA
 UA
 Oi
 kW
-ec
 kx
-ec
 kx
-Hg
+kx
+kx
+kx
 EV
 pW
 Zj
@@ -22363,11 +22192,11 @@ sj
 sj
 Ln
 kW
-ec
+kx
 xc
 FO
 HA
-Hg
+kx
 EV
 ly
 QX
@@ -22526,9 +22355,9 @@ hi
 Si
 kW
 vq
-iQ
-mR
-iQ
+kx
+kx
+kx
 zf
 EV
 Ej
