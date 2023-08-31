@@ -5847,7 +5847,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "tJ" = (
@@ -5952,7 +5952,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "uY" = (
@@ -6200,7 +6200,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/iv_drip,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "yv" = (
@@ -6372,7 +6372,7 @@
 	pixel_y = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Ch" = (
@@ -6692,7 +6692,7 @@
 /obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Ga" = (
@@ -6784,7 +6784,7 @@
 	pixel_x = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Iw" = (
@@ -7356,7 +7356,7 @@
 	},
 /obj/item/storage/box/syringes,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Rc" = (
@@ -7512,7 +7512,7 @@
 	pixel_y = 18
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "SI" = (
@@ -7673,7 +7673,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/syringes,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Vn" = (
@@ -7801,7 +7801,7 @@
 	pixel_y = -11
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Wy" = (
@@ -7839,7 +7839,7 @@
 	pixel_y = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Xa" = (
@@ -8018,7 +8018,7 @@
 "Zd" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Zi" = (
@@ -8057,7 +8057,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "ZO" = (

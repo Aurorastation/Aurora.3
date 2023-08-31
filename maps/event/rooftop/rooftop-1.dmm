@@ -44,7 +44,7 @@
 "am" = (
 /obj/random/pottedplant,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "an" = (
@@ -89,7 +89,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "ar" = (
@@ -261,7 +261,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "bA" = (
@@ -388,7 +388,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "cj" = (
@@ -463,7 +463,7 @@
 	pixel_x = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "cJ" = (
@@ -555,7 +555,7 @@
 	pixel_x = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "db" = (
@@ -642,7 +642,7 @@
 	name = "vr introduction slip"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell)
 "dp" = (
@@ -663,7 +663,7 @@
 	name = "Duo Suite Seven"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "dD" = (
@@ -697,7 +697,7 @@
 	name = "Duo Suite One"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "dK" = (
@@ -738,7 +738,7 @@
 	name = "Duo Suite Nine"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "ea" = (
@@ -751,7 +751,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "ec" = (
@@ -903,7 +903,7 @@
 	pixel_y = -9
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "eN" = (
@@ -973,7 +973,7 @@
 /obj/item/device/lightreplacer/advanced,
 /obj/item/device/lightreplacer/advanced,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell/interior)
 "fe" = (
@@ -989,7 +989,7 @@
 "fg" = (
 /obj/machinery/door/window/eastleft,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "fh" = (
@@ -1105,7 +1105,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "fA" = (
@@ -1120,7 +1120,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "fH" = (
@@ -1186,7 +1186,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "gb" = (
@@ -1300,7 +1300,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "gF" = (
@@ -1520,7 +1520,7 @@
 /obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "hK" = (
@@ -1583,7 +1583,7 @@
 /obj/structure/table/reinforced,
 /obj/structure/sign/flag/coalition,
 /turf/unsimulated/floor{
-	icon_state = "wood-broken"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell)
 "ib" = (
@@ -1607,7 +1607,7 @@
 	pixel_y = 16
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "ih" = (
@@ -1627,7 +1627,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "is" = (
@@ -1691,7 +1691,7 @@
 /obj/item/storage/box/syndie_kit/chameleon,
 /obj/item/storage/box/syndie_kit/chameleon,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell)
 "iQ" = (
@@ -1704,7 +1704,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "iR" = (
@@ -1731,7 +1731,7 @@
 /area/shuttle/city)
 "iW" = (
 /turf/unsimulated/floor{
-	icon_state = "wood-broken"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell)
 "iX" = (
@@ -1778,7 +1778,7 @@
 	pixel_y = 30
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "jf" = (
@@ -1850,7 +1850,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "js" = (
@@ -1990,7 +1990,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "kG" = (
@@ -2067,7 +2067,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "kY" = (
@@ -2195,7 +2195,7 @@
 	dir = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "lL" = (
@@ -2267,7 +2267,7 @@
 	pixel_y = -11
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "mf" = (
@@ -2367,7 +2367,7 @@
 	pixel_y = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "mK" = (
@@ -2485,7 +2485,7 @@
 /area/city/mendell/interior)
 "nK" = (
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "nQ" = (
@@ -2538,7 +2538,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "oa" = (
@@ -2673,7 +2673,7 @@
 	name = "Special Operations Blast Door"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "oQ" = (
@@ -2762,7 +2762,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "pv" = (
@@ -2802,7 +2802,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "pD" = (
@@ -2833,7 +2833,7 @@
 "pQ" = (
 /obj/structure/bed/stool/chair/office/light,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "pT" = (
@@ -2888,7 +2888,7 @@
 	name = "Duo Suite Six"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "qs" = (
@@ -2950,7 +2950,7 @@
 "qJ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "qP" = (
@@ -3006,7 +3006,7 @@
 /obj/structure/sculpting_block,
 /obj/structure/sculpting_block,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "rh" = (
@@ -3039,7 +3039,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "rm" = (
@@ -3233,7 +3233,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "rO" = (
@@ -3250,7 +3250,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "rR" = (
@@ -3353,7 +3353,7 @@
 	name = "Duo Suite 2"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "sB" = (
@@ -3393,7 +3393,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/iv_drip,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "tj" = (
@@ -3403,7 +3403,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "tk" = (
@@ -3590,7 +3590,7 @@
 /area/city/mendell)
 "un" = (
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell/interior)
 "up" = (
@@ -3669,14 +3669,14 @@
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "vc" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "ve" = (
@@ -3684,7 +3684,7 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/item/reagent_containers/dropper,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "vk" = (
@@ -3751,7 +3751,7 @@
 	},
 /obj/machinery/washing_machine,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "vu" = (
@@ -3878,7 +3878,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "vW" = (
@@ -3889,7 +3889,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "vY" = (
@@ -3962,7 +3962,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "wG" = (
@@ -3974,7 +3974,7 @@
 	dir = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "wJ" = (
@@ -4049,7 +4049,7 @@
 	pixel_x = 28
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell)
 "wS" = (
@@ -4098,7 +4098,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "xw" = (
@@ -4146,7 +4146,7 @@
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/regular,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "xI" = (
@@ -4166,7 +4166,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "xL" = (
@@ -4241,7 +4241,7 @@
 	name = "\improper FIB tactical helmet"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "xQ" = (
@@ -4263,7 +4263,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "xW" = (
@@ -4274,7 +4274,7 @@
 	pixel_x = 28
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell)
 "xY" = (
@@ -4332,7 +4332,7 @@
 	name = "Duo Suite Three"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "yj" = (
@@ -4585,7 +4585,7 @@
 "zJ" = (
 /obj/machinery/door/window/northright,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "zO" = (
@@ -4627,7 +4627,7 @@
 /obj/item/card/id/syndicate,
 /obj/item/card/id/syndicate,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "Aa" = (
@@ -4635,7 +4635,7 @@
 	name = "virtual_reality_spawn"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell)
 "Af" = (
@@ -4707,7 +4707,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "AH" = (
@@ -4943,7 +4943,7 @@
 	pixel_x = -28
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell)
 "Cd" = (
@@ -4956,7 +4956,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "Cg" = (
@@ -4989,7 +4989,7 @@
 	name = "Duo Suite Four"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "CA" = (
@@ -5041,7 +5041,7 @@
 /area/city/mendell/interior)
 "CG" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "CI" = (
@@ -5070,7 +5070,7 @@
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "CO" = (
@@ -5108,7 +5108,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "CU" = (
@@ -5137,7 +5137,7 @@
 	name = "Duo Suite Five"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "Dc" = (
@@ -5153,7 +5153,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "Dd" = (
@@ -5184,7 +5184,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "Dj" = (
@@ -5272,7 +5272,7 @@
 	},
 /obj/item/gun/energy/rifle/ionrifle,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "DG" = (
@@ -5306,7 +5306,7 @@
 /obj/item/gun/projectile/sec,
 /obj/item/gun/projectile/sec,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "DI" = (
@@ -5347,7 +5347,7 @@
 /obj/item/device/megaphone/sec,
 /obj/item/device/megaphone/sec,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "DP" = (
@@ -5440,7 +5440,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "EB" = (
@@ -5529,7 +5529,7 @@
 	pixel_y = 35
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "Fz" = (
@@ -5583,7 +5583,7 @@
 /obj/item/reagent_containers/hypospray,
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "FW" = (
@@ -5631,7 +5631,7 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "Gi" = (
@@ -5820,7 +5820,7 @@
 "HG" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "HI" = (
@@ -5841,7 +5841,7 @@
 	pixel_y = 35
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "HN" = (
@@ -5866,7 +5866,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "HS" = (
@@ -5932,7 +5932,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "Ix" = (
@@ -6086,7 +6086,7 @@
 "Jm" = (
 /obj/structure/undies_wardrobe,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell)
 "Js" = (
@@ -6210,7 +6210,7 @@
 	amount_per_transfer_from_this = 50
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell/interior)
 "JX" = (
@@ -6252,7 +6252,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "Kr" = (
@@ -6315,7 +6315,7 @@
 	pixel_x = -28
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell)
 "KP" = (
@@ -6385,7 +6385,7 @@
 /obj/item/gun/energy/rifle,
 /obj/item/gun/energy/rifle,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "Ln" = (
@@ -6458,7 +6458,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "LA" = (
@@ -6513,7 +6513,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "LS" = (
@@ -6681,7 +6681,7 @@
 /obj/item/clothing/glasses/fakesunglasses,
 /obj/item/clothing/glasses/fakesunglasses,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "Mv" = (
@@ -6765,7 +6765,7 @@
 /obj/item/gun/energy/disruptorpistol/magnum,
 /obj/item/gun/energy/disruptorpistol/magnum,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "MN" = (
@@ -6778,7 +6778,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "MP" = (
@@ -6910,7 +6910,7 @@
 "Nt" = (
 /obj/machinery/vending/security,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "Ny" = (
@@ -6922,7 +6922,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "NL" = (
@@ -7065,7 +7065,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "OB" = (
@@ -7105,7 +7105,7 @@
 	pixel_y = 18
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "OF" = (
@@ -7281,7 +7281,7 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "Pq" = (
@@ -7294,13 +7294,13 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "Pr" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell)
 "Pu" = (
@@ -7385,7 +7385,7 @@
 	pixel_y = 16
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "PQ" = (
@@ -7443,7 +7443,7 @@
 	},
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "Ql" = (
@@ -7574,7 +7574,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "QS" = (
@@ -7587,7 +7587,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "QV" = (
@@ -7612,7 +7612,7 @@
 	dir = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "Ra" = (
@@ -7633,7 +7633,7 @@
 "Rb" = (
 /obj/machinery/door/window/westleft,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "Re" = (
@@ -7652,7 +7652,7 @@
 	name = "Duo Suite Eight"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "Rj" = (
@@ -7684,7 +7684,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "Rs" = (
@@ -7737,7 +7737,7 @@
 	name = "active cleaning utility dispenser"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell/interior)
 "RF" = (
@@ -7824,7 +7824,7 @@
 "Sp" = (
 /obj/item/autochisel,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "Sy" = (
@@ -7974,7 +7974,7 @@
 	dir = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "Tm" = (
@@ -8081,7 +8081,7 @@
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "TN" = (
@@ -8141,7 +8141,7 @@
 /obj/structure/table/rack,
 /obj/item/card/id/all_access,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "Uk" = (
@@ -8352,7 +8352,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "Vz" = (
@@ -8387,7 +8387,7 @@
 	name = "Duo Suite Ten"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "VL" = (
@@ -8425,7 +8425,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "VW" = (
@@ -8581,7 +8581,7 @@
 "WA" = (
 /obj/machinery/door/window/eastright,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "WB" = (
@@ -8612,7 +8612,7 @@
 	dir = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "WG" = (
@@ -8759,7 +8759,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/stool/chair/padded/teal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/city/mendell)
 "XG" = (
@@ -8813,7 +8813,7 @@
 	opacity = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "Yf" = (
@@ -8877,7 +8877,7 @@
 	pixel_y = 25
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "YE" = (
@@ -9033,7 +9033,7 @@
 	},
 /obj/item/reagent_containers/dropper,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "Zi" = (
@@ -9078,7 +9078,7 @@
 	name = "Operating Room 1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 "ZB" = (
@@ -9104,7 +9104,7 @@
 "ZM" = (
 /obj/machinery/door/window/westright,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/city/mendell/interior)
 "ZP" = (
@@ -9155,7 +9155,7 @@
 "ZZ" = (
 /obj/machinery/optable,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/city/mendell)
 

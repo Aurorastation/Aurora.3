@@ -47,7 +47,7 @@
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aae" = (
@@ -79,19 +79,19 @@
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aag" = (
 /obj/structure/table/wood,
 /obj/item/storage/backpack/satchel/leather/withwallet,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aah" = (
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aai" = (
@@ -113,7 +113,7 @@
 /obj/item/stack/packageWrap,
 /obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aak" = (
@@ -125,7 +125,7 @@
 	},
 /obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aal" = (
@@ -135,7 +135,7 @@
 	name = "adjusted light fixture"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "aam" = (
@@ -144,7 +144,7 @@
 	prices = list()
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aan" = (
@@ -157,13 +157,13 @@
 	pixel_x = 11
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aao" = (
 /obj/item/modular_computer/console/preset/civilian,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aap" = (
@@ -196,7 +196,7 @@
 /obj/machinery/librarycomp,
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aas" = (
@@ -243,7 +243,7 @@
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aax" = (
@@ -374,7 +374,7 @@
 "aaG" = (
 /obj/structure/trash_pile,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aaH" = (
@@ -383,7 +383,7 @@
 /obj/item/storage/box/syndie_kit/chameleon,
 /obj/item/storage/box/syndie_kit/chameleon,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aaI" = (
@@ -392,7 +392,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aaJ" = (
@@ -431,7 +431,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aaM" = (
@@ -458,7 +458,7 @@
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/webbing,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aaR" = (
@@ -522,7 +522,7 @@
 /obj/item/clothing/accessory/offworlder/bracer,
 /obj/item/rig/light/offworlder,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aaX" = (
@@ -535,13 +535,13 @@
 /obj/item/clothing/suit/circuitry,
 /obj/item/clothing/under/circuitry,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aaY" = (
 /obj/machinery/photocopier,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "aaZ" = (
@@ -554,13 +554,13 @@
 "aba" = (
 /obj/machinery/papershredder,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "abb" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "abc" = (
@@ -574,7 +574,7 @@
 "abd" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "abe" = (
@@ -585,25 +585,25 @@
 	random_itemcount = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "abf" = (
 /obj/structure/dispenser/oxygen,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "abg" = (
 /obj/structure/undies_wardrobe,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "abh" = (
 /obj/machinery/suit_cycler/wizard,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "abi" = (
@@ -613,7 +613,7 @@
 	random_itemcount = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "abj" = (
@@ -633,14 +633,14 @@
 	pixel_x = -28
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "abl" = (
 /obj/item/crowbar,
 /obj/structure/table/rack,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/antag/wizard)
 "abm" = (
@@ -2511,7 +2511,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "aiw" = (
@@ -2523,13 +2523,13 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "aiy" = (
 /obj/machinery/vending/security,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "aiz" = (
@@ -2584,7 +2584,7 @@
 "aje" = (
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "ajf" = (
@@ -2641,7 +2641,7 @@
 /area/centcom/specops)
 "ajW" = (
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "ajX" = (
@@ -2809,7 +2809,7 @@
 	},
 /obj/item/flag/biesel,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "ald" = (
@@ -3335,7 +3335,7 @@
 /obj/machinery/vending/engivend,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "aok" = (
@@ -3578,7 +3578,7 @@
 /obj/item/storage/backpack/satchel,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "apF" = (
@@ -3879,7 +3879,7 @@
 	},
 /obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/checkpoint/aft)
 "avr" = (
@@ -3921,7 +3921,7 @@
 	req_access = list(1)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "avW" = (
@@ -3943,7 +3943,7 @@
 "awC" = (
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "awE" = (
@@ -3951,7 +3951,7 @@
 	name = "equipment locker"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "awK" = (
@@ -3960,7 +3960,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/holding)
 "awS" = (
@@ -3969,7 +3969,7 @@
 "axs" = (
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/holding)
 "axQ" = (
@@ -4032,7 +4032,7 @@
 "aze" = (
 /turf/unsimulated/floor{
 	dir = 8;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/holding)
 "azf" = (
@@ -4108,7 +4108,7 @@
 /obj/structure/closet/crate/freezer/rations,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "aBO" = (
@@ -4120,7 +4120,7 @@
 /obj/item/gun/energy/disruptorpistol/magnum,
 /obj/item/gun/energy/disruptorpistol/magnum,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "aBS" = (
@@ -4135,7 +4135,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "aCb" = (
@@ -4251,7 +4251,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "aCG" = (
@@ -4400,7 +4400,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "aDR" = (
@@ -4524,7 +4524,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 9;
-	icon_state = "carpetside"
+	icon_state = "carpet"
 	},
 /area/centcom/legion/hangar5)
 "aEG" = (
@@ -4542,7 +4542,7 @@
 /area/shuttle/skipjack)
 "aEP" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/holding)
 "aER" = (
@@ -4604,7 +4604,7 @@
 "aFg" = (
 /obj/structure/closet/secure_closet/personal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "aFh" = (
@@ -5096,7 +5096,7 @@
 	name = "igs - OdinDoctor"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "aIf" = (
@@ -5266,7 +5266,7 @@
 	name = "JoinLate"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "aIV" = (
@@ -5712,8 +5712,8 @@
 	},
 /turf/unsimulated/floor{
 	dir = 1;
-	icon_state = "rampbottom";
-	name = "staircase"
+	name = "staircase";
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "aMt" = (
@@ -5722,8 +5722,8 @@
 	},
 /turf/unsimulated/floor{
 	dir = 1;
-	icon_state = "rampbottom";
-	name = "staircase"
+	name = "staircase";
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "aMy" = (
@@ -6100,7 +6100,7 @@
 "aOl" = (
 /obj/item/modular_computer/console/preset/command,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "aOo" = (
@@ -6165,7 +6165,7 @@
 "aOz" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "aOA" = (
@@ -6222,7 +6222,7 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "bar"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "aOX" = (
@@ -6283,7 +6283,7 @@
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "bar"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "aPC" = (
@@ -6300,7 +6300,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "bar"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "aPM" = (
@@ -6314,7 +6314,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "aPQ" = (
@@ -6371,7 +6371,7 @@
 	name = "shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "bar"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "aQi" = (
@@ -6417,13 +6417,13 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "aQm" = (
 /obj/structure/sign/flag/nanotrasen/unmovable,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "aQn" = (
@@ -6435,7 +6435,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "aQr" = (
@@ -6502,7 +6502,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "aRa" = (
@@ -6593,7 +6593,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "aTs" = (
@@ -6959,7 +6959,7 @@
 	name = "Bedroom"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/antag/mercenary)
 "aWO" = (
@@ -7134,7 +7134,7 @@
 	req_access = list(102)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "aXq" = (
@@ -7221,7 +7221,7 @@
 	name = "forgotten shipment"
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "aYK" = (
@@ -7297,7 +7297,7 @@
 	connected_blastdoor = "merc_droppod_2"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/antag/mercenary)
 "bbD" = (
@@ -7314,7 +7314,7 @@
 /area/centcom/evac)
 "bbH" = (
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "bcf" = (
@@ -7349,7 +7349,7 @@
 	name = "adjusted light fixture"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "bcC" = (
@@ -7418,7 +7418,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "bew" = (
@@ -7479,7 +7479,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "bfw" = (
@@ -7522,7 +7522,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "bfM" = (
@@ -7580,7 +7580,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "bid" = (
@@ -7612,7 +7612,7 @@
 	pixel_y = 19
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "bir" = (
@@ -7656,7 +7656,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "biK" = (
@@ -7678,7 +7678,7 @@
 	dir = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "bjP" = (
@@ -7724,7 +7724,7 @@
 	pixel_x = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "bkg" = (
@@ -7755,7 +7755,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "bkr" = (
@@ -7764,7 +7764,7 @@
 	start_pressure = 15000
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "bkL" = (
@@ -7792,7 +7792,7 @@
 	name = "underwear crate"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "blQ" = (
@@ -7801,7 +7801,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "bmI" = (
@@ -7816,7 +7816,7 @@
 	name = "igs - OdinJanitor"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "bmV" = (
@@ -7864,7 +7864,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "bqf" = (
@@ -7880,7 +7880,7 @@
 /obj/item/ore,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "bro" = (
@@ -7916,7 +7916,7 @@
 /obj/machinery/pipedispenser/orderable,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "bsi" = (
@@ -7928,7 +7928,7 @@
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "bsu" = (
@@ -7977,7 +7977,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "bsZ" = (
@@ -7989,7 +7989,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "btz" = (
@@ -8051,7 +8051,7 @@
 	pixel_x = 29
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "bvA" = (
@@ -8075,7 +8075,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "bxU" = (
@@ -8126,7 +8126,7 @@
 	opacity = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "byL" = (
@@ -8153,7 +8153,7 @@
 "bzK" = (
 /obj/machinery/photocopier,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "bAr" = (
@@ -8182,7 +8182,7 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "bBH" = (
@@ -8223,7 +8223,7 @@
 	pixel_y = -11
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "bCU" = (
@@ -8269,7 +8269,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "bDi" = (
@@ -8303,7 +8303,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "bDR" = (
@@ -8357,7 +8357,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "bGo" = (
@@ -8387,7 +8387,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "bGF" = (
@@ -8437,7 +8437,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "bHL" = (
@@ -8453,7 +8453,7 @@
 "bIt" = (
 /obj/machinery/vending/coffee,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "bIQ" = (
@@ -8500,7 +8500,7 @@
 "bKj" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
 /turf/unsimulated/floor{
-	icon_state = "bar"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "bKw" = (
@@ -8509,7 +8509,7 @@
 	req_access = list(1)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "bKL" = (
@@ -8527,7 +8527,7 @@
 /area/centcom/holding)
 "bLN" = (
 /turf/unsimulated/floor{
-	icon_state = "floorscorched1"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "bLO" = (
@@ -8552,7 +8552,7 @@
 	},
 /obj/item/storage/box/tcfl_pamphlet,
 /turf/unsimulated/floor{
-	icon_state = "carpet5-1"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "bMd" = (
@@ -8576,7 +8576,7 @@
 	dir = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "bMw" = (
@@ -8618,7 +8618,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/unsimulated/floor{
-	icon_state = "carpetside"
+	icon_state = "carpet"
 	},
 /area/centcom/legion/hangar5)
 "bPc" = (
@@ -8696,7 +8696,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 6;
-	icon_state = "carpetside"
+	icon_state = "carpet"
 	},
 /area/centcom/legion/hangar5)
 "bRJ" = (
@@ -8716,7 +8716,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "bSQ" = (
@@ -8805,7 +8805,7 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "bVx" = (
@@ -8842,7 +8842,7 @@
 	pixel_y = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "bXB" = (
@@ -8854,7 +8854,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "bYs" = (
@@ -8910,7 +8910,7 @@
 "cbf" = (
 /obj/machinery/teleport/pad,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "cbz" = (
@@ -8982,7 +8982,7 @@
 	},
 /obj/structure/filingcabinet,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "ccI" = (
@@ -9044,7 +9044,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "cep" = (
@@ -9057,7 +9057,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "ceT" = (
@@ -9078,7 +9078,7 @@
 /obj/item/device/megaphone/sec,
 /obj/item/device/megaphone/sec,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "cfo" = (
@@ -9120,7 +9120,7 @@
 "chj" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "chs" = (
@@ -9175,7 +9175,7 @@
 	pixel_x = -30
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "cjF" = (
@@ -9183,7 +9183,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "cjZ" = (
@@ -9226,7 +9226,7 @@
 "clg" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "clq" = (
@@ -9241,7 +9241,7 @@
 /obj/item/clothing/under/legion,
 /obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "cmb" = (
@@ -9304,7 +9304,7 @@
 	name = "igs - TCFLSentinel"
 	},
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "cov" = (
@@ -9322,7 +9322,7 @@
 "coC" = (
 /mob/living/heavy_vehicle/premade/combatripley,
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "coK" = (
@@ -9332,7 +9332,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "coX" = (
@@ -9389,7 +9389,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "cqP" = (
@@ -9402,12 +9402,12 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "cqS" = (
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "crg" = (
@@ -9451,13 +9451,13 @@
 "crr" = (
 /obj/machinery/washing_machine,
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "crN" = (
 /obj/random/pottedplant,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "crO" = (
@@ -9479,7 +9479,7 @@
 	dir = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "cti" = (
@@ -9516,7 +9516,7 @@
 	poster_type = "/datum/poster/bay_68"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "cvk" = (
@@ -9537,7 +9537,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "cvJ" = (
@@ -9570,7 +9570,7 @@
 "cxn" = (
 /obj/structure/closet/crate/secure/legion,
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "cyX" = (
@@ -9591,7 +9591,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "cAr" = (
@@ -9616,7 +9616,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "carpetnoconnect"
+	icon_state = "carpet"
 	},
 /area/centcom/bar)
 "cCk" = (
@@ -9628,7 +9628,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "cCo" = (
@@ -9644,7 +9644,7 @@
 	anchored = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "cCD" = (
@@ -9703,7 +9703,7 @@
 /obj/item/device/flashlight/lamp,
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "cEa" = (
@@ -9731,7 +9731,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "cEm" = (
@@ -9751,7 +9751,7 @@
 /obj/item/handcuffs/ziptie,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "cFg" = (
@@ -9838,7 +9838,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/ferry)
 "cJl" = (
@@ -9863,7 +9863,7 @@
 "cJB" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "cJI" = (
@@ -9906,7 +9906,7 @@
 "cKI" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "cKK" = (
@@ -9916,7 +9916,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "cKU" = (
@@ -9951,7 +9951,7 @@
 	req_access = list(111)
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "cMd" = (
@@ -9959,7 +9959,7 @@
 	connected_blastdoor = "merc_droppod_6"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/antag/mercenary)
 "cMo" = (
@@ -9982,7 +9982,7 @@
 	req_access = list(111)
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "cMT" = (
@@ -10029,7 +10029,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "cNS" = (
@@ -10038,7 +10038,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "cOf" = (
@@ -10107,7 +10107,7 @@
 	dir = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "cPP" = (
@@ -10193,7 +10193,7 @@
 	pixel_y = -4
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "cRL" = (
@@ -10265,7 +10265,7 @@
 	pixel_y = 26
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "cUR" = (
@@ -10308,7 +10308,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "cWr" = (
@@ -10386,7 +10386,7 @@
 	amount = 50
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "cXi" = (
@@ -10417,7 +10417,7 @@
 	amount = 50
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "cXA" = (
@@ -10438,7 +10438,7 @@
 	name = "Droppod C"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "cYA" = (
@@ -10543,7 +10543,7 @@
 	name = "Droppod D"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "daH" = (
@@ -10578,7 +10578,7 @@
 	},
 /obj/item/material/shard,
 /turf/unsimulated/floor{
-	icon_state = "floorscorched1"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "dbM" = (
@@ -10679,7 +10679,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "ddK" = (
@@ -10727,7 +10727,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "dfV" = (
@@ -10788,7 +10788,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "dhY" = (
@@ -10858,7 +10858,7 @@
 	name = "shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "dka" = (
@@ -10874,7 +10874,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "dlj" = (
@@ -10897,7 +10897,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "dmL" = (
@@ -10964,7 +10964,7 @@
 /area/shuttle/administration)
 "doP" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/ferry)
 "doU" = (
@@ -10984,7 +10984,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "dpi" = (
@@ -11018,7 +11018,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "dqO" = (
@@ -11058,7 +11058,7 @@
 "drE" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "carpet6-2"
+	icon_state = "carpet"
 	},
 /area/antag/raider)
 "dtJ" = (
@@ -11100,7 +11100,7 @@
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "dvz" = (
@@ -11147,7 +11147,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "dxD" = (
@@ -11213,7 +11213,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "dAj" = (
@@ -11248,7 +11248,7 @@
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "dCx" = (
@@ -11288,7 +11288,7 @@
 	layer = 3.01
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "dEw" = (
@@ -11328,7 +11328,7 @@
 "dGq" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "dGw" = (
@@ -11385,7 +11385,7 @@
 "dIb" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "dIt" = (
@@ -11473,7 +11473,7 @@
 /obj/item/clothing/head/beret/corporate/idris,
 /obj/item/clothing/head/beret/corporate/idris,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "dIN" = (
@@ -11490,7 +11490,7 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "dJl" = (
@@ -11564,7 +11564,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "dKC" = (
@@ -11590,7 +11590,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/evac)
 "dKS" = (
@@ -11647,7 +11647,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/holding)
 "dNJ" = (
@@ -11684,7 +11684,7 @@
 	connected_blastdoor = "merc_droppod_5"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/antag/mercenary)
 "dPL" = (
@@ -11702,7 +11702,7 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "carpetnoconnect"
+	icon_state = "carpet"
 	},
 /area/antag/raider)
 "dPP" = (
@@ -11728,7 +11728,7 @@
 	},
 /obj/structure/bed/stool/chair,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "dQg" = (
@@ -11788,7 +11788,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 8;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/distress_prep)
 "dUb" = (
@@ -11828,7 +11828,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	dir = 1;
-	icon_state = "carpetside"
+	icon_state = "carpet"
 	},
 /area/antag/raider)
 "dUP" = (
@@ -11921,7 +11921,7 @@
 	name = "igs - OdinPrepatory"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "dWP" = (
@@ -11945,7 +11945,7 @@
 	pixel_y = 30
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "dWT" = (
@@ -11966,7 +11966,7 @@
 	name = "CCIAEscort"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "dXe" = (
@@ -11986,7 +11986,7 @@
 	name = "Commander's Office"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "dXk" = (
@@ -12054,14 +12054,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	dir = 5;
-	icon_state = "carpetside"
+	icon_state = "carpet"
 	},
 /area/antag/raider)
 "dYB" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "dYV" = (
@@ -12128,7 +12128,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "ebr" = (
@@ -12138,7 +12138,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/effect/floor_decal/sign/a,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/holding)
 "ebt" = (
@@ -12165,7 +12165,7 @@
 	pixel_y = 25
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "ecM" = (
@@ -12196,7 +12196,7 @@
 	name = "forgotten shipment"
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "edR" = (
@@ -12255,7 +12255,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "efD" = (
@@ -12264,7 +12264,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "efQ" = (
@@ -12328,7 +12328,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/ferry)
 "ejd" = (
@@ -12365,7 +12365,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "ekG" = (
@@ -12432,7 +12432,7 @@
 "enB" = (
 /obj/structure/bed/stool/chair,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "enD" = (
@@ -12466,7 +12466,7 @@
 	pixel_y = 23
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "epk" = (
@@ -12477,7 +12477,7 @@
 	name = "shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "epL" = (
@@ -12498,7 +12498,7 @@
 	name = "uncomfortable chair"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "eqs" = (
@@ -12568,7 +12568,7 @@
 /obj/item/extinguisher,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "esU" = (
@@ -12620,7 +12620,7 @@
 "etl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/checkpoint/fore)
 "etD" = (
@@ -12647,7 +12647,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "euo" = (
@@ -12734,7 +12734,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "eyb" = (
@@ -12782,7 +12782,7 @@
 	req_one_access = list(106,108,109)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "ezF" = (
@@ -12862,7 +12862,7 @@
 "eDn" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/centcom/distress_prep)
 "eDp" = (
@@ -12879,7 +12879,7 @@
 	dir = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "eDr" = (
@@ -12950,7 +12950,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "eEU" = (
@@ -12998,7 +12998,7 @@
 "eGb" = (
 /obj/structure/coatrack,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "eGe" = (
@@ -13063,7 +13063,7 @@
 /area/centcom/legion)
 "eHY" = (
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "eIe" = (
@@ -13122,7 +13122,7 @@
 /area/centcom/legion)
 "eKz" = (
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/centcom/distress_prep)
 "eLs" = (
@@ -13203,7 +13203,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "eNd" = (
@@ -13278,7 +13278,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "ePq" = (
@@ -13292,7 +13292,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "ePz" = (
@@ -13339,7 +13339,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "eRy" = (
@@ -13349,7 +13349,7 @@
 	pixel_y = -9
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "eRF" = (
@@ -13389,7 +13389,7 @@
 	name = "LateJoinConsular Officer"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/ferry)
 "eTx" = (
@@ -13445,7 +13445,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "eUZ" = (
@@ -13545,7 +13545,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "eZw" = (
@@ -13605,7 +13605,7 @@
 /obj/item/device/radio/headset/ert,
 /obj/item/clothing/head/beret/centcom/officer,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "fbu" = (
@@ -13626,7 +13626,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/iv_drip,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "fcm" = (
@@ -13734,7 +13734,7 @@
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "feA" = (
@@ -13816,7 +13816,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "fgI" = (
@@ -13826,7 +13826,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "fgO" = (
@@ -13874,7 +13874,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "fkb" = (
@@ -13887,7 +13887,7 @@
 	name = "Pod E"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "fkx" = (
@@ -13921,7 +13921,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "flO" = (
@@ -14099,7 +14099,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "frw" = (
@@ -14118,7 +14118,7 @@
 /obj/item/clothing/head/helmet/space/syndicate/black/med,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "fso" = (
@@ -14140,7 +14140,7 @@
 	},
 /obj/item/gun/energy/rifle/ionrifle,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "fsT" = (
@@ -14198,7 +14198,7 @@
 "fuy" = (
 /obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "fuH" = (
@@ -14335,7 +14335,7 @@
 	pixel_x = 16
 	},
 /turf/unsimulated/floor{
-	icon_state = "platebot"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/distress_prep)
 "fyB" = (
@@ -14383,7 +14383,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/large_stock_marker,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "fAi" = (
@@ -14440,7 +14440,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "fCO" = (
@@ -14499,7 +14499,7 @@
 "fEY" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "fFd" = (
@@ -14513,7 +14513,7 @@
 /obj/item/aiModule/safeguard,
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "fFe" = (
@@ -14561,7 +14561,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "fGd" = (
@@ -14608,7 +14608,7 @@
 "fHj" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "fHv" = (
@@ -14622,7 +14622,7 @@
 /obj/item/aicard,
 /obj/item/paper/monitorkey,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "fIp" = (
@@ -14822,7 +14822,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "fOf" = (
@@ -14842,7 +14842,7 @@
 	},
 /obj/item/stack/rods,
 /turf/unsimulated/floor{
-	icon_state = "platingdmg1"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "fOK" = (
@@ -14863,7 +14863,7 @@
 	dir = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "fPE" = (
@@ -14911,7 +14911,7 @@
 	},
 /obj/item/storage/box/donkpockets,
 /turf/unsimulated/floor{
-	icon_state = "bar"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "fQM" = (
@@ -14927,7 +14927,7 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "carpetnoconnect"
+	icon_state = "carpet"
 	},
 /area/antag/raider)
 "fRm" = (
@@ -14953,7 +14953,7 @@
 "fSp" = (
 /turf/unsimulated/floor{
 	dir = 8;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/ferry)
 "fSu" = (
@@ -15121,7 +15121,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "fUN" = (
@@ -15193,7 +15193,7 @@
 /area/centcom/bar)
 "fXq" = (
 /turf/unsimulated/floor{
-	icon_state = "wood-broken"
+	icon_state = "wood_preview"
 	},
 /area/antag/raider)
 "fXt" = (
@@ -15235,7 +15235,7 @@
 	pixel_x = -1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "fYO" = (
@@ -15296,7 +15296,7 @@
 /obj/item/device/taperecorder,
 /obj/item/device/megaphone/red,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "gbB" = (
@@ -15358,7 +15358,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "carpetside"
+	icon_state = "carpet"
 	},
 /area/antag/raider)
 "gdf" = (
@@ -15483,7 +15483,7 @@
 "ghF" = (
 /obj/machinery/telecomms/bus/preset_cent,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "ghN" = (
@@ -15504,7 +15504,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "gij" = (
@@ -15747,7 +15747,7 @@
 "gou" = (
 /obj/structure/filingcabinet,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "gov" = (
@@ -15883,7 +15883,7 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "grY" = (
@@ -15957,7 +15957,7 @@
 /obj/item/clothing/under/suit_jacket/charcoal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "gug" = (
@@ -15989,7 +15989,7 @@
 	name = "Pod L"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/loner)
 "guX" = (
@@ -16018,8 +16018,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "rampbottom";
-	name = "staircase"
+	name = "staircase";
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "gvx" = (
@@ -16089,7 +16089,7 @@
 /obj/item/clothing/head/helmet/space/syndicate/black/blue,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "gwQ" = (
@@ -16166,7 +16166,7 @@
 	name = "Pod G"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "gyU" = (
@@ -16210,7 +16210,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "gAL" = (
@@ -16246,13 +16246,13 @@
 	req_access = list(150)
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "gCf" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "gCr" = (
@@ -16348,7 +16348,7 @@
 /obj/item/storage/box/drinkingglasses,
 /obj/item/material/kitchen/utensil/knife,
 /turf/unsimulated/floor{
-	icon_state = "bar"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "gFg" = (
@@ -16406,7 +16406,7 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "gHw" = (
@@ -16462,7 +16462,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "gKo" = (
@@ -16510,13 +16510,13 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "gLL" = (
 /obj/structure/dispenser/oxygen,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "gLQ" = (
@@ -16610,7 +16610,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "gMK" = (
@@ -16628,7 +16628,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ore,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "gND" = (
@@ -16658,7 +16658,7 @@
 /obj/structure/bed/stool,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "gOp" = (
@@ -16667,7 +16667,7 @@
 	req_access = list(112)
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/centcom/distress_prep)
 "gOD" = (
@@ -16706,7 +16706,7 @@
 /area/shuttle/administration)
 "gPm" = (
 /turf/unsimulated/floor{
-	icon_state = "platebot"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/distress_prep)
 "gPJ" = (
@@ -16765,7 +16765,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "gRg" = (
@@ -16804,7 +16804,7 @@
 	req_access = list(108)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "gSj" = (
@@ -16857,7 +16857,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	dir = 1;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "gTk" = (
@@ -16874,7 +16874,7 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "gTC" = (
@@ -17157,7 +17157,7 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "gZC" = (
@@ -17346,7 +17346,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "hhX" = (
@@ -17375,7 +17375,7 @@
 "him" = (
 /obj/effect/floor_decal/corner/red/full,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "his" = (
@@ -17399,7 +17399,7 @@
 "hjw" = (
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/bar)
 "hjO" = (
@@ -17459,7 +17459,7 @@
 	},
 /obj/effect/decal/cleanable/vomit,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "hlL" = (
@@ -17509,7 +17509,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
 /turf/unsimulated/floor{
-	icon_state = "platebot"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/distress_prep)
 "hmr" = (
@@ -17534,7 +17534,7 @@
 /obj/structure/table/reinforced/wood,
 /obj/item/storage/box/drinkingglasses,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "hnb" = (
@@ -17595,13 +17595,13 @@
 /obj/item/device/camera,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "hpk" = (
 /obj/effect/floor_decal/corner/lime,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "hpB" = (
@@ -17621,7 +17621,7 @@
 	pixel_y = -9
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "hqg" = (
@@ -17646,7 +17646,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/cigbutt,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "hrI" = (
@@ -17683,7 +17683,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "htp" = (
@@ -17698,13 +17698,13 @@
 "huh" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "hum" = (
 /obj/machinery/hologram/holopad/long_range,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "huB" = (
@@ -17734,7 +17734,7 @@
 /obj/item/device/megaphone/red,
 /turf/unsimulated/floor{
 	dir = 1;
-	icon_state = "brown"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "hwB" = (
@@ -17768,7 +17768,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/evac)
 "hyd" = (
@@ -17815,7 +17815,7 @@
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "hyU" = (
@@ -17887,7 +17887,7 @@
 /obj/structure/bed/stool/chair,
 /turf/unsimulated/floor{
 	dir = 1;
-	icon_state = "brown"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "hCw" = (
@@ -17943,7 +17943,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "hDN" = (
@@ -17966,7 +17966,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/checkpoint/aft)
 "hFF" = (
@@ -17994,7 +17994,7 @@
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "hGA" = (
@@ -18064,13 +18064,13 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /obj/structure/bed/stool/chair/folding,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "hKs" = (
 /obj/structure/bed/stool/chair/padded/black,
 /turf/unsimulated/floor{
-	icon_state = "bar"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "hLp" = (
@@ -18082,7 +18082,7 @@
 	name = "Security Doors"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "hLS" = (
@@ -18194,7 +18194,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "hON" = (
@@ -18231,7 +18231,7 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "hPU" = (
@@ -18244,7 +18244,7 @@
 	req_access = list(102)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "hQa" = (
@@ -18266,7 +18266,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "hQI" = (
@@ -18288,7 +18288,7 @@
 "hRS" = (
 /obj/structure/closet/secure_closet/custodial,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "hTi" = (
@@ -18309,7 +18309,7 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "bar"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "hTv" = (
@@ -18356,13 +18356,13 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "hWl" = (
 /obj/structure/window/reinforced/crescent,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "hWR" = (
@@ -18374,7 +18374,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "hWU" = (
@@ -18560,7 +18560,7 @@
 	name = "adjusted emergency light"
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "ibx" = (
@@ -18683,7 +18683,7 @@
 /obj/machinery/computer/security/telescreen,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "ifu" = (
@@ -18718,7 +18718,7 @@
 "igl" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "carpet5-1"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "igo" = (
@@ -18731,7 +18731,7 @@
 	pixel_y = 30
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "igs" = (
@@ -18798,7 +18798,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "ihz" = (
@@ -18885,7 +18885,7 @@
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "carpet13-5"
+	icon_state = "carpet"
 	},
 /area/antag/raider)
 "ikW" = (
@@ -18957,7 +18957,7 @@
 /obj/item/device/camera,
 /turf/unsimulated/floor{
 	dir = 8;
-	icon_state = "brown"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "iox" = (
@@ -18972,7 +18972,7 @@
 /area/centcom/holding)
 "ioz" = (
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "ioG" = (
@@ -19002,7 +19002,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/blocker/steel,
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "iqi" = (
@@ -19011,7 +19011,7 @@
 	pixel_y = 26
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "iqm" = (
@@ -19120,7 +19120,7 @@
 	name = "forgotten shipment"
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "ism" = (
@@ -19323,7 +19323,7 @@
 "ixg" = (
 /obj/structure/bed/stool/chair/padded/black,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "ixW" = (
@@ -19346,7 +19346,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	dir = 6;
-	icon_state = "carpetside"
+	icon_state = "carpet"
 	},
 /area/antag/raider)
 "izb" = (
@@ -19359,7 +19359,7 @@
 	name = "igs - DeathERT"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "izi" = (
@@ -19394,7 +19394,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "iAl" = (
@@ -19418,7 +19418,7 @@
 /area/shuttle/distress)
 "iAO" = (
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "iAP" = (
@@ -19430,7 +19430,7 @@
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "iAV" = (
@@ -19498,7 +19498,7 @@
 	pixel_x = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "iEB" = (
@@ -19584,7 +19584,7 @@
 	pixel_y = 18
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "iGD" = (
@@ -19627,7 +19627,7 @@
 	name = "conveyor"
 	},
 /turf/unsimulated/floor{
-	icon_state = "platingdmg1"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "iIp" = (
@@ -19641,7 +19641,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/checkpoint/fore)
 "iJc" = (
@@ -19694,7 +19694,7 @@
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "iKN" = (
@@ -19909,7 +19909,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "iPK" = (
@@ -19932,7 +19932,7 @@
 	pixel_y = 28
 	},
 /turf/unsimulated/floor{
-	icon_state = "bar"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "iRr" = (
@@ -19980,7 +19980,7 @@
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "iRA" = (
@@ -20011,7 +20011,7 @@
 /obj/item/storage/box/flashbangs,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "iSi" = (
@@ -20024,7 +20024,7 @@
 	pixel_y = -6
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "iSl" = (
@@ -20085,7 +20085,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "iVa" = (
@@ -20101,7 +20101,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "iVf" = (
@@ -20124,7 +20124,7 @@
 	name = "Special Ops."
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "iWg" = (
@@ -20159,7 +20159,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/evac)
 "iXy" = (
@@ -20198,7 +20198,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "brown"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "iYu" = (
@@ -20254,7 +20254,7 @@
 	random_itemcount = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "jbu" = (
@@ -20280,7 +20280,7 @@
 	connected_blastdoor = "merc_droppod_4"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/antag/mercenary)
 "jcc" = (
@@ -20326,7 +20326,7 @@
 /obj/item/storage/box/fancy/cigarettes,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "jdw" = (
@@ -20435,7 +20435,7 @@
 /obj/item/gun/projectile/sec,
 /obj/item/gun/projectile/sec,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "jhx" = (
@@ -20513,7 +20513,7 @@
 /area/shuttle/administration)
 "jnf" = (
 /turf/unsimulated/floor{
-	icon_state = "floorscorched1"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "jnA" = (
@@ -20566,7 +20566,7 @@
 /area/centcom/spawning)
 "jpq" = (
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "jpD" = (
@@ -20597,7 +20597,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "jrk" = (
@@ -20613,13 +20613,13 @@
 "jrq" = (
 /obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/ferry)
 "jrH" = (
 /obj/machinery/computer/message_monitor,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "jrN" = (
@@ -20673,7 +20673,7 @@
 	pixel_y = 18
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "jvw" = (
@@ -20710,7 +20710,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "jvO" = (
@@ -20847,7 +20847,7 @@
 	name = "surveillance camera"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "jBI" = (
@@ -20991,14 +20991,14 @@
 	connected_blastdoor = "merc_droppod_1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/antag/mercenary)
 "jFk" = (
 /obj/structure/closet/emcloset/offworlder,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "jFq" = (
@@ -21013,7 +21013,7 @@
 /obj/item/clothing/head/helmet/ert/command,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "jGf" = (
@@ -21124,7 +21124,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "jIw" = (
@@ -21235,7 +21235,7 @@
 	amount_per_transfer_from_this = 50
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "jPQ" = (
@@ -21244,7 +21244,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "jPV" = (
@@ -21387,7 +21387,7 @@
 "jVn" = (
 /obj/effect/decal/cleanable/cobweb,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "jVH" = (
@@ -21511,7 +21511,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "jYZ" = (
@@ -21524,7 +21524,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "jZq" = (
@@ -21534,7 +21534,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/effect/floor_decal/sign/b,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "jZO" = (
@@ -21572,7 +21572,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/black,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "kaO" = (
@@ -21597,7 +21597,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "kbi" = (
@@ -21623,7 +21623,7 @@
 	dir = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "kbz" = (
@@ -21711,7 +21711,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "keP" = (
@@ -21831,7 +21831,7 @@
 	},
 /obj/item/clothing/head/helmet/tank/legion,
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "khA" = (
@@ -21855,7 +21855,7 @@
 	name = "Unlocked Autolathe"
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "kiw" = (
@@ -21874,7 +21874,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "kjq" = (
@@ -21960,7 +21960,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "kml" = (
@@ -21969,7 +21969,7 @@
 	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "kmE" = (
@@ -22014,13 +22014,13 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "kop" = (
 /obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/checkpoint/fore)
 "kpA" = (
@@ -22145,7 +22145,7 @@
 	name = "elevator door"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "ksM" = (
@@ -22253,13 +22253,13 @@
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/checkpoint/fore)
 "kxv" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "kxT" = (
@@ -22285,7 +22285,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "kzP" = (
@@ -22317,7 +22317,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "kBr" = (
@@ -22376,7 +22376,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "kCZ" = (
@@ -22516,7 +22516,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "kIO" = (
@@ -22691,7 +22691,7 @@
 	name = "forgotten shipment"
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "kOC" = (
@@ -22702,7 +22702,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "kOG" = (
@@ -22752,7 +22752,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "kQj" = (
@@ -22767,13 +22767,13 @@
 "kQH" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "kQO" = (
 /obj/structure/window/reinforced/crescent,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "kQY" = (
@@ -22794,13 +22794,13 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/checkpoint/fore)
 "kSB" = (
 /obj/machinery/telecomms/server/presets/centcomm,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "kTA" = (
@@ -22814,7 +22814,7 @@
 	pixel_y = 12
 	},
 /turf/unsimulated/floor{
-	icon_state = "bar"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "kTE" = (
@@ -22828,7 +22828,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/checkpoint/aft)
 "kTJ" = (
@@ -22840,7 +22840,7 @@
 	pixel_x = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "kTK" = (
@@ -22870,7 +22870,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "kUh" = (
@@ -22901,7 +22901,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/holding)
 "kVA" = (
@@ -22913,7 +22913,7 @@
 	tag_door = "admin_shuttle_bay_door"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "kVR" = (
@@ -22949,7 +22949,7 @@
 /obj/item/gun/energy/gun,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "kWd" = (
@@ -22974,12 +22974,12 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "kWI" = (
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "kWN" = (
@@ -22990,7 +22990,7 @@
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "kWS" = (
@@ -23010,7 +23010,7 @@
 	connected_blastdoor = "merc_droppod_7"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/antag/mercenary)
 "kXP" = (
@@ -23030,7 +23030,7 @@
 /area/centcom/legion)
 "kYq" = (
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "kYy" = (
@@ -23049,7 +23049,7 @@
 "kYI" = (
 /obj/item/modular_computer/console/preset/command/teleporter,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "kYR" = (
@@ -23088,7 +23088,7 @@
 	name = "adjusted railing"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "laL" = (
@@ -23130,7 +23130,7 @@
 	connected_blastdoor = "loner_droppod_1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/antag/loner)
 "ldd" = (
@@ -23225,7 +23225,7 @@
 	name = "JoinLate"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "lfH" = (
@@ -23239,7 +23239,7 @@
 "lfI" = (
 /obj/structure/dispenser/oxygen,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "lfQ" = (
@@ -23251,7 +23251,7 @@
 /area/shuttle/merchant)
 "lgu" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "lhd" = (
@@ -23261,7 +23261,7 @@
 /obj/item/stack/medical/bruise_pack,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "lhv" = (
@@ -23306,8 +23306,8 @@
 /area/merchant_station/warehouse)
 "lhE" = (
 /turf/unsimulated/floor{
-	icon_state = "rampbottom";
-	name = "staircase"
+	name = "staircase";
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "lhJ" = (
@@ -23323,7 +23323,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "liJ" = (
@@ -23338,7 +23338,7 @@
 	name = "igs - OdinCheckpoint"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "ljc" = (
@@ -23376,8 +23376,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "rampbottom";
-	name = "staircase"
+	name = "staircase";
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "llc" = (
@@ -23439,7 +23439,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "lnt" = (
@@ -23451,13 +23451,13 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "lny" = (
 /obj/item/modular_computer/console/preset/command,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "lnV" = (
@@ -23568,7 +23568,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "lqT" = (
@@ -23600,7 +23600,7 @@
 "lsJ" = (
 /obj/item/modular_computer/console/preset/command/account/centcomm,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "lsU" = (
@@ -23645,13 +23645,13 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "luY" = (
 /obj/machinery/telecomms/processor/preset_cent,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "lvf" = (
@@ -23662,7 +23662,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "lvn" = (
@@ -23708,7 +23708,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "lwz" = (
@@ -23744,7 +23744,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 5;
-	icon_state = "brown"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "lxO" = (
@@ -23769,7 +23769,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "lzk" = (
@@ -23813,7 +23813,7 @@
 "lAD" = (
 /obj/structure/closet/crate/secure/legion,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "lAI" = (
@@ -23849,7 +23849,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "lBZ" = (
@@ -23914,7 +23914,7 @@
 	name = "igs - OdinDoctor"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "lEG" = (
@@ -23982,7 +23982,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "lHt" = (
@@ -24012,7 +24012,7 @@
 	name = "Corvette Hangar"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "lIr" = (
@@ -24026,7 +24026,7 @@
 	},
 /obj/item/reagent_containers/dropper,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "lIE" = (
@@ -24036,7 +24036,7 @@
 /obj/machinery/disposal,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "lIO" = (
@@ -24073,7 +24073,7 @@
 "lJD" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "lKv" = (
@@ -24127,7 +24127,7 @@
 "lKG" = (
 /obj/machinery/papershredder,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "lKH" = (
@@ -24151,7 +24151,7 @@
 	name = "surveillance camera"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "lLs" = (
@@ -24184,7 +24184,7 @@
 "lLG" = (
 /obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "lLK" = (
@@ -24199,7 +24199,7 @@
 	name = "Corvette Hangar"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "lLS" = (
@@ -24250,7 +24250,7 @@
 "lNt" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/unsimulated/floor{
-	icon_state = "platingdmg1"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "lNL" = (
@@ -24260,7 +24260,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "lNN" = (
@@ -24405,7 +24405,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "lSm" = (
@@ -24455,7 +24455,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "lTV" = (
@@ -24597,7 +24597,7 @@
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "mai" = (
@@ -24638,7 +24638,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "mas" = (
@@ -24689,7 +24689,7 @@
 /obj/item/gun/projectile/automatic/c20r,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "mbe" = (
@@ -24757,7 +24757,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "mcI" = (
@@ -24855,7 +24855,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "mfx" = (
@@ -24921,7 +24921,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "mic" = (
@@ -24943,7 +24943,7 @@
 	dir = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "miX" = (
@@ -25001,7 +25001,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "mkB" = (
@@ -25016,7 +25016,7 @@
 	pixel_y = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "mkQ" = (
@@ -25071,7 +25071,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "mny" = (
@@ -25080,7 +25080,7 @@
 	req_access = list(111)
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "mnU" = (
@@ -25103,7 +25103,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "moM" = (
@@ -25194,7 +25194,7 @@
 	pixel_y = 2
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "mrd" = (
@@ -25207,7 +25207,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "mrm" = (
@@ -25236,7 +25236,7 @@
 "mrF" = (
 /obj/item/ore,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "mrG" = (
@@ -25304,7 +25304,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/distress_prep)
 "mrR" = (
@@ -25341,13 +25341,13 @@
 /obj/item/clothing/accessory/legion/specialist,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "msJ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "mtf" = (
@@ -25402,7 +25402,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "mvz" = (
@@ -25417,7 +25417,7 @@
 "mvQ" = (
 /obj/machinery/telecomms/hub/preset_cent,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "mwf" = (
@@ -25454,7 +25454,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "mxm" = (
@@ -25464,7 +25464,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "mxn" = (
@@ -25477,7 +25477,7 @@
 	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "mxA" = (
@@ -25503,7 +25503,7 @@
 	name = "Droppod A"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "mzh" = (
@@ -25529,7 +25529,7 @@
 	name = "Droppod B"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "mAD" = (
@@ -25568,7 +25568,7 @@
 	req_access = list(105)
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "mBU" = (
@@ -25580,7 +25580,7 @@
 "mCf" = (
 /obj/structure/bed/stool/chair,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "mCu" = (
@@ -25590,7 +25590,7 @@
 	pixel_y = -8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "mCC" = (
@@ -25616,7 +25616,7 @@
 	dir = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "mDE" = (
@@ -25633,7 +25633,7 @@
 "mEq" = (
 /obj/structure/table/steel,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "mEz" = (
@@ -25664,7 +25664,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "mGk" = (
@@ -25714,7 +25714,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "mIx" = (
@@ -25731,7 +25731,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "mJt" = (
@@ -25742,7 +25742,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "mJJ" = (
@@ -25752,7 +25752,7 @@
 	},
 /obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "mJT" = (
@@ -25832,7 +25832,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "mMJ" = (
@@ -25861,7 +25861,7 @@
 "mNl" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "mNx" = (
@@ -25946,7 +25946,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "mPL" = (
@@ -25969,7 +25969,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "mPM" = (
@@ -26018,7 +26018,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "mSt" = (
@@ -26115,7 +26115,7 @@
 	connected_blastdoor = "merc_droppod_3"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/antag/mercenary)
 "mUx" = (
@@ -26163,7 +26163,7 @@
 /obj/item/clothing/head/helmet/space/syndicate/black/orange,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "mVZ" = (
@@ -26212,7 +26212,7 @@
 	pixel_y = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "mYJ" = (
@@ -26237,7 +26237,7 @@
 /obj/item/flame/lighter,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/unsimulated/floor{
-	icon_state = "carpetnoconnect"
+	icon_state = "carpet"
 	},
 /area/centcom/bar)
 "mZh" = (
@@ -26320,7 +26320,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "ncV" = (
@@ -26347,7 +26347,7 @@
 	name = "Special Ops."
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "ndV" = (
@@ -26363,7 +26363,7 @@
 	req_access = list(108,111)
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "neK" = (
@@ -26438,7 +26438,7 @@
 	name = "\improper FIB tactical helmet"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "nfY" = (
@@ -26467,7 +26467,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "ngm" = (
@@ -26617,14 +26617,14 @@
 /area/antag/ninja)
 "nkv" = (
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "nkw" = (
 /obj/machinery/vending/engivend,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "nkX" = (
@@ -26640,7 +26640,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/checkpoint/fore)
 "nlu" = (
@@ -26713,7 +26713,7 @@
 	pixel_y = 24
 	},
 /turf/unsimulated/floor{
-	icon_state = "carpet6-2"
+	icon_state = "carpet"
 	},
 /area/centcom/specops)
 "nmJ" = (
@@ -26750,7 +26750,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/holding)
 "nnf" = (
@@ -26765,7 +26765,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 5;
-	icon_state = "carpetside"
+	icon_state = "carpet"
 	},
 /area/centcom/specops)
 "nnl" = (
@@ -26852,7 +26852,7 @@
 "ntE" = (
 /obj/item/stack/material/cyborg/steel,
 /turf/unsimulated/floor{
-	icon_state = "platingdmg2"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/bar)
 "ntT" = (
@@ -26896,7 +26896,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "nuN" = (
@@ -26906,7 +26906,7 @@
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/centcom/distress_prep)
 "nuP" = (
@@ -26926,7 +26926,7 @@
 	icon_state = "plant-22"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "nvr" = (
@@ -26957,7 +26957,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "nwx" = (
@@ -27021,7 +27021,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/effect/floor_decal/sign/a,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "nyI" = (
@@ -27037,7 +27037,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "nyT" = (
@@ -27130,7 +27130,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "nBV" = (
@@ -27181,7 +27181,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "nDv" = (
@@ -27204,7 +27204,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "nDL" = (
@@ -27221,7 +27221,7 @@
 	pixel_y = -18
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "nDW" = (
@@ -27236,7 +27236,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "nEs" = (
@@ -27302,7 +27302,7 @@
 /obj/item/gun/projectile/pistol,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "nEY" = (
@@ -27358,7 +27358,7 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /obj/structure/bed/stool/chair/folding,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "nGk" = (
@@ -27366,7 +27366,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "nGs" = (
@@ -27377,7 +27377,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
-	icon_state = "carpet5-1"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "nGO" = (
@@ -27387,7 +27387,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "nHd" = (
@@ -27407,7 +27407,7 @@
 "nIj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "nIu" = (
@@ -27430,14 +27430,14 @@
 	name = "JoinLate"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "nJM" = (
 /obj/structure/closet/secure_closet/engineering_welding,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "nKS" = (
@@ -27467,7 +27467,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
-	icon_state = "carpet13-5"
+	icon_state = "carpet"
 	},
 /area/centcom/specops)
 "nLw" = (
@@ -27476,7 +27476,7 @@
 /obj/item/stack/packageWrap,
 /obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "nLz" = (
@@ -27591,7 +27591,7 @@
 /obj/item/tank/emergency_oxygen/double,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "nMu" = (
@@ -27631,7 +27631,7 @@
 /obj/item/trash/cigbutt,
 /obj/item/trash/cigbutt,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "nOh" = (
@@ -27644,7 +27644,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/effect/floor_decal/sign/c,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "nOM" = (
@@ -27652,7 +27652,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "nPS" = (
@@ -27675,7 +27675,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "nQe" = (
@@ -27747,7 +27747,7 @@
 /obj/item/clothing/head/sol/dress/admiral,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "nSz" = (
@@ -27758,7 +27758,7 @@
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
 	dir = 6;
-	icon_state = "carpetside"
+	icon_state = "carpet"
 	},
 /area/centcom/specops)
 "nSA" = (
@@ -27807,7 +27807,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "nTm" = (
@@ -27892,7 +27892,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "nUO" = (
@@ -27909,7 +27909,7 @@
 	name = "LateJoinCorporate Liaison"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/ferry)
 "nVn" = (
@@ -28049,7 +28049,7 @@
 	name = "checkpoint shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/checkpoint/aft)
 "nZy" = (
@@ -28066,13 +28066,13 @@
 	name = "CCIAEscort"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "nZO" = (
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "oaf" = (
@@ -28087,7 +28087,7 @@
 	tag_door = "centcom_shuttle_bay_door"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "oap" = (
@@ -28217,13 +28217,13 @@
 "oeh" = (
 /obj/machinery/blackbox_recorder,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "oel" = (
 /obj/machinery/vending/cola,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "off" = (
@@ -28231,7 +28231,7 @@
 	dir = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "ofD" = (
@@ -28255,7 +28255,7 @@
 /area/shuttle/mercenary)
 "ogE" = (
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "ogF" = (
@@ -28277,7 +28277,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "ohD" = (
@@ -28304,7 +28304,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 1;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "oiN" = (
@@ -28332,7 +28332,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "oks" = (
@@ -28392,7 +28392,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor3"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "olC" = (
@@ -28425,7 +28425,7 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor3"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "onj" = (
@@ -28463,7 +28463,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "ooP" = (
@@ -28511,7 +28511,7 @@
 	name = "Pod F"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "orr" = (
@@ -28530,7 +28530,7 @@
 /area/shuttle/administration)
 "orV" = (
 /turf/unsimulated/floor{
-	icon_state = "floor3"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "otu" = (
@@ -28549,7 +28549,7 @@
 	name = "igs - NTERT"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "otY" = (
@@ -28575,7 +28575,7 @@
 /obj/item/deck/cards,
 /obj/structure/table/steel,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "ouW" = (
@@ -28591,7 +28591,7 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "oww" = (
@@ -28643,7 +28643,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "oyW" = (
@@ -28655,7 +28655,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "ozg" = (
@@ -28683,7 +28683,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "ozQ" = (
@@ -28709,7 +28709,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "oBd" = (
@@ -28725,7 +28725,7 @@
 	dir = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "oBC" = (
@@ -28757,7 +28757,7 @@
 	req_access = null
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "oDa" = (
@@ -28863,7 +28863,7 @@
 	},
 /obj/structure/sign/flag/biesel/large/north,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "oHw" = (
@@ -28908,7 +28908,7 @@
 	name = "igs - NTERT"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "oIS" = (
@@ -28962,7 +28962,7 @@
 /area/shuttle/mercenary)
 "oNa" = (
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "oNp" = (
@@ -28971,7 +28971,7 @@
 	},
 /obj/structure/bed/stool/chair/padded/blue,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/ferry)
 "oNt" = (
@@ -28998,7 +28998,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "oNX" = (
@@ -29020,7 +29020,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "oOX" = (
@@ -29149,7 +29149,7 @@
 	},
 /obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "oRm" = (
@@ -29166,7 +29166,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "oRK" = (
@@ -29240,7 +29240,7 @@
 	name = "Droppods"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "oVZ" = (
@@ -29271,7 +29271,7 @@
 /obj/item/rig_module/cooling_unit,
 /obj/item/rig_module/cooling_unit,
 /turf/unsimulated/floor{
-	icon_state = "platebot"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/distress_prep)
 "oWD" = (
@@ -29385,7 +29385,7 @@
 	pixel_x = 29
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "oZr" = (
@@ -29394,7 +29394,7 @@
 	pixel_x = 11
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/centcom/distress_prep)
 "oZE" = (
@@ -29402,7 +29402,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "pau" = (
@@ -29414,7 +29414,7 @@
 	},
 /obj/machinery/appliance/cooker/stove,
 /turf/unsimulated/floor{
-	icon_state = "bar"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "pbO" = (
@@ -29511,7 +29511,7 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "pgL" = (
@@ -29526,7 +29526,7 @@
 /obj/item/wrench,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "phH" = (
@@ -29564,7 +29564,7 @@
 	req_access = list(102)
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/tdome/tdome1)
 "pjh" = (
@@ -29662,7 +29662,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "pmr" = (
@@ -29709,7 +29709,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "poM" = (
@@ -29778,7 +29778,7 @@
 /obj/item/storage/box/fancy/donut,
 /obj/structure/table/steel,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "pqX" = (
@@ -29799,13 +29799,13 @@
 /obj/item/clothing/head/helmet/ert/engineer,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "prK" = (
 /obj/machinery/computer/borgupload,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "psh" = (
@@ -29874,7 +29874,7 @@
 /obj/structure/table/steel,
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "psq" = (
@@ -29887,7 +29887,7 @@
 	pixel_x = -12
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "psL" = (
@@ -29948,7 +29948,7 @@
 /obj/machinery/shieldgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "pvQ" = (
@@ -29972,7 +29972,7 @@
 /obj/item/gun/energy/rifle,
 /obj/item/gun/energy/rifle,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "pxm" = (
@@ -29980,7 +29980,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "carpetnoconnect"
+	icon_state = "carpet"
 	},
 /area/centcom/bar)
 "pxn" = (
@@ -30046,14 +30046,14 @@
 /obj/machinery/porta_turret/crescent,
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "pzs" = (
 /obj/machinery/computer/security/telescreen,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "pzt" = (
@@ -30210,7 +30210,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "pEp" = (
@@ -30285,7 +30285,7 @@
 	},
 /obj/effect/decal/cleanable/cobweb,
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "pES" = (
@@ -30299,7 +30299,7 @@
 	},
 /obj/structure/table/steel,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "pFI" = (
@@ -30363,7 +30363,7 @@
 "pGw" = (
 /obj/machinery/computer/aiupload,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "pGM" = (
@@ -30443,7 +30443,7 @@
 	pixel_y = 16
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "pIK" = (
@@ -30500,7 +30500,7 @@
 	prices = list()
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "pJw" = (
@@ -30531,7 +30531,7 @@
 /obj/item/clothing/head/helmet/ert/security,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "pKX" = (
@@ -30559,7 +30559,7 @@
 	name = "igs - OdinDoctor"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "pLD" = (
@@ -30599,7 +30599,7 @@
 	name = "Washroom"
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/antag/mercenary)
 "pNC" = (
@@ -30615,7 +30615,7 @@
 	prices = list()
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "pNM" = (
@@ -30685,7 +30685,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "pRd" = (
@@ -30744,7 +30744,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/spawning)
 "pTg" = (
@@ -30777,7 +30777,7 @@
 	},
 /obj/item/circuitboard/smes,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "pUe" = (
@@ -30974,7 +30974,7 @@
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "qce" = (
@@ -31084,7 +31084,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "qhn" = (
@@ -31094,7 +31094,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/effect/floor_decal/sign/b,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/holding)
 "qhw" = (
@@ -31115,7 +31115,7 @@
 /obj/item/rig/merc/empty,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "qiY" = (
@@ -31129,7 +31129,7 @@
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "qjw" = (
@@ -31141,14 +31141,14 @@
 	req_access = list(102)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "qjR" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "qlg" = (
@@ -31221,7 +31221,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/holding)
 "qnL" = (
@@ -31235,7 +31235,7 @@
 "qnN" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "qnP" = (
@@ -31330,7 +31330,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "qrX" = (
@@ -31419,12 +31419,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/shieldwallgen,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "quz" = (
 /turf/unsimulated/floor{
-	icon_state = "bar"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "quG" = (
@@ -31437,7 +31437,7 @@
 	req_access = list(110)
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "quS" = (
@@ -31492,7 +31492,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "qwZ" = (
@@ -31511,7 +31511,7 @@
 	name = "checkpoint shutter"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/checkpoint/fore)
 "qxn" = (
@@ -31580,7 +31580,7 @@
 /obj/machinery/cryopod/robot,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "qzy" = (
@@ -31610,7 +31610,7 @@
 /area/centcom/holding)
 "qAH" = (
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "qBY" = (
@@ -31787,7 +31787,7 @@
 	name = "turret"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "qHR" = (
@@ -31825,7 +31825,7 @@
 /obj/item/pen,
 /turf/unsimulated/floor{
 	dir = 9;
-	icon_state = "brown"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "qKr" = (
@@ -32107,7 +32107,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "qUe" = (
@@ -32199,7 +32199,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "qXF" = (
@@ -32219,7 +32219,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "qYv" = (
@@ -32238,7 +32238,7 @@
 	req_access = list(102)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "qZO" = (
@@ -32297,7 +32297,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "rcG" = (
@@ -32321,7 +32321,7 @@
 	name = "Washroom"
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "rdN" = (
@@ -32362,7 +32362,7 @@
 /obj/item/clothing/head/helmet/space/syndicate/black/engie,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "reJ" = (
@@ -32378,7 +32378,7 @@
 /area/centcom/specops)
 "rfM" = (
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "rgr" = (
@@ -32464,7 +32464,7 @@
 	},
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "riI" = (
@@ -32606,7 +32606,7 @@
 "rmH" = (
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "rmM" = (
@@ -32638,7 +32638,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "roD" = (
@@ -32667,7 +32667,7 @@
 	pixel_y = 16
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/centcom/distress_prep)
 "rqh" = (
@@ -32719,7 +32719,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/lube,
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "rtl" = (
@@ -32727,7 +32727,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "rtG" = (
@@ -32750,7 +32750,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "rvo" = (
@@ -32758,7 +32758,7 @@
 /obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "rvq" = (
@@ -32786,7 +32786,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/evac)
 "rvE" = (
@@ -32797,7 +32797,7 @@
 /area/centcom/holding)
 "rvL" = (
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "rvN" = (
@@ -32814,7 +32814,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "rwj" = (
@@ -32831,7 +32831,7 @@
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/holding)
 "rwl" = (
@@ -32903,7 +32903,7 @@
 	name = "holding cell"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/holding)
 "rAZ" = (
@@ -32914,7 +32914,7 @@
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor{
 	dir = 8;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/antag/burglar)
 "rBr" = (
@@ -32928,7 +32928,7 @@
 /obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "rCI" = (
@@ -33021,7 +33021,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "rFD" = (
@@ -33031,7 +33031,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "rFI" = (
@@ -33084,7 +33084,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "rGG" = (
@@ -33097,7 +33097,7 @@
 "rHd" = (
 /obj/machinery/r_n_d/server/centcom,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "rHn" = (
@@ -33190,7 +33190,7 @@
 	dir = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/ferry)
 "rLu" = (
@@ -33245,12 +33245,12 @@
 /obj/structure/table/standard,
 /obj/item/device/paicard,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/antag/mercenary)
 "rNa" = (
 /turf/unsimulated/floor{
-	icon_state = "platingdmg3"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "rNL" = (
@@ -33272,7 +33272,7 @@
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/antag/mercenary)
 "rPi" = (
@@ -33283,7 +33283,7 @@
 /obj/item/clothing/mask/gas/vaurca/filter,
 /obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/antag/mercenary)
 "rPz" = (
@@ -33294,7 +33294,7 @@
 "rPS" = (
 /obj/structure/closet/secure_closet/personal,
 /turf/unsimulated/floor{
-	icon_state = "floor3"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "rQb" = (
@@ -33303,7 +33303,7 @@
 	name = "Washroom"
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "rQi" = (
@@ -33326,7 +33326,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "rQH" = (
@@ -33344,7 +33344,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "rRr" = (
@@ -33438,7 +33438,7 @@
 	dir = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "carpetnoconnect"
+	icon_state = "carpet"
 	},
 /area/centcom/bar)
 "rTN" = (
@@ -33535,7 +33535,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "rWF" = (
@@ -33547,7 +33547,7 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/antag/mercenary)
 "rWN" = (
@@ -33568,12 +33568,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "rXN" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/antag/mercenary)
 "rYv" = (
@@ -33605,12 +33605,12 @@
 	anchored = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/antag/mercenary)
 "sai" = (
 /turf/unsimulated/floor{
-	icon_state = "platingdmg2"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "saE" = (
@@ -33665,7 +33665,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "scd" = (
@@ -33689,7 +33689,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/syndie,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/antag/mercenary)
 "sdf" = (
@@ -33697,7 +33697,7 @@
 	name = "Syndicate-Spawn"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/antag/mercenary)
 "sdz" = (
@@ -33727,7 +33727,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "brown"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "sdS" = (
@@ -33735,7 +33735,7 @@
 /obj/item/toy/figure/syndie,
 /obj/item/bedsheet/syndie,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/antag/mercenary)
 "seN" = (
@@ -33849,7 +33849,7 @@
 "skr" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "skK" = (
@@ -33870,7 +33870,7 @@
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "slk" = (
@@ -33882,7 +33882,7 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "slS" = (
@@ -33977,7 +33977,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "snR" = (
@@ -34014,7 +34014,7 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "spt" = (
@@ -34087,7 +34087,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "ssN" = (
@@ -34142,7 +34142,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "svr" = (
@@ -34171,7 +34171,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "swT" = (
@@ -34268,7 +34268,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor3"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "szr" = (
@@ -34302,7 +34302,7 @@
 	dir = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "szR" = (
@@ -34315,13 +34315,13 @@
 	req_access = list(2)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "sBa" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "sBd" = (
@@ -34340,7 +34340,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "sBD" = (
@@ -34382,7 +34382,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "sCz" = (
@@ -34412,7 +34412,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "sDF" = (
@@ -34437,7 +34437,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "sEG" = (
@@ -34471,7 +34471,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "sFP" = (
@@ -34496,7 +34496,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/evac)
 "sGy" = (
@@ -34509,7 +34509,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "sHl" = (
@@ -34538,7 +34538,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/antag/mercenary)
 "sIe" = (
@@ -34556,7 +34556,7 @@
 	dir = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "sJo" = (
@@ -34567,7 +34567,7 @@
 /obj/item/clothing/head/helmet/space/syndicate/black/green,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "sJN" = (
@@ -34634,7 +34634,7 @@
 	},
 /obj/random/coin,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/antag/mercenary)
 "sMB" = (
@@ -34655,7 +34655,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "sMS" = (
@@ -34669,7 +34669,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/evac)
 "sNi" = (
@@ -34687,7 +34687,7 @@
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "sNV" = (
@@ -34817,7 +34817,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "sUx" = (
@@ -34831,7 +34831,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/evac)
 "sUP" = (
@@ -34870,7 +34870,7 @@
 	name = "igs - NTERT"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "sXo" = (
@@ -34878,7 +34878,7 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/lattice/catwalk/indoor,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/checkpoint/aft)
 "sXD" = (
@@ -34938,7 +34938,7 @@
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "sZB" = (
@@ -34963,7 +34963,7 @@
 	name = "Washroom"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/antag/mercenary)
 "tbt" = (
@@ -35013,7 +35013,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "tbS" = (
@@ -35021,7 +35021,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "tbX" = (
@@ -35053,7 +35053,7 @@
 	name = "Pod G"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "tcy" = (
@@ -35156,7 +35156,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "tfe" = (
@@ -35179,7 +35179,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "tfL" = (
@@ -35190,12 +35190,12 @@
 	pixel_y = 31
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/antag/mercenary)
 "tgs" = (
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/antag/mercenary)
 "tgZ" = (
@@ -35211,7 +35211,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "tho" = (
@@ -35231,7 +35231,7 @@
 	},
 /obj/structure/curtain/open/shower,
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/antag/mercenary)
 "thB" = (
@@ -35275,7 +35275,7 @@
 "tjd" = (
 /obj/structure/bed/stool/chair,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/holding)
 "tjM" = (
@@ -35289,7 +35289,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/spawning)
 "tjT" = (
@@ -35307,7 +35307,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "tkT" = (
@@ -35322,7 +35322,7 @@
 	dir = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "tmP" = (
@@ -35369,7 +35369,7 @@
 	req_access = list(150)
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "toZ" = (
@@ -35391,7 +35391,7 @@
 	name = "active cleaning utility dispenser"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "tqn" = (
@@ -35422,7 +35422,7 @@
 	dir = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "tqK" = (
@@ -35430,7 +35430,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "tqU" = (
@@ -35445,7 +35445,7 @@
 /area/shuttle/legion)
 "trx" = (
 /turf/unsimulated/floor{
-	icon_state = "platingdmg1"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "trT" = (
@@ -35457,7 +35457,7 @@
 	pixel_x = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "tsc" = (
@@ -35466,7 +35466,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/antag/mercenary)
 "tse" = (
@@ -35567,7 +35567,7 @@
 	open_sound_powered = 'sound/machines/airlock_open_force.ogg'
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "tvs" = (
@@ -35577,7 +35577,7 @@
 	},
 /obj/item/towel,
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/antag/mercenary)
 "twm" = (
@@ -35592,7 +35592,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/antag/mercenary)
 "twH" = (
@@ -35612,7 +35612,7 @@
 	name = "Master R&amp;D Server Controller"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "txn" = (
@@ -35659,7 +35659,7 @@
 /obj/item/clothing/mask/gas/alt,
 /obj/item/clothing/mask/gas/alt,
 /turf/unsimulated/floor{
-	icon_state = "platebot"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/distress_prep)
 "typ" = (
@@ -35680,7 +35680,7 @@
 	name = "checkpoint"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "tyE" = (
@@ -35689,7 +35689,7 @@
 	},
 /obj/structure/curtain/open/shower,
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/antag/mercenary)
 "tyX" = (
@@ -35710,7 +35710,7 @@
 "tAA" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/checkpoint/aft)
 "tAC" = (
@@ -35766,7 +35766,7 @@
 	name = "JoinLate"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/spawning)
 "tCu" = (
@@ -35803,7 +35803,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "tDA" = (
@@ -35816,7 +35816,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "tDB" = (
@@ -35864,7 +35864,7 @@
 	name = "Emergency Operating Theatre"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "tFU" = (
@@ -35954,7 +35954,7 @@
 	name = "Toilet"
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/antag/mercenary)
 "tHU" = (
@@ -36023,7 +36023,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "tKK" = (
@@ -36044,7 +36044,7 @@
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/regular,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "tKY" = (
@@ -36084,7 +36084,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "tLp" = (
@@ -36098,7 +36098,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "tMl" = (
@@ -36156,7 +36156,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "tNJ" = (
@@ -36194,7 +36194,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "tPU" = (
@@ -36210,19 +36210,19 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/antag/mercenary)
 "tRe" = (
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "tRr" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "tRt" = (
@@ -36282,7 +36282,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/antag/mercenary)
 "tTf" = (
@@ -36364,7 +36364,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/unsimulated/floor{
-	icon_state = "carpetnoconnect"
+	icon_state = "carpet"
 	},
 /area/centcom/bar)
 "tVN" = (
@@ -36398,7 +36398,7 @@
 /obj/structure/reagent_dispensers/keg/beerkeg,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "tXP" = (
@@ -36419,7 +36419,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "tYp" = (
@@ -36673,7 +36673,7 @@
 /obj/structure/table/standard,
 /obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "ujU" = (
@@ -36724,7 +36724,7 @@
 /obj/item/clothing/mask/gas/vaurca/filter,
 /obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion)
 "ukL" = (
@@ -36761,7 +36761,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "uld" = (
@@ -36784,7 +36784,7 @@
 	dir = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "uml" = (
@@ -36819,7 +36819,7 @@
 	},
 /obj/structure/curtain/open/shower,
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/centcom/distress_prep)
 "unn" = (
@@ -36837,7 +36837,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "unV" = (
@@ -36912,13 +36912,13 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "upK" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "upQ" = (
@@ -36942,7 +36942,7 @@
 	},
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "uqI" = (
@@ -36957,7 +36957,7 @@
 	},
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "cafeteria"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion)
 "uqJ" = (
@@ -37114,7 +37114,7 @@
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "uyB" = (
@@ -37173,7 +37173,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "uDT" = (
@@ -37181,7 +37181,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "uEt" = (
@@ -37201,7 +37201,7 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "uEJ" = (
@@ -37223,7 +37223,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/holding)
 "uFf" = (
@@ -37274,8 +37274,8 @@
 "uGz" = (
 /turf/unsimulated/floor{
 	dir = 1;
-	icon_state = "rampbottom";
-	name = "staircase"
+	name = "staircase";
+	icon_state = "tiled_preview"
 	},
 /area/centcom/spawning)
 "uGA" = (
@@ -37306,7 +37306,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "uHL" = (
@@ -37376,7 +37376,7 @@
 	name = "Detention Wing"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "uJO" = (
@@ -37387,7 +37387,7 @@
 /obj/item/clothing/head/helmet/space/syndicate/black/red,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "uJY" = (
@@ -37406,7 +37406,7 @@
 	name = "turret"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "uLe" = (
@@ -37475,7 +37475,7 @@
 	},
 /obj/item/reagent_containers/glass/beaker/large,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "uNd" = (
@@ -37523,7 +37523,7 @@
 	dir = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "uNY" = (
@@ -37564,7 +37564,7 @@
 "uOR" = (
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/holding)
 "uPa" = (
@@ -37817,7 +37817,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "uTL" = (
@@ -37939,7 +37939,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "uXF" = (
@@ -37962,7 +37962,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "uZp" = (
@@ -38015,7 +38015,7 @@
 	dir = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "vaT" = (
@@ -38027,13 +38027,13 @@
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "vbT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/checkpoint/aft)
 "vbU" = (
@@ -38088,7 +38088,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "vec" = (
@@ -38125,7 +38125,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "vgE" = (
@@ -38136,7 +38136,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "vgT" = (
@@ -38196,7 +38196,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "vim" = (
@@ -38223,7 +38223,7 @@
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "vjQ" = (
@@ -38238,7 +38238,7 @@
 	},
 /obj/structure/window/reinforced/crescent,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/ferry)
 "vjV" = (
@@ -38265,7 +38265,7 @@
 	},
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "vkD" = (
@@ -38303,7 +38303,7 @@
 /area/centcom/spawning)
 "vmF" = (
 /turf/unsimulated/floor{
-	icon_state = "platingdmg1"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/bar)
 "vmR" = (
@@ -38403,7 +38403,7 @@
 	pixel_y = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "vqK" = (
@@ -38449,7 +38449,7 @@
 	pixel_y = 16
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "vrY" = (
@@ -38479,7 +38479,7 @@
 "vwg" = (
 /obj/machinery/computer/shuttle_control/multi/legion,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "vwU" = (
@@ -38499,7 +38499,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/holding)
 "vxi" = (
@@ -38511,7 +38511,7 @@
 	dir = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "vxP" = (
@@ -38551,7 +38551,7 @@
 /area/centcom/legion/hangar5)
 "vyn" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/evac)
 "vyq" = (
@@ -38648,7 +38648,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/checkpoint/aft)
 "vCZ" = (
@@ -38732,7 +38732,7 @@
 	name = "igs - OdinPharmacist"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "vGd" = (
@@ -38754,13 +38754,13 @@
 	pixel_y = -5
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "vJq" = (
 /obj/machinery/recharge_station,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "vKf" = (
@@ -38788,7 +38788,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "vKj" = (
@@ -38805,7 +38805,7 @@
 	dir = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "vKl" = (
@@ -38892,7 +38892,7 @@
 "vLR" = (
 /obj/structure/undies_wardrobe,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "vMb" = (
@@ -38911,7 +38911,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/holding)
 "vMR" = (
@@ -38976,7 +38976,7 @@
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "vMZ" = (
@@ -39000,7 +39000,7 @@
 	name = "Ready Room"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "vNj" = (
@@ -39107,7 +39107,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "vPG" = (
@@ -39120,7 +39120,7 @@
 	pixel_y = 31
 	},
 /turf/unsimulated/floor{
-	icon_state = "floorscorched1"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "vPK" = (
@@ -39130,7 +39130,7 @@
 	pixel_y = 20
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "vQl" = (
@@ -39139,13 +39139,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "vQu" = (
 /obj/effect/landmark/distress_team_equipment,
 /turf/unsimulated/floor{
-	icon_state = "platebot"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/distress_prep)
 "vRS" = (
@@ -39209,7 +39209,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "vTx" = (
@@ -39229,7 +39229,7 @@
 	pixel_y = 20
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "vUm" = (
@@ -39253,7 +39253,7 @@
 /area/centcom/bar)
 "vVC" = (
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "vVW" = (
@@ -39273,7 +39273,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/spawning)
 "vWz" = (
@@ -39291,7 +39291,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/holding)
 "vWY" = (
@@ -39349,7 +39349,7 @@
 	pixel_x = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "vXg" = (
@@ -39363,7 +39363,7 @@
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "vXT" = (
@@ -39398,7 +39398,7 @@
 	connected_blastdoor = "merc_droppod_8"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/antag/mercenary)
 "vZo" = (
@@ -39409,7 +39409,7 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /obj/structure/bed/stool/chair/folding,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeobserve)
 "vZA" = (
@@ -39423,7 +39423,7 @@
 	},
 /obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "vZI" = (
@@ -39441,7 +39441,7 @@
 /obj/item/clothing/accessory/holster/thigh/brown,
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "wap" = (
@@ -39458,7 +39458,7 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "wba" = (
@@ -39485,7 +39485,7 @@
 /obj/item/storage/briefcase,
 /turf/unsimulated/floor{
 	dir = 1;
-	icon_state = "brown"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "wbI" = (
@@ -39510,7 +39510,7 @@
 /area/shuttle/arrival)
 "wcS" = (
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "wcT" = (
@@ -39588,7 +39588,7 @@
 	dir = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "wfA" = (
@@ -39715,7 +39715,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "wjH" = (
@@ -39726,7 +39726,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/full,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "wjW" = (
@@ -39753,7 +39753,7 @@
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "wkO" = (
@@ -39851,7 +39851,7 @@
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "wlL" = (
@@ -39868,7 +39868,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "wmL" = (
@@ -39907,7 +39907,7 @@
 	name = "CCIAEscort"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "woD" = (
@@ -39941,7 +39941,7 @@
 	},
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "wpj" = (
@@ -39959,7 +39959,7 @@
 	name = "igs - TCFLERT - Prefect"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "wpA" = (
@@ -40022,7 +40022,7 @@
 	name = "holding cell"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/holding)
 "wrp" = (
@@ -40062,7 +40062,7 @@
 /obj/item/storage/box/handcuffs,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "wrI" = (
@@ -40094,7 +40094,7 @@
 	},
 /obj/machinery/mech_recharger,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "wrQ" = (
@@ -40114,7 +40114,7 @@
 /obj/item/storage/box/tcfl_pamphlet,
 /obj/item/material/twohanded/pike/flag,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "wrS" = (
@@ -40128,7 +40128,7 @@
 	},
 /obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/specops)
 "wrY" = (
@@ -40167,7 +40167,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/large_stock_marker,
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "wtq" = (
@@ -40241,7 +40241,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "wvP" = (
@@ -40279,7 +40279,7 @@
 	},
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "wwm" = (
@@ -40394,7 +40394,7 @@
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "freezerfloor"
+	icon_state = "freezer"
 	},
 /area/centcom/distress_prep)
 "wzE" = (
@@ -40405,7 +40405,7 @@
 	name = "Washroom"
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "wAA" = (
@@ -40432,7 +40432,7 @@
 "wBB" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "wBG" = (
@@ -40459,7 +40459,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/holding)
 "wCa" = (
@@ -40509,7 +40509,7 @@
 	dir = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "wCm" = (
@@ -40530,7 +40530,7 @@
 /area/centcom/specops)
 "wCy" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/spawning)
 "wCA" = (
@@ -40555,7 +40555,7 @@
 /area/centcom/specops)
 "wDr" = (
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "wDV" = (
@@ -40603,7 +40603,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "wGs" = (
@@ -40613,7 +40613,7 @@
 /obj/item/clothing/head/helmet/space/void/merc,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "wGy" = (
@@ -40631,7 +40631,7 @@
 	pixel_y = -1
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "wGD" = (
@@ -40668,7 +40668,7 @@
 	dir = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "wHi" = (
@@ -40695,7 +40695,7 @@
 	req_access = list(150)
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "wHx" = (
@@ -40778,7 +40778,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "wKm" = (
@@ -40860,7 +40860,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "wMw" = (
@@ -40926,7 +40926,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "wOf" = (
@@ -40956,7 +40956,7 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "wOT" = (
@@ -41021,7 +41021,7 @@
 	},
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "wSA" = (
@@ -41087,7 +41087,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/mercenary)
 "wUe" = (
@@ -41342,7 +41342,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/checkpoint/fore)
 "wZy" = (
@@ -41395,7 +41395,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/ferry)
 "xbK" = (
@@ -41451,7 +41451,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "xdo" = (
@@ -41523,7 +41523,7 @@
 /obj/item/storage/toolbox/electrical,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "xgO" = (
@@ -41578,7 +41578,7 @@
 	name = "Washroom"
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "xij" = (
@@ -41647,7 +41647,7 @@
 	pixel_y = 29
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "xjK" = (
@@ -41682,7 +41682,7 @@
 "xkH" = (
 /obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "xkI" = (
@@ -41747,7 +41747,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "xmD" = (
@@ -41768,7 +41768,7 @@
 /obj/item/reagent_containers/hypospray,
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "xoL" = (
@@ -41828,7 +41828,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "xrK" = (
@@ -41854,7 +41854,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "xsV" = (
@@ -41879,7 +41879,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/legion)
 "xtA" = (
@@ -41889,7 +41889,7 @@
 /obj/item/device/hand_labeler,
 /turf/unsimulated/floor{
 	dir = 8;
-	icon_state = "brown"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "xub" = (
@@ -41951,7 +41951,7 @@
 	icon_state = "plant-04"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "xuV" = (
@@ -41969,7 +41969,7 @@
 	pixel_y = -2
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "xvs" = (
@@ -41993,7 +41993,7 @@
 	name = "forgotten shipment"
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "xvz" = (
@@ -42283,7 +42283,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "xBm" = (
@@ -42292,7 +42292,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "xCb" = (
@@ -42304,7 +42304,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "xDD" = (
@@ -42329,7 +42329,7 @@
 	specialfunctions = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "xEw" = (
@@ -42347,7 +42347,7 @@
 "xFj" = (
 /turf/unsimulated/floor{
 	dir = 4;
-	icon_state = "rampbottom"
+	icon_state = "tiled_preview"
 	},
 /area/antag/burglar)
 "xFq" = (
@@ -42385,7 +42385,7 @@
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/legion/hangar5)
 "xFU" = (
@@ -42469,7 +42469,7 @@
 	},
 /obj/item/gun/energy/blaster/revolver,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "xIt" = (
@@ -42552,7 +42552,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
 "xLv" = (
@@ -42580,7 +42580,7 @@
 	icon_state = "tube1"
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
 "xMn" = (
@@ -42642,7 +42642,7 @@
 /obj/item/rig_module/cooling_unit,
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "new_reinforced"
+	icon_state = "tiled_preview"
 	},
 /area/antag/ninja)
 "xOs" = (
@@ -42658,7 +42658,7 @@
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "xOP" = (
@@ -42791,7 +42791,7 @@
 /area/shuttle/mercenary)
 "xTG" = (
 /turf/unsimulated/floor{
-	icon_state = "platingdmg3"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/bar)
 "xTK" = (
@@ -42829,7 +42829,7 @@
 /obj/item/rig/retro/equipped,
 /obj/item/clothing/accessory/legion,
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "wood_preview"
 	},
 /area/centcom/legion/hangar5)
 "xVb" = (
@@ -42890,7 +42890,7 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/bed/stool/chair/folding,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/tdome/tdomeadmin)
 "xXr" = (
@@ -43056,7 +43056,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/unsimulated/floor{
-	icon_state = "carpetnoconnect"
+	icon_state = "carpet"
 	},
 /area/centcom/bar)
 "ybY" = (
@@ -43123,14 +43123,14 @@
 "yfl" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "yfr" = (
 /obj/structure/window/reinforced/crescent,
 /obj/item/material/shard,
 /turf/unsimulated/floor{
-	icon_state = "steel_dirty"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "yfH" = (
@@ -43178,7 +43178,7 @@
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/utility/very_full,
 /turf/unsimulated/floor{
-	icon_state = "platebot"
+	icon_state = "tiled_preview"
 	},
 /area/centcom/distress_prep)
 "ygK" = (
@@ -43272,7 +43272,7 @@
 	open_sound_powered = 'sound/machines/airlock_open_force.ogg'
 	},
 /turf/unsimulated/floor{
-	icon_state = "tiles"
+	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
 "yjf" = (
@@ -43313,7 +43313,7 @@
 	pixel_y = 16
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "ykk" = (
@@ -43327,13 +43327,13 @@
 	req_one_access = list(109,108)
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 "ymd" = (
 /obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
-	icon_state = "dark2"
+	icon_state = "dark_preview"
 	},
 /area/centcom/control)
 
