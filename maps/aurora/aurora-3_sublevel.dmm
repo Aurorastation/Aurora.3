@@ -2340,7 +2340,7 @@
 "afL" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Tesla - Containment";
-	charge = 2e+006;
+	charge = 2000000;
 	input_attempt = 1;
 	input_level_max = 350000;
 	is_critical = 1;
@@ -7016,7 +7016,7 @@
 /obj/structure/cable/cyan,
 /obj/machinery/ai_slipper,
 /obj/machinery/power/smes/buildable{
-	charge = 5e+006;
+	charge = 5000000;
 	input_attempt = 1;
 	input_level = 200000;
 	output_attempt = 1;
@@ -31141,7 +31141,7 @@
 	},
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Tesla - Grid";
-	charge = 1e+007;
+	charge = 10000000;
 	cur_coils = 4;
 	input_attempt = 1;
 	input_level = 500000;

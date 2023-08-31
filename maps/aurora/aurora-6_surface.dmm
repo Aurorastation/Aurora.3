@@ -1722,7 +1722,7 @@
 /area/mine/explored)
 "boW" = (
 /obj/machinery/power/smes/buildable{
-	charge = 5e+006;
+	charge = 5000000;
 	input_attempt = 1;
 	input_level = 200000;
 	output_attempt = 1;
@@ -24206,7 +24206,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Surface - Shield Substation";
-	charge = 1e+007;
+	charge = 10000000;
 	cur_coils = 5;
 	input_attempt = 1;
 	input_level = 500000;

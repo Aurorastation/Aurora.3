@@ -4347,7 +4347,7 @@
 "oy" = (
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health = 10000000
 	},
 /turf/simulated/floor/tiled/airless,
 /area/template_noop)

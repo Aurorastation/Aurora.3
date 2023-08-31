@@ -5737,7 +5737,7 @@
 "alt" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Atmospherics";
-	charge = 2e+006;
+	charge = 2000000;
 	input_attempt = 1;
 	output_attempt = 1
 	},
@@ -9583,7 +9583,7 @@
 "asu" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Supermatter - Containment";
-	charge = 2e+006;
+	charge = 2000000;
 	input_attempt = 1;
 	input_level = 100000;
 	is_critical = 1;

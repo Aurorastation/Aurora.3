@@ -949,7 +949,7 @@
 /area/turret_protected/ai)
 "NJ" = (
 /obj/machinery/power/smes/buildable{
-	charge = 5e+006;
+	charge = 5000000;
 	input_attempt = 1;
 	input_level = 200000;
 	output_attempt = 1;
