@@ -89,7 +89,7 @@
 
 /obj/item/gun/projectile/recoilless_rifle/update_icon()
 	..()
-	if(loaded.len)
+	if(loaded?.len)
 		icon_state = "recoilless_rifle"
 		item_state = "recoilless_rifle"
 	else
