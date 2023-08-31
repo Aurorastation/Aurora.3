@@ -376,7 +376,7 @@
 
 /material/stone/marble
 	name = MATERIAL_MARBLE
-	icon_colour = "#AAAAAA"
+	icon_colour = "#aaaaaa"
 	weight = 26
 	hardness = 70
 	integrity = 201 //hack to stop kitchen benches being flippable, todo: refactor into weight system
