@@ -44,8 +44,10 @@
 	update_icon()
 
 /obj/item/gun/projectile/Destroy()
-	. = ..()
+	chambered = null
 	QDEL_NULL(ammo_magazine)
+	QDEL_NULL_LIST(loaded)
+	. = ..()
 
 /obj/item/gun/projectile/consume_next_projectile()
 	if(jam_num)
