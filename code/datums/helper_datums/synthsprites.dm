@@ -26,7 +26,7 @@ paiicon is the pai icon sprite name
 /proc/loadsynths_from_json()
 	var/list/customsynthsprites = list()
 
-	if(!isfile("config/customsynths.json"))
+	if(!(rustg_file_exists("config/customsynths.json") == "true"))
 		log_config("The file config/customsynths.json was not found, custom synth config will not be loaded.")
 		return
 
