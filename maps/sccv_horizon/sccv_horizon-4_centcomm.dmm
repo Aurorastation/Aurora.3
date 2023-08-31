@@ -27456,7 +27456,6 @@
 /area/antag/raider)
 "bnB" = (
 /obj/machinery/door/airlock/centcom{
-	icon_state = s;
 	locked = 1;
 	name = "Clandestine Operations";
 	req_access = list(150)
