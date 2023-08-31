@@ -194,10 +194,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "agC" = (
 /obj/structure/railing/mapped,
@@ -1034,7 +1031,7 @@
 	pixel_x = -32
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "aLD" = (
@@ -1413,7 +1410,7 @@
 	},
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
@@ -1551,7 +1548,7 @@
 /area/cruise/custodial_p)
 "beW" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -1974,7 +1971,7 @@
 	icon_state = "sign_bar";
 	name = "Bar Indicator"
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/main_bar/aft)
 "bqW" = (
 /obj/structure/window/reinforced/crescent,
@@ -2649,7 +2646,7 @@
 	name = "Romanovich Cloud, Tau Ceti"
 	})
 "bWr" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/security)
 "bXj" = (
 /obj/machinery/vending/dinnerware{
@@ -2678,7 +2675,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "cby" = (
@@ -3217,7 +3214,7 @@
 "cyK" = (
 /obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "czu" = (
@@ -3510,7 +3507,7 @@
 	},
 /area/cruise/hangar)
 "cKw" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/aft_s)
 "cKG" = (
 /obj/machinery/door/window/brigdoor/eastright{
@@ -3685,7 +3682,7 @@
 	},
 /area/cruise/main_bar)
 "cPr" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/pool/sauna1)
 "cPE" = (
 /obj/structure/flora/grass/jungle,
@@ -3700,7 +3697,7 @@
 	},
 /area/cruise/jungle)
 "cPQ" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/beach_cave)
 "cPX" = (
 /obj/structure/bed/stool/padded,
@@ -3804,7 +3801,7 @@
 	},
 /area/cruise/jungle)
 "cUA" = (
-/obj/structure/bed/stool/chair/sofa/corner/red,
+/obj/structure/bed/stool/chair/sofa/corner/concave/red,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -4363,7 +4360,7 @@
 /obj/structure/sign/greencross{
 	name = "Emergency Room"
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/medical)
 "drf" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -4420,7 +4417,7 @@
 	},
 /area/cruise/main_bar)
 "dwA" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/centerline)
 "dxc" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
@@ -4746,7 +4743,7 @@
 /area/cruise/e_supplies)
 "dJt" = (
 /obj/item/device/flashlight/lamp/stage,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/structure/railing/mapped,
@@ -4819,10 +4816,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "dOv" = (
 /obj/structure/bed/stool/chair/folding{
@@ -5131,10 +5125,7 @@
 	light_range = 6;
 	name = "rusty lamp"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "ehP" = (
 /obj/structure/railing/mapped{
@@ -5311,7 +5302,7 @@
 	icon_state = "sign_jungle";
 	name = "Jungle Dome directional indicator"
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/custodial_s)
 "eoY" = (
 /obj/machinery/hologram/holopad,
@@ -5638,7 +5629,7 @@
 /area/cruise/aft_p)
 "ezk" = (
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "ezH" = (
@@ -6013,7 +6004,7 @@
 	icon_state = "sign_bar";
 	name = "Bar Indicator"
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/main_bar)
 "eSr" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -6242,7 +6233,7 @@
 	},
 /area/cruise/aft)
 "fal" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/pool/sauna2)
 "faM" = (
 /obj/structure/closet/crate/bin,
@@ -6428,7 +6419,7 @@
 	},
 /area/cruise/virtual_reality)
 "fgt" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/pool)
 "fgF" = (
 /turf/unsimulated/floor{
@@ -6678,7 +6669,7 @@
 	icon_state = "sign_pantry";
 	name = "Pantry indicator"
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/dining_hall)
 "fqE" = (
 /obj/structure/flora/grass/jungle{
@@ -6782,7 +6773,7 @@
 /area/cruise/aft)
 "fuN" = (
 /obj/machinery/status_display,
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/fore_p)
 "fuP" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -7098,7 +7089,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -7230,7 +7221,7 @@
 /area/cruise/aft_s)
 "fKU" = (
 /mob/living/simple_animal/cow,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "fLj" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -7368,7 +7359,7 @@
 /area/cruise/arcade)
 "fRt" = (
 /obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "fRP" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -8032,7 +8023,7 @@
 	pixel_y = -1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "gnC" = (
@@ -8298,7 +8289,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "gwg" = (
 /turf/simulated/floor/tiled/ramp{
@@ -8484,7 +8475,7 @@
 "gFr" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "gGz" = (
 /obj/effect/floor_decal/corner/lime{
@@ -8502,12 +8493,12 @@
 /area/cruise/medical)
 "gHb" = (
 /obj/machinery/status_display,
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/dining_hall)
 "gHd" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/machinery/light,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "gHs" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -8677,7 +8668,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "gMC" = (
@@ -8770,7 +8761,7 @@
 /area/cruise/security)
 "gPT" = (
 /obj/item/device/flashlight/lamp/stage,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -8864,7 +8855,7 @@
 	name = "Beach Dome directional indicator";
 	pixel_y = 0
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/beach)
 "gVc" = (
 /obj/structure/window/reinforced/crescent{
@@ -9265,7 +9256,7 @@
 "hof" = (
 /obj/structure/closet/firecloset/full,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "hog" = (
@@ -9732,7 +9723,7 @@
 	},
 /area/cruise/pool)
 "hFF" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/hangar)
 "hGn" = (
 /obj/structure/bed/stool/chair/folding{
@@ -9809,7 +9800,7 @@
 /area/cruise/arcade)
 "hLh" = (
 /obj/machinery/status_display,
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/central)
 "hLn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -9914,7 +9905,7 @@
 /area/cruise/beach_bar)
 "hRx" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "hRI" = (
 /turf/simulated/floor/tiled/ramp{
@@ -9940,7 +9931,7 @@
 	icon_state = "sign_beachbar";
 	name = "Beach Dome bar indicator"
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/beach_bar)
 "hSd" = (
 /obj/structure/bed/stool/padded/red,
@@ -10068,7 +10059,7 @@
 /area/cruise/virtual_reality)
 "hXW" = (
 /obj/machinery/status_display,
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/main_bar)
 "hYP" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -10144,10 +10135,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "icI" = (
 /obj/structure/undies_wardrobe,
@@ -10224,7 +10212,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "ieV" = (
@@ -10323,7 +10311,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "ijb" = (
@@ -10553,7 +10541,7 @@
 	},
 /area/cruise/escort)
 "iqe" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/custodial_s)
 "iqq" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -11019,7 +11007,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "iLE" = (
@@ -11106,7 +11094,7 @@
 	},
 /area/cruise/main_bar)
 "iOr" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/aft)
 "iOQ" = (
 /obj/structure/table/reinforced,
@@ -11314,7 +11302,7 @@
 	},
 /area/cruise/central)
 "iUS" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/main_bar)
 "iUW" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -11357,7 +11345,7 @@
 	pixel_y = 28
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "iXb" = (
@@ -11736,7 +11724,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "jlw" = (
@@ -11914,7 +11902,7 @@
 	},
 /area/cruise/medical)
 "jth" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/custodial_p)
 "jtN" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -11952,7 +11940,7 @@
 /area/cruise/jungle)
 "juG" = (
 /obj/machinery/status_display,
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/arcade)
 "juZ" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
@@ -12224,10 +12212,7 @@
 /area/cruise/fore)
 "jKN" = (
 /obj/structure/table/rack,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "jMg" = (
 /obj/structure/flora/rock/pile{
@@ -12577,7 +12562,7 @@
 /turf/unsimulated/floor/plating,
 /area/template_noop)
 "kcs" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/library)
 "kcC" = (
 /obj/structure/table/stone/marble,
@@ -12725,7 +12710,7 @@
 /area/cruise/jungle)
 "kiP" = (
 /obj/item/clothing/head/sunflower_crown,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -12785,7 +12770,7 @@
 /area/cruise/pool/sauna2)
 "klu" = (
 /obj/machinery/status_display,
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/beach)
 "klA" = (
 /obj/structure/table/rack,
@@ -12847,7 +12832,7 @@
 	icon_state = "sign_beachbar";
 	name = "Beach Dome bar indicator"
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/beach)
 "klY" = (
 /turf/simulated/floor/tiled/ramp{
@@ -12983,7 +12968,7 @@
 	},
 /area/cruise/escort)
 "kpO" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/hydroponics)
 "kpV" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -13200,7 +13185,7 @@
 	},
 /area/cruise/fore_p)
 "kxc" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/main_bar/aft)
 "kyg" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -13260,7 +13245,7 @@
 /area/cruise/tcomms_sat)
 "kBc" = (
 /obj/structure/flora/grass/jungle,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/main_bar/aft)
@@ -13395,7 +13380,7 @@
 	},
 /area/cruise/jungle)
 "kFQ" = (
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12)
 	},
@@ -13542,10 +13527,7 @@
 	pixel_x = -24
 	},
 /obj/machinery/light/small,
-/turf/unsimulated/floor{
-	icon_state = "elevatorshaft";
-	name = "elevator machinery"
-	},
+/turf/unsimulated/floor/elevatorshaft,
 /area/cruise/arcade)
 "kOu" = (
 /obj/item/clothing/under/rank/scc/executive,
@@ -13770,10 +13752,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "kWz" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -13800,10 +13779,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "kYt" = (
 /obj/structure/bed/roller,
@@ -14126,7 +14102,7 @@
 	name = "Romanovich Cloud, Tau Ceti"
 	})
 "lky" = (
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12)
 	},
@@ -14620,7 +14596,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "lDd" = (
@@ -14703,7 +14679,7 @@
 	name = "Beach Dome directional indicator";
 	pixel_y = 0
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/pool)
 "lFj" = (
 /obj/effect/decal/fake_object/light_source{
@@ -14715,10 +14691,7 @@
 	light_range = 6;
 	name = "rusty lamp"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "lFn" = (
 /obj/machinery/power/emitter{
@@ -14889,7 +14862,7 @@
 	},
 /area/cruise/arcade)
 "lMW" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/beach)
 "lNb" = (
 /obj/item/storage/bag/inflatable{
@@ -14934,7 +14907,7 @@
 /area/cruise/arcade)
 "lNz" = (
 /obj/machinery/status_display,
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/medical)
 "lNI" = (
 /obj/machinery/chem_master{
@@ -15058,7 +15031,7 @@
 	name = "Main Bar Suite Entry"
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "lQO" = (
@@ -15156,10 +15129,7 @@
 	light_range = 6;
 	name = "rusty lamp"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "lWi" = (
 /obj/machinery/door/window/westright,
@@ -15360,7 +15330,7 @@
 /area/cruise/security)
 "mfb" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "mfQ" = (
 /obj/machinery/stargazer,
@@ -15418,7 +15388,7 @@
 	},
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "mhT" = (
@@ -15612,7 +15582,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "mpp" = (
@@ -16427,7 +16397,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "mUE" = (
@@ -16505,14 +16475,14 @@
 /area/cruise/medical)
 "mWW" = (
 /obj/machinery/status_display,
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/centerline)
 "mXf" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "mXl" = (
@@ -16785,13 +16755,13 @@
 /area/cruise/centerline)
 "nlB" = (
 /obj/item/clothing/head/lavender_crown,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
 "nlF" = (
 /obj/structure/sink/puddle,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "nlR" = (
 /obj/machinery/door/airlock/hatch{
@@ -17327,7 +17297,7 @@
 /area/cruise/tcomms_sat)
 "nJz" = (
 /obj/machinery/status_display,
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/main_bar/aft)
 "nJO" = (
 /obj/machinery/light{
@@ -17848,10 +17818,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "oeh" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -18099,7 +18066,7 @@
 	},
 /area/cruise/fore_p)
 "onn" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/jungle)
 "ont" = (
 /obj/effect/decal/cleanable/dirt,
@@ -18360,7 +18327,7 @@
 	},
 /area/cruise/pool/sauna3)
 "owa" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/pool/sauna3)
 "owB" = (
 /obj/structure/closet,
@@ -18626,7 +18593,7 @@
 	},
 /area/cruise/main_bar/aft)
 "oNq" = (
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "oNG" = (
 /obj/structure/table/standard,
@@ -18664,10 +18631,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "oOc" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -19023,7 +18987,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "pbJ" = (
@@ -19385,10 +19349,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "pqj" = (
 /obj/structure/window/reinforced{
@@ -19418,7 +19379,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "pqU" = (
@@ -19647,7 +19608,7 @@
 "pzR" = (
 /obj/structure/flora/grass/jungle/b,
 /obj/machinery/light/small,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/main_bar/aft)
@@ -19806,7 +19767,7 @@
 	},
 /area/cruise/beach_cave)
 "pGs" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -19889,7 +19850,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "pOG" = (
@@ -20251,7 +20212,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "qdK" = (
@@ -20361,10 +20322,7 @@
 	},
 /area/cruise/beach)
 "qjQ" = (
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "qkr" = (
 /obj/structure/table/wood,
@@ -20441,7 +20399,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = 3
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/medical)
@@ -20832,7 +20790,7 @@
 	},
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
@@ -20977,7 +20935,7 @@
 /area/cruise/jungle)
 "qLY" = (
 /obj/item/clothing/head/poppy_crown,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -21195,7 +21153,7 @@
 	},
 /area/cruise/aft_s)
 "qVv" = (
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/medical)
@@ -21619,7 +21577,7 @@
 	},
 /area/cruise/escort)
 "rqB" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/e_supplies)
 "rqR" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -21850,7 +21808,7 @@
 "rzl" = (
 /obj/machinery/light/small,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "rzJ" = (
@@ -21950,7 +21908,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "rFd" = (
@@ -21999,7 +21957,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "rGt" = (
@@ -22273,7 +22231,7 @@
 	pixel_x = -5
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "rSC" = (
@@ -22635,10 +22593,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "shq" = (
 /obj/effect/decal/fake_object{
@@ -22692,10 +22647,10 @@
 	},
 /area/cruise/pool)
 "sjz" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/arcade)
 "ska" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/washroom_aft)
 "skg" = (
 /obj/effect/floor_decal/corner/yellow/full,
@@ -22795,10 +22750,10 @@
 	},
 /area/cruise/aft)
 "soC" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/fore_s)
 "soG" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/fore)
 "spa" = (
 /obj/structure/table/standard,
@@ -22838,10 +22793,7 @@
 	},
 /area/cruise/e_supplies)
 "srw" = (
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "sry" = (
 /obj/effect/floor_decal/industrial/loading{
@@ -22971,7 +22923,7 @@
 /area/cruise/tcomms_sat)
 "sAV" = (
 /obj/machinery/status_display,
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/aft)
 "sBc" = (
 /obj/effect/decal/fake_object{
@@ -23001,7 +22953,7 @@
 /obj/structure/table/wood,
 /obj/random/lavalamp,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "sCx" = (
@@ -23156,7 +23108,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
@@ -23445,7 +23397,7 @@
 "sTR" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "sTV" = (
@@ -23512,7 +23464,7 @@
 	icon_state = "sign_jungle";
 	name = "Jungle Dome directional indicator"
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/jungle)
 "sWf" = (
 /obj/structure/curtain/open,
@@ -23822,11 +23774,11 @@
 	},
 /area/cruise/pool)
 "tec" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/tcomms_sat)
 "teH" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/sac,
+/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
@@ -24051,7 +24003,7 @@
 	},
 /area/cruise/centerline)
 "tpr" = (
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -24075,7 +24027,7 @@
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
@@ -24142,7 +24094,7 @@
 /area/cruise/beach)
 "tsP" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass/alt,
+/turf/simulated/floor/grass,
 /area/cruise/hydroponics)
 "tth" = (
 /obj/structure/window/reinforced{
@@ -24750,7 +24702,7 @@
 /area/template_noop)
 "tPq" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/medical)
@@ -24765,10 +24717,7 @@
 /area/cruise/centerline)
 "tQI" = (
 /obj/item/banhammer,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "tQK" = (
 /obj/structure/lattice/catwalk,
@@ -24895,7 +24844,7 @@
 	},
 /area/cruise/virtual_reality)
 "tVt" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/washroom_fore)
 "tVX" = (
 /obj/structure/window/reinforced{
@@ -25311,7 +25260,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "uhg" = (
@@ -25819,7 +25768,7 @@
 	},
 /area/cruise/virtual_reality)
 "uBc" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/aft_p)
 "uBl" = (
 /obj/item/storage/toolbox/mechanical{
@@ -25917,7 +25866,7 @@
 	opacity = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "uEN" = (
@@ -25986,7 +25935,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair/sofa/corner/red,
+/obj/structure/bed/stool/chair/sofa/corner/concave/red,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -26029,7 +25978,7 @@
 /area/cruise/fore_s)
 "uJY" = (
 /obj/machinery/status_display,
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/hangar)
 "uJZ" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
@@ -26334,7 +26283,7 @@
 	icon_state = "sign_jungle";
 	name = "Jungle Dome directional indicator"
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/fore_s)
 "uWW" = (
 /obj/structure/table/rack,
@@ -26496,10 +26445,7 @@
 /area/cruise/central)
 "vdP" = (
 /obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "vdS" = (
 /obj/structure/flora/grass/jungle{
@@ -26677,7 +26623,7 @@
 	},
 /area/cruise/dining_hall)
 "vlW" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/medical)
 "vmx" = (
 /obj/structure/bed/stool/chair/wood{
@@ -26707,7 +26653,7 @@
 	},
 /area/cruise/pool)
 "vnB" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/beach_bar)
 "voy" = (
 /obj/structure/railing/mapped{
@@ -26891,7 +26837,7 @@
 "vxo" = (
 /obj/machinery/hologram/holopad,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "vxO" = (
@@ -26969,7 +26915,7 @@
 	name = "Beach Dome directional indicator";
 	pixel_y = 0
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/main_bar)
 "vAc" = (
 /obj/effect/floor_decal/corner/lime{
@@ -27187,7 +27133,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/medical)
@@ -27502,7 +27448,7 @@
 	},
 /area/cruise/e_supplies)
 "vZG" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/dining_hall)
 "vZS" = (
 /obj/structure/flora/grass/jungle,
@@ -27535,7 +27481,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "wbo" = (
@@ -27548,7 +27494,7 @@
 /obj/structure/flora/ausbushes/grassybush{
 	pixel_y = 3
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -27629,7 +27575,7 @@
 	},
 /area/cruise/escort)
 "wfr" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/fore_p)
 "wfA" = (
 /obj/effect/decal/fake_object{
@@ -27639,11 +27585,11 @@
 	name = "Beach Dome directional indicator";
 	pixel_y = 0
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/fore_p)
 "wgd" = (
 /obj/machinery/status_display,
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/custodial_s)
 "wgj" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -27750,10 +27696,7 @@
 /area/cruise/beach)
 "whY" = (
 /obj/item/beach_ball,
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/pool)
 "whZ" = (
 /obj/effect/landmark/force_spawnpoint{
@@ -27940,7 +27883,7 @@
 	name = "Beach Dome directional indicator";
 	pixel_y = 0
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/custodial_p)
 "wqj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -28006,7 +27949,7 @@
 /area/cruise/escort)
 "wuO" = (
 /obj/structure/flora/grass/jungle,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/medical)
@@ -28342,7 +28285,7 @@
 "wJF" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "wJJ" = (
@@ -28436,7 +28379,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
@@ -28602,7 +28545,7 @@
 /area/cruise/centerline)
 "wTR" = (
 /obj/structure/flora/grass/jungle,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/pool)
@@ -28858,7 +28801,7 @@
 	},
 /area/cruise/tcomms_sat)
 "xeN" = (
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/cruise/escort)
 "xeZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -28943,7 +28886,7 @@
 	},
 /area/cruise/centerline)
 "xiy" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/template_noop)
 "xiW" = (
 /obj/structure/flora/grass/jungle,
@@ -28964,7 +28907,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "alienvault"
+	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
 "xjM" = (
@@ -29155,10 +29098,7 @@
 	light_range = 6;
 	name = "rusty lamp"
 	},
-/turf/unsimulated/floor{
-	icon_state = "concrete";
-	name = "concrete"
-	},
+/turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
 "xqc" = (
 /obj/structure/barricade/plasteel/wired{
@@ -29212,7 +29152,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12)
 	},
@@ -29304,7 +29244,7 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
@@ -29515,7 +29455,7 @@
 	},
 /area/cruise/escort)
 "xBF" = (
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/central)
 "xBH" = (
 /obj/machinery/vending/cola,
@@ -29877,7 +29817,7 @@
 	icon_state = "sign_dining";
 	name = "Dining Hall Indicator"
 	},
-/turf/simulated/wall/shuttle/idris/cardinal,
+/turf/simulated/wall/shuttle/idris,
 /area/cruise/dining_hall)
 "xSd" = (
 /obj/structure/table/wood,

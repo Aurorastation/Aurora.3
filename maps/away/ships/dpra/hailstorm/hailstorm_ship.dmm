@@ -903,7 +903,7 @@
 	},
 /area/hailstorm_ship/gun_deck)
 "eZ" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/gun_deck)
 "fc" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -1529,7 +1529,7 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "kv" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/gun_deck/second)
 "kw" = (
 /obj/effect/floor_decal/corner/white{
@@ -2637,7 +2637,7 @@
 	},
 /area/hailstorm_ship/engine)
 "AU" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/engine)
 "Bv" = (
 /obj/structure/bed/stool/bar/padded/black,
@@ -2965,7 +2965,7 @@
 /area/shuttle/hailstorm_shuttle)
 "Gu" = (
 /obj/effect/map_effect/airlock/s_to_n/long/square,
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/engine)
 "GG" = (
 /obj/effect/shuttle_landmark/nav_hailstorm_ship/nav3,
@@ -3830,7 +3830,7 @@
 	},
 /area/hailstorm_ship/armory)
 "Vw" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/hailstorm_shuttle)
 "Vy" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{

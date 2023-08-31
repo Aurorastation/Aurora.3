@@ -218,8 +218,7 @@
 /area/database_freighter/barracks)
 "aM" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -319,7 +318,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/science{
+/obj/machinery/door/airlock/research{
 	req_access = list(209);
 	name = "Laboratory"
 	},
@@ -580,7 +579,7 @@
 /area/database_freighter/engineering)
 "co" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain/cee,
+/obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/bluegrid{
 	temperature = 278.15
 	},
@@ -674,8 +673,7 @@
 /area/database_freighter/engineering)
 "cJ" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1066,7 +1064,7 @@
 	},
 /area/database_freighter)
 "eA" = (
-/obj/machinery/door/airlock/science{
+/obj/machinery/door/airlock/research{
 	req_access = list(209);
 	name = "Equipment Storage"
 	},
@@ -1464,8 +1462,7 @@
 /area/database_freighter)
 "gw" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1553,8 +1550,7 @@
 /area/database_freighter/laboratory)
 "he" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2386,8 +2382,7 @@
 /area/database_freighter)
 "lX" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -2431,8 +2426,7 @@
 /area/database_freighter/engineering)
 "mj" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
@@ -2515,7 +2509,7 @@
 /area/database_freighter/barracks)
 "mA" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/science{
+/obj/machinery/door/airlock/research{
 	req_access = list(209);
 	name = "Spectrometry"
 	},
@@ -2639,8 +2633,7 @@
 "nx" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -3228,8 +3221,7 @@
 /area/database_freighter/hangar)
 "yr" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /obj/machinery/alarm/cold{
 	req_one_access = list(209);
@@ -3493,8 +3485,7 @@
 /area/database_freighter/engine)
 "BV" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3814,7 +3805,7 @@
 /area/shuttle/database_freighter_shuttle)
 "GV" = (
 /obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain/cee{
+/obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
 	},
 /obj/machinery/light{
@@ -4305,8 +4296,7 @@
 /area/database_freighter/laboratory)
 "PV" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1

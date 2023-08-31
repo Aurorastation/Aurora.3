@@ -453,9 +453,10 @@
 			pixel_x = trajectory.return_px()
 			pixel_y = trajectory.return_py()
 	else
-		before_move()
-		step_towards(src, T)
-		after_move()
+		if(T != loc)
+			before_move()
+			Move(T)
+			after_move()
 		if(!hitscanning)
 			pixel_x = trajectory.return_px() - trajectory.mpx * trajectory_multiplier
 			pixel_y = trajectory.return_py() - trajectory.mpy * trajectory_multiplier

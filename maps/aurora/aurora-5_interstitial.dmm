@@ -2540,7 +2540,7 @@
 /turf/simulated/floor/plating,
 /area/security/training_theoretical)
 "gb" = (
-/obj/structure/bed/stool/chair/sofa/corner/red{
+/obj/structure/bed/stool/chair/sofa/corner{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -2624,8 +2624,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/hatch{
 	name = "Elevator Maintenance";
-	req_access = list(50);
-	req_one_access = null
+	req_access = list(50)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -4272,7 +4271,6 @@
 /area/medical/psych)
 "kW" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	id_tag = null;
 	name = "Treatment Wing";
 	req_access = list(64)
 	},
@@ -5035,8 +5033,7 @@
 	icon_state = "door_locked";
 	locked = 1;
 	name = "Construction Site";
-	req_one_access = list(11,24);
-	welded = 0
+	req_one_access = list(11,24)
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
@@ -5177,7 +5174,7 @@
 /obj/item/storage/box/lights/coloredmixed,
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/bag/inflatable,
-/obj/item/device/floor_painter,
+/obj/item/device/paint_sprayer,
 /obj/structure/closet/crate,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
@@ -6411,8 +6408,7 @@
 /area/security/training)
 "vb" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(63);
-	req_one_access = null
+	req_access = list(63)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -6857,8 +6853,7 @@
 	icon_state = "door_locked";
 	locked = 1;
 	name = "Construction Site";
-	req_one_access = list(11,24);
-	welded = 0
+	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_construction_site/zone_2)
@@ -9029,7 +9024,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,50)
 	},
 /obj/structure/cable/green{
@@ -9350,7 +9344,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = null;
 	req_one_access = list(12,50)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{

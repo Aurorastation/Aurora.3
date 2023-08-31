@@ -120,8 +120,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/structure/cable{
@@ -318,8 +317,7 @@
 /obj/machinery/light/colored/red{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -383,9 +381,7 @@
 "bQS" = (
 /obj/structure/table/rack,
 /obj/item/bodybag/cryobag,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/item/reagent_containers/glass/beaker/cryoxadone,
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
@@ -431,8 +427,7 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
 "cjQ" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -551,7 +546,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "cXE" = (
-/obj/structure/bed/stool/chair/sofa/corner,
+/obj/structure/bed/stool/chair/sofa/corner/concave,
 /turf/simulated/floor/carpet,
 /area/cursed/living_area)
 "dcH" = (
@@ -568,8 +563,7 @@
 /turf/simulated/wall/r_wall,
 /area/cursed/hangar)
 "dhA" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -646,9 +640,7 @@
 /turf/simulated/wall,
 /area/space)
 "dHO" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
@@ -884,9 +876,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -1118,9 +1108,7 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "gIW" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
 	dir = 1
@@ -1336,8 +1324,7 @@
 /turf/simulated/wall,
 /area/cursed/engineering)
 "iee" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -1610,9 +1597,7 @@
 /obj/structure/sign/poster{
 	pixel_y = 31
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
 	dir = 1
@@ -1917,8 +1902,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -2063,8 +2047,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor,
@@ -2441,8 +2424,7 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "oDz" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -2608,9 +2590,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2807,10 +2787,7 @@
 /turf/simulated/floor,
 /area/cursed/medical)
 "qiJ" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
@@ -2962,8 +2939,7 @@
 /turf/simulated/wall,
 /area/cursed/mineral_processing)
 "qPP" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -2977,8 +2953,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "qUl" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -3289,10 +3264,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "swq" = (
@@ -3777,10 +3749,7 @@
 /turf/simulated/wall,
 /area/cursed/bridge)
 "vAa" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "vFJ" = (
@@ -3929,8 +3898,7 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "wzV" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/light{

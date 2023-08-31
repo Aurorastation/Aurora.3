@@ -247,8 +247,7 @@
 /area/adhomai_fallout_bunker)
 "kd" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -424,8 +423,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -433,8 +431,7 @@
 /area/adhomai_fallout_bunker)
 "oI" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -729,8 +726,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -862,8 +858,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -871,8 +866,7 @@
 /area/adhomai_fallout_bunker)
 "Cj" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -918,8 +912,7 @@
 "DG" = (
 /obj/structure/hadii_statue,
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1070,8 +1063,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1126,8 +1118,7 @@
 /area/adhomai_fallout_bunker)
 "KP" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1281,8 +1272,7 @@
 "Qk" = (
 /obj/structure/sign/flag/pra/large/north,
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1466,8 +1456,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
