@@ -27455,11 +27455,14 @@
 	},
 /area/antag/raider)
 "bnB" = (
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "loadingareadirty2"
+/obj/machinery/door/airlock/centcom{
+	icon_state = s;
+	locked = 1;
+	name = "Clandestine Operations";
+	req_access = list(150)
 	},
-/area/antag/raider)
+/turf/unsimulated/floor,
+/area/antag/ninja)
 "bnC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -41819,6 +41822,12 @@
 	density = 1
 	},
 /area/centcom/shared_dream)
+"xYM" = (
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "carpet"
+	},
+/area/antag/raider)
 "yag" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -95031,7 +95040,7 @@ bmy
 bix
 bix
 bix
-buZ
+bnB
 bvM
 bwM
 bxC
@@ -100422,10 +100431,10 @@ bnx
 bow
 bpn
 bpn
+xYM
+brH
+brH
 bqT
-brH
-brH
-btj
 blU
 aaa
 bwZ
@@ -103502,7 +103511,7 @@ bkO
 blA
 blU
 bmN
-bnB
+bny
 bny
 bny
 btj
