@@ -215,7 +215,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.disabilities = list()
 
 	if(!pref.bgstate || !(pref.bgstate in pref.bgstate_options))
-		pref.bgstate = "000"
+		pref.bgstate = "000000"
 
 /datum/category_item/player_setup_item/general/body/content(var/mob/user)
 	var/list/out = list()

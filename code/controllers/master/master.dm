@@ -126,9 +126,15 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			if(2)
 				msg = "The [BadBoy.name] subsystem was the last to fire for 2 controller restarts. It will be recovered now and disabled if it happens again."
 				FireHim = TRUE
+
+			//If we are running a REFERENCE_TRACKING with hard lookups, this is expected and we do not want the master controller
+			//to stop the garbage collector from working
+			#if !defined(GC_FAILURE_HARD_LOOKUP)
 			if(3)
 				msg = "The [BadBoy.name] subsystem seems to be destabilizing the MC and will be offlined."
 				BadBoy.flags |= SS_NO_FIRE
+			#endif
+
 		if(msg)
 			admin_notice("<span class='danger'>[msg]</span>", R_DEBUG | R_DEV)
 			log_subsystem_mastercontroller(msg)

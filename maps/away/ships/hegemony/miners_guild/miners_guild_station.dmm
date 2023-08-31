@@ -364,8 +364,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/bridge)
 "fh" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(113)
 	},
@@ -522,7 +521,7 @@
 	pixel_x = -4
 	},
 /obj/item/reagent_containers/food/condiment/shaker/spacespice,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "hq" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -605,7 +604,7 @@
 	pixel_y = 24;
 	req_access = null
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "hY" = (
 /obj/effect/shuttle_landmark/miners_guild/nav2,
@@ -663,7 +662,7 @@
 /area/miners_guild/engineering1)
 "iu" = (
 /obj/machinery/appliance/cooker/stove,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "iy" = (
 /obj/structure/cable/green{
@@ -766,7 +765,7 @@
 /turf/simulated/floor/plating,
 /area/miners_guild/bridge)
 "jC" = (
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "jF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -954,7 +953,7 @@
 "lw" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/coffee/full,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "lB" = (
 /obj/effect/floor_decal/industrial/warning/full,
@@ -1199,8 +1198,7 @@
 /turf/simulated/floor/plating,
 /area/miners_guild/hangar)
 "or" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	icon_state = "alarm0";
 	pixel_x = -24;
 	req_one_access = list(113)
@@ -1264,7 +1262,7 @@
 /area/miners_guild/engineering2)
 "pm" = (
 /obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "pr" = (
 /obj/structure/closet/crate,
@@ -1307,7 +1305,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "pW" = (
 /obj/structure/table/steel,
@@ -1351,7 +1349,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "qD" = (
 /obj/machinery/alarm{
@@ -1665,8 +1663,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
 "uk" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -28;
 	req_one_access = list(113)
 	},
@@ -1840,8 +1837,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/canteen)
 "wt" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(113)
 	},
@@ -2031,7 +2027,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "xV" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -2083,7 +2079,7 @@
 "yw" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "yA" = (
 /obj/structure/cable/green{
@@ -2809,7 +2805,7 @@
 /area/miners_guild/solars_starboard)
 "Ix" = (
 /obj/machinery/appliance/cooker/fryer,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "II" = (
 /obj/structure/cable/green{
@@ -2859,7 +2855,7 @@
 /area/miners_guild/processing)
 "JK" = (
 /obj/machinery/vending/boozeomat/merchant,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "JO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3295,7 +3291,7 @@
 "OH" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_alc/full,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "OL" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
@@ -3538,7 +3534,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "RO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3551,8 +3547,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "RZ" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	icon_state = "alarm0";
 	pixel_x = -22;
 	req_one_access = list(113)
@@ -3612,7 +3607,7 @@
 /area/miners_guild)
 "SC" = (
 /obj/machinery/vending/dinnerware,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "SX" = (
 /obj/machinery/conveyor{
@@ -3831,8 +3826,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/bridge)
 "VZ" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
@@ -3919,7 +3913,7 @@
 /area/miners_guild/crew)
 "Xn" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "Xr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -3978,7 +3972,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "XU" = (
 /obj/structure/cable/green{

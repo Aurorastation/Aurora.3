@@ -167,7 +167,7 @@
 /area/dungeon/skrell_ship)
 "aD" = (
 /obj/structure/blocker/steel,
-/obj/structure/door_assembly/door_assembly_skrell{
+/obj/structure/door_assembly{
 	name = "Bridge"
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -302,7 +302,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bb" = (
-/obj/machinery/door/airlock/skrell/grey,
+/obj/machinery/door/airlock/skrell,
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bc" = (
@@ -532,7 +532,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "bO" = (
-/obj/machinery/door/airlock/skrell/grey,
+/obj/machinery/door/airlock/skrell,
 /obj/item/landmine/frag{
 	deployed = 1
 	},
@@ -737,7 +737,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "cw" = (
-/obj/structure/door_assembly/door_assembly_skrell{
+/obj/structure/door_assembly{
 	name = "Cryogenics"
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -756,7 +756,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "cz" = (
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "cA" = (
 /obj/effect/decal/remains/human,
@@ -816,7 +816,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "cN" = (
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	locked = 1
 	},
 /turf/simulated/floor/shuttle/advanced,

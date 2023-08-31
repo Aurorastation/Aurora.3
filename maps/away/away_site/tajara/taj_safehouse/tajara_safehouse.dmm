@@ -314,7 +314,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/tajara_safehouse)
 "iF" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/tajara_safehouse_shuttle)
 "iI" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary{
@@ -368,7 +368,7 @@
 /obj/item/material/hatchet,
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/spline/plain/cee,
+/obj/effect/floor_decal/spline/plain/cee/black,
 /turf/simulated/floor/tiled,
 /area/tajara_safehouse)
 "kc" = (

@@ -100,7 +100,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "ay" = (
 /turf/simulated/floor/carpet,
@@ -157,10 +157,10 @@
 	dir = 8
 	},
 /obj/random/pottedplant,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "aW" = (
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12)
 	},
@@ -511,7 +511,7 @@
 /area/city/mendell/interior)
 "cW" = (
 /obj/structure/sink/puddle,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -576,7 +576,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "dh" = (
 /obj/machinery/smartfridge/foodheater,
@@ -791,7 +791,7 @@
 /obj/machinery/atm{
 	pixel_y = 30
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "en" = (
 /obj/effect/landmark{
@@ -820,7 +820,7 @@
 	},
 /area/city/mendell/interior)
 "ey" = (
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell)
 "ez" = (
 /obj/structure/railing/mapped{
@@ -937,7 +937,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "eW" = (
 /obj/structure/sign/greencross,
@@ -1328,7 +1328,7 @@
 /area/city/mendell/interior)
 "gN" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -1478,7 +1478,7 @@
 	opacity = 1
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "hx" = (
 /obj/structure/railing/mapped{
@@ -1495,7 +1495,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "hC" = (
 /obj/effect/floor_decal/industrial/loading{
@@ -1662,7 +1662,7 @@
 /obj/effect/landmark{
 	name = "Observer-Start"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell)
 "iM" = (
 /obj/machinery/light/small,
@@ -2104,7 +2104,7 @@
 /area/city/mendell/interior)
 "le" = (
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/shuttle/city)
 "li" = (
 /obj/effect/decal/fake_object{
@@ -2129,7 +2129,7 @@
 "lr" = (
 /obj/structure/flora/grass/jungle,
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -2233,7 +2233,7 @@
 	name = "glamorous sign";
 	pixel_y = 33
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "lV" = (
 /obj/structure/closet/secure_closet/cabinet/bar,
@@ -2430,7 +2430,7 @@
 	dir = 4
 	},
 /obj/random/pottedplant,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "nm" = (
 /obj/machinery/light/small{
@@ -2571,7 +2571,7 @@
 "od" = (
 /obj/structure/flora/tree/jungle,
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -2659,7 +2659,7 @@
 /area/city/mendell/interior)
 "oM" = (
 /obj/structure/flora/tree/jungle,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -2678,7 +2678,7 @@
 /area/city/mendell)
 "oQ" = (
 /obj/machinery/vending/cigarette,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "oT" = (
 /obj/machinery/light/small,
@@ -2904,7 +2904,7 @@
 /area/city/mendell/interior)
 "qu" = (
 /obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -3323,7 +3323,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "st" = (
 /obj/structure/bed/padded,
@@ -3364,7 +3364,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -3452,7 +3452,7 @@
 /turf/simulated/floor/plating,
 /area/city/mendell/interior)
 "tC" = (
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12)
 	},
@@ -3544,7 +3544,7 @@
 /area/city/mendell/interior)
 "tY" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/sac,
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "uc" = (
@@ -3829,7 +3829,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -3854,7 +3854,7 @@
 	layer = 4.1;
 	opacity = 0
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "vT" = (
 /obj/machinery/door/airlock/centcom{
@@ -4107,7 +4107,7 @@
 /area/city/mendell)
 "xx" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "xz" = (
 /obj/effect/floor_decal/industrial/loading{
@@ -4175,7 +4175,7 @@
 	pixel_x = 29;
 	poster_type = "/datum/poster/bay_68"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "xM" = (
 /obj/structure/closet/cabinet,
@@ -4378,7 +4378,7 @@
 	name = "glamorous sign";
 	pixel_y = 33
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "yu" = (
 /obj/machinery/light/small{
@@ -4433,7 +4433,7 @@
 /area/city/mendell/interior)
 "yL" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -4450,7 +4450,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "yW" = (
 /obj/machinery/vending/boozeomat,
@@ -4640,7 +4640,7 @@
 /area/city/mendell)
 "Af" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Aj" = (
 /obj/structure/window/reinforced{
@@ -4727,7 +4727,7 @@
 	pixel_x = 28;
 	pixel_y = -2
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "AN" = (
 /obj/random/pottedplant,
@@ -4805,7 +4805,7 @@
 /area/city/mendell/interior)
 "Bs" = (
 /obj/structure/railing/mapped,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Bx" = (
 /obj/machinery/light/small{
@@ -5129,7 +5129,7 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Da" = (
 /obj/machinery/door/airlock/centcom{
@@ -5244,7 +5244,7 @@
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "Dt" = (
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Dw" = (
 /obj/machinery/light/small{
@@ -5264,7 +5264,7 @@
 /area/city/mendell/interior)
 "Dy" = (
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "DF" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -5277,7 +5277,7 @@
 /area/city/mendell)
 "DG" = (
 /obj/machinery/cryopod,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "DH" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -5311,7 +5311,7 @@
 /area/city/mendell)
 "DI" = (
 /obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "DJ" = (
 /obj/machinery/acting/changer,
@@ -5404,7 +5404,7 @@
 	dir = 8
 	},
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Eq" = (
 /turf/unsimulated/floor{
@@ -5448,7 +5448,7 @@
 	dir = 4
 	},
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "EF" = (
 /obj/structure/bookcase,
@@ -5460,7 +5460,7 @@
 /obj/structure/flora/grass/jungle{
 	density = 1
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -5474,7 +5474,7 @@
 	},
 /area/city/mendell/interior)
 "EO" = (
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -5570,7 +5570,7 @@
 /area/city/mendell)
 "FL" = (
 /obj/structure/bed/stool/chair/wood,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "FM" = (
 /turf/unsimulated/floor{
@@ -5599,7 +5599,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Ga" = (
 /obj/structure/bed/stool/chair/wood,
@@ -5660,7 +5660,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Gx" = (
 /obj/machinery/photocopier,
@@ -5700,7 +5700,7 @@
 /area/city/mendell/interior)
 "GJ" = (
 /obj/structure/flora/grass/jungle,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -5781,13 +5781,13 @@
 /area/city/mendell/interior)
 "Hp" = (
 /obj/structure/bed/stool/chair/wood,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
 "Hs" = (
 /obj/item/device/flashlight/lamp/stage,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Hw" = (
 /obj/structure/table/stone/marble,
@@ -5815,7 +5815,7 @@
 	pixel_y = 31;
 	poster_type = "/datum/poster/bay_67"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "HG" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -5873,13 +5873,13 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
 "HT" = (
 /obj/structure/flora/grass/jungle/b,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -6103,7 +6103,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Ju" = (
 /obj/effect/decal{
@@ -6135,7 +6135,7 @@
 	density = 1
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -6143,7 +6143,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "JF" = (
 /obj/machinery/light/small{
@@ -6169,7 +6169,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -6190,7 +6190,7 @@
 /area/city/mendell/interior)
 "JQ" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "JS" = (
 /obj/structure/railing/mapped{
@@ -6369,7 +6369,7 @@
 /area/city/mendell/interior)
 "La" = (
 /obj/structure/flora/tree/jungle/small,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -6671,7 +6671,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Mt" = (
 /obj/structure/table/rack,
@@ -6708,7 +6708,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "MA" = (
 /obj/structure/bookcase,
@@ -7019,7 +7019,7 @@
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
-/obj/machinery/door/airlock/sac{
+/obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
 	req_access = list(12)
 	},
@@ -7199,7 +7199,7 @@
 /area/city/mendell)
 "OU" = (
 /obj/machinery/vending/cola,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "OZ" = (
 /obj/machinery/light/small,
@@ -7236,7 +7236,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Pj" = (
 /obj/structure/railing/mapped{
@@ -7339,7 +7339,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -7358,7 +7358,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -7390,7 +7390,7 @@
 /area/city/mendell)
 "PQ" = (
 /obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "PT" = (
 /obj/structure/railing/mapped{
@@ -7418,7 +7418,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Qj" = (
 /obj/structure/railing/mapped{
@@ -7469,7 +7469,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Qs" = (
 /obj/structure/bed/stool/chair/remote/human,
@@ -7491,7 +7491,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Qx" = (
 /obj/machinery/light/small,
@@ -7504,7 +7504,7 @@
 	dir = 4
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -7666,7 +7666,7 @@
 /area/city/mendell/interior)
 "Rm" = (
 /obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -7698,7 +7698,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Rx" = (
 /obj/machinery/door/airlock/glass_centcom{
@@ -7729,7 +7729,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell)
 "RD" = (
 /obj/structure/closet/secure_closet/custodial,
@@ -7744,7 +7744,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell)
 "RG" = (
 /obj/structure/railing/mapped{
@@ -7753,7 +7753,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell)
 "RI" = (
 /obj/machinery/light/small{
@@ -7909,7 +7909,7 @@
 	pixel_y = 5
 	},
 /obj/item/device/megaphone/command,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell)
 "SX" = (
 /obj/structure/table/stone/marble,
@@ -8175,7 +8175,7 @@
 /area/city/mendell/interior)
 "Ur" = (
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -8254,7 +8254,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell)
 "UZ" = (
 /turf/unsimulated/floor{
@@ -8267,7 +8267,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -8300,7 +8300,7 @@
 /area/city/mendell/interior)
 "Vg" = (
 /obj/structure/railing/mapped,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell)
 "Vh" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
@@ -8326,7 +8326,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell)
 "Vo" = (
 /obj/structure/table/stone/marble,
@@ -8377,7 +8377,7 @@
 "VB" = (
 /obj/structure/flora/grass/jungle,
 /obj/machinery/light/small,
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -8411,7 +8411,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/grass/alt{
+/turf/simulated/floor/grass{
 	icon_state = "grass_stalk"
 	},
 /area/city/mendell/interior)
@@ -8721,7 +8721,7 @@
 /obj/structure/sign/poster{
 	pixel_x = -32
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "Xt" = (
 /obj/structure/bed/stool/chair/wood{
@@ -8848,7 +8848,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/city/mendell/interior)
 "Yw" = (
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/shuttle/city)
 "Yx" = (
 /turf/unsimulated/floor,
@@ -8899,7 +8899,7 @@
 /area/shuttle/city)
 "YL" = (
 /obj/effect/shuttle_landmark/city/start,
-/turf/simulated/wall/shuttle/scc/cardinal,
+/turf/simulated/wall/shuttle/scc,
 /area/shuttle/city)
 "YM" = (
 /obj/item/storage/backpack/rucksack/green,

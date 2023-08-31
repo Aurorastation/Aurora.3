@@ -940,7 +940,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
 "mhS" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/militia_ship)
 "mkb" = (
 /turf/simulated/floor,
@@ -1616,7 +1616,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "wDf" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/militia_shuttle)
 "wIn" = (
 /obj/machinery/door/airlock/external{

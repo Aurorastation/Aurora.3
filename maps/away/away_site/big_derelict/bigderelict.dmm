@@ -806,8 +806,7 @@
 /area/derelict)
 "cv" = (
 /obj/structure/cable/blue,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
@@ -1068,7 +1067,7 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "dD" = (
-/obj/structure/door_assembly/door_assembly_med{
+/obj/structure/door_assembly{
 	name = "Medbay"
 	},
 /turf/simulated/floor/airless,

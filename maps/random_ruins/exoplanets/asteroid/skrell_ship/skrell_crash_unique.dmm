@@ -53,7 +53,6 @@
 "am" = (
 /obj/structure/windoor_assembly{
 	dir = 2;
-	icon_state = "l_windoor_assembly01";
 	name = "Command Copula"
 	},
 /turf/simulated/floor/shuttle/skrell/ramp{
@@ -151,7 +150,7 @@
 /area/template_noop)
 "aD" = (
 /obj/structure/blocker/steel,
-/obj/structure/door_assembly/door_assembly_skrell{
+/obj/structure/door_assembly{
 	name = "Bridge"
 	},
 /obj/structure/inflatable/door,
@@ -287,7 +286,7 @@
 /turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "bb" = (
-/obj/machinery/door/airlock/skrell/grey,
+/obj/machinery/door/airlock/skrell,
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "bc" = (
@@ -697,7 +696,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "cw" = (
-/obj/structure/door_assembly/door_assembly_skrell{
+/obj/structure/door_assembly{
 	name = "Cryogenics"
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -715,7 +714,7 @@
 /turf/template_noop,
 /area/template_noop)
 "cz" = (
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/template_noop)
 "cA" = (
 /obj/effect/landmark/clear,
@@ -765,7 +764,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "cN" = (
-/obj/machinery/door/airlock/skrell/grey{
+/obj/machinery/door/airlock/skrell{
 	locked = 1
 	},
 /turf/simulated/floor/shuttle/advanced,

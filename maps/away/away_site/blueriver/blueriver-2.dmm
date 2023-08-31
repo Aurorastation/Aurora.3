@@ -164,7 +164,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "aG" = (
-/obj/machinery/door/airlock/science,
+/obj/machinery/door/airlock/research,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -236,8 +236,7 @@
 /area/bluespaceriver/ship)
 "aW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -25;
 	rcon_setting = 3
 	},
@@ -377,8 +376,7 @@
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -25;
 	rcon_setting = 3
 	},
@@ -803,14 +801,13 @@
 /area/bluespaceriver/ship)
 "ge" = (
 /obj/structure/curtain/open/bed,
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "hN" = (
-/obj/machinery/door/airlock/science,
+/obj/machinery/door/airlock/research,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -852,10 +849,7 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "AW" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Co" = (
@@ -865,8 +859,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "Ed" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/white,
@@ -878,8 +871,7 @@
 	},
 /area/bluespaceriver/ground)
 "Iz" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled/dark,

@@ -35,6 +35,104 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">31 August 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Attempted fix of an harddel with body scanner and scanner consoles (circular references).</li>
+				<li class="bugfix">Adjusted the santabag size to 200, which is our defined maximum storage capacity.</li>
+				<li class="bugfix">Attempted fix of some additional harddels with sound tokens.</li>
+				<li class="backend">Admin ranks, cargo, chemistry and synthsprites do not throw an exception in VSC anymore if the config files are missing, writing a log instead.</li>
+				<li class="bugfix">Fixed admin rank loading and the other file config checks, using rustg to detect the file instead of the native and ill-documented DM proc.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a lever action rifle for the frontier cowboys, which uses newly added .45-70 Government rounds. Sprites ported from polaris, with modifications by suethecake and GeneralCamo.</li>
+				<li class="rscadd">.45-70 Govt. and .38 rounds are now available on the antagonist uplink.</li>
+				<li class="rscadd">Added support for cycling animations for pump action shotguns (and derivatives).</li>
+				<li class="tweak">Renamed the vintage rounds used by the Springfield to .30-06 Government rounds.</li>
+				<li class="tweak">The standard uplink spacesuit is now a modified standard softsuit, that only looks different up-close. It has the same armor values as the red softsuit.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">RCON management should no longer fully refresh when clicking buttons.</li>
+				<li class="bugfix">Removed the in-code sensor tag from the atmos control.</li>
+				<li class="bugfix">Fixed the atmos control datapoint display to be neater.</li>
+				<li class="bugfix">Shield generator now has colours for when its features are online/offline.</li>
+				<li class="bugfix">The IC notes&#x27; money display now uses the credit sign instead of a dollar sign.</li>
+				<li class="bugfix">Vending machines now properly grey out items if they&#x27;re being vended or have run out.</li>
+				<li class="bugfix">Drop pods can no longer be used by ghosts.</li>
+				<li class="bugfix">Psionic deafness should now reset when species is changed.</li>
+			</ul>
+
+			<h2 class="date">30 August 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The RIG jetpack and manouvering module can now delete correctly.</li>
+				<li class="bugfix">The mounted gun RIG module now queues for deletion the weapon it uses.</li>
+				<li class="bugfix">Prevents motion alarms from picking up QDELING mobs, and tries to make them drop those already picked up.</li>
+			</ul>
+			<h3 class="author">MattAtlas, FluffyGhost, Dreamy (Code, Mapping); Atteria, Wezzy, Nauticall, Kyres1 (Sprites, Mapping, Code), Gecko (Sprites) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">The server look has been mostly overhauled. Enjoy!</li>
+				<li class="rscadd">Airlocks can now be painted with the paint sprayer.</li>
+				<li class="rscdel">Removed most unique types of airlock assemblies. You now only make the default one, then colour the final product with the paint sprayer.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Adds new sprites for chairs.</li>
+				<li class="rscadd">Adds new convex sofa corners.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy), Atteria updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Adds new sprites for turfs, by Atteria.</li>
+				<li class="bugfix">Fixes paint colors being ultra desaturated when painted on tiles.</li>
+				<li class="rscadd">Damage overlays for tiles have been improved.</li>
+				<li class="rscadd">You can now paint linoleum, freezer tiles, reinforced tiles and wooden tiles.</li>
+				<li class="rscadd">Tile paint decals are now modularised, meaning they adapt to the tile they are on.</li>
+				<li class="rscadd">Adds decal blending modes, allowing decals to adapt to the type of tile they&#x27;re painted on.</li>
+				<li class="rscadd">Ports Bay/Eris carpet/grass smoothing and edges.</li>
+				<li class="rscdel">Removes depreciated tiles. Maps have been tweaked to reflect this.</li>
+				<li class="rscadd">Updates character preview background to match the new tiles.</li>
+			</ul>
+
+			<h2 class="date">29 August 2023</h2>
+			<h3 class="author">GeneralCamo & Kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Added sprites for the Gunslinger hardsuit for skrell, tajara, and IPCs. By Kyres1.</li>
+				<li class="imageadd">Added sprites for the Vulture voidsuit for skrell, tajara, and IPCs. By Kyres1.</li>
+				<li class="tweak">Updated the descriptions of the Vulture and Gunslinger suits to match current lore.</li>
+				<li class="tweak">All gear crates now describe what species the voidsuits and hardsuits will fit.</li>
+				<li class="bugfix">Removed a duplicate define for the Elyran gear crate.</li>
+			</ul>
+			<h3 class="author">kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed the icons of hivebots, now featuring directionals.</li>
+			</ul>
+
+			<h2 class="date">28 August 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed an exception that could be thrown if someone were to examine an atom that has no description (desc), as seen on some floors in centcomm.</li>
+				<li class="bugfix">The garbage collection should not happen if we&#x27;re running a reference tracking search.</li>
+				<li class="bugfix">If we&#x27;re compiled with GC_FAILURE_HARD_LOOKUP, prevent the failsafe controller from gutting the master controller (DEFCON 1).</li>
+				<li class="bugfix">If we&#x27;re compiled with GC_FAILURE_HARD_LOOKUP, prevent the master controller from gutting SSgarbage controller.</li>
+				<li class="backend">Now gives images a chance to be garbage collected, instead of immediately gutting them with an harddel.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Gluttonous mobs must now be on grab intent to devour items and creatures.</li>
+			</ul>
+			<h3 class="author">schev updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removes slime toxin from the RNG pool of xenobotany seed reagents. It&#x27;s not only too griefy, but also very possible to self-grief yourself unintentionally if your PPE (gloves) do not work correctly, or if you are not wearing them.</li>
+			</ul>
+
+			<h2 class="date">26 August 2023</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">You can now click on cult runes again.</li>
+			</ul>
+
 			<h2 class="date">25 August 2023</h2>
 			<h3 class="author">MattAtlas updated:</h3>
 			<ul class="changes bgimages16">
