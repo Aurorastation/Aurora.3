@@ -26,7 +26,8 @@
 	speak_emote = list("roars pitifully", "squeals out a mechanical attempt at a growl")
 	emote_hear = list("roars pitifully", "squeals out a mechanical attempt at a growl")
 	sad_emote = list("bwoops sadly")
-	emote_sounds = list('sound/effects/creatures/hivebot/hivebot-bark-001.ogg',
+	emote_sounds = list(
+		'sound/effects/creatures/hivebot/hivebot-bark-001.ogg',
 		'sound/effects/creatures/hivebot/hivebot-bark-003.ogg',
 		'sound/effects/creatures/hivebot/hivebot-bark-005.ogg',
 	)

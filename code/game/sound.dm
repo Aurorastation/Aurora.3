@@ -951,7 +951,8 @@
 	)
 
 /singleton/sound_category/hivebot_wail
-	sounds = list('sound/effects/creatures/hivebot/hivebot-bark-001.ogg',
+	sounds = list(
+		'sound/effects/creatures/hivebot/hivebot-bark-001.ogg',
 		'sound/effects/creatures/hivebot/hivebot-bark-003.ogg',
 		'sound/effects/creatures/hivebot/hivebot-bark-005.ogg',
 	)
