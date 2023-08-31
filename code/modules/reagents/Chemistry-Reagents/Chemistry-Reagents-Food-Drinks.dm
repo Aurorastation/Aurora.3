@@ -349,7 +349,7 @@
 	taste_description = "corn oil"
 	condiment_name = "corn oil"
 	condiment_desc = "A delicious oil used in cooking. Made from corn."
-	condiment_icon_state = "oliveoil"
+	condiment_icon_state = "cooking_oil"
 
 /singleton/reagent/nutriment/triglyceride/oil/peanut
 	name = "Peanut Oil"
@@ -359,7 +359,7 @@
 	taste_mult = 1
 	condiment_name = "peanut oil"
 	condiment_desc = "Tasteful and rich peanut oil used in cooking. Made from roasted peanuts."
-	condiment_icon_state = "peanutoil"
+	condiment_icon_state = "peanut_oil"
 
 /singleton/reagent/nutriment/honey
 	name = "Honey"
@@ -367,6 +367,9 @@
 	nutriment_factor = 8
 	color = "#FFFF00"
 	taste_description = "honey"
+	condiment_name = "honey"
+	condiment_desc = "A jar of sweet and viscous honey."
+	condiment_icon_state = "honey"
 	germ_adjust = 5
 
 /singleton/reagent/nutriment/flour
@@ -594,7 +597,7 @@
 	taste_description = "roasted peanuts"
 	taste_mult = 2
 	condiment_name = "ground roasted peanuts sack"
-	condiment_icon_state = "peanut_sack"
+	condiment_icon_state = "peanut"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/nutriment/virusfood
@@ -682,7 +685,7 @@
 	color = "#F0EBD8"
 	condiment_name = "mayonnaise"
 	condiment_desc = "Great for sandwiches!"
-	condiment_icon_state = "mayojar"
+	condiment_icon_state = "mayonnaise"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /* Non-food stuff like condiments */
@@ -4613,7 +4616,7 @@
 	description = "A good, strong drink must be erected upon the ruins, if any of us are to have a future."
 	strength = 20
 	taste_description = "freedom from want"
-	
+
 	glass_icon_state = "insurrenderglass"
 	glass_name = "glass of instrument of surrender"
 	glass_desc = "A good, strong drink must be erected upon the ruins, if any of us are to have a future."

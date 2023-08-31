@@ -2144,7 +2144,7 @@
 /turf/simulated/floor/wood/coloured/birch,
 /area/casino/casino_private1)
 "gm" = (
-/obj/item/reagent_containers/food/drinks/flask/shiny,
+/obj/item/reagent_containers/food/drinks/flask,
 /obj/structure/bed/stool/padded,
 /turf/simulated/floor/tiled/steel,
 /area/casino/casino_crew_cantina)

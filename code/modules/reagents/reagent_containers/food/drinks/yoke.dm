@@ -2,7 +2,7 @@
 	name = "yoke"
 	desc = "A sturdy device made out of bio-friendly materials. This will hold your energy drinks together easy peasy."
 	desc_info = "Click drag it to pick it up, click on it to take out a can."
-	icon = 'icons/obj/drinks.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/drinks/soda.dmi'
 	icon_state = "yoke"
 	center_of_mass = list("x" = 16,"y" = 9)
 	can_hold = list()
@@ -12,12 +12,12 @@
 	closable = FALSE
 	var/list/obj/item/reagent_containers/food/drinks/cans/cans = list()
 	var/list/can_positions = list( // these are the correct positions for energy drinks achieved via trial and error
-		list(4, -4),
-		list(-2, -2),
-		list(-8, 0),
-		list(9, -3),
-		list(4, 0),
-		list(-2, 3)
+		list(10, -6),
+		list(10, 2),
+		list(0, -6),
+		list(0, 2),
+		list(-10, -6),
+		list(-10, 2)
 	)
 
 /obj/item/storage/box/fancy/yoke/fill()
@@ -48,7 +48,7 @@
 
 	if(use_check_and_message(user))
 		return
-	
+
 	var/obj/item/reagent_containers/food/drinks/cans/C = cans[length(cans)]
 	cans -= C
 	remove_from_storage(C, get_turf(user))

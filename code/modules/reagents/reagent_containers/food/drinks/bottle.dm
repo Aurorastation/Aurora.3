@@ -5,7 +5,8 @@
 /obj/item/reagent_containers/food/drinks/bottle
 	name = "empty bottle"
 	desc = "A sad empty bottle."
-	icon_state = "alco-clear"
+	icon_state = "glassbottlesmall"
+	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	center_of_mass = list("x" = 16,"y" = 6)
 	amount_per_transfer_from_this = 5//Smaller sip size for more BaRP and less guzzling a litre of vodka before you realise it
 	volume = 100
@@ -235,7 +236,7 @@
 	desc = "An okayish single-malt whiskey, infused with cinnamon and hot pepper that used to be mainly produced on Mars, but the production line was since moved to Earth for geopolitical reasons. \
 	It is sometimes claimed that particularly desperate Eridanian dregs came up with the current recipe for this drink."
 	desc_extended = DRINK_FLUFF_GETMORE
-	icon_state = "whiskeybottle"
+	icon_state = "fireballbottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/fireball = 100)
 
@@ -366,6 +367,14 @@
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/wine = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/pwine
+	name = "Chip Getmore's Velvet"
+	desc = "What a delightful packaging for a surely high quality wine! The vintage must be amazing!"
+	desc_extended = DRINK_FLUFF_GETMORE
+	icon_state = "pwinebottle"
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/singleton/reagent/alcohol/pwine = 100)
+
 /obj/item/reagent_containers/food/drinks/bottle/absinthe
 	name = "Jailbreaker Verte"
 	desc = "One sip of this and you just know you're gonna have a good time. Particularly artistic Cythereans drink this Silverport product to get inspired."
@@ -378,18 +387,16 @@
 	name = "Emeraldine melon liquor"
 	desc = "A bottle of 46 proof Emeraldine Melon Liquor, made from a Silversun-grown variety of melon. Sweet and light, and surprisingly cheap considering the manufacturer."
 	desc_extended = DRINK_FLUFF_SILVERPORT
-	icon_state = "alco-green"
+	icon_state = "melonliqour"
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = IS_GLASS | UNIQUE_EMPTY_ICON
-	empty_icon_state = "alco-blue_empty"
 	reagents_to_add = list(/singleton/reagent/alcohol/melonliquor = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/bluecuracao
 	name = "Xuaousha curacao"
 	desc = "A fruity, exceptionally azure drink. Thanks to weird Skrellian genetic experiments, oranges used for this are, in fact, really blue."
 	desc_extended = DRINK_FLUFF_ZENGHU
-	icon_state = "alco-blue"
-	empty_icon_state = "alco-clear"
+	icon_state = "curacaobottle"
 	center_of_mass = list("x"=16, "y"=6)
 	reagents_to_add = list(/singleton/reagent/alcohol/bluecuracao = 100)
 
@@ -402,43 +409,36 @@
 	center_of_mass = list("x"=16, "y"=6)
 	reagents_to_add = list(/singleton/reagent/drink/grenadine = 100)
 
+// Soda
+
 /obj/item/reagent_containers/food/drinks/bottle/cola
 	name = "comet cola"
 	desc = "Getmore's most popular line of soda. A generic cola, otherwise."
 	icon_state = "colabottle"
+	empty_icon_state = "soda_empty"
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = NO_EMPTY_ICON
-	drop_sound = 'sound/items/drop/shoes.ogg'
-	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/singleton/reagent/drink/space_cola = 100)
-	shatter_material = MATERIAL_PLASTIC
-	fragile = 0
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up
 	name = "\improper Vacuum Fizz"
 	desc = "Tastes like a hull breach in your mouth."
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "space-up_bottle"
+	empty_icon_state = "soda_empty"
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = NO_EMPTY_ICON
-	drop_sound = 'sound/items/drop/shoes.ogg'
-	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/singleton/reagent/drink/spaceup = 100)
-	shatter_material = MATERIAL_PLASTIC
-	fragile = 0
 
 /obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind
 	name = "\improper Stellar Jolt"
 	desc = "For those who have a need for caffeine stronger than would be sensible."
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "space_mountain_wind_bottle"
+	empty_icon_state = "soda_empty"
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = NO_EMPTY_ICON
-	drop_sound = 'sound/items/drop/shoes.ogg'
-	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/singleton/reagent/drink/spacemountainwind = 100)
-	shatter_material = MATERIAL_PLASTIC
-	fragile = 0
 
 /obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda
 	name = "Hro'zamal Soda"
@@ -447,17 +447,9 @@
 	colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university \
 	students because of its stimulant effect."
 	icon_state = "hrozamal_soda_bottle"
+	empty_icon_state = "soda_empty"
 	center_of_mass = list("x"=16, "y"=5)
 	reagents_to_add = list(/singleton/reagent/drink/hrozamal_soda = 100)
-	fragile = FALSE
-
-/obj/item/reagent_containers/food/drinks/bottle/pwine
-	name = "Chip Getmore's Velvet"
-	desc = "What a delightful packaging for a surely high quality wine! The vintage must be amazing!"
-	desc_extended = DRINK_FLUFF_GETMORE
-	icon_state = "pwinebottle"
-	center_of_mass = list("x"=16, "y"=4)
-	reagents_to_add = list(/singleton/reagent/alcohol/pwine = 100)
 
 //Small bottles
 /obj/item/reagent_containers/food/drinks/bottle/small
@@ -548,14 +540,6 @@
 	icon_state = "drambuie_bottle"
 	center_of_mass = list("x" = 16,"y" = 6)
 	reagents_to_add = list(/singleton/reagent/alcohol/drambuie = 100)
-
-/obj/item/reagent_containers/food/drinks/bottle/sbiten
-	name = "Getmore's Traditional Sbiten"
-	desc = "A drink that died, then got revived, then died again, and became a fad <i>again</i> now thanks to Getmore having a surplus of honey."
-	desc_extended = DRINK_FLUFF_GETMORE
-	icon_state = "sbitenbottle"
-	center_of_mass = list("x" = 16,"y" = 7)
-	reagents_to_add = list(/singleton/reagent/alcohol/sbiten = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead
 	name = "messa's mead"
