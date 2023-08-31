@@ -819,13 +819,13 @@
 	dir = 4
 	},
 /obj/machinery/meter,
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "abZ" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -841,7 +841,7 @@
 	tag_north = 3;
 	tag_south = 1
 	},
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -18027,7 +18027,7 @@
 /turf/simulated/floor/plating,
 /area/medical/morgue)
 "aLi" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/door/airlock/medical{
 	name = "Autopsy Laboratory";
 	req_access = list(6);

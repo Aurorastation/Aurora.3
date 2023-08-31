@@ -2041,7 +2041,7 @@
 /area/ship/ssmd_corvette/grauwolf)
 "foW" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3163,7 +3163,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4992,7 +4992,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	icon_state = "bridge"
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -6454,7 +6454,7 @@
 /area/ship/ssmd_corvette/captain)
 "tRE" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /obj/machinery/alarm/east{

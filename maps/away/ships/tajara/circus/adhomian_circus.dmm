@@ -216,7 +216,7 @@
 	},
 /area/adhomian_circus/bridge)
 "beb" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled{
@@ -538,7 +538,7 @@
 	},
 /area/adhomian_circus/engine)
 "cCR" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled{

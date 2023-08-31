@@ -342,7 +342,7 @@
 	},
 /area/centcom/evac)
 "ang" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1221,7 +1221,7 @@
 	},
 /area/shuttle/escape)
 "aIg" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -12636,7 +12636,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "oGi" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal{
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{

@@ -1736,7 +1736,7 @@
 /area/maintenance/wing/starboard/deck1)
 "bpL" = (
 /obj/machinery/photocopier,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
@@ -2239,7 +2239,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "bEJ" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -2412,7 +2412,7 @@
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "bKx" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/table/steel,
 /obj/machinery/button/remote/blast_door{
 	dir = 9;
@@ -3933,7 +3933,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -7747,7 +7747,7 @@
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
 "fuL" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -9040,7 +9040,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
@@ -10308,7 +10308,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "hgH" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
@@ -11572,7 +11572,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -12863,7 +12863,7 @@
 	},
 /area/medical/morgue/lower)
 "jdC" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/closet/secure_closet/security,
 /obj/machinery/recharger/wallcharger{
 	layer = 3.3;
@@ -15705,7 +15705,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp,
 /obj/item/device/hand_labeler,
@@ -15898,7 +15898,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "lpE" = (
@@ -16979,7 +16979,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
 "lXZ" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -19983,7 +19983,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -20067,7 +20067,7 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "ocy" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/item/modular_computer/console/preset/security{
 	dir = 8
 	},
@@ -20634,7 +20634,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "oBL" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -22471,7 +22471,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "pSJ" = (
@@ -23923,7 +23923,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "qTf" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "shutters_hangarseccp";
@@ -26542,7 +26542,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/storage/tech)
 "sOG" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -28551,7 +28551,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "ufp" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -31648,7 +31648,7 @@
 /area/maintenance/wing/starboard/deck1)
 "wnc" = (
 /obj/effect/floor_decal/corner/dark_blue,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/alarm/east,
@@ -31957,7 +31957,7 @@
 	},
 /area/shuttle/mining)
 "wxC" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
@@ -32223,7 +32223,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "wKE" = (
@@ -32975,7 +32975,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "xiQ" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "xiV" = (
