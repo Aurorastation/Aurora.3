@@ -212,19 +212,26 @@
 	uniform = /obj/item/clothing/under/rank/scientist/botany
 
 /datum/job/intern_sci
-	title = "Lab Assistant"
+	title = "Research Understudy"
 	flag = INTERN_SCI
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 3
+	alt_titles = list("Xenoarchaeology Student", "Xenobiology Understudy", "Xenobotany Understudy")
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "the Research Director"
 	selection_color = "#a44799"
+	economic_modifier = 4
 	access = list(access_research, access_tox)
 	minimal_access = list(access_research, access_tox)
 	outfit = /datum/outfit/job/intern_sci
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	minimum_character_age = list(
+		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 55,
+		SPECIES_SKRELL_AXIORI = 55
+	)
 
 /datum/outfit/job/intern_sci
 	name = "Lab Assistant"
@@ -249,3 +256,14 @@
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
 	tablet = /obj/item/modular_computer/handheld/preset/research
+
+/datum/job/intern_sci/assistant
+	title = "Lab Assistant"
+	flag = ASSISTANT_SCI
+	alt_titles = list("Field Assistant", "Xenobiology Assisant", "Xenobotany Assistant")
+	economic_modifier = 2
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)

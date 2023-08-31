@@ -37,6 +37,7 @@ var/const/INTERN_MED		=(1<<11)
 var/const/INTERN_SCI		=(1<<12)
 var/const/XENOBOTANIST		=(1<<13)
 var/const/XENOARCHEOLOGIST	=(1<<14)
+var/const/ASSISTANT_SCI		=(1<<15)
 
 // SERVICE
 var/const/SERVICE			=(1<<2)
@@ -99,6 +100,7 @@ var/list/science_positions = list(
 	"Xenoarchaeologist",
 	"Xenobiologist",
 	"Xenobotanist",
+	"Research Understudy",
 	"Lab Assistant"
 )
 

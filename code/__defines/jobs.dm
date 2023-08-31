@@ -16,7 +16,7 @@
 
 #define COMMAND_ROLES list(/datum/job/captain, /datum/job/xo, /datum/job/chief_engineer, /datum/job/cmo, /datum/job/rd, /datum/job/hos, /datum/job/operations_manager)
 #define COMMAND_SUPPORT_ROLES list(/datum/job/bridge_crew)
-#define SCIENCE_ROLES list(/datum/job/scientist, /datum/job/xenoarchaeologist, /datum/job/xenobiologist, /datum/job/xenobotanist, /datum/job/intern_sci)
+#define SCIENCE_ROLES list(/datum/job/scientist, /datum/job/xenoarchaeologist, /datum/job/xenobiologist, /datum/job/xenobotanist, /datum/job/intern_sci, /datum/job/intern_sci/assistant)
 #define MEDICAL_ROLES list(/datum/job/doctor, /datum/job/surgeon, /datum/job/pharmacist, /datum/job/psychiatrist, /datum/job/med_tech, /datum/job/intern_med)
 #define ENGINEERING_ROLES list(/datum/job/engineer, /datum/job/atmos, /datum/job/intern_eng)
 #define SERVICE_ROLES list(/datum/job/chaplain, /datum/job/bartender, /datum/job/chef, /datum/job/hydro, /datum/job/janitor, /datum/job/journalist, /datum/job/librarian)
