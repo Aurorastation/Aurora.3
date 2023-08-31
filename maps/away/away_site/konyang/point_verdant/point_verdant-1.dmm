@@ -94,11 +94,6 @@
 /obj/effect/decal/road_marking/no_pass,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
-"bM" = (
-/turf/unsimulated/wall/plank/corner{
-	dir = 4
-	},
-/area/point_verdant/interior)
 "bX" = (
 /obj/structure/road_sign/pedestrian{
 	pixel_x = -16
@@ -482,7 +477,7 @@
 /area/point_verdant/interior)
 "pJ" = (
 /obj/structure/stairs/urban,
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "pQ" = (
 /obj/structure/beach_umbrella/alt,
@@ -600,11 +595,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/outdoors)
-"sq" = (
-/turf/unsimulated/wall/plank/corner{
-	dir = 1
-	},
-/area/point_verdant/interior)
 "ss" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -640,7 +630,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "tg" = (
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "tl" = (
 /obj/structure/shipping_container{
@@ -740,9 +730,6 @@
 /obj/effect/decal/road_marking/no_pass,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
-"vJ" = (
-/turf/unsimulated/wall/plank/corner,
-/area/point_verdant/interior)
 "vO" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -1222,9 +1209,7 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "Kp" = (
-/turf/unsimulated/wall/plank/corner{
-	dir = 8
-	},
+/turf/simulated/wall/wood,
 /area/point_verdant/interior)
 "Ks" = (
 /obj/effect/decal/road_marking{
@@ -1289,11 +1274,6 @@
 	layer = 9.1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/point_verdant/interior)
-"Nk" = (
-/turf/unsimulated/wall/plank/line{
-	dir = 4
-	},
 /area/point_verdant/interior)
 "No" = (
 /obj/structure/shipping_container{
@@ -1467,9 +1447,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
-"Te" = (
-/turf/unsimulated/wall/plank/line,
-/area/point_verdant/interior)
 "Tf" = (
 /obj/effect/decal/exterior_stairs/right,
 /turf/simulated/floor/sidewalk/blocks,
@@ -3655,11 +3632,11 @@ py
 py
 py
 py
-sq
-Te
-Te
-Te
-Te
+Kp
+Kp
+Kp
+Kp
+Kp
 Kp
 rf
 rf
@@ -3837,12 +3814,12 @@ py
 py
 py
 py
-Nk
+Kp
 tg
 tg
 tg
 tg
-Nk
+Kp
 rf
 rf
 rf
@@ -4019,12 +3996,12 @@ py
 py
 py
 py
-Nk
+Kp
 tg
 tg
 tg
 tg
-Nk
+Kp
 rf
 rf
 rf
@@ -4201,12 +4178,12 @@ py
 py
 py
 py
-Nk
+Kp
 tg
 tg
 tg
 tg
-Nk
+Kp
 rf
 rf
 rf
@@ -4376,20 +4353,20 @@ rf
 rf
 rf
 rf
-sq
-Te
-Te
-Te
-Te
-Te
-Te
-bM
+Kp
+Kp
+Kp
+Kp
+Kp
+Kp
+Kp
+Kp
 tg
 tg
 tg
 tg
-vJ
-Te
+Kp
+Kp
 Kp
 rf
 rf
@@ -4558,7 +4535,7 @@ rf
 rf
 rf
 rf
-Nk
+Kp
 tg
 tg
 tg
@@ -4572,7 +4549,7 @@ tg
 tg
 tg
 tg
-Nk
+Kp
 rf
 rf
 rf
@@ -4740,7 +4717,7 @@ rf
 rf
 rf
 rf
-Nk
+Kp
 tg
 tg
 tg
@@ -4754,7 +4731,7 @@ tg
 tg
 tg
 tg
-Nk
+Kp
 rf
 rf
 rf
@@ -4922,7 +4899,7 @@ rf
 rf
 rf
 rf
-Nk
+Kp
 tg
 tg
 tg
@@ -4936,7 +4913,7 @@ tg
 tg
 tg
 tg
-Nk
+Kp
 rf
 rf
 rf
@@ -5104,7 +5081,7 @@ rf
 rf
 rf
 rf
-Nk
+Kp
 tg
 tg
 tg
@@ -5118,7 +5095,7 @@ tg
 tg
 tg
 pJ
-Nk
+Kp
 rf
 rf
 rf
@@ -5286,7 +5263,7 @@ rf
 rf
 rf
 rf
-Nk
+Kp
 tg
 tg
 tg
@@ -5300,7 +5277,7 @@ tg
 tg
 tg
 pJ
-Nk
+Kp
 rf
 rf
 rf
@@ -5468,21 +5445,21 @@ rf
 rf
 rf
 rf
-vJ
-Te
-Te
-Te
-Te
-Te
-Te
-Te
-Te
-Te
-Te
-Te
-Te
-Te
-bM
+Kp
+Kp
+Kp
+Kp
+Kp
+Kp
+Kp
+Kp
+Kp
+Kp
+Kp
+Kp
+Kp
+Kp
+Kp
 rf
 rf
 rf

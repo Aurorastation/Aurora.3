@@ -34,7 +34,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
 "fy" = (
-/turf/simulated/floor/wood/coloured/yew,
+/turf/simulated/floor/wood,
 /area/point_verdant/outdoors)
 "gs" = (
 /obj/effect/decal/exterior_stairs/center,
@@ -79,9 +79,6 @@
 	},
 /turf/unsimulated/mineral/konyang,
 /area/point_verdant/outdoors)
-"nX" = (
-/turf/unsimulated/wall/plank/corner,
-/area/point_verdant/outdoors)
 "oa" = (
 /obj/structure/rod_railing,
 /turf/simulated/floor/concrete,
@@ -105,11 +102,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/point_verdant/outdoors)
-"qo" = (
-/turf/unsimulated/wall/plank/line{
-	dir = 4
-	},
 /area/point_verdant/outdoors)
 "rf" = (
 /turf/unsimulated/mineral/konyang,
@@ -176,9 +168,6 @@
 	},
 /turf/simulated/floor/concrete/square,
 /area/point_verdant/outdoors)
-"DF" = (
-/turf/unsimulated/wall/plank/line,
-/area/point_verdant/outdoors)
 "DP" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/rod_railing{
@@ -191,11 +180,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/concrete,
-/area/point_verdant/outdoors)
-"Fe" = (
-/turf/unsimulated/wall/plank/corner{
-	dir = 8
-	},
 /area/point_verdant/outdoors)
 "FM" = (
 /obj/structure/chainlink_fence,
@@ -277,15 +261,8 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
-"Tq" = (
-/turf/unsimulated/wall/plank/corner{
-	dir = 1
-	},
-/area/point_verdant/outdoors)
 "VS" = (
-/turf/unsimulated/wall/plank/corner{
-	dir = 4
-	},
+/turf/simulated/wall/wood,
 /area/point_verdant/outdoors)
 "VY" = (
 /obj/effect/decal/exterior_stairs/left,
@@ -2228,33 +2205,33 @@ Cw
 Cw
 Cw
 Cw
-Tq
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-Fe
+Cw
+Cw
+Cw
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
 Cw
 Cw
 Cw
@@ -2410,7 +2387,10 @@ Cw
 Cw
 Cw
 Cw
-qo
+Cw
+Cw
+Cw
+VS
 fy
 fy
 fy
@@ -2433,10 +2413,7 @@ fy
 fy
 fy
 fy
-fy
-fy
-fy
-qo
+VS
 Cw
 Cw
 Cw
@@ -2592,7 +2569,10 @@ Cw
 Cw
 Cw
 Cw
-qo
+Cw
+Cw
+Cw
+VS
 fy
 fy
 fy
@@ -2615,10 +2595,7 @@ fy
 fy
 fy
 fy
-fy
-fy
-fy
-qo
+VS
 Cw
 Cw
 Cw
@@ -2774,7 +2751,10 @@ Cw
 Cw
 Cw
 Cw
-qo
+Cw
+Cw
+Cw
+VS
 fy
 fy
 fy
@@ -2797,10 +2777,7 @@ fy
 fy
 fy
 fy
-fy
-fy
-fy
-qo
+VS
 Cw
 Cw
 Cw
@@ -2956,7 +2933,10 @@ Cw
 Cw
 Cw
 Cw
-qo
+Cw
+Cw
+Cw
+VS
 fy
 fy
 fy
@@ -2979,10 +2959,7 @@ fy
 fy
 fy
 fy
-fy
-fy
-fy
-qo
+VS
 Cw
 Cw
 Cw
@@ -3138,7 +3115,10 @@ Cw
 Cw
 Cw
 Cw
-qo
+Cw
+Cw
+Cw
+VS
 fy
 fy
 fy
@@ -3161,10 +3141,7 @@ fy
 fy
 fy
 fy
-fy
-fy
-fy
-qo
+VS
 Cw
 Cw
 Cw
@@ -3320,7 +3297,10 @@ Cw
 Cw
 Cw
 Cw
-qo
+Cw
+Cw
+Cw
+VS
 fy
 fy
 fy
@@ -3343,10 +3323,7 @@ fy
 fy
 fy
 fy
-fy
-fy
-fy
-qo
+VS
 Cw
 Cw
 Cw
@@ -3502,7 +3479,20 @@ Cw
 Cw
 Cw
 Cw
-qo
+Cw
+Cw
+Cw
+VS
+fy
+fy
+fy
+fy
+fy
+fy
+fy
+VS
+VS
+VS
 fy
 fy
 fy
@@ -3515,20 +3505,7 @@ fy
 fy
 fy
 fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-qo
+VS
 Cw
 Cw
 Cw
@@ -3684,7 +3661,20 @@ Cw
 Cw
 Cw
 Cw
-qo
+Cw
+Cw
+Cw
+VS
+fy
+fy
+fy
+fy
+fy
+fy
+fy
+VS
+Cw
+Cw
 fy
 fy
 fy
@@ -3697,20 +3687,7 @@ fy
 fy
 fy
 fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-qo
+VS
 Cw
 Cw
 Cw
@@ -3866,7 +3843,20 @@ Cw
 Cw
 Cw
 Cw
-qo
+Cw
+Cw
+Cw
+VS
+fy
+fy
+fy
+fy
+fy
+fy
+fy
+VS
+Cw
+Cw
 fy
 fy
 fy
@@ -3879,20 +3869,7 @@ fy
 fy
 fy
 fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-qo
+VS
 Cw
 Cw
 Cw
@@ -4048,32 +4025,32 @@ Cw
 Cw
 Cw
 Cw
-nX
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
-DF
+Cw
+Cw
+Cw
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
+VS
 VS
 Cw
 Cw

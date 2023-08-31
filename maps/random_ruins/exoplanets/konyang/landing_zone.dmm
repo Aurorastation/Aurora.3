@@ -39,7 +39,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "au" = (
 /obj/structure/ledge/quarter,
@@ -68,7 +68,7 @@
 /obj/structure/table/wood,
 /obj/structure/window/reinforced,
 /obj/item/clothing/gloves/janitor,
-/turf/simulated/floor/wood/coloured/mahogany,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "aG" = (
 /obj/structure/crane,
@@ -107,7 +107,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "bm" = (
 /obj/effect/decal/exterior_stairs/center{
@@ -204,7 +204,7 @@
 "cC" = (
 /obj/structure/table/wood,
 /obj/structure/bedsheetbin,
-/turf/simulated/floor/wood/coloured/mahogany,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "cG" = (
 /obj/structure/ledge/quarter{
@@ -344,7 +344,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "ev" = (
 /obj/effect/decal/road_marking/no_pass{
@@ -388,7 +388,7 @@
 	pixel_y = 7
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "fg" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -421,7 +421,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "fD" = (
-/turf/simulated/floor/wood/coloured/mahogany,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "fQ" = (
 /obj/structure/shipping_container{
@@ -462,7 +462,7 @@
 	},
 /obj/machinery/power/apc{
 	name = "south bump";
-	pixel_y = -24;
+	pixel_y = null;
 	req_access = null
 	},
 /obj/machinery/light/small,
@@ -545,7 +545,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "gV" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -614,7 +614,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "hT" = (
 /obj/machinery/iv_drip,
@@ -642,7 +642,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "im" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
@@ -671,14 +671,14 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "iT" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "je" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -695,13 +695,14 @@
 /area/konyang_landing_zone)
 "jh" = (
 /obj/machinery/light_switch{
-	pixel_x = 23;
-	pixel_y = 24
+	pixel_x = -25;
+	pixel_y = 24;
+	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "jn" = (
 /obj/effect/decal/curb,
@@ -710,7 +711,7 @@
 "jo" = (
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "jr" = (
 /obj/structure/ledge/quarter{
@@ -770,7 +771,7 @@
 /area/konyang_landing_zone/command_center/landing_pads)
 "jM" = (
 /obj/machinery/washing_machine,
-/turf/simulated/floor/wood/coloured/mahogany,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "jR" = (
 /obj/structure/cable{
@@ -784,7 +785,7 @@
 	dir = 8
 	},
 /obj/structure/bed/stool/chair/office/dark,
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "jU" = (
 /obj/structure/ledge{
@@ -801,9 +802,10 @@
 	id = "lz_lockdown";
 	name = "Building Lockdown";
 	pixel_y = 26;
-	pixel_x = 23
+	pixel_x = 23;
+	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "kd" = (
 /obj/effect/floor_decal/big/scc_full,
@@ -844,7 +846,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "kH" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -856,8 +858,9 @@
 /area/konyang_landing_zone/command_center/living)
 "kJ" = (
 /obj/machinery/light_switch{
-	pixel_x = -23;
-	pixel_y = 24
+	pixel_x = -21;
+	pixel_y = 33;
+	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -866,7 +869,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "kO" = (
 /obj/structure/cable{
@@ -1019,7 +1022,7 @@
 "mH" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "mI" = (
 /obj/structure/ledge/quarter{
@@ -1099,21 +1102,21 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "nJ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /obj/structure/bed/stool/padded/red,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "nR" = (
 /turf/simulated/wall/r_wall,
 /area/konyang_landing_zone/command_center/landing_pads)
 "nT" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "nY" = (
 /obj/structure/tank_wall/carbon_dioxide{
@@ -1215,7 +1218,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "pS" = (
 /obj/structure/punching_bag,
@@ -1239,7 +1242,7 @@
 	dir = 1
 	},
 /obj/machinery/recharger,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "qa" = (
 /obj/structure/railing/mapped,
@@ -1281,7 +1284,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "qQ" = (
 /obj/machinery/door/urban,
@@ -1296,7 +1299,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "qZ" = (
 /obj/structure/bed/stool/chair/sofa/red{
@@ -1442,7 +1445,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_y = 24;
+	pixel_y = null;
 	req_access = null
 	},
 /obj/machinery/light{
@@ -1452,7 +1455,7 @@
 	dir = 9
 	},
 /obj/machinery/papershredder,
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "sy" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1463,7 +1466,7 @@
 /obj/item/device/flashlight/flare{
 	pixel_x = 8
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "sF" = (
 /obj/effect/decal/road_marking/turn_right,
@@ -1553,7 +1556,8 @@
 "tz" = (
 /obj/machinery/light_switch{
 	pixel_x = -12;
-	pixel_y = 24
+	pixel_y = 24;
+	dir = 1
 	},
 /obj/structure/closet/firecloset/full,
 /turf/simulated/floor/tiled/full,
@@ -1619,7 +1623,7 @@
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
 "vR" = (
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "vX" = (
 /obj/item/storage/toolbox/electrical{
@@ -1651,11 +1655,13 @@
 /obj/machinery/button/remote/blast_door{
 	id = "lz_vehiclebay";
 	name = "Exterior Blast Door";
-	pixel_y = 26
+	pixel_y = 26;
+	dir = 1
 	},
 /obj/machinery/light_switch{
 	pixel_x = -12;
-	pixel_y = 24
+	pixel_y = 24;
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
@@ -1672,7 +1678,7 @@
 /obj/machinery/door/blast/regular/open{
 	id = "lz_lockdown"
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/tiled/full,
 /area/konyang_landing_zone/command_center)
 "wj" = (
 /obj/structure/ledge,
@@ -1721,7 +1727,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "wz" = (
 /obj/structure/chainlink_fence{
@@ -1742,7 +1748,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "wL" = (
 /obj/effect/decal/road_marking/no_pass{
@@ -1910,7 +1916,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "yZ" = (
 /obj/structure/cable{
@@ -1922,7 +1928,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "zb" = (
 /obj/effect/decal/road_marking/no_pass{
@@ -1963,7 +1969,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "zh" = (
 /turf/simulated/floor/asphalt,
@@ -1982,11 +1988,11 @@
 /obj/structure/window/reinforced,
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/mop,
-/turf/simulated/floor/wood/coloured/mahogany,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "zx" = (
-/obj/structure/bed/stool/chair/sofa/corner/red{
-	dir = 1
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/magenta,
 /area/konyang_landing_zone/command_center/living)
@@ -2016,7 +2022,7 @@
 /obj/machinery/photocopier/faxmachine{
 	department = "Konyang SCC Forward Operating Post - Horizon Crew Alpha LZ"
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "zX" = (
 /obj/structure/railing/mapped,
@@ -2102,7 +2108,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Bq" = (
 /obj/machinery/atmospherics/binary/pump{
@@ -2129,7 +2135,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Bz" = (
 /obj/structure/cable{
@@ -2138,7 +2144,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "BC" = (
 /obj/structure/window/reinforced{
@@ -2225,7 +2231,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Cd" = (
 /obj/structure/ledge/quarter{
@@ -2255,7 +2261,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Cq" = (
 /obj/machinery/door/blast/shutters{
@@ -2349,7 +2355,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Ed" = (
 /obj/structure/chainlink_fence{
@@ -2385,7 +2391,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Em" = (
 /obj/structure/ledge{
@@ -2425,7 +2431,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "EN" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2580,7 +2586,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "GR" = (
 /obj/structure/ledge/quarter{
@@ -2612,7 +2618,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Hd" = (
 /obj/effect/decal/exterior_stairs/left,
@@ -2622,7 +2628,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_y = 24;
+	pixel_y = null;
 	req_access = null
 	},
 /obj/structure/closet/crate/secure/large,
@@ -2651,7 +2657,7 @@
 	dir = 4
 	},
 /obj/structure/filingcabinet/chestdrawer,
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Ht" = (
 /obj/structure/flora/rock/konyang/small,
@@ -2662,13 +2668,13 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Hz" = (
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_y = 24;
+	pixel_y = null;
 	req_access = null
 	},
 /obj/structure/cable{
@@ -2738,7 +2744,7 @@
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
-	pixel_x = -24;
+	pixel_x = null;
 	req_access = null
 	},
 /obj/structure/cable{
@@ -2797,7 +2803,7 @@
 	},
 /obj/item/pen,
 /obj/item/device/binoculars,
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "IE" = (
 /obj/machinery/seed_extractor,
@@ -2950,7 +2956,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "KC" = (
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -2995,7 +3001,7 @@
 	pixel_x = -5
 	},
 /obj/item/device/measuring_tape,
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "KU" = (
 /obj/structure/cable/yellow{
@@ -3056,7 +3062,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Ly" = (
 /obj/structure/ledge{
@@ -3509,7 +3515,8 @@
 "QG" = (
 /obj/machinery/light_switch{
 	pixel_x = 23;
-	pixel_y = 24
+	pixel_y = 24;
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cable{
@@ -3524,7 +3531,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "QM" = (
 /obj/structure/chainlink_fence,
@@ -3588,14 +3595,14 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Rr" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Rs" = (
 /obj/structure/chainlink_fence{
@@ -3617,7 +3624,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "RQ" = (
 /obj/effect/decal/road_marking/no_pass{
@@ -3645,7 +3652,7 @@
 /area/konyang_landing_zone)
 "Sg" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Sk" = (
 /obj/structure/cable/yellow{
@@ -3660,7 +3667,7 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_y = 24;
+	pixel_y = null;
 	req_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -3701,7 +3708,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "SL" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3718,7 +3725,7 @@
 /obj/item/folder/blue{
 	pixel_x = 8
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "SO" = (
 /obj/effect/decal/exterior_stairs/left{
@@ -3758,9 +3765,6 @@
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/konyang_landing_zone/command_center/landing_pads)
-"Tt" = (
-/turf/simulated/floor/wood/coloured/birch,
-/area/konyang_landing_zone/command_center/living)
 "Tz" = (
 /obj/structure/utility_pole,
 /turf/simulated/floor/exoplanet/konyang,
@@ -3770,7 +3774,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/turf/simulated/floor/wood/coloured/walnut,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "TB" = (
 /obj/structure/chainlink_fence{
@@ -3802,7 +3806,7 @@
 /area/konyang_landing_zone/command_center/landing_pads)
 "TO" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "TQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -3832,7 +3836,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Uq" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
@@ -3923,7 +3927,7 @@
 	brightness_color = "#FA8282";
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/mahogany,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Vc" = (
 /obj/effect/decal/exterior_stairs/half/left{
@@ -3976,14 +3980,14 @@
 	id = "lz_lockdown";
 	dir = 4
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "VX" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Wa" = (
 /obj/structure/chainlink_fence{
@@ -4058,7 +4062,7 @@
 	dir = 5
 	},
 /obj/item/device/paicard,
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Ye" = (
 /obj/structure/window/reinforced{
@@ -4068,20 +4072,20 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/birch,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "Yg" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /obj/machinery/photocopier,
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Yl" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Yn" = (
 /obj/structure/cable{
@@ -4091,7 +4095,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Yr" = (
 /obj/structure/cable{
@@ -4100,7 +4104,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "YH" = (
 /obj/machinery/mech_recharger/hephaestus,
@@ -4129,7 +4133,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
 	},
-/turf/simulated/floor/wood/coloured/bamboo,
+/turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Zf" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
@@ -5279,8 +5283,8 @@ YQ
 YV
 YV
 Ji
-Hg
-Hg
+zh
+zh
 Ji
 YV
 ew
@@ -6886,7 +6890,7 @@ Ob
 zc
 TD
 TD
-gV
+dQ
 gV
 gV
 gV
@@ -7108,7 +7112,7 @@ BQ
 ZI
 Cj
 QJ
-Tt
+fD
 jo
 im
 gy
