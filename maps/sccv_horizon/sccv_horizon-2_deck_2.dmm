@@ -5338,6 +5338,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
+"cAt" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/tiled/dark/full,
+/area/rnd/hallway)
 "cAx" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -20212,10 +20216,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_one)
-"jHp" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/tiled/dark/full,
-/area/rnd/hallway)
 "jHK" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship,
@@ -30095,6 +30095,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
+"oAw" = (
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/lino,
+/area/horizon/bar)
 "oAy" = (
 /obj/structure/closet/crate/freezer{
 	name = "Assorted Blood Packs"
@@ -50179,10 +50183,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
-"ygR" = (
-/obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/lino,
-/area/horizon/bar)
 "ygY" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -67719,9 +67719,9 @@ mLL
 gjM
 nxI
 owr
-ygR
-ygR
-ygR
+oAw
+oAw
+oAw
 vug
 nfz
 tag
@@ -68328,7 +68328,7 @@ dim
 lvM
 gKC
 tfl
-ygR
+oAw
 pZs
 qzH
 nxI
@@ -68530,7 +68530,7 @@ kgS
 otr
 odD
 wMr
-ygR
+oAw
 pZs
 qEL
 bOI
@@ -68732,7 +68732,7 @@ gwy
 rIZ
 gBK
 fkr
-ygR
+oAw
 pZs
 gMn
 bOI
@@ -75960,7 +75960,7 @@ cer
 cer
 cer
 cer
-jHp
+cAt
 qhA
 qUz
 bUN
