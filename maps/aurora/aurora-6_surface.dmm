@@ -2,7 +2,7 @@
 "aaq" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -156,7 +156,7 @@
 	dir = 10
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
@@ -341,7 +341,7 @@
 /area/quartermaster/qm)
 "alj" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/device/radio/intercom{
 	pixel_y = -32
@@ -433,7 +433,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
@@ -617,7 +617,7 @@
 "avm" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/device/radio/intercom{
 	pixel_x = -32
@@ -1234,7 +1234,7 @@
 "aSV" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -1281,7 +1281,7 @@
 "aUV" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -1630,7 +1630,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/effect/floor_decal/corner/purple{
@@ -3051,7 +3051,7 @@
 	dir = 10
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -3439,7 +3439,7 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/chemical_dispenser/bar_soft/full,
@@ -4029,7 +4029,7 @@
 "drN" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/storage/toolbox/emergency,
 /obj/structure/closet/emcloset,
@@ -4844,7 +4844,7 @@
 "ekV" = (
 /obj/machinery/firealarm/south,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
@@ -5032,7 +5032,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -5222,7 +5222,7 @@
 /obj/structure/closet/wardrobe/white,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
@@ -5458,7 +5458,7 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
@@ -5574,7 +5574,7 @@
 	dir = 9
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
@@ -6293,7 +6293,7 @@
 /obj/structure/bed/stool/chair/sofa/brown,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -6620,7 +6620,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/storage/tools)
@@ -6932,7 +6932,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
@@ -7179,7 +7179,7 @@
 	icon_state = "plant-33"
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
@@ -7262,7 +7262,7 @@
 /obj/structure/closet/emcloset,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
@@ -7534,7 +7534,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -7717,7 +7717,7 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/storage/tools)
@@ -7739,7 +7739,7 @@
 "gNU" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/firealarm/east,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -8137,7 +8137,7 @@
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
@@ -8558,7 +8558,7 @@
 /obj/item/storage/firstaid/o2,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
@@ -8701,9 +8701,9 @@
 /area/hallway/secondary/entry/aft)
 "hBV" = (
 /obj/machinery/light{
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_x = 16
+	pixel_x = 16;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
@@ -8763,7 +8763,7 @@
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
@@ -8809,7 +8809,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-29"
@@ -8967,7 +8967,7 @@
 	dir = 10
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -9314,7 +9314,7 @@
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
@@ -9400,7 +9400,7 @@
 "ifs" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/light_switch{
 	pixel_x = 22;
@@ -9840,7 +9840,7 @@
 "izN" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
@@ -10411,7 +10411,7 @@
 "jdl" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
@@ -10847,7 +10847,7 @@
 /area/crew_quarters/sleep/cryo)
 "jBF" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -11239,7 +11239,7 @@
 "jRy" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/brown,
 /obj/structure/disposalpipe/segment{
@@ -11444,7 +11444,7 @@
 "kbQ" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/bed/stool/chair/padded/black,
 /turf/simulated/floor/tiled,
@@ -11579,7 +11579,7 @@
 "kfo" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
@@ -11609,7 +11609,7 @@
 "kii" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/full,
 /turf/simulated/floor/tiled,
@@ -11876,7 +11876,7 @@
 "ktS" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -12319,7 +12319,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/newscaster{
 	pixel_x = -32
@@ -12607,7 +12607,7 @@
 "kZA" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -12925,7 +12925,7 @@
 "lqn" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
@@ -13236,7 +13236,7 @@
 "lCa" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/bed/stool/chair/office/bridge{
 	desc = "A seat for a lifeguard.";
@@ -13756,7 +13756,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
@@ -14065,7 +14065,7 @@
 "moB" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/sign/deathsposal{
 	pixel_y = 32
@@ -14241,7 +14241,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela/research_dock)
@@ -14470,7 +14470,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -14601,7 +14601,7 @@
 "mLu" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-29"
@@ -14684,7 +14684,7 @@
 "mQW" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
@@ -14715,7 +14715,7 @@
 "mRo" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -14836,7 +14836,7 @@
 "mVY" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/red,
 /obj/effect/floor_decal/corner/blue{
@@ -15016,7 +15016,7 @@
 /obj/machinery/vending/cola,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino,
 /area/hallway/secondary/entry/departure_lounge)
@@ -15443,7 +15443,7 @@
 "nzb" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
@@ -15710,7 +15710,7 @@
 "nFu" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
@@ -16318,7 +16318,7 @@
 /area/tcommsat/chamber)
 "okF" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
@@ -16612,7 +16612,7 @@
 /obj/structure/closet/secure_closet/hangar_tech,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/alarm{
 	dir = 8;
@@ -16828,7 +16828,7 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
@@ -17086,7 +17086,7 @@
 /area/hallway/secondary/entry/dock)
 "oSL" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/wood,
@@ -17269,7 +17269,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-28"
@@ -17648,7 +17648,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
@@ -18256,7 +18256,7 @@
 "pMe" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -19227,7 +19227,7 @@
 "qFy" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/firealarm/west,
 /obj/machinery/light_switch{
@@ -19503,7 +19503,7 @@
 "qUJ" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Arrivals Terminal Outgoing";
@@ -19541,7 +19541,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
@@ -19761,7 +19761,7 @@
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
@@ -20060,9 +20060,9 @@
 /area/hydroponics/garden)
 "roz" = (
 /obj/machinery/light{
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_x = -16
+	pixel_x = -16;
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/standard,
 /obj/item/reagent_containers/spray/cleaner{
@@ -20291,7 +20291,7 @@
 	dir = 8
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
@@ -21020,7 +21020,7 @@
 "scF" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -21309,7 +21309,7 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-28"
@@ -21416,7 +21416,7 @@
 "ssB" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-30"
@@ -22295,7 +22295,7 @@
 "tld" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/grey{
@@ -23389,15 +23389,15 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "uas" = (
 /obj/machinery/light{
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_x = 16
+	pixel_x = 16;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -23430,7 +23430,7 @@
 "ubO" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/lime/full,
 /obj/structure/closet/emcloset,
@@ -23460,7 +23460,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/towel,
 /turf/simulated/floor/tiled/freezer,
@@ -23537,7 +23537,7 @@
 /obj/machinery/hologram/holopad,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
@@ -23584,7 +23584,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -24455,7 +24455,7 @@
 "uUW" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/athletic_mixed,
 /turf/simulated/floor/tiled/dark,
@@ -24690,7 +24690,7 @@
 "vjt" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Blue Dock Starboard";
@@ -25207,14 +25207,14 @@
 /obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "vEB" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
@@ -25642,7 +25642,7 @@
 /obj/structure/closet/lasertag/blue,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
@@ -25740,7 +25740,7 @@
 /obj/structure/closet/emcloset,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
@@ -25815,9 +25815,9 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_y = -15
+	pixel_y = -15;
+	icon_state = "tube_empty"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -26815,7 +26815,7 @@
 "wVO" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-09"
@@ -26869,7 +26869,7 @@
 	icon_state = "plant-27"
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
@@ -27277,7 +27277,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 5"
@@ -27405,7 +27405,7 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -27451,7 +27451,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)

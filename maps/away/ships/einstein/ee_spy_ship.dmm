@@ -64,7 +64,7 @@
 "aEq" = (
 /obj/structure/table/rack,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
@@ -115,7 +115,7 @@
 /area/ship/ee_spy_ship)
 "aMB" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/papershredder,
 /turf/simulated/floor/carpet/rubber,
@@ -240,7 +240,7 @@
 /area/ship/ee_spy_ship)
 "dfe" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
@@ -268,7 +268,7 @@
 /area/ship/ee_spy_ship)
 "eiL" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/fire,
@@ -308,7 +308,7 @@
 "exg" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp,
@@ -350,7 +350,7 @@
 "eYX" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
@@ -402,7 +402,7 @@
 /area/ship/ee_spy_ship)
 "fNZ" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/yellow,
@@ -655,7 +655,7 @@
 "kzm" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -726,7 +726,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -748,8 +748,8 @@
 /area/ship/ee_spy_ship)
 "mET" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -759,7 +759,7 @@
 "mJE" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
@@ -822,7 +822,7 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
@@ -867,7 +867,7 @@
 "oNi" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
@@ -884,7 +884,7 @@
 "pwR" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24
@@ -929,7 +929,7 @@
 /area/shuttle/ee_shuttle)
 "pJZ" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
@@ -1042,7 +1042,7 @@
 "tpL" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
@@ -1190,7 +1190,7 @@
 "vTv" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)

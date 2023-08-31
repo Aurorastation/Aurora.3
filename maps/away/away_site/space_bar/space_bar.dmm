@@ -107,7 +107,7 @@
 /obj/item/reagent_containers/food/drinks/milk,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/space_bar)
@@ -208,7 +208,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/space_bar)
@@ -351,7 +351,7 @@
 /area/space_bar/hangar)
 "bVS" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/wardrobe/black,
 /turf/simulated/floor/holofloor/tiled,
@@ -374,7 +374,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
@@ -437,7 +437,7 @@
 	pixel_y = 13
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/space_bar)
@@ -522,7 +522,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
@@ -552,7 +552,7 @@
 "gaD" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -584,7 +584,7 @@
 /obj/machinery/vending/dinnerware,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/space_bar)
@@ -604,7 +604,7 @@
 /obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
@@ -614,7 +614,7 @@
 "gYl" = (
 /obj/structure/table/wood,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/space_bar)
@@ -673,7 +673,7 @@
 "hFr" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/space_bar)
@@ -684,7 +684,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/space_bar)
@@ -742,7 +742,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
@@ -782,7 +782,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
@@ -805,7 +805,7 @@
 "jyw" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
@@ -897,7 +897,7 @@
 "mEc" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
@@ -908,7 +908,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
@@ -1029,7 +1029,7 @@
 "pEO" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/space_bar)
@@ -1073,7 +1073,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
@@ -1129,7 +1129,7 @@
 "sqL" = (
 /obj/machinery/vending/zora,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 10
@@ -1243,7 +1243,7 @@
 "upu" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
@@ -1400,7 +1400,7 @@
 "wRv" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 9

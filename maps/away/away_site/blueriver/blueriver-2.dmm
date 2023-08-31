@@ -258,7 +258,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/random/loot,
 /obj/machinery/light{
@@ -302,7 +302,7 @@
 /obj/machinery/artifact_harvester,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -474,7 +474,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/random/toolbox,
 /turf/simulated/floor/tiled/white,
@@ -710,7 +710,7 @@
 /obj/structure/dispenser/oxygen,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)

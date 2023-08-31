@@ -30,8 +30,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -74,15 +74,15 @@
 "ams" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
 "amt" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/civilian_station)
@@ -126,7 +126,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -175,7 +175,7 @@
 /obj/structure/bed/stool/bar/padded/red,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/civilian_station)
@@ -194,7 +194,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/civilian_station)
@@ -225,8 +225,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -252,8 +252,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/civilian_station)
@@ -261,7 +261,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -281,7 +281,7 @@
 "aHt" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/civilian_station)
@@ -324,8 +324,8 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/wardrobe/mixed,
 /turf/simulated/floor/tiled/white,
@@ -358,8 +358,8 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -368,8 +368,8 @@
 /obj/structure/table/rack,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -389,8 +389,8 @@
 "bbT" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/wardrobe/suit,
 /turf/simulated/floor/lino/diamond,
@@ -409,8 +409,8 @@
 "bhz" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/civilian_station)
@@ -418,8 +418,8 @@
 /obj/structure/table/rack,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/civilian_station)
@@ -477,7 +477,7 @@
 /obj/item/gun/projectile/shotgun/pump,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/clothing/accessory/holster/thigh,
@@ -496,7 +496,7 @@
 /obj/item/bedsheet/brown,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -609,7 +609,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/rust,
 /area/civilian_station/hangar)
@@ -652,8 +652,8 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -690,8 +690,8 @@
 "dcL" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/civilian_station)
@@ -699,15 +699,15 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "dqB" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/civilian_station)
@@ -732,8 +732,8 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -755,8 +755,8 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -764,8 +764,8 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/francisca/ap,
@@ -786,8 +786,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /obj/machinery/recharge_station,
 /turf/simulated/floor/shuttle/dark_blue,
@@ -796,7 +796,7 @@
 /obj/structure/bed/stool/bar/padded/red,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/art,
 /area/civilian_station)
@@ -833,7 +833,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -856,7 +856,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -891,7 +891,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1030,7 +1030,7 @@
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1038,7 +1038,7 @@
 /obj/structure/undies_wardrobe,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/civilian_station)
@@ -1057,7 +1057,7 @@
 /obj/item/bedsheet/random,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 32
@@ -1073,7 +1073,7 @@
 "huE" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/modular_computer/console/preset/civilian{
 	dir = 4
@@ -1093,7 +1093,7 @@
 /obj/structure/flora/pottedplant,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/civilian_station)
@@ -1108,8 +1108,8 @@
 /obj/item/storage/pill_bottle/inaprovaline,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/marble/dark,
 /area/civilian_station)
@@ -1117,7 +1117,7 @@
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1129,8 +1129,8 @@
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1138,7 +1138,7 @@
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1164,8 +1164,8 @@
 /obj/structure/bed/stool/bar/padded/red,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1173,8 +1173,8 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white,
@@ -1185,8 +1185,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/marble/dark,
 /area/civilian_station)
@@ -1198,7 +1198,7 @@
 /obj/structure/bed/stool/bar/padded/red,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1209,8 +1209,8 @@
 "iHR" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -1240,8 +1240,8 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1262,8 +1262,8 @@
 /obj/structure/closet/crate/loot,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
 /area/civilian_station)
@@ -1326,8 +1326,8 @@
 /obj/random/pizzabox,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1336,7 +1336,7 @@
 /obj/structure/closet/crate/loot,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
 /area/civilian_station)
@@ -1345,7 +1345,7 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
 /area/civilian_station)
@@ -1363,7 +1363,7 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1383,7 +1383,7 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
 /area/civilian_station)
@@ -1414,7 +1414,7 @@
 	},
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/civilian_station)
@@ -1426,7 +1426,7 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1437,8 +1437,8 @@
 "kJp" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/marble/dark,
 /area/civilian_station)
@@ -1530,7 +1530,7 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
 /area/civilian_station)
@@ -1552,8 +1552,8 @@
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled/white,
@@ -1574,8 +1574,8 @@
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1654,8 +1654,8 @@
 "nGj" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/rack,
 /turf/simulated/floor/marble/dark,
@@ -1665,8 +1665,8 @@
 /obj/structure/bed/stool/bar/padded/red,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1681,7 +1681,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1695,7 +1695,7 @@
 /obj/structure/bed/stool/bar/padded/red,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1708,7 +1708,7 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -1761,7 +1761,7 @@
 /obj/item/stack/material/glass/reinforced/full,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
@@ -1773,7 +1773,7 @@
 	},
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/civilian_station)
@@ -1806,7 +1806,7 @@
 "pDX" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -1873,7 +1873,7 @@
 /obj/item/pen,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/marble/dark,
 /area/civilian_station)
@@ -1922,7 +1922,7 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1940,7 +1940,7 @@
 /obj/item/bedsheet/brown,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/ghostspawpoint{
 	identifier = "civilian_station_administrator"
@@ -1967,7 +1967,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/rust,
 /area/civilian_station/hangar)
@@ -1985,8 +1985,8 @@
 "qWo" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -2012,7 +2012,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -2034,7 +2034,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -2048,7 +2048,7 @@
 "skw" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -2058,7 +2058,7 @@
 	},
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/civilian_station)
@@ -2180,7 +2180,7 @@
 "tnT" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
 /area/civilian_station)
@@ -2192,7 +2192,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -2237,7 +2237,7 @@
 "upu" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/rust,
 /area/civilian_station/hangar)
@@ -2247,8 +2247,8 @@
 /obj/item/storage/firstaid/regular,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/marble/dark,
 /area/civilian_station)
@@ -2266,7 +2266,7 @@
 /obj/machinery/computer/slot_machine,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/art,
 /area/civilian_station)
@@ -2277,8 +2277,8 @@
 /obj/structure/curtain/open/privacy,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -2338,8 +2338,8 @@
 /obj/random/arcade/orion,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/random/arcade,
 /obj/random/arcade,
@@ -2376,8 +2376,8 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/white,
@@ -2409,7 +2409,7 @@
 /obj/structure/closet/hazmat/custodial,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -2529,7 +2529,7 @@
 "xWf" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/autolathe,
 /turf/simulated/floor/tiled/dark,

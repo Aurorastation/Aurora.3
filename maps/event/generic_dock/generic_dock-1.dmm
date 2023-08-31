@@ -394,7 +394,7 @@
 "apW" = (
 /obj/item/stack/cable_coil,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "whiteshiny"
@@ -490,7 +490,7 @@
 /area/supply/dock)
 "avk" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -608,7 +608,7 @@
 /obj/machinery/vending/assist,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
@@ -832,7 +832,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
@@ -845,7 +845,7 @@
 "aCI" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
@@ -909,7 +909,7 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -963,7 +963,7 @@
 "aEw" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
@@ -1008,7 +1008,7 @@
 /area/shuttle/escape)
 "aFa" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
@@ -1108,7 +1108,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
@@ -1253,7 +1253,7 @@
 "aJI" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
@@ -1533,7 +1533,7 @@
 	dir = 10
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Visitor"
@@ -2324,7 +2324,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -2413,7 +2413,7 @@
 "bto" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -2570,7 +2570,7 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -2652,7 +2652,7 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -2661,7 +2661,7 @@
 "bGR" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/computerframe,
 /turf/simulated/floor/tiled/dark,
@@ -2684,7 +2684,7 @@
 "bHL" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
@@ -2715,7 +2715,7 @@
 /area/shuttle/escape)
 "bJH" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_diamond"
@@ -2803,7 +2803,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -2872,9 +2872,9 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_x = -16
+	pixel_x = -16;
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -2948,7 +2948,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -3079,7 +3079,7 @@
 "cmb" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /mob/living/silicon/decoy{
 	name = "Bubble"
@@ -3129,7 +3129,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -3163,7 +3163,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_diamond"
@@ -3185,7 +3185,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
@@ -3294,7 +3294,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -3303,7 +3303,7 @@
 "cEa" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
@@ -3358,9 +3358,9 @@
 "cHx" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_y = -32
+	pixel_y = -32;
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
@@ -3421,9 +3421,9 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_y = -16
+	pixel_y = -16;
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_diamond"
@@ -3738,7 +3738,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -3747,7 +3747,7 @@
 "dhC" = (
 /obj/machinery/porta_turret/crescent,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -3859,7 +3859,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 36;
@@ -3911,7 +3911,7 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/grass,
 /area/centcom/spawning)
@@ -3973,7 +3973,7 @@
 "dxC" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -4025,7 +4025,7 @@
 /obj/machinery/mech_recharger,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
@@ -4043,7 +4043,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 8
@@ -4062,7 +4062,7 @@
 "dIN" = (
 /obj/item/modular_computer/console/preset/command,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
@@ -4115,7 +4115,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -4280,7 +4280,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -4355,7 +4355,7 @@
 "dZW" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/supply/dock)
@@ -4405,7 +4405,7 @@
 "edR" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -4424,7 +4424,7 @@
 "efD" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -4446,7 +4446,7 @@
 "egj" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/paper_bin{
 	pixel_y = 3
@@ -4472,7 +4472,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
@@ -4732,7 +4732,7 @@
 "eyj" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
@@ -4896,7 +4896,7 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_diamond"
@@ -4924,7 +4924,7 @@
 /area/centcom/specops)
 "eIe" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -5050,7 +5050,7 @@
 "ePz" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/window/reinforced/crescent{
 	dir = 4
@@ -5153,7 +5153,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -5358,7 +5358,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
@@ -5872,7 +5872,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -6220,7 +6220,7 @@
 /area/tdome)
 "gpF" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/door/window/brigdoor/westright{
 	name = "checkpoint desk";
@@ -6312,7 +6312,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
@@ -6468,7 +6468,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/reinforced/steel,
 /obj/structure/closet/crate/drop/grey,
@@ -6591,7 +6591,7 @@
 "gMC" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/suppy)
@@ -6639,7 +6639,7 @@
 	dir = 1
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -6976,7 +6976,7 @@
 /obj/machinery/optable,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -7091,7 +7091,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 36;
@@ -7154,7 +7154,7 @@
 "hxw" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
@@ -7496,7 +7496,7 @@
 "hVx" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -7529,7 +7529,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/railing/mapped{
 	dir = 1
@@ -7629,7 +7629,7 @@
 "hZq" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -7681,7 +7681,7 @@
 "idk" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/sign/flag/nanotrasen{
 	pixel_y = 30
@@ -7791,7 +7791,7 @@
 "iox" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
@@ -7869,7 +7869,7 @@
 "ism" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -7915,7 +7915,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
@@ -8010,7 +8010,7 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/grass,
 /area/centcom/spawning)
@@ -8232,7 +8232,7 @@
 /obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
@@ -8339,7 +8339,7 @@
 "iSG" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/administration)
@@ -8371,7 +8371,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -8420,7 +8420,7 @@
 /area/centcom/holding)
 "iXx" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
@@ -8435,7 +8435,7 @@
 "iYk" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -8503,7 +8503,7 @@
 "jdw" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/administration)
@@ -8551,7 +8551,7 @@
 "jja" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/railing/mapped{
 	layer = 4.1;
@@ -8733,14 +8733,14 @@
 	pixel_x = 2
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "jvF" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -9104,7 +9104,7 @@
 /area/shuttle/administration)
 "jVm" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/suppy)
@@ -9137,7 +9137,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -9192,7 +9192,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
@@ -9286,7 +9286,7 @@
 "kjl" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -9295,7 +9295,7 @@
 "kjq" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -9359,7 +9359,7 @@
 	dir = 9
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -9577,7 +9577,7 @@
 "kxT" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -9615,7 +9615,7 @@
 /obj/item/device/flashlight/flare,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
@@ -9752,7 +9752,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/crate/drop{
 	name = "problemsolver crate"
@@ -9790,9 +9790,9 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_y = 16
+	pixel_y = 16;
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -9816,7 +9816,7 @@
 /obj/structure/railing/mapped,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass,
@@ -9829,7 +9829,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/recharge_station,
 /turf/unsimulated/floor{
@@ -9841,7 +9841,7 @@
 /obj/item/card/id/captains_spare,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
@@ -9917,7 +9917,7 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -10203,7 +10203,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -10247,7 +10247,7 @@
 "loL" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/computerframe,
 /turf/simulated/floor/tiled/dark,
@@ -10266,7 +10266,7 @@
 "lqc" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -10361,9 +10361,9 @@
 	dir = 9
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_x = 16
+	pixel_x = 16;
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -10537,7 +10537,7 @@
 /obj/structure/bed,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
@@ -10558,7 +10558,7 @@
 /area/centcom/holding)
 "lQy" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 10
@@ -10593,9 +10593,9 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_y = 16
+	pixel_y = 16;
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -10644,7 +10644,7 @@
 "lSZ" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
@@ -10868,7 +10868,7 @@
 "mmY" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
@@ -11026,7 +11026,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -11108,7 +11108,7 @@
 /obj/machinery/porta_turret/crescent,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
@@ -11130,7 +11130,7 @@
 /obj/item/storage/box/fancy/donut,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
@@ -11147,7 +11147,7 @@
 "mIi" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -11237,7 +11237,7 @@
 "mPA" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
@@ -11410,7 +11410,7 @@
 /obj/structure/closet/wardrobe/orange,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -11544,7 +11544,7 @@
 	req_access = list(109)
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -11563,7 +11563,7 @@
 /area/shuttle/arrival)
 "njP" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
@@ -11617,7 +11617,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
@@ -11666,7 +11666,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -11774,7 +11774,7 @@
 "nyo" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -11843,7 +11843,7 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
@@ -11859,7 +11859,7 @@
 "nEt" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -11908,7 +11908,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass,
@@ -11936,7 +11936,7 @@
 /obj/machinery/vending/zora,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -12316,7 +12316,7 @@
 "ocp" = (
 /obj/machinery/deployable/barrier,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
@@ -12412,7 +12412,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "corvette_exterior";
@@ -12466,7 +12466,7 @@
 /obj/machinery/vending/snack,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -12547,7 +12547,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -12729,7 +12729,7 @@
 /obj/item/device/paicard,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/railing/mapped{
 	layer = 6;
@@ -12999,7 +12999,7 @@
 /obj/item/reagent_containers/cooking_container/board/bowl,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_diamond"
@@ -13123,9 +13123,9 @@
 /area/centcom/bar)
 "psn" = (
 /obj/machinery/light{
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_x = -16
+	pixel_x = -16;
+	icon_state = "tube_empty"
 	},
 /obj/item/clothing/mask/balaclava{
 	pixel_x = 4;
@@ -13178,7 +13178,7 @@
 	dir = 10
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
@@ -13335,7 +13335,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -13387,7 +13387,7 @@
 /obj/item/rig_module/mounted,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet{
 	icon_door = "blue";
@@ -13424,9 +13424,9 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_y = 16
+	pixel_y = 16;
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -13539,7 +13539,7 @@
 "pTg" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
@@ -13600,7 +13600,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -13627,7 +13627,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
@@ -13822,7 +13822,7 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -13834,7 +13834,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -13847,7 +13847,7 @@
 "qtQ" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/shieldwallgen,
@@ -13899,7 +13899,7 @@
 "qwA" = (
 /obj/machinery/optable,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -13977,7 +13977,7 @@
 "qDT" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
@@ -14102,7 +14102,7 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
@@ -14212,9 +14212,9 @@
 /obj/item/reagent_containers/glass/beaker/bluespace,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_x = -3
+	pixel_x = -3;
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/steel,
 /obj/machinery/chem_master{
@@ -14229,7 +14229,7 @@
 	dir = 10
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
@@ -14239,7 +14239,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -14293,7 +14293,7 @@
 /obj/item/device/magnetic_lock,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
@@ -14437,7 +14437,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
@@ -14504,7 +14504,7 @@
 "rAP" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/door/window/brigdoor/southright{
 	name = "holding cell"
@@ -14526,7 +14526,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -14620,7 +14620,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -14909,7 +14909,7 @@
 /obj/machinery/deployable/barrier,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
@@ -14991,7 +14991,7 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -15037,7 +15037,7 @@
 "szr" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -15109,7 +15109,7 @@
 "sFL" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
@@ -15128,7 +15128,7 @@
 /obj/item/modular_computer/console/preset/command,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -15162,9 +15162,9 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_y = -16
+	pixel_y = -16;
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -15339,7 +15339,7 @@
 "taw" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/suppy)
@@ -15358,7 +15358,7 @@
 "tbP" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "contraband";
@@ -15392,7 +15392,7 @@
 "teA" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -15401,7 +15401,7 @@
 /area/centcom/ferry)
 "tfG" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -15470,7 +15470,7 @@
 /obj/structure/window/reinforced/crescent,
 /obj/structure/flora/ausbushes/grassybush,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/grass,
 /area/centcom/spawning)
@@ -15655,7 +15655,7 @@
 /obj/machinery/vending/security,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
@@ -15672,7 +15672,7 @@
 	pixel_x = -3
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -15689,7 +15689,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/box/zipties{
@@ -15748,7 +15748,7 @@
 "tIb" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/supply/dock)
@@ -15835,7 +15835,7 @@
 	name = "igs - NTERT"
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -16057,7 +16057,7 @@
 "ujM" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -16070,7 +16070,7 @@
 /area/centcom/specops)
 "ukL" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
@@ -16167,7 +16167,7 @@
 "usD" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/suppy)
@@ -16608,7 +16608,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
@@ -16818,7 +16818,7 @@
 "vKf" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/sign/flag/nanotrasen{
 	pixel_y = 30
@@ -16850,7 +16850,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -16932,7 +16932,7 @@
 /obj/structure/railing/mapped,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass,
@@ -17134,9 +17134,9 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
 	name = "adjusted light fixture";
-	pixel_x = -3
+	pixel_x = -3;
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
@@ -17144,7 +17144,7 @@
 /obj/item/modular_computer/console/preset/security,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/blue/full,
 /turf/unsimulated/floor{
@@ -17236,7 +17236,7 @@
 "wqv" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/door/window/brigdoor/southleft{
 	name = "holding cell"
@@ -17614,7 +17614,7 @@
 /area/tdome/tdome2)
 "wTI" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/arrival)
@@ -17672,7 +17672,7 @@
 "wVJ" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -17874,7 +17874,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -17972,7 +17972,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/railing/mapped{
 	layer = 4.1;
@@ -18079,7 +18079,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -18212,7 +18212,7 @@
 "xMf" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -18329,7 +18329,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/storage/box/fancy/cigarettes/cigar{
 	pixel_x = -1;

@@ -457,7 +457,7 @@
 "bN" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/tiled/dark/airless,
@@ -1861,7 +1861,7 @@
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/random/tech_supply,
 /obj/random/tech_supply,
@@ -2487,7 +2487,7 @@
 "iK" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
@@ -3573,7 +3573,7 @@
 "ml" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
@@ -4097,7 +4097,7 @@
 /obj/machinery/disposal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/derelict/hallway/southwest)
@@ -4443,7 +4443,7 @@
 "oN" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/template_noop,
 /area/template_noop)
@@ -4522,7 +4522,7 @@
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -5719,7 +5719,7 @@
 /obj/structure/bed,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -5890,7 +5890,7 @@
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/blue/airless,
 /area/derelict/hallway/southeast)
@@ -6133,7 +6133,7 @@
 /obj/item/bedsheet/orange,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,

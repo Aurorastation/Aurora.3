@@ -8,7 +8,7 @@
 "aaM" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/bed/stool/bar/padded/red,
@@ -88,7 +88,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/racers)
@@ -262,7 +262,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/rust,
 /area/racers)
@@ -348,7 +348,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/rust,
 /area/racers)
@@ -402,7 +402,7 @@
 "bhz" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 5
@@ -420,7 +420,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/tiled/rust,
@@ -468,7 +468,7 @@
 "bqv" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/foamedmetal,
 /turf/simulated/floor/tiled/rust,
@@ -774,7 +774,7 @@
 "dkB" = (
 /obj/machinery/vending/zora,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 10
@@ -1113,7 +1113,7 @@
 /area/racers)
 "fpS" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/template_noop,
 /area/space)
@@ -1405,7 +1405,7 @@
 "gTv" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/racers)
@@ -1478,7 +1478,7 @@
 "hmL" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atm{
 	pixel_x = 29
@@ -1611,7 +1611,7 @@
 /obj/item/clothing/suit/storage/toggle/varsity/purple,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/racers)
@@ -1736,7 +1736,7 @@
 "iGt" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/rust,
@@ -1824,7 +1824,7 @@
 "jaL" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/rust,
 /area/racers)
@@ -1864,7 +1864,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/racers)
@@ -2014,7 +2014,7 @@
 "jBw" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/racers)
@@ -2145,7 +2145,7 @@
 "kpR" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
 /area/racers)
@@ -2304,7 +2304,7 @@
 "liU" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/template_noop,
 /area/space)
@@ -2461,7 +2461,7 @@
 "lRT" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/glass,
 /obj/machinery/computer/security/telescreen/entertainment{
@@ -2895,7 +2895,7 @@
 "odf" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/rust,
 /area/racers)
@@ -3090,7 +3090,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/pizzabox/pineapple,
 /turf/simulated/floor/holofloor/tiled,
@@ -3410,7 +3410,7 @@
 	pixel_y = 13
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/racers)
@@ -3627,7 +3627,7 @@
 "rDo" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/template_noop,
 /area/space)
@@ -3723,7 +3723,7 @@
 "scQ" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/racers)
@@ -4002,7 +4002,7 @@
 "tzz" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/art,
 /area/racers)
@@ -4284,7 +4284,7 @@
 /obj/machinery/vending/dinnerware,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond,
 /area/racers)
@@ -4714,7 +4714,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/racers)

@@ -10,7 +10,7 @@
 "aaA" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -148,7 +148,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -194,7 +194,7 @@
 "aUK" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -233,7 +233,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -326,7 +326,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -464,7 +464,7 @@
 /area/adhomian_circus/port)
 "cmk" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -574,7 +574,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/vehicle/unicycle,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -615,7 +615,7 @@
 "cUR" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -812,7 +812,7 @@
 "dUt" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -840,7 +840,7 @@
 "eih" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -862,7 +862,7 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -874,7 +874,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1320,7 +1320,7 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond{
 	temperature = 278.15
@@ -1383,7 +1383,7 @@
 /obj/item/clothing/head/clown,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1668,7 +1668,7 @@
 /obj/machinery/vending/tool,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1991,7 +1991,7 @@
 "kNv" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2225,7 +2225,7 @@
 "lKh" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2371,7 +2371,7 @@
 	name = "tip jar"
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond{
 	temperature = 278.15
@@ -2467,7 +2467,7 @@
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond{
 	temperature = 278.15
@@ -2667,7 +2667,7 @@
 /obj/machinery/power/smes/buildable/horizon_shuttle,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -2887,7 +2887,7 @@
 /obj/structure/largecrate/animal/adhomai/rafama,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2912,7 +2912,7 @@
 "pbC" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2923,7 +2923,7 @@
 /obj/structure/largecrate/animal/adhomai/schlorrgo,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3087,7 +3087,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/pink{
 	dir = 5
@@ -3134,7 +3134,7 @@
 	dir = 10
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/marble{
 	temperature = 278.15
@@ -3277,7 +3277,7 @@
 "rnu" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/pink{
 	dir = 5
@@ -3296,7 +3296,7 @@
 	dir = 10
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/marble{
 	temperature = 278.15
@@ -3386,7 +3386,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/marble{
 	temperature = 278.15
@@ -3683,7 +3683,7 @@
 "tvi" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8;
@@ -4139,7 +4139,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4231,7 +4231,7 @@
 "wwC" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4339,7 +4339,7 @@
 /obj/item/reagent_containers/food/snacks/spicy_clams,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/lino/diamond{
 	temperature = 278.15
@@ -4367,7 +4367,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/marble{
 	temperature = 278.15
@@ -4379,7 +4379,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/marble{
 	temperature = 278.15
