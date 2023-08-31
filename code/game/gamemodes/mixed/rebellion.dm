@@ -1,5 +1,5 @@
 /datum/game_mode/rebellion
-	name = "rebellion (rev+cultist)"
+	name = "rebellion (rev. + cult)"
 	round_description = "Some crewmembers are attempting to start a revolution while a cult gains followers to take over in the shadows!"
 	extended_round_description = "Revolutionaries and cultists spawn during this round."
 	config_tag = "rebellion"
