@@ -2,7 +2,7 @@
 	var/table_mat
 	var/table_reinf
 	var/no_cargo
-	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
+	material_alteration = MATERIAL_ALTERATION_ALL
 	build_amt = 1
 
 /obj/structure/table/Initialize()
@@ -46,13 +46,13 @@
 	icon_state = "wood_preview"
 	table_mat = MATERIAL_WOOD
 	table_reinf = MATERIAL_WOOD
-	material_alteration = MATERIAL_ALTERATION_ALL
 
 /obj/structure/table/reinforced/glass
 	icon = 'icons/obj/structure/tables/rglass_table.dmi'
 	icon_state = "rglass_preview"
 	table_mat = MATERIAL_GLASS_REINFORCED
 	table_reinf = MATERIAL_GLASS_REINFORCED
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 
 /obj/structure/table/wood
 	icon = 'icons/obj/structure/tables/wood_table.dmi'
@@ -68,16 +68,19 @@
 	icon = 'icons/obj/structure/tables/glass_table.dmi'
 	icon_state = "glass_preview"
 	table_mat = MATERIAL_GLASS
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 
 /obj/structure/table/skrell
 	icon = 'icons/obj/structure/tables/skrell_table.dmi'
 	icon_state = "skrell_preview"
 	table_mat = MATERIAL_SHUTTLE_SKRELL
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 
 /obj/structure/table/diona
 	icon = 'icons/obj/structure/tables/diona_table.dmi'
 	icon_state = "biomass_preview"
 	table_mat = MATERIAL_DIONA
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 
 /obj/structure/table/holotable
 	icon = 'icons/obj/structure/tables/steel_table.dmi'

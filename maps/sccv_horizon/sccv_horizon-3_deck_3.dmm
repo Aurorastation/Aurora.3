@@ -676,7 +676,7 @@
 	},
 /obj/structure/platform,
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/platform_deco{
 	dir = 5
@@ -1219,7 +1219,7 @@
 	dir = 1
 	},
 /obj/structure/platform/ledge{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 10
@@ -1730,7 +1730,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -2927,7 +2927,7 @@
 "cvQ" = (
 /obj/structure/platform/ledge,
 /obj/structure/platform/ledge{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 9
@@ -3131,7 +3131,7 @@
 	dir = 4
 	},
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -3505,7 +3505,7 @@
 	},
 /obj/structure/platform/ledge,
 /obj/structure/platform/ledge{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 9
@@ -3871,14 +3871,14 @@
 /obj/structure/platform/ledge{
 	dir = 8
 	},
+/obj/structure/platform_deco/ledge{
+	dir = 9
+	},
 /obj/structure/platform/ledge{
 	dir = 4
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 5
-	},
-/obj/structure/platform_deco/ledge{
-	dir = 9
 	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
@@ -4877,6 +4877,7 @@
 	dir = 4
 	},
 /obj/machinery/light/floor,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "egX" = (
@@ -6830,7 +6831,7 @@
 	dir = 4
 	},
 /obj/machinery/computer/shuttle_control/multi/lift/operations{
-	pixel_x = -20;
+	pixel_x = -27;
 	pixel_y = 16
 	},
 /turf/simulated/floor/tiled,
@@ -6893,6 +6894,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/platform,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "fzf" = (
@@ -7208,7 +7210,7 @@
 	dir = 8
 	},
 /obj/structure/platform/ledge{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/platform/ledge{
 	dir = 1
@@ -7610,7 +7612,7 @@
 /area/horizon/hallway/deck_three/primary/port/docks)
 "fZe" = (
 /obj/structure/platform/ledge{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/platform/ledge{
 	dir = 1
@@ -7763,7 +7765,7 @@
 	dir = 1
 	},
 /obj/structure/platform/ledge{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 10
@@ -7931,7 +7933,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
@@ -9720,7 +9722,7 @@
 	dir = 4
 	},
 /obj/structure/platform/ledge{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
@@ -9747,7 +9749,7 @@
 	dir = 1
 	},
 /obj/structure/platform/ledge{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 6
@@ -9959,6 +9961,15 @@
 "hNj" = (
 /obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/structure/platform/ledge{
+	dir = 1
+	},
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/structure/platform_deco/ledge{
+	dir = 10
 	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
@@ -10850,7 +10861,7 @@
 	dir = 1
 	},
 /obj/structure/platform/ledge{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/open,
 /area/hallway/medical/upper)
@@ -11578,7 +11589,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
@@ -13613,8 +13624,11 @@
 	dir = 8
 	},
 /obj/structure/platform/ledge,
+/obj/structure/platform_deco/ledge{
+	dir = 5
+	},
 /obj/structure/platform/ledge{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 5
@@ -13713,6 +13727,12 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/structure/platform/ledge{
+	dir = 1
+	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
 "kIZ" = (
@@ -14687,12 +14707,6 @@
 /obj/item/storage/slide_projector,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
-"lrF" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/open,
-/area/horizon/hallway/deck_three/primary/central)
 "lsm" = (
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
@@ -15101,14 +15115,17 @@
 /turf/simulated/floor/lino,
 /area/horizon/cafeteria)
 "lFK" = (
-/obj/structure/platform{
+/obj/structure/platform/ledge{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
+/obj/structure/platform/ledge{
+	dir = 1
 	},
-/turf/simulated/floor/reinforced,
-/area/bridge/controlroom)
+/obj/structure/platform_deco/ledge{
+	dir = 6
+	},
+/turf/simulated/open,
+/area/horizon/hallway/deck_three/primary/central)
 "lGj" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/carpet,
@@ -16283,7 +16300,7 @@
 	dir = 1
 	},
 /obj/structure/platform/ledge{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 6
@@ -16361,7 +16378,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/ramp,
+/obj/structure/platform_stairs/south_north_solo,
+/obj/structure/platform{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "mHG" = (
 /obj/machinery/vending/cola,
@@ -20226,7 +20247,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -20994,7 +21015,7 @@
 	dir = 1
 	},
 /obj/structure/platform/ledge{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 6
@@ -21154,11 +21175,11 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/platform/ledge{
-	dir = 8
-	},
 /obj/structure/platform_deco/ledge{
 	dir = 8
+	},
+/obj/structure/platform/ledge{
+	dir = 4
 	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
@@ -21725,6 +21746,10 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
+/obj/structure/platform_deco{
+	dir = 4;
+	layer = 2.7
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "rdz" = (
@@ -21845,10 +21870,10 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/platform/ledge{
-	dir = 8
-	},
 /obj/structure/platform_deco/ledge,
+/obj/structure/platform/ledge{
+	dir = 4
+	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
 "rle" = (
@@ -22272,13 +22297,13 @@
 /obj/structure/platform_deco/ledge{
 	dir = 10
 	},
-/obj/structure/platform/ledge{
-	dir = 4
-	},
 /obj/structure/platform_deco/ledge{
 	dir = 6
 	},
 /obj/structure/railing/mapped,
+/obj/structure/platform/ledge{
+	dir = 4
+	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
 "rxJ" = (
@@ -22545,7 +22570,7 @@
 "rJh" = (
 /obj/structure/platform/ledge,
 /obj/structure/platform/ledge{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 5
@@ -22838,7 +22863,7 @@
 	dir = 1
 	},
 /obj/structure/platform/ledge{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 6
@@ -24114,7 +24139,7 @@
 "sMd" = (
 /obj/structure/platform/ledge,
 /obj/structure/platform/ledge{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 5
@@ -24690,8 +24715,12 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/structure/platform/ledge,
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/structure/platform_deco/ledge{
+	dir = 5
 	},
 /turf/simulated/open,
 /area/horizon/hallway/deck_three/primary/central)
@@ -25784,6 +25813,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/platform,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "tZR" = (
@@ -25869,7 +25899,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
 "udU" = (
-/turf/simulated/floor/tiled/ramp,
+/obj/structure/platform_stairs/south_north_solo,
+/obj/structure/platform{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "udZ" = (
 /obj/structure/table/wood,
@@ -26451,6 +26485,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/platform_deco{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
@@ -27727,7 +27764,7 @@
 "vyU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/platform{
 	dir = 4
@@ -28058,7 +28095,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -28560,7 +28597,7 @@
 	},
 /obj/structure/platform/ledge,
 /obj/structure/platform/ledge{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/platform_deco/ledge{
 	dir = 9
@@ -29578,16 +29615,24 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
 "wSG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/platform_stairs/full/south_north_cap,
-/obj/structure/platform{
-	dir = 8
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/obj/structure/platform{
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/bridge/controlroom)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/horizon/hallway/deck_three/primary/central)
 "wSJ" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -29648,7 +29693,7 @@
 	dir = 4
 	},
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -30098,7 +30143,7 @@
 	dir = 8
 	},
 /obj/structure/platform/ledge{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/platform/ledge,
 /turf/simulated/open,
@@ -30823,6 +30868,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
+/obj/structure/platform,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
 "xPy" = (
@@ -45405,10 +45451,10 @@ ewp
 xsy
 gUY
 sMd
-kIZ
-fQq
-kIZ
-kIZ
+gcR
+xHj
+gcR
+gcR
 rle
 ode
 jFO
@@ -47425,9 +47471,9 @@ wld
 lGW
 jcr
 cVc
-gcR
-xHj
-gcR
+kIZ
+fQq
+kIZ
 qut
 gKk
 eFw
@@ -50499,7 +50545,7 @@ dFS
 pRj
 hmu
 ltT
-lFK
+auq
 mrU
 wGH
 vkb
@@ -50900,7 +50946,7 @@ jmA
 ciO
 qgG
 sFf
-wSG
+cGh
 vyU
 tKU
 lIB
@@ -52067,7 +52113,7 @@ tzY
 fDJ
 cid
 oZv
-rNT
+lJJ
 swR
 gEM
 lZY
@@ -52077,7 +52123,7 @@ kzM
 pHG
 xWX
 oZv
-rNT
+lJJ
 swR
 rIg
 dHs
@@ -52471,7 +52517,7 @@ niQ
 oTm
 oeR
 ccj
-lJJ
+rNT
 gUD
 lZY
 kzM
@@ -52481,7 +52527,7 @@ iBY
 kzM
 ocK
 ccj
-lJJ
+rNT
 gUD
 rIg
 dHs
@@ -52875,7 +52921,7 @@ pmy
 nrv
 lhR
 oZv
-rNT
+lJJ
 swR
 sKT
 sQP
@@ -52885,7 +52931,7 @@ oNR
 xgb
 gxM
 oZv
-rNT
+lJJ
 swR
 rIg
 tyx
@@ -53082,7 +53128,7 @@ eEz
 rgd
 fWA
 rJh
-lJJ
+rNT
 aUb
 auK
 dwG
@@ -53279,7 +53325,7 @@ emd
 iVb
 ehN
 ccj
-lJJ
+rNT
 gUD
 azf
 fWA
@@ -53289,7 +53335,7 @@ bfx
 auK
 vDR
 ccj
-lJJ
+rNT
 gUD
 xNx
 dHs
@@ -53486,7 +53532,7 @@ fZe
 lcX
 lta
 cvQ
-rNT
+lJJ
 hBr
 hGl
 kbQ
@@ -54085,7 +54131,7 @@ ymi
 nVR
 xaT
 rIg
-qlt
+wSG
 tmc
 kIy
 mzI
@@ -54288,8 +54334,8 @@ nVR
 xaT
 rIg
 egb
-lrF
-tlL
+kAR
+szo
 hNj
 lbi
 evE
@@ -54489,10 +54535,10 @@ ymi
 nVR
 xaT
 rIg
-qlt
-lrF
-tlL
-tlL
+wSG
+cvQ
+lJJ
+lFK
 xXD
 iJl
 tDT
@@ -54501,7 +54547,7 @@ obj
 aeC
 uKi
 cvQ
-rNT
+lJJ
 rUf
 fGV
 axw

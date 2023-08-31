@@ -2824,7 +2824,7 @@
 	dir = 4
 	},
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -3941,7 +3941,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/platform{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -5463,7 +5463,7 @@
 	dir = 4
 	},
 /obj/structure/platform{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -7307,7 +7307,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 4;
 	name = "Hangar"
 	},
 /obj/machinery/door/firedoor/multi_tile,
@@ -11625,7 +11624,7 @@
 "ifL" = (
 /obj/structure/platform_stairs/full,
 /obj/structure/platform{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
@@ -17534,7 +17533,7 @@
 	dir = 4
 	},
 /obj/structure/platform{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/railing/mapped{
 	dir = 4
@@ -18252,7 +18251,7 @@
 	dir = 8
 	},
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -21318,7 +21317,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -21515,7 +21514,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/platform{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -24037,7 +24036,7 @@
 	dir = 8
 	},
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -26053,7 +26052,7 @@
 	dir = 4
 	},
 /obj/structure/platform{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -27263,7 +27262,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/platform{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -27953,7 +27952,7 @@
 	dir = 4
 	},
 /obj/structure/platform{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -31870,6 +31869,12 @@
 	},
 /turf/space/dynamic,
 /area/horizon/exterior)
+"wuc" = (
+/obj/structure/platform_deco{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hangar/auxiliary)
 "wup" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 4
@@ -32297,7 +32302,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/platform{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -63468,7 +63473,7 @@ dEl
 vFp
 vFp
 ifL
-vFp
+wuc
 vFp
 vFp
 vFp
