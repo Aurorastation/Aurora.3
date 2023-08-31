@@ -15895,7 +15895,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology/cells/alpha)
 "aGR" = (
-/obj/machinery/alarm/monitor/isolation/east{
+/obj/machinery/alarm/monitor/isolation{
 	alarm_id = "xenobio_alpha"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
@@ -17975,7 +17975,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology/cells/bravo)
 "aKX" = (
-/obj/machinery/alarm/monitor/isolation/east{
+/obj/machinery/alarm/monitor/isolation{
 	alarm_id = "xenobio_bravo"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
@@ -19422,7 +19422,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology/cells/charlie)
 "aOJ" = (
-/obj/machinery/alarm/monitor/isolation/east{
+/obj/machinery/alarm/monitor/isolation{
 	alarm_id = "xenobio_charlie"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
@@ -20497,7 +20497,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology/cells/delta)
 "aRG" = (
-/obj/machinery/alarm/monitor/isolation/east{
+/obj/machinery/alarm/monitor/isolation{
 	alarm_id = "xenobio_delta"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
@@ -22152,7 +22152,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology/cells/hotel)
 "aXA" = (
-/obj/machinery/alarm/monitor/isolation/south{
+/obj/machinery/alarm/monitor/isolation{
 	alarm_id = "xenobio_hotel"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
@@ -22178,7 +22178,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology/cells/golf)
 "aXD" = (
-/obj/machinery/alarm/monitor/isolation/south{
+/obj/machinery/alarm/monitor/isolation{
 	alarm_id = "xenobio_golf"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
@@ -22204,7 +22204,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology/cells/foxtrot)
 "aXG" = (
-/obj/machinery/alarm/monitor/isolation/south{
+/obj/machinery/alarm/monitor/isolation{
 	alarm_id = "xenobio_foxtrot"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
@@ -22230,7 +22230,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology/cells/echo)
 "aXJ" = (
-/obj/machinery/alarm/monitor/isolation/south{
+/obj/machinery/alarm/monitor/isolation{
 	alarm_id = "xenobio_echo"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
