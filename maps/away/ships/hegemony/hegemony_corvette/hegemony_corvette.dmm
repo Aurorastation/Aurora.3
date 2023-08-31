@@ -880,7 +880,7 @@
 "fB" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -1379,7 +1379,7 @@
 "jb" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -1925,7 +1925,7 @@
 	dir = 4
 	},
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -2357,7 +2357,7 @@
 "pi" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
@@ -3025,7 +3025,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -3065,7 +3065,7 @@
 "td" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -3181,7 +3181,7 @@
 "tP" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
@@ -3389,7 +3389,7 @@
 "uW" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_y = 32
 	},
@@ -3924,7 +3924,7 @@
 "yd" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
@@ -4616,7 +4616,7 @@
 /area/hegemony_ship/medbay)
 "BF" = (
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
@@ -5220,7 +5220,7 @@
 /area/shuttle/hegemony)
 "FQ" = (
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
@@ -5995,7 +5995,7 @@
 "JW" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_y = 32
 	},
@@ -8437,7 +8437,7 @@
 "YX" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_y = -32
 	},
@@ -8550,7 +8550,7 @@
 "ZN" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_y = -32
 	},

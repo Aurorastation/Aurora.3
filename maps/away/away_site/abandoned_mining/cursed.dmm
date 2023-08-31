@@ -3467,7 +3467,7 @@
 /area/cursed/bridge)
 "tTd" = (
 /obj/item/toy/figure/clown{
-	desc = "A \"Space Life\" brand clown action figure. This one has its face carved to look more personable."
+	desc = "A 'Space Life' brand clown action figure. This one has its face carved to look more personable."
 	},
 /turf/simulated/floor/airless,
 /area/cursed/bridge)

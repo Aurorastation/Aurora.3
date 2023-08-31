@@ -231,7 +231,7 @@
 /area/ship/ranger_corvette/foyer)
 "bkP" = (
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -330,7 +330,7 @@
 	dir = 4
 	},
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -922,7 +922,7 @@
 /area/ship/ranger_corvette/crew)
 "eLC" = (
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
@@ -2650,7 +2650,7 @@
 	layer = 2.71
 	},
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -2875,7 +2875,7 @@
 "oSw" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
@@ -3316,7 +3316,7 @@
 	dir = 8
 	},
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
@@ -3576,7 +3576,7 @@
 	dir = 1
 	},
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -4216,7 +4216,7 @@
 	dir = 1
 	},
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -5142,7 +5142,7 @@
 	dir = 1
 	},
 /obj/structure/sign/fire{
-	desc = "A danger sign which reads \"DANGER: EXPLOSIVES\".";
+	desc = "A danger sign which reads 'DANGER: EXPLOSIVES'.";
 	name = "\improper DANGER: EXPLOSIVES sign";
 	pixel_x = -32
 	},
