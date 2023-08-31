@@ -209,8 +209,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(215)
 	},
@@ -316,8 +315,7 @@
 /area/merchants_guild/portengine)
 "dF" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(215)
 	},
@@ -616,8 +614,7 @@
 /turf/simulated/floor/tiled,
 /area/merchants_guild)
 "hS" = (
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(215)
 	},
@@ -728,8 +725,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(215)
 	},
@@ -1395,8 +1391,7 @@
 /turf/simulated/floor/lino,
 /area/merchants_guild/canteen)
 "sa" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 25;
 	pixel_y = 0;
 	req_one_access = list(215)
@@ -1524,8 +1519,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(215)
 	},
@@ -2126,8 +2120,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -25;
 	req_one_access = list(215)
 	},

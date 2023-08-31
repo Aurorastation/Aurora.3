@@ -128,7 +128,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "aBb" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/freighter_shuttle)
 "aCd" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -366,7 +366,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
 "bXv" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/item/clothing/head/bearpelt{
 	anchored = 1;
 	name = "bear pelt wall rug";
@@ -379,7 +379,7 @@
 "ckN" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp/green,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/art,
@@ -646,13 +646,16 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
 "ecW" = (
-/obj/structure/lattice,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	layer = 2.31;
+	name = "lattice"
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -699,7 +702,7 @@
 /area/ship/tramp_freighter)
 "eoK" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "etL" = (
 /turf/space/transit/north,
@@ -974,7 +977,7 @@
 /area/ship/tramp_freighter)
 "gcq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1182,7 +1185,7 @@
 "hGK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1410,7 +1413,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, starboard side"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "kMq" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1571,7 +1574,7 @@
 /area/ship/tramp_freighter)
 "nMu" = (
 /obj/effect/landmark/entry_point/fore,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "nQT" = (
 /obj/machinery/door/airlock/hatch{
@@ -1641,7 +1644,7 @@
 /area/ship/tramp_freighter)
 "oGo" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/vending/cigarette/hacked,
@@ -1692,7 +1695,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/art,
@@ -1807,7 +1810,7 @@
 /turf/unsimulated/wall/fakepdoor,
 /area/ship/tramp_freighter)
 "rBU" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/art,
@@ -1838,7 +1841,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
 "rVB" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/art,
@@ -1898,6 +1901,13 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	layer = 2.31;
+	name = "lattice"
+	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "sOb" = (
@@ -1941,7 +1951,7 @@
 /obj/structure/table/steel,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/art,
@@ -2103,7 +2113,7 @@
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "wYA" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "wZf" = (
 /turf/simulated/floor,

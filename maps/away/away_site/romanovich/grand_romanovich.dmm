@@ -1454,14 +1454,14 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "dB" = (
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dC" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dD" = (
 /obj/structure/table/stone/marble,
@@ -1472,7 +1472,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
 /obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
 /obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dE" = (
 /obj/structure/table/stone/marble,
@@ -1481,7 +1481,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
 /obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
 /obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dF" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -1541,7 +1541,7 @@
 "dM" = (
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/drinkingglasses,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dN" = (
 /obj/item/chess_piece/rook/black,
@@ -1554,7 +1554,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dP" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -1579,7 +1579,7 @@
 "dR" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_alc/full,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dS" = (
 /obj/structure/table/stone/marble,
@@ -1588,17 +1588,17 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dT" = (
 /obj/machinery/chemical_dispenser/full,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dU" = (
 /obj/machinery/vending/boozeomat{
 	req_access = null
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dV" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1638,7 +1638,7 @@
 /area/grand_romanovich)
 "eb" = (
 /obj/machinery/vending/dinnerware,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "ec" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1718,7 +1718,7 @@
 /obj/structure/closet/wardrobe,
 /obj/item/clothing/under/rank/bartender,
 /obj/item/clothing/head/flatcap,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "eo" = (
 /obj/machinery/door/window{
@@ -1729,7 +1729,7 @@
 	pixel_x = 0;
 	pixel_y = 25
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "ep" = (
 /obj/structure/bed/stool/padded,
@@ -2136,7 +2136,7 @@
 /area/grand_romanovich)
 "fl" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "fm" = (
 /obj/machinery/atm{
@@ -2162,7 +2162,7 @@
 "fo" = (
 /obj/structure/table/stone/marble,
 /obj/item/paper_bin,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "fp" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2396,7 +2396,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "fN" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -2636,12 +2636,12 @@
 	desc = "A small empty jar that is mostly used for giving a tip.";
 	name = "tip jar"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gp" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/shaker,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gq" = (
 /obj/structure/bed/stool/chair/wood,
@@ -2841,12 +2841,12 @@
 "gS" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/rag,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gT" = (
 /obj/structure/table/stone/marble,
 /obj/item/device/radio/phone,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gU" = (
 /obj/structure/table/wood,
@@ -2854,7 +2854,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gV" = (
 /obj/structure/table/wood,
@@ -2863,7 +2863,7 @@
 	pixel_x = 0;
 	pixel_y = 25
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gW" = (
 /obj/structure/table/wood,
@@ -2931,14 +2931,14 @@
 /area/grand_romanovich)
 "hf" = (
 /obj/machinery/computer/security/wooden_tv,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "hg" = (
 /obj/item/storage/secure/safe{
 	pixel_y = 32
 	},
 /obj/random/pottedplant,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "hh" = (
 /obj/structure/table/wood,
@@ -2989,7 +2989,7 @@
 "ho" = (
 /obj/structure/table/wood,
 /obj/item/pen/fountain/silver,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "hp" = (
 /obj/structure/table/wood,
@@ -3023,7 +3023,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "hu" = (
 /obj/structure/table/wood,
@@ -3307,7 +3307,7 @@
 "ii" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "ij" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3353,7 +3353,7 @@
 /area/grand_romanovich)
 "io" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "ip" = (
 /obj/random/loot,
@@ -3998,14 +3998,14 @@
 "kx" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "kB" = (
 /obj/effect/ghostspawpoint{
 	identifier = "casino_staff";
 	name = "igs - casino_staff"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "kI" = (
 /obj/machinery/light{
@@ -4088,7 +4088,7 @@
 "kW" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "kX" = (
 /obj/structure/table/steel,

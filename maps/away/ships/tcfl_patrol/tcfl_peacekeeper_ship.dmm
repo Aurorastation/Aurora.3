@@ -230,7 +230,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "cdt" = (
-/turf/simulated/wall/shuttle/legion/cardinal,
+/turf/simulated/wall/shuttle/legion,
 /area/shuttle/tcfl_shuttle)
 "cnD" = (
 /obj/item/modular_computer/console/preset/civilian{
@@ -1275,7 +1275,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/bed/stool/chair/sofa/corner/red,
+/obj/structure/bed/stool/chair/sofa/corner/concave/red,
 /turf/simulated/floor/carpet,
 /area/ship/tcfl_peacekeeper_ship)
 "hQA" = (
@@ -2416,7 +2416,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/tcfl_peacekeeper_ship)
 "oAY" = (
-/turf/simulated/wall/shuttle/legion/cardinal,
+/turf/simulated/wall/shuttle/legion,
 /area/ship/tcfl_peacekeeper_ship)
 "oCQ" = (
 /obj/effect/landmark/entry_point/aft,

@@ -89,6 +89,10 @@ This spawner places pipe leading up to the interior door, you will need to finis
 		handle_door_stuff(A, is_this_an_interior_airlock)
 		if(one_door_only == DOOR_FLIPPED_PLACEMENT)
 			the_button.forceMove(get_step(the_button, NORTH))
+	if((interior_direction & (EAST|WEST)) || (exterior_direction & (EAST|WEST)))
+		A.dir = EAST
+	else
+		A.dir = NORTH
 
 /obj/effect/map_effect/airlock/proc/handle_door_stuff(obj/machinery/door/airlock/A, is_this_an_interior_airlock) //This sets up the door vars correctly and then locks it before first use
 	A.set_frequency(radio_frequency)

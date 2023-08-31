@@ -130,7 +130,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	. = 0
 	var/list/chemconfig = list()
 
-	if(!isfile("config/secretchem.json"))
+	if(!(rustg_file_exists("config/secretchem.json") == "true"))
 		log_config("The file config/secretchem.json was not found, secret chemicals will not be loaded.")
 		return
 

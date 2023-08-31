@@ -1497,6 +1497,8 @@
 
 	if(species.psi_deaf || HAS_FLAG(species.flags, IS_MECHANICAL) || HAS_FLAG(species.flags, NO_SCAN))
 		ADD_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
+	else if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
+		REMOVE_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
 
 	if(client)
 		client.init_verbs()

@@ -570,10 +570,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},

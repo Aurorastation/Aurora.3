@@ -13,7 +13,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -279,8 +279,7 @@
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -342,8 +341,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -351,8 +349,7 @@
 /area/peoples_station/mess_hall)
 "bG" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -675,8 +672,7 @@
 	icon_state = "1-4"
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -729,8 +725,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1099,8 +1094,7 @@
 /area/peoples_station/fang)
 "eX" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /obj/machinery/alarm/cold{
 	dir = 4;
@@ -1119,8 +1113,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1135,8 +1128,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1167,8 +1159,7 @@
 /area/peoples_station/mess_hall)
 "fe" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1489,7 +1480,7 @@
 /area/peoples_station/bridge)
 "gt" = (
 /obj/structure/punching_bag,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1498,7 +1489,7 @@
 	},
 /area/peoples_station/training)
 "gz" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber{
@@ -1605,8 +1596,7 @@
 /area/shuttle/fang/bridge)
 "gY" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -1710,8 +1700,7 @@
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1841,8 +1830,7 @@
 /area/peoples_station/medbay)
 "ik" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1890,8 +1878,7 @@
 /area/peoples_station/hangar)
 "is" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2823,8 +2810,7 @@
 "md" = (
 /obj/structure/sign/flag/pra/large/north,
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3606,7 +3592,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3742,8 +3728,7 @@
 /area/peoples_station/mess_hall)
 "qD" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3903,7 +3888,7 @@
 /turf/space/transit/north,
 /area/space)
 "rp" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber{
@@ -4386,8 +4371,7 @@
 /area/peoples_station/solars)
 "tg" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4892,8 +4876,7 @@
 /area/peoples_station/solars)
 "vW" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8;
@@ -5185,8 +5168,7 @@
 /area/peoples_station/robotics_bay)
 "xu" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -5298,8 +5280,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -5317,7 +5298,7 @@
 	},
 /area/peoples_station/solars)
 "xW" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 278.15
 	},
@@ -5344,8 +5325,7 @@
 /area/peoples_station/training)
 "yb" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -5494,8 +5474,7 @@
 /area/peoples_station/bridge)
 "yT" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -5671,8 +5650,7 @@
 	icon_state = "rwindow"
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -5688,8 +5666,7 @@
 /area/peoples_station/robotics_bay)
 "zv" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5704,8 +5681,7 @@
 /area/shuttle/fang/bridge)
 "zA" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6385,8 +6361,7 @@
 /area/peoples_station/armory)
 "CQ" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4;
@@ -6415,8 +6390,7 @@
 /area/peoples_station/fang)
 "CX" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7247,8 +7221,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -7740,8 +7713,7 @@
 /area/shuttle/fang/engine)
 "Jp" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -8000,8 +7972,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -8009,8 +7980,7 @@
 /area/peoples_station/hangar)
 "Lb" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /obj/machinery/light{
 	dir = 1
@@ -8415,8 +8385,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -8501,7 +8470,7 @@
 /area/peoples_station/visitor)
 "Nn" = (
 /obj/structure/punching_bag,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8511,8 +8480,7 @@
 /area/peoples_station/training)
 "No" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /obj/machinery/light{
 	dir = 4
@@ -8790,8 +8758,7 @@
 /area/peoples_station/atmos)
 "OI" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -8975,7 +8942,7 @@
 /obj/structure/sink{
 	pixel_y = 28
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber{
@@ -10108,8 +10075,7 @@
 /area/peoples_station/armory)
 "Uf" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /obj/structure/sign/painting_frame/hadii{
 	pixel_x = -32
@@ -10304,8 +10270,7 @@
 /area/peoples_station/hangar)
 "UZ" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -10363,8 +10328,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -10738,8 +10702,7 @@
 /area/peoples_station/commissar_quarters)
 "Xr" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /obj/machinery/light{
 	dir = 1
@@ -10896,8 +10859,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -10936,8 +10898,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -10963,8 +10924,7 @@
 /area/peoples_station/medbay)
 "Yn" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /obj/machinery/light{
 	dir = 8
@@ -11134,8 +11094,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -11189,8 +11148,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,

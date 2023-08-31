@@ -304,13 +304,13 @@
 "gr" = (
 /obj/effect/floor_decal/asteroid,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/wrecked_nt_ship)
 "gv" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/wrecked_nt_ship)
 "gy" = (
@@ -398,7 +398,7 @@
 /area/space)
 "iy" = (
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/wrecked_nt_ship)
 "iz" = (
@@ -462,7 +462,7 @@
 "jR" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/wrecked_nt_ship)
 "jU" = (
@@ -614,7 +614,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/wrecked_nt_ship)
 "ng" = (
@@ -1695,7 +1695,7 @@
 /area/wrecked_nt_ship)
 "Mc" = (
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/wrecked_nt_ship)
 "Mn" = (

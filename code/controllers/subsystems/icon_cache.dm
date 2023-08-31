@@ -25,6 +25,8 @@
 	var/list/floor_light_cache = list()
 	var/list/ashtray_cache = list()
 
+	var/list/airlock_icon_cache = list()
+
 	var/list/uristrunes = list()
 
 /*

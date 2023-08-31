@@ -305,7 +305,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "bhz" = (
 /obj/structure/disposalpipe/trunk{
@@ -347,7 +347,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "bVS" = (
 /obj/machinery/light{
@@ -376,7 +376,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "ctQ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -393,7 +393,7 @@
 "cBD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "cJe" = (
 /obj/machinery/light/small{
@@ -491,7 +491,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "fnY" = (
 /obj/structure/table/stone/marble,
@@ -541,7 +541,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "gaA" = (
 /obj/machinery/light/small{
@@ -565,20 +565,20 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 2
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "gfL" = (
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "gmi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "gxE" = (
 /obj/machinery/chem_heater,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "gxW" = (
 /obj/machinery/vending/dinnerware,
@@ -586,7 +586,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "gAI" = (
 /obj/structure/disposalpipe/junction{
@@ -598,7 +598,7 @@
 /obj/machinery/smartfridge/drinks{
 	opacity = 1
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "gTv" = (
 /obj/random/pottedplant,
@@ -626,7 +626,7 @@
 /obj/item/reagent_containers/food/drinks/shaker{
 	pixel_x = -5
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "hei" = (
 /obj/structure/bed/stool/chair/sofa/red{
@@ -639,7 +639,7 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 6
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "hmL" = (
 /obj/random/pottedplant,
@@ -659,16 +659,16 @@
 /obj/machinery/chemical_dispenser/coffeemaster/full{
 	pixel_y = 5
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "hyy" = (
-/obj/structure/bed/stool/chair/sofa/corner/red{
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
 /area/space_bar)
 "hBd" = (
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "hFr" = (
 /obj/machinery/light{
@@ -686,11 +686,11 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "hNl" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "hNM" = (
 /obj/machinery/door/airlock/glass{
@@ -712,14 +712,14 @@
 "hZq" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_alc/full/space,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "irX" = (
 /obj/machinery/vending/boozeomat{
 	opacity = 1;
 	req_access = list(202)
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "ixi" = (
 /obj/machinery/vending/cigarette,
@@ -747,7 +747,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "iVQ" = (
-/obj/structure/bed/stool/chair/sofa/corner/red{
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
 	dir = 8
 	},
 /turf/simulated/floor/carpet,
@@ -816,7 +816,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "jIR" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -863,7 +863,7 @@
 /area/space_bar)
 "lvc" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "lEO" = (
 /obj/structure/table/stone/marble,
@@ -872,7 +872,7 @@
 /area/space_bar)
 "lOr" = (
 /obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "mhC" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -949,7 +949,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "odP" = (
 /obj/structure/disposalpipe/trunk{
@@ -984,7 +984,7 @@
 /area/space_bar)
 "oYQ" = (
 /obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "oZv" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -1013,14 +1013,14 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "pxS" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "pDX" = (
 /obj/structure/table/stone/marble,
@@ -1054,7 +1054,7 @@
 /area/space_bar)
 "qmJ" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "quQ" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -1075,7 +1075,7 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "qWo" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1099,7 +1099,7 @@
 	req_access = list(202)
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino/diamond,
 /area/space_bar)
 "ruQ" = (
 /obj/structure/table/stone/marble,
@@ -1145,7 +1145,7 @@
 "svn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "szY" = (
 /obj/structure/table/stone/marble,
@@ -1174,7 +1174,7 @@
 "sMP" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "taa" = (
 /obj/structure/table/stone/marble,
@@ -1205,7 +1205,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
 "tmd" = (
-/obj/structure/bed/stool/chair/sofa/corner/red,
+/obj/structure/bed/stool/chair/sofa/corner/concave/red,
 /turf/simulated/floor/carpet,
 /area/space_bar)
 "tnT" = (
@@ -1232,7 +1232,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "uaE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1245,7 +1245,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "uuL" = (
 /obj/structure/mopbucket,
@@ -1370,7 +1370,7 @@
 /area/space_bar)
 "wJk" = (
 /obj/machinery/vending/engivend,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/rust,
 /area/space_bar/hangar)
 "wLs" = (
 /obj/structure/sign/double/barsign{
@@ -1422,7 +1422,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/space_bar)
 "xjB" = (
-/obj/structure/bed/stool/chair/sofa/corner/red{
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,

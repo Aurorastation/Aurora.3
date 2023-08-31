@@ -1,7 +1,7 @@
 /obj/machinery/computer/robotics
 	name = "robotics control console"
 	desc = "Used to remotely lockdown or detonate linked cyborgs."
-	icon = 'icons/obj/modular_console.dmi'
+	icon = 'icons/obj/machinery/modular_console.dmi'
 
 	icon_screen = "robot"
 	icon_keyboard = "purple_key"
@@ -109,7 +109,7 @@
 		message_admins("[key_name_admin(usr)] [target.lock_charge ? "locked down" : "released"] [target.name]!")
 		log_game("[key_name(usr)] [target.lock_charge ? "locked down" : "released"] [target.name]!",ckey=key_name(usr))
 		to_chat(target, (target.lock_charge ? "You have been locked down!" : "Your lockdown has been lifted!"))
-	
+
 	// Changes borg's access
 	else if(href_list["access"])
 		var/mob/living/silicon/robot/target = get_cyborg_by_name(href_list["access"])
@@ -130,10 +130,10 @@
 		if(!target.module)
 			to_chat(user, "\The [src]\s access protocols are immutable.")
 			return
-		
+
 		target.module.all_access = !target.module.all_access
 		target.update_access()
-		
+
 		var/log_message = "[key_name_admin(usr)] changed [target.name] access to [target.module.all_access ? "all access" : "role specific"]."
 		message_admins(log_message)
 		log_game(log_message, ckey = key_name(usr))
