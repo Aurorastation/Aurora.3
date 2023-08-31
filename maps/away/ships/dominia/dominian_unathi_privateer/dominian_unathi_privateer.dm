@@ -32,7 +32,7 @@
 	vessel_size = SHIP_SIZE_SMALL
 	invisible_until_ghostrole_spawn = TRUE
 	initial_restricted_waypoints = list(
-		"Kazhkz Gunship" = list("nav_hangar_kazhkz")
+		"Kazhkz Fighter" = list("nav_hangar_kazhkz")
 	)
 	initial_generic_waypoints = list(
 		"nav_dominian_unathi_1",
@@ -71,11 +71,11 @@
 
 //Shuttle
 /obj/effect/overmap/visitable/ship/landable/dominian_unathi_shuttle
-	name = "Kazhkz Gunship"
+	name = "Kazhkz Fighter"
 	class = "ICV"
 	designation = "Dagger"
-	desc = "The Lanying-class gunshp is often seen in the ranks of the Imperial Fleet - a small gunship craft, capable of carrying a boarding party of up to five soldiers, and equipped with a rotary cannon. This one's transponder does not mark it as an Imperial vessel, however."
-	shuttle = "Kazhkz Gunship"
+	desc = "The Lanying-class fighter is often seen in the ranks of the Imperial Fleet - a larger-than-normal fighter craft, capable of carrying a boarding party of up to five soldiers, and equipped with a rotary cannon. This one's transponder does not mark it as an Imperial vessel, however."
+	shuttle = "Kazhkz Fighter"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	colors = list("#e67f09", "#fcf9f5")
@@ -87,11 +87,11 @@
 
 /obj/machinery/computer/shuttle_control/explore/dominian_unathi_shuttle
 	name = "shuttle control console"
-	shuttle_tag = "Kazhkz Gunship"
+	shuttle_tag = "Kazhkz Fighter"
 	req_access = list(access_imperial_fleet_voidsman_ship)
 
 /datum/shuttle/autodock/overmap/dominian_unathi_shuttle
-	name = "Kazhkz Gunship"
+	name = "Kazhkz Fighter"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/dominian_unathi)
 	current_location = "nav_hangar_kazhkz"
