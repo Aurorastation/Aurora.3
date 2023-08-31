@@ -2,11 +2,9 @@
 	name = "Kazhkz Privateer Ship"
 	description = "Dominian Unathi pirates"
 	suffixes = list("ships/dominia/dominian_unathi_privateer/dominian_unathi_privateer.dmm")
-	//sectors = list(SECTOR_BADLANDS)
-	//spawn_weight = 1
-	//ship_cost = 1
-	sectors = ALL_POSSIBLE_SECTORS //DELETE THIS
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED //THIS TOO
+	sectors = list(SECTOR_BADLANDS)
+	spawn_weight = 1
+	ship_cost = 1
 	id = "dominian_unathi"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/dominian_unathi_shuttle)
 
