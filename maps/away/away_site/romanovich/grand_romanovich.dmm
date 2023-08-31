@@ -6,6 +6,12 @@
 /obj/structure/closet/secure_closet/freezer/money,
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
+"ab" = (
+/obj/machinery/door/airlock/silver{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/grand_romanovich)
 "ac" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
@@ -44,6 +50,18 @@
 /obj/machinery/porta_turret/ballistic,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
+/area/grand_romanovich)
+"ai" = (
+/obj/machinery/door/airlock/silver{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/grand_romanovich)
+"aj" = (
+/obj/machinery/door/airlock/silver{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
 "ak" = (
 /obj/structure/table/wood,
@@ -112,6 +130,26 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
+"as" = (
+/obj/machinery/door/airlock/silver{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/grand_romanovich)
+"at" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"au" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "av" = (
 /obj/machinery/light/small{
@@ -354,9 +392,31 @@
 "bd" = (
 /obj/machinery/door/airlock/command{
 	name = "Vault";
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
+"be" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"bf" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"bg" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "bh" = (
 /obj/machinery/light{
@@ -370,6 +430,20 @@
 	},
 /obj/machinery/vending/casino,
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"bi" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"bj" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "bk" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -401,6 +475,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
+"bn" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
 "bo" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8;
@@ -422,9 +503,37 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
+"bq" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"br" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
+"bs" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
+"bt" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/grand_romanovich)
 "bu" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/grand_romanovich)
@@ -565,7 +674,9 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "bJ" = (
-/obj/machinery/door/airlock/silver,
+/obj/machinery/door/airlock/silver{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
 "bK" = (
@@ -830,6 +941,20 @@
 "cm" = (
 /obj/structure/kitchenspike,
 /turf/simulated/floor/tiled/freezer,
+/area/grand_romanovich)
+"cn" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"co" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "cp" = (
 /obj/structure/reagent_dispensers/cookingoil,
@@ -1100,7 +1225,8 @@
 "cJ" = (
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
@@ -1311,6 +1437,13 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"di" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "dj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1827,7 +1960,9 @@
 /turf/simulated/floor/marble,
 /area/grand_romanovich)
 "eF" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "eG" = (
@@ -1864,7 +1999,8 @@
 "eJ" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "crime"
+	id_tag = "crime";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -1886,7 +2022,8 @@
 "eM" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r6"
+	id_tag = "r6";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -2234,7 +2371,8 @@
 "fu" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r5"
+	id_tag = "r5";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -2244,7 +2382,8 @@
 "fv" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r4"
+	id_tag = "r4";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -2255,7 +2394,8 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
 	id_tag = "crime";
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -2265,7 +2405,8 @@
 "fx" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r3"
+	id_tag = "r3";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -2293,7 +2434,9 @@
 	},
 /area/grand_romanovich)
 "fA" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8;
 	icon_state = "corner_white_full"
@@ -2301,7 +2444,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "fB" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
 	icon_state = "corner_white_full"
@@ -2552,12 +2697,20 @@
 "gc" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r2"
+	id_tag = "r2";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
 	},
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"gd" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "ge" = (
 /obj/effect/floor_decal/spline/plain{
@@ -2585,7 +2738,8 @@
 "gh" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r1"
+	id_tag = "r1";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -2595,7 +2749,8 @@
 "gi" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r10"
+	id_tag = "r10";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -2622,6 +2777,13 @@
 	icon_state = "spline_plain"
 	},
 /turf/simulated/floor/snow,
+/area/grand_romanovich)
+"gm" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "gn" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -2652,6 +2814,13 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
+"gs" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "gt" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -2911,6 +3080,13 @@
 	},
 /turf/simulated/floor,
 /area/grand_romanovich)
+"hc" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
 "hd" = (
 /obj/machinery/light{
 	dir = 1;
@@ -2959,6 +3135,13 @@
 	},
 /obj/item/gun/energy/stunrevolver,
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"hj" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "hk" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3010,6 +3193,13 @@
 	icon_state = "spline_fancy"
 	},
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"hr" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "hs" = (
 /obj/machinery/light{
@@ -3082,7 +3272,8 @@
 "hA" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r9"
+	id_tag = "r9";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -3129,7 +3320,8 @@
 /area/grand_romanovich)
 "hF" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -3153,7 +3345,8 @@
 /area/grand_romanovich)
 "hH" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -3272,6 +3465,12 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
+"ia" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
 "ib" = (
 /obj/machinery/light/small,
 /obj/structure/table/wood,
@@ -3280,6 +3479,13 @@
 	temperature = 278
 	},
 /area/grand_romanovich/outdoors)
+"ic" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
 "id" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/shuttle,
@@ -3394,6 +3600,21 @@
 /obj/random/loot,
 /turf/simulated/floor,
 /area/grand_romanovich)
+"iw" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
+"ix" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "lockdown"
+	},
+/turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
 "iy" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
@@ -3439,7 +3660,8 @@
 /area/grand_romanovich)
 "iF" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/grand_romanovich/outdoors)
@@ -3463,14 +3685,16 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
 "iJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
@@ -3525,7 +3749,8 @@
 "iS" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r8"
+	id_tag = "r8";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -3581,6 +3806,15 @@
 "ja" = (
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
+"jb" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "lockdown"
+	},
+/turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
 "jc" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8;
@@ -3617,6 +3851,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
+"jf" = (
+/obj/machinery/door/airlock/medical{
+	name = "Medbay"
+	},
+/turf/simulated/floor/tiled/white,
+/area/grand_romanovich)
 "jg" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -3638,10 +3878,30 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
+"ji" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
 "jj" = (
 /obj/structure/table/stone/marble,
 /obj/item/device/radio/phone,
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"jk" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"jl" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "jm" = (
 /obj/structure/table/wood,
@@ -3717,6 +3977,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
+"jv" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/grand_romanovich)
 "jw" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3770,7 +4036,8 @@
 /area/grand_romanovich)
 "jE" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -3930,15 +4197,51 @@
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
+"kd" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"ke" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"kf" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"kg" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
 "kh" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r7"
+	id_tag = "r7";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
 	},
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"ki" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "kj" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -4058,7 +4361,8 @@
 /area/grand_romanovich)
 "kO" = (
 /obj/machinery/door/airlock/external{
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -4113,7 +4417,9 @@
 /turf/space,
 /area/space)
 "la" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
 	},
@@ -4165,7 +4471,8 @@
 /area/grand_romanovich)
 "lf" = (
 /obj/machinery/door/airlock/glass{
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -4241,7 +4548,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lo" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lp" = (
@@ -4380,7 +4689,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lG" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lH" = (
@@ -4941,7 +5252,9 @@
 /area/grand_romanovich)
 "mX" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "mY" = (
@@ -5148,7 +5461,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nD" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
 	icon_state = "corner_white"
@@ -5220,7 +5535,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nK" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
 	icon_state = "corner_white"
@@ -5619,7 +5936,8 @@
 /area/grand_romanovich)
 "pN" = (
 /obj/machinery/door/airlock/medical{
-	name = "Medbay"
+	name = "Medbay";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
@@ -5795,7 +6113,8 @@
 "sF" = (
 /obj/machinery/door/airlock/glass{
 	name = "Staff Area";
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
@@ -5810,7 +6129,8 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
 	name = "Administration";
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -6029,7 +6349,8 @@
 /area/grand_romanovich)
 "vV" = (
 /obj/machinery/door/airlock/command{
-	id_tag = "suittwo"
+	id_tag = "suittwo";
+	dir = 4
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
@@ -6142,7 +6463,9 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "xo" = (
-/obj/machinery/door/airlock/vault/bolted,
+/obj/machinery/door/airlock/vault/bolted{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "xq" = (
@@ -6769,7 +7092,8 @@
 /area/grand_romanovich)
 "Ib" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -6903,13 +7227,15 @@
 	icon_state = "spline_fancy"
 	},
 /obj/machinery/door/airlock/command{
-	id_tag = "r5"
+	id_tag = "r5";
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Kd" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -7001,7 +7327,8 @@
 /area/grand_romanovich)
 "Lm" = (
 /obj/machinery/door/airlock/glass{
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
@@ -7055,7 +7382,8 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/door/airlock/command{
-	id_tag = "r5"
+	id_tag = "r5";
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -7089,7 +7417,9 @@
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "Mk" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich/outdoors)
@@ -7650,7 +7980,8 @@
 /area/grand_romanovich)
 "UX" = (
 /obj/machinery/door/airlock/command{
-	id_tag = "r5"
+	id_tag = "r5";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
@@ -7969,7 +8300,8 @@
 /area/grand_romanovich)
 "Yj" = (
 /obj/machinery/door/airlock/command{
-	id_tag = "suitone"
+	id_tag = "suitone";
+	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
@@ -8029,7 +8361,8 @@
 /area/grand_romanovich/outdoors)
 "Zp" = (
 /obj/machinery/door/airlock/command{
-	id_tag = "r5"
+	id_tag = "r5";
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -16976,9 +17309,9 @@ kZ
 kZ
 kZ
 XU
-bJ
+ab
 XU
-bJ
+ai
 XU
 bC
 bC
@@ -18004,9 +18337,9 @@ kZ
 kZ
 kZ
 XU
-bJ
+aj
 XU
-bJ
+as
 XU
 bC
 bC
@@ -18527,7 +18860,7 @@ XU
 XU
 aK
 lO
-bu
+at
 OF
 OF
 XU
@@ -18781,13 +19114,13 @@ IP
 IP
 IP
 OF
-bu
+au
 lO
 lO
 XU
 OF
 IP
-bu
+be
 OF
 IP
 ig
@@ -19259,7 +19592,7 @@ yr
 yr
 ja
 hZ
-bu
+bf
 OF
 OF
 OF
@@ -19269,7 +19602,7 @@ OF
 OF
 OF
 OF
-bu
+bg
 OF
 IP
 XU
@@ -19529,7 +19862,7 @@ XU
 XU
 OF
 OF
-bu
+bi
 Pa
 jc
 bK
@@ -19558,7 +19891,7 @@ ed
 XU
 IP
 OF
-bu
+bj
 dv
 jc
 bK
@@ -21328,7 +21661,7 @@ kZ
 XU
 OF
 IP
-bu
+bn
 dv
 jc
 bK
@@ -21357,7 +21690,7 @@ ed
 XU
 OF
 OF
-bu
+bq
 dv
 jc
 bK
@@ -23122,7 +23455,7 @@ lO
 lO
 lO
 lO
-eF
+br
 lO
 lO
 lO
@@ -23379,7 +23712,7 @@ lO
 lO
 lO
 lO
-eF
+bs
 lO
 lO
 lO
@@ -23426,7 +23759,7 @@ lO
 lO
 lO
 lO
-Kd
+bt
 OF
 IP
 XU
@@ -23943,7 +24276,7 @@ lO
 XU
 OF
 OF
-bu
+cn
 OF
 OF
 OF
@@ -24155,7 +24488,7 @@ XU
 IP
 OF
 OF
-bu
+co
 dv
 jc
 bK
@@ -24184,7 +24517,7 @@ ed
 XU
 OF
 IP
-bu
+di
 dv
 jc
 bK
@@ -25954,7 +26287,7 @@ OF
 XU
 OF
 OF
-bu
+gd
 dv
 jc
 bK
@@ -25983,7 +26316,7 @@ ed
 XU
 OF
 OF
-bu
+gm
 uq
 jc
 bK
@@ -26461,7 +26794,7 @@ ja
 ja
 ja
 hZ
-bu
+gs
 OF
 OF
 OF
@@ -26722,7 +27055,7 @@ XU
 OF
 OF
 OF
-bu
+hc
 OF
 OF
 XU
@@ -27506,7 +27839,7 @@ OF
 OF
 iq
 OF
-bu
+hj
 OF
 OF
 XU
@@ -27784,7 +28117,7 @@ OF
 IP
 IP
 IP
-bu
+hr
 dl
 cy
 dy
@@ -28555,7 +28888,7 @@ lO
 lO
 lO
 lO
-eF
+ia
 lO
 lO
 lO
@@ -28800,7 +29133,7 @@ IP
 il
 IP
 OF
-bu
+ic
 af
 ja
 ja
@@ -28812,7 +29145,7 @@ lO
 lO
 lO
 lO
-eF
+iw
 lO
 lO
 lO
@@ -30134,7 +30467,7 @@ lO
 lO
 lO
 lO
-la
+ix
 lO
 lO
 lO
@@ -30648,7 +30981,7 @@ lO
 lO
 lO
 lO
-la
+jb
 lO
 lO
 lO
@@ -32722,7 +33055,7 @@ XU
 XU
 XU
 XU
-pN
+jf
 XU
 XU
 XU
@@ -32890,7 +33223,7 @@ OF
 OF
 OF
 OF
-bu
+ji
 gP
 lO
 lO
@@ -33170,7 +33503,7 @@ kZ
 XU
 dY
 OF
-bu
+jk
 dB
 dB
 fM
@@ -35493,7 +35826,7 @@ lO
 lO
 af
 hZ
-lo
+jl
 nc
 lh
 XU
@@ -35750,7 +36083,7 @@ lO
 lO
 af
 hZ
-lo
+jv
 nc
 lh
 XU
@@ -37070,7 +37403,7 @@ eV
 fn
 nV
 lh
-bu
+kd
 OF
 IP
 XU
@@ -39081,7 +39414,7 @@ OF
 OF
 OF
 OF
-bu
+ke
 af
 ja
 ja
@@ -39370,7 +39703,7 @@ ik
 OF
 OF
 OF
-bu
+kf
 nc
 lE
 lh
@@ -39631,7 +39964,7 @@ XU
 nc
 lS
 lh
-bu
+kg
 IP
 IP
 OF
@@ -39640,7 +39973,7 @@ IP
 IP
 IP
 IP
-bu
+ki
 ig
 IP
 XU

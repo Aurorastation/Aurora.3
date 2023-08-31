@@ -29,7 +29,8 @@
 "aD" = (
 /obj/machinery/door/airlock/engineering{
 	req_access = list(209);
-	name = "Engine"
+	name = "Engine";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -56,7 +57,8 @@
 "aO" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Mess Hall"
+	name = "Mess Hall";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -739,7 +741,8 @@
 "jJ" = (
 /obj/machinery/door/airlock/glass_medical{
 	req_access = list(209);
-	name = "Medbay"
+	name = "Medbay";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -790,7 +793,8 @@
 "kd" = (
 /obj/machinery/door/airlock/engineering{
 	req_access = list(209);
-	name = "Engineering"
+	name = "Engineering";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1680,7 +1684,8 @@
 "vJ" = (
 /obj/machinery/door/airlock/research{
 	req_access = list(209);
-	name = "Laboratory"
+	name = "Laboratory";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2094,7 +2099,8 @@
 "Ac" = (
 /obj/machinery/door/airlock/mining{
 	name = "Eva Storage";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2209,7 +2215,8 @@
 "BR" = (
 /obj/machinery/door/airlock/mining{
 	name = "Eva Storage";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2477,7 +2484,8 @@
 "Gh" = (
 /obj/machinery/door/airlock/glass_medical{
 	req_access = list(209);
-	name = "Medbay"
+	name = "Medbay";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -2762,7 +2770,8 @@
 "Ky" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Restroom"
+	name = "Restroom";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
@@ -2807,7 +2816,8 @@
 "Lu" = (
 /obj/machinery/door/airlock/mining{
 	req_access = list(209);
-	name = "Mining"
+	name = "Mining";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3289,7 +3299,8 @@
 "Rh" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Barracks"
+	name = "Barracks";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3846,7 +3857,8 @@
 "Yr" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Observatory"
+	name = "Observatory";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3909,7 +3921,8 @@
 "YV" = (
 /obj/machinery/door/airlock/engineering{
 	req_access = list(209);
-	name = "Atmospherics"
+	name = "Atmospherics";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;

@@ -278,7 +278,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass{
-	name = "Relay Maintenance"
+	name = "Relay Maintenance";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
@@ -373,7 +374,8 @@
 /area/sensor_relay)
 "gct" = (
 /obj/machinery/door/airlock/glass{
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -441,7 +443,8 @@
 /area/sensor_relay)
 "hmT" = (
 /obj/machinery/door/airlock/glass{
-	name = "Bathroom"
+	name = "Bathroom";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -741,7 +744,8 @@
 /area/sensor_relay)
 "mGU" = (
 /obj/machinery/door/airlock/glass{
-	name = "Hydroponics"
+	name = "Hydroponics";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -828,7 +832,8 @@
 /area/sensor_relay)
 "ocb" = (
 /obj/machinery/door/airlock{
-	name = "Bedroom"
+	name = "Bedroom";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1428,7 +1433,8 @@
 /area/sensor_relay)
 "xrA" = (
 /obj/machinery/door/airlock/glass{
-	name = "Workshop"
+	name = "Workshop";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4

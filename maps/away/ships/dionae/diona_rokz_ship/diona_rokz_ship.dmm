@@ -101,7 +101,8 @@
 /area/shuttle/diona_rokz_ship_shuttle)
 "dN" = (
 /obj/machinery/door/airlock/diona/external{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/structure/cable{
@@ -336,7 +337,8 @@
 /area/ship/diona_rokz_ship/warehouse)
 "qa" = (
 /obj/machinery/door/airlock/diona/external{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 1
 	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/bridge)
@@ -574,7 +576,9 @@
 /obj/effect/landmark/entry_point/south{
 	name = "fore, bridge"
 	},
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	dir = 1
+	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "yR" = (
@@ -671,7 +675,9 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "CU" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	dir = 1
+	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_rokz_ship_shuttle)
 "CW" = (
@@ -743,7 +749,9 @@
 /turf/unsimulated/mineral/asteroid,
 /area/ship/diona_rokz_ship/exterior/east)
 "EW" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	dir = 4
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/warehouse)
 "Fa" = (

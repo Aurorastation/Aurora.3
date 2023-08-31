@@ -244,7 +244,9 @@
 /turf/simulated/floor/plating,
 /area/engineering)
 "aE" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/runtime)
 "aF" = (
@@ -353,7 +355,8 @@
 /area/engineering)
 "aQ" = (
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Gravity Generator"
+	name = "Gravity Generator";
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -385,7 +388,8 @@
 /area/engineering/gravity_gen)
 "aT" = (
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Gravity Generator"
+	name = "Gravity Generator";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -558,7 +562,9 @@
 /area/hallway/primary/central_one)
 "bq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/engineering,
+/obj/machinery/door/airlock/engineering{
+	dir = 1
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -574,7 +580,9 @@
 /turf/simulated/wall/r_wall,
 /area/engineering)
 "bu" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 1
+	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -924,7 +932,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cj" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry)
@@ -990,13 +1000,16 @@
 /area/bridge)
 "cs" = (
 /obj/machinery/door/airlock/glass_command{
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "ct" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
@@ -1007,7 +1020,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cv" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry)
 "cw" = (
@@ -1174,7 +1189,9 @@
 /turf/simulated/wall/r_wall,
 /area/construction)
 "cN" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/construction)
@@ -1198,7 +1215,9 @@
 /turf/simulated/wall/r_wall,
 /area/storage/primary)
 "cS" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
@@ -1328,9 +1347,31 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/construction)
+"dl" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering)
 "dm" = (
 /turf/simulated/wall,
 /area/storage/primary)
+"dn" = (
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
+"do" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry)
 "dp" = (
 /obj/structure/window_frame/empty,
 /turf/simulated/floor/tiled/full,
@@ -1342,7 +1383,9 @@
 /turf/simulated/floor/plating,
 /area/construction)
 "dr" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
@@ -1654,7 +1697,9 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "Ct" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/storage/primary)
@@ -1771,7 +1816,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "Qn" = (
@@ -1855,7 +1902,9 @@
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
 "Wa" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "WH" = (
@@ -8810,7 +8859,7 @@ ac
 ac
 ah
 ah
-aB
+dl
 ah
 ah
 ah
@@ -10364,7 +10413,7 @@ UW
 Qi
 WP
 bB
-cS
+dn
 da
 dm
 cZ
@@ -12673,7 +12722,7 @@ ac
 ac
 ac
 bv
-cv
+do
 bv
 ac
 ac

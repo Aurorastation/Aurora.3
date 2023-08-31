@@ -243,7 +243,8 @@
 "aF" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Gun Deck";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1236,7 +1237,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "headmaster_shuttle_out"
+	id_tag = "headmaster_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -1332,7 +1334,8 @@
 "dQ" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Commissar's Quarters"
+	name = "Commissar's Quarters";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1440,7 +1443,8 @@
 "ej" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Captain's Quarters"
+	name = "Captain's Quarters";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1462,7 +1466,8 @@
 "em" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1971,7 +1976,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Mess Hall"
+	name = "Mess Hall";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2176,7 +2182,8 @@
 "gU" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2224,7 +2231,8 @@
 "he" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Hangar"
+	name = "Hangar";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2470,7 +2478,8 @@
 "hZ" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Barracks"
+	name = "Barracks";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2840,7 +2849,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Restroom"
+	name = "Restroom";
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2892,7 +2902,8 @@
 "ji" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "EVA Storage"
+	name = "EVA Storage";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3341,7 +3352,8 @@
 "kD" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Hangar"
+	name = "Hangar";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark{
@@ -3950,7 +3962,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "headmaster_shuttle_out"
+	id_tag = "headmaster_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -4597,7 +4610,8 @@
 "tH" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5114,7 +5128,8 @@
 "CS" = (
 /obj/machinery/door/airlock/glass_medical{
 	req_access = list(209);
-	name = "Medbay"
+	name = "Medbay";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5570,7 +5585,8 @@
 "Ka" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(209);
-	name = "Engines"
+	name = "Engines";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -5826,7 +5842,8 @@
 "No" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -5911,7 +5928,8 @@
 "Oa" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(209);
-	name = "Airlock Access"
+	name = "Airlock Access";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6037,7 +6055,8 @@
 "PJ" = (
 /obj/machinery/door/airlock/engineering{
 	req_access = list(209);
-	name = "Engineering"
+	name = "Engineering";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6542,7 +6561,8 @@
 "Wr" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,

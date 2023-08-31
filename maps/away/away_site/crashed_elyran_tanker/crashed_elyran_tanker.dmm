@@ -34,6 +34,12 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/crew)
+"ac" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/crashed_elyran_tanker/crew)
 "ae" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -72,7 +78,9 @@
 "aq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
 "av" = (
@@ -389,7 +397,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
 "du" = (
@@ -613,7 +623,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "fy" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
@@ -647,7 +659,9 @@
 /turf/simulated/floor/tiled/airless,
 /area/crashed_elyran_tanker/engineering)
 "gf" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -927,7 +941,9 @@
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
 "iY" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -971,7 +987,9 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/crashed_elyran_tanker/tanks)
 "jr" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
@@ -1433,7 +1451,9 @@
 /turf/template_noop,
 /area/crashed_elyran_tanker/tanks)
 "oL" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -1519,7 +1539,9 @@
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/engineering)
 "pm" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/thruster)
 "pn" = (
@@ -2020,7 +2042,9 @@
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
 "uD" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
@@ -2220,7 +2244,9 @@
 /area/crashed_elyran_tanker/thruster)
 "xe" = (
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
 "xf" = (
@@ -2653,7 +2679,9 @@
 /turf/simulated/floor/airless,
 /area/space)
 "AE" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/thruster)
@@ -2811,7 +2839,9 @@
 /turf/simulated/floor/tiled/rust/airless,
 /area/crashed_elyran_tanker/engineering)
 "BV" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 1;
@@ -2991,7 +3021,9 @@
 /turf/simulated/wall/r_wall,
 /area/crashed_elyran_tanker/tanks)
 "Dv" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/engineering)
 "DB" = (
@@ -3358,7 +3390,9 @@
 /area/crashed_elyran_tanker/tanks)
 "HO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
 "HT" = (
@@ -3571,7 +3605,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spider/stickyweb,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/bridge)
 "JP" = (
@@ -4700,7 +4736,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "UC" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
 "UE" = (
@@ -4981,11 +5019,15 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
 "WZ" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -5226,7 +5268,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "YY" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -45338,7 +45382,7 @@ Dg
 Dg
 Dg
 Pl
-UC
+ac
 uD
 Pl
 Pl

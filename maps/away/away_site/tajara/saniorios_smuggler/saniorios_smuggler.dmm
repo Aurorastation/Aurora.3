@@ -470,7 +470,8 @@
 /area/saniorios_smuggler)
 "qQ" = (
 /obj/machinery/door/airlock/mining{
-	name = "Warehouse"
+	name = "Warehouse";
+	dir = 1
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -579,7 +580,8 @@
 /area/space)
 "xy" = (
 /obj/machinery/door/airlock/mining{
-	name = "Office"
+	name = "Office";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -679,7 +681,8 @@
 /area/saniorios_smuggler)
 "AT" = (
 /obj/machinery/door/airlock/engineering{
-	name = "Power Room"
+	name = "Power Room";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1084,7 +1087,8 @@
 /area/saniorios_smuggler)
 "RO" = (
 /obj/machinery/door/airlock/mining{
-	name = "Cargo Processing"
+	name = "Cargo Processing";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15

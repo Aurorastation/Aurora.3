@@ -81,7 +81,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "am" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/dungeon/crashed_ship)
 "an" = (
@@ -170,7 +172,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "az" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "aA" = (
@@ -394,6 +398,12 @@
 /obj/item/reagent_containers/blood/ripped,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/crashed_ship)
+"bh" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/dungeon/crashed_ship)
 "bi" = (
 /obj/structure/table/rack,
 /obj/item/clothing/head/helmet,
@@ -428,6 +438,12 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
+"bo" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/dungeon/crashed_ship)
 "bp" = (
 /obj/structure/closet/crate/large,
 /obj/item/archaeological_find,
@@ -440,7 +456,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "br" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular{
 	id = "crashed"
 	},
@@ -515,6 +533,12 @@
 	icon_state = "propulsion_r"
 	},
 /turf/simulated/floor/plating,
+/area/dungeon/crashed_ship)
+"ca" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "DG" = (
 /obj/structure/cable/yellow{
@@ -959,7 +983,7 @@ ai
 au
 ai
 ai
-am
+bh
 ai
 au
 ai
@@ -1054,7 +1078,7 @@ ag
 ai
 ai
 ai
-am
+bo
 ai
 ai
 ai
@@ -1163,7 +1187,7 @@ ai
 ax
 ai
 ai
-az
+ca
 aF
 aJ
 aQ

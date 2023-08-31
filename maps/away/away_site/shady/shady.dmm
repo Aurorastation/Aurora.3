@@ -1,4 +1,49 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
+"ab" = (
+/obj/machinery/door/airlock{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
+"ac" = (
+/obj/machinery/door/airlock{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
+"ad" = (
+/obj/machinery/door/airlock{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
+"ae" = (
+/obj/machinery/door/airlock{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
+"af" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
+"ag" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/hideout)
 "ai" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate/old,
@@ -686,7 +731,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hideout)
 "jv" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/hideout)
 "jw" = (
@@ -1532,7 +1579,9 @@
 /area/hideout)
 "wP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/hideout)
 "wQ" = (
@@ -2261,7 +2310,9 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "IW" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hideout)
 "Jb" = (
@@ -2566,7 +2617,9 @@
 /turf/simulated/floor/plating,
 /area/hideout)
 "Nn" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Nq" = (
@@ -2801,7 +2854,9 @@
 /area/mine)
 "RI" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "RN" = (
@@ -3247,7 +3302,9 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Zf" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/asteroid,
 /area/hideout)
 "Zq" = (
@@ -33930,7 +33987,7 @@ UI
 lf
 lf
 lf
-RI
+aa
 lf
 lf
 lf
@@ -35687,7 +35744,7 @@ iV
 Up
 MO
 Up
-Nn
+ab
 wI
 La
 VT
@@ -35702,7 +35759,7 @@ AA
 La
 mr
 Dv
-Nn
+ac
 iV
 gw
 Lv
@@ -35939,7 +35996,7 @@ Mv
 xZ
 Rw
 Rw
-Nn
+ad
 La
 La
 RN
@@ -35954,7 +36011,7 @@ wu
 La
 jP
 Rw
-Nn
+ae
 Rw
 Rw
 BU
@@ -36434,7 +36491,7 @@ lf
 lf
 lf
 lf
-RI
+af
 lf
 lf
 lf
@@ -37710,7 +37767,7 @@ UI
 lf
 lf
 lf
-RI
+ag
 lf
 lf
 lf

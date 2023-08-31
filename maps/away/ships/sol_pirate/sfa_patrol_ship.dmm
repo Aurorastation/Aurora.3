@@ -231,7 +231,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_shuttle_out"
+	id_tag = "sfa_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/sfa_shuttle)
@@ -624,7 +625,8 @@
 "cwy" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -734,7 +736,8 @@
 "cYP" = (
 /obj/machinery/door/airlock/security{
 	name = "Engineering";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
@@ -893,7 +896,8 @@
 /area/ship/sfa_patrol_ship)
 "dLJ" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms/Aux CIC"
+	name = "Telecomms/Aux CIC";
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
@@ -946,7 +950,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -1082,7 +1087,8 @@
 "eoS" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1100,7 +1106,8 @@
 "euO" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -1124,7 +1131,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_out"
+	id_tag = "sfa_patrol_ship_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
@@ -1629,7 +1637,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/freezer{
 	name = "Freezer";
-	req_access = list(28)
+	req_access = list(28);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/sfa_patrol_ship/medbay)
@@ -1639,7 +1648,8 @@
 	},
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1697,7 +1707,8 @@
 "gvb" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2046,7 +2057,8 @@
 	locked = 1;
 	maxhealth = 40;
 	name = "Freezer";
-	req_access = list(28)
+	req_access = list(28);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/sfa_patrol_ship/medbay)
@@ -2392,7 +2404,8 @@
 "jqd" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -2409,7 +2422,8 @@
 "jqA" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Ammo_Closet)
@@ -2436,7 +2450,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_shuttle_out"
+	id_tag = "sfa_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -2721,7 +2736,8 @@
 "kJT" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Suit_Storage)
@@ -2811,7 +2827,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "freight_shuttle_out"
+	id_tag = "freight_shuttle_out";
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
@@ -3110,7 +3127,8 @@
 "mJs" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3301,7 +3319,8 @@
 	has_set_boltlight = 1;
 	icon_state = "door_locked";
 	locked = 1;
-	name = "Ship Munitions Storage"
+	name = "Ship Munitions Storage";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -3332,7 +3351,8 @@
 "nty" = (
 /obj/machinery/door/airlock/security{
 	name = "Head";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/Quarters)
@@ -3504,7 +3524,8 @@
 "ozP" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
@@ -3575,7 +3596,8 @@
 "oSU" = (
 /obj/machinery/door/airlock/security{
 	name = "Crew Quarters";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -3820,7 +3842,8 @@
 "pVO" = (
 /obj/machinery/door/airlock/security{
 	name = "Crew Quarters";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4730,7 +4753,8 @@
 "uqX" = (
 /obj/machinery/door/airlock/security{
 	name = "Engineering";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4997,7 +5021,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "freight_shuttle_out"
+	id_tag = "freight_shuttle_out";
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
@@ -5047,7 +5072,8 @@
 "wfy" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
@@ -5261,7 +5287,8 @@
 	},
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Bridge)

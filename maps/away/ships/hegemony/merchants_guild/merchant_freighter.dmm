@@ -284,7 +284,8 @@
 "dq" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1313;
-	id_tag = "merchant_guild_shuttle_external"
+	id_tag = "merchant_guild_shuttle_external";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/red,
 /obj/machinery/access_button{
@@ -372,7 +373,8 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	req_access = list(215);
-	name = "Reactor"
+	name = "Reactor";
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/merchants_guild/portengine)
@@ -407,7 +409,8 @@
 	},
 /obj/machinery/door/airlock/glass_service{
 	name = "Crew Quarters";
-	req_access = list(215)
+	req_access = list(215);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
@@ -434,7 +437,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(215);
-	name = "Cargo Office"
+	name = "Cargo Office";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
@@ -702,7 +706,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(215);
-	name = "Warehouse"
+	name = "Warehouse";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
@@ -1012,7 +1017,8 @@
 "nV" = (
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(215);
-	name = "Cargo Office"
+	name = "Cargo Office";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
@@ -1048,7 +1054,8 @@
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Captain's Quarters";
-	req_access = list(215)
+	req_access = list(215);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
@@ -1634,7 +1641,8 @@
 /area/merchants_guild/crew)
 "wr" = (
 /obj/machinery/door/airlock/external{
-	id_tag = "merchant_guild_shuttle_internal"
+	id_tag = "merchant_guild_shuttle_internal";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -1677,7 +1685,8 @@
 "wP" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/maintenance{
-	name = "Telecommunications"
+	name = "Telecommunications";
+	dir = 4
 	},
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'SERVER ROOM'.";
@@ -1801,7 +1810,8 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Starboard Engineering";
-	req_access = list(215)
+	req_access = list(215);
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
@@ -2168,7 +2178,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/external{
-	id_tag = "merchant_guild_shuttle_internal"
+	id_tag = "merchant_guild_shuttle_internal";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -2583,7 +2594,8 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1313;
-	id_tag = "merchant_guild_shuttle_external"
+	id_tag = "merchant_guild_shuttle_external";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
@@ -2689,7 +2701,8 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Starboard Engineering";
-	req_access = list(215)
+	req_access = list(215);
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
@@ -2724,7 +2737,8 @@
 	},
 /obj/machinery/door/airlock/glass_service{
 	name = "Crew Quarters";
-	req_access = list(215)
+	req_access = list(215);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/canteen)
@@ -3088,7 +3102,8 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	req_access = list(215);
-	name = "Reactor"
+	name = "Reactor";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
@@ -3304,7 +3319,8 @@
 	},
 /obj/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(215)
+	req_access = list(215);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
@@ -3593,7 +3609,8 @@
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Captain's Quarters";
-	req_access = list(215)
+	req_access = list(215);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/captain)
@@ -3747,7 +3764,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(215);
-	name = "Warehouse"
+	name = "Warehouse";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/warehouse)

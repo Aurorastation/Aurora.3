@@ -256,7 +256,8 @@
 /area/tajaran_smuggler/dorms)
 "aOU" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Crew Quarters"
+	name = "Crew Quarters";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -363,7 +364,8 @@
 	id_tag = "smuggler_cargo_hatch";
 	layer = 2.8;
 	name = "Cargo Hold";
-	open_layer = 2.8
+	open_layer = 2.8;
+	dir = 4
 	},
 /obj/effect/shuttle_landmark/tajaran_smuggler_cargo/nav1,
 /turf/simulated/floor{
@@ -1145,7 +1147,8 @@
 /area/tajaran_smuggler/engine)
 "fVv" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -1197,7 +1200,8 @@
 /area/tajaran_smuggler)
 "fZq" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Cockpit"
+	name = "Cockpit";
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1533,7 +1537,8 @@
 /area/tajaran_smuggler/captain_quarters)
 "hQA" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/firedoor,
@@ -1630,7 +1635,8 @@
 /area/tajaran_smuggler/hangar)
 "irz" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Atmospherics"
+	name = "Atmospherics";
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1676,7 +1682,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "tajaran_smuggler_shuttle_out"
+	id_tag = "tajaran_smuggler_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -2120,7 +2127,8 @@
 	id_tag = "tajara_smuggler_ship_hatch";
 	locked = 1;
 	req_access = list(202);
-	name = "Cargo Hold"
+	name = "Cargo Hold";
+	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -2336,7 +2344,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/hatch{
-	name = "Engine"
+	name = "Engine";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2522,7 +2531,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "tajaran_smuggler_shuttle_out"
+	id_tag = "tajaran_smuggler_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -2692,7 +2702,8 @@
 /area/tajaran_smuggler)
 "obG" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Dock"
+	name = "Dock";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2744,7 +2755,8 @@
 /area/tajaran_smuggler)
 "oqH" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Shuttle Dock"
+	name = "Shuttle Dock";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2894,7 +2906,8 @@
 /area/tajaran_smuggler/atmos)
 "pUp" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Captain's Quarters"
+	name = "Captain's Quarters";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2963,7 +2976,8 @@
 /area/tajaran_smuggler/engine)
 "qcz" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Restroom"
+	name = "Restroom";
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/door/firedoor,
@@ -3364,7 +3378,8 @@
 /area/tajaran_smuggler)
 "ttC" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Maintenance"
+	name = "Maintenance";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/firedoor,
@@ -3563,7 +3578,8 @@
 /area/tajaran_smuggler/hangar)
 "vtl" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Cargo Section"
+	name = "Cargo Section";
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3674,7 +3690,8 @@
 /area/tajaran_smuggler)
 "vPL" = (
 /obj/machinery/door/airlock/hatch{
-	name = "EVA"
+	name = "EVA";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;

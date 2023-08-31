@@ -356,7 +356,9 @@
 /turf/simulated/floor/airless,
 /area/magshield/engine)
 "aZ" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	icon_state = "pdoor0";
@@ -401,6 +403,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/magshield/smes_storage)
+"bg" = (
+/obj/machinery/door/airlock{
+	insecure = 0;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/magshield/south)
 "bh" = (
 /obj/structure/table/steel,
 /obj/random/desktoy,
@@ -1042,7 +1051,8 @@
 "cS" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1069,7 +1079,8 @@
 "cU" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -1093,7 +1104,9 @@
 /turf/simulated/floor/airless,
 /area/magshield/smes_storage)
 "cW" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1272,7 +1285,8 @@
 /area/magshield/north)
 "dB" = (
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1396,7 +1410,8 @@
 /area/magshield/north)
 "ee" = (
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/magshield/south)
@@ -1741,7 +1756,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/magshield/engine)
 "fb" = (
@@ -1871,7 +1888,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/magshield/north)
@@ -2309,7 +2327,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -2607,7 +2626,8 @@
 "hH" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2779,7 +2799,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -3790,7 +3811,8 @@
 "os" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3875,7 +3897,8 @@
 /area/magshield/south)
 "yw" = (
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3910,7 +3933,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -3922,7 +3946,8 @@
 "Ch" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4014,7 +4039,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/magshield/south)
@@ -4132,7 +4158,8 @@
 /area/magshield/north)
 "VU" = (
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -22700,7 +22727,7 @@ bA
 iu
 iu
 iu
-ee
+bg
 kx
 kW
 ip

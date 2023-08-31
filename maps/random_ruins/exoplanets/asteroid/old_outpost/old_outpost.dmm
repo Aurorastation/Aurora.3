@@ -56,7 +56,8 @@
 /area/old_outpost/eva)
 "bX" = (
 /obj/machinery/door/airlock/glass_mining{
-	name = "Mining Station Bridge"
+	name = "Mining Station Bridge";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -317,7 +318,8 @@
 	icon_state = "door_locked";
 	id_tag = "mining_west_outer";
 	locked = 1;
-	name = "Mining External Access"
+	name = "Mining External Access";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/old_outpost/hallway)
@@ -626,7 +628,8 @@
 /area/old_outpost/refinery)
 "kJ" = (
 /obj/machinery/door/airlock/glass{
-	name = "Crew Area"
+	name = "Crew Area";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/blue{
@@ -693,7 +696,8 @@
 "lI" = (
 /obj/machinery/door/airlock{
 	id_tag = "miningdorm1";
-	name = "Room 1"
+	name = "Room 1";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -921,7 +925,8 @@
 /area/old_outpost/eva)
 "ox" = (
 /obj/machinery/door/airlock/glass_mining{
-	name = "Mining Station Bridge"
+	name = "Mining Station Bridge";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1254,7 +1259,8 @@
 /area/old_outpost/hallway)
 "sV" = (
 /obj/machinery/door/airlock{
-	name = "Toilet"
+	name = "Toilet";
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
@@ -1310,7 +1316,8 @@
 	icon_state = "door_locked";
 	id_tag = "mining_west_inner";
 	locked = 1;
-	name = "Mining External Access"
+	name = "Mining External Access";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -1527,7 +1534,8 @@
 /area/old_outpost/dorms)
 "wh" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Mining Station Maintenance"
+	name = "Mining Station Maintenance";
+	dir = 1
 	},
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -1667,7 +1675,8 @@
 "xX" = (
 /obj/machinery/door/airlock{
 	id_tag = "miningdorm3";
-	name = "Room 3"
+	name = "Room 3";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1723,7 +1732,8 @@
 "yu" = (
 /obj/machinery/door/airlock{
 	id_tag = "miningdorm2";
-	name = "Room 2"
+	name = "Room 2";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1991,7 +2001,8 @@
 /area/old_outpost/refinery)
 "Co" = (
 /obj/machinery/door/airlock/glass_mining{
-	name = "Mining Station EVA"
+	name = "Mining Station EVA";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2114,7 +2125,8 @@
 /area/old_outpost/dorms)
 "DZ" = (
 /obj/machinery/door/airlock/glass_medical{
-	name = "Infirmary"
+	name = "Infirmary";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/blue{
@@ -2342,7 +2354,8 @@
 /area/old_outpost/refinery)
 "HS" = (
 /obj/machinery/door/airlock/mining{
-	name = "Mining Station Storage"
+	name = "Mining Station Storage";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2528,7 +2541,8 @@
 	icon_state = "door_locked";
 	id_tag = "mining_outpost_outer";
 	locked = 1;
-	name = "Mining Dock Airlock"
+	name = "Mining Dock Airlock";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/old_outpost/refinery)
@@ -2709,7 +2723,8 @@
 	icon_state = "door_locked";
 	id_tag = "mining_east_inner";
 	locked = 1;
-	name = "Mining External Access"
+	name = "Mining External Access";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2867,7 +2882,8 @@
 	icon_state = "door_locked";
 	id_tag = "mining_outpost_inner";
 	locked = 1;
-	name = "Mining Dock Airlock"
+	name = "Mining Dock Airlock";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -3011,7 +3027,8 @@
 	icon_state = "door_locked";
 	id_tag = "mining_east_outer";
 	locked = 1;
-	name = "Mining External Access"
+	name = "Mining External Access";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/old_outpost/eva)

@@ -800,7 +800,8 @@
 	icon_state = "door_locked";
 	id_tag = "scrapper_station_door";
 	locked = 1;
-	req_access = list(202)
+	req_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
@@ -953,7 +954,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -1340,7 +1342,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating{
@@ -1365,7 +1368,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Workshop"
+	name = "Workshop";
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating{
@@ -1493,7 +1497,8 @@
 "sJ" = (
 /obj/machinery/door/airlock/mining{
 	name = "Storage";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1707,7 +1712,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Solars"
+	name = "Solars";
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1940,7 +1946,8 @@
 	icon_state = "door_locked";
 	id_tag = "scrapper_station_door";
 	locked = 1;
-	req_access = list(202)
+	req_access = list(202);
+	dir = 4
 	},
 /obj/effect/shuttle_landmark/tajara_scrapper/hangar,
 /turf/simulated/floor/tiled/dark,
@@ -2193,7 +2200,8 @@
 /area/shuttle/scrapper_ship/workshop)
 "BF" = (
 /obj/machinery/door/airlock{
-	name = "Restroom"
+	name = "Restroom";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/scrapper_base/quarters)
@@ -2237,7 +2245,8 @@
 /area/scrapper_base/quarters)
 "Cn" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -2531,7 +2540,8 @@
 "Gq" = (
 /obj/machinery/door/airlock/mining{
 	name = "Living Quarters";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2716,7 +2726,8 @@
 	id_tag = "tajara_scrapper_hatch";
 	layer = 2.8;
 	name = "Ship External Access";
-	open_layer = 2.8
+	open_layer = 2.8;
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
@@ -3004,7 +3015,8 @@
 /area/scrapper_base/quarters)
 "LC" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -3260,7 +3272,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Engine"
+	name = "Engine";
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating{
@@ -3403,7 +3416,8 @@
 	id_tag = "tajara_scrapper_hatch";
 	layer = 2.8;
 	name = "Ship External Access";
-	open_layer = 2.8
+	open_layer = 2.8;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
@@ -3848,7 +3862,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Engine"
+	name = "Engine";
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -3940,7 +3955,8 @@
 "Xg" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Atmos"
+	name = "Atmos";
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4010,7 +4026,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Workshop"
+	name = "Workshop";
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/structure/cable/green{

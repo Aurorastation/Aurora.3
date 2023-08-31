@@ -1,4 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Maintenance";
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/ee_spy_ship)
 "aab" = (
 /obj/machinery/computer/shuttle_control/explore/ee_shuttle{
 	dir = 4;
@@ -13,7 +20,8 @@
 /area/ship/ee_spy_ship)
 "aaJ" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
@@ -48,7 +56,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ee_spy_ship_out"
+	id_tag = "ee_spy_ship_out";
+	dir = 1
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, airlock"
@@ -140,7 +149,8 @@
 /area/ship/ee_spy_ship)
 "aSm" = (
 /obj/machinery/door/airlock/silver{
-	name = "Toilet"
+	name = "Toilet";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
@@ -188,7 +198,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ee_spy_ship_in"
+	id_tag = "ee_spy_ship_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -262,7 +273,8 @@
 /area/ship/ee_spy_ship)
 "dTw" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Hangar"
+	name = "Hangar";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
@@ -410,7 +422,8 @@
 "fQq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Head";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
@@ -446,7 +459,8 @@
 "fZq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Horizon Refuse Sorting";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
@@ -501,7 +515,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ee_shuttle_out"
+	id_tag = "ee_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/ee_shuttle)
@@ -513,7 +528,8 @@
 /area/ship/ee_spy_ship)
 "hiw" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Maintenance"
+	name = "Maintenance";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -551,7 +567,8 @@
 "hZq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Dock";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
@@ -645,7 +662,8 @@
 "krH" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Research Officer's Quarters";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
@@ -686,7 +704,8 @@
 "lhC" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Operations";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
@@ -779,7 +798,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ee_spy_ship_out"
+	id_tag = "ee_spy_ship_out";
+	dir = 1
 	},
 /obj/effect/shuttle_landmark/ee_spy_ship/nav2,
 /turf/simulated/floor,
@@ -942,7 +962,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ee_spy_ship_in"
+	id_tag = "ee_spy_ship_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -1030,7 +1051,8 @@
 "sGi" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Cockpit";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
@@ -1155,7 +1177,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ee_shuttle_out"
+	id_tag = "ee_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -1210,7 +1233,8 @@
 "wji" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Crew Quarters";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
@@ -33499,7 +33523,7 @@ xRX
 cnH
 gxW
 mkb
-hiw
+aaa
 xQS
 xQS
 xQS

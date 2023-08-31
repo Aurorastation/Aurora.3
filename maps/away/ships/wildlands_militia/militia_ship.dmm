@@ -15,6 +15,21 @@
 "aac" = (
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
+"aad" = (
+/obj/machinery/door/airlock/security{
+	name = "Brig";
+	req_access = null;
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/militia_ship)
+"aae" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Maintenance";
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/militia_ship)
 "aaI" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
@@ -23,7 +38,8 @@
 "aaJ" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
@@ -176,7 +192,8 @@
 /area/ship/militia_ship)
 "aSm" = (
 /obj/machinery/door/airlock/silver{
-	name = "Toilet"
+	name = "Toilet";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
@@ -257,7 +274,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_out"
+	id_tag = "sfa_patrol_ship_out";
+	dir = 1
 	},
 /obj/effect/shuttle_landmark/militia_ship/nav2,
 /turf/simulated/floor,
@@ -325,7 +343,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_out"
+	id_tag = "sfa_patrol_ship_out";
+	dir = 1
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, airlock"
@@ -363,7 +382,8 @@
 /area/ship/militia_ship)
 "dTw" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Head"
+	name = "Head";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
@@ -407,7 +427,8 @@
 /area/ship/militia_ship)
 "exg" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Hangar"
+	name = "Hangar";
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/militia_ship)
@@ -563,7 +584,8 @@
 "fZq" = (
 /obj/machinery/door/airlock/security{
 	name = "Brig";
-	req_access = null
+	req_access = null;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
@@ -638,7 +660,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "militia_shuttle_out"
+	id_tag = "militia_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/militia_shuttle)
@@ -654,7 +677,8 @@
 /area/ship/militia_ship)
 "hiw" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Maintenance"
+	name = "Maintenance";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/militia_ship)
@@ -783,7 +807,8 @@
 "iGK" = (
 /obj/machinery/door/airlock/glass{
 	name = "Dinner Hall";
-	req_access = null
+	req_access = null;
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -896,7 +921,8 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
-	req_access = null
+	req_access = null;
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
@@ -1211,7 +1237,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "militia_shuttle_out"
+	id_tag = "militia_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -1247,7 +1274,8 @@
 "qwS" = (
 /obj/machinery/door/airlock/security{
 	name = "Dock";
-	req_access = null
+	req_access = null;
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/militia_ship)
@@ -1317,7 +1345,8 @@
 "sGi" = (
 /obj/machinery/door/airlock/security{
 	name = "Cockpit";
-	req_access = null
+	req_access = null;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
@@ -1398,7 +1427,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "militia_ship_in"
+	id_tag = "militia_ship_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/militia_ship)
@@ -1464,7 +1494,8 @@
 "vlC" = (
 /obj/machinery/door/airlock/security{
 	name = "Captain's Quarters";
-	req_access = null
+	req_access = null;
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/militia_ship)
@@ -1572,7 +1603,8 @@
 /area/shuttle/militia_shuttle)
 "wji" = (
 /obj/machinery/door/airlock/security{
-	name = "Crew Quarters"
+	name = "Crew Quarters";
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/militia_ship)
@@ -1622,7 +1654,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "militia_ship_in"
+	id_tag = "militia_ship_in";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor,
@@ -33446,7 +33479,7 @@ yjk
 yjk
 yjk
 yjk
-fZq
+aad
 yjk
 yjk
 ogz
@@ -33948,7 +33981,7 @@ xRX
 tqy
 gxW
 mkb
-hiw
+aae
 wmd
 wLs
 wmd

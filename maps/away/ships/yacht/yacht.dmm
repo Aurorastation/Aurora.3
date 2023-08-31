@@ -123,7 +123,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/silver{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/living)
@@ -221,7 +222,8 @@
 /area/shuttle/yacht/living)
 "aP" = (
 /obj/machinery/door/airlock/silver{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/living)
@@ -274,7 +276,8 @@
 /obj/structure/closet/walllocker/emerglocker/north,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/machinery/door/airlock/silver{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/yacht/living)
@@ -380,7 +383,8 @@
 /area/shuttle/yacht/living)
 "bo" = (
 /obj/machinery/door/airlock/silver{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/yacht/living)
@@ -465,7 +469,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/silver{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /turf/simulated/floor/carpet/purple,
 /area/shuttle/yacht/living)
@@ -547,7 +552,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/blood/gibs/robot/down,
 /obj/machinery/door/airlock/silver{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
@@ -557,7 +563,9 @@
 "bQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "bR" = (
@@ -677,7 +685,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "ci" = (
@@ -1240,7 +1250,8 @@
 	icon_state = "door_locked";
 	id_tag = "yacht_outer";
 	locked = 1;
-	name = "External Access"
+	name = "External Access";
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -1310,7 +1321,8 @@
 	icon_state = "door_locked";
 	id_tag = "yacht_inner";
 	locked = 1;
-	name = "External Access"
+	name = "External Access";
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";

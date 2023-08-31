@@ -24,6 +24,28 @@
 	},
 /turf/space/transit/bluespace/west,
 /area/template_noop)
+"aac" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Telecommunications Server";
+	req_one_access = list(106,108,109)
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/centcom/control)
+"aad" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_shuttle_hatch";
+	locked = 1;
+	name = "Shuttle Hatch";
+	req_access = list(13);
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/shuttle/escape)
 "aal" = (
 /obj/machinery/light/small{
 	brightness_power = 0.5;
@@ -2790,7 +2812,8 @@
 "bPc" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Medical Bay";
-	req_access = list(5)
+	req_access = list(5);
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
@@ -4159,7 +4182,8 @@
 "dNM" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Telecommunications Server";
-	req_one_access = list(106,108,109)
+	req_one_access = list(106,108,109);
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -8069,7 +8093,8 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Bridge";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -9305,7 +9330,8 @@
 "kjR" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Entertainment Wing";
-	req_access = null
+	req_access = null;
+	dir = 4
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -10369,7 +10395,8 @@
 /area/centcom/spawning)
 "lBD" = (
 /obj/machinery/door/airlock/glass_centcom{
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -12572,7 +12599,8 @@
 "oCm" = (
 /obj/machinery/door/airlock/command{
 	name = "Cockpit";
-	req_access = list(19)
+	req_access = list(19);
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
@@ -14555,7 +14583,8 @@
 	id_tag = "admin_shuttle_hatch";
 	locked = 1;
 	name = "Corvette Hatch";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -15567,7 +15596,8 @@
 "txn" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Secure Holding";
-	req_access = list(1)
+	req_access = list(1);
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
@@ -49454,7 +49484,7 @@ ukX
 dLE
 dNM
 dLE
-dNM
+aac
 ghR
 uSv
 uSv
@@ -59247,7 +59277,7 @@ gmv
 nHm
 sXN
 aEW
-aEW
+aad
 aEW
 pdo
 jdB

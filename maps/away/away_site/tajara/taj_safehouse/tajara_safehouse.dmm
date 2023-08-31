@@ -1,8 +1,32 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tajara_safehouse)
 "ab" = (
 /obj/structure/extinguisher_cabinet{
 	layer = 3.3;
 	pixel_x = -26
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tajara_safehouse)
+"ac" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tajara_safehouse)
+"ad" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/tajara_safehouse)
+"ae" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
@@ -91,7 +115,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "cm" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "cs" = (
@@ -419,7 +445,9 @@
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "mt" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/tajara_safehouse)
 "nf" = (
@@ -439,7 +467,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "tajara_safehouse_shuttle_out"
+	id_tag = "tajara_safehouse_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/tajara_safehouse_shuttle)
@@ -520,7 +549,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "pL" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/tajara_safehouse)
@@ -801,7 +832,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "yK" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "yV" = (
@@ -1014,7 +1047,9 @@
 /area/tajara_safehouse)
 "Hr" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "IB" = (
@@ -1073,7 +1108,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "tajara_safehouse_shuttle_out"
+	id_tag = "tajara_safehouse_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, airlock"
@@ -1111,7 +1147,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "Mc" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/tajara_safehouse)
 "Ms" = (
@@ -27732,7 +27770,7 @@ xQ
 xQ
 xQ
 xQ
-cm
+aa
 lH
 dR
 nk
@@ -28249,7 +28287,7 @@ TN
 nk
 lH
 lH
-cm
+ac
 lH
 lH
 lH
@@ -28260,7 +28298,7 @@ jw
 eZ
 CN
 nk
-mt
+ad
 nk
 nk
 nk
@@ -30065,7 +30103,7 @@ lH
 lH
 lH
 lH
-cm
+ae
 sI
 lH
 lH

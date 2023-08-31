@@ -19,6 +19,13 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"aad" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Propulsion Maintenance";
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "aap" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
@@ -423,7 +430,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_in"
+	id_tag = "sfa_patrol_ship_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -458,7 +466,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_in"
+	id_tag = "sfa_patrol_ship_in";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor,
@@ -576,7 +585,8 @@
 "dxh" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/airlock/hatch{
-	name = "Cargo Compartment"
+	name = "Cargo Compartment";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
@@ -696,7 +706,8 @@
 "enr" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/airlock/glass{
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
@@ -782,7 +793,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "freight_shuttle_out"
+	id_tag = "freight_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -962,7 +974,8 @@
 /area/ship/tramp_freighter)
 "fXG" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Anti-Piracy Armory"
+	name = "Anti-Piracy Armory";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
@@ -1093,7 +1106,8 @@
 "hei" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/mining{
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
@@ -1258,7 +1272,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "freight_shuttle_out"
+	id_tag = "freight_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/freighter_shuttle)
@@ -1308,7 +1323,8 @@
 /area/ship/tramp_freighter)
 "iHx" = (
 /obj/machinery/door/airlock/mining{
-	name = "Crew Bunks"
+	name = "Crew Bunks";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
@@ -1462,7 +1478,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_out"
+	id_tag = "sfa_patrol_ship_out";
+	dir = 1
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port airlock"
@@ -1546,7 +1563,8 @@
 /area/ship/tramp_freighter)
 "nyj" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Cargo Compartment"
+	name = "Cargo Compartment";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -1578,7 +1596,8 @@
 /area/ship/tramp_freighter)
 "nQT" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -1601,7 +1620,8 @@
 /area/ship/tramp_freighter)
 "onP" = (
 /obj/machinery/door/airlock{
-	name = "Head"
+	name = "Head";
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -1617,7 +1637,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_out"
+	id_tag = "sfa_patrol_ship_out";
+	dir = 1
 	},
 /obj/effect/shuttle_landmark/tramp_freighter/nav2,
 /turf/simulated/floor,
@@ -1874,7 +1895,8 @@
 /area/ship/tramp_freighter)
 "sDF" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Propulsion Maintenance"
+	name = "Propulsion Maintenance";
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -2184,7 +2206,8 @@
 /area/ship/tramp_freighter)
 "yme" = (
 /obj/machinery/door/airlock/mining{
-	name = "Captain's Office"
+	name = "Captain's Office";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
@@ -36459,7 +36482,7 @@ ylV
 ylV
 ylV
 ylV
-sDF
+aad
 ylV
 ylV
 ylV

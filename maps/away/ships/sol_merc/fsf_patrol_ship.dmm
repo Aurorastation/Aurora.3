@@ -19,6 +19,72 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
+"aad" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/door/airlock/security{
+	name = "Messhall";
+	req_access = list(203);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/fsf_patrol_ship)
+"aae" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/door/airlock/security{
+	name = "Messhall";
+	req_access = list(203);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/fsf_patrol_ship)
+"aaf" = (
+/obj/machinery/door/airlock/security{
+	name = "EVA";
+	req_access = list(203);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
+"aag" = (
+/obj/machinery/door/airlock/security{
+	name = "Engineering";
+	req_access = list(203);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
+"aah" = (
+/obj/machinery/door/airlock/security{
+	name = "Engineering";
+	req_access = list(203);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
+"aai" = (
+/obj/machinery/door/airlock/security{
+	name = "Head";
+	req_access = list(203);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/fsf_patrol_ship)
+"aaj" = (
+/obj/machinery/door/airlock/security{
+	name = "Head";
+	req_access = list(203);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/fsf_patrol_ship)
+"aak" = (
+/obj/machinery/door/airlock/security{
+	name = "EVA";
+	req_access = list(203);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship)
 "aaI" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
@@ -172,7 +238,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_shuttle_out"
+	id_tag = "sfa_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/fsf_shuttle)
@@ -276,7 +343,8 @@
 "aVu" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Systems";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -491,7 +559,8 @@
 "dhp" = (
 /obj/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -507,7 +576,8 @@
 /area/ship/fsf_patrol_ship)
 "dLJ" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms/Aux CIC"
+	name = "Telecomms/Aux CIC";
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
@@ -1066,7 +1136,8 @@
 "hiw" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
@@ -1143,14 +1214,16 @@
 "huE" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/machinery/door/airlock/security{
-	name = "Infirmary"
+	name = "Infirmary";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
 "hxl" = (
 /obj/machinery/door/airlock/security{
 	name = "Small Arms Locker";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -1239,7 +1312,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_out"
+	id_tag = "sfa_patrol_ship_out";
+	dir = 1
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, airlock"
@@ -1442,7 +1516,8 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/door/airlock/security{
 	name = "Messhall";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
@@ -1521,7 +1596,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
 "ktI" = (
-/obj/machinery/door/airlock/security,
+/obj/machinery/door/airlock/security{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
 "ktN" = (
@@ -1768,7 +1845,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_shuttle_out"
+	id_tag = "sfa_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -1944,7 +2022,8 @@
 "nty" = (
 /obj/machinery/door/airlock/security{
 	name = "Head";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
@@ -1979,7 +2058,8 @@
 "nTM" = (
 /obj/machinery/door/airlock/security{
 	name = "EVA";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2100,7 +2180,8 @@
 "oSU" = (
 /obj/machinery/door/airlock/security{
 	name = "Crew Quarters";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2215,7 +2296,8 @@
 "qgw" = (
 /obj/machinery/door/airlock/security{
 	name = "Lieutenant's Quarters";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2310,7 +2392,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_in"
+	id_tag = "sfa_patrol_ship_in";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -2372,7 +2455,8 @@
 "srj" = (
 /obj/machinery/door/airlock/security{
 	name = "Bridge";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2394,7 +2478,8 @@
 "sKE" = (
 /obj/machinery/door/airlock/security{
 	name = "Briefing Room";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2436,7 +2521,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_in"
+	id_tag = "sfa_patrol_ship_in";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -2564,7 +2650,8 @@
 "udB" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Cell";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2597,7 +2684,8 @@
 "uHi" = (
 /obj/machinery/door/airlock/security{
 	name = "Gym";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -2783,7 +2871,8 @@
 "vTv" = (
 /obj/machinery/door/airlock/security{
 	name = "Engineering";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2796,7 +2885,8 @@
 "wfy" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -2902,7 +2992,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_out"
+	id_tag = "sfa_patrol_ship_out";
+	dir = 1
 	},
 /obj/effect/shuttle_landmark/fsf_patrol_ship/nav2,
 /turf/simulated/floor,
@@ -3019,7 +3110,8 @@
 "xKJ" = (
 /obj/machinery/door/airlock/security{
 	name = "Brig";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -33500,13 +33592,13 @@ yjk
 yjk
 yjk
 yjk
-jHa
-jHa
+aad
+aae
 yjk
 yjk
 yjk
 yjk
-nTM
+aaf
 yjk
 yjk
 yjk
@@ -35553,7 +35645,7 @@ sSs
 mEc
 keV
 sSs
-vTv
+aag
 hBs
 sSs
 gqO
@@ -35810,7 +35902,7 @@ sSs
 mdc
 oie
 sSs
-vTv
+aah
 hBs
 sSs
 gxW
@@ -37108,7 +37200,7 @@ kYY
 kYY
 hVU
 kYY
-nty
+aai
 sSs
 hBs
 hBs
@@ -37358,7 +37450,7 @@ uYP
 uYP
 uYP
 uYP
-nty
+aaj
 kYY
 kYY
 yjk
@@ -37874,7 +37966,7 @@ uYP
 jxF
 yjk
 yjk
-nTM
+aak
 yjk
 yjk
 yjk

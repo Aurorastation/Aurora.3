@@ -1,10 +1,38 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/machinery/door/airlock/generic/maintenance,
+/turf/simulated/floor,
+/area/construction/qmaint)
+"ab" = (
+/obj/machinery/door/airlock/external/blue{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/antag/mercenary)
+"ac" = (
+/obj/machinery/door/airlock/external/purple{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/antag/mercenary)
 "ad" = (
 /obj/machinery/alarm/north{
 	pixel_y = 18
 	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
+"ae" = (
+/obj/machinery/door/airlock/external/khaki{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/antag/mercenary)
+"af" = (
+/obj/machinery/door/airlock/external/red{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/antag/mercenary)
 "ag" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -14,6 +42,12 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
+"ah" = (
+/obj/machinery/door/airlock/external/merc{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/antag/mercenary)
 "aj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -62,7 +96,9 @@
 /area/construction/qmaint)
 "bb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external/purple,
+/obj/machinery/door/airlock/external/purple{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/antag/mercenary)
 "bg" = (
@@ -231,7 +267,9 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
-/obj/machinery/door/airlock/khaki,
+/obj/machinery/door/airlock/khaki{
+	dir = 1
+	},
 /turf/simulated/floor/wood/birch,
 /area/construction/solars)
 "fH" = (
@@ -396,7 +434,9 @@
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
 "it" = (
-/obj/machinery/door/airlock/generic/maintenance,
+/obj/machinery/door/airlock/generic/maintenance{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood/bamboo,
@@ -631,16 +671,22 @@
 /area/construction/hallway)
 "nW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/generic/maintenance,
+/obj/machinery/door/airlock/generic/maintenance{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/construction/qmaint)
 "ol" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external/red,
+/obj/machinery/door/airlock/external/red{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/antag/mercenary)
 "ox" = (
-/obj/machinery/door/airlock/generic/maintenance,
+/obj/machinery/door/airlock/generic/maintenance{
+	dir = 1
+	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -708,7 +754,9 @@
 /turf/template_noop,
 /area/space)
 "pI" = (
-/obj/machinery/door/airlock/generic/maintenance,
+/obj/machinery/door/airlock/generic/maintenance{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/construction/qmaint)
 "pM" = (
@@ -905,7 +953,9 @@
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
 "vY" = (
-/obj/machinery/door/airlock/external/merc,
+/obj/machinery/door/airlock/external/merc{
+	dir = 1
+	},
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "wo" = (
@@ -1091,7 +1141,9 @@
 /area/construction/solars)
 "za" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external/blue,
+/obj/machinery/door/airlock/external/blue{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/antag/mercenary)
 "zE" = (
@@ -1100,7 +1152,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/external/merc,
+/obj/machinery/door/airlock/external/merc{
+	dir = 1
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/construction/qmaint)
 "zM" = (
@@ -1247,7 +1301,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/construction/solarscontrol)
 "CG" = (
-/obj/machinery/door/airlock/external/merc,
+/obj/machinery/door/airlock/external/merc{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/construction/hallway)
 "CJ" = (
@@ -1260,7 +1316,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/external/merc,
+/obj/machinery/door/airlock/external/merc{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/construction/solars)
 "CX" = (
@@ -1296,16 +1354,22 @@
 /area/construction/supplyshuttle)
 "Dt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external/khaki,
+/obj/machinery/door/airlock/external/khaki{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/antag/mercenary)
 "DE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external/merc,
+/obj/machinery/door/airlock/external/merc{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/antag/mercenary)
 "DH" = (
-/obj/machinery/door/airlock/generic/maintenance,
+/obj/machinery/door/airlock/generic/maintenance{
+	dir = 1
+	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -1936,7 +2000,9 @@
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
 "SN" = (
-/obj/machinery/door/airlock/external/merc,
+/obj/machinery/door/airlock/external/merc{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/construction/solarscontrol)
 "SV" = (
@@ -2006,7 +2072,9 @@
 /turf/simulated/wall/r_wall,
 /area/construction/hallway)
 "Us" = (
-/obj/machinery/door/airlock/external/red,
+/obj/machinery/door/airlock/external/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/construction/solarscontrol)
 "Uv" = (
@@ -2155,7 +2223,9 @@
 /turf/simulated/floor/carpet/aquablue,
 /area/construction/solars)
 "ZC" = (
-/obj/machinery/door/airlock/generic/maintenance,
+/obj/machinery/door/airlock/generic/maintenance{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/full,
@@ -24763,7 +24833,7 @@ WY
 nW
 KW
 ye
-pI
+aa
 pz
 pz
 pz
@@ -31189,7 +31259,7 @@ za
 ek
 Bd
 Bd
-wo
+ab
 Bd
 Bd
 Bd
@@ -32731,7 +32801,7 @@ bb
 ek
 Bd
 Bd
-Cj
+ac
 Bd
 Bd
 Bd
@@ -34273,7 +34343,7 @@ Dt
 ek
 Bd
 Bd
-dT
+ae
 Bd
 Bd
 Bd
@@ -35815,7 +35885,7 @@ ol
 ek
 Bd
 Bd
-bY
+af
 Bd
 Bd
 Bd
@@ -37357,7 +37427,7 @@ DE
 ek
 Bd
 Bd
-KZ
+ah
 Bd
 Bd
 Bd

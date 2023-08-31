@@ -1,4 +1,36 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/machinery/door/airlock/centcom{
+	name = "VR Checkpoint";
+	req_access = list(101);
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/cruise/virtual_reality)
+"aab" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/door_helper/unres,
+/turf/simulated/floor/reinforced,
+/area/cruise/virtual_reality)
+"aac" = (
+/obj/machinery/door/airlock/centcom{
+	name = "VR Checkpoint";
+	req_access = list(101);
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/cruise/virtual_reality)
+"aad" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/airlock/glass_security{
+	dir = 4
+	},
+/obj/effect/map_effect/door_helper/unres,
+/turf/simulated/floor/reinforced,
+/area/cruise/virtual_reality)
 "aag" = (
 /obj/effect/decal/fake_object/light_source{
 	desc = "A cozy lamp.";
@@ -705,7 +737,9 @@
 /area/cruise/centerline)
 "aAR" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/glass_security,
+/obj/machinery/door/airlock/glass_security{
+	dir = 1
+	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
@@ -23778,7 +23812,9 @@
 /area/cruise/tcomms_sat)
 "teH" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
@@ -83259,7 +83295,7 @@ oog
 ddu
 jSp
 jSp
-sej
+aaa
 jSp
 jSp
 bDb
@@ -83499,7 +83535,7 @@ ooN
 oog
 dzw
 dzw
-teH
+aab
 dzw
 dzw
 kPa
@@ -83775,7 +83811,7 @@ jSp
 dzw
 dNn
 dzw
-sej
+aac
 vQu
 pVq
 tua
@@ -87611,7 +87647,7 @@ fTq
 oog
 dzw
 dzw
-aAR
+aad
 dzw
 dzw
 kPa

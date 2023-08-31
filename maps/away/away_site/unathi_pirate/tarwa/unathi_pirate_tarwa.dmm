@@ -136,7 +136,8 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory & Ammo Storage";
-	req_access = list(210)
+	req_access = list(210);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/armory)
@@ -215,7 +216,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(210);
-	name = "Ruined Hangar"
+	name = "Ruined Hangar";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/oldhangar)
@@ -256,7 +258,8 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Reactor";
-	req_access = list(210)
+	req_access = list(210);
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/tarwa_ship/engineering1)
@@ -444,7 +447,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(210);
-	name = "EVA Storage"
+	name = "EVA Storage";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
@@ -544,7 +548,8 @@
 	},
 /obj/machinery/door/airlock/diona/external{
 	id_tag = "tarwa_shuttle_external";
-	frequency = 1411
+	frequency = 1411;
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -610,7 +615,8 @@
 "iI" = (
 /obj/machinery/door/airlock/diona/external{
 	id_tag = "tarwa_shuttle_external";
-	frequency = 1411
+	frequency = 1411;
+	dir = 1
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
@@ -741,7 +747,8 @@
 	},
 /obj/machinery/door/airlock/command{
 	req_access = list(210);
-	name = "Captain's Quarters"
+	name = "Captain's Quarters";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/captain)
@@ -983,7 +990,8 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering";
-	req_access = list(210)
+	req_access = list(210);
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
@@ -1115,7 +1123,8 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering";
-	req_access = list(210)
+	req_access = list(210);
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
@@ -1794,7 +1803,8 @@
 	},
 /obj/machinery/door/airlock/diona{
 	req_access = list(210);
-	name = "Diona Quarters"
+	name = "Diona Quarters";
+	dir = 4
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
@@ -1855,7 +1865,8 @@
 	},
 /obj/machinery/door/airlock/glass_service{
 	req_access = list(210);
-	name = "Crew Quarters"
+	name = "Crew Quarters";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
@@ -2130,7 +2141,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/highsecurity{
 	name = "Auxiliary CIC";
-	req_access = list(210)
+	req_access = list(210);
+	dir = 1
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/cic)
@@ -2299,14 +2311,16 @@
 	},
 /obj/machinery/door/airlock/command{
 	req_access = list(210);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship)
 "HR" = (
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(210);
-	name = "Hangar"
+	name = "Hangar";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/hangar)
@@ -2639,7 +2653,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(210);
-	name = "Hangar"
+	name = "Hangar";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/hangar)
@@ -2657,7 +2672,8 @@
 	},
 /obj/machinery/door/airlock/diona{
 	req_access = list(210);
-	name = "Gun Deck"
+	name = "Gun Deck";
+	dir = 4
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
@@ -2703,7 +2719,8 @@
 	},
 /obj/machinery/door/airlock/glass_medical{
 	req_access = list(210);
-	name = "Infirmary"
+	name = "Infirmary";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
@@ -3101,7 +3118,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/door/airlock/diona/external{
 	id_tag = "tarwa_shuttle_internal";
-	frequency = 1411
+	frequency = 1411;
+	dir = 1
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
@@ -3388,7 +3406,8 @@
 "Wx" = (
 /obj/machinery/door/airlock/diona/external{
 	id_tag = "tarwa_shuttle_internal";
-	frequency = 1411
+	frequency = 1411;
+	dir = 1
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
@@ -3409,7 +3428,8 @@
 	},
 /obj/machinery/door/airlock/glass_service{
 	req_access = list(210);
-	name = "Canteen"
+	name = "Canteen";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/canteen)

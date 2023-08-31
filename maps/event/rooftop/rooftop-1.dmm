@@ -12,6 +12,20 @@
 	name = "small tiles"
 	},
 /area/city/mendell)
+"ab" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Administrative Wing";
+	req_access = list(101);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/city/mendell)
+"ac" = (
+/obj/machinery/door/airlock/glass_centcom{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/city/mendell/interior)
 "ad" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -21,6 +35,38 @@
 	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
+/area/city/mendell/interior)
+"ae" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Administrative Wing";
+	req_access = list(101);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/city/mendell/interior)
+"af" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Administrative Wing";
+	req_access = list(101);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/city/mendell/interior)
+"ag" = (
+/obj/machinery/door/airlock/glass_centcom{
+	name = "Kitchen";
+	req_access = list(101);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/city/mendell/interior)
+"ah" = (
+/obj/machinery/door/airlock/glass_centcom{
+	name = "Kitchen";
+	req_access = list(101);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "ai" = (
 /obj/structure/railing/mapped{
@@ -32,6 +78,13 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
+"aj" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/city/mendell)
 "ak" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -41,6 +94,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
+"al" = (
+/obj/machinery/door/airlock/centcom{
+	name = "VR Checkpoint";
+	req_access = list(101);
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/city/mendell)
 "am" = (
 /obj/random/pottedplant,
 /turf/unsimulated/floor{
@@ -58,6 +119,13 @@
 /turf/simulated/abyss{
 	name = "distant cityscape"
 	},
+/area/city/mendell)
+"ao" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/airlock/glass_security{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
 /area/city/mendell)
 "ap" = (
 /obj/effect/floor_decal/corner/blue{
@@ -149,7 +217,9 @@
 /area/city/mendell/interior)
 "aN" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/glass_security,
+/obj/machinery/door/airlock/glass_security{
+	dir = 1
+	},
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "aP" = (
@@ -587,7 +657,8 @@
 /area/city/mendell/interior)
 "di" = (
 /obj/machinery/door/airlock/external{
-	id_tag = "city_shuttle"
+	id_tag = "city_shuttle";
+	dir = 4
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/shuttle/black,
@@ -720,7 +791,8 @@
 "dS" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Kitchen";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/freezer{
@@ -1110,7 +1182,8 @@
 /area/city/mendell)
 "fA" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Executive Supreme Prime Membership Restroom"
+	name = "Executive Supreme Prime Membership Restroom";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
@@ -1863,7 +1936,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "jy" = (
-/obj/machinery/door/airlock/glass_centcom,
+/obj/machinery/door/airlock/glass_centcom{
+	dir = 1
+	},
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "jB" = (
@@ -1908,7 +1983,8 @@
 "jS" = (
 /obj/machinery/door/airlock/centcom{
 	name = "VR Checkpoint";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
@@ -2383,7 +2459,9 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/city/mendell)
 "mR" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/black,
 /area/city/mendell)
 "mS" = (
@@ -2843,7 +2921,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "qh" = (
-/obj/machinery/door/airlock/glass_centcom,
+/obj/machinery/door/airlock/glass_centcom{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "qj" = (
@@ -3357,7 +3437,9 @@
 	},
 /area/city/mendell/interior)
 "sB" = (
-/obj/machinery/door/airlock/glass_centcom,
+/obj/machinery/door/airlock/glass_centcom{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "sF" = (
@@ -3544,7 +3626,9 @@
 /area/city/mendell/interior)
 "tY" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "uc" = (
@@ -3561,7 +3645,8 @@
 "ue" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
@@ -3785,7 +3870,8 @@
 "vy" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
@@ -4102,7 +4188,9 @@
 	},
 /area/city/mendell)
 "xw" = (
-/obj/machinery/door/airlock/glass_centcom,
+/obj/machinery/door/airlock/glass_centcom{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "xx" = (
@@ -5114,7 +5202,8 @@
 "CU" = (
 /obj/machinery/door/airlock/centcom{
 	name = "VR Control Center";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
@@ -5505,7 +5594,8 @@
 "Fm" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
@@ -5690,7 +5780,8 @@
 "GF" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
@@ -6217,7 +6308,8 @@
 /obj/machinery/door/airlock/command{
 	id_tag = null;
 	name = "Conference Room";
-	req_access = list(19)
+	req_access = list(19);
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/city/mendell)
@@ -7346,7 +7438,8 @@
 "PB" = (
 /obj/machinery/door/airlock/freezer{
 	id_tag = "main_unit_2";
-	name = "Unit 2"
+	name = "Unit 2";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
@@ -7547,7 +7640,8 @@
 "QK" = (
 /obj/machinery/door/airlock/freezer{
 	id_tag = "main_unit_1";
-	name = "Unit 1"
+	name = "Unit 1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
@@ -8370,7 +8464,8 @@
 "VA" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
@@ -8695,7 +8790,8 @@
 "Xc" = (
 /obj/machinery/door/airlock/freezer{
 	id_tag = "main_unit_3";
-	name = "Unit 3"
+	name = "Unit 3";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
@@ -15205,7 +15301,7 @@ Pk
 Pk
 Pk
 xq
-Fm
+ab
 xq
 Pk
 Or
@@ -19359,7 +19455,7 @@ ZL
 ZL
 bk
 ZG
-jy
+ac
 ZG
 ZG
 qt
@@ -19815,8 +19911,8 @@ CP
 CP
 CP
 CP
-GF
-GF
+ae
+af
 CP
 Eq
 Eq
@@ -20163,8 +20259,8 @@ UZ
 UZ
 ob
 CP
-Rx
-Rx
+ag
+ah
 CP
 Eq
 Eq
@@ -29211,7 +29307,7 @@ Kg
 xD
 xD
 xD
-tY
+aj
 xD
 xD
 hM
@@ -29665,7 +29761,7 @@ hP
 nQ
 WN
 xD
-jS
+al
 dD
 Hl
 gP
@@ -30603,7 +30699,7 @@ Kg
 xD
 xD
 xD
-aN
+ao
 xD
 xD
 hM

@@ -225,7 +225,8 @@
 	frequency = 1380;
 	icon_state = "door_closed";
 	id_tag = "casino_dock_inner";
-	name = "Docking Port Airlock"
+	name = "Docking Port Airlock";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
@@ -327,7 +328,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Casino Bridge"
+	name = "Casino Bridge";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -341,7 +343,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Casino Bridge"
+	name = "Casino Bridge";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
@@ -530,7 +533,8 @@
 "bG" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Security wing"
+	name = "Security wing";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -604,7 +608,8 @@
 "bM" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Shuttle control"
+	name = "Shuttle control";
+	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -942,7 +947,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Crew toilet"
+	name = "Crew toilet";
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -1055,7 +1061,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Crew bunk room"
+	name = "Crew bunk room";
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -1175,7 +1182,8 @@
 "du" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Crew toilet"
+	name = "Crew toilet";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_crew_bathroom)
@@ -1484,7 +1492,8 @@
 "eB" = (
 /obj/machinery/door/airlock/highsecurity{
 	insecure = 0;
-	name = "Safe area"
+	name = "Safe area";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_security)
@@ -1714,7 +1723,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/structure/cable{
@@ -1729,7 +1739,8 @@
 "fg" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Security wing"
+	name = "Security wing";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -1739,7 +1750,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Shuttle hangar"
+	name = "Shuttle hangar";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -1784,7 +1796,8 @@
 "fo" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Main desk"
+	name = "Main desk";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -1819,7 +1832,8 @@
 "fr" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Shuttle checkpoint"
+	name = "Shuttle checkpoint";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -1911,7 +1925,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -1923,7 +1938,8 @@
 "fF" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Main desk"
+	name = "Main desk";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -2086,7 +2102,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Casino"
+	name = "Casino";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -2234,7 +2251,8 @@
 	frequency = 1438;
 	icon_state = "door_locked";
 	id_tag = "casino_solar_outer";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_solar_control)
@@ -2317,7 +2335,8 @@
 	icon_state = "door_locked";
 	id_tag = "casino_solar_inner";
 	locked = 1;
-	name = "External Access"
+	name = "External Access";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/yellow{
@@ -2520,7 +2539,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_kitchen)
@@ -2657,7 +2677,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -2753,7 +2774,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Solar control"
+	name = "Solar control";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -2766,7 +2788,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Atmos control"
+	name = "Atmos control";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -3202,7 +3225,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Bar storage"
+	name = "Bar storage";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3237,7 +3261,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Bar"
+	name = "Bar";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3618,7 +3643,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4112,7 +4138,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Toilet room"
+	name = "Toilet room";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4224,7 +4251,8 @@
 "lS" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Toilet #1"
+	name = "Toilet #1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_patron_bathroom)
@@ -4254,7 +4282,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Bow"
+	name = "Bow";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4433,7 +4462,8 @@
 "mC" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Toilet #2"
+	name = "Toilet #2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_patron_bathroom)
@@ -4485,7 +4515,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Bow"
+	name = "Bow";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4565,7 +4596,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Engines #1"
+	name = "Engines #1";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_bow)
@@ -4584,7 +4616,8 @@
 	icon_state = "door_locked";
 	id_tag = "escape_pod";
 	locked = 1;
-	name = "Escape Pod"
+	name = "Escape Pod";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_bow)
@@ -4592,7 +4625,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Engines #2"
+	name = "Engines #2";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_bow)
@@ -5102,7 +5136,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -5180,7 +5215,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Cutter door"
+	name = "Cutter door";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/rust,

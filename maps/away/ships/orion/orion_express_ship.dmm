@@ -1,4 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/machinery/door/airlock/mining{
+	name = "Captain's Quarters";
+	req_access = list(201);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion_express_ship)
 "aho" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 6
@@ -302,7 +310,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_n_out"
+	id_tag = "orion_traveler_n_out";
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -909,7 +918,8 @@
 "gHP" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/door/airlock/glass{
-	name = "Food Court"
+	name = "Food Court";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
@@ -941,7 +951,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_express_shuttle_out"
+	id_tag = "orion_express_shuttle_out";
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/orion_express_shuttle)
@@ -958,7 +969,8 @@
 /area/shuttle/orion_express_shuttle)
 "han" = (
 /obj/machinery/door/airlock/service{
-	name = "Restroom"
+	name = "Restroom";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
@@ -1036,7 +1048,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_in"
+	id_tag = "orion_traveler_in";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
@@ -1058,7 +1071,8 @@
 /obj/machinery/door/airlock/glass{
 	layer = 2.71;
 	name = "Commissary";
-	open_layer = 2.71
+	open_layer = 2.71;
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -1082,7 +1096,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_access = list(201)
+	req_access = list(201);
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -1103,7 +1118,8 @@
 "hVK" = (
 /obj/machinery/door/airlock/glass{
 	name = "Cryogenic Storage";
-	req_access = list(201)
+	req_access = list(201);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
@@ -1123,7 +1139,8 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_access = list(201)
+	req_access = list(201);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
@@ -1315,7 +1332,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/glass{
 	name = "Primary Hall";
-	open_layer = 2.71
+	open_layer = 2.71;
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -1394,7 +1412,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_in"
+	id_tag = "orion_traveler_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -1444,7 +1463,8 @@
 /area/shuttle/orion_express_shuttle)
 "kRQ" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -1599,7 +1619,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_n_in"
+	id_tag = "orion_traveler_n_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -1663,7 +1684,8 @@
 /area/ship/orion_express_ship)
 "mmT" = (
 /obj/machinery/door/airlock/glass{
-	name = "Commissary"
+	name = "Commissary";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -1706,14 +1728,16 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_n_in"
+	id_tag = "orion_traveler_n_in";
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "mGO" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_access = list(201)
+	req_access = list(201);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -1748,7 +1772,8 @@
 /obj/machinery/door/airlock/service{
 	name = "Cargo Bay";
 	pixel_x = 3;
-	req_access = list(201)
+	req_access = list(201);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -1869,7 +1894,8 @@
 /area/ship/orion_express_ship)
 "nIu" = (
 /obj/machinery/door/airlock/silver{
-	name = "Toilet"
+	name = "Toilet";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion_express_ship)
@@ -2132,7 +2158,8 @@
 /area/space)
 "pRV" = (
 /obj/machinery/door/airlock/glass{
-	name = "Primary Hall"
+	name = "Primary Hall";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -2551,7 +2578,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_w_in"
+	id_tag = "orion_traveler_w_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -2613,7 +2641,8 @@
 "sLq" = (
 /obj/machinery/door/airlock/mining{
 	name = "Captain's Quarters";
-	req_access = list(201)
+	req_access = list(201);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -2710,7 +2739,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_e_in"
+	id_tag = "orion_traveler_e_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -2719,14 +2749,16 @@
 /obj/machinery/door/airlock/glass{
 	layer = 2.71;
 	name = "Primary Hall";
-	open_layer = 2.71
+	open_layer = 2.71;
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
 "tnO" = (
 /obj/machinery/door/airlock/mining{
 	name = "Crew Quarters";
-	req_access = list(201)
+	req_access = list(201);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -2769,7 +2801,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_n_out"
+	id_tag = "orion_traveler_n_out";
+	dir = 1
 	},
 /obj/effect/shuttle_landmark/orion_express_shuttle/hangar,
 /turf/simulated/floor,
@@ -2927,7 +2960,8 @@
 /area/ship/orion_express_ship)
 "uzX" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Maintenance"
+	name = "Maintenance";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/orion_express_shuttle)
@@ -2971,7 +3005,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_out"
+	id_tag = "orion_traveler_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "aft, airlock"
@@ -3054,7 +3089,8 @@
 "vzk" = (
 /obj/machinery/door/airlock/command{
 	name = "Platform Command Center";
-	req_access = list(201)
+	req_access = list(201);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -3461,7 +3497,8 @@
 "xWp" = (
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
-	req_access = list(201)
+	req_access = list(201);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion_express_ship)
@@ -37524,7 +37561,7 @@ iTn
 ayf
 uGk
 oMV
-sLq
+aaa
 oMV
 oMV
 oMV

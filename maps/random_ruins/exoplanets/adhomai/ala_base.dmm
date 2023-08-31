@@ -1071,7 +1071,8 @@
 "In" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Cell";
-	req_access = list(214)
+	req_access = list(214);
+	dir = 1
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -1133,7 +1134,8 @@
 "Lg" = (
 /obj/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(214)
+	req_access = list(214);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15

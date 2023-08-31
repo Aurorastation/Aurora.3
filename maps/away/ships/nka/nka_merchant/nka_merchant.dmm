@@ -27,6 +27,16 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/hangar)
+"ac" = (
+/obj/machinery/door/airlock/mining{
+	req_access = list(213);
+	name = "Warehouse";
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/warehouse)
 "ae" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -124,7 +134,8 @@
 "av" = (
 /obj/machinery/door/airlock/mining{
 	req_access = list(213);
-	name = "Warehouse"
+	name = "Warehouse";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -233,7 +244,8 @@
 /area/nka_merchant/bridge/secondary)
 "aH" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -711,7 +723,8 @@
 "ck" = (
 /obj/machinery/door/airlock{
 	req_access = list(213);
-	name = "Hangar"
+	name = "Hangar";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -843,7 +856,8 @@
 "cG" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(213);
-	name = "Engine"
+	name = "Engine";
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1203,7 +1217,8 @@
 "dN" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(213);
-	name = "Captain's Quarters"
+	name = "Captain's Quarters";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1652,7 +1667,8 @@
 "fQ" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(213);
-	name = "Airlock Access"
+	name = "Airlock Access";
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1928,7 +1944,8 @@
 "hM" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(213);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2440,7 +2457,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "nka_merchant_shuttle_out"
+	id_tag = "nka_merchant_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -2465,7 +2483,8 @@
 "kj" = (
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(213);
-	name = "Merchant Office"
+	name = "Merchant Office";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3127,7 +3146,8 @@
 "nE" = (
 /obj/machinery/door/airlock{
 	req_access = list(213);
-	name = "Mess Hall"
+	name = "Mess Hall";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3505,7 +3525,8 @@
 "vV" = (
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(213);
-	name = "EVA Storage"
+	name = "EVA Storage";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3758,7 +3779,8 @@
 "zY" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(213);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3913,7 +3935,8 @@
 "Ed" = (
 /obj/machinery/door/airlock{
 	req_access = list(213);
-	name = "Crew Quarters"
+	name = "Crew Quarters";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
@@ -4208,7 +4231,8 @@
 "JF" = (
 /obj/machinery/door/airlock/mining{
 	req_access = list(213);
-	name = "Warehouse"
+	name = "Warehouse";
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -4220,7 +4244,8 @@
 "JX" = (
 /obj/machinery/door/airlock{
 	req_access = list(213);
-	name = "Restroom"
+	name = "Restroom";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4336,7 +4361,8 @@
 "No" = (
 /obj/machinery/door/airlock/engineering{
 	req_access = list(213);
-	name = "Engineering"
+	name = "Engineering";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4411,7 +4437,8 @@
 "OD" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(213);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4618,7 +4645,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "nka_merchant_shuttle_out"
+	id_tag = "nka_merchant_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -18906,7 +18934,7 @@ Df
 iZ
 yc
 yc
-JF
+ac
 bM
 bM
 bM

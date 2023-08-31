@@ -122,7 +122,8 @@
 /obj/machinery/door/airlock/highsecurity{
 	locked = 1;
 	name = "AI Core";
-	req_access = list(16)
+	req_access = list(16);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -155,7 +156,8 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/highsecurity{
 	name = "AI Upload";
-	req_access = list(16)
+	req_access = list(16);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
@@ -626,7 +628,8 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/hatch{
 	name = "Telecoms Satellite";
-	req_access = list(61)
+	req_access = list(61);
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -829,7 +832,8 @@
 "GR" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecoms Control Room";
-	req_access = list(61)
+	req_access = list(61);
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";

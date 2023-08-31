@@ -71,7 +71,8 @@
 /area/burzsia_mining/foreman)
 "cE" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Restroom"
+	name = "Restroom";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/burzsia_mining)
@@ -275,7 +276,8 @@
 "jg" = (
 /obj/machinery/door/airlock/mining{
 	req_access = list(202);
-	name = "Foreman Office"
+	name = "Foreman Office";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -396,7 +398,8 @@
 "lr" = (
 /obj/machinery/door/airlock/mining{
 	req_access = list(202);
-	name = "Engine"
+	name = "Engine";
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -597,7 +600,8 @@
 "pT" = (
 /obj/machinery/door/airlock/mining{
 	req_access = list(202);
-	name = "Atmospherics"
+	name = "Atmospherics";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -757,7 +761,8 @@
 "uU" = (
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(202);
-	name = "Mess Room"
+	name = "Mess Room";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -870,7 +875,8 @@
 /area/burzsia_mining/foreman)
 "zh" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Restroom"
+	name = "Restroom";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1214,7 +1220,8 @@
 "GW" = (
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(202);
-	name = "Mining Bay"
+	name = "Mining Bay";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -1233,7 +1240,8 @@
 "Ht" = (
 /obj/machinery/door/airlock/mining{
 	req_access = list(202);
-	name = "Dormitories"
+	name = "Dormitories";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{

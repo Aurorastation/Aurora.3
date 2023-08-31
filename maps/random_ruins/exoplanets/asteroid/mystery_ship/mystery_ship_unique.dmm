@@ -280,7 +280,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/resting_area)
 "aO" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -346,7 +348,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/resting_area)
 "aV" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -524,7 +528,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/starboard_airlock)
 "by" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular{
 	id = "crashed"
 	},
@@ -585,7 +591,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/mystery_ship/medical)
 "cj" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -779,7 +787,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/armoury)
 "oQ" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -828,7 +838,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/resting_area)
 "ql" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -904,7 +916,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/resting_area)
 "ul" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -1230,7 +1244,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/mystery_ship/medical)
 "GG" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular{
 	id = "crashed"
 	},
@@ -1489,7 +1505,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/power)
 "TK" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular{
 	id = "crashed"
 	},
@@ -1532,7 +1550,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/resting_area)
 "Ug" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},

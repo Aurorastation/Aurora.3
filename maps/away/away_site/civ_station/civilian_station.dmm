@@ -14,7 +14,8 @@
 "aaM" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Owner Room";
-	req_access = list(206)
+	req_access = list(206);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -451,7 +452,8 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/door/airlock/hatch{
 	name = "Owner Room";
-	req_access = list(206)
+	req_access = list(206);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -822,7 +824,8 @@
 /area/civilian_station)
 "fnY" = (
 /obj/machinery/door/airlock/glass{
-	name = "Pool"
+	name = "Pool";
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/civilian_station)
@@ -957,7 +960,8 @@
 /area/civilian_station/hangar)
 "goT" = (
 /obj/machinery/door/airlock/glass{
-	name = "Manager Shop"
+	name = "Manager Shop";
+	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
 /area/civilian_station)
@@ -1007,7 +1011,9 @@
 /area/civilian_station)
 "gQV" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "gTv" = (
@@ -1066,7 +1072,8 @@
 /area/civilian_station)
 "hus" = (
 /obj/machinery/door/airlock{
-	name = "Hotel Room"
+	name = "Hotel Room";
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/civilian_station)
@@ -1152,7 +1159,8 @@
 "hXZ" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Custodian Closet";
-	req_access = list(206)
+	req_access = list(206);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -1352,7 +1360,8 @@
 "jEp" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Holding Cell";
-	req_access = list(206)
+	req_access = list(206);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -1393,7 +1402,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
 "jYb" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -1700,7 +1711,9 @@
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
 "ohm" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/civilian_station/hangar)
@@ -1799,7 +1812,8 @@
 "pxS" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Owner Room";
-	req_access = list(206)
+	req_access = list(206);
+	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
 /area/civilian_station)
@@ -1949,7 +1963,8 @@
 /area/civilian_station)
 "qBS" = (
 /obj/machinery/door/airlock/glass{
-	name = "Store"
+	name = "Store";
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -1997,7 +2012,8 @@
 /area/civilian_station)
 "rmD" = (
 /obj/machinery/door/airlock/glass{
-	name = "Slot Room"
+	name = "Slot Room";
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/civilian_station)
@@ -2025,7 +2041,8 @@
 "rDJ" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Warehouse";
-	req_access = list(206)
+	req_access = list(206);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -2076,7 +2093,8 @@
 "sqL" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Custodian Room";
-	req_access = list(206)
+	req_access = list(206);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)
@@ -2128,7 +2146,8 @@
 /area/civilian_station)
 "sFQ" = (
 /obj/machinery/door/airlock/glass{
-	name = "Store"
+	name = "Store";
+	dir = 1
 	},
 /turf/simulated/floor/lino/diamond,
 /area/civilian_station)
@@ -2138,7 +2157,8 @@
 "tbV" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms Room";
-	req_access = list(206)
+	req_access = list(206);
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/civilian_station)
@@ -2155,7 +2175,8 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/door/airlock/glass{
 	name = "Kitchen";
-	req_access = list(206)
+	req_access = list(206);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/civilian_station)
@@ -2168,7 +2189,8 @@
 "tkG" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Security Office";
-	req_access = list(206)
+	req_access = list(206);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/civilian_station)

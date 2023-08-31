@@ -1,4 +1,18 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/yellow,
+/area/cursed/storage)
+"aab" = (
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/yellow,
+/area/cursed/storage)
 "afk" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -368,7 +382,9 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "bQC" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -452,7 +468,9 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "cmr" = (
-/obj/machinery/door/airlock/security,
+/obj/machinery/door/airlock/security{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "crq" = (
@@ -632,7 +650,9 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "dEv" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
@@ -904,7 +924,9 @@
 /turf/simulated/floor/airless,
 /area/cursed/bridge)
 "fuu" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
@@ -1025,7 +1047,9 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "fWE" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -1286,7 +1310,9 @@
 /turf/simulated/floor,
 /area/cursed/storage)
 "hON" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/engineering)
@@ -1301,7 +1327,9 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "hRl" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
@@ -1499,7 +1527,9 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "jqt" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
@@ -1716,7 +1746,9 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "kGw" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 4;
@@ -1770,7 +1802,9 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "kPZ" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -1928,7 +1962,9 @@
 /turf/simulated/wall,
 /area/cursed/hangar)
 "lLh" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/bridge)
@@ -2194,7 +2230,9 @@
 /turf/simulated/wall,
 /area/cursed/eva_storage)
 "mYB" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
@@ -2385,7 +2423,9 @@
 /obj/machinery/door/blast/shutters{
 	id = "cursedshutters"
 	},
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/hangar)
@@ -2414,7 +2454,9 @@
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "oAe" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 4;
@@ -2477,7 +2519,9 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "oRK" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor,
 /area/cursed/living_area)
@@ -2530,7 +2574,8 @@
 /area/cursed/engineering)
 "phX" = (
 /obj/machinery/door/airlock/highsecurity{
-	bolt_cut_state = 1
+	bolt_cut_state = 1;
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
@@ -2909,7 +2954,9 @@
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "qKC" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
@@ -3362,7 +3409,9 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "tcu" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -3421,7 +3470,9 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/hangar)
 "tDC" = (
-/obj/machinery/door/airlock/medical,
+/obj/machinery/door/airlock/medical{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -3460,7 +3511,9 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "tRM" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -3529,7 +3582,9 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "ujv" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/living_area)
@@ -3754,7 +3809,8 @@
 /area/cursed/living_area)
 "vFJ" = (
 /obj/machinery/door/airlock/highsecurity{
-	bolt_cut_state = 1
+	bolt_cut_state = 1;
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
@@ -4081,7 +4137,9 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "yaP" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
@@ -36866,7 +36924,7 @@ feJ
 rgB
 lyG
 fuu
-jqt
+aaa
 lyG
 enS
 fNj
@@ -37118,7 +37176,7 @@ npR
 xHS
 lyG
 lyG
-jqt
+aab
 lyG
 lyG
 lyG

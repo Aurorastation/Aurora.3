@@ -133,7 +133,9 @@
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 "aB" = (
-/obj/machinery/door/airlock/command,
+/obj/machinery/door/airlock/command{
+	dir = 1
+	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -164,7 +166,9 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "aG" = (
-/obj/machinery/door/airlock/research,
+/obj/machinery/door/airlock/research{
+	dir = 4
+	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
@@ -413,7 +417,9 @@
 /turf/simulated/floor/tiled/freezer,
 /area/bluespaceriver/ship)
 "bt" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
@@ -465,7 +471,9 @@
 /turf/simulated/floor/reinforced,
 /area/bluespaceriver/ship)
 "bE" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -807,7 +815,9 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "hN" = (
-/obj/machinery/door/airlock/research,
+/obj/machinery/door/airlock/research{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},

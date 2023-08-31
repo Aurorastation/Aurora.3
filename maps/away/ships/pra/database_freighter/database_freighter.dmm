@@ -65,7 +65,8 @@
 "am" = (
 /obj/machinery/door/airlock/mining{
 	name = "Hangar";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -320,7 +321,8 @@
 	},
 /obj/machinery/door/airlock/research{
 	req_access = list(209);
-	name = "Laboratory"
+	name = "Laboratory";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -505,7 +507,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "database_freighter_shuttle_out"
+	id_tag = "database_freighter_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -689,7 +692,8 @@
 "cK" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Head Surveyor's Quarters"
+	name = "Head Surveyor's Quarters";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1066,7 +1070,8 @@
 "eA" = (
 /obj/machinery/door/airlock/research{
 	req_access = list(209);
-	name = "Equipment Storage"
+	name = "Equipment Storage";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1190,7 +1195,8 @@
 "fi" = (
 /obj/machinery/door/airlock/engineering{
 	req_access = list(209);
-	name = "Engines"
+	name = "Engines";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1331,7 +1337,8 @@
 "fU" = (
 /obj/machinery/door/airlock/mining{
 	name = "Eva Storage";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark{
@@ -1349,7 +1356,8 @@
 "fZ" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark{
@@ -1701,7 +1709,8 @@
 "hS" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1837,7 +1846,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "database_freighter_shuttle_out"
+	id_tag = "database_freighter_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/database_freighter_shuttle)
@@ -2373,7 +2383,8 @@
 "lU" = (
 /obj/machinery/door/airlock/security{
 	req_access = list(209);
-	name = "Checkpoint"
+	name = "Checkpoint";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark{
@@ -2449,7 +2460,8 @@
 "mm" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Barracks"
+	name = "Barracks";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2511,7 +2523,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
 	req_access = list(209);
-	name = "Spectrometry"
+	name = "Spectrometry";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2847,7 +2860,8 @@
 "rq" = (
 /obj/machinery/door/airlock/security{
 	req_access = list(209);
-	name = "Checkpoint"
+	name = "Checkpoint";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2874,7 +2888,8 @@
 "rM" = (
 /obj/machinery/door/airlock/mining{
 	name = "Hangar";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark{
@@ -3417,7 +3432,8 @@
 "AY" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -3863,7 +3879,8 @@
 "IA" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Restroom"
+	name = "Restroom";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/freezer{
@@ -4061,7 +4078,8 @@
 "LS" = (
 /obj/machinery/door/airlock/mining{
 	name = "Eva Storage";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4197,7 +4215,8 @@
 "Oe" = (
 /obj/machinery/door/airlock/engineering{
 	req_access = list(209);
-	name = "Atmospherics"
+	name = "Atmospherics";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -4398,7 +4417,8 @@
 /obj/machinery/door/airlock/external{
 	id_tag = "database_energy";
 	name = "Exotic Energies Harvesting";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced{
@@ -4543,7 +4563,8 @@
 "Vm" = (
 /obj/machinery/door/airlock/mining{
 	name = "Hangar";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,

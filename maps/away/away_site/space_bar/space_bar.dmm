@@ -152,7 +152,8 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/freezer{
 	name = "Kitchen Freezer";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -199,7 +200,8 @@
 "aHq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
@@ -297,7 +299,8 @@
 "aOU" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Kitchen";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
@@ -459,7 +462,8 @@
 "eIb" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Staff Room";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
@@ -694,7 +698,8 @@
 /area/space_bar/hangar)
 "hNM" = (
 /obj/machinery/door/airlock/glass{
-	name = "Bar"
+	name = "Bar";
+	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
@@ -857,7 +862,8 @@
 /area/space_bar)
 "lkB" = (
 /obj/machinery/door/airlock/silver{
-	name = "Toilet"
+	name = "Toilet";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/space_bar)
@@ -967,7 +973,8 @@
 /area/space_bar)
 "ohm" = (
 /obj/machinery/door/airlock/glass{
-	name = "Bar Lounge"
+	name = "Bar Lounge";
+	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar/hangar)
@@ -1040,7 +1047,8 @@
 "pPZ" = (
 /obj/machinery/door/airlock/maintenance{
 	id_tag = "spacebarroom";
-	name = "Meeting Room"
+	name = "Meeting Room";
+	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
@@ -1393,7 +1401,8 @@
 "wOi" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Garden";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/space_bar)
@@ -1444,7 +1453,8 @@
 /area/space_bar)
 "xzv" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Backroom"
+	name = "Backroom";
+	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4

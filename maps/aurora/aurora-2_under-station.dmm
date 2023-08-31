@@ -111,7 +111,8 @@
 "lo" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Radiator Outpost";
-	req_one_access = list(11,48,65)
+	req_one_access = list(11,48,65);
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -400,7 +401,8 @@
 	id_tag = "cooling_inner";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(11)
+	req_access = list(11);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4

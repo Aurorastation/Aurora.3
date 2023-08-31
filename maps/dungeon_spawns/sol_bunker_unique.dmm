@@ -166,7 +166,9 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/sol_outpost)
 "aI" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "aJ" = (
@@ -366,7 +368,8 @@
 /area/dungeon/sol_outpost)
 "br" = (
 /obj/machinery/door/airlock/centcom{
-	opacity = 1
+	opacity = 1;
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)

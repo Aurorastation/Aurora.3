@@ -1,4 +1,13 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Reactor Room";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/ship/freebooter_ship/thruster2)
 "aab" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -378,7 +387,8 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/engineering{
-	name = "Generator Compartment"
+	name = "Generator Compartment";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/engineering)
@@ -548,7 +558,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/security{
-	name = "Ship Armament"
+	name = "Ship Armament";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/gunnery)
@@ -665,7 +676,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/silver{
-	name = "Lavatory"
+	name = "Lavatory";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
@@ -698,7 +710,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/security{
-	name = "Ship Armament Ammo Storage"
+	name = "Ship Armament Ammo Storage";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/gunnery)
@@ -809,7 +822,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/service{
-	name = "Locker Rooms"
+	name = "Locker Rooms";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/bridge)
@@ -971,7 +985,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Module #7"
+	name = "Module #7";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -1088,7 +1103,9 @@
 /area/ship/freebooter_ship/pod8)
 "bEH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1
+	},
 /obj/structure/cable/yellow{
 	dir = 1;
 	icon_state = "1-2"
@@ -1469,7 +1486,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/silver{
-	name = "Head"
+	name = "Head";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/bridge)
@@ -1681,7 +1699,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Cargo Storage Module"
+	name = "Cargo Storage Module";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod2)
@@ -1804,7 +1823,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Custom Module"
+	name = "Custom Module";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod4)
@@ -1916,7 +1936,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Module #2"
+	name = "Module #2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -2284,7 +2305,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/service{
-	name = "Cabin #2"
+	name = "Cabin #2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod6)
@@ -2359,7 +2381,8 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/atmos{
-	name = "Engineering Storage Compartment"
+	name = "Engineering Storage Compartment";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/engineering)
@@ -2493,7 +2516,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/silver{
-	name = "Lavatory"
+	name = "Lavatory";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
@@ -2851,7 +2875,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Habitation Module"
+	name = "Habitation Module";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod7)
@@ -3015,7 +3040,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/atmos{
-	name = "Engineering Compartment"
+	name = "Engineering Compartment";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -3657,7 +3683,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Secure NanoTrasen Module"
+	name = "Secure NanoTrasen Module";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod8)
@@ -3795,7 +3822,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/medical{
-	name = "Medical Bay"
+	name = "Medical Bay";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/bridge)
@@ -4384,7 +4412,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment"
+	name = "Main Compartment";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/bridge)
@@ -4624,7 +4653,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Module #1"
+	name = "Module #1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -4886,7 +4916,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Refinery Module"
+	name = "Refinery Module";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod3)
@@ -5078,7 +5109,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/highsecurity{
-	name = "Reactor Room"
+	name = "Reactor Room";
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/freebooter_ship/thruster2)
@@ -5329,7 +5361,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/service{
-	name = "Cabin #1"
+	name = "Cabin #1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod1)
@@ -5963,7 +5996,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/service{
-	name = "Dormitories"
+	name = "Dormitories";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/bridge)
@@ -6172,7 +6206,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Module #10"
+	name = "Module #10";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -6406,7 +6441,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/hatch{
-	name = "Propulsion"
+	name = "Propulsion";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster2)
@@ -6493,7 +6529,8 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/silver{
-	name = "Lavatory"
+	name = "Lavatory";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod6)
@@ -6681,7 +6718,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/silver{
-	name = "Lavatory"
+	name = "Lavatory";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod6)
@@ -6710,7 +6748,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Module #8"
+	name = "Module #8";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -6729,7 +6768,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/service{
-	name = "Multi-Purpose Closet"
+	name = "Multi-Purpose Closet";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/bridge)
@@ -6835,7 +6875,8 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/atmos{
-	name = "Engineering Compartment"
+	name = "Engineering Compartment";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -6851,7 +6892,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/service{
-	name = "Cabin #1"
+	name = "Cabin #1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod6)
@@ -7014,7 +7056,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Hydroponics Module"
+	name = "Hydroponics Module";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod5)
@@ -7690,7 +7733,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Module #9"
+	name = "Module #9";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -7722,7 +7766,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/maintenance{
-	name = "Main Compartment"
+	name = "Main Compartment";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/bridge)
@@ -7952,7 +7997,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Two Person Cabin Module"
+	name = "Two Person Cabin Module";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod6)
@@ -8062,7 +8108,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/security{
-	name = "Ship Armament Compartment"
+	name = "Ship Armament Compartment";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/gunnery)
@@ -8078,7 +8125,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/medical{
-	name = "Medical Bay"
+	name = "Medical Bay";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/bridge)
@@ -8853,7 +8901,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/service{
-	name = "Cabin #2"
+	name = "Cabin #2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod1)
@@ -9074,7 +9123,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
 "vxO" = (
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freebooter_shuttle)
@@ -9180,7 +9231,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass_service{
-	name = "Habitation Compartment"
+	name = "Habitation Compartment";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/bridge)
@@ -9223,7 +9275,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Module #6"
+	name = "Module #6";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -9576,7 +9629,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Two Person Cabin Module"
+	name = "Two Person Cabin Module";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod1)
@@ -9586,7 +9640,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/hatch{
-	name = "Propulsion"
+	name = "Propulsion";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
@@ -9888,7 +9943,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/command{
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/bridge)
@@ -10009,7 +10065,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/glass{
-	name = "Cryogenic Storage"
+	name = "Cryogenic Storage";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/bridge)
@@ -45668,7 +45725,7 @@ rFB
 lqh
 rkc
 wCl
-mCl
+aaa
 uiV
 vDk
 rFB

@@ -134,7 +134,8 @@
 /area/derelict)
 "hS" = (
 /obj/machinery/door/airlock/centcom{
-	opacity = 1
+	opacity = 1;
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/derelict)
@@ -848,7 +849,9 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "ML" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/derelict)
 "Nf" = (
@@ -972,7 +975,9 @@
 /turf/simulated/floor/wood/airless,
 /area/derelict)
 "SI" = (
-/obj/machinery/door/airlock/vault/bolted,
+/obj/machinery/door/airlock/vault/bolted{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
 "SW" = (

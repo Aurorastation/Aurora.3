@@ -203,7 +203,8 @@
 "aK" = (
 /obj/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_access = list(20)
+	req_access = list(20);
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
@@ -228,7 +229,8 @@
 /obj/machinery/door/airlock/command{
 	id_tag = "captaindoor";
 	name = "Captain's Office";
-	req_access = list(20)
+	req_access = list(20);
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
@@ -313,10 +315,25 @@
 "be" = (
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
+"bf" = (
+/obj/machinery/door/airlock/maintenance{
+	req_access = list(12);
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/derelict/hallway/northwest)
 "bg" = (
 /obj/structure/table,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
+"bh" = (
+/obj/machinery/door/airlock/freezer{
+	name = "Kitchen cold room";
+	req_access = list(28);
+	dir = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hallway/southwest)
 "bi" = (
 /obj/structure/cryofeed{
 	dir = 4;
@@ -346,6 +363,23 @@
 /area/template_noop)
 "bn" = (
 /turf/simulated/wall/r_wall,
+/area/derelict/hallway/northeast)
+"bo" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_security{
+	name = "Security Processing";
+	req_access = list(1)
+	},
+/turf/simulated/floor/tiled/airless,
+/area/derelict/hallway/northeast)
+"bp" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass_security{
+	name = "Prisoner Items";
+	req_access = list(1);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "bq" = (
 /obj/structure/window/reinforced,
@@ -581,11 +615,16 @@
 /obj/item/ammo_casing/c45,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
+"cj" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/airless,
+/area/derelict/hallway/southeast)
 "ck" = (
 /obj/machinery/door/airlock/freezer{
 	autoclose = 0;
 	icon_state = "door_open";
-	name = "Command Bathroom"
+	name = "Command Bathroom";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -633,10 +672,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
+"ct" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/airless,
+/area/derelict/hallway/southeast)
 "cu" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "AI Upload";
-	req_access = list(16)
+	req_access = list(16);
+	dir = 4
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
@@ -647,7 +691,8 @@
 "cv" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "AI Upload Access";
-	req_access = list(16)
+	req_access = list(16);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
@@ -727,7 +772,8 @@
 "cM" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Messaging Server";
-	req_access = list(16)
+	req_access = list(16);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
@@ -783,7 +829,8 @@
 	autoclose = 0;
 	icon_state = "door_open";
 	name = "Secure Armoury Section";
-	req_access = list(3)
+	req_access = list(3);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -861,6 +908,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
+"dm" = (
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/template_noop)
 "dn" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -1110,6 +1163,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
+"ea" = (
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/template_noop)
 "eb" = (
 /obj/structure/table,
 /obj/item/folder/blue,
@@ -1211,7 +1270,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "ev" = (
@@ -1605,7 +1666,8 @@
 /area/derelict/hallway/northwest)
 "fA" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = list(12);
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
@@ -1684,7 +1746,8 @@
 	icon_state = "door_closed";
 	locked = 0;
 	name = "Fore Port Solar Access";
-	req_access = list(11)
+	req_access = list(11);
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
@@ -1753,7 +1816,8 @@
 "fW" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "E.V.A.";
-	req_one_access = list(18)
+	req_one_access = list(18);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
@@ -1761,7 +1825,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
 	name = "Security Processing";
-	req_access = list(1)
+	req_access = list(1);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -1971,7 +2036,9 @@
 /turf/simulated/floor/tiled/rust,
 /area/derelict/hallway/northwest)
 "gJ" = (
-/obj/machinery/door/airlock/vault/bolted,
+/obj/machinery/door/airlock/vault/bolted{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "gK" = (
@@ -2074,7 +2141,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
 	name = "Prisoner Items";
-	req_access = list(1)
+	req_access = list(1);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -2141,7 +2209,9 @@
 /turf/template_noop,
 /area/derelict/hallway/northwest)
 "hh" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/rust,
 /area/derelict/hallway/northwest)
 "hi" = (
@@ -2326,7 +2396,8 @@
 "hX" = (
 /obj/machinery/door/airlock/external{
 	autoclose = 0;
-	icon_state = "door_open"
+	icon_state = "door_open";
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
@@ -2548,7 +2619,8 @@
 /area/derelict/hallway/southwest)
 "iT" = (
 /obj/machinery/door/airlock{
-	name = "Unit 3"
+	name = "Unit 3";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
@@ -2592,7 +2664,8 @@
 "ja" = (
 /obj/machinery/door/airlock/medical{
 	name = "Morgue";
-	req_access = list(6)
+	req_access = list(6);
+	dir = 1
 	},
 /turf/simulated/floor{
 	icon_state = "dark"
@@ -2603,7 +2676,9 @@
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "jc" = (
-/obj/machinery/door/airlock/research,
+/obj/machinery/door/airlock/research{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "jd" = (
@@ -2764,7 +2839,8 @@
 /area/derelict/hallway/southeast)
 "jE" = (
 /obj/machinery/door/airlock{
-	name = "Unit 4"
+	name = "Unit 4";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
@@ -2851,7 +2927,8 @@
 /obj/machinery/door/airlock/research{
 	id_tag = "researchdoor";
 	name = "Research Division Access";
-	req_access = list(47)
+	req_access = list(47);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
@@ -2921,7 +2998,8 @@
 "kj" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Medbay Maintance";
-	req_access = list(12)
+	req_access = list(12);
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
@@ -3107,7 +3185,8 @@
 "kR" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Bay Maintenance";
-	req_access = list(31)
+	req_access = list(31);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
@@ -3207,7 +3286,8 @@
 "lk" = (
 /obj/machinery/door/airlock/glass_research{
 	name = "Robotics Lab";
-	req_access = list(29)
+	req_access = list(29);
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
@@ -3285,7 +3365,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
-	req_access = list(31)
+	req_access = list(31);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
@@ -3314,7 +3395,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_mining{
 	name = "Delivery Office";
-	req_access = list(50)
+	req_access = list(50);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
@@ -3381,7 +3463,8 @@
 /obj/machinery/door/airlock/research{
 	id_tag = "researchdoor";
 	name = "Research Division Access";
-	req_access = list(47)
+	req_access = list(47);
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white/airless,
@@ -3481,7 +3564,8 @@
 "lW" = (
 /obj/machinery/door/airlock/medical{
 	name = "Morgue";
-	req_access = list(6,5)
+	req_access = list(6,5);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
@@ -3730,7 +3814,8 @@
 "mJ" = (
 /obj/machinery/door/airlock/freezer{
 	name = "Kitchen cold room";
-	req_access = list(28)
+	req_access = list(28);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
@@ -3742,7 +3827,8 @@
 /obj/machinery/door/airlock/glass_medical{
 	id_tag = "GeneticsDoor";
 	name = "Genetics Laboratory";
-	req_access = list(9)
+	req_access = list(9);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
@@ -3831,7 +3917,8 @@
 /obj/machinery/door/airlock/glass_mining{
 	id_tag = "cargodoor";
 	name = "Cargo Office";
-	req_access = list(50)
+	req_access = list(50);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
@@ -4055,7 +4142,8 @@
 "nG" = (
 /obj/machinery/door/airlock/glass_research{
 	name = "Genetics Lab";
-	req_access = list(47)
+	req_access = list(47);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
@@ -4069,7 +4157,8 @@
 "nJ" = (
 /obj/machinery/door/airlock/command{
 	name = "Server Room";
-	req_access = list(30)
+	req_access = list(30);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
@@ -4081,7 +4170,8 @@
 /obj/machinery/door/airlock/mining{
 	id_tag = "cargodoor";
 	name = "Mining Dock";
-	req_access = list(50)
+	req_access = list(50);
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
@@ -4418,7 +4508,8 @@
 /obj/machinery/door/airlock/mining{
 	id_tag = "qmdoor";
 	name = "Quartermaster";
-	req_access = list(41)
+	req_access = list(41);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
@@ -4481,7 +4572,9 @@
 /turf/simulated/floor/wood/airless,
 /area/derelict/hallway/southeast)
 "oU" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/derelict/hallway/southeast)
 "oV" = (
@@ -4627,7 +4720,8 @@
 /area/derelict/hallway/southwest)
 "pr" = (
 /obj/machinery/door/airlock/glass_medical{
-	name = "Break Room"
+	name = "Break Room";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
@@ -4638,7 +4732,8 @@
 "pt" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Medical Equipment";
-	req_access = list(66)
+	req_access = list(66);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
@@ -5179,7 +5274,9 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southeast)
 "rc" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "rd" = (
@@ -5313,7 +5410,8 @@
 /area/derelict/hallway/southeast)
 "ry" = (
 /obj/machinery/door/airlock/medical{
-	name = "Psychiatric Office"
+	name = "Psychiatric Office";
+	dir = 1
 	},
 /turf/simulated/floor{
 	icon_state = "white"
@@ -5518,7 +5616,8 @@
 /area/derelict/hallway/southeast)
 "rZ" = (
 /obj/machinery/door/airlock/glass_command{
-	name = "Chief Medical Officer"
+	name = "Chief Medical Officer";
+	dir = 1
 	},
 /turf/simulated/floor{
 	dir = 2;
@@ -5547,7 +5646,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "sc" = (
@@ -5806,7 +5907,9 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "sM" = (
-/obj/machinery/door/airlock/atmos,
+/obj/machinery/door/airlock/atmos{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "sP" = (
@@ -5975,7 +6078,8 @@
 /area/derelict/hallway/southeast)
 "to" = (
 /obj/machinery/door/airlock/medical{
-	name = "Patient Room 2"
+	name = "Patient Room 2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
@@ -6046,7 +6150,8 @@
 "tx" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Drone Fabrication";
-	req_one_access = list(10,24)
+	req_one_access = list(10,24);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
@@ -6164,7 +6269,9 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "tM" = (
-/obj/machinery/door/airlock/glass_engineering,
+/obj/machinery/door/airlock/glass_engineering{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "tN" = (
@@ -6542,7 +6649,8 @@
 	id_tag = "robotics_solar_outer";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(11,13)
+	req_access = list(11,13);
+	dir = 4
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -6613,7 +6721,8 @@
 "uJ" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Aft Port Solar Access";
-	req_access = list(11)
+	req_access = list(11);
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
@@ -6827,7 +6936,8 @@
 	id_tag = "virology_airlock_interior";
 	locked = 1;
 	name = "Virology Interior Airlock";
-	req_access = list(39)
+	req_access = list(39);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
@@ -6864,7 +6974,8 @@
 /area/derelict/hallway/southeast)
 "vq" = (
 /obj/machinery/door/airlock/medical{
-	name = "Quarantine Zone"
+	name = "Quarantine Zone";
+	dir = 4
 	},
 /turf/simulated/floor{
 	icon_state = "white"
@@ -6895,7 +7006,8 @@
 "vv" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Virology Laboratory";
-	req_access = list(39)
+	req_access = list(39);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
@@ -6921,7 +7033,8 @@
 	autoclose = 0;
 	icon_state = "door_open";
 	name = "SMES Access";
-	req_access = list(11)
+	req_access = list(11);
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/airless,
@@ -7005,7 +7118,8 @@
 "vX" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "SMES Access";
-	req_access = list(11)
+	req_access = list(11);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/southwest)
@@ -22854,7 +22968,7 @@ ac
 ac
 bd
 aH
-fA
+bf
 fQ
 gc
 gc
@@ -31366,7 +31480,7 @@ aa
 aa
 mh
 wq
-mJ
+bh
 iH
 ac
 nD
@@ -41616,11 +41730,11 @@ eR
 fh
 fu
 bn
-fX
+bo
 bb
 bn
 bn
-gZ
+bp
 bn
 bn
 bk
@@ -47580,7 +47694,7 @@ ik
 aa
 aa
 ij
-rc
+cj
 ij
 ij
 Aa
@@ -48605,7 +48719,7 @@ Aa
 in
 aa
 aa
-rc
+ct
 rn
 rA
 ij
@@ -62985,7 +63099,7 @@ aa
 oj
 ar
 ar
-oH
+dm
 az
 az
 az
@@ -62995,7 +63109,7 @@ az
 az
 az
 az
-oH
+ea
 ar
 ar
 oj

@@ -1,8 +1,82 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"ab" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"ac" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"ad" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"ae" = (
+/obj/machinery/door/airlock/mining{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"af" = (
+/obj/machinery/door/airlock/mining{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"ag" = (
+/obj/machinery/door/airlock/mining{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"ah" = (
+/obj/machinery/door/airlock/silver{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
 "ai" = (
 /obj/effect/floor_decal/asteroid,
 /turf/simulated/floor/diona/airless,
 /area/space)
+"aj" = (
+/obj/machinery/door/airlock/mining{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"ak" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"al" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"am" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"an" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
 "aw" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/rust/airless,
@@ -88,7 +162,9 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "fx" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "fN" = (
@@ -219,7 +295,9 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "ji" = (
-/obj/machinery/door/airlock/silver,
+/obj/machinery/door/airlock/silver{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "jm" = (
@@ -508,7 +586,8 @@
 /area/space)
 "sR" = (
 /obj/machinery/door/airlock/silver{
-	name = "Toilet"
+	name = "Toilet";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -550,7 +629,9 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "uO" = (
-/obj/machinery/door/airlock/mining,
+/obj/machinery/door/airlock/mining{
+	dir = 4
+	},
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "vB" = (
@@ -727,7 +808,9 @@
 /turf/simulated/floor/tiled/asteroid/airless,
 /area/space)
 "AQ" = (
-/obj/machinery/door/airlock/mining,
+/obj/machinery/door/airlock/mining{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "AS" = (
@@ -1248,7 +1331,9 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "UE" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "UI" = (
@@ -35934,8 +36019,8 @@ SZ
 SZ
 ky
 KS
-fx
-fx
+aa
+ab
 KS
 ky
 SZ
@@ -36962,8 +37047,8 @@ eK
 SZ
 ky
 ky
-fx
-fx
+ac
+ad
 ky
 ky
 SZ
@@ -42589,7 +42674,7 @@ jm
 jm
 jm
 jm
-AQ
+ae
 jm
 jm
 jm
@@ -43103,7 +43188,7 @@ jm
 jm
 jm
 jm
-AQ
+af
 jm
 jm
 mq
@@ -43632,7 +43717,7 @@ ky
 tu
 yY
 jm
-AQ
+ag
 co
 Vs
 Ms
@@ -46452,7 +46537,7 @@ ky
 Kx
 jm
 jm
-ji
+ah
 jm
 jm
 ky
@@ -47480,7 +47565,7 @@ jm
 kg
 jm
 jm
-AQ
+aj
 Mu
 jm
 vB
@@ -49023,8 +49108,8 @@ ky
 ky
 ky
 ky
-fx
-fx
+ak
+al
 ky
 gV
 gV
@@ -50051,8 +50136,8 @@ gV
 gV
 gV
 ky
-fx
-fx
+am
+an
 ky
 gV
 gV

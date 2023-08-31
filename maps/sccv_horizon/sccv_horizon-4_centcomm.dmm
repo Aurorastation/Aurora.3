@@ -331,6 +331,15 @@
 	icon_state = "wood"
 	},
 /area/centcom/control)
+"abc" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Strongroom";
+	req_access = list(150);
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/reinforced,
+/area/shuttle/mercenary)
 "abe" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
@@ -1750,7 +1759,8 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Bridge";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -4438,7 +4448,8 @@
 	id_tag = "admin_shuttle_hatch";
 	locked = 1;
 	name = "Corvette Hatch";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -5554,7 +5565,8 @@
 /area/merchant_station/warehouse)
 "ame" = (
 /obj/machinery/door/airlock/silver{
-	name = "Washroom"
+	name = "Washroom";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -5568,7 +5580,8 @@
 /area/merchant_station)
 "amg" = (
 /obj/machinery/door/airlock/glass{
-	name = "Infirmary"
+	name = "Infirmary";
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal{
 	dir = 8
@@ -6005,7 +6018,8 @@
 	id_tag = "cargo_shuttle_airlock";
 	locked = 1;
 	name = "Cargo Shuttle";
-	req_access = list(13,31)
+	req_access = list(13,31);
+	dir = 4
 	},
 /obj/effect/shuttle_landmark/supply/horizon/start,
 /turf/simulated/floor/tiled/dark,
@@ -6252,7 +6266,8 @@
 "aoe" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Equipment";
-	req_access = list(110)
+	req_access = list(110);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -6265,7 +6280,8 @@
 "aoh" = (
 /obj/machinery/door/airlock/glass{
 	name = "Lounge";
-	req_access = list(110)
+	req_access = list(110);
+	dir = 4
 	},
 /turf/simulated/floor/lino,
 /area/merchant_station)
@@ -6534,7 +6550,8 @@
 "aoX" = (
 /obj/machinery/door/airlock/glass{
 	name = "Merchant's Office";
-	req_access = list(110)
+	req_access = list(110);
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
@@ -6872,7 +6889,8 @@
 "aqg" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Equipment";
-	req_access = list(110)
+	req_access = list(110);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
@@ -7102,7 +7120,8 @@
 "aqQ" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Lounge";
-	req_access = null
+	req_access = null;
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
@@ -7834,7 +7853,8 @@
 	layer = 2.8;
 	name = "Ship External Access";
 	open_layer = 2.8;
-	req_access = list(110)
+	req_access = list(110);
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -8201,7 +8221,8 @@
 /obj/machinery/door/airlock/silver{
 	hashatch = 0;
 	name = "Bridge";
-	req_access = list(110)
+	req_access = list(110);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
@@ -8543,7 +8564,8 @@
 	layer = 2.8;
 	name = "Ship External Access";
 	open_layer = 2.8;
-	req_access = list(110)
+	req_access = list(110);
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -10025,7 +10047,8 @@
 	icon_state = "door_locked";
 	id_tag = "merchant_station_door";
 	locked = 1;
-	req_access = list(110)
+	req_access = list(110);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
@@ -14074,7 +14097,8 @@
 /area/centcom/specops)
 "aHP" = (
 /obj/machinery/door/airlock/glass_centcom{
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -14343,7 +14367,8 @@
 "aJd" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Entertainment Wing";
-	req_access = null
+	req_access = null;
+	dir = 4
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -20830,7 +20855,8 @@
 	id_tag = "legion_shuttle_aft_interior";
 	locked = 1;
 	name = "Dropship Internal Airlock";
-	req_access = list(111)
+	req_access = list(111);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -23611,7 +23637,8 @@
 "bez" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Cockpit";
-	req_access = list(150)
+	req_access = list(150);
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/syndicate_elite)
@@ -27568,14 +27595,16 @@
 "bnO" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Workshop";
-	req_access = list(150)
+	req_access = list(150);
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bnR" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Crew Cabin";
-	req_access = list(150)
+	req_access = list(150);
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
@@ -28248,7 +28277,8 @@
 	frequency = 1337;
 	id_tag = "merc_shuttle_inner";
 	name = "Ship External Access";
-	req_access = list(0)
+	req_access = list(0);
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/button/remote/blast_door{
@@ -28587,7 +28617,8 @@
 "bpD" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Workshop";
-	req_access = list(150)
+	req_access = list(150);
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -28597,7 +28628,8 @@
 	frequency = 1337;
 	id_tag = "merc_shuttle_inner";
 	name = "Ship External Access";
-	req_access = list(0)
+	req_access = list(0);
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/access_button{
@@ -29925,7 +29957,8 @@
 "bsf" = (
 /obj/machinery/door/airlock/medical{
 	name = "Infirmary";
-	req_access = list(150)
+	req_access = list(150);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -30683,7 +30716,8 @@
 "btz" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Strongroom";
-	req_access = list(150)
+	req_access = list(150);
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
@@ -30691,7 +30725,8 @@
 "btC" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_access = list(150)
+	req_access = list(150);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -30890,7 +30925,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_access = list(150)
+	req_access = list(150);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -32073,7 +32109,8 @@
 	icon_state = "door_locked";
 	id_tag = "raider_southeast_lock";
 	locked = 1;
-	req_access = list(150)
+	req_access = list(150);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -32134,7 +32171,8 @@
 "byi" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Captain's Quarters";
-	req_access = list(150)
+	req_access = list(150);
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -32570,7 +32608,8 @@
 /area/shuttle/skipjack)
 "bzB" = (
 /obj/machinery/door/airlock/hatch{
-	req_access = list(150)
+	req_access = list(150);
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -32832,7 +32871,8 @@
 /area/shuttle/skipjack)
 "bAt" = (
 /obj/machinery/door/airlock/hatch{
-	req_access = list(150)
+	req_access = list(150);
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -32874,7 +32914,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/hatch{
-	req_access = list(150)
+	req_access = list(150);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -33113,7 +33154,8 @@
 /area/shuttle/skipjack)
 "bBt" = (
 /obj/machinery/door/airlock/hatch{
-	req_access = list(150)
+	req_access = list(150);
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -33509,7 +33551,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/hatch{
-	req_access = list(150)
+	req_access = list(150);
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
@@ -85786,7 +85829,7 @@ brk
 bse
 bsK
 axk
-btz
+abc
 axk
 axk
 bwy

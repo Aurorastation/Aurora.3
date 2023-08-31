@@ -8,6 +8,15 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/iac_rescue_ship/starboardengine)
+"aab" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Propulsion";
+	req_access = list(211);
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor,
+/area/ship/iac_rescue_ship/portengine)
 "aac" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -65,7 +74,8 @@
 "aij" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
@@ -118,7 +128,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ambulance_shuttle_out"
+	id_tag = "ambulance_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/iac_shuttle)
@@ -173,7 +184,8 @@
 "aHt" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Pharmacy";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -196,7 +208,8 @@
 "aHx" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Medical";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -223,7 +236,8 @@
 "aLo" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(211);
-	name = "Coordinator's Office"
+	name = "Coordinator's Office";
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -755,7 +769,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/medical)
 "dtu" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
@@ -789,7 +805,8 @@
 "dGm" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -833,7 +850,8 @@
 "ecW" = (
 /obj/machinery/door/airlock/glass{
 	name = "Lounge";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -930,7 +948,8 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled{
@@ -1408,7 +1427,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = null;
 	name = "Bridge";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1950,7 +1970,8 @@
 "kSj" = (
 /obj/machinery/door/airlock/medical{
 	name = "Operating Theatre";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2193,7 +2214,8 @@
 	},
 /obj/machinery/door/airlock/atmos{
 	name = "Atmospherics";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2213,7 +2235,8 @@
 "mYz" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
@@ -2562,7 +2585,8 @@
 "pfE" = (
 /obj/machinery/door/airlock/engineering{
 	req_access = list(211);
-	name = "Engineering"
+	name = "Engineering";
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3215,7 +3239,8 @@
 "tyf" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Medical";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3317,7 +3342,8 @@
 "uef" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Medical";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3342,7 +3368,8 @@
 "umh" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Medical";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
@@ -3370,7 +3397,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ambulance_shuttle_out"
+	id_tag = "ambulance_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -3677,7 +3705,8 @@
 "wYA" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Main Storage";
-	req_access = list(211)
+	req_access = list(211);
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3818,7 +3847,8 @@
 "ylV" = (
 /obj/machinery/door/airlock{
 	id_tag = "cargobreak_t1";
-	name = "Toilet"
+	name = "Toilet";
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -38873,7 +38903,7 @@ xRX
 xRX
 gwf
 heW
-aij
+aab
 tTK
 qVw
 xBq

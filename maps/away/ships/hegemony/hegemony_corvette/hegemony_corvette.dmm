@@ -107,7 +107,8 @@
 "ax" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Engineering";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1006,7 +1007,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1385;
 	icon_state = "door_locked";
-	id_tag = "hegemony_shuttle_out"
+	id_tag = "hegemony_shuttle_out";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 6
@@ -1030,7 +1032,8 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/highsecurity{
 	name = "Bridge";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1425,7 +1428,8 @@
 /area/hegemony_ship/warpriests_quarters)
 "jD" = (
 /obj/machinery/door/airlock/glass{
-	name = "Trophy Room"
+	name = "Trophy Room";
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -1692,7 +1696,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
@@ -2015,7 +2020,8 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/service{
-	name = "Crew's Quarters"
+	name = "Crew's Quarters";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2190,7 +2196,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/hegemony_ship/port_propulsion)
@@ -2585,7 +2592,8 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/highsecurity{
 	name = "Shuttle Dock";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/docking_port)
@@ -2938,7 +2946,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1385;
 	icon_state = "door_locked";
-	id_tag = "hegemony_shuttle_out"
+	id_tag = "hegemony_shuttle_out";
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -3289,7 +3298,9 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/bridge)
 "uu" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
 	d1 = 4;
@@ -3545,7 +3556,8 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/armory)
@@ -3869,7 +3881,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1385;
 	icon_state = "door_locked";
-	id_tag = "hegemony_shuttle_in"
+	id_tag = "hegemony_shuttle_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/hegemony)
@@ -4134,7 +4147,8 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Gun Bay";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
@@ -4148,7 +4162,8 @@
 "zs" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -4556,7 +4571,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1385;
 	icon_state = "door_locked";
-	id_tag = "hegemony_dock_doors"
+	id_tag = "hegemony_dock_doors";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/hegemony_ship/docking_port)
@@ -5138,7 +5154,8 @@
 "Fq" = (
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/glass{
-	name = "Temple"
+	name = "Temple";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5214,7 +5231,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1385;
 	icon_state = "door_locked";
-	id_tag = "hegemony_shuttle_in"
+	id_tag = "hegemony_shuttle_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/hegemony)
@@ -5863,7 +5881,8 @@
 "Jo" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Gun Bay";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6172,7 +6191,8 @@
 "KZ" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Ammo Store";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6457,7 +6477,8 @@
 "MB" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Cell";
-	req_access = list(113)
+	req_access = list(113);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/brig)
@@ -6530,7 +6551,8 @@
 "MZ" = (
 /obj/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_one_access = list(114)
+	req_one_access = list(114);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6876,7 +6898,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1385;
 	icon_state = "door_locked";
-	id_tag = "hegemony_dock_doors"
+	id_tag = "hegemony_dock_doors";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/hegemony_ship/docking_port)
@@ -6967,7 +6990,8 @@
 "PG" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Gunnery Foyer";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7323,7 +7347,8 @@
 /area/shuttle/hegemony)
 "Se" = (
 /obj/machinery/door/airlock/service{
-	name = "Custodial Closet"
+	name = "Custodial Closet";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -7357,7 +7382,8 @@
 "So" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/door/airlock/silver{
-	name = "Restroom"
+	name = "Restroom";
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7477,7 +7503,8 @@
 "SN" = (
 /obj/machinery/door/airlock/atmos{
 	name = "Atmospheric Waste";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7681,7 +7708,8 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/hatch{
 	name = "Telecommunications";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -8409,7 +8437,8 @@
 "YM" = (
 /obj/machinery/door/airlock/atmos{
 	name = "Atmospherics Air Supply";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8536,7 +8565,8 @@
 /area/hegemony_ship/engineering)
 "ZH" = (
 /obj/machinery/door/airlock/silver{
-	name = "Toilet"
+	name = "Toilet";
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -8574,7 +8604,8 @@
 	},
 /obj/machinery/door/airlock/security{
 	name = "Brig";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,

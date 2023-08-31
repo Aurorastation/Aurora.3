@@ -683,7 +683,9 @@
 /turf/template_noop,
 /area/template_noop)
 "nI" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
@@ -694,7 +696,9 @@
 /area/template_noop)
 "nS" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/wood,
 /area/template_noop)
@@ -1241,7 +1245,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "coc_skipjack_in";
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/floor/plating,
@@ -1567,7 +1572,8 @@
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
 	locked = 1;
-	welded = 1
+	welded = 1;
+	dir = 4
 	},
 /obj/structure/inflatable/wall,
 /obj/effect/decal/cleanable/dirt,
@@ -1606,7 +1612,8 @@
 /area/template_noop)
 "Iv" = (
 /obj/machinery/door/airlock/external{
-	electrified_until = 0
+	electrified_until = 0;
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -1641,7 +1648,9 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/template_noop)
 "Ja" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/template_noop)

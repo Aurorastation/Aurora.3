@@ -403,7 +403,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Power Room"
+	name = "Power Room";
+	dir = 1
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1150,7 +1151,8 @@
 /area/mining_jack_outpost/storage)
 "sp" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -1579,7 +1581,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Equipment Storage";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -1726,7 +1729,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Atmospherics"
+	name = "Atmospherics";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -1843,7 +1847,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Smelter";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1889,7 +1894,8 @@
 	id_tag = "tajara_mining_jack_hatch";
 	layer = 2.8;
 	name = "Ship External Access";
-	open_layer = 2.8
+	open_layer = 2.8;
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2000,7 +2006,8 @@
 "JU" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2534,7 +2541,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Crew Quarters";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15

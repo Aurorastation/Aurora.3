@@ -251,7 +251,8 @@
 "bo" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -456,7 +457,8 @@
 "ck" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -572,7 +574,8 @@
 "cF" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -1080,7 +1083,8 @@
 "eS" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fang Hangar";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -1277,7 +1281,8 @@
 /area/peoples_station/hangar)
 "fz" = (
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Hangar"
+	name = "Hangar";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/red{
@@ -1546,7 +1551,8 @@
 "gU" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Firing Range";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1765,7 +1771,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Restroom"
+	name = "Restroom";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2004,7 +2011,8 @@
 "iT" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2061,7 +2069,8 @@
 "jl" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark{
@@ -2152,7 +2161,8 @@
 "jL" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -2203,7 +2213,8 @@
 "jO" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Power Room";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2345,7 +2356,8 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Defenses";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2442,7 +2454,8 @@
 /area/peoples_station)
 "kG" = (
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Hangar"
+	name = "Hangar";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2755,7 +2768,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
 	name = "Armory Distribution";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2854,7 +2868,8 @@
 "mp" = (
 /obj/machinery/door/airlock/glass_medical{
 	req_access = list(209);
-	name = "Medbay"
+	name = "Medbay";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2875,7 +2890,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3175,7 +3191,8 @@
 /area/peoples_station/robotics_bay)
 "nY" = (
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Hangar"
+	name = "Hangar";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
@@ -3479,7 +3496,8 @@
 "pw" = (
 /obj/machinery/door/airlock/service{
 	name = "Custodial Closet";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3802,7 +3820,8 @@
 /area/peoples_station/fang)
 "qT" = (
 /obj/machinery/door/airlock/glass{
-	name = "Recreation Area"
+	name = "Recreation Area";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4001,7 +4020,8 @@
 "rL" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Checkpoint";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4176,7 +4196,8 @@
 /area/shuttle/fang/engine)
 "ss" = (
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Hangar"
+	name = "Hangar";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4339,7 +4360,8 @@
 "ta" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Commissar's Quarters"
+	name = "Commissar's Quarters";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4718,7 +4740,8 @@
 "uR" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Barracks"
+	name = "Barracks";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5040,7 +5063,8 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/airlock/freezer{
 	req_access = list(209);
-	name = "Freezer"
+	name = "Freezer";
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/firedoor,
@@ -5371,7 +5395,8 @@
 "yq" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Restroom"
+	name = "Restroom";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
@@ -5721,7 +5746,8 @@
 "zJ" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5936,7 +5962,8 @@
 /area/peoples_station/bridge)
 "AP" = (
 /obj/machinery/door/airlock/glass{
-	name = "Mess Hall"
+	name = "Mess Hall";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -6014,7 +6041,8 @@
 "Bq" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Firing Range";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6626,7 +6654,8 @@
 "Eg" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7099,7 +7128,8 @@
 /area/peoples_station/restroom)
 "Gk" = (
 /obj/machinery/door/airlock/glass{
-	name = "Mess Hall"
+	name = "Mess Hall";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark{
@@ -7167,7 +7197,8 @@
 "GH" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Robotic Bay";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7363,7 +7394,8 @@
 "Hr" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Captain's Quarters"
+	name = "Captain's Quarters";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7760,7 +7792,8 @@
 "JG" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7911,7 +7944,8 @@
 /area/peoples_station)
 "Kw" = (
 /obj/machinery/door/airlock/security{
-	name = "Zero Gravity Chamber"
+	name = "Zero Gravity Chamber";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -8046,7 +8080,8 @@
 "Ls" = (
 /obj/machinery/door/airlock/glass_engineering{
 	req_access = list(209);
-	name = "EVA Storage"
+	name = "EVA Storage";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8448,7 +8483,8 @@
 "Ni" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark{
@@ -9041,7 +9077,8 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Ammunition Storage";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -9191,7 +9228,8 @@
 	},
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -9418,7 +9456,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9788,7 +9827,8 @@
 	id_tag = "fang_hatch";
 	layer = 2.8;
 	name = "Ship External Access";
-	open_layer = 2.8
+	open_layer = 2.8;
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -10177,7 +10217,8 @@
 "UH" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -10345,7 +10386,8 @@
 "Vn" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Training Wing";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -10682,7 +10724,8 @@
 "Xo" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fang Hangar";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -11195,7 +11238,8 @@
 "Zw" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{

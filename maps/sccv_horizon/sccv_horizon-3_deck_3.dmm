@@ -15233,7 +15233,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 1
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -23693,7 +23693,7 @@
 /obj/machinery/door/airlock/service{
 	name = "Journalist's Office";
 	req_access = list(70);
-	dir = 1
+	dir = 4
 	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor,
@@ -25286,7 +25286,8 @@
 	id_tag = "green_dock_aft_interior";
 	locked = 1;
 	name = "Emergency Services Dock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -26314,7 +26315,8 @@
 	id_tag = "dock_horizon_4_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,

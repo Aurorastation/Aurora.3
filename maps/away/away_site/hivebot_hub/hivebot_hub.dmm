@@ -193,7 +193,8 @@
 	icon_state = "door_locked";
 	id_tag = "solar_outer";
 	locked = 1;
-	name = "Solar External Access"
+	name = "Solar External Access";
+	dir = 1
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -237,7 +238,8 @@
 	icon_state = "door_locked";
 	id_tag = "solar_inner";
 	locked = 1;
-	name = "Solar Access"
+	name = "Solar Access";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/yellow{
@@ -550,6 +552,18 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
 /area/derelict)
+"bm" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	glass = 1380;
+	icon_state = "door_locked";
+	id_tag = "centcom_shuttle_bay_door";
+	locked = 1;
+	name = "Transport Airlock";
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
 "bo" = (
 /obj/structure/table/rack,
 /obj/random/tech_supply,
@@ -708,7 +722,8 @@
 /area/derelict)
 "bI" = (
 /obj/machinery/door/airlock{
-	name = "Control room"
+	name = "Control room";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
@@ -1126,7 +1141,8 @@
 /area/derelict)
 "cW" = (
 /obj/machinery/door/airlock{
-	name = "Cantina"
+	name = "Cantina";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1346,7 +1362,8 @@
 /area/derelict)
 "dN" = (
 /obj/machinery/door/airlock{
-	name = "Cantina"
+	name = "Cantina";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1390,7 +1407,8 @@
 /area/derelict)
 "eb" = (
 /obj/machinery/door/airlock{
-	name = "Bunk room"
+	name = "Bunk room";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1559,7 +1577,8 @@
 /area/derelict)
 "eY" = (
 /obj/machinery/door/airlock{
-	name = "Head"
+	name = "Head";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1725,7 +1744,8 @@
 /area/derelict)
 "fr" = (
 /obj/machinery/door/airlock{
-	name = "Head"
+	name = "Head";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
@@ -30949,7 +30969,7 @@ ac
 av
 av
 aP
-bf
+bm
 av
 av
 av
