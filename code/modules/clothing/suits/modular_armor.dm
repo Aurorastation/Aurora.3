@@ -568,7 +568,7 @@
 	desc = "A patch bearing the ensign of the Free Solarian Fleets, popular among the mercenary group's marines to \
 	denote their loyalty."
 	desc_extended = "Unique amongst the major successor states in the wildlands were the former Solarian battle fleets \
-	of the Free Solarian Fleets. The reason for this uniqueness relate to the Fleets’ origins and goals: while they, \
+	of the Free Solarian Fleets. The reason for this uniqueness relate to the Fleets' origins and goals: while they, \
 	like many successor states, were formerly a Solarian fleet group, the Free Solarian Fleets did not rule over any \
 	planets or claim any greater goals beyond making money hand over fist as mercenaries in the Wildlands. They had \
 	an utter disinterest in conquering and holding territory of their own, instead opting to serve as a mercenary fleet \
