@@ -512,8 +512,8 @@
 /area/ship/sfa_patrol_ship/Brig)
 "bJi" = (
 /obj/machinery/alarm{
-  dir = 1
-  },
+	dir = 1
+	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/Bridge)
 "bLU" = (
@@ -1328,8 +1328,8 @@
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "fiF" = (
 /obj/machinery/alarm{
-  dir = 1
-  },
+	dir = 1
+	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship)
 "fkj" = (
@@ -1579,8 +1579,8 @@
 /area/ship/sfa_patrol_ship)
 "gka" = (
 /obj/machinery/alarm{
-  dir = 1
-  },
+	dir = 1
+	},
 /turf/simulated/wall,
 /area/ship/sfa_patrol_ship/Engineering)
 "gkM" = (
@@ -2880,8 +2880,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/girder,
 /obj/machinery/alarm{
-  dir = 1
-  },
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Telecoms)
 "ltd" = (
