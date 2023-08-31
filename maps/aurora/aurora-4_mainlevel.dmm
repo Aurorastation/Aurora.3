@@ -18543,7 +18543,7 @@
 	},
 /obj/machinery/door/window/brigdoor/southleft{
 	name = "Brig Delivery Door";
-	req_access = newlist()
+	req_access = null
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,

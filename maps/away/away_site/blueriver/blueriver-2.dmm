@@ -564,7 +564,7 @@
 /obj/machinery/vending/wallmed1{
 	name = "Emergency NanoMed";
 	pixel_x = 28;
-	req_access = newlist()
+	req_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
