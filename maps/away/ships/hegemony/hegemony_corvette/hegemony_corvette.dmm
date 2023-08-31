@@ -7161,7 +7161,7 @@
 "QM" = (
 /obj/machinery/ammunition_loader/bruiser{
 	dir = 1;
-	weapon_id = "Hegemony Corvette Bruiser"s
+	weapon_id = "Hegemony Corvette Bruiser"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/gun_deck_bruiser)
