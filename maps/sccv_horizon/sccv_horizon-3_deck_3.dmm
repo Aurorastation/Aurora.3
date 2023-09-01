@@ -15,7 +15,10 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/maintenance/engineering_ladder)
+/area/maintenance/engineering_ladder,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "aaF" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner_wide/green{
@@ -9017,7 +9020,10 @@
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
-/area/bridge/controlroom)
+/area/bridge/controlroom,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "hep" = (
 /obj/machinery/requests_console/east{
 	department = "Journalist's Office"
@@ -9286,7 +9292,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/washroom)
+/area/horizon/crew_quarters/cryo/washroom,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "hmp" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -12134,7 +12143,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/bridge/bridge_crew)
+/area/bridge/bridge_crew,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "jyV" = (
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
@@ -17171,7 +17183,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/washroom)
+/area/horizon/crew_quarters/cryo/washroom,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "nlv" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/target_stake,
@@ -23763,7 +23778,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/washroom)
+/area/horizon/crew_quarters/cryo/washroom,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "suu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -24517,7 +24535,10 @@
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
-/area/bridge/controlroom)
+/area/bridge/controlroom,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "teR" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -26823,7 +26844,10 @@
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled,
-/area/bridge/controlroom)
+/area/bridge/controlroom,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "uOA" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -28393,7 +28417,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/medical/ward/isolation)
+/area/medical/ward/isolation,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "vWQ" = (
 /obj/structure/closet/secure_closet/medical3,
 /obj/item/storage/box/gloves,
@@ -31210,7 +31237,10 @@
 	},
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/captain)
+/area/crew_quarters/captain,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "ymi" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{

@@ -4327,7 +4327,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/hatch{
-	icon_state = "door_locked";
 	id_tag = "engine_electrical_maintenance";
 	locked = 1;
 	name = "Supermatter Reactor SMES";
@@ -4850,6 +4849,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
@@ -8121,6 +8123,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
 "dZG" = (
@@ -8399,6 +8404,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
 "ehU" = (
@@ -11198,6 +11206,9 @@
 	req_access = list(11);
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/locker_room)
 "fCE" = (
@@ -13197,6 +13208,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
 "gtw" = (
@@ -14856,6 +14870,9 @@
 	name = "Shower";
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/operations/break_room)
 "hhx" = (
@@ -15009,6 +15026,9 @@
 /area/horizon/zta)
 "hlc" = (
 /obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -17034,6 +17054,9 @@
 	opacity = 0
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/security_starboard)
 "iji" = (
@@ -26151,6 +26174,9 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "mHO" = (
@@ -28829,6 +28855,9 @@
 	req_one_access = list(11,24);
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "nWu" = (
@@ -31474,6 +31503,9 @@
 	name = "Stall 1";
 	dir = 1
 	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/washroom/central)
 "pkf" = (
@@ -33818,6 +33850,9 @@
 	id_tag = "central_stall_2";
 	name = "Stall 2";
 	dir = 1
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/crew_quarters/washroom/central)
@@ -41294,6 +41329,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "uhw" = (
@@ -41902,6 +41940,9 @@
 /obj/machinery/door/airlock{
 	id_tag = "cargobreak_stall";
 	name = "Stall";
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -46112,6 +46153,9 @@
 	locked = 1;
 	name = "Supermatter Reactor Crystal Access";
 	req_one_access = list(11,24);
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
 	dir = 4
 	},
 /turf/simulated/floor/plating,

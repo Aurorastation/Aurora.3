@@ -13868,7 +13868,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/storage/eva)
+/area/storage/eva,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "jOo" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -17288,7 +17291,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/outpost/mining_main/eva)
+/area/outpost/mining_main/eva,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "mkW" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -20056,7 +20062,10 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
-/area/operations/storage)
+/area/operations/storage,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "ocu" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -24431,7 +24440,10 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_atrium,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "rmB" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
 	dir = 8
@@ -26205,7 +26217,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/hallway/primary/aft)
+/area/hallway/primary/aft,
+/obj/machinery/door/firedoor{
+	dir = 4
+	})
 "szM" = (
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
