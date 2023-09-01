@@ -364,6 +364,11 @@
 	anchored = TRUE
 	layer = ABOVE_ALL_MOB_LAYER
 
+/obj/structure/statue/buddha
+	name = "buddha statue"
+	desc = "A bronze statue of the Amitabha Buddha, the Buddha of Limitless Light."
+	icon_state = "buddha"
+
 /obj/structure/sign/urban
 	name = "building sign"
 	desc = "A sign labeling the structure it finds itself on."
