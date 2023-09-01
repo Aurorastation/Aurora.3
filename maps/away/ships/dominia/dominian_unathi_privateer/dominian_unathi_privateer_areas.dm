@@ -55,6 +55,7 @@
 /area/ship/dominian_unathi/captain
 	name = "Kazhkz Privateer Ship - Captain's Quarters"
 	icon_state = "captain"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/ship/dominian_unathi/canteen
 	name = "Kazhkz Privateer Ship - Canteen"
@@ -67,6 +68,23 @@
 /area/ship/dominian_unathi/loot
 	name = "Kazhkz Privateer Ship - Treasure Room"
 	icon_state = "raider"
+
+/area/ship/dominian_unathi/med
+	name = "Kazhkz Privateer Ship - Medical Bay"
+	icon_state = "medbay"
+
+/area/ship/dominian_unathi/pods
+	name = "Kazhkz Privateer Ship - Boarding Pods"
+	icon_state = "blue"
+
+/area/ship/dominian_unathi/janitor
+	name = "Kazhkz Privateer Ship - Custodial Closet"
+	icon_state = "janitor"
+
+/area/ship/dominian_unathi/toilet
+	name = "Kazhkz Privateer Ship - Head"
+	icon_state = "toilet"
+	sound_env = SMALL_ENCLOSED
 
 //Shuttle
 /area/shuttle/dominian_unathi
