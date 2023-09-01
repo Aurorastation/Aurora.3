@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /obj/machinery/door/airlock/external{
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless{
 	burnt = 3
@@ -408,7 +408,9 @@
 	},
 /area/wrecked_nt_ship)
 "gv" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/airless{
 	burnt = 3
 	},
@@ -528,7 +530,9 @@
 	},
 /area/wrecked_nt_ship)
 "iR" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/airless,
 /area/wrecked_nt_ship)
 "iU" = (

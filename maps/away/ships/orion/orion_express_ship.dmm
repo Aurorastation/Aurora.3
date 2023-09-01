@@ -535,7 +535,8 @@
 "diy" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_access = list(201)
+	req_access = list(201);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/orion_express_ship)
@@ -952,7 +953,7 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_express_shuttle_out";
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/orion_express_shuttle)
@@ -1411,7 +1412,7 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_in";
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -1419,7 +1420,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_e_out"
+	id_tag = "orion_traveler_e_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -1618,7 +1620,7 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_n_in";
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -2432,7 +2434,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_w_out"
+	id_tag = "orion_traveler_w_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/orion_express_ship)
@@ -2800,7 +2803,7 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_n_out";
-	dir = 1
+	dir = 4
 	},
 /obj/effect/shuttle_landmark/orion_express_shuttle/hangar,
 /turf/simulated/floor,
@@ -3002,7 +3005,7 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "orion_traveler_out";
-	dir = 4
+	dir = 1
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "aft, airlock"
@@ -3527,7 +3530,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_out"
+	id_tag = "orion_traveler_out";
+	dir = 1
 	},
 /obj/effect/shuttle_landmark/orion_express_ship/nav3,
 /turf/simulated/floor,

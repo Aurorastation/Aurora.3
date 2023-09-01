@@ -135,7 +135,8 @@
 	frequency = 1380;
 	icon_state = "door_closed";
 	id_tag = "casino_dock_outer";
-	name = "Docking Port Airlock"
+	name = "Docking Port Airlock";
+	dir = 1
 	},
 /obj/effect/landmark/entry_point/south{
 	name = "fore, airlock"
@@ -4542,7 +4543,7 @@
 	id_tag = "escape_pod";
 	locked = 1;
 	name = "Escape Pod";
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_bow)

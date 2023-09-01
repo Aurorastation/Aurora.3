@@ -792,7 +792,7 @@
 	name = "Bridge Glass Airlock";
 	req_access = list(113);
 	req_one_access = null;
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -6186,7 +6186,7 @@
 	name = "Chapter Engineering and Hangar";
 	req_access = null;
 	req_one_access = list(113);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -6344,7 +6344,7 @@
 	icon_state = "door_locked";
 	id_tag = "kataphract_shuttle_in";
 	locked = 1;
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -6362,7 +6362,7 @@
 	icon_state = "door_locked";
 	id_tag = "kata_ship_out";
 	locked = 1;
-	dir = 1
+	dir = 4
 	},
 /obj/effect/shuttle_landmark/nav_kataphract_ship/starboarddock,
 /turf/simulated/floor,
@@ -6790,7 +6790,7 @@
 	icon_state = "door_locked";
 	id_tag = "kata_ship_out";
 	locked = 1;
-	dir = 1
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -6859,7 +6859,7 @@
 /obj/machinery/door/airlock/glass_security{
 	name = "Cell";
 	req_access = list(113);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8386,7 +8386,7 @@
 "FJ" = (
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Trading Area";
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8558,7 +8558,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Armoury";
 	req_one_access = list(115,113);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -9984,7 +9984,7 @@
 	icon_state = "door_locked";
 	id_tag = "kataphract_shuttle_out";
 	locked = 1;
-	dir = 4
+	dir = 1
 	},
 /obj/effect/landmark/entry_point/north{
 	name = "port, airlock"

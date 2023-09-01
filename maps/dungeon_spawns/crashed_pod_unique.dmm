@@ -55,7 +55,7 @@
 /obj/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	locked = 1;
-	dir = 4
+	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/shuttle,
@@ -104,7 +104,7 @@
 /obj/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	locked = 1;
-	dir = 4
+	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/shuttle,

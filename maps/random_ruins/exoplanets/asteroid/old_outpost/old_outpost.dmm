@@ -318,7 +318,7 @@
 	id_tag = "mining_west_outer";
 	locked = 1;
 	name = "Mining External Access";
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/old_outpost/hallway)
@@ -621,7 +621,7 @@
 "kJ" = (
 /obj/machinery/door/airlock/glass{
 	name = "Crew Area";
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/blue{
@@ -1307,7 +1307,7 @@
 	id_tag = "mining_west_inner";
 	locked = 1;
 	name = "Mining External Access";
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -2104,7 +2104,7 @@
 "DZ" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Infirmary";
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/blue{
@@ -2516,7 +2516,7 @@
 	id_tag = "mining_outpost_outer";
 	locked = 1;
 	name = "Mining Dock Airlock";
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/old_outpost/refinery)

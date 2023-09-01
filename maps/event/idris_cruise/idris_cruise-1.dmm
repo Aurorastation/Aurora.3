@@ -10,7 +10,7 @@
 "aab" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/door/airlock/external{
-	dir = 4
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/reinforced,
@@ -26,11 +26,30 @@
 "aad" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/door/airlock/glass_security{
-	dir = 4
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
+"aae" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock{
+	name = "Aft Washroom";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "freezer"
+	},
+/area/cruise/washroom_aft)
+"aaf" = (
+/obj/machinery/door/airlock{
+	name = "VR Suite";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "tiled_preview"
+	},
+/area/cruise/arcade)
 "aag" = (
 /obj/effect/decal/fake_object/light_source{
 	desc = "A cozy lamp.";
@@ -50,6 +69,47 @@
 	name = "dirt"
 	},
 /area/cruise/jungle)
+"aah" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/cruise/escort)
+"aai" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/cruise/escort)
+"aaj" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/cruise/escort)
+"aak" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/cruise/escort)
+"aal" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/cruise/escort)
 "aas" = (
 /obj/machinery/vending/coffee,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -377,7 +437,8 @@
 "amx" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Ship Security Armory";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -598,7 +659,8 @@
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/airlock/glass_security{
 	name = "Coalition Base Entry";
-	req_access = list(12)
+	req_access = list(12);
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -673,7 +735,8 @@
 "awo" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	name = "Aft Washroom"
+	name = "Aft Washroom";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "freezer"
@@ -1491,7 +1554,8 @@
 "bar" = (
 /obj/machinery/door/airlock{
 	id_tag = "c1";
-	name = "Washroom Stall"
+	name = "Washroom Stall";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -2068,7 +2132,8 @@
 "bsm" = (
 /obj/machinery/door/airlock{
 	id_tag = "c3";
-	name = "Washroom Stall"
+	name = "Washroom Stall";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -2197,7 +2262,8 @@
 "byz" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/door/airlock/glass{
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -2455,7 +2521,8 @@
 "bME" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Living Hall Reception Desk";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -3086,7 +3153,8 @@
 "cqh" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/door/airlock/glass{
-	name = "Cafe"
+	name = "Cafe";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -3733,7 +3801,8 @@
 "cQK" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Lift";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor7"
@@ -4931,7 +5000,8 @@
 "dWM" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Upper Deck Security";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -5373,7 +5443,8 @@
 	},
 /obj/machinery/door/airlock/glass_security{
 	name = "Coalition Base Entry";
-	req_access = list(12)
+	req_access = list(12);
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -6860,7 +6931,8 @@
 /area/cruise/pool)
 "fxw" = (
 /obj/machinery/door/airlock/glass{
-	name = "Main Bar"
+	name = "Main Bar";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -7256,7 +7328,9 @@
 	},
 /area/cruise/beach)
 "fLN" = (
-/obj/machinery/door/airlock/centcom,
+/obj/machinery/door/airlock/centcom{
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
 	},
@@ -7420,7 +7494,8 @@
 "fSV" = (
 /obj/machinery/door/airlock{
 	id_tag = "a3";
-	name = "Washroom Stall"
+	name = "Washroom Stall";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "freezer"
@@ -7494,7 +7569,8 @@
 "fVi" = (
 /obj/machinery/door/airlock/freezer{
 	id_tag = "main_unit_2";
-	name = "Changing Room 2"
+	name = "Changing Room 2";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -7597,7 +7673,8 @@
 "gaM" = (
 /obj/machinery/door/airlock/freezer{
 	id_tag = "main_unit_1";
-	name = "Changing Room 1"
+	name = "Changing Room 1";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -8335,7 +8412,8 @@
 "gAl" = (
 /obj/machinery/door/airlock{
 	id_tag = "jungle_1";
-	name = "Washroom Stall"
+	name = "Washroom Stall";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -8610,7 +8688,8 @@
 /area/cruise/pool)
 "gLg" = (
 /obj/machinery/door/airlock{
-	name = "Central Washroom"
+	name = "Central Washroom";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -9061,7 +9140,8 @@
 "hdd" = (
 /obj/machinery/door/airlock{
 	id_tag = "beach_2";
-	name = "Washroom Stall"
+	name = "Washroom Stall";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -9238,7 +9318,8 @@
 "hnK" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Ship Security";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
@@ -9822,7 +9903,8 @@
 /area/cruise/beach_cave)
 "hMx" = (
 /obj/machinery/door/airlock/glass{
-	name = "Fore Midship Hallway"
+	name = "Fore Midship Hallway";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -10808,7 +10890,8 @@
 /area/cruise/jungle)
 "iAG" = (
 /obj/machinery/door/airlock/service{
-	name = "Public Backup Custodial Closet"
+	name = "Public Backup Custodial Closet";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -11219,7 +11302,8 @@
 "iTq" = (
 /obj/machinery/door/airlock{
 	id_tag = "a1";
-	name = "Washroom Stall"
+	name = "Washroom Stall";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "freezer"
@@ -11396,7 +11480,8 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Fore Midship Hallway"
+	name = "Fore Midship Hallway";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -12012,7 +12097,8 @@
 /area/cruise/main_bar/aft)
 "jxS" = (
 /obj/machinery/door/airlock/glass{
-	name = "Fresh Pantry"
+	name = "Fresh Pantry";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -12403,7 +12489,9 @@
 /turf/template_noop,
 /area/cruise/fore_p)
 "jUX" = (
-/obj/machinery/door/airlock/centcom,
+/obj/machinery/door/airlock/centcom{
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -12580,7 +12668,8 @@
 /area/cruise/main_bar)
 "kdk" = (
 /obj/machinery/door/airlock{
-	name = "Emergency Supplies Closet"
+	name = "Emergency Supplies Closet";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -13181,7 +13270,9 @@
 	},
 /area/cruise/main_bar)
 "kyB" = (
-/obj/machinery/door/airlock/centcom,
+/obj/machinery/door/airlock/centcom{
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor7"
 	},
@@ -13352,7 +13443,8 @@
 /area/cruise/main_bar)
 "kFu" = (
 /obj/machinery/door/airlock/glass_centcom{
-	name = "Livestock Exit"
+	name = "Livestock Exit";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -13361,7 +13453,8 @@
 "kFQ" = (
 /obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12)
+	req_access = list(12);
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/unsimulated/floor{
@@ -13718,7 +13811,8 @@
 "kVS" = (
 /obj/machinery/door/airlock{
 	id_tag = "jungle_2";
-	name = "Washroom Stall"
+	name = "Washroom Stall";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -14083,7 +14177,8 @@
 "lky" = (
 /obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12)
+	req_access = list(12);
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/unsimulated/floor{
@@ -14123,7 +14218,8 @@
 /area/cruise/beach_cave)
 "lmg" = (
 /obj/machinery/door/airlock{
-	name = "VR Suite"
+	name = "VR Suite";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
@@ -14708,7 +14804,8 @@
 "lHS" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Brig";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -15394,7 +15491,8 @@
 "mif" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Hangar Oversight";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -16772,7 +16870,8 @@
 /area/cruise/hangar)
 "nov" = (
 /obj/machinery/door/airlock{
-	name = "Emergency Supplies Closet"
+	name = "Emergency Supplies Closet";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -19211,7 +19310,8 @@
 /area/cruise/jungle)
 "pnu" = (
 /obj/machinery/door/airlock{
-	name = "Central Washroom"
+	name = "Central Washroom";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -19434,7 +19534,9 @@
 	},
 /area/cruise/pool)
 "ptT" = (
-/obj/machinery/door/airlock/centcom,
+/obj/machinery/door/airlock/centcom{
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -20278,7 +20380,8 @@
 /area/cruise/aft_s)
 "qif" = (
 /obj/machinery/door/airlock{
-	name = "Beach"
+	name = "Beach";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -20298,7 +20401,8 @@
 "qkI" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Ship Security Armory";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -20669,7 +20773,8 @@
 "qBV" = (
 /obj/machinery/door/airlock{
 	id_tag = "c2";
-	name = "Washroom Stall"
+	name = "Washroom Stall";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -21200,7 +21305,8 @@
 "qZJ" = (
 /obj/machinery/door/airlock/freezer{
 	id_tag = "sauna_3";
-	name = "Private Sauna Suite Three"
+	name = "Private Sauna Suite Three";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -21338,7 +21444,8 @@
 /area/cruise/hangar)
 "rgm" = (
 /obj/machinery/door/airlock/service{
-	name = "Public Backup Custodial Closet"
+	name = "Public Backup Custodial Closet";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -22357,7 +22464,8 @@
 "sbC" = (
 /obj/machinery/door/airlock{
 	id_tag = "beach_1";
-	name = "Washroom Stall"
+	name = "Washroom Stall";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -23663,7 +23771,8 @@
 "tci" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Ship Security Chief Office";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -24275,7 +24384,8 @@
 "tyU" = (
 /obj/machinery/door/airlock/service{
 	id_tag = "private_office_bolts";
-	name = "Private Office"
+	name = "Private Office";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -24826,7 +24936,8 @@
 "tWB" = (
 /obj/machinery/door/airlock/service{
 	id_tag = "reading_room_bolts";
-	name = "Reading Room"
+	name = "Reading Room";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -25807,7 +25918,8 @@
 "uDX" = (
 /obj/machinery/door/airlock/freezer{
 	id_tag = "sauna_2";
-	name = "Private Sauna Suite Two"
+	name = "Private Sauna Suite Two";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -25958,7 +26070,8 @@
 "uKQ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Fore Midship Hallway"
+	name = "Fore Midship Hallway";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -26220,7 +26333,8 @@
 /area/cruise/central)
 "uWb" = (
 /obj/machinery/door/airlock{
-	name = "Aft Washroom"
+	name = "Aft Washroom";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -26354,7 +26468,8 @@
 "vbV" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Living Hall Reception Desk";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/firedoor,
@@ -26981,7 +27096,8 @@
 "vHa" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	name = "Main Bar"
+	name = "Main Bar";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
@@ -27671,7 +27787,8 @@
 "wiq" = (
 /obj/machinery/door/airlock/freezer{
 	id_tag = "sauna_1";
-	name = "Private Sauna Suite One"
+	name = "Private Sauna Suite One";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -27750,7 +27867,8 @@
 "wkx" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Teleporter Room";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -29087,7 +29205,8 @@
 	},
 /obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12)
+	req_access = list(12);
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -29161,7 +29280,8 @@
 "xsw" = (
 /obj/machinery/door/airlock{
 	id_tag = "a2";
-	name = "Washroom Stall"
+	name = "Washroom Stall";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "freezer"
@@ -67668,7 +67788,7 @@ ska
 ska
 ska
 ska
-awo
+aae
 ska
 ska
 tpw
@@ -70741,7 +70861,7 @@ jUL
 jUL
 vQF
 sjz
-lmg
+aaf
 sjz
 sjz
 juG
@@ -83093,7 +83213,7 @@ iTi
 lHZ
 lHZ
 nMY
-jUX
+aah
 iTi
 cVN
 cws
@@ -83595,7 +83715,7 @@ xla
 xHt
 qZL
 nMY
-jUX
+aai
 jTE
 lHZ
 lHZ
@@ -84121,7 +84241,7 @@ fSf
 daT
 rqe
 jjt
-ptT
+aaj
 iTi
 mag
 nsg
@@ -84647,7 +84767,7 @@ dzW
 xeN
 arG
 nMY
-jUX
+aak
 iTi
 nsg
 nsg
@@ -84901,7 +85021,7 @@ xeN
 mNt
 arG
 nMY
-jUX
+aal
 iTi
 arG
 xeN

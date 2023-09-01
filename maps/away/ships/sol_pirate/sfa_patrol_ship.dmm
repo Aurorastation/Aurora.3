@@ -6,6 +6,27 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship/Engine1)
+"aab" = (
+/obj/machinery/door/airlock/security{
+	has_set_boltlight = 1;
+	icon_state = "door_locked";
+	locked = 1;
+	name = "Gym";
+	req_access = list(203);
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/obj/item/tape/engineering,
+/turf/unsimulated/floor,
+/area/ship/sfa_patrol_ship)
+"aac" = (
+/obj/machinery/door/airlock/security{
+	name = "Weapons Control";
+	req_access = list(203);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sfa_patrol_ship)
 "aaI" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
@@ -204,10 +225,12 @@
 "aDq" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /obj/machinery/door/airlock/highsecurity{
-	name = "Ship Munitions Storage"
+	name = "Ship Munitions Storage";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2054,7 +2077,8 @@
 "ikb" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -2803,7 +2827,7 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "freight_shuttle_out";
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
@@ -3497,7 +3521,7 @@
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
 	req_access = list(203);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Brig)
@@ -4545,7 +4569,8 @@
 "tDi" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -4822,7 +4847,8 @@
 "vaQ" = (
 /obj/machinery/door/airlock/security{
 	name = "Weapons Control";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4979,7 +5005,7 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "freight_shuttle_out";
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/sfa_patrol_ship)
@@ -5251,7 +5277,8 @@
 	has_set_boltlight = 1;
 	icon_state = "door_locked";
 	locked = 1;
-	name = "Ship Munitions Storage"
+	name = "Ship Munitions Storage";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -5355,7 +5382,8 @@
 	icon_state = "door_locked";
 	locked = 1;
 	name = "Gym";
-	req_access = list(203)
+	req_access = list(203);
+	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/item/tape/engineering,
@@ -24080,7 +24108,7 @@ uCL
 kZP
 kZP
 vwg
-xHa
+aab
 vwg
 vwg
 vwg
@@ -28204,7 +28232,7 @@ qcH
 yjk
 yjk
 ikb
-wfy
+aac
 oEi
 kWk
 qfX

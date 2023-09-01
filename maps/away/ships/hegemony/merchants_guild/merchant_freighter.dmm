@@ -3282,7 +3282,7 @@
 /obj/machinery/door/airlock/command{
 	name = "Bridge";
 	req_access = list(215);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)

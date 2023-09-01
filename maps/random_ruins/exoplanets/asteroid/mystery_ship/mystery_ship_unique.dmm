@@ -645,7 +645,8 @@
 	icon_state = "door_locked";
 	id_tag = "engine_access_hatch";
 	locked = 1;
-	req_access = list(11)
+	req_access = list(11);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/port_airlock)
@@ -841,7 +842,8 @@
 	icon_state = "door_locked";
 	id_tag = "engine_access_hatch";
 	locked = 1;
-	req_access = list(11)
+	req_access = list(11);
+	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/mystery_ship/starboard_airlock)

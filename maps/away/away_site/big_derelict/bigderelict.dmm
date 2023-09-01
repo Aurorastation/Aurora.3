@@ -64,7 +64,9 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "an" = (
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/derelict)
 "ao" = (
@@ -79,7 +81,9 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
 "aq" = (
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/derelict)
 "ar" = (
@@ -227,7 +231,7 @@
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge";
 	req_access = list(19);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/derelict)
@@ -774,7 +778,7 @@
 "cl" = (
 /obj/machinery/door/airlock/glass_science{
 	name = "Research";
-	dir = 4
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white/airless,
@@ -1063,7 +1067,7 @@
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge";
 	req_access = list(19);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/tiled/dark/airless,
@@ -1563,13 +1567,15 @@
 /area/derelict)
 "eN" = (
 /obj/machinery/door/airlock{
-	name = "Cabin"
+	name = "Cabin";
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
 "eO" = (
 /obj/machinery/door/airlock{
-	name = "Bunk Room"
+	name = "Bunk Room";
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -1588,7 +1594,9 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "eS" = (
-/obj/machinery/door/airlock/glass_engineering,
+/obj/machinery/door/airlock/glass_engineering{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/derelict)
 "eT" = (

@@ -212,7 +212,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering)
 "aC" = (
@@ -1335,13 +1337,15 @@
 /area/storage/primary)
 "dn" = (
 /obj/machinery/door/airlock/glass{
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "do" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry)
 "dp" = (
@@ -1371,6 +1375,12 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/construction)
+"dt" = (
+/obj/machinery/door/airlock{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "du" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
@@ -9859,7 +9869,7 @@ bY
 UW
 bB
 cx
-Wa
+dt
 bB
 cP
 KE

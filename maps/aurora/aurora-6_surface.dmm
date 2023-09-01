@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
 /obj/machinery/door/airlock/glass{
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
@@ -18,7 +18,7 @@
 /obj/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	locked = 1;
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
@@ -1458,7 +1458,7 @@
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13);
-	dir = 1
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -1769,7 +1769,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 1
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -1790,7 +1790,7 @@
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -2169,7 +2169,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -2678,7 +2678,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
@@ -3198,7 +3198,7 @@
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
@@ -3541,7 +3541,7 @@
 	locked = 1;
 	name = "Arrivals Airlock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -3828,7 +3828,7 @@
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
@@ -3985,7 +3985,7 @@
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
@@ -4628,7 +4628,7 @@
 	locked = 1;
 	name = "Arrivals Airlock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -4654,7 +4654,7 @@
 "edA" = (
 /obj/machinery/door/airlock/glass{
 	name = "NSS Aurora";
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4711,7 +4711,7 @@
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13);
-	dir = 1
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -5611,7 +5611,8 @@
 	id_tag = "command_surface_outer";
 	locked = 1;
 	name = "Command Docking Exterior Access";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
@@ -7928,7 +7929,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -8855,7 +8856,7 @@
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13);
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/dock)
@@ -8960,7 +8961,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -9489,7 +9490,7 @@
 	name = "Engineering External Access";
 	req_access = null;
 	req_one_access = list(10,11,13);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -9552,7 +9553,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
@@ -10521,7 +10522,8 @@
 	id_tag = "command_surface_outer";
 	locked = 1;
 	name = "Command Docking Exterior Access";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -10579,7 +10581,7 @@
 	id_tag = "merchant_shuttle_dock_outer";
 	locked = 1;
 	req_access = list(13);
-	dir = 1
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -10894,7 +10896,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
@@ -13331,7 +13333,7 @@
 	locked = 1;
 	name = "Escape Airlock";
 	req_access = list(13);
-	dir = 1
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -13434,7 +13436,7 @@
 	locked = 1;
 	name = "Escape Airlock";
 	req_access = list(13);
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
@@ -14333,7 +14335,7 @@
 	locked = 1;
 	name = "Arrivals Airlock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -15063,7 +15065,7 @@
 	locked = 1;
 	name = "Arrivals Airlock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -15246,7 +15248,7 @@
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -15367,7 +15369,7 @@
 "nBO" = (
 /obj/machinery/door/airlock/glass{
 	name = "Blue Dock";
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -15603,7 +15605,7 @@
 	icon_state = "door_locked";
 	id_tag = "science_bridge_in";
 	name = "Shuttle Docking Port";
-	dir = 4
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -15977,7 +15979,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
@@ -17839,7 +17841,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
@@ -18389,7 +18391,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -18555,7 +18557,7 @@
 	name = "Engineering External Access";
 	req_access = null;
 	req_one_access = list(10,11,13);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -18735,7 +18737,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
@@ -19628,7 +19630,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -20481,7 +20483,7 @@
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
@@ -21551,7 +21553,7 @@
 	locked = 1;
 	name = "Escape Airlock";
 	req_access = list(13);
-	dir = 1
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -22224,7 +22226,7 @@
 /obj/machinery/door/airlock/security{
 	name = "Security Checkpoint";
 	req_access = list(63);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -23025,7 +23027,7 @@
 	locked = 1;
 	name = "Port Docking Hatch";
 	req_access = list(13);
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
@@ -24410,7 +24412,7 @@
 	name = "Engineering External Access";
 	req_access = null;
 	req_one_access = list(10,11,13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/structure/cable/yellow{
@@ -26337,7 +26339,7 @@
 	name = "Engineering External Access";
 	req_access = null;
 	req_one_access = list(10,11,13);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;

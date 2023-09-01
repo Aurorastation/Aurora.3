@@ -2,7 +2,7 @@
 "aaa" = (
 /obj/machinery/door/airlock/glass{
 	name = "Hangar A";
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/racers)

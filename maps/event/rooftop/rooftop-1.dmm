@@ -22,7 +22,7 @@
 /area/city/mendell)
 "ac" = (
 /obj/machinery/door/airlock/glass_centcom{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
@@ -81,7 +81,7 @@
 "aj" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/door/airlock/external{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
@@ -123,7 +123,7 @@
 "ao" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/door/airlock/glass_security{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
@@ -232,7 +232,8 @@
 "aW" = (
 /obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12)
+	req_access = list(12);
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/unsimulated/floor{
@@ -2826,7 +2827,8 @@
 /area/city/mendell/interior)
 "pp" = (
 /obj/machinery/door/airlock/glass_centcom{
-	name = "Hotel Suites"
+	name = "Hotel Suites";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -2922,7 +2924,7 @@
 /area/city/mendell)
 "qh" = (
 /obj/machinery/door/airlock/glass_centcom{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
@@ -3536,7 +3538,8 @@
 "tC" = (
 /obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12)
+	req_access = list(12);
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/unsimulated/floor{
@@ -5251,7 +5254,8 @@
 	},
 /obj/machinery/door/airlock/glass_security{
 	name = "Coalition Base Entry";
-	req_access = list(12)
+	req_access = list(12);
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -7113,7 +7117,8 @@
 	},
 /obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12)
+	req_access = list(12);
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -7399,7 +7404,8 @@
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/airlock/glass_security{
 	name = "Coalition Base Entry";
-	req_access = list(12)
+	req_access = list(12);
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	dir = 8;

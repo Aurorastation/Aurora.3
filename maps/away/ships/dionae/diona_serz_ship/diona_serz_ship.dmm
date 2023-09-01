@@ -24,7 +24,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/hall)
 "ae" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	dir = 4
+	},
 /turf/simulated/floor/diona,
 /area/shuttle/diona_serz_ship_shuttle)
 "af" = (
@@ -88,7 +90,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/armory)
 "ca" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	dir = 4
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
 "cj" = (
@@ -997,7 +1001,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/engine)
 "Oo" = (
-/obj/machinery/door/airlock/diona/external,
+/obj/machinery/door/airlock/diona/external{
+	dir = 4
+	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, compartment"
 	},
@@ -1009,7 +1015,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/armory)
 "OK" = (
-/obj/machinery/door/airlock/diona,
+/obj/machinery/door/airlock/diona{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/hall)

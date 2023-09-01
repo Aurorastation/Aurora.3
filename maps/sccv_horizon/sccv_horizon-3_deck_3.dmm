@@ -11794,6 +11794,9 @@
 	req_one_access = list(2,3,4);
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/horizon/security/evidence_storage)
 "jjy" = (
@@ -15233,7 +15236,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -23693,7 +23696,7 @@
 /obj/machinery/door/airlock/service{
 	name = "Journalist's Office";
 	req_access = list(70);
-	dir = 4
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor,
@@ -25287,7 +25290,7 @@
 	locked = 1;
 	name = "Emergency Services Dock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -26316,7 +26319,7 @@
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -28386,7 +28389,8 @@
 /obj/machinery/door/airlock/hatch{
 	lights = 0;
 	locked = 1;
-	name = "Maintenance Hatch"
+	name = "Maintenance Hatch";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/medical/ward/isolation)
@@ -28642,6 +28646,9 @@
 "wik" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(4);
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -30587,6 +30594,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/interrogation)
 "xDz" = (
@@ -31193,7 +31201,8 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Decrepit Maintenance Hatch";
 	req_access = list(20);
-	secured_wires = 1
+	secured_wires = 1;
+	dir = 4
 	},
 /obj/machinery/door/blast/shutters{
 	id = "shutters_runcaprun";

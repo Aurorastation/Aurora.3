@@ -588,7 +588,9 @@
 	},
 /area/saniorios_smuggler)
 "xA" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},

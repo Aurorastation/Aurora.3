@@ -790,7 +790,7 @@
 	id_tag = "scrapper_station_door";
 	locked = 1;
 	req_access = list(202);
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
@@ -3367,7 +3367,7 @@
 	layer = 2.8;
 	name = "Ship External Access";
 	open_layer = 2.8;
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)

@@ -2697,7 +2697,7 @@
 "afp" = (
 /obj/machinery/door/airlock/external{
 	welded = 1;
-	dir = 1
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
@@ -4801,7 +4801,7 @@
 /obj/machinery/door/airlock/glass_atmos{
 	name = "Port Station";
 	req_access = list(24);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5637,7 +5637,7 @@
 /obj/machinery/door/airlock/glass_research{
 	name = "Research Hallway";
 	req_access = list(47);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9117,7 +9117,7 @@
 /obj/machinery/door/airlock/glass_security{
 	name = "Security Office";
 	req_access = list(63);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -14424,7 +14424,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering EVA Storage";
 	req_one_access = list(11,24);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
@@ -14489,7 +14489,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
 	req_one_access = list(10);
-	dir = 4
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
@@ -15663,7 +15663,7 @@
 /obj/machinery/door/airlock/glass_security{
 	name = "Holding Cell";
 	req_access = list(2);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -19239,7 +19239,7 @@
 	id_tag = "HoSdoor";
 	name = "Head of Security's Office";
 	req_access = list(58);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -19794,7 +19794,7 @@
 	id_tag = "";
 	name = "Bridge";
 	req_access = list(19);
-	dir = 4
+	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/effect/map_effect/door_helper/unres{
@@ -23556,7 +23556,7 @@
 /obj/machinery/door/airlock{
 	name = "Journalist's Office";
 	req_access = list(70);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -26993,7 +26993,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
 	req_one_access = list(10);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -27012,7 +27012,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engineering Hallway";
 	req_one_access = list(10);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/map_effect/door_helper/unres{
@@ -27102,7 +27102,7 @@
 /obj/machinery/door/airlock/glass_command{
 	name = "E.V.A.";
 	req_one_access = list(18);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -32316,7 +32316,7 @@
 	id_tag = "EXdoor1";
 	name = "Examination Room 1";
 	req_one_access = list(5);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/exam_room)
@@ -33090,7 +33090,7 @@
 /obj/machinery/door/airlock/medical{
 	name = "Examination Room 2";
 	req_one_access = list(5);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -33609,7 +33609,7 @@
 	autoclose = 0;
 	name = "Cyborgification Bay";
 	req_access = list(29);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
@@ -35531,7 +35531,7 @@
 /obj/machinery/door/airlock/glass_command{
 	name = "Level A Lift";
 	req_one_access = list(19,38,72);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -38171,7 +38171,7 @@
 	id_tag = "CMOdoor";
 	name = "Chief Medical Officer's Office";
 	req_access = list(40);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -39398,7 +39398,7 @@
 /obj/machinery/door/airlock/glass_command{
 	name = "Level A Lift";
 	req_one_access = list(19,38,72);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -40493,7 +40493,7 @@
 	name = "Custodial Closet";
 	req_access = null;
 	req_one_access = list(26,66);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -40982,7 +40982,7 @@
 /obj/machinery/door/airlock/glass_research{
 	name = "Circuitry Lab";
 	req_access = list(7);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/misc_lab)
@@ -42134,7 +42134,7 @@
 	locked = 1;
 	name = "Research Maintenance External Access";
 	req_access = list(13);
-	dir = 1
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -44417,7 +44417,7 @@
 	id_tag = "rdmdoor";
 	name = "Research Director's Meeting Room";
 	req_access = list(30);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -46269,7 +46269,7 @@
 /obj/machinery/door/airlock/glass_medical{
 	name = "Pre/Post-OP";
 	req_access = null;
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -46696,7 +46696,7 @@
 	name = "Telescience";
 	req_access = null;
 	req_one_access = list(7,29);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
@@ -47248,7 +47248,7 @@
 	name = "Room 3";
 	req_access = null;
 	req_one_access = list(12,66);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
@@ -49249,7 +49249,7 @@
 	locked = 1;
 	name = "Engineering External Access";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -49574,7 +49574,7 @@
 	locked = 1;
 	name = "Engineering External Access";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
@@ -58111,7 +58111,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/glass_command{
 	name = "Diplomatic Reception";
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
@@ -61824,7 +61824,7 @@
 	name = "Room 1";
 	req_access = null;
 	req_one_access = list(12,66);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/medbay)
@@ -64031,7 +64031,7 @@
 	name = "Room 2";
 	req_access = null;
 	req_one_access = list(12,66);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/medbay)
@@ -66840,7 +66840,7 @@
 /obj/machinery/door/airlock/glass_research{
 	name = "Robotics Lab";
 	req_access = list(29);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)

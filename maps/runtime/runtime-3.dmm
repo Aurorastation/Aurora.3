@@ -1,6 +1,8 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/machinery/door/airlock/generic/maintenance,
+/obj/machinery/door/airlock/generic/maintenance{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/construction/qmaint)
 "ab" = (
@@ -136,7 +138,9 @@
 /turf/simulated/floor,
 /area/construction/hallway)
 "bY" = (
-/obj/machinery/door/airlock/external/red,
+/obj/machinery/door/airlock/external/red{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/antag/mercenary)
 "cC" = (
@@ -172,7 +176,9 @@
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
 "dT" = (
-/obj/machinery/door/airlock/external/khaki,
+/obj/machinery/door/airlock/external/khaki{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/antag/mercenary)
 "dX" = (
@@ -951,7 +957,9 @@
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
 "wo" = (
-/obj/machinery/door/airlock/external/blue,
+/obj/machinery/door/airlock/external/blue{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/antag/mercenary)
 "wq" = (
@@ -1259,7 +1267,9 @@
 /turf/simulated/wall,
 /area/construction/supplyshuttle)
 "Cj" = (
-/obj/machinery/door/airlock/external/purple,
+/obj/machinery/door/airlock/external/purple{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/antag/mercenary)
 "Cr" = (
@@ -1604,7 +1614,9 @@
 /turf/simulated/floor,
 /area/construction/qmaint)
 "KZ" = (
-/obj/machinery/door/airlock/external/merc,
+/obj/machinery/door/airlock/external/merc{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/antag/mercenary)
 "Lb" = (

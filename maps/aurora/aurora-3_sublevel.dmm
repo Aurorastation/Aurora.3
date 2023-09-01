@@ -15,7 +15,7 @@
 	luminosity = 1;
 	name = "Engineering Sub-Level EVA";
 	req_access = list(10,13);
-	dir = 4
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -3781,7 +3781,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Break Room";
 	req_one_access = null;
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
@@ -11703,7 +11703,7 @@
 	id_tag = "research_outer";
 	locked = 1;
 	name = "Xenoarchaeology External Airlock";
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -12141,7 +12141,7 @@
 	locked = 1;
 	name = "Xenoarchaeology Internal Airlock";
 	open_layer = 2.8;
-	dir = 4
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
@@ -13883,7 +13883,7 @@
 /obj/machinery/door/airlock/glass_medical{
 	name = "Dusty Airlock";
 	req_access = list(66);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
@@ -16479,7 +16479,7 @@
 	id_tag = "patient_1";
 	name = "Sub-Acute A";
 	req_access = null;
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -16516,7 +16516,7 @@
 	id_tag = "patient_2";
 	name = "Sub-Acute B";
 	req_access = null;
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -16533,7 +16533,7 @@
 	id_tag = "patient_3";
 	name = "Sub-Acute C";
 	req_access = null;
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -16570,7 +16570,7 @@
 	id_tag = "patient_4";
 	name = "Sub-Acute D";
 	req_access = null;
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -18031,7 +18031,7 @@
 /obj/machinery/door/airlock/medical{
 	name = "Autopsy Laboratory";
 	req_access = list(6);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -18960,7 +18960,7 @@
 	locked = 1;
 	name = "Phoron Explosives Research Department";
 	req_access = list(8);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -19808,7 +19808,7 @@
 /obj/machinery/door/airlock/glass_research{
 	name = "Data Compilation Office";
 	req_access = list(47);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -23925,7 +23925,7 @@
 /obj/machinery/door/airlock/research{
 	name = "Toxins Processing";
 	req_access = list(7);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -25013,7 +25013,8 @@
 	icon_state = "door_locked";
 	id_tag = "toxins_external_outer";
 	locked = 1;
-	name = "Toxins External Access"
+	name = "Toxins External Access";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/rnd/mixing)
@@ -26465,7 +26466,7 @@
 	luminosity = 1;
 	name = "Engineering Sub-Level EVA";
 	req_access = list(10,13);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
@@ -26474,7 +26475,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Tesla Bay";
 	req_one_access = list(11,24);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -29100,7 +29101,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Storage";
 	req_access = list(10);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)

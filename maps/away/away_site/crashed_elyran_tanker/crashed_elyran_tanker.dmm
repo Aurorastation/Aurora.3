@@ -3111,7 +3111,9 @@
 /turf/simulated/floor,
 /area/crashed_elyran_tanker/crew)
 "Fd" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -3588,7 +3590,9 @@
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/tanks)
 "JB" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -3634,7 +3638,9 @@
 /turf/simulated/floor/tiled,
 /area/crashed_elyran_tanker/crew)
 "Ki" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/engineering)
@@ -3929,7 +3935,9 @@
 /turf/simulated/floor/airless,
 /area/crashed_elyran_tanker/engineering)
 "Na" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -4795,7 +4803,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/crashed_elyran_tanker/tanks)
 "Vk" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},

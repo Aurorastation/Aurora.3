@@ -346,7 +346,7 @@
 	icon_state = "door_locked";
 	id_tag = "fuckyou2_outer";
 	locked = 1;
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator)
@@ -475,7 +475,7 @@
 	icon_state = "door_locked";
 	id_tag = "fuckyou2_inner";
 	locked = 1;
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator)
@@ -4937,7 +4937,8 @@
 	id_tag = "medical_rafters";
 	locked = 1;
 	name = "Rafters Maintenance";
-	req_access = 12
+	req_access = 12;
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
@@ -7510,7 +7511,7 @@
 	icon_state = "door_locked";
 	id_tag = "fuckyou3_inner";
 	locked = 1;
-	dir = 4
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -7523,7 +7524,7 @@
 	id_tag = "fuckyou1_outer";
 	locked = 1;
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -10538,7 +10539,7 @@
 	id_tag = "fuckyou1_inner";
 	locked = 1;
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -10744,7 +10745,7 @@
 	icon_state = "door_locked";
 	id_tag = "fuckyou3_outer";
 	locked = 1;
-	dir = 4
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,

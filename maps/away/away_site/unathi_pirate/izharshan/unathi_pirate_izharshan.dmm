@@ -88,7 +88,8 @@
 /area/shuttle/unathi_pirate_izharshan/helm)
 "cV" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -487,7 +488,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan_outer";
-	name = "Ship External Access"
+	name = "Ship External Access";
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/helm)
@@ -1124,7 +1126,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan_outer";
-	name = "Ship External Access"
+	name = "Ship External Access";
+	dir = 1
 	},
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"

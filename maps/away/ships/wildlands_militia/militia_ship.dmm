@@ -275,7 +275,7 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "sfa_patrol_ship_out";
-	dir = 1
+	dir = 4
 	},
 /obj/effect/shuttle_landmark/militia_ship/nav2,
 /turf/simulated/floor,
@@ -344,7 +344,7 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "sfa_patrol_ship_out";
-	dir = 1
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, airlock"

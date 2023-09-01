@@ -1285,7 +1285,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Fuel Bay";
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/miners_guild/fuel_bay)

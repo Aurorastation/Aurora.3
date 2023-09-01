@@ -812,7 +812,7 @@
 /obj/machinery/door/airlock/external{
 	icon_state = "door_locked";
 	locked = 1;
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)

@@ -2279,7 +2279,7 @@
 /obj/machinery/door/airlock/command{
 	req_access = list(210);
 	name = "Bridge";
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship)

@@ -776,7 +776,9 @@
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/bridge)
 "Fh" = (
-/obj/machinery/door/airlock/diona,
+/obj/machinery/door/airlock/diona{
+	dir = 4
+	},
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/kitchen)
 "FD" = (

@@ -1434,7 +1434,7 @@
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Supermatter Reactor Monitoring Room";
 	req_one_access = list(11,24);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres{
@@ -2294,7 +2294,7 @@
 	id_tag = "merchant_shuttle_dock_outer";
 	locked = 1;
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -2525,7 +2525,7 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "AI SMES and External Maintenance";
 	req_access = list(16);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -2667,7 +2667,7 @@
 	locked = 1;
 	name = "Docking Port Airlock";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -13189,7 +13189,7 @@
 /obj/machinery/door/airlock/glass_security{
 	name = "Communal Observation";
 	req_access = list(2);
-	dir = 4
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -13701,7 +13701,8 @@
 "gDO" = (
 /obj/machinery/door/airlock/glass_service{
 	name = "Hydroponics";
-	req_one_access = list(35,28)
+	req_one_access = list(35,28);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -14792,7 +14793,7 @@
 	id_tag = "researchdoor";
 	name = "Research Director's Office";
 	req_access = list(30);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/map_effect/door_helper/unres{
@@ -16985,7 +16986,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/atmos{
 	name = "Deck 2 Starboard Auxiliary Atmospherics";
-	req_one_access = list(11,24)
+	req_one_access = list(11,24);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
@@ -17039,7 +17041,7 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Front Desk";
 	req_access = list(10);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/lobby)
@@ -17642,7 +17644,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	dir = 2
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
@@ -20443,7 +20445,7 @@
 /obj/machinery/door/airlock/glass_security{
 	desc = "It opens and closes. Hazardous lifeforms ahead. Caution advised!";
 	name = "Security Lobby";
-	dir = 2
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -21398,7 +21400,7 @@
 "kmI" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	dir = 2
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
@@ -22073,7 +22075,7 @@
 /obj/machinery/door/airlock/glass_medical{
 	name = "Pharmacy";
 	req_access = list(33);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -24894,7 +24896,7 @@
 	id_tag = "BrigFoyer";
 	name = "Security Wing";
 	req_access = list(63);
-	dir = 2
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -25571,7 +25573,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_service{
 	name = "Library";
-	dir = 2
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -29451,7 +29453,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
-	dir = 2
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
@@ -33277,9 +33279,9 @@
 /area/horizon/security/brig)
 "qgL" = (
 /obj/machinery/door/airlock/vault/bolted{
-	dir = 4;
 	id_tag = "Vault_Airlock";
-	req_one_access = list(20,41)
+	req_one_access = list(20,41);
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -34132,7 +34134,7 @@
 	id_tag = "qmdoor";
 	name = "Operations Manager";
 	req_access = list(41);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -48682,7 +48684,7 @@
 /obj/machinery/door/airlock/glass_medical{
 	name = "Medical";
 	req_access = list(5);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
@@ -49364,7 +49366,7 @@
 /obj/machinery/door/airlock/medical{
 	name = "Psychiatric Office";
 	req_access = list(64);
-	dir = 4
+	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
 /turf/simulated/floor/tiled/full,

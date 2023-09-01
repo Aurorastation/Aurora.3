@@ -70,11 +70,15 @@
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "am" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "an" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "aw" = (

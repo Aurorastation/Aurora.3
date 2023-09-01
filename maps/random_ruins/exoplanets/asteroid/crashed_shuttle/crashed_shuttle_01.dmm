@@ -304,7 +304,9 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)
 "HN" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/template_noop)
 "Ik" = (

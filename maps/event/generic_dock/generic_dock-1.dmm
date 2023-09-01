@@ -42,10 +42,87 @@
 	locked = 1;
 	name = "Shuttle Hatch";
 	req_access = list(13);
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
+"aae" = (
+/obj/machinery/door/airlock/glass_centcom{
+	name = "Sector Administration Copula";
+	req_access = null;
+	req_one_access = list(109,108);
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/centcom/control)
+"aaf" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Bureau Supervisor's Office";
+	req_access = list(109);
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/centcom/control)
+"aag" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Civil Protection Station";
+	req_access = list(103);
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/centcom/holding)
+"aah" = (
+/obj/machinery/door/airlock/glass_security{
+	name = "Holding Cell";
+	req_access = list(1);
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/centcom/holding)
+"aai" = (
+/obj/machinery/door/airlock/glass_centcom{
+	name = "Valkyrie's Rest Kitchen";
+	req_access = list(105);
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "lino_diamond"
+	},
+/area/centcom/bar)
+"aaj" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "centcom_dock_airlock";
+	locked = 1;
+	name = "Arrivals Airlock";
+	req_access = list(13);
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/unsimulated/floor,
+/area/centcom/evac)
+"aak" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "centcom_dock_airlock";
+	locked = 1;
+	name = "Arrivals Airlock";
+	req_access = list(13);
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/unsimulated/floor,
+/area/centcom/evac)
 "aal" = (
 /obj/machinery/light/small{
 	brightness_power = 0.5;
@@ -56,6 +133,43 @@
 	icon_state = "dark_preview"
 	},
 /area/centcom/control)
+"aam" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "centcom_dock_airlock";
+	locked = 1;
+	name = "Arrivals Airlock";
+	req_access = list(13);
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/unsimulated/floor,
+/area/centcom/evac)
+"aan" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "centcom_arrivals_airlock";
+	locked = 1;
+	name = "Arrivals Airlock";
+	req_access = list(13);
+	dir = 1
+	},
+/turf/unsimulated/floor,
+/area/centcom/spawning)
+"aao" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "centcom_arrivals_airlock";
+	locked = 1;
+	name = "Arrivals Airlock";
+	req_access = list(13);
+	dir = 1
+	},
+/turf/unsimulated/floor,
+/area/centcom/spawning)
 "aap" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
@@ -658,7 +772,8 @@
 	locked = 1;
 	name = "Rapid Transit Ticket Kiosk";
 	opacity = 0;
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
@@ -687,7 +802,8 @@
 	id_tag = "centcom_arrivals_airlock";
 	locked = 1;
 	name = "Arrivals Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -699,7 +815,8 @@
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Lower Shuttle Terminal";
 	req_access = null;
-	req_one_access = list(108,109)
+	req_one_access = list(108,109);
+	dir = 4
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -744,7 +861,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "specops_centcom_dock_door";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor{
@@ -786,7 +904,8 @@
 	id_tag = "specops_shuttle_port_hatch";
 	locked = 1;
 	name = "Docking Port Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
@@ -967,7 +1086,8 @@
 	id_tag = "centcom_shuttle_hatch";
 	locked = 1;
 	name = "Shuttle Hatch";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/transport1)
@@ -1019,7 +1139,8 @@
 	id_tag = "escape_shuttle_hatch";
 	locked = 1;
 	name = "Shuttle Hatch";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
@@ -4312,7 +4433,8 @@
 "dXh" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Commander's Office";
-	req_access = list(108)
+	req_access = list(108);
+	dir = 4
 	},
 /obj/machinery/door/blast/odin{
 	dir = 2;
@@ -6039,7 +6161,8 @@
 	id_tag = "arrival_shuttle_hatch";
 	locked = 1;
 	name = "Shuttle Hatch";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/arrival)
@@ -6168,7 +6291,8 @@
 	id_tag = "specops_shuttle_fore_hatch";
 	locked = 1;
 	name = "Forward Docking Hatch";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
@@ -6946,7 +7070,8 @@
 	id_tag = "supply_shuttle_hatch";
 	locked = 1;
 	name = "Shuttle Hatch";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/supply/dock)
@@ -7149,7 +7274,8 @@
 	id_tag = "arrival_shuttle_hatch";
 	locked = 1;
 	name = "Shuttle Hatch";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /obj/effect/shuttle_landmark/arrival/start,
 /turf/simulated/floor/shuttle/tan,
@@ -7293,7 +7419,8 @@
 "hGv" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Bureau Supervisor's Office";
-	req_access = list(109)
+	req_access = list(109);
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -7832,7 +7959,8 @@
 "iqm" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Briefing Room";
-	req_access = list(103)
+	req_access = list(103);
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
@@ -9321,7 +9449,7 @@
 /obj/machinery/door/airlock/centcom{
 	name = "Entertainment Wing";
 	req_access = null;
-	dir = 4
+	dir = 1
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -9349,7 +9477,8 @@
 "kml" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Cell 2";
-	req_access = list(105)
+	req_access = list(105);
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
@@ -9411,7 +9540,8 @@
 	id_tag = "admin_shuttle_hatch";
 	locked = 1;
 	name = "Corvette Hatch";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/plasticflaps/airtight,
@@ -9565,7 +9695,8 @@
 	id_tag = "supply_shuttle_hatch";
 	locked = 1;
 	name = "Shuttle Hatch";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/supply/dock)
@@ -10110,7 +10241,8 @@
 /obj/machinery/door/airlock/glass_centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Mendell City Shuttle Terminal";
-	req_access = null
+	req_access = null;
+	dir = 4
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -10386,7 +10518,7 @@
 "lBD" = (
 /obj/machinery/door/airlock/glass_centcom{
 	req_access = list(101);
-	dir = 1
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -11062,7 +11194,8 @@
 "mxw" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Cell 1";
-	req_access = list(105)
+	req_access = list(105);
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
@@ -11865,7 +11998,8 @@
 "nDp" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Civil Protection Station";
-	req_access = list(103)
+	req_access = list(103);
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -12506,7 +12640,8 @@
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Lower Shuttle Terminal";
 	req_access = null;
-	req_one_access = list(108,109)
+	req_one_access = list(108,109);
+	dir = 4
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -12649,7 +12784,8 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/glass_centcom{
-	name = "Cryogenics"
+	name = "Cryogenics";
+	dir = 4
 	},
 /turf/unsimulated/floor,
 /area/centcom/holding)
@@ -12972,7 +13108,8 @@
 "pjL" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Response Team Leader's Office";
-	req_access = list(103)
+	req_access = list(103);
+	dir = 4
 	},
 /obj/machinery/door/blast/odin/shuttle/ert{
 	dir = 2;
@@ -13314,7 +13451,8 @@
 	locked = 1;
 	name = "Rapid Transit Ticket Kiosk";
 	opacity = 0;
-	req_access = list(101)
+	req_access = list(101);
+	dir = 1
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
@@ -14150,7 +14288,8 @@
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Diplomatic Waiting Lounge";
 	req_access = null;
-	req_one_access = list(38,72)
+	req_one_access = list(38,72);
+	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -14557,7 +14696,8 @@
 "rFD" = (
 /obj/machinery/door/airlock/command{
 	name = "Thunderdome Administration";
-	req_access = list(102)
+	req_access = list(102);
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
@@ -14807,7 +14947,8 @@
 "sbc" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "To: NTCC Odin Mass Transit";
-	req_access = null
+	req_access = null;
+	dir = 4
 	},
 /turf/unsimulated/floor,
 /area/centcom/bar)
@@ -15543,7 +15684,8 @@
 	id_tag = "centcom_dock_airlock";
 	locked = 1;
 	name = "Arrivals Airlock";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/unsimulated/floor,
@@ -15803,7 +15945,8 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/glass_centcom{
-	name = "Valkyrie's Rest"
+	name = "Valkyrie's Rest";
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -15843,7 +15986,8 @@
 	id_tag = "supply_shuttle_hatch";
 	locked = 1;
 	name = "Shuttle Hatch";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/supply/dock)
@@ -15907,7 +16051,8 @@
 /area/centcom/holding)
 "tRt" = (
 /obj/machinery/door/airlock/glass_centcom{
-	name = "Valkyrie's Rest"
+	name = "Valkyrie's Rest";
+	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/unsimulated/floor{
@@ -16295,7 +16440,8 @@
 "uHz" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "CCIA Auxillary Office";
-	req_access = list(109)
+	req_access = list(109);
+	dir = 1
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
@@ -16557,7 +16703,8 @@
 "vaK" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Administrative Wing Processing";
-	req_access = list(101)
+	req_access = list(101);
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -17363,7 +17510,8 @@
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Upper Shuttle Terminal";
 	req_access = null;
-	req_one_access = list(108,109)
+	req_one_access = list(108,109);
+	dir = 1
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -18519,7 +18667,8 @@
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Sector Administration Copula";
 	req_access = null;
-	req_one_access = list(109,108)
+	req_one_access = list(109,108);
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -51025,7 +51174,7 @@ hum
 vVC
 vVC
 vVC
-ylt
+aae
 owT
 uSv
 nyh
@@ -51782,7 +51931,7 @@ kUG
 dct
 dct
 hnb
-hGv
+aaf
 gNM
 hnb
 bYs
@@ -51819,12 +51968,12 @@ kYq
 kYq
 kYq
 oBu
-nDp
+aag
 kYq
 kYq
 kYq
 kYq
-bKw
+aah
 mAD
 bLK
 eIe
@@ -57445,7 +57594,7 @@ tAC
 ahe
 aqu
 apU
-fRm
+aai
 lMz
 lMz
 kgi
@@ -59007,9 +59156,9 @@ wzE
 wzE
 mbM
 mbM
-tsH
-tsH
-tsH
+aaj
+aak
+aam
 mbM
 mbM
 wzE
@@ -60315,7 +60464,7 @@ urj
 gdU
 aBl
 aBL
-aBl
+aan
 weB
 aOa
 uPQ
@@ -61857,7 +62006,7 @@ uVh
 htp
 aBl
 aBL
-aBl
+aao
 weB
 aOa
 uPQ

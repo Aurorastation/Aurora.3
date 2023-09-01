@@ -510,7 +510,8 @@
 	icon_state = "door_locked";
 	id_tag = "centcom_shuttle_bay_door";
 	locked = 1;
-	name = "Transport Airlock"
+	name = "Transport Airlock";
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict)

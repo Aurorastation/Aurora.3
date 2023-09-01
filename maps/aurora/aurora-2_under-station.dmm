@@ -181,7 +181,8 @@
 	id_tag = "cooling_outer";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(11)
+	req_access = list(11);
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";

@@ -24,6 +24,13 @@
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
+"ag" = (
+/obj/machinery/door/airlock/centcom{
+	opacity = 1;
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
 "ah" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
@@ -56,6 +63,20 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"am" = (
+/obj/machinery/door/airlock/centcom{
+	opacity = 1;
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"an" = (
+/obj/machinery/door/airlock/centcom{
+	opacity = 1;
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
 "ao" = (
 /obj/effect/decal/cleanable/generic,
@@ -336,6 +357,13 @@
 	dir = 8
 	},
 /turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"bn" = (
+/obj/machinery/door/airlock/centcom{
+	opacity = 1;
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
 "bo" = (
 /obj/structure/grille,
@@ -1702,14 +1730,14 @@ aI
 aQ
 aN
 aQ
-br
+ag
 bF
 bx
 bT
 bT
 cv
 bw
-br
+am
 aQ
 aQ
 bj
@@ -1736,14 +1764,14 @@ aI
 aN
 aQ
 aN
-br
+an
 bx
 cH
 bT
 bT
 bx
 cH
-br
+bn
 aQ
 OV
 aQ

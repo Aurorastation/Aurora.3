@@ -193,7 +193,7 @@
 	locked = 1;
 	name = "Vault Inner Access";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
