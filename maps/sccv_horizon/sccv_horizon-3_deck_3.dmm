@@ -648,10 +648,13 @@
 /area/horizon/longbow)
 "auq" = (
 /obj/structure/platform{
-	dir = 4
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/bridge/controlroom)
@@ -3052,11 +3055,11 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "cBE" = (
-/obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
 /obj/item/reagent_containers/food/drinks/shaker,
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "cBU" = (
@@ -3133,7 +3136,7 @@
 	dir = 4
 	},
 /obj/structure/platform{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
@@ -3950,11 +3953,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/hop/xo)
 "dpE" = (
-/obj/structure/table/reinforced/wood,
-/obj/machinery/chemical_dispenser/bar_alc/full,
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	pixel_y = 6;
+	dir = 4
+	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "dqe" = (
@@ -4549,10 +4555,10 @@
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "dRP" = (
-/obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "dSb" = (
@@ -4770,11 +4776,14 @@
 /turf/simulated/wall/r_wall,
 /area/lawoffice/consular)
 "edo" = (
-/obj/structure/table/reinforced/wood,
-/obj/machinery/chemical_dispenser/bar_soft/full,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 1;
+	pixel_y = 8
+	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "edI" = (
@@ -13063,10 +13072,10 @@
 /turf/simulated/floor/plating,
 /area/storage/shields)
 "kkw" = (
-/obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "kkU" = (
@@ -14794,17 +14803,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/shields)
 "ltH" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/structure/platform{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 9
-	},
-/obj/structure/sign/flag/scc,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/reinforced,
 /area/bridge/controlroom)
 "ltM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -16942,6 +16950,7 @@
 /obj/structure/platform{
 	dir = 1
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "nbl" = (
@@ -18628,15 +18637,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
 "omA" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 5
-	},
 /obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
@@ -18927,8 +18927,7 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/light/floor{
-	dir = 1;
-	pixel_y = 7
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hallway/deck_three/primary/port)
@@ -19854,9 +19853,6 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/bridge/controlroom)
 "plp" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/machinery/camera/network/command{
@@ -19865,6 +19861,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
@@ -20533,6 +20532,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/power/apc/low/west,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/bridge)
 "qaE" = (
@@ -22100,6 +22102,7 @@
 /obj/structure/platform{
 	dir = 1
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "rrl" = (
@@ -27249,10 +27252,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "vfl" = (
-/obj/structure/table/reinforced/wood,
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
 "vfv" = (
@@ -27794,7 +27797,7 @@
 	dir = 4
 	},
 /obj/structure/platform{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
@@ -29595,7 +29598,7 @@
 	dir = 1
 	},
 /obj/structure/platform{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/platform,
 /obj/structure/platform_deco{
@@ -50584,7 +50587,7 @@ dFS
 pRj
 hmu
 ltT
-auq
+ltH
 mrU
 wGH
 vkb
@@ -52402,7 +52405,7 @@ asO
 kwe
 hhA
 rqU
-ltH
+omA
 mrU
 vkb
 slH
