@@ -22,19 +22,19 @@
 #define SPAN_SOGHUN(X) ("<span class='soghun'>" + X + "</span>")
 #define SPAN_VOTE(X) ("<span class='vote'>" + X + "</span>")
 
+#define SPAN_SIZE(size, text) ("<span style=\"font-size: [size]\">" + text + "</span>")
+
 #define SPAN_HIGHDANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
 
-#define SPAN_SIZE(size, text) ("<span style="font-size: [size]">" + text + "</span>")
-
-#define FONT_SIZE_SMALL 10px
-#define FONT_SIZE_NORMAL 13px
-#define FONT_SIZE_LARGE 16px
-#define FONT_SIZE_HUGE 18px
-#define FONT_SIZE_GIANT 24px
+#define FONT_SIZE_SMALL "10px"
+#define FONT_SIZE_NORMAL "13px"
+#define FONT_SIZE_LARGE "16px"
+#define FONT_SIZE_HUGE "18px"
+#define FONT_SIZE_GIANT "24px"
 
 #define FONT_SMALL(X) SPAN_SIZE(FONT_SIZE_SMALL, X)
 #define FONT_NORMAL(X) SPAN_SIZE(FONT_SIZE_NORMAL, X)
-#define FONT_LARGE(X) SPAN_SIZE(FONT_SIZE_LARGE, X)	
+#define FONT_LARGE(X) SPAN_SIZE(FONT_SIZE_LARGE, X)
 #define FONT_HUGE(X) SPAN_SIZE(FONT_SIZE_HUGE, X)
 #define FONT_GIANT(X) SPAN_SIZE(FONT_SIZE_GIANT, X)
 
