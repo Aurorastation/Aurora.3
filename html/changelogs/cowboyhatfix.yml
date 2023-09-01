@@ -1,6 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - bugfix: "The cowboy hats provided by the Frontier Cowboy crates are now coloured brown, rather than their default white."
