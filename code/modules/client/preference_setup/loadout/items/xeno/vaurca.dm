@@ -240,10 +240,9 @@
 /datum/gear/augment/vaurcatool
 	display_name = "vaurca integrated toolset"
 	description = "A heavy arm-mounted toolset designed for use by Bound Workers and Bulwarks."
-	cost = 2
+	cost = 5
 	path = /obj/item/organ/internal/augment/tool/combitool/vaurca
 	sort_category = "Xenowear - Vaurca"
-	allowed_roles = list("Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist")
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARRIOR)
 
 /datum/gear/augment/vaurcatool/New()
