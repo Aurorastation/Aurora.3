@@ -2196,6 +2196,9 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/dark_green/full,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bDQ" = (
@@ -2360,6 +2363,7 @@
 /obj/item/modular_computer/console/preset/engineering{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "bHx" = (
@@ -3162,6 +3166,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"cou" = (
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/stairs_lower/stairs_upper{
+	layer = 3
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/deck1)
 "coB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -3620,6 +3633,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"cAr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/deck1)
 "cAG" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -3741,6 +3760,10 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/structure/sign/crush{
+	pixel_x = 16;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
@@ -3896,6 +3919,9 @@
 	},
 /obj/machinery/computer/guestpass{
 	pixel_y = -32
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -4782,6 +4808,7 @@
 "drX" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/critical/south,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "drY" = (
@@ -8525,13 +8552,13 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Deck 1 Port Stairwell Auxiliary Hangar Elevator"
-	},
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
 	id = "shutters_deck2_portstairwellsec";
 	name = "Security Shutter"
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Deck 1 Port Stairwell Auxiliary Hangar Elevator"
 	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/eva)
@@ -9811,6 +9838,7 @@
 	dir = 4;
 	pixel_x = -32
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "gPf" = (
@@ -10906,6 +10934,16 @@
 "hAY" = (
 /obj/structure/table/standard,
 /obj/item/book/manual/gravitygenerator,
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/button/remote/blast_door{
+	desc = "A remote control-switch for the engine control room blast doors.";
+	dir = 4;
+	id = "gravgen";
+	name = "Gravity Generator Blast Doors";
+	pixel_x = 24;
+	req_one_access = list(11,24);
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "hAZ" = (
@@ -12999,6 +13037,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "jkq" = (
@@ -13585,6 +13624,12 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
+"jEm" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/deck1)
 "jEx" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/hangar/operations)
@@ -15368,6 +15413,13 @@
 	icon_state = "4,10"
 	},
 /area/shuttle/intrepid/quarters)
+"kSE" = (
+/obj/structure/table/standard{
+	no_cargo = 1
+	},
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/deck1)
 "kSH" = (
 /obj/structure/tank_wall/hydrogen{
 	icon_state = "h16"
@@ -18695,15 +18747,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "nhf" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/random/loot,
-/obj/structure/table/standard{
-	no_cargo = 1
+/obj/structure/stairs_lower{
+	dir = 1;
+	pixel_y = 9
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
@@ -20955,12 +21004,6 @@
 "oQa" = (
 /obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/machinery/alarm/east,
 /turf/simulated/floor/grass,
 /area/hallway/primary/aft)
@@ -21198,6 +21241,7 @@
 "pav" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "paB" = (
@@ -22118,6 +22162,7 @@
 /area/rnd/isolation_a)
 "pGC" = (
 /obj/structure/stairs/west,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "pGP" = (
@@ -22457,6 +22502,7 @@
 /area/engineering/atmos/propulsion)
 "pSx" = (
 /obj/structure/table/standard,
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
 "pSH" = (
@@ -22547,9 +22593,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "pTT" = (
-/turf/unsimulated/wall/fakepdoor{
-	dir = 4
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	name = "Gravity Generator Blast Doors";
+	id = "gravgen"
 	},
+/turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "pUa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -23072,12 +23122,6 @@
 /area/engineering/atmos/propulsion)
 "qnt" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/random/pottedplant,
 /turf/simulated/floor/grass,
 /area/hallway/primary/aft)
@@ -27169,11 +27213,14 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "tiM" = (
-/obj/structure/sign/crush{
-	pixel_x = 16;
-	pixel_y = 32
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
-/turf/simulated/wall,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
 /area/rnd/eva)
 "tiV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -29367,6 +29414,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion/starboard)
+"uIY" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/deck1)
 "uJi" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/valve/digital/open{
@@ -31499,6 +31550,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
+"wjJ" = (
+/turf/simulated/wall,
+/area/hangar/intrepid/interstitial)
 "wjM" = (
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
@@ -33557,7 +33611,6 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/mining)
 "xwA" = (
-/obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -33565,10 +33618,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/door/airlock/glass_command{
-	name = "Expedition EVA Storage";
-	req_one_access = list(18,29,47);
-	dir = 4
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 2
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Deck 1 Port Stairwell Auxiliary Hangar Elevator";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/rnd/eva)
@@ -42541,10 +42596,10 @@ eSV
 eSV
 eSV
 eSV
-noz
+cou
 pGC
 nhf
-sTw
+kSE
 hTk
 dEC
 hoV
@@ -42744,9 +42799,9 @@ eSV
 eSV
 eSV
 eSV
-noz
-sTw
-hdK
+jEm
+uIY
+cAr
 gtE
 noz
 dEC
@@ -55340,7 +55395,7 @@ vul
 vDj
 cNp
 wqd
-pYa
+wjJ
 jcZ
 bzv
 txa
