@@ -3,4 +3,4 @@ author: SleepyGemmy
 delete-after: True
 
 changes:
-  - bugfix: "Fixed the mail room conveyor having low visibility for potentially stuck packages."
+  - bugfix: "Fixed the mailroom conveyor having low visibility for potentially stuck packages."
