@@ -227,10 +227,10 @@
 			var/damage = 0
 			total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 			if(prob(25))
-				damage = 1
+				damage = 2
 
 			if (total_radiation > 50)
-				damage = 1
+				damage = 3
 				total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
 					src.apply_radiation(-5 * RADIATION_SPEED_COEFFICIENT)
@@ -247,9 +247,10 @@
 
 			if (total_radiation > 75)
 				src.apply_radiation(-1 * RADIATION_SPEED_COEFFICIENT)
-				damage = 3
+				damage = 7
 				if(prob(5))
-					take_overall_damage(0, 5 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
+					take_overall_damage(0, 10 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
+					to_chat(src, "<span class='warning'>You feel a burning sensation!</span>")
 				if(prob(1))
 					to_chat(src, "<span class='warning'>You feel strange!</span>")
 					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
