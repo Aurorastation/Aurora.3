@@ -56,7 +56,8 @@
 /area/old_outpost/eva)
 "bX" = (
 /obj/machinery/door/airlock/glass_mining{
-	name = "Mining Station Bridge"
+	name = "Mining Station Bridge";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -151,9 +152,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
-	pixel_y = -29
+/obj/item/device/radio/intercom/south{
+	name = "Station Intercom (General)"
 	},
 /turf/simulated/floor/tiled/white,
 /area/old_outpost/medbay)
@@ -317,7 +317,8 @@
 	icon_state = "door_locked";
 	id_tag = "mining_west_outer";
 	locked = 1;
-	name = "Mining External Access"
+	name = "Mining External Access";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/old_outpost/hallway)
@@ -402,9 +403,7 @@
 /turf/simulated/floor/tiled,
 /area/old_outpost/refinery)
 "hp" = (
-/obj/machinery/alarm{
-	pixel_y = 24
-	},
+/obj/machinery/alarm/north,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/old_outpost/hallway)
@@ -470,11 +469,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -514,9 +509,8 @@
 /turf/simulated/floor/tiled,
 /area/old_outpost/refinery)
 "iJ" = (
-/obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
-	pixel_y = -29
+/obj/item/device/radio/intercom/south{
+	name = "Station Intercom (General)"
 	},
 /obj/structure/cable/blue{
 	d1 = 4;
@@ -626,7 +620,8 @@
 /area/old_outpost/refinery)
 "kJ" = (
 /obj/machinery/door/airlock/glass{
-	name = "Crew Area"
+	name = "Crew Area";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/blue{
@@ -693,7 +688,8 @@
 "lI" = (
 /obj/machinery/door/airlock{
 	id_tag = "miningdorm1";
-	name = "Room 1"
+	name = "Room 1";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -921,7 +917,8 @@
 /area/old_outpost/eva)
 "ox" = (
 /obj/machinery/door/airlock/glass_mining{
-	name = "Mining Station Bridge"
+	name = "Mining Station Bridge";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1136,9 +1133,7 @@
 /turf/simulated/floor/plating,
 /area/old_outpost/hallway)
 "rf" = (
-/obj/machinery/alarm{
-	pixel_y = 24
-	},
+/obj/machinery/alarm/north,
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = -2;
 	pixel_y = -1
@@ -1254,7 +1249,8 @@
 /area/old_outpost/hallway)
 "sV" = (
 /obj/machinery/door/airlock{
-	name = "Toilet"
+	name = "Toilet";
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
@@ -1310,7 +1306,8 @@
 	icon_state = "door_locked";
 	id_tag = "mining_west_inner";
 	locked = 1;
-	name = "Mining External Access"
+	name = "Mining External Access";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -1320,9 +1317,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 23
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/vending/wallmed1{
 	name = "Medical Supplies";
 	pixel_x = -26;
@@ -1527,7 +1522,8 @@
 /area/old_outpost/dorms)
 "wh" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Mining Station Maintenance"
+	name = "Mining Station Maintenance";
+	dir = 1
 	},
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -1667,7 +1663,8 @@
 "xX" = (
 /obj/machinery/door/airlock{
 	id_tag = "miningdorm3";
-	name = "Room 3"
+	name = "Room 3";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1712,18 +1709,15 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/old_outpost/medbay)
 "yu" = (
 /obj/machinery/door/airlock{
 	id_tag = "miningdorm2";
-	name = "Room 2"
+	name = "Room 2";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1752,10 +1746,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	name = "south bump";
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /obj/effect/floor_decal/corner/red/diagonal,
 /mob/living/simple_animal/rat,
 /turf/simulated/floor/tiled,
@@ -1840,9 +1831,7 @@
 /turf/simulated/floor/tiled,
 /area/old_outpost/refinery)
 "Ag" = (
-/obj/machinery/alarm{
-	pixel_y = 24
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1991,7 +1980,8 @@
 /area/old_outpost/refinery)
 "Co" = (
 /obj/machinery/door/airlock/glass_mining{
-	name = "Mining Station EVA"
+	name = "Mining Station EVA";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2039,8 +2029,7 @@
 /turf/simulated/floor/tiled,
 /area/old_outpost/refinery)
 "CW" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -5;
+/obj/structure/extinguisher_cabinet/west{
 	pixel_y = 30
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2114,7 +2103,8 @@
 /area/old_outpost/dorms)
 "DZ" = (
 /obj/machinery/door/airlock/glass_medical{
-	name = "Infirmary"
+	name = "Infirmary";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/blue{
@@ -2188,11 +2178,7 @@
 /turf/simulated/wall,
 /area/old_outpost)
 "FC" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /obj/structure/cable/blue{
 	d2 = 2;
 	icon_state = "0-2"
@@ -2342,7 +2328,8 @@
 /area/old_outpost/refinery)
 "HS" = (
 /obj/machinery/door/airlock/mining{
-	name = "Mining Station Storage"
+	name = "Mining Station Storage";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2528,7 +2515,8 @@
 	icon_state = "door_locked";
 	id_tag = "mining_outpost_outer";
 	locked = 1;
-	name = "Mining Dock Airlock"
+	name = "Mining Dock Airlock";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/old_outpost/refinery)
@@ -2585,10 +2573,7 @@
 /turf/simulated/floor/tiled,
 /area/old_outpost/dorms)
 "KU" = (
-/obj/machinery/power/apc{
-	name = "south bump";
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /obj/structure/cable/blue,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled,
@@ -2709,7 +2694,8 @@
 	icon_state = "door_locked";
 	id_tag = "mining_east_inner";
 	locked = 1;
-	name = "Mining External Access"
+	name = "Mining External Access";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2867,7 +2853,8 @@
 	icon_state = "door_locked";
 	id_tag = "mining_outpost_inner";
 	locked = 1;
-	name = "Mining Dock Airlock"
+	name = "Mining Dock Airlock";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -3011,7 +2998,8 @@
 	icon_state = "door_locked";
 	id_tag = "mining_east_outer";
 	locked = 1;
-	name = "Mining External Access"
+	name = "Mining External Access";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/old_outpost/eva)
@@ -3125,9 +3113,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/item/device/radio/intercom{
-	name = "Station Intercom (General)";
-	pixel_x = -27
+/obj/item/device/radio/intercom/west{
+	name = "Station Intercom (General)"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -3429,11 +3416,7 @@
 /turf/simulated/floor/tiled,
 /area/old_outpost/refinery)
 "Xd" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable/blue{
 	d2 = 4;
 	icon_state = "0-4"

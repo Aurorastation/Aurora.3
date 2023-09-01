@@ -117,10 +117,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -226,7 +223,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/glass_mining{
-	name = "Hangar"
+	name = "Hangar";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/miners_guild)
@@ -340,8 +338,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/shuttle/miners_guild)
 "eC" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
@@ -596,12 +593,9 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = null
 	},
 /turf/simulated/floor/lino/diamond,
@@ -937,12 +931,9 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/green/full{
@@ -988,8 +979,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
 "lI" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /obj/machinery/light{
@@ -1152,8 +1142,7 @@
 /turf/simulated/floor/plating,
 /area/miners_guild/hangar)
 "nG" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /obj/machinery/light{
@@ -1295,7 +1284,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Fuel Bay"
+	name = "Fuel Bay";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/miners_guild/fuel_bay)
@@ -1352,8 +1342,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
 "qD" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /obj/effect/floor_decal/corner/green/full{
@@ -1504,7 +1493,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/service{
-	name = "Living Quarters"
+	name = "Living Quarters";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
@@ -1606,10 +1596,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/orange{
@@ -1851,10 +1838,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = null
 	},
 /turf/simulated/floor/plating,
@@ -1879,7 +1864,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_atmos{
-	name = "Port Engineering"
+	name = "Port Engineering";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
@@ -2020,8 +2006,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
 "xS" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /obj/machinery/light{
@@ -2046,7 +2031,8 @@
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/machinery/door/airlock/glass_service{
-	name = "Canteen"
+	name = "Canteen";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
@@ -2214,12 +2200,9 @@
 /turf/simulated/floor/tiled/steel,
 /area/shuttle/miners_guild)
 "zD" = (
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2389,7 +2372,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/glass_mining{
-	name = "Mineral Processing"
+	name = "Mineral Processing";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
@@ -2592,7 +2576,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/glass_command{
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/bridge)
@@ -2964,7 +2949,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/service{
-	name = "Cryogenic Storage"
+	name = "Cryogenic Storage";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/miners_guild/crew)
@@ -3049,10 +3035,8 @@
 "LE" = (
 /obj/structure/cable/green,
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = null
 	},
 /turf/simulated/floor/tiled/steel,
@@ -3241,7 +3225,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Starboard Engineering"
+	name = "Starboard Engineering";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
@@ -3250,12 +3235,9 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = null
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
@@ -3389,7 +3371,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/glass_command{
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
@@ -3776,10 +3759,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -3979,10 +3960,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = null
 	},
 /turf/simulated/floor/plating,
@@ -4014,7 +3992,8 @@
 "XY" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/machinery/door/airlock/glass_service{
-	name = "Canteen"
+	name = "Canteen";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
@@ -4076,12 +4055,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = null
 	},
 /turf/simulated/floor/tiled/white,
@@ -4162,7 +4138,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/service{
-	name = "Bathroom"
+	name = "Bathroom";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/miners_guild/crew)

@@ -252,6 +252,7 @@
 		new /obj/item/clothing/head/cowboy(src)
 		new /obj/item/melee/whip(src)
 		new /obj/item/gun/projectile/revolver/detective(src)
+		new /obj/item/gun/projectile/shotgun/pump/lever_action(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/single/fill()
 	var/obj/item/clothing/under/shorts/khaki/pants = new(src)
@@ -273,6 +274,8 @@
 	new /obj/item/clothing/head/cowboy(src)
 	new /obj/item/melee/whip(src)
 	new /obj/item/gun/projectile/revolver/detective(src)
+	new /obj/item/gun/projectile/shotgun/pump/lever_action(src)
+
 //Megacorporate suits are used in devices and tools in the uplink
 /obj/structure/closet/crate/gear_loadout/zavodskoi/fill()
 	new /obj/item/clothing/head/helmet/space/void/zavodskoi(src)

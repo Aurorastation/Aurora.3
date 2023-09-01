@@ -35,6 +35,71 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">01 September 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixes paleblue floor decals on dark floors on 2d security.</li>
+				<li class="maptweak">Fixes some bad icon_state floors.</li>
+				<li class="maptweak">Fixes lights with bad icon_states.</li>
+				<li class="maptweak">Fixes a lot of bright floor decals on dark floors.</li>
+				<li class="maptweak">Fixes APC dirs outside of horizon.</li>
+				<li class="maptweak">Fixes air alarm dirs outside of horizon.</li>
+				<li class="maptweak">Fixes extinguisher cabinet dirs outside of horizon.</li>
+				<li class="maptweak">Fixes fireaxe cabinet dirs outside of horizon.</li>
+				<li class="maptweak">Fixes intercom dirs outside of horizon.</li>
+				<li class="maptweak">Fixes ringer dirs outside of horizon.</li>
+				<li class="maptweak">Fixes requests console dirs outside of horizon.</li>
+				<li class="maptweak">Fixes newscaster dirs outside of horizon.</li>
+				<li class="maptweak">Fixes door dirs outside of horizon.</li>
+				<li class="maptweak">Add firedoors to doors that don&#x27;t have them on horizon.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The title screen now uses an unique timer that is stopped upon deletion, and avoids refreshing if it&#x27;s queued for it.</li>
+				<li class="bugfix">Magboots now drop the references correctly and avoid trying to process a wearer that is being qdel&#x27;d, which can raise an exception.</li>
+				<li class="bugfix">The mech health analyzer component now queues the internally used bodyscanner for deletion upon destroy.</li>
+				<li class="bugfix">Resolved a runtime that could happen on a mob queue for deletion that is also vomiting.</li>
+				<li class="rscadd">External organs now queue for deletion the implants they have, if any.</li>
+				<li class="bugfix">Ammunitions, magazines and casings should now qdel cleanly.</li>
+				<li class="bugfix">Icon updates should now not trigger on atoms that are being deleted.</li>
+			</ul>
+
+			<h2 class="date">31 August 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Attempted fix of an harddel with body scanner and scanner consoles (circular references).</li>
+				<li class="bugfix">Adjusted the santabag size to 200, which is our defined maximum storage capacity.</li>
+				<li class="bugfix">Attempted fix of some additional harddels with sound tokens.</li>
+				<li class="backend">Admin ranks, cargo, chemistry and synthsprites do not throw an exception in VSC anymore if the config files are missing, writing a log instead.</li>
+				<li class="bugfix">Fixed admin rank loading and the other file config checks, using rustg to detect the file instead of the native and ill-documented DM proc.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a lever action rifle for the frontier cowboys, which uses newly added .45-70 Government rounds. Sprites ported from polaris, with modifications by suethecake and GeneralCamo.</li>
+				<li class="rscadd">.45-70 Govt. and .38 rounds are now available on the antagonist uplink.</li>
+				<li class="rscadd">Added support for cycling animations for pump action shotguns (and derivatives).</li>
+				<li class="tweak">Renamed the vintage rounds used by the Springfield to .30-06 Government rounds.</li>
+				<li class="tweak">The standard uplink spacesuit is now a modified standard softsuit, that only looks different up-close. It has the same armor values as the red softsuit.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">RCON management should no longer fully refresh when clicking buttons.</li>
+				<li class="bugfix">Removed the in-code sensor tag from the atmos control.</li>
+				<li class="bugfix">Fixed the atmos control datapoint display to be neater.</li>
+				<li class="bugfix">Shield generator now has colours for when its features are online/offline.</li>
+				<li class="bugfix">The IC notes&#x27; money display now uses the credit sign instead of a dollar sign.</li>
+				<li class="bugfix">Vending machines now properly grey out items if they&#x27;re being vended or have run out.</li>
+				<li class="bugfix">Drop pods can no longer be used by ghosts.</li>
+				<li class="bugfix">Psionic deafness should now reset when species is changed.</li>
+			</ul>
+			<h3 class="author">nauticall updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed a platform orientation issue that caused people to be stopped by seemingly invisible walls in areas with platforms, i.e. the bar, morgue and bridge.</li>
+				<li class="bugfix">The garden&#x27;s mini-biogenerator is no longer invisible.</li>
+				<li class="bugfix">Adjusted some (but not all) overlapping objects on Deck 2 and tweaked some kinks with object placement.</li>
+				<li class="tweak">Colors for things like tiles, counters, tables, and floor decals have been adjusted to be more desaturated and easier on the eyes. Wood furniture now contrasts better with wood floors.</li>
+			</ul>
+
 			<h2 class="date">30 August 2023</h2>
 			<h3 class="author">FluffyGhost updated:</h3>
 			<ul class="changes bgimages16">
