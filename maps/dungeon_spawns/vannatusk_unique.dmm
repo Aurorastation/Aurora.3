@@ -75,7 +75,9 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "ao" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "ap" = (
@@ -99,7 +101,9 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "as" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
@@ -326,11 +330,15 @@
 /area/dungeon/bluespace_outpost)
 "bh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/silver,
+/obj/machinery/door/airlock/silver{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bi" = (
-/obj/machinery/door/airlock/silver,
+/obj/machinery/door/airlock/silver{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "bj" = (
@@ -581,6 +589,50 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
+"ca" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"cb" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"cc" = (
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"cd" = (
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"ce" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"cf" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
+"cg" = (
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/asteroid,
+/area/dungeon/bluespace_outpost)
 "ha" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window/borosilicate/reinforced,
@@ -601,10 +653,8 @@
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "FD" = (
-/obj/machinery/power/apc/high/inactive{
-	cell_type = null;
-	dir = 1;
-	pixel_y = 32
+/obj/machinery/power/apc/high/inactive/north{
+	cell_type = null
 	},
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
@@ -802,7 +852,7 @@ Nw
 Iu
 Iu
 Iu
-ao
+ca
 Iu
 Iu
 Nw
@@ -1007,7 +1057,7 @@ Iu
 Iu
 Iu
 Iu
-ao
+cb
 Iu
 Iu
 Iu
@@ -1074,7 +1124,7 @@ ax
 Iu
 aO
 ad
-as
+cc
 ac
 ad
 qX
@@ -1114,7 +1164,7 @@ ac
 ac
 ad
 ac
-as
+cd
 ac
 ad
 ad
@@ -1177,14 +1227,14 @@ Iu
 Iu
 Iu
 Iu
-ao
+ce
 Iu
 Iu
 Iu
 Iu
 Iu
 Iu
-ao
+cf
 Iu
 Iu
 as
@@ -1348,7 +1398,7 @@ AH
 ac
 ac
 ac
-ao
+cg
 ad
 bK
 bN

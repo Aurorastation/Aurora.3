@@ -34,23 +34,57 @@
 /obj/structure/table,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
+"ai" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
+"aj" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
+"ak" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
 "al" = (
 /obj/random/handgun,
 /turf/simulated/floor/airless,
 /area/derelict)
 "am" = (
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular/open,
 /turf/simulated/floor/airless,
 /area/derelict)
+"an" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
 "ao" = (
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/airless,
 /area/derelict)
 "ap" = (
 /obj/item/modular_computer/console,
 /turf/simulated/floor/tiled/dark/airless,
+/area/derelict)
+"aq" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
 /area/derelict)
 "ar" = (
 /obj/random/energy,
@@ -60,6 +94,12 @@
 /obj/structure/bookcase/manuals/engineering,
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/wood/airless,
+/area/derelict)
+"at" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
 /area/derelict)
 "au" = (
 /obj/structure/bookcase,
@@ -97,7 +137,8 @@
 "aC" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(19)
+	req_access = list(19);
+	dir = 1
 	},
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/tiled/dark/airless,
@@ -161,7 +202,8 @@
 /area/derelict)
 "aS" = (
 /obj/machinery/door/airlock/glass{
-	name = "Library"
+	name = "Library";
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -180,21 +222,24 @@
 "aV" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(19)
+	req_access = list(19);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
 "aX" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(19)
+	req_access = list(19);
+	dir = 1
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/derelict)
 "aY" = (
 /obj/machinery/door/airlock/glass{
 	name = "Kitchen";
-	req_access = list(28)
+	req_access = list(28);
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -248,9 +293,8 @@
 /turf/space,
 /area/derelict)
 "bk" = (
-/obj/structure/extinguisher_cabinet{
-	icon_state = "extinguisher_empty";
-	pixel_x = 30
+/obj/structure/extinguisher_cabinet/east{
+	icon_state = "extinguisher_empty"
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -317,6 +361,12 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space)
+"bw" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
 "bx" = (
 /obj/machinery/shieldgen,
 /obj/structure/window/basic{
@@ -329,6 +379,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
+/area/derelict)
+"by" = (
+/obj/machinery/door/airlock/glass_engineering{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
 /area/derelict)
 "bz" = (
 /obj/machinery/portable_atmospherics/canister/air,
@@ -360,7 +416,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/stack/material/steel{
 	amount = 50;
@@ -549,7 +605,8 @@
 /area/derelict)
 "bV" = (
 /obj/machinery/door/airlock/glass_science{
-	name = "Research"
+	name = "Research";
+	dir = 4
 	},
 /obj/machinery/door/blast/shutters,
 /turf/simulated/floor/airless,
@@ -560,7 +617,8 @@
 	icon_state = "door_locked";
 	id_tag = "constructionsite_outer";
 	locked = 1;
-	req_access = list(10)
+	req_access = list(10);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/derelict)
@@ -595,7 +653,8 @@
 	icon_state = "door_locked";
 	id_tag = "constructionsite_inner";
 	locked = 1;
-	req_access = list(10)
+	req_access = list(10);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/derelict)
@@ -614,7 +673,8 @@
 /area/derelict)
 "cc" = (
 /obj/machinery/door/airlock/glass_science{
-	name = "Research"
+	name = "Research";
+	dir = 4
 	},
 /obj/machinery/door/blast/shutters/open,
 /turf/simulated/floor/airless,
@@ -666,7 +726,8 @@
 	icon_state = "door_locked";
 	id_tag = "constructionsite_inner";
 	locked = 1;
-	req_access = list(10)
+	req_access = list(10);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/derelict)
@@ -716,7 +777,8 @@
 /area/derelict)
 "cl" = (
 /obj/machinery/door/airlock/glass_science{
-	name = "Research"
+	name = "Research";
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white/airless,
@@ -812,6 +874,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
+"cw" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
 "cx" = (
 /obj/machinery/r_n_d/circuit_imprinter,
 /obj/effect/floor_decal/corner/purple/diagonal,
@@ -894,9 +962,7 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "cO" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/airless,
 /area/derelict)
 "cQ" = (
@@ -946,7 +1012,14 @@
 "da" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Messaging Server";
-	req_access = list(30)
+	req_access = list(30);
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
+"db" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -957,9 +1030,16 @@
 "dd" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Cyborg Station";
-	req_access = list(16)
+	req_access = list(16);
+	dir = 4
 	},
 /turf/simulated/floor/bluegrid/airless,
+/area/derelict)
+"de" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
 /area/derelict)
 "df" = (
 /obj/structure/cable/blue{
@@ -983,11 +1063,19 @@
 	icon_state = "dmg2"
 	},
 /area/derelict)
+"dj" = (
+/obj/machinery/door/airlock/glass_command{
+	name = "Bridge";
+	req_access = list(19);
+	dir = 1
+	},
+/obj/machinery/door/blast/regular,
+/turf/simulated/floor/tiled/dark/airless,
+/area/derelict)
 "dk" = (
 /obj/structure/lattice,
-/obj/structure/extinguisher_cabinet{
-	icon_state = "extinguisher_empty";
-	pixel_x = -30
+/obj/structure/extinguisher_cabinet/west{
+	icon_state = "extinguisher_empty"
 	},
 /turf/space,
 /area/derelict)
@@ -1040,6 +1128,18 @@
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
+"dv" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
+"dw" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
 "dx" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white/airless,
@@ -1062,7 +1162,8 @@
 "dC" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Medbay";
-	req_one_access = list(65,5)
+	req_one_access = list(65,5);
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -1093,9 +1194,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict)
 "dI" = (
-/obj/structure/fireaxecabinet{
-	pixel_x = 32
-	},
+/obj/structure/fireaxecabinet/east,
 /turf/simulated/floor/airless,
 /area/derelict)
 "dJ" = (
@@ -1132,14 +1231,16 @@
 "dS" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Medbay Storage";
-	req_one_access = list(65,5)
+	req_one_access = list(65,5);
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
 "dT" = (
 /obj/machinery/door/airlock/glass_atmos{
 	name = "Atmospherics";
-	req_access = list(24)
+	req_access = list(24);
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -1154,7 +1255,7 @@
 "dW" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -1166,6 +1267,12 @@
 /obj/structure/lattice,
 /obj/item/roller,
 /turf/space,
+/area/derelict)
+"eb" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
 /area/derelict)
 "ec" = (
 /obj/random/junk,
@@ -1262,6 +1369,12 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
+"em" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
 "en" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8;
@@ -1340,6 +1453,12 @@
 /obj/structure/lattice,
 /obj/structure/girder,
 /turf/space,
+/area/derelict)
+"ew" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
 /area/derelict)
 "ex" = (
 /obj/structure/cable/blue{
@@ -1448,20 +1567,21 @@
 /area/derelict)
 "eN" = (
 /obj/machinery/door/airlock{
-	name = "Cabin"
+	name = "Cabin";
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
 "eO" = (
 /obj/machinery/door/airlock{
-	name = "Bunk Room"
+	name = "Bunk Room";
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
 "eP" = (
-/obj/structure/extinguisher_cabinet{
-	icon_state = "extinguisher_empty";
-	pixel_x = 30
+/obj/structure/extinguisher_cabinet/east{
+	icon_state = "extinguisher_empty"
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
@@ -1474,7 +1594,9 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "eS" = (
-/obj/machinery/door/airlock/glass_engineering,
+/obj/machinery/door/airlock/glass_engineering{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/derelict)
 "eT" = (
@@ -1527,7 +1649,8 @@
 "fd" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Engine Access";
-	req_access = list(11)
+	req_access = list(11);
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -1571,7 +1694,8 @@
 "fm" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "SMES";
-	req_access = list(11)
+	req_access = list(11);
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -1619,6 +1743,12 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark/airless,
+/area/derelict)
+"fu" = (
+/obj/machinery/door/airlock/glass_engineering{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
 /area/derelict)
 "fv" = (
 /obj/structure/cable/blue{
@@ -1740,7 +1870,8 @@
 	icon_state = "door_closed";
 	locked = 0;
 	name = "AI Upload";
-	req_access = list(16)
+	req_access = list(16);
+	dir = 1
 	},
 /turf/simulated/floor/bluegrid/airless,
 /area/derelict)
@@ -1761,12 +1892,31 @@
 	icon_state = "door_closed";
 	locked = 0;
 	name = "AI Upload Access";
-	req_access = list(16)
+	req_access = list(16);
+	dir = 1
 	},
 /turf/simulated/floor/bluegrid/airless,
 /area/derelict)
 "fU" = (
 /obj/structure/table/rack,
+/turf/simulated/floor/airless,
+/area/derelict)
+"ga" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
+"gb" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
+"gc" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/derelict)
 "gj" = (
@@ -1846,7 +1996,9 @@
 /turf/simulated/floor/airless,
 /area/derelict)
 "jw" = (
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/derelict)
 "sf" = (
@@ -29419,7 +29571,7 @@ ju
 dO
 iK
 dO
-jw
+ai
 dO
 ju
 cQ
@@ -29688,7 +29840,7 @@ dO
 dO
 dO
 dO
-jw
+aj
 dO
 dO
 dO
@@ -30734,7 +30886,7 @@ bh
 cD
 cD
 dO
-jw
+ak
 dO
 ju
 cQ
@@ -30750,7 +30902,7 @@ ju
 ju
 cy
 dO
-jw
+an
 dO
 cD
 cD
@@ -31524,7 +31676,7 @@ be
 cD
 ju
 cD
-jw
+aq
 ju
 be
 ju
@@ -32871,14 +33023,14 @@ fb
 fb
 cD
 dO
-jw
+at
 dO
 cD
 bh
 dO
-jw
+bw
 dO
-eS
+by
 dO
 im
 gV
@@ -33031,7 +33183,7 @@ dO
 bV
 cc
 dO
-jw
+cw
 dO
 fU
 ju
@@ -33039,7 +33191,7 @@ ju
 cQ
 cQ
 dO
-jw
+db
 dO
 dO
 dO
@@ -33071,7 +33223,7 @@ fN
 dO
 dO
 dO
-jw
+de
 dO
 cQ
 ju
@@ -33528,7 +33680,7 @@ bi
 ap
 cQ
 ju
-aC
+dj
 ju
 cQ
 ju
@@ -34059,7 +34211,7 @@ dO
 bW
 bW
 dO
-jw
+dv
 dO
 ju
 cQ
@@ -34067,7 +34219,7 @@ ju
 cS
 be
 dO
-jw
+dw
 dO
 dO
 dO
@@ -34099,7 +34251,7 @@ fN
 dO
 dO
 dO
-jw
+eb
 dO
 ju
 ju
@@ -34413,14 +34565,14 @@ bh
 bh
 cD
 dO
-jw
+em
 dO
 cD
 bh
 dO
-jw
+ew
 dO
-eS
+fu
 dO
 im
 gV
@@ -36388,7 +36540,7 @@ bh
 cD
 cD
 dO
-jw
+ga
 dO
 ju
 ju
@@ -36404,7 +36556,7 @@ cQ
 ju
 ju
 dO
-jw
+gb
 dO
 cD
 cD
@@ -37643,7 +37795,7 @@ ju
 dO
 dO
 dO
-jw
+gc
 dO
 ju
 cQ
