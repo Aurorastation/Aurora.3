@@ -14,11 +14,11 @@
 	req_one_access = list(12);
 	dir = 1
 	},
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder,
 /obj/machinery/door/firedoor{
 	dir = 4
-	})
+	},
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "aaF" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner_wide/green{
@@ -9019,11 +9019,11 @@
 	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
-/turf/simulated/floor/tiled,
-/area/bridge/controlroom,
 /obj/machinery/door/firedoor{
 	dir = 4
-	})
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/controlroom)
 "hep" = (
 /obj/machinery/requests_console/east{
 	department = "Journalist's Office"
@@ -9291,11 +9291,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/washroom,
 /obj/machinery/door/firedoor{
 	dir = 4
-	})
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/crew_quarters/cryo/washroom)
 "hmp" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -12142,11 +12142,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/full,
-/area/bridge/bridge_crew,
 /obj/machinery/door/firedoor{
 	dir = 4
-	})
+	},
+/turf/simulated/floor/tiled/full,
+/area/bridge/bridge_crew)
 "jyV" = (
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
@@ -17182,11 +17182,11 @@
 	name = "Toilet 2";
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/washroom,
 /obj/machinery/door/firedoor{
 	dir = 4
-	})
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/crew_quarters/cryo/washroom)
 "nlv" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/target_stake,
@@ -23777,11 +23777,11 @@
 	name = "Toilet 1";
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/horizon/crew_quarters/cryo/washroom,
 /obj/machinery/door/firedoor{
 	dir = 4
-	})
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/crew_quarters/cryo/washroom)
 "suu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -24534,11 +24534,11 @@
 	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
-/turf/simulated/floor/tiled,
-/area/bridge/controlroom,
 /obj/machinery/door/firedoor{
 	dir = 4
-	})
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/controlroom)
 "teR" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -26843,11 +26843,11 @@
 	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
-/turf/simulated/floor/tiled,
-/area/bridge/controlroom,
 /obj/machinery/door/firedoor{
 	dir = 4
-	})
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/controlroom)
 "uOA" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -28416,11 +28416,11 @@
 	name = "Maintenance Hatch";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/full,
-/area/medical/ward/isolation,
 /obj/machinery/door/firedoor{
 	dir = 4
-	})
+	},
+/turf/simulated/floor/tiled/full,
+/area/medical/ward/isolation)
 "vWQ" = (
 /obj/structure/closet/secure_closet/medical3,
 /obj/item/storage/box/gloves,
@@ -31236,11 +31236,11 @@
 	name = "Decrepit Maintenance Shutter"
 	},
 /obj/structure/curtain/black,
-/turf/simulated/floor/tiled,
-/area/crew_quarters/captain,
 /obj/machinery/door/firedoor{
 	dir = 4
-	})
+	},
+/turf/simulated/floor/tiled,
+/area/crew_quarters/captain)
 "ymi" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
