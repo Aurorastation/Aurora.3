@@ -437,7 +437,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		setup_player_ready_list()
 
-	to_world(EXAMINE_BLOCK("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>\n\
+	to_world(EXAMINE_BLOCK("[SPAN_NOTICE("Welcome to the pre-game lobby!")]\n\
 	 Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds."))
 
 	// Compute and, if available, print the ghost roles in the pre-round lobby. Begone, people who do not ready up to see what ghost roles will be available!
@@ -458,14 +458,14 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/datum/space_sector/current_sector = SSatlas.current_sector
 	var/list/sector_intro = list()
-	sector_intro += FONT_SMALL(SPAN_NOTICE("Current sector: [current_sector]."))
+	sector_intro += FONT_LARGE(SPAN_NOTICE("Current sector: [current_sector]."))
 	if(length(available_ghostroles))
 		sector_intro += SPAN_BOLD(SPAN_NOTICE("Ghost roles available for this round: "))
 		sector_intro += english_list(available_ghostroles)
 		sector_intro += "\n"
-		sector_intro += SPAN_INFO("Actual availability may vary.")
+		sector_intro += FONT_SMALL(SPAN_INFO("Actual availability may vary."))
 	sector_intro += "\n"
-	sector_intro += "<a href='?src=\ref[src];current_sector_show_sites_id=1'>Click here</a> to see every possible site/ship that can potentially spawn here."
+	sector_intro += SPAN_INFO("<a href='?src=\ref[src];current_sector_show_sites_id=1'>Click here</a> to see every possible site/ship that can potentially spawn here.")
 	to_world(EXAMINE_BLOCK(sector_intro))
 
 	callHook("pregame_start")

@@ -257,13 +257,13 @@
  * * `distance` - The distance in tiles from user to src
  * * `infix` String - String that is appended immediately after the atom's name
  * * `suffix` String - String that is appended after the atom's name and infix
- * * `show_extended` - Boolean value whether to show the extended information. Defaults to FALSE
+ * * `show_extended` Boolean - Whether to show the extended information. Defaults to FALSE
  *
  * Returns a signal, COMSIG_PARENT_EXAMINE
  */
 /atom/proc/examine(mob/user, distance, infix = "", suffix = "", show_extended = FALSE)
 	var/list/examine_strings = get_examine_text(user, distance, infix, suffix)
-	if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind)))
+	if(desc_extended || desc_info || (desc_antag && (player_is_antag(user.mind) || isobserver(user))))
 		examine_strings += get_extra_examine_text(user, show_extended)
 	if(!examine_strings)
 		log_debug("Attempted to create an examine block with no strings! Atom: [src], user : [user]")
@@ -275,7 +275,7 @@
  * Compiles a list of examine text that is used by [/atom/proc/examine]
  * Override this to add examination text
  *
- * Arguments are same as [/atom/proc/examine]
+ * Arguments are same as [/atom/proc/examine], omitting `show_extended`
  *
  * Returns a list of examine text, that is used by [/atom/proc/examine]
  */
@@ -299,27 +299,31 @@
 /**
  * Compiles a list of extra examine text that is used by [/atom/proc/examine]
  *
+ * Arguments:
+ * * `user` - The user performing the examine
+ * * `show_extended` Boolean - Whether to show extended information. Otherwise, only announce it is available
+ *
  * Returns a list of examine text, that is used by [/atom/proc/examine]
  */
 /atom/proc/get_extra_examine_text(mob/user, show_extended)
 	. = list()
-	if(!show_extended)
-		. += SPAN_NOTICE("\[?\] This object has additional examine information available. <a href=?src=\ref[src];examine_fluff=1>\[Show In Chat\]</a>") // If any of the above are true, show that the object has more information available.
+	if(!show_extended) // Show that the object has more information available.
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available. <a href=?src=\ref[src];examine_fluff=1>\[Show In Chat\]</a>"))
 	if(desc_extended) // If the item has a extended description, show that it is available.
 		if(show_extended)
 			. += SPAN_INFO(desc_extended)
 		else
-			. += SPAN_INFO("- This object has an extended description.")
+			. += FONT_SMALL(SPAN_INFO("- This object has an extended description."))
 	if(desc_info) // If the item has a description regarding game mechanics, show that it is available.
 		if(show_extended)
 			. += SPAN_NOTICE("- [desc_info]")
 		else
-			. += SPAN_NOTICE("- This object has additional information about mechanics.")
-	if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show that it is available.
+			. += FONT_SMALL(SPAN_NOTICE("- This object has additional information about mechanics."))
+	if((desc_antag && (player_is_antag(user.mind) || isobserver(user)))) // If the item has an antagonist description and the user is an antagonist, show that it is available. Do the same for observers.
 		if(show_extended)
 			. += SPAN_ALERT("- [desc_antag]")
 		else
-			. += SPAN_ALERT("- This object has additional information for antagonists.")
+			. += FONT_SMALL(SPAN_ALERT("- This object has additional information for antagonists."))
 
 
 // Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
