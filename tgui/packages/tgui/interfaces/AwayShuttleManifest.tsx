@@ -1,13 +1,5 @@
 import { useBackend } from '../backend';
-import {
-  Button,
-  LabeledList,
-  NoticeBox,
-  Section,
-  Flex,
-  Table,
-  Collapsible,
-} from '../components';
+import { Button, LabeledList, NoticeBox, Section, Flex, Table, Collapsible } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type AwayShuttleData = {
