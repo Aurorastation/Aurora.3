@@ -101,6 +101,8 @@ pixel_x = 10;
 
 	var/report_danger_level = 1
 
+	var/global/image/alarm_overlay
+
 /obj/machinery/alarm/north
 	PRESET_NORTH
 
@@ -350,6 +352,7 @@ pixel_x = 10;
 			regulating_temperature = 1
 			visible_message("\The [src] clicks as it starts [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
 			"You hear a click and a faint electronic hum.")
+			update_icon()
 	else
 		//check for when we should stop adjusting temperature
 		if (get_danger_level(target_temperature, TLV["temperature"]) || abs(environment.temperature - target_temperature) <= 0.5)
@@ -357,6 +360,7 @@ pixel_x = 10;
 			regulating_temperature = 0
 			visible_message("\The [src] clicks quietly as it stops [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
 			"You hear a click as a faint electronic humming stops.")
+			update_icon()
 
 	if (regulating_temperature)
 		//Unnecessary checks removed, duplication of effort
@@ -441,32 +445,38 @@ pixel_x = 10;
 
 /obj/machinery/alarm/update_icon()
 	cut_overlays()
+	icon_state = "alarmp"
+
+	if((stat & (NOPOWER|BROKEN)) || shorted)
+		add_overlay("alarm_fan_off")
+		set_light(0)
+		return
+
 	if(wiresexposed)
 		icon_state = "alarmx"
-		set_light(0)
-		return
-	if((stat & (NOPOWER|BROKEN)) || shorted)
-		icon_state = "alarmp"
-		set_light(0)
-		return
 
 	var/icon_level = danger_level
 	if (alarm_area.atmosalm)
 		icon_level = max(icon_level, 1)	//if there's an atmos alarm but everything is okay locally, no need to go past yellow
 
+	alarm_overlay = make_screen_overlay(icon, "alarm[icon_level]")
+	add_overlay(alarm_overlay)
+
 	var/new_color = null
 	switch(icon_level)
 		if (0)
-			add_overlay("alarm0")
-			new_color = "#03A728"
+			new_color = COLOR_LIME
 		if (1)
-			add_overlay("alarm2") //yes, alarm2 is yellow alarm
 			new_color = COLOR_SUN
 		if (2)
-			add_overlay("alarm1")
-			new_color = "#DA0205"
+			new_color = COLOR_RED_LIGHT
 
 	set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = new_color)
+
+	if(regulating_temperature)
+		add_overlay("alarm_fan_on")
+	else
+		add_overlay("alarm_fan_off")
 
 /obj/machinery/alarm/proc/refresh_all()
 	for(var/id_tag in alarm_area.air_vent_names)
