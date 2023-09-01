@@ -1987,7 +1987,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -6161,7 +6160,7 @@
 	icon_state = "door_locked";
 	id_tag = "mining_shuttle_dock_doors";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/effect/shuttle_landmark/mining/hangar,
@@ -6928,7 +6927,7 @@
 	icon_state = "door_locked";
 	id_tag = "mining_shuttle_external";
 	req_access = list(13);
-	dir = 4
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7583,7 +7582,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Port Propulsion";
 	req_one_access = list(11,24);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
