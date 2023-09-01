@@ -100,7 +100,7 @@
 /obj/item/reagent_containers/inhaler/dexalin,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/cooling)
@@ -111,7 +111,8 @@
 "lo" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Radiator Outpost";
-	req_one_access = list(11,48,65)
+	req_one_access = list(11,48,65);
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -180,7 +181,8 @@
 	id_tag = "cooling_outer";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(11)
+	req_access = list(11);
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -200,7 +202,7 @@
 "pK" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -305,11 +307,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet/rubber,
@@ -400,7 +398,8 @@
 	id_tag = "cooling_inner";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(11)
+	req_access = list(11);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -439,7 +438,7 @@
 /obj/structure/table/standard,
 /obj/item/hoist_kit,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/cooling)
