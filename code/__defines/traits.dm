@@ -174,3 +174,6 @@
 
 /// Traits given by psionics.
 #define TRAIT_SOURCE_PSIONICS "psionics"
+
+/// Unlinks gliding from movement speed, meaning that there will be a delay between movements rather than a single move movement between tiles
+#define TRAIT_NO_GLIDE "no_glide"

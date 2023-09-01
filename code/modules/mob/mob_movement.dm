@@ -197,6 +197,9 @@
 	if(moving || world.time < move_delay)
 		return 0
 
+	var/old_move_delay = move_delay
+	move_delay = world.time + world.tick_lag
+
 	//This compensates for the inaccuracy of move ticks
 	//Whenever world.time overshoots the movedelay, due to it only ticking once per decisecond
 	//The overshoot value is subtracted from our next delay, farther down where move delay is set.
@@ -273,7 +276,7 @@
 			move_delay = world.time + 1 SECOND // prevent spam
 			return 0
 
-		move_delay = world.time - leftover//set move delay
+		// move_delay = world.time - leftover//set move delay
 
 		if (mob.buckled_to)
 			if(istype(mob.buckled_to, /obj/vehicle))
@@ -341,14 +344,29 @@
 
 		//We are now going to move
 		moving = 1
+
+		var/new_glide_size = mob.glide_size
+
+		if(old_move_delay + world.tick_lag > world.time)
+			new_glide_size = DELAY_TO_GLIDE_SIZE((move_delay - old_move_delay) * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? sqrt(2) : 1 ) )
+		else
+			new_glide_size = DELAY_TO_GLIDE_SIZE((move_delay - world.time) * ( (NSCOMPONENT(direct) && EWCOMPONENT(direct)) ? sqrt(2) : 1 ) )
+
+		mob.set_glide_size(new_glide_size) // set it now in case of pulled objects
+
 		if(mob_is_human)
 			for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
+				G.affecting.set_glide_size(new_glide_size)
 				switch(G.get_grab_type())
 					if(MOB_GRAB_FIREMAN)
 						move_delay++
 					if(MOB_GRAB_NORMAL)
 						move_delay = max(move_delay, world.time + 7)
 						step(G.affecting, get_dir(G.affecting.loc, mob.loc))
+
+		if(mob?.pulling)
+			var/atom/movable/pulled_object = mob.pulling
+			pulled_object.set_glide_size(new_glide_size)
 
 		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
 			step(mob, pick(cardinal))
@@ -358,9 +376,11 @@
 		for (var/obj/item/grab/G in list(mob:l_hand, mob:r_hand))
 			if (G.state == GRAB_NECK)
 				mob.set_dir(reverse_dir[direct])
+			G.set_glide_size(new_glide_size)
 			G.adjust_position()
 
 		for (var/obj/item/grab/G in mob.grabbed_by)
+			G.set_glide_size(new_glide_size)
 			G.adjust_position()
 
 		moving = 0

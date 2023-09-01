@@ -1,6 +1,6 @@
 /atom/movable
 	layer = 3
-	glide_size = 6
+	glide_size = 8
 	animate_movement = SLIDE_STEPS
 
 	var/last_move = null
@@ -122,6 +122,15 @@
 			if(isobj(A))
 				if(A.density && !A.throwpass && !A.CanPass(src, target))
 					src.throw_impact(A,speed)
+
+/atom/movable/proc/set_glide_size(target = 8)
+	if (HAS_TRAIT(src, TRAIT_NO_GLIDE))
+		return
+	SEND_SIGNAL(src, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, target)
+	glide_size = target
+
+	for(var/mob/buckled_mob as anything in contained_mobs)
+		buckled_mob.set_glide_size(target)
 
 // Prevents robots dropping their modules
 /atom/movable/proc/dropsafety()
