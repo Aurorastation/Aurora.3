@@ -193,7 +193,8 @@
 	icon_state = "door_locked";
 	id_tag = "solar_outer";
 	locked = 1;
-	name = "Solar External Access"
+	name = "Solar External Access";
+	dir = 1
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -208,7 +209,7 @@
 	frequency = 1379;
 	id_tag = "solar_starboard_airlock";
 	pixel_x = 24;
-	req_access = newlist();
+	req_access = null;
 	tag_airpump = "solar_starboard_pump";
 	tag_chamber_sensor = "solar_starboard_sensor";
 	tag_exterior_door = "solar_starboard_outer";
@@ -237,7 +238,8 @@
 	icon_state = "door_locked";
 	id_tag = "solar_inner";
 	locked = 1;
-	name = "Solar Access"
+	name = "Solar Access";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/yellow{
@@ -305,7 +307,7 @@
 	name = "interior access button";
 	pixel_x = 24;
 	pixel_y = 24;
-	req_access = newlist()
+	req_access = null
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -508,7 +510,8 @@
 	icon_state = "door_locked";
 	id_tag = "centcom_shuttle_bay_door";
 	locked = 1;
-	name = "Transport Airlock"
+	name = "Transport Airlock";
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -521,7 +524,7 @@
 	name = "interior access button";
 	pixel_x = -24;
 	pixel_y = 24;
-	req_access = newlist()
+	req_access = null
 	},
 /turf/simulated/floor/airless,
 /area/derelict)
@@ -550,6 +553,18 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
 /area/derelict)
+"bm" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	glass = 1380;
+	icon_state = "door_locked";
+	id_tag = "centcom_shuttle_bay_door";
+	locked = 1;
+	name = "Transport Airlock";
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/derelict)
 "bo" = (
 /obj/structure/table/rack,
 /obj/random/tech_supply,
@@ -562,11 +577,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /turf/simulated/floor/airless,
 /area/derelict)
 "br" = (
@@ -599,8 +610,8 @@
 "bt" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -647,7 +658,7 @@
 	frequency = 1379;
 	id_tag = "solar_starboard_airlock";
 	pixel_x = 24;
-	req_access = newlist();
+	req_access = null;
 	tag_airpump = "solar_starboard_pump";
 	tag_chamber_sensor = "solar_starboard_sensor";
 	tag_exterior_door = "solar_starboard_outer";
@@ -708,7 +719,8 @@
 /area/derelict)
 "bI" = (
 /obj/machinery/door/airlock{
-	name = "Control room"
+	name = "Control room";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
@@ -1102,8 +1114,8 @@
 "cU" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -1126,7 +1138,8 @@
 /area/derelict)
 "cW" = (
 /obj/machinery/door/airlock{
-	name = "Cantina"
+	name = "Cantina";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1172,7 +1185,7 @@
 "de" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
@@ -1280,7 +1293,7 @@
 "dw" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/airless{
 	burnt = 3
@@ -1346,7 +1359,8 @@
 /area/derelict)
 "dN" = (
 /obj/machinery/door/airlock{
-	name = "Cantina"
+	name = "Cantina";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1379,8 +1393,8 @@
 "dZ" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -1390,7 +1404,8 @@
 /area/derelict)
 "eb" = (
 /obj/machinery/door/airlock{
-	name = "Bunk room"
+	name = "Bunk room";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1559,7 +1574,8 @@
 /area/derelict)
 "eY" = (
 /obj/machinery/door/airlock{
-	name = "Head"
+	name = "Head";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1655,7 +1671,7 @@
 	frequency = 1379;
 	id_tag = "solar_starboard_airlock";
 	pixel_x = 24;
-	req_access = newlist();
+	req_access = null;
 	tag_airpump = "solar_starboard_pump";
 	tag_chamber_sensor = "solar_starboard_sensor";
 	tag_exterior_door = "solar_starboard_outer";
@@ -1725,7 +1741,8 @@
 /area/derelict)
 "fr" = (
 /obj/machinery/door/airlock{
-	name = "Head"
+	name = "Head";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict)
@@ -30949,7 +30966,7 @@ ac
 av
 av
 aP
-bf
+bm
 av
 av
 av

@@ -235,7 +235,7 @@
 /singleton/flooring/wood
 	name = "wooden floor"
 	desc = "Polished wooden planks."
-	color = WOOD_COLOR_GENERIC
+	color = WOOD_COLOR_GENCONTRAST
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "wood"
 	has_damage_range = 7

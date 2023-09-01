@@ -11,9 +11,8 @@
 	},
 /area/mining_jack_outpost/smelter)
 "am" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(202);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -82,9 +81,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(202);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(202)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -130,11 +128,8 @@
 /area/shuttle/mining_jack/engines)
 "by" = (
 /obj/structure/table/standard,
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(202)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -177,9 +172,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -202,9 +195,8 @@
 /area/mining_jack_outpost/hangar)
 "cG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm/cold{
-	req_one_access = list(202);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(202)
 	},
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/food/drinks/waterbottle,
@@ -287,9 +279,7 @@
 /obj/machinery/mining/brace{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -403,7 +393,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Power Room"
+	name = "Power Room";
+	dir = 1
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -462,9 +453,7 @@
 	},
 /area/mining_jack_outpost/atmos)
 "gq" = (
-/obj/machinery/alarm/cold{
-	dir = 1;
-	pixel_y = -32;
+/obj/machinery/alarm/cold/south{
 	req_one_access = list(202)
 	},
 /obj/structure/closet/crate,
@@ -529,9 +518,7 @@
 	},
 /area/mining_jack_outpost/smelter)
 "hi" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
+/obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -616,9 +603,7 @@
 	},
 /area/mining_jack_outpost/atmos)
 "iq" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -703,12 +688,9 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/rust{
@@ -962,10 +944,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -1042,9 +1021,7 @@
 	},
 /area/mining_jack_outpost/smelter)
 "py" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
+/obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -1150,7 +1127,8 @@
 /area/mining_jack_outpost/storage)
 "sp" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -1235,10 +1213,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/rust{
@@ -1343,10 +1318,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/rust{
@@ -1424,11 +1396,8 @@
 	},
 /area/mining_jack_outpost/hangar)
 "wD" = (
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(202)
 	},
 /obj/structure/cable/green{
@@ -1579,7 +1548,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Equipment Storage";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -1651,9 +1621,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm/cold{
-	dir = 4;
-	pixel_x = -32;
+/obj/machinery/alarm/cold/west{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -1726,7 +1694,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Atmospherics"
+	name = "Atmospherics";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -1777,9 +1746,7 @@
 	},
 /area/shuttle/mining_jack/engines)
 "Eb" = (
-/obj/machinery/alarm/cold{
-	dir = 8;
-	pixel_x = 32;
+/obj/machinery/alarm/cold/east{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/rust{
@@ -1806,9 +1773,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1843,7 +1808,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Smelter";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1889,7 +1855,8 @@
 	id_tag = "tajara_mining_jack_hatch";
 	layer = 2.8;
 	name = "Ship External Access";
-	open_layer = 2.8
+	open_layer = 2.8;
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2000,7 +1967,8 @@
 "JU" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2265,9 +2233,8 @@
 	},
 /area/mining_jack_outpost/atmos)
 "Qp" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(202);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(202)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2534,7 +2501,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Crew Quarters";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -2584,12 +2552,9 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{

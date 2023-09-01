@@ -145,7 +145,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -185,10 +186,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 4;
-	pixel_x = -32
+/obj/machinery/alarm/cold/west{
+	req_one_access = list(209)
 	},
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark{
@@ -571,7 +570,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Sleeping Quarters"
+	name = "Sleeping Quarters";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -582,9 +582,7 @@
 	req_access = null;
 	pixel_y = 28
 	},
-/obj/machinery/alarm/cold{
-	dir = 8;
-	pixel_x = 32;
+/obj/machinery/alarm/cold/east{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/white{
@@ -670,7 +668,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Crew Area"
+	name = "Crew Area";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -679,7 +678,8 @@
 "mt" = (
 /obj/machinery/door/airlock/glass_medical{
 	req_access = list(209);
-	name = "Medbay"
+	name = "Medbay";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -701,9 +701,7 @@
 /area/pra_satellite)
 "nz" = (
 /obj/machinery/photocopier,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
+/obj/structure/extinguisher_cabinet/north,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
@@ -821,10 +819,8 @@
 /area/pra_satellite)
 "qH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 4;
-	pixel_x = -32
+/obj/machinery/alarm/cold/west{
+	req_one_access = list(209)
 	},
 /obj/effect/floor_decal/corner/black{
 	dir = 9
@@ -957,9 +953,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
 /obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
 /obj/item/storage/box/drinkingglasses,
-/obj/machinery/alarm/cold{
-	dir = 1;
-	pixel_y = -32;
+/obj/machinery/alarm/cold/south{
 	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled{
@@ -981,19 +975,15 @@
 	dir = 4
 	},
 /obj/item/clothing/accessory/flagpatch/pra,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 4;
-	pixel_x = -32
+/obj/machinery/alarm/cold/west{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
 /area/pra_satellite)
 "vB" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -1362,9 +1352,7 @@
 	},
 /area/pra_satellite)
 "GU" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
@@ -1433,9 +1421,7 @@
 /turf/template_noop,
 /area/space)
 "Lc" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/effect/floor_decal/corner/red{
 	dir = 1
 	},
@@ -1517,10 +1503,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /obj/effect/floor_decal/corner/red/full{
@@ -1643,9 +1626,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
+/obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1788,7 +1769,8 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	req_access = list(209);
-	name = "Power"
+	name = "Power";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1822,7 +1804,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/engineering{
 	req_access = list(209);
-	name = "Atmospherics"
+	name = "Atmospherics";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
