@@ -847,6 +847,7 @@
 // corresponds with the status overlay in hud_status.dmi
 #define DRUNK_STRING "drunk"
 #define BLEEDING_STRING "bleeding"
+#define POSING_STRING "posing"
 
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
@@ -1104,6 +1105,14 @@
 				qdel(status_overlays[BLEEDING_STRING])
 				status_overlays -= BLEEDING_STRING
 
+			var/has_posing_status = LAZYISIN(status_overlays, POSING_STRING)
+			if(pose)
+				if(!has_posing_status)
+					add_status_to_hud(POSING_STRING, SPAN_NOTICE("You are posing. Your current pose is \"[pose]\""))
+			else if(has_posing_status)
+				qdel(status_overlays[POSING_STRING])
+				status_overlays -= POSING_STRING
+
 			UNSETEMPTY(status_overlays)
 		else
 			for(var/status in status_overlays)
@@ -1113,6 +1122,7 @@
 
 #undef DRUNK_STRING
 #undef BLEEDING_STRING
+#undef POSING_STRING
 
 /mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
 	var/obj/screen/status/new_status = new /obj/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
