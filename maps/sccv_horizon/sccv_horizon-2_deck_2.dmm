@@ -40674,7 +40674,9 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/plasticflaps/airtight,
+/obj/structure/plasticflaps/airtight{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
 "tQA" = (
@@ -45139,7 +45141,9 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/plasticflaps/airtight,
+/obj/structure/plasticflaps/airtight{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
 "vVL" = (
