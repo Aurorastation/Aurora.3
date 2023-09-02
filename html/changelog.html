@@ -35,7 +35,18 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">02 September 2023</h2>
+			<h3 class="author">CampinKiller24 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a program to view and track what crew are on the Horizon&#x27;s shuttles.</li>
+			</ul>
+
 			<h2 class="date">01 September 2023</h2>
+			<h3 class="author">Dessysalta (sprites), Sparky_hotdog (code) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added Wildlands flagpatches for the Solarian Successor States.</li>
+				<li class="rscadd">Added the FSF, Pact, SPG and SSMD flagpatches to the PMCG loadout.</li>
+			</ul>
 			<h3 class="author">DreamySkrell updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="maptweak">Fixes paleblue floor decals on dark floors on 2d security.</li>
@@ -56,6 +67,26 @@
 			<h3 class="author">FluffyGhost updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">The title screen now uses an unique timer that is stopped upon deletion, and avoids refreshing if it&#x27;s queued for it.</li>
+				<li class="bugfix">Magboots now drop the references correctly and avoid trying to process a wearer that is being qdel&#x27;d, which can raise an exception.</li>
+				<li class="bugfix">The mech health analyzer component now queues the internally used bodyscanner for deletion upon destroy.</li>
+				<li class="bugfix">Resolved a runtime that could happen on a mob queue for deletion that is also vomiting.</li>
+				<li class="rscadd">External organs now queue for deletion the implants they have, if any.</li>
+				<li class="bugfix">Ammunitions, magazines and casings should now qdel cleanly.</li>
+				<li class="bugfix">Icon updates should now not trigger on atoms that are being deleted.</li>
+				<li class="backend">Added a try/catch VSC snippet, no live code changes.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Added the Sol Alliance canton to the San Colette flag, reflecting its reintegration into the Solarian Alliance.</li>
+				<li class="rscadd">Added an old San Colette flag without the canton, for those who collected an old flag and do not wish to swap it out.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a status icon for having a pose set.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The cowboy hats provided by the Frontier Cowboy crates are now coloured brown, rather than their default white.</li>
 			</ul>
 
 			<h2 class="date">31 August 2023</h2>

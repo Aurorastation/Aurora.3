@@ -238,18 +238,19 @@
 		var/obj/item/clothing/accessory/chaps/chaps = new(src)
 		var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
 		var/obj/item/clothing/accessory/wcoat_rec/waistcoat = new(src)
+		var/obj/item/clothing/head/cowboy/hat = new(src)
 
 		pants.attach_accessory(null, shirt)
 		pants.attach_accessory(null, chaps)
-		waistcoat.color = "#78280b"
+		waistcoat.color = COLOR_BEASTY_BROWN
 		pants.attach_accessory(null, waistcoat)
-		suspenders.color = "#521600"
+		suspenders.color = COLOR_MAROON
 		pants.attach_accessory(null, suspenders)
+		hat.color = COLOR_BEASTY_BROWN
 
 		new /obj/item/clothing/shoes/cowboy(src)
 		new /obj/item/clothing/gloves/fingerless(src)
 		new /obj/item/clothing/accessory/holster/thigh(src)
-		new /obj/item/clothing/head/cowboy(src)
 		new /obj/item/melee/whip(src)
 		new /obj/item/gun/projectile/revolver/detective(src)
 		new /obj/item/gun/projectile/shotgun/pump/lever_action(src)
@@ -260,6 +261,7 @@
 	var/obj/item/clothing/accessory/chaps/chaps = new(src)
 	var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
 	var/obj/item/clothing/accessory/wcoat_rec/waistcoat = new(src)
+	var/obj/item/clothing/head/cowboy/hat = new(src)
 
 	pants.attach_accessory(null, shirt)
 	pants.attach_accessory(null, chaps)
@@ -267,11 +269,11 @@
 	pants.attach_accessory(null, waistcoat)
 	suspenders.color = "#521600"
 	pants.attach_accessory(null, suspenders)
+	hat.color = "#521600"
 
 	new /obj/item/clothing/shoes/cowboy(src)
 	new /obj/item/clothing/gloves/fingerless(src)
 	new /obj/item/clothing/accessory/holster/thigh(src)
-	new /obj/item/clothing/head/cowboy(src)
 	new /obj/item/melee/whip(src)
 	new /obj/item/gun/projectile/revolver/detective(src)
 	new /obj/item/gun/projectile/shotgun/pump/lever_action(src)

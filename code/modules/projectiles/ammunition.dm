@@ -29,6 +29,10 @@
 	randpixel_xy()
 	transform = turn(transform,rand(0,360))
 
+/obj/item/ammo_casing/Destroy()
+	QDEL_NULL(BB)
+	. = ..()
+
 //removes the projectile from the ammo casing
 /obj/item/ammo_casing/proc/expend()
 	. = BB
@@ -127,6 +131,10 @@
 		for(var/i in 1 to initial_ammo)
 			stored_ammo += new ammo_type(src)
 	update_icon()
+
+/obj/item/ammo_magazine/Destroy()
+	QDEL_NULL_LIST(stored_ammo)
+	. = ..()
 
 /obj/item/ammo_magazine/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/ammo_casing))
