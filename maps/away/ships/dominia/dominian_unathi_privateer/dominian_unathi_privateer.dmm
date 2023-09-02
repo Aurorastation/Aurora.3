@@ -915,9 +915,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi)
-"iO" = (
-/turf/simulated/floor/plating,
-/area/space)
 "iV" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1560,9 +1557,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
-"ov" = (
-/turf/template_noop,
-/area/ship/dominian_unathi/starboardthrust)
 "ow" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3999,7 +3993,7 @@
 "In" = (
 /obj/effect/map_effect/airlock/e_to_w/long/square,
 /turf/simulated/wall/shuttle/space_ship,
-/area/space)
+/area/ship/dominian_unathi/porthall)
 "Io" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -5086,8 +5080,9 @@
 /turf/simulated/floor/carpet/orange,
 /area/ship/dominian_unathi/captain)
 "SP" = (
+/obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/shuttle/space_ship,
-/area/space)
+/area/shuttle/dominian_unathi)
 "SQ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -5874,6 +5869,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port hallway"
 	},
+/obj/effect/landmark/entry_point/aft,
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
 "Yo" = (
@@ -16684,8 +16680,8 @@ Wf
 Wf
 wg
 vg
-ov
-ov
+GR
+GR
 Rd
 RY
 HU
@@ -17040,10 +17036,10 @@ Wf
 Wf
 Wf
 Wf
-SP
-iO
-iO
-SP
+Pd
+Np
+Np
+Pd
 Wf
 Wf
 Wf
@@ -17202,10 +17198,10 @@ Wf
 Wf
 Wf
 Wf
-SP
-Wf
-Wf
-SP
+Pd
+Np
+Np
+Pd
 Wf
 Wf
 Wf
@@ -20930,9 +20926,9 @@ Wf
 Wf
 Wf
 Wf
-SP
-iO
-iO
+UC
+GX
+GX
 In
 Wf
 Wf
@@ -21092,10 +21088,10 @@ Wf
 Wf
 Wf
 Wf
-SP
-iO
-iO
-SP
+UC
+GX
+GX
+UC
 Wf
 Wf
 Wf
@@ -22884,7 +22880,7 @@ zB
 gY
 zW
 zW
-BQ
+SP
 BQ
 BQ
 BQ
