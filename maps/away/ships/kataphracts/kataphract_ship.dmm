@@ -25,6 +25,17 @@
 "ae" = (
 /turf/simulated/wall/r_wall,
 /area/shuttle/kataphract_shuttle/main_compartment)
+"af" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "kataphract_shuttle_in";
+	locked = 1;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "ah" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/door/firedoor/noid,
@@ -48,7 +59,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/door/airlock/maintenance{
 	name = "Propulsion";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
@@ -105,7 +117,8 @@
 "at" = (
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Trading Desk";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -134,7 +147,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "aw" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -415,12 +428,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "bj" = (
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -655,8 +665,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/super/critical{
-	pixel_y = -24;
+/obj/machinery/power/apc/super/critical/south{
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -765,7 +774,8 @@
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge Glass Airlock";
 	req_access = list(113);
-	req_one_access = null
+	req_one_access = null;
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -781,7 +791,8 @@
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge Glass Airlock";
 	req_access = list(113);
-	req_one_access = null
+	req_one_access = null;
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -795,8 +806,7 @@
 /area/kataphract_chapter/starboardpropulsion)
 "ce" = (
 /obj/structure/bed/padded,
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -827,8 +837,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "cj" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -846,7 +855,8 @@
 "cm" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Propulsion";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -1029,7 +1039,8 @@
 	id_tag = "katatoilet1";
 	name = "Toilet";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/freezer,
@@ -1274,7 +1285,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Residential Area";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -1388,10 +1400,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -1415,7 +1424,8 @@
 	id_tag = "katatoilet2";
 	name = "Toilet";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/freezer,
@@ -1464,11 +1474,8 @@
 /turf/simulated/floor/tiled/freezer,
 /area/kataphract_chapter/toilets)
 "dD" = (
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -1737,7 +1744,8 @@
 /area/kataphract_chapter/toilets)
 "eb" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Maintenance"
+	name = "Maintenance";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
@@ -1757,7 +1765,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Medical Bay";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -1874,7 +1883,8 @@
 "es" = (
 /obj/machinery/door/airlock/glass{
 	name = "Canisters and Supplies";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1947,7 +1957,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Armoury";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -2015,8 +2026,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboard_solars)
 "eJ" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /obj/effect/floor_decal/corner/red{
@@ -2066,7 +2076,8 @@
 "eM" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Brig";
-	req_access = list(113)
+	req_access = list(113);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2215,7 +2226,8 @@
 /obj/machinery/door/airlock{
 	name = "Chapter Toilets";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/freezer,
@@ -2224,7 +2236,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Cafeteria and Knight's Office";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -2243,7 +2256,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Armoury";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -2374,7 +2388,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Residential Area";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -2408,9 +2423,7 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/machinery/power/apc/super/critical{
-	dir = 1;
-	pixel_y = 24;
+/obj/machinery/power/apc/super/critical/north{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -2534,7 +2547,8 @@
 /obj/machinery/door/airlock{
 	name = "Chapter Toilets";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/freezer,
@@ -2632,7 +2646,8 @@
 /area/kataphract_chapter/cafeteria)
 "fG" = (
 /obj/machinery/door/airlock/hatch{
-	req_access = list(113)
+	req_access = list(113);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2671,16 +2686,14 @@
 /obj/machinery/door/airlock{
 	name = "Chapter Dormitory";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "fN" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(113)
 	},
 /obj/structure/cable/green,
@@ -2781,8 +2794,7 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "ga" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/wood,
@@ -2792,11 +2804,8 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/wood,
@@ -2848,7 +2857,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Sparring Chamber";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -2867,7 +2877,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Sparring Chamber";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -2900,11 +2911,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -2966,7 +2974,8 @@
 "gw" = (
 /obj/machinery/door/airlock/security{
 	name = "Pod Bay";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3045,7 +3054,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Cafeteria and Knight's Office";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -3215,7 +3225,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Cafeteria";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3247,8 +3258,7 @@
 /area/kataphract_chapter/trading_area)
 "gU" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/high{
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3282,7 +3292,7 @@
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "gZ" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -3481,7 +3491,8 @@
 "hv" = (
 /obj/machinery/door/airlock/glass{
 	name = "Armoury";
-	req_one_access = list(115,113)
+	req_one_access = list(115,113);
+	dir = 1
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -3575,7 +3586,8 @@
 /obj/machinery/door/airlock{
 	name = "Chapter Dormitory";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
@@ -3680,7 +3692,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Sparring Chamber";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -3836,7 +3849,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Cafeteria";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
@@ -3940,7 +3954,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "ix" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/effect/decal/fake_object{
 	desc = "A panel controlling an SUPB Pod. This one states the pod is currently offline.";
 	icon = 'icons/obj/computer.dmi';
@@ -4036,10 +4050,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "iJ" = (
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/high/east{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -4060,10 +4071,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -4073,7 +4081,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
 "iM" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
@@ -4142,8 +4150,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -4300,7 +4307,8 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Chapter Port Engineering";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -4331,7 +4339,8 @@
 	frequency = 1983;
 	icon_state = "door_locked";
 	id_tag = "chapter_port_exterior";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -4378,7 +4387,8 @@
 	frequency = 1983;
 	icon_state = "door_locked";
 	id_tag = "chapter_port_interior";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -4434,7 +4444,8 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Chapter Port Solars";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -4475,8 +4486,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -4577,7 +4587,8 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Chapter Starboard Solars Access";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -4610,7 +4621,8 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Chapter Port Engineering";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -4644,7 +4656,8 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Chapter Starboard Solars";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -4703,7 +4716,8 @@
 	frequency = 1984;
 	icon_state = "door_locked";
 	id_tag = "chapter_starboard_interior";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -4732,7 +4746,8 @@
 	frequency = 1984;
 	icon_state = "door_locked";
 	id_tag = "chapter_starboard_exterior";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -4815,7 +4830,8 @@
 /area/kataphract_chapter/entry)
 "ka" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Maintenance"
+	name = "Maintenance";
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
@@ -5227,11 +5243,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "kR" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -5290,10 +5303,8 @@
 	icon_state = "intact"
 	},
 /obj/machinery/light/small,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/structure/cable,
@@ -5404,7 +5415,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/warehouse)
 "lk" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -5441,7 +5452,8 @@
 "lo" = (
 /obj/machinery/door/airlock/security{
 	name = "Pod Bay";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5475,7 +5487,8 @@
 "lt" = (
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Trading Desk";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5882,10 +5895,8 @@
 	icon_state = "intact"
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -5907,14 +5918,16 @@
 /area/kataphract_chapter/hangar)
 "mx" = (
 /obj/machinery/door/airlock/glass{
-	name = "Chapter Trading Area"
+	name = "Chapter Trading Area";
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "my" = (
 /obj/machinery/door/airlock/glass{
-	name = "Chapter Trading Area"
+	name = "Chapter Trading Area";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6024,7 +6037,8 @@
 "mL" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armoury";
-	req_one_access = list(115,113)
+	req_one_access = list(115,113);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6171,7 +6185,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Engineering and Hangar";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -6219,7 +6234,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Engineering and Hangar";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -6265,7 +6281,8 @@
 "nh" = (
 /obj/machinery/door/airlock/medical{
 	name = "Operating Theatre";
-	req_access = list(113)
+	req_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6326,7 +6343,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "kataphract_shuttle_in";
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
@@ -6343,7 +6361,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "kata_ship_out";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /obj/effect/shuttle_landmark/nav_kataphract_ship/starboarddock,
 /turf/simulated/floor,
@@ -6552,7 +6571,8 @@
 /obj/machinery/door/airlock/silver{
 	id_tag = "kataofficedoor";
 	name = "Knight Captain's office";
-	req_one_access = list(114)
+	req_one_access = list(114);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6673,12 +6693,9 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -6772,7 +6789,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "kata_ship_out";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -6819,7 +6837,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "kata_ship_in";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -6839,7 +6858,8 @@
 "qA" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Cell";
-	req_access = list(113)
+	req_access = list(113);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6853,7 +6873,8 @@
 "qS" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Propulsion";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/structure/cable/green{
@@ -6962,7 +6983,8 @@
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "ru" = (
 /obj/machinery/door/airlock/glass_security{
-	name = "Hangar and Pod Bay"
+	name = "Hangar and Pod Bay";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6995,7 +7017,8 @@
 "rx" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "CIC";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7092,10 +7115,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -7126,7 +7146,8 @@
 "tk" = (
 /obj/machinery/door/airlock/glass{
 	name = "Canisters and Supplies";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -7141,7 +7162,8 @@
 /area/kataphract_chapter/cafeteria)
 "ty" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Telecommunications"
+	name = "Telecommunications";
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/structure/plasticflaps/airtight,
@@ -7188,7 +7210,8 @@
 "ue" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Propulsion";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7204,7 +7227,8 @@
 "ug" = (
 /obj/machinery/door/airlock/glass{
 	name = "Armoury";
-	req_one_access = list(115,113)
+	req_one_access = list(115,113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/blast/shutters{
@@ -7336,10 +7360,7 @@
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/starboard_solars_array)
 "vQ" = (
-/obj/machinery/power/apc{
-	dir = 2;
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/south{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -7632,7 +7653,8 @@
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Medical Bay";
 	req_access = null;
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/medical)
@@ -7695,8 +7717,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/wood,
@@ -7912,7 +7933,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "kataphract_shuttle_out";
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -8051,7 +8073,7 @@
 /turf/template_noop,
 /area/space)
 "CE" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
@@ -8127,7 +8149,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "kata_ship_in";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -8194,10 +8217,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/high/east{
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -8255,8 +8275,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "Er" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -8277,7 +8296,8 @@
 /area/kataphract_chapter/dorms)
 "Ez" = (
 /obj/machinery/door/airlock/maintenance{
-	name = "Janitorial"
+	name = "Janitorial";
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -8322,8 +8342,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "EQ" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -8366,7 +8385,8 @@
 /area/kataphract_chapter/bridge)
 "FJ" = (
 /obj/machinery/door/airlock/glass{
-	name = "Chapter Trading Area"
+	name = "Chapter Trading Area";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8475,8 +8495,7 @@
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/port_solars_array)
 "Gx" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /obj/structure/closet/walllocker/medical/secure{
@@ -8526,7 +8545,8 @@
 /area/shuttle/kataphract_shuttle/main_compartment)
 "GP" = (
 /obj/machinery/door/airlock/glass_security{
-	name = "Hangar and Pod Bay"
+	name = "Hangar and Pod Bay";
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -8537,7 +8557,8 @@
 "GV" = (
 /obj/machinery/door/airlock/glass{
 	name = "Armoury";
-	req_one_access = list(115,113)
+	req_one_access = list(115,113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -8582,8 +8603,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bridge)
 "Hr" = (
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -8763,7 +8783,8 @@
 /area/kataphract_chapter/commissary)
 "Jr" = (
 /obj/machinery/door/airlock/glass{
-	name = "Chapter Trading Area"
+	name = "Chapter Trading Area";
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -8985,8 +9006,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -9098,7 +9118,7 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starboardpropulsion)
 "Mv" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -9109,7 +9129,8 @@
 /area/kataphract_chapter/hangar)
 "MC" = (
 /obj/machinery/door/airlock/glass_security{
-	name = "Hangar and Pod Bay"
+	name = "Hangar and Pod Bay";
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
@@ -9390,10 +9411,7 @@
 	icon_state = "0-2";
 	pixel_y = 0
 	},
-/obj/machinery/power/apc/high{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/high/west,
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/engine_compartment)
 "Ou" = (
@@ -9592,10 +9610,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "QB" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(113)
 	},
 /obj/structure/cable/green,
@@ -9708,7 +9723,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "RL" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "RM" = (
@@ -9796,8 +9811,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -9868,11 +9882,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
+/obj/machinery/power/apc/north{
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -9922,7 +9933,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "TH" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled/dark,
@@ -9933,11 +9944,8 @@
 	dir = 9;
 	pixel_y = 0
 	},
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -9975,7 +9983,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "kataphract_shuttle_out";
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /obj/effect/landmark/entry_point/north{
 	name = "port, airlock"
@@ -10066,8 +10075,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -10123,8 +10131,7 @@
 "Wi" = (
 /obj/item/pipewrench,
 /obj/random/tech_supply,
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -10186,8 +10193,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/super/critical{
-	pixel_y = -24;
+/obj/machinery/power/apc/super/critical/south{
 	req_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -10406,7 +10412,8 @@
 /area/kataphract_chapter/cic)
 "YX" = (
 /obj/machinery/door/airlock/hatch{
-	req_access = list(113)
+	req_access = list(113);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10459,10 +10466,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/high/south,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "Zz" = (
@@ -10474,8 +10478,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 25;
+/obj/machinery/alarm/north{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -22083,7 +22086,7 @@ le
 iu
 BI
 TV
-nl
+af
 ie
 RY
 AY

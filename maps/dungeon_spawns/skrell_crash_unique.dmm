@@ -49,6 +49,14 @@
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
+"ak" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1;
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/dungeon/skrell_ship)
 "al" = (
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
@@ -155,7 +163,8 @@
 /area/dungeon/skrell_ship)
 "aB" = (
 /obj/machinery/door/airlock/skrell{
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/item/landmine/frag{
 	deployed = 1
@@ -302,12 +311,15 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bb" = (
-/obj/machinery/door/airlock/skrell,
+/obj/machinery/door/airlock/skrell{
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/skrell,
 /area/dungeon/skrell_ship)
 "bc" = (
 /obj/machinery/door/airlock/skrell{
-	name = "Cryogenics"
+	name = "Cryogenics";
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
@@ -413,9 +425,18 @@
 /area/dungeon/skrell_ship)
 "bw" = (
 /obj/machinery/door/airlock/skrell{
-	name = "Medbay"
+	name = "Medbay";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/dungeon/skrell_ship)
+"bx" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1;
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
 "by" = (
 /obj/structure/table/skrell,
@@ -442,7 +463,8 @@
 /area/dungeon/skrell_ship)
 "bC" = (
 /obj/machinery/door/airlock/skrell{
-	name = "Medbay"
+	name = "Medbay";
+	dir = 4
 	},
 /obj/item/landmine/emp{
 	deployed = 1
@@ -524,7 +546,8 @@
 /area/dungeon/skrell_ship)
 "bN" = (
 /obj/machinery/door/airlock/skrell{
-	name = "Cryogenics"
+	name = "Cryogenics";
+	dir = 4
 	},
 /obj/item/landmine/emp{
 	deployed = 1
@@ -532,7 +555,9 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/dungeon/skrell_ship)
 "bO" = (
-/obj/machinery/door/airlock/skrell,
+/obj/machinery/door/airlock/skrell{
+	dir = 1
+	},
 /obj/item/landmine/frag{
 	deployed = 1
 	},
@@ -748,7 +773,8 @@
 /area/dungeon/skrell_ship)
 "cy" = (
 /obj/machinery/door/airlock/skrell{
-	name = "Cryogenics"
+	name = "Cryogenics";
+	dir = 1
 	},
 /obj/item/landmine/frag{
 	deployed = 1
@@ -785,7 +811,8 @@
 "cD" = (
 /obj/machinery/door/airlock/external{
 	icon_state = "door_locked";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
@@ -817,7 +844,8 @@
 /area/dungeon/skrell_ship)
 "cN" = (
 /obj/machinery/door/airlock/skrell{
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
@@ -1035,7 +1063,7 @@ ap
 ap
 ap
 aS
-cD
+ak
 ad
 ap
 ap
@@ -1579,7 +1607,7 @@ ap
 ap
 ap
 ad
-cD
+bx
 ad
 ap
 ap
