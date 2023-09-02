@@ -926,15 +926,20 @@
 /obj/item/gun/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/material/knife/bayonet))
 		if(!can_bayonet)
+			balloon_alert(user, "\the [I.name] doesn't fit")
 			return ..()
 
+		if(user.l_hand != bayonet && user.r_hand != bayonet)
+			balloon_alert(user, "not in hand")
+			return
+
 		if(bayonet)
-			to_chat(user, SPAN_WARNING("There is a bayonet attached to \the [src] already!"))
+			balloon_alert(user, "\the [src] already has a bayonet")
 			return TRUE
 
 		user.drop_from_inventory(I,src)
 		bayonet = I
-		to_chat(user, SPAN_NOTICE("You attach \the [I] to the front of \the [src]."))
+		balloon_alert(user, "[I.name] attached")
 		w_class += I.w_class
 		update_icon()
 		return TRUE
@@ -944,18 +949,21 @@
 
 	if(istype(I, /obj/item/ammo_display))
 		if(!can_ammo_display)
-			to_chat(user, SPAN_WARNING("\The [I] cannot attach to \the [src]."))
+			balloon_alert(user, "\the [I.name] doesn't fit")
 			return TRUE
+		if(user.l_hand != ammo_display && user.r_hand != ammo_display)
+			balloon_alert(user, "not in hand")
+			return
 		if(ammo_display)
-			to_chat(user, SPAN_WARNING("\The [src] already has a holographic ammo display."))
+			balloon_alert(user, "\the [src] already has an ammo display")
 			return TRUE
 		if(displays_maptext)
-			to_chat(user, SPAN_WARNING("\The [src] is already displaying its ammo count."))
+			balloon_alert(user, "\the [src] is already displaying its ammo count")
 			return TRUE
 		user.drop_from_inventory(I, src)
 		ammo_display = I
 		displays_maptext = TRUE
-		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
+		balloon_alert(user, "[I.name] attached")
 		w_class += I.w_class
 		return TRUE
 
