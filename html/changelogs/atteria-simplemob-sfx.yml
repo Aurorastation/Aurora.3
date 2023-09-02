@@ -1,9 +1,0 @@
-
-author: atteria
-
-delete-after: True
-
-changes:
-  - tweak: "Simplemobs now make attack sounds properly, and now have attack sounds by default."
-  - tweak: "Simplemobs now play their emote noise by default."
-  - rscadd: "Added new hivebot sound effects."
