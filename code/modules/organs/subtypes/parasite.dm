@@ -235,6 +235,10 @@
 				owner.delayed_vomit()
 
 /obj/item/organ/internal/parasite/blackkois/removed(var/mob/living/carbon/human/target)
+	if(stage == 4)
+		to_chat(target, "<span class='danger'>You feel the tendrils of the black k'ois being torn from your brain. But it is too late now, for you to know any freedom. As the will of the Hive is cut away from you - you know a moment of peace, and then nothing at all.")
+		target.visible_message("<span class='notice'>\The [target] spasms wildly, as the tendrils of black k'ois are severed from their mind. Their body thrashes, eyes rolling back in their head - and then finally, mercifully, they go still.</span>")
+		target.death(FALSE)
 	if(all_languages[LANGUAGE_VAURCA] in target.languages && stage >= 3 && !isvaurca(target))
 		target.remove_language(LANGUAGE_VAURCA)
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
