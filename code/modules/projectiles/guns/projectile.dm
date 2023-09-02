@@ -332,7 +332,7 @@
 	. += ..(FALSE)
 
 ///Installs a new suppressor, assumes that the suppressor is already in the contents of src
-/obj/item/gun/projectile/proc/install_suppressor(obj/item/silencer/S)
+/obj/item/gun/projectile/proc/install_suppressor(obj/item/suppressor/S)
 	suppressed = TRUE
 	w_class += S.w_class //Add our weight class to the item's weight class
 	suppressor = S
