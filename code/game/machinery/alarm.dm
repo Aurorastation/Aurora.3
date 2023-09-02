@@ -447,13 +447,13 @@ pixel_x = 10;
 	cut_overlays()
 	icon_state = "alarmp"
 
+	if(wiresexposed)
+		icon_state = "alarmx"
+
 	if((stat & (NOPOWER|BROKEN)) || shorted)
 		add_overlay("alarm_fan_off")
 		set_light(0)
 		return
-
-	if(wiresexposed)
-		icon_state = "alarmx"
 
 	var/icon_level = danger_level
 	if (alarm_area.atmosalm)
