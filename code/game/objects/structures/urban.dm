@@ -352,7 +352,6 @@
 	icon = 'icons/obj/structure/urban/wood.dmi'
 	icon_state = "post"
 	density = FALSE
-	layer = OBJ_LAYER
 	layer = 3
 
 /obj/structure/statue
@@ -370,9 +369,21 @@
 	icon_state = "buddha"
 
 /obj/structure/sign/urban
-	name = "building sign"
-	desc = "A sign labeling the structure it finds itself on."
-	icon_state = "goldenplaque"
+	name = "exit sign"
+	desc = "A sign indicating where you should probably go in a hurry."
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
+	icon_state = "exit"
+	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/sign/urban/restroom
+	name = "restroom sign"
+	desc = "A sign indicating where you can find a restroom."
+	icon_state = "restroom"
+
+/obj/structure/sign/urban/staff
+	name = "staff only sign"
+	desc = "A sign that warns of this entry being barred to the public."
+	icon_state = "staff"
 
 /obj/structure/sign/urban/konyang
 	name = "convenience store sign"
@@ -414,6 +425,31 @@
 /obj/structure/window/urban/framed
 	icon_state = "wood_framed"
 	basestate = "wood_framed"
+
+/obj/structure/cash_register
+	name = "cash register machine"
+	desc = "A retail nightmare object."
+	desc_info = "Drag this onto yourself to open the cash compartment."
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
+	icon_state = "cashier"
+	layer = 2.99
+	density = 0
+	anchored = 0
+	var/storage_type = /obj/item/storage/toolbox/cash_register_storage
+	var/obj/item/storage/storage_compartment
+
+/obj/structure/cash_register/Initialize(mapload)
+	. = ..()
+	if(storage_type)
+		storage_compartment = new storage_type(src)
+
+/obj/item/storage/toolbox/cash_register_storage
+	name = "cash compartment"
+
+/obj/structure/cash_register/MouseDrop(atom/over)
+	if(usr == over && ishuman(over))
+		var/mob/living/carbon/human/H = over
+		storage_compartment.open(H)
 
 /obj/machinery/door/urban
 	name = "wooden panel door"

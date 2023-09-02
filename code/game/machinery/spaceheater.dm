@@ -202,3 +202,10 @@
 			active = FALSE
 			power_change()
 		update_icon()
+
+/obj/machinery/space_heater/stationary//For mounting on walls in planetary buildings and stuff.
+	name = "stationary air conditioning unit"
+	desc = "A stationary air conditioning unit. It can heat or cool a room to your liking."
+	anchored = TRUE
+	can_be_unanchored = FALSE
+	density = FALSE

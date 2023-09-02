@@ -72,7 +72,7 @@
 /area/konyang_landing_zone/command_center/living)
 "aG" = (
 /obj/structure/crane,
-/turf/simulated/floor/concrete/square,
+/turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "aW" = (
 /obj/structure/cable{
@@ -460,12 +460,10 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	name = "south bump";
-	pixel_y = null;
+/obj/machinery/light/small,
+/obj/machinery/power/apc/south{
 	req_access = null
 	},
-/obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/greenhouse)
 "gk" = (
@@ -522,7 +520,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
-/turf/simulated/floor/concrete/square,
+/turf/simulated/floor/concrete,
 /area/konyang_landing_zone/command_center/landing_pads)
 "gR" = (
 /obj/structure/cable/yellow{
@@ -809,7 +807,7 @@
 /area/konyang_landing_zone/command_center)
 "kd" = (
 /obj/effect/floor_decal/big/scc_full,
-/turf/simulated/floor/concrete/square,
+/turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "ke" = (
 /obj/structure/utility_pole/street/on{
@@ -1179,7 +1177,7 @@
 	pixel_y = -20;
 	dir = 1
 	},
-/turf/simulated/floor/concrete/square,
+/turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "pk" = (
 /obj/effect/decal/exterior_stairs/half/right{
@@ -1442,12 +1440,6 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = null;
-	req_access = null
-	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -1455,6 +1447,9 @@
 	dir = 9
 	},
 /obj/machinery/papershredder,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "sy" = (
@@ -2010,10 +2005,6 @@
 /obj/structure/ledge/quarter,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/konyang_landing_zone)
-"zC" = (
-/obj/structure/chainlink_fence,
-/turf/simulated/floor/concrete/square,
-/area/konyang_landing_zone)
 "zR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -2269,7 +2260,7 @@
 	id = "lz_gate";
 	name = "Main Gate"
 	},
-/turf/simulated/floor/concrete/square,
+/turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "Cw" = (
 /obj/structure/ledge/quarter/corner{
@@ -2494,11 +2485,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
-"FM" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/concrete/square,
-/area/konyang_landing_zone/command_center/landing_pads)
 "FY" = (
 /obj/effect/decal/exterior_stairs/center,
 /turf/simulated/floor/asphalt,
@@ -2625,12 +2611,6 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Hf" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = null;
-	req_access = null
-	},
 /obj/structure/closet/crate/secure/large,
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -2644,6 +2624,9 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/full,
 /area/konyang_landing_zone/command_center/reactor)
 "Hg" = (
@@ -2671,12 +2654,6 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "Hz" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = null;
-	req_access = null
-	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -2686,6 +2663,9 @@
 /obj/item/stack/material/graphite/full,
 /obj/item/stack/material/graphite/full,
 /obj/item/stack/material/graphite/full,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
 "HR" = (
@@ -2741,12 +2721,6 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Ik" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = null;
-	req_access = null
-	},
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -2755,6 +2729,9 @@
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
+/obj/machinery/power/apc/west{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/living)
 "Il" = (
@@ -3275,12 +3252,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/living)
-"Oc" = (
-/obj/structure/chainlink_fence{
-	dir = 8
-	},
-/turf/simulated/floor/concrete/square,
-/area/konyang_landing_zone)
 "Oe" = (
 /obj/structure/ledge/quarter{
 	dir = 1
@@ -3538,7 +3509,7 @@
 /obj/structure/chainlink_fence{
 	dir = 8
 	},
-/turf/simulated/floor/concrete/square,
+/turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "QS" = (
 /obj/structure/table/stone/marble,
@@ -3610,9 +3581,6 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
-"Rw" = (
-/turf/simulated/floor/concrete/square,
-/area/konyang_landing_zone)
 "RD" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -3664,13 +3632,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = null;
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/power/apc/north{
 	req_access = null
 	},
-/obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Sl" = (
@@ -4148,15 +4113,6 @@
 "Zi" = (
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone/command_center)
-"Zu" = (
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
-	},
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/concrete/square,
-/area/konyang_landing_zone/command_center/landing_pads)
 "ZI" = (
 /obj/structure/closet/cabinet,
 /obj/structure/window/reinforced{
@@ -4832,26 +4788,26 @@ YV
 Jp
 Lb
 Ll
-Zu
-Rw
-Rw
-Oc
-Oc
-Oc
-Oc
-Oc
-Oc
-Oc
-Oc
-Oc
-Oc
-Oc
-Oc
-Oc
-Oc
-Oc
-Oc
-Oc
+lX
+dK
+dK
+mF
+mF
+mF
+mF
+mF
+mF
+mF
+mF
+mF
+mF
+mF
+mF
+mF
+mF
+mF
+mF
+mF
 QM
 BF
 YV
@@ -4890,26 +4846,26 @@ sS
 YV
 ew
 je
-Rw
+dK
 tm
 CU
 CU
 CU
 EV
-Rw
+dK
 aG
-Rw
+dK
 tm
 CU
 CU
 CU
 EV
-Rw
-Rw
-Rw
+dK
+dK
+dK
 kd
-Rw
-zC
+dK
+gk
 BF
 YV
 rz
@@ -4947,24 +4903,24 @@ rf
 YV
 ew
 mp
-Rw
+dK
 jn
 fQ
 CT
 wL
 pz
-Rw
-Rw
-Rw
+dK
+dK
+dK
 jn
 ev
 ev
 ev
 pz
-Rw
-Rw
-Rw
-Rw
+dK
+dK
+dK
+dK
 pd
 Nu
 IL
@@ -5004,25 +4960,25 @@ rf
 YV
 ew
 je
-Rw
+dK
 jn
 xo
 bJ
 sK
 pz
-Rw
-Rw
-Rw
+dK
+dK
+dK
 jn
 PG
 bV
 Rj
 pz
-Rw
-Rw
-Rw
-Rw
-Rw
+dK
+dK
+dK
+dK
+dK
 Cq
 Vc
 rf
@@ -5060,26 +5016,26 @@ rf
 rf
 YV
 ew
-Zu
-Rw
+lX
+dK
 jn
 xd
 ax
 Eg
 pz
-Rw
-Rw
-Rw
+dK
+dK
+dK
 jn
 Er
 Er
 Ji
 pz
-Rw
-Rw
-Rw
-Rw
-Rw
+dK
+dK
+dK
+dK
+dK
 Cq
 Jd
 rf
@@ -5118,25 +5074,25 @@ rf
 YV
 ew
 je
-Rw
+dK
 jn
 ns
 ns
 ns
 pz
-Rw
-Rw
-Rw
+dK
+dK
+dK
 jn
 zb
 ci
 ns
 pz
-Rw
-Rw
-Rw
-Rw
-Rw
+dK
+dK
+dK
+dK
+dK
 Cq
 lt
 rf
@@ -5175,25 +5131,25 @@ rf
 YV
 ew
 je
-Rw
+dK
 JK
 DP
 DP
 DP
 QX
-Rw
-Rw
-Rw
+dK
+dK
+dK
 JK
 DP
 DP
 DP
 QX
-Rw
-Rw
-Rw
-Rw
-Rw
+dK
+dK
+dK
+dK
+dK
 Nu
 am
 xc
@@ -5233,20 +5189,20 @@ YV
 ew
 wl
 gM
-FM
+Pl
 jL
 jL
 jL
-FM
-FM
+Pl
+Pl
 jL
-FM
-FM
+Pl
+Pl
 jL
 jL
 jL
-FM
-FM
+Pl
+Pl
 EO
 jL
 jL

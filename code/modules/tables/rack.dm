@@ -35,6 +35,12 @@
 	icon = 'icons/obj/structure/urban/tailoring.dmi'
 	icon_state = "clothes_rack"
 
+/obj/structure/table/rack/retail_shelf
+	name = "retail shelves"
+	desc = "A large, assorted shelf with many platforms for setting things upon."
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
+	icon_state = "shelf"
+
 /obj/structure/table/rack/cafe_table
 	name = "round cafe table"
 	desc = "A wood table with soft, rounded edges."

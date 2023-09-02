@@ -1,5 +1,6 @@
 /turf/simulated/floor/asphalt
 	name = "asphalt"
+	desc = "Once-hot asphalt."
 	icon = 'icons/turf/flooring/urban_turfs.dmi'
 	icon_state = "asphalt0"
 
@@ -8,6 +9,7 @@
 
 /turf/simulated/floor/sidewalk
 	name = "weathered tiling"
+	desc = "Great for speeding on."
 	icon = 'icons/turf/flooring/urban_turfs.dmi'
 	icon_state = "sidewalk-tile"
 
@@ -32,6 +34,15 @@
 /turf/simulated/floor/sidewalk/blocks/Initialize(mapload)
 	icon_state = "blocks[rand(1,3)]"
 
+/turf/simulated/floor/roofing_tiles
+	name = "roofing tiles"
+	desc = "You're on top of the world!"
+	icon = 'icons/turf/flooring/urban_turfs.dmi'
+	icon_state = "rooftop"
+
+/turf/simulated/floor/roofing_tiles/Initialize(mapload)
+	icon_state = "rooftop[rand(1,3)]"
+
 /obj/structure/ledge
 	name = "tall ledge"
 	desc = "A tall ledge that seems difficult to surpass. You'd need some effort to get over this!"
@@ -52,3 +63,12 @@
 
 /obj/structure/ledge/quarter/corner
 	icon_state = "quarter-corner"
+
+/obj/structure/ledge/roof
+	name = "roof ledge"
+	desc = "A basic roofing ledge to mark the edge of a rooftop. Don't trip!"
+	icon_state = "roof_ledge"
+	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/ledge/roof/corner
+	icon_state = "roof_ledge_corner"
