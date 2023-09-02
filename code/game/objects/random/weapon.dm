@@ -192,6 +192,7 @@
 		/obj/item/gun/projectile/shotgun/pump/rifle/obrez,
 		/obj/item/gun/projectile/contender,
 		/obj/item/gun/projectile/shotgun/pump/rifle/vintage,
+		/obj/item/gun/projectile/shotgun/pump/lever_action,
 		/obj/item/gun/projectile/gauss,
 		/obj/item/gun/projectile/gauss/carbine,
 		/obj/item/gun/projectile/shotgun/pump,

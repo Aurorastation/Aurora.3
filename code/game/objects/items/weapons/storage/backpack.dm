@@ -113,7 +113,7 @@
 	icon_state = "giftbag0"
 	item_state = "giftbag"
 	w_class = ITEMSIZE_LARGE
-	max_storage_space = 400 // can store a ton of shit!
+	max_storage_space = 200 // can store a ton of shit!
 	empty_delay = 1 SECOND
 
 /obj/item/storage/backpack/cultpack
