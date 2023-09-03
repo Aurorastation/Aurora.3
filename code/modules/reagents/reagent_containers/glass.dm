@@ -39,7 +39,7 @@
 				break
 			if(T.reagent_state == SOLID)
 				to_chat(user, SPAN_NOTICE("You see something solid in the beaker."))
-				break 
+				break
 	else
 		to_chat(user, SPAN_NOTICE("It is empty."))
 	if(!is_open_container())
@@ -99,10 +99,7 @@
 	name = "beaker"
 	desc = "A beaker."
 	icon = 'icons/obj/chemical.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
+	contained_sprite = TRUE
 	icon_state = "beaker"
 	item_state = "beaker"
 	filling_states = "20;40;60;80;100"
@@ -189,6 +186,7 @@
 	name = "vial"
 	desc = "A small glass vial."
 	icon_state = "vial"
+	item_state = "dropper"
 	center_of_mass = list("x" = 15,"y" = 9)
 	matter = list(MATERIAL_GLASS = 250)
 	volume = 30
