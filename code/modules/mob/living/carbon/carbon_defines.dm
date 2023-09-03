@@ -41,3 +41,4 @@
 
 	var/list/stasis_sources = list()
 	var/stasis_value
+	var/pain_immune = FALSE //for special cases where something permanently removes a mob's ability to feel pain

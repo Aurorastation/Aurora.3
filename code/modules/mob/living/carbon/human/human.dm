@@ -863,6 +863,11 @@
 			to_chat(src, SPAN_WARNING("You don't have the dexterity to use that!"))
 		return 0
 
+	if(lobotomized)
+		if(!silent)
+			to_chat(src, SPAN_WARNING("You are in no state to use that!"))
+		return 0
+
 	return 1
 
 /mob/living/carbon/human/abiotic(var/full_body = 0)

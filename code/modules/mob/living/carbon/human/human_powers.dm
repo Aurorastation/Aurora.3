@@ -1390,3 +1390,87 @@
 
 	discord_bot.send_to_cciaa(discord_msg)
 	post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("message"=msg, "sender"="[src]", "cciaa_present"=cciaa_present, "cciaa_afk"=cciaa_afk))
+
+/mob/living/carbon/human/proc/kois_cough()
+	set category = "Abilities"
+	set name = "Exhale Spores"
+	set desc = "Exhale a cloud of black k'ois spores, to further spread the will of the Lii'dra."
+
+	var/obj/item/organ/internal/parasite/blackkois/P = internal_organs_by_name["blackkois"]
+	if(!P)
+		to_chat(src, SPAN_WARNING("You don't have black k'ois mycosis!"))
+		return
+
+	if(P.stage < 5)
+		to_chat(src, SPAN_WARNING("Your mycosis has not grown enough to do this!"))
+		return
+
+	if(last_special > world.time)
+		to_chat(src, SPAN_WARNING("You need time to replenish your spores!"))
+		return
+
+	to_chat(usr, SPAN_GOOD("You feel Us within your lungs. Exhale. Let Our will be done."))
+
+	var/turf/T = get_turf(src)
+
+	var/datum/reagents/R = new/datum/reagents(20)
+	R.add_reagent(/singleton/reagent/kois/black,5)
+	var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("blackkois")
+
+	S.attach(T)
+	S.set_up(R, 20, 0, T, 40)
+	S.start()
+
+	last_special = world.time + 400 //don't let them do this too often or it's gonna be a fucking nightmare
+
+/mob/living/carbon/human/proc/kois_infect()
+	set name = "Infect Creature"
+	set desc = "Infect another creature with black k'ois mycosis."
+	set category = "Abilities"
+
+	if(last_special > world.time)
+		to_chat(src, SPAN_WARNING("You need time to replenish your spores!"))
+		return
+
+	if(wear_mask?.flags_inv & HIDEFACE)
+		to_chat(src, SPAN_WARNING("You have a mask covering your mouth!"))
+		return
+
+	if(head?.flags_inv & HIDEFACE)
+		to_chat(src, SPAN_WARNING("You have something on your head covering your mouth!"))
+		return
+
+	var/obj/item/grab/G = locate() in src
+	if(!G || !istype(G))
+		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
+		return
+
+	if(G.state < GRAB_KILL)
+		to_chat(src, SPAN_WARNING("You must have a strangling grip to infect!"))
+		return
+
+	if(ishuman(G.affecting))
+		var/mob/living/carbon/human/H = G.affecting
+		if(H.isSynthetic())
+			to_chat(src, SPAN_WARNING("\The [H] is not an organic being, and cannot be infected!"))
+			return
+		if(H.wear_mask?.flags_inv & HIDEFACE)
+			to_chat(src, SPAN_WARNING("\The [H] has something covering their face!"))
+			return
+		if(H.head?.flags_inv & HIDEFACE)
+			to_chat(src, SPAN_WARNING("\The [H] has something on their head covering their face!"))
+			return
+		if(H.internal_organs_by_name["blackkois"])
+			to_chat(src, SPAN_WARNING("\The [H] is already infected!"))
+			return
+
+		src.visible_message(SPAN_DANGER("[src] leans towards [H], exhaling a cloud of black spores into their face."), \
+		SPAN_GOOD("You lean towards [H], placing your face close to theirs, and exhale. They will become Us, soon."))
+		if(!do_after(src, 2 SECONDS))
+			src.visible_message(SPAN_DANGER("[src] is interrupted before their target can breathe in the spores!"), \
+			SPAN_WARNING("You are interrupted, unable to deliver [H] to Our embrace!"))
+		var/obj/item/organ/external/affected = H.get_organ(BP_HEAD)
+		var/obj/item/organ/internal/parasite/blackkois/infest = new()
+		infest.replaced(H, affected)
+
+		msg_admin_attack("[key_name_admin(src)] infected [key_name_admin(H)] with black k'ois! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))

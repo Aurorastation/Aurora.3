@@ -267,6 +267,11 @@
 			if(H.is_berserk())
 				real_damage *= 1.5 // Nightshade increases damage by 50%
 				rand_damage *= 1.5
+			var/obj/item/organ/internal/parasite/blackkois/P = H.internal_organs_by_name["blackkois"]
+			if(istype(P))
+				if(P.stage >= 5)
+					real_damage *= 1.5 // Final stage black k'ois mycosis increases damage by 50%
+					rand_damage *= 1.5
 
 			real_damage = max(1, real_damage)
 

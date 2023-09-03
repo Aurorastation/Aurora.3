@@ -117,3 +117,61 @@
 	desc = "A manner of speaking that allows revenants to talk to eachother no matter the distance."
 	key = "rs"
 	flags = RESTRICTED | HIVEMIND
+
+/datum/language/bug/liidra
+	name = LANGUAGE_LIIDRA
+	desc = "The collective intelligence of the Lii'dra Hivemind. Similar to the Hivenet of ordinary Vaurcae, though impossible to understand for any not part of the gestalt consciousness."
+	key = "li"
+	flags = RESTRICTED | HIVEMIND
+
+/datum/language/bug/liidra/broadcast(mob/living/speaker, message, speaker_mask)
+	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
+
+	if(!speaker_mask)
+		speaker_mask = speaker.real_name
+
+	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message), speaker_mask)]</span></i>"
+
+	if(isvaurca(speaker))
+		speaker.custom_emote(VISIBLE_MESSAGE, "[pick("twitches their antennae", "twitches their antennae rhythmically")].")
+		playsound(speaker, 'sound/voice/vaurca_antenna_twitch.ogg', 60, 1)
+
+	if (within_jamming_range(speaker))
+		// The user thinks that the message got through.
+		to_chat(speaker, msg)
+		return
+
+	for(var/mob/player in player_list)
+		if(istype(player,/mob/abstract/observer) || check_special_condition(player))
+			if(!within_jamming_range(player))
+				to_chat(player, msg)
+
+/datum/language/bug/liidra/check_special_condition(mob/other)
+	var/mob/living/carbon/human/M = other
+	if(!istype(M))
+		return 0
+	if(istype(M, /mob/abstract/new_player))
+		return 0
+	if(within_jamming_range(other))
+		return 0
+	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && src in M.languages) //replace with Special Liidra Socket later
+		return 1
+	if(M.internal_organs_by_name["blackkois"] && src in M.languages)
+		return 1
+	if(isvaurca(M))
+		var/interceptchance = 1 //tiny chance for normal bugs to hear a message
+		if(M.species.name == SPECIES_VAURCA_BREEDER) //ta are better at intercepting transmissions
+			if(M.origin.name == "Tupii-K'lax Brood" || M.origin.name == "Vedhra Brood") //experienced in fighting lii'dra
+				interceptchance = 15
+			else if(M.origin.name == "Mouv Brood") //electronic warfare specialists
+				interceptchance = 20
+			else
+				interceptchance = 10
+		else
+			if(M.origin.name == "Tupii-K'lax Brood" || M.origin.name == "Vedhra Brood")
+				interceptchance = 5
+			else if(M.origin.name == "Mouv Brood")
+				interceptchance = 10
+		if(prob(interceptchance))
+			return 1
+	return 0

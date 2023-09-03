@@ -435,6 +435,8 @@
 		return FALSE
 	if (analgesic > 100)
 		return FALSE
+	if (pain_immune)
+		return FALSE
 
 	return TRUE
 

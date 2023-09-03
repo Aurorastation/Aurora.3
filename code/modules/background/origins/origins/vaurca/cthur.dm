@@ -1,5 +1,5 @@
 /singleton/origin_item/culture/cthur
-	name = "C'thur Brood"
+	name = "C'thur Hive"
 	desc = "Known as 'The Weavers', they are the third Hive that has developed relationships with other sophonts of the Orion Spur. While their arrival was kept in secret by the Nralakk Federation, the revelation has reignited diplomatic disputes between K'lax and C'thur, with outright hostility met by the K'lax towards the C'thur."
 	possible_origins = list(
 		/singleton/origin_item/origin/cthur,
