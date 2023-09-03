@@ -9,6 +9,7 @@
 
 	var/list/warrants
 	var/list/viruses
+	var/list/shuttle_manifests
 
 	var/list/excluded_fields
 	var/list/localized_fields
@@ -34,6 +35,7 @@
 	records_locked = list()
 	warrants = list()
 	viruses = list()
+	shuttle_manifests = list()
 	excluded_fields = list()
 	localized_fields = list()
 	manifest = list()
@@ -106,6 +108,8 @@
 			warrants += record
 		if(/datum/record/virus)
 			viruses += record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests += record
 
 /datum/controller/subsystem/records/proc/update_record(var/datum/record/record)
 	switch(record.type)
@@ -118,6 +122,8 @@
 			warrants |= record
 		if(/datum/record/virus)
 			viruses |= record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests |= record
 	onModify(record)
 
 /datum/controller/subsystem/records/proc/remove_record(var/datum/record/record)
@@ -131,6 +137,8 @@
 			warrants -= record
 		if(/datum/record/virus)
 			viruses *= record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests -= record
 	onDelete(record)
 	qdel(record)
 

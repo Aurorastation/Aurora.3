@@ -11,6 +11,14 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"ac" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1;
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/template_noop)
 "ad" = (
 /obj/structure/window/shuttle/skrell,
 /obj/structure/grille,
@@ -47,13 +55,19 @@
 /obj/structure/computerframe,
 /turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
+"ak" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Cryogenics";
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/template_noop)
 "al" = (
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "am" = (
 /obj/structure/windoor_assembly{
 	dir = 2;
-	icon_state = "l_windoor_assembly01";
 	name = "Command Copula"
 	},
 /turf/simulated/floor/shuttle/skrell/ramp{
@@ -142,7 +156,8 @@
 /area/template_noop)
 "aB" = (
 /obj/machinery/door/airlock/skrell{
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
@@ -151,7 +166,7 @@
 /area/template_noop)
 "aD" = (
 /obj/structure/blocker/steel,
-/obj/structure/door_assembly/door_assembly_skrell{
+/obj/structure/door_assembly{
 	name = "Bridge"
 	},
 /obj/structure/inflatable/door,
@@ -287,12 +302,15 @@
 /turf/simulated/floor/shuttle/skrell/airless,
 /area/template_noop)
 "bb" = (
-/obj/machinery/door/airlock/skrell/grey,
+/obj/machinery/door/airlock/skrell{
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "bc" = (
 /obj/machinery/door/airlock/skrell{
-	name = "Cryogenics"
+	name = "Cryogenics";
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
@@ -413,9 +431,18 @@
 /area/template_noop)
 "bw" = (
 /obj/machinery/door/airlock/skrell{
-	name = "Medbay"
+	name = "Medbay";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"bx" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1;
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/advanced,
 /area/template_noop)
 "by" = (
 /obj/structure/table/skrell,
@@ -697,7 +724,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/template_noop)
 "cw" = (
-/obj/structure/door_assembly/door_assembly_skrell{
+/obj/structure/door_assembly{
 	name = "Cryogenics"
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -715,7 +742,7 @@
 /turf/template_noop,
 /area/template_noop)
 "cz" = (
-/turf/simulated/wall/shuttle/skrell/cardinal,
+/turf/simulated/wall/shuttle/skrell,
 /area/template_noop)
 "cA" = (
 /obj/effect/landmark/clear,
@@ -734,7 +761,8 @@
 "cD" = (
 /obj/machinery/door/airlock/external{
 	icon_state = "door_locked";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/advanced,
 /area/template_noop)
@@ -765,8 +793,9 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/template_noop)
 "cN" = (
-/obj/machinery/door/airlock/skrell/grey{
-	locked = 1
+/obj/machinery/door/airlock/skrell{
+	locked = 1;
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/advanced,
 /area/template_noop)
@@ -931,7 +960,7 @@ ap
 ap
 ap
 aS
-cD
+ac
 ad
 ap
 ap
@@ -1142,7 +1171,7 @@ al
 al
 ct
 al
-bc
+ak
 bA
 aH
 ap
@@ -1475,7 +1504,7 @@ ap
 ap
 ap
 ad
-cD
+bx
 ad
 ap
 ap

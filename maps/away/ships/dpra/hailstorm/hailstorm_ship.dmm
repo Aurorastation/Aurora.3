@@ -131,9 +131,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(214)
 	},
 /obj/structure/cable/green,
@@ -184,7 +182,8 @@
 "ax" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(214);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -300,7 +299,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "hailstorm_shuttle_out"
+	id_tag = "hailstorm_shuttle_out";
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -328,10 +328,8 @@
 	},
 /area/hailstorm_ship/bridge)
 "bh" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(214)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -444,7 +442,8 @@
 "bR" = (
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(214);
-	name = "EVA Storage"
+	name = "EVA Storage";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -478,7 +477,8 @@
 "bV" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Atmos";
-	req_access = list(214)
+	req_access = list(214);
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -629,10 +629,8 @@
 /obj/item/clothing/under/tajaran/pvsm,
 /obj/item/clothing/shoes/tajara/jackboots,
 /obj/item/clothing/accessory/badge/dpra_passport,
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = list(214)
 	},
 /obj/effect/floor_decal/corner/white/full{
 	dir = 4
@@ -644,7 +642,8 @@
 "cK" = (
 /obj/machinery/door/airlock{
 	req_access = list(214);
-	name = "Barracks"
+	name = "Barracks";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -669,9 +668,7 @@
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = -32
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -679,7 +676,8 @@
 "cR" = (
 /obj/machinery/door/airlock{
 	req_access = list(214);
-	name = "Crew Section"
+	name = "Crew Section";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -754,7 +752,8 @@
 "dE" = (
 /obj/machinery/door/airlock/security{
 	name = "Gun Deck";
-	req_access = list(214)
+	req_access = list(214);
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -801,9 +800,7 @@
 /turf/template_noop,
 /area/space)
 "em" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
@@ -903,7 +900,7 @@
 	},
 /area/hailstorm_ship/gun_deck)
 "eZ" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/gun_deck)
 "fc" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -932,10 +929,8 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(214)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1007,10 +1002,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/high/east{
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -1035,7 +1027,8 @@
 "fH" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(214)
+	req_access = list(214);
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -1081,7 +1074,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "hailstorm_dock_doors"
+	id_tag = "hailstorm_dock_doors";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1094,7 +1088,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "hailstorm_shuttle_out"
+	id_tag = "hailstorm_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1113,9 +1108,7 @@
 	dir = 4
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high{
-	dir = 8;
-	pixel_x = -24;
+/obj/machinery/power/apc/high/west{
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -1157,9 +1150,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high{
-	dir = 8;
-	pixel_x = -24;
+/obj/machinery/power/apc/high/west{
 	req_access = list(214)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1275,9 +1266,7 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/gun/projectile/dragunov,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(214)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1300,9 +1289,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(214)
 	},
 /turf/simulated/floor/plating{
@@ -1479,7 +1466,8 @@
 "kf" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_access = list(214)
+	req_access = list(214);
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1529,7 +1517,7 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "kv" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/gun_deck/second)
 "kw" = (
 /obj/effect/floor_decal/corner/white{
@@ -1554,9 +1542,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical,
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -1624,9 +1610,8 @@
 /area/hailstorm_ship/engine)
 "lk" = (
 /obj/machinery/computer/ship/sensors,
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(214)
 	},
 /obj/effect/floor_decal/corner/black/full{
 	dir = 8
@@ -1666,10 +1651,8 @@
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = list(214)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1712,9 +1695,7 @@
 	req_access = list(214)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(214)
 	},
 /obj/structure/cable/green,
@@ -1741,10 +1722,8 @@
 	},
 /area/hailstorm_ship/gun_deck)
 "mG" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(214)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1907,7 +1886,8 @@
 "oh" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Power Room";
-	req_access = list(214)
+	req_access = list(214);
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2106,9 +2086,7 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "rm" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
@@ -2285,10 +2263,7 @@
 	dir = 6
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/high/east{
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -2315,10 +2290,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/high/east{
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -2343,7 +2315,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	req_access = list(214);
-	name = "Engine"
+	name = "Engine";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2403,10 +2376,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(214)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -2637,7 +2607,7 @@
 	},
 /area/hailstorm_ship/engine)
 "AU" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/engine)
 "Bv" = (
 /obj/structure/bed/stool/bar/padded/black,
@@ -2806,7 +2776,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "hailstorm_dock_doors"
+	id_tag = "hailstorm_dock_doors";
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2914,7 +2885,8 @@
 "FC" = (
 /obj/machinery/door/airlock{
 	req_access = list(214);
-	name = "Hangar"
+	name = "Hangar";
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2965,7 +2937,7 @@
 /area/shuttle/hailstorm_shuttle)
 "Gu" = (
 /obj/effect/map_effect/airlock/s_to_n/long/square,
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/engine)
 "GG" = (
 /obj/effect/shuttle_landmark/nav_hailstorm_ship/nav3,
@@ -3009,7 +2981,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "hailstorm_shuttle_in"
+	id_tag = "hailstorm_shuttle_in";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/plating{
@@ -3193,10 +3166,8 @@
 "Jv" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(214)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3364,7 +3335,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "hailstorm_shuttle_in"
+	id_tag = "hailstorm_shuttle_in";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10
@@ -3414,7 +3386,8 @@
 "NM" = (
 /obj/machinery/door/airlock/security{
 	name = "Gun Deck";
-	req_access = list(214)
+	req_access = list(214);
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3446,10 +3419,7 @@
 	dir = 10;
 	pixel_y = 0
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
@@ -3728,7 +3698,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "hailstorm_dock_doors"
+	id_tag = "hailstorm_dock_doors";
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3830,7 +3801,7 @@
 	},
 /area/hailstorm_ship/armory)
 "Vw" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/hailstorm_shuttle)
 "Vy" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -3865,9 +3836,8 @@
 	dir = 4;
 	target_pressure = 250
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(214)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3882,10 +3852,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(214);
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(214)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15

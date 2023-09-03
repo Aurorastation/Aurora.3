@@ -39,11 +39,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/research)
 "aj" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -175,8 +171,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
@@ -199,9 +194,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/equipment)
 "aE" = (
-/obj/machinery/alarm{
-	pixel_y = 24
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/auxillary_storage)
 "aF" = (
@@ -216,16 +209,13 @@
 	dir = 5
 	},
 /obj/machinery/iv_drip,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/north{
 	coverlocked = 0;
-	dir = 1;
 	environ = 0;
 	equipment = 0;
 	lighting = 0;
 	locked = 0;
-	name = "north bump";
-	operating = 0;
-	pixel_y = 24
+	operating = 0
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -281,7 +271,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/resting_area)
 "aO" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -321,16 +313,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/atmospherics)
 "aS" = (
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/north{
 	coverlocked = 0;
-	dir = 1;
 	environ = 0;
 	equipment = 0;
 	lighting = 0;
 	locked = 0;
-	name = "north bump";
-	operating = 0;
-	pixel_y = 24
+	operating = 0
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -347,7 +336,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/resting_area)
 "aV" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -410,7 +401,7 @@
 	dir = 10
 	},
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/mystery_ship/medical)
@@ -442,9 +433,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/storage/vest/heavy,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/armoury)
 "bk" = (
@@ -462,9 +451,7 @@
 /area/ship/mystery_ship/research)
 "bn" = (
 /obj/structure/table/rack,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/research)
 "bp" = (
@@ -518,18 +505,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/armoury)
 "bx" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/starboard_airlock)
 "by" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular{
 	id = "crashed"
 	},
@@ -590,7 +575,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/mystery_ship/medical)
 "cj" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -658,7 +645,8 @@
 	icon_state = "door_locked";
 	id_tag = "engine_access_hatch";
 	locked = 1;
-	req_access = list(11)
+	req_access = list(11);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/port_airlock)
@@ -784,7 +772,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/armoury)
 "oQ" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -833,7 +823,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/resting_area)
 "ql" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -850,7 +842,8 @@
 	icon_state = "door_locked";
 	id_tag = "engine_access_hatch";
 	locked = 1;
-	req_access = list(11)
+	req_access = list(11);
+	dir = 4
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/mystery_ship/starboard_airlock)
@@ -877,11 +870,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -889,7 +878,7 @@
 /area/ship/mystery_ship/cockpit)
 "tY" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/resting_area)
@@ -909,7 +898,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/resting_area)
 "ul" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -958,11 +949,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/atmospherics)
 "wv" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -1000,11 +987,7 @@
 	},
 /area/ship/mystery_ship/cockpit)
 "xI" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -1024,7 +1007,7 @@
 /obj/random/medical,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1072,9 +1055,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/atmospherics)
 "Ae" = (
@@ -1126,11 +1107,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/atmospherics)
 "CN" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/equipment)
@@ -1143,11 +1120,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/research)
 "Dj" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -1156,7 +1129,7 @@
 "Dq" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -1176,8 +1149,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1190,8 +1162,7 @@
 "Ff" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,48)
 	},
@@ -1220,7 +1191,7 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1231,8 +1202,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	icon_state = "alarm0";
 	pixel_x = -24;
 	req_one_access = list(113)
@@ -1240,7 +1210,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/mystery_ship/medical)
 "GG" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular{
 	id = "crashed"
 	},
@@ -1413,9 +1385,7 @@
 	},
 /obj/structure/table/reinforced,
 /obj/random/loot,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/cockpit)
 "Qn" = (
@@ -1501,7 +1471,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/power)
 "TK" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular{
 	id = "crashed"
 	},
@@ -1530,10 +1502,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/alarm{
+/obj/machinery/alarm/east{
 	alarm_id = 1601;
-	dir = 8;
-	pixel_x = 28;
 	req_one_access = list(11,24,52)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1544,7 +1514,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/resting_area)
 "Ug" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -1605,8 +1577,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	icon_state = "alarm0";
 	pixel_x = -24;
 	req_one_access = list(113)
@@ -1631,8 +1602,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1646,16 +1616,13 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/north{
 	coverlocked = 0;
-	dir = 1;
 	environ = 0;
 	equipment = 0;
 	lighting = 0;
 	locked = 0;
-	name = "north bump";
-	operating = 0;
-	pixel_y = 24
+	operating = 0
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"

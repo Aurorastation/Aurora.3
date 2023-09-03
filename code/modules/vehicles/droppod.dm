@@ -146,6 +146,8 @@
 
 /obj/vehicle/droppod/attack_hand(mob/user as mob)
 	..()
+	if(isobserver(user))
+		return
 	if(user == humanload || user == passenger)
 		if(status != USED)
 			launchinterface()
