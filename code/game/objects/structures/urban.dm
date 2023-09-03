@@ -451,6 +451,18 @@
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
 
+/**
+ * # Urban doors
+ *
+ * Your average house door, gets locked and unlocked by a [/obj/item/key/door_key] and can optionally support IDs too
+ *
+ * Once unlocked with a key, it basically becomes a free access door, until locked back with a key
+ *
+ * Use `req_one_access` and `req_access`, like normal doors, to control which keys can unlock the door
+ * Set `support_ids` to TRUE to also use the IDs logic
+ *
+ * If `support_ids` is TRUE and a door is opened using an ID, it will not become a public door
+ */
 /obj/machinery/door/urban
 	name = "wooden panel door"
 	desc = "A delicate wooden door with a pristine bronze knob."
@@ -458,7 +470,19 @@
 	icon_state = "wood_closed"
 	pixel_x = -16
 	pixel_y = -16
+
+	autoclose = FALSE
+
 	var/base_icon = "wood"
+
+	///Boolean, if the door also supports normal ID openings (read the ID access), or it's key only
+	var/support_ids = FALSE
+
+	///Stores the previous list of req_one_access, that gets readded when the door is locked with the key
+	var/list/previous_req_one_access = list()
+
+	///Stores the previous list of req_access, that gets readded when the door is locked with the key
+	var/list/previous_req_access = list()
 
 /obj/machinery/door/urban/update_icon()
 	if(density)
@@ -470,13 +494,122 @@
 /obj/machinery/door/urban/do_animate(animation)
 	switch(animation)
 		if("opening")
+
+			//Don't play the animation if it's already open
+			if(!src.density)
+				return
+
 			if(p_open)
 				flick("[base_icon]c0", src)
 			else
 				flick("[base_icon]c0", src)
+
 		if("closing")
+
+			//Don't play the animation if it's already closed
+			if(src.density)
+				return
+
 			if(p_open)
 				flick("[base_icon]c1", src)
 			else
 				flick("[base_icon]c1", src)
 	return
+
+/obj/machinery/door/urban/attackby(obj/item/I, mob/user)
+
+	if(istype(I, /obj/item/key/door_key))
+
+		if(check_access(I))
+			if(src.density && !(length(previous_req_one_access) || length(previous_req_access)))
+
+				//Only say that it's unlocked if there actually was an access list that did the locking
+				if(length(src.req_one_access) || length(src.req_access))
+					balloon_alert_to_viewers("*unlocks*")
+					to_chat(user, SPAN_NOTICE("You unlock \the [src]."))
+
+				open()
+
+				//Save the list of accesses and empty them up
+				if(length(src.req_one_access))
+					previous_req_one_access = src.req_one_access.Copy()
+					src.req_one_access = list()
+
+				if(length(src.req_access))
+					previous_req_access = src.req_access.Copy()
+					src.req_access = list()
+
+			else
+
+				//Only say that it's locked if there actually is an access list that does the locking
+				if(length(previous_req_one_access) || length(previous_req_access))
+					balloon_alert_to_viewers("*locks*")
+					to_chat(user, SPAN_NOTICE("You lock \the [src]."))
+
+				close()
+
+				//Readd the list of accesses, and empty up the previous access lists
+				if(length(previous_req_one_access))
+					src.req_one_access = previous_req_one_access.Copy()
+					previous_req_one_access = list()
+
+				if(length(previous_req_access))
+					src.req_access = previous_req_access.Copy()
+					previous_req_access = list()
+
+		else
+			balloon_alert_to_viewers("*rattles*")
+
+	//Check with our parent, in case it's not a key
+	else
+
+		. = ..()
+
+/obj/machinery/door/urban/allowed(mob/M)
+	var/parent_allowed = ..()
+
+	//If we support IDs, or we are a public door, return the result of the parent, otherwise we're locked
+	if(support_ids || !(length(src.req_one_access) || length(src.req_access)))
+		return parent_allowed
+	else
+		return FALSE //Keys only
+
+
+
+/**
+ * # Door keys
+ *
+ * A key that opens a door, you probably use this everyday
+ *
+ * Locks and unlocks doors of type [/obj/machinery/door/urban]
+ *
+ * Set in `access_list` a list of IDs that the key has, which in turn determine which doors it can open, based on
+ * `req_one_access` and `req_access` logic
+ */
+/obj/item/key/door_key
+	name = "Door key"
+	desc = "A key that unlocks a door"
+
+	///A list of IDs that the key can lock/unlock
+	var/list/access_list = list()
+
+/**
+ * Initializes a door_key
+ *
+ * * accesses - A list with accesses that the key has, or null if defined in either the map, public access door or other means
+ */
+/obj/item/key/door_key/Initialize(var/list/accesses = null)
+	SHOULD_CALL_PARENT(TRUE)
+
+	. = ..()
+
+	if(accesses)
+		if(islist(access_list))
+			src.access_list = accesses.Copy()
+
+		else
+			crash_with("Someone is trying to initialize a door_key without a list or null!")
+
+
+/obj/item/key/door_key/GetAccess()
+	return access_list
