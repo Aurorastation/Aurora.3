@@ -29,6 +29,7 @@
 #include "code\__defines\antagonist.dm"
 #include "code\__defines\armor.dm"
 #include "code\__defines\assemblies.dm"
+#include "code\__defines\assert.dm"
 #include "code\__defines\atmos.dm"
 #include "code\__defines\auxtools.dm"
 #include "code\__defines\background.dm"

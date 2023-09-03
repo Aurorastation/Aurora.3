@@ -20,9 +20,10 @@ var/datum/controller/subsystem/timer/SStimer
 
 /datum/controller/subsystem/timer
 	name = "Timer"
-	wait = 1 //SS_TICKER subsystem, so wait is in ticks
+	wait = 1 // SS_TICKER subsystem, so wait is in ticks
+	init_order = SS_INIT_MISC
 	priority = SS_PRIORITY_TIMER
-	runlevels = RUNLEVELS_PLAYING
+	//runlevels = RUNLEVELS_PLAYING
 
 	flags = SS_TICKER|SS_NO_INIT
 
@@ -583,8 +584,8 @@ var/datum/controller/subsystem/timer/SStimer
  * * timer_subsystem the subsystem to insert this timer into
  */
 /proc/_addtimer(datum/callback/callback, wait = 0, flags = 0, datum/controller/subsystem/timer/timer_subsystem, file, line)
-	if (!callback)
-		CRASH("addtimer called without a callback")
+	ASSERT(istype(callback), "addtimer called [callback ? "with an invalid callback ([callback])" : "without a callback"]")
+	ASSERT(isnum(wait), "addtimer called with a non-numeric wait ([wait])")
 
 	if (wait < 0)
 		stack_trace("addtimer called with a negative wait. Converting to [world.tick_lag]")
