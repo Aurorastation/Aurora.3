@@ -463,9 +463,9 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/beer = 40)
 
 /obj/item/reagent_containers/food/drinks/cans/beer/rice
-	name = "Ebisu Super Dry"
-	icon_state = "ebisu"
+	name = "\improper Ebisu Super Dry"
 	desc = "Konyang's favourite rice beer brand, 200 years running."
+	icon_state = "ebisu"
 	reagents_to_add = list(/singleton/reagent/alcohol/rice_beer = 40)
 
 /obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma
