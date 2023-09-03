@@ -1405,7 +1405,7 @@
 	if(!istype(src.internal_organs_by_name[BP_NEURAL_SOCKET], /obj/item/organ/internal/vaurca/neuralsocket/admin))
 		to_chat(src, "<span class='warning'>You lack the authority to do this!.</span>")
 		return
-	for(var/mob/living/carbon/human/player in living_mob_list)
+	for(var/mob/living/carbon/human/player in player_list)
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
@@ -1424,6 +1424,9 @@
 		to_chat(src, SPAN_NOTICE("You extend your will, restoring [target]'s connection to the Hivenet. Hopefully it will be better-behaved in future."))
 		to_chat(target, SPAN_NOTICE("You feel the thoughts of your fellow Vaurcae restored, as abruptly as they were gone. The unity of the Hivenet surrounds you once more."))
 
+	if(last_special > world.time)
+		to_chat(src, SPAN_WARNING("You must wait before attempting another Hivenet adminisrative action!"))
+
 	else if(target_surname == surname)
 		if(S.shielded == 1)
 			if(prob(70))
@@ -1431,17 +1434,20 @@
 				to_chat(target, SPAN_WARNING("[src] attempted to ban you from the Hivenet, but your countermeasures repelled them!"))
 				src.adjustHalLoss(20)
 				src.flash_pain(20)
+				last_special = world.time + 10 MINUTES
 				return
 		else if (S.shielded == 2)
 			to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
 			to_chat(target, SPAN_WARNING("[src] attempted to ban you from the Hivenet, but your countermeasures repelled them!"))
 			src.adjustHalLoss(25)
 			src.flash_pain(25)
+			last_special = world.time + 10 MINUTES
 			return
 		to_chat(src, SPAN_NOTICE("You extend your will, severing [target]'s connection to the Hivenet. Perhaps now it will learn its lesson."))
 		to_chat(target, SPAN_WARNING("You feel the thoughts of your fellow Vaurcae abruptly vanish, as [src]'s will smothers them all. In an instant, your neural socket is banned, cut off from hearing or speaking to the wider Hivenet."))
 		target.remove_language(LANGUAGE_VAURCA)
 		S.banned = TRUE
+		last_special = world.time + 10 MINUTES
 	else if(src.origin.name == "Mouv Brood")
 		if(!S.shielded)
 			if(prob(70))
@@ -1449,11 +1455,13 @@
 				to_chat(target, SPAN_WARNING("You feel the thoughts of your fellow Vaurcae abruptly vanish, as [src]'s will smothers them all. In an instant, your neural socket is banned, cut off from hearing or speaking to the wider Hivenet."))
 				target.remove_language(LANGUAGE_VAURCA)
 				S.banned = TRUE
+				last_special = world.time + 10 MINUTES
 			else
 				to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are unable to breach [target]'s defenses!"))
 				to_chat(target, SPAN_WARNING("[src] attempted to ban you from the Hivenet, but your Hive's defenses repelled them!"))
 				src.adjustHalLoss(20)
 				src.flash_pain(20)
+				last_special = world.time + 10 MINUTES
 				return
 		else if(S.shielded == 1)
 			if(prob(50))
@@ -1461,17 +1469,20 @@
 				to_chat(target, SPAN_WARNING("[src] attempted to ban you from the Hivenet, but your countermeasures repelled them!"))
 				src.adjustHalLoss(15)
 				src.flash_pain(15)
+				last_special = world.time + 10 MINUTES
 				return
 			else
 				to_chat(src, SPAN_NOTICE("You extend your will, severing [target]'s connection to the Hivenet. Perhaps now it will learn its lesson."))
 				to_chat(target, SPAN_WARNING("You feel the thoughts of your fellow Vaurcae abruptly vanish, as [src]'s will smothers them all. In an instant, your neural socket is banned, cut off from hearing or speaking to the wider Hivenet."))
 				target.remove_language(LANGUAGE_VAURCA)
 				S.banned = TRUE
+				last_special = world.time + 10 MINUTES
 		else if(S.shielded == 2)
 			to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
 			to_chat(target, SPAN_WARNING("[src] attempted to ban you from the Hivenet, but your countermeasures repelled them!"))
 			src.adjustHalLoss(15)
 			src.flash_pain(15)
+			last_special = world.time + 10 MINUTES
 			return
 
 /mob/living/carbon/human/proc/hivevoid()
@@ -1487,7 +1498,7 @@
 	if(!istype(src.internal_organs_by_name[BP_NEURAL_SOCKET], /obj/item/organ/internal/vaurca/neuralsocket/admin))
 		to_chat(src, "<span class='warning'>You lack the authority to do this!.</span>")
 		return
-	for(var/mob/living/carbon/human/player in living_mob_list)
+	for(var/mob/living/carbon/human/player in player_list)
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
@@ -1500,6 +1511,8 @@
 	var/choice = alert(src, "Are you sure you want to void [target]? This cannot be undone!", "Void User?", "Proceed", "Cancel")
 	if(choice == "Cancel")
 		return
+	if(last_special > world.time)
+		to_chat(src, SPAN_WARNING("You must wait before attempting another Hivenet adminisrative action!"))s
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
 	var/list/target_fullname = splittext(target.name, " ")
 	var/target_surname = target_fullname[2]
@@ -1510,12 +1523,14 @@
 				to_chat(target, SPAN_WARNING("[src] attempted to void your neural socket, but your countermeasures repelled them!"))
 				src.adjustHalLoss(20)
 				src.flash_pain(20)
+				last_special = world.time + 30 MINUTES
 				return
 		else if (S.shielded == 2)
 			to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
 			to_chat(target, SPAN_WARNING("[src] attempted to void your neural socket, but your countermeasures repelled them!"))
 			src.adjustHalLoss(25)
 			src.flash_pain(25)
+			last_special = world.time + 30 MINUTES
 			return
 		to_chat(src, SPAN_NOTICE("You extend your will like a wrathful god, destroying [target]'s neural socket and permanently severing them from the Hivenet. Let that be a lesson to the rest."))
 		to_chat(target, SPAN_DANGER("In an instant, stabbing pain in your head blankets out everything else, as your neural socket smoulders and breaks apart. The last of the Hivenet you feel is [src]'s fury, drowning out everything else - before it is gone, forever."))
@@ -1523,6 +1538,7 @@
 		target.flash_pain(40)
 		target.adjustBrainLoss(20)
 		S.Destroy()
+		last_special = world.time + 30 MINUTES
 	else if(src.origin.name == "Mouv Brood")
 		if(!S.shielded)
 			if(prob(30))
@@ -1532,11 +1548,13 @@
 				target.flash_pain(40)
 				target.adjustBrainLoss(20)
 				S.Destroy()
+				last_special = world.time + 30 MINUTES
 			else
 				to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
 				to_chat(target, SPAN_WARNING("[src] attempted to void your neural socket, but your Hive's countermeasures repelled them!"))
 				src.adjustHalLoss(20)
 				src.flash_pain(20)
+				last_special = world.time + 30 MINUTES
 				return
 		else if(S.shielded == 1)
 			if(prob(90))
@@ -1544,6 +1562,7 @@
 				to_chat(target, SPAN_WARNING("[src] attempted to void your neural socket, but your Hive's countermeasures repelled them!"))
 				src.adjustHalLoss(15)
 				src.flash_pain(15)
+				last_special = world.time + 30 MINUTES
 				return
 			else
 				to_chat(src, SPAN_NOTICE("You extend your will like a wrathful god, destroying [target]'s neural socket and permanently severing them from the Hivenet. Let that be a lesson to the rest."))
@@ -1552,11 +1571,13 @@
 				target.flash_pain(40)
 				target.adjustBrainLoss(20)
 				S.Destroy()
+				last_special = world.time + 30 MINUTES
 		else if(S.shielded == 2)
 			to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
 			to_chat(target, SPAN_WARNING("[src] attempted to void your neural socket, but your countermeasures repelled them!"))
 			src.adjustHalLoss(15)
 			src.flash_pain(15)
+			last_special = world.time + 30 MINUTES
 			return
 
 /mob/living/carbon/human/proc/hivemute()
@@ -1572,7 +1593,7 @@
 	if(!istype(src.internal_organs_by_name[BP_NEURAL_SOCKET], /obj/item/organ/internal/vaurca/neuralsocket/admin))
 		to_chat(src, "<span class='warning'>You lack the authority to do this!.</span>")
 		return
-	for(var/mob/living/carbon/human/player in living_mob_list)
+	for(var/mob/living/carbon/human/player in player_list)
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
@@ -1592,6 +1613,8 @@
 		S.muted = FALSE
 		to_chat(src, SPAN_NOTICE("You extend your will, restoring [target]'s ability to speak over the Hivenet. Hopefully it will be better-behaved in future."))
 		to_chat(target, SPAN_NOTICE("You feel [src]'s sanction upon you lifted, as you are able to speak over the Hivenet once again."))
+	if(last_special > world.time)
+		to_chat(src, SPAN_WARNING("You must wait before attempting another Hivenet adminisrative action!"))
 	if(target_surname == surname)
 		if(S.shielded == 1)
 			if(prob(70))
@@ -1599,27 +1622,32 @@
 				to_chat(target, SPAN_WARNING("[src] attempted to mute you over the Hivenet, but your countermeasures repelled them!"))
 				src.adjustHalLoss(20)
 				src.flash_pain(20)
+				last_special = world.time + 5 MINUTES
 				return
 		else if (S.shielded == 2)
 			to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
 			to_chat(target, SPAN_WARNING("[src] attempted to mute you over the Hivenet, but your countermeasures repelled them!"))
 			src.adjustHalLoss(25)
 			src.flash_pain(25)
+			last_special = world.time + 5 MINUTES
 			return
 		to_chat(src, SPAN_NOTICE("You extend your will, silencing [target]'s neural socket. Perhaps now it will learn its lesson."))
 		to_chat(target, SPAN_WARNING("You feel [src]'s will enter your mind, disabling your socket's ability to speak. Though the voices of your fellow Vaurcae echo still, you cannot speak to them."))
 		S.muted = TRUE
+		last_special = world.time + 5 MINUTES
 	else if(src.origin.name == "Mouv Brood")
 		if(!S.shielded)
 			if(prob(70))
 				to_chat(src, SPAN_NOTICE("You extend your will, silencing [target]'s neural socket. Perhaps now it will learn its lesson."))
 				to_chat(target, SPAN_WARNING("You feel [src]'s will enter your mind, disabling your socket's ability to speak. Though the voices of your fellow Vaurcae echo still, you cannot speak to them."))
 				S.muted = TRUE
+				last_special = world.time + 5 MINUTES
 			else
 				to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are unable to breach [target]'s defenses!"))
 				to_chat(target, SPAN_WARNING("[src] attempted to mute you over the Hivenet, but your Hive's defenses repelled them!"))
 				src.adjustHalLoss(20)
 				src.flash_pain(20)
+				last_special = world.time + 5 MINUTES
 				return
 		else if(S.shielded == 1)
 			if(prob(50))
@@ -1627,16 +1655,19 @@
 				to_chat(target, SPAN_WARNING("[src] attempted to mute you over the Hivenet, but your countermeasures repelled them!"))
 				src.adjustHalLoss(15)
 				src.flash_pain(15)
+				last_special = world.time + 5 MINUTES
 				return
 			else
 				to_chat(src, SPAN_NOTICE("You extend your will, silencing [target]'s neural socket. Perhaps now it will learn its lesson."))
 				to_chat(target, SPAN_WARNING("You feel [src]'s will enter your mind, disabling your socket's ability to speak. Though the voices of your fellow Vaurcae echo still, you cannot speak to them."))
 				S.muted = TRUE
+				last_special = world.time + 5 MINUTES
 		else if(S.shielded == 2)
 			to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
 			to_chat(target, SPAN_WARNING("[src] attempted to mute you over the Hivenet, but your countermeasures repelled them!"))
 			src.adjustHalLoss(15)
 			src.flash_pain(15)
+			last_special = world.time + 5 MINUTES
 			return
 
 //Hivenet Electronic Warfare
