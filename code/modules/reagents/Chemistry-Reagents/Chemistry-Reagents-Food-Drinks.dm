@@ -656,7 +656,7 @@
 	M.adjustNutritionLoss(10*removed)
 	M.overeatduration = 0
 
-/singleton/reagent/lipozine/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/lipozine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustNutritionLoss(10*removed)
 	if(prob(2))
 		to_chat(M, SPAN_DANGER("You feel yourself wasting away."))

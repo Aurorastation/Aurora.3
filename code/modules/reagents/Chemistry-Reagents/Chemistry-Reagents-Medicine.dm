@@ -17,7 +17,7 @@
 		M.add_chemical_effect(CE_STABLE)
 		M.add_chemical_effect(CE_PAINKILLER, 10)
 
-/singleton/reagent/inaprovaline/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(2))
 		to_chat(M, SPAN_WARNING(pick("Your chest feels tight.", "Your chest is aching a bit.", "You have a stabbing pain in your chest.")))
 		M.adjustHalLoss(5)
@@ -41,7 +41,7 @@
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(2.5*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
 
-/singleton/reagent/bicaridine/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.dizziness = max(100, M.dizziness)
 	M.make_dizzy(5)
 	M.adjustHydrationLoss(5*removed)
@@ -149,7 +149,7 @@
 			M.reagents.remove_reagent(_R, removing)
 			return
 
-/singleton/reagent/dylovene/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/dylovene/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustNutritionLoss(5 * removed)
 	M.adjustHydrationLoss(5 * removed)
 
@@ -581,7 +581,7 @@
 			M.add_chemical_effect(CE_BRAIN_REGEN, 30) //1 unit of Alkysine will raise brain activity by 7.5%.
 			M.add_chemical_effect(CE_PAINKILLER, 10)
 
-/singleton/reagent/alkysine/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.hallucination = max(M.hallucination, 50)
 	M.add_chemical_effect(CE_UNDEXTROUS)
 	if(prob(M.chem_doses[type]))
@@ -618,7 +618,7 @@
 		if(check_min_dose(M))
 			M.add_chemical_effect(CE_CLEARSIGHT)
 
-/singleton/reagent/oculine/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/oculine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.hallucination = max(M.hallucination, 15)
 	..()
 
@@ -700,7 +700,7 @@
 		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		M.add_chemical_effect(CE_PULSE, 1)
 
-/singleton/reagent/hyperzine/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustNutritionLoss(5*removed)
 	M.add_chemical_effect(CE_PULSE, 2)
 	if(prob(5))
@@ -797,7 +797,7 @@
 	else
 		M.apply_radiation(-30 * removed)
 
-/singleton/reagent/hyronalin/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/hyronalin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(60))
 		M.take_organ_damage(4 * removed, 0) //Hyronaline OD deals brute damage to the same degree as Arithrazine
 
@@ -830,7 +830,7 @@
 		if(prob(60))
 			M.take_organ_damage(4 * removed, 0)
 
-/singleton/reagent/arithrazine/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/arithrazine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(prob(50))
 		M.take_organ_damage(6 * removed, 0) //Even more collateral damage dealt by arithrazine when overdosed.
 
@@ -1070,7 +1070,7 @@
 /singleton/reagent/inacusiate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustEarDamage(-0.6, -0.6, FALSE)
 
-/singleton/reagent/inacusiate/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/inacusiate/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/obj/item/organ/external/E = M.organs_by_name[BP_HEAD]
 	M.custom_pain("Your head hurts a ton!", 70, FALSE, E, 1)
 
@@ -1325,7 +1325,7 @@
 		M.add_chemical_effect(CE_BRAIN_REGEN, 20) //1 unit of Cataleptinol will raise brain activity by 5%.
 
 
-/singleton/reagent/cataleptinol/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/cataleptinol/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.hallucination = max(M.hallucination, 15)
 	if(prob(5))
 		to_chat(M, SPAN_WARNING(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
