@@ -890,7 +890,6 @@
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "hoochbottle"
 	center_of_mass = list("x"=16, "y"=8)
-
 	reagents_to_add = list(/singleton/reagent/alcohol/gibsonhooch = 100)
 
 // Butanol-based alcoholic drinks
