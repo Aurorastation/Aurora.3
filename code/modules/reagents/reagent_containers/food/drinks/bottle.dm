@@ -366,7 +366,6 @@
 
 	var/job_bonus = user.mind?.assigned_role == "Bartender" ? 25 : 0
 
-	//calculate success chance. example: captain's sabre - 15 force = 75% chance
 	var/sabrage_chance = (W.force * sabrage_success_percentile) + command_bonus + job_bonus
 
 	if(prob(sabrage_chance))
@@ -884,6 +883,15 @@
 	icon_state = "valokkiwinebottle"
 	center_of_mass = list("x"=16, "y"=5)
 	reagents_to_add = list(/singleton/reagent/alcohol/wine/valokki = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/gibsonhooch
+	name = "Fallanland Hooch"
+	desc = "For the few times that's socially acceptable to be bare-chested in public - at a sporting event, blasted on cheap grain alcohol."
+	desc_extended = DRINK_FLUFF_GETMORE
+	icon_state = "hoochbottle"
+	center_of_mass = list("x"=16, "y"=8)
+
+	reagents_to_add = list(/singleton/reagent/alcohol/gibsonhooch = 100)
 
 // Butanol-based alcoholic drinks
 //=====================================

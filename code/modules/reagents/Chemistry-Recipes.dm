@@ -2048,6 +2048,14 @@
 	catalysts = list(/singleton/reagent/enzyme = 5)
 	result_amount = 10
 
+/datum/chemical_reaction/rice_beer
+	name = "Rice Beer"
+	id = "rice_beer"
+	result = /singleton/reagent/alcohol/rice_beer
+	required_reagents = list(/singleton/reagent/nutriment/rice = 10)
+	catalysts = list(/singleton/reagent/enzyme = 5)
+	result_amount = 10
+
 /datum/chemical_reaction/vodka
 	name = "Vodka"
 	id = "vodka"
@@ -2060,7 +2068,7 @@
 	name = "Sake"
 	id = "sake"
 	result = /singleton/reagent/alcohol/sake
-	required_reagents = list(/singleton/reagent/nutriment/rice = 10)
+	required_reagents = list(/singleton/reagent/alcohol/rice_beer = 5, /singleton/reagent/sugar = 5) // unlike wine, rice lacks in sugar and needs to be fermented again
 	catalysts = list(/singleton/reagent/enzyme = 5)
 	result_amount = 10
 

@@ -2471,6 +2471,25 @@
 	if(alien != IS_DIONA)
 		M.jitteriness = max(M.jitteriness - 3, 0)
 
+/singleton/reagent/alcohol/rice_beer
+	name = "Rice Beer"
+	description = "A light, rice-based lagered beer popular on Konyang."
+	color = "#664300"
+	strength = 5
+	nutriment_factor = 1
+	taste_description = "mild carbonated malt"
+	carbonated = TRUE
+
+	glass_icon_state = "rice_beer"
+	glass_name = "glass of rice beer"
+	glass_desc = "A glass of fine, light rice beer. Best enjoyed cold."
+	glass_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/alcohol/rice_beer/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	..()
+	if(alien != IS_DIONA)
+		M.jitteriness = max(M.jitteriness - 3, 0)
+
 /singleton/reagent/alcohol/bitters
 	name = "Aromatic Bitters"
 	description = "A very, very concentrated and bitter herbal alcohol."
@@ -5561,6 +5580,17 @@
 	glass_icon_state = "glass_red"
 	glass_name = "glass of Xanu Rush!"
 	glass_desc = "Made from the NEW Xanu Prime peaches."
+
+/singleton/reagent/drink/melon_soda
+	name = "Melon Soda"
+	description = "A neon green hit of nostalgia."
+	color = "#6FEB48"
+	taste_description = "fizzy melon"
+	carbonated = TRUE
+
+	glass_icon_state = "melon_soda"
+	glass_name = "glass of melon soda"
+	glass_desc = "As enjoyed by Konyanger children and 30-something Konyang enthusiasts."
 
 /singleton/reagent/alcohol/pulque
 	name = "Pulque"

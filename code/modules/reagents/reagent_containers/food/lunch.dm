@@ -88,7 +88,8 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
 	/obj/item/reagent_containers/food/drinks/small_milk,
 	/obj/item/reagent_containers/food/drinks/small_milk_choco,
-	/obj/item/reagent_containers/food/drinks/small_milk_strawberry
+	/obj/item/reagent_containers/food/drinks/small_milk_strawberry,
+	/obj/item/reagent_containers/food/drinks/cans/melon_soda
 )
 
 var/list/lunchables_vaurca_ = list(

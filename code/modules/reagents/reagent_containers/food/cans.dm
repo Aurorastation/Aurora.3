@@ -453,3 +453,34 @@
 	icon_state = "xanu_rush"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/drink/peach_soda = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/beer
+	name = "Virklunder canned beer"
+	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in the Ovanstad of \
+	Virklund in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel and has since been in stock in practically every bar across the nation."
+	icon_state = "space_beer"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/alcohol/beer = 40)
+
+/obj/item/reagent_containers/food/drinks/cans/beer/rice
+	name = "Ebisu Super Dry"
+	icon_state = "ebisu"
+	desc = "Konyang's favourite rice beer brand, 200 years running."
+	reagents_to_add = list(/singleton/reagent/alcohol/rice_beer = 40)
+
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma
+	name = "Shimauma Ichiban"
+	icon_state = "shimauma"
+	desc = "Konyang's most middling rice beer brand. Not as popular as Ebisu, but it's comfortable in second place."
+
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor
+	name = "Moonlabor Malt's"
+	icon_state = "moonlabor"
+	desc = "Konyang's underdog rice beer brand. Popular amongst New Hai Phongers, for reasons unknown."
+
+/obj/item/reagent_containers/food/drinks/cans/melon_soda
+	name = "Kansumi Melon Soda"
+	desc = "Konyang's favourite melon soda, now available in can form!"
+
+	icon_state = "melon_soda"
+	reagents_to_add = list(/singleton/reagent/drink/melon_soda = 30)
