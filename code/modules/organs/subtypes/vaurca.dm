@@ -68,20 +68,30 @@
 	desc = "The single most important organ for a Vaurca, able to copy their mind into their Virtual Reality Afterlife upon death."
 	parent_organ = BP_HEAD
 	robotic = ROBOTIC_MECHANICAL
+	var/shielded = 0 //0 = no shield, 1 = normal shield, 2 = immune
+	var/muted = FALSE
+	var/banned = FALSE
+	var/encryption_key
 
-/obj/item/organ/vaurca/neuralsocket/process()
+/obj/item/organ/internal/vaurca/neuralsocket/proc/doStatus(var/type) //"mute" or "ban"
+	if(type == "mute")
+		muted = 1
+	else if (type == "ban")
+		banned = 1
+	return
+/obj/item/organ/internal/vaurca/neuralsocket/process()
 	if (is_broken())
 		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
 			owner.remove_language(LANGUAGE_VAURCA)
 			to_chat(owner, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
 	else
-		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
+		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 			owner.add_language(LANGUAGE_VAURCA)
 			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	..()
 
 /obj/item/organ/internal/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
-	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
+	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 		owner.add_language(LANGUAGE_VAURCA)
 		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	..()
@@ -90,7 +100,78 @@
 	if(all_languages[LANGUAGE_VAURCA] in target.languages)
 		target.remove_language(LANGUAGE_VAURCA)
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
+	remove_verb(owner, list(/mob/living/carbon/human/proc/hiveban, /mob/living/carbon/human/proc/hivevoid, /mob/living/carbon/human/proc/hivenet_transmit, /mob/living/carbon/human/proc/hivemute))
 	..()
+
+/obj/item/organ/internal/vaurca/neuralsocket/admin
+	name = "administrative neural socket"
+	icon_state = "admin_socket"
+	desc = "The single most important organ for a Vaurca, able to copy their mind into their Virtual Reality Afterlife upon death. \
+	This one appears to be the far rarer administrative model including encrypted Hivenet access codes and an Emergency Remote Cast System. These are almost never found on any Vaurca Bioform except the Ta.\
+	The Emergency Remote Cast light is red, indicating it has not been triggered."
+	var/remote_cast = 0 //get out of death free card
+	shielded = 1
+
+/obj/item/organ/internal/vaurca/neuralsocket/admin/process()
+	if (is_broken())
+		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
+			owner.remove_language(LANGUAGE_VAURCA)
+			to_chat(owner, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
+	else
+		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
+			owner.add_language(LANGUAGE_VAURCA)
+			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
+
+	if(owner.stat == DEAD && remote_cast == 0)
+		owner.visible_message("[src]'s corpse twitches suddenly, its antennae moving wildly as something hums beneath its exoskeleton. After a momen, it goes still.")
+		icon_state = "admin_socket_on"
+		desc = "The single most important organ for a Vaurca, able to copy their mind into their Virtual Reality Afterlife upon death. \
+		This one appears to be the far rarer administrative model including encrypted Hivenet access codes and an Emergency Remote Cast System. These are almost never found on any Vaurca Bioform except the Ta.\
+		The Emergency Remote Cast light is green, indicating it has been triggered."
+		remote_cast = 1
+
+	..()
+
+/obj/item/organ/internal/vaurca/neuralsocket/admin/replaced(var/mob/living/carbon/human/target)
+	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
+		owner.add_language(LANGUAGE_VAURCA)
+		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
+	add_verb(owner, list(/mob/living/carbon/human/proc/hiveban, /mob/living/carbon/human/proc/hivevoid, /mob/living/carbon/human/proc/hivenet_transmit, /mob/living/carbon/human/proc/hivemute))
+	..()
+
+/obj/item/organ/internal/augment/hiveshield
+	name = BP_HIVENET_SHIELD
+	organ_tag = BP_HIVENET_SHIELD
+	icon_state = "augment-pda" //placeholder
+	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access or sabotage."
+	action_button_name = "Toggle Hivenet Defense Suite"
+	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM)
+	var/fullshield = FALSE
+
+/obj/item/organ/internal/augment/hiveshield/attack_self(var/mob/living/carbon/user)
+	var/obj/item/organ/internal/vaurca/neuralsocket/S = user.internal_organs_by_name[BP_NEURAL_SOCKET]
+	if(!istype(S) && !S.is_broken())
+		to_chat(user, SPAN_WARNING("You require a working neural socket to activate the [src]"))
+		return
+	to_chat(user, SPAN_NOTICE("You activate the [src], shielding your neural socket against outside attack."))
+	switch(fullshield)
+		if(TRUE)
+			S.shielded = 2
+		if(FALSE)
+			S.shielded = 1
+
+/obj/item/organ/internal/augment/hiveshield/process()
+	if(is_broken())
+		var/obj/item/organ/internal/vaurca/neuralsocket/S = owner.internal_organs_by_name[BP_NEURAL_SOCKET]
+		if(S.shielded)
+			S.shielded = 0
+
+/obj/item/organ/internal/augment/hiveshield/advanced
+	name = "advanced hivenet electronic defense suite"
+	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access or sabotage.\
+	This one looks especially advanced, even by Vaurcaesian standards."
+	action_button_name = "Toggle Advanced Hivenet Defense Suite"
+	fullshield = TRUE
 
 /obj/item/organ/internal/augment/tool/combitool/vaurca
 	name = "vaurca integrated toolset"
@@ -98,6 +179,7 @@
 	action_button_name = "Deploy Toolset"
 	action_button_icon = "vaurcatool"
 	augment_type = /obj/item/combitool/robotic/vaurca
+	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 
 /obj/item/organ/internal/augment/tool/combitool/vaurca/left
 	parent_organ = BP_L_HAND

@@ -107,10 +107,27 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite,
+		/mob/living/carbon/human/proc/hivemute,
+		/mob/living/carbon/human/proc/hiveban,
+		/mob/living/carbon/human/proc/hivevoid,
 		/mob/living/carbon/human/proc/hivenet_transmit
 	)
 
 	default_h_style = "Bald"
+
+	has_organ = list(
+		BP_NEURAL_SOCKET        = /obj/item/organ/internal/vaurca/neuralsocket/admin,
+		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
+		BP_FILTRATION_BIT       = /obj/item/organ/internal/vaurca/filtrationbit,
+		BP_HEART               = /obj/item/organ/internal/heart/vaurca,
+		BP_PHORON_RESERVE  = /obj/item/organ/internal/vaurca/preserve,
+		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
+		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
+		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
+		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
+		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca
+	)
 
 /datum/species/bug/type_c/New()
 	..()
