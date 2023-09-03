@@ -126,7 +126,6 @@
 /datum/gear/accessory/skrell_passport/diona
 	display_name = "dionae nralakk federation passport"
 	path = /obj/item/clothing/accessory/badge/passport/nralakk
-	sort_category = "Xenowear - Skrell"
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	cost = 0
@@ -147,14 +146,15 @@
 		J.species_tag = tag
 	return J
 
-/datum/gear/uniform/work/diona
+/datum/gear/uniform/diona/work
 	display_name = "dionae work uniforms"
 	path = /obj/item/clothing/under/skrell/nralakk
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_DESC_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
 
-/datum/gear/uniform/work/diona/New()
+/datum/gear/uniform/diona/work/New()
 	..()
 	var/list/outfit = list()
 	outfit["ox research"] = /obj/item/clothing/under/skrell/nralakk
@@ -179,7 +179,7 @@
 	outfit["iqi medical"] = /obj/item/clothing/under/skrell/nralakk/iqi/med
 	gear_tweaks += new /datum/gear_tweak/path(outfit)
 
-/datum/gear/suit/jacketdiona/
+/datum/gear/suit/diona/jacket
 	display_name = "dionae work jackets"
 	path = /obj/item/clothing/suit/storage/toggle/skrell
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -187,7 +187,7 @@
 	flags = GEAR_HAS_DESC_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/eum, /singleton/origin_item/culture/xrim)
 
-/datum/gear/suit/jacket/diona/New()
+/datum/gear/suit/diona/jacket/New()
 	..()
 	var/list/jacket = list()
 	jacket["ox research"] = /obj/item/clothing/suit/storage/toggle/skrell

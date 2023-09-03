@@ -25,19 +25,27 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/suit/unathi_mantle_heph
+	display_name = "hephaestus guild mantle"
+	description = "A green mantle, worn by Hephaestus Industries workers in the Izweski Hegemony."
+	path = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+	cost = 1
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_COLOR_SELECTION
+	faction = "Hephaestus Industries"
+
 /datum/gear/suit/unathi_mantle_guild
 	display_name = "guild mantle selection"
 	description = "A selection of hide mantles, each showing affiliation with one of the guilds of Moghes."
-	path = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+	path = /obj/item/clothing/accessory/poncho/unathimantle/merchant
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/unathi_mantle_guild/New()
 	..()
 	var/list/guildmantles = list()
-	guildmantles["hephaestus guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
 	guildmantles["merchants' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/merchant
 	guildmantles["miners' guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/miner
 	guildmantles["junzi electric guild mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/junzi

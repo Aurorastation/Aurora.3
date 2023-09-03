@@ -170,6 +170,11 @@ var/datum/controller/subsystem/cargo/SScargo
 //Loads the cargo data from JSON
 /datum/controller/subsystem/cargo/proc/load_from_json()
 	var/list/cargoconfig = list()
+
+	if(!(rustg_file_exists("config/cargo.json") == "true"))
+		log_config("The file config/cargo.json was not found, cargo items will not be loaded.")
+		return
+
 	try
 		cargoconfig = json_decode(return_file_text("config/cargo.json"))
 	catch(var/exception/ej)

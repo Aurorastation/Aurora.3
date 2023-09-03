@@ -29,7 +29,7 @@
 				else if(psionic_rank == PSI_RANK_HARMONIOUS)
 					aura_color = "#64c464"
 
-	if(psionic_rank > PSI_RANK_SENSITIVE && last_psionic_rank < PSI_RANK_HARMONIOUS)
+	if(psionic_rank > PSI_RANK_SENSITIVE && (get_rank() != last_psionic_rank))
 		switch(psionic_rank)
 			if(PSI_RANK_HARMONIOUS)
 				psi_points = PSI_POINTS_HARMONIOUS
@@ -37,11 +37,13 @@
 				psi_points = PSI_POINTS_APEX
 			if(PSI_RANK_LIMITLESS)
 				psi_points = PSI_POINTS_LIMITLESS
+			else
+				psi_points = 0
 		/// We had special abilities unique to our level, so get rid of 'em.
 		if(last_psionic_rank > PSI_RANK_HARMONIOUS)
 			wipe_user_abilities()
 
-	if(last_psionic_rank > PSI_RANK_SENSITIVE && psionic_rank < PSI_RANK_HARMONIOUS)
+	if(last_psionic_rank > PSI_RANK_SENSITIVE && psionic_rank < PSI_RANK_HARMONIOUS && (get_rank() != last_psionic_rank))
 		psi_points = 0
 		wipe_user_abilities()
 

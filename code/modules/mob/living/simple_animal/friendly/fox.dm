@@ -3,7 +3,7 @@
 	name = "fox"
 	real_name = "fox"
 	desc = "It's a fox. I wonder what it says?"
-	icon = 'icons/mob/npc/pets.dmi'
+	icon = 'icons/mob/npc/fox.dmi'
 	icon_state = "fox"
 	icon_living = "fox"
 	icon_dead = "fox_dead"

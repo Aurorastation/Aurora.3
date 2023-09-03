@@ -274,8 +274,7 @@ var/global/list/additional_antag_types = list()
 
 	refresh_event_modifiers()
 
-	spawn (ROUNDSTART_LOGOUT_REPORT_TIME)
-		display_logout_report()
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(display_logout_report)), ROUNDSTART_LOGOUT_REPORT_TIME)
 
 	var/welcome_delay = rand(waittime_l, waittime_h)
 	addtimer(CALLBACK(current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)

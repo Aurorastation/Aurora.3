@@ -42,8 +42,9 @@
 		lights()
 
 /datum/event/radiation_storm/proc/radiate()
-	for(var/mob/living/C in living_mob_list)
-		C.apply_radiation_effects()
+	var/radiation_level = rand(20, 40)
+	for(var/z in affecting_z)
+		SSradiation.z_radiate(locate(1, 1, z), radiation_level, TRUE)
 
 /datum/event/radiation_storm/end(var/faked)
 	..()

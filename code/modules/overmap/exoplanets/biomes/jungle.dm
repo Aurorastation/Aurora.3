@@ -18,9 +18,9 @@
 			/obj/structure/flora/bush/jungle/c/random = 3
 		),
 		GRASSES = list(
-			/obj/effect/floor_decal/junglegrass/random = 4,
-			/obj/effect/floor_decal/junglegrass/dense/random = 2,
-			/obj/effect/floor_decal/junglegrass/rocky/random = 1
+			/obj/structure/flora/grass/junglegrass/random = 4,
+			/obj/structure/flora/grass/junglegrass/dense/random = 2,
+			/obj/structure/flora/grass/junglegrass/rocky/random = 1
 		),
 		WILDLIFE = list(
 			/mob/living/simple_animal/yithian = 1,
@@ -43,9 +43,9 @@
 			/obj/structure/flora/bush/jungle/c/random = 3
 		),
 		GRASSES = list(
-			/obj/effect/floor_decal/junglegrass/random = 4,
-			/obj/effect/floor_decal/junglegrass/dense/random = 2,
-			/obj/effect/floor_decal/junglegrass/rocky/random = 1
+			/obj/structure/flora/grass/junglegrass/random = 4,
+			/obj/structure/flora/grass/junglegrass/dense/random = 2,
+			/obj/structure/flora/grass/junglegrass/rocky/random = 1
 		),
 		WILDLIFE = list(
 			/mob/living/simple_animal/yithian = 1,
