@@ -4143,6 +4143,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
+"JN" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/borosilicate/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port thruster"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/dominian_unathi)
 "JT" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/cable/green{
@@ -5080,8 +5088,12 @@
 /turf/simulated/floor/carpet/orange,
 /area/ship/dominian_unathi/captain)
 "SP" = (
-/obj/effect/landmark/entry_point/aft,
-/turf/simulated/wall/shuttle/space_ship,
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/borosilicate/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard thruster"
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
 "SQ" = (
 /obj/structure/cable/green{
@@ -22395,7 +22407,7 @@ sq
 BJ
 GT
 zW
-CT
+SP
 UF
 GY
 gw
@@ -22880,7 +22892,7 @@ zB
 gY
 zW
 zW
-SP
+BQ
 BQ
 BQ
 BQ
@@ -23043,7 +23055,7 @@ gY
 zW
 zW
 zW
-CT
+JN
 zO
 jR
 pN
