@@ -132,7 +132,8 @@
 "fk" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Living Quarters"
+	name = "Living Quarters";
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -247,8 +248,7 @@
 /area/adhomai_fallout_bunker)
 "kd" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -296,7 +296,8 @@
 "lO" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Food Storage";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -345,7 +346,8 @@
 /area/adhomai_fallout_bunker)
 "nd" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Restroom"
+	name = "Restroom";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
@@ -405,7 +407,8 @@
 "nT" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Bunker Observation";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -424,8 +427,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -433,8 +435,7 @@
 /area/adhomai_fallout_bunker)
 "oI" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -605,7 +606,8 @@
 "uq" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Bunker";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/industrial/warning/cee,
@@ -729,8 +731,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -862,8 +863,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 6;
-	icon_state = "corner_white"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -871,8 +871,7 @@
 /area/adhomai_fallout_bunker)
 "Cj" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -899,7 +898,8 @@
 "Cu" = (
 /obj/machinery/door/airlock/medical{
 	req_access = list(209);
-	name = "Medbay"
+	name = "Medbay";
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -918,8 +918,7 @@
 "DG" = (
 /obj/structure/hadii_statue,
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -935,7 +934,8 @@
 "EL" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Bunker Entry";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -1070,8 +1070,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1126,8 +1125,7 @@
 /area/adhomai_fallout_bunker)
 "KP" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 9;
-	icon_state = "corner_white"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1281,8 +1279,7 @@
 "Qk" = (
 /obj/structure/sign/flag/pra/large/north,
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1374,7 +1371,8 @@
 "Te" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Barracks"
+	name = "Barracks";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1466,8 +1464,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red{
-	dir = 5;
-	icon_state = "corner_white"
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1502,7 +1499,8 @@
 "XB" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Maintenance Equipment Storage"
+	name = "Maintenance Equipment Storage";
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1511,7 +1509,8 @@
 "XX" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Radiation Suit Storage"
+	name = "Radiation Suit Storage";
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15

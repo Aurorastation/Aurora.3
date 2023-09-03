@@ -385,7 +385,7 @@
 						hair_pull(affecting, assailant)
 
 	//clicking on yourself while grabbing them
-	if(M == assailant && state >= GRAB_AGGRESSIVE)
+	if(M == assailant && assailant.a_intent == I_GRAB && state >= GRAB_AGGRESSIVE)
 		devour(affecting, assailant)
 
 /obj/item/grab/dropped()

@@ -169,10 +169,11 @@
 
 /obj/item/rig/gunslinger
 	name = "gunslinger hardsuit control module"
-	desc = "A favorite of Coalition rangers, the Gunslinger suit is a sturdy hardsuit meant to provide the user absolute situational awareness."
+	desc = "A favorite of the Frontier Rangers, the Gunslinger suit is a Xanan-designed hardsuit meant to provide the user absolute situational awareness, while remaining sturdy under fire."
 	icon = 'icons/clothing/rig/gunslinger.dmi'
 	icon_state = "gunslinger"
 	suit_type = "gunslinger hardsuit"
+	icon_supported_species_tags = list("ipc", "skr", "taj")
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_MAJOR,
@@ -190,7 +191,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_SKRELL, BODYTYPE_TAJARA)
 
 /obj/item/rig/gunslinger/equipped
 	req_access = list(access_syndicate)

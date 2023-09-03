@@ -1,4 +1,14 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/machinery/door/airlock/security{
+	name = "Checkpoint";
+	req_access = list(209);
+	dir = 4
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "am" = (
 /obj/structure/closet/cabinet,
 /obj/item/shovel,
@@ -238,7 +248,8 @@
 "qm" = (
 /obj/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -1687,7 +1698,7 @@ jg
 kO
 ko
 jg
-qm
+aa
 jg
 kB
 nR

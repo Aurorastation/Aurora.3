@@ -74,13 +74,13 @@
 	},
 /area/adhomai_bar)
 "cY" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /obj/structure/weapon_rack/double_pellet{
 	pixel_y = 32
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -131,7 +131,7 @@
 	},
 /area/adhomai_bar)
 "gm" = (
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -146,10 +146,10 @@
 /area/adhomai_bar)
 "hk" = (
 /obj/machinery/vending/dinnerware,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -168,13 +168,13 @@
 /area/adhomai_bar)
 "iw" = (
 /obj/machinery/chem_heater,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -340,17 +340,17 @@
 /area/adhomai_bar)
 "ow" = (
 /obj/structure/table/wood,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/item/material/ashtray,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
 "oL" = (
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/lino/grey{
+/obj/effect/floor_decal/spline/plain/black,
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -405,10 +405,10 @@
 /obj/item/reagent_containers/food/drinks/bottle/treebark_firewater,
 /obj/item/reagent_containers/food/drinks/bottle/treebark_firewater,
 /obj/item/reagent_containers/food/drinks/bottle/treebark_firewater,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -439,10 +439,10 @@
 /obj/machinery/chemical_dispenser/bar_alc/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -476,9 +476,9 @@
 	},
 /area/adhomai_bar)
 "tv" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/light/small,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -494,10 +494,10 @@
 /area/adhomai_bar)
 "vA" = (
 /obj/machinery/chem_master/condimaster,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -506,7 +506,7 @@
 	identifier = "adhomai_bar_innkeeper";
 	name = "igs - adhomai_bar_innkeeper"
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -629,10 +629,10 @@
 /obj/machinery/door/window{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -688,11 +688,11 @@
 /area/adhomai_bar)
 "EZ" = (
 /obj/structure/table/wood,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/item/device/hand_labeler,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -781,13 +781,13 @@
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -813,10 +813,10 @@
 	},
 /area/adhomai_bar)
 "Jy" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -991,10 +991,10 @@
 "SU" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/shaker,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -1071,10 +1071,10 @@
 "UY" = (
 /obj/structure/table/wood,
 /obj/machinery/reagentgrinder,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -1109,10 +1109,10 @@
 "Wa" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/glass/rag,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -1147,10 +1147,10 @@
 /area/adhomai_bar)
 "WC" = (
 /obj/structure/table/wood,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -1250,7 +1250,7 @@
 	},
 /area/adhomai_bar)
 "Zf" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /obj/structure/table/wood,
@@ -1262,7 +1262,7 @@
 /obj/item/stack/medical/splint/full,
 /obj/item/stack/medical/ointment/full,
 /obj/item/stack/medical/ointment/full,
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)
@@ -1283,10 +1283,10 @@
 	pixel_x = 2;
 	pixel_y = 4
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/turf/simulated/floor/lino/grey{
+/turf/simulated/floor/lino/diamond{
 	temperature = 268.15
 	},
 /area/adhomai_bar)

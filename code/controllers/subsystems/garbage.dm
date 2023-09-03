@@ -130,6 +130,11 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 			log_subsystem_garbage_harddel("-- \ref[A] | [type] was unable to be GC'd and was deleted --", type)
 			didntgc["[type]"]++
 
+			#ifdef REFERENCE_TRACKING
+			if(ref_searching)
+				continue //ref searching intentionally cancels all further fires while running so things that hold references don't end up getting deleted, so we want to return here instead of continue
+			#endif
+
 			HardDelete(A)
 
 			++delslasttick
@@ -267,6 +272,6 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	..()
 	return QDEL_HINT_HARDDEL_NOW
 
-/image/Destroy()
-	..()
-	return QDEL_HINT_HARDDEL
+// /image/Destroy()
+// 	..()
+// 	return QDEL_HINT_HARDDEL
