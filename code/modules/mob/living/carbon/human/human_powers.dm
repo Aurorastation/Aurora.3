@@ -1397,28 +1397,34 @@
 	set desc = "Prevent a Vaurca of your own Hive from speaking or hearing the Hivenet. Use this ability again to unban them. Mouv Ta may attempt to use this on Vaurca of another Hive, though this may have severe diplomatic consequences!"
 	set category = "Abilities"
 	var/list/available_vaurca = list()
-	var/hive = src.culture.name
+	var/list/fullname = splittext(src.name, " ")
+	var/surname = fullname[2]
 	if(!(all_languages[LANGUAGE_VAURCA] in src.languages) || !src.internal_organs_by_name[BP_NEURAL_SOCKET])
 		to_chat(src, "<span class='danger'>Your mind is dark, unable to communicate with the Hive.</span>")
 		return
 	if(!istype(src.internal_organs_by_name[BP_NEURAL_SOCKET], /obj/item/organ/internal/vaurca/neuralsocket/admin))
 		to_chat(src, "<span class='warning'>You lack the authority to do this!.</span>")
 		return
-	for(var/mob/living/carbon/human/player in player_list)
+	for(var/mob/living/carbon/human/player in living_mob_list)
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
-			if(player.culture.name == hive || src.origin.name == "Mouv Brood")
+			var/list/player_fullname = splittext(player.name, " ")
+			var/player_surname = player_fullname[2]
+			if(player_surname == surname || src.origin.name == "Mouv Brood")
 				LAZYADD(available_vaurca, player)
+	LAZYREMOVE(available_vaurca, src) //can't ban/mute/void yourself
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to ban.", "Hivenet Ban") as null|anything in available_vaurca
 	if(!target || !isvaurca(target))
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
+	var/list/target_fullname = splittext(target.name, " ")
+	var/target_surname = target_fullname[2]
 	if(!LANGUAGE_VAURCA in target.languages && S.banned)
 		target.add_language(LANGUAGE_VAURCA)
 		S.banned = FALSE
 		to_chat(src, SPAN_NOTICE("You extend your will, restoring [target]'s connection to the Hivenet. Hopefully it will be better-behaved in future."))
 		to_chat(target, SPAN_NOTICE("You feel the thoughts of your fellow Vaurcae restored, as abruptly as they were gone. The unity of the Hivenet surrounds you once more."))
 
-	else if(target.culture.name == hive)
+	else if(target_surname == surname)
 		if(S.shielded == 1)
 			if(prob(70))
 				to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
@@ -1473,17 +1479,21 @@
 	set desc = "Permanently sever a Vaurca of your own Hive from the Hivenet, destroying their neural socket. Mouv Ta may attempt to use this on Vaurca of another Hive, though this may have severe diplomatic consequences!"
 	set category = "Abilities"
 	var/list/available_vaurca = list()
-	var/hive = src.culture.name
+	var/list/fullname = splittext(src.name, " ")
+	var/surname = fullname[2]
 	if(!(all_languages[LANGUAGE_VAURCA] in src.languages) || !src.internal_organs_by_name[BP_NEURAL_SOCKET])
 		to_chat(src, "<span class='danger'>Your mind is dark, unable to communicate with the Hive.</span>")
 		return
 	if(!istype(src.internal_organs_by_name[BP_NEURAL_SOCKET], /obj/item/organ/internal/vaurca/neuralsocket/admin))
 		to_chat(src, "<span class='warning'>You lack the authority to do this!.</span>")
 		return
-	for(var/mob/living/carbon/human/player in player_list)
+	for(var/mob/living/carbon/human/player in living_mob_list)
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
-			if(player.culture.name == hive || src.origin.name == "Mouv Brood")
+			var/list/player_fullname = splittext(player.name, " ")
+			var/player_surname = player_fullname[2]
+			if(player_surname == surname || src.origin.name == "Mouv Brood")
 				LAZYADD(available_vaurca, player)
+	LAZYREMOVE(available_vaurca, src) //can't ban/mute/void yourself
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to void.", "Hivenet Void") as null|anything in available_vaurca
 	if(!target || !isvaurca(target))
 		return
@@ -1491,7 +1501,9 @@
 	if(choice == "Cancel")
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
-	if(target.culture.name == hive)
+	var/list/target_fullname = splittext(target.name, " ")
+	var/target_surname = target_fullname[2]
+	if(target_surname == surname)
 		if(S.shielded == 1)
 			if(prob(70))
 				to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
@@ -1552,21 +1564,27 @@
 	set desc = "Prevent a Vaurca of your own Hive from speaking on the Hivenet, though they can still hear it. Use this ability again to unmute them. Mouv Ta may attempt to use this on Vaurca of another Hive, though this may have severe diplomatic consequences!"
 	set category = "Abilities"
 	var/list/available_vaurca = list()
-	var/hive = src.culture.name
+	var/list/fullname = splittext(src.name, " ")
+	var/surname = fullname[2]
 	if(!(all_languages[LANGUAGE_VAURCA] in src.languages) || !src.internal_organs_by_name[BP_NEURAL_SOCKET])
 		to_chat(src, "<span class='danger'>Your mind is dark, unable to communicate with the Hive.</span>")
 		return
 	if(!istype(src.internal_organs_by_name[BP_NEURAL_SOCKET], /obj/item/organ/internal/vaurca/neuralsocket/admin))
 		to_chat(src, "<span class='warning'>You lack the authority to do this!.</span>")
 		return
-	for(var/mob/living/carbon/human/player in player_list)
+	for(var/mob/living/carbon/human/player in living_mob_list)
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
-			if(player.culture.name == hive || src.origin.name == "Mouv Brood")
+			var/list/player_fullname = splittext(player.name, " ")
+			var/player_surname = player_fullname[2]
+			if(player_surname == surname || src.origin.name == "Mouv Brood")
 				LAZYADD(available_vaurca, player)
+	LAZYREMOVE(available_vaurca, src) //can't ban/mute/void yourself
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to mute.", "Hivenet Mute") as null|anything in available_vaurca
 	if(!target || !isvaurca(target))
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
+	var/list/target_fullname = splittext(target.name, " ")
+	var/target_surname = target_fullname[2]
 	if(S.banned)
 		to_chat(src, SPAN_NOTICE("[target] is already banned from the Hivenet. Muting them would be pointless."))
 		return
@@ -1574,8 +1592,7 @@
 		S.muted = FALSE
 		to_chat(src, SPAN_NOTICE("You extend your will, restoring [target]'s ability to speak over the Hivenet. Hopefully it will be better-behaved in future."))
 		to_chat(target, SPAN_NOTICE("You feel [src]'s sanction upon you lifted, as you are able to speak over the Hivenet once again."))
-
-	else if(target.culture.name == hive)
+	if(target_surname == surname)
 		if(S.shielded == 1)
 			if(prob(70))
 				to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
@@ -1622,7 +1639,7 @@
 			src.flash_pain(15)
 			return
 
-//Hivenet Espionage
+//Hivenet Electronic Warfare
 //Lii'dra Zombie Powers
 /mob/living/carbon/human/proc/kois_cough()
 	set category = "Abilities"

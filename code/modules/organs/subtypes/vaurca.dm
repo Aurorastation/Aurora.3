@@ -118,12 +118,12 @@
 			owner.remove_language(LANGUAGE_VAURCA)
 			to_chat(owner, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
 	else
-		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
+		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 			owner.add_language(LANGUAGE_VAURCA)
 			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 
 	if(owner.stat == DEAD && remote_cast == 0)
-		owner.visible_message("[src]'s corpse twitches suddenly, its antennae moving wildly as something hums beneath its exoskeleton. After a momen, it goes still.")
+		owner.visible_message(SPAN_WARNING("[owner]'s corpse spasms suddenly, legs twitching and antennae moving wildly as something hums beneath [owner.get_pronoun("his")] exoskeleton. After a moment, [owner.get_pronoun("he")] goes still."))
 		icon_state = "admin_socket_on"
 		desc = "The single most important organ for a Vaurca, able to copy their mind into their Virtual Reality Afterlife upon death. \
 		This one appears to be the far rarer administrative model including encrypted Hivenet access codes and an Emergency Remote Cast System. These are almost never found on any Vaurca Bioform except the Ta.\
@@ -133,7 +133,7 @@
 	..()
 
 /obj/item/organ/internal/vaurca/neuralsocket/admin/replaced(var/mob/living/carbon/human/target)
-	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
+	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 		owner.add_language(LANGUAGE_VAURCA)
 		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 	add_verb(owner, list(/mob/living/carbon/human/proc/hiveban, /mob/living/carbon/human/proc/hivevoid, /mob/living/carbon/human/proc/hivenet_transmit, /mob/living/carbon/human/proc/hivemute))
