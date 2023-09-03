@@ -455,7 +455,7 @@
 	reagents_to_add = list(/singleton/reagent/drink/peach_soda = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/beer
-	name = "Virklunder canned beer"
+	name = "\improper Virklunder canned beer"
 	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in the Ovanstad of \
 	Virklund in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel and has since been in stock in practically every bar across the nation."
 	icon_state = "space_beer"
