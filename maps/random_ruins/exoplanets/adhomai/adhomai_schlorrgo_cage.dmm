@@ -160,7 +160,8 @@
 "t" = (
 /obj/machinery/door/airlock/research{
 	name = "Animal Storage";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/effect/floor_decal/concrete/large/cee,
 /turf/simulated/floor/concrete,

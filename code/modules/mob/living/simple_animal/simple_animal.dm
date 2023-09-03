@@ -91,7 +91,7 @@
 	var/armor_penetration = 0
 	var/attack_flags = 0
 	var/attacktext = "attacked"
-	var/attack_sound = null
+	var/attack_sound = /singleton/sound_category/swing_hit_sound
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
 	var/resistance		  = 0	// Damage reduction
@@ -468,6 +468,8 @@
 
 //This is called when an animal 'speaks'. It does nothing here, but descendants should override it to add audio
 /mob/living/simple_animal/proc/speak_audio()
+	if(emote_sounds.len)
+		make_noise(TRUE)
 	return
 
 /mob/living/simple_animal/proc/visible_emote(var/act_desc)
