@@ -481,6 +481,5 @@
 /obj/item/reagent_containers/food/drinks/cans/melon_soda
 	name = "Kansumi Melon Soda"
 	desc = "Konyang's favourite melon soda, now available in can form!"
-
 	icon_state = "melon_soda"
 	reagents_to_add = list(/singleton/reagent/drink/melon_soda = 30)
