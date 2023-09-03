@@ -175,7 +175,7 @@
 		M.eye_blurry = max(M.eye_blurry, 5)
 
 //Hyperoxia causes brain and eye damage
-/singleton/reagent/dexalin/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_NEUROTOXIC, removed*0.5)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -1112,7 +1112,6 @@
 	if(H.chem_doses[type] < overdose && H.shock_stage < 5) //Don't want feel-good messages when we're suffering an OD or particularly hurt/injured
 		to_chat(H, SPAN_GOOD("[pick(goodmessage)]"))
 
-	LAZYINITLIST(holder.reagent_data)
 	LAZYSET(holder.reagent_data[type], "last_tick_time", world.time + (messagedelay))
 
 /singleton/reagent/mental/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)

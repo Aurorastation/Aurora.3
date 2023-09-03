@@ -1,16 +1,10 @@
+#define DRUG_MESSAGE_DELAY 90 SECONDS
 /singleton/reagent/drugs
 	name = null
 	description = DESC_PARENT
 	taste_description = "a bad investment"
 	taste_mult = 1.2
 	color = "#1a1414"
-	var/effect_messages = TRUE
-	var/list/effect_message_list = list("You close your eyes, and when they open, everything appears so much more vibrant.", "You feel a wave of pleasure suddenly rush over you.", "This is already the best decision you've ever made.")
-	var/list/sober_message_list = list("You feel like garbage now...", "Your head aches.")
-	var/data = 0
-
-	/// ANY probabilities in specific drugs should check for this to be TRUE + the desired probability AND set this back to false.
-	var/prob_proc = FALSE
 
 	reagent_state = LIQUID
 	metabolism = REM * 0.5
@@ -18,16 +12,35 @@
 	ingest_met = REM * 1.5
 	overdose = REAGENTS_OVERDOSE
 
+	var/effect_messages = TRUE
+	var/list/initial_effect_message_list = list("You close your eyes, and when they open, everything appears so much more vibrant.", "You feel a wave of pleasure suddenly rush over you.", "This is already the best decision you've ever made.")
+	var/list/sober_message_list = list("You feel like garbage now...", "Your head aches.")
+
+	var/messagedelay = DRUG_MESSAGE_DELAY
+
 	var/power = 0
 	var/ignores_drug_resistance = FALSE
 
-/singleton/reagent/drugs/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+/singleton/reagent/drugs/initial_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
 	if (effect_messages)
-		var/msg = pick(effect_message_list)
+		var/msg = pick(initial_effect_message_list)
 		to_chat(M, SPAN_GOOD("[msg]"))
-		data = world.time
 
-/singleton/reagent/drugs/affect_blood(mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/initialize_data(newdata, datum/reagents/holder)
+	var/data = newdata
+	LAZYSET(data, "last_tick_time", world.time + (messagedelay / 2)) //Small startup delay
+	return data
+
+/singleton/reagent/drugs/proc/effect_message(list/message_list, mob/living/carbon/M, datum/reagents/holder, message_type = "good")
+	if(ishuman(M) || world.time < holder.reagent_data[type]["last_tick_time"] || messagedelay == -1)
+		return
+
+	to_chat(M, span(message_type, "[pick(message_list)]"))
+
+	LAZYINITLIST(holder.reagent_data)
+	LAZYSET(holder.reagent_data[type], "last_tick_time", world.time + (messagedelay))
+
+/singleton/reagent/drugs/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -36,14 +49,10 @@
 	if(HAS_TRAIT(M, TRAIT_ORIGIN_DRUG_RESISTANCE) && !ignores_drug_resistance)
 		power = max(power - 2, 0)
 
-	if(prob(5) && prob_proc == FALSE) /// Enables procs to activate, remains true until THAT PROC sets it to false again.
-		prob_proc = TRUE
-
 /singleton/reagent/drugs/final_effect(mob/living/carbon/M, datum/reagents/holder)
 	if (effect_messages)
 		var/msg = pick(sober_message_list)
 		to_chat(M, SPAN_WARNING("[msg]"))
-		data = -1
 
 /singleton/reagent/drugs/mms
 	name = "Mercury Monolithium Sucrose"
@@ -52,7 +61,7 @@
 	taste_description = "bitterness"
 	taste_mult = 0.4
 
-/singleton/reagent/drugs/mms/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/mms/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
 
 	M.druggy = max(M.druggy, power)
@@ -60,27 +69,23 @@
 
 	if(power < 10)
 		M.drowsiness = min(20,max(M.drowsiness,power - 5))
-		if (world.time > data + 90 SECONDS)
-			data = world.time
-			to_chat(M, SPAN_GOOD(pick("Your anxieties fade away.","Just be yourself - stop caring about what others think.","Everything will be alright...","The world feels so much more vibrant!","You feel relaxed.")))
+		var/list/low_effect_messages = list("Your anxieties fade away.","Just be yourself - stop caring about what others think.","Everything will be alright...","The world feels so much more vibrant!","You feel relaxed.")
+		effect_message(low_effect_messages, M, holder)
 
 	if(power > 10)
 		M.drowsiness = min(20,max(M.drowsiness,power - 5))
-		if (world.time > data + 90 SECONDS)
-			data = world.time
-			to_chat(M, SPAN_WARNING(pick("It's difficult to focus.","You feel... really... lethargic.","It's difficult to pay attention to what you're meant to be doing.", "Am I forgetting something?", "What was I doing again?")))
+		var/list/high_effect_message = list("It's difficult to focus.","You feel... really... lethargic.","It's difficult to pay attention to what you're meant to be doing.", "Am I forgetting something?", "What was I doing again?")
+		effect_message(high_effect_message, M, holder, "warning")
 
 	if(power > 20)
 		var/probmod = 5 + (power-20)
-		if(prob_proc == TRUE && prob(probmod) && isturf(M.loc) && !istype(M.loc, /turf/space) && M.canmove && !M.restrained())
+		if(prob(probmod) && isturf(M.loc) && !istype(M.loc, /turf/space) && M.canmove && !M.restrained())
 			step(M, pick(cardinal))
-			prob_proc = FALSE
 
-	if(prob_proc == TRUE && prob(7))
+	if(prob(7))
 		M.emote(pick("smile","giggle","moan","yawn","laugh","drool","twitch"))
-		prob_proc = FALSE
 
-/singleton/reagent/drugs/mms/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1, var/datum/reagents/holder)
+/singleton/reagent/drugs/mms/overdose(mob/living/carbon/M, alien, removed = 0, scale = 1, datum/reagents/holder)
 	..()
 	M.hallucination = max(M.hallucination, 30 * scale)
 
@@ -95,19 +100,19 @@
 	fallback_specific_heat = 1.2
 	effect_messages = FALSE
 
-/singleton/reagent/drugs/serotrotium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/serotrotium/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
 
-	if(prob_proc == TRUE && prob(7))
+	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "gasp"))
 	return
 
-/singleton/reagent/drugs/serotrotium/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1, var/datum/reagents/holder)
+/singleton/reagent/drugs/serotrotium/overdose(mob/living/carbon/M, alien, removed = 0, scale = 1, datum/reagents/holder)
 	..()
 	M.bodytemperature = max(M.bodytemperature + 1 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 	M.add_chemical_effect(CE_PULSE, 2)
-	if(prob(2))
-		to_chat(M, SPAN_WARNING(pick("You feel so hot...", "Why is it so hot!?")))
+	var/list/overdose_message_list = list("You feel so hot...", "Why is it so hot!?")
+	effect_message(overdose_message_list, M, holder, "warning")
 	M.make_jittery(10)
 	M.dizziness = max(150, M.dizziness)
 	M.make_dizzy(10)
@@ -122,7 +127,7 @@
 	taste_description = "sourness"
 	effect_messages = FALSE
 
-/singleton/reagent/drugs/cryptobiolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/cryptobiolin/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
 	M.dizziness = max(150, M.dizziness)//Setting dizziness directly works as long as the make_dizzy proc is called after to spawn the process
 	M.make_dizzy(4)
@@ -138,17 +143,15 @@
 	taste_description = "numbness"
 	effect_messages = FALSE
 
-/singleton/reagent/drugs/impedrezene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/impedrezene/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
 	M.jitteriness = max(M.jitteriness - 5, 0)
 	M.confused = max(M.confused, power)
 	M.add_chemical_effect(CE_NEUROTOXIC, 2*removed)
-	if(prob(50) && prob_proc == TRUE)
+	if(prob(50))
 		M.drowsiness = max(M.drowsiness, 3)
-		prob_proc = FALSE
-	if(prob(10) && ishuman(M) && prob_proc == TRUE)
+	if(prob(10) && ishuman(M))
 		M.emote("drool")
-		prob_proc = FALSE
 
 /singleton/reagent/drugs/mindbreaker
 	name = "Mindbreaker Toxin"
@@ -160,7 +163,7 @@
 	taste_description = "sourness"
 	ignores_drug_resistance = TRUE
 
-/singleton/reagent/drugs/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/mindbreaker/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
 	M.hallucination = max(M.hallucination, 100)
 	M.add_chemical_effect(CE_HALLUCINATE, 2)
@@ -168,8 +171,9 @@
 
 /singleton/reagent/drugs/mindbreaker/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.add_chemical_effect(CE_NEUROTOXIC, 4*removed)
+	var/list/overdose_message_list = list("You feel the strongest of pains deeply rooted beneath your skull.", "Your head feels like it's going to burst!", "Your head stings!")
+	effect_message(overdose_message_list, M, holder, "danger")
 	if(prob(5))
-		to_chat(M, SPAN_DANGER(pick("You feel the strongest of pains deeply rooted beneath your skull.", "Your head feels like it's going to burst!", "Your head stings!")))
 		M.adjustHalLoss(20)
 
 /singleton/reagent/drugs/psilocybin
@@ -185,9 +189,9 @@
 	condiment_icon_state = "psilocybin"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
-	effect_message_list = list("You lean back and begin to fall... and fall... and fall.", "Your eyes open wide and you look upon this new world you now see.", "You close your eyes, and when they open, everything appears so much more vibrant.", "You feel a wave of pleasure suddenly rush over you.", "This is already the best decision you've ever made.")
+	initial_effect_message_list = list("You lean back and begin to fall... and fall... and fall.", "Your eyes open wide and you look upon this new world you now see.", "You close your eyes, and when they open, everything appears so much more vibrant.", "You feel a wave of pleasure suddenly rush over you.", "This is already the best decision you've ever made.")
 
-/singleton/reagent/drugs/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/psilocybin/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -199,35 +203,27 @@
 	if(dose < 1)
 		M.apply_effect(3, STUTTER)
 		M.make_dizzy(5)
-		if (world.time > data + 90 SECONDS)
-			data = world.time
-			to_chat(M, SPAN_GOOD(pick("You feel giddy.", "You can't put your finger on it, but whatever it is, it's really funny.", "You feel full of energy.", "Your anxieties no longer cloud your mind.")))
+		to_chat(M, SPAN_GOOD(pick("You feel giddy.", "You can't put your finger on it, but whatever it is, it's really funny.", "You feel full of energy.", "Your anxieties no longer cloud your mind.")))
 	else if(dose < 2)
 		M.apply_effect(3, STUTTER)
 		M.make_jittery(5)
 		M.dizziness = max(150, M.dizziness)
 		M.make_dizzy(5)
 		M.druggy = max(M.druggy, 35)
-		if (world.time > data + 90 SECONDS)
-			data = world.time
-			to_chat(M, SPAN_GOOD(pick("Everything is so vibrant...", "Look at all those colours...", "Shapes dance across your vision.", "You feel like you're looking through a kaleidoscope.", "That's so funny!")))
+		to_chat(M, SPAN_GOOD(pick("Everything is so vibrant...", "Look at all those colours...", "Shapes dance across your vision.", "You feel like you're looking through a kaleidoscope.", "That's so funny!")))
 	else
 		M.apply_effect(3, STUTTER)
 		M.make_jittery(10)
 		M.dizziness = max(150, M.dizziness)
 		M.make_dizzy(10)
 		M.druggy = max(M.druggy, 40)
-		if (world.time > data + 90 SECONDS)
-			data = world.time
-			to_chat(M, SPAN_GOOD(pick("Everything is so vibrant...", "Look at all those colours...", "Shapes dance across your vision.", "You feel like you're looking through a kaleidoscope.", "That's so funny!")))
+		to_chat(M, SPAN_GOOD(pick("Everything is so vibrant...", "Look at all those colours...", "Shapes dance across your vision.", "You feel like you're looking through a kaleidoscope.", "That's so funny!")))
 	if(ishuman(M) && prob(min(15, dose*5)))
 		M.emote(pick("twitch", "giggle"))
 
-/singleton/reagent/drugs/psilocybin/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
+/singleton/reagent/drugs/psilocybin/overdose(mob/living/carbon/M, datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type])
-	if(world.time > data + 90 SECONDS)
-		data = world.time
-		to_chat(M, SPAN_WARNING(pick("You feel... disconnected from your body - is it your body?", "You are dying... but that's okay, right?", "You are at peace with the universe.", "The stars are beckoning you to them.")))
+	to_chat(M, SPAN_WARNING(pick("You feel... disconnected from your body - is it your body?", "You are dying... but that's okay, right?", "You are at peace with the universe.", "The stars are beckoning you to them.")))
 	if(prob(5))
 		M.custom_pain("You feel a sharp pain in your stomach!", 10)
 
@@ -242,38 +238,32 @@
 	breathe_met = REM * 0.2
 	ingest_met = REM * 0.3
 
-	effect_message_list = list("You gradually begin to slow down, and so does everything around you.", "You lean back and begin to fall... and fall... and fall.", "This is already the best decision you've ever made.")
+	initial_effect_message_list = list("You gradually begin to slow down, and so does everything around you.", "You lean back and begin to fall... and fall... and fall.", "This is already the best decision you've ever made.")
 
-/singleton/reagent/drugs/raskara_dust/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	var/effect_message_list = list("You feel so relaxed...", "Nothing's really bothering you right now...", "You should lay down and just... take it easy.", "You deserve a break from all your hard work today.")
+
+/singleton/reagent/drugs/raskara_dust/affect_ingest(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	M.drowsiness += 1 * removed
-	if (world.time > data + 90 SECONDS)
-		data = world.time
-		to_chat(M, SPAN_GOOD(pick("You feel so relaxed...", "Nothing's really bothering you right now...", "You should lay down and just... take it easy.", "You deserve a break from all your hard work today.")))
+	effect_message(effect_message_list, M, holder)
 
-/singleton/reagent/drugs/raskara_dust/affect_breathe(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/raskara_dust/affect_breathe(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	M.drowsiness += 2 * removed
 	if(prob(5) && ishuman(M))
 		M.emote("cough")
-	if (world.time > data + 90 SECONDS)
-		data = world.time
-		to_chat(M, SPAN_GOOD(pick("You feel so relaxed...", "Nothing's really bothering you right now...", "You should lay down and just... take it easy.", "You deserve a break from all your hard work today.")))
+	effect_message(effect_message_list, M, holder)
 
-/singleton/reagent/drugs/raskara_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/raskara_dust/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 30)
 	M.drowsiness += 3 * removed
-	if(prob(5) && prob_proc == TRUE)
+	if(prob(5))
 		M.emote("twitch")
-		prob_proc = FALSE
-	if (world.time > data + 90 SECONDS)
-		data = world.time
-		to_chat(M, SPAN_GOOD(pick("You feel so relaxed...", "Nothing's really bothering you right now...", "You should lay down and just... take it easy.", "You deserve a break from all your hard work today.")))
+	effect_message(effect_message_list, M, holder)
 
 /singleton/reagent/drugs/raskara_dust/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
-	if (world.time > data + 90 SECONDS)
-		data = world.time
-		to_chat(M, SPAN_WARNING(pick("You feel... disconnected from your body - is it your body?", "Are you ascending to another plane of existence... that's so cool?", "You are dying... but that's okay, right?", "You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.")))
+	var/overdose_effect_message_list = list("You feel... disconnected from your body - is it your body?", "Are you ascending to another plane of existence... that's so cool?", "You are dying... but that's okay, right?", "You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.")
+	effect_message(overdose_effect_message_list, M, holder, "warning")
 	if(prob(M.chem_doses[type] / 3))
 		if(prob(85))
 			M.emote(pick("twitch", "shiver"))
@@ -292,15 +282,15 @@
 	breathe_mul = 0.5
 	ingest_mul = 0.125
 
-	effect_message_list = list("You feel a wave of pleasure smash into you and liven you up!", "You're startled by the sheer strength and speed of this drug!", "You already feel so damn good!", "This is the best decision you've ever made!")
+	initial_effect_message_list = list("You feel a wave of pleasure smash into you and liven you up!", "You're startled by the sheer strength and speed of this drug!", "You already feel so damn good!", "This is the best decision you've ever made!")
 
 /singleton/reagent/drugs/night_juice/initialize_data(newdata, datum/reagents/holder)
 	. = ..()
 	LAZYSET(., "special", 0)
 
-/singleton/reagent/drugs/night_juice/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/night_juice/affect_blood(mob/living/carbon/human/M, alien, removed, datum/reagents/holder)
 	..()
-
+	var/effect_message_list = list("You begin to notice a rhythm to all the sounds around you.", "You feel euphoric!", "Your sense of hearing seems heightened.", "You can't sit still, you gotta move!", "You could start a party right now!", "Live in the moment!", "All your anxieties seem to fade away.")
 	holder.reagent_data[type]["special"] += (REAGENT_VOLUME(holder, type)/10)*removed
 
 	M.make_jittery(5 + holder.reagent_data[type]["special"])
@@ -310,21 +300,16 @@
 		M.apply_effect(1 + holder.reagent_data[type]["special"]*0.25, STUTTER)
 		M.druggy = max(M.druggy, holder.reagent_data[type]["special"]*0.25)
 		M.make_jittery(holder.reagent_data[type]["special"])
-		if(prob_proc == TRUE && prob(holder.reagent_data[type]["special"]))
+		if(prob(holder.reagent_data[type]["special"]))
 			M.emote("twitch")
-			prob_proc = FALSE
-		if (world.time > data + 90 SECONDS)
-			data = world.time
-			to_chat(M, SPAN_GOOD(pick("You begin to notice a rhythm to all the sounds around you.", "You feel euphoric!", "Your sense of hearing seems heightened.", "You can't sit still, you gotta move!", "You could start a party right now!", "Live in the moment!", "All your anxieties seem to fade away.")))
+		effect_message(effect_message_list, M, holder)
 		var/obj/item/organ/H = M.internal_organs_by_name[BP_HEART]
 		H.take_damage(holder.reagent_data[type]["special"] * removed * 0.025)
 
-/singleton/reagent/drugs/night_juice/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/night_juice/overdose(mob/living/carbon/human/M, alien, removed, datum/reagents/holder)
 	M.bodytemperature = max(M.bodytemperature + 1 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 	if(prob(2))
 		M.emote("shiver")
-	if (world.time > data + 90 SECONDS)
-		data = world.time
 		to_chat(M, SPAN_WARNING(pick("You feel so hot...", "Why is it so hot!?")))
 	if(prob(25))
 		M.add_chemical_effect(CE_NEPHROTOXIC, 1)
@@ -345,10 +330,10 @@
 	ignores_drug_resistance = TRUE
 	effect_messages = FALSE
 
-/singleton/reagent/drugs/guwan_painkillers/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/guwan_painkillers/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	affect_ingest(M, alien, removed*0.5, holder)
 
-/singleton/reagent/drugs/guwan_painkillers/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/guwan_painkillers/affect_ingest(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	var/dose = M.chem_doses[type]
 	if(dose > 5 && REAGENT_VOLUME(holder, type) <= 3)
 		M.adjustHalLoss(removed*300) //So oxycomorphine can't be used with it.
@@ -370,7 +355,7 @@
 	overdose = 10
 	strength = 3
 
-/singleton/reagent/toxin/stimm/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/stimm/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	if(alien == IS_TAJARA)
 		removed *= 1.25
 	..()
@@ -390,7 +375,7 @@
 	metabolism = REM
 	overdose = 15
 
-/singleton/reagent/toxin/krok/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/krok/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
 		return
@@ -430,7 +415,7 @@
 	condiment_desc = "A small dropper bottle full of a stoner's paradise. A warning label warns of muteness as a side effect."
 	condiment_icon_state = "wuluextract"
 
-/singleton/reagent/wulumunusha/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/wulumunusha/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.druggy = max(M.druggy, 100)
 	M.silent = max(M.silent, 5)
 	if(prob(3) && !isskrell(M))
@@ -438,7 +423,7 @@
 	if(prob(3) && isskrell(M))
 		to_chat(M, SPAN_ALIEN(pick("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?", "You feel safe and comfortable.")))
 
-/singleton/reagent/wulumunusha/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1, var/datum/reagents/holder)
+/singleton/reagent/wulumunusha/overdose(mob/living/carbon/M, alien, removed = 0, scale = 1, datum/reagents/holder)
 	if(isskrell(M))
 		M.hallucination = max(M.hallucination, 10 * scale)	//light hallucinations that afflict skrell
 
@@ -458,7 +443,7 @@
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 
-/singleton/reagent/drugs/ambrosia_extract/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/ambrosia_extract/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
 	M.add_chemical_effect(CE_PULSE, -1)
 
@@ -478,7 +463,7 @@
 		if(prob(3))
 			to_chat(M, SPAN_WARNING(pick("It's a little bit difficult to focus.","You feel a bit lethargic."," It's kinda hard to pay attention to what you're doing.", "Am I forgetting something?", "What was I doing again?")))
 
-/singleton/reagent/drugs/ambrosia_extract/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1, var/datum/reagents/holder)
+/singleton/reagent/drugs/ambrosia_extract/overdose(mob/living/carbon/M, alien, removed = 0, scale = 1, datum/reagents/holder)
 	..()
 	M.hallucination = max(M.hallucination, 30 * scale)
 
@@ -492,10 +477,10 @@
 	od_minimum_dose = 2
 	taste_description = "tranquility"
 
-	effect_message_list = list("You feel a numbing sensation spread from within you.", "A numbing sensation builds within you.", "Everything will be okay... just relax.")
+	initial_effect_message_list = list("You feel a numbing sensation spread from within you.", "A numbing sensation builds within you.", "Everything will be okay... just relax.")
 	sober_message_list = list("You feel grounded in the real world again... for better or worse.")
 
-/singleton/reagent/drugs/joy/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drugs/joy/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.add_chemical_effect(CE_PAINKILLER, 100)
 	M.add_chemical_effect(CE_NEUROTOXIC, 4*removed)
 	M.adjustCloneLoss(6*removed)
@@ -510,7 +495,7 @@
 		if(prob(3))
 			to_chat(M, SPAN_GOOD(pick("Stress was an inconvenience that you are now free of.", "You lose all sense of connection to the real world.", "Everything is so tranquil.", "You feel totaly detached from reality.", "Your feel disconnected from your body.", "You are aware of nothing but your conscious thoughts.", "You keep falling... and falling... and falling - never stopping.", "Is this what it feels like to be dead?", "Your memories are hazy... all you have ever known is this feeling.", "You're watching yourself from afar - detached from your physical body.")))
 
-/singleton/reagent/drugs/joy/overdose(mob/living/carbon/M, alien, removed = 0, datum/reagents/holder)
+/singleton/reagent/drugs/joy/overdose(mob/living/carbon/M, alien, removed, scale, datum/reagents/holder)
 	M.ear_deaf = 20
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type])
 	M.adjustOxyLoss(2 * removed)
@@ -531,14 +516,18 @@
 /singleton/reagent/drugs/xuxigas/affect_breathe(mob/living/carbon/human/M, alien, removed, datum/reagents/holder)
 	M.druggy = max(M.druggy, M.chem_doses[type]/2)
 	M.add_chemical_effect(CE_PULSE, -1)
-	if(prob(3))
-		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "You feel like you're floating off the ground.", "You don't want this feeling to end.", "You wish to please all those around you.", "You feel particularly susceptible to persuasion.", "Everyone is so trustworthy nowadays.")))
-	if(prob(2) && !isskrell(M))
-		to_chat(M, SPAN_GOOD(pick("You can almost see the currents of air as they dance around you.", "You see the colours around you beginning to bleed together.", "You feel safe and comfortable.")))
-	if(prob(2) && isskrell(M))
-		to_chat(M, SPAN_ALIEN(pick("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?")))
+	var/message_list = list("You feel soothed and at ease.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "You feel like you're floating off the ground.", "You don't want this feeling to end.", "You wish to please all those around you.", "You feel particularly susceptible to persuasion.", "Everyone is so trustworthy nowadays.")
+	var/message_type = "good"
+	if(isskrell(M))
+		message_list += list("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?")
+		message_type = "alium"
+	else
+		message_list += list("You can almost see the currents of air as they dance around you.", "You see the colours around you beginning to bleed together.", "You feel safe and comfortable.")
 
-/singleton/reagent/drugs/xuxigas/overdose(mob/living/carbon/human/M, alien, removed, datum/reagents/holder)
+	effect_message(message_list, M, holder, message_type)
+
+
+/singleton/reagent/drugs/xuxigas/overdose(mob/living/carbon/human/M, alien, removed, scale, datum/reagents/holder)
 	if(prob(3))
 		to_chat(M, SPAN_WARNING(pick("You feel particularly vulnerable to being swayed by those around you...", "You have an urge to please those around you.", "This high cannot end... where can you get more?", "You don't want this feeling to end.")))
 
@@ -580,7 +569,7 @@
 	taste_description = "numbing powder"
 	color = "#FFFFFF"
 
-	effect_message_list = list("You feel.. happy...", "A numbing sensation comes over you...", "Reality feels... distant now...")
+	initial_effect_message_list = list("You feel.. happy...", "A numbing sensation comes over you...", "Reality feels... distant now...")
 	sober_message_list = list("You feel like garbage now...", "Your head aches.")
 
 	overdose = 10
@@ -588,14 +577,13 @@
 
 	var/painkiller_mul = 1
 
-/singleton/reagent/drugs/cocaine/affect_blood(mob/living/carbon/M, alien, removed)
+/singleton/reagent/drugs/cocaine/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
 	M.add_chemical_effect(CE_PAINKILLER, painkiller_mul * power * 40)
-	if(prob(7) && prob_proc == TRUE)
+	if(prob(7))
 		M.emote(pick("shiver", "sniff"))
-		prob_proc = FALSE
 
-/singleton/reagent/drugs/cocaine/overdose(mob/living/carbon/M, alien, removed)
+/singleton/reagent/drugs/cocaine/overdose(mob/living/carbon/M, alien, removed, scale, datum/reagents/holder)
 	..()
 	M.add_chemical_effect(CE_HALLUCINATE, power)
 	M.apply_effect(1, STUTTER)
@@ -614,11 +602,10 @@
 
 	painkiller_mul = 0.8 // Not as good a painkiller
 
-/singleton/reagent/drugs/cocaine/contemplus/affect_blood(mob/living/carbon/M, alien, removed)
+/singleton/reagent/drugs/cocaine/contemplus/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
-	if (world.time > data + 90 SECONDS)
-		data = world.time
-		to_chat(M, SPAN_GOOD(pick("You've got an idea for something.", "You figured out that problem you were having trouble with.", "You think you know what to do now.")))
+	var/list/effect_messages = list("You've got an idea for something.", "You figured out that problem you were having trouble with.", "You think you know what to do now.")
+	effect_message(effect_messages, M, holder)
 
 /singleton/reagent/drugs/cocaine/spotlight
 	name = "Spotlight"
@@ -631,20 +618,18 @@
 
 /singleton/reagent/drugs/cocaine/sparkle
 	name = "Sparkle"
-	description = "A designer varient of cocaine originating from Venus. Primarily present in the nightlife scene, this is designed to decrease a user's inhibitions and increase pleasure."
+	description = "A designer variant of cocaine originating from Venus. Primarily present in the nightlife scene, this is designed to decrease a user's inhibitions and increase pleasure."
 	color = "#f704d6"
 
 	painkiller_mul = 1.5
 
-/singleton/reagent/drugs/cocaine/sparkle/affect_blood(mob/living/carbon/M, alien, removed)
+/singleton/reagent/drugs/cocaine/sparkle/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
-	if (world.time > data + 90 SECONDS)
-		data = world.time
-		to_chat(M, SPAN_GOOD(pick("You begin to notice a rhythm to all the sounds around you.", "You feel euphoric!", "You could start a party right now!", "Live in the moment!", "All your anxieties seem to fade away.")))
+	var/list/effect_messages = list("You begin to notice a rhythm to all the sounds around you.", "You feel euphoric!", "You could start a party right now!", "Live in the moment!", "All your anxieties seem to fade away.")
+	effect_message(effect_messages, M, holder)
 	M.druggy = max(M.druggy, power)
-	if(prob(15) && prob_proc == TRUE)
+	if(prob(15))
 		M.emote(pick("laugh", "chuckle", "giggle"))
-		prob_proc = FALSE
 
 /singleton/reagent/drugs/heroin
 	name = "Heroin"
@@ -657,8 +642,8 @@
 
 /singleton/reagent/drugs/heroin/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
-	if(prob(3))
-		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
+	var/list/effect_message_list = list("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")
+	effect_message(effect_message_list, M, holder)
 
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 180)
@@ -680,3 +665,5 @@
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type])
 	if(M.losebreath < 15)
 		M.losebreath++
+
+#undef DRUG_MESSAGE_DELAY

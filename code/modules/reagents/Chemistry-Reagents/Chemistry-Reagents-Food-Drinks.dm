@@ -721,7 +721,7 @@
 /singleton/reagent/sodiumchloride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	overdose(M, alien, removed, holder)
 
-/singleton/reagent/sodiumchloride/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+/singleton/reagent/sodiumchloride/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.intoxication -= min(M.intoxication,removed*20)
 	M.adjustHydrationLoss(20*removed)
 	M.adjustToxLoss(removed*2)
