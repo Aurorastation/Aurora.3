@@ -1341,7 +1341,7 @@
 /mob/living/carbon/human/proc/hivenet_transmit()
 	set name = "Emergency Hivenet Transmission"
 	set desc = "Send a direct Hivenet transmission to your superiors in the Hive. Only to be used in dire circumstances, on pain of severe consequences.."
-	set category = "Abilities"
+	set category = "Hivenet"
 	var/hives = list("Zo'ra", "K'lax", "C'thur")
 
 	if(!(all_languages[LANGUAGE_VAURCA] in src.languages))
@@ -1395,7 +1395,7 @@
 /mob/living/carbon/human/proc/hiveban()
 	set name = "Hivenet Ban"
 	set desc = "Prevent a Vaurca of your own Hive from speaking or hearing the Hivenet. Use this ability again to unban them. Mouv Ta may attempt to use this on Vaurca of another Hive, though this may have severe diplomatic consequences!"
-	set category = "Abilities"
+	set category = "Hivenet"
 	var/list/available_vaurca = list()
 	var/list/fullname = splittext(src.name, " ")
 	var/surname = fullname[2]
@@ -1447,7 +1447,7 @@
 		to_chat(target, SPAN_WARNING("You feel the thoughts of your fellow Vaurcae abruptly vanish, as [src]'s will smothers them all. In an instant, your neural socket is banned, cut off from hearing or speaking to the wider Hivenet."))
 		target.remove_language(LANGUAGE_VAURCA)
 		S.banned = TRUE
-		last_special = world.time + 10 MINUTES
+		last_special = world.time + 1 MINUTES
 	else if(src.origin.name == "Mouv Brood")
 		if(!S.shielded)
 			if(prob(70))
@@ -1455,7 +1455,7 @@
 				to_chat(target, SPAN_WARNING("You feel the thoughts of your fellow Vaurcae abruptly vanish, as [src]'s will smothers them all. In an instant, your neural socket is banned, cut off from hearing or speaking to the wider Hivenet."))
 				target.remove_language(LANGUAGE_VAURCA)
 				S.banned = TRUE
-				last_special = world.time + 10 MINUTES
+				last_special = world.time + 1 MINUTES
 			else
 				to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are unable to breach [target]'s defenses!"))
 				to_chat(target, SPAN_WARNING("[src] attempted to ban you from the Hivenet, but your Hive's defenses repelled them!"))
@@ -1476,7 +1476,7 @@
 				to_chat(target, SPAN_WARNING("You feel the thoughts of your fellow Vaurcae abruptly vanish, as [src]'s will smothers them all. In an instant, your neural socket is banned, cut off from hearing or speaking to the wider Hivenet."))
 				target.remove_language(LANGUAGE_VAURCA)
 				S.banned = TRUE
-				last_special = world.time + 10 MINUTES
+				last_special = world.time + 1 MINUTES
 		else if(S.shielded == 2)
 			to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
 			to_chat(target, SPAN_WARNING("[src] attempted to ban you from the Hivenet, but your countermeasures repelled them!"))
@@ -1488,7 +1488,7 @@
 /mob/living/carbon/human/proc/hivevoid()
 	set name = "Hivenet Void"
 	set desc = "Permanently sever a Vaurca of your own Hive from the Hivenet, destroying their neural socket. Mouv Ta may attempt to use this on Vaurca of another Hive, though this may have severe diplomatic consequences!"
-	set category = "Abilities"
+	set category = "Hivenet"
 	var/list/available_vaurca = list()
 	var/list/fullname = splittext(src.name, " ")
 	var/surname = fullname[2]
@@ -1512,7 +1512,7 @@
 	if(choice == "Cancel")
 		return
 	if(last_special > world.time)
-		to_chat(src, SPAN_WARNING("You must wait before attempting another Hivenet adminisrative action!"))s
+		to_chat(src, SPAN_WARNING("You must wait before attempting another Hivenet adminisrative action!"))
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
 	var/list/target_fullname = splittext(target.name, " ")
 	var/target_surname = target_fullname[2]
@@ -1538,7 +1538,7 @@
 		target.flash_pain(40)
 		target.adjustBrainLoss(20)
 		S.Destroy()
-		last_special = world.time + 30 MINUTES
+		last_special = world.time + 1 MINUTES
 	else if(src.origin.name == "Mouv Brood")
 		if(!S.shielded)
 			if(prob(30))
@@ -1548,7 +1548,7 @@
 				target.flash_pain(40)
 				target.adjustBrainLoss(20)
 				S.Destroy()
-				last_special = world.time + 30 MINUTES
+				last_special = world.time + 1 MINUTES
 			else
 				to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
 				to_chat(target, SPAN_WARNING("[src] attempted to void your neural socket, but your Hive's countermeasures repelled them!"))
@@ -1571,7 +1571,7 @@
 				target.flash_pain(40)
 				target.adjustBrainLoss(20)
 				S.Destroy()
-				last_special = world.time + 30 MINUTES
+				last_special = world.time + 1 MINUTES
 		else if(S.shielded == 2)
 			to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
 			to_chat(target, SPAN_WARNING("[src] attempted to void your neural socket, but your countermeasures repelled them!"))
@@ -1583,7 +1583,7 @@
 /mob/living/carbon/human/proc/hivemute()
 	set name = "Hivenet Mute"
 	set desc = "Prevent a Vaurca of your own Hive from speaking on the Hivenet, though they can still hear it. Use this ability again to unmute them. Mouv Ta may attempt to use this on Vaurca of another Hive, though this may have severe diplomatic consequences!"
-	set category = "Abilities"
+	set category = "Hivenet"
 	var/list/available_vaurca = list()
 	var/list/fullname = splittext(src.name, " ")
 	var/surname = fullname[2]
@@ -1641,7 +1641,7 @@
 				to_chat(src, SPAN_NOTICE("You extend your will, silencing [target]'s neural socket. Perhaps now it will learn its lesson."))
 				to_chat(target, SPAN_WARNING("You feel [src]'s will enter your mind, disabling your socket's ability to speak. Though the voices of your fellow Vaurcae echo still, you cannot speak to them."))
 				S.muted = TRUE
-				last_special = world.time + 5 MINUTES
+				last_special = world.time + 1 MINUTES
 			else
 				to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are unable to breach [target]'s defenses!"))
 				to_chat(target, SPAN_WARNING("[src] attempted to mute you over the Hivenet, but your Hive's defenses repelled them!"))
@@ -1661,7 +1661,7 @@
 				to_chat(src, SPAN_NOTICE("You extend your will, silencing [target]'s neural socket. Perhaps now it will learn its lesson."))
 				to_chat(target, SPAN_WARNING("You feel [src]'s will enter your mind, disabling your socket's ability to speak. Though the voices of your fellow Vaurcae echo still, you cannot speak to them."))
 				S.muted = TRUE
-				last_special = world.time + 5 MINUTES
+				last_special = world.time + 1 MINUTES
 		else if(S.shielded == 2)
 			to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
 			to_chat(target, SPAN_WARNING("[src] attempted to mute you over the Hivenet, but your countermeasures repelled them!"))
@@ -1671,6 +1671,36 @@
 			return
 
 //Hivenet Electronic Warfare
+/mob/living/carbon/human/proc/hivenet_recieve()
+	set name = "Recieve Encrypted Hivenet"
+	set desc = "Set an encryption key for the Hivenet. If someone transmits an encrypted message with the same key, you will understand it. Use this verb again to reset the key."
+	set category = "Hivenet"
+
+	var/obj/item/organ/internal/vaurca/neuralsocket/S = src.internal_organs_by_name[BP_NEURAL_SOCKET]
+	if(!istype(S))
+		return
+	if(S.decryption_key)
+		S.decryption_key = null
+		to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been reset."))
+		return
+	S.decryption_key = input(src, "Enter a new decryption key for Hivenet messages.", "Hivenet Decryption") as text
+	to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been set to [S.decryption_key]."))
+
+/mob/living/carbon/human/proc/hivenet_encrypt()
+	set name = "Set Hivenet Encryption"
+	set desc = "Set an encryption key for the Hivenet. If someone has this key set to recieve, they will understand you. Use this verb again to reset the key."
+	set category = "Hivenet"
+	var/obj/item/organ/internal/vaurca/neuralsocket/S = src.internal_organs_by_name[BP_NEURAL_SOCKET]
+	if(!istype(S))
+		return
+	if(S.encryption_key)
+		S.encryption_key = null
+		to_chat(src, SPAN_NOTICE("Your Hivenet encryption key has been reset."))
+		return
+	S.encryption_key = input(src, "Enter a new encryption key for Hivenet messages.", "Hivenet Decryption") as text
+	to_chat(src, SPAN_NOTICE("Your Hivenet encryption key has been set to [S.encryption_key]."))
+
+
 //Lii'dra Zombie Powers
 /mob/living/carbon/human/proc/kois_cough()
 	set category = "Abilities"

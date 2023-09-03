@@ -107,6 +107,8 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite,
+		/mob/living/carbon/human/proc/hivenet_encrypt,
+		/mob/living/carbon/human/proc/hivenet_recieve,
 		/mob/living/carbon/human/proc/hivemute,
 		/mob/living/carbon/human/proc/hiveban,
 		/mob/living/carbon/human/proc/hivevoid,
@@ -195,7 +197,8 @@
 		/mob/living/carbon/human/proc/rebel_yell,
 		/mob/living/carbon/human/proc/devour_head,
 		/mob/living/carbon/human/proc/formic_spray,
-		/mob/living/carbon/human/proc/trample
+		/mob/living/carbon/human/proc/trample,
+		/mob/living/carbon/human/proc/hivenet_recieve
 		)
 
 	has_organ = list(

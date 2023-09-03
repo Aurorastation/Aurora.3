@@ -71,14 +71,10 @@
 	var/shielded = 0 //0 = no shield, 1 = normal shield, 2 = immune
 	var/muted = FALSE
 	var/banned = FALSE
+	var/last_action = 0
 	var/encryption_key
+	var/decryption_key
 
-/obj/item/organ/internal/vaurca/neuralsocket/proc/doStatus(var/type) //"mute" or "ban"
-	if(type == "mute")
-		muted = 1
-	else if (type == "ban")
-		banned = 1
-	return
 /obj/item/organ/internal/vaurca/neuralsocket/process()
 	if (is_broken())
 		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
@@ -94,13 +90,14 @@
 	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 		owner.add_language(LANGUAGE_VAURCA)
 		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
+	add_verb(owner, /mob/living/carbon/human/proc/hivenet_recieve)
 	..()
 
 /obj/item/organ/internal/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
 	if(all_languages[LANGUAGE_VAURCA] in target.languages)
 		target.remove_language(LANGUAGE_VAURCA)
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
-	remove_verb(owner, list(/mob/living/carbon/human/proc/hiveban, /mob/living/carbon/human/proc/hivevoid, /mob/living/carbon/human/proc/hivenet_transmit, /mob/living/carbon/human/proc/hivemute))
+	remove_verb(owner, list(/mob/living/carbon/human/proc/hiveban, /mob/living/carbon/human/proc/hivevoid, /mob/living/carbon/human/proc/hivenet_transmit, /mob/living/carbon/human/proc/hivemute, /mob/living/carbon/human/proc/hivenet_recieve, /mob/living/carbon/human/proc/hivenet_encrypt))
 	..()
 
 /obj/item/organ/internal/vaurca/neuralsocket/admin
@@ -136,7 +133,7 @@
 	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 		owner.add_language(LANGUAGE_VAURCA)
 		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
-	add_verb(owner, list(/mob/living/carbon/human/proc/hiveban, /mob/living/carbon/human/proc/hivevoid, /mob/living/carbon/human/proc/hivenet_transmit, /mob/living/carbon/human/proc/hivemute))
+	add_verb(owner, list(/mob/living/carbon/human/proc/hiveban, /mob/living/carbon/human/proc/hivevoid, /mob/living/carbon/human/proc/hivenet_transmit, /mob/living/carbon/human/proc/hivemute, /mob/living/carbon/human/proc/hivenet_recieve, /mob/living/carbon/human/proc/hivenet_encrypt))
 	..()
 
 /obj/item/organ/internal/augment/hiveshield

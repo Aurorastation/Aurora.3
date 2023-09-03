@@ -128,6 +128,10 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/vaurca)
 		)
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/hivenet_recieve
+	)
+
 	default_h_style = "Classic Antennae"
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
