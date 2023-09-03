@@ -204,7 +204,8 @@
 /area/dungeon/crashed_ship)
 "oz" = (
 /obj/machinery/door/airlock/highsecurity{
-	req_access = list(150)
+	req_access = list(150);
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/dungeon/crashed_ship)
@@ -243,7 +244,9 @@
 	},
 /area/dungeon/crashed_ship)
 "qV" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
@@ -469,7 +472,9 @@
 	},
 /area/dungeon/crashed_ship)
 "DB" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/dark_blue{
 	nitrogen = 0;
 	oxygen = 0

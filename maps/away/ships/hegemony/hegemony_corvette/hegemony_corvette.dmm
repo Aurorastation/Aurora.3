@@ -99,15 +99,14 @@
 	dir = 1;
 	layer = 2.71
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "ax" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Engineering";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -361,9 +360,7 @@
 /area/shuttle/hegemony)
 "cp" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor,
 /area/hegemony_ship/engineering)
 "cr" = (
@@ -412,8 +409,7 @@
 	pixel_x = 4
 	},
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = null
 	},
@@ -464,11 +460,7 @@
 /obj/structure/flora/pottedplant{
 	pixel_y = 12
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -830,9 +822,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "fr" = (
@@ -845,11 +835,8 @@
 /area/hegemony_ship/restroom)
 "fu" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_y = 24
+/obj/machinery/power/apc/north{
+	is_critical = 1
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -881,7 +868,7 @@
 "fB" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -944,8 +931,7 @@
 	dir = 10;
 	pixel_y = 0
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/structure/cable/green{
@@ -1007,7 +993,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1385;
 	icon_state = "door_locked";
-	id_tag = "hegemony_shuttle_out"
+	id_tag = "hegemony_shuttle_out";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 6
@@ -1016,10 +1003,8 @@
 /area/shuttle/hegemony)
 "gm" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc{
-	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24
+/obj/machinery/power/apc/south{
+	is_critical = 1
 	},
 /obj/structure/cable/green{
 	d2 = 4;
@@ -1031,7 +1016,8 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/highsecurity{
 	name = "Bridge";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1145,7 +1131,7 @@
 /turf/simulated/floor,
 /area/hegemony_ship/starboard_propulsion)
 "hn" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/eva_storage)
 "hs" = (
@@ -1196,10 +1182,7 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "hI" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(209)
 	},
 /obj/structure/cable/green{
@@ -1380,7 +1363,7 @@
 "jb" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -1426,7 +1409,8 @@
 /area/hegemony_ship/warpriests_quarters)
 "jD" = (
 /obj/machinery/door/airlock/glass{
-	name = "Trophy Room"
+	name = "Trophy Room";
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -1526,11 +1510,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
@@ -1633,8 +1613,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/wood,
@@ -1654,7 +1633,7 @@
 /turf/simulated/floor,
 /area/hegemony_ship/bridge)
 "lo" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -1693,7 +1672,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
@@ -1786,8 +1766,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -1821,10 +1800,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/machinery/power/apc{
-	name = "south bump";
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -1886,8 +1862,7 @@
 /area/hegemony_ship/gun_deck_bruiser)
 "mG" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28;
 	req_one_access = null
 	},
@@ -1910,10 +1885,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/machinery/power/apc{
-	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24
+/obj/machinery/power/apc/south{
+	is_critical = 1
 	},
 /obj/structure/cable/green,
 /obj/machinery/light,
@@ -1927,7 +1900,7 @@
 	dir = 4
 	},
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -1962,8 +1935,8 @@
 /obj/machinery/light/colored/red{
 	dir = 4
 	},
-/obj/item/gun/energy/hegemonyrifle,
-/obj/item/gun/energy/hegemonyrifle,
+/obj/item/gun/energy/rifle/hegemony,
+/obj/item/gun/energy/rifle/hegemony,
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(113)
 	},
@@ -2017,7 +1990,8 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/service{
-	name = "Crew's Quarters"
+	name = "Crew's Quarters";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2121,8 +2095,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = null
 	},
@@ -2193,7 +2166,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/hegemony_ship/port_propulsion)
@@ -2360,7 +2334,7 @@
 "pi" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
@@ -2422,8 +2396,7 @@
 	dir = 9;
 	pixel_y = 0
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = null
 	},
@@ -2589,7 +2562,8 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/highsecurity{
 	name = "Shuttle Dock";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/docking_port)
@@ -2716,11 +2690,7 @@
 /obj/structure/cable{
 	dir = 4
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
 "rq" = (
@@ -2844,11 +2814,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/structure/cable/green,
 /turf/simulated/floor,
 /area/hegemony_ship/bridge)
@@ -2942,7 +2908,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1385;
 	icon_state = "door_locked";
-	id_tag = "hegemony_shuttle_out"
+	id_tag = "hegemony_shuttle_out";
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -3029,7 +2996,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -3069,7 +3036,7 @@
 "td" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = 32
 	},
@@ -3185,7 +3152,7 @@
 "tP" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
@@ -3222,9 +3189,8 @@
 /area/hegemony_ship/gun_deck_flak)
 "uc" = (
 /obj/structure/table/standard,
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/machinery/light{
@@ -3293,7 +3259,9 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/bridge)
 "uu" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
 	d1 = 4;
@@ -3360,7 +3328,7 @@
 /area/hegemony_ship/engineering)
 "uK" = (
 /obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/eva_storage)
 "uN" = (
@@ -3393,7 +3361,7 @@
 "uW" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_y = 32
 	},
@@ -3426,7 +3394,7 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/item/device/radio,
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/item/storage/bag/inflatable,
 /obj/machinery/firealarm/north,
 /obj/item/storage/bag/inflatable,
@@ -3461,7 +3429,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
 "vm" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3524,7 +3492,7 @@
 /area/hegemony_ship/trophy_room)
 "vB" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/sign/flag/hegemony/large/north,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/eva_storage)
@@ -3549,7 +3517,8 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/armory)
@@ -3557,8 +3526,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = null
 	},
@@ -3731,7 +3699,7 @@
 /turf/template_noop,
 /area/space)
 "xk" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -3874,7 +3842,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1385;
 	icon_state = "door_locked";
-	id_tag = "hegemony_shuttle_in"
+	id_tag = "hegemony_shuttle_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/hegemony)
@@ -3929,7 +3898,7 @@
 "yd" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
@@ -4139,7 +4108,8 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Gun Bay";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
@@ -4153,7 +4123,8 @@
 "zs" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -4194,10 +4165,8 @@
 /obj/structure/bed/stool/chair/padded{
 	dir = 4
 	},
-/obj/machinery/power/apc{
-	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24
+/obj/machinery/power/apc/south{
+	is_critical = 1
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/carpet/rubber,
@@ -4219,11 +4188,8 @@
 /area/hegemony_ship/crew_quarters)
 "zC" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_y = 24
+/obj/machinery/power/apc/north{
+	is_critical = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -4235,8 +4201,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28;
 	req_one_access = null
 	},
@@ -4263,8 +4228,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28;
 	req_one_access = null
 	},
@@ -4391,7 +4355,7 @@
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "Aq" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -4563,7 +4527,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1385;
 	icon_state = "door_locked";
-	id_tag = "hegemony_dock_doors"
+	id_tag = "hegemony_dock_doors";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/hegemony_ship/docking_port)
@@ -4623,7 +4588,7 @@
 /area/hegemony_ship/medbay)
 "BF" = (
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
@@ -4716,7 +4681,7 @@
 /turf/simulated/floor,
 /area/hegemony_ship/engineering)
 "Cr" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship)
 "Cw" = (
 /obj/effect/landmark/entry_point/aft{
@@ -4733,11 +4698,7 @@
 "Cy" = (
 /obj/structure/table/rack,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -4822,7 +4783,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/hegemony)
 "CX" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4950,7 +4911,7 @@
 /turf/simulated/floor,
 /area/hegemony_ship/atmos_distro)
 "DK" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -4989,7 +4950,7 @@
 /turf/simulated/floor,
 /area/hegemony_ship/port_propulsion)
 "Ec" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/closet{
 	name = "engineering equipment"
 	},
@@ -5145,7 +5106,8 @@
 "Fq" = (
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/glass{
-	name = "Temple"
+	name = "Temple";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5221,13 +5183,14 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1385;
 	icon_state = "door_locked";
-	id_tag = "hegemony_shuttle_in"
+	id_tag = "hegemony_shuttle_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "FQ" = (
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_x = -32
 	},
@@ -5278,11 +5241,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -5383,8 +5342,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/gun_deck_bruiser)
 "GF" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28;
 	req_one_access = null
 	},
@@ -5435,11 +5393,8 @@
 /turf/simulated/floor,
 /area/hegemony_ship)
 "GS" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_y = 24
+/obj/machinery/power/apc/north{
+	is_critical = 1
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -5514,7 +5469,7 @@
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/accessory/storage/pouches/white,
 /obj/item/clothing/accessory/storage/white_vest,
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/closet{
 	name = "healers equipment"
 	},
@@ -5557,10 +5512,8 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "Hn" = (
-/obj/machinery/power/apc{
-	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24
+/obj/machinery/power/apc/south{
+	is_critical = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -5592,7 +5545,7 @@
 /turf/simulated/floor,
 /area/hegemony_ship/trophy_room)
 "Hq" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/closet{
 	name = "breaching equipment"
 	},
@@ -5610,8 +5563,7 @@
 "HB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency,
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -5683,8 +5635,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -5704,10 +5655,8 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/machinery/power/apc{
-	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24
+/obj/machinery/power/apc/south{
+	is_critical = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -5748,11 +5697,7 @@
 /area/shuttle/hegemony)
 "IG" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable/green,
 /obj/structure/sign/flag/hegemony/large/south,
 /turf/simulated/floor/tiled,
@@ -5873,7 +5818,8 @@
 "Jo" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Gun Bay";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5976,8 +5922,7 @@
 /area/hegemony_ship/armory)
 "JO" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = null
 	},
@@ -6006,7 +5951,7 @@
 "JW" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_y = 32
 	},
@@ -6040,11 +5985,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -6107,10 +6048,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	name = "south bump";
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor,
 /area/hegemony_ship/port_propulsion)
 "KG" = (
@@ -6123,8 +6061,7 @@
 "KL" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/zipties,
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled,
@@ -6183,7 +6120,8 @@
 "KZ" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Ammo Store";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6279,9 +6217,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -6468,7 +6404,8 @@
 "MB" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Cell";
-	req_access = list(113)
+	req_access = list(113);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/brig)
@@ -6497,7 +6434,7 @@
 /obj/item/clothing/suit/vaurca/silver,
 /obj/item/vaurca/box,
 /obj/item/skrell_projector/vaurca_projector,
-/obj/item/clothing/mask/breath/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /obj/item/melee/energy/vaurca,
 /obj/item/clothing/under/vaurca/gearharness/black,
 /obj/item/clothing/under/vaurca/gearharness,
@@ -6541,7 +6478,8 @@
 "MZ" = (
 /obj/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_one_access = list(114)
+	req_one_access = list(114);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6614,11 +6552,7 @@
 /obj/item/spacecash/c1,
 /obj/item/spacecash/c1,
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -6632,8 +6566,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/structure/cable/green{
@@ -6685,8 +6618,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6767,7 +6699,7 @@
 /turf/template_noop,
 /area/space)
 "Oe" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -6887,7 +6819,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1385;
 	icon_state = "door_locked";
-	id_tag = "hegemony_dock_doors"
+	id_tag = "hegemony_dock_doors";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/hegemony_ship/docking_port)
@@ -6937,9 +6870,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -6978,7 +6909,8 @@
 "PG" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Gunnery Foyer";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7047,11 +6979,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -7172,7 +7100,7 @@
 "QM" = (
 /obj/machinery/ammunition_loader/bruiser{
 	dir = 1;
-	weapon_id = "Hegemony Corvette Bruiser"s
+	weapon_id = "Hegemony Corvette Bruiser"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/gun_deck_bruiser)
@@ -7278,8 +7206,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/structure/cable/green{
@@ -7293,7 +7220,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/brig)
 "RZ" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
@@ -7334,7 +7261,8 @@
 /area/shuttle/hegemony)
 "Se" = (
 /obj/machinery/door/airlock/service{
-	name = "Custodial Closet"
+	name = "Custodial Closet";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -7346,9 +7274,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -7368,7 +7294,8 @@
 "So" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/door/airlock/silver{
-	name = "Restroom"
+	name = "Restroom";
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7462,8 +7389,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony{
@@ -7488,7 +7414,8 @@
 "SN" = (
 /obj/machinery/door/airlock/atmos{
 	name = "Atmospheric Waste";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7502,12 +7429,8 @@
 /turf/simulated/floor,
 /area/hegemony_ship/atmos_waste)
 "SP" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/machinery/power/apc/east,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -7679,8 +7602,7 @@
 /turf/simulated/floor,
 /area/shuttle/hegemony)
 "TW" = (
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/structure/cable/green{
@@ -7692,7 +7614,8 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/hatch{
 	name = "Telecommunications";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7713,8 +7636,7 @@
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled,
@@ -7744,8 +7666,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 1;
+/obj/machinery/alarm/north{
 	pixel_y = -32;
 	req_one_access = null
 	},
@@ -7867,11 +7788,8 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_y = 24
+/obj/machinery/power/apc/north{
+	is_critical = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -8153,10 +8071,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/crew_quarters)
 "Xf" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(209)
 	},
 /obj/structure/cable/green{
@@ -8248,7 +8163,7 @@
 /turf/simulated/floor,
 /area/space)
 "XU" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/aux_cic)
 "XX" = (
 /obj/machinery/appliance/cooker/stove,
@@ -8421,7 +8336,8 @@
 "YM" = (
 /obj/machinery/door/airlock/atmos{
 	name = "Atmospherics Air Supply";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8449,7 +8365,7 @@
 "YX" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_y = -32
 	},
@@ -8480,8 +8396,7 @@
 	dir = 10;
 	pixel_y = 0
 	},
-/obj/machinery/alarm{
-	pixel_y = 28;
+/obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/structure/cable/green{
@@ -8548,7 +8463,8 @@
 /area/hegemony_ship/engineering)
 "ZH" = (
 /obj/machinery/door/airlock/silver{
-	name = "Toilet"
+	name = "Toilet";
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -8562,7 +8478,7 @@
 "ZN" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
-	desc = "A warning sign which reads \"WARNING: BLAST DOOR\".";
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
 	name = "\improper WARNING: BLAST DOOR sign";
 	pixel_y = -32
 	},
@@ -8586,7 +8502,8 @@
 	},
 /obj/machinery/door/airlock/security{
 	name = "Brig";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,

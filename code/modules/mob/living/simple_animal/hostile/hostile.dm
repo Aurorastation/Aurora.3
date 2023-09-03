@@ -69,7 +69,7 @@
 	var/atom/T = null
 	var/target_range = INFINITY
 	for (var/atom/A in targets)
-		if(A == src)
+		if(A == src || QDELING(A)) //Avoid targeting ourself, and targets that are being GC'd
 			continue
 		if(ismob(A)) //Don't target mobs with keys that have logged out.
 			var/mob/M = A
@@ -214,7 +214,7 @@
 	var/atom/target
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
-		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags))
+		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags, damage_type))
 		target = L
 	else if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
@@ -229,6 +229,8 @@
 		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
 		visible_message(SPAN_DANGER("\The [src] [attacktext] \the [T]!"))
 		return T // no need to take a step back here
+	if(loc && attack_sound)
+		playsound(loc, attack_sound, 50, 1, 1)
 	if(target)
 		face_atom(target)
 		if(!ranged && smart_melee)

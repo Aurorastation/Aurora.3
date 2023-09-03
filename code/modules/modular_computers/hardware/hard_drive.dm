@@ -159,7 +159,7 @@
 	if(mapload && prob(5))
 		var/datum/docs_document/file = SSdocs.pick_document_by_tag(SSDOCS_MEDIUM_FILE)
 		if(!istype(file))
-			log_ss("docs", "pick_document_by_tag returned null file!")
+			log_subsystem_documents("pick_document_by_tag returned null file!")
 		else
 			var/datum/computer_file/data/F = SSdocs.create_file(file)
 			store_file(F)

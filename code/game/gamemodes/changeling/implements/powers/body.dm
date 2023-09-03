@@ -266,9 +266,9 @@
 	C.SetStunned(0)
 	C.SetWeakened(0)
 	C.lying = FALSE
-	C.reagents.add_reagent(/singleton/reagent/hyperzine, 10) //Certainly this can't be abused. - Geeves
-	C.reagents.add_reagent(/singleton/reagent/oxycomorphine, 10)
-	C.reagents.add_reagent(/singleton/reagent/synaptizine, 5) //To counter oxycomorphine's side-effects.
+	C.reagents.add_reagent(/singleton/reagent/hyperzine, 9)
+	C.reagents.add_reagent(/singleton/reagent/mortaphenyl, 6)
+	C.reagents.add_reagent(/singleton/reagent/synaptizine, 3) // To counter mortaphenyl's side effects.
 	C.update_canmove()
 
 	remove_verb(src, /mob/proc/changeling_unstun)

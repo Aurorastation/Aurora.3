@@ -255,6 +255,7 @@
 	health = 5
 	mob_size = 2
 	density = FALSE
+	destroy_surroundings = FALSE
 
 	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
 	harm_intent_damage = 5

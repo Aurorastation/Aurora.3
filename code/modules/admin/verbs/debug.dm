@@ -12,7 +12,33 @@
 		message_admins("[key_name(src)] toggled debugging on.")
 		log_admin("[key_name(src)] toggled debugging on.",admin_key=key_name(usr))
 
+	switch(alert("Do you want to print all logs to world? This should ONLY EVER HAPPEN IN CRISIS OR DURING DEBUGGING / DEVELOPMENT.", "All logs to world?", "No", "Yes"))
+		if("Yes")
+			config.all_logs_to_chat = 1
+		else
+			config.all_logs_to_chat = 0
+
 	feedback_add_details("admin_verb","DG2") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/DebugToggle()
+	set category = "Debug"
+	set name = "Debugs Toggle"
+	if(!check_rights(R_DEBUG|R_DEV))	return
+
+	var/target = input(usr, "Select which log to toggle", "Debugs Toggle", null) in sortAssoc(config.logsettings)
+	if(target)
+		config.logsettings[target] = !config.logsettings[target]
+		to_chat(usr, "The log category [target] is now [config.logsettings[target]]")
+
+/client/proc/DebugToggleAll()
+	set category = "Debug"
+	set name = "Debugs Toggle ALL"
+	if(!check_rights(R_DEBUG|R_DEV))	return
+
+	switch(alert("Do you want to turn on ALL LOGS?.", "All logs to ON?", "No", "Yes"))
+		if("Yes")
+			for(var/k in config.logsettings)
+				config.logsettings[k] = TRUE
 
 // callproc moved to code/modules/admin/callproc
 
@@ -307,6 +333,7 @@
 		if("Cancel")
 			return
 		if("ERT")
+			outfit_catagories["SCC-ERT"] = typesof(/datum/outfit/admin/ert/scc)
 			outfit_catagories["NT-ERT"] = typesof(/datum/outfit/admin/ert/nanotrasen)
 			outfit_catagories["Deathsquad"] = typesof(/datum/outfit/admin/deathsquad)
 			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/ert/legion)

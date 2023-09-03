@@ -506,9 +506,8 @@
 
 	var/mob/living/carbon/human/H = wearer
 	if(ring && istype(H))
-		if(!H.equip_to_slot_if_possible(ring, slot_gloves))
-			ring.forceMove(get_turf(src))
-		src.ring = null
+		H.equip_to_slot(ring, slot_gloves)
+		ring = null
 	wearer = null
 
 /obj/item/clothing/gloves/dropped()
@@ -1191,7 +1190,7 @@
 	else if(item_icons && (slot_head_str in item_icons))
 		our_image = image(item_icons[slot_head_str], icon_state)
 	else
-		our_image = image(INV_W_UNIFORM_DEF_ICON, icon_state)
+		our_image = image((icon ? icon : INV_W_UNIFORM_DEF_ICON), icon_state)
 	our_image.color = color
 	return our_image
 

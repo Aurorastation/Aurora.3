@@ -235,3 +235,14 @@ var/warrant_uid = 0
 	var/antigen
 	var/spread_type = "Unknown"
 	cmp_field = "name"
+	
+//Manifest record
+/datum/record/shuttle_manifest
+	name = "Unknown"
+	var/shuttle = "Unknown"
+	cmp_field = "name"
+	
+var/shuttle_uid = 0
+/datum/record/shuttle_manifest/New()
+	..()
+	id = shuttle_uid++

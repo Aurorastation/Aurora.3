@@ -96,7 +96,7 @@
 	name = "Space Suit"
 	telecrystal_cost = 2
 	bluecrystal_cost = 2
-	path = /obj/item/storage/box/syndie_kit/space
+	path = /obj/item/storage/box/syndie_kit/space/covert
 
 /datum/uplink_item/item/tools/thermal
 	name = "Thermal Imaging Glasses"

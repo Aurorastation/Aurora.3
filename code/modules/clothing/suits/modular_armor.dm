@@ -166,7 +166,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MINOR,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_RIFLE,
+		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	slowdown = 1
@@ -180,7 +180,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
@@ -194,7 +194,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_MAJOR,
-		laser = ARMOR_LASER_MEDIUM,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
@@ -560,3 +560,115 @@
 	insignia of a well known unathi drapers' guild stitched on the back."
 	icon_state = "flagpatch_hegemony"
 	item_state = "flagpatch_hegemony"
+
+// Wildlands
+
+/obj/item/clothing/accessory/flagpatch/fsf
+	name = "\improper Free Solarian Fleets flagpatch"
+	desc = "A patch bearing the ensign of the Free Solarian Fleets, popular among the mercenary group's marines to \
+	denote their loyalty."
+	desc_extended = "Unique amongst the major successor states in the wildlands were the former Solarian battle fleets \
+	of the Free Solarian Fleets. The reason for this uniqueness relate to the Fleets' origins and goals: while they, \
+	like many successor states, were formerly a Solarian fleet group, the Free Solarian Fleets did not rule over any \
+	planets or claim any greater goals beyond making money hand over fist as mercenaries in the Wildlands. They had \
+	an utter disinterest in conquering and holding territory of their own, instead opting to serve as a mercenary fleet \
+	for the highest bidder in the Wildlands. The group fought alongside the Middle Ring Shield Pact in the war in the \
+	Northern Wildlands."
+	icon_state = "flagpatch_fsf"
+	item_state = "flagpatch_fsf"
+
+/obj/item/clothing/accessory/flagpatch/league
+	name = "\improper League of Independent Corporate-free Systems flagpatch"
+	desc = "A patch bearing the ensign of the League of Independent Corporate-Free Systems. Wearing this \
+	on a corporate vessel would probably be a bad idea."
+	desc_extended = "Many radical political changes followed the retreat of the Solarian Alliance from its \
+	Middle and Outer Rings. In most areas this political change was accompanied by a reckoning over what, \
+	exactly, had caused the once-great Solarian Alliance to slowly atrophy, decay, and then abandon the majority \
+	of its outlying territories. In the Human Wildlands close to the former Alliance Neutral Zone, a proposal \
+	regarding this emerged: that the Alliance had collapsed due to the meddling of corporations and if only the \
+	Alliance had stood against the forces of interstellar capitalism, it would have never collapsed. Thus from the \
+	ashes of the Alliance's colonies emerged something truly unforeseen in the Orion Spur: a left-leaning, anti-corporate \
+	successor state to the Alliance in the region. After its defeat in the war in the Northern Wildlands at the hands of the \
+	Solarian Restoration Front, the former territories of the League were placed under the Northern Solarian Reconstruction \
+	Mandate (NSRM), seeking to rebuild the war torn region."
+	icon_state = "flagpatch_league"
+	item_state = "flagpatch_league"
+
+/obj/item/clothing/accessory/flagpatch/pact
+	name = "\improper Middle Ring Shield Pact flagpatch"
+	desc = "A patch bearing the ensign of the Middle Ring Shield Pact. These were popularised by soldiers \
+	fighting in the Northern Wildlands from beyond San Colette."
+	desc_extended = "Unfortunately located between the Solarian Restoration Front and the League of Independent \
+	Corporate-Free Systems was a loosely-aligned cluster of fairly wealthy Middle Ring planets that banded \
+	together to form what they referred to as the Middle Ring Shield Pact, a defensive alliance designed to protect \
+	them from their neighbors. The Pact was formed shortly after the collapse of Solarian authority within the Middle Ring, \
+	and it was one of the first powers to emerge in the warlordism following said retreat of Solarian authority. This, combined \
+	with a robust (if arguably megacorporate-owned) local bureaucracy, led to the Pact becoming an island of relative \
+	stability in the anarchy of the Northern Wildlands. The Pact was devastated by the war in the Northern Wildlands, being caught \
+	between both the Solarian Restoration Front and the League of Independent Corporate-Free Systems, but emerged victorious with \
+	the aid of the Alliance. Now it has formed the Northern Solarian Reconstruction Mandate (NSRM), seeking to rebuild the war torn \
+	region."
+	icon_state = "flagpatch_pact"
+	item_state = "flagpatch_pact"
+
+/obj/item/clothing/accessory/flagpatch/sfa
+	name = "\improper Solarian Fleet Administration flagpatch"
+	desc = "A patch bearing the ensign of the Solarian Fleet Administration. It is a rare sight to see anyone \
+	loyal enough to the SFA to have one of these made."
+	desc_extended = "Before the total collapse of Solarian authority in much of the Middle and Outer Rings, the Tenth Middle \
+	Ring Battlegroup under the command of Fleet Admiral F.R. Beauchamp was considered to be the absolute bottom of the \
+	Solarian Navy's figurative barrel. With much of its enlisted being made up of prisoners conscripted or enlisted into \
+	the Navy for a reduced prison sentence and the vast majority of its officers being washouts deliberately reassigned to the \
+	Tenth due to their failings, discipline was lax even before the phoron crisis. Despite doubts from many Solarian naval \
+	officers, the Solarian collapse was a time of many surprises, including the Tenth's shocking rallying under Admiral \
+	Beauchamp to form the so-called Southern Fleet Administration shortly after the general Solarian withdraw from the region \
+	that would come to be known as the Southern Wildlands. The SFA were all but wiped out by the combined forces of the Southern \
+	Solarian Military District and the Solarian Provisional Government, and have since become a loose band of bandits and pirates \
+	operating in lawless regions of space throughout the Spur."
+	icon_state = "flagpatch_sfa"
+	item_state = "flagpatch_sfa"
+
+/obj/item/clothing/accessory/flagpatch/spg
+	name = "\improper Solarian Provisional Government flagpatch"
+	desc = "A patch bearing the ensign of the Solarian Provisional Government, most commonly worn by the \
+	Provisional Government's law enforcement."
+	desc_extended = "In the Southern Human Wildlands lay the Solarian Provisional Government, the remnants of the Solarian \
+	Alliance's massive bureaucratic apparatus that once lorded over the vast majority of the Middle Ring. While it was a mere rump \
+	state compared to the titanic bureaucracy that once managed planets from Mictlan to New Hai Phong and most of its skilled bureaucrats \
+	fled to the what remained of the Alliance, the SPG managed to hold onto a small amount of ground near the Solarian border with the \
+	Wildlands thanks to the presence of the Sixth Middle Ring Battlegroup and unofficial support from the Alliance itself. The SPG aligned \
+	itself closely with the Alliance and the Alliance responded by offering “humanitarian” aid to the region under the SPG's control. \
+	In response the provisional government stated its clear intentions to rejoin the Alliance when the region around it stabilized. The \
+	Provisional Government has since merged with the Southern Solarian Military District to form the Southern Solarian Reconstruction \
+	Mandate (SSRM) shortly after the civil war in wake of the unrest and casualties that Szalai and MacPherson sought to undo."
+	icon_state = "flagpatch_spg"
+	item_state = "flagpatch_spg"
+
+/obj/item/clothing/accessory/flagpatch/srf
+	name = "\improper Solarian Restoration Front flagpatch"
+	desc = "A patch bearing the ensign of the Solarian Restoration Front. Considering the near universal hatred \
+	of the Front across the Spur, wearing this would be a bold move."
+	desc_extended = "Extremely nationalistic even by the standards of the authoritarian Solarian Alliance, the Solarian \
+	Restoration Front is often rightfully viewed as the most militaristic of the Solarian successor states that jockied for control \
+	of the Wildlands that had made up the former Middle and Outer Rings of the Solarian Alliance. The Front believed that the Alliance's \
+	third Tajara ban was both not enough and too soft on aliens in the Alliance, and they viewed this softness as the main cause for its collapse. \
+	Thus the Front strived to create a highly-militarized, extremely authoritarian, and human-only state in the Wildlands as a basis for purifying \
+	the Sol Alliance itself of degenerating alien influence, no matter the cost. Defeated by a surprise intervention in the Northern Wildlands by \
+	the Alliance, the former territories of the Front were placed under the Northern Solarian Reconstruction Mandate (NSRM), seeking to rebuild the war torn region."
+	icon_state = "flagpatch_srf"
+	item_state = "flagpatch_srf"
+
+/obj/item/clothing/accessory/flagpatch/ssmd
+	name = "\improper Southern Solarian Military District flagpatch"
+	desc = "A patch bearing the ensign of the Southern Solarian Military District. These patches are very common, \
+	with most Military District marines being issued one upon enlisting."
+	desc_extended = "While many of the fleets assigned to the area that would become the Southern Wildlands were considered second or even third-rate \
+	organizations, one formation stood above the rest in terms of quality. The First Middle Ring Battlefleet - made up of the 103rd through 107th fleets \
+	- under the command of Fleet Admiral Klaudia Szalai was considered to be the best fleet in the sector before it was lost during the chaos of the \
+	Solarian collapse due to a lack of phoron for its dated engines. It came as quite a shock for many observers when, nearly a full month after the collapse, \
+	Admiral Szalai finally reestablished communications with the outside world and declared that the First had formed the Southern Solarian Military District, \
+	and was intent on stabilizing the Southern Wildlands pending their reintegration with the Alliance. The Southern District has since merged with the Solarian \
+	Provisional Government to form the Southern Solarian Reconstruction Mandate (SSRM) shortly after the civil war in wake of the unrest and casualties that \
+	Szalai and MacPherson sought to undo."
+	icon_state = "flagpatch_ssmd"
+	item_state = "flagpatch_ssmd"
