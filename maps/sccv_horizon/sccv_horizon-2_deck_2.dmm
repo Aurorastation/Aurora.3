@@ -7612,8 +7612,8 @@
 /obj/structure/sign/drop{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 5
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
@@ -15787,12 +15787,6 @@
 	id = "sorting";
 	reversed = 1
 	},
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
 "hCo" = (
@@ -19121,6 +19115,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "jib" = (
@@ -40679,7 +40674,9 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/plasticflaps/airtight,
+/obj/structure/plasticflaps/airtight{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
 "tQA" = (
@@ -41887,7 +41884,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -45145,7 +45141,9 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/plasticflaps/airtight,
+/obj/structure/plasticflaps/airtight{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
 "vVL" = (
