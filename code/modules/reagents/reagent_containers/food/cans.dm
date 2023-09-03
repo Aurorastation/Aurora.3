@@ -474,9 +474,9 @@
 	icon_state = "shimauma"
 
 /obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor
-	name = "Moonlabor Malt's"
-	icon_state = "moonlabor"
+	name = "\improper Moonlabor Malt's"
 	desc = "Konyang's underdog rice beer brand. Popular amongst New Hai Phongers, for reasons unknown."
+	icon_state = "moonlabor"
 
 /obj/item/reagent_containers/food/drinks/cans/melon_soda
 	name = "Kansumi Melon Soda"
