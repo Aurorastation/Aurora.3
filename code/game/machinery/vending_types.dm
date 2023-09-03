@@ -592,7 +592,7 @@
 	random_itemcount = 0
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
-	manufacturer = "zenghu"
+	manufacturer = "nanotrasen"
 
 //This one's from bay12
 /obj/machinery/vending/phoronresearch
@@ -656,7 +656,7 @@
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	manufacturer = "zenghu"
+	manufacturer = "nanotrasen"
 
 /obj/machinery/vending/wallmed2
 	name = "\improper NanoMed Mini"
@@ -688,7 +688,7 @@
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	manufacturer = "zenghu"
+	manufacturer = "nanotrasen"
 
 /obj/machinery/vending/security
 	name = "SecTech"
