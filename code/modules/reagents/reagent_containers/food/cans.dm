@@ -469,9 +469,9 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/rice_beer = 40)
 
 /obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma
-	name = "Shimauma Ichiban"
-	icon_state = "shimauma"
+	name = "\improper Shimauma Ichiban"
 	desc = "Konyang's most middling rice beer brand. Not as popular as Ebisu, but it's comfortable in second place."
+	icon_state = "shimauma"
 
 /obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor
 	name = "Moonlabor Malt's"
