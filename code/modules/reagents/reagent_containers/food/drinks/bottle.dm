@@ -525,7 +525,7 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/wine = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/pwine
-	name = "Chip Getmore's Velvet"
+	name = "\improper Chip Getmore's Velvet"
 	desc = "What a delightful packaging for a surely high quality wine! The vintage must be amazing!"
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "pwinebottle"
