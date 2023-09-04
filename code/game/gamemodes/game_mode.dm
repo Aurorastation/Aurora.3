@@ -558,7 +558,7 @@ var/global/list/additional_antag_types = list()
 
 	for(var/mob/living/carbon/human/character in player_list)
 		if(character.client)
-			if(character.client.prefs.economic_status == ECONOMICALLY_DESTITUTE || ECONOMICALLY_RUINED) // Discrimination.
+			if((character.client.prefs.economic_status == ECONOMICALLY_DESTITUTE) || (character.client.prefs.economic_status == ECONOMICALLY_RUINED)) // Discrimination.
 				characters += character
 			else if(character.client.prefs.economic_status == ECONOMICALLY_POOR && prob(50)) // 50% discrimination.
 				characters += character
