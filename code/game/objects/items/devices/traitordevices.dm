@@ -75,7 +75,7 @@ effective or pretty fucking useless.
 		to_chat(target, SPAN_NOTICE("You have been connected to the Lii'dra Hivemind!"))
 		target.add_language(LANGUAGE_LIIDRA)
 		qdel(src)
-	if(!target.isSynthetic())
+	else if(!target.isSynthetic())
 		to_chat(user, SPAN_NOTICE("You infest [target] with black k'ois!"))
 		to_chat(target, SPAN_NOTICE("You have been infested with black k'ois!"))
 		var/obj/item/organ/external/affected = target.get_organ(BP_HEAD)
