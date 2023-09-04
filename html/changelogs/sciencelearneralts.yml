@@ -3,6 +3,6 @@ author: Sparky_hotdog
 delete-after: True
 
 changes:
-  - tweak: "The Lab Assistant job is now called Research Understudy. Its minimum age is 25, from 18."
+  - tweak: "The Lab Assistant job is now called Research Understudy. Its minimum age is 28, from 18."
   - rscadd: "Added alt-titles for Research Understudy: Xenoarchaeology Student, Xenobiology Understudy and Xenobotany Understudy."
   - rscadd: "Added a new Lab Assistant role with a minimum age of 18 which acts as a true assistant to research. It has alt-titles as well: Field Assistant, Xenobiology Assistant, Xenobotany Assistant."

@@ -228,9 +228,9 @@
 	outfit = /datum/outfit/job/intern_sci
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
-		SPECIES_SKRELL = 55,
-		SPECIES_SKRELL_AXIORI = 55
+		SPECIES_HUMAN = 28,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
 	)
 
 /datum/outfit/job/intern_sci
