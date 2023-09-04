@@ -7,7 +7,6 @@
 	ship_cost = 1
 	id = "Cyclops Mining Vessel"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cyclops_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/cyclops_mining
 	map = "Cyclops Mining Vessel"
