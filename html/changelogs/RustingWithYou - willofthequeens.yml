@@ -39,7 +39,8 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Adds several new Hivenet verbs for administrating, covert communication and espionage.
-  - rscadd: "Adds a fifth stage to black k'ois infection."
+  - rscadd: "Adds a fifth stage to black k'ois infection which makes the victim clumsier, but stronger and immune to pain."
   - rscadd: "Adds antag-available implants for Hivenet electronic warfare, and defense against Hivenet attacks."
   - rscadd: "Adds a Lii'draic Hivemind language, for use by admins/in events."
   - tweak: "Removing black k'ois mycosis does increasing amounts of brain scarring based on stage, and kills the host at stage 5."
+  - tweak: "Black k'ois no longer contains phoron."
