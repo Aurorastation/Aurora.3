@@ -87,7 +87,10 @@
 		/mob/living/carbon/human/proc/hivenet_encrypt,
 		/mob/living/carbon/human/proc/hivenet_camera,
 		/mob/living/carbon/human/proc/hivenet_lattice,
-		/mob/living/carbon/human/proc/hivenet_decrypt
+		/mob/living/carbon/human/proc/hivenet_decrypt,
+		/mob/living/carbon/human/proc/hivenet_hijack,
+		/mob/living/carbon/human/proc/antag_hiveshock,
+		/mob/living/carbon/human/proc/antag_hivemute
 	)
 
 /obj/item/organ/internal/vaurca/neuralsocket/process()
@@ -111,6 +114,7 @@
 	..()
 
 /obj/item/organ/internal/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
+	owner = target
 	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 		owner.add_language(LANGUAGE_VAURCA)
 		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
@@ -176,6 +180,7 @@
 /obj/item/organ/internal/augment/hiveshield
 	name = BP_HIVENET_SHIELD
 	organ_tag = BP_HIVENET_SHIELD
+	parent_organ = BP_HEAD
 	icon_state = "augment-pda" //placeholder
 	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access or sabotage."
 	action_button_name = "Toggle Hivenet Defense Suite"
@@ -217,6 +222,38 @@
 	This one looks especially advanced, even by Vaurcaesian standards."
 	action_button_name = "Toggle Advanced Hivenet Defense Suite"
 	fullshield = TRUE
+
+/obj/item/organ/internal/augment/hiveshield/warfare
+	name = "hivenet electronic warfare suite"
+	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access or sabotage.\
+	It also contains a suite of upgrades enabling it to launch Hivenet-based attacks against other Vaurcae."
+	var/list/added_verbs = list(
+		/mob/living/carbon/human/proc/hivenet_hijack,
+		/mob/living/carbon/human/proc/antag_hiveshock,
+		/mob/living/carbon/human/proc/antag_hivemute,
+		/mob/living/carbon/human/proc/hivenet_encrypt,
+		/mob/living/carbon/human/proc/hivenet_decrypt
+	)
+
+/obj/item/organ/internal/augment/hiveshield/warfare/process()
+	if(!owner)
+		return
+	if(is_broken())
+		var/obj/item/organ/internal/vaurca/neuralsocket/S = owner.internal_organs_by_name[BP_NEURAL_SOCKET]
+		if(S.shielded)
+			S.shielded = 0
+		remove_verb(owner, added_verbs)
+
+/obj/item/organ/internal/augment/hiveshield/warfare/removed()
+	var/obj/item/organ/internal/vaurca/neuralsocket/S = owner.internal_organs_by_name[BP_NEURAL_SOCKET]
+	if(S.shielded)
+		S.shielded = 0
+	remove_verb(owner, added_verbs)
+
+/obj/item/organ/internal/augment/hiveshield/warfare/replaced(var/mob/living/carbon/human/target)
+	owner = target
+	add_verb(owner, added_verbs)
+	..()
 
 /obj/item/organ/internal/augment/tool/combitool/vaurca
 	name = "vaurca integrated toolset"

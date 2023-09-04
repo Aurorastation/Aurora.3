@@ -47,3 +47,15 @@
 	bluecrystal_cost = 1
 	desc = "An augment implanter, with the integrated health scanner augment."
 	path = /obj/item/device/augment_implanter/health_scanner
+
+/datum/uplink_item/item/implants/hiveshield
+	name = "Vaurca Hivenet Defense Implanter"
+	bluecrystal_cost = 1
+	desc = "An augment implanter, with a Hivenet defense augment. ONLY WORKS ON VAURCA!"
+	path = /obj/item/device/augment_implanter/hivenet_shield
+
+/datum/uplink_item/item/implants/hivewarfare
+	name = "Vaurca Hivenet Warfare Suite"
+	bluecrystal_cost = 5
+	desc = "A augment implanter, with a Hivenet defense augment and electronic warfare suite. ONLY WORKS ON VAURCA!"
+	path = /obj/item/device/augment_implanter/hivenet_warfare

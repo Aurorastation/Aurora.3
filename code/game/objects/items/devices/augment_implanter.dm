@@ -74,3 +74,6 @@
 
 /obj/item/device/augment_implanter/hivenet_advanced_shield
 	new_augment =	/obj/item/organ/internal/augment/hiveshield/advanced
+
+/obj/item/device/augment_implanter/hivenet_warfare
+	new_augment =	/obj/item/organ/internal/augment/hiveshield/warfare

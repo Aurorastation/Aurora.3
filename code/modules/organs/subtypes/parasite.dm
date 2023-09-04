@@ -292,6 +292,8 @@
 	if(all_languages[LANGUAGE_VAURCA] in target.languages && stage >= 3 && !isvaurca(target))
 		target.remove_language(LANGUAGE_VAURCA)
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
+	if(all_languages[LANGUAGE_LIIDRA] in target.languages && stage >= 3)
+		target.remove_language(LANGUAGE_LIIDRA)
 	removed_langs = 0
 	remove_verb(owner, /mob/living/carbon/human/proc/kois_cough)
 	remove_verb(owner, /mob/living/carbon/human/proc/kois_infect)
