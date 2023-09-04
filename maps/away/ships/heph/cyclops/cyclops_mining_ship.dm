@@ -21,6 +21,10 @@
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
 	colors = list("#BAB86C", "#8B4000")
+	designer = "Hephaestus Industries"
+	weapons = "Not apparent"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	sizeclass = "Cyclops Mining Freighter"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000

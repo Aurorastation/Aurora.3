@@ -5,6 +5,8 @@
 	desc = "Crew the Hephaestus Mining Vessel."
 	tags = list("External")
 
+	welcome_message = "As a Hephaestus Cyclops Mining Crew, you are tasked with mining this sector's resources for Hephaestus Industries."
+
 	spawnpoints = list("cyclops_crew")
 	max_count = 3
 
@@ -42,6 +44,7 @@
 	name = "Hephaestus Cyclops Security Officer"
 	desc = "Act as the Hephaestus Mining Vessels Security Officer."
 
+	welcome_message = "As a Hephaestus Cyclops Security Officer, you are tasked with protecting the Hephaestus crew during their operations."
 	spawnpoints = list("cyclops_security")
 	max_count = 1
 
@@ -64,11 +67,13 @@
 	name = "Hephaestus Cyclops Captain"
 	desc = "Act as the Hephaestus Mining Vessels Captain"
 
+	welcome_message = "As a Hephaestus Cyclops Captain, you must led the crew of your ship and protect Hephaestus' interests in the region."
+
 	spawnpoints = list("cyclops_captain")
 	max_count = 1
 
 	outfit = /datum/outfit/admin/cyclops_crew/captain
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Hephaestus Cyclops Captain"
@@ -89,8 +94,10 @@
 	spawnpoints = list("cyclops_engineer")
 	max_count = 1
 
+	welcome_message = "As a Hephaestus Cyclops Engineer, you are tasked with ensuring the functioning of the ship and repairing any engineering problem during mining operations."
+
 	outfit = /datum/outfit/admin/cyclops_crew/engineer
-	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Hephaestus Cyclops Engineer"
