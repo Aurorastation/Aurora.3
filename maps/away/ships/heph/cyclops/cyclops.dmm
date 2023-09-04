@@ -53,7 +53,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, armory"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#4c4324"
 	},
 /area/hephmining_ship/cyclops/cyclops_vault)
@@ -109,7 +109,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_in"
+	id_tag = "cyclops_shuttle_in";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
@@ -241,7 +242,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "cyclops_mining_out";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -380,7 +382,8 @@
 "ec" = (
 /obj/machinery/door/airlock/mining{
 	name = "Captain's Quarters";
-	req_access = list(216)
+	req_access = list(216);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -526,11 +529,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
-"fd" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops/cyclops/bathroom)
 "fi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -923,7 +921,8 @@
 	},
 /obj/machinery/door/airlock/mining{
 	name = "Captain's Office";
-	req_access = list(216)
+	req_access = list(216);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1016,7 +1015,8 @@
 	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "cyclops_mining_out";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_engineering)
@@ -1102,7 +1102,8 @@
 	icon_state = "door_locked";
 	id_tag = "cyclops_mining_in";
 	locked = 1;
-	name = "Port Docking Hatch"
+	name = "Port Docking Hatch";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_engineering)
@@ -1406,11 +1407,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
-"qw" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops/cyclops_kitchen)
 "qy" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
@@ -1490,11 +1486,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/shuttle/cyclops_shuttle)
-"rl" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops/cyclops_captain)
 "rp" = (
 /obj/machinery/mineral/stacking_unit_console{
 	id = "stacking_3";
@@ -1687,7 +1678,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_in"
+	id_tag = "cyclops_shuttle_in";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
@@ -1753,7 +1745,9 @@
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor,
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#4c4324"
+	},
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "uM" = (
 /turf/simulated/floor/tiled/dark,
@@ -2218,7 +2212,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Hangar";
-	req_access = list(216)
+	req_access = list(216);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
@@ -2377,7 +2372,8 @@
 	icon_state = "door_locked";
 	id_tag = "cyclops_mining_in";
 	locked = 1;
-	name = "Port Docking Hatch"
+	name = "Port Docking Hatch";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_engineering)
@@ -2541,7 +2537,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_out"
+	id_tag = "cyclops_shuttle_out";
+	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -2566,7 +2563,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "cyclops_shuttle_out"
+	id_tag = "cyclops_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
@@ -2622,11 +2620,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
-"Cc" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops/cyclops_port_thrust)
 "Cd" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2706,16 +2699,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
-"Dh" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops/cyclops_starboard_thrust)
-"Dj" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops/cyclops_hangar)
 "Dt" = (
 /obj/machinery/airlock_sensor{
 	frequency = 1380;
@@ -2815,7 +2798,8 @@
 	},
 /obj/machinery/door/airlock/mining{
 	name = "Bathroom";
-	req_access = list(216)
+	req_access = list(216);
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green{
@@ -2962,7 +2946,8 @@
 "Gg" = (
 /obj/machinery/door/airlock/glass{
 	name = "Barracks";
-	req_access = list(216)
+	req_access = list(216);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2975,11 +2960,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
-"Gu" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops)
 "Gz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3084,11 +3064,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/hephmining_ship/cyclops/cyclops_captain)
-"Hv" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops/cyclops_bridge)
 "HB" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion Maintenance";
@@ -3364,7 +3339,8 @@
 	},
 /obj/machinery/door/airlock/glass{
 	name = "Barracks";
-	req_access = list(216)
+	req_access = list(216);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -3411,11 +3387,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
-"Ki" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
-	color = "#4c4324"
-	},
-/area/shuttle/cyclops_shuttle)
 "Ko" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -3579,7 +3550,7 @@
 /turf/space/transit/north,
 /area/space)
 "MB" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
+/turf/simulated/wall/shuttle/space_ship{
 	color = "#4c4324"
 	},
 /area/hephmining_ship/cyclops/cyclops_vault)
@@ -3668,7 +3639,8 @@
 "Nz" = (
 /obj/machinery/door/airlock/vault{
 	name = "Secure Storage";
-	req_access = list(216)
+	req_access = list(216);
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3836,11 +3808,6 @@
 "PW" = (
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
-"PZ" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops/cyclops_engineering)
 "Qd" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#4c4324"
@@ -4398,11 +4365,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
-"WV" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal{
-	color = "#4c4324"
-	},
-/area/hephmining_ship/cyclops/cyclops_barracks)
 "Xb" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 4
@@ -33574,7 +33536,7 @@ ZV
 Iz
 ZV
 Nt
-WV
+AY
 AY
 CE
 CE
@@ -33823,8 +33785,8 @@ mA
 mA
 mA
 mA
-Dj
-WV
+mA
+AY
 Na
 uM
 Xc
@@ -33832,7 +33794,7 @@ DX
 GL
 lz
 XZ
-WV
+AY
 AY
 CE
 CE
@@ -34080,8 +34042,8 @@ vG
 Jk
 pH
 rp
-Dj
-WV
+mA
+AY
 Mw
 uM
 Ws
@@ -34337,8 +34299,8 @@ wk
 vj
 Sh
 yo
-Dj
-WV
+mA
+AY
 ch
 mY
 Lx
@@ -34594,17 +34556,17 @@ fv
 VE
 Sh
 Vz
-Dj
-WV
-WV
+mA
+AY
+AY
 Gg
-WV
-WV
+AY
+AY
 Yw
 lC
 Oy
-WV
-qw
+AY
+AO
 Zn
 Zn
 Zn
@@ -34856,16 +34818,16 @@ iH
 pc
 Fk
 ae
-WV
-WV
-WV
+AY
+AY
+AY
 JN
-qw
+AO
 Nk
 pw
 Cd
 BX
-qw
+AO
 aG
 CE
 CE
@@ -35094,7 +35056,7 @@ eM
 eM
 eM
 eM
-Dh
+eM
 AE
 BM
 pG
@@ -35113,17 +35075,17 @@ Ay
 yD
 IN
 CT
-Gu
+Qd
 JE
 ab
 ZE
-qw
+AO
 uN
 AH
 Al
 tn
-qw
-Hv
+AO
+Tb
 CE
 CE
 CE
@@ -35370,17 +35332,17 @@ sP
 zi
 qU
 rG
-Gu
+Qd
 XR
 Ln
 hS
-qw
+AO
 ow
 WD
 Al
 rF
-qw
-Hv
+AO
+Tb
 Tb
 Jq
 Jq
@@ -35613,10 +35575,10 @@ zn
 zn
 zn
 zn
-Ki
+gw
 BH
 BC
-Ki
+gw
 zn
 zn
 Yj
@@ -35627,16 +35589,16 @@ Ut
 zi
 qU
 rG
-Gu
+Qd
 Zr
 AQ
 gs
-qw
+AO
 nb
 rD
 Al
 mv
-qw
+AO
 Nc
 SH
 Ik
@@ -35869,12 +35831,12 @@ zn
 zn
 zn
 zn
-Ki
-Ki
+gw
+gw
 pE
 MD
-Ki
-Ki
+gw
+gw
 zn
 Yj
 Je
@@ -35884,16 +35846,16 @@ BV
 Hr
 IN
 QT
-Gu
+Qd
 BA
 Fk
 pv
-qw
-qw
+AO
+AO
 Gz
 Ax
 AO
-qw
+AO
 OE
 sJ
 ba
@@ -36126,14 +36088,14 @@ sF
 ra
 gw
 af
-Ki
-Ki
+gw
+gw
 tT
 bc
-Ki
-Ki
-Ki
-Dj
+gw
+gw
+gw
+mA
 Je
 ex
 Qd
@@ -36150,7 +36112,7 @@ SJ
 ym
 Fk
 py
-Hv
+Tb
 uZ
 RZ
 PW
@@ -36381,7 +36343,7 @@ uO
 eG
 by
 gw
-Ki
+gw
 ze
 qH
 jZ
@@ -36664,7 +36626,7 @@ gc
 Bi
 XE
 Ku
-Hv
+Tb
 lu
 RZ
 PW
@@ -36895,7 +36857,7 @@ uO
 eG
 GF
 gw
-Ki
+gw
 ap
 yw
 NG
@@ -36912,16 +36874,16 @@ SX
 JV
 IN
 no
-Gu
+Qd
 At
 XE
 Af
-rl
+FP
 WP
 kY
 WP
 WP
-rl
+FP
 Zp
 Ko
 UN
@@ -37159,9 +37121,9 @@ jd
 lD
 Mk
 xG
-Ki
-Ki
-Dj
+gw
+gw
+mA
 HM
 Pv
 Qd
@@ -37169,7 +37131,7 @@ Ut
 nK
 qU
 AX
-Gu
+Qd
 JE
 IO
 gs
@@ -37178,7 +37140,7 @@ Ue
 QN
 Sm
 tw
-rl
+FP
 LR
 SW
 up
@@ -37416,7 +37378,7 @@ eo
 pi
 eo
 eo
-Ki
+gw
 zn
 Yj
 fb
@@ -37426,7 +37388,7 @@ sP
 nK
 qU
 lV
-Gu
+Qd
 XR
 Ln
 hS
@@ -37683,7 +37645,7 @@ vh
 GG
 il
 rJ
-Gu
+Qd
 Zr
 fz
 kT
@@ -37693,7 +37655,7 @@ Jv
 qJ
 wO
 FP
-Hv
+Tb
 CE
 CE
 CE
@@ -37916,33 +37878,33 @@ CE
 CE
 CE
 CE
-Cc
-Cc
-Cc
-Cc
-Cc
-Cc
-PZ
-PZ
-PZ
-PZ
-PZ
-PZ
-PZ
-PZ
-PZ
-PZ
-PZ
+aY
+aY
+aY
+aY
+aY
+aY
+gZ
+gZ
+gZ
+gZ
+gZ
+gZ
+gZ
+gZ
+gZ
+gZ
+gZ
 yY
-PZ
-Gu
+gZ
+Qd
 iR
 Xb
 vk
 IP
-Gu
-fd
-fd
+Qd
+Ig
+Ig
 EF
 Ig
 FP
@@ -38192,14 +38154,14 @@ jD
 na
 iX
 Ts
-Gu
-Gu
+Qd
+Qd
 SF
 yF
 iL
-Gu
+Qd
 eV
-fd
+Ig
 yB
 qD
 FP
@@ -38435,7 +38397,7 @@ ne
 Gd
 Dc
 Pz
-Cc
+aY
 DK
 mI
 yg
@@ -38449,7 +38411,7 @@ Sn
 bl
 jF
 SK
-PZ
+gZ
 MB
 MB
 Nz
@@ -38692,7 +38654,7 @@ QM
 Bg
 yW
 aH
-Cc
+aY
 dq
 Hh
 yg
@@ -38712,8 +38674,8 @@ AI
 TD
 dF
 MB
-fd
-fd
+Ig
+Ig
 vg
 uj
 FP
@@ -38949,7 +38911,7 @@ WR
 dn
 gn
 EY
-Cc
+aY
 EJ
 KJ
 GB
@@ -38963,7 +38925,7 @@ Ty
 TC
 iT
 xz
-PZ
+gZ
 MB
 Ld
 NU
@@ -39206,7 +39168,7 @@ aY
 aY
 aY
 aY
-Cc
+aY
 gZ
 gZ
 sI
@@ -39228,7 +39190,7 @@ nN
 MB
 Ic
 ot
-fd
+Ig
 Ig
 Ig
 CE
@@ -39465,9 +39427,9 @@ CE
 CE
 CE
 CE
-PZ
+gZ
 mN
-PZ
+gZ
 CE
 CE
 CE
@@ -39722,9 +39684,9 @@ CE
 CE
 CE
 CE
-PZ
-PZ
-PZ
+gZ
+gZ
+gZ
 CE
 CE
 CE
@@ -39991,7 +39953,7 @@ CE
 Zg
 yg
 yg
-PZ
+gZ
 CE
 CE
 CE
@@ -40248,7 +40210,7 @@ CE
 gZ
 mb
 cv
-PZ
+gZ
 CE
 CE
 CE
