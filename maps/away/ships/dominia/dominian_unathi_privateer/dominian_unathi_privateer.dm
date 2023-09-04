@@ -74,8 +74,8 @@
 	name = "Kazhkz Fighter"
 	class = "ICV"
 	designation = "Dagger"
-	desc = "The Lanying-class fighter is often seen in the ranks of the Imperial Fleet - a larger-than-normal fighter craft, capable of carrying a boarding party of up to five soldiers, and equipped with a rotary cannon. This one's transponder does not mark it as an Imperial vessel, however."
-	shuttle = "Kazhkz Fighter"
+	desc = "The Lanying-class is often seen in the ranks of the Imperial Fleet - a small gunship craft, capable of carrying a boarding party of up to five soldiers, and equipped with a rotary cannon. This one's transponder does not mark it as an Imperial vessel, however."
+	shuttle = "Kazhkz Gunship"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	colors = list("#e67f09", "#fcf9f5")
