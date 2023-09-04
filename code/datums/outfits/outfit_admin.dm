@@ -102,3 +102,13 @@
 	head = /obj/item/clothing/head/chameleon
 	mask = /obj/item/clothing/mask/chameleon
 	glasses = /obj/item/clothing/glasses/chameleon
+
+/datum/outfit/admin/horizonprisoner
+	name = "Prisoner"
+	uniform = /obj/item/clothing/under/color/orange
+	back = /obj/item/storage/backpack/satchel/leather
+	shoes = /obj/item/clothing/shoes/orange
+	l_ear = /obj/item/device/radio/headset
+
+	id = /obj/item/card/id
+	pda = /obj/item/modular_computer/handheld/pda/civilian

@@ -124,6 +124,25 @@
 	mob_name_prefix = "Agt. "
 	mob_name_pick_message = "Pick a name."
 
+// Horizon Prisoner
+/datum/ghostspawner/human/admin/corporate/horizonprisoner
+	short_name = "prisoner"
+	name = "SCCV Horizon Prisoner"
+	desc = "You are a prisoner being held within the brig aboard the SCCV Horizon. This role requires special staff authorization to be used. You are not an antagonist, self antagonist rules still apply to you."
+
+	landmark_name = "HorizonPrisoner"
+	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_UNATHI)
+
+	outfit = /datum/outfit/admin/horizonprisoner
+
+	enabled = FALSE
+
+	tags = list("CCIA")
+	req_perms = null
+	req_perms_edit = R_CCIAA
+	max_count = 1
+
+	mob_name_pick_message = "Pick a name."
 /*
 	ERT and Similar Commanders
 */

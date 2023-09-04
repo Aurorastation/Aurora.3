@@ -13196,6 +13196,15 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /turf/simulated/floor/reinforced,
 /area/horizon/crew_quarters/lounge/bar)
+"gtj" = (
+/obj/structure/bed/stool/chair/plastic{
+	dir = 8
+	},
+/obj/effect/landmark{
+	name = "HorizonPrisoner"
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/security/brig)
 "gtk" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Communal Observation";
@@ -79883,7 +79892,7 @@ fSy
 huP
 huP
 huP
-lBc
+gtj
 lBc
 xzV
 fXA
