@@ -836,40 +836,50 @@
 				lying = TRUE
 				break
 	else if(!resting && cannot_stand() && can_stand_overridden())
-		lying = 0
-		canmove = 1
+		lying = FALSE
+		lying_is_intentional = FALSE
+		canmove = TRUE
 	else
 		if(istype(buckled_to, /obj/vehicle))
 			var/obj/vehicle/V = buckled_to
 			if(is_physically_disabled())
-				lying = 1
-				canmove = 0
+				lying = TRUE
+				lying_is_intentional = FALSE
+				canmove = FALSE
 				pixel_y = V.mob_offset_y - 5
 			else
 				if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
-				canmove = 1
+				lying_is_intentional = FALSE
+				canmove = TRUE
 				pixel_y = V.mob_offset_y
 		else if(buckled_to)
-			anchored = 1
-			canmove = 0
+			anchored = TRUE
+			canmove = FALSE
 			if(isobj(buckled_to))
 				if(buckled_to.buckle_lying != -1)
 					lying = buckled_to.buckle_lying
+					lying_is_intentional = FALSE
 				if(buckled_to.buckle_movable)
-					anchored = 0
-					canmove = 1
+					anchored = FALSE
+					canmove = TRUE
 		else if(captured)
-			anchored = 1
-			canmove = 0
-			lying = 0
+			anchored = TRUE
+			canmove = FALSE
+			lying = FALSE
+		else if(m_intent == M_LAY && !incapacitated())
+			lying = TRUE
+			lying_is_intentional = TRUE
+			canmove = TRUE
 		else
 			lying = MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
+			lying_is_intentional = FALSE
 			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT)
 
 	if(lying)
 		density = 0
-		if(l_hand) unEquip(l_hand)
-		if(r_hand) unEquip(r_hand)
+		if(!lying_is_intentional)
+			if(l_hand) unEquip(l_hand)
+			if(r_hand) unEquip(r_hand)
 	else
 		density = initial(density)
 
@@ -1279,15 +1289,23 @@
 	else
 		throw_mode_on()
 
+#define THROW_MODE_ICON 'icons/effects/cursor/throw_mode.dmi'
+
 /mob/proc/throw_mode_off()
 	src.in_throw_mode = 0
 	if(src.throw_icon) //in case we don't have the HUD and we use the hotkey
 		src.throw_icon.icon_state = "act_throw_off"
+	if(client?.mouse_pointer_icon == THROW_MODE_ICON)
+		client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
 
 /mob/proc/throw_mode_on()
 	src.in_throw_mode = 1
 	if(src.throw_icon)
 		src.throw_icon.icon_state = "act_throw_on"
+	if(client?.mouse_pointer_icon == initial(client.mouse_pointer_icon))
+		client.mouse_pointer_icon = THROW_MODE_ICON
+
+#undef THROW_MODE_ICON
 
 /mob/proc/is_invisible_to(var/mob/viewer)
 	if(isAI(viewer))
@@ -1378,6 +1396,11 @@
  	set hidden = 1
  	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
 
+/client/verb/cycle_target_zone()
+	set name = "cycle-zone"
+	set hidden = 1
+	toggle_zone_sel(BP_ALL_LIMBS)
+
 /client/proc/toggle_zone_sel(list/zones)
 	if(!check_has_body_select())
 		return
@@ -1386,37 +1409,37 @@
 
 /mob/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
 	..()
-	if(assembleHeightString(user))
-		to_chat(user, SPAN_NOTICE(assembleHeightString(user)))
+	if(assemble_height_string(user))
+		to_chat(user, SPAN_NOTICE(assemble_height_string(user)))
 
 //Height String for examine - Runs on the mob being examined.
-/mob/proc/assembleHeightString(mob/examiner)
-	var/heightString = null
-	var/descriptor
+/mob/proc/assemble_height_string(mob/examiner)
+	var/height_string = null
+	var/height_descriptor
 	if(height == HEIGHT_NOT_USED)
-		return heightString
+		return height_string
 
 	if(examiner.height == HEIGHT_NOT_USED)
-		return heightString
+		return height_string
 
 	switch(height - examiner.height)
 		if(-999 to -100)
-			descriptor = "absolutely tiny compared to"
+			height_descriptor = "absolutely tiny compared to"
 		if(-99 to -50)
-			descriptor = "much smaller than"
+			height_descriptor = "much smaller than"
 		if(-49 to -11)
-			descriptor = "shorter than"
+			height_descriptor = "shorter than"
 		if(-10 to 10)
-			descriptor = "about the same height as"
+			height_descriptor = "about the same height as"
 		if(11 to 50)
-			descriptor = "taller than"
+			height_descriptor = "taller than"
 		if(51 to 100)
-			descriptor = "much larger than"
+			height_descriptor = "much larger than"
 		else
-			descriptor = "to tower over"
-	if(heightString)
-		return heightString + ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
-	return "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."
+			height_descriptor = "to tower over"
+	if(height_string)
+		return height_string + " [get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
+	return "[get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
 
 /mob/proc/get_speech_bubble_state_modifier()
 	return "normal"

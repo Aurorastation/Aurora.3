@@ -141,6 +141,7 @@
 
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
+	psi_deaf = TRUE
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
@@ -158,9 +159,6 @@
 	H.gender = NEUTER
 	return ..()
 
-/datum/species/bug/has_psi_potential()
-	return FALSE
-
 /datum/species/bug/is_naturally_insulated()
 	return TRUE
 
@@ -168,3 +166,4 @@
 	if(I.w_class <= ITEMSIZE_SMALL)
 		return TRUE
 	return FALSE
+

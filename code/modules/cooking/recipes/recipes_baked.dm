@@ -76,6 +76,17 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/bacon_flatbread
 
+/singleton/recipe/pepperonipizza
+	appliance = OVEN
+	fruit = list("tomato" = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/pepperoni
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE // just in case
+	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/pepperoni
+
 /singleton/recipe/soywafers
 	appliance = OVEN
 	fruit = list("soybeans" = 1)

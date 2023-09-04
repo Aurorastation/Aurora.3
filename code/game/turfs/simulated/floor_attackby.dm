@@ -23,7 +23,7 @@
 				return
 			to_chat(user, "<span class='notice'>You unscrew and remove the [flooring.descriptor].</span>")
 			make_plating(1)
-			playsound(src, 'sound/items/Screwdriver.ogg', 80, 1)
+			playsound(src, C.usesound, 80, 1)
 			return
 		else if(C.iswrench() && (flooring.flags & TURF_REMOVE_WRENCH))
 			to_chat(user, "<span class='notice'>You unwrench and remove the [flooring.descriptor].</span>")
@@ -33,7 +33,7 @@
 		else if(istype(C, /obj/item/shovel) && (flooring.flags & TURF_REMOVE_SHOVEL))
 			to_chat(user, "<span class='notice'>You shovel off the [flooring.descriptor].</span>")
 			make_plating(1)
-			playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
+			playsound(src, C.usesound, 80, 1)
 			return
 		else if(C.iswelder() && (flooring.flags & TURF_REMOVE_WELDER))
 			var/obj/item/weldingtool/WT = C

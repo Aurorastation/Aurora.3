@@ -43,10 +43,10 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
  */
 /datum/controller/subsystem/processing/ntsl2/proc/handle_response(var/datum/http_response/response, var/command)
 	if (response.errored)
-		log_debug("NTSL2++: Proc error while performing command '[command]': [response.error]")
+		LOG_DEBUG("NTSL2++: Proc error while performing command '[command]': [response.error]")
 		return FALSE
 	else if (response.status_code != 200)
-		log_debug("NTSL2++: HTTP error while performing command '[command]': [response.status_code]")
+		LOG_DEBUG("NTSL2++: HTTP error while performing command '[command]': [response.status_code]")
 		return FALSE
 	else
 		return response.body
@@ -92,7 +92,7 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 					callback.InvokeAsync()
 			return
 		if("execute")
-			log_debug("NTSL2++ Daemon could not be connected to. Functionality will not be enabled.")
+			LOG_DEBUG("NTSL2++ Daemon could not be connected to. Functionality will not be enabled.")
 			// Not sure what to do with successful / unsuccessful execution
 			return
 		if("computer/get_buffer")
@@ -119,15 +119,15 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 
 /datum/controller/subsystem/processing/ntsl2/proc/attempt_connect()
 	if(config.ntsl_disabled)
-		log_debug("NTSL2++ Daemon disabled via config")
+		LOG_DEBUG("NTSL2++ Daemon disabled via config")
 		return FALSE
 	var/res = sync_send("clear")
 	if(!res)
-		log_debug("NTSL2++ Daemon could not be connected to. Functionality will not be enabled.")
+		LOG_DEBUG("NTSL2++ Daemon could not be connected to. Functionality will not be enabled.")
 		return FALSE
 	else
 		connected = TRUE
-		log_debug("NTSL2++ Daemon connected successfully.")
+		LOG_DEBUG("NTSL2++ Daemon connected successfully.")
 		return TRUE
 
 /datum/controller/subsystem/processing/ntsl2/proc/disconnect()

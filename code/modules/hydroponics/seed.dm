@@ -422,7 +422,6 @@
 		var/list/possible_chems = list(
 			/singleton/reagent/acetone,
 			/singleton/reagent/alkysine,
-			/singleton/reagent/aslimetoxin,
 			/singleton/reagent/bicaridine,
 			/singleton/reagent/butazoline,
 			/singleton/reagent/blood,

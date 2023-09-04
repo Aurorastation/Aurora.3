@@ -112,7 +112,7 @@ Pins Below.
 	fail_message = "<span class='warning'>PSIONICS CHECK FAILED.</span>"
 
 /obj/item/device/firing_pin/psionic/pin_auth(mob/living/user)
-	if(user.can_commune())
+	if(user.has_psionics())
 		return 1
 	else
 		return 0

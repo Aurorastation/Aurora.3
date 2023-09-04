@@ -18,7 +18,7 @@
 	class = "ICV"
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
-	colors = list("#c2c1ac", "#1b4720")
+	colors = list("#c2c1ac", "#1b7325")
 	scanimage = "unathi_diona_freighter.png"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
@@ -40,6 +40,7 @@
 		"nav_tarwa3",
 		"nav_tarwa4"
 	)
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/tarwa/New()
 	designation = "[pick("Silent Sentinel", "Symbiosis", "Flying Dead", "Immortal", "Blood for Blood", "Unnatural Compatibility", "Barkscale", "Boneclaw", "Watcher in the Dark")]"

@@ -485,8 +485,8 @@
 	else
 		return attack_hand(user)
 
-/obj/structure/closet/airbubble/store_mobs(var/stored_units)
-	contains_body = ..()
+/obj/structure/closet/airbubble/store_mobs(var/stored_units, var/mob_limit)
+	contains_body = ..(stored_units, mob_limit = TRUE)
 	return contains_body
 
 /obj/structure/closet/airbubble/update_icon()

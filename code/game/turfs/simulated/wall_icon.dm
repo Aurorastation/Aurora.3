@@ -106,6 +106,8 @@
 	add_overlay(overlays_to_add, TRUE)
 	UNSETEMPTY(reinforcement_images)
 	queue_smooth(src)
+	if(smooth & SMOOTH_UNDERLAYS)
+		get_underlays(cached_adjacency)
 
 /turf/simulated/wall/proc/generate_overlays()
 	var/alpha_inc = 256 / damage_overlays.len

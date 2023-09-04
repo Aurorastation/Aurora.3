@@ -37,6 +37,15 @@
 	var/epp = TRUE // Emergency Positive Pressure system. Can be toggled if you want to turn it off
 	var/epp_active = FALSE
 
+	//Matrix stuff
+	var/matrix/iv_matrix
+
+	//What we accept as a container for IV transfers. Prevents attaching food and organs to IVs.
+	var/list/accepted_containers = list(
+		/obj/item/reagent_containers/blood,
+		/obj/item/reagent_containers/glass/beaker,
+		/obj/item/reagent_containers/glass/bottle)
+
 	var/list/mask_blacklist = list(
 		/obj/item/clothing/mask/gas/vaurca,
 		/obj/item/clothing/mask/breath/skrell,
@@ -74,35 +83,7 @@
 		if(M.incapacitated())
 			return
 		if(tipped)
-			if(M.m_intent == M_RUN && M.a_intent == I_HURT)
-				if(breath_mask)
-					if(prob(60))
-						if(breather)
-							src.visible_message(
-								SPAN_WARNING("[M] trips on \the [src]'s [breath_mask] cable, pulling it off from \the [breather]!"),
-								SPAN_WARNING("You trip on \the [src]'s [breath_mask] cable, pulling it off from \the [breather]!"))
-							shake_animation(4)
-							M.Weaken(3)
-							breath_mask_rip()
-							return
-						src.visible_message(SPAN_WARNING("[M] trips on \the [src]'s [breath_mask] cable!"), SPAN_WARNING("You trip on \the [src]'s [breath_mask] cable!"))
-						breath_mask.forceMove(src.loc)
-						breath_mask = null
-						shake_animation(4)
-						M.Weaken(4)
-						update_icon()
-						return
-					src.visible_message(SPAN_WARNING("[M] barely avoids tripping on \the [src]'s [breath_mask] cable."), SPAN_WARNING("You barely avoid tripping on \the [src]'s [breath_mask] cable."))
-					shake_animation(2)
-					return
-				if(prob(25))
-					src.visible_message(SPAN_WARNING("[M] trips on \the [src]!"), SPAN_WARNING("You trip on \the [src]!"))
-					shake_animation(4)
-					M.Weaken(3)
-					return
-				src.visible_message(SPAN_WARNING("[M] almost trips on \the [src]!"), SPAN_WARNING("You almost trip on \the [src]!"))
-				shake_animation(2)
-				return
+			return
 		if(M.m_intent == M_RUN && M.a_intent == I_HURT)
 			src.visible_message(SPAN_WARNING("[M] bumps into \the [src], knocking it over!"), SPAN_WARNING("You bump into \the [src], knocking it over!"))
 			do_crash()
@@ -111,10 +92,10 @@
 /obj/machinery/iv_drip/update_icon()
 	cut_overlays()
 	if(beaker)
-		add_overlay("beaker[tipped ? "_tipped" : ""]")
+		add_overlay("beaker")
 		var/datum/reagents/reagents = beaker.reagents
 		if(reagents?.total_volume)
-			var/image/filling = image('icons/obj/iv_drip.dmi', src, "[tipped ? "tipped_" : ""]reagent")
+			var/image/filling = image('icons/obj/iv_drip.dmi', src, "reagent")
 			var/percent = round((reagents.total_volume / beaker.volume) * 100)
 			var/fill_level = 0
 			switch(percent)
@@ -125,20 +106,20 @@
 				if(75 to 79)		fill_level = 75
 				if(80 to 90)		fill_level = 80
 				if(91 to INFINITY)	fill_level = 100
-			filling.icon_state = "[tipped ? "tipped_" : ""]reagent[fill_level]"
+			filling.icon_state = "reagent[fill_level]"
 			var/reagent_color = reagents.get_color()
 			filling.icon += reagent_color
 			add_overlay(filling)
 		if(attached)
-			add_overlay("iv_in[tipped ? "_tipped" : ""]")
+			add_overlay("iv_in")
 			if(mode)
-				add_overlay("light_green[tipped ? "_tipped" : ""]")
+				add_overlay("light_green")
 			else
-				add_overlay("light_red[tipped ? "_tipped" : ""]")
+				add_overlay("light_red")
 			if(blood_message_sent)
-				add_overlay("light_yellow[tipped ? "_tipped" : ""]")
+				add_overlay("light_yellow")
 		else
-			add_overlay("iv_out[tipped ? "_tipped" : ""]")
+			add_overlay("iv_out")
 	if(tank)
 		if(istype(tank, /obj/item/tank/oxygen))
 			tank_type = "oxy"
@@ -148,7 +129,7 @@
 			tank_type = "phoron"
 		else
 			tank_type = "other"
-		add_overlay("tank_[tank_type][tipped ? "_tipped" : ""]")
+		add_overlay("tank_[tank_type]")
 
 		var/tank_level = 2
 		switch(tank.percent())
@@ -159,16 +140,16 @@
 			if(60 to 79)		tank_level = 4
 			if(80 to 90)		tank_level = 5
 			if(91 to INFINITY)	tank_level = 6
-		add_overlay("[tank.gauge_icon][tank_level][tipped ? "_tipped" : ""]")
+		add_overlay("[tank.gauge_icon][tank_level]")
 	if(breath_mask)
 		if(breather)
-			add_overlay("mask_on[tipped ? "_tipped" : ""]")
+			add_overlay("mask_on")
 		else
-			add_overlay("mask_off[tipped ? "_tipped" : ""]")
+			add_overlay("mask_off")
 		if(epp_active)
-			add_overlay("light_blue[tipped ? "_tipped" : ""]")
+			add_overlay("light_blue")
 	if(panel_open)
-		add_overlay("panel_open[tipped ? "_tipped" : ""]")
+		add_overlay("panel_open")
 
 /obj/machinery/iv_drip/process()
 	breather_process()
@@ -210,7 +191,7 @@
 
 			if(!tank_active) // Activates and sets the kPa to a safe pressure. This keeps from it constantly resetting itself
 				tank.distribute_pressure = safe_pressure_min
-				src.visible_message(SPAN_NOTICE("\The [src] chimes and adjusts \the [tank]'s release pressure"))
+				src.visible_message(SPAN_NOTICE("\The [src] chimes and adjusts \the [tank]'s release pressure."))
 				playsound(src, 'sound/machines/chime.ogg', 50)
 				tank_active = TRUE
 			if(L.checking_rupture == FALSE) // Safely retracts in case the lungs are about to rupture
@@ -349,12 +330,15 @@
 					to_chat(usr, SPAN_WARNING("You must remove \the [breather]'s [breather.wear_mask] first!"))
 					breather = null
 					return
+				if(tank)
+					tank_on()
 				visible_message("<b>[usr]</b> secures the mask over \the <b>[breather]'s</b> face.")
 				playsound(breather, 'sound/effects/buckle.ogg', 50)
 				breath_mask.forceMove(breather.loc)
 				breather.equip_to_slot(breath_mask, slot_wear_mask)
 				breather.update_inv_wear_mask()
 				update_icon()
+				tank_on()
 				return
 
 /obj/machinery/iv_drip/AltClick(mob/user)
@@ -415,7 +399,7 @@
 	if(istype(W, /obj/item/reagent_containers/blood/ripped))
 		to_chat(user, "You can't use a ripped bloodpack.")
 		return TRUE
-	if(istype(W, /obj/item/reagent_containers))
+	if(is_type_in_list(W, accepted_containers))
 		if(beaker)
 			to_chat(user, "There is already a reagent container loaded!")
 			return TRUE
@@ -485,6 +469,7 @@
 		user.visible_message("<b>[user]</b> pulls \the [src] upright.", "You pull \the [src] upright.")
 		icon_state = "iv_stand"
 		tipped = FALSE
+		animate(src, time = 3, transform = transform.Turn(-90), easing = SINE_EASING)
 		update_icon()
 		return
 	if(user.a_intent == I_HURT)
@@ -516,10 +501,10 @@
 	cut_overlays()
 	visible_message(SPAN_WARNING("\The [src] falls over with a buzz, spilling out it's contents!"))
 	flick("iv_crash[is_loose ? "" : "_tank_[tank_type]"]", src)
-	playsound(src, 'sound/items/drop/prosthetic.ogg', 50)
+	playsound(src, 'sound/effects/table_slam.ogg', 50)
 	spill()
 	tipped = TRUE
-	icon_state = "iv_stand_tipped"
+	animate(src, time = 5, transform = transform.Turn(90), easing = BOUNCE_EASING)
 	update_icon()
 
 /obj/machinery/iv_drip/proc/spill()
@@ -587,7 +572,18 @@
 	breather = null
 	update_icon()
 
+/obj/machinery/iv_drip/proc/tank_on()
+	playsound(src, 'sound/effects/internals.ogg', 100)
+	tank.forceMove(breather)
+	breather.internal = tank
+	if(breather.internals)
+		breather.internals.icon_state = "internal1"
+	valve_open = TRUE
+	update_icon()
+	return
+
 /obj/machinery/iv_drip/proc/tank_off()
+	playsound(src, 'sound/effects/internals.ogg', 100)
 	tank.forceMove(src)
 	if(breather.internals)
 		breather.internals.icon_state = "internal0"
@@ -636,22 +632,17 @@
 
 	if(!valve_open)
 		usr.visible_message("<b>[usr]</b> opens \the [tank]'s valve.", SPAN_NOTICE("You open \the [tank]'s valve."))
-		playsound(src, 'sound/effects/internals.ogg', 100)
-		tank.forceMove(breather)
-		breather.internal = tank
-		if(breather.internals)
-			breather.internals.icon_state = "internal1"
-		valve_open = TRUE
-		update_icon()
+		tank_on()
 		return
-	if(epp_active)
-		var/response = alert(usr, "Are you sure you want to close \the [tank]'s valve? The Emergency Positive Pressure system is currently active!", "Toggle Valve", "Yes", "No")
-		if(response == "No")
-			return
-		epp_active = FALSE
-	usr.visible_message("<b>[usr]</b> closes \the [tank]'s valve.", SPAN_NOTICE("You close \the [tank]'s valve."))
-	playsound(src, 'sound/effects/internals.ogg', 100)
-	tank_off()
+	if(valve_open)
+		if(epp_active)
+			var/response = alert(usr, "Are you sure you want to close \the [tank]'s valve? The Emergency Positive Pressure system is currently active!", "Toggle Valve", "Yes", "No")
+			if(response == "No")
+				return
+			epp_active = FALSE
+		usr.visible_message("<b>[usr]</b> closes \the [tank]'s valve.", SPAN_NOTICE("You close \the [tank]'s valve."))
+		tank_off()
+		return
 
 /obj/machinery/iv_drip/verb/toggle_epp()
 	set category = "Object"
