@@ -253,6 +253,8 @@
 		else if((src in player.languages && !within_jamming_range(player)) || check_special_condition(player))
 			var/mob/living/carbon/human/H = player
 			var/mob/living/carbon/human/M = speaker
+			if(!istype(M) || !istype(H))
+				return
 			var/obj/item/organ/internal/vaurca/neuralsocket/speakersocket = M.internal_organs_by_name[BP_NEURAL_SOCKET]
 			var/obj/item/organ/internal/vaurca/neuralsocket/listenersocket = H.internal_organs_by_name[BP_NEURAL_SOCKET]
 			if(!speakersocket.encryption_key)
@@ -317,8 +319,6 @@
 		return FALSE
 	else
 		return TRUE
-
-
 
 /datum/language/human
 	name = LANGUAGE_SOL_COMMON

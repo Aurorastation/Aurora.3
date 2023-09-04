@@ -161,16 +161,16 @@
 	if(isvaurca(M))
 		var/interceptchance = 1 //tiny chance for normal bugs to hear a message
 		if(M.species.name == SPECIES_VAURCA_BREEDER) //ta are better at intercepting transmissions
-			if(M.origin.name == "Tupii-K'lax Brood" || M.origin.name == "Vedhra Brood") //experienced in fighting lii'dra
+			if(istype(M.origin, /singleton/origin_item/origin/tupii_b) || istype(M.origin, /singleton/origin_item/origin/vedhra_b)) //experienced in fighting lii'dra
 				interceptchance = 15
-			else if(M.origin.name == "Mouv Brood") //electronic warfare specialists
+			else if(istype(M.origin, /singleton/origin_item/origin/mouv_b)) //electronic warfare specialists
 				interceptchance = 20
 			else
 				interceptchance = 10
 		else
-			if(M.origin.name == "Tupii-K'lax Brood" || M.origin.name == "Vedhra Brood")
+			if(istype(M.origin, /singleton/origin_item/origin/tupii) || istype(M.origin, /singleton/origin_item/origin/vedhra))
 				interceptchance = 5
-			else if(M.origin.name == "Mouv Brood")
+			else if(istype(M.origin, /singleton/origin_item/origin/mouv))
 				interceptchance = 10
 		if(prob(interceptchance))
 			return 1

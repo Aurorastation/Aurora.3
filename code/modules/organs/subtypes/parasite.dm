@@ -143,8 +143,8 @@
 	organ_tag = "blackkois"
 
 	parent_organ = BP_HEAD
-	var/removed_langs = 0
-	var/full_zombie = 0
+	var/removed_langs = FALSE
+	var/full_zombie = FALSE
 	stage_interval = 150
 	drug_resistance = 1
 	max_stage = 5
@@ -216,7 +216,7 @@
 				owner.remove_language(L.name)
 			owner.add_language(LANGUAGE_VAURCA)
 			owner.add_language(LANGUAGE_LIIDRA)
-			removed_langs = 1
+			removed_langs = TRUE
 
 		if(prob(10))
 			if(owner.can_feel_pain())
@@ -259,7 +259,7 @@
 			owner.max_stamina = 500 //you are a discount zombie, you run good
 			add_verb(owner, /mob/living/carbon/human/proc/kois_cough)
 			add_verb(owner, /mob/living/carbon/human/proc/kois_infect)
-			full_zombie = 1
+			full_zombie = TRUE
 
 /obj/item/organ/internal/parasite/blackkois/removed(var/mob/living/carbon/human/target)
 	var/obj/item/organ/internal/brain/B = target.internal_organs_by_name[BP_BRAIN]

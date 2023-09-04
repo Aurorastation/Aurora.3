@@ -68,7 +68,7 @@
 	desc = "The single most important organ for a Vaurca, able to copy their mind into their Virtual Reality Afterlife upon death."
 	parent_organ = BP_HEAD
 	robotic = ROBOTIC_MECHANICAL
-	var/shielded = 0 //0 = no shield, 1 = normal shield, 2 = immune
+	var/shielded = SOCKET_UNSHIELDED
 	var/muted = FALSE
 	var/banned = FALSE
 	var/disrupted = FALSE
@@ -171,7 +171,7 @@
 			The Emergency Remote Cast light is green, indicating it has been triggered."
 			remote_cast = 1
 		for(var/obj/item/organ/internal/vaurca/neuralsocket/S in shielded_sockets)
-			S.shielded = 0
+			S.shielded = SOCKET_UNSHIELDED
 			to_chat(S.owner, SPAN_WARNING("You feel [owner]'s protection vanish from you, leaving your neural socket exposed."))
 			LAZYREMOVE(shielded_sockets, S)
 			LAZYREMOVE(shielded_mobs, S.owner)
@@ -196,25 +196,25 @@
 		return
 	if(S.shielded)
 		to_chat(user, SPAN_NOTICE("You deactivate the [src], lowering your neural socket's defenses."))
-		S.shielded = 0
+		S.shielded = SOCKET_UNSHIELDED
 		return
 	to_chat(user, SPAN_NOTICE("You activate the [src], shielding your neural socket against outside attack."))
 	switch(fullshield)
 		if(TRUE)
-			S.shielded = 2
+			S.shielded = SOCKET_FULLSHIELDED
 		if(FALSE)
-			S.shielded = 1
+			S.shielded = SOCKET_SHIELDED
 
 /obj/item/organ/internal/augment/hiveshield/process()
 	if(is_broken())
 		var/obj/item/organ/internal/vaurca/neuralsocket/S = owner.internal_organs_by_name[BP_NEURAL_SOCKET]
 		if(S.shielded)
-			S.shielded = 0
+			S.shielded = SOCKET_UNSHIELDED
 
 /obj/item/organ/internal/augment/hiveshield/removed()
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = owner.internal_organs_by_name[BP_NEURAL_SOCKET]
 	if(S.shielded)
-		S.shielded = 0
+		S.shielded = SOCKET_UNSHIELDED
 
 /obj/item/organ/internal/augment/hiveshield/advanced
 	name = "advanced hivenet electronic defense suite"
@@ -241,13 +241,13 @@
 	if(is_broken())
 		var/obj/item/organ/internal/vaurca/neuralsocket/S = owner.internal_organs_by_name[BP_NEURAL_SOCKET]
 		if(S.shielded)
-			S.shielded = 0
+			S.shielded = SOCKET_UNSHIELDED
 		remove_verb(owner, added_verbs)
 
 /obj/item/organ/internal/augment/hiveshield/warfare/removed()
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = owner.internal_organs_by_name[BP_NEURAL_SOCKET]
 	if(S.shielded)
-		S.shielded = 0
+		S.shielded = SOCKET_UNSHIELDED
 	remove_verb(owner, added_verbs)
 
 /obj/item/organ/internal/augment/hiveshield/warfare/replaced(var/mob/living/carbon/human/target)
