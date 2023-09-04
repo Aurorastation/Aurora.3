@@ -41,4 +41,5 @@ changes:
   - rscadd: "Adds several new Hivenet verbs for administrating, covert communication and espionage.
   - rscadd: "Adds a fifth stage to black k'ois infection."
   - rscadd: "Adds antag-available implants for Hivenet electronic warfare, and defense against Hivenet attacks."
+  - rscadd: "Adds a Lii'draic Hivemind language, for use by admins/in events."
   - tweak: "Removing black k'ois mycosis does increasing amounts of brain scarring based on stage, and kills the host at stage 5."
