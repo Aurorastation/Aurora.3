@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Adds several new Hivenet verbs for administrating, covert communication and espionage.
+  - rscadd: "Adds several new Hivenet verbs for administrating, covert communication and espionage."
   - rscadd: "Adds a fifth stage to black k'ois infection which makes the victim clumsier, but stronger and immune to pain."
   - rscadd: "Adds antag-available implants for Hivenet electronic warfare, and defense against Hivenet attacks."
   - rscadd: "Adds a Lii'draic Hivemind language, for use by admins/in events."
