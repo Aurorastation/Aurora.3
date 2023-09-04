@@ -68,3 +68,11 @@
 	icon_state = "door_closed"
 	name = "airlock"
 	desc = "It opens and closes."
+
+/turf/unsimulated/wall/konyang
+	name = "wall"
+	icon = 'icons/turf/smooth/building-konyang.dmi'
+	canSmoothWith = null
+	smooth = SMOOTH_TRUE
+	icon_state = "map_white"
+
