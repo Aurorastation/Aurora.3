@@ -154,9 +154,9 @@
 		return 0
 	if(within_jamming_range(other))
 		return 0
-	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && src in M.languages) //replace with Special Liidra Socket later
+	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (all_languages[LANGUAGE_LIIDRA] in M.languages)) //replace with Special Liidra Socket later
 		return 1
-	if(M.internal_organs_by_name["blackkois"] && src in M.languages)
+	if(M.internal_organs_by_name["blackkois"] && (all_languages[LANGUAGE_LIIDRA] in M.languages))
 		return 1
 	if(isvaurca(M))
 		var/interceptchance = 1 //tiny chance for normal bugs to hear a message
