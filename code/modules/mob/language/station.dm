@@ -314,7 +314,7 @@
 /datum/language/bug/check_speech_restrict(var/mob/speaker)
 	var/mob/living/carbon/human/H = speaker
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = H.internal_organs_by_name[BP_NEURAL_SOCKET]
-	if(istype(s) && S.muted)
+	if(S.muted || S.disrupted)
 		to_chat(speaker, SPAN_WARNING("You have been muted over the Hivenet!"))
 		return FALSE
 	else

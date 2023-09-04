@@ -1411,7 +1411,7 @@
 		var/isRemoteObserve = 0
 		if(z_eye && client?.eye == z_eye && !is_physically_disabled())
 			isRemoteObserve = 1
-		if(HAS_FLAG(mutations, mRemote) && remoteview_target)
+		if(remoteview_target)
 			if(remoteview_target.stat==CONSCIOUS)
 				isRemoteObserve = 1
 		if(!isRemoteObserve && client && !client.adminobs)

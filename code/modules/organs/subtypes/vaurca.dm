@@ -71,11 +71,30 @@
 	var/shielded = 0 //0 = no shield, 1 = normal shield, 2 = immune
 	var/muted = FALSE
 	var/banned = FALSE
+	var/disrupted = FALSE
+	var/disrupttime = 0
 	var/last_action = 0
 	var/encryption_key
 	var/decryption_key
+	var/list/granted_verbs = list(/mob/living/carbon/human/proc/hivenet_recieve)
+	var/list/all_hive_verbs = list(
+		/mob/living/carbon/human/proc/hiveban,
+		/mob/living/carbon/human/proc/hivevoid,
+		/mob/living/carbon/human/proc/hivenet_neuralshock,
+		/mob/living/carbon/human/proc/hivenet_transmit,
+		/mob/living/carbon/human/proc/hivemute,
+		/mob/living/carbon/human/proc/hivenet_recieve,
+		/mob/living/carbon/human/proc/hivenet_encrypt,
+		/mob/living/carbon/human/proc/hivenet_camera,
+		/mob/living/carbon/human/proc/hivenet_lattice,
+		/mob/living/carbon/human/proc/hivenet_decrypt
+	)
 
 /obj/item/organ/internal/vaurca/neuralsocket/process()
+	if(!owner)
+		return
+	if(last_action > world.time)
+		last_action--
 	if (is_broken())
 		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
 			owner.remove_language(LANGUAGE_VAURCA)
@@ -84,20 +103,25 @@
 		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 			owner.add_language(LANGUAGE_VAURCA)
 			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
+	if(disrupted)
+		if(disrupttime > world.time)
+			disrupttime--
+		else
+			disrupted = FALSE
 	..()
 
 /obj/item/organ/internal/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
 	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 		owner.add_language(LANGUAGE_VAURCA)
 		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
-	add_verb(owner, /mob/living/carbon/human/proc/hivenet_recieve)
+	add_verb(owner, granted_verbs)
 	..()
 
 /obj/item/organ/internal/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
 	if(all_languages[LANGUAGE_VAURCA] in target.languages)
 		target.remove_language(LANGUAGE_VAURCA)
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
-	remove_verb(owner, list(/mob/living/carbon/human/proc/hiveban, /mob/living/carbon/human/proc/hivevoid, /mob/living/carbon/human/proc/hivenet_transmit, /mob/living/carbon/human/proc/hivemute, /mob/living/carbon/human/proc/hivenet_recieve, /mob/living/carbon/human/proc/hivenet_encrypt))
+	remove_verb(owner, all_hive_verbs)
 	..()
 
 /obj/item/organ/internal/vaurca/neuralsocket/admin
@@ -107,9 +131,24 @@
 	This one appears to be the far rarer administrative model including encrypted Hivenet access codes and an Emergency Remote Cast System. These are almost never found on any Vaurca Bioform except the Ta.\
 	The Emergency Remote Cast light is red, indicating it has not been triggered."
 	var/remote_cast = 0 //get out of death free card
-	shielded = 1
+	var/list/shielded_sockets = list() //sockets that you are currently protecting
+	var/list/shielded_mobs = list() //mobs that you are currently protecting
+	granted_verbs = list(
+		/mob/living/carbon/human/proc/hiveban,
+		/mob/living/carbon/human/proc/hivenet_neuralshock,
+		/mob/living/carbon/human/proc/hivevoid,
+		/mob/living/carbon/human/proc/hivenet_transmit,
+		/mob/living/carbon/human/proc/hivemute,
+		/mob/living/carbon/human/proc/hivenet_recieve,
+		/mob/living/carbon/human/proc/hivenet_encrypt,
+		/mob/living/carbon/human/proc/hivenet_camera,
+		/mob/living/carbon/human/proc/hivenet_lattice,
+		/mob/living/carbon/human/proc/hivenet_decrypt
+	)
 
 /obj/item/organ/internal/vaurca/neuralsocket/admin/process()
+	if(!owner)
+		return
 	if (is_broken())
 		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
 			owner.remove_language(LANGUAGE_VAURCA)
@@ -119,21 +158,19 @@
 			owner.add_language(LANGUAGE_VAURCA)
 			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
 
-	if(owner.stat == DEAD && remote_cast == 0)
-		owner.visible_message(SPAN_WARNING("[owner]'s corpse spasms suddenly, legs twitching and antennae moving wildly as something hums beneath [owner.get_pronoun("his")] exoskeleton. After a moment, [owner.get_pronoun("he")] goes still."))
-		icon_state = "admin_socket_on"
-		desc = "The single most important organ for a Vaurca, able to copy their mind into their Virtual Reality Afterlife upon death. \
-		This one appears to be the far rarer administrative model including encrypted Hivenet access codes and an Emergency Remote Cast System. These are almost never found on any Vaurca Bioform except the Ta.\
-		The Emergency Remote Cast light is green, indicating it has been triggered."
-		remote_cast = 1
-
-	..()
-
-/obj/item/organ/internal/vaurca/neuralsocket/admin/replaced(var/mob/living/carbon/human/target)
-	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
-		owner.add_language(LANGUAGE_VAURCA)
-		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
-	add_verb(owner, list(/mob/living/carbon/human/proc/hiveban, /mob/living/carbon/human/proc/hivevoid, /mob/living/carbon/human/proc/hivenet_transmit, /mob/living/carbon/human/proc/hivemute, /mob/living/carbon/human/proc/hivenet_recieve, /mob/living/carbon/human/proc/hivenet_encrypt))
+	if(owner.stat == DEAD)
+		if(!remote_cast)
+			owner.visible_message(SPAN_WARNING("[owner]'s corpse spasms suddenly, legs twitching and antennae moving wildly as something hums beneath [owner.get_pronoun("his")] exoskeleton. After a moment, [owner.get_pronoun("he")] goes still."))
+			icon_state = "admin_socket_on"
+			desc = "The single most important organ for a Vaurca, able to copy their mind into their Virtual Reality Afterlife upon death. \
+			This one appears to be the far rarer administrative model including encrypted Hivenet access codes and an Emergency Remote Cast System. These are almost never found on any Vaurca Bioform except the Ta.\
+			The Emergency Remote Cast light is green, indicating it has been triggered."
+			remote_cast = 1
+		for(var/obj/item/organ/internal/vaurca/neuralsocket/S in shielded_sockets)
+			S.shielded = 0
+			to_chat(S.owner, SPAN_WARNING("You feel [owner]'s protection vanish from you, leaving your neural socket exposed."))
+			LAZYREMOVE(shielded_sockets, S)
+			LAZYREMOVE(shielded_mobs, S.owner)
 	..()
 
 /obj/item/organ/internal/augment/hiveshield
@@ -142,6 +179,8 @@
 	icon_state = "augment-pda" //placeholder
 	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access or sabotage."
 	action_button_name = "Toggle Hivenet Defense Suite"
+	action_button_icon = "augment-pda"
+	activable = TRUE
 	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM)
 	var/fullshield = FALSE
 
@@ -149,6 +188,10 @@
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = user.internal_organs_by_name[BP_NEURAL_SOCKET]
 	if(!istype(S) && !S.is_broken())
 		to_chat(user, SPAN_WARNING("You require a working neural socket to activate the [src]"))
+		return
+	if(S.shielded)
+		to_chat(user, SPAN_NOTICE("You deactivate the [src], lowering your neural socket's defenses."))
+		S.shielded = 0
 		return
 	to_chat(user, SPAN_NOTICE("You activate the [src], shielding your neural socket against outside attack."))
 	switch(fullshield)
@@ -162,6 +205,11 @@
 		var/obj/item/organ/internal/vaurca/neuralsocket/S = owner.internal_organs_by_name[BP_NEURAL_SOCKET]
 		if(S.shielded)
 			S.shielded = 0
+
+/obj/item/organ/internal/augment/hiveshield/removed()
+	var/obj/item/organ/internal/vaurca/neuralsocket/S = owner.internal_organs_by_name[BP_NEURAL_SOCKET]
+	if(S.shielded)
+		S.shielded = 0
 
 /obj/item/organ/internal/augment/hiveshield/advanced
 	name = "advanced hivenet electronic defense suite"

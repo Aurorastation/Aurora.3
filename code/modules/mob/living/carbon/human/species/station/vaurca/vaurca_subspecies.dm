@@ -107,8 +107,12 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite,
+		/mob/living/carbon/human/proc/hivenet_neuralshock,
+		/mob/living/carbon/human/proc/hivenet_lattice,
 		/mob/living/carbon/human/proc/hivenet_encrypt,
 		/mob/living/carbon/human/proc/hivenet_recieve,
+		/mob/living/carbon/human/proc/hivenet_decrypt,
+		/mob/living/carbon/human/proc/hivenet_camera,
 		/mob/living/carbon/human/proc/hivemute,
 		/mob/living/carbon/human/proc/hiveban,
 		/mob/living/carbon/human/proc/hivevoid,
@@ -128,7 +132,8 @@
 		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
 		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
 		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca,
+		BP_HIVENET_SHIELD	   = /obj/item/organ/internal/augment/hiveshield
 	)
 
 /datum/species/bug/type_c/New()
@@ -211,7 +216,8 @@
 		BP_STOMACH            = /obj/item/organ/internal/stomach,
 		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
 		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
-		BP_FILTRATION_BIT      = /obj/item/organ/internal/vaurca/filtrationbit
+		BP_FILTRATION_BIT      = /obj/item/organ/internal/vaurca/filtrationbit,
+		BP_HIVENET_SHIELD	   = /obj/item/organ/internal/augment/hiveshield/advanced
 	)
 
 	default_h_style = "Bald"
