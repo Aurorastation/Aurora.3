@@ -16,6 +16,8 @@
 	burst_delay = 2
 	sel_mode = 1
 	fire_delay = ROF_SMG
+	can_suppress = TRUE
+	suppressor_x_offset = 8
 
 	firemodes = list(
 		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=ROF_SMG),
@@ -40,6 +42,9 @@
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	ammo_type = /obj/item/ammo_casing/c45
+	suppressed = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 10
 
 /obj/item/gun/projectile/automatic/mini_uzi/update_icon()
 	..()
@@ -65,6 +70,9 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/a10mm)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	suppressed = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 11
 
 /obj/item/gun/projectile/automatic/c20r/update_icon()
 	..()
@@ -80,6 +88,7 @@
 	icon = 'icons/obj/guns/sol_smg.dmi'
 	icon_state = "vityaz"
 	item_state = "vityaz"
+	suppressor_x_offset = 10
 
 /obj/item/gun/projectile/automatic/c20r/sol/update_icon()
 	..()
@@ -100,6 +109,9 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mmt/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mmt)
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = -1
 
 /obj/item/gun/projectile/automatic/wt550/lethal
 	magazine_type = /obj/item/ammo_magazine/mc9mmt
@@ -133,6 +145,7 @@
 	fire_delay = ROF_RIFLE
 
 	is_wieldable = TRUE
+	can_suppress = FALSE
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
@@ -529,6 +542,10 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag, /obj/item/ammo_magazine/submachinedrum)
 	fire_sound = 'sound/weapons/gunshot/gunshot_tommygun.ogg'
 
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = -1
+
 /obj/item/gun/projectile/automatic/tommygun/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "tommygun" : "tommygun-empty"
@@ -566,6 +583,8 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
+	can_suppress = FALSE
+
 	firemodes = list(
 		list(mode_name="single coil", burst = 1),
 		list(mode_name="dual coil", burst = 2, move_delay = 1, accuracy = list(-2,-3), dispersion = list(20))
@@ -588,6 +607,8 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/flechette,/obj/item/ammo_magazine/flechette/explosive)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+	can_suppress = FALSE
 
 	is_wieldable = TRUE
 
