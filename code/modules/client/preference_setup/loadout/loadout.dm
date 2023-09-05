@@ -204,9 +204,11 @@ var/list/tag_related_tags = list()
 
 	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3>"
+	. += "<center>"
 	var/show_all_selected_items_style = show_all_selected_items ? "style='color: #FF8000;'" : ""
 	. += "<a href='?src=\ref[src];show_all_selected_items=1'><font [show_all_selected_items_style]>Show all selected items</font></a> "
 	. += "<a href='?src=\ref[src];clear_tags=1'>Clear tags</a> "
+	. += "</center>"
 	. += "</td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
 
