@@ -86,6 +86,11 @@
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
 
+/area/ship/dominian_unathi/storage
+	name = "Kazhkz Privateer Ship - Storeroom"
+	icon_state = "storage"
+	sound_env = SMALL_ENCLOSED
+
 //Shuttle
 /area/shuttle/dominian_unathi
 	name = "Kazhkz Privateer Fighter"
