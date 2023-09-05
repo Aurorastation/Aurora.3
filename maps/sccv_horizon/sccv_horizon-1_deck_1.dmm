@@ -4869,7 +4869,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/spline/plain/corner,
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
@@ -19970,7 +19969,8 @@
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/plasticflaps{
-	dir = 4
+	dir = 4;
+	name = "Delivery Chute to Mail Room"
 	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
