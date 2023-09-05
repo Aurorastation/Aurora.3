@@ -12,12 +12,22 @@ the HUD updates properly! */
 /image/hud_overlay
 	appearance_flags = APPEARANCE_UI
 
+	///Owner of the hud_overlay, aka who has the overlay
+	var/mob/living/owner = null
+
+/image/hud_overlay/New(icon, loc, icon_state, layer, dir)
+	. = ..()
+
+	if(ismob(loc))
+		owner = loc
+
+
+
 /image/hud_overlay/Destroy()
-	for(var/mob/mob as anything in mob_list)
-		CHECK_TICK
-		for(var/image/hud_overlay/possibly_us as anything in mob?.client?.images)
-			if(possibly_us == src)
-				mob.client.images -= src
+
+	if(owner)
+		owner?.client?.images -= src
+		owner = null
 
 	. = ..()
 
@@ -63,6 +73,13 @@ the HUD updates properly! */
 	var/client/Client
 	var/mob/Mob
 	var/turf/Turf
+
+/datum/arranged_hud_process/Destroy(force)
+	Client = null
+	Mob = null
+	Turf = null
+	. = ..()
+
 
 /proc/arrange_hud_process(var/mob/M, var/mob/Alt, var/list/hud_list)
 	hud_list |= M

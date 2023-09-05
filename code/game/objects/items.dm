@@ -123,8 +123,15 @@
 		m.update_inv_r_hand()
 		m.update_inv_l_hand()
 		src.loc = null
-	QDEL_NULL(action) /// /mob/living/proc/handle_actions() creates it, for ungodly reasons
-	QDEL_NULL(hidden_uplink)
+
+	if(!QDELETED(action))
+		QDEL_NULL(action) /// /mob/living/proc/handle_actions() creates it, for ungodly reasons
+	action = null
+
+	if(!QDELETED(hidden_uplink))
+		QDEL_NULL(hidden_uplink)
+	hidden_uplink = null
+
 	master = null
 	return ..()
 
