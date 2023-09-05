@@ -1311,6 +1311,7 @@
 	glass_name = "glass of milk"
 	glass_desc = "White and nutritious goodness!"
 
+	fallback_specific_heat = 1.75
 	default_temperature = T0C + 5
 
 /singleton/reagent/drink/milk/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
