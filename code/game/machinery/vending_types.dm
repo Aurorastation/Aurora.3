@@ -334,7 +334,7 @@
 		/obj/item/reagent_containers/food/snacks/ricetub = 2,
 		/obj/item/reagent_containers/food/snacks/riceball = 4,
 		/obj/item/reagent_containers/food/snacks/seaweed = 5,
-		/obj/item/reagent_containers/food/drinks/jyalra/ = 5,
+		/obj/item/reagent_containers/food/drinks/jyalra = 5,
 		/obj/item/reagent_containers/food/drinks/jyalra/cheese = 5,
 		/obj/item/reagent_containers/food/drinks/jyalra/apple = 5,
 		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 5
@@ -373,7 +373,7 @@
 		/obj/item/reagent_containers/food/snacks/ricetub = 40,
 		/obj/item/reagent_containers/food/snacks/riceball = 15,
 		/obj/item/reagent_containers/food/snacks/seaweed = 20,
-		/obj/item/reagent_containers/food/drinks/jyalra/ = 38,
+		/obj/item/reagent_containers/food/drinks/jyalra = 38,
 		/obj/item/reagent_containers/food/drinks/jyalra/cheese = 44,
 		/obj/item/reagent_containers/food/drinks/jyalra/apple = 44,
 		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 44

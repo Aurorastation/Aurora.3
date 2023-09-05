@@ -59,7 +59,7 @@ var/list/lunchables_snacks_ = list(
 	/obj/item/reagent_containers/food/snacks/adhomian_can,
 	/obj/item/reagent_containers/food/snacks/adhomian_sausage,
 	/obj/item/reagent_containers/food/snacks/chocolatebar,
-	/obj/item/reagent_containers/food/drinks/jyalra/,
+	/obj/item/reagent_containers/food/drinks/jyalra,
 	/obj/item/reagent_containers/food/drinks/jyalra/cheese,
 	/obj/item/reagent_containers/food/drinks/jyalra/apple,
 	/obj/item/reagent_containers/food/drinks/jyalra/cherry,
