@@ -1,9 +1,13 @@
 /datum/gear/general
-	display_name = "cane"
-	path = /obj/item/cane
+	display_name = "aurora miniature"
+	path = /obj/item/toy/aurora
 	tags = list("General")
 
-/datum/gear/general/New()
+/datum/gear/general/cane
+	display_name = "cane"
+	path = /obj/item/cane
+
+/datum/gear/general/cane/New()
 	..()
 	var/list/cane = list()
 	cane["cane"] = /obj/item/cane
@@ -322,7 +326,3 @@
 	path = /obj/item/device/versebook/gadpathur
 	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
-/datum/gear/general/aurora_miniature
-	display_name = "aurora miniature"
-	description = "A commemorative miniature of the NSS Aurora."
-	path = /obj/item/toy/aurora
