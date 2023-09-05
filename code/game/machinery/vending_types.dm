@@ -379,6 +379,32 @@
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "nanotrasen"
 
+/obj/machinery/vending/snack/konyang
+	products = list(
+		/obj/item/reagent_containers/food/snacks/candy = 6,
+		/obj/item/reagent_containers/food/drinks/dry_ramen = 12,
+		/obj/item/reagent_containers/food/snacks/chips =6,
+		/obj/item/reagent_containers/food/snacks/sosjerky = 6,
+		/obj/item/reagent_containers/food/snacks/no_raisin = 6,
+		/obj/item/reagent_containers/food/snacks/spacetwinkie = 6,
+		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 6,
+		/obj/item/reagent_containers/food/snacks/tastybread = 12,
+		/obj/item/storage/box/pineapple = 6,
+		/obj/item/reagent_containers/food/snacks/chocolatebar = 6,
+		/obj/item/storage/box/fancy/cookiesnack = 6,
+		/obj/item/storage/box/fancy/gum = 4,
+		/obj/item/clothing/mask/chewable/candy/lolli = 8,
+		/obj/item/storage/box/fancy/admints = 4,
+		/obj/item/reagent_containers/food/snacks/skrellsnacks = 3,
+		/obj/item/reagent_containers/food/snacks/meatsnack = 2,
+		/obj/item/reagent_containers/food/snacks/maps = 2,
+		/obj/item/reagent_containers/food/snacks/nathisnack = 2,
+		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4,
+		/obj/item/reagent_containers/food/snacks/tuna = 2,
+		/obj/item/reagent_containers/food/snacks/ricetub = 4,
+		/obj/item/reagent_containers/food/snacks/riceball = 8,
+		/obj/item/reagent_containers/food/snacks/seaweed = 10,
+	)
 /obj/machinery/vending/cola
 	name = "Idris Re-Fresh"
 	desc = "A soft drink vendor provided by an Idris subsidiary."
@@ -439,6 +465,25 @@
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	temperature_setting = -1
 	light_color = COLOR_GUNMETAL
+
+/obj/machinery/vending/cola/konyang
+	products = list(
+		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 10,
+		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
+		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 10,
+		/obj/item/reagent_containers/food/drinks/cans/starkist = 10,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
+		/obj/item/reagent_containers/food/drinks/cans/dyn = 5,
+		/obj/item/reagent_containers/food/drinks/cans/space_up = 10,
+		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 10,
+		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 10,
+		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 10,
+		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
+		/obj/item/reagent_containers/food/drinks/small_milk = 10,
+		/obj/item/reagent_containers/food/drinks/small_milk_choco = 10,
+		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 10
+	)
 
 /obj/machinery/vending/cigarette
 	name = "cigarette machine" //OCD had to be uppercase to look nice with the new formating
