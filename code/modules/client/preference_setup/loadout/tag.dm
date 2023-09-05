@@ -57,14 +57,14 @@ var/list/tag_group_other = list(
 #define TAG_GROUP_CORP "Corporation Tags"
 #define TAG_GROUP_SLOT "Item Slot Tags"
 #define TAG_GROUP_SPECIES "Species Restriction Tags"
-#define TAG_GROUP_OTHER "Other Tags"
+#define TAG_GROUP_OTHER "Miscellaneous Tags"
 /// List of all tag groups.
 var/list/tag_groups_all = list(
+	TAG_GROUP_SLOT = tag_group_slot,
+	TAG_GROUP_OTHER = tag_group_other,
 	TAG_GROUP_DEPT = tag_group_department,
 	TAG_GROUP_CORP = tag_group_corp,
-	TAG_GROUP_SLOT = tag_group_slot,
 	TAG_GROUP_SPECIES = tag_group_species,
-	TAG_GROUP_OTHER = tag_group_other,
 )
 
 // ------------------------------ functions
