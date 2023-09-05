@@ -21,17 +21,15 @@
 	desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
 	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
 	the buckles, instead. \ To unbuckle people as a stationbound, click the bed with an empty gripper."
-	icon = 'icons/obj/furniture.dmi'
+	icon = 'icons/obj/structure/beds.dmi'
 	icon_state = "bed"
 	anchored = TRUE
-	buckle_dir = SOUTH
+	buckle_dir = EAST
 	buckle_lying = 1
 	build_amt = 2
 	var/material/padding_material
-	var/override_material_color = FALSE //If set, material colour won't override the colour.
 
 	var/base_icon = "bed"
-	var/material_alteration = MATERIAL_ALTERATION_ALL
 	var/buckling_sound = 'sound/effects/buckle.ogg'
 
 	var/painted_colour // Used for paint gun and preset colours. I know this name sucks.
@@ -96,7 +94,7 @@
 		cache_key += "-[cache_type]"
 		if(painted_colour && apply_painted_colour)
 			cache_key += "-[painted_colour]"
-		else if(overlay_material.icon_colour && !override_material_color)
+		else if(overlay_material.icon_colour)
 			cache_key += "-[overlay_material.icon_colour]"
 	if(!furniture_cache[cache_key]) // Check for cache key. Generate if image does not exist yet.
 		var/cache_icon_state = cache_type ? "[base_icon]_[cache_type]" : "[base_icon]" // Modularized. Just change cache_type when calling the proc if you ever wanted to add a different overlay. Not like you'd need to.
@@ -104,7 +102,7 @@
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			if(painted_colour && apply_painted_colour) // apply_painted_color, when you only want the padding to be painted, NOT the chair itself.
 				I.color = painted_colour
-			else if(overlay_material.icon_colour && !override_material_color) // Either that, or just fall back on the regular material color.
+			else if(overlay_material.icon_colour) // Either that, or just fall back on the regular material color.
 				I.color = overlay_material.icon_colour
 		furniture_cache[cache_key] = I
 	add_overlay(furniture_cache[cache_key]) // Use image from cache key!
@@ -225,7 +223,7 @@
 		W.pixel_x = 10 //make sure they reach the pillow
 		W.pixel_y = -6
 
-	else if(istype(W, /obj/item/device/floor_painter))
+	else if(istype(W, /obj/item/device/paint_sprayer))
 		return
 
 	else if(!istype(W, /obj/item/bedsheet))
@@ -251,7 +249,7 @@
 
 /obj/structure/bed/Move()
 	. = ..()
-	if(makes_rolling_sound)
+	if(makes_rolling_sound && has_gravity())
 		playsound(src, 'sound/effects/roll.ogg', 50, 1)
 	if(buckled && !istype(src, /obj/structure/bed/roller))
 		var/mob/living/occupant = buckled

@@ -19,7 +19,7 @@
 "e" = (
 /obj/machinery/power/smes/buildable{
 	RCon = 0;
-	charge = 5e+006;
+	charge = 5000000;
 	input_level = 200000;
 	output_attempt = 1;
 	output_level = 200000
@@ -126,7 +126,9 @@
 /turf/simulated/wall/r_wall,
 /area/turret_protected/corp_vault)
 "s" = (
-/obj/machinery/door/airlock/vault/bolted,
+/obj/machinery/door/airlock/vault/bolted{
+	dir = 1
+	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "t" = (
@@ -190,7 +192,8 @@
 	id_tag = "hidden_vault_inner";
 	locked = 1;
 	name = "Vault Inner Access";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -246,7 +249,8 @@
 	id_tag = "hidden_vault_outer";
 	locked = 1;
 	name = "Vault Outer Access";
-	req_access = list(13)
+	req_access = list(13);
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";

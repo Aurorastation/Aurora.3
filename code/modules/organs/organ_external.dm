@@ -120,6 +120,7 @@
 	if(internal_organs)
 		for(var/obj/item/organ/O in internal_organs)
 			qdel(O)
+	QDEL_NULL_LIST(implants)
 
 	infect_target_internal = null
 	infect_target_external = null

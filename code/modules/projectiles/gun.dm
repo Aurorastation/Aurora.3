@@ -189,7 +189,10 @@
 
 /obj/item/gun/can_swap_hands(mob/user)
 	if(wielded)
-		return FALSE
+		unwield()
+		var/obj/item/offhand/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
 	return ..()
 
 /obj/item/gun/proc/unique_action(var/mob/user)
@@ -727,6 +730,9 @@
 		if(istype(O))
 			O.unwield()
 	else
+		var/obj/item/offhand_item = user.get_inactive_hand()
+		if(offhand_item)
+			user.unEquip(offhand_item, FALSE, user.loc)
 		if(user.get_inactive_hand())
 			to_chat(user, SPAN_WARNING("You need your other hand to be empty."))
 			return
@@ -750,6 +756,7 @@
 	update_icon()
 	update_held_icon()
 
+
 /obj/item/gun/proc/wield()
 	wielded = TRUE
 	update_firing_delays()
@@ -760,14 +767,17 @@
 	update_icon()
 	update_held_icon()
 
+#define LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER 0.9 //If the mob is intentionally lying down, apply this as a bonus to the fire delay and recoil
+#define LYING_DOWN_ACCURACY_STAT_MULTIPLIER 1.1 //If the mob is intentionally lying down, apply this as a bonus to accuracy
+
 /obj/item/gun/proc/update_firing_delays()
 	if(wielded)
 		if(fire_delay_wielded)
-			fire_delay = fire_delay_wielded
+			fire_delay = usr.lying_is_intentional ? (fire_delay_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : fire_delay_wielded
 		if(recoil_wielded)
-			recoil = recoil_wielded
+			recoil = usr.lying_is_intentional ? (recoil_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : recoil_wielded
 		if(accuracy_wielded)
-			accuracy = accuracy_wielded
+			accuracy = usr.lying_is_intentional ? (accuracy_wielded * LYING_DOWN_ACCURACY_STAT_MULTIPLIER) : accuracy_wielded
 	else
 		if(fire_delay_wielded)
 			fire_delay = initial(fire_delay)
@@ -776,13 +786,16 @@
 		if(accuracy_wielded)
 			accuracy = initial(accuracy)
 
-/obj/item/gun/mob_can_equip(M as mob, slot, disable_warning, ignore_blocked)
+#undef LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER
+#undef LYING_DOWN_ACCURACY_STAT_MULTIPLIER
+
+/obj/item/gun/mob_can_equip(mob/user, slot, disable_warning, ignore_blocked)
 	//Cannot equip wielded items.
 	if(wielded)
-		if(!disable_warning) // unfortunately not sure there's a way to get this to only fire once when it's looped
-			to_chat(M, SPAN_WARNING("Lower \the [initial(name)] first!"))
-		return FALSE
-
+		unwield()
+		var/obj/item/offhand/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
 	return ..()
 
 /obj/item/gun/throw_at()

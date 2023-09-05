@@ -48,7 +48,7 @@
 	description = "The holy text of the Trinary Perfection."
 	path = /obj/item/device/versebook/trinary
 
-/datum/gear/religion/trinary/book
+/datum/gear/religion/trinary/book/temple
 	display_name = "The Voice of Temple"
 	description = "A supplementary holy text belonging to the Lodge of Temple Architect, an order within the Trinary Perfection."
 	path = /obj/item/device/versebook/templeist
