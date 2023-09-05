@@ -81,13 +81,13 @@ Possible to do for anyone motivated enough:
 	var/area/A = get_area(src)
 	holopad_id = "[A.name] ([src.x]-[src.y]-[src.z])"
 
-/obj/machinery/hologram/holopad/examine(mob/user)
+/obj/machinery/hologram/holopad/get_examine_text(mob/user, distance, is_adjacent)
 	. = ..()
 	if(connected_pad)
 		if(established_connection)
-			to_chat(user, SPAN_NOTICE("\The [src] is currently in a call with a holopad with ID: [connected_pad.holopad_id]"))
+			. += SPAN_NOTICE("\The [src] is currently in a call[is_adjacent ? "with a holopad with ID: [connected_pad.holopad_id]" : "."]")
 		else
-			to_chat(user, SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: [connected_pad.holopad_id]"))
+			. += SPAN_NOTICE("\The [src] is currently pending connection[is_adjacent ? "with a holopad with ID: [connected_pad.holopad_id]" : "."]")
 
 /obj/machinery/hologram/holopad/update_icon(var/recurse = TRUE)
 	if(LAZYLEN(active_holograms) || has_established_connection())

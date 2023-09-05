@@ -14,10 +14,10 @@
 	star_system_image = image(icon, null, "stargazer_[SSatlas.current_sector.name]", EFFECTS_ABOVE_LIGHTING_LAYER)
 	power_change()
 
-/obj/machinery/stargazer/examine(mob/user)
+/obj/machinery/stargazer/get_examine_text(mob/user)
 	. = ..()
 	if(!(stat & BROKEN) && !(stat & NOPOWER))
-		to_chat(user, SPAN_NOTICE("\The [src] shows the current sector to be <a href='?src=\ref[src];examine=1'>[SSatlas.current_sector.name]</a>."))
+		. += SPAN_NOTICE("\The [src] shows the current sector to be <a href='?src=\ref[src];examine=1'>[SSatlas.current_sector.name]</a>.")
 
 /obj/machinery/stargazer/power_change()
 	..()

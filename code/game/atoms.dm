@@ -254,14 +254,15 @@
  *
  * Arguments:
  * * `user` - The user performing the examine
- * * `distance` - The distance in tiles from user to src
+ * * `distance` - The distance in tiles from `user` to `src`
+ * * `is_adjacent` - Whether `user` is adjacent to `src`
  * * `infix` String - String that is appended immediately after the atom's name
  * * `suffix` String - String that is appended after the atom's name and infix
  * * `show_extended` Boolean - Whether to show the extended information. Defaults to FALSE
  *
  * Returns a signal, COMSIG_PARENT_EXAMINE
  */
-/atom/proc/examine(mob/user, distance, infix = "", suffix = "", show_extended = FALSE)
+/atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "", show_extended = FALSE)
 	var/list/examine_strings = get_examine_text(user, distance, infix, suffix)
 	if(desc_extended || desc_info || (desc_antag && (player_is_antag(user.mind) || isobserver(user))))
 		examine_strings += get_extra_examine_text(user, show_extended)
@@ -279,7 +280,7 @@
  *
  * Returns a list of examine text, that is used by [/atom/proc/examine]
  */
-/atom/proc/get_examine_text(mob/user, distance, infix = "", suffix = "")
+/atom/proc/get_examine_text(mob/user, distance, is_adjacent, infix = "", suffix = "")
 	. = list()
 	var/f_name = "\a [src][infix]."
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))

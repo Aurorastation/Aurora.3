@@ -1,5 +1,5 @@
-/mob/living/silicon/pai/examine(mob/user, distance, is_adjacent)
-	. = ..(user, distance, is_adjacent, infix = ", personal AI")
+/mob/living/silicon/pai/examine(mob/user, distance, is_adjacent, infix)
+	..(user, distance, is_adjacent, infix = ", personal AI")
 
 	var/msg = ""
 	switch(src.stat)

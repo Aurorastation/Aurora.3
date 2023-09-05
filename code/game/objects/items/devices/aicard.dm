@@ -9,8 +9,10 @@
 	var/flush = 0
 	var/mob/living/silicon/ai/carded_ai
 
-/obj/item/aicard/examine(mob/user)
+/obj/item/aicard/get_examine_text(mob/user, distance)
 	. = ..()
+	if (distance >= 2 && !isobserver(user))
+		return
 	var/message = "Status of [carded_ai] is: "
 	if(!carded_ai)
 		message = "There is no AI loaded to the card."
@@ -20,7 +22,7 @@
 		message += SPAN_NOTICE("active.")
 	else
 		message += SPAN_WARNING("inactive.")
-	to_chat(user, message)
+	. += message
 
 /obj/item/aicard/attack(mob/living/silicon/decoy/M as mob, mob/user as mob, var/target_zone)
 	if (!istype (M, /mob/living/silicon/decoy))

@@ -683,30 +683,30 @@
 		transfer_amount = amount
 		to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.transfer_amount] u/sec."))
 
-/obj/machinery/iv_drip/examine(mob/user, distance, is_adjacent)
+/obj/machinery/iv_drip/get_examine_text(mob/user, distance)
 	. = ..()
-	if(distance > 2)
+	if (distance > 2 && !isobserver(user))
 		return
-	to_chat(user, SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]. The Emergency Positive Pressure \
-	system is [epp ? "on" : "off"]."))
 	if(attached)
-		to_chat(user, SPAN_NOTICE("\The [src] is attached to [attached]'s [vein.name]."))
-	if(beaker)
+		. += SPAN_NOTICE("\The [src] is attached to [attached]'s [vein.name].")
+	if(!beaker)
+		. += SPAN_NOTICE("It has no IV bag attached.")
+	else
 		if(LAZYLEN(beaker.reagents.reagent_volumes))
-			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"]."))
+			. += SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"].")
 		else
-			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker]. It is empty."))
-	else
-		to_chat(user, SPAN_NOTICE("No chemicals are attached."))
+			. += SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker]. It is empty.")
+		. += SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"].")
 	if(tank)
-		to_chat(user, SPAN_NOTICE("Installed is [icon2html(tank, user)] [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
-		with the pressure set to [round(tank.distribute_pressure)]kPa. The valve is [valve_open ? "open" : "closed"]."))
+		. += SPAN_NOTICE("Installed is [icon2html(tank, user)] [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
+		with the pressure set to [round(tank.distribute_pressure)]kPa. The valve is [valve_open ? "open" : "closed"].")
+		. += SPAN_NOTICE("The Emergency Positive Pressure system is [epp ? "on" : "off"].")
 	else
-		to_chat(user, SPAN_NOTICE("No gas tank installed."))
+		. += SPAN_NOTICE("It has no gas tank installed.")
 	if(breath_mask)
-		to_chat(user, SPAN_NOTICE("\The [src] has [icon2html(breath_mask, user)] \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."))
+		. += SPAN_NOTICE("\The [src] has [icon2html(breath_mask, user)] \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it.")
 	else
-		to_chat(user, SPAN_NOTICE("No breath mask installed."))
+		. += SPAN_NOTICE("It has no breath mask installed.")
 
 /obj/machinery/iv_drip/RefreshParts()
 	..()
