@@ -1,8 +1,9 @@
-/datum/gear/cane
+/datum/gear/general
 	display_name = "cane"
 	path = /obj/item/cane
+	tags = list("General")
 
-/datum/gear/cane/New()
+/datum/gear/general/New()
 	..()
 	var/list/cane = list()
 	cane["cane"] = /obj/item/cane
@@ -11,49 +12,49 @@
 	cane["white cane"] = /obj/item/cane/white
 	gear_tweaks += new /datum/gear_tweak/path(cane)
 
-/datum/gear/flask
+/datum/gear/general/flask
 	display_name = "flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/barflask
 
-/datum/gear/flask/New()
+/datum/gear/general/flask/New()
 	..()
 	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_all_drink_reagents())
 
-/datum/gear/vacflask_cold
+/datum/gear/general/vacflask_cold
 	display_name = "cold vacuum flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/vacuumflask
 
-/datum/gear/vacflask_cold/New()
+/datum/gear/general/vacflask_cold/New()
 	..()
 	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_all_drink_reagents())
 
-/datum/gear/vacflask_cold/spawn_item(var/location, var/metadata)
+/datum/gear/general/vacflask_cold/spawn_item(var/location, var/metadata)
 	. = ..()
 	var/obj/item/reagent_containers/food/drinks/flask/vacuumflask/spawned_flask = .
 	if(istype(spawned_flask) && spawned_flask.reagents)
 		spawned_flask.reagents.set_temperature(T0C + 5)
 
-/datum/gear/vacflask_hot
+/datum/gear/general/vacflask_hot
 	display_name = "hot vacuum flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/vacuumflask
 
-/datum/gear/vacflask_hot/New()
+/datum/gear/general/vacflask_hot/New()
 	..()
 	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_all_drink_reagents())
 
-/datum/gear/vacflask_hot/spawn_item(var/location, var/metadata)
+/datum/gear/general/vacflask_hot/spawn_item(var/location, var/metadata)
 	. = ..()
 	var/obj/item/reagent_containers/food/drinks/flask/vacuumflask/spawned_flask = .
 	if(istype(spawned_flask) && spawned_flask.reagents)
 		spawned_flask.reagents.set_temperature(T0C + 45)
 
-/datum/gear/lunchbox
+/datum/gear/general/lunchbox
 	display_name = "lunchbox"
 	description = "A little lunchbox."
 	cost = 2
 	path = /obj/item/storage/toolbox/lunchbox
 
-/datum/gear/lunchbox/New()
+/datum/gear/general/lunchbox/New()
 	..()
 	var/list/lunchboxes = list()
 	for(var/lunchbox_type in typesof(/obj/item/storage/toolbox/lunchbox))
@@ -64,13 +65,13 @@
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks(), lunchables_utensil())
 
-/datum/gear/coffeecup
+/datum/gear/general/coffeecup
 	display_name = "coffee cups"
 	description = "A coffee cup in various designs."
 	cost = 1
 	path = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup
 
-/datum/gear/coffeecup/New()
+/datum/gear/general/coffeecup/New()
 	..()
 	var/list/coffeecups = list()
 	coffeecups["plain coffee cup"] = /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup
@@ -119,18 +120,18 @@
 	gear_tweaks += new /datum/gear_tweak/path(coffeecups)
 	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_drink_reagents())
 
-/datum/gear/coffeecup/spawn_item(var/location, var/metadata)
+/datum/gear/general/coffeecup/spawn_item(var/location, var/metadata)
 	. = ..()
 	var/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/spawned_cup = .
 	if(istype(spawned_cup) && spawned_cup.reagents)
 		spawned_cup.reagents.set_temperature(T0C + 45)
 
-/datum/gear/banner
+/datum/gear/general/banner
 	display_name = "banner selection"
 	path = /obj/item/flag
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/banner/New()
+/datum/gear/general/banner/New()
 	..()
 	var/list/banners = list()
 	banners["banner, Stellar Corporate Conglomerate"] = /obj/item/flag/scc
@@ -180,12 +181,12 @@
 	banners["banner, Imperial Frontier"] = /obj/item/flag/imperial_frontier
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
-/datum/gear/standard
+/datum/gear/general/standard
 	display_name = "dominian great house standard selection"
 	path = /obj/item/flag
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/standard/New()
+/datum/gear/general/standard/New()
 	..()
 	var/list/standards = list()
 	standards["standard, Strelitz"] = /obj/item/flag/strelitz
@@ -196,13 +197,13 @@
 	standards["standard, Zhao"] = /obj/item/flag/zhao
 	gear_tweaks += new /datum/gear_tweak/path(standards)
 
-/datum/gear/flag
+/datum/gear/general/flag
 	display_name = "flag selection"
 	cost = 2
 	path = /obj/item/flag
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/flag/New()
+/datum/gear/general/flag/New()
 	..()
 	var/list/flags = list()
 	flags["flag, Stellar Corporate Conglomerate"] = /obj/item/flag/scc/l
@@ -249,22 +250,22 @@
 	flags["flag, Imperial Frontier"] = /obj/item/flag/imperial_frontier/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
-/datum/gear/towel
+/datum/gear/general/towel
 	display_name = "towel"
 	path = /obj/item/towel
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/handkerchief
+/datum/gear/general/handkerchief
 	display_name = "handkerchief"
 	path = /obj/item/reagent_containers/glass/rag/handkerchief
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/comic
+/datum/gear/general/comic
 	display_name = "comic selection"
 	description = "A selection of comics, manga, and magazines from across the Spur."
 	path = /obj/item/toy/comic
 
-/datum/gear/comic/New()
+/datum/gear/general/comic/New()
 	..()
 	var/list/comics = list()
 	comics["comic book"] = /obj/item/toy/comic
@@ -282,11 +283,11 @@
 	comics["dominian witchfinder novel"] = /obj/item/toy/comic/witchfinder
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
-/datum/gear/toothpaste
+/datum/gear/general/toothpaste
 	display_name = "toothpaste and toothbrush"
 	path = /obj/item/storage/box/toothpaste
 
-/datum/gear/toothpaste/New()
+/datum/gear/general/toothpaste/New()
 	..()
 	var/list/toothpaste = list()
 	toothpaste["toothpaste and blue toothbrush"] = /obj/item/storage/box/toothpaste
@@ -294,34 +295,34 @@
 	toothpaste["toothpaste and red toothbrush"] = /obj/item/storage/box/toothpaste/red
 	gear_tweaks += new /datum/gear_tweak/path(toothpaste)
 
-/datum/gear/photo
+/datum/gear/general/photo
 	display_name = "photo"
 	path =  /obj/item/photo
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
-/datum/gear/photo_album
+/datum/gear/general/photo_album
 	display_name = "photo album"
 	path =  /obj/item/storage/photo_album
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
-/datum/gear/knitting_set
+/datum/gear/general/knitting_set
 	display_name = "knitting set"
 	path =  /obj/item/storage/box/knitting
 	description = "A box of knitting supplies."
 	flags = null
 
-/datum/gear/yarn_box
+/datum/gear/general/yarn_box
 	display_name = "knitting supplies"
 	path =  /obj/item/storage/box/yarn
 	description = "A box containing yarn."
 	flags = null
 
-/datum/gear/gadbook
+/datum/gear/general/gadbook
 	display_name = "gadpathurian morale manual"
 	path = /obj/item/device/versebook/gadpathur
 	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
-/datum/gear/aurora_miniature
+/datum/gear/general/aurora_miniature
 	display_name = "aurora miniature"
 	description = "A commemorative miniature of the NSS Aurora."
 	path = /obj/item/toy/aurora

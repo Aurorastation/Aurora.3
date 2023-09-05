@@ -43,6 +43,7 @@ var/list/tag_group_other = list(
 	"Augment",	// manual
 	"Computer",	// manual
 	"Cosmetic",	// manual
+	"General",	// manual
 	"Religion",	// manual
 	"Smoking",	// manual
 	"Toy",		// manual
