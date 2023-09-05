@@ -70,5 +70,25 @@
 	icon_state = "roof_ledge"
 	layer = ABOVE_ALL_MOB_LAYER
 
+/obj/structure/ledge/roof/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(istype(mover,/obj/item/projectile))
+		return TRUE
+	if(!istype(mover) || mover.checkpass(PASSRAILING))
+		return TRUE
+	if(mover.throwing)
+		return TRUE
+	if(get_dir(loc, target) == dir)
+		return !density
+	return TRUE
+
+/obj/structure/ledge/roof/CheckExit(var/atom/movable/O, var/turf/target)
+	if(istype(O) && CanPass(O, target))
+		return TRUE
+	if(get_dir(O.loc, target) == dir)
+		if(!density)
+			return TRUE
+		return FALSE
+	return TRUE
+
 /obj/structure/ledge/roof/corner
 	icon_state = "roof_ledge_corner"

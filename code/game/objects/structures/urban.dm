@@ -112,6 +112,15 @@
 /obj/structure/structural_support/side
 	icon_state = "truss_side"
 
+/obj/structure/urban/pylon
+	name = "vehicle charging pylon"
+	desc = "A vehicle-grade charging pylon attached to a nearby port."
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
+	icon_state = "chargepylon"
+	light_color = LIGHT_COLOR_CYAN
+	light_range = 1.2
+	density = TRUE
+
 /obj/structure/manhole
 	name = "sewer access manhole"
 	desc = "Probably a bad idea to open this."
@@ -375,6 +384,13 @@
 	icon_state = "exit"
 	layer = ABOVE_ALL_MOB_LAYER
 
+/obj/structure/sign/urban/drive_thru
+	name = "drive thru sign"
+	desc = "A drive-thru sign."
+	icon = 'icons/obj/structure/urban/restaurant.dmi'
+	icon_state = "drivethru"
+	density = 1
+
 /obj/structure/sign/urban/restroom
 	name = "restroom sign"
 	desc = "A sign indicating where you can find a restroom."
@@ -384,6 +400,34 @@
 	name = "staff only sign"
 	desc = "A sign that warns of this entry being barred to the public."
 	icon_state = "staff"
+
+/obj/structure/restaurant_menu
+	name = "restaurant menu"
+	desc = "A sign displaying a variety of delectable meals."
+	icon = 'icons/obj/structure/urban/restaurant.dmi'
+	icon_state = "menu_off"
+	density = 1
+	layer = ABOVE_ALL_MOB_LAYER
+	light_color = LIGHT_COLOR_CYAN
+	light_range = 1.8
+	var/menu_text = ""
+
+/obj/structure/restaurant_menu/attack_hand(mob/user)
+	var/new_text = sanitize(input(user, "Enter new text for the hologram to display.", "Hologram Display", html2pencode(menu_text, TRUE)) as null|message)
+	if(!isnull(new_text))
+		menu_text = pencode2html(new_text)
+		update_icon()
+
+/obj/structure/restaurant_menu/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/paper))
+		var/obj/item/paper/P = I
+		to_chat(user, SPAN_NOTICE("You scan \the [I.name] into \the [name]."))
+		menu_text = P.info
+		menu_text = replacetext(menu_text, "color=black>", "color=white>")
+		icon_state = "menu_active"
+		update_icon()
+		return TRUE
+	return ..()
 
 /obj/structure/sign/urban/konyang
 	name = "convenience store sign"
@@ -421,10 +465,47 @@
 	icon_state = "wood"
 	basestate = "wood"
 	maxhealth = 60
+	alpha = 255
 
 /obj/structure/window/urban/framed
 	icon_state = "wood_framed"
 	basestate = "wood_framed"
+
+/obj/structure/window/urban/external
+	icon = 'icons/obj/structure/urban/building_external.dmi'
+	icon_state = "window_half"
+	basestate = "window_half"
+
+/obj/structure/window_frame/urban
+	name = "window frame"
+	desc = "A window frame."
+	icon = 'icons/obj/structure/urban/building_external.dmi'
+	icon_state = "frame_half"
+	basestate = "frame_half"
+	color = COLOR_GUNMETAL
+
+/obj/structure/window_frame/urban/red
+	color = COLOR_PALE_RED_GRAY
+
+/obj/structure/window_frame/urban/blue
+	color = COLOR_COMMAND_BLUE
+
+/obj/structure/blocker/exterior_wall//for planting against urban structure sprites to resemble buildings better. Should be manually mapped over wall types.
+	name = "tall building wall"
+	desc = "The exterior of a large building."
+	color = COLOR_GUNMETAL
+	icon = 'icons/obj/structure/urban/building_external.dmi'
+	icon_state = "wall_half"
+	basestate = "wall_half"
+	health = 200
+	maxhealth = 200
+	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/blocker/exterior_wall/red
+	color = COLOR_PALE_RED_GRAY
+
+/obj/structure/blocker/exterior_wall/blue
+	color = COLOR_COMMAND_BLUE
 
 /obj/structure/cash_register
 	name = "cash register machine"

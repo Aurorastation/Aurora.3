@@ -25,12 +25,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
-"bz" = (
+"ba" = (
 /obj/structure/ledge/roof{
-	dir = 8
+	dir = 6
 	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/interior/arcade)
+"bz" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
+	},
+/obj/structure/ledge/roof{
+	dir = 4
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
@@ -65,6 +71,15 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/point_verdant/interior/laundromat)
+"bR" = (
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/obj/structure/ledge/roof{
+	dir = 10
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "cr" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
@@ -76,10 +91,10 @@
 /turf/simulated/floor/carpet/purple,
 /area/point_verdant/interior/laundromat)
 "ct" = (
-/obj/structure/ledge/roof{
-	dir = 8
-	},
 /obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/ledge/roof{
 	dir = 4
 	},
 /turf/simulated/floor/roofing_tiles,
@@ -114,6 +129,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"eA" = (
+/obj/structure/ledge/roof/corner{
+	dir = 4
+	},
+/turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "eJ" = (
 /obj/structure/ledge/quarter{
@@ -295,11 +316,14 @@
 /area/point_verdant/outdoors)
 "jw" = (
 /obj/structure/ledge/roof{
-	dir = 5
+	dir = 10
 	},
 /obj/effect/decal/road_marking/reflector,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"jN" = (
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/restaurant)
 "kz" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -316,11 +340,11 @@
 /turf/simulated/floor/carpet/purple,
 /area/point_verdant/interior/laundromat)
 "lV" = (
-/obj/structure/ledge/roof{
-	dir = 9
-	},
 /obj/effect/decal/road_marking/reflector{
 	dir = 8
+	},
+/obj/structure/ledge/roof{
+	dir = 6
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
@@ -529,6 +553,9 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"ww" = (
+/turf/simulated/wall/wood,
+/area/point_verdant/interior/restaurant)
 "wE" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
@@ -584,6 +611,10 @@
 /obj/item/clothing/wrists/watch/silver,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"yV" = (
+/obj/structure/ledge/roof/corner,
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "zp" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -693,14 +724,20 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Dc" = (
-/obj/structure/ledge/roof{
-	dir = 8
-	},
 /obj/effect/decal/road_marking/no_pass{
 	dir = 8
 	},
+/obj/structure/ledge/roof{
+	dir = 4
+	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"Df" = (
+/obj/structure/ledge/roof{
+	dir = 5
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/interior/arcade)
 "Du" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/wood,
@@ -711,6 +748,12 @@
 "DD" = (
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"DM" = (
+/obj/structure/ledge/quarter{
+	dir = 10
+	},
+/turf/simulated/open,
+/area/point_verdant/outdoors)
 "DP" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/rod_railing{
@@ -720,11 +763,20 @@
 /area/point_verdant/outdoors)
 "Ea" = (
 /obj/structure/ledge/roof{
-	dir = 9
+	dir = 6
 	},
 /obj/effect/decal/road_marking/reflector,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"Ev" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/ledge/roof{
+	dir = 4
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/interior/arcade)
 "Ey" = (
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
@@ -800,11 +852,11 @@
 /turf/simulated/floor/carpet/purple,
 /area/point_verdant/interior/laundromat)
 "HN" = (
-/obj/structure/ledge/roof{
-	dir = 6
-	},
 /obj/effect/decal/road_marking/reflector{
 	dir = 8
+	},
+/obj/structure/ledge/roof{
+	dir = 9
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
@@ -845,11 +897,11 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "IF" = (
-/obj/structure/ledge/roof{
-	dir = 10
-	},
 /obj/effect/decal/road_marking/reflector{
 	dir = 8
+	},
+/obj/structure/ledge/roof{
+	dir = 5
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
@@ -872,6 +924,12 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/point_verdant/interior/arcade)
+"JQ" = (
+/obj/structure/ledge/roof/corner{
+	dir = 1
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "Ka" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/carpet/green,
@@ -880,6 +938,13 @@
 /obj/machinery/photocopier,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/laundromat)
+"Ln" = (
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1
+	},
+/turf/simulated/open,
+/area/point_verdant/interior/restaurant)
 "LG" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/rod_railing,
@@ -923,6 +988,12 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"NL" = (
+/obj/structure/ledge/roof{
+	dir = 10
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "NN" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -962,10 +1033,10 @@
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "OE" = (
-/obj/structure/ledge/roof{
-	dir = 8
-	},
 /obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/obj/structure/ledge/roof{
 	dir = 4
 	},
 /turf/simulated/floor/roofing_tiles,
@@ -980,6 +1051,12 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"Pl" = (
+/obj/structure/rod_railing{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/restaurant)
 "Ps" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -12175,14 +12252,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vf
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+gh
 Cw
 Cw
 Cw
@@ -12357,14 +12434,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+HN
+wJ
+wJ
+wJ
+wJ
+bR
+Ml
 Cw
 Cw
 Cw
@@ -12539,14 +12616,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -12721,14 +12798,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -12903,14 +12980,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -13085,14 +13162,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -13267,14 +13344,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -13449,14 +13526,14 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -13622,23 +13699,23 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vf
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+eJ
+OY
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -13803,24 +13880,24 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vf
+eJ
+HN
+wJ
+wJ
+wJ
+wJ
+wJ
+wJ
+wJ
+wJ
+JQ
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -13985,24 +14062,24 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+HN
+JQ
+ww
+ww
+ww
+ww
+ww
+ww
+ww
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -14167,25 +14244,25 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+ww
+jN
+jN
+jN
+jN
+jN
+jN
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+eA
+NL
+Ml
 Cw
 Cw
 Cw
@@ -14349,25 +14426,25 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+Wq
+yV
+ww
+jN
+jN
+jN
+jN
+jN
+jN
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -14531,25 +14608,25 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+AH
+DM
+OY
+ww
+jN
+jN
+jN
+jN
+jN
+jN
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -14714,24 +14791,24 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+ww
+jN
+jN
+jN
+jN
+jN
+jN
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -14896,24 +14973,24 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+ww
+Pl
+jN
+jN
+jN
+jN
+jN
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Cw
@@ -15077,25 +15154,25 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vf
+eJ
+OY
+ww
+Ln
+jN
+jN
+jN
+jN
+jN
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 Cw
 Hd
@@ -15104,13 +15181,13 @@ Hd
 Hd
 eJ
 HN
-jf
-jf
-jf
-jf
-jf
-jf
-Wq
+wJ
+wJ
+wJ
+wJ
+wJ
+wJ
+bR
 Ml
 Cw
 Cw
@@ -15123,10 +15200,10 @@ Vw
 dd
 fF
 Zo
-AO
-kz
-cW
-AO
+Df
+Ev
+Ev
+ba
 Vw
 Ml
 Cw
@@ -15259,26 +15336,26 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+HN
+JQ
+ww
+Ln
+jN
+jN
+jN
+jN
+jN
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+eA
+NL
+Ml
 Cw
 bF
 bF
@@ -15292,7 +15369,7 @@ bF
 bF
 bF
 bF
-OY
+mB
 Ml
 Cw
 Cw
@@ -15441,26 +15518,26 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+ww
+jN
+jN
+jN
+jN
+jN
+jN
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 bF
 xr
@@ -15474,7 +15551,7 @@ MW
 Ta
 Ta
 TX
-OY
+mB
 Ml
 Cw
 Cw
@@ -15623,26 +15700,26 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+ww
+jN
+jN
+jN
+jN
+jN
+jN
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 bF
 ZN
@@ -15656,7 +15733,7 @@ MW
 Ta
 Ta
 TX
-OY
+mB
 Ml
 Cw
 Cw
@@ -15805,26 +15882,26 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+ww
+jN
+jN
+jN
+jN
+jN
+jN
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 bF
 QF
@@ -15838,7 +15915,7 @@ MW
 GA
 Ta
 TX
-OY
+mB
 Zt
 Hd
 gh
@@ -15987,26 +16064,26 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+ww
+jN
+jN
+jN
+jN
+jN
+jN
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 TX
 SC
@@ -16021,7 +16098,7 @@ bF
 bF
 bF
 Bc
-jf
+wJ
 jw
 Ml
 Cw
@@ -16169,26 +16246,26 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+ww
+jN
+jN
+jN
+jN
+jN
+jN
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 TX
 Ps
@@ -16204,7 +16281,7 @@ DD
 CK
 Gs
 Oc
-OY
+mB
 Ml
 Cw
 Cw
@@ -16351,26 +16428,26 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+OY
+Ey
+ww
+ww
+ww
+ww
+ww
+ww
+ww
+ww
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 bF
 zp
@@ -16386,14 +16463,14 @@ DD
 DD
 Gs
 Oc
-OY
+mB
 Ml
 Cw
 Cw
 Cw
 Cw
 vj
-mB
+OY
 vX
 CJ
 Sn
@@ -16401,7 +16478,7 @@ Ey
 Ey
 Ey
 aU
-OY
+mB
 Ml
 Cw
 Cw
@@ -16533,26 +16610,26 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+vj
+Wq
+jf
+jf
+yV
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+Ey
+mB
+Ml
 Cw
 bF
 Ps
@@ -16568,7 +16645,7 @@ Ur
 tO
 Gs
 Oc
-OY
+mB
 Ml
 Cw
 Cw
@@ -16578,11 +16655,11 @@ vj
 IF
 Dc
 Dc
-wJ
+jf
 Dc
 Dc
-wJ
-wJ
+jf
+jf
 lV
 Ml
 Cw
@@ -16715,26 +16792,26 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+AH
+fb
+fb
+DM
+Wq
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+jf
+lV
+Ml
 Cw
 bF
 bF
@@ -16743,13 +16820,13 @@ bF
 bF
 bF
 BN
-wJ
+jf
 OE
 ct
 ct
 ct
 bz
-wJ
+jf
 Ea
 Ml
 Cw
@@ -16900,31 +16977,31 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+AH
+fb
+fb
+fb
+fb
+fb
+fb
+fb
+fb
+fb
+fb
+fb
+fb
+fb
+fb
+fb
+nI
 Cw
 Cw
 Cw
 vj
-mB
-Ey
-Ey
 OY
+Ey
+Ey
+mB
 jp
 fb
 fb
@@ -17103,9 +17180,9 @@ Cw
 Cw
 Cw
 vj
-IF
-wJ
-wJ
+Wq
+jf
+jf
 lV
 Ml
 fU
