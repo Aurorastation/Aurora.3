@@ -19,14 +19,14 @@ var/list/tag_group_department = list(
 )
 /// Corporation tag group.
 var/list/tag_group_corp = list(
-	"Stellar Corporate Conglomerate", // as anyone can take SCC items, this tag needs to be manually added
-	"Hephaestus Industries",
-	"Idris Incorporated",
-	"NanoTrasen",
-	"Orion Express",
-	"Private Military Contracting Group",
-	"Zavodskoi Interstellar",
-	"Zeng-Hu Pharmaceuticals",
+	"SCC", // as anyone can take SCC items, this tag needs to be manually added
+	"Heph",
+	"Idris",
+	"NT",
+	"OX",
+	"PMCG",
+	"Zavod",
+	"Zeng",
 	"No Corporation Restriction",
 )
 /// Slot tag group.
@@ -68,6 +68,27 @@ var/list/tag_groups_all = list(
 )
 
 // ------------------------------ functions
+
+/proc/corp_name_short(var/corp_name)
+	switch (corp_name)
+		if("Stellar Corporate Conglomerate")
+			return "SCC"
+		if("Hephaestus Industries")
+			return "Heph"
+		if("Idris Incorporated")
+			return "Idris"
+		if("NanoTrasen")
+			return "NT"
+		if("Orion Express")
+			return "OX"
+		if("Private Military Contracting Group")
+			return "PMCG"
+		if("Zavodskoi Interstellar")
+			return "Zavod"
+		if("Zeng-Hu Pharmaceuticals")
+			return "Zeng"
+		else
+			return null
 
 /proc/slot_to_string(var/slot)
 	switch (slot)
@@ -124,7 +145,7 @@ var/list/tag_groups_all = list(
 		gear.tags |= "No Department Restriction"
 	// ---- tag_group_corp
 	if(gear.faction)
-		gear.tags |= gear.faction
+		gear.tags |= corp_name_short(gear.faction)
 	else
 		gear.tags |= "No Corporation Restriction"
 	// ---- tag_group_slot
