@@ -60,7 +60,7 @@
 /obj/structure/utility_pole/street/on
 	desc = "A tall light source. This one shines brightly."
 	light_wedge = LIGHT_OMNI
-	light_color = LIGHT_COLOR_TUNGSTEN
+	light_color = "#e8ffeb"
 	light_range = 8
 	light_power = 1.9
 

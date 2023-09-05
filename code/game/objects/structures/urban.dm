@@ -476,13 +476,27 @@
 	icon_state = "window_half"
 	basestate = "window_half"
 
+/obj/structure/window/urban/full
+	icon = 'icons/obj/structure/urban/building_external.dmi'
+	icon_state = "window_full"
+	basestate = "window_full"
+
 /obj/structure/window_frame/urban
 	name = "window frame"
 	desc = "A window frame."
 	icon = 'icons/obj/structure/urban/building_external.dmi'
 	icon_state = "frame_half"
-	basestate = "frame_half"
+	//basestate = "frame_half"
 	color = COLOR_GUNMETAL
+	smooth = null
+
+/obj/structure/window_frame/urban/full
+	name = "window frame"
+	desc = "A window frame."
+	icon = 'icons/obj/structure/urban/building_external.dmi'
+	icon_state = "frame_full"
+	//basestate = "frame_full"
+	color = COLOR_WHITE
 
 /obj/structure/window_frame/urban/red
 	color = COLOR_PALE_RED_GRAY
@@ -496,7 +510,7 @@
 	color = COLOR_GUNMETAL
 	icon = 'icons/obj/structure/urban/building_external.dmi'
 	icon_state = "wall_half"
-	basestate = "wall_half"
+	//basestate = "wall_half"
 	health = 200
 	maxhealth = 200
 	layer = ABOVE_ALL_MOB_LAYER

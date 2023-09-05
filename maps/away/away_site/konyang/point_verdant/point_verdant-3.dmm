@@ -31,6 +31,12 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/interior/arcade)
+"bh" = (
+/obj/structure/toilet{
+	pixel_x = -8
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior)
 "bz" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -106,7 +112,7 @@
 	pixel_x = 31;
 	pixel_y = 10
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/arcade)
 "cW" = (
 /obj/machinery/light/small{
@@ -121,6 +127,9 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
+"dJ" = (
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/interior)
 "ew" = (
 /obj/structure/ledge{
 	dir = 4
@@ -314,6 +323,12 @@
 	},
 /turf/simulated/open,
 /area/point_verdant/outdoors)
+"jv" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "jw" = (
 /obj/structure/ledge/roof{
 	dir = 10
@@ -324,6 +339,9 @@
 "jN" = (
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)
+"kw" = (
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "kz" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -357,6 +375,18 @@
 	dir = 8
 	},
 /obj/machinery/recharge_station,
+/obj/structure/rod_railing{
+	dir = 8
+	},
+/obj/structure/rod_railing{
+	dir = 8
+	},
+/obj/structure/rod_railing{
+	dir = 8
+	},
+/obj/structure/rod_railing{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "nf" = (
@@ -418,6 +448,20 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"pn" = (
+/obj/machinery/light/colored{
+	dir = 1;
+	pixel_y = 24
+	},
+/obj/structure/rod_railing{
+	dir = 4
+	},
+/obj/structure/table/rack/retail_shelf,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
+"pB" = (
+/turf/unsimulated/wall/konyang,
+/area/point_verdant/outdoors)
 "pN" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
@@ -531,6 +575,10 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"vH" = (
+/obj/structure/rod_railing,
+/turf/simulated/open,
+/area/point_verdant/interior)
 "vX" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -646,6 +694,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
+"Aj" = (
+/obj/structure/ledge/roof,
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/interior)
 "AH" = (
 /obj/structure/ledge/quarter/corner,
 /turf/simulated/open,
@@ -689,6 +741,9 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"Cm" = (
+/turf/unsimulated/wall/konyang,
+/area/point_verdant/interior)
 "Cw" = (
 /turf/simulated/open,
 /area/point_verdant/outdoors)
@@ -905,6 +960,17 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"IJ" = (
+/obj/structure/sink/kitchen{
+	name = "sink";
+	dir = 8;
+	pixel_x = 19
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior)
 "IY" = (
 /obj/structure/toilet{
 	pixel_x = -8
@@ -955,6 +1021,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/point_verdant/outdoors)
+"LV" = (
+/obj/structure/window/urban/full,
+/obj/structure/window_frame/urban/full,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "Ml" = (
 /obj/structure/ledge/quarter{
 	dir = 1
@@ -1097,6 +1168,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/point_verdant/outdoors)
+"QM" = (
+/obj/machinery/door/urban,
+/obj/effect/decal/exterior_stairs/half,
+/obj/structure/sign/urban/restroom{
+	pixel_x = 31;
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior)
 "RK" = (
 /obj/structure/closet/crate/bin,
 /obj/item/toy/plushie/fox/pink,
@@ -1125,6 +1205,10 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/tailor)
+"SB" = (
+/obj/structure/table/rack/retail_shelf,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "SC" = (
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
@@ -1168,6 +1252,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
+"Vo" = (
+/obj/structure/ledge/roof{
+	dir = 6
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/interior)
+"Vu" = (
+/obj/structure/ledge/roof{
+	dir = 4
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/interior)
 "Vw" = (
 /turf/simulated/wall/wood,
 /area/point_verdant/interior/arcade)
@@ -8643,15 +8739,15 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+dJ
+dJ
+dJ
+dJ
+dJ
+dJ
+dJ
+Aj
+Ml
 Cw
 Cw
 Cw
@@ -8825,15 +8921,15 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+dJ
+dJ
+dJ
+dJ
+dJ
+dJ
+dJ
+Aj
+Ml
 Cw
 Cw
 Cw
@@ -9007,15 +9103,15 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+dJ
+dJ
+dJ
+dJ
+dJ
+dJ
+dJ
+Aj
+Ml
 Cw
 Cw
 Cw
@@ -9189,15 +9285,15 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+Cm
+Cm
+Cm
+jv
+Cm
+Cm
+dJ
+Aj
+Ml
 Cw
 Cw
 Cw
@@ -9371,15 +9467,15 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+Cm
+bh
+Cm
+kw
+kw
+LV
+dJ
+Aj
+Ml
 Cw
 Cw
 Cw
@@ -9553,15 +9649,15 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+Cm
+IJ
+QM
+kw
+kw
+LV
+dJ
+Aj
+Ml
 Cw
 Cw
 Cw
@@ -9735,15 +9831,15 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+Cm
+Cm
+Cm
+kw
+kw
+LV
+dJ
+Aj
+Ml
 Cw
 Cw
 Cw
@@ -9917,15 +10013,15 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+Cm
+SB
+kw
+kw
+kw
+Cm
+dJ
+Aj
+Ml
 Cw
 Cw
 Cw
@@ -10099,15 +10195,15 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+Cm
+pn
+kw
+kw
+kw
+LV
+dJ
+Aj
+Ml
 Cw
 Cw
 Cw
@@ -10281,15 +10377,15 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+Cm
+vH
+kw
+kw
+kw
+LV
+dJ
+Aj
+Ml
 Cw
 Cw
 Cw
@@ -10463,15 +10559,15 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+Cm
+vH
+kw
+kw
+kw
+LV
+dJ
+Aj
+Ml
 Cw
 Cw
 Cw
@@ -10645,15 +10741,15 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+Cm
+kw
+kw
+Cm
+Cm
+Cm
+Vu
+Vo
+Ml
 Cw
 Cw
 Cw
@@ -10827,14 +10923,14 @@ Cw
 Cw
 Cw
 Cw
+pB
+pB
+pB
+pB
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+fb
+fb
 Cw
 Cw
 Cw
