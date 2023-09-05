@@ -2850,8 +2850,8 @@
 	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
@@ -4729,11 +4729,11 @@
 "waI" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/steel,
-/obj/item/reagent_containers/food/drinks/milk/choco{
+/obj/item/reagent_containers/food/drinks/carton/small/milk/choco{
 	pixel_x = -5;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/drinks/milk/choco{
+/obj/item/reagent_containers/food/drinks/carton/small/milk/choco{
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/white,
