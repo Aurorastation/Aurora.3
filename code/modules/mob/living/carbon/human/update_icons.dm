@@ -102,8 +102,10 @@ There are several things that need to be remembered:
 	var/list/overlays_raw[TOTAL_LAYERS] // Our set of "raw" overlays that can be modified, but cannot be directly applied to the mob without preprocessing.
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
 
+#define UPDATE_ICON_IGNORE_DIRECTION_UPDATE -1
+
 // Updates overlays from overlays_raw.
-/mob/living/carbon/human/update_icon()
+/mob/living/carbon/human/update_icon(var/forceDirUpdate = FALSE)
 	if (QDELING(src))
 		return	// No point.
 
@@ -135,14 +137,28 @@ There are several things that need to be remembered:
 
 		add_overlay(ovr)
 
-	if (lying_prev != lying || size_multiplier != 1)
+	if (((lying_prev != lying) || forceDirUpdate || size_multiplier != 1) && forceDirUpdate != UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
 		if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
 			var/matrix/M = matrix()
-			M.Turn(90)
+
+			switch(src.dir)
+				if(NORTH,EAST)
+					M.Turn(90)
+				else
+					M.Turn(-90)
 			M.Scale(size_multiplier)
 			M.Translate(1,-6)
-			animate(src, transform = M, time = ANIM_LYING_TIME)
+			animate(src, transform = M, time = (forceDirUpdate ? 0 : ANIM_LYING_TIME))
+
+			if(istype(src.l_hand, /obj/item/gun) && lying)
+				HeldObjectDirTransform(slot_l_hand, src.dir)
+			if(istype(src.r_hand, /obj/item/gun) && lying)
+				HeldObjectDirTransform(slot_r_hand, src.dir)
+
 		else
+			update_inv_l_hand(FALSE)
+			update_inv_r_hand(FALSE)
+			update_icon(UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
 			var/matrix/M = matrix()
 			M.Scale(size_multiplier)
 			M.Translate(0, 16*(size_multiplier-1))
@@ -150,6 +166,37 @@ There are several things that need to be remembered:
 
 	compile_overlays()
 	lying_prev = lying
+
+/mob/living/carbon/human/proc/HeldObjectDirTransform(var/hand = slot_l_hand, var/direction)
+	var/layer = null
+	if(hand == slot_r_hand)
+		update_inv_r_hand(FALSE)
+		layer = R_HAND_LAYER
+	else
+		update_inv_l_hand(FALSE)
+		layer = L_HAND_LAYER
+
+	switch(direction)
+		if(EAST)
+			TransformLayerIcon(layer, -90)
+		if(WEST)
+			TransformLayerIcon(layer, 90)
+		if(NORTH)
+			TransformLayerIcon(layer, 0)
+		if(SOUTH)
+			TransformLayerIcon(layer, 180)
+
+
+/mob/living/carbon/human/proc/TransformLayerIcon(var/layer, var/rotation = 0)
+	var/image/item_image = overlays_raw[layer]
+	var/matrix/item_transform = matrix()
+	item_transform.Turn(rotation)
+
+	animate(item_image, transform = item_transform)
+	overlays_raw[layer] = item_image
+	update_icon(UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
+
+#undef UPDATE_ICON_IGNORE_DIRECTION_UPDATE
 
 //DAMAGE OVERLAYS
 //constructs damage icon for each organ from mask * damage field and saves it in our overlays_raw list (as a list of icons).
@@ -1152,7 +1199,7 @@ There are several things that need to be remembered:
 		overlays_raw[L_HAND_LAYER] = null
 
 	if(update_icons)
-		update_icon()
+		update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
 	if (QDELING(src))
@@ -1188,7 +1235,7 @@ There are several things that need to be remembered:
 		overlays_raw[R_HAND_LAYER] = null
 
 	if(update_icons)
-		update_icon()
+		update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/update_inv_wrists(var/update_icons=1)
 	if (QDELING(src))
