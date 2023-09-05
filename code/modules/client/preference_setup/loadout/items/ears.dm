@@ -6,7 +6,6 @@
 /datum/gear/ears/double
 	display_name = "earmuffs"
 	path = /obj/item/clothing/ears/earmuffs
-	slot = null
 
 /datum/gear/ears/double/ear_warmers
 	display_name = "ear warmers, colourable"
