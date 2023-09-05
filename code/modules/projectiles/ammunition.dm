@@ -79,7 +79,7 @@
 		icon_state = spent_icon
 
 /obj/item/ammo_casing/examine(mob/user)
-	..()
+	. = ..()
 	if (!BB)
 		to_chat(user, "This one is spent.")
 
@@ -182,7 +182,7 @@
 		recyclable = FALSE
 
 /obj/item/ammo_magazine/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "There [(stored_ammo.len == 1)? "is" : "are"] [stored_ammo.len] round\s left!")
 
 //magazine icon state caching (caching lists are in SSicon_cache)

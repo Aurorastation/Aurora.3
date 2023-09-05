@@ -88,8 +88,9 @@
 /obj/structure/janitorialcart/proc/get_short_status()
 	return "Contents: [english_list(contents)]"
 
-/obj/structure/janitorialcart/examine(mob/user)
-	if(..(user, 1))
+/obj/structure/janitorialcart/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		if (mybucket)
 			var/contains = mybucket.reagents.total_volume
 			to_chat(user, "[icon2html(src, user)] The bucket contains [contains] unit\s of liquid!")

@@ -327,7 +327,7 @@
 
 /obj/screen/ability/obj_based/psionic/examine(mob/user)
 	to_chat(user, SPAN_NOTICE("<font size=4>This ability is <b>[connected_power.name]</b>.</font>"))
-	to_chat(user, SPAN_NOTICE("[connected_power.desc]"))
+	to_chat(user, SPAN_NOTICE("[connected_power.desc]"))	
 
 /// Technomancer.
 /obj/screen/ability/obj_based/technomancer

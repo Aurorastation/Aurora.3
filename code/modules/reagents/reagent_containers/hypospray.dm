@@ -190,7 +190,7 @@
 	update_held_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
-	..(user)
+	. = ..()
 	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, SPAN_NOTICE("It is currently loaded."))
 	else

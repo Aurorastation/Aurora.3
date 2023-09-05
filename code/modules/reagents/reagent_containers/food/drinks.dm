@@ -98,8 +98,9 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		return 1
 	return ..()
 
-/obj/item/reagent_containers/food/drinks/examine(mob/user)
-	if(!..(user, 1))
+/obj/item/reagent_containers/food/drinks/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if (distance > 1)
 		return
 	if(!reagents || reagents.total_volume == 0)
 		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")

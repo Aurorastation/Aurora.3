@@ -44,7 +44,7 @@
 		add_overlay(lid)
 
 /obj/item/reagent_containers/chem_disp_cartridge/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "It has a capacity of [volume] units.")
 	if(reagents.total_volume <= 0)
 		to_chat(user, "It is empty.")

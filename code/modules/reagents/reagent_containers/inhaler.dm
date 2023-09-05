@@ -150,7 +150,7 @@
 	update_held_icon()
 
 /obj/item/reagent_containers/inhaler/examine(mob/user)
-	..(user)
+	. = ..()
 	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
 	else

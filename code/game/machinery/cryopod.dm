@@ -297,8 +297,8 @@ var/global/list/frozen_crew = list()
 	update_icon()
 	find_control_computer()
 
-/obj/machinery/cryopod/examine(mob/user)
-	..(user)
+/obj/machinery/cryopod/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	if(occupant)
 		to_chat(user, SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)]."))
 

@@ -498,7 +498,7 @@
 	w_class = ITEMSIZE_SMALL
 	var/active = 0 //if the ship is on
 /obj/item/orion_ship/examine(mob/user)
-	..()
+	. = ..()
 	if(!(in_range(user, src)))
 		return
 	if(!active)

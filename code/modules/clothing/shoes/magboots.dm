@@ -99,7 +99,7 @@
 		INVOKE_ASYNC(src, PROC_REF(update_wearer))
 
 /obj/item/clothing/shoes/magboots/examine(mob/user)
-	..(user)
+	. = ..()
 	var/state = "disabled"
 	if(item_flags & NOSLIP)
 		state = "enabled"

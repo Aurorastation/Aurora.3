@@ -2050,7 +2050,7 @@ About the new airlock wires panel:
 	return
 
 /obj/machinery/door/airlock/examine(mob/user)
-	..()
+	. = ..()
 	if (bolt_cut_state == BOLTS_EXPOSED)
 		to_chat(user, "The bolt cover has been cut open.")
 	if (bolt_cut_state == BOLTS_CUT)
