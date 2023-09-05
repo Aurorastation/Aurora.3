@@ -12148,15 +12148,15 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/brig)
 "fZk" = (
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hor)
@@ -18506,6 +18506,9 @@
 /area/horizon/security/hallway)
 "iSG" = (
 /obj/structure/bed/stool/chair/office/dark,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/carpet/purple,
 /area/crew_quarters/heads/hor)
 "iUg" = (
@@ -21396,6 +21399,20 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
+"koq" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/southright{
+	req_access = list(30);
+	name = "Ives' Pod"
+	},
+/mob/living/simple_animal/hostile/commanded/baby_harvester,
+/turf/simulated/floor/carpet,
+/area/crew_quarters/heads/hor)
 "kpd" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Port Wing Substation"
@@ -24017,18 +24034,14 @@
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "lJp" = (
-/mob/living/simple_animal/hostile/commanded/baby_harvester,
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/machinery/power/apc/north,
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
-/obj/machinery/door/window/southright{
-	req_access = list(30);
-	name = "Ives' Pod"
-	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/wood,
 /area/crew_quarters/heads/hor)
 "lJv" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -26638,8 +26651,8 @@
 	name = "Research Director RC";
 	pixel_y = -30
 	},
-/obj/structure/sign/nosmoking_1{
-	pixel_x = -32
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/carpet/purple,
 /area/crew_quarters/heads/hor)
@@ -32578,6 +32591,9 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
 "pPA" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/carpet/purple,
 /area/crew_quarters/heads/hor)
 "pPM" = (
@@ -38186,16 +38202,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hallway/primary/central_one)
 "sFk" = (
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
 /obj/machinery/disposal/small/west,
 /obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hor)
@@ -39874,6 +39886,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hor)
@@ -46815,6 +46830,9 @@
 /obj/structure/platform/cutout,
 /obj/structure/platform{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/crew_quarters/heads/hor)
@@ -75968,7 +75986,7 @@ gxa
 mBB
 cer
 cer
-cer
+wbV
 cer
 cer
 cer
@@ -77178,7 +77196,7 @@ hst
 gil
 bfF
 mBB
-cer
+koq
 sFk
 lpu
 oia
