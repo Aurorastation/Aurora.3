@@ -18,6 +18,7 @@
 		/obj/item/gun/projectile/revolver/derringer = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle/obrez = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle/vintage = 1,
+		/obj/item/gun/projectile/shotgun/pump/lever_action = 0.5,
 		/obj/item/gun/launcher/harpoon = 1
 		)
 

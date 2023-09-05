@@ -23,6 +23,7 @@
 		/obj/item/gun/projectile/sec                  = TRADER_ALL,
 		/obj/item/gun/projectile/shotgun/pump         = TRADER_ALL,
 		/obj/item/gun/projectile/shotgun/doublebarrel = TRADER_ALL,
+		/obj/item/gun/projectile/shotgun/pump/lever_action = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/tanto                = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/revolver/detective   = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/leyon                = TRADER_THIS_TYPE,
@@ -42,6 +43,7 @@
 		/obj/item/storage/box/shotgunshells           = TRADER_THIS_TYPE,
 		/obj/item/storage/box/haywireshells           = TRADER_THIS_TYPE,
 		/obj/item/storage/box/incendiaryshells        = TRADER_THIS_TYPE,
+		/obj/item/storage/box/governmentammo          = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/holster                 = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/accessory/holster/thigh/fluff     = TRADER_BLACKLIST_ALL
 	)
@@ -115,6 +117,7 @@
 		/obj/item/gun/projectile/contender                    = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/revolver/lemat               = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/shotgun/pump/rifle/vintage   = TRADER_BLACKLIST,
+		/obj/item/gun/projectile/shotgun/pump/lever_action    = TRADER_BLACKLIST,
 		/obj/item/gun/energy/rifle/icelance                   = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/storage/bayonet          = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/cannon                       = TRADER_THIS_TYPE,

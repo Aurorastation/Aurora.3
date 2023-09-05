@@ -24,6 +24,21 @@
 #define MAX_TEMPERATURE 90
 #define MIN_TEMPERATURE -40
 
+#define PRESET_NORTH \
+dir = NORTH; \
+pixel_y = 21;
+
+#define PRESET_SOUTH \
+dir = SOUTH;
+
+#define PRESET_WEST \
+dir = WEST; \
+pixel_x = -10;
+
+#define PRESET_EAST \
+dir = EAST; \
+pixel_x = 10;
+
 //all air alarms in area are connected via magic
 /area
 	var/list/air_vent_names = list()
@@ -35,7 +50,7 @@
 	name = "alarm"
 	desc = "A device that controls the local air regulation machinery and informs you when you're breathing vacuum."
 	icon = 'icons/obj/monitors.dmi'
-	icon_state = "alarm0"
+	icon_state = "alarmp"
 	anchored = 1
 	idle_power_usage = 90
 	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
@@ -86,14 +101,52 @@
 
 	var/report_danger_level = 1
 
+	var/global/image/alarm_overlay
+
+/obj/machinery/alarm/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/east
+	PRESET_EAST
+
+/obj/machinery/alarm/west
+	PRESET_WEST
+
+/obj/machinery/alarm/south
+	PRESET_SOUTH
+
 /obj/machinery/alarm/nobreach
 	breach_detection = 0
 	desc = "A device that controls the local air regulation machinery."
+
+/obj/machinery/alarm/nobreach/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/nobreach/east
+	PRESET_EAST
+
+/obj/machinery/alarm/nobreach/west
+	PRESET_WEST
+
+/obj/machinery/alarm/nobreach/south
+	PRESET_SOUTH
 
 /obj/machinery/alarm/monitor
 	report_danger_level = 0
 	breach_detection = 0
 	desc = "A device that controls the local air regulation machinery."
+
+/obj/machinery/alarm/monitor/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/monitor/east
+	PRESET_EAST
+
+/obj/machinery/alarm/monitor/west
+	PRESET_WEST
+
+/obj/machinery/alarm/monitor/south
+	PRESET_SOUTH
 
 /obj/machinery/alarm/server
 	req_one_access = list(access_rd, access_atmospherics, access_engine_equip)
@@ -101,18 +154,66 @@
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in small server rooms."
 	highpower = 1
 
+/obj/machinery/alarm/server/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/server/east
+	PRESET_EAST
+
+/obj/machinery/alarm/server/west
+	PRESET_WEST
+
+/obj/machinery/alarm/server/south
+	PRESET_SOUTH
+
 /obj/machinery/alarm/tcom
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in server halls."
 	req_access = list(access_tcomsat)
 	highpower = 1
+
+/obj/machinery/alarm/tcom/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/tcom/east
+	PRESET_EAST
+
+/obj/machinery/alarm/tcom/west
+	PRESET_WEST
+
+/obj/machinery/alarm/tcom/south
+	PRESET_SOUTH
 
 /obj/machinery/alarm/freezer
 	req_one_access = list(access_kitchen, access_atmospherics, access_engine_equip)
 	highpower = 1
 	target_temperature = T0C - 20
 
+/obj/machinery/alarm/freezer/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/freezer/east
+	PRESET_EAST
+
+/obj/machinery/alarm/freezer/west
+	PRESET_WEST
+
+/obj/machinery/alarm/freezer/south
+	PRESET_SOUTH
+
 /obj/machinery/alarm/cold
 	target_temperature = T0C + 5
+
+/obj/machinery/alarm/cold/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/cold/east
+	PRESET_EAST
+
+/obj/machinery/alarm/cold/west
+	PRESET_WEST
+
+/obj/machinery/alarm/cold/south
+	PRESET_SOUTH
 
 /obj/machinery/alarm/server/Initialize()
 	. = ..()
@@ -155,11 +256,9 @@
 	if(building)
 		if(dir)
 			src.set_dir(dir)
-
 		buildstage = 0
 		wiresexposed = 1
-		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
-		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
+
 		update_icon()
 		return
 
@@ -167,7 +266,16 @@
 
 	set_frequency(frequency)
 
+	if(!mapload)
+		set_pixel_offsets()
+
+	update_icon()
+
 	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/alarm/set_pixel_offsets()
+	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 10 : -10))
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 21 : 0) : 0)
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
@@ -244,6 +352,7 @@
 			regulating_temperature = 1
 			visible_message("\The [src] clicks as it starts [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
 			"You hear a click and a faint electronic hum.")
+			update_icon()
 	else
 		//check for when we should stop adjusting temperature
 		if (get_danger_level(target_temperature, TLV["temperature"]) || abs(environment.temperature - target_temperature) <= 0.5)
@@ -251,6 +360,7 @@
 			regulating_temperature = 0
 			visible_message("\The [src] clicks quietly as it stops [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
 			"You hear a click as a faint electronic humming stops.")
+			update_icon()
 
 	if (regulating_temperature)
 		//Unnecessary checks removed, duplication of effort
@@ -334,12 +444,14 @@
 	return 0
 
 /obj/machinery/alarm/update_icon()
+	cut_overlays()
+	icon_state = "alarmp"
+
 	if(wiresexposed)
 		icon_state = "alarmx"
-		set_light(0)
-		return
+
 	if((stat & (NOPOWER|BROKEN)) || shorted)
-		icon_state = "alarmp"
+		add_overlay("alarm_fan_off")
 		set_light(0)
 		return
 
@@ -347,19 +459,24 @@
 	if (alarm_area.atmosalm)
 		icon_level = max(icon_level, 1)	//if there's an atmos alarm but everything is okay locally, no need to go past yellow
 
+	alarm_overlay = make_screen_overlay(icon, "alarm[icon_level]")
+	add_overlay(alarm_overlay)
+
 	var/new_color = null
 	switch(icon_level)
 		if (0)
-			icon_state = "alarm0"
-			new_color = "#03A728"
+			new_color = COLOR_LIME
 		if (1)
-			icon_state = "alarm2" //yes, alarm2 is yellow alarm
 			new_color = COLOR_SUN
 		if (2)
-			icon_state = "alarm1"
-			new_color = "#DA0205"
+			new_color = COLOR_RED_LIGHT
 
 	set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = new_color)
+
+	if(regulating_temperature)
+		add_overlay("alarm_fan_on")
+	else
+		add_overlay("alarm_fan_off")
 
 /obj/machinery/alarm/proc/refresh_all()
 	for(var/id_tag in alarm_area.air_vent_names)
@@ -853,10 +970,15 @@ Just a object used in constructing air alarms
 */
 /obj/item/airalarm_electronics
 	name = "air alarm electronics"
-	icon = 'icons/obj/doors/door_assembly.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "door_electronics"
 	desc = "Looks like a circuit. Probably is."
 	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 // Fire Alarms moved to firealarm.dm
+
+#undef PRESET_NORTH
+#undef PRESET_SOUTH
+#undef PRESET_WEST
+#undef PRESET_EAST

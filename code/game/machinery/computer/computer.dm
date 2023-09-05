@@ -1,6 +1,6 @@
 /obj/machinery/computer
 	name = "computer"
-	icon = 'icons/obj/modular_console.dmi'
+	icon = 'icons/obj/machinery/modular_console.dmi'
 	icon_state = "computer"
 	density = 1
 	anchored = 1.0

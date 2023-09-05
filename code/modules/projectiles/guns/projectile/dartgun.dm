@@ -52,7 +52,8 @@
 	fire_sound_text = "a metallic click"
 	accuracy = 1
 	recoil = 0
-	silenced = 1
+	suppressed = TRUE
+	can_unsuppress = FALSE
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/chemdart
 	auto_eject = 0

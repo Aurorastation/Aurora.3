@@ -4,7 +4,7 @@
 /turf/simulated/floor/fixed
 	name = "floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
-	icon_state = "steel"
+	icon_state = "tiled_preview"
 	initial_flooring = null
 
 /turf/simulated/floor/fixed/attackby(var/obj/item/C, var/mob/user)
@@ -20,4 +20,3 @@
 
 /turf/simulated/floor/fixed/set_flooring()
 	return
-
