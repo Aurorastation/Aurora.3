@@ -50,3 +50,4 @@ changes:
   - backend: "Contained spritizes reagent containers,  surgical tools and stethoscope."
   - imageadd: "Improves beaker sprites. Improves sprites for syringes, autoinjectors, DNA injectors, Lazarus injectors. They should look better and be more consistent (all with a 45 degree tilt)"
   - tweak: "Replaced 'milosoup' with miso soup, updates the sprite."
+  - imageadd: "Adds new teapot sprite."
