@@ -185,9 +185,12 @@ var/list/tag_related_tags = list()
 	. += "<tr><td colspan=3><center><a href='?src=\ref[src];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=\ref[src];next_slot=1'>\>\></a><b><font color = '[fcolor]'>[total_cost]/[MAX_GEAR_COST]</font> loadout points spent.</b> \[<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
 
 	. += "<tr><td colspan=3><b>"
+	. += "<table>"
 	for(var/tag_group in tag_groups_all)
+		. += "<tr><td>"
 		var/list/tag_group_list = tag_groups_all[tag_group]
 		. += tag_group + ":"
+		. += "</td><td>"
 		for(tag in tag_group_list)
 			var/style = ""
 			var/href_target = "?src=\ref[src];toggle_tag=[tag]"
@@ -199,7 +202,8 @@ var/list/tag_related_tags = list()
 			if(tag in selected_tags)
 				style = "style='color: #FF8000;'"
 			. += " <a href='[href_target]'><font [style]>[tag]</font></a> "
-		. += "<br>"
+		. += "</td></tr>"
+	. += "</table>"
 	. += "</b></td></tr>"
 
 	. += "<tr><td colspan=3><hr></td></tr>"
