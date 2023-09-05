@@ -69,7 +69,7 @@
 	icon_state = "[initial(icon_state)]_[rounded_vol]"
 
 	if(reagents.total_volume)
-		filling = image('icons/obj/syringe.dmi', src, "[initial(icon_state)][volume]")
+		filling = image(icon, src, "[initial(icon_state)][volume]")
 
 		filling.icon_state = "[initial(icon_state)][rounded_vol]"
 
