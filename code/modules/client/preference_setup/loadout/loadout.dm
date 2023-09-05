@@ -272,7 +272,7 @@ var/list/tag_related_tags = list()
 		temp_html += "<td><font size=2><i>[G.description]</i><br>"
 
 		if(G.allowed_roles)
-			temp_html += "</font><font size = 1>(Role: "
+			temp_html += "</font><font size=1 style='color: #B1B1B1;'>(Role: "
 			var/role_count = 0
 			for(var/role in G.allowed_roles)
 				temp_html += "[role]"
@@ -283,7 +283,7 @@ var/list/tag_related_tags = list()
 				else
 					temp_html += ", "
 		if(G.culture_restriction)
-			temp_html += "</font><font size = 1>(Culture: "
+			temp_html += "</font><font size=1 style='color: #B1B1B1;'>(Culture: "
 			var/culture_count = 0
 			for(var/culture in G.culture_restriction)
 				var/singleton/origin_item/C = GET_SINGLETON(culture)
@@ -295,7 +295,7 @@ var/list/tag_related_tags = list()
 				else
 					temp_html += ", "
 		if(G.origin_restriction)
-			temp_html += "</font><font size = 1>(Origin: "
+			temp_html += "</font><font size=1 style='color: #B1B1B1;'>(Origin: "
 			var/origin_count = 0
 			for(var/origin in G.origin_restriction)
 				var/singleton/origin_item/O = GET_SINGLETON(origin)
@@ -307,7 +307,7 @@ var/list/tag_related_tags = list()
 				else
 					temp_html += ", "
 		if(G.tags && G.tags.len != 0)
-			temp_html += "</font><font size = 1>{Tags: "
+			temp_html += "</font><font size=1 style='color: #B1B1B1;'>{Tags: "
 			var/tag_count = 0
 			for(var/tag in G.tags)
 				temp_html += "[tag]"
