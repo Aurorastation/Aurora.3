@@ -6,6 +6,9 @@ var/list/gear_datums = list()
 /// Index is tag name, value is a list of initial(gear.display_name).
 var/list/tag_gear_names = list()
 
+/// List of all gear names (initial(gear.display_name)).
+var/list/all_gear_names = list()
+
 /// Map of related tags.
 /// Index is tag name, value is any tags of items that also have this tag.
 /// --
@@ -32,9 +35,10 @@ var/list/tag_related_tags = list()
 	// sort that list
 	sortTim(gear_datums, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
 
-	// fill tag_gear_names
+	// fill tag_gear_names and all_gear_names
 	for(var/gear_name in gear_datums)
 		var/datum/gear/gear = gear_datums[gear_name]
+		all_gear_names += gear_name
 		for(var/tag in gear.tags)
 			if(!tag_gear_names[tag])
 				tag_gear_names[tag] = list()
@@ -59,8 +63,10 @@ var/list/tag_related_tags = list()
 	name = "Loadout"
 	sort_order = 1
 	var/gear_reset = FALSE
-	/// Default tags for when the loadout is first opened.
-	var/list/selected_tags = list("No Species Restriction", "No Department Restriction", "No Corporation Restriction")
+	/// Currently selected tags.
+	var/list/selected_tags = list()
+	///
+	var/show_all_selected_items = TRUE
 
 /datum/category_item/player_setup_item/loadout/load_character(var/savefile/S)
 	S["gear"] >> pref.gear
@@ -198,7 +204,9 @@ var/list/tag_related_tags = list()
 
 	. += "<tr><td colspan=3><hr></td></tr>"
 	. += "<tr><td colspan=3>"
-	. += "<a href='?src=\ref[src];clear_tags=1'>Clear tags and show all selected items</a> "
+	var/show_all_selected_items_style = show_all_selected_items ? "style='color: #FF8000;'" : ""
+	. += "<a href='?src=\ref[src];show_all_selected_items=1'><font [show_all_selected_items_style]>Show all selected items</font></a> "
+	. += "<a href='?src=\ref[src];clear_tags=1'>Clear tags</a> "
 	. += "</td></tr>"
 	. += "<tr><td colspan=3><hr></td></tr>"
 
@@ -211,10 +219,13 @@ var/list/tag_related_tags = list()
 	var/list/player_valid_gear_choices = valid_gear_choices()
 
 	var/list/gear_names = list()
-	if(selected_tags.len > 0)
-		gear_names = tag_gear_names[selected_tags[1]]
-	if(selected_tags.len == 0)
+	if(show_all_selected_items == TRUE)
 		gear_names = pref.gear
+	else if(selected_tags.len > 0)
+		gear_names = tag_gear_names[selected_tags[1]]
+	else
+		gear_names = all_gear_names
+
 
 	for(var/gear_name in gear_names)
 		if(!(gear_name in player_valid_gear_choices))
@@ -396,12 +407,18 @@ var/list/tag_related_tags = list()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["toggle_tag"])
+		show_all_selected_items = FALSE
 		selected_tags ^= href_list["toggle_tag"]
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	else if(href_list["clear_loadout"])
 		pref.gear.Cut()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
+	else if(href_list["show_all_selected_items"])
+		show_all_selected_items ^= TRUE
+		selected_tags = list()
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 	else if(href_list["clear_tags"])
+		show_all_selected_items = FALSE
 		selected_tags = list()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 	return ..()
