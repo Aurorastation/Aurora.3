@@ -5913,10 +5913,10 @@
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/carton/soymilk,
-/obj/item/reagent_containers/food/drinks/carton/soymilk,
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/milk,
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
 	},
@@ -22916,7 +22916,7 @@
 	},
 /area/centcom/legion)
 "bcU" = (
-/obj/item/reagent_containers/food/drinks/carton/soymilk{
+/obj/item/reagent_containers/food/drinks/soymilk{
 	pixel_x = 6;
 	pixel_y = 12
 	},

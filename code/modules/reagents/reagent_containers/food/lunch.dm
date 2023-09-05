@@ -86,9 +86,9 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda,
 	/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
 	/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
-	/obj/item/reagent_containers/food/drinks/carton/small/milk,
-	/obj/item/reagent_containers/food/drinks/carton/small/milk/choco,
-	/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry,
+	/obj/item/reagent_containers/food/drinks/milk,
+	/obj/item/reagent_containers/food/drinks/milk/choco,
+	/obj/item/reagent_containers/food/drinks/milk/strawberry,
 	/obj/item/reagent_containers/food/drinks/cans/melon_soda
 )
 

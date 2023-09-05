@@ -855,8 +855,8 @@
 	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/milk,
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -9;

@@ -191,7 +191,7 @@
 /area/shuttle/unathi_pirate_izharshan/operations)
 "fA" = (
 /obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/milk,
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,

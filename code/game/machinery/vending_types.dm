@@ -267,7 +267,7 @@
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/ice = 10,
-		/obj/item/reagent_containers/food/drinks/carton/soymilk = 2
+		/obj/item/reagent_containers/food/drinks/soymilk = 2
 	)
 	prices = list(
 		/obj/item/reagent_containers/food/drinks/coffee = 20,
@@ -404,9 +404,9 @@
 		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 10,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 10,
 		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 10,
-		/obj/item/reagent_containers/food/drinks/carton/small/milk = 10,
-		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 10,
-		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 10,
+		/obj/item/reagent_containers/food/drinks/milk = 10,
+		/obj/item/reagent_containers/food/drinks/milk/choco = 10,
+		/obj/item/reagent_containers/food/drinks/milk/strawberry = 10,
 		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 10
 	)
 	contraband = list(
@@ -434,9 +434,9 @@
 		/obj/item/reagent_containers/food/drinks/cans/koispunch = 50,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
 		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 35,
-		/obj/item/reagent_containers/food/drinks/carton/small/milk = 18,
-		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 18,
-		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 18,
+		/obj/item/reagent_containers/food/drinks/milk = 18,
+		/obj/item/reagent_containers/food/drinks/milk/choco = 18,
+		/obj/item/reagent_containers/food/drinks/milk/strawberry = 18,
 		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 16
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.

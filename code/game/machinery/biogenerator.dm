@@ -67,7 +67,7 @@
 
 /singleton/biorecipe/food/milk
 	name = "Space Milk (50u)"
-	object = /obj/item/reagent_containers/food/drinks/carton/milk
+	object = /obj/item/reagent_containers/food/drinks/milk
 	cost = 100
 
 /singleton/biorecipe/food/nutrispread

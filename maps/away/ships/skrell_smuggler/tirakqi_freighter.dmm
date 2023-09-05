@@ -689,8 +689,8 @@
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	req_access = "208"
 	},
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/milk,
 /obj/item/storage/box/produce{
 	layer = 2.99;
 	pixel_x = 3;
