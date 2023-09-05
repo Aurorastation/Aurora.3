@@ -19962,9 +19962,6 @@
 /turf/simulated/floor/plating,
 /area/horizon/custodial/disposals)
 "nYB" = (
-/obj/structure/plasticflaps{
-	name = "Delivery Chute to Mail Room"
-	},
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "warehousetomail";
@@ -19972,6 +19969,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/plasticflaps{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "nZb" = (
