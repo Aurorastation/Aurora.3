@@ -2055,7 +2055,6 @@
 	required_reagents = list(/singleton/reagent/alcohol/beer = 5, /singleton/reagent/water = 5)
 	result_amount = 10
 
-
 /datum/chemical_reaction/rice_beer
 	name = "Rice Beer"
 	id = "rice_beer"

@@ -2477,6 +2477,9 @@
 	strength = 1
 	taste_description = "dish water"
 
+	glass_name = "glass of light beer"
+	glass_desc = "A freezing pint of watery light beer."
+
 /singleton/reagent/alcohol/rice_beer
 	name = "Rice Beer"
 	description = "A light, rice-based lagered beer popular on Konyang."
