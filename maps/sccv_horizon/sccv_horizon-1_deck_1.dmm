@@ -25175,6 +25175,7 @@
 	dir = 4;
 	pixel_y = -1
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "rMm" = (
@@ -32920,6 +32921,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "xgm" = (
@@ -62290,7 +62292,7 @@ xiH
 pdC
 dEe
 rMf
-eTx
+oFy
 pdC
 moP
 xtK
@@ -62493,7 +62495,7 @@ xiH
 pdC
 dEe
 xgc
-oFy
+eTx
 pdC
 vnJ
 xtK

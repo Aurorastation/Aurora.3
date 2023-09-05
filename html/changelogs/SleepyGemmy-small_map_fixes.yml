@@ -9,3 +9,4 @@ changes:
   - bugfix: "Potentially fixed some issues with the CoC ranger ship's cockpit windows missing."
   - bugfix: "Fixed the ATM outside operations on D2 being misrotated."
   - bugfix: "Fixed east facing stairs not working."
+  - bugfix: "Fixed the engineering stairs and AI core stairs being mapped incorrectly."
