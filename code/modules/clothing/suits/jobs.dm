@@ -207,8 +207,11 @@
 /obj/item/clothing/suit/storage/toggle/suitjacket
 	name = "suit jacket"
 	desc = "A snappy dress jacket."
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/suitjacket.dmi'
 	icon_state = "suitjacket"
 	item_state = "suitjacket"
+	contained_sprite = TRUE
+	has_accents = TRUE
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 	opened = TRUE
@@ -219,7 +222,6 @@
 	desc_extended = "for when you want to play ball sports like an aristocrat."
 	icon_state = "blazer"
 	item_state = "blazer"
-	opened = TRUE
 
 /obj/item/clothing/suit/storage/toggle/suitjacket/blazer/long
 	name = "long blazer"
@@ -227,7 +229,6 @@
 	desc_extended = "For when you want to play ball sports like an aristocrat."
 	icon_state = "longblazer"
 	item_state = "longblazer"
-	opened = TRUE
 
 //Medical
 /obj/item/clothing/suit/storage/toggle/fr_jacket
