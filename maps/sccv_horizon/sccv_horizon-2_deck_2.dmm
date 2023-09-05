@@ -9517,6 +9517,9 @@
 /obj/structure/coatrack{
 	pixel_x = -9
 	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Research Director's Office"
+	},
 /turf/simulated/floor/carpet/purple,
 /area/crew_quarters/heads/hor)
 "eMf" = (
@@ -10314,9 +10317,6 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/starboard)
 "fer" = (
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Research Director's Office"
-	},
 /obj/structure/closet/secure_closet/RD,
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/structure/platform{
@@ -10333,6 +10333,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
+/obj/item/storage/box/fancy/candle_box,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hor)
 "feu" = (
@@ -14568,6 +14569,10 @@
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
+	},
+/obj/item/flame/candle{
+	pixel_x = 10;
+	pixel_y = 2
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hor)
@@ -40520,9 +40525,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "tNS" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
