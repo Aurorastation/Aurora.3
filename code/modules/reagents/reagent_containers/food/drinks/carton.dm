@@ -93,6 +93,7 @@
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
+	volume = 30
 
 /obj/item/reagent_containers/food/drinks/carton/small/milk
 	name = "small milk carton"
