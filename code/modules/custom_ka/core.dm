@@ -234,14 +234,13 @@
 		installed_upgrade_chip.on_fire(src)
 	if(installed_barrel)
 		installed_barrel.on_fire(src)
-
 	
 	var/turf/T = get_turf(src)
 
 	if(T)
 		var/datum/gas_mixture/environment = T.return_air()
 		var/pressure = (environment)? environment.return_pressure() : 0
-		if(istype(installed_barrel.projectile_type, /obj/item/projectile/kinetic))
+		if(ispath(installed_barrel.projectile_type, /obj/item/projectile/kinetic))
 			var/obj/item/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
 			shot_projectile.damage = damage_increase
 			shot_projectile.range = range_increase
@@ -254,12 +253,11 @@
 				shot_projectile.base_damage = damage_increase
 				return shot_projectile
 				
-		if(istype(installed_barrel.projectile_type, /obj/item/projectile/beam))
+		if(ispath(installed_barrel.projectile_type, /obj/item/projectile/beam))
 			var/obj/item/projectile/beam/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
 			shot_projectile.damage = damage_increase
 			shot_projectile.range = range_increase
 			return shot_projectile
-		
 
 /obj/item/gun/custom_ka/Initialize()
 	. = ..()
