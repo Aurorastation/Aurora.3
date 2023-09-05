@@ -766,13 +766,10 @@
 /obj/item/lazarus_injector
 	name = "lazarus injector"
 	desc = "An injector with a secret patented cocktail of nanomachines and chemicals, this device can seemingly raise animals from the dead. If no effect in 3 days please call customer support."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	icon_state = "lazarus_loaded"
 	item_state = "lazarus_loaded"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi'
-		)
+	contained_sprite = TRUE
 	throwforce = 0
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 3

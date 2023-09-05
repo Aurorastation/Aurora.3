@@ -2,7 +2,7 @@
 	name = "dropper"
 	desc = "A dropper. It has a volume of 5 units."
 	desc_info = "Alt Click or Activate this item to change transfer rate."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/item/reagent_containers/dropper.dmi'
 	contained_sprite = TRUE
 	icon_state = "dropper"
 	item_state = "dropper"
@@ -96,7 +96,7 @@
 	cut_overlays()
 	if(reagents.total_volume)
 		worn_overlay = "filling"
-		add_overlay(overlay_image('icons/obj/reagentfillings.dmi', "dropper-[get_filling_state()]", color = reagents.get_color()))
+		add_overlay(overlay_image(icon, "dropper-[get_filling_state()]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
 	else
 		worn_overlay = null

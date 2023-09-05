@@ -102,44 +102,10 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 /// Drinks. END
 ////////////////////////////////////////////////////////////////////////////////
 
-/obj/item/reagent_containers/food/drinks/golden_cup
-	desc = "A golden cup"
-	name = "golden cup"
-	icon_state = "golden_cup"
-	item_state = "" //nope :[
-	w_class = ITEMSIZE_LARGE
-	force = 14
-	throwforce = 10
-	amount_per_transfer_from_this = 20
-	possible_transfer_amounts = null
-	volume = 150
-	flags = CONDUCT | OPENCONTAINER
-
 ///////////////////////////////////////////////Drinks
 //Notes by Darem: Drinks are simply containers that start preloaded. Unlike condiments, the contents can be ingested directly
 //	rather then having to add it to something else first. They should only contain liquids. They have a default container size of 50.
 //	Formatting is the same as food.
-
-/obj/item/reagent_containers/food/drinks/milk
-	name = "space milk"
-	desc = "It's milk. White and nutritious goodness!"
-	icon_state = "milk"
-	item_state = "carton"
-	drop_sound = 'sound/items/drop/cardboardbox.ogg'
-	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
-	center_of_mass = list("x"=16, "y"=9)
-	reagents_to_add = list(/singleton/reagent/drink/milk = 50)
-
-/obj/item/reagent_containers/food/drinks/soymilk
-	name = "soymilk"
-	desc = "It's soy milk. White and nutritious goodness!"
-	icon_state = "soymilk"
-	item_state = "carton"
-	drop_sound = 'sound/items/drop/cardboardbox.ogg'
-	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
-	center_of_mass = list("x"=16, "y"=9)
-	reagents_to_add = list(/singleton/reagent/drink/milk/soymilk = 50)
-
 /obj/item/reagent_containers/food/drinks/coffee
 	name = "\improper Martian Dark Roast"
 	desc = "The darkest roast this side of Olympia, guaranteed."
@@ -180,8 +146,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	icon_state = "greentea_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
-
-	empty_icon_state = "coffee_vended_empty"
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
@@ -193,7 +157,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	icon_state = "soy_latte_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
-	empty_icon_state = "coffee_vended_empty"
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
@@ -205,7 +168,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	icon_state = "chai_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
-	empty_icon_state = "coffee_vended_empty"
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
@@ -257,19 +219,20 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	desc = "A fresh bottle of water from the finest bottling plants on Silversun."
 	desc_extended = "Previously introduced to the vending machines by Skrellian request, this water used to come straight from the Martian poles. Ever since the Martian catastrophe, however, an Idris subsidiary has since stepped in to fill the gap in the market \
 	and 'Martian Water' has become a prized collector's item."
+	icon = 'icons/obj/item/reagent_containers/food/drinks/soda.dmi' // it's no soda, but shows up in vending machines nonetheless
 	icon_state = "smallbottle"
 	flags = 0 //starts closed
 	center_of_mass = list("x"=16, "y"=8)
 	drop_sound = 'sound/items/drop/disk.ogg'
 	pickup_sound = 'sound/items/pickup/disk.ogg'
-
+	volume = 30
 	reagents_to_add = list(/singleton/reagent/water = 30)
 
 /obj/item/reagent_containers/food/drinks/waterbottle/update_icon()
 	cut_overlays()
 
 	if(reagents?.total_volume)
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
+		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
@@ -289,6 +252,11 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 /obj/item/reagent_containers/food/drinks/waterbottle/pickup()
 	. = ..()
 	animate(src, transform = null, time = 1, loop = 0)
+
+/obj/item/reagent_containers/food/drinks/waterbottle/large
+	name = "large bottled water"
+	volume = 100
+	reagents_to_add = list(/singleton/reagent/water = 100)
 
 /obj/item/reagent_containers/food/drinks/sillycup
 	name = "paper cup"
@@ -314,91 +282,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	possible_transfer_amounts = null
 	volume = 30
-
-//////////////////////////JUICES AND STUFF ///////////////////////
-
-/obj/item/reagent_containers/food/drinks/carton
-	name = "carton"
-	desc = "An abstract way to organize bottles that are really cartons. Finally!"
-	icon_state = "carton"
-	volume = 100
-	center_of_mass = list("x"=16, "y"=6)
-	drop_sound = 'sound/items/drop/cardboardbox.ogg'
-	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
-
-/obj/item/reagent_containers/food/drinks/carton/orangejuice
-	name = "orange juice"
-	desc = "Full of vitamins and deliciousness!"
-	icon_state = "orangejuice"
-
-	reagents_to_add = list(/singleton/reagent/drink/orangejuice = 100)
-
-/obj/item/reagent_containers/food/drinks/carton/cream
-	name = "milk cream"
-	desc = "It's cream. Made from milk. What else did you think you'd find in there?"
-	icon_state = "cream"
-
-	reagents_to_add = list(/singleton/reagent/drink/milk/cream = 100)
-
-/obj/item/reagent_containers/food/drinks/carton/tomatojuice
-	name = "tomato juice"
-	desc = "Well, at least it LOOKS like tomato juice. You can't tell with all that redness."
-	icon_state = "tomatojuice"
-
-	reagents_to_add = list(/singleton/reagent/drink/tomatojuice = 100)
-
-/obj/item/reagent_containers/food/drinks/carton/limejuice
-	name = "lime juice"
-	desc = "Sweet-sour goodness."
-	icon_state = "limejuice"
-
-	reagents_to_add = list(/singleton/reagent/drink/limejuice = 100)
-
-/obj/item/reagent_containers/food/drinks/carton/lemonjuice
-	name = "lemon juice"
-	desc = "This juice is VERY sour."
-	icon_state = "lemoncarton"
-
-	reagents_to_add = list(/singleton/reagent/drink/lemonjuice = 100)
-
-/obj/item/reagent_containers/food/drinks/carton/dynjuice
-	name = "dyn juice"
-	desc = "Juice from a Skrell medicinal herb. It's supposed to be diluted."
-	icon_state = "dyncarton"
-
-	reagents_to_add = list(/singleton/reagent/drink/dynjuice = 100)
-
-/obj/item/reagent_containers/food/drinks/carton/applejuice
-	name = "apple juice"
-	desc = "Juice from an apple. Yes."
-	icon_state = "applejuice"
-
-	reagents_to_add = list(/singleton/reagent/drink/applejuice = 100)
-
-/obj/item/reagent_containers/food/drinks/carton/fatshouters
-	name = "fatshouters milk carton"
-	desc = "Fatty fatshouters milk in a carton."
-
-	reagents_to_add = list(/singleton/reagent/drink/milk/adhomai = 100)
-
-/obj/item/reagent_containers/food/drinks/carton/mutthir
-	name = "mutthir carton"
-	icon_state = "mutthir"
-	desc = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs."
-	desc_extended = "A beverage made with Fatshouters' yogurt mixed with Nm'shaan's sugar and sweet herbs. Mutthir is usually consumed during meals by both nobles and commoners. \
-	The drink can also be smoked for flavor. Mutthir is believed to have originated from the worldwide appreciated Fatshouters' fermented milk. Rock Nomads living in the Nomadic Host \
-	were quick to adopt the drink to their diet."
-
-	reagents_to_add = list(/singleton/reagent/drink/milk/adhomai/mutthir = 100)
-
-/obj/item/reagent_containers/food/drinks/carton/eggnog
-	name = "eggnog carton"
-	icon_state = "cream"
-	desc = "A beverage, made out of egg, sugar alcohol and in this case, cream."
-	desc_extended = "Eggnog, also called Egg flip, is an alcoholic beverage, made out of egg, milk or cream, sugar and alcohol. Eggnog is by principle a longdrink and they can be served \
-	hot or cold. Originally it was served in winter and hot. Every serving uses one egg. It is a classic Christmas beverage, loved by every species, universe-wide. Or so you heard."
-
-	reagents_to_add = list(/singleton/reagent/alcohol/eggnog = 100)
 
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink
@@ -586,180 +469,9 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 /obj/item/reagent_containers/food/drinks/shaker_cup/AltClick(mob/user)
 	set_APTFT()
 
-/obj/item/reagent_containers/food/drinks/teapot
-	name = "teapot"
-	desc = "An elegant teapot. It simply oozes class."
-	icon_state = "teapot"
-	item_state = "teapot"
-	unacidable = TRUE
-	amount_per_transfer_from_this = 10
-	volume = 120
-
-/obj/item/reagent_containers/food/drinks/pitcher
-	name = "pitcher"
-	desc = "Everyone's best friend in the morning."
-	icon_state = "pitcher"
-	unacidable = TRUE
-	amount_per_transfer_from_this = 10
-	volume = 120
-	possible_transfer_amounts = list(5,10,15,30,60,120)
-
-/obj/item/reagent_containers/food/drinks/flask
-	name = "captain's flask"
-	desc = "A metal flask belonging to the captain"
-	icon_state = "flask"
-	volume = 60
-	center_of_mass = list("x"=17, "y"=7)
-
-/obj/item/reagent_containers/food/drinks/flask/detflask
-	name = "detective's flask"
-	desc = "A metal flask with a leather band and golden badge belonging to the detective."
-	icon_state = "detflask"
-	volume = 60
-	center_of_mass = list("x"=17, "y"=8)
-
-/obj/item/reagent_containers/food/drinks/flask/barflask
-	name = "flask"
-	desc = "For those who can't be bothered to hang out at the bar to drink."
-	icon_state = "barflask"
-	volume = 60
-	center_of_mass = list("x"=17, "y"=7)
-
-/obj/item/reagent_containers/food/drinks/flask/vacuumflask
-	name = "vacuum flask"
-	desc = "Keeping your drinks at the perfect temperature since 1892."
-	icon_state = "vacuumflask"
-	volume = 60
-	center_of_mass = list("x"=15, "y"=4)
-
-	var/obj/item/reagent_containers/food/drinks/flask/flask_cup/cup
-
-/obj/item/reagent_containers/food/drinks/flask/vacuumflask/Initialize()
-	. = ..()
-	cup = new(src)
-	flags ^= OPENCONTAINER
-
-/obj/item/reagent_containers/food/drinks/flask/vacuumflask/attack_self(mob/user)
-	if(cup)
-		to_chat(user, SPAN_NOTICE("You remove \the [src]'s cap."))
-		user.put_in_hands(cup)
-		flags |= OPENCONTAINER
-		cup = null
-		update_icon()
-
-/obj/item/reagent_containers/food/drinks/flask/vacuumflask/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/reagent_containers/food/drinks/flask/flask_cup))
-		if(cup)
-			to_chat(user, SPAN_WARNING("\The [src] already has a cap."))
-			return TRUE
-		if(W.reagents.total_volume + reagents.total_volume > volume)
-			to_chat(user, SPAN_WARNING("There's too much fluid in both the cap and \the [src]!"))
-			return TRUE
-		to_chat(user, SPAN_NOTICE("You put the cap onto \the [src]."))
-		user.drop_from_inventory(W, src)
-		flags ^= OPENCONTAINER
-		cup = W
-		cup.reagents.trans_to_holder(reagents, cup.reagents.total_volume)
-		update_icon()
-		return TRUE
-	return ..()
-
-/obj/item/reagent_containers/food/drinks/flask/vacuumflask/update_icon()
-	icon_state = cup ? initial(icon_state) : "[initial(icon_state)]-nobrim"
-
-/obj/item/reagent_containers/food/drinks/flask/flask_cup
-	name = "vacuum flask cup"
-	desc = "The cup that appears in your hands after you unscrew the cap of the flask and turn it over. Magic!"
-	icon_state = "vacuumflask-brim"
-	volume = 10
-	center_of_mass = list("x" = 16, "y" = 16)
-
-/obj/item/reagent_containers/food/drinks/flask/flask_cup/afterattack(atom/target, mob/user, proximity, params)
-	if(istype(target, /obj/item/reagent_containers/food/drinks/flask/vacuumflask))
-		return
-	return ..()
-
 /obj/item/reagent_containers/food/drinks/britcup
 	name = "cup"
 	desc = "A cup with the British flag emblazoned on it."
 	icon_state = "britcup"
 	volume = 30
 	center_of_mass = list("x"=15, "y"=13)
-
-/obj/item/reagent_containers/food/drinks/small_milk
-	name = "small milk carton"
-	desc = "It's milk. White and nutritious goodness!"
-	icon_state = "mini-milk"
-	item_state = "carton"
-	drop_sound = 'sound/items/drop/papercup.ogg'
-	pickup_sound = 'sound/items/pickup/papercup.ogg'
-	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/singleton/reagent/drink/milk = 20)
-
-/obj/item/reagent_containers/food/drinks/small_milk_choco
-	name = "small chocolate milk carton"
-	desc = "It's milk. This one is in delicious chocolate flavor."
-	icon_state = "mini-milk_choco"
-	item_state = "carton"
-	drop_sound = 'sound/items/drop/papercup.ogg'
-	pickup_sound = 'sound/items/pickup/papercup.ogg'
-	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/singleton/reagent/drink/milk/chocolate = 20)
-
-/obj/item/reagent_containers/food/drinks/small_milk_strawberry
-	name = "small strawberry milk carton"
-	desc = "It's milk. This one is in delicious strawberry flavor."
-	icon_state = "mini-milk_strawberry"
-	item_state = "carton"
-	drop_sound = 'sound/items/drop/papercup.ogg'
-	pickup_sound = 'sound/items/pickup/papercup.ogg'
-	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/singleton/reagent/drink/milk/strawberry = 20)
-
-/obj/item/reagent_containers/food/drinks/jyalra
-	name = "jyalra"
-	desc = "A popular junk food item from the Nralakk Federation. Jyalra is a savoury puree made from dyn that has been peeled and mashed into a dark blue pulp."
-	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
-	icon_state = "jyalra"
-	item_state = "jyalra"
-	empty_icon_state = "jyalra_empty"
-	drop_sound = 'sound/items/drop/disk.ogg'
-	pickup_sound = 'sound/items/pickup/disk.ogg'
-	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/singleton/reagent/drink/jyalra = 40)
-
-/obj/item/reagent_containers/food/drinks/jyalracheese
-	name = "jyalra with nycii"
-	desc = "A popular junk food item from the Nralakk Federation. Jyalra is a savoury puree made from dyn that has been peeled and mashed into a dark blue pulp. Nycii, a type of Skrellian cheese, has been added to the puree for flavour."
-	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
-	icon_state = "jyalracheese"
-	item_state = "jyalracheese"
-	empty_icon_state = "jyalra_empty"
-	drop_sound = 'sound/items/drop/disk.ogg'
-	pickup_sound = 'sound/items/pickup/disk.ogg'
-	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/singleton/reagent/drink/jyalracheese = 40)
-
-/obj/item/reagent_containers/food/drinks/jyalraapple
-	name = "jyalra with apples"
-	desc = "A popular junk food item from the Nralakk Federation. Jyalra is a savoury puree made from dyn that has been peeled and mashed into a dark blue pulp. Apples have been added to make the meal sweeter."
-	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
-	icon_state = "jyalraapple"
-	item_state = "jyalraapple"
-	empty_icon_state = "jyalra_empty"
-	drop_sound = 'sound/items/drop/disk.ogg'
-	pickup_sound = 'sound/items/pickup/disk.ogg'
-	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/singleton/reagent/drink/jyalraapple = 40)
-
-/obj/item/reagent_containers/food/drinks/jyalracherry
-	name = "jyalra with cherries"
-	desc = "A popular junk food item from the Nralakk Federation. Jyalra is a savoury puree made from dyn that has been peeled and mashed into a dark blue pulp. Cherries have been added to make the meal sweeter."
-	desc_extended = "Jyalra is created by peeling and mashing dyn until it becomes a thick blue puree. Unlike the fruit, it has a dry, savoury flavour to it. While used as a meal replacement by busy scientists, it is considered junk food by the Skrell and is eaten more as a snack than a proper meal."
-	icon_state = "jyalracherry"
-	item_state = "jyalracherry"
-	empty_icon_state = "jyalra_empty"
-	drop_sound = 'sound/items/drop/disk.ogg'
-	pickup_sound = 'sound/items/pickup/disk.ogg'
-	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/singleton/reagent/drink/jyalracherry = 40)

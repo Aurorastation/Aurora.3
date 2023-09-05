@@ -2006,7 +2006,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/reagent_containers/food/drinks/small_milk,
+/obj/item/reagent_containers/food/drinks/carton/small/milk,
 /turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "fW" = (

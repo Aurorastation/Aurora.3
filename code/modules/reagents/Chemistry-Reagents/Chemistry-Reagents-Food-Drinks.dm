@@ -2471,6 +2471,12 @@
 	if(alien != IS_DIONA)
 		M.jitteriness = max(M.jitteriness - 3, 0)
 
+/singleton/reagent/alcohol/beer/light
+	name = "Light Beer"
+	description = "An alcoholic beverage brewed since ancient times on Earth. This variety has reduced calorie and alcohol content."
+	strength = 1
+	taste_description = "dish water"
+
 /singleton/reagent/alcohol/rice_beer
 	name = "Rice Beer"
 	description = "A light, rice-based lagered beer popular on Konyang."
@@ -2683,14 +2689,14 @@
 
 /singleton/reagent/alcohol/soju
 	name = "Soju"
-	description = "A mild Konyanger spirit that is best described as rice vodka."
+	description = "Also known as shochu or baijiu, this drink is made from fermented rice, much like sake, but at a generally higher proof making it more similar to a true spirit."
 	color = "#f2f9fa"
 	strength = 25
-	taste_description = "slightly dry alcohol with a subtle burn"
+	taste_description = "stiff rice wine"
 
 	glass_icon_state = "sojuglass"
 	glass_name = "glass of soju"
-	glass_desc = "A clear alcohol similar to vodka, brewed from rice."
+	glass_desc = "A glass of strong rice wine."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 /singleton/reagent/alcohol/tequila

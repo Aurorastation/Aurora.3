@@ -14057,7 +14057,7 @@
 	pixel_x = 10
 	},
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/pitcher{
+/obj/item/reagent_containers/glass/pitcher{
 	pixel_x = -3;
 	pixel_y = 2
 	},
@@ -31675,7 +31675,7 @@
 /obj/machinery/light_switch{
 	pixel_x = 24
 	},
-/obj/item/reagent_containers/food/drinks/pitcher{
+/obj/item/reagent_containers/glass/pitcher{
 	pixel_x = -3;
 	pixel_y = 2
 	},
@@ -49668,10 +49668,10 @@
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/structure/extinguisher_cabinet/east{
 	pixel_y = -1
 	},
@@ -51232,7 +51232,7 @@
 	dir = 1
 	},
 /obj/item/wrench,
-/obj/item/reagent_containers/food/drinks/teapot,
+/obj/item/reagent_containers/glass/teapot,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bUE" = (

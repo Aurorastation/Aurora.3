@@ -32159,7 +32159,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/reagent_containers/food/drinks/teapot{
+/obj/item/reagent_containers/glass/teapot{
 	pixel_y = 16
 	},
 /obj/item/storage/box/snack{
@@ -36291,7 +36291,7 @@
 	pixel_x = 1;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/drinks/pitcher{
+/obj/item/reagent_containers/glass/pitcher{
 	pixel_x = -3;
 	pixel_y = 2
 	},

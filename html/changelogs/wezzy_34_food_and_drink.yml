@@ -27,7 +27,7 @@
 #################################
 
 # Your name.
-author: Wowzewow (Wezzy)
+author: Wowzewow (Wezzy), atteria
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -43,6 +43,10 @@ changes:
   - imageadd: "New chemical cartridge, flask, vacuum flask and shaker sprites."
   - rscadd: "Adds champagne popping and sabrage."
   - rscadd: "Ports rice beer, beer cans and melon soda."
-  - tweak: "Rice beer recipe is now 10 rice, 5 universal enzyme (catalyst), Sake is now 5 rice beer, 5 sugar and 5 universal enzyme (catalyst)."
-  - rscadd: "Gibson Hooch now has it's own bottle."
+  - tweak: "Rice beer recipe is now 10 rice, 5 universal enzyme (catalyst), Sake is now 5 rice beer, 5 moss and 5 universal enzyme (catalyst)."
+  - tweak: "Adds light beer, recipe 5 beer and 5 water. Tweaks recipe of beer to be 5 flour and 5 universal enzyme."
+  - rscadd: "Hooch now has it's own bottle."
   - backend: "More soda can yoke variants."
+  - backend: "Contained spritizes reagent containers,  surgical tools and stethoscope."
+  - imageadd: "Improves beaker sprites. Improves sprites for syringes, autoinjectors, DNA injectors, Lazarus injectors. They should look better and be more consistent (all with a 45 degree tilt)"
+  - tweak: "Replaced 'milosoup' with miso soup, updates the sprite."

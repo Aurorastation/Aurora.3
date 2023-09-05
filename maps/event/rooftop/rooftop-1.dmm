@@ -6050,7 +6050,7 @@
 "IG" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch,
-/obj/item/reagent_containers/food/drinks/golden_cup,
+/obj/item/reagent_containers/food/drinks/trophy/gold_cup,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "IH" = (
@@ -6510,7 +6510,7 @@
 /area/city/mendell/interior)
 "Lv" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/drinks/teapot{
+/obj/item/reagent_containers/glass/teapot{
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
@@ -8118,7 +8118,7 @@
 /area/shuttle/city)
 "TD" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/drinks/teapot{
+/obj/item/reagent_containers/glass/teapot{
 	pixel_y = 7
 	},
 /turf/simulated/floor/marble/dark,

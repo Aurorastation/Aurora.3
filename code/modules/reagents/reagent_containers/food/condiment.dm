@@ -258,33 +258,3 @@
 
 /obj/item/reagent_containers/food/condiment/small/packet/crayon/brown
 	reagents_to_add = list(/singleton/reagent/crayon_dust/brown = 10)
-
-
-//End of MRE stuff.
-
-//syrups
-
-/obj/item/reagent_containers/glass/bottle/syrup
-	name = "syrup dispenser"
-	desc = "A small bottle dispenser."
-	icon = 'icons/obj/syrup.dmi'
-	icon_state = "syrup"
-	filling_states = "20;40;60;80;100"
-	flags = OPENCONTAINER
-	volume = 50
-
-/obj/item/reagent_containers/glass/bottle/syrup/chocolate
-	name = "chocolate syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_chocolate = 50)
-
-/obj/item/reagent_containers/glass/bottle/syrup/pumpkin
-	name = "pumpkin spice syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_pumpkin = 50)
-
-/obj/item/reagent_containers/glass/bottle/syrup/vanilla
-	name = "vanilla syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_vanilla = 50)
-
-/obj/item/reagent_containers/glass/bottle/syrup/caramel
-	name = "caramel syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_caramel = 50)

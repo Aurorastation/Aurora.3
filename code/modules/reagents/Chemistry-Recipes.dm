@@ -2044,9 +2044,17 @@
 	name = "Space Beer"
 	id = "spacebeer"
 	result = /singleton/reagent/alcohol/beer
-	required_reagents = list(/singleton/reagent/nutriment/triglyceride/oil/corn = 10)
+	required_reagents = list(/singleton/reagent/nutriment/flour = 10)
 	catalysts = list(/singleton/reagent/enzyme = 5)
 	result_amount = 10
+
+/datum/chemical_reaction/spacebeer
+	name = "Light Beer"
+	id = "spacebeer"
+	result = /singleton/reagent/alcohol/beer
+	required_reagents = list(/singleton/reagent/alcohol/beer = 5, /singleton/reagent/water = 5)
+	result_amount = 10
+
 
 /datum/chemical_reaction/rice_beer
 	name = "Rice Beer"
@@ -2068,7 +2076,7 @@
 	name = "Sake"
 	id = "sake"
 	result = /singleton/reagent/alcohol/sake
-	required_reagents = list(/singleton/reagent/alcohol/rice_beer = 5, /singleton/reagent/sugar = 5) // unlike wine, rice lacks in sugar and needs to be fermented again
+	required_reagents = list(/singleton/reagent/alcohol/rice_beer = 5, /singleton/reagent/nutriment/moss = 5) // sake and shochu are characterized by the addition of koji, a cultivated mold that is used in the brewing process.
 	catalysts = list(/singleton/reagent/enzyme = 5)
 	result_amount = 10
 
