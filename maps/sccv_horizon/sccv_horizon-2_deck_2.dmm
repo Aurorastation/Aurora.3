@@ -4063,6 +4063,7 @@
 /obj/structure/platform_stairs/full/east_west_cap/half{
 	dir = 1
 	},
+/obj/structure/platform,
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
 "bQd" = (
@@ -7286,6 +7287,10 @@
 /obj/structure/reagent_dispensers/peppertank/spacecleaner{
 	pixel_y = -32
 	},
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Auxiliary Custodial Closet";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
 "dCB" = (
@@ -10083,10 +10088,6 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
-/obj/machinery/camera/network/service{
-	c_tag = "Service - Auxiliary Custodial Closet";
-	dir = 1
-	},
 /obj/item/storage/box/lights/mixed,
 /obj/machinery/requests_console/south{
 	department = "Custodial";
@@ -12288,7 +12289,8 @@
 /area/horizon/security/armoury)
 "gbk" = (
 /obj/machinery/atm{
-	pixel_y = 28
+	pixel_y = 28;
+	dir = 1
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -27732,8 +27734,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "npL" = (
-/obj/structure/stairs/east,
 /obj/structure/railing/mapped,
+/obj/structure/stairs/east,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "nqm" = (
@@ -31300,6 +31302,7 @@
 /obj/structure/platform_stairs/full/east_west_cap/half{
 	dir = 8
 	},
+/obj/structure/platform,
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
 "pgD" = (
@@ -70701,7 +70704,7 @@ lnv
 ovz
 xPv
 tIt
-npL
+tUR
 wXF
 inc
 gzX
@@ -70903,7 +70906,7 @@ rcU
 gci
 ulg
 fnn
-tUR
+npL
 xrh
 bwU
 bPf
