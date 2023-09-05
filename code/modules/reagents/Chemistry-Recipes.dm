@@ -2048,7 +2048,7 @@
 	catalysts = list(/singleton/reagent/enzyme = 5)
 	result_amount = 10
 
-/datum/chemical_reaction/spacebeer
+/datum/chemical_reaction/light_beer
 	name = "Light Beer"
 	id = "spacebeer"
 	result = /singleton/reagent/alcohol/beer
