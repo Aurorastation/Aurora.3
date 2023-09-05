@@ -184,13 +184,15 @@ var/list/tag_related_tags = list()
 		. += tag_group + ":"
 		for(tag in tag_group_list)
 			var/style = ""
+			var/href_target = "?src=\ref[src];toggle_tag=[tag]"
 			for(var/selected_tag in selected_tags)
 				if(!(selected_tag in tag_related_tags[tag]))
 					style = "style='color: #919191;'"
+					href_target = "#"
 					break
 			if(tag in selected_tags)
 				style = "style='color: #FF8000;'"
-			. += " <a href='?src=\ref[src];toggle_tag=[tag]'><font [style]>[tag]</font></a> "
+			. += " <a href='[href_target]'><font [style]>[tag]</font></a> "
 		. += "<br>"
 	. += "</b></td></tr>"
 
