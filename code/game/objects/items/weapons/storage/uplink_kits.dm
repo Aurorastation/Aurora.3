@@ -110,11 +110,6 @@
 	icon_state = "box"
 	item_state = "box"
 
-/obj/item/storage/box/syndie_kit/g9mm
-	name = "smooth operator"
-	desc = "9mm with silencer kit."
-	starts_with = list(/obj/item/gun/projectile/pistol = 1, /obj/item/silencer = 1)
-
 /obj/item/storage/box/syndie_kit/toxin
 	name = "toxin kit"
 	desc = "An apple will not be enough to keep the doctor away after this."
