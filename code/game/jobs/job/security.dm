@@ -315,7 +315,7 @@
 	name = "Investigator Intern"
 	jobtype = /datum/job/intern_sec
 
-	shoes = /obj/item/clothing/shoes/laceup/all_species
+	shoes = /obj/item/clothing/shoes/laceup
 
 /datum/outfit/job/intern_sec/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

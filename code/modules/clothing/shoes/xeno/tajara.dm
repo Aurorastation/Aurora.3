@@ -14,15 +14,15 @@
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
+// Flats.
+// since everything except the onmob is a carbon copy, we just add another onmob sprite with the proper suffix and the species restriction to avoid bloat
+
 /obj/item/clothing/shoes/flats/tajara
 	desc = "A pair of black women's flats. Refitted for Tajara."
 	name = "black dress flats"
-	icon = 'icons/obj/item/clothing/shoes/flats/tajara/flats.dmi'
 	icon_state = "flats_black"
 	item_state = "flats_black"
-	body_parts_covered = FEET
 	species_restricted = list(BODYTYPE_TAJARA)
-	contained_sprite = TRUE
 
 /obj/item/clothing/shoes/flats/tajara/red
 	desc = "A pair of red women's flats. Refitted for Tajara."
@@ -53,6 +53,31 @@
 	name = "white dress flats"
 	icon_state = "flats_white"
 	item_state = "flats_white"
+
+// these look completely different and should be called something else
+
+/obj/item/clothing/shoes/flats/tajara/scarlet
+	name = "scarlet dress flats"
+	desc = "A pair of scarlet women's flats, made specifically for tajara."
+	icon_state = "flats_scarlet"
+	item_state = "flats_scarlet"
+	icon_supported_species_tags = list("taj")
+
+/obj/item/clothing/shoes/flats/tajara/mauve
+	name = "mauve dress flats"
+	desc = "A pair of mauve women's flats, made specifically for tajara."
+	icon_state = "flats_mauve"
+	item_state = "flats_mauve"
+	icon_supported_species_tags = list("taj")
+
+/obj/item/clothing/shoes/flats/tajara/dark
+	name = "dark dress flats"
+	desc = "A pair of dark women's flats, made specifically for tajara."
+	icon_state = "flats_dark"
+	item_state = "flats_dark"
+	icon_supported_species_tags = list("taj")
+
+// Jackboots
 
 /obj/item/clothing/shoes/tajara/jackboots // Because yes, Tajara don't leave their toes out all the time.
 	name = "black boots"
@@ -131,67 +156,34 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 
-// Black High-heeled Adhomian Shoes
+// High-heeled Adhomian Shoes
 /obj/item/clothing/shoes/heels/tajara
 	name = "black high-heeled adhomian shoes"
 	desc = "A pair of black heels adapted specifically for tajara anatomy, in the latest style."
-	icon = 'icons/obj/item/clothing/shoes/heels/tajara/heels.dmi'
 	icon_state = "heels_black"
 	item_state = "heels_black"
 	species_restricted = list(BODYTYPE_TAJARA)
-	contained_sprite = TRUE
 
-// Red High-heeled Adhomian Shoes
 /obj/item/clothing/shoes/heels/tajara/red
 	name = "red high-heeled adhomian shoes"
 	desc = "A pair of red heels adapted specifically for tajara anatomy, in the latest style."
-	icon_state = "heels_red"
-	item_state = "heels_red"
 
-// Scarlet Dress Flats
-/obj/item/clothing/shoes/flats/tajara/scarlet
-	name = "scarlet dress flats"
-	desc = "A pair of scarlet women's flats, made specifically for tajara."
-	icon_state = "flats_scarlet"
-	item_state = "flats_scarlet"
-
-// Mauve Dress Flats
-/obj/item/clothing/shoes/flats/tajara/mauve
-	name = "mauve dress flats"
-	desc = "A pair of mauve women's flats, made specifically for tajara."
-	icon_state = "flats_mauve"
-	item_state = "flats_mauve"
-
-// Dark Dress Flats
-/obj/item/clothing/shoes/flats/tajara/dark
-	name = "dark dress flats"
-	desc = "A pair of dark women's flats, made specifically for tajara."
-	icon_state = "flats_dark"
-	item_state = "flats_dark"
-
-// Saddle Shoes
-/obj/item/clothing/shoes/tajara/saddle
+/obj/item/clothing/shoes/sneakers/black/tajara
 	name = "black saddle shoes"
 	desc = "A pair of black, well-cared for saddle shoes, made for tajara anatomy. Nifty!"
-	icon = 'icons/obj/item/clothing/shoes/tajara/saddle_shoes.dmi'
-	icon_state = "saddle"
-	item_state = "saddle"
 	species_restricted = list(BODYTYPE_TAJARA)
-	contained_sprite = TRUE
+	icon_supported_species_tags = list("taj")
 
 // Adhomian Loafers
-/obj/item/clothing/shoes/tajara/loafers
-	name = "black adhomian loafers"
-	desc = "A pair of black men's loafers, made specifically for tajara anatomy. Pipe and robe not included."
-	icon = 'icons/obj/item/clothing/shoes/tajara/loafers.dmi'
-	icon_state = "loafers_black"
-	item_state = "loafers_black"
+// again, completely identical to regular laceups except by onmob, name and equipability. is this bloat? yes. do i have the discretion to change this? no.
+/obj/item/clothing/shoes/laceup/tajara
+	name = "black adhomian oxfords"
+	desc = "A pair of black men's oxfords, made specifically for tajara anatomy. Pipe and robe not included."
 	species_restricted = list(BODYTYPE_TAJARA)
-	contained_sprite = TRUE
+	icon_supported_species_tags = list("taj")
 
-// Brown Adhomian Loafers
-/obj/item/clothing/shoes/tajara/loafers/brown
-	name = "brown adhomian loafers"
+/obj/item/clothing/shoes/laceup/brown/tajara
+	name = "brown adhomian oxfords"
 	desc = "A pair of brown men's loafers, made specifically for tajara anatomy. Pipe and robe not included."
-	icon_state = "loafers_brown"
-	item_state = "loafers_brown"
+	species_restricted = list(BODYTYPE_TAJARA)
+	icon_supported_species_tags = list("taj")

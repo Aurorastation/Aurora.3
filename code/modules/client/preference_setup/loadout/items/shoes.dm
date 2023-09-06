@@ -101,6 +101,7 @@
 	display_name = "boot selection"
 	description = "Boots, in a variety of styles."
 	path = /obj/item/clothing/shoes/jackboots
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/shoes/boots/New()
 	..()
@@ -115,6 +116,7 @@
 	shoes["white cowboy boots"] = /obj/item/clothing/shoes/cowboy/white
 	shoes["fancy cowboy boots"] = /obj/item/clothing/shoes/cowboy/fancy
 	shoes["black cowboy boots"] = /obj/item/clothing/shoes/cowboy/black
+	shoes["vysokan gurmori hide boots"] = /obj/item/clothing/shoes/cowboy/gurmori
 	shoes["workboots"] = /obj/item/clothing/shoes/workboots
 	shoes["brown workboots"] = /obj/item/clothing/shoes/workboots/brown
 	shoes["grey workboots"] = /obj/item/clothing/shoes/workboots/grey
@@ -131,13 +133,7 @@
 	display_name = "gomusin"
 	path = /obj/item/clothing/shoes/konyang
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-  
-/datum/gear/shoes/vysoka
-	display_name = "gurmori hide boots"
-	description = "A pair of hide boots produced from the mantle of a Vysokan Gurmori."
-	path = /obj/item/clothing/shoes/gurmori
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
-  
+
 /datum/gear/shoes/slippers
 	display_name = "slippers"
 	path = /obj/item/clothing/shoes/slippers
