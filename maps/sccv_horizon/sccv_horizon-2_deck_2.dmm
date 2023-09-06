@@ -1512,7 +1512,7 @@
 /area/engineering/storage_eva)
 "aIh" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/teapot{
+/obj/item/reagent_containers/glass/teapot{
 	pixel_x = 2;
 	pixel_y = 7
 	},
@@ -10613,7 +10613,7 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/drinks/teapot,
+/obj/item/reagent_containers/glass/teapot,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar)
 "flS" = (
@@ -25788,10 +25788,10 @@
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/full,

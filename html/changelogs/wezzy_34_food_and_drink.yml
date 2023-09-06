@@ -1,0 +1,53 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.
+author: Wowzewow (Wezzy), atteria
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - imageadd: "Ports 3/4 bottle, soda can, kitchen condiments, ingredients, reagent containers from /tg/. Updates unique Aurora sprites to this standard as well."
+  - imageadd: "Updates beaker, droppers, pipettes and chemical mixers and chemmasters."
+  - imageadd: "New chemical cartridge, flask, vacuum flask and shaker sprites."
+  - rscadd: "Adds champagne popping and sabrage."
+  - rscadd: "Ports rice beer, beer cans and melon soda."
+  - tweak: "Rice beer recipe is now 10 rice, 5 universal enzyme (catalyst), Sake is now 5 rice beer, 5 moss and 5 universal enzyme (catalyst)."
+  - tweak: "Adds light beer, recipe 5 beer and 5 water. Tweaks recipe of beer to be 5 flour and 5 universal enzyme."
+  - rscadd: "Hooch now has it's own bottle."
+  - backend: "More soda can yoke variants."
+  - backend: "Contained spritizes reagent containers,  surgical tools and stethoscope."
+  - imageadd: "Improves beaker sprites. Improves sprites for syringes, autoinjectors, DNA injectors, Lazarus injectors. They should look better and be more consistent (all with a 45 degree tilt)"
+  - tweak: "Replaced 'milosoup' with miso soup, updates the sprite."
+  - imageadd: "Adds new teapot sprite."

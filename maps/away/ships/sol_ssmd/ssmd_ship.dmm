@@ -310,8 +310,8 @@
 	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -9;
 	pixel_y = 5
@@ -1638,7 +1638,7 @@
 "esV" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/golden_cup{
+/obj/item/reagent_containers/food/drinks/trophy/gold_cup{
 	desc = "A golden cup. This one commemorates the First Middle Ring Battlegroup's victory in the 2459 naval basketball tournament.";
 	name = "ASSN Interunit Basketball Trophy - 2459"
 	},
@@ -5776,7 +5776,7 @@
 	pixel_x = -6;
 	pixel_y = 5
 	},
-/obj/item/reagent_containers/food/drinks/teapot{
+/obj/item/reagent_containers/glass/teapot{
 	pixel_y = -15
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
@@ -6105,7 +6105,7 @@
 /area/ship/ssmd_corvette/storage)
 "sBO" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/item/reagent_containers/food/drinks/pitcher{
+/obj/item/reagent_containers/glass/pitcher{
 	pixel_x = -3;
 	pixel_y = 10
 	},
@@ -6652,8 +6652,8 @@
 	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -9;
 	pixel_y = 5
@@ -7304,8 +7304,8 @@
 	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -9;
 	pixel_y = 5
