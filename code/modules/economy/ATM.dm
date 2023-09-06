@@ -3,7 +3,7 @@
 /obj/machinery/atm
 	name = "Idris SelfServ Teller"
 	desc = "For all your monetary needs! Astronomical figures!"
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "atm"
 	anchored = 1
 	idle_power_usage = 10

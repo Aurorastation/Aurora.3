@@ -50,6 +50,7 @@
 		"Security Officer" = /datum/outfit/job/officer/zavodskoi,
 		"Warden" = /datum/outfit/job/warden/zavodskoi,
 		"Security Cadet" = /datum/outfit/job/intern_sec/zavodskoi,
+		"Investigator Intern" = /datum/outfit/job/intern_sec/forensics/zavodskoi,
 		"Investigator" =/datum/outfit/job/forensics/zavodskoi,
 		"Scientist" = /datum/outfit/job/scientist/zavodskoi,
 		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zavodskoi,
@@ -59,6 +60,7 @@
 		"Engineer" = /datum/outfit/job/engineer/zavodskoi,
 		"Atmospheric Technician" = /datum/outfit/job/atmos/zavodskoi,
 		"Engineering Apprentice" = /datum/outfit/job/intern_eng/zavodskoi,
+		"Atmospherics Apprentice" = /datum/outfit/job/intern_atmos/zavodskoi,
 		"Corporate Liaison" = /datum/outfit/job/representative/zavodskoi
 	)
 
@@ -89,6 +91,17 @@
 
 /datum/outfit/job/intern_sec/zavodskoi
 	name = "Security Cadet - Zavodskoi Interstellar"
+
+	uniform = /obj/item/clothing/under/rank/cadet/zavod
+	id = /obj/item/card/id/zavodskoi/sec
+
+	backpack_faction = /obj/item/storage/backpack/zavod
+	satchel_faction = /obj/item/storage/backpack/satchel/zavod
+	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
+	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
+
+/datum/outfit/job/intern_sec/forensics/zavodskoi
+	name = "Investigator Intern - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/cadet/zavod
 	id = /obj/item/card/id/zavodskoi/sec
@@ -195,6 +208,18 @@
 
 /datum/outfit/job/intern_eng/zavodskoi
 	name = "Engineering Apprentice - Zavodskoi Interstellar"
+
+	uniform = /obj/item/clothing/under/rank/engineer/apprentice/zavod
+	head = /obj/item/clothing/head/beret/corporate/zavod
+	id = /obj/item/card/id/zavodskoi
+
+	backpack_faction = /obj/item/storage/backpack/zavod
+	satchel_faction = /obj/item/storage/backpack/satchel/zavod
+	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
+	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
+
+/datum/outfit/job/intern_atmos/zavodskoi
+	name = "Atmospherics Apprentice - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice/zavod
 	head = /obj/item/clothing/head/beret/corporate/zavod

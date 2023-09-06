@@ -87,6 +87,7 @@ export const SMESWindow = (props, context) => {
           <LabeledList.Item label="Charge Mode">
             <Button
               content={data.charge_attempt ? 'Auto' : 'Off'}
+              color={data.charge_attempt ? 'good' : 'bad'}
               icon={data.charge_attempt ? 'sync' : 'times'}
               onClick={() => act('cmode')}
             />
@@ -125,6 +126,7 @@ export const SMESWindow = (props, context) => {
           <LabeledList.Item label="Output Status">
             <Button
               content={data.output_attempt ? 'Online' : 'Offline'}
+              color={data.output_attempt ? 'good' : 'bad'}
               icon={data.output_attempt ? 'power-off' : 'times'}
               onClick={() => act('online')}
             />

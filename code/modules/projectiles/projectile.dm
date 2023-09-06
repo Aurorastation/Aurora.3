@@ -16,7 +16,7 @@
 	var/def_zone = ""	//Aiming at
 	var/hit_zone		// The place that actually got hit
 	var/mob/firer = null//Who shot it
-	var/silenced = FALSE	//Attack message
+	var/suppressed = FALSE	//Attack message
 
 	var/shot_from = "" // name of the object which shot us
 
@@ -174,7 +174,7 @@
 /obj/item/projectile/proc/launch_from_gun(atom/target, target_zone, mob/user, params, angle_override, forced_spread, obj/item/gun/launcher)
 
 	shot_from = launcher.name
-	silenced = launcher.silenced
+	suppressed = launcher.suppressed
 
 	if(launcher.iff_capable && user)
 		iff = get_iff_from_user(user)
@@ -206,7 +206,7 @@
 	switch(result)
 		if(PROJECTILE_FORCE_MISS)
 			if(!point_blank)
-				if(!silenced)
+				if(!suppressed)
 					target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
 					playsound(target_mob, /singleton/sound_category/bulletflyby_sound, 50, 1)
 				return FALSE
@@ -217,7 +217,7 @@
 
 	var/impacted_organ = target_mob.get_organ_name_from_zone(def_zone)
 	//hit messages
-	if(silenced)
+	if(suppressed)
 		to_chat(target_mob, "<span class='danger'>You've been hit in the [impacted_organ] by \a [src]!</span>")
 	else
 		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \a [src] in the [impacted_organ]!</span>", "<span class='danger'><font size=2>You are hit by \a [src] in the [impacted_organ]!</font></span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
@@ -453,9 +453,10 @@
 			pixel_x = trajectory.return_px()
 			pixel_y = trajectory.return_py()
 	else
-		before_move()
-		step_towards(src, T)
-		after_move()
+		if(T != loc)
+			before_move()
+			Move(T)
+			after_move()
 		if(!hitscanning)
 			pixel_x = trajectory.return_px() - trajectory.mpx * trajectory_multiplier
 			pixel_y = trajectory.return_py() - trajectory.mpy * trajectory_multiplier
@@ -620,7 +621,7 @@
 /obj/item/projectile/proc/generate_muzzle_flash(duration = 3)
 	if(duration <= 0)
 		return
-	if(!muzzle_type || silenced)
+	if(!muzzle_type || suppressed)
 		return
 	var/datum/point/p = trajectory
 	var/atom/movable/thing = new muzzle_type
@@ -638,7 +639,7 @@
 	if(tracer_type)
 		for(var/datum/point/p in beam_segments)
 			generate_tracer_between_points(p, beam_segments[p], tracer_type, color, duration)
-	if(muzzle_type && !silenced)
+	if(muzzle_type && !suppressed)
 		var/datum/point/p = beam_segments[1]
 		var/atom/movable/thing = new muzzle_type
 		p.move_atom_to_src(thing)

@@ -29,6 +29,6 @@
 
 /turf/simulated/floor/exoplanet/permafrost
 	name = "permafrost"
-	icon = 'icons/turf/snow.dmi'
+	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "permafrost"
 	footstep_sound = /singleton/sound_category/asteroid_footstep

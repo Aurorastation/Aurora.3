@@ -384,7 +384,8 @@
 "pN" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Commissar's Office"
+	name = "Commissar's Office";
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/pra_base)
@@ -402,7 +403,8 @@
 "qa" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Barracks"
+	name = "Barracks";
+	dir = 1
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
@@ -452,9 +454,7 @@
 /area/pra_base)
 "rN" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 31
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -483,7 +483,8 @@
 "tT" = (
 /obj/machinery/door/airlock/security{
 	name = "Meeting Room";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/effect/floor_decal/concrete/large/full,
 /turf/simulated/floor/concrete{
@@ -561,7 +562,8 @@
 "wE" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Restroom"
+	name = "Restroom";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 268.15
@@ -600,7 +602,8 @@
 "xN" = (
 /obj/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
@@ -720,7 +723,8 @@
 /area/pra_base)
 "Dp" = (
 /obj/machinery/door/airlock/medical{
-	name = "Medical Center"
+	name = "Medical Center";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/pra_base)
@@ -746,7 +750,8 @@
 "Ec" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Barracks"
+	name = "Barracks";
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 268.15
@@ -1006,7 +1011,8 @@
 "Nc" = (
 /obj/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/effect/floor_decal/concrete/large/full,
 /turf/simulated/floor/concrete{

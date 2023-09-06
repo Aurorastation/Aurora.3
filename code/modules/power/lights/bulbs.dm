@@ -4,7 +4,7 @@
 // will fit into empty /obj/machinery/light of the corresponding type
 
 /obj/item/light
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	force = 2
 	throwforce = 5
 	w_class = ITEMSIZE_TINY
@@ -39,20 +39,20 @@
 	cut_overlays()
 	switch(status)
 		if(LIGHT_OK)
-			icon_state = "l[lighttype]_attachment"
-			var/image/I = image(icon, "l[lighttype]")
+			icon_state = "[lighttype]_attachment"
+			var/image/I = image(icon, "[lighttype]")
 			I.color = brightness_color
 			add_overlay(I)
 			desc = "A replacement [name]."
 		if(LIGHT_BURNED)
-			icon_state = "l[lighttype]_attachment"
-			var/image/I = image(icon, "l[lighttype]_burned")
+			icon_state = "[lighttype]_attachment"
+			var/image/I = image(icon, "[lighttype]_burned")
 			I.color = brightness_color
 			add_overlay(I)
 			desc = "A burnt-out [name]."
 		if(LIGHT_BROKEN)
-			icon_state = "l[lighttype]_attachment_broken"
-			var/image/I = image(icon, "l[lighttype]_broken")
+			icon_state = "[lighttype]_attachment_broken"
+			var/image/I = image(icon, "[lighttype]_broken")
 			I.color = brightness_color
 			add_overlay(I)
 			desc = "A broken [name]."
