@@ -10,3 +10,4 @@ changes:
   - bugfix: "Fixed the ATM outside operations on D2 being misrotated."
   - bugfix: "Fixed east facing stairs not working."
   - bugfix: "Fixed the engineering stairs and AI core stairs being mapped incorrectly."
+  - bugfix: "Fixed the medical meeting area chairs being plastic lawn chairs."
