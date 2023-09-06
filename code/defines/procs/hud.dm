@@ -21,10 +21,7 @@ the HUD updates properly! */
 	if(ismob(loc))
 		owner = loc
 
-
-
 /image/hud_overlay/Destroy()
-
 	if(owner)
 		owner?.client?.images -= src
 		owner = null
