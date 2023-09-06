@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - tweak: "Aut'akh farseer eyes no longer take damage on zooming, but need a second and a half to zoom in."
-  - tweak: "Aut'akh protein breakdown valves and venomous rest implants no longer cause internal damage, but are expended after one use."
