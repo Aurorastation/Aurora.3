@@ -179,7 +179,7 @@
 	if(ability_master && !ability_master.ability_objects.len)
 		ability_master.update_icon()
 	ability_master = null
-	..()
+	. = ..()
 
 /obj/screen/ability/update_icon()
 	overlays.Cut()
