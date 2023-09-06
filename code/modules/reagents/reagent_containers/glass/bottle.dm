@@ -4,12 +4,7 @@
 /obj/item/reagent_containers/glass/bottle
 	name = "bottle"
 	desc = "A small bottle."
-	icon = 'icons/obj/chemical.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
-	icon_state = null
+	contained_sprite = TRUE
 	item_state = "bottle"
 	filling_states = "20;40;60;80;100"
 	amount_per_transfer_from_this = 5
@@ -43,7 +38,7 @@
 	cut_overlays()
 
 	if(reagents?.total_volume)
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
+		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
@@ -132,7 +127,7 @@
 /obj/item/reagent_containers/glass/bottle/adminordrazine
 	name = "adminordrazine bottle"
 	desc = "A small bottle. Contains the liquid essence of the gods."
-	icon = 'icons/obj/drinks.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "holyflask"
 	reagents_to_add = list(/singleton/reagent/adminordrazine = 60)
 
@@ -231,3 +226,29 @@
 	desc = "A small bottle. Contains hyronalin - treats mild moderate radiation poisoning."
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/hyronalin = 60)
+
+//syrups
+
+/obj/item/reagent_containers/glass/bottle/syrup
+	name = "syrup dispenser"
+	desc = "A small bottle dispenser."
+	icon_state = "syrup"
+	filling_states = "20;40;60;80;100"
+	flags = OPENCONTAINER
+	volume = 50
+
+/obj/item/reagent_containers/glass/bottle/syrup/chocolate
+	name = "chocolate syrup dispenser"
+	reagents_to_add = list(/singleton/reagent/drink/syrup_chocolate = 50)
+
+/obj/item/reagent_containers/glass/bottle/syrup/pumpkin
+	name = "pumpkin spice syrup dispenser"
+	reagents_to_add = list(/singleton/reagent/drink/syrup_pumpkin = 50)
+
+/obj/item/reagent_containers/glass/bottle/syrup/vanilla
+	name = "vanilla syrup dispenser"
+	reagents_to_add = list(/singleton/reagent/drink/syrup_vanilla = 50)
+
+/obj/item/reagent_containers/glass/bottle/syrup/caramel
+	name = "caramel syrup dispenser"
+	reagents_to_add = list(/singleton/reagent/drink/syrup_caramel = 50)

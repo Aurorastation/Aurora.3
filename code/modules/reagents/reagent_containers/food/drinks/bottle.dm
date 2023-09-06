@@ -3,10 +3,10 @@
 //Bottles now weaken and break when smashed on people's heads. - Giacom
 
 /obj/item/reagent_containers/food/drinks/bottle
-	name = "empty bottle"
-	desc = "A sad empty bottle."
-	icon_state = "alco-clear"
-	center_of_mass = list("x" = 16,"y" = 6)
+	name = "glass bottle"
+	desc = "This blank bottle is unyieldingly anonymous, offering no clues to its contents."
+	icon_state = "glassbottle"
+	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	amount_per_transfer_from_this = 5//Smaller sip size for more BaRP and less guzzling a litre of vodka before you realise it
 	volume = 100
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
@@ -18,6 +18,12 @@
 	var/obj/item/reagent_containers/glass/rag/rag = null
 	var/rag_underlay = "rag"
 	drink_flags = IS_GLASS
+
+/obj/item/reagent_containers/cup/glass/bottle/small
+	name = "small glass bottle"
+	desc = "This blank bottle is unyieldingly anonymous, offering no clues to its contents."
+	icon_state = "glassbottlesmall"
+	volume = 50
 
 /obj/item/reagent_containers/food/drinks/bottle/Destroy()
 	if(rag)
@@ -48,7 +54,7 @@
 		return 0
 	return prob(chance_table[idx])
 
-/obj/item/reagent_containers/food/drinks/bottle/proc/smash(var/newloc, atom/against = null)
+/obj/item/reagent_containers/food/drinks/bottle/proc/smash(var/newloc, atom/against = null, var/break_top)
 	if(ismob(loc))
 		var/mob/M = loc
 		M.drop_from_inventory(src)
@@ -59,8 +65,12 @@
 		new/obj/item/material/shard(newloc) // Create a glass shard at the target's location!
 	B.icon_state = initial(icon_state)
 
-	var/icon/I = new('icons/obj/drinks.dmi', src.icon_state)
-	I.Blend(B.broken_outline, ICON_OVERLAY, rand(5), 1)
+	var/icon/I = new(src.icon, src.icon_state)
+	if(break_top) //if the bottle breaks its top off instead of the bottom
+		desc = "A bottle with its neck smashed off."
+		I.Blend(B.flipped_broken_outline, ICON_OVERLAY, rand(5), 0)
+	else
+		I.Blend(B.broken_outline, ICON_OVERLAY, rand(5), 1)
 	I.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0))
 	B.icon = I
 
@@ -122,9 +132,15 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/update_icon()
 	underlays.Cut()
+	cut_overlays()
+	if("[icon_state]-[get_filling_state()]" in icon)
+		if(reagents?.total_volume)
+			var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
+			filling.color = reagents.get_color()
+			add_overlay(filling)
 	set_light(0)
 	if(rag)
-		var/underlay_image = image(icon='icons/obj/drinks.dmi', icon_state=rag.on_fire? "[rag_underlay]_lit" : rag_underlay)
+		var/underlay_image = image(icon='icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', icon_state=rag.on_fire? "[rag_underlay]_lit" : rag_underlay)
 		underlays += underlay_image
 		if(rag.on_fire)
 			set_light(2, l_color = LIGHT_COLOR_FIRE)
@@ -173,11 +189,44 @@
 /obj/item/reagent_containers/food/drinks/bottle/bullet_act()
 	smash(loc)
 
+/*
+ * Proc to make the bottle spill some of its contents out in a froth geyser of varying intensity/height
+ * Arguments:
+ * * offset_x = pixel offset by x from where the froth animation will start
+ * * offset_y = pixel offset by y from where the froth animation will start
+ * * intensity = how strong the effect is, both visually and in the amount of reagents lost. comes in three flavours
+*/
+/obj/item/reagent_containers/food/drinks/bottle/proc/make_froth(offset_x, offset_y, intensity)
+	if(!intensity)
+		return
+
+	if(!reagents.total_volume)
+		return
+
+	var/amount_lost = intensity * 5
+	reagents.remove_any(amount_lost)
+
+	visible_message(SPAN_WARNING("Some of [name]'s contents are let loose!"))
+	var/intensity_state = null
+	switch(intensity)
+		if(1)
+			intensity_state = "low"
+		if(2)
+			intensity_state = "medium"
+		if(3)
+			intensity_state = "high"
+	///The froth fountain that we are sticking onto the bottle
+	var/mutable_appearance/froth = mutable_appearance('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "froth_bottle_[intensity_state]")
+	froth.pixel_x = offset_x
+	froth.pixel_y = offset_y
+	add_overlay(froth)
+	CUT_OVERLAY_IN(froth, 2 SECONDS)
+
 //Keeping this here for now, I'll ask if I should keep it here.
 /obj/item/broken_bottle
 	name = "broken bottle"
 	desc = "A bottle with a sharp broken bottom."
-	icon = 'icons/obj/drinks.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "broken_bottle"
 	force = 9
 	throwforce = 5
@@ -188,7 +237,10 @@
 	sharp = TRUE
 	edge = FALSE
 	hitsound = /singleton/sound_category/bottle_hit_broken
-	var/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
+	///The mask image for mimicking a broken-off bottom of the bottle
+	var/static/icon/broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken")
+	///The mask image for mimicking a broken-off neck of the bottle
+	var/static/icon/flipped_broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken-flipped")
 	w_class = ITEMSIZE_SMALL
 
 #define DRINK_FLUFF_GETMORE  "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
@@ -235,7 +287,7 @@
 	desc = "An okayish single-malt whiskey, infused with cinnamon and hot pepper that used to be mainly produced on Mars, but the production line was since moved to Earth for geopolitical reasons. \
 	It is sometimes claimed that particularly desperate Eridanian dregs came up with the current recipe for this drink."
 	desc_extended = DRINK_FLUFF_GETMORE
-	icon_state = "whiskeybottle"
+	icon_state = "fireballbottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/fireball = 100)
 
@@ -289,6 +341,123 @@
 	icon_state = "champagnebottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/champagne = 100)
+	flags = 0 // starts closed
+	///Used for sabrage; increases the chance of success per 1 force of the attacking sharp item
+	var/sabrage_success_percentile = 5
+	///Whether this bottle was a victim of a successful sabrage attempt
+	var/sabraged = FALSE
+
+/obj/item/reagent_containers/food/drinks/bottle/champagne/attack_self(mob/user)
+	if(is_open_container())
+		return ..()
+	balloon_alert(user, "fiddling with cork...")
+	if(do_after(user, 1 SECONDS, src))
+		return open(user, sabrage = FALSE, froth_severity = pick(0, 1))
+
+/obj/item/reagent_containers/food/drinks/bottle/champagne/attackby(obj/item/W, mob/user)
+	. = ..()
+
+	if(is_open_container())
+		return ..()
+
+	if(!has_edge(W))
+		return
+
+	if(W.force < 5)
+		balloon_alert(user, "not strong enough!")
+		return
+
+	playsound(user, 'sound/weapons/holster/sheathout.ogg', 25, TRUE)
+	balloon_alert(user, "preparing to swing...")
+	if(!do_after(user, 2 SECONDS, src)) //takes longer because you are supposed to take the foil off the bottle first
+		return
+
+	///The bonus to success chance that the user gets for being a command role
+	var/command_bonus = (user.mind?.assigned_role in command_positions) ? 20 : 0
+
+	var/job_bonus = user.mind?.assigned_role == "Bartender" ? 25 : 0
+
+	var/sabrage_chance = (W.force * sabrage_success_percentile) + command_bonus + job_bonus
+
+	if(prob(sabrage_chance))
+		///Severity of the resulting froth to pass to make_froth()
+		var/severity_to_pass
+		if(sabrage_chance > 100)
+			severity_to_pass = 0
+		else
+			switch(sabrage_chance) //the less likely we were to succeed, the more of the drink will end up wasted in froth
+				if(1 to 33)
+					severity_to_pass = 3
+				if(34 to 66)
+					severity_to_pass = 2
+				if(67 to 99)
+					severity_to_pass = 1
+		return open(user, sabrage = TRUE, froth_severity = severity_to_pass)
+	else //you dun goofed
+		user.visible_message(
+			SPAN_DANGER("[user] fumbles the sabrage and cuts [src] in half, spilling it over themselves!"), \
+			SPAN_DANGER("You fail your stunt and cut [src] in half, spilling it over you!"), \
+			"You hear spilling."
+			)
+		return smash(src.loc, user, break_top = TRUE)
+
+/obj/item/reagent_containers/food/drinks/bottle/champagne/update_icon()
+	. = ..()
+	if(is_open_container())
+		if(sabraged)
+			icon_state = "[initial(icon_state)]_sabrage"
+		else
+			icon_state = "[initial(icon_state)]_popped"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/reagent_containers/food/drinks/bottle/champagne/open(mob/user, var/sabrage, var/froth_severity)
+	if(!sabrage)
+		user.visible_message(SPAN_DANGER("[user] loosens the cork of [src] causing it to pop out of the bottle with great force."), \
+						 	 SPAN_GOOD("You elegantly loosen the cork of [src] causing it to pop out of the bottle with great force."), \
+						 	 "You can hear a pop.")
+	else
+		sabraged = TRUE
+		user.visible_message(SPAN_DANGER("[user] cleanly slices off the cork of [src], causing it to fly off the bottle with great force."), \
+							 SPAN_GOOD("You elegantly slice the cork off of [src], causing it to fly off the bottle with great force."), \
+							 "You can hear a pop.")
+	playsound(src, 'sound/items/champagne_pop.ogg', 70, TRUE)
+	flags |= OPENCONTAINER
+	update_icon()
+	make_froth(offset_x = 0, offset_y = sabraged ? 13 : 15, intensity = froth_severity) //the y offset for sabraged is lower because the bottle's lip is smashed
+	///Type of cork to fire away
+	var/obj/item/projectile/bullet/cork_to_fire = sabraged ? /obj/item/projectile/bullet/champagne_cork/sabrage : /obj/item/projectile/bullet/champagne_cork
+	///Our resulting cork projectile
+	var/obj/item/projectile/bullet/champagne_cork/popped_cork = new cork_to_fire(get_turf(src))
+	popped_cork.firer =  user
+	popped_cork.fire(dir2angle(user.dir) + rand(-30, 30))
+
+/obj/item/projectile/bullet/champagne_cork
+	name = "champagne cork"
+	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
+	icon_state = "champagne_cork"
+	hitsound = 'sound/weapons/genhit.ogg'
+	damage = 5
+	embed = FALSE
+	sharp = FALSE
+	agony = 10 // ow!
+	var/drop_type = /obj/item/trash/champagne_cork
+
+/obj/item/projectile/bullet/champagne_cork/on_impact(var/atom/A)
+	..()
+	new drop_type(src.loc) //always use src.loc so that ash doesn't end up inside windows
+
+/obj/item/trash/champagne_cork
+	name = "champagne cork"
+	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
+	icon_state = "champagne_cork"
+
+/obj/item/projectile/bullet/champagne_cork/sabrage
+	icon_state = "champagne_cork_sabrage"
+	drop_type = /obj/item/trash/champagne_cork/sabrage
+
+/obj/item/trash/champagne_cork/sabrage
+	icon_state = "champagne_cork_sabrage"
 
 /obj/item/reagent_containers/food/drinks/bottle/mintsyrup
 	name = "Getmore's Bold Peppermint"
@@ -322,7 +491,6 @@
 	desc = "A flask of the chaplain's holy water."
 	icon_state = "holyflask"
 	center_of_mass = list("x"=17, "y"=10)
-	drink_flags = NO_EMPTY_ICON
 	reagents_to_add = list(/singleton/reagent/water/holywater = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/vermouth
@@ -366,6 +534,14 @@
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/wine = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/pwine
+	name = "\improper Chip Getmore's Velvet"
+	desc = "What a delightful packaging for a surely high quality wine! The vintage must be amazing!"
+	desc_extended = DRINK_FLUFF_GETMORE
+	icon_state = "pwinebottle"
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/singleton/reagent/alcohol/pwine = 100)
+
 /obj/item/reagent_containers/food/drinks/bottle/absinthe
 	name = "Jailbreaker Verte"
 	desc = "One sip of this and you just know you're gonna have a good time. Particularly artistic Cythereans drink this Silverport product to get inspired."
@@ -378,18 +554,15 @@
 	name = "Emeraldine melon liquor"
 	desc = "A bottle of 46 proof Emeraldine Melon Liquor, made from a Silversun-grown variety of melon. Sweet and light, and surprisingly cheap considering the manufacturer."
 	desc_extended = DRINK_FLUFF_SILVERPORT
-	icon_state = "alco-green"
+	icon_state = "melonliqour"
 	center_of_mass = list("x"=16, "y"=6)
-	drink_flags = IS_GLASS | UNIQUE_EMPTY_ICON
-	empty_icon_state = "alco-blue_empty"
 	reagents_to_add = list(/singleton/reagent/alcohol/melonliquor = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/bluecuracao
 	name = "Xuaousha curacao"
 	desc = "A fruity, exceptionally azure drink. Thanks to weird Skrellian genetic experiments, oranges used for this are, in fact, really blue."
 	desc_extended = DRINK_FLUFF_ZENGHU
-	icon_state = "alco-blue"
-	empty_icon_state = "alco-clear"
+	icon_state = "curacaobottle"
 	center_of_mass = list("x"=16, "y"=6)
 	reagents_to_add = list(/singleton/reagent/alcohol/bluecuracao = 100)
 
@@ -398,47 +571,38 @@
 	desc = "Sweet and tangy, a bar syrup used to add color or flavor to drinks."
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "grenadinebottle"
-	drink_flags = IS_GLASS | NO_EMPTY_ICON
 	center_of_mass = list("x"=16, "y"=6)
 	reagents_to_add = list(/singleton/reagent/drink/grenadine = 100)
+
+// Soda
 
 /obj/item/reagent_containers/food/drinks/bottle/cola
 	name = "comet cola"
 	desc = "Getmore's most popular line of soda. A generic cola, otherwise."
 	icon_state = "colabottle"
+	empty_icon_state = "soda_empty"
 	center_of_mass = list("x"=16, "y"=6)
-	drink_flags = NO_EMPTY_ICON
-	drop_sound = 'sound/items/drop/shoes.ogg'
-	pickup_sound = 'sound/items/pickup/shoes.ogg'
-	reagents_to_add = list(/singleton/reagent/drink/space_cola = 100)
-	shatter_material = MATERIAL_PLASTIC
-	fragile = 0
+	volume = 30
+	flags = 0 //starts closed
+	reagents_to_add = list(/singleton/reagent/drink/space_cola = 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up
 	name = "\improper Vacuum Fizz"
 	desc = "Tastes like a hull breach in your mouth."
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "space-up_bottle"
+	empty_icon_state = "soda_empty"
 	center_of_mass = list("x"=16, "y"=6)
-	drink_flags = NO_EMPTY_ICON
-	drop_sound = 'sound/items/drop/shoes.ogg'
-	pickup_sound = 'sound/items/pickup/shoes.ogg'
-	reagents_to_add = list(/singleton/reagent/drink/spaceup = 100)
-	shatter_material = MATERIAL_PLASTIC
-	fragile = 0
+	reagents_to_add = list(/singleton/reagent/drink/spaceup = 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind
 	name = "\improper Stellar Jolt"
 	desc = "For those who have a need for caffeine stronger than would be sensible."
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "space_mountain_wind_bottle"
+	empty_icon_state = "soda_empty"
 	center_of_mass = list("x"=16, "y"=6)
-	drink_flags = NO_EMPTY_ICON
-	drop_sound = 'sound/items/drop/shoes.ogg'
-	pickup_sound = 'sound/items/pickup/shoes.ogg'
-	reagents_to_add = list(/singleton/reagent/drink/spacemountainwind = 100)
-	shatter_material = MATERIAL_PLASTIC
-	fragile = 0
+	reagents_to_add = list(/singleton/reagent/drink/spacemountainwind = 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/hrozamal_soda
 	name = "Hro'zamal Soda"
@@ -447,27 +611,20 @@
 	colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university \
 	students because of its stimulant effect."
 	icon_state = "hrozamal_soda_bottle"
+	empty_icon_state = "soda_empty"
 	center_of_mass = list("x"=16, "y"=5)
-	reagents_to_add = list(/singleton/reagent/drink/hrozamal_soda = 100)
-	fragile = FALSE
-
-/obj/item/reagent_containers/food/drinks/bottle/pwine
-	name = "Chip Getmore's Velvet"
-	desc = "What a delightful packaging for a surely high quality wine! The vintage must be amazing!"
-	desc_extended = DRINK_FLUFF_GETMORE
-	icon_state = "pwinebottle"
-	center_of_mass = list("x"=16, "y"=4)
-	reagents_to_add = list(/singleton/reagent/alcohol/pwine = 100)
+	reagents_to_add = list(/singleton/reagent/drink/hrozamal_soda = 30)
 
 //Small bottles
 /obj/item/reagent_containers/food/drinks/bottle/small
 	name = "small bottle"
 	desc = "A small bottle."
 	icon_state = "beer"
-	volume = 50
+	volume = 30
 	smash_duration = 1
 	flags = 0 //starts closed
 	rag_underlay = "rag_small"
+	center_of_mass = list("x"=16, "y"=8)
 
 /obj/item/reagent_containers/food/drinks/bottle/small/beer
 	name = "Virklunder beer"
@@ -475,9 +632,22 @@
 	Virklund in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel and has since been in stock in practically every bar across the nation."
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "beer"
-	center_of_mass = list("x"=16, "y"=8)
 
 	reagents_to_add = list(/singleton/reagent/alcohol/beer = 30)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/beer/light
+	name = "Carp Lite"
+	desc = "Brewed with \"Pure Ice Asteroid Spring Water\"."
+	desc_extended = DRINK_FLUFF_GETMORE
+	icon_state = "litebeer"
+	reagents_to_add = list(/singleton/reagent/alcohol/beer/light = 30)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/beer/root
+	name = "Two-Time root beer"
+	desc = "A popular, old-fashioned brand of root beer, known for its extremely sugary formula. Might make you want a nap afterwards."
+	desc_extended = DRINK_FLUFF_GETMORE
+	icon_state = "twotime"
+	reagents_to_add = list(/singleton/reagent/drink/root_beer = 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/small/ale
 	name = "\improper Burszi-ale"
@@ -485,9 +655,16 @@
 	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "alebottle"
 	item_state = "beer"
-	center_of_mass = list("x"=16, "y"=8)
-
 	reagents_to_add = list(/singleton/reagent/alcohol/ale = 30)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water
+	name = "midynhr water"
+	desc = "A soft drink made from honey and tree syrup. The label claims it is good as the tap version."
+	icon_state = "midynhrwater"
+	center_of_mass = list("x" = 16,"y" = 5)
+	desc_extended = "A soft drink based on Yve'kha's honey and tree syrups. The drink has a creamy consistency and is served cold from the tap of traditional soda fountains. Native to \
+	Das'nrra, the beverage is now widespread in the Al'mariist territories. Bottled versions exist, but they are considered to be inferior to what is served in bars and restaurants."
+	reagents_to_add = list(/singleton/reagent/drink/midynhr_water = 30)
 
 //aurora's drinks
 
@@ -549,14 +726,6 @@
 	center_of_mass = list("x" = 16,"y" = 6)
 	reagents_to_add = list(/singleton/reagent/alcohol/drambuie = 100)
 
-/obj/item/reagent_containers/food/drinks/bottle/sbiten
-	name = "Getmore's Traditional Sbiten"
-	desc = "A drink that died, then got revived, then died again, and became a fad <i>again</i> now thanks to Getmore having a surplus of honey."
-	desc_extended = DRINK_FLUFF_GETMORE
-	icon_state = "sbitenbottle"
-	center_of_mass = list("x" = 16,"y" = 7)
-	reagents_to_add = list(/singleton/reagent/alcohol/sbiten = 100)
-
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead
 	name = "messa's mead"
 	desc = "A bottle of Messa's mead. Bottled somewhere in the icy world of Adhomai."
@@ -584,6 +753,15 @@
 	marketing campaign carried out during the robotics boom on Konyang. It is traditionally consumed neat, or without mixing any other liquids into it. The '45 in this brand's \
 	name refers to its alcohol by volume content, and not a calendar year."
 	icon_state = "sojubottle"
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/singleton/reagent/alcohol/soju = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/soju/shochu
+	name = "Shu-Kouba Shochu"
+	desc = "A rice-based liquour produced and marketed by Nojosuru Foods. Similar to Soju, but more commonly drunk on the rocks or with a mixer, lowering its alcohol content."
+	desc_extended = "Majority of Shochu is only produced in Japan’s southernmost island of Kyushu, by a union of independent brewers in co-operation with the Nojosuru company. \
+	It stands as one of the Sol Alliance's pride and joy, despite being outcompeted by the more easily mass-produced Konyanger Soju."
+	icon_state = "shochubottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/soju = 100)
 
@@ -628,15 +806,6 @@
 	consumption of the nobility; even today it is considered a decadent drink reserved for fancy occasions."
 	reagents_to_add = list(/singleton/reagent/alcohol/nmshaan_liquor = 100)
 
-/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water
-	name = "midynhr water"
-	desc = "A soft drink made from honey and tree syrup. The label claims it is good as the tap version."
-	icon_state = "midynhrwater"
-	center_of_mass = list("x" = 16,"y" = 5)
-	desc_extended = "A soft drink based on Yve'kha's honey and tree syrups. The drink has a creamy consistency and is served cold from the tap of traditional soda fountains. Native to \
-	Das'nrra, the beverage is now widespread in the Al'mariist territories. Bottled versions exist, but they are considered to be inferior to what is served in bars and restaurants."
-	reagents_to_add = list(/singleton/reagent/drink/midynhr_water = 30)
-
 /obj/item/reagent_containers/food/drinks/bottle/veterans_choice
 	name = "veteran's choice"
 	desc = "A home-made bottle of veteran's choice. Shake it carefully before serving."
@@ -655,7 +824,6 @@
 	be traced back to the pre-contact times where impoverished peasants would make alcohol out of anything they could find. Homebrewing remains a tradition in the New Kingdom's rural \
 	parts. These traditional spirits are also manufactured by large breweries and sold to the urban population as handcrafted."
 	reagents_to_add = list(/singleton/reagent/alcohol/treebark_firewater = 100)
-	drink_flags = NO_EMPTY_ICON
 
 /obj/item/reagent_containers/food/drinks/bottle/darmadhir_brew
 	name = "Darmadhir Brew"
@@ -666,7 +834,6 @@
 	recipe is a secret passed down through the generations of the Darmadhir household since immemorial times. The only living member of the family, Hazyr Darmadhir, is a 68 years old \
 	Tajara. His sole heir and son died in the Second Revolution after being drafted to fight for the royal army. Alcohol collectors stipulate that the brew's price will skyrocket after Hazyr's death."
 	reagents_to_add = list(/singleton/reagent/alcohol/nmshaan_liquor/darmadhirbrew = 100)
-	drink_flags = NO_EMPTY_ICON
 
 /obj/item/reagent_containers/food/drinks/bottle/pulque
 	name = "Don Augusto's pulque"
@@ -742,6 +909,14 @@
 	icon_state = "valokkiwinebottle"
 	center_of_mass = list("x"=16, "y"=5)
 	reagents_to_add = list(/singleton/reagent/alcohol/wine/valokki = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/hooch
+	name = "hooch bottle"
+	desc = "A bottle of rotgut. Its owner has applied some street wisdom to cleverly disguise it as a brown paper bag."
+	desc_extended = DRINK_FLUFF_GETMORE
+	icon_state = "hoochbottle"
+	center_of_mass = list("x"=16, "y"=8)
+	reagents_to_add = list(/singleton/reagent/alcohol/hooch = 100)
 
 // Butanol-based alcoholic drinks
 //=====================================
