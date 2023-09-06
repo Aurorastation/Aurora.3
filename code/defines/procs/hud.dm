@@ -77,7 +77,6 @@ the HUD updates properly! */
 	Turf = null
 	. = ..()
 
-
 /proc/arrange_hud_process(var/mob/M, var/mob/Alt, var/list/hud_list)
 	hud_list |= M
 	var/datum/arranged_hud_process/P = new
