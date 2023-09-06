@@ -41,4 +41,4 @@ changes:
   - imageadd: "Adds new shoe sprites, ported from /tg/."
   - rscadd: "Adds new cowboy boots. Caligae (and their socks) are now recolorable, and condensed their selection. Adds a new workboot. Adds three new shoes."
   - refactor: "Sorts shoe sprites to be all contained sprites. Updates sprites to use icon_auto_adapt and icon_supported_species_tags."
-  - tweak: "Removed knee-length jackboots, rebranded thigh-length jackboots as cavalry boots."
+  - tweak: "Removed thigh-length jackboots, rebrands knee-length jackboots as cavalry boots."
