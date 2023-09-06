@@ -18,7 +18,6 @@
 
 	var/storage_cost
 
-
 	/**
 	 * Determines which slots an item can fit, eg. `SLOT_BACK`
 	 *
