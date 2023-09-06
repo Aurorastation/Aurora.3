@@ -116,6 +116,7 @@
 	minimal_access = list(access_consular)
 	outfit = /datum/outfit/job/representative/consular
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK)
+	blacklisted_citizenship = list(CITIZENSHIP_SOL)
 
 /datum/job/consular/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
@@ -142,3 +143,11 @@
 	if(citizenship)
 		rep_objectives = citizenship.get_objectives(mission_level, H)
 	return rep_objectives
+
+/datum/job/consular/after_spawn(mob/living/carbon/human/H)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
+	LAZYADD(blacklisted_citizenship, citizenship.name)
+
+/datum/job/consular/on_despawn(mob/living/carbon/human/H)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
+	LAZYREMOVE(blacklisted_citizenship, citizenship.name)

@@ -119,7 +119,6 @@ SUBSYSTEM_DEF(jobs)
 	var/datum/job/job = GetJob(rank)
 	if(!istype(job))
 		return
-
 	job.current_positions--
 
 /datum/controller/subsystem/jobs/proc/FindOccupationCandidates(datum/job/job, level, flag)
@@ -327,7 +326,7 @@ SUBSYSTEM_DEF(jobs)
 		Debug("ER/([H]): Equipping custom loadout.")
 		job.pre_equip(H)
 		job.setup_account(H)
-
+		job.after_spawn(H)
 		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
 		job.equip(H)
@@ -635,10 +634,10 @@ SUBSYSTEM_DEF(jobs)
 
 	//Handle job slot/tater cleanup.
 	if (H.mind)
-		var/job = H.mind.assigned_role
-
-		FreeRole(job)
-
+		var/role = H.mind.assigned_role
+		var/datum/job/job = GetJob(H.mind.assigned_role)
+		job.on_despawn(H)
+		FreeRole(role)
 		if(H.mind.objectives.len)
 			qdel(H.mind.objectives)
 			H.mind.special_role = null
