@@ -813,7 +813,10 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/sunglasses/sechud/Initialize()
 	. = ..()
 	src.hud = new/obj/item/clothing/glasses/hud/security(src)
-	return
+
+/obj/item/clothing/glasses/sunglasses/sechud/Destroy()
+	QDEL_NULL(hud)
+	. = ..()
 
 /obj/item/clothing/glasses/sunglasses/sechud/is_sec_hud()
 	return active
@@ -901,10 +904,8 @@ BLIND     // can't see anything
 	hud_holder = hud
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/Destroy()
-	qdel(hud_holder)
 	hud_holder = null
-	hud = null
-	.=..()
+	. = ..()
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/attack_self(mob/user)
 	if(toggleable && !user.incapacitated())
