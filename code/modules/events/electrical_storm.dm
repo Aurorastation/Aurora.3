@@ -8,8 +8,8 @@
 	var/global/lightning_color
 
 /datum/event/electrical_storm/Destroy(force)
-	. = ..()
 	valid_apcs = null
+	. = ..()
 
 /datum/event/electrical_storm/get_skybox_image()
 	if(!lightning_color)
