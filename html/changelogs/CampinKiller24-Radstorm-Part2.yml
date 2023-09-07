@@ -1,0 +1,7 @@
+author: CampinKiller24
+
+delete-after: True
+
+changes:
+  - rscadd: "Updated the radiation storm announcements to account for the lingering radiation."
+  - rscadd: "Extended the time before maintenance access is lost after radiation storms."
