@@ -7,12 +7,8 @@
 	circuit = /obj/item/circuitboard/area_atmos
 
 	var/list/connectedscrubbers = new()
-	var/status = ""
 
 	var/range = 15
-
-	//Simple variable to prevent me from doing attack_hand in both this and the child computer
-	var/zone = "This computer is working on a wireless range, the range is currently limited to 25 meters."
 
 /obj/machinery/computer/area_atmos/Initialize()
 	. = ..()
@@ -37,11 +33,11 @@
 	var/list/scrubberdata = list()
 	for(var/obj/machinery/portable_atmospherics/powered/scrubber/huge/scrubber in connectedscrubbers)
 		scrubberdata += list(list(
-			"id" = scrubber.name,
+			"id" = scrubber.id,
+			"name" = scrubber.name,
 			"status" = scrubber.on ? 1 : 0,
 			"pressure" = round(scrubber.air_contents.return_pressure(), 0.01),
-			"flowrate" = round(scrubber.last_flow_rate, 0.1),
-			"load" = round(scrubber.last_power_draw)
+			"flowrate" = round(scrubber.last_flow_rate, 0.1)
 		))
 
 	data["scrubbers"] = scrubberdata
@@ -52,74 +48,23 @@
 	. = ..()
 	if(.)
 		return
+
+	if(action=="scan")
+		scanscrubbers()
+		. = TRUE
 	
 	if(action=="cmode")
-		on = !on
-		update_icon()
-		.= TRUE
-
-/obj/machinery/computer/area_atmos/proc/validscrubber( var/obj/machinery/portable_atmospherics/powered/scrubber/huge/scrubber as obj )
-	if(!isobj(scrubber) || get_dist(scrubber.loc, src.loc) > src.range || scrubber.loc.z != src.loc.z)
-		return 0
-
-	return 1
+		for(var/obj/machinery/portable_atmospherics/powered/scrubber/huge/scrubber in connectedscrubbers)
+			if(scrubber.id == text2num(params["cmode"]))
+				scrubber.on = !(scrubber.on)
+				scrubber.update_icon()
+				break
+		
+		. = TRUE
 
 /obj/machinery/computer/area_atmos/proc/scanscrubbers()
 	connectedscrubbers = new()
 
-	var/found = 0
 	for(var/obj/machinery/portable_atmospherics/powered/scrubber/huge/scrubber in range(range, src.loc))
-		if(istype(scrubber))
-			found = 1
+		if(istype(scrubber) && scrubber.loc.z == src.loc.z)
 			connectedscrubbers += scrubber
-
-	if(!found)
-		status = "ERROR: No scrubber found!"
-
-	//src.updateUsrDialog()
-
-
-/obj/machinery/computer/area_atmos/area
-	zone = "This computer is working in a wired network limited to this area."
-
-/obj/machinery/computer/area_atmos/area/validscrubber( var/obj/machinery/portable_atmospherics/powered/scrubber/huge/scrubber as obj )
-	if(!isobj(scrubber))
-		return 0
-
-	/*
-	wow this is stupid, someone help me
-	*/
-	var/turf/T_src = get_turf(src)
-	if(!T_src.loc) return 0
-	var/area/A_src = T_src.loc
-
-	var/turf/T_scrub = get_turf(scrubber)
-	if(!T_scrub.loc) return 0
-	var/area/A_scrub = T_scrub.loc
-
-	if(A_scrub != A_src)
-		return 0
-
-	return 1
-
-/obj/machinery/computer/area_atmos/area/scanscrubbers()
-	connectedscrubbers = new()
-
-	var/found = 0
-
-	var/turf/T = get_turf(src)
-	if(!T.loc) return
-	var/area/A = T.loc
-	for(var/obj/machinery/portable_atmospherics/powered/scrubber/huge/scrubber in world )
-		var/turf/T2 = get_turf(scrubber)
-		if(T2 && T2.loc)
-			var/area/A2 = T2.loc
-			if(istype(A2) && A2 == A)
-				connectedscrubbers += scrubber
-				found = 1
-
-
-	if(!found)
-		status = "ERROR: No scrubber found!"
-
-	src.updateUsrDialog()

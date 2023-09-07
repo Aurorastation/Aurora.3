@@ -32359,7 +32359,10 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/machinery/portable_atmospherics/powered/scrubber/huge,
+/obj/machinery/portable_atmospherics/powered/scrubber/huge{
+	use_power = 1;
+	volume_rate = 7500
+	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -41327,7 +41330,10 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/machinery/portable_atmospherics/powered/scrubber/huge,
+/obj/machinery/portable_atmospherics/powered/scrubber/huge{
+	use_power = 1;
+	volume_rate = 7500
+	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -42382,7 +42388,9 @@
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
 "uBu" = (
-/obj/machinery/atmospherics/unary/outlet_injector,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	use_power = 1
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "uBx" = (
