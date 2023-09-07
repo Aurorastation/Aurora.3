@@ -499,12 +499,9 @@
 	var/active = 0 //if the ship is on
 /obj/item/orion_ship/examine(mob/user)
 	. = ..()
-	if(!(in_range(user, src)))
+	if(distance > 1)
 		return
-	if(!active)
-		to_chat(user, "<span class='notice'>There's a little switch on the bottom. It's flipped down.</span>")
-	else
-		to_chat(user, "<span class='notice'>There's a little switch on the bottom. It's flipped up.</span>")
+	to_chat(user, "<span class='notice'>There's a little switch on the bottom. It's flipped [active ? "up" : "down"].</span>")
 /obj/item/orion_ship/attack_self(mob/user)
 	if(active)
 		return

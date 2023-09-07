@@ -239,7 +239,7 @@
 // Examination code for all atoms.
 // Returns TRUE, the caller always expects TRUE
 // This is used rather than SHOULD_CALL_PARENT as it enforces that subtypes of a type that explicitly returns still call parent
-/atom/proc/examine(mob/user, var/distance, var/is_adjacent, var/infix = "", var/suffix = "")
+/atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "")
 	var/f_name = "\a [src][infix]."
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
@@ -274,7 +274,7 @@
 	return TRUE
 
 // Same as examine(), but without the "this object has more info" thing and with the extra information instead.
-/atom/proc/examine_fluff(mob/user, var/distance, var/is_adjacent, var/infix = "", var/suffix = "")
+/atom/proc/examine_fluff(mob/user, distance, is_adjacent, infix = "", suffix = "")
 	var/f_name = "\a [src][infix]."
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)

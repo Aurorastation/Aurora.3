@@ -681,7 +681,7 @@
 
 /obj/machinery/iv_drip/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(distance >= 2)
+	if(distance > 2)
 		return
 	to_chat(user, SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]. The Emergency Positive Pressure \
 	system is [epp ? "on" : "off"]."))
