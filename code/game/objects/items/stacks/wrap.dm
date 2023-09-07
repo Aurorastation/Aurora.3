@@ -201,7 +201,7 @@
 
 /obj/item/stack/packageWrap/examine(mob/user, distance, is_adjacent)
 	if(distance <= 1)
-		to_chat(user, "There [amount == 1 ? "is" : "are"] about [amount]  units of package wrap left!")
+		to_chat(user, "There [amount == 1 ? "is" : "are"] about [amount] units of package wrap left!")
 
 /obj/item/c_tube
 	name = "cardboard tube"
