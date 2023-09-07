@@ -137,7 +137,7 @@
 /area/abandoned_industrial_station/docks_a2)
 "ar" = (
 /obj/structure/table/steel,
-/obj/item/reagent_containers/food/drinks/teapot{
+/obj/item/reagent_containers/glass/beaker/teapot{
 	pixel_x = 2;
 	pixel_y = 7
 	},
@@ -5496,15 +5496,15 @@
 /area/abandoned_industrial_station/hangar)
 "rC" = (
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
 /obj/item/storage/box/fancy/egg_box,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
