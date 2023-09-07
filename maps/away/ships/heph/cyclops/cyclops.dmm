@@ -3722,16 +3722,6 @@
 	},
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_hangar)
-"MW" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
 "Na" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
@@ -40634,12 +40624,12 @@ CE
 CE
 CE
 CE
-MW
-NW
-Ag
-Ag
-NW
-sM
+CE
+CE
+CE
+CE
+CE
+CE
 CE
 CE
 CE
