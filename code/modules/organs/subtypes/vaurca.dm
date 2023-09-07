@@ -196,11 +196,10 @@
 		S.shielded = SOCKET_UNSHIELDED
 		return
 	to_chat(user, SPAN_NOTICE("You activate the [src], shielding your neural socket against outside attack."))
-	switch(fullshield)
-		if(TRUE)
-			S.shielded = SOCKET_FULLSHIELDED
-		if(FALSE)
-			S.shielded = SOCKET_SHIELDED
+	if(fullshield)
+		S.shielded = SOCKET_FULLSHIELDED
+	else
+		S.shielded = SOCKET_SHIELDED
 
 /obj/item/organ/internal/augment/hiveshield/process()
 	if(is_broken())
