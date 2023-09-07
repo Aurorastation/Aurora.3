@@ -56,8 +56,8 @@ var/datum/controller/subsystem/profiler/SSprofiler
 	admin_notice(SPAN_DANGER("Profiler: dump profile after CPU spike."), R_SERVER|R_DEV)
 
 	var/name = "[game_id]_[time2text(world.timeofday, "hh-mm-ss")]"
-	text2file(world.Profile(PROFILE_REFRESH, "json"), "data/logs/profiler/[game_id]/[name].json")
-	text2file(world.Profile(PROFILE_REFRESH, type = "sendmaps", format = "json"), "data/logs/profiler/[game_id]/[name]_sendmaps.json")
+	text2file(world.Profile(PROFILE_REFRESH, "json"), "data/logs/[game_id]/profiler/[name].json")
+	text2file(world.Profile(PROFILE_REFRESH, type = "sendmaps", format = "json"), "data/logs/[game_id]/profiler/[name]_sendmaps.json")
 
 /datum/controller/subsystem/profiler/proc/RestartProfiler()
 	world.Profile(PROFILE_CLEAR)

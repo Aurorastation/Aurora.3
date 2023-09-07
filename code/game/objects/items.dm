@@ -127,9 +127,11 @@
 
 /obj/item/update_icon()
 	. = ..()
+	if(build_from_parts || has_accents)
+		cut_overlays()
 	if(build_from_parts)
 		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
-	if(accent_color && has_accents)
+	if(has_accents)
 		add_overlay(overlay_image(icon,"[icon_state]_acc",accent_color, RESET_COLOR))
 
 /obj/item/device

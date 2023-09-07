@@ -89,8 +89,8 @@
 	dust_end_message = "The ship has now passed through the belt of space dust."
 
 	radiation_detected_message = "High levels of radiation detected near the ship. Please evacuate into one of the shielded maintenance tunnels."
-	radiation_contact_message = "The ship has entered the radiation belt. Please remain in a sheltered area until the ship has cleared it."
-	radiation_end_message = "The ship has passed the radiation belt. Please report to the medbay if you experience any unusual symptoms. Maintenance will lose all-access again shortly."
+	radiation_contact_message = "The ship has entered the radiation belt. Please remain in a sheltered area until the ship has passed through it and engineering has given the all-clear."
+	radiation_end_message = "The ship has passed the radiation belt. Please await an all-clear from engineering staff before exiting maintenance as there may be residual radiation. Immediately make your way to the medbay if you experience any unusual symptoms. Maintenance will lose all-access again shortly."
 
 	rogue_drone_detected_messages = list("Combat drone swarms from a nearby facility have engaged the ship. If any are sighted in the area, approach with caution.",
 													"Malfunctioning combat drones have been detected close to the ship. If any are sighted in the area, approach with caution.")

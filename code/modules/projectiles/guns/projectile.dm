@@ -27,6 +27,11 @@
 	var/unjam_cooldown = 0      //Gives the unjammer some time after spamming unjam to not eject their mag
 	var/jam_chance = 0          //Chance it jams on fire
 
+	///Pixel offset for the suppressor overlay on the x axis.
+	var/suppressor_x_offset
+	///Pixel offset for the suppressor overlay on the y axis.
+	var/suppressor_y_offset
+
 	//TODO generalize ammo icon states for guns
 	//var/magazine_states = 0
 	//var/list/icon_keys = list()		//keys
@@ -48,6 +53,16 @@
 	QDEL_NULL(ammo_magazine)
 	QDEL_NULL_LIST(loaded)
 	. = ..()
+
+/obj/item/gun/projectile/update_icon()
+	..()
+	if(suppressed)
+		var/mutable_appearance/MA = mutable_appearance('icons/obj/guns/suppressor.dmi', "suppressor")
+		if(suppressor_x_offset)
+			MA.pixel_x = suppressor_x_offset
+		if(suppressor_y_offset)
+			MA.pixel_y = suppressor_y_offset
+		underlays += MA
 
 /obj/item/gun/projectile/consume_next_projectile()
 	if(jam_num)
@@ -212,9 +227,26 @@
 	update_maptext()
 	update_icon()
 
-/obj/item/gun/projectile/attackby(obj/item/A, mob/user)
+/obj/item/gun/projectile/attackby(obj/item/I, mob/user)
 	. = ..()
-	load_ammo(A, user)
+	if(.)
+		return
+	load_ammo(I, user)
+	if(istype(I, /obj/item/suppressor))
+		var/obj/item/suppressor/S = I
+		if(!can_suppress)
+			balloon_alert(user, "\the [S.name] doesn't fit")
+			return
+		if(user.l_hand != suppressor && user.r_hand != suppressor)
+			balloon_alert(user, "not in hand")
+			return
+		if(suppressed)
+			balloon_alert(user, "already has a suppressor")
+			return
+		user.drop_from_inventory(suppressor, src)
+		balloon_alert(user, "[S.name] attached")
+		install_suppressor(S)
+		return
 
 /obj/item/gun/projectile/toggle_firing_mode(mob/user)
 	if(jam_num)
@@ -261,6 +293,8 @@
 		to_chat(user, "<span class='warning'>It looks jammed.</span>")
 	if(ammo_magazine)
 		to_chat(user, "It has \a [ammo_magazine] loaded.")
+	if(suppressed)
+		to_chat(user, "It has a suppressor attached.")
 	to_chat(user, "Has [get_ammo()] round\s remaining.")
 	return
 
@@ -296,3 +330,26 @@
 		else
 			. += "No magazine inserted.<br>"
 	. += ..(FALSE)
+
+///Installs a new suppressor, assumes that the suppressor is already in the contents of src
+/obj/item/gun/projectile/proc/install_suppressor(obj/item/suppressor/S)
+	suppressed = TRUE
+	w_class += S.w_class //Add our weight class to the item's weight class
+	suppressor = S
+	update_icon()
+
+/obj/item/gun/projectile/clear_suppressor()
+	if(!can_unsuppress)
+		return
+	if(istype(suppressor))
+		w_class -= suppressor.w_class
+	return ..()
+
+/obj/item/gun/projectile/AltClick(mob/user)
+	if(use_check_and_message(user))
+		return
+	if(suppressed && can_unsuppress)
+		balloon_alert(user, "[suppressor.name] removed")
+		user.put_in_hands(suppressor)
+		clear_suppressor()
+	return ..()

@@ -1512,7 +1512,7 @@
 /area/engineering/storage_eva)
 "aIh" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/teapot{
+/obj/item/reagent_containers/glass/beaker/teapot{
 	pixel_x = 2;
 	pixel_y = 7
 	},
@@ -2046,9 +2046,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
 "aTO" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/seed_extractor,
 /obj/machinery/media/jukebox/audioconsole/wall{
@@ -2380,6 +2377,13 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
+"baP" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/obj/machinery/alarm/east,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_two)
 "bbI" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -7608,8 +7612,8 @@
 /obj/structure/sign/drop{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 5
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
@@ -7813,10 +7817,8 @@
 	},
 /obj/machinery/orderterminal{
 	dir = 1;
-	pixel_y = 32
-	},
-/obj/machinery/camera/network/service{
-	c_tag = "Dinner - Kitchen Service"
+	pixel_y = 32;
+	pixel_x = -11
 	},
 /turf/simulated/floor/lino,
 /area/horizon/crew_quarters/lounge/bar)
@@ -10611,7 +10613,7 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/drinks/teapot,
+/obj/item/reagent_containers/glass/beaker/teapot,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar)
 "flS" = (
@@ -10696,6 +10698,15 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/storage_hard)
+"fnY" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/hydroponics)
 "fol" = (
 /turf/simulated/wall,
 /area/chapel/office)
@@ -15776,12 +15787,6 @@
 	id = "sorting";
 	reversed = 1
 	},
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
 "hCo" = (
@@ -17800,9 +17805,6 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/machinery/button/remote/blast_door{
 	desc = "A remote control-switch for the engine control room blast doors.";
 	dir = 8;
@@ -19113,6 +19115,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/operations/mail_room)
 "jib" = (
@@ -20736,7 +20739,12 @@
 	},
 /obj/machinery/vending/dinnerware/plastic{
 	density = 0;
-	pixel_y = 24
+	pixel_y = 24;
+	pixel_x = -19
+	},
+/obj/machinery/camera/network/service{
+	c_tag = "Dinner - Kitchen Service";
+	pixel_x = 5
 	},
 /turf/simulated/floor/lino,
 /area/horizon/crew_quarters/lounge/bar)
@@ -25183,9 +25191,6 @@
 "mjl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/north,
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/structure/closet/crate/hydroponics{
 	name = "beekeeping crate"
 	},
@@ -25783,10 +25788,10 @@
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/full,
@@ -27751,6 +27756,9 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
+/obj/machinery/light/floor{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "npF" = (
@@ -27779,6 +27787,7 @@
 /area/horizon/hallway/deck_two/fore)
 "npL" = (
 /obj/structure/stairs/east,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "nqm" = (
@@ -40665,8 +40674,9 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/railing/mapped,
-/obj/structure/plasticflaps/airtight,
+/obj/structure/plasticflaps/airtight{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
 "tQA" = (
@@ -40799,6 +40809,7 @@
 /turf/simulated/floor/tiled/full,
 /area/engineering/storage_hard)
 "tUR" = (
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "tVu" = (
@@ -41184,7 +41195,6 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
-/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "ueC" = (
@@ -41874,7 +41884,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -42893,7 +42902,7 @@
 /obj/structure/disposalpipe/junction{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/machinery/light/floor{
 	dir = 1
 	},
 /turf/simulated/floor/lino,
@@ -45132,8 +45141,9 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/railing/mapped,
-/obj/structure/plasticflaps/airtight,
+/obj/structure/plasticflaps/airtight{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/mail_room)
 "vVL" = (
@@ -47512,7 +47522,7 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/stairs_lower{
-	pixel_y = 3
+	pixel_y = 9
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark/full,
@@ -47547,6 +47557,9 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "wYY" = (
@@ -70785,7 +70798,7 @@ vqm
 kta
 pMN
 kta
-kta
+baP
 kta
 kta
 eZG
@@ -72419,7 +72432,7 @@ xoL
 hPC
 gRr
 byh
-mQR
+fnY
 mQR
 acH
 bXR

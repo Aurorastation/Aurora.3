@@ -306,7 +306,7 @@
 	dir = 4
 	},
 /obj/item/book/manual/chef_recipes,
-/obj/item/reagent_containers/food/drinks/pitcher,
+/obj/item/reagent_containers/glass/beaker/pitcher,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/wood/yew,
