@@ -212,6 +212,7 @@
 	item_state = "suitjacket"
 	contained_sprite = TRUE
 	has_accents = TRUE
+	accent_color = COLOR_WHITE
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 	opened = TRUE
