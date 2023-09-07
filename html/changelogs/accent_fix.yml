@@ -1,6 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed overlays sticking for accent items when toggled."
