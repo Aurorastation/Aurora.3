@@ -3742,7 +3742,7 @@
 "CT" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced,
 /area/shuttle/dominian_unathi)
 "CU" = (
 /obj/effect/floor_decal/corner/orange{
@@ -4671,7 +4671,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port thruster"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced,
 /area/shuttle/dominian_unathi)
 "JO" = (
 /obj/structure/bed,
@@ -5733,7 +5733,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard thruster"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/reinforced,
 /area/shuttle/dominian_unathi)
 "SQ" = (
 /obj/structure/cable/green{
