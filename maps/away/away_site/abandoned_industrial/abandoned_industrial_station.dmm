@@ -137,7 +137,7 @@
 /area/abandoned_industrial_station/docks_a2)
 "ar" = (
 /obj/structure/table/steel,
-/obj/item/reagent_containers/glass/teapot{
+/obj/item/reagent_containers/glass/beaker/teapot{
 	pixel_x = 2;
 	pixel_y = 7
 	},

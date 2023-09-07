@@ -3147,22 +3147,22 @@
 	id = "pumpkinspce"
 	result = /singleton/reagent/spacespice/pumpkinspice
 	mix_message = "The spice brightens up."
-	required_reagents = list(/singleton/reagent/spacespice = 8, /singleton/reagent/nutriment/pumpkinpulp = 2)
-	result_amount = 10
+	required_reagents = list(/singleton/reagent/spacespice = 4, /singleton/reagent/nutriment/pumpkinpulp = 1)
+	result_amount = 5
 
 /datum/chemical_reaction/drink/psfrappe
 	name = "Pumpkin Spice Frappe"
 	id = "psfrappe"
 	result = /singleton/reagent/drink/coffee/icecoffee/psfrappe
-	required_reagents = list(/singleton/reagent/drink/coffee/icecoffee = 6, /singleton/reagent/drink/syrup_pumpkin = 2, /singleton/reagent/drink/milk/cream = 2)
-	result_amount = 10
+	required_reagents = list(/singleton/reagent/drink/coffee/icecoffee = 4, /singleton/reagent/drink/syrup_pumpkin = 1)
+	result_amount = 5
 
 /datum/chemical_reaction/drink/pslatte
 	name = "Pumpkin Spice Latte"
 	id = "pslatte"
 	result = /singleton/reagent/drink/coffee/latte/pumpkinspice
-	required_reagents = list(/singleton/reagent/drink/coffee = 6, /singleton/reagent/drink/syrup_pumpkin = 2, /singleton/reagent/drink/milk/cream = 2)
-	result_amount = 10
+	required_reagents = list(/singleton/reagent/drink/coffee/latte = 4, /singleton/reagent/drink/syrup_pumpkin = 1)
+	result_amount = 5
 
 /datum/chemical_reaction/drink/caramel_latte
 	name = "Caramel latte"

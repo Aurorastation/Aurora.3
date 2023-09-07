@@ -7,6 +7,7 @@
 	desc = "This blank bottle is unyieldingly anonymous, offering no clues to its contents."
 	icon_state = "glassbottle"
 	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
+	filling_states = "10;20;30;40;50;60;70;80;90;100"
 	amount_per_transfer_from_this = 5//Smaller sip size for more BaRP and less guzzling a litre of vodka before you realise it
 	volume = 100
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
@@ -638,21 +639,18 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/beer/light
 	name = "Carp Lite"
 	desc = "Brewed with \"Pure Ice Asteroid Spring Water\"."
-	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "litebeer"
 	reagents_to_add = list(/singleton/reagent/alcohol/beer/light = 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/small/beer/root
 	name = "Two-Time root beer"
 	desc = "A popular, old-fashioned brand of root beer, known for its extremely sugary formula. Might make you want a nap afterwards."
-	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "twotime"
 	reagents_to_add = list(/singleton/reagent/drink/root_beer = 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/small/ale
 	name = "\improper Burszi-ale"
 	desc = "Manufactured in Virklund on New Gibson by Getmore, this is a true Burszian's drink of choice. That is, if you're not an IPC. You wouldn't be able to buy this ale then. Or think of buying it. Or afford it."
-	desc_extended = DRINK_FLUFF_GETMORE
 	icon_state = "alebottle"
 	item_state = "beer"
 	reagents_to_add = list(/singleton/reagent/alcohol/ale = 30)

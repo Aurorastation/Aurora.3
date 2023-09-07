@@ -6510,7 +6510,7 @@
 /area/city/mendell/interior)
 "Lv" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/teapot{
+/obj/item/reagent_containers/glass/beaker/teapot{
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
@@ -8118,7 +8118,7 @@
 /area/shuttle/city)
 "TD" = (
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/teapot{
+/obj/item/reagent_containers/glass/beaker/teapot{
 	pixel_y = 7
 	},
 /turf/simulated/floor/marble/dark,
