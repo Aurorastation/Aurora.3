@@ -2066,7 +2066,7 @@
 	pixel_x = 1;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/glass/pitcher{
+/obj/item/reagent_containers/glass/beaker/pitcher{
 	pixel_x = -3;
 	pixel_y = 2
 	},

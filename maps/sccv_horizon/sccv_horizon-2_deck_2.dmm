@@ -1512,7 +1512,7 @@
 /area/engineering/storage_eva)
 "aIh" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/glass/teapot{
+/obj/item/reagent_containers/glass/beaker/teapot{
 	pixel_x = 2;
 	pixel_y = 7
 	},
@@ -10613,7 +10613,7 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/teapot,
+/obj/item/reagent_containers/glass/beaker/teapot,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar)
 "flS" = (
