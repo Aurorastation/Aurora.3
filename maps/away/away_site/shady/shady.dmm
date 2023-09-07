@@ -190,7 +190,7 @@
 	pixel_x = -2
 	},
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk{
+/obj/item/reagent_containers/food/drinks/carton/milk{
 	pixel_y = 7
 	},
 /obj/effect/floor_decal/corner_wide/grey/diagonal,

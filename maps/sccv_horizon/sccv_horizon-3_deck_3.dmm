@@ -18436,7 +18436,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced/wood,
-/obj/item/reagent_containers/food/drinks/teapot,
+/obj/item/reagent_containers/glass/beaker/teapot,
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "ogp" = (
