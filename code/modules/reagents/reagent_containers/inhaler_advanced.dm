@@ -4,9 +4,10 @@
 /obj/item/reagent_containers/personal_inhaler_cartridge
 	name = "small inhaler cartridge"
 	desc = "Fill this when chemicals and attach this to personal inhalers. Contains enough aerosol for 15u of reagents. The container must be activated for aerosol reagents to mix for the use in inhalers."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	item_state = "pi_cart_small"
 	icon_state = "pi_cart_small"
+	contained_sprite = TRUE
 	volume = 15
 	w_class = ITEMSIZE_TINY
 	unacidable = 1
@@ -27,7 +28,7 @@
 	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
 
 	if(reagents.total_volume)
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/syringe.dmi', "[initial(icon_state)][rounded_vol]")
+		var/mutable_appearance/filling = mutable_appearance(icon, "[initial(icon_state)][rounded_vol]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
@@ -87,9 +88,10 @@
 /obj/item/personal_inhaler
 	name = "inhaler"
 	desc = "A safe way to administer small amounts of drugs into the lungs by trained personnel."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	item_state = "pi"
 	icon_state = "pi"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	var/obj/item/reagent_containers/stored_cartridge

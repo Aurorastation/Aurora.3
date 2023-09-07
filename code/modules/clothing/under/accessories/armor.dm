@@ -113,6 +113,21 @@
 		bomb = ARMOR_BOMB_PADDED,
 	)
 
+/obj/item/clothing/accessory/leg_guard/tcaf
+	name = "\improper TCAF legionnaire leg carapace"
+	desc = "Try to sweep the leg against someone wearing these."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "tcaf_boot_armor"
+	item_state = "tcaf_boot_armor"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
+
 //Arm guards.
 /obj/item/clothing/accessory/arm_guard
 	name = "corporate arm guards"
@@ -239,3 +254,23 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+
+/obj/item/clothing/accessory/arm_guard/tcaf
+	name = "\improper TCAF carapace arm guards"
+	desc = "Blue carapace armguards to protect you in the modern battlefield of 2465."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "tcaf_armguards"
+	item_state = "tcaf_armguards"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
+
+/obj/item/clothing/accessory/arm_guard/tcaf/tcaf_stripe
+	name = "striped TCAF carapace arm guards"
+	icon_state = "tcaf_armguards_stripe"
+	item_state = "tcaf_armguards_stripe"

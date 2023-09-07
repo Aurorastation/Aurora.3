@@ -1,22 +1,50 @@
 /******************** Requests Console ********************/
 /** Originally written by errorage, updated by: Carn, needs more work though. I just added some security fixes */
 
+#define PRESET_NORTH \
+dir = NORTH; \
+pixel_y = 30;
+
+#define PRESET_SOUTH \
+dir = SOUTH; \
+pixel_y = -24;
+
+#define PRESET_WEST \
+dir = WEST; \
+pixel_x = -12;
+
+#define PRESET_EAST \
+dir = EAST; \
+pixel_x = 12;
+
+
 //Requests Console Department Types
 #define RC_ASSIST 1		//Request Assistance
 #define RC_SUPPLY 2		//Request Supplies
 #define RC_INFO   4		//Relay Info
 
 //Requests Console Screens
-#define RCS_MAINMENU 0	// Main menu
-#define RCS_RQASSIST 1	// Request supplies
-#define RCS_RQSUPPLY 2	// Request assistance
-#define RCS_SENDINFO 3	// Relay information
-#define RCS_SENTPASS 4	// Message sent successfully
-#define RCS_SENTFAIL 5	// Message sent unsuccessfully
-#define RCS_VIEWMSGS 6	// View messages
-#define RCS_MESSAUTH 7	// Authentication before sending
-#define RCS_ANNOUNCE 8	// Send announcement
-#define RCS_FORMS	 9	// Forms database
+
+///Main menu
+#define RCS_MAINMENU 0
+///Request supplies
+#define RCS_RQASSIST 1
+///Request assistance
+#define RCS_RQSUPPLY 2
+///Relay information
+#define RCS_SENDINFO 3
+///Message sent successfully
+#define RCS_SENTPASS 4
+///Message sent unsuccessfully
+#define RCS_SENTFAIL 5
+///View messages
+#define RCS_VIEWMSGS 6
+///Authentication before sending
+#define RCS_MESSAUTH 7
+///Send announcement
+#define RCS_ANNOUNCE 8
+///Forms database
+#define RCS_FORMS	 9
 
 var/req_console_assistance = list()
 var/req_console_supplies = list()
@@ -26,7 +54,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console
 	name = "requests console"
 	desc = "A console intended to send requests to different departments on the station."
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "req_comp"
 	component_types = list(
 			/obj/item/circuitboard/requestconsole,
@@ -35,28 +63,51 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		)
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
-	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
-	var/list/message_log = list() //List of all messages
-	var/departmentType = 0 		//Bitflag. Zero is reply-only. Map currently uses raw numbers instead of defines.
+
+	///The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
+	var/department = "Unknown"
+
+	///The list of all messages
+	var/list/message_log = list()
+
+	///Bitflag. Zero is reply-only. Map currently uses raw numbers instead of defines.
+	var/departmentType = 0
+
+	/**
+	 * The new message priority
+	 *
+	 * 0 = no new message
+	 * 1 = normal priority
+	 * 2 = high priority
+	 */
 	var/newmessagepriority = 0
-		// 0 = no new message
-		// 1 = normal priority
-		// 2 = high priority
+
 	var/screen = RCS_MAINMENU
-	var/silent = 0 // set to 1 for it not to beep all the time
-//	var/hackState = 0
-		// 0 = not hacked
-		// 1 = hacked
-	var/announcementConsole = 0
-		// 0 = This console cannot be used to send department announcements
-		// 1 = This console can send department announcementsf
-	var/open = 0 // 1 if open
-	var/announceAuth = 0 //Will be set to 1 when you authenticate yourself for announcements
-	var/msgVerified = "" //Will contain the name of the person who varified it
-	var/msgStamped = "" //If a message is stamped, this will contain the stamp name
+
+	///If the request console is muted, boolean
+	var/silent = FALSE
+
+	///If this console can be used to send department announcements, boolean
+	var/announcementConsole = FALSE
+
+	///If the console is open, boolean
+	var/open = FALSE
+
+	///If the console is authenticated, internal
+	var/announceAuth = FALSE
+
+	///Name of the person who varified it
+	var/msgVerified = ""
+
+	///Name of the person who stamped the message, if stamped
+	var/msgStamped = ""
 	var/message = "";
-	var/recipient = ""; //the department which will be receiving the message
-	var/priority = -1 ; //Priority of the message being sent
+
+	///The department which will be receiving the message
+	var/recipient = "";
+
+	///Priority of the message being sent
+	var/priority = -1 ;
 
 	//Form intregration
 	var/SQLquery
@@ -64,8 +115,22 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/lid = 0
 	//End Form Integration
 	var/datum/announcement/announcement = new
-	var/list/obj/item/modular_computer/alert_pdas = list() //The PDAs we alert upon a request receipt.
+
+	///List of PDAs we alert upon a request receipt
+	var/list/obj/item/modular_computer/alert_pdas = list()
 	var/global/list/screen_overlays
+
+/obj/machinery/requests_console/north
+	PRESET_NORTH
+
+/obj/machinery/requests_console/south
+	PRESET_SOUTH
+
+/obj/machinery/requests_console/west
+	PRESET_WEST
+
+/obj/machinery/requests_console/east
+	PRESET_EAST
 
 /obj/machinery/requests_console/proc/generate_overlays(var/force = 0)
 	if(LAZYLEN(screen_overlays) && !force)
@@ -109,11 +174,18 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(building)
 		if(dir)
 			src.set_dir(dir)
-
-		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
-		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
+		if(src.dir & NORTH)
+			alpha = 127
+		generate_overlays()
 		update_icon()
+
+		if(!mapload)
+			set_pixel_offsets()
+
 		return
+
+	if(dir & NORTH)
+		alpha = 127
 
 	announcement.title = "[department] announcement"
 	announcement.newscast = 1
@@ -128,6 +200,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		req_console_information |= department
 	generate_overlays()
 	update_icon()
+
+	if(!mapload)
+		set_pixel_offsets()
+
+/obj/machinery/requests_console/set_pixel_offsets()
+	pixel_x = DIR2PIXEL_X(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/machinery/requests_console/Destroy()
 	allConsoles -= src
@@ -467,3 +546,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	announcement.announcer = ""
 	if(mainmenu)
 		screen = RCS_MAINMENU
+
+#undef PRESET_NORTH
+#undef PRESET_SOUTH
+#undef PRESET_WEST
+#undef PRESET_EAST

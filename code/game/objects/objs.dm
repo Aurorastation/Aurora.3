@@ -256,3 +256,6 @@
 		. |= DAMAGE_FLAG_SHARP
 		if(damtype == DAMAGE_BURN)
 			. |= DAMAGE_FLAG_LASER
+
+/obj/proc/set_pixel_offsets()
+	return
