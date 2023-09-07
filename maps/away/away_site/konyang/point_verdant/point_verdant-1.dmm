@@ -359,6 +359,9 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
+"lC" = (
+/turf/simulated/wall,
+/area/point_verdant/interior)
 "lV" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
@@ -435,6 +438,12 @@
 	opacity = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant/interior)
+"ou" = (
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
 "oz" = (
 /obj/effect/decal/road_marking,
@@ -584,6 +593,10 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior)
+"rE" = (
+/obj/structure/stairs/north,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "rS" = (
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior)
@@ -595,6 +608,10 @@
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/outdoors)
+"sq" = (
+/obj/machinery/door/airlock/multi_tile/glass,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "ss" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -916,6 +933,9 @@
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
 /area/point_verdant/outdoors)
+"AN" = (
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "AO" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
@@ -1167,6 +1187,9 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/interior)
+"Ir" = (
+/turf/simulated/wall/r_wall,
 /area/point_verdant/interior)
 "Iv" = (
 /obj/structure/dam{
@@ -1437,6 +1460,14 @@
 "Sx" = (
 /turf/simulated/floor/exoplanet/water/shallow/sewage,
 /area/point_verdant/interior)
+"SG" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "SQ" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/asphalt,
@@ -1658,6 +1689,10 @@
 /obj/effect/decal/road_marking/no_pass,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Yn" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "Yv" = (
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
@@ -3775,15 +3810,15 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
+Ir
 rf
 rf
 rf
@@ -3957,21 +3992,21 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+Ir
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+Ir
+Ir
+lC
+lC
+lC
+lC
 rf
 rf
 rf
@@ -4139,21 +4174,21 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+Ir
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+sq
+AN
+AN
+AN
+AN
+lC
 rf
 rf
 rf
@@ -4321,21 +4356,21 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+Ir
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+lC
 rf
 rf
 rf
@@ -4503,21 +4538,21 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+Ir
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+lC
+lC
+lC
+AN
+AN
+lC
 rf
 rf
 rf
@@ -4685,21 +4720,21 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+Ir
+ou
+Yn
+Ir
+ou
+Yn
+Ir
+ou
+Yn
+Ir
+lC
+lC
+AN
+AN
+lC
 rf
 rf
 rf
@@ -4867,21 +4902,21 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+Ir
+AN
+SG
+Ir
+AN
+SG
+Ir
+AN
+SG
+Ir
+rE
+AN
+AN
+AN
+lC
 rf
 rf
 rf
@@ -5049,21 +5084,21 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+lC
+AN
+AN
+Ir
+AN
+AN
+Ir
+AN
+AN
+Ir
+rE
+AN
+AN
+AN
+lC
 rf
 rf
 rf
@@ -5231,21 +5266,21 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+lC
+AN
+AN
+Ir
+AN
+AN
+Ir
+AN
+AN
+Ir
+lC
+lC
+AN
+AN
+lC
 rf
 rf
 rf
@@ -5413,21 +5448,21 @@ rf
 rf
 rf
 rf
+lC
+lC
+lC
+lC
+lC
+lC
+lC
+lC
+lC
+lC
 rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+lC
+lC
+lC
+lC
 rf
 rf
 rf
