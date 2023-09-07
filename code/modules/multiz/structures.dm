@@ -240,7 +240,7 @@
 		return
 	if(target.z > (z + 1)) //Prevents wheelchair fuckery. Basically, you teleport twice because both the wheelchair + your mob collide with the stairs.
 		return
-	if(target.Enter(A, src))
+	if(target.Enter(A, src) && A.dir == dir)
 		A.forceMove(target)
 		if(isliving(A))
 			var/mob/living/L = A
