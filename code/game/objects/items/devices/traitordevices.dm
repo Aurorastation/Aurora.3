@@ -70,6 +70,7 @@ effective or pretty fucking useless.
 		return
 	if(all_languages[LANGUAGE_LIIDRA] in target.languages || target.internal_organs_by_name["blackkois"])
 		to_chat(user, SPAN_NOTICE("[target] is already part of the Lii'dra Hivemind!"))
+		return
 	if(isvaurca(target))
 		to_chat(user, SPAN_NOTICE("You connect [target] to the Lii'dra Hivemind!"))
 		to_chat(target, SPAN_NOTICE("You have been connected to the Lii'dra Hivemind!"))

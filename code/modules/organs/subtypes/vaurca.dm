@@ -132,9 +132,8 @@
 	name = "administrative neural socket"
 	icon_state = "admin_socket"
 	desc = "The single most important organ for a Vaurca, able to copy their mind into their Virtual Reality Afterlife upon death. \
-	This one appears to be the far rarer administrative model including encrypted Hivenet access codes and an Emergency Remote Cast System. These are almost never found on any Vaurca Bioform except the Ta.\
-	The Emergency Remote Cast light is red, indicating it has not been triggered."
-	var/remote_cast = 0 //get out of death free card
+	This one appears to be the far rarer administrative model including encrypted Hivenet access codes and an Emergency Remote Cast System. These are almost never found on any Vaurca Bioform except the Ta."
+	var/remote_cast = TRUE //get out of death free card
 	var/list/shielded_sockets = list() //sockets that you are currently protecting
 	var/list/shielded_mobs = list() //mobs that you are currently protecting
 	granted_verbs = list(
@@ -156,19 +155,17 @@
 	if (is_broken())
 		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
 			owner.remove_language(LANGUAGE_VAURCA)
-			to_chat(owner, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
+			to_chat(owner, SPAN_WARNING("Your mind suddenly grows dark as the unity of the Hive is torn from you."))
 	else
 		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 			owner.add_language(LANGUAGE_VAURCA)
-			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
+			to_chat(owner, SPAN_NOTICE("Your mind expands, and your thoughts join the unity of the Hivenet."))
 
 	if(owner.stat == DEAD)
 		if(!remote_cast)
 			owner.visible_message(SPAN_WARNING("[owner]'s corpse spasms suddenly, legs twitching and antennae moving wildly as something hums beneath [owner.get_pronoun("his")] exoskeleton. After a moment, [owner.get_pronoun("he")] goes still."))
 			icon_state = "admin_socket_on"
-			desc = "The single most important organ for a Vaurca, able to copy their mind into their Virtual Reality Afterlife upon death. \
-			This one appears to be the far rarer administrative model including encrypted Hivenet access codes and an Emergency Remote Cast System. These are almost never found on any Vaurca Bioform except the Ta.\
-			The Emergency Remote Cast light is green, indicating it has been triggered."
+			desc += "The Emergency Remote Cast light is green, indicating it has been triggered."
 			remote_cast = 1
 		for(var/obj/item/organ/internal/vaurca/neuralsocket/S in shielded_sockets)
 			S.shielded = SOCKET_UNSHIELDED
