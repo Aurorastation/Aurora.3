@@ -274,6 +274,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
+"cW" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/template_noop,
+/area/hephmining_ship/cyclops/cyclops_hangar)
+"cX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "di" = (
 /obj/machinery/atmospherics/unary/vent_pump,
 /turf/simulated/floor/tiled/dark,
@@ -305,6 +315,14 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
+"dr" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/template_noop,
+/area/space)
 "dD" = (
 /obj/machinery/mineral/processing_unit_console{
 	id = "processing_3";
@@ -467,6 +485,14 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"eA" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/template_noop,
+/area/space)
 "eF" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -501,6 +527,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
+"eZ" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/turf/template_noop,
+/area/space)
 "fa" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/engine{
@@ -590,6 +621,30 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"gf" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
+"gm" = (
+/obj/machinery/light/small,
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "gn" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
@@ -651,6 +706,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"gV" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "gZ" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#4c4324"
@@ -761,6 +823,14 @@
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"iM" = (
+/obj/machinery/door/airlock/hatch{
+	name = "EVA Access";
+	req_access = list(216);
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "iR" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
@@ -1059,6 +1129,12 @@
 	temperature = 278
 	},
 /area/hephmining_ship/cyclops/cyclops_engineering)
+"mO" = (
+/obj/effect/map_effect/airlock/e_to_w/long/square,
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#4c4324"
+	},
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "mX" = (
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
@@ -1338,6 +1414,9 @@
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/sign/vacuum{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "pL" = (
@@ -1604,7 +1683,8 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
@@ -1614,6 +1694,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
+"sM" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "sP" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/corner/orange{
@@ -1730,6 +1818,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
+"uB" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/airless,
+/area/space)
 "uG" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -2308,6 +2404,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"Ag" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space)
 "Ai" = (
 /obj/structure/window/reinforced,
 /obj/machinery/atmospherics/unary/engine,
@@ -2500,6 +2600,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"Bk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "Br" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/machinery/conveyor_switch/oneway{
@@ -2620,6 +2726,14 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
+"BZ" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/airless,
+/area/space)
 "Cd" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2680,6 +2794,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"CU" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
 "CV" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -2905,6 +3026,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
+"Ff" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
 "Fk" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -2960,6 +3091,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
+"Gx" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
 "Gz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3493,6 +3632,13 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
+"LV" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
 "Mg" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space,
@@ -3576,6 +3722,16 @@
 	},
 /turf/simulated/floor,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"MW" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "Na" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
@@ -3670,6 +3826,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_vault)
+"NW" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/airless,
+/area/space)
 "NX" = (
 /obj/machinery/mineral/processing_unit_console{
 	id = "processing_2";
@@ -3796,6 +3957,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
+"PQ" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
 "PT" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -31982,12 +32153,12 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
+PQ
+NW
+Ag
+Ag
+NW
+eA
 CE
 CE
 CE
@@ -32239,12 +32410,12 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
+CU
+mA
+zn
+zn
+mO
+eZ
 CE
 CE
 CE
@@ -32496,12 +32667,12 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
+CU
+cW
+zn
+zn
+cW
+eZ
 CE
 CE
 CE
@@ -32753,12 +32924,12 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
+CU
+cW
+zn
+gm
+cW
+eZ
 CE
 CE
 CE
@@ -33010,20 +33181,20 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+CU
+mA
+zn
+zn
+mA
+NW
+LV
+LV
+LV
+LV
+LV
+LV
+LV
+Gx
 CE
 CE
 CE
@@ -33267,11 +33438,11 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
+CU
+mA
+Bk
+cX
+mA
 AY
 TP
 TP
@@ -33280,8 +33451,8 @@ WI
 TP
 TP
 AY
-CE
-CE
+Ag
+Gx
 CE
 CE
 CE
@@ -33509,26 +33680,26 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+BZ
+LV
+LV
+LV
+LV
+LV
+LV
+LV
+LV
+LV
+LV
+LV
+LV
+LV
+LV
+NW
+mA
+gf
+zn
+mA
 AY
 Ul
 Iz
@@ -33538,8 +33709,8 @@ ZV
 Nt
 AY
 AY
-CE
-CE
+Ag
+Gx
 CE
 CE
 CE
@@ -33784,7 +33955,7 @@ mA
 mA
 mA
 mA
-mA
+iM
 mA
 AY
 Na
@@ -33796,7 +33967,7 @@ lz
 XZ
 AY
 AY
-CE
+eZ
 CE
 CE
 CE
@@ -34053,7 +34224,7 @@ uM
 OP
 Ja
 AY
-CE
+eZ
 CE
 CE
 CE
@@ -34310,11 +34481,11 @@ qo
 ce
 yb
 AY
-CE
-CE
-CE
-CE
-CE
+NW
+LV
+LV
+LV
+eA
 CE
 CE
 CE
@@ -34571,8 +34742,8 @@ Zn
 Zn
 Zn
 AO
-CE
-CE
+Ag
+Gx
 CE
 CE
 CE
@@ -34829,7 +35000,7 @@ Cd
 BX
 AO
 aG
-CE
+eZ
 CE
 CE
 CE
@@ -35086,7 +35257,7 @@ Al
 tn
 AO
 Tb
-CE
+eZ
 CE
 CE
 CE
@@ -37656,7 +37827,7 @@ qJ
 wO
 FP
 Tb
-CE
+eZ
 CE
 CE
 CE
@@ -37913,7 +38084,7 @@ we
 EW
 FP
 oS
-CE
+eZ
 CE
 CE
 CE
@@ -38169,8 +38340,8 @@ FP
 ec
 FP
 FP
-CE
-CE
+Ag
+sM
 CE
 CE
 CE
@@ -38426,7 +38597,7 @@ Tv
 VI
 yt
 FP
-CE
+eZ
 CE
 CE
 CE
@@ -38683,7 +38854,7 @@ Nh
 dO
 HX
 FP
-CE
+eZ
 CE
 CE
 CE
@@ -38940,7 +39111,7 @@ FP
 FP
 FP
 FP
-CE
+eZ
 CE
 CE
 CE
@@ -39193,11 +39364,11 @@ ot
 Ig
 Ig
 Ig
-CE
-CE
-CE
-CE
-CE
+NW
+gV
+gV
+gV
+sM
 CE
 CE
 CE
@@ -39420,22 +39591,22 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+uB
+gV
+gV
+gV
+gV
+gV
+NW
 gZ
 mN
 gZ
-CE
-CE
-CE
-CE
-CE
-CE
+NW
+gV
+gV
+gV
+gV
+NW
 Zg
 Ev
 KP
@@ -39448,9 +39619,9 @@ MB
 Ga
 Ga
 Ig
-CE
-CE
-CE
+Ag
+gV
+sM
 CE
 CE
 CE
@@ -39683,29 +39854,29 @@ CE
 CE
 CE
 CE
-CE
+CU
 gZ
 gZ
 gZ
+eZ
 CE
 CE
 CE
 CE
-CE
-CE
+CU
 Zg
 bC
 Dt
 gZ
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
-CE
+NW
+gV
+gV
+gV
+gV
+gV
+gV
+gV
+sM
 CE
 CE
 CE
@@ -39940,21 +40111,21 @@ CE
 CE
 CE
 CE
+Ff
+gV
+gV
+gV
+dr
 CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
+CU
 Zg
 yg
 yg
 gZ
-CE
+eZ
 CE
 CE
 CE
@@ -40206,12 +40377,12 @@ CE
 CE
 CE
 CE
-CE
+CU
 gZ
 mb
 cv
 gZ
-CE
+eZ
 CE
 CE
 CE
@@ -40463,12 +40634,12 @@ CE
 CE
 CE
 CE
-CE
-CE
-CE
-CE
-CE
-CE
+MW
+NW
+Ag
+Ag
+NW
+sM
 CE
 CE
 CE
