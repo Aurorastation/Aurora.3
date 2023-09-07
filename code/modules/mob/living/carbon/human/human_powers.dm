@@ -1509,7 +1509,7 @@
 		to_chat(src, SPAN_DANGER("Your mind is dark, unable to communicate with the Hive."))
 		return
 	if(!istype(src.internal_organs_by_name[BP_NEURAL_SOCKET], /obj/item/organ/internal/vaurca/neuralsocket/admin))
-		to_chat(src, SPAN_WARNING("<span class='warning'>You lack the authority to do this!."))
+		to_chat(src, SPAN_WARNING("You lack the authority to do this!."))
 		return
 	for(var/mob/living/carbon/human/player in player_list)
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
@@ -2029,7 +2029,7 @@
 		to_chat(src, SPAN_WARNING("You are incapable of that in your current state!"))
 		return
 	if(!(all_languages[LANGUAGE_VAURCA] in src.languages) || !istype(host))
-		to_chat(src, "<span class='danger'>Your mind is dark, unable to communicate with the Hive.</span>")
+		to_chat(src, SPAN_DANGER("Your mind is dark, unable to communicate with the Hive."))
 		return
 	if(stat!=CONSCIOUS)
 		remoteview_target = null
