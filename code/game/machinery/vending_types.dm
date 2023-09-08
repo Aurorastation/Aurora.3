@@ -481,9 +481,10 @@
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 10,
 		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 10,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
-		/obj/item/reagent_containers/food/drinks/small_milk = 10,
-		/obj/item/reagent_containers/food/drinks/small_milk_choco = 10,
-		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 10
+		/obj/item/reagent_containers/food/drinks/carton/small/milk = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 10,
+		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 10
 	)
 
 /obj/machinery/vending/cigarette
@@ -1524,9 +1525,10 @@
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 10,
 		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 10,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
-		/obj/item/reagent_containers/food/drinks/small_milk = 10,
-		/obj/item/reagent_containers/food/drinks/small_milk_choco = 10,
-		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 10
+		/obj/item/reagent_containers/food/drinks/carton/small/milk = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 10,
+		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 10
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
@@ -1553,9 +1555,40 @@
 		/obj/item/reagent_containers/food/drinks/cans/koispunch = 50,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
 		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 35,
-		/obj/item/reagent_containers/food/drinks/small_milk = 18,
-		/obj/item/reagent_containers/food/drinks/small_milk_choco = 18,
-		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 18
+		/obj/item/reagent_containers/food/drinks/carton/small/milk = 18,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 18,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 18,
+		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 16
 	)
 	light_color = COLOR_BABY_BLUE
-	manufacturer = "nanotrasen"
+
+/obj/machinery/vending/minimart/alcohol
+	name = "minimart alcohol selection"
+	products = list(
+		/obj/item/reagent_containers/food/drinks/bottle/makgeolli = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/soju = 15,
+		/obj/item/reagent_containers/food/drinks/bottle/soju/shochu = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/sake = 5,
+		/obj/item/reagent_containers/food/drinks/cans/beer/rice = 5,
+		/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma = 5,
+		/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor = 5,
+		/obj/item/reagent_containers/food/drinks/cans/beer = 10,
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/whiskey = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/wine = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/champagne = 3
+	)
+	prices = list(
+		/obj/item/reagent_containers/food/drinks/bottle/makgeolli = 30,
+		/obj/item/reagent_containers/food/drinks/bottle/soju = 15,
+		/obj/item/reagent_containers/food/drinks/bottle/soju/shochu = 30,
+		/obj/item/reagent_containers/food/drinks/bottle/sake = 40,
+		/obj/item/reagent_containers/food/drinks/cans/beer/rice = 20,
+		/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma = 20,
+		/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor = 20,
+		/obj/item/reagent_containers/food/drinks/cans/beer = 20,
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 20,
+		/obj/item/reagent_containers/food/drinks/bottle/whiskey = 30,
+		/obj/item/reagent_containers/food/drinks/bottle/wine = 50,
+		/obj/item/reagent_containers/food/drinks/bottle/champagne = 100
+	)

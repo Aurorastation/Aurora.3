@@ -656,6 +656,13 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"wO" = (
+/obj/machinery/light/colored{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "wZ" = (
 /obj/structure/ledge,
 /turf/simulated/floor/asphalt,
@@ -782,10 +789,6 @@
 "CG" = (
 /obj/structure/table/wood,
 /obj/item/device/toner,
-/obj/item/reagent_containers/food/drinks/soymilk{
-	pixel_y = 6;
-	pixel_x = 5
-	},
 /obj/item/device/toner,
 /obj/item/storage/box/donkpockets,
 /turf/simulated/floor/wood,
@@ -1063,15 +1066,10 @@
 /turf/simulated/open,
 /area/point_verdant/interior/restaurant)
 "Lt" = (
-/obj/machinery/light/colored{
-	dir = 1;
-	pixel_y = 24
+/obj/structure/ledge/roof{
+	dir = 1
 	},
-/obj/structure/rod_railing{
-	dir = 4
-	},
-/obj/structure/table/rack/retail_shelf,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/roofing_tiles,
 /area/point_verdant/interior)
 "LG" = (
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -1099,6 +1097,12 @@
 /obj/effect/shuttle_landmark/automatic/spark,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"MN" = (
+/obj/structure/ledge/roof{
+	dir = 10
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/interior)
 "MV" = (
 /obj/structure/table/rack/clothing{
 	dir = 4;
@@ -1186,8 +1190,10 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "OI" = (
-/obj/structure/rod_railing,
-/turf/simulated/open,
+/obj/structure/ledge/roof{
+	dir = 9
+	},
+/turf/simulated/floor/roofing_tiles,
 /area/point_verdant/interior)
 "OY" = (
 /obj/structure/ledge/roof{
@@ -1324,8 +1330,11 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "Uj" = (
-/turf/unsimulated/wall/konyang,
-/area/point_verdant/outdoors)
+/obj/structure/ledge/roof{
+	dir = 8
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/interior)
 "Ur" = (
 /obj/structure/rod_railing{
 	dir = 4
@@ -8826,14 +8835,14 @@ Cw
 Cw
 Cw
 Cw
-Yv
-Yv
-Yv
-Yv
-Yv
-Yv
-Yv
-gn
+OI
+Uj
+Uj
+Uj
+Uj
+Uj
+Uj
+MN
 Ml
 Cw
 Cw
@@ -9008,7 +9017,7 @@ Cw
 Cw
 Cw
 Cw
-Yv
+Lt
 Yv
 Yv
 Yv
@@ -9190,7 +9199,7 @@ Cw
 Cw
 Cw
 Cw
-Yv
+Lt
 Yv
 Yv
 Yv
@@ -9915,9 +9924,9 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
+Gg
+Gg
+Gg
 Gg
 Gg
 Gg
@@ -10097,11 +10106,11 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
 Gg
-PV
+lp
+qY
+qY
+qY
 lp
 lp
 lp
@@ -10279,11 +10288,11 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
 Gg
-Lt
+wO
+lp
+lp
+lp
 lp
 lp
 lp
@@ -10461,11 +10470,11 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
 Gg
-OI
+PV
+lp
+lp
+lp
 lp
 lp
 lp
@@ -10643,11 +10652,11 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
 Gg
-OI
+PV
+lp
+lp
+lp
 lp
 lp
 lp
@@ -10825,12 +10834,12 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
 Gg
-lp
-lp
+Gg
+Gg
+Gg
+Gg
+Gg
 Gg
 Gg
 Gg
@@ -11010,10 +11019,10 @@ Cw
 Cw
 Cw
 Cw
-Uj
-Uj
-Uj
-Uj
+Cw
+Cw
+Cw
+Cw
 Cw
 Cw
 fb

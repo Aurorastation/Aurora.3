@@ -102,6 +102,11 @@
 	},
 /turf/simulated/open,
 /area/point_verdant/interior/restaurant)
+"ax" = (
+/obj/structure/window/reinforced,
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "az" = (
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/water)
@@ -963,6 +968,10 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"fr" = (
+/obj/machinery/door/window/eastleft,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "fs" = (
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/shallow)
@@ -1091,11 +1100,11 @@
 /turf/simulated/open,
 /area/point_verdant/outdoors)
 "gb" = (
-/obj/machinery/light/colored{
-	dir = 1;
-	pixel_y = 24
+/obj/machinery/light{
+	dir = 2;
+	pixel_y = -2
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
 "gc" = (
 /obj/structure/rod_railing{
@@ -1523,6 +1532,11 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/point_verdant/interior/hotel)
+"hZ" = (
+/obj/structure/window/urban/full,
+/obj/structure/window_frame/urban/full,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "ib" = (
 /obj/structure/dam{
 	icon_state = "dam5"
@@ -1604,19 +1618,13 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "ix" = (
-/obj/effect/decal/road_marking,
-/obj/effect/decal/road_marking{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/optable{
+	desc = "Used for advanced medical procedures, such as removing brains for cyborgification. Also used to repair unlawed synthetics.";
+	name = "Repairs Operation Table"
 	},
-/obj/effect/decal/curb{
-	dir = 6
-	},
-/obj/structure/automobile/police{
-	pixel_x = 2;
-	pixel_y = -4
-	},
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
+/turf/simulated/floor/reinforced,
+/area/point_verdant/interior)
 "iz" = (
 /obj/structure/road_barrier,
 /turf/simulated/floor/sidewalk,
@@ -1671,6 +1679,12 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"iJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced,
+/area/point_verdant/interior)
 "iK" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-top1"
@@ -1729,6 +1743,14 @@
 /obj/effect/decal/curb/corner,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"jb" = (
+/obj/machinery/door/window/westright,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "jc" = (
 /obj/structure/rod_railing{
 	dir = 4
@@ -1854,6 +1876,11 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"jX" = (
+/obj/structure/table/steel,
+/obj/item/stack/nanopaste,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "ka" = (
 /obj/structure/ledge{
 	dir = 8
@@ -1935,17 +1962,10 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "kA" = (
-/obj/structure/stairs/east,
-/obj/structure/stairs_lower{
-	dir = 4;
-	layer = 2;
-	pixel_y = -24
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
-/obj/structure/stairs_lower/stairs_upper{
-	dir = 4;
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/reinforced,
 /area/point_verdant/interior)
 "kB" = (
 /obj/effect/decal/road_marking{
@@ -2604,6 +2624,14 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"nJ" = (
+/obj/structure/table/wood,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "nK" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -2759,26 +2787,25 @@
 /area/point_verdant/outdoors)
 "oF" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/reagent_containers/food/drinks/cans/peach_soda,
-/obj/item/reagent_containers/food/drinks/cans/peach_soda,
-/obj/item/reagent_containers/food/drinks/cans/peach_soda{
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
 	pixel_x = 9
 	},
-/obj/item/reagent_containers/food/drinks/cans/peach_soda{
+/obj/item/reagent_containers/food/drinks/cans/beer/rice,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
 	pixel_x = -9
 	},
-/obj/item/reagent_containers/food/drinks/cans/peach_soda{
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
 	pixel_y = 16;
-	pixel_x = -9
+	pixel_x = 9
 	},
-/obj/item/reagent_containers/food/drinks/cans/peach_soda{
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
 	pixel_y = 16
 	},
-/obj/item/reagent_containers/food/drinks/cans/peach_soda{
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
 	pixel_y = 16;
-	pixel_x = 9
+	pixel_x = -9
 	},
-/obj/machinery/light/colored{
+/obj/machinery/light{
 	dir = 1;
 	pixel_y = 24
 	},
@@ -3011,6 +3038,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"pN" = (
+/obj/structure/stairs/north,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "pP" = (
 /obj/item/storage/secure/safe{
 	pixel_x = -25
@@ -3253,6 +3284,10 @@
 /obj/structure/flora/tree/konyang/blossom,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
+"qQ" = (
+/obj/structure/closet/crate/bin/urban/dumpster,
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/outdoors)
 "qT" = (
 /obj/effect/decal/exterior_stairs/left{
 	dir = 4;
@@ -3480,6 +3515,13 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"rV" = (
+/obj/machinery/vending/overloaders{
+	pixel_y = 16;
+	density = 0
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/outdoors)
 "rX" = (
 /obj/structure/lattice/catwalk/indoor/planks/stairs{
 	dir = 4
@@ -3507,6 +3549,11 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"sc" = (
+/obj/structure/table/wood,
+/obj/machinery/door/window/southright,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "sd" = (
 /obj/structure/closet/chefcloset,
 /obj/item/device/quikpay,
@@ -3533,6 +3580,12 @@
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/point_verdant/outdoors)
+"sm" = (
+/obj/machinery/vending/minimart/alcohol{
+	pixel_y = 32
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "sn" = (
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang/pink,
@@ -3860,6 +3913,12 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"tT" = (
+/obj/structure/bed/stool/chair/sofa/right/beige{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "tV" = (
 /turf/simulated/wall/wood,
 /area/point_verdant/interior/tailor)
@@ -4016,6 +4075,17 @@
 	},
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
+"uG" = (
+/obj/structure/bed/stool/chair/sofa/beige{
+	dir = 8
+	},
+/obj/machinery/light/colored{
+	dir = 4;
+	pixel_y = 0;
+	pixel_x = 12
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "uI" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -4258,6 +4328,12 @@
 /obj/effect/decal/exterior_stairs/half,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/interior/restaurant)
+"vO" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "vP" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -4349,6 +4425,13 @@
 /obj/structure/road_barrier,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"wg" = (
+/obj/machinery/vending/robotics,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "wj" = (
 /obj/structure/rod_railing,
 /turf/simulated/floor/sidewalk/flat,
@@ -4373,7 +4456,12 @@
 	dir = 8
 	},
 /obj/machinery/chemical_dispenser/coffee/full{
-	pixel_y = 12
+	pixel_y = 16;
+	pixel_x = -1
+	},
+/obj/machinery/appliance/cooker/oven/small{
+	pixel_x = -2;
+	pixel_y = -5
 	},
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
@@ -4756,6 +4844,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"ye" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "yf" = (
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/outdoors)
@@ -4896,6 +4988,14 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/point_verdant/interior/hotel)
+"yK" = (
+/obj/machinery/light/colored{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = -12
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "yQ" = (
 /obj/structure/stairs/urban{
 	dir = 1
@@ -4912,9 +5012,6 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
 	pixel_y = 7;
 	pixel_x = 16
-	},
-/obj/item/reagent_containers/food/drinks/teapot{
-	pixel_y = 2
 	},
 /obj/item/reagent_containers/food/drinks/bottle/sake{
 	pixel_x = -20;
@@ -4985,7 +5082,7 @@
 "zq" = (
 /obj/structure/window/urban/full,
 /obj/structure/window_frame/urban/full,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior)
 "zr" = (
 /obj/structure/chainlink_fence{
@@ -5009,6 +5106,17 @@
 	},
 /obj/item/reagent_containers/food/drinks/dry_ramen{
 	pixel_y = 13;
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/dry_ramen{
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/dry_ramen{
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/dry_ramen{
+	pixel_y = 0;
 	pixel_x = 9
 	},
 /turf/simulated/floor/lino/diamond,
@@ -5147,6 +5255,12 @@
 /obj/structure/flora/tree/konyang/spring,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
+"zW" = (
+/obj/structure/bed/stool/chair/sofa/corner/concave/beige{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "Ab" = (
 /obj/effect/decal/curb/corner,
 /obj/structure/ledge/quarter{
@@ -5163,6 +5277,18 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/shallow)
+"Ae" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/effect/decal/curb,
+/obj/structure/automobile/police{
+	pixel_x = 2;
+	pixel_y = -4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "Af" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/road_marking{
@@ -5173,6 +5299,11 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Ah" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/lava/purple,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "Ak" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 2
@@ -5245,16 +5376,6 @@
 	dir = 8;
 	layer = 3.3
 	},
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
@@ -5404,7 +5525,7 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
 "Bf" = (
-/obj/structure/flora/pottedplant/woodyshrubdying,
+/obj/structure/flora/pottedplant/dead,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior)
 "Bh" = (
@@ -5454,6 +5575,13 @@
 /obj/item/device/price_scanner,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"Bp" = (
+/obj/structure/sign/urban/staff{
+	pixel_y = 40;
+	layer = 9
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "Br" = (
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_east"
@@ -5739,7 +5867,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "CE" = (
-/obj/machinery/light/colored{
+/obj/machinery/light{
 	dir = 1;
 	pixel_y = 24
 	},
@@ -5861,9 +5989,22 @@
 /area/point_verdant/outdoors)
 "Dj" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets/gwok{
+	pixel_y = 16
+	},
+/obj/item/storage/box/donkpockets/gwok{
+	pixel_y = 16
+	},
+/obj/item/storage/box/donkpockets/gwok{
+	pixel_y = 16
+	},
+/obj/item/storage/box/donkpockets/gwok{
+	pixel_y = 16
+	},
+/obj/item/storage/box/donkpockets/gwok/takoyaki,
+/obj/item/storage/box/donkpockets/gwok/takoyaki,
+/obj/item/storage/box/donkpockets/gwok/takoyaki,
+/obj/item/storage/box/donkpockets/gwok/takoyaki,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior)
 "Dn" = (
@@ -5924,6 +6065,17 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"DI" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 2
+	},
+/obj/machinery/light/colored{
+	dir = 4;
+	pixel_y = 0;
+	pixel_x = 12
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "DK" = (
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -5951,6 +6103,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"DQ" = (
+/obj/structure/flora/pottedplant/bamboo,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "DU" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-west";
@@ -6139,6 +6295,29 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
+"EV" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/cans/peach_soda,
+/obj/item/reagent_containers/food/drinks/cans/peach_soda,
+/obj/item/reagent_containers/food/drinks/cans/peach_soda{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/peach_soda{
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/peach_soda{
+	pixel_y = 16;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/peach_soda{
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/peach_soda{
+	pixel_y = 16;
+	pixel_x = 9
+	},
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior)
 "EW" = (
 /obj/structure/konyang_cliff{
 	icon_state = "botcorner_east";
@@ -6431,7 +6610,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Gu" = (
-/obj/structure/flora/pottedplant/whitetulip,
+/obj/structure/flora/pottedplant/woodyshrubdying,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
 "Gv" = (
@@ -6455,13 +6634,15 @@
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/outdoors)
 "GB" = (
-/obj/structure/road_sign{
-	pixel_y = 30;
-	pixel_x = -10;
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
 	},
-/turf/simulated/floor/sidewalk/detail,
-/area/point_verdant/outdoors)
+/turf/simulated/floor/reinforced,
+/area/point_verdant/interior)
+"GD" = (
+/obj/structure/sign/urban/konyang/robotics,
+/turf/unsimulated/wall/konyang,
+/area/point_verdant/interior)
 "GE" = (
 /obj/structure/road_barrier{
 	dir = 4
@@ -6593,6 +6774,14 @@
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
+"Hk" = (
+/obj/structure/table/steel,
+/obj/item/crowbar,
+/obj/item/device/robotanalyzer{
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "Hm" = (
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /obj/structure/utility_pole/street/classic/on{
@@ -6688,6 +6877,10 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"HF" = (
+/obj/machinery/door/window/eastright,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "HG" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -6802,6 +6995,10 @@
 "HX" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"HY" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/sidewalk,
+/area/point_verdant/interior)
 "HZ" = (
 /obj/effect/decal/curb,
 /obj/structure/closet/crate/bin/urban/dumpster,
@@ -6859,6 +7056,14 @@
 /obj/item/bedsheet/black,
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/hotel)
+"Ip" = (
+/obj/structure/flora/pottedplant/drooping,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "Iq" = (
 /obj/structure/table/rack/clothing{
 	dir = 4;
@@ -6941,6 +7146,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
+"IG" = (
+/obj/structure/curtain/open/privacy,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "IH" = (
 /obj/structure/flora/rock/konyang/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
@@ -7454,6 +7663,11 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/tailor)
+"Lb" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "Le" = (
 /obj/structure/hydrant{
 	pixel_x = -14
@@ -7891,6 +8105,14 @@
 /obj/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
+"ND" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "NE" = (
 /obj/effect/decal/road_marking/center{
 	dir = 8
@@ -7924,6 +8146,14 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"NO" = (
+/obj/machinery/mecha_part_fabricator,
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "NS" = (
 /obj/structure/rod_railing{
 	dir = 6
@@ -8049,9 +8279,22 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"Oy" = (
+/obj/structure/bed/stool/chair/sofa/left/beige{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "OB" = (
 /turf/simulated/wall/wood,
 /area/point_verdant/interior/restaurant)
+"OE" = (
+/obj/structure/sign/urban/staff{
+	pixel_y = 40;
+	layer = 9
+	},
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "OG" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -8077,6 +8320,13 @@
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
+"OO" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "OQ" = (
 /obj/structure/sign/urban/konyang{
 	layer = 4.6;
@@ -8297,9 +8547,15 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "PU" = (
-/obj/structure/table/rack/retail_shelf,
-/turf/simulated/floor/lino/diamond,
-/area/point_verdant/interior)
+/obj/effect/decal/road_marking,
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 10
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "PX" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -8340,6 +8596,11 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Qn" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "Qr" = (
 /obj/structure/table/rack/clothing{
 	dir = 4;
@@ -8520,8 +8781,8 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Rs" = (
-/obj/structure/sign/urban/konyang/robotics,
-/turf/simulated/wall/wood,
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "Rt" = (
 /obj/effect/decal/road_marking{
@@ -8649,6 +8910,11 @@
 /obj/structure/road_barrier/bot_end,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"RV" = (
+/obj/structure/table/wood,
+/obj/machinery/door/window/southleft,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "RX" = (
 /obj/structure/flora/rock/konyang,
 /obj/effect/decal/curb{
@@ -8710,6 +8976,14 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
+"Sn" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "So" = (
 /obj/structure/road_sign/street{
 	pixel_x = -15;
@@ -8865,6 +9139,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
+"Tm" = (
+/obj/structure/sign/urban/staff{
+	pixel_y = 40;
+	layer = 9
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "Tn" = (
 /obj/structure/ledge,
 /obj/structure/rod_railing{
@@ -8910,6 +9191,37 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/shallow)
+"Ty" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/glass{
+	amount = 50;
+	pixel_x = -1;
+	pixel_y = 2;
+	randpixel = 0
+	},
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = 1;
+	pixel_y = -2;
+	randpixel = 0
+	},
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = 1;
+	pixel_y = -2;
+	randpixel = 0
+	},
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = 1;
+	pixel_y = -2;
+	randpixel = 0
+	},
+/obj/item/reagent_containers/weldpack,
+/obj/item/stack/nanopaste,
+/obj/item/stack/nanopaste,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "TA" = (
 /obj/structure/rod_railing{
 	dir = 6
@@ -8971,6 +9283,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior)
+"TO" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/outdoors)
 "TR" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -9082,6 +9398,22 @@
 /obj/effect/decal/exterior_stairs/center,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"Ux" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/point_verdant/interior)
+"Uy" = (
+/obj/machinery/vending/overloaders,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
+"Uz" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 2
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "UA" = (
 /obj/machinery/vending/cola/konyang,
 /turf/simulated/floor/sidewalk/flat,
@@ -9198,6 +9530,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Vg" = (
+/obj/machinery/mecha_part_fabricator,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "Vi" = (
 /obj/structure/ledge{
 	dir = 8
@@ -9261,7 +9597,7 @@
 	pixel_y = 9;
 	pixel_x = 8
 	},
-/obj/machinery/light/colored{
+/obj/machinery/light{
 	dir = 1;
 	pixel_y = 24
 	},
@@ -9283,6 +9619,10 @@
 	},
 /turf/simulated/wall/wood,
 /area/point_verdant/interior/arcade)
+"VE" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior)
 "VJ" = (
 /obj/structure/automobile/random,
 /obj/effect/decal/road_marking{
@@ -9402,6 +9742,12 @@
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
+"Wk" = (
+/obj/structure/bed/stool/chair/sofa/beige{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "Wl" = (
 /obj/structure/lattice/catwalk/indoor/planks,
 /obj/item/reagent_containers/glass/bucket/wood{
@@ -9952,6 +10298,10 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
+"ZA" = (
+/obj/structure/stairs/north,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "ZB" = (
 /obj/effect/decal/exterior_stairs/center{
 	dir = 8
@@ -9973,6 +10323,12 @@
 /obj/structure/ledge/quarter,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
+"ZE" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/reinforced,
+/area/point_verdant/interior)
 "ZF" = (
 /obj/structure/table/wood,
 /obj/item/paper_scanner,
@@ -12913,7 +13269,7 @@ nu
 nu
 Bu
 uO
-qh
+HY
 BT
 od
 od
@@ -13089,7 +13445,7 @@ be
 kh
 nu
 nu
-nu
+gb
 uO
 uO
 uO
@@ -13809,11 +14165,11 @@ wK
 wK
 wL
 uO
-Sh
+nJ
 nu
 SW
 wd
-Bf
+Ip
 hl
 hl
 uO
@@ -13990,7 +14346,7 @@ MA
 MA
 MA
 wL
-uO
+hZ
 ca
 nu
 Ak
@@ -14172,7 +14528,7 @@ rx
 MA
 wK
 wL
-uO
+hZ
 Gu
 nu
 nu
@@ -14354,7 +14710,7 @@ rx
 MA
 MA
 wL
-uO
+hZ
 sf
 nu
 Ak
@@ -14721,9 +15077,9 @@ wL
 uO
 nu
 nu
-nu
+gb
 uO
-hl
+Tm
 hl
 Lx
 uO
@@ -16898,12 +17254,12 @@ BT
 BT
 BT
 Le
-LN
-iL
-Wf
-cC
-cC
-cC
+PU
+bu
+bu
+bu
+bu
+bu
 iY
 iL
 iL
@@ -17072,18 +17428,18 @@ xb
 xb
 xb
 Vd
-xb
-xb
-xb
-xb
-xb
-xb
-EK
-ix
-pm
-iL
-Fq
-bh
+uO
+uO
+uO
+uO
+uO
+uO
+uO
+uO
+uO
+BT
+BT
+BT
 BT
 lZ
 IY
@@ -17254,18 +17610,18 @@ zl
 zl
 xb
 Vd
-xb
-zl
-zl
-zl
-zl
-xb
-BT
-mV
-iL
-iL
-Fq
-BT
+uO
+VE
+ZE
+GB
+uO
+VE
+ZE
+GB
+uO
+TO
+od
+od
 BT
 BT
 BT
@@ -17436,18 +17792,18 @@ zl
 zl
 xb
 Vd
-xb
-zl
-zl
-zl
-zl
-xb
-BT
-mV
-iL
-iL
-Fq
-BT
+uO
+wg
+Ux
+ix
+uO
+wg
+Ux
+ix
+uO
+eb
+od
+od
 uO
 uO
 uO
@@ -17618,18 +17974,18 @@ zl
 zl
 xb
 Vd
-xb
-zl
-zl
-zl
-zl
-xb
-EK
-dc
-iL
-iL
-WV
-BT
+uO
+OO
+iJ
+kA
+uO
+OO
+iJ
+kA
+uO
+eb
+od
+od
 uO
 Vv
 hl
@@ -17800,18 +18156,18 @@ zl
 zl
 xb
 Vd
-xb
-zl
-zl
-zl
-zl
-xb
-BT
-LN
-iL
-iL
-Fq
-BT
+uO
+Lb
+vO
+xk
+uO
+xk
+vO
+Lb
+uO
+qQ
+od
+od
 uO
 oi
 hl
@@ -17982,24 +18338,24 @@ zl
 zl
 xb
 Vd
-xb
-zl
-zl
-zl
-zl
-xb
-BT
-LN
-iL
-iL
-Fq
+uO
+jX
+Hk
+IG
+uO
+IG
+Hk
+jX
+uO
+od
+od
 BT
 uO
 oi
 hl
-PU
+zs
 Yx
-Bw
+Dj
 Yx
 zq
 BT
@@ -18164,24 +18520,24 @@ zl
 zl
 xb
 Vd
-xb
-zl
-zl
-zl
-zl
-xb
-EK
-dc
-iL
-iL
-Fq
+uO
+uO
+uO
+fr
+uO
+HF
+uO
+uO
+uO
+od
+od
 BT
 uO
-oi
+sm
 hl
-PU
+EV
 Yx
-PU
+Bw
 Yx
 zq
 BT
@@ -18346,17 +18702,17 @@ xb
 xb
 xb
 Vd
-xb
+uO
+DQ
 zl
 zl
+yK
 zl
-zl
-xb
-BT
-LN
-iL
-iL
-Fq
+DQ
+uO
+rV
+od
+od
 BT
 uO
 oF
@@ -18528,18 +18884,18 @@ pY
 pY
 pY
 ub
-xb
+uO
+Bp
 zl
 zl
 zl
 zl
-xb
+zl
+uO
+od
 BT
-LN
-iL
-iL
-Fq
-BT
+uO
+uO
 uO
 uO
 uO
@@ -18704,26 +19060,26 @@ BH
 iL
 WV
 BT
-xb
-xb
-xb
-xb
-xb
-xb
-xb
+uO
+uO
+uO
+uO
+uO
+uO
+uO
+jb
+Sn
 zl
 zl
 zl
 zl
-xb
-EK
-De
-iL
-iL
-WV
+zq
+od
 eb
 uO
-dK
+pN
+zl
+zl
 uO
 CE
 ns
@@ -18886,26 +19242,26 @@ BH
 iL
 Fq
 BT
-xb
+uO
+Uy
+nu
+nu
+Ty
+uO
+zl
+zl
+ax
 zl
 zl
 zl
 zl
-zl
-zl
-zl
-zl
-zl
-zl
-xb
-BT
-mV
-iL
-iL
-Fq
+kq
+od
 BT
 uO
-gb
+ND
+zl
+zl
 Wp
 nu
 jr
@@ -19068,28 +19424,28 @@ BH
 iL
 Fq
 BT
-xb
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-xb
-BT
-mV
-iL
-iL
-Fq
-BT
 uO
-kA
-uO
+NO
 nu
+nu
+nu
+ye
+zl
+Uz
+RV
+zl
+zl
+zl
+zl
+WI
+od
+BT
+uO
+dK
+zl
+zl
+uO
+OE
 aj
 Yx
 Yx
@@ -19250,26 +19606,26 @@ BH
 iL
 Fq
 BT
-xb
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-Rs
-EK
-dc
-iL
-iL
-Fq
-BT
 uO
-xk
+Vg
+nu
+nu
+nu
+uO
+zl
+zl
+sc
+zl
+Ah
+Rs
+Oy
+zq
+od
+eb
+uO
+dK
+dK
+dK
 uO
 nu
 Rb
@@ -19432,24 +19788,24 @@ uf
 iL
 Lz
 BT
-xb
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-zl
-xb
+uO
+nu
+ZA
+nu
+nu
+uO
+DQ
+DI
+Qn
+tT
+Wk
+uG
+zW
+GD
+od
 BT
-LN
-iL
-iL
-Fq
-BT
+uO
+uO
 uO
 uO
 uO
@@ -19614,23 +19970,23 @@ go
 Cg
 pG
 BT
-xb
-xb
-xb
-xb
-xb
-xb
-xb
-xb
-xb
-xb
-xb
-xb
+uO
+uO
+uO
+uO
+uO
+uO
+uO
+uO
+uO
+uO
+uO
+uO
+uO
+uO
 BT
-it
-iY
-iL
-Fq
+BT
+BT
 BT
 BT
 BT
@@ -19810,10 +20166,10 @@ BT
 BT
 BT
 BT
-LN
-iL
-Fq
-GB
+BT
+BT
+BT
+bh
 BT
 BT
 BT
@@ -19992,9 +20348,9 @@ Vj
 FU
 Kt
 EC
-pm
-iL
-WT
+Vj
+Vj
+Vj
 Vj
 Vj
 wb
@@ -23814,7 +24170,7 @@ BT
 Sq
 Qb
 BA
-dc
+Ae
 iL
 iL
 Rt
@@ -24906,7 +25262,7 @@ tV
 tV
 tV
 EK
-dc
+De
 iL
 iL
 Fq

@@ -72,7 +72,17 @@
 /turf/unsimulated/wall/konyang
 	name = "wall"
 	icon = 'icons/turf/smooth/building-konyang.dmi'
-	canSmoothWith = null
+	canSmoothWith = list(
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/turf/unsimulated/wall,
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty,
+		/obj/machinery/door,
+		/obj/machinery/door/airlock
+	)
 	smooth = SMOOTH_TRUE
 	icon_state = "map_white"
 
