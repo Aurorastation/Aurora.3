@@ -51,7 +51,7 @@
 /obj/item/floor_frame/light
 	name = "floor light fixture frame"
 	desc = "Used for building lights."
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "floortube-construct-stage1"
 	build_machine_type = /obj/machinery/light_construct/floor
 	reverse = 1

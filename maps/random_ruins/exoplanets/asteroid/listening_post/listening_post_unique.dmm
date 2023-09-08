@@ -84,7 +84,8 @@
 	icon_state = "door_locked";
 	id_tag = "listening_post_exterior";
 	locked = 1;
-	name = "Listening Post"
+	name = "Listening Post";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/dungeon/syndie_listening_post)
@@ -108,7 +109,8 @@
 	icon_state = "door_locked";
 	id_tag = "listening_post_interior";
 	locked = 1;
-	name = "Listening Post"
+	name = "Listening Post";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4

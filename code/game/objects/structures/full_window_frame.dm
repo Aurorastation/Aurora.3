@@ -1,24 +1,33 @@
 /obj/structure/window_frame
 	name = "steel window frame"
 	desc = "A steel window frame."
-	icon = 'icons/obj/smooth/full_window_frame.dmi'
+	icon = 'icons/obj/smooth/window/full_window_frame_color.dmi'
 	icon_state = "window_frame"
+	color = COLOR_GRAY20
 	build_amt = 4
+	layer = LAYER_ABOVE_TABLE
 	anchored = TRUE
 	density = TRUE
 	climbable = TRUE
-	smooth = SMOOTH_TRUE
+	smooth = SMOOTH_MORE
 	breakable = TRUE
 	can_be_unanchored = TRUE
 	canSmoothWith = list(
 		/turf/simulated/wall,
 		/turf/simulated/wall/r_wall,
+		/turf/simulated/wall/shuttle/scc_space_ship,
 		/turf/unsimulated/wall/steel, // Centcomm wall.
 		/turf/unsimulated/wall/darkshuttlewall, // Centcomm wall.
 		/turf/unsimulated/wall/riveted, // Centcomm wall.
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
-		/obj/structure/window_frame/empty
+		/obj/structure/window_frame/empty,
+		/obj/machinery/door
+	)
+	blend_overlay = "wall"
+	can_blend_with = list(
+		/turf/simulated/wall,
+		/obj/machinery/door
 	)
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/should_check_mapload = TRUE
@@ -26,46 +35,8 @@
 	var/glass_needed = 4
 
 /obj/structure/window_frame/cardinal_smooth(adjacencies, var/list/dir_mods)
-	LAZYINITLIST(dir_mods)
-	var/north_wall = FALSE
-	var/east_wall = FALSE
-	var/south_wall = FALSE
-	var/west_wall = FALSE
-	if(adjacencies & N_NORTH)
-		var/turf/T = get_step(src, NORTH)
-		if(iswall(T))
-			dir_mods["[N_NORTH]"] = "-wall"
-			north_wall = TRUE
-	if(adjacencies & N_EAST)
-		var/turf/T = get_step(src, EAST)
-		if(iswall(T))
-			dir_mods["[N_EAST]"] = "-wall"
-			east_wall = TRUE
-	if(adjacencies & N_SOUTH)
-		var/turf/T = get_step(src, SOUTH)
-		if(iswall(T))
-			dir_mods["[N_SOUTH]"] = "-wall"
-			south_wall = TRUE
-	if(adjacencies & N_WEST)
-		var/turf/T = get_step(src, WEST)
-		if(iswall(T))
-			dir_mods["[N_WEST]"] = "-wall"
-			west_wall = TRUE
-	if(((adjacencies & N_NORTH) && (adjacencies & N_WEST)) && (north_wall || west_wall))
-		dir_mods["[N_NORTH][N_WEST]"] = "-n[north_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-	if(((adjacencies & N_NORTH) && (adjacencies & N_EAST)) && (north_wall || east_wall))
-		dir_mods["[N_NORTH][N_EAST]"] = "-n[north_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
-	if(((adjacencies & N_SOUTH) && (adjacencies & N_WEST)) && (south_wall || west_wall))
-		dir_mods["[N_SOUTH][N_WEST]"] = "-s[south_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST) && (south_wall || east_wall))
-		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
+	dir_mods = handle_blending(adjacencies, dir_mods)
 	return ..(adjacencies, dir_mods)
-
-/obj/structure/window_frame/proc/update_nearby_icons()
-	queue_smooth_neighbors(src)
-
-/obj/structure/window_frame/update_icon()
-	queue_smooth(src)
 
 /obj/structure/window_frame/Initialize(mapload) // If the window frame is mapped in, it should be considered to have glass spawned in it by a window spawner.
 	. = ..()
@@ -175,3 +146,37 @@
 
 /obj/structure/window_frame/empty
 	should_check_mapload = FALSE // No glass.
+
+/obj/structure/window_frame/shuttle
+	icon = 'icons/obj/smooth/window/full_window_frame_color.dmi'
+	color = null
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle,
+		/turf/simulated/wall/shuttle/cardinal,
+		/turf/simulated/wall/shuttle/dark,
+		/turf/simulated/wall/shuttle/dark/cardinal,
+		/obj/structure/window_frame/shuttle,
+		/obj/machinery/door
+	)
+
+	can_blend_with = list(
+		/turf/simulated/wall/shuttle,
+		/turf/simulated/wall/shuttle/cardinal,
+		/obj/machinery/door
+	)
+
+/obj/structure/window_frame/shuttle/merc
+	color = "#8b7d86"
+
+/obj/structure/window_frame/shuttle/khaki
+	color = "#ac8b78"
+
+/obj/structure/window_frame/shuttle/purple
+	color = "#7846b1"
+
+/obj/structure/window_frame/shuttle/red
+	color = "#c24f4f"
+
+/obj/structure/window_frame/shuttle/blue
+	color = "#6176a1"

@@ -17,9 +17,9 @@
 /obj/item/clothing/shoes/flats/tajara
 	desc = "A pair of black women's flats. Refitted for Tajara."
 	name = "black dress flats"
-	icon = 'icons/mob/species/tajaran/shoes.dmi'
-	icon_state = "tblackdf"
-	item_state = "tblackdf"
+	icon = 'icons/obj/item/clothing/shoes/flats/tajara/flats.dmi'
+	icon_state = "flats_black"
+	item_state = "flats_black"
 	body_parts_covered = FEET
 	species_restricted = list(BODYTYPE_TAJARA)
 	contained_sprite = TRUE
@@ -27,33 +27,32 @@
 /obj/item/clothing/shoes/flats/tajara/red
 	desc = "A pair of red women's flats. Refitted for Tajara."
 	name = "red dress flats"
-	icon = 'icons/mob/species/tajaran/shoes.dmi'
-	icon_state = "treddf"
-	item_state = "treddf"
+	icon_state = "flats_red"
+	item_state = "flats_red"
 
 /obj/item/clothing/shoes/flats/tajara/blue
 	desc = "A pair of blue women's flats. Refitted for Tajara."
 	name = "blue dress flats"
-	icon_state = "tbluedf"
-	item_state = "tbluedf"
+	icon_state = "flats_blue"
+	item_state = "flats_blue"
 
 /obj/item/clothing/shoes/flats/tajara/green
 	desc = "A pair of green women's flats. Refitted for Tajara."
 	name = "green dress flats"
-	icon_state = "tgreendf"
-	item_state = "tgreendf"
+	icon_state = "flats_green"
+	item_state = "flats_green"
 
 /obj/item/clothing/shoes/flats/tajara/purple
 	desc = "A pair of purple  women's flats. Refitted for Tajara."
 	name = "purple dress flats"
-	icon_state = "tpurpledf"
-	item_state = "tpurpledf"
+	icon_state = "flats_purple"
+	item_state = "flats_purple"
 
 /obj/item/clothing/shoes/flats/tajara/white
 	desc = "A pair of white women's flats. Refitted for Tajara."
 	name = "white dress flats"
-	icon_state = "twhitedf"
-	item_state = "twhitedf"
+	icon_state = "flats_white"
+	item_state = "flats_white"
 
 /obj/item/clothing/shoes/tajara/jackboots // Because yes, Tajara don't leave their toes out all the time.
 	name = "black boots"
@@ -199,3 +198,68 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
+
+// Black High-heeled Adhomian Shoes
+/obj/item/clothing/shoes/heels/tajara
+	name = "black high-heeled adhomian shoes"
+	desc = "A pair of black heels adapted specifically for tajara anatomy, in the latest style."
+	icon = 'icons/obj/item/clothing/shoes/heels/tajara/heels.dmi'
+	icon_state = "heels_black"
+	item_state = "heels_black"
+	species_restricted = list(BODYTYPE_TAJARA)
+	contained_sprite = TRUE
+
+// Red High-heeled Adhomian Shoes
+/obj/item/clothing/shoes/heels/tajara/red
+	name = "red high-heeled adhomian shoes"
+	desc = "A pair of red heels adapted specifically for tajara anatomy, in the latest style."
+	icon_state = "heels_red"
+	item_state = "heels_red"
+
+// Scarlet Dress Flats
+/obj/item/clothing/shoes/flats/tajara/scarlet
+	name = "scarlet dress flats"
+	desc = "A pair of scarlet women's flats, made specifically for tajara."
+	icon_state = "flats_scarlet"
+	item_state = "flats_scarlet"
+
+// Mauve Dress Flats
+/obj/item/clothing/shoes/flats/tajara/mauve
+	name = "mauve dress flats"
+	desc = "A pair of mauve women's flats, made specifically for tajara."
+	icon_state = "flats_mauve"
+	item_state = "flats_mauve"
+
+// Dark Dress Flats
+/obj/item/clothing/shoes/flats/tajara/dark
+	name = "dark dress flats"
+	desc = "A pair of dark women's flats, made specifically for tajara."
+	icon_state = "flats_dark"
+	item_state = "flats_dark"
+
+// Saddle Shoes
+/obj/item/clothing/shoes/tajara/saddle
+	name = "black saddle shoes"
+	desc = "A pair of black, well-cared for saddle shoes, made for tajara anatomy. Nifty!"
+	icon = 'icons/obj/item/clothing/shoes/tajara/saddle_shoes.dmi'
+	icon_state = "saddle"
+	item_state = "saddle"
+	species_restricted = list(BODYTYPE_TAJARA)
+	contained_sprite = TRUE
+
+// Adhomian Loafers
+/obj/item/clothing/shoes/tajara/loafers
+	name = "black adhomian loafers"
+	desc = "A pair of black men's loafers, made specifically for tajara anatomy. Pipe and robe not included."
+	icon = 'icons/obj/item/clothing/shoes/tajara/loafers.dmi'
+	icon_state = "loafers_black"
+	item_state = "loafers_black"
+	species_restricted = list(BODYTYPE_TAJARA)
+	contained_sprite = TRUE
+
+// Brown Adhomian Loafers
+/obj/item/clothing/shoes/tajara/loafers/brown
+	name = "brown adhomian loafers"
+	desc = "A pair of brown men's loafers, made specifically for tajara anatomy. Pipe and robe not included."
+	icon_state = "loafers_brown"
+	item_state = "loafers_brown"

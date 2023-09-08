@@ -304,7 +304,9 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)
 "HN" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
 /turf/simulated/floor/airless,
 /area/template_noop)
 "Ik" = (
@@ -419,7 +421,7 @@
 "RS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide{
-	start_pressure = 2965.70
+	start_pressure = 2965.7
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)

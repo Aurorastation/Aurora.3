@@ -1,10 +1,7 @@
 /obj/item/implanter
 	name = "implanter"
-	icon = 'icons/obj/items.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
+	contained_sprite = TRUE
 	icon_state = "implanter0"
 	item_state = "syringe_0"
 	throw_speed = 1
@@ -94,23 +91,11 @@
 
 /obj/item/implanter/compressed
 	name = "implanter (C)"
-	icon_state = "cimplanter1"
 
 /obj/item/implanter/compressed/New()
 	imp = new /obj/item/implant/compressed( src )
 	..()
 	update()
-	return
-
-/obj/item/implanter/compressed/update()
-	if (imp)
-		var/obj/item/implant/compressed/c = imp
-		if(!c.scanned)
-			icon_state = "cimplanter1"
-		else
-			icon_state = "cimplanter2"
-	else
-		icon_state = "cimplanter0"
 	return
 
 /obj/item/implanter/compressed/attack(mob/M as mob, mob/user as mob)
