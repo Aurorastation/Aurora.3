@@ -2213,7 +2213,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "rM" = (
-/obj/effect/shuttle_landmark/dominian_unathi/nav3,
+/obj/effect/shuttle_landmark/dominian_unathi_shuttle/transit,
 /turf/space/transit/north,
 /area/space)
 "rN" = (
@@ -3742,7 +3742,7 @@
 "CT" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
 "CU" = (
 /obj/effect/floor_decal/corner/orange{
@@ -4671,7 +4671,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port thruster"
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
 "JO" = (
 /obj/structure/bed,
@@ -5733,7 +5733,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard thruster"
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/plating,
 /area/shuttle/dominian_unathi)
 "SQ" = (
 /obj/structure/cable/green{
@@ -6447,7 +6447,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/shuttle_landmark/dominian_unathi_shuttle,
+/obj/effect/shuttle_landmark/dominian_unathi_shuttle/hangar,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/hangar)
 "Xn" = (
