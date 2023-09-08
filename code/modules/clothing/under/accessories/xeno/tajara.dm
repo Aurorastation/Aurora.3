@@ -703,7 +703,7 @@
 
 /obj/item/clothing/accessory/necklace/adhomian
 	name = "adhomian pearl necklace"
-	desc = "A necklace made of Ras'val clams's pearls."
+	desc = "A necklace made of Ras'val clam pearls."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "pearl_necklace"
 	item_state = "pearl_necklace"
