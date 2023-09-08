@@ -122,6 +122,9 @@
 		icon_state = "azubarre_torch-empty"
 		set_light(0)
 
+/obj/item/nullrod/azubarre/isFlameSource()
+	return lit
+
 /obj/item/nullrod/verb/change(mob/user)
 	set name = "Reassemble Null Item"
 	set category = "Object"
