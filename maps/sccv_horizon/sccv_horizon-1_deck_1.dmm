@@ -9865,7 +9865,8 @@
 /area/hangar/auxiliary)
 "gQh" = (
 /obj/machinery/light/small{
-	dir = 8
+	dir = 8;
+	must_start_working = 1
 	},
 /turf/simulated/floor/plating,
 /area/turbolift/primary/deck_1)
@@ -23776,7 +23777,8 @@
 /area/operations/loading)
 "qMY" = (
 /obj/machinery/light/small{
-	dir = 4
+	dir = 4;
+	must_start_working = 1
 	},
 /turf/simulated/floor/plating,
 /area/turbolift/primary/deck_1)
