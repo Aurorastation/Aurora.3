@@ -91,6 +91,7 @@
 //movement intents
 #define M_WALK "walk"
 #define M_RUN  "run"
+#define M_LAY  "lay"	// Intentional lying only! To not confuse with the state (variable with the same name on the mob, but not necessarity intentional)
 
 // Limbs and robotic stuff.
 #define BP_L_FOOT "l_foot"
@@ -175,6 +176,7 @@
 #define BP_AUG_CORRECTIVE_LENS "corrective lenses"
 #define BP_AUG_GLARE_DAMPENER "glare dampeners"
 #define BP_AUG_ACC_CORDS       "modified synthetic vocal cords"
+#define BP_AUG_MAGBOOT		   "integrated mag-claws"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -480,3 +482,19 @@
 #define HEIGHT_CLASS_TALL 190
 #define HEIGHT_CLASS_HUGE 240
 #define HEIGHT_CLASS_GIGANTIC 300
+
+#define MOB_IS_INCAPACITATED(incapacitation_flags)\
+(\
+	((incapacitation_flags & INCAPACITATION_STUNNED) && stunned) ||\
+	((incapacitation_flags & INCAPACITATION_FORCELYING) && (weakened || resting)) ||\
+	((incapacitation_flags & INCAPACITATION_KNOCKOUT) && (stat || paralysis || sleeping || (status_flags & FAKEDEATH))) ||\
+	((incapacitation_flags & INCAPACITATION_RESTRAINED) && restrained())\
+	? TRUE :\
+	(\
+		((incapacitation_flags & (INCAPACITATION_BUCKLED_PARTIALLY|INCAPACITATION_BUCKLED_FULLY))) ?\
+		(\
+			(buckled_to() >= PARTIALLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_PARTIALLY)) ||	(buckled_to() == FULLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_FULLY)) ?\
+			TRUE : FALSE\
+		) : FALSE\
+	)\
+)

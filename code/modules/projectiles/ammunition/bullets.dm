@@ -297,11 +297,19 @@
 
 /obj/item/ammo_casing/vintage
 	projectile_type = /obj/item/projectile/bullet/rifle/vintage
-	desc = "Some vintage shell casing. It looks old, and you can't understand the writing stamped on it."
-	caliber = "vintage"
+	desc = "A .30-06 Government bullet casing. It looks old, and you can barely understand the writing stamped on it."
+	caliber = "30-06 govt"
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	max_stack = 6
+
+/obj/item/ammo_casing/govt
+	projectile_type = /obj/item/projectile/bullet/rifle/govt
+	desc = "A .45-70 Government bullet casing."
+	caliber = "45-70 govt"
+	icon_state = "gcasing"
+	spent_icon = "gcasing-spent"
+	max_stack = 4
 
 /obj/item/ammo_casing/slugger
 	projectile_type = /obj/item/projectile/bullet/rifle/slugger
@@ -401,15 +409,25 @@
 	max_stack = 1
 
 /obj/item/ammo_casing/peac
-	name = "anti-materiel cannon cartridge"
+	name = "anti-materiel AP cannon cartridge"
 	icon_state = "peac"
 	spent_icon = "peac-spent"
 	caliber = "peac"
 	w_class = ITEMSIZE_NORMAL
 	slot_flags = null
-	projectile_type = /obj/item/projectile/bullet/recoilless_rifle/peac
+	projectile_type = /obj/item/projectile/bullet/peac
+	drop_sound = 'sound/items/drop/shell_drop.ogg'
+	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	reload_sound = 'sound/weapons/railgun_insert_emp.ogg'
 	max_stack = 1
+
+/obj/item/ammo_casing/peac/he
+	name = "anti-materiel HE cannon cartridge"
+	projectile_type = /obj/item/projectile/bullet/peac/he
+
+/obj/item/ammo_casing/peac/shrapnel
+	name = "anti-materiel FRAG cannon cartridge"
+	projectile_type = /obj/item/projectile/bullet/peac/shrapnel
 
 /obj/item/ammo_casing/kumar_super
 	name =".599 kumar super casing"

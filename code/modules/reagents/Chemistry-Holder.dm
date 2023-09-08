@@ -1,5 +1,3 @@
-#define PROCESS_REACTION_ITER 5 //when processing a reaction, iterate this many times
-
 /datum/reagents
 	var/primary_reagent
 	var/list/reagent_volumes

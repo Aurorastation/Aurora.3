@@ -2,11 +2,18 @@
 //--Walls--//
 
 /turf/simulated/wall/shuttle
-	icon = 'icons/turf/smooth/shuttle_wall.dmi'
+	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	icon_state = "map-shuttle"
 	permit_ao = 0
-	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
+	smooth = SMOOTH_MORE
 	canSmoothWith = list(
+		/turf/unsimulated/wall/steel, // Centcomm wall.
+		/turf/unsimulated/wall/darkshuttlewall, // Centcomm wall.
+		/turf/unsimulated/wall/riveted, // Centcomm wall.
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty,
+		/obj/machinery/door,
 		/turf/simulated/wall/shuttle,
 		/obj/structure/window/shuttle,
 		/obj/machinery/door/airlock,
@@ -15,25 +22,40 @@
 	)
 
 /turf/simulated/wall/shuttle/Initialize(mapload)
-	. = ..(mapload, "shuttle", "shuttle")
+	. = ..(mapload, MATERIAL_SHUTTLE, MATERIAL_SHUTTLE)
 
 /turf/simulated/wall/shuttle/cardinal
 	smooth = SMOOTH_TRUE
 
 /turf/simulated/wall/shuttle/dark
-	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	canSmoothWith = null
 
 /turf/simulated/wall/shuttle/dark/cardinal
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/dark,
-		/obj/structure/shuttle_part/dark
+		/obj/structure/shuttle_part/dark,
+		/obj/structure/window_frame/shuttle,
+		/obj/machinery/door/airlock
 	)
+
+/turf/simulated/wall/shuttle/dark/cardinal/merc
+	color = "#8b7d86"
+
+/turf/simulated/wall/shuttle/dark/cardinal/khaki
+	color = "#ac8b78"
+
+/turf/simulated/wall/shuttle/dark/cardinal/purple
+	color = "#7846b1"
+
+/turf/simulated/wall/shuttle/dark/cardinal/red
+	color = "#c24f4f"
+
+/turf/simulated/wall/shuttle/dark/cardinal/blue
+	color = "#6176a1"
 
 /turf/simulated/wall/shuttle/dark/long_diagonal_2
 	name = "test diagonal"
-	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	icon_state = "d2-we-1"
 	use_set_icon_state = TRUE
 	smooth = null
@@ -41,7 +63,6 @@
 
 /obj/structure/shuttle_part/dark
 	name = "spaceship alloy wall"
-	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	icon_state = "d2-we-1"
 	outside_part = FALSE
 
@@ -70,37 +91,34 @@
 
 /turf/simulated/wall/shuttle/scc_space_ship
 	name = "spaceship hull"
-	icon = 'icons/turf/smooth/scc_ship.dmi'
+	icon = 'icons/turf/smooth/scc_ship/scc_ship_exterior.dmi'
+	icon_state = "map-wall"
 	canSmoothWith = null
 
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
 		/turf/simulated/wall/shuttle/scc_space_ship,
-		/obj/structure/window/shuttle/scc_space_ship
+		/obj/structure/window/shuttle/scc_space_ship,
+		/obj/machinery/door/airlock
 	)
 
 /obj/structure/shuttle_part/scc_space_ship
 	name = "spaceship alloy wall"
-	icon = 'icons/turf/smooth/scc_ship.dmi'
-	icon_state = "map-shuttle"
+	icon = 'icons/turf/smooth/scc_ship/scc_ship_exterior.dmi'
+	icon_state = "map-wall"
 	outside_part = FALSE
 
 /turf/simulated/wall/shuttle/raider
-	icon = 'icons/turf/smooth/composite_metal.dmi'
-	icon_state = "composite_metal"
-	smooth = SMOOTH_TRUE
-	canSmoothWith = null
 	color = "#6C7364"
 
 /turf/simulated/wall/shuttle/legion
-	icon = 'icons/turf/smooth/shuttle_wall_legion.dmi'
-
-/turf/simulated/wall/shuttle/legion/cardinal
-	smooth = SMOOTH_MORE
+	color = "#5F78A0"
 
 /turf/simulated/wall/shuttle/palepurple
-	icon = 'icons/turf/smooth/shuttle_wall_palepurple.dmi'
+	color = COLOR_PALE_PURPLE_GRAY
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/palepurple,
 		/obj/structure/window/shuttle/palepurple,
@@ -109,12 +127,9 @@
 		/obj/structure/shuttle/engine/propulsion
 	)
 
-/turf/simulated/wall/shuttle/palepurple/cardinal
-	smooth = SMOOTH_MORE
 
 /turf/simulated/wall/shuttle/skrell
-	icon_state = "skrell_purple"
-	icon = 'icons/turf/smooth/skrell_purple.dmi'
+	color = COLOR_PURPLE
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/skrell,
 		/obj/structure/window/shuttle,
@@ -126,40 +141,17 @@
 /turf/simulated/wall/shuttle/skrell/Initialize(mapload)
 	. = ..(mapload,"skrell")
 
-/turf/simulated/wall/shuttle/skrell/cardinal
-	smooth = SMOOTH_MORE
-
-/turf/simulated/wall/shuttle/skrell/corner
-	icon = 'icons/turf/shuttle.dmi'
-	icon_state = "skrell_diagonal"
-	use_set_icon_state = TRUE
-	smooth = null
-	canSmoothWith = null
-
 /turf/simulated/wall/shuttle/scc
-	icon = 'icons/turf/smooth/scc_shuttle.dmi'
-
-/turf/simulated/wall/shuttle/scc/cardinal
-	smooth = SMOOTH_MORE
+	color = "#AAAFC7"
 
 //Corporate shuttle and ship walls//
 /turf/simulated/wall/shuttle/idris
-	icon = 'icons/turf/smooth/idris_ship.dmi'
-
-/turf/simulated/wall/shuttle/idris/cardinal
-	smooth = SMOOTH_MORE
+	color = "#4B7A73"
 
 /turf/simulated/wall/shuttle/space_ship
-	icon = 'icons/turf/smooth/generic_shuttle.dmi'
-
-/turf/simulated/wall/shuttle/space_ship/cardinal
-	smooth = SMOOTH_MORE
+	color = "#BDB6AE"
 
 /turf/simulated/wall/shuttle/space_ship/mercenary
-	color = "#5b5b5b"
-
-/turf/simulated/wall/shuttle/space_ship/mercenary/cardinal
-	smooth = SMOOTH_MORE
 	color = "#5b5b5b"
 
 //--Unique Shuttles--//
@@ -413,14 +405,95 @@
 	icon_state = "6,2"
 
 //scc shuttle pieces
-
 /turf/simulated/wall/shuttle/unique/scc
 	name = "shuttle hull"
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi'
+	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi'
 	icon_state = "c1"
 
-//--Floors--//
+/obj/structure/shuttle_part/scc
+	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi'
+	icon_state = "c1"
 
+/obj/structure/window/shuttle/unique/scc
+	icon = 'icons/turf/shuttles_unique/scc/scc_shuttle_pieces.dmi'
+	icon_state = "c1"
+
+//Canary pieces
+/turf/simulated/wall/shuttle/unique/scc/scout
+	name = "jester-type shuttle hull"
+	desc = "The hull and reinforcement of a Jester-type corporate skiff. The phoron-purple colored bands indicate this, in bold text as the SCCV Canary."
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
+	icon_state = "4,1"
+
+/obj/structure/shuttle_part/scc/scout
+	name = "jester-type shuttle hull"
+	desc = "The hull and reinforcement of a Jester-type corporate skiff. The phoron-purple colored bands indicate this, in bold text as the SCCV Canary."
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/scc/scout
+	name = "jester-type shuttle hull"
+	desc = "The hull and reinforcement of a Jester-type corporate skiff. This particular piece looks fragile and frames a cockpit viewport."
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/complete_hull.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/scc/scout/over
+	name = "jester-type shuttle cockpit"
+	desc = "The strong glass face of a Jester-type shuttle cockpit."
+	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/cockpit_windows.dmi'
+	icon_state = "4,1"
+	layer = ABOVE_ALL_MOB_LAYER
+
+//Intrepid pieces
+/turf/simulated/wall/shuttle/unique/scc/research
+	name = "pathfinder class shuttle hull"
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid."
+	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/complete_hull.dmi'
+	icon_state = "8,10"
+
+/obj/structure/shuttle_part/scc/research
+	name = "pathfinder class shuttle hull"
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid."
+	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/complete_hull.dmi'
+	icon_state = "5,8"
+
+/obj/structure/window/shuttle/unique/scc/research
+	name = "pathfinder class shuttle hull"
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. This particular piece looks fragile and frames a viewport."
+	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/complete_hull.dmi'
+	icon_state = "3,10"
+
+/obj/structure/window/shuttle/unique/scc/tall//For side windows of the hull, can overlap seamlessly
+	icon = 'icons/obj/spaceship/scc/windows_tall.dmi'
+	icon_state = "long1-1"
+
+/obj/structure/window/shuttle/unique/scc/research/over
+	name = "pathfinder class shuttle cockpit"
+	desc = "The strong glass face of a Pathfinder class shuttle cockpit."
+	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/cockpit_windows.dmi'
+	icon_state = "2,1"
+	layer = ABOVE_ALL_MOB_LAYER
+
+//Spark pieces
+/turf/simulated/wall/shuttle/unique/scc/mining
+	name = "pickaxe class shuttle hull"
+	desc = "The hull and reinforcement of a Pickaxe class corporate mining shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Spark."
+	icon = 'icons/turf/shuttles_unique/scc/mining_shuttle/complete_hull.dmi'
+	icon_state = "1,8"
+
+/obj/structure/shuttle_part/scc/mining
+	name = "pickaxe class shuttle hull"
+	desc = "The hull and reinforcement of a Pickaxe class corporate mining shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Spark."
+	icon = 'icons/turf/shuttles_unique/scc/mining_shuttle/complete_hull.dmi'
+	icon_state = "1,0"
+
+/obj/structure/window/shuttle/unique/scc/mining
+	name = "pickaxe class shuttle hull"
+	desc = "The hull and reinforcement of a Pickaxe class corporate mining shuttle. This particular piece looks fragile and frames a viewport."
+	icon = 'icons/turf/shuttles_unique/scc/mining_shuttle/complete_hull.dmi'
+	icon_state = "5,2"
+
+//--Floors--//
 /turf/simulated/floor/shuttle
 	name = "shuttle floor"
 	icon = 'icons/turf/shuttle.dmi'
@@ -458,8 +531,7 @@
 	initial_flooring = /singleton/flooring/shuttle/dark_blue
 
 /turf/simulated/floor/shuttle/dark_blue/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/shuttle/advanced
 	icon_state = "advanced_plating"
@@ -475,16 +547,14 @@
 	footstep_sound = /singleton/sound_category/sand_footstep
 
 /turf/simulated/floor/shuttle/skrell/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/shuttle/skrell/blue
 	icon_state = "skrell_blue"
 	initial_flooring = /singleton/flooring/shuttle/skrell/blue
 
 /turf/simulated/floor/shuttle/skrell/blue/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 
 /turf/simulated/floor/shuttle/skrell/ramp
 	name = "footramp"
@@ -503,8 +573,7 @@
 	icon_state = "roof_white"
 	smooth = SMOOTH_DIAGONAL|SMOOTH_TRUE
 	smooth_underlays = TRUE
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	roof_type = null
 	permit_ao = 0
 	canSmoothWith = list(

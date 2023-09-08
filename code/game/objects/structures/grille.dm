@@ -15,6 +15,49 @@
 	var/health = 10
 	var/destroyed = 0
 
+/obj/structure/grille/over
+	name = "over-frame grille"
+	icon = 'icons/obj/smooth/window/grille_over.dmi'
+	layer = BELOW_OBJ_LAYER
+	smooth = SMOOTH_MORE
+	canSmoothWith = list(
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/turf/unsimulated/wall/steel,
+		/turf/unsimulated/wall/darkshuttlewall,
+		/turf/unsimulated/wall/riveted,
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty,
+		/obj/structure/window/full/reinforced,
+		/obj/structure/window/full/reinforced/indestructible,
+		/obj/structure/window/full/reinforced/polarized,
+		/obj/structure/window/full/reinforced/polarized/indestructible,
+		/obj/structure/window/full/phoron/reinforced,
+		/obj/structure/window/shuttle/scc_space_ship,
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/obj/machinery/door
+	)
+	blend_overlay = "wall"
+	attach_overlay = "attach"
+	can_blend_with = list(
+		/turf/simulated/wall,
+		/obj/structure/window_frame
+	)
+
+/obj/structure/grille/over/cardinal_smooth(adjacencies, var/list/dir_mods)
+	dir_mods = handle_blending(adjacencies, dir_mods)
+	return ..(adjacencies, dir_mods)
+
+/obj/structure/grille/over/large //for external windows
+	name = "large over-frame grille"
+	icon = 'icons/obj/smooth/window/grille_over_large.dmi'
+	can_blend_with = list(
+		/turf/simulated/wall,
+		/obj/structure/window_frame,
+		/turf/simulated/wall/shuttle/scc_space_ship
+	)
+
 /obj/structure/grille/ex_act(severity)
 	qdel(src)
 
@@ -99,7 +142,7 @@
 /obj/structure/grille/attackby(obj/item/W, mob/user)
 	if(W.iswirecutter())
 		if(!shock(user, 100))
-			playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
+			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
 			qdel(src)
 	else if(istype(W, /obj/item/gun/energy/plasmacutter))
@@ -112,7 +155,7 @@
 		qdel(src)
 	else if((W.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
-			playsound(loc, 'sound/items/screwdriver.ogg', 100, 1)
+			playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "fastens" : "unfastens"] the grille.</span>", \
 								 "<span class='notice'>You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor.</span>")

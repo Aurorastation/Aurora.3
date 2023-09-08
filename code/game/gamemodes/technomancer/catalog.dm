@@ -1,9 +1,3 @@
-#define ALL_SPELLS "All"
-#define OFFENSIVE_SPELLS "Offensive"
-#define DEFENSIVE_SPELLS "Defensive"
-#define UTILITY_SPELLS "Utility"
-#define SUPPORT_SPELLS "Support"
-
 var/list/all_technomancer_spells = typesof(/datum/technomancer/spell) - /datum/technomancer/spell
 var/list/all_technomancer_equipment = typesof(/datum/technomancer/equipment) - /datum/technomancer/equipment
 var/list/all_technomancer_consumables = typesof(/datum/technomancer/consumable) - /datum/technomancer/consumable
@@ -45,15 +39,25 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	var/spell_tab = ALL_SPELLS
 	var/show_scepter_text = 0
 
+	var/has_assistance_items = TRUE
+
 /obj/item/technomancer_catalog/apprentice
 	name = "apprentice's catalog"
 	budget = 700
 	max_budget = 700
+	has_assistance_items = FALSE
 
 /obj/item/technomancer_catalog/golem
 	name = "golem's catalog"
 	budget = 500
 	max_budget = 500
+	has_assistance_items = FALSE
+
+/obj/item/technomancer_catalog/initiate
+	name = "initiate's catalog"
+	budget = 300
+	max_budget = 300
+	has_assistance_items = FALSE
 
 /obj/item/technomancer_catalog/master //for badmins, I suppose
 	name = "master's catalog"
@@ -88,19 +92,10 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	if(!consumable_instances.len)
 		for(var/C in all_technomancer_consumables)
 			consumable_instances += new C()
-	if(!assistance_instances.len)
-		for(var/A in all_technomancer_assistance)
-			assistance_instances += new A()
-
-/obj/item/technomancer_catalog/apprentice/set_up()
-	..()
-	for(var/datum/technomancer/assistance/A in assistance_instances)
-		assistance_instances.Remove(A)
-
-/obj/item/technomancer_catalog/golem/set_up()
-	..()
-	for(var/datum/technomancer/assistance/A in assistance_instances)
-		assistance_instances.Remove(A)
+	if(has_assistance_items)
+		if(!assistance_instances.len)
+			for(var/A in all_technomancer_assistance)
+				assistance_instances += new A()
 
 // Proc: show_categories()
 // Parameters: 1 (category - the category link to display)
@@ -132,7 +127,8 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			dat += "<align='center'><b>Functions</b> | "
 			dat += "<a href='byond://?src=\ref[src];tab_choice=1'>Equipment</a> | "
 			dat += "<a href='byond://?src=\ref[src];tab_choice=2'>Consumables</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
+			if(length(assistance_instances))
+				dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
 			dat += "<a href='byond://?src=\ref[src];tab_choice=4'>Info</a></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
 			dat += "<a href='byond://?src=\ref[src];refund_functions=1'>Refund Functions</a><br><br>"
@@ -164,7 +160,8 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			dat += "<align='center'><a href='byond://?src=\ref[src];tab_choice=0'>Functions</a> | "
 			dat += "<b>Equipment</b> | "
 			dat += "<a href='byond://?src=\ref[src];tab_choice=2'>Consumables</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
+			if(length(assistance_instances))
+				dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
 			dat += "<a href='byond://?src=\ref[src];tab_choice=4'>Info</a></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
 			for(var/datum/technomancer/equipment/E in equipment_instances)
@@ -184,7 +181,8 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			dat += "<align='center'><a href='byond://?src=\ref[src];tab_choice=0'>Functions</a> | "
 			dat += "<a href='byond://?src=\ref[src];tab_choice=1'>Equipment</a> | "
 			dat += "<b>Consumables</b> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
+			if(length(assistance_instances))
+				dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
 			dat += "<a href='byond://?src=\ref[src];tab_choice=4'>Info</a></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
 			for(var/datum/technomancer/consumable/C in consumable_instances)
@@ -224,7 +222,8 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			dat += "<align='center'><a href='byond://?src=\ref[src];tab_choice=0'>Functions</a> | "
 			dat += "<a href='byond://?src=\ref[src];tab_choice=1'>Equipment</a> | "
 			dat += "<a href='byond://?src=\ref[src];tab_choice=2'>Consumables</a> | "
-			dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
+			if(length(assistance_instances))
+				dat += "<a href='byond://?src=\ref[src];tab_choice=3'>Assistance</a> | "
 			dat += "<b>Info</b></align><br>"
 			dat += "You currently have a budget of <b>[budget]/[max_budget]</b>.<br><br>"
 			dat += "<br>"
@@ -316,10 +315,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 					new_spell = spell
 					break
 
-			var/obj/item/technomancer_core/core = null
-			if(istype(H.back, /obj/item/technomancer_core))
-				core = H.back
-
+			var/obj/item/technomancer_core/core = H.get_technomancer_core()
 			if(new_spell && core)
 				if(new_spell.cost <= budget)
 					if(!core.has_spell(new_spell))
@@ -358,11 +354,9 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			if(T.z in current_map.player_levels)
 				to_chat(H, "<span class='danger'>You can only refund at your base, it's too late now!</span>")
 				return
-			var/obj/item/technomancer_core/core = null
-			if(istype(H.back, /obj/item/technomancer_core))
-				core = H.back
+			var/obj/item/technomancer_core/core = H.get_technomancer_core()
 			if(core)
-				for(var/obj/spellbutton/spell in core.spells)
+				for(var/obj/spellbutton/technomancer/spell in core.spells)
 					for(var/datum/technomancer/spell/spell_datum in spell_instances)
 						if(spell_datum.obj_path == spell.spellpath)
 							budget += spell_datum.cost
@@ -387,7 +381,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				// We sadly need to do special stuff here or else people who refund cores with spells will lose points permanently.
 				if(istype(AM, /obj/item/technomancer_core))
 					var/obj/item/technomancer_core/core = AM
-					for(var/obj/spellbutton/spell in core.spells)
+					for(var/obj/spellbutton/technomancer/spell in core.spells)
 						for(var/datum/technomancer/spell/spell_datum in spell_instances)
 							if(spell_datum.obj_path == spell.spellpath)
 								budget += spell_datum.cost

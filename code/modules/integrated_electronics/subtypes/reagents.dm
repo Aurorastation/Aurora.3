@@ -8,41 +8,6 @@
 	if(volume)
 		create_reagents(volume)
 
-/obj/item/integrated_circuit/reagent/smoke
-	name = "smoke generator"
-	desc = "Unlike most electronics, creating smoke is completely intentional."
-	icon_state = "smoke"
-	extended_desc = "This smoke generator creates clouds of smoke on command.  It can also hold liquids inside, which will go \
-	into the smoke clouds when activated.  The reagents are consumed when smoke is made."
-	flags = OPENCONTAINER
-	complexity = 20
-	cooldown_per_use = 30 SECONDS
-	inputs = list()
-	outputs = list("volume used" = IC_PINTYPE_NUMBER,"self reference" = IC_PINTYPE_REF)
-	activators = list("create smoke" = IC_PINTYPE_PULSE_IN)
-	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 3)
-	volume = 100
-	power_draw_per_use = 20
-
-/obj/item/integrated_circuit/reagent/smoke/on_reagent_change()
-	set_pin_data(IC_OUTPUT, 1, reagents.total_volume)
-	push_data()
-
-/obj/item/integrated_circuit/reagent/smoke/interact(mob/user)
-	set_pin_data(IC_OUTPUT, 2, src)
-	push_data()
-	..()
-
-/obj/item/integrated_circuit/reagent/smoke/do_work()
-	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-	var/datum/effect/effect/system/smoke_spread/chem/smoke_system = new()
-	smoke_system.set_up(reagents, 10, 0, get_turf(src))
-	spawn(0)
-		for(var/i = 1 to 8)
-			smoke_system.start()
-		reagents.clear_reagents()
-
 /obj/item/integrated_circuit/reagent/injector
 	name = "integrated hypo-injector"
 	desc = "This scary looking thing is able to pump liquids into whatever it's pointed at."

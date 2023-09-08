@@ -32,6 +32,8 @@
 #define PROXMOVE           0x80  // Does this object require proximity checking in Enter()?
 #define HELDMAPTEXT        0x100 // Uses the special held maptext system, which sets a specific maptext if the item is in possession of a mob.
 #define NOMOVE             0x200 // Cannot be moved from its current inventory slot. Mostly for augments, modules, and other "attached" items.
+#define HTML_USE_INITAL_ICON  0x400 // Should we use the initial icon for display? Mostly used by overlay only objects
+#define POURCONTAINER      0x800  // reagent container that can pour its contents with a lid on. only used for syrup bottles for now
 
 //Flags for items (equipment)
 #define THICKMATERIAL          BITFLAG(0)  // Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.

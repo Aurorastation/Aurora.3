@@ -80,7 +80,7 @@
 	// - First the primary firewall is breached.
 	//		If the crew does not manage to prevent the self destruct before that,
 	//		but after the timer fell below nuke_time_stage1, then the next self-destruct attempt will only take nuke_time_stage1
-	// - Simmilar for the backup firewall.
+	// - Similar for the backup firewall.
 	//		If they only manage to stop it after the backup firewall went down further attempts will take only nuke_time_stage2
 	var/timer = user.bombing_time
 	var/stage1 = 900

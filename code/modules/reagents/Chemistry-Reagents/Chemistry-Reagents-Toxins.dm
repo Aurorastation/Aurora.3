@@ -229,12 +229,12 @@
 	reagent_state = SOLID
 	color = "#FFFFFF"
 	strength = 0
-	overdose = 5
-	od_minimum_dose = 20
+	metabolism = REM * 0.5
+	overdose = 15
+	od_minimum_dose = 5
 	taste_description = "salt"
 
-/singleton/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
-	..()
+/singleton/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
@@ -250,13 +250,12 @@
 	description = "Potassium Chlorophoride is an expensive, vastly improved variant of Potassium Chloride. Potassium Chlorophoride, unlike the original drug, acts immediately to block neuromuscular junctions, causing general paralysis."
 	reagent_state = SOLID
 	color = "#FFFFFF"
-	strength = 10
+	strength = 0
 	overdose = 5
 	od_minimum_dose = 20
 	taste_description = "salt"
 
 /singleton/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	..()
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
@@ -325,7 +324,7 @@
 			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "Your insides are on fire!", "Your feel a burning pain in your chest!")))
 	else
 		if(prob(5))
-			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something really digusting.", "Your chest doesn't feel so great.")))
+			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something really disgusting.", "Your chest doesn't feel so great.")))
 
 /singleton/reagent/toxin/fertilizer/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!(alien == IS_DIONA))
@@ -613,6 +612,7 @@
 		M.mind.transfer_to(new_mob)
 	else
 		new_mob.key = M.key
+	new_mob.client.init_verbs()
 	qdel(M)
 
 /singleton/reagent/toxin/nanites

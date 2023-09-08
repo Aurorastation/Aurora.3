@@ -32,6 +32,7 @@
 /datum/action/Destroy()
 	if(owner)
 		Remove(owner)
+	target = null
 	return ..()
 
 /datum/action/proc/SetTarget(var/atom/Target)
@@ -51,8 +52,7 @@
 	if(button)
 		if(T.client)
 			T.client.screen -= button
-		qdel(button)
-		button = null
+		QDEL_NULL(button)
 	T.actions.Remove(src)
 	T.update_action_buttons()
 	owner = null
@@ -121,6 +121,10 @@
 /obj/screen/movable/action_button
 	var/datum/action/owner
 	screen_loc = "WEST,NORTH"
+
+/obj/screen/movable/action_button/Destroy(force)
+	owner = null
+	. = ..()
 
 /obj/screen/movable/action_button/Click(location,control,params)
 	var/list/modifiers = params2list(params)
@@ -255,3 +259,15 @@
 #undef AB_WEST_OFFSET
 #undef AB_NORTH_OFFSET
 #undef AB_MAX_COLUMNS
+
+#undef AB_ITEM
+#undef AB_SPELL
+#undef AB_INNATE
+#undef AB_GENERIC
+#undef AB_ITEM_USE_ICON
+
+#undef AB_CHECK_RESTRAINED
+#undef AB_CHECK_STUNNED
+#undef AB_CHECK_LYING
+#undef AB_CHECK_ALIVE
+#undef AB_CHECK_INSIDE

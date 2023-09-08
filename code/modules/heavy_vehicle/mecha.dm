@@ -57,9 +57,6 @@
 	var/obj/item/mech_component/sensors/head
 	var/obj/item/mech_component/chassis/body
 
-	// Invisible components.
-	var/datum/effect/effect/system/spark_spread/sparks
-
 	// Equipment tracking vars.
 	var/obj/item/mecha_equipment/selected_system
 	var/selected_hardpoint
@@ -300,7 +297,7 @@
 		if(istype(exosuit) && exosuit.head && exosuit.head.radio && exosuit.head.radio.is_functional())
 			return ..()
 
-/obj/item/device/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = mech_state)
+/obj/item/device/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = mech_state)
 	. = ..()
 
 /mob/living/heavy_vehicle/proc/become_remote()
@@ -319,8 +316,8 @@
 	dummy = new dummy_type(get_turf(src))
 	dummy.real_name = "Remote-Bot"
 	dummy.name = dummy.real_name
-	dummy.verbs -= /mob/living/proc/ventcrawl
-	dummy.verbs -= /mob/living/proc/hide
+	remove_verb(dummy, /mob/living/proc/ventcrawl)
+	remove_verb(dummy, /mob/living/proc/hide)
 	if(dummy_colour)
 		dummy.color = dummy_colour
 	enter(dummy, TRUE)

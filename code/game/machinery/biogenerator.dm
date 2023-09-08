@@ -67,13 +67,28 @@
 
 /singleton/biorecipe/food/milk
 	name = "Space Milk (50u)"
-	object = /obj/item/reagent_containers/food/drinks/milk
+	object = /obj/item/reagent_containers/food/drinks/carton/milk
 	cost = 100
 
 /singleton/biorecipe/food/nutrispread
 	name = "Nutri-spread"
 	object = /obj/item/reagent_containers/food/snacks/spreads
 	cost = 80
+
+/singleton/biorecipe/food/lard
+	name = "Lard"
+	object = /obj/item/reagent_containers/food/snacks/spreads/lard
+	cost = 80
+
+/singleton/biorecipe/food/egg_carton
+	name = "Chicken Egg Carton"
+	object = /obj/item/storage/box/fancy/egg_box
+	cost = 300
+
+/singleton/biorecipe/food/tunneler_egg_carton
+	name = "Ice Tunneler Egg Carton"
+	object = /obj/item/storage/box/fancy/egg_box/tunneler
+	cost = 300
 
 /singleton/biorecipe/food/enzyme
 	name = "Universal Enzyme (50u)"

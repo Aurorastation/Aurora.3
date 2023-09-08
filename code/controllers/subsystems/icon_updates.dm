@@ -6,14 +6,15 @@
 	flags = SS_TICKER
 	priority = SS_PRIORITY_ICON_UPDATE
 	init_order = SS_INIT_ICON_UPDATE
-	
+
 	var/list/queue = list()
 
 /datum/controller/subsystem/icon/New()
 	NEW_SS_GLOBAL(SSicon_update)
 
-/datum/controller/subsystem/icon/stat_entry()
-	..("QU:[queue.len]")
+/datum/controller/subsystem/icon/stat_entry(msg)
+	msg = "QU:[queue.len]"
+	return ..()
 
 /datum/controller/subsystem/icon/Initialize()
 	fire(FALSE, TRUE)
@@ -32,6 +33,11 @@
 		curr.len--
 
 		A.icon_update_queued = FALSE
+
+		//Do not target qdeleted atoms
+		if(QDELETED(A))
+			continue
+
 		if (islist(argv))
 			A.update_icon(arglist(argv))
 		else

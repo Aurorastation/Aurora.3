@@ -36,17 +36,34 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Some Skrell are not part of the Federation; attempt to convince them to become a citizen",
-							"Acquire information on dissidents towards the Federation, forwarding it to the embassy",
-							"Curtail the spreading of written literature or verbal notions that contain negative connotations towards the Federation")
+			if(isvaurca(H))
+				rep_objectives = pick("Collect evidence of the [current_map.boss_name] being unfair or bigoted to Federation employees, to be used as leverage in future hive labor negotiations",
+								"Acquire information on dissidents towards the Federation, forwarding it to the embassy",
+								"Convince the command of the [current_map.boss_name] of the advantages that Bound Vaurcae hold over synthetics.")
+			else
+				rep_objectives = pick("Some Skrell are not part of the Federation; attempt to convince them to become a citizen",
+								"Acquire information on dissidents towards the Federation, forwarding it to the embassy",
+								"Curtail the spreading of written literature or verbal notions that contain negative connotations towards the Federation")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Ensure the interests of Federation citizens are upheld by the vessel. This includes C'thur and Diona of Federation origin",
-							"Legally curtail the advancements and liberal thinking towards synthetics",
-							"The [current_map.station_name] hosts some of the brightest minds in the galaxy; winning them over towards the Federation is a major victory")
+			if(isvaurca(H))
+				rep_objectives = pick("Legally curtail the advancements and liberal thinking towards synthetics.",
+								"Remind C'thur Vaurcae aboard the [current_map.station_name] that they are representative of their hive-cell, and encourage them to increase their social credit",
+								"Ensure the interests of Federation citizens are upheld by the vessel - whether Skrell, C'thur or Diona.")
+			else
+				rep_objectives = pick("Ensure the interests of Federation citizens are upheld by the vessel. This includes C'thur and Diona of Federation origin",
+								"Legally curtail the advancements and liberal thinking towards synthetics.",
+								"The [current_map.station_name] hosts some of the brightest minds in the galaxy; winning them over towards the Federation is a major victory",
+								"Encourage Federation citizens with low social credit to work to increase their score.")
 		else
-			rep_objectives = pick("Consider assisting crew within the capacity of your role, an altruistic image is good PR towards the federation",
-							"Some Skrell are not part of the Federation; attempt to convince them to become a citizen")
+			if(isvaurca(H))
+				rep_objectives = pick("Consider assisting crew within the capacity of your role, an altruistic image is good PR towards both the Federation and the C'thur Hive.",
+								"Question Non-Vaurca employees about Vaurca employees, looking for areas of improvement.",
+								"Some Skrell are not part of the Federation; attempt to convince them to become a citizen.")
+			else
+				rep_objectives = pick("Consider assisting crew within the capacity of your role, an altruistic image is good PR towards the Federation",
+								"Some Skrell are not part of the Federation; attempt to convince them to become a citizen.",
+								"Promote Nralakk tourism among the non-citizen employees of the [current_map.boss_name] in order to build positive opinion.")
 
 	return rep_objectives
 
@@ -61,9 +78,13 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/nralakk(H), slot_head)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder/nralakk(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
+			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/nralakk(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
-		else
-			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
-	return TRUE
+		else if(isskrell(H))
+			backpack_contents = list(
+				/obj/item/device/camera = 1,
+				/obj/item/gun/energy/psipistol = 1
+			)
+		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
+		return TRUE

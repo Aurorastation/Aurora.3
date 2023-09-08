@@ -42,6 +42,16 @@
 		/obj/item/tank/emergency_oxygen/double = 1
 	)
 
+/obj/item/storage/box/syndie_kit/space/covert
+	name = "boxed space suit and helmet"
+	worn_overlay = "syndiesuit"
+	starts_with = list(
+		/obj/item/clothing/suit/space/syndicate/covert = 1,
+		/obj/item/clothing/head/helmet/space/syndicate/covert = 1,
+		/obj/item/clothing/mask/breath = 1,
+		/obj/item/tank/emergency_oxygen/double = 1
+	)
+
 
 /obj/item/storage/box/syndie_kit/chameleon
 	name = "chameleon kit"
@@ -99,11 +109,6 @@
 	desc = "It's just an ordinary box."
 	icon_state = "box"
 	item_state = "box"
-
-/obj/item/storage/box/syndie_kit/g9mm
-	name = "smooth operator"
-	desc = "9mm with silencer kit."
-	starts_with = list(/obj/item/gun/projectile/pistol = 1, /obj/item/silencer = 1)
 
 /obj/item/storage/box/syndie_kit/toxin
 	name = "toxin kit"

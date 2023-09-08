@@ -245,10 +245,14 @@
 	penetrating = TRUE
 
 /obj/item/projectile/bullet/rifle/vintage
-	name = "vintage bullet"
+	name = ".30-06 Govt. bullet"
 	damage = 50
 	weaken = 1
 	penetrating = TRUE
+
+/obj/item/projectile/bullet/rifle/govt
+	name = ".40-70 Govt. bullet"
+	damage = 50
 
 /obj/item/projectile/bullet/rifle/slugger
 	name = "slugger round"
@@ -442,11 +446,66 @@
 	explosion(A, -1, heavy_impact_range, 2)
 	..()
 
-/obj/item/projectile/bullet/recoilless_rifle/peac
+/obj/item/projectile/bullet/peac
 	name = "anti-tank missile"
 	icon_state = "peac"
 	damage = 25
 	armor_penetration = 35
 	anti_materiel_potential = 6
-	penetrating = TRUE
-	heavy_impact_range = -1
+	embed = FALSE
+	penetrating = 1
+
+	var/devastation_range = -1
+	var/heavy_impact_range = -1
+	var/light_impact_range = 2
+
+/obj/item/projectile/bullet/peac/check_penetrate(atom/hit_atom)
+	if(hit_atom == original)
+		return FALSE
+	return ..()
+
+/obj/item/projectile/bullet/peac/on_impact(var/atom/hit_atom)
+	explosion(hit_atom, devastation_range, heavy_impact_range, light_impact_range)
+
+/obj/item/projectile/bullet/peac/he
+	name = "high-explosive missile"
+	armor_penetration = 0
+	anti_materiel_potential = 3
+
+	devastation_range = 1
+	heavy_impact_range = 2
+	light_impact_range = 4
+
+/obj/item/projectile/bullet/peac/shrapnel
+	name = "fragmentation missile"
+	armor_penetration = 0
+	anti_materiel_potential = 2
+
+	light_impact_range = 1
+
+/obj/item/projectile/bullet/peac/shrapnel/preparePixelProjectile()
+	. = ..()
+	range = get_dist(firer, original)
+
+/obj/item/projectile/bullet/peac/shrapnel/on_impact(var/atom/hit_atom)
+	..()
+	spawn_shrapnel(starting ? get_dir(starting, original) : dir)
+
+/obj/item/projectile/bullet/peac/shrapnel/proc/spawn_shrapnel(var/shrapnel_dir)
+	set waitfor = FALSE
+
+	var/turf/O = get_turf(src)
+	var/list/target_turfs = list()
+	target_turfs += get_step(O, shrapnel_dir)
+	target_turfs += get_step(O, turn(shrapnel_dir, -45))
+	target_turfs += get_step(O, turn(shrapnel_dir, 45))
+
+	for(var/turf/T in target_turfs)
+		var/obj/item/projectile/bullet/pellet/fragment/P = new(O)
+		P.damage = 30
+		P.pellets = 4
+		P.range_step = 3
+		P.shot_from = src
+		P.range = 15
+		P.name = "shrapnel"
+		P.launch_projectile(T)

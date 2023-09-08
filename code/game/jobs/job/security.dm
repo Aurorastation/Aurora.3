@@ -249,6 +249,18 @@
 	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
 	faction = "Station"
+	alt_titles = list("Investigator Intern", "Warden Cadet")
+	alt_outfits = list("Investigator Intern" = /datum/outfit/job/intern_sec/forensics)
+	alt_ages = list("Investigator Intern" = list(
+		SPECIES_HUMAN = 24,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
+	),
+	"Warden Cadet" = list(
+		SPECIES_HUMAN = 24,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
+	))
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Head of Security"
@@ -298,3 +310,13 @@
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
+
+/datum/outfit/job/intern_sec/forensics
+	name = "Investigator Intern"
+	jobtype = /datum/job/intern_sec
+
+	shoes = /obj/item/clothing/shoes/laceup/all_species
+
+/datum/outfit/job/intern_sec/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_or_collect(new /obj/item/clothing/gloves/black/forensic(H), slot_gloves)

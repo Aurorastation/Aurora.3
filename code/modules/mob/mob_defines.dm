@@ -33,7 +33,6 @@
 	var/obj/screen/gun/item/item_use_icon = null
 	var/obj/screen/gun/radio/radio_use_icon = null
 	var/obj/screen/gun/move/gun_move_icon = null
-	var/obj/screen/gun/run/gun_run_icon = null
 	var/obj/screen/gun/mode/gun_setting_icon = null
 	var/obj/screen/gun/unique_action_icon = null
 	var/obj/screen/gun/toggle_firing_mode = null
@@ -94,8 +93,9 @@
 	var/sleeping = 0					//Carbon
 	var/sleeping_msg_debounce = FALSE	//Carbon - Used to show a message once every time someone falls asleep.
 	var/resting = 0						//Carbon
-	var/lying = 0
-	var/lying_prev = 0
+	var/lying = 0	// Is the mob lying down?
+	var/lying_prev = 0	// Was the mob lying down before?
+	var/lying_is_intentional = FALSE	// Is the mob lying down intentionally? (eg. a manouver)
 	var/canmove = 1
 	//Allows mobs to move through dense areas without restriction. For instance, in space or out of holder objects.
 	var/incorporeal_move = INCORPOREAL_DISABLE
@@ -207,7 +207,6 @@
 
 //Monkey/infected mode
 	var/list/resistances = list()
-	var/datum/disease/virus = null
 
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
@@ -230,6 +229,7 @@
 	var/mob/teleop = null
 
 	var/turf/listed_turf = null  	//the current turf being examined in the stat panel
+	var/list/item_verbs = list()
 	var/list/shouldnt_see = list()	//typecache of objects that this mob shouldn't see in the stat panel. this silliness is needed because of AI alt+click and cult blood runes
 
 	var/list/active_genes=list()

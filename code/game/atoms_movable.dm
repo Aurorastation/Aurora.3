@@ -1,5 +1,8 @@
 /atom/movable
 	layer = 3
+	glide_size = 6
+	animate_movement = SLIDE_STEPS
+
 	var/last_move = null
 	var/anchored = 0
 	var/movable_flags

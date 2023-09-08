@@ -117,6 +117,7 @@ var/list/holder_mob_icon_cache = list()
 		M.attackby(W,user)
 
 /obj/item/holder/dropped(mob/user)
+	. = ..()
 
 	///When an object is put into a container, drop fires twice.
 	//once with it on the floor, and then once in the container
@@ -204,7 +205,7 @@ var/list/holder_mob_icon_cache = list()
 		to_chat(grabber, "<span class='warning'>Your hand is full!</span>")
 		return
 
-	src.verbs += /mob/living/proc/get_holder_location//This has to be before we move the mob into the holder
+	add_verb(src,  /mob/living/proc/get_holder_location) //This has to be before we move the mob into the holder
 
 	spawn(2)
 		var/obj/item/holder/H = new holder_type(loc)
@@ -376,6 +377,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/carp/baby/verb/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object"
+	set src in usr
 
 	flags_inv ^= BLOCKHEADHAIR
 	to_chat(usr, SPAN_NOTICE("\The [src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
@@ -605,7 +607,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/fox
 	name = "fox"
-	icon = 'icons/mob/npc/pets.dmi'
+	icon = 'icons/mob/npc/fox.dmi'
 	icon_state = "fox"
 	item_state = "fox"
 	w_class = ITEMSIZE_NORMAL
@@ -628,3 +630,25 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "schlorrgo_fat"
 	item_state = "schlorrgo_fat"
 	w_class = ITEMSIZE_LARGE
+
+/obj/item/holder/fish
+	name = "fish"
+	attack_verb = list("fished", "disrespected", "smacked", "smackereled")
+	icon = 'icons/mob/npc/fish.dmi'
+	icon_state = "fish_rest"
+	item_state = "fish_rest"
+	hitsound = 'sound/effects/snap.ogg'
+	force = 4//Being hit with an entire fish typically hurts
+	throwforce = 4//Having an entire fish thrown at you also hurts
+	throw_speed = 1//Because it's cinematic
+
+/obj/item/holder/fish/gupper
+	icon_state = "gupper_rest"
+	item_state = "gupper_rest"
+
+/obj/item/holder/fish/cod
+	icon_state = "cod_rest"
+	item_state = "cod_rest"
+	hitsound = 'sound/effects/snap.ogg'
+	force = 6//quite large fishey
+	throwforce = 6

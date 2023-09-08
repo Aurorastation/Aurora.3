@@ -24,8 +24,9 @@
 /datum/controller/subsystem/plants/New()
 	NEW_SS_GLOBAL(SSplants)
 
-/datum/controller/subsystem/plants/stat_entry()
-	..("P:[processing.len]")
+/datum/controller/subsystem/plants/stat_entry(msg)
+	msg = "P:[processing.len]"
+	return ..()
 
 /datum/controller/subsystem/plants/Initialize(timeofday)
 	// Build the icon lists.
@@ -58,7 +59,7 @@
 		S.roundstart = 1
 
 	//Might as well mask the gene types while we're at it.
-	var/list/gene_datums = list()
+	var/list/gene_datums = GET_SINGLETON_TYPE_MAP(/singleton/plantgene)
 	var/list/used_masks = list()
 	var/list/plant_traits = ALL_GENES
 	while(plant_traits && plant_traits.len)

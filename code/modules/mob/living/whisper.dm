@@ -56,29 +56,30 @@
 			whisper_text = "[speak_text] [adverb]"
 			not_heard = "[speak_text] something [adverb]"
 
-	var/list/listening = list(src)
-
-	//ghosts
-	for(var/mob/M in dead_mob_list)
-		if(M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS))
-			listening |= M
-
-	//Pass whispers on to anything inside the immediate listeners.
-	for(var/mob/L in listening)
-		for(var/mob/living/C in L.contents)
-			listening += C
-
+	//Check to see who hears the full whisper message, and who just gets the not_heard message
 	var/list/eavesdropping = list()
 	var/list/watching = list()
-
+	var/list/observers = list()
 	var/list/all_in_range = hearers(watching_range, src)
 	for(var/mob/M as anything in all_in_range)
-		if(get_dist(src, M) <= message_range)
-			listening |= M
+		if(M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS)) //Preventing duplicate messages to ghostear'd observers
+			continue
+		if(get_dist(src, M) <= message_range) //In range to hear
+			continue
 		else if(get_dist(src, M) <= eavesdropping_range)
-			eavesdropping += M
+			if(M.stat == DEAD && M.client)
+				observers += M
+			else
+				eavesdropping += M
 		else if(get_dist(src, M) <= watching_range)
-			watching += M
+			if(M.stat == DEAD && M.client)
+				observers += M
+			else	
+				watching += M
+
+	if(length(observers)) //For ghosts who do NOT have ghost ears. They will see the whole message if nearby, no *s or not_heard messages.
+		for(var/mob/M in observers)
+			M.hear_say(message, "whispers", speaking, "", TRUE, src)
 
 	if(length(eavesdropping))
 		var/new_message = stars(message)

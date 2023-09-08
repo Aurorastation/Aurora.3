@@ -4,7 +4,7 @@
 	set desc = "Cast a spell"
 
 	if(!LAZYLEN(spell_list))
-		src.verbs -= /mob/proc/cast_spell
+		remove_verb(src, /mob/proc/cast_spell)
 		return
 
 	spell.perform(usr)

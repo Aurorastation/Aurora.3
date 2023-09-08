@@ -54,6 +54,7 @@
 /obj/item/implant/Destroy()
 	if(part)
 		part.implants.Remove(src)
+		part = null
 	STOP_PROCESSING(SSprocessing, src)
 	implants -= src
 	return ..()
@@ -741,3 +742,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 			if (prob(25))
 				qdel(src)
 	return
+
+
+#undef MALFUNCTION_TEMPORARY
+#undef MALFUNCTION_PERMANENT

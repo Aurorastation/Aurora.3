@@ -174,10 +174,10 @@ var/global/list/robot_modules = list(
 	added_networks.Cut()
 
 /obj/item/robot_module/proc/add_subsystems(var/mob/living/silicon/robot/R)
-	R.verbs |= subsystems
+	add_verb(R, subsystems)
 
 /obj/item/robot_module/proc/remove_subsystems(var/mob/living/silicon/robot/R)
-	R.verbs -= subsystems
+	remove_verb(R, subsystems)
 
 /obj/item/robot_module/proc/apply_status_flags(var/mob/living/silicon/robot/R)
 	if(!can_be_pushed)
@@ -378,7 +378,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/device/t_scanner(src) // to check underfloor wiring
 	modules += new /obj/item/device/analyzer(src) // to check air pressure in the area
 	modules += new /obj/item/device/lightreplacer(src) // to install lightning in the area
-	modules += new /obj/item/device/floor_painter(src)// to make america great again (c)
+	modules += new /obj/item/device/paint_sprayer(src)// to make america great again (c)
 	modules += new /obj/item/pickaxe/borgdrill(src) // as station is being located at the rock terrain, which is presumed to be digged out to clear the area for new rooms
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
@@ -444,7 +444,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/gripper/no_use/loader(src)
 	modules += new /obj/item/device/lightreplacer(src)
 	modules += new /obj/item/device/pipe_painter(src)
-	modules += new /obj/item/device/floor_painter(src)
+	modules += new /obj/item/device/paint_sprayer(src)
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
 	modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
@@ -647,7 +647,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/gripper/paperwork(src)
 	modules += new /obj/item/device/hand_labeler(src)
 	modules += new /obj/item/tape_roll(src) //allows it to place flyers
-	modules += new /obj/item/device/nanoquikpay(src)
+	modules += new /obj/item/device/quikpay(src)
 	modules += new /obj/item/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
@@ -692,7 +692,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/stamp(src)
 	modules += new /obj/item/stamp/denied(src)
 	modules += new /obj/item/tape_roll(src) //allows it to place flyers
-	modules += new /obj/item/device/nanoquikpay(src)
+	modules += new /obj/item/device/quikpay(src)
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/taperoll/police(src)
 	modules += new /obj/item/paper_scanner(src) //TODO: Add functionality to allow for scanned paperwork to show up in internal computer
@@ -960,7 +960,7 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/soap/drone(src)
 	modules += new /obj/item/extinguisher(src)
 	modules += new /obj/item/device/pipe_painter(src)
-	modules += new /obj/item/device/floor_painter(src)
+	modules += new /obj/item/device/paint_sprayer(src)
 	modules += new /obj/item/device/t_scanner(src)
 	modules += new /obj/item/gripper/multi_purpose(src)
 	modules += new /obj/item/gripper/no_use/loader(src)

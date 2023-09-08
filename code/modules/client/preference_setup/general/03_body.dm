@@ -174,14 +174,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			try
 				pref.body_markings = json_decode(pref.body_markings)
 			catch (var/exception/e)
-				log_debug("BODY MARKINGS: Caught [e]. Initial value: [before]")
+				LOG_DEBUG("BODY MARKINGS: Caught [e]. Initial value: [before]")
 				pref.body_markings = list()
 		if (istext(pref.disabilities))
 			var/before = pref.disabilities
 			try
 				pref.disabilities = json_decode(pref.disabilities)
 			catch (var/exception/e)
-				log_debug("DISABILITIES: Caught [e]. Initial value: [before]")
+				LOG_DEBUG("DISABILITIES: Caught [e]. Initial value: [before]")
 				pref.disabilities = list()
 
 	var/datum/species/mob_species = all_species[pref.species]
@@ -215,7 +215,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.disabilities = list()
 
 	if(!pref.bgstate || !(pref.bgstate in pref.bgstate_options))
-		pref.bgstate = "000"
+		pref.bgstate = "000000"
 
 /datum/category_item/player_setup_item/general/body/content(var/mob/user)
 	var/list/out = list()
@@ -237,61 +237,46 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	out += "Prosthesis/Amputations: <a href='?src=\ref[src];reset_organs=1'>Reset</a><br>"
 
 	//display limbs below
-	var/ind = 0
+	if(length(pref.organ_data))
+		out += "<ul>"
+
 	for(var/name in pref.organ_data)
 		var/status = pref.organ_data[name]
 		var/organ_name = name
 
 		if(status == "cyborg")
-			++ind
-			if(ind > 1)
-				out += ", "
 			var/datum/robolimb/R
 			if(pref.rlimb_data[name] && all_robolimbs[pref.rlimb_data[name]])
 				R = all_robolimbs[pref.rlimb_data[name]]
 			else
 				R = basic_robolimb
-			out += "\t[R.company] [organ_name] prosthesis"
+			out += "<li>- [R.company] [capitalize_first_letters(parse_zone(organ_name))] Prosthesis</li>"
 		else if(status == "amputated")
-			++ind
-			if(ind > 1)
-				out += ", "
-			out += "\tAmputated [organ_name]"
+			out += "<li>- Amputated [capitalize_first_letters(parse_zone(organ_name))]</li>"
 		else if(status == "mechanical")
-			++ind
-			if(ind > 1)
-				out += ", "
 			var/datum/robolimb/R
 			if(pref.rlimb_data[name] && all_robolimbs[pref.rlimb_data[name]])
 				R = all_robolimbs[pref.rlimb_data[name]]
 			else
 				R = basic_robolimb
-			out += "\t[R.company] Mechanical [organ_name]"
+			out += "<li>- [R.company] Mechanical [capitalize_first_letters(parse_zone(organ_name))]</li>"
 		else if(status == "nymph")
-			++ind
-			if(ind > 1)
-				out += ", "
-			out += "\tDiona Nymph [organ_name]"
+			out += "<li>- Diona Nymph [capitalize_first_letters(parse_zone(organ_name))]</li>"
 		else if(status == "assisted")
-			++ind
-			if(ind > 1)
-				out += ", "
 			switch(organ_name)
 				if(BP_HEART)
-					out += "\tPacemaker-assisted [organ_name]"
+					out += "<li>- Pacemaker-Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
 				if("voicebox") //on adding voiceboxes for speaking skrell/similar replacements
-					out += "\tSurgically altered [organ_name]"
+					out += "<li>- Surgically Altered [capitalize_first_letters(parse_zone(organ_name))]</li>"
 				if(BP_EYES)
-					out += "\tRetinal overlayed [organ_name]"
+					out += "<li>- Retinal Overlayed [capitalize_first_letters(parse_zone(organ_name))]</li>"
 				else
-					out += "\tMechanically assisted [organ_name]"
+					out += "<li>- Mechanically Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
 		else if(status == "removed")
-			++ind
-			if(ind > 1)
-				out += ", "
-			out += "\tRemoved [organ_name]"
-	if(!ind)
-		out += "\[...\]<br><br>"
+			out += "<li>- Removed [capitalize_first_letters(parse_zone(organ_name))]</li>"
+
+	if(length(pref.organ_data))
+		out += "</ul><br><br>"
 	else
 		out += "<br><br>"
 
@@ -892,8 +877,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		dat += "\[<a href='?src=\ref[src];set_species=[html_encode(pref.species_preview)]'>select</a>\]"
 	dat += "</center>"
 
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat.Join()), "window=species;size=700x400")
+
+	user << browse(dat.Join(), "window=species;size=700x400")
 
 /*/datum/category_item/player_setup_item/general/body/proc/reset_limbs()
 

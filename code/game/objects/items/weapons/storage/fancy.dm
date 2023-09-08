@@ -126,9 +126,21 @@
 	storage_slots = 12
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/egg,
-		/obj/item/reagent_containers/food/snacks/boiledegg
+		/obj/item/reagent_containers/food/snacks/boiledegg,
+		/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers
 		)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/egg = 12)
+	foldable = /obj/item/stack/material/cardboard
+
+/obj/item/storage/box/fancy/egg_box/tunneler
+	name = "ice tunneler egg carton"
+	desc = "A carton of ice tunneler eggs."
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers,
+		/obj/item/reagent_containers/food/snacks/boiledegg,
+		/obj/item/reagent_containers/food/snacks/egg
+		)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers = 12)
 	foldable = /obj/item/stack/material/cardboard
 
 /*
@@ -310,17 +322,32 @@
 		..()
 
 /obj/item/storage/box/fancy/cigarettes/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, target_zone)
-	if(!istype(M, /mob))
+	if(!ismob(M))
 		return
 	if(!opened)
-		to_chat(user, SPAN_NOTICE("The [src] is closed."))
+		to_chat(user, SPAN_NOTICE("\The [src] is closed."))
 		return
-
-	if(M == user && target_zone == BP_MOUTH && contents.len > 0 && !user.wear_mask)
-		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(user)
-		if(!istype(W))
-			to_chat(user, SPAN_NOTICE("The [W] is in the way."))
+	if(use_check(M))
+		to_chat(usr, SPAN_WARNING("[M.name] is in no condition to handle items!"))
+		return
+	if(target_zone == BP_MOUTH && contents.len > 0)
+		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(src)
+		if(!istype(W) || M.wear_mask)
+			to_chat(user, SPAN_NOTICE("\The [M.wear_mask] is in the way."))
+			if(M != user)
+				to_chat(M, SPAN_NOTICE("\The [M.wear_mask] is in the way."))
 			return
+		if(M != user)
+			var/response = ""
+			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."))
+			response = alert(M, "\The [user] offers you \a [W.name]. Do you accept?", "Smokable offer", "Accept", "Decline")
+			if(response != "Accept")
+				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src] away."))
+				return
+			if(!M.Adjacent(user))
+				to_chat(user, SPAN_WARNING("You need to stay in reaching distance while giving an object."))
+				to_chat(M, SPAN_WARNING("\The [user] moved too far away."))
+				return
 		//Checking contents of packet so lighters won't be cigarettes.
 		for (var/i = contents.len; i > 0; i--)
 			W = contents[i]
@@ -331,12 +358,13 @@
 		if (!W)
 			return
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
-		user.equip_to_slot_if_possible(W, slot_wear_mask)
+		M.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> casually pulls out a [icon_type] from \the [src] with their mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
+		M.visible_message(SPAN_NOTICE("<b>[M]</b> casually pulls out a [icon_type] from \the [src] with [M.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
 		update_icon()
+		return
 	if(M == user && target_zone == BP_R_HAND || target_zone == BP_L_HAND) // Cig packing. Because obsessive smokers do it.
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against their palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against [user.get_pronoun("his")] palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	else
 		..()
 

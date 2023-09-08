@@ -449,6 +449,10 @@
 
 	category = MODULE_GENERAL
 
+/obj/item/rig_module/maneuvering_jets/Destroy()
+	QDEL_NULL(jets)
+	. = ..()
+
 /obj/item/rig_module/maneuvering_jets/engage(atom/target, mob/user)
 	if(!..())
 		return FALSE

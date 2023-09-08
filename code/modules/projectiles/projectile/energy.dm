@@ -169,7 +169,7 @@
 
 /obj/item/projectile/energy/blaster
 	name = "blaster bolt"
-	icon_state = "heavybolt"
+	icon_state = "laser"
 	damage = 30
 	check_armor = "laser"
 	damage_type = DAMAGE_BURN
@@ -187,9 +187,14 @@
 	damage_type = DAMAGE_PAIN
 	eyeblur = 0
 
+/obj/item/projectile/energy/blaster/skrell // for nralakk fed consular pistol
+	damage = 30
+	armor_penetration = 5
+	pass_flags = PASSTABLE | PASSRAILING
+
 /obj/item/projectile/energy/disruptorstun
 	name = "disruptor bolt"
-	icon_state = "blue_laser"
+	icon_state = "bluelaser"
 	damage = 1
 	agony = 40
 	speed = 0.4
@@ -212,3 +217,6 @@
 	damage = 35
 	armor_penetration = 60
 	incinerate = 15
+
+/obj/item/projectile/energy/disruptorstun/skrell // for nralakk fed consular pistol
+	agony = 45

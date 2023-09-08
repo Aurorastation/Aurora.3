@@ -84,63 +84,28 @@ There are several things that need to be remembered:
 	The idea behind it is icons are regenerated only once, even if multiple events requested it.
 */
 
-// Human Overlays Indexes //
-// Layer 1 intentionally left empty.
-#define FIRE_LAYER_LOWER      2
-#define MUTATIONS_LAYER       3
-#define DAMAGE_LAYER          4
-#define SURGERY_LAYER         5
-#define UNDERWEAR_LAYER       6
-#define TAIL_SOUTH_LAYER      7
-#define TAIL_SOUTH_ACC_LAYER  8
-#define SHOES_LAYER_ALT       9
-#define UNIFORM_LAYER         10
-#define ID_LAYER              11
-#define SHOES_LAYER           12
-#define GLOVES_LAYER          13
-#define BELT_LAYER            14
-#define WRISTS_LAYER_ALT      15
-#define SUIT_LAYER            16
-#define ID_LAYER_ALT          17
-#define TAIL_NORTH_LAYER      18
-#define TAIL_NORTH_ACC_LAYER  19
-#define HAIR_LAYER_ALT        20
-#define GLASSES_LAYER         21
-#define BELT_LAYER_ALT        22
-#define SUIT_STORE_LAYER      23
-#define BACK_LAYER            24
-#define HAIR_LAYER            25
-#define GLASSES_LAYER_ALT     26
-#define L_EAR_LAYER           27
-#define R_EAR_LAYER           28
-#define FACEMASK_LAYER        29
-#define HEAD_LAYER            30
-#define COLLAR_LAYER          31
-#define HANDCUFF_LAYER        32
-#define LEGCUFF_LAYER         33
-#define L_HAND_LAYER          34
-#define R_HAND_LAYER          35
-#define WRISTS_LAYER          36
-#define FIRE_LAYER_UPPER      37
-#define TOTAL_LAYERS          37
-////////////////////////////
+
 
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
 #define GET_TAIL_LAYER (dir == NORTH ? TAIL_NORTH_LAYER : TAIL_SOUTH_LAYER)
 #define GET_TAIL_ACC_LAYER (dir == NORTH ? TAIL_NORTH_ACC_LAYER : TAIL_SOUTH_ACC_LAYER)
 
-/proc/overlay_image(icon,icon_state,color,flags)
+/proc/overlay_image(icon, icon_state,color, flags, layer)
 	var/image/ret = image(icon,icon_state)
 	ret.color = color
 	ret.appearance_flags = PIXEL_SCALE | flags
+	if(layer)
+		ret.layer = layer
 	return ret
 
 /mob/living/carbon/human
 	var/list/overlays_raw[TOTAL_LAYERS] // Our set of "raw" overlays that can be modified, but cannot be directly applied to the mob without preprocessing.
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
 
+#define UPDATE_ICON_IGNORE_DIRECTION_UPDATE -1
+
 // Updates overlays from overlays_raw.
-/mob/living/carbon/human/update_icon()
+/mob/living/carbon/human/update_icon(var/forceDirUpdate = FALSE)
 	if (QDELING(src))
 		return	// No point.
 
@@ -172,14 +137,28 @@ There are several things that need to be remembered:
 
 		add_overlay(ovr)
 
-	if (lying_prev != lying || size_multiplier != 1)
+	if (((lying_prev != lying) || forceDirUpdate || size_multiplier != 1) && forceDirUpdate != UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
 		if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
 			var/matrix/M = matrix()
-			M.Turn(90)
+
+			switch(src.dir)
+				if(NORTH,EAST)
+					M.Turn(90)
+				else
+					M.Turn(-90)
 			M.Scale(size_multiplier)
 			M.Translate(1,-6)
-			animate(src, transform = M, time = ANIM_LYING_TIME)
+			animate(src, transform = M, time = (forceDirUpdate ? 0 : ANIM_LYING_TIME))
+
+			if(istype(src.l_hand, /obj/item/gun) && lying)
+				HeldObjectDirTransform(slot_l_hand, src.dir)
+			if(istype(src.r_hand, /obj/item/gun) && lying)
+				HeldObjectDirTransform(slot_r_hand, src.dir)
+
 		else
+			update_inv_l_hand(FALSE)
+			update_inv_r_hand(FALSE)
+			update_icon(UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
 			var/matrix/M = matrix()
 			M.Scale(size_multiplier)
 			M.Translate(0, 16*(size_multiplier-1))
@@ -187,6 +166,37 @@ There are several things that need to be remembered:
 
 	compile_overlays()
 	lying_prev = lying
+
+/mob/living/carbon/human/proc/HeldObjectDirTransform(var/hand = slot_l_hand, var/direction)
+	var/layer = null
+	if(hand == slot_r_hand)
+		update_inv_r_hand(FALSE)
+		layer = R_HAND_LAYER
+	else
+		update_inv_l_hand(FALSE)
+		layer = L_HAND_LAYER
+
+	switch(direction)
+		if(EAST)
+			TransformLayerIcon(layer, -90)
+		if(WEST)
+			TransformLayerIcon(layer, 90)
+		if(NORTH)
+			TransformLayerIcon(layer, 0)
+		if(SOUTH)
+			TransformLayerIcon(layer, 180)
+
+
+/mob/living/carbon/human/proc/TransformLayerIcon(var/layer, var/rotation = 0)
+	var/image/item_image = overlays_raw[layer]
+	var/matrix/item_transform = matrix()
+	item_transform.Turn(rotation)
+
+	animate(item_image, transform = item_transform)
+	overlays_raw[layer] = item_image
+	update_icon(UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
+
+#undef UPDATE_ICON_IGNORE_DIRECTION_UPDATE
 
 //DAMAGE OVERLAYS
 //constructs damage icon for each organ from mask * damage field and saves it in our overlays_raw list (as a list of icons).
@@ -328,7 +338,7 @@ There are several things that need to be remembered:
 		var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 		if(vampire && (vampire.status & VAMP_FRENZIED))
 			is_frenzied = "frenzy"
-	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"][!!husk][!!fat][!!skeleton][is_frenzied]"
+	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lipstick_color || "nolips"][!!husk][!!fat][!!skeleton][is_frenzied]"
 	var/obj/item/organ/internal/eyes/eyes = get_eyes()
 	if(eyes)
 		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])]"
@@ -479,7 +489,7 @@ There are several things that need to be remembered:
 		if(update_icons)   update_icon()
 		return
 
-	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)) && !(l_ear && (l_ear.flags_inv & BLOCKHEADHAIR)) && !(r_ear && (r_ear.flags_inv & BLOCKHEADHAIR))
+	var/has_visible_hair = h_style && !(head && (head.flags_inv & BLOCKHEADHAIR)) && !(l_ear && (l_ear.flags_inv & BLOCKHEADHAIR)) && !(r_ear && (r_ear.flags_inv & BLOCKHEADHAIR)) && !(wear_suit && (wear_suit.flags_inv & BLOCKHEADHAIR))
 
 	var/icon/hair_icon = generate_hair_icon(has_visible_hair)
 
@@ -725,20 +735,19 @@ There are several things that need to be remembered:
 
 		var/image/glasses_overlay = glasses.get_mob_overlay(src, mob_icon, mob_state, slot_glasses_str)
 
-		var/normal_layer = TRUE
+		var/normal_layer = GLASSES_LAYER
 		if(istype(glasses, /obj/item/clothing/glasses))
 			var/obj/item/clothing/glasses/G = glasses
 			normal_layer = G.normal_layer
 
-		if(normal_layer)
-			overlays_raw[GLASSES_LAYER] = glasses_overlay
-			overlays_raw[GLASSES_LAYER_ALT] = null
-		else
-			overlays_raw[GLASSES_LAYER] = null
-			overlays_raw[GLASSES_LAYER_ALT] = glasses_overlay
+		overlays_raw[GLASSES_LAYER] = null
+		overlays_raw[GLASSES_LAYER_ALT] = null
+		overlays_raw[GLASSES_LAYER_OVER] = null
+		overlays_raw[normal_layer] = glasses_overlay
 	else
 		overlays_raw[GLASSES_LAYER] = null
 		overlays_raw[GLASSES_LAYER_ALT] = null
+		overlays_raw[GLASSES_LAYER_OVER] = null
 
 	if(update_icons)
 		update_icon()
@@ -1190,7 +1199,7 @@ There are several things that need to be remembered:
 		overlays_raw[L_HAND_LAYER] = null
 
 	if(update_icons)
-		update_icon()
+		update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
 	if (QDELING(src))
@@ -1226,7 +1235,7 @@ There are several things that need to be remembered:
 		overlays_raw[R_HAND_LAYER] = null
 
 	if(update_icons)
-		update_icon()
+		update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/update_inv_wrists(var/update_icons=1)
 	if (QDELING(src))
@@ -1543,38 +1552,6 @@ There are several things that need to be remembered:
 		return FALSE
 	else
 		return TRUE
-
-//Human Overlays Indexes/////////
-#undef FIRE_LAYER_LOWER
-#undef MUTATIONS_LAYER
-#undef DAMAGE_LAYER
-#undef SURGERY_LAYER
-#undef UNIFORM_LAYER
-#undef ID_LAYER
-#undef SHOES_LAYER
-#undef GLOVES_LAYER
-#undef BELT_LAYER
-#undef WRISTS_LAYER_ALT
-#undef SUIT_LAYER
-#undef TAIL_NORTH_LAYER
-#undef TAIL_SOUTH_LAYER
-#undef GLASSES_LAYER
-#undef BELT_LAYER_ALT
-#undef SUIT_STORE_LAYER
-#undef BACK_LAYER
-#undef HAIR_LAYER
-#undef L_EAR_LAYER
-#undef R_EAR_LAYER
-#undef FACEMASK_LAYER
-#undef HEAD_LAYER
-#undef COLLAR_LAYER
-#undef HANDCUFF_LAYER
-#undef LEGCUFF_LAYER
-#undef L_HAND_LAYER
-#undef R_HAND_LAYER
-#undef WRISTS_LAYER
-#undef FIRE_LAYER_UPPER
-#undef TOTAL_LAYERS
 
 #undef UNDERSCORE_OR_NULL
 #undef GET_BODY_TYPE

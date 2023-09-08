@@ -86,6 +86,8 @@
 	G.equipOutfit(outfit_type, FALSE)
 	technomancers.add_antagonist(G.mind, FALSE, TRUE, FALSE, FALSE, preserve_appearance)
 
+	G.client.init_verbs()
+
 	qdel(src)
 
 	return G
