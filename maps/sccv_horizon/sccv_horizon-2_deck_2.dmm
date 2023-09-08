@@ -2328,10 +2328,7 @@
 "aZR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/item/roller,
-/obj/item/roller{
-	pixel_y = 4
-	},
+/obj/structure/roller_rack/two,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "ban" = (
@@ -14396,8 +14393,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/paper_bin,
-/obj/item/pen,
+/obj/structure/roller_rack/three,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "gSh" = (
@@ -26538,18 +26534,10 @@
 	pixel_x = -17;
 	pixel_y = 2
 	},
-/obj/item/roller{
-	pixel_y = 3
-	},
-/obj/item/roller{
-	pixel_y = 3
-	},
-/obj/item/roller{
-	pixel_y = 3
-	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
+/obj/structure/roller_rack/three,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "mPq" = (
@@ -29181,15 +29169,6 @@
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
@@ -40765,11 +40744,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/full,
 /area/engineering/storage_hard)
-"tUR" = (
-/obj/structure/railing/mapped,
-/obj/structure/stairs/east,
-/turf/simulated/floor/tiled,
-/area/engineering/atmos/storage)
 "tVu" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/port/far)
@@ -70722,7 +70696,7 @@ lnv
 ovz
 xPv
 tIt
-tUR
+npL
 wXF
 inc
 gzX
