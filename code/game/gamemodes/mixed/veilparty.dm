@@ -1,9 +1,9 @@
 /datum/game_mode/veilparty
-	name = "Veil Party (Cult+Vamp)"
-	extended_round_description = "Vampires and a Cult spawn in this mode."
+	name = "Veil Party (Cult & Vamp)"
+	extended_round_description = "Cultists and vampires spawn in this mode."
 	config_tag = "veilparty"
 	required_players = 15
-	required_enemies = 5
+	required_enemies = 3
 	require_all_templates = 1
 	votable = 1
 	antag_tags = list(MODE_VAMPIRE, MODE_CULTIST)

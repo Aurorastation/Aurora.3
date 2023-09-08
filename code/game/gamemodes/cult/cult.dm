@@ -2,7 +2,7 @@
 	name = "Cult"
 	config_tag = "cult"
 	required_players = 9
-	required_enemies = 4
+	required_enemies = 2
 	antag_tags = list(MODE_CULTIST)
 
 /datum/game_mode/cult/pre_setup()

@@ -1,9 +1,9 @@
 /datum/game_mode/acolytes
-	name = "Acolytes (borer+cult)"
-	extended_round_description = "Borers and cultists spawn during this round."
+	name = "Acolytes (Cult & Borer)"
+	extended_round_description = "Cultists and borers spawn during this round."
 	config_tag = "acolytes"
 	required_players = 20
-	required_enemies = 6
+	required_enemies = 4
 	antag_tags = list(MODE_BORER, MODE_CULTIST)
 	require_all_templates = TRUE
 

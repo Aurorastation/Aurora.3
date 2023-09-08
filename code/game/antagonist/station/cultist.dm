@@ -30,7 +30,7 @@ var/datum/antagonist/cultist/cult
 	flags = ANTAG_SUSPICIOUS | ANTAG_VOTABLE
 	hard_cap = 5
 	hard_cap_round = 6
-	initial_spawn_req = 4
+	initial_spawn_req = 2
 	initial_spawn_target = 6
 	antaghud_indicator = "hudcultist"
 	required_age = 10
