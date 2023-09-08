@@ -4,7 +4,7 @@
 	desc_info = "Stationbound synthesizers produce specific reagents dependent on the selected module, which you can select by using it. \
 	The reagents recharge automatically at the cost of energy.<br> Alt Click the synthesizer to change the transfer amount."
 	desc_extended = null
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	icon_state = "medical_synth"
 	item_state = "hypo"
 	amount_per_transfer_from_this = 5
@@ -80,7 +80,7 @@
 	if(!reagent_volumes[reagent_ids[mode]])
 		to_chat(user, SPAN_WARNING("The injector is empty."))
 		return
-	
+
 	user.visible_message(SPAN_NOTICE("[user] injects [M] with their hypospray!"), SPAN_NOTICE("You inject [M] with your hypospray!"), SPAN_NOTICE("You hear a hissing noise."))
 	to_chat(M, SPAN_NOTICE("You feel a tiny prick!"))
 	playsound(src, 'sound/items/hypospray.ogg',25)

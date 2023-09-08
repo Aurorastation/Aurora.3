@@ -204,7 +204,7 @@
 /obj/structure/closet/secure_closet/psychiatric/fill()
 	..()
 	new /obj/item/clothing/suit/straight_jacket(src)
-	new /obj/item/reagent_containers/food/drinks/teapot(src)
+	new /obj/item/reagent_containers/glass/beaker/teapot(src)
 	new /obj/item/toy/plushie/therapy(src)
 	new /obj/item/toy/plushie/slime(src)
 	new /obj/item/toy/plushie/bee(src)

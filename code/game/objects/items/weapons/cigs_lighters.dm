@@ -935,10 +935,20 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(M == user)
 			cig.attackby(src, user)
 		else
+			var/response = ""
+			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."))
+			response = alert(M, "\The [user] offers to light your [cig.name]. Do you accept?", "Lighter offer", "Accept", "Decline")
+			if(response != "Accept")
+				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src] away."))
+				return
+			if(!M.Adjacent(user))
+				to_chat(user, SPAN_WARNING("You need to stay in reaching distance to do that."))
+				to_chat(M, SPAN_WARNING("\The [user] moved too far away."))
+				return
 			if(istype(src, /obj/item/flame/lighter/zippo))
-				cig.light(SPAN_NOTICE("[user] whips the [name] out and holds it for [M]."))
+				cig.light(SPAN_NOTICE("In one smooth motion, \the <b>[user]</b> whips \the [name] out and lights \the [M]'s [cig.name]."))
 			else
-				cig.light(SPAN_NOTICE("[user] holds the [name] out for [M], and lights the [cig.name]."))
+				cig.light(SPAN_NOTICE("\The <b>[user]</b> holds \the [name] out for [M], and lights the [cig.name]."))
 	else
 		..()
 
