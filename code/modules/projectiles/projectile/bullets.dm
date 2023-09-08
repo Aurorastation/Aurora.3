@@ -191,7 +191,7 @@
 	name = "acid capsule"
 	damage = 20
 	damage_type = DAMAGE_BURN
-	agony = 30
+	agony = 15
 
 /obj/item/projectile/bullet/acid/on_hit(atom/target, blocked, def_zone)
 	. = ..()
