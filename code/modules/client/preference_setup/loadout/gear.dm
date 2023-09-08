@@ -15,6 +15,8 @@
 	var/augment = FALSE
 	/// Tags of this gear. Some tags are added automatically. See `tag.dm`.
 	var/list/tags = list()
+	/// DEPRECATED
+	var/sort_category //DEPRECATED
 
 /datum/gear/New()
 	..()
