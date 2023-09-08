@@ -384,6 +384,7 @@
 	passports["people's republic of adhomai passport"] = /obj/item/clothing/accessory/badge/pra_passport
 	passports["democratic people's republic of adhomai passport"] = /obj/item/clothing/accessory/badge/dpra_passport
 	passports["new kingdom of adhomai passport"] = /obj/item/clothing/accessory/badge/nka_passport
+	passports["free tajaran council passport"] =/obj/item/clothing/accessory/badge/ftc_passport
 	gear_tweaks += new /datum/gear_tweak/path(passports)
 
 /datum/gear/adhomai_zippo

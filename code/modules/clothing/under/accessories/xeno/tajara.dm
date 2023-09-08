@@ -283,6 +283,21 @@
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
+/obj/item/clothing/accessory/badge/ftc_passport
+	name = "free tajaran council passport"
+	desc = "A temporary passport issued to the citizens of the Free Tajaran Council."
+	icon_state = "ftc-passport"
+	overlay_state = "ftc-passport"
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+	badge_string = "Free Tajaran Council Member"
+
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
+
 /obj/item/clothing/accessory/tajaran/srendarr
 	name = "holy sun rosette"
 	desc = "A simple rosette accessory depicting the Tajaran god S'rendarr."
