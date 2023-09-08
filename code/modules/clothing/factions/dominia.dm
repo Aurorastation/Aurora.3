@@ -666,7 +666,7 @@
 /obj/item/clothing/accessory/dominia/lyodii
 	name = "lyodic tribunal necklace"
 	desc = "An amulet depicting the three animal aspects of Lyodic Tribunalism upon a bone plate. \
-			A prominent symbol of the Lyodic take on the religion, worn by both its shamans an followers."
+			A prominent symbol of the Lyodic take on the religion, worn by both its shamans and followers."
 	desc_extended = ""
 	icon = 'icons/clothing/accessories/lyodii_amulet.dmi'
 	icon_state = "lyodii_amulet"
