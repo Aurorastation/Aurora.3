@@ -8,7 +8,7 @@ var/datum/antagonist/jockey/jockeys
 	antag_indicator = "jockey"
 	landmark_id = "jockeyspawn"
 	welcome_text = "You are a Jockey, one of the best damn mech pilots in the spur.<br>\
-	Your (syndicate) sponsored uplink will grant you access to various tools you may need to attempt to accomplish your goal.<br>\
+	Your uplink will grant you access to various tools you may need to attempt to accomplish your goal.<br>\
 	You can use :H or :B to talk on your encrypted channel, which only you and your partner can read.<br>"
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER
 	antaghud_indicator = "hudjockey"
@@ -30,7 +30,7 @@ var/datum/antagonist/jockey/jockeys
 /datum/antagonist/jockey/update_access(var/mob/living/player)
 	for(var/obj/item/storage/wallet/W in player.contents)
 		for(var/obj/item/card/id/id in W.contents)
-			id.name = "[player.real_name]'s Passport"
+			id.name = "passport - [player.real_name]"
 			id.registered_name = player.real_name
 			W.name = "[initial(W.name)] ([id.name])"
 
