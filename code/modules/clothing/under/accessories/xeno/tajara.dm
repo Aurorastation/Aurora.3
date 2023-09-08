@@ -557,7 +557,7 @@
 
 /obj/item/clothing/accessory/tajaran/hadii_badge
 	name = "president Hadii badge"
-	desc = "A badge with the image of President Hadii. This one is a very common one, likely sold to tourists and in newsstands."
+	desc = "A badge with the image of President Hadii. This is a very common one, likely sold to tourists and in newsstands."
 	icon_state = "hadii-pin-bronze"
 	item_state = "hadii-pin-bronze"
 	overlay_state = "hadii-pin-bronze"
