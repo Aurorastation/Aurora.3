@@ -164,14 +164,14 @@
 
 /datum/gear/religion/dominia/accessory/tic
 	display_name = "retired tribunal investigator card selection"
-	desc = "A selection of cards identifying the user as a retired tribunal investigator."
+	description = "A selection of cards identifying the user as a retired tribunal investigator."
 	path = /obj/item/clothing/accessory/dominia/tic
 
 /datum/gear/religion/dominia/accessory/tic/New()
 	..()
 	var/list/tic_cards = list()
-	tic_cards["retired tribunal investigator card"] = /obj/item/clothing/accessory/dominia/tic
-	tic_cards["retired caladius tribunal investigator card"] = /obj/item/clothing/accessory/dominia/tic
+	tic_cards["retired tribunal investigator card"] = /obj/item/clothing/accessory/dominia/tic/retired
+	tic_cards["retired caladius tribunal investigator card"] = /obj/item/clothing/accessory/dominia/tic/retired/caladius
 	gear_tweaks += new /datum/gear_tweak/path(tic_cards)
 
 /datum/gear/religion/dominia/medical

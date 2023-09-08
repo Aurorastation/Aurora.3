@@ -687,7 +687,7 @@
 	icon_state = "tic_card_ret"
 	item_state = "tic_card_ret"
 
-/obj/item/clothing/accessory/dominia/tic/caladius
+/obj/item/clothing/accessory/dominia/tic/retired/caladius
 	name = "retired tribunal investigator card"
 	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
 			This card holds a color strip of House Caladius, denoting the owner as a priest of the Tribunal."
