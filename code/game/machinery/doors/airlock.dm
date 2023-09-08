@@ -1064,6 +1064,7 @@ About the new airlock wires panel:
 					lights_overlay = overlay_image(lights_file, layer = EFFECTS_ABOVE_LIGHTING_LAYER)
 					set_light(1, 2, COLOR_LIME)
 
+
 		if(stat & BROKEN)
 			damage_overlay = overlay_image(sparks_broken_file, layer = EFFECTS_ABOVE_LIGHTING_LAYER)
 		else if (health < maxhealth * 3/4 && !(stat & NOPOWER))
@@ -1099,15 +1100,18 @@ About the new airlock wires panel:
 		if("opening")
 			set_airlock_overlays(AIRLOCK_OPENING, TRUE)
 			flick("opening", src)//[stat ? "_stat":]
+			update_icon(AIRLOCK_OPEN)
 		if("closing")
 			set_airlock_overlays(AIRLOCK_CLOSING, TRUE)
 			flick("closing", src)
+			update_icon(AIRLOCK_CLOSED)
 		if("deny")
 			set_airlock_overlays(AIRLOCK_DENY, TRUE)
 			if(density && arePowerSystemsOn())
 				flick("denied", src)
 				if(secured_wires)
 					playsound(src.loc, open_failure_access_denied, 50, 0)
+			update_icon(AIRLOCK_CLOSED)
 		if("emag")
 			set_airlock_overlays(AIRLOCK_EMAG, TRUE)
 			if(density && arePowerSystemsOn())
