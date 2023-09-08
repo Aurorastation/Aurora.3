@@ -8074,9 +8074,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
 "grI" = (
-/obj/structure/bed/stool/chair/plastic{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -8085,6 +8082,9 @@
 	},
 /obj/effect/landmark/start{
 	name = "Surgeon"
+	},
+/obj/structure/bed/stool/chair{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -8941,9 +8941,6 @@
 /turf/simulated/wall/r_wall,
 /area/bridge/meeting_room)
 "hck" = (
-/obj/structure/bed/stool/chair/plastic{
-	dir = 8
-	},
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Hallway 4";
 	dir = 8
@@ -8953,6 +8950,9 @@
 	},
 /obj/effect/landmark/start{
 	name = "Medical Intern"
+	},
+/obj/structure/bed/stool/chair{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -9246,9 +9246,6 @@
 /turf/template_noop,
 /area/template_noop)
 "hlt" = (
-/obj/structure/bed/stool/chair/plastic{
-	dir = 8
-	},
 /obj/machinery/newscaster/east{
 	pixel_y = 10
 	},
@@ -9258,18 +9255,21 @@
 /obj/effect/landmark/start{
 	name = "Pharmacist"
 	},
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "hlx" = (
-/obj/structure/bed/stool/chair/plastic{
-	dir = 8
-	},
 /obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
 /obj/effect/landmark/start{
 	name = "Pharmacist"
+	},
+/obj/structure/bed/stool/chair{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -12338,11 +12338,11 @@
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
 "jFO" = (
-/obj/structure/bed/stool/chair/office/light{
-	dir = 4
-	},
 /obj/effect/landmark/start{
 	name = "Chief Medical Officer"
+	},
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -13609,9 +13609,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "kDm" = (
-/obj/structure/bed/stool/chair/plastic{
-	dir = 8
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
@@ -13627,6 +13624,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/bed/stool/chair{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -19720,14 +19720,14 @@
 /turf/simulated/floor/tiled/full,
 /area/bridge)
 "pcZ" = (
-/obj/structure/bed/stool/chair/plastic{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
 /obj/effect/landmark/start{
 	name = "Medical Intern"
+	},
+/obj/structure/bed/stool/chair{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -21483,14 +21483,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "qMs" = (
-/obj/structure/bed/stool/chair/plastic{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
 	},
 /obj/effect/landmark/start{
 	name = "Physician"
+	},
+/obj/structure/bed/stool/chair{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -26653,7 +26653,16 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "uJm" = (
-/obj/structure/platform_deco/ledge,
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/structure/platform/ledge{
+	dir = 1
+	},
+/obj/structure/platform_deco/ledge{
+	dir = 10
+	},
+/obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/hallway/medical/upper)
 "uJu" = (
@@ -29443,14 +29452,14 @@
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "wLL" = (
-/obj/structure/bed/stool/chair/plastic{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
 /obj/effect/landmark/start{
 	name = "Physician"
+	},
+/obj/structure/bed/stool/chair{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
@@ -45496,7 +45505,7 @@ sMd
 gcR
 xHj
 gcR
-gcR
+uJm
 rle
 ode
 jFO
@@ -45698,7 +45707,7 @@ umT
 dVW
 nHR
 dVW
-uJm
+rle
 iCT
 uGa
 dvD

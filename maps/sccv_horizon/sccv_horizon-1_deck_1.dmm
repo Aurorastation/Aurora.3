@@ -4869,7 +4869,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/spline/plain/corner,
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
@@ -19962,9 +19961,6 @@
 /turf/simulated/floor/plating,
 /area/horizon/custodial/disposals)
 "nYB" = (
-/obj/structure/plasticflaps{
-	name = "Delivery Chute to Mail Room"
-	},
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "warehousetomail";
@@ -19972,6 +19968,10 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/plasticflaps{
+	dir = 4;
+	name = "Delivery Chute to Mail Room"
+	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "nZb" = (
@@ -25175,6 +25175,7 @@
 	dir = 4;
 	pixel_y = -1
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "rMm" = (
@@ -32920,6 +32921,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "xgm" = (
@@ -62290,7 +62292,7 @@ xiH
 pdC
 dEe
 rMf
-eTx
+oFy
 pdC
 moP
 xtK
@@ -62493,7 +62495,7 @@ xiH
 pdC
 dEe
 xgc
-oFy
+eTx
 pdC
 vnJ
 xtK
