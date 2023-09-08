@@ -234,7 +234,7 @@
 	)
 
 /datum/outfit/job/intern_sci
-	name = "Lab Assistant"
+	name = "Research Understudy"
 	jobtype = /datum/job/intern_sci
 
 	uniform = /obj/item/clothing/under/rank/scientist/intern
