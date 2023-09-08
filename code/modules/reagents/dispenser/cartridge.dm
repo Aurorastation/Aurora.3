@@ -1,8 +1,9 @@
 /obj/item/reagent_containers/chem_disp_cartridge
 	name = "chemical dispenser cartridge"
 	desc = "This goes in a chemical dispenser."
+	icon = 'icons/obj/item/reagent_containers/cartridge.dmi'
 	icon_state = "cartridge"
-
+	contained_sprite = TRUE
 	filling_states = "20;40;60;80;100"
 	w_class = ITEMSIZE_NORMAL
 
@@ -34,7 +35,7 @@
 	cut_overlays()
 
 	if(reagents?.total_volume)
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
+		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 

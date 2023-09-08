@@ -109,6 +109,7 @@
 					var/direct = input(user, "Direction?", "Assembling Camera", null) in list("LEAVE IT", "NORTH", "EAST", "SOUTH", "WEST" )
 					if(direct != "LEAVE IT")
 						C.dir = text2dir(direct)
+						C.set_pixel_offsets()
 					if(i != 0)
 						var/confirm = alert(user, "Is this what you want? Chances Remaining: [i]", "Confirmation", "Yes", "No")
 						if(confirm == "Yes")

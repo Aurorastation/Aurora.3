@@ -40,7 +40,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/SpacemanDMM
-          key: ${{ runner.os }}-spacemandmm
+          key: ${{ runner.os }}-spacemandmm-${{ env.SPACEMAN_DMM_VERSION }}
       - name: Restore OpenDream cache
         uses: actions/cache@v3
         with:
@@ -130,7 +130,7 @@ jobs:
     needs: lint
     services:
       mariadb:
-        image: mariadb:latest
+        image: mariadb:10.4
         ports:
           - 3306
         env:
@@ -152,7 +152,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/flyway
-          key: ${{ runner.os }}-flyway
+          key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
       - name: Prepare OS Environtment
         run: |
           sudo dpkg --add-architecture i386
@@ -161,7 +161,7 @@ jobs:
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
-          version: 1.0
+          version: 1.1
       - name: Install OS Packages (Native)
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386

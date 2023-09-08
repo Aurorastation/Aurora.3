@@ -85,7 +85,7 @@
 	var/delta_volume = player.volume / src.sustain_timer
 
 	var/tick = duration
-	while ((current_volume > 0) && token)
+	while ((current_volume > 0) && !QDELETED(token))
 		var/new_volume = current_volume
 		tick += world.tick_lag
 		if (delta_volume <= 0)

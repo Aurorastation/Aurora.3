@@ -151,7 +151,9 @@
 	return
 
 /mob/living/simple_animal/hostile/proc/see_target()
-	return check_los(src, target_mob)
+	var/los = null
+	SPATIAL_CHECK_LOS(los, src, target_mob, world.view)
+	return los
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
@@ -229,6 +231,8 @@
 		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
 		visible_message(SPAN_DANGER("\The [src] [attacktext] \the [T]!"))
 		return T // no need to take a step back here
+	if(loc && attack_sound)
+		playsound(loc, attack_sound, 50, 1, 1)
 	if(target)
 		face_atom(target)
 		if(!ranged && smart_melee)

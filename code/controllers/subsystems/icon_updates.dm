@@ -33,6 +33,11 @@
 		curr.len--
 
 		A.icon_update_queued = FALSE
+
+		//Do not target qdeleted atoms
+		if(QDELETED(A))
+			continue
+
 		if (islist(argv))
 			A.update_icon(arglist(argv))
 		else
