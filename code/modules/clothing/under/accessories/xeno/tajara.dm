@@ -576,7 +576,7 @@
 	overlay_state = "hadii-pin-silver"
 
 /obj/item/clothing/accessory/tajaran/hadii_badge/gold
-	desc = "A badge with the image of President Hadii. This one is a rare one, likely issued during a closed event or to honor some notable achievement."
+	desc = "A badge with the image of President Hadii. This is a rare one, likely issued during a closed event or to honor some notable achievement."
 	icon_state = "hadii-pin-gold"
 	item_state = "hadii-pin-gold"
 	overlay_state = "hadii-pin-gold"
