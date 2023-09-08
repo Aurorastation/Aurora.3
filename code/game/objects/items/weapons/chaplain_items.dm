@@ -363,7 +363,7 @@
 
 /obj/item/storage/altar/minharzzka
 	name = "\improper Minharzzka altar"
-	desc = "An small altar honoring Dharmela, the Ma'ta'ke deity of waters and sailors."
+	desc = "An small altar honoring Minharzzka, the Ma'ta'ke deity of waters and sailors."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "minharzzka_altar"
 
