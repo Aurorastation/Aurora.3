@@ -158,6 +158,22 @@
 	slot = slot_tie
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
+/datum/gear/religion/dominia/accessory/lyodii
+	display_name = "lyodic tribunal necklace"
+	path = /obj/item/clothing/accessory/dominia/lyodii
+
+/datum/gear/religion/dominia/accessory/tic
+	display_name = "retired tribunal investigator card selection"
+	desc = "A selection of cards identifying the user as a retired tribunal investigator."
+	path = /obj/item/clothing/accessory/dominia/tic
+
+/datum/gear/religion/dominia/accessory/tic/New()
+	..()
+	var/list/tic_cards = list()
+	tic_cards["retired tribunal investigator card"] = /obj/item/clothing/accessory/dominia/tic
+	tic_cards["retired caladius tribunal investigator card"] = /obj/item/clothing/accessory/dominia/tic
+	gear_tweaks += new /datum/gear_tweak/path(tic_cards)
+
 /datum/gear/religion/dominia/medical
 	display_name = "tribunalist medical beret"
 	path = /obj/item/clothing/head/beret/dominia/medical
