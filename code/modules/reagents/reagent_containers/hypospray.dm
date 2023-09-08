@@ -7,11 +7,8 @@
 	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
 	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
 	desc_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
-	icon = 'icons/obj/syringe.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
+	contained_sprite = TRUE
 	item_state = "hypo"
 	icon_state = "hypo"
 	amount_per_transfer_from_this = 5
@@ -44,6 +41,7 @@
 	desc_extended = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
 	desc_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
+	item_state = "cmo_hypo"
 	volume = 30
 	possible_transfer_amounts = list(5, 10, 15, 30)
 	time = 0
@@ -71,7 +69,7 @@
 	icon_state = "[initial(icon_state)]_[rounded_vol]"
 
 	if(reagents.total_volume)
-		filling = image('icons/obj/syringe.dmi', src, "[initial(icon_state)][volume]")
+		filling = image(icon, src, "[initial(icon_state)][volume]")
 
 		filling.icon_state = "[initial(icon_state)][rounded_vol]"
 
@@ -113,7 +111,7 @@
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
 	desc_extended = "Funded by the Stellar Corporate Conglomerate, produced by Zeng-Hu Pharmaceuticals, this autoinjector system was rebuilt from the ground up from the old variant to provide maximum user feedback."
-	desc_info = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Use in-hand, or click it while it's in your active hand to prepare it for reuse."
+	desc_info = "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. Alt-click while it's on your person to prepare it for reuse."
 	icon_state = "autoinjector"
 	item_state = "autoinjector"
 	slot_flags = SLOT_EARS
@@ -149,6 +147,13 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
 	if(is_open_container())
+		to_chat(user, SPAN_WARNING("\The [src] hasn't been secured yet!"))
+		return
+	if(do_after(user, 1 SECOND, TRUE))
+		inject(user, user, TRUE)
+
+/obj/item/reagent_containers/hypospray/autoinjector/AltClick(mob/user)
+	if(is_open_container() && user == loc)
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user, SPAN_NOTICE("With a quick twist of \the [src]'s lid, you secure the reagents inside."))
 			spent = FALSE
@@ -156,9 +161,8 @@
 			update_icon()
 		else
 			to_chat(user, SPAN_NOTICE("You can't secure \the [src] without putting reagents in!"))
-	else
-		to_chat(user, SPAN_NOTICE("The reagents inside \the [src] are already secured."))
-	return
+		return
+	return ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver() && !is_open_container())

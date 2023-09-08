@@ -1,5 +1,5 @@
 /turf/simulated/wall/r_wall
-	icon_state = "rgeneric"
+	icon_state = "map_dark"
 	desc_info = "You can deconstruct this by with the following steps:<br>\
 	Cut the outer grill with wirecutters, then unscrew them.<br>\
 	Slice the cover with a welder, then pry it off with a crowbar.<br>\
@@ -69,6 +69,10 @@
 	. = ..(mapload, MATERIAL_PHORON)
 	canSmoothWith = list(src.type)
 
+/turf/simulated/wall/sandstone
+	icon = 'icons/turf/smooth/composite_stone.dmi'
+	icon_state = "stone"
+
 /turf/simulated/wall/sandstone/Initialize(mapload)
 	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_SANDSTONE)
@@ -103,6 +107,10 @@
 	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_TITANIUM, MATERIAL_TITANIUM)
 	canSmoothWith = list(src.type)
+
+/turf/simulated/wall/wood
+	icon = 'icons/turf/smooth/composite_wood.dmi'
+	icon_state = "wood"
 
 /turf/simulated/wall/wood/Initialize(mapload)
 	canSmoothWith = list(src.type)

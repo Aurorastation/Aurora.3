@@ -134,6 +134,10 @@
 	if(istype(gun, /obj/item/gun))
 		gun.has_safety = FALSE
 
+/obj/item/rig_module/mounted/Destroy()
+	QDEL_NULL(gun)
+	. = ..()
+
 /obj/item/rig_module/mounted/engage(atom/target, mob/user)
 	if(!..())
 		return FALSE

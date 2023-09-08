@@ -62,15 +62,51 @@
 	attack_verb = list("struck", "hit", "bashed")
 	zoomdevicename = "scope"
 
+/*
+ * Suppression vars
+ */
+
+	///Does the gun have a suppressor attached, or should it be suppressed? This will modify firing messages to obscure their source, and change the firing sound to use suppressed_sound
+	var/suppressed = FALSE
+	///The suppressor item currently attached to the gun
+	var/obj/item/suppressor/suppressor
+	///Whether the weapon can have a suppressor attached
+	var/can_suppress = FALSE
+	///Whether the weapon can have a suppressor unattached
+	var/can_unsuppress = TRUE
+
+/*
+ * Sound vars
+ */
+
+	///Sound of the gun firing
+	var/fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
+	///Whether to vary the frequency of the firing sound
+	var/vary_fire_sound = TRUE
+	///The volume of the firing sound
+	var/fire_sound_volume = 50
+	///Sound of the gun firing when empty (dryfiring)
+	var/empty_sound = /singleton/sound_category/out_of_ammo
+	///Determines what a player should hear in audible_message when the gun is fired. e.g gunshot, blast
+	var/fire_sound_text = "gunshot"
+	///The firing sound to play when suppressed = TRUE
+	var/suppressed_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
+	///The volume of the suppressed sound
+	var/suppressed_volume = 60
+	///The sound of the safety being turned on
+	var/safetyon_sound = 'sound/weapons/blade_open.ogg'
+	///The sound of the safety being turned off
+	var/safetyoff_sound = 'sound/weapons/blade_close.ogg'
+	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
+
 	var/burst = 1
 	var/can_autofire = FALSE
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again
 	var/burst_delay = 1	//delay between shots, if firing in bursts
 	var/move_delay = 0
-	var/fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
-	var/fire_sound_text = "gunshot"
+
 	var/recoil = 0		//screen shake
-	var/silenced = 0
 	var/muzzle_flash = 3
 	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
 	var/offhand_accuracy = 0 // the higher this number, the more accurate this weapon is when fired from the off-hand
@@ -83,8 +119,6 @@
 	var/displays_maptext = FALSE
 	var/can_ammo_display = TRUE
 	var/obj/item/ammo_display
-	var/empty_sound = /singleton/sound_category/out_of_ammo
-	var/casing_drop_sound = /singleton/sound_category/casing_drop_sound
 	maptext_x = 22
 	maptext_y = 2
 
@@ -123,13 +157,6 @@
 	var/image/safety_overlay
 
 	var/iff_capable = FALSE // if true, applies the user's ID iff_faction to the projectile
-
-	// sounds n shit
-	var/safetyon_sound = 'sound/weapons/blade_open.ogg'
-	var/safetyoff_sound = 'sound/weapons/blade_close.ogg'
-
-	drop_sound = 'sound/items/drop/gun.ogg'
-	pickup_sound = 'sound/items/pickup/gun.ogg'
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
@@ -189,7 +216,10 @@
 
 /obj/item/gun/can_swap_hands(mob/user)
 	if(wielded)
-		return FALSE
+		unwield()
+		var/obj/item/offhand/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
 	return ..()
 
 /obj/item/gun/proc/unique_action(var/mob/user)
@@ -255,6 +285,7 @@
 	else
 		if(needspin)
 			to_chat(user, SPAN_WARNING("\The [src]'s trigger is locked. This weapon doesn't have a firing pin installed!"))
+			balloon_alert(user, "Trigger locked, firing pin needed!")
 			return FALSE
 		else
 			return TRUE
@@ -400,16 +431,11 @@
 			P.dispersion = disp
 
 			P.shot_from = src.name
-			P.silenced = silenced
+			P.suppressed =  suppressed
 
 			P.launch_projectile(target)
 
 			handle_post_fire() // should be safe to not include arguments here, as there are failsafes in effect (?)
-
-			if(silenced)
-				playsound(src, fire_sound, 10, 1)
-			else
-				playsound(src, fire_sound, 75, 1, 3, 0.5, 1)
 
 			if (muzzle_flash)
 				set_light(muzzle_flash)
@@ -440,20 +466,14 @@
 	return (target in check_trajectory(target, user))
 
 //called if there was no projectile to shoot
-/obj/item/gun/proc/handle_click_empty(mob/user)
-	if(user)
-		to_chat(user, SPAN_DANGER("*click*"))
-	else
-		src.visible_message("*click*")
-	playsound(loc, empty_sound, 100, 1)
+/obj/item/gun/proc/handle_click_empty()
+	balloon_alert_to_viewers("*click*")
+	playsound(loc, empty_sound, 30, TRUE)
 
 //called after successfully firing
 /obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
-	if(silenced)
-		playsound(user, fire_sound, 10, 1)
-	else
-		playsound(user, fire_sound, 75, 1, 3, 0.5, 1)
-
+	play_fire_sound()
+	if(!suppressed)
 		if(playemote)
 			if(reflex)
 				user.visible_message(
@@ -482,6 +502,12 @@
 			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
 				S.deactivate()
 	update_icon()
+
+/obj/item/gun/proc/play_fire_sound()
+	if(suppressed)
+		playsound(loc, suppressed_sound, suppressed_volume, vary_fire_sound)
+	else
+		playsound(loc, fire_sound, fire_sound_volume, vary_fire_sound, falloff = 0.5, is_global = TRUE)
 
 /obj/item/gun/proc/process_point_blank(obj/projectile, mob/user, atom/target)
 	var/obj/item/projectile/P = projectile
@@ -577,10 +603,7 @@
 			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
-		if(silenced)
-			playsound(user, fire_sound, 10, 1)
-		else
-			playsound(user, fire_sound, 75, 1, 3, 0.5, 1)
+		play_fire_sound()
 
 		in_chamber.on_hit(M)
 
@@ -633,6 +656,14 @@
 			accuracy = initial(accuracy)
 			recoil = initial(recoil)
 
+///Handles removing the suppressor from the gun
+/obj/item/gun/proc/clear_suppressor()
+	if(!can_unsuppress)
+		return
+	suppressed = FALSE
+	suppressor = null
+	update_icon()
+
 /obj/item/gun/examine(mob/user)
 	..()
 	if(get_dist(src, user) > 1)
@@ -680,7 +711,7 @@
 	safety_state = !safety_state
 	update_icon()
 	if(user)
-		to_chat(user, SPAN_NOTICE("You switch the safety [safety_state ? "on" : "off"] on \the [src]."))
+		balloon_alert(user, "Safety [safety_state ? "on" : "off"].")
 		if(!safety_state)
 			playsound(src, safetyon_sound, 30, 1)
 		else
@@ -723,12 +754,15 @@
 
 	if(wielded)
 		unwield()
-		to_chat(user, SPAN_NOTICE("You are no-longer stabilizing \the [name] with both hands."))
+		to_chat(user, SPAN_NOTICE("You are no longer stabilizing \the [name] with both hands."))
 
 		var/obj/item/offhand/O = user.get_inactive_hand()
 		if(istype(O))
 			O.unwield()
 	else
+		var/obj/item/offhand_item = user.get_inactive_hand()
+		if(offhand_item)
+			user.unEquip(offhand_item, FALSE, user.loc)
 		if(user.get_inactive_hand())
 			to_chat(user, SPAN_WARNING("You need your other hand to be empty."))
 			return
@@ -752,6 +786,7 @@
 	update_icon()
 	update_held_icon()
 
+
 /obj/item/gun/proc/wield()
 	wielded = TRUE
 	update_firing_delays()
@@ -762,14 +797,17 @@
 	update_icon()
 	update_held_icon()
 
+#define LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER 0.9 //If the mob is intentionally lying down, apply this as a bonus to the fire delay and recoil
+#define LYING_DOWN_ACCURACY_STAT_MULTIPLIER 1.1 //If the mob is intentionally lying down, apply this as a bonus to accuracy
+
 /obj/item/gun/proc/update_firing_delays()
 	if(wielded)
 		if(fire_delay_wielded)
-			fire_delay = fire_delay_wielded
+			fire_delay = usr.lying_is_intentional ? (fire_delay_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : fire_delay_wielded
 		if(recoil_wielded)
-			recoil = recoil_wielded
+			recoil = usr.lying_is_intentional ? (recoil_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : recoil_wielded
 		if(accuracy_wielded)
-			accuracy = accuracy_wielded
+			accuracy = usr.lying_is_intentional ? (accuracy_wielded * LYING_DOWN_ACCURACY_STAT_MULTIPLIER) : accuracy_wielded
 	else
 		if(fire_delay_wielded)
 			fire_delay = initial(fire_delay)
@@ -778,13 +816,16 @@
 		if(accuracy_wielded)
 			accuracy = initial(accuracy)
 
-/obj/item/gun/mob_can_equip(M as mob, slot, disable_warning, ignore_blocked)
+#undef LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER
+#undef LYING_DOWN_ACCURACY_STAT_MULTIPLIER
+
+/obj/item/gun/mob_can_equip(mob/user, slot, disable_warning, ignore_blocked)
 	//Cannot equip wielded items.
 	if(wielded)
-		if(!disable_warning) // unfortunately not sure there's a way to get this to only fire once when it's looped
-			to_chat(M, SPAN_WARNING("Lower \the [initial(name)] first!"))
-		return FALSE
-
+		unwield()
+		var/obj/item/offhand/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
 	return ..()
 
 /obj/item/gun/throw_at()
@@ -843,7 +884,7 @@
 	if(user)
 		var/obj/item/gun/O = user.get_inactive_hand()
 		if(istype(O))
-			to_chat(user, SPAN_NOTICE("You are no-longer stabilizing \the [O] with both hands."))
+			to_chat(user, SPAN_NOTICE("You are no longer stabilizing \the [O] with both hands."))
 			O.unwield()
 			unwield()
 
@@ -861,6 +902,8 @@
 		QDEL_NULL(pin)
 	if(bayonet)
 		QDEL_NULL(bayonet)
+	if(istype(suppressor))
+		QDEL_NULL(suppressor)
 	return ..()
 
 
@@ -890,15 +933,21 @@
 /obj/item/gun/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/material/knife/bayonet))
 		if(!can_bayonet)
+			balloon_alert(user, "\the [I.name] doesn't fit")
 			return ..()
 
+		if(user.l_hand != bayonet && user.r_hand != bayonet)
+			balloon_alert(user, "not in hand")
+			return
+
 		if(bayonet)
-			to_chat(user, SPAN_DANGER("There is a bayonet attached to \the [src] already."))
+			balloon_alert(user, "\the [src] already has a bayonet")
 			return TRUE
 
 		user.drop_from_inventory(I,src)
 		bayonet = I
-		to_chat(user, SPAN_NOTICE("You attach \the [I] to the front of \the [src]."))
+		balloon_alert(user, "[I.name] attached")
+		w_class += I.w_class
 		update_icon()
 		return TRUE
 
@@ -907,24 +956,29 @@
 
 	if(istype(I, /obj/item/ammo_display))
 		if(!can_ammo_display)
-			to_chat(user, SPAN_WARNING("\The [I] cannot attach to \the [src]."))
+			balloon_alert(user, "\the [I.name] doesn't fit")
 			return TRUE
+		if(user.l_hand != ammo_display && user.r_hand != ammo_display)
+			balloon_alert(user, "not in hand")
+			return
 		if(ammo_display)
-			to_chat(user, SPAN_WARNING("\The [src] already has a holographic ammo display."))
+			balloon_alert(user, "\the [src] already has an ammo display")
 			return TRUE
 		if(displays_maptext)
-			to_chat(user, SPAN_WARNING("\The [src] is already displaying its ammo count."))
+			balloon_alert(user, "\the [src] is already displaying its ammo count")
 			return TRUE
 		user.drop_from_inventory(I, src)
 		ammo_display = I
 		displays_maptext = TRUE
-		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
+		balloon_alert(user, "[I.name] attached")
+		w_class += I.w_class
 		return TRUE
 
 	if(I.iscrowbar() && bayonet)
 		to_chat(user, SPAN_NOTICE("You detach \the [bayonet] from \the [src]."))
 		bayonet.forceMove(get_turf(src))
 		user.put_in_hands(bayonet)
+		w_class -= bayonet.w_class
 		bayonet = null
 		update_icon()
 		return TRUE
@@ -933,6 +987,7 @@
 		to_chat(user, SPAN_NOTICE("You wrench the ammo display loose from \the [src]."))
 		ammo_display.forceMove(get_turf(src))
 		user.put_in_hands(ammo_display)
+		w_class -= ammo_display.w_class
 		ammo_display = null
 		displays_maptext = FALSE
 		maptext = ""

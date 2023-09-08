@@ -84,7 +84,7 @@ Class Procs:
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
 	w_class = ITEMSIZE_IMMENSE
-	layer = OBJ_LAYER - 0.01
+	layer = OBJ_LAYER - 0.1
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	var/stat = 0

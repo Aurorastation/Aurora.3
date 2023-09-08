@@ -228,37 +228,40 @@
 		new /obj/item/clothing/suit/space/syndicate/black/orange(src)
 		new /obj/item/tank/emergency_oxygen/double(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/ram_ranch
+/obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys
 	req_access = list()
 
-/obj/structure/closet/crate/secure/gear_loadout/ram_ranch/fill()
+/obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/fill()
 	for(var/i in 1 to 6)
 		var/obj/item/clothing/under/shorts/khaki/pants = new(src)
 		var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
 		var/obj/item/clothing/accessory/chaps/chaps = new(src)
 		var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
 		var/obj/item/clothing/accessory/wcoat_rec/waistcoat = new(src)
+		var/obj/item/clothing/head/cowboy/hat = new(src)
 
 		pants.attach_accessory(null, shirt)
 		pants.attach_accessory(null, chaps)
-		waistcoat.color = "#78280b"
+		waistcoat.color = COLOR_BEASTY_BROWN
 		pants.attach_accessory(null, waistcoat)
-		suspenders.color = "#521600"
+		suspenders.color = COLOR_MAROON
 		pants.attach_accessory(null, suspenders)
+		hat.color = COLOR_BEASTY_BROWN
 
 		new /obj/item/clothing/shoes/cowboy(src)
 		new /obj/item/clothing/gloves/fingerless(src)
 		new /obj/item/clothing/accessory/holster/thigh(src)
-		new /obj/item/clothing/head/cowboy(src)
 		new /obj/item/melee/whip(src)
 		new /obj/item/gun/projectile/revolver/detective(src)
+		new /obj/item/gun/projectile/shotgun/pump/lever_action(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/ram_ranch/single/fill()
+/obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/single/fill()
 	var/obj/item/clothing/under/shorts/khaki/pants = new(src)
 	var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
 	var/obj/item/clothing/accessory/chaps/chaps = new(src)
 	var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
 	var/obj/item/clothing/accessory/wcoat_rec/waistcoat = new(src)
+	var/obj/item/clothing/head/cowboy/hat = new(src)
 
 	pants.attach_accessory(null, shirt)
 	pants.attach_accessory(null, chaps)
@@ -266,13 +269,15 @@
 	pants.attach_accessory(null, waistcoat)
 	suspenders.color = "#521600"
 	pants.attach_accessory(null, suspenders)
+	hat.color = "#521600"
 
 	new /obj/item/clothing/shoes/cowboy(src)
 	new /obj/item/clothing/gloves/fingerless(src)
 	new /obj/item/clothing/accessory/holster/thigh(src)
-	new /obj/item/clothing/head/cowboy(src)
 	new /obj/item/melee/whip(src)
 	new /obj/item/gun/projectile/revolver/detective(src)
+	new /obj/item/gun/projectile/shotgun/pump/lever_action(src)
+
 //Megacorporate suits are used in devices and tools in the uplink
 /obj/structure/closet/crate/gear_loadout/zavodskoi/fill()
 	new /obj/item/clothing/head/helmet/space/void/zavodskoi(src)
@@ -283,6 +288,7 @@
 /obj/structure/closet/crate/gear_loadout/zenghu/fill()
 	new /obj/item/clothing/head/helmet/space/void/zenghu(src)
 	new /obj/item/clothing/suit/space/void/zenghu(src)
+	new /obj/item/voidsuit_modkit/zeng_skrell(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
 
@@ -291,6 +297,7 @@
 	new /obj/item/clothing/suit/space/void/hephaestus(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
+	new /obj/item/voidsuit_modkit/heph_unathi(src)
 
 /obj/structure/closet/crate/gear_loadout/einstein/fill()
 	new /obj/item/clothing/head/helmet/space/void/einstein(src)
@@ -507,6 +514,11 @@
     new /obj/item/clothing/suit/space/void/einstein(src)
     new /obj/item/clothing/suit/space/void/einstein(src)
     new /obj/item/clothing/suit/space/void/einstein(src)
+    new /obj/item/clothing/under/rank/einstein(src)
+    new /obj/item/clothing/under/rank/einstein(src)
+    new /obj/item/clothing/under/rank/einstein(src)
+    new /obj/item/clothing/under/rank/einstein(src)
+    new /obj/item/clothing/under/rank/einstein(src)
     new /obj/item/gun/energy/laser/shotgun(src)
     new /obj/item/gun/energy/rifle(src)
     new /obj/item/gun/energy/rifle(src)
@@ -514,10 +526,10 @@
     new /obj/item/gun/projectile/pistol(src)
     new /obj/item/gun/projectile/pistol(src)
     new /obj/item/gun/projectile/pistol(src)
-    new /obj/item/silencer(src)
-    new /obj/item/silencer(src)
-    new /obj/item/silencer(src)
-    new /obj/item/silencer(src)
+    new /obj/item/suppressor(src)
+    new /obj/item/suppressor(src)
+    new /obj/item/suppressor(src)
+    new /obj/item/suppressor(src)
     new /obj/item/ammo_magazine/mc9mm(src)
     new /obj/item/ammo_magazine/mc9mm(src)
     new /obj/item/ammo_magazine/mc9mm(src)
@@ -530,9 +542,10 @@
 /obj/structure/closet/crate/secure/gear_loadout/einstein/single/fill()
     new /obj/item/clothing/head/helmet/space/void/einstein(src)
     new /obj/item/clothing/suit/space/void/einstein(src)
+    new /obj/item/clothing/under/rank/einstein(src)
     new /obj/item/gun/energy/rifle(src)
     new /obj/item/gun/projectile/pistol(src)
-    new /obj/item/silencer(src)
+    new /obj/item/suppressor(src)
     new /obj/item/ammo_magazine/mc9mm(src)
     new /obj/item/ammo_magazine/mc9mm(src)
 
@@ -551,9 +564,9 @@
 	new /obj/item/clothing/suit/space/void/hegemony/captain(src)
 	new /obj/item/clothing/suit/armor/unathi/klax(src)
 	new /obj/item/clothing/head/helmet/unathi/klax(src)
-	new /obj/item/gun/energy/hegemonyrifle(src)
-	new /obj/item/gun/energy/hegemonyrifle(src)
-	new /obj/item/gun/energy/hegemonyrifle(src)
+	new /obj/item/gun/energy/rifle/hegemony(src)
+	new /obj/item/gun/energy/rifle/hegemony(src)
+	new /obj/item/gun/energy/rifle/hegemony(src)
 	new /obj/item/gun/energy/pistol/hegemony(src)
 	new /obj/item/gun/energy/pistol/hegemony(src)
 	new /obj/item/gun/energy/pistol/hegemony(src)
@@ -585,7 +598,7 @@
 	new/obj/item/clothing/under/unathi(src)
 	new /obj/item/clothing/head/helmet/space/void/hegemony(src)
 	new /obj/item/clothing/suit/space/void/hegemony(src)
-	new /obj/item/gun/energy/hegemonyrifle(src)
+	new /obj/item/gun/energy/rifle/hegemony(src)
 	new /obj/item/gun/energy/pistol/hegemony(src)
 	new /obj/item/melee/energy/sword/hegemony(src)
 	new /obj/item/shield/energy/hegemony(src)
@@ -661,7 +674,7 @@
 	new /obj/item/melee/energy/sword/pirate(src)
 	new /obj/item/gun/projectile/shotgun/pump/combat(src)
 	new /obj/item/gun/projectile/automatic/rifle/sts35(src)
-	new /obj/item/gun/energy/hegemonyrifle(src)
+	new /obj/item/gun/energy/rifle/hegemony(src)
 	new /obj/item/gun/projectile/automatic/rifle/dpra/gold(src)
 	new /obj/item/ammo_magazine/c762/dpra(src)
 	new /obj/item/ammo_magazine/c762/dpra(src)
@@ -763,7 +776,7 @@
 /obj/structure/closet/crate/secure/gear_loadout/ninja/stealth/fill()
 	..()
 	new /obj/item/gun/projectile/pistol(src)
-	new /obj/item/silencer(src)
+	new /obj/item/suppressor(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 

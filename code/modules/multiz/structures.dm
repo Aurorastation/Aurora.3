@@ -198,15 +198,15 @@
 	allowed_directions = UP|DOWN
 	icon_state = "ladder11"
 
-// Stairs
 /obj/structure/ladder/away //a ladder that just looks like it's going down
 	icon_state = "ladderawaydown"
 
+/// Note that stairs facing left/right may need the stairs_lower structure if they're not placed against walls.
 /obj/structure/stairs
 	name = "stairs"
 	desc = "Stairs leading to another floor. Not too useful if the gravity goes out."
 	icon = 'icons/obj/stairs.dmi'
-	icon_state = "solid"
+	icon_state = "stairs_3d"
 	layer = TURF_LAYER
 	density = FALSE
 	opacity = FALSE
@@ -240,7 +240,7 @@
 		return
 	if(target.z > (z + 1)) //Prevents wheelchair fuckery. Basically, you teleport twice because both the wheelchair + your mob collide with the stairs.
 		return
-	if(target.Enter(A, src))
+	if(target.Enter(A, src) && A.dir == dir)
 		A.forceMove(target)
 		if(isliving(A))
 			var/mob/living/L = A
@@ -254,11 +254,11 @@
 	return (T == loc)
 
 /obj/structure/stairs/CanPass(obj/mover, turf/source, height, airflow)
-	if (airflow)
+	if(airflow)
 		return TRUE
 
 	// Disallow stepping onto the elevated part of the stairs.
-	if (isliving(mover) && z == mover.z && mover.loc != loc && get_step(mover, get_dir(mover, src)) == loc)
+	if(isliving(mover) && z == mover.z && mover.loc != loc && get_step(mover, get_dir(mover, src)) == loc)
 		return FALSE
 
 	return !density
@@ -268,11 +268,11 @@
 		return
 
 	L.Weaken(2)
-	if (L.lying)
+	if(L.lying)
 		L.visible_message(
-			"<span class='alert'>\The [L] steps off of [src] and faceplants onto [L.loc].</span>",
-			"<span class='danger'>You step off [src] and faceplant onto [L.loc].</span>",
-			"<span class='alert'>You hear a thump.</span>"
+			SPAN_ALERT("\The [L] steps off of [src] and faceplants onto [L.loc]."),
+			SPAN_DANGER("You step off [src] and faceplant onto [L.loc]."),
+			SPAN_ALERT("You hear a thump.")
 		)
 
 /obj/structure/stairs/north
@@ -287,6 +287,8 @@
 
 /obj/structure/stairs/east
 	dir = EAST
+	bound_x = -32
+	pixel_x = -32
 	bound_width = 64
 	bound_x = -32
 	pixel_x = -32
@@ -294,3 +296,162 @@
 /obj/structure/stairs/west
 	dir = WEST
 	bound_width = 64
+
+/obj/structure/stairs/flat
+	icon_state = "stairs_flat"
+
+/// Snowflake railing object for 64x64 stairs.
+/obj/structure/stairs_railing
+	name = "railing"
+	desc = "A railing for stairs."
+	icon = 'icons/obj/stairs.dmi'
+	icon_state = "stairs_railing"
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/stairs_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(istype(mover,/obj/item/projectile))
+		return TRUE
+	if(!istype(mover) || mover.checkpass(PASSRAILING))
+		return TRUE
+	if(mover.throwing)
+		return TRUE
+	if(get_dir(loc, target) == dir)
+		return !density
+	return TRUE
+
+/obj/structure/stairs_railing/CheckExit(var/atom/movable/O, var/turf/target)
+	if(istype(O) && CanPass(O, target))
+		return TRUE
+	if(get_dir(O.loc, target) == dir)
+		if(!density)
+			return TRUE
+		return FALSE
+	return TRUE
+
+/obj/structure/stairs_lower
+	name = "stairs"
+	desc = "Stairs leading to another floor. Not too useful if the gravity goes out."
+	icon = 'icons/obj/stairs.dmi'
+	icon_state = "stairs_lower"
+	anchored = TRUE
+	density = FALSE
+
+/obj/structure/stairs_lower/stairs_upper
+	icon_state = "stairs_upper"
+
+/// These stairs are used for fake depth. They don't go up z-levels.
+/obj/structure/platform_stairs
+	name = "stairs"
+	desc = "An archaic form of locomotion along the Z-axis."
+	density = FALSE
+	anchored = TRUE
+	icon = 'icons/obj/structure/stairs.dmi'
+	icon_state = "np_stair"
+
+/obj/structure/platform_stairs/south_north_solo
+	icon_state = "p_stair_sn_solo_cap"
+
+/obj/structure/platform_stairs/full
+	icon_state = "p_stair_full"
+
+/obj/structure/platform_stairs/full/east_west_cap
+	icon_state = "p_stair_ew_full_cap"
+
+/obj/structure/platform_stairs/full/east_west_cap/half
+	icon_state = "p_stair_ew_half_cap"
+
+/obj/structure/platform_stairs/full/south_north_cap
+	icon_state = "p_stair_sn_full_cap"
+
+/obj/structure/platform_stairs/full/south_north_cap/half
+	icon_state = "p_stair_sn_half_cap"
+
+/obj/structure/platform
+	name = "platform"
+	desc = "An archaic method of preventing travel along the X and Y axes if you are on a lower point on the Z-axis."
+	density = TRUE
+	anchored = TRUE
+	flags = ON_BORDER
+	climbable = TRUE
+	icon = 'icons/obj/structure/platforms.dmi'
+	icon_state = "platform"
+	color = COLOR_TILED
+
+/obj/structure/platform/dark
+	icon_state = "platform_dark"
+	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/platform/CanPass(atom/movable/mover, turf/target, height, air_group)
+	if(istype(mover, /obj/item/projectile))
+		return TRUE
+	if(!istype(mover) || mover.checkpass(PASSRAILING))
+		return TRUE
+	if(mover.throwing)
+		return TRUE
+	if(get_dir(mover, target) == reverse_dir[dir])
+		return FALSE
+	if(height && (mover.dir == dir))
+		return FALSE
+	return TRUE
+
+/obj/structure/platform/CheckExit(var/atom/movable/O, var/turf/target)
+	if(istype(O) && CanPass(O, target))
+		return TRUE
+	if(get_dir(O, target) == reverse_dir[dir])
+		return FALSE
+	return TRUE
+
+/obj/structure/platform/do_climb(mob/living/user)
+	if(user.Adjacent(src) && !user.incapacitated())
+		/// Custom climbing code because normal climb code doesn't support the tile-shifting that platforms do.
+		/// If the user is on the same turf as the platform, we're trying to go past it, so we need to use reverse_dir.
+		/// Otherwise, use our own turf.
+		var/same_turf = get_turf(user) == get_turf(src)
+		var/turf/next_turf = get_step(src, same_turf ? reverse_dir[dir] : 0)
+		if(istype(next_turf) && !next_turf.density && can_climb(user))
+			var/climb_text = same_turf ? "over" : "down"
+			LAZYADD(climbers, user)
+			user.visible_message(SPAN_NOTICE("[user] starts climbing [climb_text] \the [src]..."), SPAN_NOTICE("You start climbing [climb_text] \the [src]..."))
+			if(do_after(user, 1 SECOND) && can_climb(user, TRUE))
+				user.visible_message(SPAN_NOTICE("[user] climbs [climb_text] \the [src]."), SPAN_NOTICE("You climb [climb_text] \the [src]."))
+				user.forceMove(next_turf)
+				LAZYREMOVE(climbers, user)
+
+/obj/structure/platform/ledge
+	icon_state = "ledge"
+
+/obj/structure/platform/ledge/dark
+	icon_state = "ledge_dark"
+	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/platform/cutout
+	icon_state = "platform_cutout"
+	density = 0
+
+/obj/structure/platform/cutout/dark
+	icon_state = "platform_cutout_dark"
+	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/platform/cutout/CanPass()
+	return TRUE
+
+/// No special CanPass for this one.
+/obj/structure/platform_deco
+	name = "platform"
+	desc = "This is a platform."
+	anchored = TRUE
+	icon = 'icons/obj/structure/platforms.dmi'
+	icon_state = "platform_deco"
+	color = COLOR_TILED
+
+/obj/structure/platform_deco/dark
+	icon_state = "platform_deco_dark"
+	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/platform_deco/ledge
+	icon_state = "ledge_deco"
+
+/obj/structure/platform_deco/ledge/dark
+	icon_state = "ledge_deco_dark"
+	color = COLOR_DARK_GUNMETAL

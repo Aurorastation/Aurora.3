@@ -12,11 +12,18 @@ var/list/datum/power/changeling/powerinstances = list()
 	var/allowduringlesserform = FALSE
 	var/genomecost = 69420 // Cost for the changeling to evolve this power.
 
+/datum/power/changeling/respec
+	name = "Re-adapt"
+	desc = "Permits us to re-adapt ourselves to fit a new situation. Requires that we absorb a victim first."
+	allowduringlesserform = TRUE
+	genomecost = 0
+	verbpath = /mob/proc/changeling_try_respec
+
 //DNA absorption
 
 /datum/power/changeling/absorb_dna
 	name = "Absorb DNA"
-	desc = "Permits us to forcibly absorb a massive quantity DNA from another sentient creature. They will perish during the process, and we become stronger, especially if they were another changeling. Have caution, this takes some time."
+	desc = "Permits us to forcibly absorb DNA from another sentient creature. They will perish during the process, but we will be able to mimic their form or re-evolve ourselves. Have caution, this takes some time."
 	genomecost = 0
 	verbpath = /mob/proc/changeling_absorb_dna
 
@@ -141,7 +148,7 @@ var/list/datum/power/changeling/powerinstances = list()
 /datum/power/changeling/paralysis_sting
 	name = "Paralysis Sting"
 	desc = "We sting a human, paralyzing them for a short time."
-	genomecost = 8
+	genomecost = 6
 	verbpath = /mob/proc/changeling_paralysis_sting
 
 /datum/power/changeling/hallucinate_sting
@@ -154,7 +161,7 @@ var/list/datum/power/changeling/powerinstances = list()
 /datum/power/changeling/death_sting
 	name = "Death Sting"
 	desc = "We sting a human, transferring five units of cyanide. Their death is likely, unless immediate intervention occurs."
-	genomecost = 10
+	genomecost = 8
 	verbpath = /mob/proc/changeling_death_sting
 
 //Chems and stuff
@@ -280,7 +287,7 @@ var/list/datum/power/changeling/powerinstances = list()
 // After an HTML course, I finally conquered this. Convert into TGUI eventually. - Geeves
 /datum/changeling/proc/EvolutionMenu()//The new one
 	set category = "Changeling"
-	set desc = "Buy new abilities with the genomes we obtained."
+	set desc = "Buy new abilities.."
 
 	var/datum/changeling/changeling = usr.mind.antag_datums[MODE_CHANGELING]
 	if(!usr || !usr.mind || !changeling)
@@ -465,7 +472,6 @@ var/list/datum/power/changeling/powerinstances = list()
 					<font size='5'><b>Changeling Evolution Menu</b></font><br>
 					Hover over a power to see more information<br>
 					Current evolution points left to evolve with: [geneticpoints]<br>
-					Absorb genomes to acquire more evolution points
 					<p>
 				</td>
 			</tr>
@@ -555,13 +561,13 @@ var/list/datum/power/changeling/powerinstances = list()
 			break
 
 	if(power == null)
-		to_chat(M.current, "This is awkward. Changeling power purchase failed, please report this bug to a coder!")
+		to_chat(M.current, SPAN_WARNING("This is awkward. Changeling power purchase failed, please report this bug to a coder!"))
 		return
 	if(power in purchasedpowers)
-		to_chat(M.current, "We have already evolved this ability!")
+		to_chat(M.current, SPAN_WARNING("We have already evolved this ability!"))
 		return
 	if(geneticpoints < power.genomecost)
-		to_chat(M.current, "We cannot evolve this. We must acquire more DNA.")
+		to_chat(M.current, SPAN_WARNING("We lack the genome to evolve this. Re-evolve yourself to reset your genome points."))
 		return
 
 	geneticpoints -= power.genomecost

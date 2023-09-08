@@ -68,7 +68,7 @@
 	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 
 	changeling.chem_charges += 50
-	changeling.geneticpoints += 3
+	changeling.can_respec = TRUE
 
 	//Steal all of their languages!
 	for(var/language in T.languages)

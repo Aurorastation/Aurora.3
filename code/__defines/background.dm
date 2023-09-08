@@ -113,7 +113,13 @@
 #define ACCENT_ANTILLIA "Port Antillia"
 #define ACCENT_XANU "Xanu"
 #define ACCENT_SANCOLETTE "San Colette"
+#define ACCENT_OREPIT "Native Orepitter"
+#define ACCENT_PROVIDENCE "Providence Trinarist"
 #define ACCENT_BURZSIA "Burzsia"
+#define ACCENT_GALATEA "Galatean"
+#define ACCENT_TSUKUYOMI "Tsukuyomian"
+#define ACCENT_EMPYREAN "Empyrean"
+#define ACCENT_SVAROG "Svarogite"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"
