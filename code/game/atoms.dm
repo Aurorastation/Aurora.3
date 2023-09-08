@@ -86,6 +86,7 @@
 		return 0
 	return -1
 
+/// Primarily used on machinery, when this returns TRUE, equipment that helps with vision, such as prescription glasses for nearsighted characters, have an effect despite the client eye not being on the mob
 /atom/proc/grants_equipment_vision(var/mob/user)
 	return
 
