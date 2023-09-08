@@ -45,4 +45,5 @@
 /mob/living/silicon/robot/proc/robot_checklaws()
 	set category = "Robot Commands"
 	set name = "State Laws"
-	subsystem_law_manager()
+	computer.ui_interact(usr)
+	computer.run_program("lawmanager")

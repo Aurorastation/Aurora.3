@@ -247,6 +247,11 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_bobcurl2"
 	chatname = "curls"
 
+/datum/sprite_accessory/hair/bookish
+	name = "Bookish"
+	icon_state = "hair_bookish"
+	chatname = "short hair"
+
 /datum/sprite_accessory/hair/bowl
 	name = "Bowl"
 	icon_state = "hair_bowlcut"
@@ -388,6 +393,12 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_buzzcut2"
 	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 	chatname = "unbuzzed hair"
+
+/datum/sprite_accessory/hair/chop
+	name = "Chop"
+	icon_state = "hair_chop"
+	length = 1
+	chatname = "short hair"
 
 /datum/sprite_accessory/hair/chrono
 	name = "Chrono"
@@ -687,6 +698,11 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "messy hair"
 
+/datum/sprite_accessory/hair/jaeger
+	name = "Jaeger"
+	icon_state = "hair_jaeger"
+	chatname = "short hair"
+
 /datum/sprite_accessory/hair/jensen
 	name = "Jensen Hair"  // Removing Videogame References
 	icon_state = "hair_jensen"
@@ -745,15 +761,15 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "messy hair"
 
-/datum/sprite_accessory/hair/messy2
-	name = "Messy 2"
-	icon_state = "hair_messy2"
+/datum/sprite_accessory/hair/messy_alt
+	name = "Messy, Alt"
+	icon_state = "hair_messy_alt"
 	length = 2
 	chatname = "messy hair"
 
-/datum/sprite_accessory/hair/messy3
-	name = "Messy 3"
-	icon_state = "hair_messy3"
+/datum/sprite_accessory/hair/messy_alt_rounded
+	name = "Messy, Alt (Rounded)"
+	icon_state = "hair_messy_alt_rounded"
 	length = 2
 	chatname = "messy hair"
 
@@ -1003,6 +1019,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "ponytail"
 
+/datum/sprite_accessory/hair/ponytail7_notie
+	name = "Ponytail 7, No Tie"
+	icon_state = "hair_ponytail7_notie"
+	length = 2
+	chatname = "ponytail"
+
 /datum/sprite_accessory/hair/ponytail8
 	name = "Ponytail 8"
 	icon_state = "hair_ponytail8"
@@ -1033,6 +1055,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "short ponytail"
 
+/datum/sprite_accessory/hair/ponytail_short3_notie
+	name = "Ponytail, Short 3, No Tie"
+	icon_state = "hair_ponytail_short3_notie"
+	length = 2
+	chatname = "short ponytail"
+
 /datum/sprite_accessory/hair/ponytail_short4
 	name = "Ponytail, Short 4"
 	icon_state = "hair_ponytail_short4"
@@ -1045,9 +1073,21 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "short ponytail"
 
+/datum/sprite_accessory/hair/ponytail_short5_alt
+	name = "Ponytail, Short 5, Alt"
+	icon_state = "hair_ponytail_short5_alt"
+	length = 2
+	chatname = "short ponytail"
+
 /datum/sprite_accessory/hair/ponytail_fringetail
 	name = "Ponytail, Fringetail"
 	icon_state = "hair_ponytail_fringetail"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/ponytail_fringetail_notie
+	name = "Ponytail, Fringetail, No Tie"
+	icon_state = "hair_ponytail_fringetail_notie"
 	length = 2
 	chatname = "ponytail"
 
@@ -1057,9 +1097,21 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "ponytail"
 
+/datum/sprite_accessory/hair/ponytail_high_notie
+	name = "Ponytail, High, No Tie"
+	icon_state = "hair_ponytail_high_notie"
+	length = 2
+	chatname = "ponytail"
+
 /datum/sprite_accessory/hair/ponytail_side
 	name = "Ponytail, Side"
 	icon_state = "hair_ponytail_side"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/ponytail_side_notie
+	name = "Ponytail, Side, No Tie"
+	icon_state = "hair_ponytail_side_notie"
 	length = 2
 	chatname = "ponytail"
 
@@ -1069,15 +1121,33 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "ponytail"
 
+/datum/sprite_accessory/hair/ponytail_side2_notie
+	name = "Ponytail, Side 2, No Tie"
+	icon_state = "hair_ponytail_side2_notie"
+	length = 2
+	chatname = "ponytail"
+
 /datum/sprite_accessory/hair/ponytail_side3
 	name = "Ponytail, Side 3"
 	icon_state = "hair_ponytail_side3"
 	length = 2
 	chatname = "ponytail"
 
+/datum/sprite_accessory/hair/ponytail_side3_notie
+	name = "Ponytail, Side 3, No Tie"
+	icon_state = "hair_ponytail_side3_notie"
+	length = 2
+	chatname = "ponytail"
+
 /datum/sprite_accessory/hair/ponytail_side4
 	name = "Ponytail, Side 4"
 	icon_state = "hair_ponytail_side4"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/ponytail_side4_notie
+	name = "Ponytail, Side 4, No Tie"
+	icon_state = "hair_ponytail_side4_notie"
 	length = 2
 	chatname = "ponytail"
 
@@ -1099,9 +1169,21 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "ponytail"
 
+/datum/sprite_accessory/hair/ponytail_zieglertail_notie
+	name = "Ponytail, Zieglertail, No Tie"
+	icon_state = "hair_ponytail_ziegler_notie"
+	length = 2
+	chatname = "ponytail"
+
 /datum/sprite_accessory/hair/bunlarge2
 	name = "Bun, Large 2"
 	icon_state = "hair_bun_large2"
+	length = 2
+	chatname = "large bun"
+
+/datum/sprite_accessory/hair/bunlarge2_notie
+	name = "Bun, Large 2, No Tie"
+	icon_state = "hair_bun_large2_notie"
 	length = 2
 	chatname = "large bun"
 
@@ -1114,6 +1196,18 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair/poofy2
 	name = "Poofy 2"
 	icon_state = "hair_poofy2"
+	length = 2
+	chatname = "poofy hair"
+
+/datum/sprite_accessory/hair/poofy3
+	name = "Poofy 3"
+	icon_state = "hair_poofy3"
+	length = 2
+	chatname = "poofy hair"
+
+/datum/sprite_accessory/hair/poofy4
+	name = "Poofy 4"
+	icon_state = "hair_poofy4"
 	length = 2
 	chatname = "poofy hair"
 
@@ -1655,11 +1749,11 @@ Follow by example and make good judgement based on length which list to include 
 	length = 1
 	chatname = "fringe"
 
-/datum/sprite_accessory/hair/balding/messy4
-	name = "Messy 4"
-	icon_state = "hair_messy4"
-	length = 1
-	chatname = "messy hair"
+/datum/sprite_accessory/hair/balding/poofy5
+	name = "Poofy 5"
+	icon_state = "hair_poofy5"
+	length = 2
+	chatname = "poofy hair"
 
 /datum/sprite_accessory/hair/balding/nia2
 	name = "Nia 2"
@@ -4270,6 +4364,10 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Glorp"
 	icon_state = "glorp"
 
+/datum/sprite_accessory/facial_hair/diona_eye/snout
+	name = "Snout"
+	icon_state = "snout"
+
 /datum/sprite_accessory/facial_hair/tuux_whiskers
 	icon = 'icons/mob/human_face/skrell_beards.dmi'
 	name = "Tuux Tentacle Whiskers"
@@ -6005,6 +6103,10 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/marking/diona_leaves/bug_eyes/stump
 	name = "Stump"
 	icon_state = "stump"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/snout
+	name = "Snout"
+	icon_state = "snout"
 
 /datum/sprite_accessory/marking/diona_leaves/pbody
 	name = "P-Body"

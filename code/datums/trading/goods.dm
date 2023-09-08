@@ -36,7 +36,6 @@
 		/obj/item/toy/katana                  = TRADER_THIS_TYPE,
 		/obj/item/toy/sword                   = TRADER_THIS_TYPE,
 		/obj/item/toy/bosunwhistle            = TRADER_THIS_TYPE,
-		/obj/item/board                = TRADER_THIS_TYPE,
 		/obj/item/deck                 = TRADER_SUBTYPES_ONLY,
 		/obj/item/pack                 = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/dice                 = TRADER_ALL,
@@ -202,8 +201,7 @@
 		/obj/item/clothing/head/welding                 = TRADER_BLACKLIST,
 		/obj/item/clothing/head/fluff                   = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/det/fluff               = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/winterhood              = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/beret/engineering/fluff = TRADER_BLACKLIST_ALL
+		/obj/item/clothing/head/winterhood              = TRADER_BLACKLIST_ALL
 	)
 
 /*
@@ -219,7 +217,7 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/aicard                    							= TRADER_THIS_TYPE,
 		/obj/item/device/binoculars                						= TRADER_THIS_TYPE,
 		/obj/item/device/flash                     						= TRADER_THIS_TYPE,
-		/obj/item/device/floor_painter             						= TRADER_THIS_TYPE,
+		/obj/item/device/paint_sprayer             						= TRADER_THIS_TYPE,
 		/obj/item/device/multitool                 						= TRADER_THIS_TYPE,
 		/obj/item/device/lightreplacer             						= TRADER_THIS_TYPE,
 		/obj/item/device/megaphone                						= TRADER_THIS_TYPE,

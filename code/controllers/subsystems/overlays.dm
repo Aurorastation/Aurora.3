@@ -15,8 +15,9 @@ var/datum/controller/subsystem/overlays/SSoverlays
 	var/list/overlay_icon_cache = list()
 	var/initialized = FALSE
 
-/datum/controller/subsystem/overlays/stat_entry()
-	..("Ov:[processing.len - (idex - 1)]")
+/datum/controller/subsystem/overlays/stat_entry(msg)
+	msg = "Ov:[processing.len - (idex - 1)]"
+	return ..()
 
 /datum/controller/subsystem/overlays/New()
 	NEW_SS_GLOBAL(SSoverlays)
@@ -51,7 +52,7 @@ var/datum/controller/subsystem/overlays/SSoverlays
 
 /datum/controller/subsystem/overlays/proc/Flush()
 	if(processing.len)
-		log_ss("overlays", "Flushing [processing.len] overlays.")
+		log_subsystem("overlays", "Flushing [processing.len] overlays.")
 		fire(mc_check = FALSE)
 
 /atom/proc/compile_overlays()
@@ -79,7 +80,7 @@ var/datum/controller/subsystem/overlays/SSoverlays
 
 /proc/iconstate2appearance(icon, iconstate)
 	var/static/image/stringbro = new()
-	var/list/icon_states_cache = SSoverlays.overlay_icon_state_caches 
+	var/list/icon_states_cache = SSoverlays.overlay_icon_state_caches
 	var/list/cached_icon = icon_states_cache[icon]
 	if (cached_icon)
 		var/cached_appearance = cached_icon["[iconstate]"]
@@ -136,7 +137,7 @@ var/datum/controller/subsystem/overlays/SSoverlays
 /atom/proc/cut_overlays(priority = FALSE, force_compile = FALSE)
 	var/list/cached_overlays = our_overlays
 	var/list/cached_priority = priority_overlays
-	
+
 	var/need_compile = FALSE
 
 	if(LAZYLEN(cached_overlays)) //don't queue empty lists, don't cut priority overlays

@@ -3,11 +3,10 @@
 // consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/light)
 
 #define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
-#define LIGHT_BULB_TEMPERATURE 400 //K - used value for a 60W bulb
 // the standard tube light fixture
 /obj/machinery/light
 	name = "light fixture"
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	var/base_state = "tube"		// base description and icon_state
 	icon_state = "tube_empty"
 	desc = "A lighting fixture."
@@ -48,6 +47,9 @@
 
 	var/bulb_is_noisy = TRUE
 
+	var/fitting_has_empty_icon = FALSE
+	var/fitting_is_on_floor = FALSE
+
 	var/previous_stat
 	var/randomize_color = TRUE
 	var/default_color
@@ -62,17 +64,26 @@
 	base_state = "skrell"
 	icon_state = "skrell_empty"
 	supports_nightmode = FALSE
-	fitting= "skrell"
+	fitting = "skrell"
 	bulb_is_noisy = FALSE
 	light_type = /obj/item/light/tube
 	inserted_light = /obj/item/light/tube
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_PURPLE
 
+/obj/machinery/light/floor
+	name = "floor lighting fixture"
+	icon_state = "floortube_example"
+	base_state = "floortube"
+	desc = "A lighting fixture. This one is set into the floor."
+	layer = 2.5
+	fitting_has_empty_icon = TRUE
+	fitting_is_on_floor = TRUE
+
 // the smaller bulb light fixture
 
 /obj/machinery/light/small
-	icon_state = "bulb1"
+	icon_state = "bulb_empty"
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness_range = 5
@@ -83,6 +94,14 @@
 	inserted_light = /obj/item/light/bulb
 	supports_nightmode = FALSE
 	bulb_is_noisy = FALSE
+
+/obj/machinery/light/small/floor
+	name = "small floor lighting fixture"
+	icon_state = "floor_example"
+	base_state = "floor"
+	desc = "A small lighting fixture. This one is set into the floor."
+	layer = 2.5
+	fitting_is_on_floor = TRUE
 
 /obj/machinery/light/small/emergency
 	brightness_range = 6
@@ -104,19 +123,27 @@
 	brightness_color = LIGHT_COLOR_RED
 	randomize_color = FALSE
 
+/obj/machinery/light/colored/decayed
+	brightness_color = LIGHT_COLOR_DECAYED
+	randomize_color = FALSE
+
+/obj/machinery/light/colored/dying
+	brightness_color = LIGHT_COLOR_DYING
+	randomize_color = FALSE
+
+/obj/machinery/light/broken
+	status = LIGHT_BROKEN
+
 /obj/machinery/light/spot
-	name = "spotlight"
+	name = "spotlight fixture"
+	icon_state = "tube_empty"
+	desc = "An extremely powerful lighting fixture."
 	fitting = "large tube"
 	light_type = /obj/item/light/tube/large
 	inserted_light = /obj/item/light/tube/large
 	brightness_range = 12
 	brightness_power = 3.5
 	supports_nightmode = FALSE
-
-/obj/machinery/light/spot/weak
-	name = "low-intensity spotlight"
-	brightness_range = 12
-	brightness_power = 1.2
 
 /obj/machinery/light/built
 	start_with_cell = FALSE
@@ -126,7 +153,22 @@
 	stat |= MAINT
 	. = ..()
 
+/obj/machinery/light/floor/built/Initialize()
+	status = LIGHT_EMPTY
+	stat |= MAINT
+	. = ..()
+
 /obj/machinery/light/small/built/Initialize()
+	status = LIGHT_EMPTY
+	stat |= MAINT
+	. = ..()
+
+/obj/machinery/light/small/floor/built/Initialize()
+	status = LIGHT_EMPTY
+	stat |= MAINT
+	. = ..()
+
+/obj/machinery/light/spot/built/Initialize()
 	status = LIGHT_EMPTY
 	stat |= MAINT
 	. = ..()
@@ -134,6 +176,7 @@
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
+
 	if (!has_power())
 		stat |= NOPOWER
 	if (start_with_cell && !no_emergency)
@@ -147,19 +190,35 @@
 			if("bulb")
 				if(prob(5))
 					broken(1)
+			if("large tube")
+				if(prob(1))
+					broken(1)
 
 	if(randomize_color)
 		brightness_color = pick(randomized_colors)
 	default_color = brightness_color // We need a different var so the new color doesn't get wiped away. Initial() wouldn't work since brightness_color is overridden.
 	update(0)
+	set_pixel_offsets()
 
 /obj/machinery/light/Destroy()
 	QDEL_NULL(cell)
 	return ..()
 
+/obj/machinery/light/set_pixel_offsets()
+	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 12 : -12)
+	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? DEFAULT_WALL_OFFSET : 0) : 0
+
+/obj/machinery/light/floor/set_pixel_offsets()
+	pixel_x = pixel_x
+	pixel_y = pixel_y
+
 /obj/machinery/light/update_icon()
 	cut_overlays()
-	icon_state = "[base_state]_empty"
+	if ((status == LIGHT_EMPTY) || !fitting_has_empty_icon)
+		icon_state = "[base_state]_empty"
+	else
+		icon_state = "[base_state]"
+	var/on = emergency_mode || !stat
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
 			var/target_color
@@ -168,11 +227,17 @@
 			else
 				target_color = brightness_color
 				if (supports_nightmode && nightmode && !stat)
-					target_color = BlendRGB("#d2d2d2", target_color, 0.25)
+					target_color = BlendRGB("#D2D2D2", target_color, 0.25)
 
-			var/on = emergency_mode || !stat
-
-			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state][on]", target_color))
+			if (on)
+				var/image/I = LIGHT_FIXTURE_CACHE(icon, "[base_state]_on", target_color)
+				if (!fitting_is_on_floor)
+					I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+				else
+					I.layer = layer
+				add_overlay(I)
+			else
+				add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))
 
 		if(LIGHT_BURNED)
 			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_burned", brightness_color))
@@ -392,6 +457,10 @@
 				if("bulb")
 					newlight = new /obj/machinery/light_construct/small(get_turf(src))
 					newlight.icon_state = "bulb-construct-stage2"
+
+				if("large tube")
+					newlight = new /obj/machinery/light_construct/spot(get_turf(src))
+					newlight.icon_state = "slight-construct-stage2"
 			newlight.dir = src.dir
 			newlight.stage = 2
 			newlight.fingerprints = src.fingerprints

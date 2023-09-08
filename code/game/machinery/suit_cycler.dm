@@ -89,6 +89,7 @@
 	model_text = "Mining"
 	req_access = list(access_mining)
 	departments = list("Mining")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 
 /obj/machinery/suit_cycler/security
 	name = "security suit cycler"
@@ -138,7 +139,7 @@
 	model_text = "Research"
 	req_access = list(access_research)
 	departments = list("Research")
-	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
+	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/freelancer
@@ -368,10 +369,9 @@
 	if(panel_open)
 		wires.Interact(user)
 
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=suit_cycler")
-	onclose(user, "suit_cycler")
-	return
+	var/datum/browser/suit_cycler = new(user, "suit_cycler", "Suit Cycler", 450, 500)
+	suit_cycler.set_content(dat)
+	suit_cycler.open()
 
 /obj/machinery/suit_cycler/Topic(href, href_list)
 	if(!Adjacent(usr) && !issilicon(usr))

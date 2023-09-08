@@ -477,6 +477,13 @@ default behaviour is:
 	bodytemperature = T20C
 	sdisabilities = 0
 	disabilities = 0
+	hallucination = 0
+	silent = 0
+	dizziness = 0
+	drowsiness = 0
+	stuttering = 0
+	confused = 0
+	jitteriness = 0
 
 	// fix blindness and deafness
 	blinded = 0
@@ -589,8 +596,7 @@ default behaviour is:
 
 		if (!restrained())
 			var/diag = get_dir(src, pulling)
-			if ((diag - 1) & diag)
-			else
+			if (!((diag - 1) & diag))
 				diag = null
 			if ((get_dist(src, pulling) > 1 || diag))
 				if (isliving(pulling))
@@ -989,16 +995,6 @@ default behaviour is:
 	LAZYREMOVE(auras, aura)
 	update_icon()
 	return TRUE
-
-/mob/living/proc/apply_radiation_effects()
-	var/area/A = get_area(src)
-	if(!A)
-		return FALSE
-	if(isNotStationLevel(A.z))
-		return FALSE
-	if(A.flags & RAD_SHIELDED)
-		return FALSE
-	. = TRUE
 
 /mob/living/proc/needs_wheelchair()
 	return FALSE

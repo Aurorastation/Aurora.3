@@ -62,7 +62,7 @@
 	w_class = ITEMSIZE_TINY
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
-	usesound = 'sound/items/screwdriver.ogg'
+	usesound = 'sound/items/Screwdriver.ogg'
 	drop_sound = 'sound/items/drop/screwdriver.ogg'
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 	lock_picking_level = 5
@@ -137,7 +137,7 @@
 	attack_verb = list("pinched", "nipped")
 	sharp = TRUE
 	edge = TRUE
-	usesound = 'sound/items/wirecutter.ogg'
+	usesound = 'sound/items/Wirecutter.ogg'
 	drop_sound = 'sound/items/drop/wirecutter.ogg'
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
 	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
@@ -219,7 +219,7 @@
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
-	usesound = 'sound/items/welder.ogg'
+	usesound = 'sound/items/Welder.ogg'
 
 	attack_verb = list("hit", "bludgeoned", "whacked")
 

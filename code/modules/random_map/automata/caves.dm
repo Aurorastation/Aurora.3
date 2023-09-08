@@ -33,7 +33,7 @@
 		if (CELL_ALIVE(map[i]))
 			ore_turfs += i
 
-	game_log("ASGEN", "Found [ore_turfs.len] ore turfs.")
+	log_asset("ASGEN: Found [ore_turfs.len] ore turfs.")
 	var/ore_count = round(map.len/20)
 	var/door_count = 0
 	var/empty_count = 0
@@ -52,8 +52,8 @@
 			empty_count += 1
 		ore_count--
 
-	game_log("ASGEN", "Set [door_count] turfs to random minerals.")
-	game_log("ASGEN", "Set [empty_count] turfs to high-chance random minerals.")
+	log_asset("ASGEN: Set [door_count] turfs to random minerals.")
+	log_asset("ASGEN: Set [empty_count] turfs to high-chance random minerals.")
 	return 1
 
 /datum/random_map/automata/cave_system/apply_to_map()
@@ -91,7 +91,7 @@
 
 		CHECK_TICK
 
-	game_log("ASGEN", "Applied [num_applied] turfs.")
+	log_asset("ASGEN: Applied [num_applied] turfs.")
 
 /datum/random_map/automata/cave_system/high_yield
 	descriptor = "high yield caves"
@@ -150,7 +150,7 @@
 
 		CHECK_TICK
 
-	game_log("ASGEN", "Applied [num_applied] turfs.")
+	log_asset("ASGEN: Applied [num_applied] turfs.")
 
 /datum/random_map/automata/cave_system/chasms/cleanup()
 	return

@@ -20,7 +20,7 @@
 /datum/away_mission/proc/validate_maps()
 	for(var/map in map_files)
 		if(!fexists("[base_dir][map]"))
-			log_debug("[base_dir][map] does not exist")
+			LOG_DEBUG("[base_dir][map] does not exist")
 			return FALSE
 	return TRUE
 

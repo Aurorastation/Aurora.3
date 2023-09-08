@@ -18,7 +18,7 @@
 	..(loc)
 	appearance = target
 	// Reset some vars.
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha /= 4
 	dir = target.dir
 	if (!color)

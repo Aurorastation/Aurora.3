@@ -4,7 +4,7 @@
 	description = "A freighter flying under the banner of the Izweski Hegemony Merchants' Guild."
 	suffixes = list("ships/hegemony/merchants_guild/merchant_freighter.dmm")
 	ship_cost = 1
-	spawn_weight = 1
+	spawn_weight = 0 //the merchants guild has gone bankrupt, don't spawn this until we figure out how to rework it.
 
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/merchants_guild)
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE, SECTOR_TAU_CETI)
@@ -25,7 +25,7 @@
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
-	scanimage = "tramp_freighter.png"
+	scanimage = "unathi_freighter2.png"
 	designer = "Hephaestus Industries, Izweski Hegemonic Naval Guilds"
 	volume = "65 meters length, 35 meters beam/width, 18 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
@@ -45,6 +45,12 @@
 /obj/effect/overmap/visitable/ship/merchants_guild/New()
 	designation = "[pick("Fisher's Bounty", "Scales of Silver", "Gharr's Greed", "Pride of Skalamar", "Horns of Diamond", "Memory of Dukhul", "Glory through Profit", "Razi's Pride")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/merchants_guild/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "unathi_freighter2")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/merchants_guild
 	base_turf = /turf/space/dynamic

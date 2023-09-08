@@ -2,13 +2,12 @@
 	name = "fire alarm"
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."
 	icon = 'icons/obj/monitors.dmi'
-	icon_state = "fire0"
+	icon_state = "firealarm"
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/detecting = 1
 	var/working = 1
 	var/time = 10
 	var/timing = 0
-	var/lockdownbyai = 0
 	init_flags = 0 // Processing is only for timed alarms now
 	anchored = 1
 	idle_power_usage = 2
@@ -34,39 +33,27 @@
 	if(wiresexposed)
 		switch(buildstage)
 			if(2)
-				icon_state="fire_b2"
+				add_overlay("fire_b2")
 			if(1)
-				icon_state="fire_b1"
+				add_overlay("fire_b1")
 			if(0)
-				icon_state="fire_b0"
+				add_overlay("fire_b0")
 		return
 
 	if(stat & BROKEN)
-		icon_state = "firex"
+		add_overlay("firex")
 		set_light(0)
 	else if(stat & NOPOWER)
-		icon_state = "firep"
+		add_overlay("firep")
 		set_light(0)
 	else
 		var/area/A = get_area(src)
 		if(A.fire)
-			icon_state = "fire1"
+			add_overlay("fire1")
 			set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = COLOR_RED)
 		else
-			icon_state = "fire0"
-			switch(seclevel)
-				if("green")
-					set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = LIGHT_COLOR_GREEN)
-				if("blue")
-					set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = LIGHT_COLOR_BLUE)
-				if("yellow")
-					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_YELLOW)
-				if("red")
-					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_RED)
-				if("delta")
-					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_ORANGE)
-
-		add_overlay(image(icon, "overlay_[seclevel]", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
+			add_overlay("fire0")
+			set_light(0)
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
 	if(src.detecting)
@@ -109,7 +96,7 @@
 				else if (W.iswirecutter())
 					user.visible_message("<span class='notice'>\The [user] has cut the wires inside \the [src]!</span>", "<span class='notice'>You have cut the wires inside \the [src].</span>")
 					new/obj/item/stack/cable_coil(get_turf(src), 5)
-					playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
+					playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 					buildstage = 1
 					update_icon()
 					return TRUE
@@ -171,7 +158,7 @@
 	..()
 	queue_icon_update()
 
-/obj/machinery/firealarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/obj/machinery/firealarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
 	var/data[0]
 	data["alertLevel"] = get_security_level()
 	data["time"] = src.time
@@ -230,21 +217,11 @@
 /obj/machinery/firealarm/set_emergency_state(var/new_security_level)
 	if(seclevel != new_security_level)
 		seclevel = new_security_level
-		update_icon()
 
 /obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
 	. = ..(mapload, ndir)
 
-	seclevel = get_security_level()
-
-	if(building)
-		buildstage = 0
-		wiresexposed = 1
-		icon_state = "fire_b0"
-
-	// Overwrite the mapped in values.
-	pixel_x = DIR2PIXEL_X(dir)
-	pixel_y = DIR2PIXEL_Y(dir)
+	update_icon()
 
 	if(isContactLevel(z))
 		set_security_level(security_level ? get_security_level() : "green")
@@ -253,26 +230,34 @@
 	var/area/A = get_area(src)
 	RegisterSignal(A, COMSIG_AREA_FIRE_ALARM, TYPE_PROC_REF(/atom, update_icon))
 
+	if(!mapload)
+		set_pixel_offsets()
+
 /obj/machinery/firealarm/Destroy()
 	QDEL_NULL(soundloop)
 	. = ..()
 
+/obj/machinery/firealarm/set_pixel_offsets()
+	// Overwrite the mapped in values.
+	pixel_x = ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? 22 : -22))
+	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 32 : -17) : 0)
+
 // Convenience subtypes for mappers.
 /obj/machinery/firealarm/north
 	dir = NORTH
-	pixel_y = 31
+	pixel_y = 32
 
 /obj/machinery/firealarm/east
 	dir = EAST
-	pixel_x = 31
+	pixel_x = 22
 
 /obj/machinery/firealarm/west
 	dir = WEST
-	pixel_x = -31
+	pixel_x = -22
 
 /obj/machinery/firealarm/south
 	dir = SOUTH
-	pixel_y = -31
+	pixel_y = -17
 
 /*
 FIRE ALARM CIRCUIT
@@ -280,7 +265,7 @@ Just a object used in constructing fire alarms
 */
 /obj/item/firealarm_electronics
 	name = "fire alarm electronics"
-	icon = 'icons/obj/doors/door_assembly.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "door_electronics"
 	desc = "A circuit. It has a label on it, it says \"Can handle heat levels up to 40 degrees celsius!\""
 	w_class = ITEMSIZE_SMALL
@@ -307,7 +292,7 @@ Just a object used in constructing fire alarms
 	A.partyreset()
 	return
 
-/obj/machinery/firealarm/partyalarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/obj/machinery/firealarm/partyalarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
 	var/data[0]
 	data["alertLevel"] = get_security_level()
 	data["time"] = src.time

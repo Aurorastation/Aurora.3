@@ -465,7 +465,7 @@
 			update_icon()
 			return
 
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message(SPAN_WARNING("[user] cuts the fingertips off of \the [src]."),SPAN_WARNING("You cut the fingertips off of \the [src]."))
 
 		clipped = 1
@@ -506,9 +506,8 @@
 
 	var/mob/living/carbon/human/H = wearer
 	if(ring && istype(H))
-		if(!H.equip_to_slot_if_possible(ring, slot_gloves))
-			ring.forceMove(get_turf(src))
-		src.ring = null
+		H.equip_to_slot(ring, slot_gloves)
+		ring = null
 	wearer = null
 
 /obj/item/clothing/gloves/dropped()
@@ -559,6 +558,7 @@
 /obj/item/clothing/head/proc/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object"
+	set src in usr
 
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
@@ -1190,7 +1190,7 @@
 	else if(item_icons && (slot_head_str in item_icons))
 		our_image = image(item_icons[slot_head_str], icon_state)
 	else
-		our_image = image(INV_W_UNIFORM_DEF_ICON, icon_state)
+		our_image = image((icon ? icon : INV_W_UNIFORM_DEF_ICON), icon_state)
 	our_image.color = color
 	return our_image
 

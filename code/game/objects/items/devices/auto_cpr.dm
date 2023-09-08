@@ -1,7 +1,7 @@
 #define EPP "Emergency Positive Pressure system"
 
 /obj/item/auto_cpr
-	name = "stabilizer harness" 
+	name = "stabilizer harness"
 	desc = "A specialized medical harness that gives regular compressions to the patient's ribcage for cases of urgent heart issues, and functions as an emergency \
 	artificial respirator for cases of urgent lung issues."
 	desc_info = "The Stabilizer Harness' CPR mode is capable of restarting the heart much like manual CPR with a chance for rib cracking ONLY IF the patient is flat lining,\
@@ -34,7 +34,7 @@
 	var/epp_active = FALSE
 
 	var/list/mask_blacklist = list(
-		/obj/item/clothing/mask/breath/vaurca,
+		/obj/item/clothing/mask/gas/vaurca,
 		/obj/item/clothing/mask/breath/skrell,
 		/obj/item/clothing/mask/breath/lyodsuit,
 		/obj/item/clothing/mask/breath/infiltrator)

@@ -14,11 +14,12 @@
 
 /obj/effect/overmap/visitable/sector/miners_guild_station
 	name = "Miners' Guild Outpost"
-	desc = "A Kutah-class mining station, owned and operated by the Hegemony Miners' Guild. These stations are usually temporary, constructed in mineral-rich systems and operated until \
+	desc = "A Kutah-class mining station, owned and operated by the Hegemony Miners' Guild, now a proud subsidiary of Hephaestus Industries. These stations are usually temporary, constructed in mineral-rich systems and operated until \
 	the local celestial bodies have been stripped of any minerals of value. They have earned a reputation for being slapdash and shoddily-constructed, though this one seems to be in good shape."
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "outpost"
 	color = "#b07810"
+	scanimage = "unathi_guild_station.png"
 	comms_support = TRUE
 	comms_name = "Miners' Guild"
 	initial_generic_waypoints = list(
@@ -49,13 +50,17 @@
 	name = "Miners' Guild Outpost - Aft"
 	landmark_tag = "miners_guild_nav4"
 
-
+/obj/effect/overmap/visitable/sector/miners_guild_station/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "guild_station")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 //Shuttle
 
 /obj/effect/overmap/visitable/ship/landable/miners_guild
 	name = "Miners' Guild Shuttle"
 	class = "IHGV" //Izweski Hegemony Guild Vessel
-	desc = "Commonly used by the Miners’ Guild, Glizkin-class shuttles are short-range mining vessels, designed for persistent mining of celestial bodies. \
+	desc = "Commonly used by the Miners’ Guild, now a proud Hephaestus subsidiary, Glizkin-class shuttles are short-range mining vessels, designed for persistent mining of celestial bodies. \
 	They are viewed by their crews as small, yet reliable and enduring - much like the Tza Prairie folk hero for which they are named. They are usually found attached to larger stations or mining vessels."
 	shuttle = "Miners' Guild Shuttle"
 	icon_state = "shuttle"

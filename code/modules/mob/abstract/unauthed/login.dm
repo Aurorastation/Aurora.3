@@ -6,7 +6,7 @@
 	var/timeout_timer
 
 /mob/abstract/unauthed/New()
-	verbs -= typesof(/mob/verb)
+	remove_verb(src, typesof(/mob/verb))
 
 /mob/abstract/unauthed/LateLogin()
 	SHOULD_CALL_PARENT(FALSE)
@@ -15,7 +15,7 @@
 	to_chat(src, "<span class='danger'><b>You need to authenticate before you can continue.</b></span>")
 	token = md5("[client.ckey][client.computer_id][world.time][rand()]")
 	unauthed[token] = src
-	client.verbs -= typesof(/client/verb)
+	remove_verb(client, typesof(/client/verb))
 	var/uihtml = "<html><head><style>body * {display: block;text-align:center;margin: 14px 0;font-size:24px;text-decoration:none;font-family:Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;}</style></head><body><p>Please select:</p>"
 	if(config.guests_allowed)
 		uihtml += "<a href='?src=\ref[src];authaction=guest'>Login as guest</a>"
@@ -39,7 +39,7 @@
 	var/client/c = client // so we don't lose the client in the current mob.
 
 	show_browser(src, null, "window=externalauth")
-	c.verbs += typesof(/client/verb) // Let's return regular client verbs
+	add_verb(c,  typesof(/client/verb)) // Let's return regular client verbs
 	c.authed = TRUE // We declare client as authed now
 	c.prefs = null //Null them so we can load them from the db again for the correct ckey
 	// Check for bans

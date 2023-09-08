@@ -4,7 +4,7 @@
 	density = 1
 	anchored = 0
 	name = "computer frame"
-	icon = 'icons/obj/modular_console.dmi'
+	icon = 'icons/obj/machinery/modular_console.dmi'
 	icon_state = "0"
 	build_amt = 5
 	var/state = 0
@@ -84,7 +84,7 @@
 				return TRUE
 		if(3)
 			if(P.iswirecutter())
-				playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the cables.</span>")
 				src.state = 2
 				src.icon_state = "2"

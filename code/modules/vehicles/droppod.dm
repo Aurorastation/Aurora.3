@@ -146,6 +146,8 @@
 
 /obj/vehicle/droppod/attack_hand(mob/user as mob)
 	..()
+	if(isobserver(user))
+		return
 	if(user == humanload || user == passenger)
 		if(status != USED)
 			launchinterface()
@@ -155,28 +157,30 @@
 		load(user)
 		launchinterface()
 
-/obj/vehicle/droppod/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "vehicles-droppod", 400, 400, "Drop Pod", state = default_state)
-		ui.data = vueui_data_change(null, user, ui)
+/obj/vehicle/droppod/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "DropPod", "Drop Pod", 400, 400)
+		ui.open()
 
-	ui.open()
+/obj/vehicle/droppod/ui_state(mob/user)
+	return always_state
 
-/obj/vehicle/droppod/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = list()
+/obj/vehicle/droppod/ui_data(mob/user)
+	var/list/data = list()
 
 	data["status"] = status
 
 	return data
 
-/obj/vehicle/droppod/Topic(href, href_list)
-	if(..())
-		return 1
+/obj/vehicle/droppod/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-	if(href_list["fire"])
+	if(action == "fire")
 		var/area/A = null
-		var/target = href_list["fire"]
+		var/target = params["fire"]
 		switch(target)
 			if("recreational_areas")
 				var/list/recreational_areas_list = list(
@@ -209,8 +213,7 @@
 					return
 			status = LAUNCHING
 
-			var/datum/vueui/ui = href_list["vueui"]
-			ui?.close()
+			SStgui.close_uis(src)
 
 			if(connected_blastdoor)
 				blastdoor_interact()

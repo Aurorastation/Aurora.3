@@ -1,7 +1,3 @@
-#define UPGRADE_COOLDOWN	40
-#define UPGRADE_KILL_TIMER	100
-
-
 //This is called from human_attackhand.dm before grabbing happens.
 //IT is called when grabber tries to grab this mob
 //Override this for special grab behaviour.
@@ -38,6 +34,7 @@
 	abstract = 1
 	item_state = "nothing"
 	w_class = ITEMSIZE_HUGE
+	throw_range = 5
 
 	drop_sound = null
 	pickup_sound = null
@@ -347,11 +344,6 @@
 	if(!affecting)
 		return
 
-	if(ishuman(user) && affecting == M)
-		var/mob/living/carbon/human/H = user
-		if(H.check_psi_grab(src))
-			return
-
 	if(world.time < (last_action + 20))
 		return
 
@@ -386,10 +378,13 @@
 						pin_down(affecting, assailant)
 					if(hit_zone == BP_HEAD)
 						hair_pull(affecting, assailant)
-	else if(M == assailant && state >= GRAB_AGGRESSIVE) //clicking on yourself while grabbing them
+
+	//clicking on yourself while grabbing them
+	else if(M == assailant && assailant.a_intent == I_GRAB && state >= GRAB_AGGRESSIVE)
 		devour(affecting, assailant)
 
 /obj/item/grab/dropped()
+	. = ..()
 	loc = null
 	if(!destroying)
 		qdel(src)

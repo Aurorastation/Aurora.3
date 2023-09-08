@@ -27,7 +27,7 @@
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	holder_type = /obj/item/holder/cat
-	mob_size = 2.5
+	mob_size = 3.5
 	scan_range = 3//less aggressive about stealing food
 	metabolic_factor = 0.75
 	max_nutrition = 60
@@ -155,11 +155,6 @@
 /mob/living/simple_animal/cat/Life()
 	. = ..()
 	handle_radiation_light()
-
-/mob/living/simple_animal/cat/apply_radiation_effects()
-	. = ..()
-	if(.)
-		apply_damage((rand(30,60)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /mob/living/simple_animal/cat/proc/handle_flee_target()
 	//see if we should stop fleeing

@@ -67,20 +67,24 @@
 	. = ..()
 	update_icon()
 
-/obj/item/material/twohanded/mob_can_equip(M, slot, disable_warning = FALSE)
-	//Cannot equip wielded items.
+/obj/item/material/twohanded/mob_can_equip(var/mob/user, slot, disable_warning = FALSE)
 	if(wielded)
-		to_chat(M, "<span class='warning'>Unwield the [base_name] first!</span>")
-		return 0
-
+		unwield()
+		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
 	return ..()
 
 /obj/item/material/twohanded/can_swap_hands(mob/user)
 	if(wielded)
-		return FALSE
+		unwield()
+		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
 	return ..()
 
 /obj/item/material/twohanded/dropped(mob/user as mob)
+	. = ..()
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
 		var/obj/item/material/twohanded/O = user.get_inactive_hand()
@@ -130,6 +134,9 @@
 			O.unwield()
 
 	else //Trying to wield it
+		var/obj/item/offhand_item = user.get_inactive_hand()
+		if(offhand_item)
+			user.unEquip(offhand_item, FALSE, user.loc)
 		if(user.get_inactive_hand())
 			to_chat(user, "<span class='warning'>You need your other hand to be empty.</span>")
 			return
@@ -585,6 +592,7 @@
 /obj/item/material/twohanded/pike/flag/verb/plant()
 	set name = "Plant Flag"
 	set category = "Object"
+	set src in usr
 
 	if(ishuman(usr))
 		var/mob/living/user = usr

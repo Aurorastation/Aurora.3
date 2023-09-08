@@ -53,7 +53,7 @@
 	icon_state = "bodybag"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
-	density = 0
+	density = FALSE
 	storage_capacity = 30
 	var/item_path = /obj/item/bodybag
 	var/contains_body = FALSE
@@ -90,13 +90,13 @@
 		return TRUE
 	else if(W.iswirecutter())
 		to_chat(user, "You cut the tag off the bodybag.")
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		src.name = "body bag"
 		LAZYREMOVE(overlays, image(icon, "bodybag_label"))
 		return TRUE
 
-/obj/structure/closet/body_bag/store_mobs(var/stored_units)
-	contains_body = ..()
+/obj/structure/closet/body_bag/store_mobs(var/stored_units, var/mob_limit)
+	contains_body = ..(stored_units, mob_limit = TRUE)
 	slowdown = 0
 	if(contains_body)
 		for(var/mob/living/M in contents)
