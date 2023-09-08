@@ -82,7 +82,6 @@
 	start_sound = 'sound/machines/computer/computer_start.ogg'
 	start_length = 7.2 SECONDS
 	start_volume = 10
-	mid_length = 1.8 SECONDS
 	end_sound = 'sound/machines/computer/computer_end.ogg'
 	end_volume = 10
 	volume = 3
