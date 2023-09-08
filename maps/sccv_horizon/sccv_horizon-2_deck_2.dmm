@@ -1187,8 +1187,8 @@
 	dir = 8
 	},
 /obj/machinery/door/window/southright{
-	req_access = list(25);
-	name = "Pun Pun's Cage"
+	name = "Pun Pun's Cage";
+	req_access = list(25)
 	},
 /turf/simulated/floor/carpet,
 /area/horizon/bar/backroom)
@@ -7811,8 +7811,8 @@
 	},
 /obj/machinery/orderterminal{
 	dir = 1;
-	pixel_y = 32;
-	pixel_x = -9
+	pixel_x = -9;
+	pixel_y = 32
 	},
 /turf/simulated/floor/lino,
 /area/horizon/crew_quarters/lounge/bar)
@@ -12290,8 +12290,8 @@
 /area/horizon/security/armoury)
 "gbk" = (
 /obj/machinery/atm{
-	pixel_y = 28;
-	dir = 1
+	dir = 1;
+	pixel_y = 28
 	},
 /obj/structure/railing/mapped{
 	dir = 8
@@ -20696,8 +20696,8 @@
 	},
 /obj/machinery/vending/dinnerware/plastic{
 	density = 0;
-	pixel_y = 24;
-	pixel_x = -17
+	pixel_x = -17;
+	pixel_y = 24
 	},
 /obj/machinery/camera/network/service{
 	c_tag = "Dinner - Kitchen Service";
@@ -21412,8 +21412,8 @@
 	dir = 8
 	},
 /obj/machinery/door/window/southright{
-	req_access = list(30);
-	name = "Ives' Pod"
+	name = "Ives' Pod";
+	req_access = list(30)
 	},
 /mob/living/simple_animal/hostile/commanded/baby_harvester,
 /turf/simulated/floor/carpet,
@@ -23340,8 +23340,8 @@
 	},
 /obj/item/device/radio/intercom/east,
 /obj/machinery/chemical_dispenser/coffeemaster/full{
-	pixel_y = 12;
-	dir = 0
+	dir = 0;
+	pixel_y = 12
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/rainbow{
 	pixel_x = 11;
@@ -23352,12 +23352,12 @@
 	pixel_y = -2
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/black{
-	pixel_y = -2;
-	pixel_x = 1
+	pixel_x = 1;
+	pixel_y = -2
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/zeng{
-	pixel_y = -2;
-	pixel_x = -4
+	pixel_x = -4;
+	pixel_y = -2
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt{
 	pixel_x = -9;
@@ -27753,7 +27753,6 @@
 /area/horizon/hallway/deck_two/fore)
 "npL" = (
 /obj/structure/railing/mapped,
-/obj/structure/stairs/east,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "nqm" = (
@@ -70722,7 +70721,7 @@ lnv
 ovz
 xPv
 tIt
-tUR
+npL
 wXF
 inc
 gzX
@@ -70924,7 +70923,7 @@ rcU
 gci
 ulg
 fnn
-npL
+tUR
 xrh
 bwU
 bPf
