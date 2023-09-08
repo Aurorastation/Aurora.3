@@ -278,15 +278,7 @@
 	if(!head)
 		return
 
-	var/list/names = list()
-	for(var/datum/absorbed_dna/DNA in changeling.absorbed_dna)
-		names += "[DNA.name]"
-
-	var/S = input("Select the target DNA to reconfigure in our lesser form: ", "Target DNA", null) as null|anything in names
-	if(!S)
-		return
-
-	var/datum/absorbed_dna/DNA = changeling.GetDNA(S)
+	var/datum/absorbed_dna/DNA = changeling.absorbed_dna[1]
 	var/datum/dna/chosen_dna = DNA.dna
 	if(!chosen_dna)
 		return

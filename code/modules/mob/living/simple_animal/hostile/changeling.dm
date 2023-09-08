@@ -190,7 +190,7 @@
 	var/mob/living/carbon/human/untransform_occupant = null
 
 /mob/living/simple_animal/hostile/lesser_changeling/revive
-	untransform_time = 10 MINUTES
+	untransform_time = 5 MINUTES
 
 /mob/living/simple_animal/hostile/lesser_changeling/Initialize()
 	. = ..()
