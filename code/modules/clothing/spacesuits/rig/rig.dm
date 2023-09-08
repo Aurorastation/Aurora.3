@@ -244,8 +244,10 @@
 	sealing = 1
 
 	if(!seal_target && !suit_is_deployed())
-		wearer.visible_message("<span class='danger'>[wearer]'s suit flashes an error light.</span>",
-								"<span class='danger'>Your suit flashes an error light. It can't function properly without being fully deployed.</span>")
+		wearer.visible_message(
+			SPAN_DANGER("[wearer]'s suit flashes an error light."),
+			SPAN_DANGER("Your suit flashes an error light. It can't function properly without being fully deployed.")
+		)
 		playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 		failed_to_seal = 1
 
