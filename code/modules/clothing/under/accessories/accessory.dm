@@ -890,6 +890,7 @@
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
 	desc = "A pair of engraved metal identification tags."
+	desc_info = "To yank apart the chain and recover one of the tags, use this in your hands with Harm intent selected."
 	icon = 'icons/clothing/accessories/dogtags.dmi'
 	icon_state = "dogtags"
 	item_state = "dogtags"
@@ -898,9 +899,16 @@
 	overlay_state = "tags"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
-	var/can_be_broken = FALSE
+	var/can_be_broken = TRUE
 	var/separated = FALSE
 	var/tag_type = /obj/item/dogtag
+
+/obj/item/dogtag
+	name = "dogtag"
+	desc = "An engraved metal identification tag, recovered from the dog tags of a deceased individual."
+	icon = 'icons/clothing/accessories/dogtags.dmi'
+	icon_state = "tag"
+	w_class = ITEMSIZE_TINY
 
 /obj/item/clothing/accessory/dogtags/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
@@ -911,10 +919,19 @@
 			if(user.a_intent == I_HURT)
 				user.visible_message(SPAN_NOTICE("[user] yanks apart \the [src]!"))
 				separated = TRUE
+				desc_info = null
 				var/obj/item/dogtag/tag = new tag_type(get_turf(user))
 				user.put_in_hands(tag)
 				separated = TRUE
 				update_icon()
+
+/obj/item/clothing/accessory/dogtags/examine(mob/user)
+	. = ..()
+	if(separated)
+		to_chat(user, SPAN_WARNING("One of the identification tags has been ripped off."))
+	else
+		to_chat(user, SPAN_NOTICE("They can be easily ripped in half in the event of the wearer's death."))
+
 
 /obj/item/clothing/accessory/dogtags/update_icon()
 	if(separated)

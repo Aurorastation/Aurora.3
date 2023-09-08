@@ -35,7 +35,8 @@
 		/obj/item/storage/business_card_holder,
 		/obj/item/sample,
 		/obj/item/key,
-		/obj/item/sign/painting_frame
+		/obj/item/sign/painting_frame,
+		/obj/item/dogtag
 	)
 	slot_flags = SLOT_ID
 	build_from_parts = TRUE

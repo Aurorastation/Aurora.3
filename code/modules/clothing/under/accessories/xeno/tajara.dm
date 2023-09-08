@@ -553,7 +553,6 @@
 	desc = "Dogtags issued to the Tajaran soldiers of all Adhomian factions. Veterans usually bring them back home."
 	icon = 'icons/clothing/accessories/dogtags.dmi'
 	icon_state = "adhomai_tag"
-	w_class = ITEMSIZE_SMALL
 
 //medals
 
