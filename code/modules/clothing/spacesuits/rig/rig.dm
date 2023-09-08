@@ -271,12 +271,10 @@
 			failed_to_seal = 1
 		else
 			for(var/list/piece_data in list(
-						list(wearer.shoes, boots, "boots", boot_type),
-						list(wearer.gloves, gloves, "gloves", glove_type),
-						list(wearer.head, helmet, "helmet", helm_type),
-						list(wearer.wear_suit, chest, "chest", chest_type)
-					)
-				)
+					list(wearer.shoes, boots, "boots", boot_type),
+					list(wearer.gloves, gloves, "gloves", glove_type),
+					list(wearer.head, helmet, "helmet", helm_type),
+					list(wearer.wear_suit, chest, "chest", chest_type)))
 
 				var/obj/item/clothing/piece = piece_data[1]
 				var/obj/item/compare_piece = piece_data[2]
