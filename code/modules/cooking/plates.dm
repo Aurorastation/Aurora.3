@@ -179,6 +179,6 @@ Plates that can hold your cooking stuff
 	set_overlays(O)
 
 /obj/item/reagent_containers/bowl/zhukamir
-	name = "/improper Zhukamir cauldron"
+	name = "\improper Zhukamir cauldron"
 	desc = "A small ornamental cauldron used as an altar by the worshippers of Zhukamir, the Ma'ta'ke deity of agriculture and cooking."
 	icon_state = "zhukamir"
