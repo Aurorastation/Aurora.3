@@ -555,6 +555,62 @@
 	icon_state = "adhomai_tag"
 	w_class = ITEMSIZE_SMALL
 
+/obj/item/clothing/accessory/tajaran/hadii_badge
+	name = "president hadii badge"
+	desc = "A badge with the image of President Hadii. This one is a very common one, likely sold to tourists and in newsstands."
+	icon_state = "hadii-pin-bronze"
+	item_state = "hadii-pin-bronze"
+	overlay_state = "hadii-pin-bronze"
+	desc_extended = "Created during the dawn of the First Revolution, these objects were crafted and worn by the Hadiist to identify themselves in opposition to Nated. The first ones \
+	were made with crude materials. In the early stages of the Hadii cult of personality, badges were only officially issued to celebrate events and special dates. In the later \
+	moments of the Second Revolution, they were mass fabricated and used as displays of loyalty to the Party. A thousand variations exist; some models are exclusively sold to tourists visiting the PRA. \
+	Some individuals are known to collect them."
+
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/tajaran/hadii_badge/silver
+	desc = "A badge with the image of President Hadii. This one is a mudane one, likely issued during a public event or to celebrate a holiday."
+	icon_state = "hadii-pin-silver"
+	item_state = "hadii-pin-silver"
+	overlay_state = "hadii-pin-silver"
+
+/obj/item/clothing/accessory/tajaran/hadii_badge/gold
+	desc = "A badge with the image of President Hadii. This one is a rare one, likely issued during a closed event or to honor some notable achievement."
+	icon_state = "hadii-pin-gold"
+	item_state = "hadii-pin-gold"
+	overlay_state = "hadii-pin-gold"
+
+/obj/item/clothing/accessory/tajaran/pra_brooch
+	name = "people's republic of adhomai brooch"
+	desc = "A fancy brooch in the colors of the PRA flag."
+	icon_state = "pra-brooch"
+	item_state = "pra-brooch"
+	overlay_state = "pra-brooch"
+
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/tajaran/dpra_brooch
+	name = "democratic people's republic of adhomai brooch"
+	desc = "A fancy brooch in the colors of the DPRA flag."
+	icon_state = "dpra-brooch"
+	item_state = "dpra-brooch"
+	overlay_state = "dpra-brooch"
+
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/tajaran/nka_brooch
+	name = "new kingdom of adhomai brooch"
+	desc = "A fancy brooch in the colors of the NKA flag."
+	icon_state = "nka-brooch"
+	item_state = "nka-brooch"
+	overlay_state = "nka-brooch"
+
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+
 //medals
 
 /obj/item/clothing/accessory/medal/pra_courage
@@ -634,3 +690,21 @@
 	desc = "An award bestowed to the military personnel who took part in the final offensive to liberate Harr'masir from Hadiist occupation in 2461."
 	icon_state = "harrmasir_offensive"
 	overlay_state = "iron"
+
+/obj/item/clothing/accessory/apron/dharmela
+	name = "\improper Dharmela apron"
+	desc = "An apron used by the followers of Dharmela, the Ma'ta'ke deity of forges, anvils, and craftsmanship"
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "dharmela_apron"
+	item_state = "dharmela_apron"
+	overlay_state = "dharmela_apron"
+	icon_override = null
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/necklace/adhomian
+	name = "adhomian pearl necklace"
+	desc = "A necklace made of Ras'val clams's pearls."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "pearl_necklace"
+	item_state = "pearl_necklace"
+	contained_sprite = TRUE
