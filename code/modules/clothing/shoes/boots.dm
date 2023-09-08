@@ -21,12 +21,13 @@
 	name = "cavalry jackboots"
 	desc = "Calf-length cavalry synthleather boots with an artificial shine."
 	icon_state = "cavalryboots"
-	item_state = "cavalry"
+	item_state = "cavalryboots"
 
 /obj/item/clothing/shoes/jackboots/toeless
 	name = "toe-less black boots"
 	desc = "Modified pair of boots, particularly friendly to those species whose toes hold claws."
 	icon_state = "jackboots_toeless"
+	item_state = "jackboots_toeless"
 	species_restricted = null
 
 /obj/item/clothing/shoes/jackboots/toeless/cavalry
@@ -61,6 +62,7 @@
 	name = "toe-less workboots"
 	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
 	icon_state = "workboots_toeless"
+	item_state = "workboots_toeless"
 	species_restricted = null
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("taj", "vak")
@@ -75,7 +77,7 @@
 	name = "toe-less brown workboots"
 	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
 	icon_state = "workboots_brown_toeless"
-	item_state = "workboots_brown"
+	item_state = "workboots_brown_toeless"
 
 /obj/item/clothing/shoes/workboots/grey
 	name = "grey workboots"
@@ -87,7 +89,7 @@
 	name = "toe-less grey workboots"
 	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
 	icon_state = "workboots_grey_toeless"
-	item_state = "workboots_grey"
+	item_state = "workboots_grey_toeless"
 
 /obj/item/clothing/shoes/workboots/dark
 	name = "dark workboots"
@@ -99,7 +101,7 @@
 	name = "toe-less dark workboots"
 	desc = "A pair of toeless dark work boots designed for use in industrial settings. Modified for species whose toes have claws."
 	icon_state = "workboots_dark_toeless"
-	item_state = "workboots_dark"
+	item_state = "workboots_dark_toeless"
 
 /obj/item/clothing/shoes/combat //basic syndicate combat boots for nuke ops and mob corpses
 	name = "combat boots"
