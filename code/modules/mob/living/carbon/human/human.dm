@@ -1485,6 +1485,11 @@
 
 	species.set_default_tail(src)
 
+	if(species.psi_deaf || HAS_FLAG(species.flags, IS_MECHANICAL) || HAS_FLAG(species.flags, NO_SCAN))
+		ADD_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
+	else if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
+		REMOVE_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
+
 	if(client)
 		client.init_verbs()
 
@@ -2022,30 +2027,6 @@
 				var/scale = min(1, round(damage / 50, 0.2))
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
-
-/mob/living/carbon/human/apply_radiation_effects()
-	. = ..()
-	if(. == TRUE)
-		if(src.is_diona())
-			var/damage = rand(15, 30)
-			src.adjustToxLoss(-damage)
-			if(prob(5))
-				damage = rand(20, 60)
-				src.adjustToxLoss(-damage)
-			to_chat(src, SPAN_NOTICE("You can feel flow of energy which makes you regenerate."))
-
-		if(species.radiation_mod <= 0)
-			return
-
-		apply_damage((rand(15,30)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-		if(prob(4))
-			apply_damage((rand(20,60)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-			if (prob(75))
-				randmutb(src) // Applies bad mutation
-				domutcheck(src,null,MUTCHK_FORCED)
-			else
-				randmutg(src) // Applies good mutation
-				domutcheck(src,null,MUTCHK_FORCED)
 
 /mob/living/carbon/human/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	var/used_accent = accent //starts with the mob's default accent

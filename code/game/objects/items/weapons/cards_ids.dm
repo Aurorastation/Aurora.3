@@ -477,6 +477,9 @@ var/const/NO_EMAG_ACT = -50
 	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
 	..()
 
+/obj/item/card/id/ert/scc
+	name = "\improper SCC Emergency Response Team identification card"
+
 /obj/item/card/id/asset_protection
 	name = "\improper NanoTrasen Asset Protection identification card"
 	icon_state = "centcom"

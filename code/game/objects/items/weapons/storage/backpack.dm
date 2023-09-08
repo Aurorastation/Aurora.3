@@ -113,7 +113,7 @@
 	icon_state = "giftbag0"
 	item_state = "giftbag"
 	w_class = ITEMSIZE_LARGE
-	max_storage_space = 400 // can store a ton of shit!
+	max_storage_space = 200 // can store a ton of shit!
 	empty_delay = 1 SECOND
 
 /obj/item/storage/backpack/cultpack
@@ -261,6 +261,13 @@
 	desc = "A sturdy backpack with the emblems and markings of the Tau Ceti Foreign Legion."
 	icon_state = "legion_bag"
 	item_state = "legion_bag"
+	empty_delay = 0.8 SECOND
+
+/obj/item/storage/backpack/tcaf
+	name = "\improper TCAF carapace backpack"
+	desc = "A hard shelled backpack with the flag of the Republic of Biesel front and center. Made for the Tau Ceti Armed Forces."
+	icon_state = "tcaf_carapace_backpack"
+	item_state = "tcaf_carapace_backpack"
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/service

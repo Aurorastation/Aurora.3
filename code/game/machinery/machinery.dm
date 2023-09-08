@@ -84,7 +84,7 @@ Class Procs:
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
 	w_class = ITEMSIZE_IMMENSE
-	layer = OBJ_LAYER - 0.01
+	layer = OBJ_LAYER - 0.1
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	var/stat = 0
@@ -318,7 +318,7 @@ Class Procs:
 	if(!detach_turf)
 		detach_turf = get_turf(src)
 	if(!detach_turf)
-		log_debug("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
+		LOG_DEBUG("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
 		return
 
 	var/obj/item/device/assembly/signaler/S = signaler

@@ -348,11 +348,6 @@
 	if(!affecting)
 		return
 
-	if(ishuman(user) && affecting == M)
-		var/mob/living/carbon/human/H = user
-		if(H.check_psi_grab(src))
-			return
-
 	if(world.time < (last_action + 20))
 		return
 
@@ -390,7 +385,7 @@
 						hair_pull(affecting, assailant)
 
 	//clicking on yourself while grabbing them
-	if(M == assailant && state >= GRAB_AGGRESSIVE)
+	if(M == assailant && assailant.a_intent == I_GRAB && state >= GRAB_AGGRESSIVE)
 		devour(affecting, assailant)
 
 /obj/item/grab/dropped()

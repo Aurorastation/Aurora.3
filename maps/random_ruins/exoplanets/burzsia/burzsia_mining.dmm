@@ -20,9 +20,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -32;
+/obj/machinery/alarm/south{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -38,12 +36,10 @@
 /obj/structure/closet/secure_closet/personal,
 /obj/item/clothing/suit/storage/hooded/wintercoat/heph,
 /obj/item/clothing/under/rank/miner/heph,
-/obj/effect/floor_decal/corner/green/full{
+/obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
 "bL" = (
@@ -54,30 +50,28 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "cw" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
 "cE" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Restroom"
+	name = "Restroom";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/burzsia_mining)
 "de" = (
 /obj/machinery/cryopod,
-/obj/effect/floor_decal/corner/green/full{
+/obj/effect/floor_decal/corner/dark_green/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -215,10 +209,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(202)
 	},
 /obj/structure/cable/green{
@@ -275,7 +266,8 @@
 "jg" = (
 /obj/machinery/door/airlock/mining{
 	req_access = list(202);
-	name = "Foreman Office"
+	name = "Foreman Office";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -368,15 +360,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
 "kS" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -384,7 +373,7 @@
 "lm" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/obj/effect/floor_decal/corner/green/full{
+/obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
 	},
 /obj/effect/ghostspawpoint{
@@ -396,7 +385,8 @@
 "lr" = (
 /obj/machinery/door/airlock/mining{
 	req_access = list(202);
-	name = "Engine"
+	name = "Engine";
+	dir = 1
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -459,9 +449,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
+/obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
 "ms" = (
@@ -556,10 +544,8 @@
 /obj/item/gun/custom_ka/frame01/prebuilt,
 /obj/item/ore_detector,
 /obj/item/device/flashlight/lantern,
-/obj/machinery/alarm{
-	req_one_access = list(202);
-	pixel_x = -32;
-	dir = 4
+/obj/machinery/alarm/west{
+	req_one_access = list(202)
 	},
 /obj/item/device/radio,
 /obj/item/stack/flag/yellow,
@@ -597,7 +583,8 @@
 "pT" = (
 /obj/machinery/door/airlock/mining{
 	req_access = list(202);
-	name = "Atmospherics"
+	name = "Atmospherics";
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -614,7 +601,7 @@
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
 "pY" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
 /obj/machinery/light{
@@ -711,13 +698,11 @@
 "tP" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
-/obj/machinery/alarm{
-	req_one_access = list(202);
-	pixel_x = -32;
-	dir = 4
+/obj/machinery/alarm/west{
+	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
@@ -757,7 +742,8 @@
 "uU" = (
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(202);
-	name = "Mess Room"
+	name = "Mess Room";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -819,7 +805,7 @@
 "wx" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
 /obj/machinery/light{
@@ -870,7 +856,8 @@
 /area/burzsia_mining/foreman)
 "zh" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Restroom"
+	name = "Restroom";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -885,7 +872,7 @@
 /obj/structure/closet/secure_closet/personal,
 /obj/item/clothing/suit/storage/hooded/wintercoat/heph,
 /obj/item/clothing/under/rank/miner/heph,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
 /obj/structure/sign/flag/heph/large/east{
@@ -948,15 +935,13 @@
 "zJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
+/obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "zM" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/obj/effect/floor_decal/corner/green/full,
+/obj/effect/floor_decal/corner/dark_green/full,
 /obj/effect/ghostspawpoint{
 	identifier = "burzsia_miner";
 	name = "igs - burzsia_miner"
@@ -1017,7 +1002,7 @@
 /area/burzsia_mining/mining)
 "AS" = (
 /obj/effect/floor_decal/corner/orange,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1043,8 +1028,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/alarm{
-	pixel_y = 32;
+/obj/machinery/alarm/north{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1053,7 +1037,7 @@
 /obj/structure/closet/secure_closet/personal,
 /obj/item/clothing/suit/storage/hooded/wintercoat/heph,
 /obj/item/clothing/under/rank/miner/heph,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1079,7 +1063,7 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1098,7 +1082,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "Dy" = (
-/obj/effect/floor_decal/corner/green/full{
+/obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
 	},
 /obj/structure/filingcabinet,
@@ -1149,7 +1133,7 @@
 "EF" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1214,7 +1198,8 @@
 "GW" = (
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(202);
-	name = "Mining Bay"
+	name = "Mining Bay";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -1233,7 +1218,8 @@
 "Ht" = (
 /obj/machinery/door/airlock/mining{
 	req_access = list(202);
-	name = "Dormitories"
+	name = "Dormitories";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -1274,12 +1260,9 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(202)
 	},
 /turf/simulated/floor,
@@ -1314,9 +1297,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "JD" = (
@@ -1353,7 +1334,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 1
 	},
 /obj/effect/ghostspawpoint{
@@ -1611,7 +1592,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/burzsia_mining)
 "Rw" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1659,7 +1640,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "TD" = (
-/obj/effect/floor_decal/corner/green/full,
+/obj/effect/floor_decal/corner/dark_green/full,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -1675,9 +1656,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -32;
+/obj/machinery/alarm/south{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1710,10 +1689,7 @@
 /area/burzsia_mining/mining)
 "TX" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/steel,
@@ -1722,10 +1698,8 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/alarm{
-	req_one_access = list(202);
-	pixel_x = 32;
-	dir = 8
+/obj/machinery/alarm/east{
+	req_one_access = list(202)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
@@ -1743,11 +1717,8 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(202)
 	},
 /obj/structure/cable/green,
@@ -1884,7 +1855,7 @@
 /turf/simulated/floor/airless,
 /area/burzsia_mining/mining)
 "Yy" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
 /obj/structure/cable/green{
@@ -1932,7 +1903,7 @@
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
 "YY" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
 /obj/structure/cable/green{

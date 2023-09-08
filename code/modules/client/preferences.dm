@@ -99,6 +99,8 @@ var/list/preferences_datums = list()
 	var/culture
 	var/origin
 
+	var/list/psionics = list()
+
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/static/list/preview_screen_locs = list(
 		"1" = "character_preview_map:1,5:-12",
@@ -171,17 +173,20 @@ var/list/preferences_datums = list()
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
 
-	var/bgstate = "000"
+	var/bgstate = "000000"
 	var/list/bgstate_options = list(
-		"fffff",
-		"000",
-		"new_steel",
-		"dark2",
+		"FFFFFF",
+		"000000",
+		"tiled_preview",
+		"monotile_preview",
+		"dark_preview",
 		"wood",
-		"wood_light",
-		"grass_alt",
-		"new_reinforced",
-		"new_white"
+		"grass",
+		"reinforced",
+		"white_preview",
+		"freezer",
+		"carpet",
+		"reinforced"
 		)
 
 	var/fov_cone_alpha = 255
@@ -268,7 +273,7 @@ var/list/preferences_datums = list()
 		BG = new
 		BG.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
 		BG.layer = TURF_LAYER
-		BG.icon = 'icons/turf/total_floors.dmi'
+		BG.icon = 'icons/turf/flooring/tiles.dmi'
 		LAZYSET(char_render_holders, "BG", BG)
 		client.screen |= BG
 	BG.icon_state = bgstate
@@ -471,6 +476,12 @@ var/list/preferences_datums = list()
 
 	character.headset_choice = headset_choice
 
+	if(length(psionics))
+		for(var/power in psionics)
+			var/singleton/psionic_power/P = GET_SINGLETON(text2path(power))
+			if(istype(P) && (P.ability_flags & PSI_FLAG_CANON))
+				P.apply(character)
+
 	if(icon_updates)
 		character.force_update_limbs()
 		character.update_mutations(0)
@@ -551,7 +562,7 @@ var/list/preferences_datums = list()
 		return
 
 	if(!H.mind.assigned_role)
-		log_debug("Char-Log: Char [current_character] - [H.name] has joined with mind.assigned_role set to NULL")
+		LOG_DEBUG("Char-Log: Char [current_character] - [H.name] has joined with mind.assigned_role set to NULL")
 
 	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, alt_title) VALUES (:char_id:, :game_id:, NOW(), :job:, :alt_title:)")
 	query.Execute(list("char_id" = current_character, "game_id" = game_id, "job" = H.mind.assigned_role, "alt_title" = H.mind.role_alt_title))
@@ -638,6 +649,7 @@ var/list/preferences_datums = list()
 
 		ccia_actions = list()
 		disabilities = list()
+		psionics = list()
 
 		economic_status = ECONOMICALLY_AVERAGE
 

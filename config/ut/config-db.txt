@@ -81,9 +81,6 @@ LOG_PDA
 ## log world.log messages
 # LOG_WORLD_OUTPUT
 
-## log all Topic() calls (for use by coders in tracking down Topic issues)
-# LOG_HREFS
-
 ## log runtime errors and hard-deletes to a file
 ## 0 - no such logging will be done. (Same effect if simply commented out.)
 ## 1 - all runtimes and hard-deletes will be logged to a file.

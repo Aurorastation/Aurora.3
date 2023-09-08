@@ -267,11 +267,15 @@
 /obj/item/device/healthanalyzer/mech //Used to set up the full body scan feature
 	var/obj/machinery/body_scanconsole/internal_bodyscanner = null
 	var/fullScan = FALSE //Toggle whether to do full or basic scan
-	
+
 /obj/item/device/healthanalyzer/mech/Initialize()
 	. = ..()
 	internal_bodyscanner = new /obj/machinery/body_scanconsole(src)
 	internal_bodyscanner.use_power = FALSE
+
+/obj/item/device/healthanalyzer/mech/Destroy()
+	QDEL_NULL(internal_bodyscanner)
+	. = ..()
 
 /obj/item/mecha_equipment/mounted_system/medanalyzer/CtrlClick(mob/user)
 	var/obj/item/device/healthanalyzer/mech/HA = holding
