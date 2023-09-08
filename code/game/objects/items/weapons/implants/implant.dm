@@ -54,6 +54,7 @@
 /obj/item/implant/Destroy()
 	if(part)
 		part.implants.Remove(src)
+		part = null
 	STOP_PROCESSING(SSprocessing, src)
 	implants -= src
 	return ..()

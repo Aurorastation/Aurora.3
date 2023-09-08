@@ -263,6 +263,13 @@
 	item_state = "legion_bag"
 	empty_delay = 0.8 SECOND
 
+/obj/item/storage/backpack/tcaf
+	name = "\improper TCAF carapace backpack"
+	desc = "A hard shelled backpack with the flag of the Republic of Biesel front and center. Made for the Tau Ceti Armed Forces."
+	icon_state = "tcaf_carapace_backpack"
+	item_state = "tcaf_carapace_backpack"
+	empty_delay = 0.8 SECOND
+
 /obj/item/storage/backpack/service
 	name = "idris service backpack"
 	desc = "The Idris Service Standard, known for it's professionalism. It also baffingly includes this monstrous, self-stabilizing back-mounted utensil and service item holder."
