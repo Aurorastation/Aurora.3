@@ -974,6 +974,24 @@
 	icon_state = "seccape"
 	item_state = "seccape"
 
+/obj/item/storage/backpack/cloak/zora
+	name = "Zo'ra tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the Zo'ra Hive flag design."
+	icon_state = "zoracape"
+	item_state = "zoracape"
+
+/obj/item/storage/backpack/cloak/klax
+	name = "K'lax tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the K'lax Hive flag design."
+	icon_state = "klaxcape"
+	item_state = "klaxcape"
+
+/obj/item/storage/backpack/cloak/cthur
+	name = "C'thur tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the C'thur Hive flag design."
+	icon_state = "cthurcape"
+	item_state = "cthurcape"
+
 /obj/item/storage/backpack/kala
 	name = "skrell backpack"
 	desc = "A lightly padded, waterproof backpack worn by Skrell."
