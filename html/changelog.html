@@ -35,7 +35,30 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">08 September 2023</h2>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Tweaked the research director&#x27;s office to be more roomy and look more professional.</li>
+				<li class="bugfix">Fixed some unrotated plastic flaps in the south-west part of the warehouse on D1.</li>
+				<li class="bugfix">Fixed a light and sign overlapping in the mail room.</li>
+				<li class="bugfix">Potentially fixed some issues with the CoC ranger ship&#x27;s cockpit windows missing.</li>
+				<li class="bugfix">Fixed the ATM outside operations on D2 being misrotated.</li>
+				<li class="bugfix">Fixed east facing stairs not working.</li>
+				<li class="bugfix">Fixed the engineering stairs and AI core stairs being mapped incorrectly.</li>
+				<li class="bugfix">Fixed the medical meeting area chairs being plastic lawn chairs.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Increases hitbox of syringes, autoinjectors, autoinhalers.</li>
+				<li class="bugfix">Fixes invisible item icons for light bulbs, tubes.</li>
+				<li class="tweak">Lift lightbulbs will now always spawn working.</li>
+			</ul>
+
 			<h2 class="date">07 September 2023</h2>
+			<h3 class="author">Alberyk, ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the Cyclops Mining Vessel away ship.</li>
+			</ul>
 			<h3 class="author">CampinKiller24 updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="rscadd">Updated the radiation storm announcements to account for the lingering radiation.</li>
@@ -44,11 +67,29 @@
 			<h3 class="author">DreamySkrell updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="tweak">Chat bad connection notification/popup moved up so it does not block new messages in the chat.</li>
+				<li class="bugfix">Uplink free first aid kit actually free.</li>
 			</ul>
 			<h3 class="author">FluffyGhost updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">Now hud_overlay and arranged_hud_process drops the reference on deletion.</li>
 				<li class="bugfix">The electrical storm event now drops the reference to APCs on deletion and end.</li>
+				<li class="bugfix">Fixed the mob subsystem, that could try to run on removed mobs on a resumed fire.</li>
+				<li class="refactor">Added a spatial gridmap check LoS define, to be used inside spatial_info for often called procs (get_target_in_LOS for now, which is called very often, 455k times in 10 minutes).</li>
+				<li class="bugfix">/obj/item now deletes the action and hidden uplink on qdel.</li>
+				<li class="backend">Turned a bunch of comments into dmdocs for /obj/items.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a uniform for Einstein Engines, replacing the Hephaestus uniform for these roles.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Replaces the Hegemony energy shields on the Kataphract ship with the Kataphract energy shields.</li>
+				<li class="rscadd">Adds an integrated magboot augment for Vaurca.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed overlays sticking for accent items when toggled.</li>
 			</ul>
 			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
 			<ul class="changes bgimages16">
@@ -59,6 +100,8 @@
 				<li class="tweak">Pumpkin Spice Latte recipe has been changed to 4 units of latte to 1 unit of pumpkin spice syrup to match its counterparts.</li>
 				<li class="tweak">Pumpkin Spice Frappe recipe has been changed to 4 units of iced coffee to 1 unit of pumpkin spice syrup.</li>
 				<li class="tweak">Pumpkin Spice recipe has been changed to need only 4 units of space spice and 1 unit of pumpkin pulp - ratio unchanged.</li>
+				<li class="rscadd">You can now offer someone a smoke directly from the packet. Just target the mouth area with an open cigarette packet, like you would yourself.</li>
+				<li class="rscadd">You can also offer to light someone else&#x27;s cigarettes.</li>
 			</ul>
 
 			<h2 class="date">06 September 2023</h2>

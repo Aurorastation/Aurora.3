@@ -254,11 +254,11 @@
 	return (T == loc)
 
 /obj/structure/stairs/CanPass(obj/mover, turf/source, height, airflow)
-	if (airflow)
+	if(airflow)
 		return TRUE
 
 	// Disallow stepping onto the elevated part of the stairs.
-	if (isliving(mover) && z == mover.z && mover.loc != loc && get_step(mover, get_dir(mover, src)) == loc)
+	if(isliving(mover) && z == mover.z && mover.loc != loc && get_step(mover, get_dir(mover, src)) == loc)
 		return FALSE
 
 	return !density
@@ -268,11 +268,11 @@
 		return
 
 	L.Weaken(2)
-	if (L.lying)
+	if(L.lying)
 		L.visible_message(
-			"<span class='alert'>\The [L] steps off of [src] and faceplants onto [L.loc].</span>",
-			"<span class='danger'>You step off [src] and faceplant onto [L.loc].</span>",
-			"<span class='alert'>You hear a thump.</span>"
+			SPAN_ALERT("\The [L] steps off of [src] and faceplants onto [L.loc]."),
+			SPAN_DANGER("You step off [src] and faceplant onto [L.loc]."),
+			SPAN_ALERT("You hear a thump.")
 		)
 
 /obj/structure/stairs/north
@@ -286,26 +286,26 @@
 	bound_height = 64
 
 /obj/structure/stairs/east
-	icon_state = "east"
 	dir = EAST
 	bound_x = -32
 	pixel_x = -32
 	bound_width = 64
+	bound_x = -32
+	pixel_x = -32
 
 /obj/structure/stairs/west
-	icon_state = "west"
 	dir = WEST
 	bound_width = 64
 
 /obj/structure/stairs/flat
-	icon_state = "flat"
+	icon_state = "stairs_flat"
 
 /// Snowflake railing object for 64x64 stairs.
 /obj/structure/stairs_railing
 	name = "railing"
 	desc = "A railing for stairs."
 	icon = 'icons/obj/stairs.dmi'
-	icon_state = "railing"
+	icon_state = "stairs_railing"
 	anchored = TRUE
 	density = TRUE
 

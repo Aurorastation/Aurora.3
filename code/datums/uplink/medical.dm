@@ -76,6 +76,7 @@
 /datum/uplink_item/item/medical/firstaid
 	name = "Standard First-Aid Kit (Free)"
 	telecrystal_cost = 0
+	bluecrystal_cost = 0
 	item_limit = 1
 	path = /obj/item/storage/firstaid/regular
 	desc = "You can claim this first-aid kit only once."
