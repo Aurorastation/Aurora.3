@@ -108,6 +108,9 @@
 /atom/proc/is_open_container()
 	return flags & OPENCONTAINER
 
+/atom/proc/is_pour_container()
+	return flags & POURCONTAINER
+
 /atom/proc/CheckExit()
 	return 1
 
@@ -253,7 +256,9 @@
 			f_name += "oil-stained [name][infix]."
 
 	to_chat(user, "[icon2html(src, user)] That's [f_name] [suffix]") // Object name. I.e. "This is an Object. It is a normal-sized item."
-	to_chat(user, desc)	// Object description.
+
+	if(src.desc)
+		to_chat(user, src.desc)	// Object description.
 
 	// Extra object descriptions examination code.
 	if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).

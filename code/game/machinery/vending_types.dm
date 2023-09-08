@@ -103,11 +103,13 @@
 		/obj/item/reagent_containers/food/drinks/bottle/kvass = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/tarasun = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/valokki_wine = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/hooch = 1,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
 		/obj/item/reagent_containers/food/drinks/cans/sodawater = 15,
 		/obj/item/reagent_containers/food/drinks/cans/tonic = 8,
 		/obj/item/reagent_containers/food/drinks/cans/threetowns = 6,
+		/obj/item/reagent_containers/food/drinks/cans/beer/rice = 8,
 		/obj/item/reagent_containers/food/drinks/carton/applejuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/cream = 4,
 		/obj/item/reagent_containers/food/drinks/carton/dynjuice = 4,
@@ -134,7 +136,7 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot = 10,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup = 10,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 4,
-		/obj/item/reagent_containers/food/drinks/pitcher = 4
+		/obj/item/reagent_containers/glass/beaker/pitcher = 4
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/tea = 10
@@ -265,7 +267,7 @@
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/ice = 10,
-		/obj/item/reagent_containers/food/drinks/soymilk = 2
+		/obj/item/reagent_containers/food/drinks/carton/soymilk = 2
 	)
 	prices = list(
 		/obj/item/reagent_containers/food/drinks/coffee = 20,
@@ -277,7 +279,7 @@
 		/obj/item/reagent_containers/food/snacks/donut/normal = 6
 	)
 	premium = list(
-		/obj/item/reagent_containers/food/drinks/teapot/ = 5
+		/obj/item/reagent_containers/glass/beaker/teapot/ = 5
 	)
 	vending_sound = 'sound/machines/vending/vending_coffee.ogg'
 	cooling_temperature = T0C + 57 //Optimal coffee temperature
@@ -333,9 +335,9 @@
 		/obj/item/reagent_containers/food/snacks/riceball = 4,
 		/obj/item/reagent_containers/food/snacks/seaweed = 5,
 		/obj/item/reagent_containers/food/drinks/jyalra = 5,
-		/obj/item/reagent_containers/food/drinks/jyalracheese = 5,
-		/obj/item/reagent_containers/food/drinks/jyalraapple = 5,
-		/obj/item/reagent_containers/food/drinks/jyalracherry = 5
+		/obj/item/reagent_containers/food/drinks/jyalra/cheese = 5,
+		/obj/item/reagent_containers/food/drinks/jyalra/apple = 5,
+		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 5
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/snacks/syndicake = 6,
@@ -372,9 +374,9 @@
 		/obj/item/reagent_containers/food/snacks/riceball = 15,
 		/obj/item/reagent_containers/food/snacks/seaweed = 20,
 		/obj/item/reagent_containers/food/drinks/jyalra = 38,
-		/obj/item/reagent_containers/food/drinks/jyalracheese = 44,
-		/obj/item/reagent_containers/food/drinks/jyalraapple = 44,
-		/obj/item/reagent_containers/food/drinks/jyalracherry = 44
+		/obj/item/reagent_containers/food/drinks/jyalra/cheese = 44,
+		/obj/item/reagent_containers/food/drinks/jyalra/apple = 44,
+		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 44
 	)
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "nanotrasen"
@@ -402,9 +404,10 @@
 		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 10,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 10,
 		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 10,
-		/obj/item/reagent_containers/food/drinks/small_milk = 10,
-		/obj/item/reagent_containers/food/drinks/small_milk_choco = 10,
-		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 10
+		/obj/item/reagent_containers/food/drinks/carton/small/milk = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 10,
+		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 10
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
@@ -431,9 +434,10 @@
 		/obj/item/reagent_containers/food/drinks/cans/koispunch = 50,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
 		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 35,
-		/obj/item/reagent_containers/food/drinks/small_milk = 18,
-		/obj/item/reagent_containers/food/drinks/small_milk_choco = 18,
-		/obj/item/reagent_containers/food/drinks/small_milk_strawberry = 18
+		/obj/item/reagent_containers/food/drinks/carton/small/milk = 18,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 18,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 18,
+		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 16
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
@@ -967,7 +971,7 @@
 		/obj/item/material/hatchet/butch = 2,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
-		/obj/item/reagent_containers/food/drinks/pitcher = 3,
+		/obj/item/reagent_containers/glass/beaker/pitcher = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
 		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 		/obj/item/clothing/accessory/apron/chef = 2,
@@ -1010,7 +1014,7 @@
 		/obj/item/material/kitchen/utensil/fork/chopsticks/cheap = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
-		/obj/item/reagent_containers/food/drinks/pitcher = 3,
+		/obj/item/reagent_containers/glass/beaker/pitcher = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
 		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 	)
@@ -1021,7 +1025,7 @@
 	products = list(
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
-		/obj/item/reagent_containers/food/drinks/pitcher = 3,
+		/obj/item/reagent_containers/glass/beaker/pitcher = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
 		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 	)
@@ -1103,7 +1107,8 @@
 		/obj/item/airalarm_electronics = 10,
 		/obj/item/firealarm_electronics = 10,
 		/obj/item/cell/high = 10,
-		/obj/item/grenade/chem_grenade/antifuel = 5
+		/obj/item/grenade/chem_grenade/antifuel = 5,
+		/obj/item/device/geiger = 5
 	)
 	contraband = list(
 		/obj/item/cell/potato = 3

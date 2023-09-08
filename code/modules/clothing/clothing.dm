@@ -1190,7 +1190,7 @@
 	else if(item_icons && (slot_head_str in item_icons))
 		our_image = image(item_icons[slot_head_str], icon_state)
 	else
-		our_image = image(INV_W_UNIFORM_DEF_ICON, icon_state)
+		our_image = image((icon ? icon : INV_W_UNIFORM_DEF_ICON), icon_state)
 	our_image.color = color
 	return our_image
 

@@ -31,6 +31,7 @@ var/global/Holiday = null
 		if(1)	//Jan
 			switch(DD)
 				if(1)							Holiday = "New Year's Day"
+				if(2)							Holiday = "Xanan Founding Day"
 				if(9)							Holiday = "Tajaran Coming of Dawn"
 				if(15)							Holiday = "New Kingdom of Adhomai Ice Waltz"
 				if(18)							Holiday = "Red Coalition Secession Day"
@@ -53,6 +54,7 @@ var/global/Holiday = null
 				if(11)							Holiday = "Assunzioni Assumption of the Fading Lights"
 				if(17)							Holiday = "St. Patrick's Day"
 				if(20)							Holiday = "Spring Vernal Equinox"
+				if(28)							Holiday = "All-Xanu Peace Day"
 				if(31)
 					if(YY == 24)  				Holiday = "Easter"
 
@@ -69,9 +71,10 @@ var/global/Holiday = null
 
 		if(5)	//May
 			switch(DD)
-				if(1)							Holiday = "Labour Day"
+				if(1)							Holiday = "International Workers' Day"
 				if(5)							Holiday = "Tau Ceti Republic Day"
 				if(6)							Holiday = "Eridani Diversity Day"
+				if(14)							Holiday = "Galatean Graduation Day"
 				if(22)							Holiday = "Dominian Worker's Day"
 				if(30)							Holiday = "People's Republic of Adhomai President's Day"
 
@@ -88,6 +91,7 @@ var/global/Holiday = null
 
 		if(7)	//Jul
 			switch(DD)
+				if(1)							Holiday = "Xanan Election Day"
 				if(4)
 					Holiday = "DPRA Democratic Revolution Day"
 					if(prob(50))				Holiday = "DPRA Liberation Day"
@@ -99,6 +103,7 @@ var/global/Holiday = null
 		if(8)	//Aug
 			switch(DD)
 				if(1)							Holiday = "Himean Independence Day"
+				if(13)							Holiday = "Xanan Independence Day"
 				if(19)							Holiday = "Damascene Independence Day"
 				if(21)							Holiday = "Venusian Ascension Day"
 				if(27)							Holiday = "Vaurca Hive War Commemoration"
@@ -113,8 +118,10 @@ var/global/Holiday = null
 
 		if(10)	//Oct
 			switch(DD)
+				if(1)							Holiday = "Frontier Victory Day"
 				if(5)							Holiday = "Colettish Colonization Day"
 				if(9)							Holiday = "K'lax Technology Day"
+				if(16)							Holiday = "Galatean Federation Day"
 				if(27)							Holiday = "New Kingdom of Adhomai Day of Rightful Restoration"
 				if(31)							Holiday = "Halloween"
 
@@ -122,8 +129,10 @@ var/global/Holiday = null
 			switch(DD)
 				if(1)							Holiday = "Dia de los Muertos"
 				if(17)							Holiday = "Dominian Navy Day"
+				if(18)							Holiday = "Kulkarni Day"
 				if(24)							Holiday = "Konyang Independence Day"
 				if(26)							Holiday = "Tajaran Armistice Day"
+				if(28)							Holiday = "Interstellar Peace Day"
 
 		if(12)	//Dec
 			switch(DD)

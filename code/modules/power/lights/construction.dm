@@ -2,7 +2,7 @@
 /obj/machinery/light_construct
 	name = "light fixture frame"
 	desc = "A light fixture under construction."
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "tube-construct-stage1"
 	anchored = TRUE
 	layer = 5
@@ -185,7 +185,7 @@
 /obj/machinery/light_construct/small
 	name = "small light fixture frame"
 	desc = "A small light fixture under construction."
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "bulb-construct-stage1"
 	anchored = TRUE
 	layer = 5
@@ -196,7 +196,7 @@
 /obj/machinery/light_construct/spot
 	name = "spotlight fixture frame"
 	desc = "A spotlight fixture under construction."
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "slight-construct-stage1"
 	anchored = TRUE
 	layer = 5
@@ -207,7 +207,7 @@
 /obj/machinery/light_construct/small/floor
 	name = "small floor light fixture frame"
 	desc = "A small floor light fixture under construction."
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "floor-construct-stage1"
 	anchored = TRUE
 	layer = 2.5
@@ -218,7 +218,7 @@
 /obj/machinery/light_construct/floor
 	name = "floor light fixture frame"
 	desc = "A floor light fixture under construction."
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "floortube-construct-stage1"
 	anchored = TRUE
 	layer = 2.5

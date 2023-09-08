@@ -43,6 +43,10 @@
 	var/active = 0
 	var/kill_loop = 0
 
+/datum/musical_event_manager/Destroy(force)
+	. = ..()
+	deactivate()
+	QDEL_NULL_LIST(events)
 
 /datum/musical_event_manager/proc/push_event(datum/sound_player/source, datum/sound_token/token, time, volume)
 	if (istype(source) && istype(token) && volume >= 0 && volume <= 100)

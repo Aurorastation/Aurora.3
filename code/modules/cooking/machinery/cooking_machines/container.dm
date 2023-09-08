@@ -3,7 +3,7 @@
 //which can be checked against recipe requirements in order to cook recipes that require several things
 
 /obj/item/reagent_containers/cooking_container
-	icon = 'icons/obj/cooking_machines.dmi'
+	icon = 'icons/obj/item/reagent_containers/cooking_container.dmi'
 	var/shortname
 	var/place_verb = "into"
 	var/max_space = 20//Maximum sum of w-classes of foods in this container at once
@@ -337,7 +337,6 @@
 	name = "mixing bowl"
 	shortname = "bowl"
 	desc = "A bowl. You bowl foods... wait, what?"
-	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mixingbowl"
 	filling_states = "-10;10;25;50;75;80;100"
 	center_of_mass = list("x" = 17,"y" = 7)
@@ -350,7 +349,6 @@
 /obj/item/reagent_containers/cooking_container/board/bowl/update_icon()
 	cut_overlays()
 	if(reagents?.total_volume)
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state][get_filling_state()]")
+		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state][get_filling_state()]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
-

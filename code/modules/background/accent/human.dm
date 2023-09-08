@@ -247,9 +247,9 @@
 
 /datum/accent/xanu
 	name = ACCENT_XANU
-	description = "The Xanu Standard dialect is arguably the most notable Freespeak dialect. Xanu Standard first emerged as an informal creole designed to make communication between the various nationalities \
-	who settled the planet easier and used loan words from upwards of a half-dozen languages during this early period. Over time this creole would morph into the Xanu Standard dialect of Freespeak \
-	and is arguably the oldest and most widespread of the 25th century's common Freespeak dialects. Freespeak taught abroad, such as in the Serene Republic of Elyra and Republic of Biesel, is most often based upon the Xanu Standard dialect."
+	description = "Xanan Freespeak is arguably the most notable Freespeak dialect. Xanan Freespeak first emerged as an informal creole designed to make communication between the various nationalities \
+	who settled the planet easier, being a hybridization of languages from the Indian subcontinent with a large share of loanwords from French and Dutch. Over time this creole would morph into Xanan Freespeak \
+	and is arguably the oldest and most widespread of the 25th century's common Freespeak dialects. Freespeak taught abroad, such as in the Serene Republic of Elyra and Republic of Biesel, is most often based upon Xanan Freespeak."
 	tag_icon = "xanu"
 	text_tag = "XAN"
 
@@ -275,6 +275,37 @@
 	been described as sounding relatively similar no matter which area of the planet they hail from."
 	tag_icon = "gadpathur"
 	text_tag = "GAD"
+
+/datum/accent/galatea
+	name = ACCENT_GALATEA
+	description = "Galatean Ministerial Common is one of two Ministerial Common dialects within the Federal Technocracy. Centrally managed by the Ministry of Galatean Culture (MfGC), Galatea proper's \
+	dialect is an unusual Solarian Common dialect characterized by its total lack of loan words and use of antiquated Common terms which date to the early 2300s — when it was established as a dialect — and \
+	have since fallen out of common use. Linguistically it is similar to Gadpathurian Common but lacks the Freespeak influence of Gadpathurian Common due to the MfGC's tight control over the language."
+	tag_icon = "galatea"
+	text_tag = "GAL"
+
+/datum/accent/tsukuyomi
+	name = ACCENT_TSUKUYOMI
+	description = "Significantly more rare abroad than Galatean Ministerial Common, Tsukuyomian Standard is one of two Ministerial Common dialects managed by the Ministry of Galatean Culture (MfGC). Like Galatean Ministerial \
+	Common, it lacks loan words due to central management and sounds comparatively antiquated when compared to more modern Solarian Common dialects. Tsukuyomian Standard is commonly associated with the Galatean Federal Navy, \
+	which has its headquarters on Tsukuyomi."
+	tag_icon = "tsukuyomi"
+	text_tag = "TSU"
+
+/datum/accent/empyrean
+	name = ACCENT_EMPYREAN
+	description = "Empyrean Federal Freespeak is a creole of Coalition Freespeak and Ministerial Common which features a multitude of Solarian Common loanwords due to most residents of Empyrean being bilingual, and often speaking \
+	Freespeak and Solarian Common. Compared to Svarogite Freespeak it features a heavier influence from foreign Freespeak and Solarian Common dialects due to Empyrean's status as a major point of entry for the Yggdrasil System. "
+	tag_icon = "empyrean"
+	text_tag = "EMY"
+
+/datum/accent/svarog
+	name = ACCENT_SVAROG
+	description = "Svarogite Federal Freespeak is an unusual creole which combines Coalition Freespeak with the Ministerial Common dialect of Solarian Common. It features many Solarian Common loanwords and speakers of this dialect \
+	are almost always bilingual, speaking both Solarian Common and Freespeak, which can lead to further linguistic blending. The universal lung bioaugmentations of Svarogites ensure that they, unlike their New Hai Phongese counterparts, \
+	do not suffer from chronic lung issues which would impact their speech."
+	tag_icon = "svarog"
+	text_tag = "SVA"
 
 /datum/accent/pluto
 	name = ACCENT_PLUTO
@@ -361,3 +392,17 @@
 	than the standard dictionary might, Damascene Elyran retains a refined, cultured, and historically resonant weight to its words, much like the storied planet itself."
 	tag_icon = "damascus"
 	text_tag = "DAM"
+
+/datum/accent/orepitter
+	name = ACCENT_OREPIT
+	description = "Native Orepitters developed their own way of speech that stemmed from centuries of complete isolation. The vast distances of the planet's desert surface required loud, high pitched sounds for reliable communication, \
+	making it the primary characteristic of the Orepitter accent."
+	tag_icon = "orepit"
+	text_tag = "ORE"
+
+/datum/accent/providence
+	name = ACCENT_PROVIDENCE
+	description = "While the capital of the Trinarists never had a sole language, its people from all over the Spur have come to adopt a unified accent. Characterised by fast-paced speaking and unique intonations to match the style of their \
+	synthetic brethren, IPCs have also come to adopt the accent for non-EAL languages."
+	tag_icon = "providence"
+	text_tag = "PDE"
