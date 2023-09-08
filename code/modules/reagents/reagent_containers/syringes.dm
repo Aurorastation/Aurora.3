@@ -10,11 +10,8 @@
 	name = "syringe"
 	desc = "A syringe."
 	desc_info = "This tool can be used to reinflate a collapsed lung. To do this, activate grab intent, select the patient's chest, then click on them. It will hurt a lot, but it will buy time until surgery can be performed."
-	icon = 'icons/obj/syringe.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
+	contained_sprite = TRUE
 	icon_state = "0"
 	item_state = "syringe"
 	build_from_parts = TRUE
@@ -285,11 +282,11 @@
 
 	if(reagents && reagents.total_volume)
 		worn_overlay = Clamp(round((reagents.total_volume / volume * 15),5), 1, 15) //rounded_vol
-		add_overlay(overlay_image('icons/obj/reagentfillings.dmi', "[iconstring][worn_overlay]", color = reagents.get_color()))
+		add_overlay(overlay_image(icon, "[iconstring][worn_overlay]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
-		update_held_icon()
 	else
-		worn_overlay = 0
+		worn_overlay = 0 // don't change to null, or it will break
+	update_held_icon()
 	icon_state = "[worn_overlay]"
 	if(ismob(loc))
 		var/injoverlay
@@ -359,7 +356,7 @@
 /obj/item/reagent_containers/syringe/large
 	name = "large syringe"
 	desc = "A large syringe - for those patients who need a little more."
-	icon = 'icons/obj/large_syringe.dmi'
+	icon = 'icons/obj/item/reagent_containers/large_syringe.dmi'
 	icon_state = "0"
 	possible_transfer_amounts = list(5, 15, 30)
 	volume = 30

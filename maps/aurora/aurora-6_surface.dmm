@@ -14553,7 +14553,7 @@
 /obj/machinery/light_switch{
 	pixel_x = -26
 	},
-/obj/item/reagent_containers/food/drinks/pitcher{
+/obj/item/reagent_containers/glass/beaker/pitcher{
 	pixel_x = -3;
 	pixel_y = 2
 	},
