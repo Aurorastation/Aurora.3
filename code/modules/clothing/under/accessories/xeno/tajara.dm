@@ -570,7 +570,7 @@
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/accessory/tajaran/hadii_badge/silver
-	desc = "A badge with the image of President Hadii. This one is a mudane one, likely issued during a public event or to celebrate a holiday."
+	desc = "A badge with the image of President Hadii. This is a mudane one, likely issued during a public event or to celebrate a holiday."
 	icon_state = "hadii-pin-silver"
 	item_state = "hadii-pin-silver"
 	overlay_state = "hadii-pin-silver"
