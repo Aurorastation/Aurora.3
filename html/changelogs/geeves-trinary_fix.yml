@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed Trinary robes not appearing correctly in the loadout."
+  - bugfix: "Fixed Trinary coif not being in the loadout."
