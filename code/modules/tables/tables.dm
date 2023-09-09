@@ -322,19 +322,18 @@
 
 		var/image/I
 
-		// Base frame shape. Mostly done for glass/diamond tables, where this is visible.
-		for(var/i = 1 to 4)
-			I = image(icon, dir = 1<<(i-1), icon_state = connections[i])
-			add_overlay(I)
-
-		// Standard table image
+		// Standard table image.
 		if(material)
 			for(var/i = 1 to 4)
 				I = image(icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
 				if(material_alteration & MATERIAL_ALTERATION_COLOR) I.color = material.icon_colour
 				add_overlay(I)
+		else
+			for(var/i = 1 to 4)
+				I = image(icon, dir = 1<<(i-1), icon_state = connections[i])
+				add_overlay(I)
 
-		// Reinforcements
+		// Reinforcements.
 		if(reinforced)
 			for(var/i = 1 to 4)
 				I = image(icon, "[reinforced.icon_reinf]_[connections[i]]", dir = 1<<(i-1))

@@ -35,7 +35,179 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">08 September 2023</h2>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Uplink PDA holder selection only considers PDAs, and not laptops.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="experiment">Changelings can no longer absorb mobs to gain genomes. They start with a pool of 10 genome points, and can re-evolve to reset their abilities and points if they absorb someone.</li>
+				<li class="balance">Reduced the cost of the death sting from 10 points to 8 points.</li>
+				<li class="balance">Reduced the cost of the paralysis sting from 8 points to 6 points.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed east-facing stairs not working properly.</li>
+				<li class="bugfix">Fixed platforms preventing picking up objects.</li>
+				<li class="bugfix">Fixes some weird layering.</li>
+				<li class="bugfix">Fixed table construction.</li>
+				<li class="bugfix">Fixes openspace shadowing being too light.</li>
+				<li class="bugfix">Fixes stairs being duplicated due to a merge conflict.</li>
+				<li class="bugfix">Fixed airlocks having an excessively high layer.</li>
+			</ul>
+			<h3 class="author">Nalarac updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Restores kinetic accelerator damage against mineral turfs in atmosphere.</li>
+			</ul>
+			<h3 class="author">SleepyGemmy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Tweaked the research director&#x27;s office to be more roomy and look more professional.</li>
+				<li class="bugfix">Fixed some unrotated plastic flaps in the south-west part of the warehouse on D1.</li>
+				<li class="bugfix">Fixed a light and sign overlapping in the mail room.</li>
+				<li class="bugfix">Potentially fixed some issues with the CoC ranger ship&#x27;s cockpit windows missing.</li>
+				<li class="bugfix">Fixed the ATM outside operations on D2 being misrotated.</li>
+				<li class="bugfix">Fixed east facing stairs not working.</li>
+				<li class="bugfix">Fixed the engineering stairs and AI core stairs being mapped incorrectly.</li>
+				<li class="bugfix">Fixed the medical meeting area chairs being plastic lawn chairs.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Increases hitbox of syringes, autoinjectors, autoinhalers.</li>
+				<li class="bugfix">Fixes invisible item icons for light bulbs, tubes.</li>
+				<li class="tweak">Lift lightbulbs will now always spawn working.</li>
+			</ul>
+
+			<h2 class="date">07 September 2023</h2>
+			<h3 class="author">Alberyk, ReadThisNamePlz updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the Cyclops Mining Vessel away ship.</li>
+			</ul>
+			<h3 class="author">CampinKiller24 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Updated the radiation storm announcements to account for the lingering radiation.</li>
+				<li class="rscadd">Extended the time before maintenance access is lost after radiation storms.</li>
+			</ul>
+			<h3 class="author">DreamySkrell updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Chat bad connection notification/popup moved up so it does not block new messages in the chat.</li>
+				<li class="bugfix">Uplink free first aid kit actually free.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Now hud_overlay and arranged_hud_process drops the reference on deletion.</li>
+				<li class="bugfix">The electrical storm event now drops the reference to APCs on deletion and end.</li>
+				<li class="bugfix">Fixed the mob subsystem, that could try to run on removed mobs on a resumed fire.</li>
+				<li class="refactor">Added a spatial gridmap check LoS define, to be used inside spatial_info for often called procs (get_target_in_LOS for now, which is called very often, 455k times in 10 minutes).</li>
+				<li class="bugfix">/obj/item now deletes the action and hidden uplink on qdel.</li>
+				<li class="backend">Turned a bunch of comments into dmdocs for /obj/items.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a uniform for Einstein Engines, replacing the Hephaestus uniform for these roles.</li>
+			</ul>
+			<h3 class="author">RustingWithYou updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Replaces the Hegemony energy shields on the Kataphract ship with the Kataphract energy shields.</li>
+				<li class="rscadd">Adds an integrated magboot augment for Vaurca.</li>
+			</ul>
+			<h3 class="author">Sparky_hotdog updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed overlays sticking for accent items when toggled.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes coffee pitchers and bluespace beakers not having filled states.</li>
+				<li class="bugfix">Fixes gumball jars not having gumballs.</li>
+				<li class="imageadd">Updates syrup dispensers to 3/4 standards.</li>
+				<li class="tweak">Tweaked syrup dispensers to be one-way - you no longer can accidentally pour your latte into them, but still can dispense syrup.</li>
+				<li class="tweak">Pumpkin Spice Latte recipe has been changed to 4 units of latte to 1 unit of pumpkin spice syrup to match its counterparts.</li>
+				<li class="tweak">Pumpkin Spice Frappe recipe has been changed to 4 units of iced coffee to 1 unit of pumpkin spice syrup.</li>
+				<li class="tweak">Pumpkin Spice recipe has been changed to need only 4 units of space spice and 1 unit of pumpkin pulp - ratio unchanged.</li>
+				<li class="rscadd">You can now offer someone a smoke directly from the packet. Just target the mouth area with an open cigarette packet, like you would yourself.</li>
+				<li class="rscadd">You can also offer to light someone else&#x27;s cigarettes.</li>
+			</ul>
+
+			<h2 class="date">06 September 2023</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">The profiler logs are now stored in the logs/[game_id]/profiler directory (together with all the other logs)</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Aut&#x27;akh farseer eyes no longer take damage on zooming, but need a second and a half to zoom in.</li>
+				<li class="tweak">Aut&#x27;akh protein breakdown valves and venomous rest implants no longer cause internal damage, but are expended after one use.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy), atteria updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Ports 3/4 bottle, soda can, kitchen condiments, ingredients, reagent containers from /tg/. Updates unique Aurora sprites to this standard as well.</li>
+				<li class="imageadd">Updates beaker, droppers, pipettes and chemical mixers and chemmasters.</li>
+				<li class="imageadd">New chemical cartridge, flask, vacuum flask and shaker sprites.</li>
+				<li class="rscadd">Adds champagne popping and sabrage.</li>
+				<li class="rscadd">Ports rice beer, beer cans and melon soda.</li>
+				<li class="tweak">Rice beer recipe is now 10 rice, 5 universal enzyme (catalyst), Sake is now 5 rice beer, 5 moss and 5 universal enzyme (catalyst).</li>
+				<li class="tweak">Adds light beer, recipe 5 beer and 5 water. Tweaks recipe of beer to be 5 flour and 5 universal enzyme.</li>
+				<li class="rscadd">Hooch now has it&#x27;s own bottle.</li>
+				<li class="backend">More soda can yoke variants.</li>
+				<li class="backend">Contained spritizes reagent containers,  surgical tools and stethoscope.</li>
+				<li class="imageadd">Improves beaker sprites. Improves sprites for syringes, autoinjectors, DNA injectors, Lazarus injectors. They should look better and be more consistent (all with a 45 degree tilt)</li>
+				<li class="tweak">Replaced &#x27;milosoup&#x27; with miso soup, updates the sprite.</li>
+				<li class="imageadd">Adds new teapot sprite.</li>
+			</ul>
+
+			<h2 class="date">05 September 2023</h2>
+			<h3 class="author">CampinKiller24 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">You can now shoot KAs again.</li>
+			</ul>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">/datum/action and /obj/screen/movable/action_button now drops their references on QDEL.</li>
+				<li class="bugfix">/obj/item/device/uplink now drops the reference to the owner on qdel.</li>
+				<li class="bugfix">/obj/item/implant now drops the reference to the organ (part) on qdel.</li>
+				<li class="bugfix">/obj/screen/ability now returns the QDEL hint correctly.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The air alarm fan animation now only plays when it is actively heating or cooling a room.</li>
+				<li class="tweak">The air alarm screen now glows.</li>
+				<li class="bugfix">Fixed the air alarm red and yellow icon states being swapped.</li>
+			</ul>
+
+			<h2 class="date">04 September 2023</h2>
+			<h3 class="author">CampinKiller24 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Nerfed KA damaged in atmosphere, and increased fire delay of some components.</li>
+			</ul>
+			<h3 class="author">GeneralCamo updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="refactor">Refactored how weapon sounds are handled to be less hardcoded.</li>
+				<li class="tweak">Renamed the silencer to the suppressor.</li>
+				<li class="tweak">The suppressor can now be attached to most pistol-caliber weapons, with the notable exceptions of revolvers.</li>
+				<li class="tweak">Suppressors are now removed with Alt-Click.</li>
+				<li class="rscadd">Added a suppressor to the antagonist uplink, under &quot;Highly Visible and Dangerous Weapons&quot;. It costs either 1 telecrystal or 1 bluecrystal.</li>
+				<li class="rscdel">The 9mm pistol no longer comes with a suppressor. The 9mm pistol&#x27;s cost has been reduced from 2 telecrystals to 1 to compensate.</li>
+				<li class="rscadd">Added a permanently suppressed .45 pistol to the uplink.</li>
+				<li class="rscadd">The holographic ammo display and bayonet now add their weights to a weapon when attached (and vice versa and detached).</li>
+				<li class="balance">The holographic ammo display&#x27;s weight has been reduced from &#x27;small&#x27; to &#x27;tiny&#x27;.</li>
+			</ul>
+			<h3 class="author">Noble Row updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a TCAF uniform, modular armor, backpack, gloves, berets, and pouches.</li>
+			</ul>
+
 			<h2 class="date">03 September 2023</h2>
+			<h3 class="author">FluffyGhost updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Ability to lie down intentionally, useful to make it harder to get shot.</li>
+				<li class="rscadd">Tactical lying down is now toggable with a middle mouse button on the walk/run icon.</li>
+				<li class="rscadd">Lying down tactically let you retain your weapons and items in hand, and operate them.</li>
+				<li class="rscadd">While lying down tactically AND wielding, you get a 10% bonus on precision, recoil and fire speed.</li>
+				<li class="rscadd">While lying down tactically, you get a large speed penalty bonus.</li>
+				<li class="rscadd">You have to unwield any weapon you might have in hand before tactically lying down or standing up from a tactical lying down.</li>
+				<li class="rscadd">Human and playable species mobs now change orientation, while lying down, depending on the direction they&#x27;re facing.</li>
+				<li class="imageadd">Added tactical lying down icons.</li>
+			</ul>
 			<h3 class="author">GeneralCamo updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="rscadd">Added a new mixed game mode, rebellion, which spawns loyalists, revolutionaries, and cultists. This gamemode requires 30 players to start.</li>

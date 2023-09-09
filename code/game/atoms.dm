@@ -105,6 +105,9 @@
 /atom/proc/is_open_container()
 	return flags & OPENCONTAINER
 
+/atom/proc/is_pour_container()
+	return flags & POURCONTAINER
+
 /atom/proc/CheckExit()
 	return 1
 

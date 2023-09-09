@@ -151,7 +151,9 @@
 	return
 
 /mob/living/simple_animal/hostile/proc/see_target()
-	return check_los(src, target_mob)
+	var/los = null
+	SPATIAL_CHECK_LOS(los, src, target_mob, world.view)
+	return los
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1

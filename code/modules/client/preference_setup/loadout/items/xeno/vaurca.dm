@@ -271,3 +271,12 @@
 	sort_category = "Xenowear - Vaurca"
 	allowed_roles = list("Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
 	flags = GEAR_NO_SELECTION
+  
+/datum/gear/augment/vaurcamag
+	display_name = "vaurca integrated mag-claws"
+	description = "An integrated magnetic grip system, designed for Vaurcae without easy access to magboots."
+	cost = 2
+	path = /obj/item/organ/internal/augment/tool/vaurcamag
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
+	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist")

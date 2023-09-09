@@ -115,6 +115,18 @@
 		"wirecutters"
 		)
 
+/obj/item/organ/internal/augment/tool/vaurcamag
+	name = "integrated mag-claws"
+	desc = "An integrated magnetic grip system, designed for Vaurcae without easy access to magboots."
+	icon_state = "suspension"
+	item_state = "suspension"
+	action_button_name = "Deploy Mag-Claws"
+	action_button_icon = "magclaws"
+	augment_type = /obj/item/clothing/shoes/magboots/vaurca/aug
+	parent_organ = BP_GROIN
+	organ_tag = BP_AUG_MAGBOOT
+	aug_slot = slot_shoes
+
 /obj/item/organ/internal/vaurca/preserve
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
 	name = BP_PHORON_RESERVE
