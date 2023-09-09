@@ -145,6 +145,15 @@
 	max_ammo = 12
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/smg10mm
+	name = "smg magazine (10mm)"
+	desc = "A detachable magazine for the improvised konyanger pirate SMG, made from scrap metal."
+	icon_state = "10mm"
+	mag_type = MAGAZINE
+	ammo_type = obj/item/ammo_casing
+	max_ammo = 20
+	multiple_sprites = 1
+
 /obj/item/ammo_magazine/mc10mm/empty
 	initial_ammo = 0
 

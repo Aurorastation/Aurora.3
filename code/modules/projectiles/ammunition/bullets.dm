@@ -99,6 +99,11 @@
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
 	max_stack = 7
 
+/obj/item/ammo_casing/smg10mm
+	desc  = "A 10mm bullet casing."
+	caliber = "10mm"
+	projectile_type = /obj/item/projectile/bullet/pistol
+
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
 	desc = "A 12-gauge slug."

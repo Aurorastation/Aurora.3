@@ -124,6 +124,27 @@
 		icon_state = "wt550"
 	return
 
+/obj/item/gun/projectile/automatic/konyang_pirate
+	name = "pirate smg"
+	desc = "A hacked together SMG, made out of salvage metal and a lot of creativity."
+	desc_extended = "Konyang's pirates have to go by somehow. They usually salvage and collect old metal and weapon's parts, pile them up in their hideout and get really creative. It's not advisable to use one, except you're desperate. Or a pirate."
+	icon = 'icons/obj/guns/pirate_smg.dmi'
+	icon_state = "pirate_smg"
+	item_state = "pirate_smg"
+	w_class = ITEMSIZE_NORMAL
+	caliber = "10mm"
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
+	slot_flags = SLOT_BELT, SLOT_SUIT
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/10mm
+	allowed_magazines = list(/obj/item/ammo_magazine/smg10mm)
+
+	firemodes = list(
+		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
+		list(mode_name="short bursts",   burst=5, burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)),
+		)
+
 //Ballistic rifles, go.
 
 /obj/item/gun/projectile/automatic/rifle
@@ -637,6 +658,7 @@
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
+// Magazine fed shotguns start here.
 /obj/item/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
 	desc = "A experimental, semi-automatic combat shotgun, designed for boarding operations and law enforcement agencies."
@@ -669,3 +691,30 @@
 /obj/item/gun/projectile/automatic/rifle/shotgun/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "assaultshotgun" : "assaultshotgun-empty"
+
+/obj/item/gun/projectile/automatic/shotgun/konyang
+	name = "magazine-fed shotgun"
+	desc = "A compact semi-automatic shotgun, fed by a magazine. Unsuspectic, but powerful and not to be underestimated. Takes standard 12g shotgun ammo."
+	desc_extended = "The RCG-1, locally produced on Konyang, also nicknamed \"The Pacifier\" for its wide variety of applications. It uses a compact design with a newly developed type of double spring mechanism in the magazine \
+	to eradicate all kinds of feeding malfunctions, as well as groundbreaking caseless shotgun ammunition. Favoured by Konyang's Special Forces Commandos."
+	icon = 'icons/obj/guns/mag_shotgun.dmi'
+	icon_state = "mshotgun"
+	item_state = "mshotgun"
+	slot_flags = SLOT_BACK, SLOT_SUIT
+	w_class = ITEMSIZE_NORMAL
+	ammo_type = /obj/item/ammo_casing/shotgun
+	handle_casings = DELETE_CASINGS
+	max_shells = 9
+	auto_eject = 0
+	caliber = "shotgun"
+	magazine_type = /obj/item/ammo_magazine/konyang_shotgun
+	allowed_magazines = list(/obj/utem/ammo_magazine/konyang_shotgun)
+	is_wieldable = TRUE
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_SUPERHEAVY, fire_delay_wielded=ROF_HEAVY)
+		)
+
+/obj/item/gun/projectile/automatic/rifle/shotgun/konyang/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "mshotgun" : "mshotgun-empty"
