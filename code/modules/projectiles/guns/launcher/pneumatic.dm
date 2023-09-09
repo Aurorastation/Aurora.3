@@ -100,8 +100,9 @@
 	item_storage.remove_from_storage(launched, src)
 	return launched
 
-/obj/item/gun/launcher/pneumatic/examine(mob/user)
-	if(!..(user, 2))
+/obj/item/gun/launcher/pneumatic/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	to_chat(user, "The valve is dialed to [pressure_setting]%.")
 	if(tank)
@@ -152,7 +153,7 @@
 	icon_state = "pneumatic[buildstate]"
 
 /obj/item/cannonframe/examine(mob/user)
-	..(user)
+	. = ..()
 	switch(buildstate)
 		if(1) to_chat(user, "It has a pipe segment installed.")
 		if(2) to_chat(user, "It has a pipe segment welded in place.")

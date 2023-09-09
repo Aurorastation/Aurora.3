@@ -75,8 +75,8 @@
 /obj/item/tank/air/adjust_initial_gas()
 	air_contents.adjust_multi(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD, GAS_NITROGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)
 
-/obj/item/tank/air/examine(mob/user)
-	if(..(user, 0) && air_contents.gas[GAS_OXYGEN] < 1 && loc==user)
+/obj/item/tank/air/examine(mob/user, distance, is_adjacent)
+	if((distance <= 0) && air_contents.gas[GAS_OXYGEN] < 1 && loc==user)
 		to_chat(user, "<span class='danger'>The meter on the [src.name] indicates you are almost out of air!</span>")
 
 /*
@@ -146,8 +146,8 @@
 /obj/item/tank/emergency_oxygen/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_OXYGEN, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
-/obj/item/tank/emergency_oxygen/examine(mob/user)
-	if(..(user, 0) && air_contents.gas[GAS_OXYGEN] < 0.2 && loc==user)
+/obj/item/tank/emergency_oxygen/examine(mob/user, distance, is_adjacent)
+	if((distance <= 0) && air_contents.gas[GAS_OXYGEN] < 0.2 && loc==user)
 		to_chat(user, text("<span class='danger'>The meter on the [src.name] indicates you are almost out of air!</span>"))
 
 /obj/item/tank/emergency_oxygen/engi

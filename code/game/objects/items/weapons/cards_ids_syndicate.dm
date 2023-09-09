@@ -20,9 +20,9 @@
 	unset_registered_user(registered_user)
 	return ..()
 
-/obj/item/card/id/syndicate/examine(mob/user)
-	..()
-	if(Adjacent(user))
+/obj/item/card/id/syndicate/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		if(user == registered_user)
 			to_chat(user, FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge.")))
 

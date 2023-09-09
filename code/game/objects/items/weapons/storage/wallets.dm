@@ -116,10 +116,10 @@
 
 	return ..()
 
-/obj/item/storage/wallet/examine(mob/user)
+/obj/item/storage/wallet/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	var/obj/item/card/id/id = GetID()
-	if(istype(id) && Adjacent(user))
+	if(istype(id) && is_adjacent)
 		id.show(user)
 
 /obj/item/storage/wallet/random/fill()

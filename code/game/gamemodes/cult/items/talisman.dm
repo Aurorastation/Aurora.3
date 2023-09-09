@@ -15,7 +15,7 @@
 	return ..()
 
 /obj/item/paper/talisman/examine(mob/user)
-	..()
+	. = ..()
 	if(iscultist(user) && rune)
 		to_chat(user, "The spell inscription reads: <span class='cult'><b><i>[rune.name]</i></b></span>.")
 

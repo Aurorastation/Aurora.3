@@ -210,7 +210,7 @@
 	..()
 
 /mob/living/simple_animal/examine(mob/user)
-	..()
+	. =  ..()
 
 	if (stat == DEAD)
 		to_chat(user, "<span class='danger'>It looks dead.</span>")
