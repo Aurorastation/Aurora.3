@@ -23,6 +23,12 @@
 	icon_state = "cavalryboots"
 	item_state = "cavalryboots"
 
+/obj/item/clothing/shoes/jackboots/riding
+	name = "riding jackboots"
+	desc = "Knee-high riding synthleather boots with an artificial shine."
+	icon_state = "ridingboots"
+	item_state = "ridingboots"
+
 /obj/item/clothing/shoes/jackboots/toeless
 	name = "toe-less black boots"
 	desc = "Modified pair of boots, particularly friendly to those species whose toes hold claws."
@@ -35,6 +41,12 @@
 	desc = "Calf-length cavalry synthleather boots, particularly friendly to those species whose toes hold claws."
 	icon_state = "cavalryboots_toeless"
 	item_state = "cavalryboots_toeless"
+
+/obj/item/clothing/shoes/jackboots/toeless/riding
+	name = "toe-less riding jackboots"
+	desc = "Knee-high riding synthleather boots, particularly friendly to those species whose toes hold claws."
+	icon_state = "ridingboots_toeless"
+	item_state = "ridingboots_toeless"
 
 /obj/item/clothing/shoes/workboots
 	name = "workboots"

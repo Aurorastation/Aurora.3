@@ -108,6 +108,7 @@
 	var/list/shoes = list()
 	shoes["jackboots"] = /obj/item/clothing/shoes/jackboots
 	shoes["jackboots, cavalry"] = /obj/item/clothing/shoes/jackboots/cavalry
+	shoes["jackboots, riding"] = /obj/item/clothing/shoes/jackboots/riding
 	shoes["cowboy boots"] = /obj/item/clothing/shoes/cowboy
 	shoes["classic cowboy boots"] = /obj/item/clothing/shoes/cowboy/classic
 	shoes["snakeskin cowboy boots"] = /obj/item/clothing/shoes/cowboy/snakeskin

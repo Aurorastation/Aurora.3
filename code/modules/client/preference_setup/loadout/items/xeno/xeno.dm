@@ -41,5 +41,6 @@
 	shoes["dark toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless/dark
 	shoes["toeless jackboots"] = /obj/item/clothing/shoes/jackboots/toeless
 	shoes["toeless jackboots, cavalry"] = /obj/item/clothing/shoes/jackboots/toeless/cavalry
+	shoes["toeless jackboots, riding"] = /obj/item/clothing/shoes/jackboots/toeless/riding
 	shoes["toeless winterboots"] = /obj/item/clothing/shoes/winter/toeless
 	gear_tweaks += new /datum/gear_tweak/path(shoes)
