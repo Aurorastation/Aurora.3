@@ -134,9 +134,9 @@
 	w_class = ITEMSIZE_NORMAL
 	caliber = "10mm"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
-	slot_flags = SLOT_BELT, SLOT_SUIT
+	slot_flags = SLOT_BELT|SLOT_SUIT
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/10mm
+	magazine_type = /obj/item/ammo_magazine/smg10mm
 	allowed_magazines = list(/obj/item/ammo_magazine/smg10mm)
 
 	firemodes = list(
@@ -700,7 +700,7 @@
 	icon = 'icons/obj/guns/mag_shotgun.dmi'
 	icon_state = "mshotgun"
 	item_state = "mshotgun"
-	slot_flags = SLOT_BACK, SLOT_SUIT
+	slot_flags = SLOT_BACK|SLOT_SUIT
 	w_class = ITEMSIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/shotgun
 	handle_casings = DELETE_CASINGS
