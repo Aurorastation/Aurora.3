@@ -154,15 +154,12 @@
 /proc/iszombie(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
-		switch(H.get_species())
-			if(SPECIES_ZOMBIE)
-				return TRUE
-			if(SPECIES_ZOMBIE_TAJARA)
-				return TRUE
-			if(SPECIES_ZOMBIE_UNATHI)
-				return TRUE
-			if(SPECIES_ZOMBIE_SKRELL)
-				return TRUE
+
+		if(istype(H.get_species(TRUE), /datum/species/zombie))
+			return TRUE
+		else
+			return FALSE
+
 	return FALSE
 
 /proc/isundead(A)
