@@ -2400,6 +2400,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/item/device/radio/intercom/expedition/hailing/east,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/crew_compartment)
 "bID" = (
@@ -7287,6 +7288,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/device/radio/intercom/expedition/hailing/north{
+	pixel_x = -8;
+	pixel_y = 18
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "fdA" = (

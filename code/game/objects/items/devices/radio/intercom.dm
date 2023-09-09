@@ -156,6 +156,24 @@ pixel_x = 8;
 /obj/item/device/radio/intercom/interrogation/Initialize()
 	. = ..()
 	set_frequency(INT_FREQ)
+	internal_channels = default_interrogation_channels
+
+/obj/item/device/radio/intercom/interrogation/broadcasting/north
+	PRESET_NORTH
+
+/obj/item/device/radio/intercom/interrogation/broadcasting/south
+	PRESET_SOUTH
+
+/obj/item/device/radio/intercom/interrogation/broadcasting/west
+	PRESET_WEST
+
+/obj/item/device/radio/intercom/interrogation/broadcasting/east
+	PRESET_EAST
+
+/obj/item/device/radio/intercom/interrogation/broadcasting/Initialize() // The detainee's side.
+	. = ..()
+	set_broadcasting(TRUE)
+	set_listening(FALSE)
 
 /obj/item/device/radio/intercom/expedition
 	name = "intercom (expeditionary)"
@@ -175,23 +193,24 @@ pixel_x = 8;
 /obj/item/device/radio/intercom/expedition/Initialize()
 	. = ..()
 	set_frequency(EXP_FREQ)
+	internal_channels = default_expedition_channels
 
-/obj/item/device/radio/intercom/interrogation/broadcasting/north
+/obj/item/device/radio/intercom/expedition/hailing/north
 	PRESET_NORTH
 
-/obj/item/device/radio/intercom/interrogation/broadcasting/south
+/obj/item/device/radio/intercom/expedition/hailing/south
 	PRESET_SOUTH
 
-/obj/item/device/radio/intercom/interrogation/broadcasting/west
+/obj/item/device/radio/intercom/expedition/hailing/west
 	PRESET_WEST
 
-/obj/item/device/radio/intercom/interrogation/broadcasting/east
+/obj/item/device/radio/intercom/expedition/hailing/east
 	PRESET_EAST
 
-/obj/item/device/radio/intercom/interrogation/broadcasting/Initialize() // The detainee's side.
+/obj/item/device/radio/intercom/expedition/hailing/Initialize()
 	. = ..()
-	set_broadcasting(TRUE)
-	set_listening(FALSE)
+	set_frequency(HAIL_FREQ)
+	internal_channels = default_expedition_channels
 
 /obj/item/device/radio/intercom/private
 	name = "intercom (private)"
