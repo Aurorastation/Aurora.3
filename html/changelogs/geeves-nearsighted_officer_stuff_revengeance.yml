@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Using cameras while wearing glasses as a nearsighted character no longer reduces your vision radius."
