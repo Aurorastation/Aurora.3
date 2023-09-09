@@ -1064,7 +1064,6 @@ About the new airlock wires panel:
 					lights_overlay = overlay_image(lights_file, layer = EFFECTS_ABOVE_LIGHTING_LAYER)
 					set_light(1, 2, COLOR_LIME)
 
-
 		if(stat & BROKEN)
 			damage_overlay = overlay_image(sparks_broken_file, layer = EFFECTS_ABOVE_LIGHTING_LAYER)
 		else if (health < maxhealth * 3/4 && !(stat & NOPOWER))
