@@ -163,7 +163,7 @@ pixel_x = 8;
 /obj/item/device/radio/intercom/expedition/north
 	PRESET_NORTH
 
-/obj/item/device/radio/intercom/expeditionn/south
+/obj/item/device/radio/intercom/expedition/south
 	PRESET_SOUTH
 
 /obj/item/device/radio/intercom/expedition/west

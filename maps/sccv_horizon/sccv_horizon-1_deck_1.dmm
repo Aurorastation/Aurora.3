@@ -3193,7 +3193,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/item/device/radio/intercom/expedition,
+/obj/item/device/radio/intercom/expedition/south,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "cpt" = (
@@ -17366,7 +17366,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
-/obj/item/device/radio/intercom/expedition,
+/obj/item/device/radio/intercom/expedition/south,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "mmh" = (
