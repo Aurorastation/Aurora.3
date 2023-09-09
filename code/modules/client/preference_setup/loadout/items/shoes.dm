@@ -68,7 +68,7 @@
 	path = /obj/item/clothing/shoes/sandals
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/shoes/flats/New()
+/datum/gear/shoes/sandals/New()
 	..()
 	var/list/shoes = list()
 	shoes["sandals"] = /obj/item/clothing/shoes/sandals
