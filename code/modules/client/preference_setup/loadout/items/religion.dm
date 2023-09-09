@@ -10,11 +10,16 @@
 	path = /obj/item/clothing/accessory/badge/trinary
 	slot = slot_tie
 
+/datum/gear/religion/trinary/coif
+	display_name = "trinary perfection coif"
+	path = /obj/item/clothing/head/trinary
+	slot = slot_head
+
 /datum/gear/religion/trinary/robe
 	display_name = "trinary perfection robes selection"
 	description = "A selection of robes worn by adherents of the Trinary Perfection."
 	path = /obj/item/clothing/suit/trinary_robes
-	slot = slot_w_uniform
+	slot = slot_wear_suit
 
 /datum/gear/religion/trinary/robe/New()
 	..()

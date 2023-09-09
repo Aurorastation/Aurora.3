@@ -106,10 +106,10 @@
 	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/trinary_robes
-    name = "trinary perfection robe"
-    desc = "Robes worn by those who serve The Trinary Perfection."
-    icon_state = "trinary_robes"
-    item_state = "trinary_robes"
+	name = "trinary perfection robe"
+	desc = "Robes worn by those who serve The Trinary Perfection."
+	icon_state = "trinary_robes"
+	item_state = "trinary_robes"
 
 /*
  * Misc
