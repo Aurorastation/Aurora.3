@@ -75,9 +75,9 @@
 			var/mob/M = A
 			if(M.key && !M.client)
 				continue
-		if(ishuman(A))
-			var/mob/living/carbon/human/H = A
-			if(H.paralysis)
+		if(isliving(A))
+			var/mob/living/M = A
+			if(M.paralysis)
 				continue
 		if(!isturf(A.loc))
 			A = A.loc
@@ -218,11 +218,10 @@
 			resist_grab()
 			return
 	var/atom/target
-	if(ishuman(target_mob))
-		if(target_mob.paralysis)
-			return
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
+		if(L.paralysis)
+			return
 		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags, damage_type))
 		target = L
 	else if(istype(target_mob, /obj/machinery/bot))
