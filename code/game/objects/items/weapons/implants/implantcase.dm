@@ -14,10 +14,10 @@
 	var/obj/item/implant/imp = null
 
 /obj/item/implantcase/Initialize(mapload)
+	. = ..()
 	if(ispath(imp))
 		imp = new imp(src)
 		update_description()
-	..()
 	update_icon()
 
 /obj/item/implantcase/proc/update_description()
