@@ -1,0 +1,8 @@
+
+author: atteria
+
+delete-after: True
+
+changes:
+  - tweak: "Doubled the delay on simplemob dodging."
+  - bugfix: "Hostile simplemobs no longer beat you to death when you're down."

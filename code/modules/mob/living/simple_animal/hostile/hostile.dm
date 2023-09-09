@@ -75,6 +75,10 @@
 			var/mob/M = A
 			if(M.key && !M.client)
 				continue
+		if(ishuman(A))
+			var/mob/living/carbon/human/H = A
+			if(H.paralysis)
+				continue
 		if(!isturf(A.loc))
 			A = A.loc
 		var/datum/callback/cb = null
@@ -214,6 +218,9 @@
 			resist_grab()
 			return
 	var/atom/target
+	if(ishuman(target_mob))
+		if(target_mob.paralysis)
+			return
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
 		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags, damage_type))
@@ -236,7 +243,7 @@
 	if(target)
 		face_atom(target)
 		if(!ranged && smart_melee)
-			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 0.6 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 1.2 SECONDS)
 		return target
 
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
