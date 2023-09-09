@@ -145,15 +145,6 @@
 	max_ammo = 12
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/smg10mm
-	name = "smg magazine (10mm)"
-	desc = "A detachable magazine for the improvised konyanger pirate SMG, made from scrap metal."
-	icon_state = "10mm"
-	mag_type = MAGAZINE
-	ammo_type = obj/item/ammo_casing
-	max_ammo = 20
-	multiple_sprites = 1
-
 /obj/item/ammo_magazine/mc10mm/empty
 	initial_ammo = 0
 
@@ -291,6 +282,14 @@
 	insert_sound = /singleton/sound_category/polymer_slide_reload
 	max_ammo = 50
 
+/obj/item/ammo_magazine/smg10mm
+	name = "smg magazine (10mm)"
+	desc = "A detachable magazine for the improvised konyanger pirate SMG, made from scrap metal."
+	icon_state = "10mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/smg10mm
+	max_ammo = 20
+	multiple_sprites = 1
 // End of SMGs and PDWs //
 
 // Rifles and bigger calibers //
@@ -579,4 +578,12 @@
 	ammo_type = /obj/item/ammo_casing/cap
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	max_ammo = 7
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/konyang_shotgun
+	name = "konyang shotgun magazine"
+	icon_state = "konyang_shotgun"
+	caliber = "shotgun"
+	ammo_type = /obj/item/ammo_casing/shotgun
+	max_ammo = 9
 	multiple_sprites = 1

@@ -134,7 +134,7 @@
 	w_class = ITEMSIZE_NORMAL
 	caliber = "10mm"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
-	slot_flags = SLOT_BELT|SLOT_SUIT
+	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_OCLOTHING
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/smg10mm
 	allowed_magazines = list(/obj/item/ammo_magazine/smg10mm)
@@ -696,11 +696,11 @@
 	name = "magazine-fed shotgun"
 	desc = "A compact semi-automatic shotgun, fed by a magazine. Unsuspectic, but powerful and not to be underestimated. Takes standard 12g shotgun ammo."
 	desc_extended = "The RCG-1, locally produced on Konyang, also nicknamed \"The Pacifier\" for its wide variety of applications. It uses a compact design with a newly developed type of double spring mechanism in the magazine \
-	to eradicate all kinds of feeding malfunctions, as well as groundbreaking caseless shotgun ammunition. Favoured by Konyang's Special Forces Commandos."
+	to eradicate all kinds of feeding malfunctions, as well as groundbreaking caseless shotgun ammunition. Favoured by the Commandos of Konyang's Special Forces."
 	icon = 'icons/obj/guns/mag_shotgun.dmi'
 	icon_state = "mshotgun"
 	item_state = "mshotgun"
-	slot_flags = SLOT_BACK|SLOT_SUIT
+	slot_flags = SLOT_BACK|SLOT_OCLOTHING
 	w_class = ITEMSIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/shotgun
 	handle_casings = DELETE_CASINGS
@@ -708,7 +708,7 @@
 	auto_eject = 0
 	caliber = "shotgun"
 	magazine_type = /obj/item/ammo_magazine/konyang_shotgun
-	allowed_magazines = list(/obj/utem/ammo_magazine/konyang_shotgun)
+	allowed_magazines = list(/obj/item/ammo_magazine/konyang_shotgun)
 	is_wieldable = TRUE
 
 	firemodes = list(
