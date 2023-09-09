@@ -489,7 +489,7 @@
 
 /obj/item/organ/external/hand/right/vaurca/medical
 	name = "medical grasper"
-	action_button_name = "ACtivate Integrated Biological Analyser"
+	action_button_name = "Activate Integrated Biological Analyser"
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_VAURCA
