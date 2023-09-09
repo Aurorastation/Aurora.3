@@ -181,13 +181,13 @@ var/datum/controller/subsystem/radio/SSradio
 			return "comradio"
 		if (AI_FREQ)	// AI Private
 			return "airadio"
-		if (SEC_FREQ,SEC_I_FREQ)
+		if (SEC_FREQ,SEC_I_FREQ,INT_FREQ)
 			return "secradio"
 		if (PEN_FREQ)
 			return "penradio"
 		if (ENG_FREQ)
 			return "engradio"
-		if (SCI_FREQ)
+		if (SCI_FREQ, EXP_FREQ)
 			return "sciradio"
 		if (MED_FREQ,MED_I_FREQ)
 			return"medradio"

@@ -155,7 +155,26 @@ pixel_x = 8;
 
 /obj/item/device/radio/intercom/interrogation/Initialize()
 	. = ..()
-	set_frequency(1449)
+	set_frequency(INT_FREQ)
+
+/obj/item/device/radio/intercom/expedition
+	name = "intercom (expeditionary)"
+
+/obj/item/device/radio/intercom/expedition/north
+	PRESET_NORTH
+
+/obj/item/device/radio/intercom/expeditionn/south
+	PRESET_SOUTH
+
+/obj/item/device/radio/intercom/expedition/west
+	PRESET_WEST
+
+/obj/item/device/radio/intercom/expedition/east
+	PRESET_EAST
+
+/obj/item/device/radio/intercom/expedition/Initialize()
+	. = ..()
+	set_frequency(EXP_FREQ)
 
 /obj/item/device/radio/intercom/interrogation/broadcasting/north
 	PRESET_NORTH

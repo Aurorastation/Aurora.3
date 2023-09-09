@@ -1,0 +1,7 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - maptweak: "Added expeditionary intercomms to both the Intrepid and Spark, which can be tuned into manually on shortwaves."
+  - tweak: "Interrogation and Expeditionary comm channels are now labelled in chat, and use security and research colours respectively."
