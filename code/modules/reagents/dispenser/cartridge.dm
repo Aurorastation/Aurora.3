@@ -3,6 +3,7 @@
 	desc = "This goes in a chemical dispenser."
 	icon_state = "cartridge"
 
+	filling_states = "20;40;60;80;100"
 	w_class = ITEMSIZE_NORMAL
 
 	volume = CARTRIDGE_VOLUME_LARGE
@@ -28,6 +29,19 @@
 			setLabel(label)
 		else
 			setLabel(R.name)
+
+/obj/item/reagent_containers/chem_disp_cartridge/update_icon()
+	cut_overlays()
+
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
+		filling.color = reagents.get_color()
+		add_overlay(filling)
+
+	if(!is_open_container())
+		var/lid_icon = "lid_[icon_state]"
+		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
+		add_overlay(lid)
 
 /obj/item/reagent_containers/chem_disp_cartridge/examine(mob/user)
 	..()
@@ -65,6 +79,7 @@
 			to_chat(user, "<span class='notice'>You clear the label on \the [src].</span>")
 		label = ""
 		name = initial(name)
+	update_icon()
 
 /obj/item/reagent_containers/chem_disp_cartridge/attack_self()
 	..()
@@ -74,6 +89,11 @@
 	else
 		to_chat(usr, "<span class = 'notice'>You take the cap off \the [src].</span>")
 		flags |= OPENCONTAINER
+	update_icon()
+
+/obj/item/reagent_containers/chem_disp_cartridge/attackby(obj/item/W as obj, mob/user as mob)
+	..()
+	update_icon()
 
 /obj/item/reagent_containers/chem_disp_cartridge/afterattack(obj/target, mob/user , flag)
 	if (!is_open_container() || !flag)
@@ -108,3 +128,4 @@
 
 	else
 		return ..()
+	update_icon()

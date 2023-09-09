@@ -229,6 +229,8 @@
 		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
 		visible_message(SPAN_DANGER("\The [src] [attacktext] \the [T]!"))
 		return T // no need to take a step back here
+	if(loc && attack_sound)
+		playsound(loc, attack_sound, 50, 1, 1)
 	if(target)
 		face_atom(target)
 		if(!ranged && smart_melee)

@@ -379,7 +379,7 @@
 #define GFI_ROTATION_OVERDIR 2 //Layers will have overidden direction
 
 // The pixel_(x|y) offset that will be used by default by wall items, such as APCs or Fire Alarms.
-#define DEFAULT_WALL_OFFSET 28
+#define DEFAULT_WALL_OFFSET 22 // Don't touch this unless you're going to work with walls in a major way.
 
 // Defines for translating a dir into pixelshifts for wall items
 #define DIR2PIXEL_X(dir) ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)))

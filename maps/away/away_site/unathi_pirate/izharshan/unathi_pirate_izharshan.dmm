@@ -88,7 +88,8 @@
 /area/shuttle/unathi_pirate_izharshan/helm)
 "cV" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -146,7 +147,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan_inner";
-	name = "Ship External Access"
+	name = "Ship External Access";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor,
@@ -280,7 +282,8 @@
 /area/shuttle/unathi_pirate_izharshan/helm)
 "iW" = (
 /obj/machinery/door/airlock/hatch{
-	req_access = list(210)
+	req_access = list(210);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/helm)
@@ -420,10 +423,7 @@
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/alarm{
-	pixel_x = 28;
-	dir = 8
-	},
+/obj/machinery/alarm/east,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
@@ -431,7 +431,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan_inner";
-	name = "Ship External Access"
+	name = "Ship External Access";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor,
@@ -454,9 +455,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "re" = (
-/obj/machinery/power/apc/high{
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/high/south,
 /obj/structure/cable/green,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -489,7 +488,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan_outer";
-	name = "Ship External Access"
+	name = "Ship External Access";
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/helm)
@@ -544,8 +544,7 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -606,8 +605,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "uK" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor/shuttle/black,
@@ -647,7 +645,8 @@
 /area/shuttle/unathi_pirate_izharshan/operations)
 "wK" = (
 /obj/machinery/door/airlock{
-	req_access = list(210)
+	req_access = list(210);
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/helm)
@@ -940,7 +939,8 @@
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "Fg" = (
 /obj/machinery/door/airlock/hatch{
-	req_access = list(210)
+	req_access = list(210);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -1046,10 +1046,8 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "JF" = (
-/obj/machinery/power/apc/high{
-	req_access = list(210);
-	dir = 8;
-	pixel_x = -28
+/obj/machinery/power/apc/high/west{
+	req_access = list(210)
 	},
 /obj/structure/cable/green,
 /obj/structure/cable/green{
@@ -1128,7 +1126,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	id_tag = "unathi_pirate_izharshan_outer";
-	name = "Ship External Access"
+	name = "Ship External Access";
+	dir = 1
 	},
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
@@ -1141,10 +1140,8 @@
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "My" = (
-/obj/machinery/power/apc/high{
-	req_access = list(210);
-	dir = 4;
-	pixel_x = 28
+/obj/machinery/power/apc/high/east{
+	req_access = list(210)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -1211,7 +1208,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "Px" = (
-/obj/structure/bed/stool/chair/sofa/corner/orange,
+/obj/structure/bed/stool/chair/sofa/corner/concave/orange,
 /turf/simulated/floor/carpet,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "PN" = (
@@ -1274,7 +1271,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/hatch{
-	req_access = list(210)
+	req_access = list(210);
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/unathi_pirate_izharshan/operations)
@@ -1293,7 +1291,8 @@
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "Sl" = (
 /obj/machinery/door/airlock{
-	req_access = list(210)
+	req_access = list(210);
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1348,7 +1347,8 @@
 /area/shuttle/unathi_pirate_izharshan/helm)
 "TF" = (
 /obj/machinery/door/airlock{
-	req_access = list(210)
+	req_access = list(210);
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4

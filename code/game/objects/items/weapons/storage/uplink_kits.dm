@@ -42,6 +42,16 @@
 		/obj/item/tank/emergency_oxygen/double = 1
 	)
 
+/obj/item/storage/box/syndie_kit/space/covert
+	name = "boxed space suit and helmet"
+	worn_overlay = "syndiesuit"
+	starts_with = list(
+		/obj/item/clothing/suit/space/syndicate/covert = 1,
+		/obj/item/clothing/head/helmet/space/syndicate/covert = 1,
+		/obj/item/clothing/mask/breath = 1,
+		/obj/item/tank/emergency_oxygen/double = 1
+	)
+
 
 /obj/item/storage/box/syndie_kit/chameleon
 	name = "chameleon kit"

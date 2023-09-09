@@ -1,6 +1,7 @@
 /obj/structure/bed/stool
 	name = "stool"
 	desc = "Apply butt."
+	icon = 'icons/obj/structure/chairs.dmi'
 	icon_state = "stool_preview"
 	base_icon = "stool"
 	anchored = FALSE
@@ -153,8 +154,24 @@
 	..(newloc, MATERIAL_SHUTTLE_SKRELL)
 	set_light(1,1,LIGHT_COLOR_CYAN)
 
+/obj/structure/bed/chair/stool/bamboo
+	name = "bamboo stool"
+	desc = "A makeshift bamboo stool with a rustic look."
+	icon_state = "bamboo_stool_item"
+	item_state = "bamboo_stool"
+	base_icon = "bamboo_stool"
+	icon_state = "bamboo_stool"
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
+	held_item = /obj/item/material/stool/bamboo
+	can_pad = FALSE
+
+/obj/structure/bed/stool/bamboo/New(var/newloc)
+	..(newloc, MATERIAL_BAMBOO)
+
+// Stool Items
+
 /obj/item/material/stool
-	icon = 'icons/obj/furniture.dmi'
+	icon = 'icons/obj/structure/chairs.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_chairs.dmi',
@@ -299,6 +316,12 @@
 	item_state = "hover_stool"
 	base_icon = "hover_stool"
 	origin_type = /obj/structure/bed/stool/hover
+
+/obj/item/material/stool/bamboo
+	icon_state = "bamboo_stool_item"
+	item_state = "bamboo_stool"
+	base_icon = "bamboo_stool"
+	origin_type = /obj/structure/bed/stool/bamboo
 
 /obj/structure/flora/log_bench
 	name = "log bench"
