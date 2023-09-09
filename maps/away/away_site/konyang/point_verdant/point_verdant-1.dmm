@@ -177,6 +177,10 @@
 /obj/effect/decal/exterior_stairs/left,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
+"ea" = (
+/obj/structure/stairs/west,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "ef" = (
 /obj/effect/decal/road_marking/center{
 	dir = 4
@@ -1083,10 +1087,20 @@
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
+"Fd" = (
+/obj/structure/stairs_lower/stairs_upper{
+	dir = 2;
+	pixel_y = 0
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "Fe" = (
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Fw" = (
+/turf/unsimulated/wall/konyang,
+/area/point_verdant/interior)
 "FN" = (
 /obj/effect/konyang_waterfall/mist{
 	pixel_y = -16;
@@ -1596,6 +1610,9 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/interior)
+"Vo" = (
+/turf/simulated/open,
+/area/point_verdant/interior)
 "VR" = (
 /obj/structure/shipping_container{
 	icon_state = "blue3"
@@ -1664,6 +1681,13 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant/interior)
+"XD" = (
+/obj/structure/stairs_lower{
+	dir = 8;
+	pixel_y = 6
+	},
+/turf/unsimulated/mineral/konyang,
 /area/point_verdant/interior)
 "XT" = (
 /obj/effect/decal/road_marking/no_park,
@@ -2304,11 +2328,11 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
+Fw
+Fw
+Fw
+Fw
+Fw
 rf
 rf
 rf
@@ -2486,11 +2510,11 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
+Fw
+KA
+Vo
+Vo
+Fw
 rf
 rf
 rf
@@ -2668,11 +2692,11 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
+Fw
+KA
+KA
+KA
+KA
 rf
 rf
 rf
@@ -2850,11 +2874,11 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
+Fw
+KA
+KA
+KA
+KA
 rf
 rf
 rf
@@ -3032,11 +3056,11 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
+Fw
+KA
+Vo
+Vo
+Fw
 rf
 rf
 rf
@@ -3214,11 +3238,11 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
+Fw
+Fw
+Fw
+Fw
+Fw
 rf
 rf
 rf
@@ -12714,13 +12738,13 @@ rf
 rf
 rf
 rf
-LE
-SQ
-Sx
-Sx
-Sx
-SQ
-jy
+rf
+rf
+rf
+rf
+rf
+rf
+rf
 rf
 rf
 rf
@@ -12893,22 +12917,18 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-LE
-SQ
-Sx
-Sx
-Sx
-SQ
-jy
-rf
-rf
-rf
-rf
-rf
-rf
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+Fd
+ea
+ea
+XD
 rf
 rf
 rf
@@ -12932,6 +12952,10 @@ rf
 rf
 rf
 rf
+rf
+rf
+rf
+tg
 rf
 rf
 rf
@@ -13075,17 +13099,17 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-LE
-SQ
-Sx
-Sx
-Sx
-SQ
-jy
-rf
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
 rf
 rf
 rf
@@ -13257,17 +13281,17 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-LE
-SQ
-Sx
-Sx
-Sx
-SQ
-jy
-rf
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
 rf
 rf
 rf
@@ -13439,18 +13463,18 @@ rf
 rf
 rf
 rf
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
 rf
-rf
-rf
-LE
-SQ
-Sx
-Sx
-Sx
-SQ
-jy
-tt
-tt
 rf
 rf
 rf
@@ -13621,18 +13645,18 @@ rf
 rf
 rf
 rf
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
 rf
 rf
 rf
-LE
-SQ
-Sx
-Sx
-Sx
-SQ
-jy
-tt
-tt
+rf
 rf
 rf
 rf
@@ -13803,15 +13827,15 @@ rf
 rf
 rf
 rf
+tg
+tg
+tg
+tg
+tg
+tg
+tg
+tg
 rf
-rf
-rf
-LE
-SQ
-Sx
-Sx
-Sx
-SQ
 OC
 tt
 tt
@@ -13988,12 +14012,12 @@ rf
 rf
 rf
 rf
-LE
-SQ
-Sx
-Sx
-Sx
-SQ
+rf
+rf
+rf
+rf
+rf
+rf
 jy
 tt
 tt
