@@ -1950,7 +1950,7 @@ About the new airlock wires panel:
 				if(AM.blocks_airlock())
 					if(world.time > next_beep_at)
 						playsound(src.loc, close_failure_blocked, 30, 0, -3)
-						next_beep_at = world.time + SecondsToTicks(10)
+						next_beep_at = world.time + SecondsToTicks(20)
 					close_door_in(6)
 					return
 	var/has_opened_hatch = FALSE
