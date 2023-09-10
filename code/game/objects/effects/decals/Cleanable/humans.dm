@@ -89,35 +89,39 @@
 	var/hasfeet = 1
 	if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
 		hasfeet = 0
-	if(perp.shoes && !perp.buckled_to)//Adding blood to shoes
-		var/obj/item/clothing/shoes/S = perp.shoes
-		if(istype(S))
-			if(S.item_flags & LIGHTSTEP)
-				return
-			S.blood_color = basecolor
-			S.track_footprint = max(amount, S.track_footprint)
-			if(!S.blood_overlay)
-				S.generate_blood_overlay()
-			if(!S.blood_DNA)
-				S.blood_DNA = list()
-				S.blood_overlay.color = basecolor
-				S.add_overlay(S.blood_overlay)
-			if(S.blood_overlay && S.blood_overlay.color != basecolor)
-				S.cut_overlay(S.blood_overlay, TRUE)
-				S.blood_overlay.color = basecolor
-				S.add_overlay(S.blood_overlay, TRUE)
-			if(blood_DNA)
-				S.blood_DNA |= blood_DNA.Copy()
 
-	else if (hasfeet)//Or feet
-		perp.footprint_color = basecolor
-		perp.track_footprint = max(amount,perp.track_footprint)
-		LAZYINITLIST(perp.feet_blood_DNA)
-		if (blood_DNA)
-			perp.feet_blood_DNA |= blood_DNA.Copy()
-	else if (perp.buckled_to && istype(perp.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
-		var/obj/structure/bed/stool/chair/office/wheelchair/W = perp.buckled_to
-		W.bloodiness = 4
+	//If thrown (or leap manouvering), the mob is considered flying, so don't dirt its shoes
+	if(!perp.throwing)
+
+		if(perp.shoes && !perp.buckled_to)//Adding blood to shoes
+			var/obj/item/clothing/shoes/S = perp.shoes
+			if(istype(S))
+				if(S.item_flags & LIGHTSTEP)
+					return
+				S.blood_color = basecolor
+				S.track_footprint = max(amount, S.track_footprint)
+				if(!S.blood_overlay)
+					S.generate_blood_overlay()
+				if(!S.blood_DNA)
+					S.blood_DNA = list()
+					S.blood_overlay.color = basecolor
+					S.add_overlay(S.blood_overlay)
+				if(S.blood_overlay && S.blood_overlay.color != basecolor)
+					S.cut_overlay(S.blood_overlay, TRUE)
+					S.blood_overlay.color = basecolor
+					S.add_overlay(S.blood_overlay, TRUE)
+				if(blood_DNA)
+					S.blood_DNA |= blood_DNA.Copy()
+
+		else if (hasfeet)//Or feet
+			perp.footprint_color = basecolor
+			perp.track_footprint = max(amount,perp.track_footprint)
+			LAZYINITLIST(perp.feet_blood_DNA)
+			if (blood_DNA)
+				perp.feet_blood_DNA |= blood_DNA.Copy()
+		else if (perp.buckled_to && istype(perp.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
+			var/obj/structure/bed/stool/chair/office/wheelchair/W = perp.buckled_to
+			W.bloodiness = 4
 
 	perp.update_inv_shoes(1)
 	amount--
