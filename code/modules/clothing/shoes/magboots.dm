@@ -3,7 +3,7 @@
 	name = "magboots"
 	icon = 'icons/obj/item/clothing/shoes/magboots.dmi'
 	icon_state = "magboots0"
-	item_state = "magboots"
+	item_state = "magboots0"
 	contained_sprite = TRUE
 	center_of_mass = list("x" = 17,"y" = 12)
 	species_restricted = null
