@@ -123,10 +123,15 @@
 			var/obj/structure/bed/stool/chair/office/wheelchair/W = perp.buckled_to
 			W.bloodiness = 4
 
-	perp.update_inv_shoes(1)
-	amount--
+		perp.update_inv_shoes(1)
+		amount--
+
+	//Point and laugh
 	if(amount > 2 && prob(perp.slip_chance(perp.m_intent == M_RUN ? 20 : 5)))
 		perp.slip(src, 4)
+
+		if(perp.throwing)
+			amount--
 
 /obj/effect/decal/cleanable/blood/attack_hand(mob/living/carbon/human/user)
 	..()
