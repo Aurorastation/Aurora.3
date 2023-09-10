@@ -2,7 +2,7 @@
 	name = "Cyclops Mining Vessel"
 	description = "This bulky vessel is designed and operated by Hephaestus Industries. From asteroid cracking to planetary operations, this ship can do it all. "
 	suffixes = list("ships/heph/cyclops/cyclops.dmm")
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_WEEPING_STARS)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_WEEPING_STARS, SECTOR_UUEOAESA, SECTOR_BURZSIA)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "Cyclops Mining Vessel"
