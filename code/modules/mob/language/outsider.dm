@@ -163,14 +163,14 @@
 		if(M.species.name == SPECIES_VAURCA_BREEDER) //ta are better at intercepting transmissions
 			if(istype(M.origin, /singleton/origin_item/origin/tupii_b) || istype(M.origin, /singleton/origin_item/origin/vedhra_b)) //experienced in fighting lii'dra
 				interceptchance = 15
-			else if(istype(M.origin, /singleton/origin_item/origin/mouv_b)) //electronic warfare specialists
+			else if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE)) //electronic warfare specialists
 				interceptchance = 20
 			else
 				interceptchance = 10
 		else
 			if(istype(M.origin, /singleton/origin_item/origin/tupii) || istype(M.origin, /singleton/origin_item/origin/vedhra))
 				interceptchance = 5
-			else if(istype(M.origin, /singleton/origin_item/origin/mouv))
+			else if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				interceptchance = 10
 		if(prob(interceptchance))
 			return 1

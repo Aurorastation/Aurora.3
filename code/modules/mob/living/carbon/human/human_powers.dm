@@ -1418,7 +1418,7 @@
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
-			if(player_surname == surname || istype(src.origin, /singleton/origin_item/origin/mouv_b))
+			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
 	LAZYREMOVE(available_vaurca, src) //can't ban/mute/void yourself
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to ban.", "Hivenet Ban") as null|anything in available_vaurca
@@ -1457,7 +1457,7 @@
 		target.remove_language(LANGUAGE_VAURCA)
 		S.banned = TRUE
 		host.last_action = world.time + 1 MINUTES
-	else if(istype(src.origin, /singleton/origin_item/origin/mouv_b))
+	else if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 		if(!S.shielded)
 			if(prob(70))
 				to_chat(src, SPAN_NOTICE("You extend your will, severing [target]'s connection to the Hivenet. Perhaps now it will learn its lesson."))
@@ -1515,7 +1515,7 @@
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
-			if(player_surname == surname || istype(src.origin, /singleton/origin_item/origin/mouv_b))
+			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
 	LAZYREMOVE(available_vaurca, src) //can't ban/mute/void yourself
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to void.", "Hivenet Void") as null|anything in available_vaurca
@@ -1545,7 +1545,7 @@
 		target.adjustBrainLoss(20)
 		S.Destroy()
 		host.last_action = world.time + 1 MINUTES
-	else if(istype(src.origin, /singleton/origin_item/origin/mouv_b))
+	else if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 		if(!S.shielded)
 			if(prob(30))
 				to_chat(src, SPAN_NOTICE("You extend your will like a wrathful god, destroying [target]'s neural socket and permanently severing them from the Hivenet. Let that be a lesson to the rest."))
@@ -1592,7 +1592,7 @@
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
-			if(player_surname == surname || istype(src.origin, /singleton/origin_item/origin/mouv_b))
+			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
 	LAZYREMOVE(available_vaurca, src) //can't ban/mute/void yourself
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to mute.", "Hivenet Mute") as null|anything in available_vaurca
@@ -1631,7 +1631,7 @@
 		to_chat(target, SPAN_WARNING("You feel [src]'s will enter your mind, disabling your socket's ability to speak. Though the voices of your fellow Vaurcae echo still, you cannot speak to them."))
 		S.muted = TRUE
 		host.last_action = world.time + 5 MINUTES
-	else if(istype(src.origin, /singleton/origin_item/origin/mouv_b))
+	else if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 		if(!S.shielded)
 			if(prob(70))
 				to_chat(src, SPAN_NOTICE("You extend your will, silencing [target]'s neural socket. Perhaps now it will learn its lesson."))
@@ -1717,7 +1717,7 @@
 		return
 	if(host.last_action > world.time)
 		to_chat(src, SPAN_WARNING("You must wait before attempting Hivenet decryption!"))
-	if(istype(src.origin, /singleton/origin_item/origin/mouv_b))
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 		decryptchance = 15
 	for(var/mob/living/carbon/human/player in player_list)
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
@@ -1782,7 +1782,7 @@
 			reset_view(target)
 			return
 		if(choice == "Deny")
-			if(istype(src.origin, /singleton/origin_item/origin/mouv_b))
+			if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				var/hijack = alert(src, "[target] has denied your access request. Attempt a hijack?", "Hijack Hivenet Senses", "No", "Yes")
 				if(hijack == "Yes")
 					if(prob(40) && !S.shielded)
@@ -1831,7 +1831,7 @@
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
-			if(player_surname == surname || istype(src.origin, /singleton/origin_item/origin/mouv_b))
+			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
 	LAZYREMOVE(available_vaurca, src) //can't shock yourself
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to shock.", "Neural Shock") as null|anything in available_vaurca
@@ -1856,7 +1856,7 @@
 		target.adjustBrainLoss(10)
 		host.last_action = world.time + 5 MINUTES
 		return
-	if(istype(src.origin, /singleton/origin_item/origin/mouv_b))
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 		if(prob(50))
 			to_chat(src, SPAN_WARNING("You lash out over the Hivenet, delivering a neural shock to [target]!"))
 			to_chat(target, SPAN_DANGER("You feel [src]'s will strike out at you, pain burning inside your head!"))
@@ -1885,7 +1885,7 @@
 	if(src.stat != CONSCIOUS)
 		to_chat(src, SPAN_WARNING("You are incapable of that in your current state!"))
 		return
-	if(istype(src.origin, /singleton/origin_item/origin/mouv_b))
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 		max = 5
 	if(!istype(host))
 		to_chat(src, SPAN_WARNING("You lack the authority to do that!"))

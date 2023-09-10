@@ -20,6 +20,8 @@
 	possible_accents = list(ACCENT_CTHUR, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_CTHUR, CITIZENSHIP_NRALAKK)
 	possible_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_NONE)
+	origin_traits = list(TRAIT_ORIGIN_ELECTRONIC_WARFARE)
+	origin_traits_descriptions = list("are more capable in Hivenet electronic warfare.")
 
 /singleton/origin_item/origin/vytel_b
 	name = "Vytel Brood"
