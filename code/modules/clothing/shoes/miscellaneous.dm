@@ -24,11 +24,14 @@
 	w_class = ITEMSIZE_SMALL
 	species_restricted = null
 	icon_auto_adapt = TRUE
-	icon_supported_species_tags = list("vak")
 	silent = 1
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	move_trail = null
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi' //depreceated, only used for bulwarks due to their size
+	)
+
 
 /obj/item/clothing/shoes/heels
 	name = "high heels"
@@ -65,9 +68,13 @@
 	slowdown = 1
 	species_restricted = null
 	icon_auto_adapt = TRUE
-	icon_supported_species_tags = list("taj", "vak")
+	icon_supported_species_tags = list("taj")
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi' //depreceated, only used for bulwarks due to their size
+	)
+
 
 /obj/item/clothing/shoes/galoshes/syndie
 	name = "brown shoes"

@@ -15,7 +15,11 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 	icon_auto_adapt = TRUE
-	icon_supported_species_tags = list("taj", "vak")
+	icon_supported_species_tags = list("taj")
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi' //depreceated, only used for bulwarks due to their size
+	)
+
 
 /obj/item/clothing/shoes/jackboots/cavalry
 	name = "cavalry jackboots"
@@ -34,7 +38,7 @@
 	desc = "Modified pair of boots, particularly friendly to those species whose toes hold claws."
 	icon_state = "jackboots_toeless"
 	item_state = "jackboots_toeless"
-	species_restricted = null
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
 /obj/item/clothing/shoes/jackboots/toeless/cavalry
 	name = "toe-less cavalry jackboots"
@@ -63,21 +67,24 @@
 		rad = ARMOR_RAD_MINOR
 	)
 	icon_auto_adapt = TRUE
-	icon_supported_species_tags = list("taj", "vak")
+	icon_supported_species_tags = list("taj")
 	siemens_coefficient = 0.75
 	can_hold_knife = TRUE
 	build_from_parts = TRUE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi' //depreceated, only used for bulwarks due to their size
+	)
 
 /obj/item/clothing/shoes/workboots/toeless
 	name = "toe-less workboots"
 	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
 	icon_state = "workboots_toeless"
 	item_state = "workboots_toeless"
-	species_restricted = null
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 	icon_auto_adapt = TRUE
-	icon_supported_species_tags = list("taj", "vak")
+	icon_supported_species_tags = list("taj")
 
 /obj/item/clothing/shoes/workboots/brown
 	name = "brown workboots"
@@ -118,6 +125,7 @@
 /obj/item/clothing/shoes/combat //basic syndicate combat boots for nuke ops and mob corpses
 	name = "combat boots"
 	desc = "High speed, low drag combat boots."
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
 	icon_state = "combat"
 	item_state = "combat"
 	force = 5
@@ -135,7 +143,7 @@
 	build_from_parts = TRUE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
-	species_restricted = null
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
@@ -158,7 +166,11 @@
 			bio = ARMOR_BIO_MINOR
 			)
 	icon_auto_adapt = TRUE
-	icon_supported_species_tags = list("taj", "vak")
+	icon_supported_species_tags = list("taj")
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi' //depreceated, only used for bulwarks due to their size
+	)
+
 	siemens_coefficient = 0.75
 	can_hold_knife = TRUE
 	build_from_parts = TRUE
@@ -170,7 +182,7 @@
 	desc = "A pair of toe-less heavy winter boots made out of animal furs, reaching up to the knee.  Modified for species whose toes have claws."
 	icon_state = "winterboots_toeless"
 	item_state = "winterboots_toeless"
-	species_restricted = null
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
 /obj/item/clothing/shoes/aerostatic
 	name = "aerostatic boots"

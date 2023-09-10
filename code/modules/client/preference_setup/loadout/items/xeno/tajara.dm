@@ -572,10 +572,10 @@
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 
-/datum/gear/shoes/tajara/loafers/New()
+/datum/gear/shoes/tajara/oxford/New()
 	..()
-	var/list/loafers = list()
-	loafers["oxfords, black"] = /obj/item/clothing/shoes/laceup/tajara
-	loafers["oxfords, brown"] = /obj/item/clothing/shoes/laceup/brown/tajara
-	gear_tweaks += new /datum/gear_tweak/path(loafers)
+	var/list/oxford = list()
+	oxford["oxfords, black"] = /obj/item/clothing/shoes/laceup/tajara
+	oxford["oxfords, brown"] = /obj/item/clothing/shoes/laceup/brown/tajara
+	gear_tweaks += new /datum/gear_tweak/path(oxford)
 

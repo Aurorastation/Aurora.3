@@ -4,7 +4,7 @@
 	icon = 'icons/obj/item/clothing/shoes/sandals.dmi'
 	icon_state = "sandals"
 	item_state = "sandals"
-	species_restricted = null
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 	body_parts_covered = FALSE
 	contained_sprite = TRUE
 	icon_auto_adapt = TRUE
@@ -48,7 +48,7 @@
 			)
 	siemens_coefficient = 0.75
 	body_parts_covered = FEET|LEGS
-	species_restricted = null
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 	icon_supported_species_tags = list("taj", "una")
 	color = COLOR_CHESTNUT
 

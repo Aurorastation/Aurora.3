@@ -128,10 +128,12 @@
 /obj/item/clothing/shoes/flats
 	desc = "A pair of black, low-heeled women's flats."
 	name = "black dress flats"
+	icon = 'icons/obj/item/clothing/shoes/flats.dmi'
 	icon_state = "blackdf"
 	item_state = "blackdf"
-	species_restricted = null
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 	icon_auto_adapt = TRUE
+	contained_sprite = TRUE
 	icon_supported_species_tags = list("taj")
 
 /obj/item/clothing/shoes/flats/red

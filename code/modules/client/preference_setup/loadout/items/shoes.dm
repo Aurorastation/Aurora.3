@@ -10,23 +10,24 @@
 	gear_tweaks += list(gear_tweak_shoe_layer)
 
 /datum/gear/shoes/color
-	display_name = "shoe selection"
+	display_name = "sneakers selection"
+	description = "Sneakers, in a selection of colors."
 	path = /obj/item/clothing/shoes/sneakers
 
 /datum/gear/shoes/color/New()
 	..()
-	var/list/shoes = list()
-	shoes["white shoes"] = /obj/item/clothing/shoes/sneakers
-	shoes["red shoes"] = /obj/item/clothing/shoes/sneakers/red
-	shoes["orange shoes"] = /obj/item/clothing/shoes/sneakers/orange
-	shoes["yellow shoes"] = /obj/item/clothing/shoes/sneakers/yellow
-	shoes["green shoes"] = /obj/item/clothing/shoes/sneakers/green
-	shoes["blue shoes"] = /obj/item/clothing/shoes/sneakers/blue
-	shoes["purple shoes"] = /obj/item/clothing/shoes/sneakers/purple
-	shoes["brown shoes"] = /obj/item/clothing/shoes/sneakers/brown
-	shoes["black shoes"] = /obj/item/clothing/shoes/sneakers/black
-	shoes["rainbow shoes"] = /obj/item/clothing/shoes/sneakers/rainbow
-	gear_tweaks += new /datum/gear_tweak/path(shoes)
+	var/list/color = list()
+	color["white shoes"] = /obj/item/clothing/shoes/sneakers
+	color["red shoes"] = /obj/item/clothing/shoes/sneakers/red
+	color["orange shoes"] = /obj/item/clothing/shoes/sneakers/orange
+	color["yellow shoes"] = /obj/item/clothing/shoes/sneakers/yellow
+	color["green shoes"] = /obj/item/clothing/shoes/sneakers/green
+	color["blue shoes"] = /obj/item/clothing/shoes/sneakers/blue
+	color["purple shoes"] = /obj/item/clothing/shoes/sneakers/purple
+	color["brown shoes"] = /obj/item/clothing/shoes/sneakers/brown
+	color["black shoes"] = /obj/item/clothing/shoes/sneakers/black
+	color["rainbow shoes"] = /obj/item/clothing/shoes/sneakers/rainbow
+	gear_tweaks += new /datum/gear_tweak/path(color)
 
 /datum/gear/shoes/dress
 	display_name = "oxford shoe selection"
@@ -34,13 +35,13 @@
 
 /datum/gear/shoes/dress/New()
 	..()
-	var/list/shoes = list()
-	shoes["black oxford shoes"] = /obj/item/clothing/shoes/laceup
-	shoes["grey oxford shoes"] = /obj/item/clothing/shoes/laceup/grey
-	shoes["brown oxford shoes"] = /obj/item/clothing/shoes/laceup/brown
-	shoes["steel-toed oxford shoes"] = /obj/item/clothing/shoes/laceup/steeltoed
-	shoes["lizardskin oxford shoes"] = /obj/item/clothing/shoes/laceup/lizardskin
-	gear_tweaks += new /datum/gear_tweak/path(shoes)
+	var/list/dress = list()
+	dress["black oxford shoes"] = /obj/item/clothing/shoes/laceup
+	dress["grey oxford shoes"] = /obj/item/clothing/shoes/laceup/grey
+	dress["brown oxford shoes"] = /obj/item/clothing/shoes/laceup/brown
+	dress["steel-toed oxford shoes"] = /obj/item/clothing/shoes/laceup/steeltoed
+	dress["lizardskin oxford shoes"] = /obj/item/clothing/shoes/laceup/lizardskin
+	gear_tweaks += new /datum/gear_tweak/path(dress)
 
 /datum/gear/shoes/flats
 	display_name = "flats selection"
@@ -49,14 +50,14 @@
 
 /datum/gear/shoes/flats/New()
 	..()
-	var/list/shoes = list()
-	shoes["dress flats, black"] = /obj/item/clothing/shoes/flats
-	shoes["dress flats, white"] = /obj/item/clothing/shoes/flats/white
-	shoes["dress flats, red"] = /obj/item/clothing/shoes/flats/red
-	shoes["dress flats, blue"] = /obj/item/clothing/shoes/flats/blue
-	shoes["dress flats, green"] = /obj/item/clothing/shoes/flats/green
-	shoes["dress flats, purple"] = /obj/item/clothing/shoes/flats/purple
-	gear_tweaks += new /datum/gear_tweak/path(shoes)
+	var/list/flats = list()
+	flats["dress flats, black"] = /obj/item/clothing/shoes/flats
+	flats["dress flats, white"] = /obj/item/clothing/shoes/flats/white
+	flats["dress flats, red"] = /obj/item/clothing/shoes/flats/red
+	flats["dress flats, blue"] = /obj/item/clothing/shoes/flats/blue
+	flats["dress flats, green"] = /obj/item/clothing/shoes/flats/green
+	flats["dress flats, purple"] = /obj/item/clothing/shoes/flats/purple
+	gear_tweaks += new /datum/gear_tweak/path(flats)
 
 /datum/gear/shoes/heels
 	display_name = "high heels"
@@ -70,12 +71,12 @@
 
 /datum/gear/shoes/sandals/New()
 	..()
-	var/list/shoes = list()
-	shoes["sandals"] = /obj/item/clothing/shoes/sandals
-	shoes["rubber clogs"] = /obj/item/clothing/shoes/sandals/clogs
-	shoes["flip flops"] = /obj/item/clothing/shoes/sandals/flipflop
-	shoes["geta"] = /obj/item/clothing/shoes/sandals/geta
-	gear_tweaks += new /datum/gear_tweak/path(shoes)
+	var/list/sandals = list()
+	sandals["sandals"] = /obj/item/clothing/shoes/sandals
+	sandals["rubber clogs"] = /obj/item/clothing/shoes/sandals/clogs
+	sandals["flip flops"] = /obj/item/clothing/shoes/sandals/flipflop
+	sandals["geta"] = /obj/item/clothing/shoes/sandals/geta
+	gear_tweaks += new /datum/gear_tweak/path(sandals)
 
 /datum/gear/shoes/hitops
 	display_name = "high-top selection"
@@ -84,18 +85,18 @@
 
 /datum/gear/shoes/hitops/New()
 	..()
-	var/list/shoes = list()
-	shoes["high-tops, white"] = /obj/item/clothing/shoes/sneakers/hitops
-	shoes["high-tops, red"] = /obj/item/clothing/shoes/sneakers/hitops/red
-	shoes["high-tops, orange"] = /obj/item/clothing/shoes/sneakers/hitops/orange
-	shoes["high-tops, yellow"] = /obj/item/clothing/shoes/sneakers/hitops/yellow
-	shoes["high-tops, green"] = /obj/item/clothing/shoes/sneakers/hitops/green
-	shoes["high-tops, blue"] = /obj/item/clothing/shoes/sneakers/hitops/blue
-	shoes["high-tops, purple"] = /obj/item/clothing/shoes/sneakers/hitops/purple
-	shoes["high-tops, brown"] = /obj/item/clothing/shoes/sneakers/hitops/brown
-	shoes["high-tops, black"] = /obj/item/clothing/shoes/sneakers/hitops/black
-	shoes["high-tops, rainbow"] = /obj/item/clothing/shoes/sneakers/hitops/rainbow
-	gear_tweaks += new /datum/gear_tweak/path(shoes)
+	var/list/hitops = list()
+	hitops["high-tops, white"] = /obj/item/clothing/shoes/sneakers/hitops
+	hitops["high-tops, red"] = /obj/item/clothing/shoes/sneakers/hitops/red
+	hitops["high-tops, orange"] = /obj/item/clothing/shoes/sneakers/hitops/orange
+	hitops["high-tops, yellow"] = /obj/item/clothing/shoes/sneakers/hitops/yellow
+	hitops["high-tops, green"] = /obj/item/clothing/shoes/sneakers/hitops/green
+	hitops["high-tops, blue"] = /obj/item/clothing/shoes/sneakers/hitops/blue
+	hitops["high-tops, purple"] = /obj/item/clothing/shoes/sneakers/hitops/purple
+	hitops["high-tops, brown"] = /obj/item/clothing/shoes/sneakers/hitops/brown
+	hitops["high-tops, black"] = /obj/item/clothing/shoes/sneakers/hitops/black
+	hitops["high-tops, rainbow"] = /obj/item/clothing/shoes/sneakers/hitops/rainbow
+	gear_tweaks += new /datum/gear_tweak/path(hitops)
 
 /datum/gear/shoes/boots
 	display_name = "boot selection"
@@ -105,26 +106,26 @@
 
 /datum/gear/shoes/boots/New()
 	..()
-	var/list/shoes = list()
-	shoes["jackboots"] = /obj/item/clothing/shoes/jackboots
-	shoes["jackboots, cavalry"] = /obj/item/clothing/shoes/jackboots/cavalry
-	shoes["jackboots, riding"] = /obj/item/clothing/shoes/jackboots/riding
-	shoes["cowboy boots"] = /obj/item/clothing/shoes/cowboy
-	shoes["classic cowboy boots"] = /obj/item/clothing/shoes/cowboy/classic
-	shoes["snakeskin cowboy boots"] = /obj/item/clothing/shoes/cowboy/snakeskin
-	shoes["green snakeskin cowboy boots"] = /obj/item/clothing/shoes/cowboy/lizard
-	shoes["blue snakeskin cowboy boots"] = /obj/item/clothing/shoes/cowboy/lizard/masterwork
-	shoes["white cowboy boots"] = /obj/item/clothing/shoes/cowboy/white
-	shoes["fancy cowboy boots"] = /obj/item/clothing/shoes/cowboy/fancy
-	shoes["black cowboy boots"] = /obj/item/clothing/shoes/cowboy/black
-	shoes["vysokan gurmori hide boots"] = /obj/item/clothing/shoes/cowboy/gurmori
-	shoes["workboots"] = /obj/item/clothing/shoes/workboots
-	shoes["brown workboots"] = /obj/item/clothing/shoes/workboots/brown
-	shoes["grey workboots"] = /obj/item/clothing/shoes/workboots/grey
-	shoes["dark workboots"] = /obj/item/clothing/shoes/workboots/dark
-	shoes["winter boots"] = /obj/item/clothing/shoes/winter
-	shoes["aerostatic boots"] = /obj/item/clothing/shoes/aerostatic
-	gear_tweaks += new /datum/gear_tweak/path(shoes)
+	var/list/boots = list()
+	boots["jackboots"] = /obj/item/clothing/shoes/jackboots
+	boots["jackboots, cavalry"] = /obj/item/clothing/shoes/jackboots/cavalry
+	boots["jackboots, riding"] = /obj/item/clothing/shoes/jackboots/riding
+	boots["cowboy boots"] = /obj/item/clothing/shoes/cowboy
+	boots["classic cowboy boots"] = /obj/item/clothing/shoes/cowboy/classic
+	boots["snakeskin cowboy boots"] = /obj/item/clothing/shoes/cowboy/snakeskin
+	boots["green snakeskin cowboy boots"] = /obj/item/clothing/shoes/cowboy/lizard
+	boots["blue snakeskin cowboy boots"] = /obj/item/clothing/shoes/cowboy/lizard/masterwork
+	boots["white cowboy boots"] = /obj/item/clothing/shoes/cowboy/white
+	boots["fancy cowboy boots"] = /obj/item/clothing/shoes/cowboy/fancy
+	boots["black cowboy boots"] = /obj/item/clothing/shoes/cowboy/black
+	boots["vysokan gurmori hide boots"] = /obj/item/clothing/shoes/cowboy/gurmori
+	boots["workboots"] = /obj/item/clothing/shoes/workboots
+	boots["brown workboots"] = /obj/item/clothing/shoes/workboots/brown
+	boots["grey workboots"] = /obj/item/clothing/shoes/workboots/grey
+	boots["dark workboots"] = /obj/item/clothing/shoes/workboots/dark
+	boots["winter boots"] = /obj/item/clothing/shoes/winter
+	boots["aerostatic boots"] = /obj/item/clothing/shoes/aerostatic
+	gear_tweaks += new /datum/gear_tweak/path(boots)
 
 /datum/gear/shoes/lyodsuit_boots
 	display_name = "lyodsuit boots"
@@ -148,6 +149,7 @@
 
 /datum/gear/shoes/recolourable_shoes
 	display_name = "shoe selection (colourable)"
+	description = "Shoes, in a selection of colors."
 	path = /obj/item/clothing/shoes/sneakers
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 

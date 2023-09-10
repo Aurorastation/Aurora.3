@@ -3,7 +3,7 @@
 	desc = "The height of fashion, and they're pre-polished!"
 	icon = 'icons/obj/item/clothing/shoes/oxford.dmi'
 	contained_sprite = TRUE
-	species_restricted = null
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 	icon_state = "oxford_black"
 	item_state = "oxford_black"
 
@@ -32,3 +32,4 @@
 	name = "lizardskin oxford shoes"
 	desc = "They may have lost some of their lustre over the years, but these green lizardskin shoes fit you perfectly."
 	icon_state = "oxford_lizardskin"
+	item_state = "oxford_lizardskin"

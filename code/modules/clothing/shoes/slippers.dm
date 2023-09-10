@@ -5,7 +5,8 @@
 	icon_state = "slippers"
 	item_state = "slippers"
 	force = 0
-	species_restricted = null
+	contained_sprite = TRUE
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 	silent = TRUE
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
