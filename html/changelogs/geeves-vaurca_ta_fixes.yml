@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Vaurca Breeders now show their consular equipment correctly in the loadout."
+  - bugfix: "Vaurca Breeders now have proper sprite offsets for in-hand and on-ear items."
