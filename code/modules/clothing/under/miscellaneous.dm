@@ -71,11 +71,11 @@
 	worn_state = "centcom"
 	displays_id = 0
 
-/obj/item/clothing/under/rank/fib
+/obj/item/clothing/under/rank/bssb
 	name = "\improper BSSB agent uniform"
 	desc = "A formal uniform used by Biesel Security Services Bureau agents."
-	icon_state = "fib_uniform"
-	worn_state = "fib_uniform"
+	icon_state = "bssb_uniform"
+	worn_state = "bssb_uniform"
 
 /obj/item/clothing/under/rank/scc
 	name = "Stellar Corporate Conglomerate agent uniform"

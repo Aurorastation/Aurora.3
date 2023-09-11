@@ -1364,10 +1364,10 @@
 	layer = 2.99;
 	pixel_y = 6
 	},
-/obj/item/storage/lockbox/cciaa/fib{
+/obj/item/storage/lockbox/cciaa/bssb{
 	pixel_y = -1
 	},
-/obj/item/storage/lockbox/cciaa/fib{
+/obj/item/storage/lockbox/cciaa/bssb{
 	pixel_y = -1
 	},
 /obj/effect/floor_decal/corner/blue/full{
@@ -8156,15 +8156,15 @@
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/armor/vest/fib{
+/obj/item/clothing/suit/armor/vest/bssb{
 	pixel_x = -6;
 	pixel_y = -3
 	},
-/obj/item/clothing/suit/armor/vest/fib{
+/obj/item/clothing/suit/armor/vest/bssb{
 	pixel_x = -6;
 	pixel_y = -3
 	},
-/obj/item/clothing/suit/armor/vest/fib{
+/obj/item/clothing/suit/armor/vest/bssb{
 	pixel_x = -6;
 	pixel_y = -3
 	},

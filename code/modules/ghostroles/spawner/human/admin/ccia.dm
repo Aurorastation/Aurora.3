@@ -11,7 +11,7 @@
 	landmark_name = "CCIAAgent"
 	req_perms = R_CCIAA
 
-	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	respawn_flag = null
@@ -85,13 +85,12 @@
 	mob_name_prefix = "Spc. "
 	mob_name_pick_message = "Pick a name."
 
-/datum/ghostspawner/human/admin/corporate/fib
+/datum/ghostspawner/human/admin/corporate/bssb
 	short_name = "bssb"
 	name = "BSSB Agent"
 	desc = "Investigate issues related to crimes under the jurisdiction of the Biesel Security Services Bureau."
 
 	outfit = /datum/outfit/admin/nt/bssb
-	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 
 	assigned_role = "BSSB Agent"
 	special_role = "BSSB Agent"
@@ -99,7 +98,7 @@
 	mob_name_prefix = "S/Agt. "
 	mob_name_pick_message = "Pick a name."
 
-/datum/ghostspawner/human/admin/corporate/fib/escort
+/datum/ghostspawner/human/admin/corporate/bssb/escort
 	short_name = "bssbescort"
 	name = "BSSB Escort"
 	desc = "Protect the agents of the Biesel Security Services Bureau while on the field."
@@ -107,7 +106,7 @@
 	landmark_name = "CCIAEscort"
 
 	outfit = /datum/outfit/admin/nt/bssb/guard
-	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 
 	enabled = FALSE
 

@@ -195,14 +195,14 @@
 /datum/outfit/admin/nt/bssb
 	name = "BSSB Agent"
 
-	uniform = /obj/item/clothing/under/rank/fib
+	uniform = /obj/item/clothing/under/rank/bssb
 	suit = /obj/item/clothing/suit/storage/toggle/fib
 	gloves = /obj/item/clothing/gloves/black
 
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/device/taperecorder/cciaa
-	l_hand = /obj/item/storage/lockbox/cciaa/fib
-	id = /obj/item/card/id/ccia/fib
+	l_hand = /obj/item/storage/lockbox/cciaa/bssb
+	id = /obj/item/card/id/ccia/bssb
 
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
@@ -216,10 +216,16 @@
 	id_icon = "fib"
 	id_access = "CCIA Agent"
 
+/datum/outfit/admin/nt/bssb/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+
+	if(H && H.suit)
+		var/obj/item/clothing/accessory/badge/bssb/senior/badge = new(src)
+		H.suit.attach_accessory(null, badge)
+
 /datum/outfit/admin/nt/bssb/guard
 	name = "BSSB Escort"
 
-	suit = /obj/item/clothing/suit/armor/vest/fib
+	suit = /obj/item/clothing/suit/armor/vest/bssb
 	belt =/obj/item/storage/belt/security
 	r_pocket = null
 	l_hand = null
@@ -237,6 +243,12 @@
 	)
 
 	id_access = "CCIA Agent"
+
+/datum/outfit/admin/nt/bssb/guard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+
+	if(H && H.suit)
+		var/obj/item/clothing/accessory/badge/bssb/badge = new(src)
+		H.suit.attach_accessory(null, badge)
 
 /datum/outfit/admin/nt/odindoc
 	name = "NTCC Odin Medical Specialist"

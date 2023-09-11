@@ -77,7 +77,7 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 
-/obj/item/clothing/suit/armor/vest/fib
+/obj/item/clothing/suit/armor/vest/bssb
 	name = "\improper BSSB armored vest"
 	desc = "An armored vest used by Biesel Security Service Bureau agents during operations."
 	icon_state = "fib_armor"

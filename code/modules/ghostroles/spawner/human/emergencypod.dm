@@ -344,7 +344,7 @@
 /datum/outfit/admin/pod/fib
 	name = "RescuePod - FIB" // Doctor Pavel, I'm FIB.
 
-	uniform = /obj/item/clothing/under/rank/fib
+	uniform = /obj/item/clothing/under/rank/bssb
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/black
 	l_pocket = /obj/item/reagent_containers/spray/pepper

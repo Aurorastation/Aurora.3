@@ -351,10 +351,10 @@
 /obj/item/storage/lockbox/cciaa
 	req_access = list(access_cent_ccia)
 	name = "CCIA agent briefcase"
-	desc = "A smart looking briefcase with a NT logo on the side"
+	desc = "A smart looking briefcase with an SCC logo on the side"
 	storage_slots = 8
 	max_storage_space = 16
 
-/obj/item/storage/lockbox/cciaa/fib
+/obj/item/storage/lockbox/cciaa/bssb
 	name = "BSSB agent briefcase"
 	desc = "A smart looking ID locked briefcase."
