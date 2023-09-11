@@ -56,6 +56,16 @@
 		/obj/item/storage/box/survival = 1
 	)
 
+/datum/outfit/admin/tarwa/post_equip(mob/living/carbon/human/H, visualsOnly)
+	if(!istype(H))
+		return
+	for(var/obj/item/organ/external/O in H.organs)
+		if(prob(25))
+			O.AddComponent(/datum/component/nymph_limb)
+			var/datum/component/nymph_limb/D = O.GetComponent(/datum/component/nymph_limb)
+			if(D)
+				D.nymphize(H, O.limb_name, TRUE)
+
 /datum/outfit/admin/tarwa/get_id_access()
 	return list(access_unathi_pirate, access_external_airlocks)
 
@@ -63,6 +73,8 @@
 	name = "Tarwa Conglomerate Diona"
 	suit = /obj/item/clothing/accessory/poncho/green
 	head = /obj/item/clothing/head/bandana/pirate
+
+/datum/outfit/admin/tarwa/diona/post_equip(mob/living/carbon/human/H, visualsOnly) //don't give a diona a diona nymph limb. idiot.
 
 /datum/outfit/admin/tarwa/captain
 	name = "Tarwa Conglomerate Captain"
