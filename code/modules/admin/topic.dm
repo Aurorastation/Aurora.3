@@ -885,9 +885,9 @@
 		if(!input)	return
 		to_chat(src.owner, "You sent [input] to [H] via a secure Hivenet channel.")
 		log_admin("[src.owner] replied to [key_name(H)]'s Hivenet message with the message [input].", admin_key=key_name(src.owner), ckey=key_name(H))
-		to_chat(H, "<span class='info'>You feel something shifting in the Hivenet, an encrypted whisper transmitted directly to your neural socket. Message as follows.</span>")
-		to_chat(H, "<span class='notice'><b>\"[input]\"</b></span>")
-		to_chat(H, "<span class='info'>Message ends.</span>")
+		to_chat(H, SPAN_INFO("You feel something shifting in the Hivenet, an encrypted whisper transmitted directly to your neural socket. Message as follows."))
+		to_chat(H, SPAN_NOTICE(SPAN_BOLD("\"[input]\"")))
+		to_chat(H, SPAN_INFO("Message ends."))
 
 	else if(href_list["SyndicateReply"])
 		var/mob/living/carbon/human/H = locate(href_list["SyndicateReply"])

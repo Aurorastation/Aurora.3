@@ -189,13 +189,13 @@
 /obj/item/organ/internal/augment/hiveshield/attack_self(var/mob/living/carbon/user)
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = user.internal_organs_by_name[BP_NEURAL_SOCKET]
 	if(!istype(S) && !S.is_broken())
-		to_chat(user, SPAN_WARNING("You require a working neural socket to activate the [src]"))
+		to_chat(user, SPAN_WARNING("You require a working neural socket to activate \the [src]."))
 		return
 	if(S.shielded)
-		to_chat(user, SPAN_NOTICE("You deactivate the [src], lowering your neural socket's defenses."))
+		to_chat(user, SPAN_NOTICE("You deactivate \the [src], lowering your neural socket's defenses."))
 		S.shielded = SOCKET_UNSHIELDED
 		return
-	to_chat(user, SPAN_NOTICE("You activate the [src], shielding your neural socket against outside attack."))
+	to_chat(user, SPAN_NOTICE("You activate \the [src], shielding your neural socket against outside attack."))
 	if(fullshield)
 		S.shielded = SOCKET_FULLSHIELDED
 	else
@@ -214,14 +214,14 @@
 
 /obj/item/organ/internal/augment/hiveshield/advanced
 	name = "advanced hivenet electronic defense suite"
-	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access or sabotage.\
+	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access or sabotage. \
 	This one looks especially advanced, even by Vaurcaesian standards."
 	action_button_name = "Toggle Advanced Hivenet Defense Suite"
 	fullshield = TRUE
 
 /obj/item/organ/internal/augment/hiveshield/warfare
 	name = "hivenet electronic warfare suite"
-	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access or sabotage.\
+	desc = "An augment often seen among Vaurcae specializing in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access or sabotage. \
 	It also contains a suite of upgrades enabling it to launch Hivenet-based attacks against other Vaurcae."
 	var/list/added_verbs = list(
 		/mob/living/carbon/human/proc/hivenet_hijack,

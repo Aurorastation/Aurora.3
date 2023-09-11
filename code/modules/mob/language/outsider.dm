@@ -149,15 +149,15 @@
 /datum/language/bug/liidra/check_special_condition(mob/other)
 	var/mob/living/carbon/human/M = other
 	if(!istype(M))
-		return 0
+		return FALSE
 	if(istype(M, /mob/abstract/new_player))
-		return 0
+		return FALSE
 	if(within_jamming_range(other))
-		return 0
+		return FALSE
 	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (all_languages[LANGUAGE_LIIDRA] in M.languages)) //replace with Special Liidra Socket later
-		return 1
+		return TRUE
 	if(M.internal_organs_by_name["blackkois"] && (all_languages[LANGUAGE_LIIDRA] in M.languages))
-		return 1
+		return TRUE
 	if(isvaurca(M))
 		var/interceptchance = 1 //tiny chance for normal bugs to hear a message
 		if(M.species.name == SPECIES_VAURCA_BREEDER) //ta are better at intercepting transmissions
@@ -173,5 +173,5 @@
 			else if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				interceptchance = 10
 		if(prob(interceptchance))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
