@@ -153,8 +153,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/coc_survey_ship/engineering)
 "bF" = (
-/obj/effect/step_trigger/teleporter,
-/turf/space/transit/east,
+/turf/space,
 /area/space)
 "bG" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -184,12 +183,6 @@
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/hangar)
-"cd" = (
-/obj/effect/floor_decal/corner_wide/white/diagonal,
-/obj/machinery/recharge_station,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/coc_survey_ship/mess_hall)
 "cn" = (
 /obj/machinery/light{
 	dir = 8
@@ -811,22 +804,6 @@
 /obj/item/storage/firstaid/large/trauma,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
-"ip" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/iff_beacon/name_change,
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
 "iu" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -1260,6 +1237,12 @@
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/mess_hall)
+"me" = (
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/coc_survey_ship/mess_hall)
 "mg" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -1531,10 +1514,6 @@
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/coc_survey_ship/captain)
-"oE" = (
-/obj/effect/shuttle_landmark/coc_survey_shuttle/transit,
-/turf/space/transit/east,
-/area/space)
 "oF" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -1595,7 +1574,7 @@
 /area/coc_survey_ship/cargo)
 "pa" = (
 /obj/machinery/mineral/stacking_machine{
-	id = s
+	id = "coalit_stacker_1"
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/miningeva)
@@ -1955,6 +1934,22 @@
 /obj/effect/floor_decal/corner_wide/paleblue,
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
+"sf" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/shipsensors/weak,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor,
+/area/shuttle/coc_survey_shuttle)
 "sh" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "starboard wing"
@@ -2269,6 +2264,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
+"uR" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/mob/living/heavy_vehicle/premade/miner,
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/miningeva)
 "uU" = (
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/dark,
@@ -3032,7 +3037,7 @@
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/anomaly)
 "Bo" = (
-/turf/space,
+/turf/space/transit/east,
 /area/space)
 "Bq" = (
 /obj/machinery/door/window{
@@ -3315,16 +3320,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
-"Dq" = (
-/obj/effect/floor_decal/corner_wide/orange{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/mob/living/heavy_vehicle/premade/miner,
-/turf/simulated/floor/tiled,
-/area/coc_survey_ship/miningeva)
 "Ds" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/meter,
@@ -3680,13 +3675,9 @@
 /turf/simulated/floor,
 /area/shuttle/coc_survey_shuttle)
 "Gc" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = s;
-	layer = 2.9
-	},
-/turf/simulated/floor,
-/area/coc_survey_ship/miningeva)
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/east,
+/area/space)
 "Gm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable{
@@ -5072,6 +5063,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/cryo)
+"SO" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 5
+	},
+/obj/machinery/mineral/stacking_unit_console{
+	id = "coalit_stacker_1";
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/miningeva)
 "ST" = (
 /obj/item/bedsheet,
 /obj/structure/bed/padded,
@@ -5168,22 +5169,6 @@
 	name = "tile floor"
 	},
 /area/coc_survey_ship/cargo)
-"Tr" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/shipsensors/weak,
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
 "TF" = (
 /obj/structure/table/steel,
 /obj/item/device/hand_labeler,
@@ -5573,9 +5558,7 @@
 /turf/simulated/floor,
 /area/coc_survey_ship/starboard_propulsion)
 "Xh" = (
-/obj/machinery/mineral/unloading_machine{
-	dir = 1
-	},
+/obj/machinery/mineral/unloading_machine,
 /turf/simulated/floor,
 /area/coc_survey_ship/miningeva)
 "Xl" = (
@@ -5830,12 +5813,21 @@
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "YJ" = (
-/obj/machinery/mineral/stacking_unit_console{
-	id = "coalit_stacker_1";
-	pixel_y = -3
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/turf/simulated/wall,
-/area/coc_survey_ship/miningeva)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/iff_beacon/name_change,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor,
+/area/shuttle/coc_survey_shuttle)
 "YU" = (
 /obj/effect/map_effect/window_spawner/borosilicate/reinforced/firedoor,
 /turf/simulated/floor,
@@ -5985,6 +5977,7 @@
 	},
 /area/coc_survey_ship/cargo)
 "ZL" = (
+/obj/effect/shuttle_landmark/coc_survey_shuttle/transit,
 /turf/space/transit/east,
 /area/space)
 "ZM" = (
@@ -6090,24 +6083,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
-Bo
-Bo
-Bo
+bF
+bF
+bF
+bF
+bF
 "}
 (2,1,1) = {"
 PG
@@ -6192,24 +6185,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
-Bo
-Bo
-Bo
+bF
+bF
+bF
+bF
+bF
 "}
 (3,1,1) = {"
 PG
@@ -6294,24 +6287,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
-Bo
-Bo
-Bo
+bF
+bF
+bF
+bF
+bF
 "}
 (4,1,1) = {"
 PG
@@ -6396,24 +6389,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
-Bo
-Bo
-Bo
+bF
+bF
+bF
+bF
+bF
 "}
 (5,1,1) = {"
 PG
@@ -6498,24 +6491,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
-Bo
-Bo
-Bo
+bF
+bF
+bF
+bF
+bF
 "}
 (6,1,1) = {"
 PG
@@ -6600,24 +6593,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (7,1,1) = {"
 PG
@@ -6702,24 +6695,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (8,1,1) = {"
 PG
@@ -6804,24 +6797,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (9,1,1) = {"
 PG
@@ -6906,24 +6899,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (10,1,1) = {"
 PG
@@ -7008,24 +7001,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (11,1,1) = {"
 PG
@@ -7110,24 +7103,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (12,1,1) = {"
 PG
@@ -7212,24 +7205,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (13,1,1) = {"
 PG
@@ -7314,24 +7307,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (14,1,1) = {"
 PG
@@ -7416,24 +7409,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (15,1,1) = {"
 PG
@@ -7518,24 +7511,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (16,1,1) = {"
 PG
@@ -7620,24 +7613,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (17,1,1) = {"
 PG
@@ -7722,24 +7715,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (18,1,1) = {"
 PG
@@ -7824,24 +7817,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (19,1,1) = {"
 PG
@@ -7926,24 +7919,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (20,1,1) = {"
 PG
@@ -8028,24 +8021,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (21,1,1) = {"
 PG
@@ -8130,24 +8123,24 @@ PG
 PG
 PG
 PG
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-Bo
-Bo
-Bo
+bF
+bF
 "}
 (22,1,1) = {"
 PG
@@ -8232,24 +8225,24 @@ PG
 PG
 PG
 PG
-bF
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
 ZL
-ZL
-ZL
-ZL
-ZL
-oE
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (23,1,1) = {"
 PG
@@ -8334,24 +8327,24 @@ PG
 PG
 PG
 PG
-bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (24,1,1) = {"
 PG
@@ -8436,24 +8429,24 @@ PG
 PG
 PG
 PG
-bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (25,1,1) = {"
 PG
@@ -8538,24 +8531,24 @@ PG
 PG
 PG
 PG
-bF
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
-ZL
+Gc
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (26,1,1) = {"
 PG
@@ -8640,24 +8633,24 @@ PG
 PG
 PG
 PG
-bF
-bF
-bF
-bF
-bF
-bF
-bF
-bF
-bF
-bF
-bF
-bF
-bF
-bF
-bF
-bF
-bF
-bF
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
+Gc
 "}
 (27,1,1) = {"
 PG
@@ -10334,11 +10327,11 @@ ZM
 Ny
 dT
 dT
-ip
+YJ
 Zd
 Uf
 Zd
-Tr
+sf
 dT
 dT
 WO
@@ -10765,7 +10758,7 @@ nX
 Pa
 LM
 rq
-cd
+me
 Pd
 jf
 RP
@@ -10856,8 +10849,8 @@ Vh
 FK
 dP
 dP
-YJ
-Gn
+Vh
+SO
 Hm
 zS
 BM
@@ -11057,7 +11050,7 @@ zc
 dT
 Cn
 Vh
-Gc
+FK
 dP
 rt
 MH
@@ -11975,7 +11968,7 @@ dT
 dT
 vM
 Vh
-Dq
+uR
 LL
 MH
 oS
