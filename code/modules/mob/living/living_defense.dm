@@ -393,7 +393,7 @@
 
 	var/button_number = 0
 	for(var/datum/action/A in actions)
-		if(QDELING(A))
+		if(QDELETED(A))
 			continue
 
 		button_number++
