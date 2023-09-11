@@ -93,6 +93,7 @@
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_survey"
+	dock_target = "surveyor_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/coc_survey_shuttle/hangar
@@ -100,6 +101,7 @@
 	landmark_tag = "nav_hangar_survey"
 	base_area = /area/coc_survey_ship/hangar
 	base_turf = /turf/simulated/floor/plating
+	docking_controller = "surveyor_shuttle_dock"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/coc_survey_shuttle/transit

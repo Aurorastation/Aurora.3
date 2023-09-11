@@ -802,6 +802,13 @@
 /obj/item/storage/firstaid/large/o2,
 /obj/item/storage/firstaid/large/stab,
 /obj/item/storage/firstaid/large/trauma,
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1385;
+	id_tag = "surveyor_shuttle_dock";
+	req_one_access = list(113);
+	tag_door = "hegemony_dock_doors";
+	pixel_y = 25
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "iu" = (
@@ -2768,6 +2775,12 @@
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/hangar)
+"za" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "zc" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "port"
@@ -3107,6 +3120,16 @@
 /obj/effect/map_effect/airlock/w_to_e/long/square,
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/coc_survey_ship/atmos)
+"BS" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1389;
+	icon_state = "door_locked";
+	id_tag = "surveyor_shuttle_in";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "BU" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/bed/stool/bar/padded/brown,
@@ -3555,6 +3578,20 @@
 	id_tag = "surveyor_out_external";
 	frequency = 1413
 	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1389;
+	master_tag = "surveyor_shuttle";
+	name = "exterior access button";
+	pixel_x = -24;
+	pixel_y = -5;
+	dir = 4
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	frequency = 1389;
+	id_tag = "surveyor_shuttle_exterior_sensor";
+	pixel_y = 30
+	},
 /turf/simulated/floor,
 /area/shuttle/coc_survey_shuttle)
 "Fr" = (
@@ -3854,6 +3891,26 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/coc_survey_ship/blaster)
+"HH" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
+	id_tag = "surveyor_shuttle";
+	master_tag = "surveyor_shuttle";
+	pixel_y = 25;
+	tag_interior_door = "surveyor_shuttle_in";
+	tag_exterior_door = "surveyor_shuttle_out";
+	tag_interior_sensor = "surveyor_shuttle_interior_sensor";
+	tag_exterior_sensor = "surveyor_shuttle_exterior_sensor";
+	tag_chamber_sensor = "surveyor_shuttle_chamber_sensor";
+	tag_airpump = "hegemony_shuttle_pump_in";
+	frequency = 1389
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1389;
+	id_tag = "surveyor_shuttle_pump_in"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "HI" = (
 /obj/machinery/mineral/rigpress,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3992,8 +4049,15 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/coc_survey_ship/captain)
 "Jl" = (
-/obj/effect/map_effect/airlock/w_to_e/long/square,
-/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "Jm" = (
 /turf/simulated/floor/reinforced,
@@ -4147,9 +4211,21 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/coc_survey_ship/captain)
 "KD" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
+/obj/machinery/airlock_sensor/airlock_interior{
+	dir = 8;
+	pixel_x = 23;
+	pixel_y = 5;
+	id_tag = "surveyor_shuttle_interior_sensor";
+	frequency = 1389
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1389;
+	master_tag = "surveyor_shuttle";
+	name = "interior access button";
+	pixel_x = 23;
+	pixel_y = -6;
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
@@ -4222,11 +4298,18 @@
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/coc_survey_ship/blaster)
 "Lk" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/machinery/airlock_sensor{
+	frequency = 1385;
+	id_tag = "surveyor_shuttle_chamber_sensor";
+	pixel_y = -23;
+	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1389;
+	id_tag = "surveyor_shuttle_pump_in"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "Ln" = (
 /obj/effect/decal/cleanable/dirt,
@@ -4413,6 +4496,12 @@
 /area/coc_survey_ship/cargo)
 "MD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1389;
+	icon_state = "door_locked";
+	id_tag = "surveyor_shuttle_out";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4811,6 +4900,16 @@
 "Qt" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
+"Qv" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	dir = 4
+	},
+/turf/simulated/floor,
 /area/shuttle/coc_survey_shuttle)
 "Qx" = (
 /obj/machinery/conveyor{
@@ -5268,16 +5367,9 @@
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/kitchen)
 "Uw" = (
-/obj/structure/table/steel,
-/obj/machinery/recharger{
-	pixel_x = -6;
-	pixel_y = 4
-	},
-/obj/machinery/recharger{
-	pixel_x = 6;
-	pixel_y = 4
-	},
 /obj/machinery/alarm/north,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "Uy" = (
@@ -5446,6 +5538,18 @@
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
 /area/coc_survey_ship/grauwolf)
+"Wb" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1389;
+	icon_state = "door_locked";
+	id_tag = "surveyor_shuttle_out";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "Wd" = (
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/coc_survey_ship/miningeva)
@@ -5535,6 +5639,18 @@
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/grauwolf)
+"WR" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1389;
+	icon_state = "door_locked";
+	id_tag = "surveyor_shuttle_in";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "WY" = (
 /obj/effect/floor_decal/corner_wide/orange,
 /turf/simulated/floor/tiled,
@@ -5561,6 +5677,12 @@
 /obj/machinery/mineral/unloading_machine,
 /turf/simulated/floor,
 /area/coc_survey_ship/miningeva)
+"Xj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "Xl" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
@@ -11144,7 +11266,7 @@ Ny
 dT
 ul
 Uw
-xB
+za
 Zy
 BW
 Rh
@@ -11246,7 +11368,7 @@ Ss
 dT
 ul
 Sn
-Wv
+Jl
 Oi
 xB
 ec
@@ -11348,7 +11470,7 @@ Ss
 dT
 ul
 MR
-Kq
+Xj
 KD
 xB
 Qt
@@ -11449,9 +11571,9 @@ ZM
 Ss
 dT
 ul
-xB
-xB
-Jl
+WR
+BS
+ul
 Kq
 hF
 ul
@@ -11551,8 +11673,8 @@ ZM
 Ny
 ul
 ul
-xB
-xB
+HH
+Lk
 ul
 Aw
 Kc
@@ -11654,7 +11776,7 @@ Ss
 ul
 ul
 wM
-xB
+wM
 ul
 Uz
 cx
@@ -11756,7 +11878,7 @@ Ss
 ul
 ul
 MD
-xB
+Wb
 CW
 QV
 ul
@@ -11857,8 +11979,8 @@ ZM
 Ss
 ul
 Ff
+Qv
 bb
-Lk
 Sk
 Sk
 dT
