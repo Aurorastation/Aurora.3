@@ -212,9 +212,8 @@
 	start_moving()
 
 /obj/effect/overmap/event/proc/start_moving()
-	if(movable_event)
-		if(!moving_dir) moving_dir = pick(alldirs)
-		START_PROCESSING(SSprocessing, src)
+	if(!moving_dir) moving_dir = pick(alldirs)
+	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/overmap/event/process()
 	if(locate(/obj/effect/overmap/visitable/ship) in loc)
