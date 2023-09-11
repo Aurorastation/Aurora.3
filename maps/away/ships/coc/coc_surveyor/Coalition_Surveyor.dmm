@@ -1,0 +1,15771 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"am" = (
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"at" = (
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"aH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"aP" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"aS" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/material/hatchet/butch,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"aW" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Medical"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"bd" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "starboard"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/overgrown_mining_station)
+"bs" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"bx" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"bB" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"bD" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"bE" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"bG" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/shower{
+	dir = 8;
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"bM" = (
+/obj/structure/table/steel,
+/obj/machinery/cell_charger,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"bV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"cn" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"cr" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"cv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Hanger"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"cx" = (
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+	dir = 1;
+	start_pressure = 5000
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"cF" = (
+/obj/machinery/vending/cigarette/merchant,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"cL" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/structure/curtain/open/medical,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"cP" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "port thrusters"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"cY" = (
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -1
+	},
+/obj/item/storage/belt/utility,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"df" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"do" = (
+/obj/machinery/computer/ship/targeting{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"dB" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"dH" = (
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"dJ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate{
+	name = "DANGER - FLAMMABLE"
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"dL" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"dM" = (
+/obj/machinery/suit_cycler/mining,
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"dP" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"dS" = (
+/obj/item/reagent_containers/food/snacks/monkeycube/wrapped{
+	name = "garn cube";
+	desc = "add a monkey named garnascus. a monkey cube if it has to be subtle -geeves "
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"dT" = (
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"dV" = (
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"dW" = (
+/obj/effect/floor_decal/corner_wide/yellow/full,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"ec" = (
+/obj/machinery/light,
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"ee" = (
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/paleblue,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"en" = (
+/obj/machinery/computer/ship/navigation{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"eo" = (
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"ep" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 6
+	},
+/obj/structure/sign/flag/coalition{
+	pixel_x = 32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"eq" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Shower"
+	},
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"et" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/toilet{
+	dir = 8;
+	icon_state = "toilet01"
+	},
+/obj/structure/sink{
+	layer = 3;
+	pixel_x = -7;
+	pixel_y = 23
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"ev" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/machinery/reagentgrinder,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"eN" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"eO" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"eZ" = (
+/obj/machinery/computer/ship/helm{
+	req_access = list(203);
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"fo" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/simulated/floor/airless,
+/area/space)
+"fp" = (
+/obj/machinery/door/airlock/command{
+	name = "Bridge"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"fr" = (
+/obj/effect/floor_decal/corner_wide/yellow/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"fB" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner_wide/yellow,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air{
+	start_pressure = 8000
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"fC" = (
+/obj/machinery/ammunition_loader/blaster{
+	weapon_id = "Freebooter Ship Blaster"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"fG" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"fK" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/structure/closet/crate{
+	name = "DANGER - FLAMMABLE"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"fL" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"fX" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"fY" = (
+/obj/structure/viewport,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"gu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"gw" = (
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"gx" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"gD" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"gK" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"gO" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"gQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"gX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"ha" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"hg" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"hw" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = -1;
+	pixel_x = 29
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"hF" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+	start_pressure = 8000.63
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"hH" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"hI" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light,
+/obj/structure/anomaly_container,
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"hJ" = (
+/obj/effect/map_effect/window_spawner/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"hL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"hS" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"hX" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"ia" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Storage"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"id" = (
+/obj/machinery/door/airlock/hatch{
+	name = "starboard thrusters"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"ie" = (
+/obj/structure/table/stone/marble,
+/obj/item/modular_computer/laptop/preset/civilian{
+	pixel_y = 13
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"im" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/large,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/firstaid/large/o2,
+/obj/item/storage/firstaid/large/stab,
+/obj/item/storage/firstaid/large/trauma,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"iu" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"iB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"iD" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/machinery/body_scanconsole{
+	dir = 1;
+	layer = 3.01;
+	pixel_y = 6
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"iN" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/autolathe,
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"iY" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"jf" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/paleblue,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"jj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"jk" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"jn" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"jt" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Reactor Room";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"jE" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"jI" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1;
+	layer = 2.8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"jN" = (
+/obj/item/storage/firstaid/adv{
+	pixel_x = 4
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -1
+	},
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/combat{
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/hypospray/autoinjector/hyronalin,
+/obj/item/reagent_containers/hypospray/autoinjector/hyronalin,
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"jV" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate{
+	name = "DANGER - FLAMMABLE"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"kj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"kt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"kw" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"ky" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/emergency{
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = -6
+	},
+/obj/item/device/multitool,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"kA" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/chem_master,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"kD" = (
+/turf/simulated/floor/carpet/lightblue,
+/area/overgrown_mining_station)
+"kH" = (
+/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"kL" = (
+/obj/effect/floor_decal/corner_wide/orange/full{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"kN" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/fire{
+	pixel_x = 1
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_y = -1
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = -2
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"kO" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
+/obj/machinery/meter,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"kT" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Flak Battery";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"lb" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/yellow,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 8
+	},
+/obj/machinery/pipedispenser,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"lc" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard flak"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"le" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"lm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"lB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/freezer,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"lE" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"lK" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 9
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"lM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"lO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"lY" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Captains Quarters"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"lZ" = (
+/obj/machinery/alarm/north,
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"md" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/knife/butterfly{
+	pixel_x = 8;
+	pixel_y = 10
+	},
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"mg" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"mi" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/closet/excavation,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"mo" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window,
+/obj/machinery/artifact_harvester{
+	pixel_y = 1
+	},
+/turf/simulated/floor/bluegrid,
+/area/overgrown_mining_station)
+"mt" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/low/east,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"mv" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Restroom"
+	},
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"my" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"mG" = (
+/obj/structure/bed/stool/chair/shuttle,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"mK" = (
+/obj/structure/sign/flag/coalition,
+/turf/simulated/wall,
+/area/overgrown_mining_station)
+"mL" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"mM" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"mV" = (
+/obj/machinery/conveyor{
+	dir = 10;
+	id = "Coallit_Mining_1";
+	layer = 2.9;
+	reversed = 1
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"mX" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/obj/effect/landmark/entry_point/aft{
+	name = "starboard thrusters"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"ne" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"ni" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	req_access = null
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"nx" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"nB" = (
+/obj/item/clothing/under/suit_jacket/burgundy,
+/obj/item/clothing/under/suit_jacket/burgundy,
+/obj/item/clothing/under/suit_jacket/charcoal,
+/obj/item/clothing/under/suit_jacket/charcoal,
+/obj/item/clothing/under/suit_jacket/navy,
+/obj/item/clothing/under/suit_jacket/navy,
+/obj/item/clothing/under/suit_jacket/tan,
+/obj/item/clothing/under/suit_jacket/tan,
+/obj/item/clothing/under/suit_jacket/white,
+/obj/item/clothing/under/suit_jacket/white,
+/obj/item/clothing/under/librarian,
+/obj/item/clothing/under/librarian,
+/obj/item/clothing/under/overalls,
+/obj/item/clothing/under/overalls,
+/obj/item/clothing/under/overalls,
+/obj/item/clothing/under/overalls,
+/obj/item/clothing/under/service_overalls,
+/obj/item/clothing/under/service_overalls,
+/obj/item/clothing/under/service_overalls,
+/obj/item/clothing/under/service_overalls,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/clothing/under/syndicate/tacticool,
+/obj/item/clothing/under/syndicate/tacticool,
+/obj/item/clothing/under/syndicate/tracksuit,
+/obj/item/clothing/under/syndicate/tracksuit,
+/obj/item/clothing/under/vysoka,
+/obj/item/clothing/under/vysoka,
+/obj/structure/closet/cabinet{
+	name = "Clothes"
+	},
+/obj/item/clothing/suit/storage/toggle/himeo,
+/obj/item/clothing/suit/storage/toggle/himeo,
+/obj/item/clothing/suit/storage/toggle/himeo,
+/obj/item/clothing/suit/storage/toggle/himeo,
+/obj/item/clothing/suit/storage/toggle/himeo/grey,
+/obj/item/clothing/suit/storage/toggle/himeo/grey,
+/obj/item/clothing/suit/storage/toggle/himeo/grey,
+/obj/item/clothing/suit/storage/toggle/himeo/grey,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"nK" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/light/floor{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"nQ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"nS" = (
+/obj/item/clothing/shoes/workboots/dark,
+/obj/item/clothing/shoes/workboots/dark,
+/obj/item/clothing/shoes/workboots/dark,
+/obj/item/clothing/shoes/workboots/dark,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/shoes/workboots/toeless,
+/obj/item/clothing/shoes/workboots/toeless,
+/obj/item/clothing/shoes/workboots/toeless/dark,
+/obj/item/clothing/shoes/workboots/toeless/dark,
+/obj/item/clothing/shoes/workboots/toeless/grey,
+/obj/item/clothing/shoes/workboots/toeless/grey,
+/obj/structure/closet/cabinet{
+	name = "Boots"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"nX" = (
+/obj/structure/cable{
+	dir = 8
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	req_access = null
+	},
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"ol" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard aft wing"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"oo" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"oq" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/overgrown_mining_station)
+"oF" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"oH" = (
+/obj/effect/floor_decal/corner_wide/paleblue/full,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"oJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate{
+	name = "DANGER - FLAMMABLE"
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"oQ" = (
+/obj/machinery/air_sensor{
+	frequency = 451;
+	id_tag = "survey_sensor"
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/overgrown_mining_station)
+"oS" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"oX" = (
+/obj/structure/table/steel,
+/obj/item/modular_computer/laptop/preset/civilian{
+	pixel_y = 13
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/overgrown_mining_station)
+"oY" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"pa" = (
+/obj/machinery/mineral/stacking_machine{
+	id = s
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"pc" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner_wide/yellow,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"pl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"pp" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"ps" = (
+/obj/effect/floor_decal/corner_wide/orange/full{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"pt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/alarm/east,
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"pw" = (
+/obj/structure/railing/mapped,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/greengrid,
+/area/overgrown_mining_station)
+"pA" = (
+/obj/structure/sign/flag/assunzione,
+/turf/simulated/wall,
+/area/overgrown_mining_station)
+"pK" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"pQ" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Kitchen"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"pV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"qc" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	req_access = null
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"qe" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port blaster"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"qm" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"qn" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/mining/himeo,
+/obj/item/clothing/head/helmet/space/void/mining/himeo,
+/obj/item/pickaxe/diamonddrill,
+/obj/item/gun/energy/blaster/carbine,
+/obj/item/device/gps,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/device/suit_cooling_unit,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"qp" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"qE" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"qK" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "port wing"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"qM" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"qR" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"qY" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 4
+	},
+/obj/structure/table/steel,
+/obj/item/book/manual/wiki/engineering_construction{
+	desc = "Blueprints for a vessel.";
+	icon = 'icons/obj/items.dmi';
+	icon_state = "blueprints";
+	item_icons = null;
+	item_state = null;
+	name = "ship blueprints"
+	},
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"ra" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Port Thrusters"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"ri" = (
+/obj/effect/map_effect/airlock/e_to_w/long/square,
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"rk" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Dorms"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"rn" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/snacks/soup/beet{
+	pixel_y = 3
+	},
+/obj/item/material/kitchen/utensil/spoon{
+	pixel_x = 13
+	},
+/obj/item/reagent_containers/food/drinks/cans/peach_soda{
+	pixel_x = -4;
+	pixel_y = 15
+	},
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"ro" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"rp" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"rt" = (
+/obj/machinery/mineral/equipment_vendor,
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"rG" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"rR" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"rS" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Cryo and Medical"
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"rX" = (
+/obj/effect/floor_decal/corner_wide/yellow/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/yellow,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"sc" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"sd" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/paleblue,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"sh" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "starboard wing"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"so" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/alarm/east,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"su" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"sx" = (
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"sH" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/low/east,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"sK" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/storage/box/gloves,
+/obj/item/clothing/glasses/science,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"sL" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"sQ" = (
+/obj/structure/closet/secure_closet/freezer/kitchen{
+	req_access = null
+	},
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -11
+	},
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"sV" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/purple/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"te" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"th" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"tm" = (
+/obj/structure/sign/flag/konyang,
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"tr" = (
+/obj/machinery/artifact_scanpad,
+/turf/simulated/floor/bluegrid,
+/area/overgrown_mining_station)
+"tt" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"ty" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"tI" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"tK" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/closet/radiation,
+/obj/machinery/light,
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"tR" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"ug" = (
+/obj/machinery/radiocarbon_spectrometer,
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"ui" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"ul" = (
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/overgrown_mining_station)
+"uq" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"ut" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"uv" = (
+/obj/structure/sign/flag/coalition/unmovable{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"ux" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"uC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"uF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"uK" = (
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/closet/walllocker/medical{
+	pixel_x = 32;
+	name = "Blood Locker"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"uO" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"uU" = (
+/obj/machinery/computer/ship/sensors,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"uV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/yellow/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"uW" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/highsecurity{
+	name = "Reactor Room"
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"vd" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"vn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"vp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"vs" = (
+/obj/structure/table/steel,
+/obj/machinery/recharger,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"vI" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+	start_pressure = 8000.63
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"vM" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/light,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"vU" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"vZ" = (
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"wd" = (
+/obj/machinery/mineral/processing_unit{
+	dir = 8;
+	id = "coalition_miner"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"wn" = (
+/obj/structure/sign/flag/vysoka,
+/turf/simulated/wall,
+/area/overgrown_mining_station)
+"wu" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	req_access = null
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/paleblue,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"wB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"wF" = (
+/obj/item/flame/lighter/zippo/coalition,
+/obj/item/flame/lighter/zippo/coalition,
+/obj/item/flame/lighter/zippo/coalition,
+/obj/item/flame/lighter/zippo/coalition,
+/obj/item/flame/lighter/zippo/himeo,
+/obj/item/flame/lighter/zippo/himeo,
+/obj/item/flame/lighter/zippo/himeo,
+/obj/item/flame/lighter/zippo/himeo,
+/obj/item/flame/lighter/zippo/luceian,
+/obj/item/flame/lighter/zippo/luceian,
+/obj/item/flame/lighter/zippo/luceian,
+/obj/item/flame/lighter/zippo/luceian,
+/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/zippo/black,
+/obj/item/flame/lighter/zippo/black,
+/obj/item/flame/lighter/zippo/black,
+/obj/item/flame/lighter/zippo/black,
+/obj/structure/closet/cabinet{
+	name = "Lighers"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"wH" = (
+/obj/machinery/power/smes/buildable/horizon_shuttle{
+	name = "SMES"
+	},
+/obj/structure/cable{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"wK" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/yellow,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"wQ" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/westleft{
+	name = "Oxygen Supplies Access";
+	req_access = list(48)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/overgrown_mining_station)
+"wS" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/structure/bed/roller,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"wT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"wV" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 10
+	},
+/obj/machinery/meter,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"wX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"xe" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"xj" = (
+/obj/structure/table/steel,
+/obj/item/rig/light/offworlder,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"xu" = (
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"xw" = (
+/obj/effect/floor_decal/corner_wide/orange/full{
+	dir = 8
+	},
+/obj/machinery/mineral/equipment_vendor,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"xB" = (
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"xE" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"xI" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner_wide/yellow,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"xQ" = (
+/obj/machinery/alarm/north,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"xS" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"xU" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/machinery/bodyscanner,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"xX" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"yj" = (
+/obj/machinery/computer/ship/helm{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"yn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"yv" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"yw" = (
+/obj/item/clothing/under/color/aqua,
+/obj/item/clothing/under/color/black,
+/obj/item/clothing/under/color/blue,
+/obj/item/clothing/under/color/brown,
+/obj/item/clothing/under/color/darkblue,
+/obj/item/clothing/under/color/darkred,
+/obj/item/clothing/under/color/green,
+/obj/item/clothing/under/color/grey,
+/obj/item/clothing/under/color/lightbrown,
+/obj/item/clothing/under/color/lightblue,
+/obj/item/clothing/under/color/lightgreen,
+/obj/item/clothing/under/color/lightred,
+/obj/item/clothing/under/color/white,
+/obj/structure/closet/cabinet{
+	name = "Jumpsuits"
+	},
+/obj/random/colored_jumpsuit,
+/obj/random/colored_jumpsuit,
+/obj/random/colored_jumpsuit,
+/obj/random/colored_jumpsuit,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"yA" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"yK" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"yQ" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"yV" = (
+/turf/simulated/wall/r_wall,
+/area/overgrown_mining_station)
+"yW" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"yX" = (
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 10
+	},
+/obj/structure/bed/stool/bar/padded/brown{
+	dir = 4;
+	pixel_x = 8
+	},
+/obj/structure/coatrack{
+	pixel_y = 1;
+	pixel_x = -7
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"yY" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"yZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"zc" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "port"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/overgrown_mining_station)
+"zf" = (
+/obj/machinery/iff_beacon/name_change,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"zg" = (
+/obj/structure/closet/cabinet,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/projectile/shotgun/pump/combat,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
+/obj/item/clothing/head/softcap/himeo,
+/obj/item/clothing/accessory/badge/passcard/himeo,
+/obj/item/flame/lighter/zippo/himeo,
+/obj/item/clothing/suit/storage/toggle/himeo,
+/obj/item/clothing/suit/storage/toggle/himeo/grey,
+/obj/item/flame/lighter/zippo/coalition,
+/obj/item/clothing/accessory/badge/passcard/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/himeo,
+/obj/item/clothing/under/overalls,
+/obj/item/clothing/under/service_overalls,
+/obj/item/clothing/shoes/workboots/dark,
+/obj/item/clothing/shoes/workboots/grey,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/accessory/badge/passcard/assu,
+/obj/item/clothing/accessory/badge/passcard/konyang,
+/obj/item/clothing/accessory/badge/passcard/scarab,
+/obj/item/clothing/accessory/badge/passcard/vysoka,
+/obj/random/colored_jumpsuit,
+/obj/item/material/knife/tacknife,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/turf/simulated/floor/carpet/lightblue,
+/area/overgrown_mining_station)
+"zj" = (
+/obj/structure/bed/stool/bar/padded/brown{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"zo" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/machinery/power/apc{
+	dir = 8;
+	pixel_x = -12;
+	req_access = null
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"zr" = (
+/obj/structure/reagent_dispensers/coolanttank{
+	pixel_x = 5
+	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = -10;
+	pixel_y = -7
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"zA" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/structure/closet/crate{
+	name = "DANGER - RADIOACTIVE MATERIAL"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"zJ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"zM" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"zP" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"zS" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Ac" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner_wide/yellow,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Ag" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/low/south,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Ai" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light,
+/obj/structure/closet/excavation,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Ak" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/table/steel,
+/obj/item/anodevice{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/obj/item/anodevice{
+	pixel_x = -4
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Am" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner_wide/yellow,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/tank{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Ap" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Aw" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"AM" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"AO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"AY" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "Coallit_Mining_1"
+	},
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Bi" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	pixel_x = -12;
+	req_access = null
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/overgrown_mining_station)
+"Bm" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"Bn" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/purple/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Bq" = (
+/obj/machinery/door/window{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"Bv" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/sign/radiation{
+	pixel_x = 32;
+	pixel_y = -32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"BC" = (
+/obj/machinery/door/window{
+	dir = 4
+	},
+/obj/machinery/artifact_scanpad,
+/turf/simulated/floor/bluegrid,
+/area/overgrown_mining_station)
+"BJ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/anomaly_container,
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"BK" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"BM" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"BR" = (
+/obj/effect/map_effect/airlock/w_to_e/long/square,
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"BU" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/structure/bed/stool/bar/padded/brown,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"BV" = (
+/obj/machinery/computer/general_air_control/large_tank_control{
+	frequency = 451;
+	name = "Carbon Dioxide Supply Monitor";
+	output_tag = "survey_out";
+	sensors = list("survey_sensor"="Tank");
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"BW" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"Ca" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Cc" = (
+/obj/machinery/computer/ship/targeting{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/full,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Cd" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/mining/himeo,
+/obj/item/clothing/head/helmet/space/void/mining/himeo,
+/obj/item/pickaxe/diamonddrill,
+/obj/item/gun/projectile/shotgun/doublebarrel,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
+/obj/item/device/gps,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/device/suit_cooling_unit,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Cm" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Cn" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Cx" = (
+/obj/machinery/ship_weapon/grauwolf,
+/turf/template_noop,
+/area/space)
+"CA" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"CC" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"CF" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"CL" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"CQ" = (
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"CT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"CV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"CW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "engines"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/overgrown_mining_station)
+"Df" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 1
+	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Dh" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore flak"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"Di" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/structure/table/steel,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/masks{
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Dp" = (
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Ds" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/machinery/meter,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Dy" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Dz" = (
+/obj/structure/bed/stool/chair/padded/black{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/overgrown_mining_station)
+"DB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"DD" = (
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"DE" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"DN" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"DT" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Eb" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port aft wing"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"Ee" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"Ef" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Eo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"Es" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"EC" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide{
+	start_pressure = 8000.63
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"EI" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/yellow,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"EJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"ER" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"EU" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"EX" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/paleblue,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Fb" = (
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Fr" = (
+/obj/machinery/mineral/processing_unit_console{
+	id = "coalition_miner";
+	layer = 3.3;
+	pixel_y = 28
+	},
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Fs" = (
+/obj/structure/bed/stool/bar/padded/brown{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/obj/machinery/alarm/east,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Fw" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"FC" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"FF" = (
+/obj/structure/sign/flag/himeo,
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"FK" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "Coallit_Mining_1";
+	layer = 2.9
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"FM" = (
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 0
+	},
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"FO" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/table/steel,
+/obj/item/clothing/gloves/yellow,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"FU" = (
+/obj/structure/sign/flag/himeo{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"FZ" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/storage/box/gloves,
+/obj/item/clothing/glasses/science,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Ga" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Gc" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = s;
+	layer = 2.9
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Gm" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/overgrown_mining_station)
+"Gn" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Go" = (
+/obj/structure/closet/crate{
+	name = "DANGER - FLAMMABLE"
+	},
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Gw" = (
+/obj/effect/floor_decal/corner_wide/red/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"GG" = (
+/obj/machinery/artifact_analyser{
+	pixel_y = 5
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/door/window,
+/turf/simulated/floor/bluegrid,
+/area/overgrown_mining_station)
+"GH" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"GQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/paleblue,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"GR" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/mining/himeo,
+/obj/item/clothing/head/helmet/space/void/mining/himeo,
+/obj/item/pickaxe/diamonddrill,
+/obj/item/gun/projectile/shotgun/doublebarrel,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
+/obj/item/device/gps,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/device/suit_cooling_unit,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"GT" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/overgrown_mining_station)
+"GY" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/yellow,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/vending/tool,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Hm" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Hp" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Common Area"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Ht" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"Hx" = (
+/obj/machinery/ammunition_loader/grauwolf,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Hy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"HF" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ore_box,
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"HG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"HI" = (
+/obj/machinery/mineral/rigpress,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"HL" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 4
+	},
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"HN" = (
+/obj/structure/ship_weapon_dummy,
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/space)
+"HS" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Id" = (
+/obj/effect/floor_decal/corner_wide/black/diagonal,
+/obj/random/soap,
+/obj/random/soap,
+/obj/structure/table/rack,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Ig" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Atmospherics"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Ih" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	frequency = 451;
+	id_tag = "survey_out";
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/overgrown_mining_station)
+"Ii" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Iv" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Iy" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"IC" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/purple/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"ID" = (
+/obj/effect/floor_decal/corner_wide/orange/full,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"IG" = (
+/obj/effect/map_effect/window_spawner/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"IP" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/east,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"IR" = (
+/obj/machinery/vending/cola{
+	name = "hacked Robust Softdrinks";
+	prices = list()
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"IS" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/carpet/lightblue,
+/area/overgrown_mining_station)
+"Jl" = (
+/obj/effect/map_effect/airlock/w_to_e/long/square,
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/overgrown_mining_station)
+"Jm" = (
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"Jt" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"Jw" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/paleblue,
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"JD" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Hanger"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"JI" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/yellow,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 8
+	},
+/obj/structure/table/rack,
+/obj/item/inflatable_dispenser,
+/obj/item/pipewrench,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"JK" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"JN" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/structure/table/steel,
+/obj/item/gun/energy/plasmacutter,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"JP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"JR" = (
+/obj/machinery/optable,
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"JW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Kc" = (
+/obj/structure/fuel_port/hydrogen{
+	pixel_y = -31
+	},
+/obj/machinery/computer/ship/engines{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Ko" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Hanger"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Kq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Kr" = (
+/turf/simulated/floor/greengrid,
+/area/overgrown_mining_station)
+"Ku" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"KC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/overgrown_mining_station)
+"KD" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"KH" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Mining Laser"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"KL" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"KO" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/table/steel,
+/obj/item/anobattery{
+	pixel_x = -5;
+	pixel_y = -5
+	},
+/obj/item/anobattery{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/anobattery{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/anobattery{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"KQ" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"KX" = (
+/obj/machinery/conveyor{
+	id = s;
+	layer = 2.9
+	},
+/obj/structure/plasticflaps/mining,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"KZ" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore blaster"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"Ln" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Lo" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Employee Clothing"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Lr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Lu" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Lx" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"LG" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"LL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"LM" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"LR" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Engineering"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"LX" = (
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Mj" = (
+/obj/machinery/alarm/east,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Ms" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"Mt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Mx" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 6
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"MC" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"MF" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Power"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"MH" = (
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"MJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"MR" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Nc" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/appliance/cooker/stove,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Nf" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Nk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Nm" = (
+/obj/item/clothing/accessory/badge/passcard/konyang,
+/obj/item/clothing/accessory/badge/passcard/konyang,
+/obj/item/clothing/accessory/badge/passcard/konyang,
+/obj/item/clothing/accessory/badge/passcard/konyang,
+/obj/item/clothing/accessory/badge/passcard/burzsia,
+/obj/item/clothing/accessory/badge/passcard/burzsia,
+/obj/item/clothing/accessory/badge/passcard/burzsia,
+/obj/item/clothing/accessory/badge/passcard/burzsia,
+/obj/item/clothing/accessory/badge/passcard/coalition,
+/obj/item/clothing/accessory/badge/passcard/coalition,
+/obj/item/clothing/accessory/badge/passcard/coalition,
+/obj/item/clothing/accessory/badge/passcard/coalition,
+/obj/item/clothing/accessory/badge/passcard/himeo,
+/obj/item/clothing/accessory/badge/passcard/himeo,
+/obj/item/clothing/accessory/badge/passcard/himeo,
+/obj/item/clothing/accessory/badge/passcard/himeo,
+/obj/item/clothing/accessory/badge/passcard/scarab,
+/obj/item/clothing/accessory/badge/passcard/scarab,
+/obj/item/clothing/accessory/badge/passcard/scarab,
+/obj/item/clothing/accessory/badge/passcard/scarab,
+/obj/item/clothing/accessory/badge/passcard/vysoka,
+/obj/item/clothing/accessory/badge/passcard/vysoka,
+/obj/item/clothing/accessory/badge/passcard/vysoka,
+/obj/item/clothing/accessory/badge/passcard/vysoka,
+/obj/item/clothing/accessory/badge/passcard/assu,
+/obj/item/clothing/accessory/badge/passcard/assu,
+/obj/item/clothing/accessory/badge/passcard/assu,
+/obj/item/clothing/accessory/badge/passcard/assu,
+/obj/structure/closet/cabinet{
+	name = "Passcards"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"No" = (
+/obj/structure/table/rack,
+/obj/item/rig/industrial/himeo,
+/obj/item/rig_module/cooling_unit,
+/obj/item/rig_module/actuators,
+/obj/item/rig_module/maneuvering_jets,
+/obj/item/device/gps,
+/turf/simulated/floor/carpet/lightblue,
+/area/overgrown_mining_station)
+"Nq" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Ny" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Nz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ore_box,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"NO" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Artifact Storage";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"NR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Oa" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"Oi" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Os" = (
+/obj/machinery/ship_weapon/blaster{
+	pixel_y = -195;
+	pixel_x = -24;
+	weapon_id = "Freebooter Ship Blaster"
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"OE" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"OH" = (
+/obj/machinery/alarm/west,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"OL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Hanger"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"ON" = (
+/obj/structure/table/stone/marble,
+/obj/item/toy/comic/inspector,
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"OT" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"OX" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"OY" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/greengrid,
+/area/overgrown_mining_station)
+"Pa" = (
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Pf" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Pg" = (
+/obj/machinery/shipsensors/strong,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Pk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Po" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/structure/curtain/open/medical,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Pt" = (
+/turf/simulated/wall,
+/area/overgrown_mining_station)
+"PG" = (
+/turf/template_noop,
+/area/space)
+"PV" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/black{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Qb" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Qc" = (
+/obj/effect/floor_decal/corner_wide/red/full{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Qe" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/mass_driver{
+	dir = 4;
+	id = "pirate_core_driver";
+	_wifi_id = "pirate_core_driver"
+	},
+/turf/simulated/floor/greengrid,
+/area/overgrown_mining_station)
+"Qh" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Ql" = (
+/obj/structure/ship_weapon_dummy{
+	is_barrel = 1
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"Qt" = (
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Qx" = (
+/obj/machinery/conveyor{
+	id = s;
+	layer = 2.9
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"QI" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8;
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"QK" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/melee/baton/loaded,
+/obj/item/reagent_containers/dropper{
+	pixel_y = -4
+	},
+/obj/machinery/recharger,
+/obj/item/storage/box/beakers,
+/obj/item/stack/nanopaste,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"QP" = (
+/obj/machinery/light,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"QT" = (
+/obj/structure/table/stone/marble,
+/obj/item/toy/comic/outlandish_tales,
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"QV" = (
+/obj/machinery/atmospherics/pipe/manifold/visible,
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/overgrown_mining_station)
+"QY" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "hangar"
+	},
+/turf/unsimulated/wall/fakepdoor{
+	dir = 4;
+	name = "shuttle bay blast door"
+	},
+/area/overgrown_mining_station)
+"Rh" = (
+/obj/machinery/suspension_gen{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"Rv" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/low/east,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"RH" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"RJ" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"RM" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"RP" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"RT" = (
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"RV" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"RW" = (
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/item/ship_ammunition/blaster,
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"RY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"Sk" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Sl" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/low/east,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Sn" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Ss" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Sy" = (
+/obj/structure/table/steel,
+/obj/item/clothing/under/rank/medical/surgeon,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/mask/surgical,
+/obj/item/storage/firstaid/surgery,
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/item/storage/firstaid/surgery,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Sz" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"SC" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"SH" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"SJ" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"ST" = (
+/obj/item/bedsheet,
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/carpet/lightblue,
+/area/overgrown_mining_station)
+"SU" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"SW" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"SZ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"Tc" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Tf" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"To" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"Tp" = (
+/obj/structure/table/wood,
+/obj/machinery/media/jukebox/audioconsole{
+	pixel_y = 13
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Tq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"TF" = (
+/obj/structure/table/steel,
+/obj/item/device/hand_labeler,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"TI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"TL" = (
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 10
+	},
+/obj/structure/table/stone/marble,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/item/storage/box/fancy/mre/random,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"TZ" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/overgrown_mining_station)
+"Ud" = (
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Uf" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/starboard{
+	name = "fore"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Uk" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Ul" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Un" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Uq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"Uv" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Uw" = (
+/obj/structure/table/steel,
+/obj/machinery/recharger{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Uz" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"UA" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/airless,
+/area/space)
+"UI" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"UL" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/table/steel,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/steel/full,
+/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"UN" = (
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 5
+	},
+/obj/structure/closet/walllocker{
+	pixel_y = 31;
+	name = "stab locker"
+	},
+/obj/item/material/knife/tacknife,
+/obj/item/material/knife/tacknife,
+/obj/item/material/knife/tacknife,
+/obj/item/material/knife/tacknife,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"UR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"UY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 5
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"Vr" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/westright{
+	name = "Oxygen Supplies Access"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/overgrown_mining_station)
+"Vy" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"VI" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/chemical_dispenser/full,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"VM" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/mop,
+/obj/structure/janitorialcart/full,
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"VP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner_wide/yellow/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 8
+	},
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"VX" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/space)
+"We" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Wg" = (
+/obj/machinery/door/blast/regular{
+	id = "pirate_core_shunt"
+	},
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"Wn" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8;
+	layer = 2.8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Wv" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"WC" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 8;
+	frequency = 451
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/overgrown_mining_station)
+"WM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"WN" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/mining/himeo,
+/obj/item/clothing/head/helmet/space/void/mining/himeo,
+/obj/item/pickaxe/diamonddrill,
+/obj/item/gun/energy/blaster/carbine,
+/obj/item/device/gps,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/device/suit_cooling_unit,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"WO" = (
+/obj/machinery/light,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"WQ" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"WY" = (
+/obj/effect/floor_decal/corner_wide/orange,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"WZ" = (
+/obj/machinery/light,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Xc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Xh" = (
+/obj/machinery/mineral/unloading_machine{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Xq" = (
+/obj/item/clothing/accessory/flagpatch/konyang,
+/obj/item/clothing/accessory/flagpatch/konyang,
+/obj/item/clothing/accessory/flagpatch/konyang,
+/obj/item/clothing/accessory/flagpatch/konyang,
+/obj/item/clothing/accessory/flagpatch/assunzione,
+/obj/item/clothing/accessory/flagpatch/assunzione,
+/obj/item/clothing/accessory/flagpatch/assunzione,
+/obj/item/clothing/accessory/flagpatch/assunzione,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/coalition,
+/obj/item/clothing/accessory/flagpatch/himeo,
+/obj/item/clothing/accessory/flagpatch/himeo,
+/obj/item/clothing/accessory/flagpatch/himeo,
+/obj/item/clothing/accessory/flagpatch/himeo,
+/obj/item/clothing/accessory/flagpatch/vysoka,
+/obj/item/clothing/accessory/flagpatch/vysoka,
+/obj/item/clothing/accessory/flagpatch/vysoka,
+/obj/item/clothing/accessory/flagpatch/vysoka,
+/obj/structure/closet/cabinet{
+	name = "Flagpatches"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Xu" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Xx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"XC" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"XD" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+"XL" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/yellow,
+/obj/effect/floor_decal/corner_wide/white{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"XO" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/purple/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"XP" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"XT" = (
+/obj/item/clothing/head/vysoka/blue,
+/obj/item/clothing/head/vysoka/blue,
+/obj/item/clothing/head/vysoka/purple,
+/obj/item/clothing/head/vysoka/purple,
+/obj/item/clothing/head/vysoka/red,
+/obj/item/clothing/head/vysoka/red,
+/obj/item/clothing/head/vysoka/joku/blue,
+/obj/item/clothing/head/vysoka/joku/purple,
+/obj/item/clothing/head/vysoka/joku/red,
+/obj/item/clothing/head/softcap,
+/obj/item/clothing/head/softcap,
+/obj/item/clothing/head/nonla,
+/obj/item/clothing/head/nonla,
+/obj/item/clothing/head/hijab/black,
+/obj/item/clothing/head/hijab/blue,
+/obj/item/clothing/head/hijab/brown,
+/obj/item/clothing/head/hijab/green,
+/obj/item/clothing/head/hijab/grey,
+/obj/item/clothing/head/hijab/red,
+/obj/item/clothing/head/festive/santa,
+/obj/item/clothing/head/bunny_hat,
+/obj/item/clothing/head/bandana/miner,
+/obj/item/clothing/head/bandana/miner,
+/obj/item/clothing/head/bandana/miner,
+/obj/item/clothing/head/bandana/miner,
+/obj/item/clothing/head/bandana/red,
+/obj/structure/closet/cabinet{
+	name = "Hats"
+	},
+/obj/item/clothing/head/softcap/himeo,
+/obj/item/clothing/head/softcap/himeo,
+/obj/item/clothing/head/softcap/himeo,
+/obj/item/clothing/head/softcap/himeo,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"XU" = (
+/obj/item/bedsheet/black,
+/obj/item/bedsheet/black{
+	layer = 4.2;
+	pixel_y = 13
+	},
+/obj/structure/railing/mapped{
+	dir = 4;
+	pixel_x = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8;
+	pixel_x = -5
+	},
+/obj/structure/bed{
+	name = "bottom bunk"
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/structure/beds.dmi';
+	icon_state = "bed";
+	pixel_y = 13;
+	name = "top bunk";
+	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach."
+	},
+/obj/effect/floor_decal/corner{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/red/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Yd" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 5
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Yf" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Yg" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Ys" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/full,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Yv" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Yw" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"YC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"YJ" = (
+/obj/machinery/mineral/stacking_unit_console{
+	id = "coalit_stacker_1";
+	pixel_y = -3
+	},
+/turf/simulated/wall,
+/area/overgrown_mining_station)
+"YU" = (
+/obj/effect/map_effect/window_spawner/borosilicate/reinforced/firedoor,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"YW" = (
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Zc" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	req_access = null
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/overgrown_mining_station)
+"Zd" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Zg" = (
+/obj/effect/floor_decal/corner_wide/yellow/diagonal,
+/obj/effect/floor_decal/corner_wide/white/diagonal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	target_pressure = 250
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/overgrown_mining_station)
+"Zh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/overgrown_mining_station)
+"Zn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"Zo" = (
+/obj/item/bedsheet/black,
+/obj/item/bedsheet/black{
+	layer = 4.2;
+	pixel_y = 13
+	},
+/obj/structure/railing/mapped{
+	dir = 4;
+	pixel_x = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8;
+	pixel_x = -5
+	},
+/obj/structure/bed{
+	name = "bottom bunk"
+	},
+/obj/effect/floor_decal/corner{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/red/full{
+	dir = 8
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/structure/beds.dmi';
+	icon_state = "bed";
+	pixel_y = 13;
+	name = "top bunk";
+	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach."
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Zp" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/paleblue,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Zw" = (
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Zy" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/overgrown_mining_station)
+"Zz" = (
+/obj/structure/table/steel,
+/obj/machinery/alarm/south,
+/turf/simulated/floor/carpet/lightblue,
+/area/overgrown_mining_station)
+"ZB" = (
+/mob/living/heavy_vehicle/premade/miner,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/reinforced,
+/area/overgrown_mining_station)
+"ZE" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
+	},
+/turf/simulated/floor/shuttle/black{
+	name = "tile floor"
+	},
+/area/overgrown_mining_station)
+"ZM" = (
+/turf/unsimulated/wall/fakepdoor{
+	dir = 4;
+	name = "shuttle bay blast door"
+	},
+/area/overgrown_mining_station)
+"ZZ" = (
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = -11;
+	pixel_y = -5
+	},
+/obj/machinery/door/window{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/overgrown_mining_station)
+
+(1,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(2,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(3,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(4,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(5,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(6,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(7,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(8,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(9,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(10,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(11,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(12,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(13,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(14,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(15,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(16,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(17,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(18,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(19,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(20,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(21,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(22,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(23,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(24,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(25,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(26,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(27,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+dT
+dT
+ri
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(28,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+jn
+jn
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+dT
+dT
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(29,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+jn
+jn
+jn
+vI
+Go
+Ud
+jn
+jn
+jn
+ol
+jn
+jn
+jn
+tR
+jn
+dT
+dT
+jn
+jn
+jn
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(30,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+kw
+jj
+CQ
+OH
+Ln
+Pt
+rR
+dT
+dT
+RM
+Pt
+dJ
+dJ
+Oa
+Oa
+HF
+le
+jn
+dT
+dT
+jn
+ui
+ui
+BJ
+sh
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(31,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+mX
+Ds
+jI
+wX
+Pk
+id
+PV
+Xc
+aH
+Lu
+Ig
+hL
+hL
+hL
+hL
+Eo
+Uq
+Zn
+Zn
+iB
+cn
+yY
+dH
+BJ
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(32,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+kw
+te
+oF
+Xu
+Sl
+Pt
+EC
+hX
+Xu
+kH
+Pt
+qR
+nx
+dH
+dH
+WM
+dH
+dH
+dH
+dH
+dH
+To
+dH
+hI
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(33,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+jn
+jn
+jn
+xQ
+Tc
+BV
+Ag
+Pt
+jV
+df
+oJ
+oJ
+ZE
+AO
+CV
+CV
+Nz
+CV
+UY
+dH
+dH
+BJ
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(34,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+yV
+hJ
+YU
+IG
+Pt
+Pt
+Pt
+Pt
+Pt
+Pt
+Pt
+Pt
+Pt
+Pt
+Pt
+Tq
+dH
+dH
+dH
+VM
+jn
+jn
+jn
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(35,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+WC
+oQ
+Ih
+Pt
+JR
+zo
+cL
+Sy
+kN
+jN
+Pt
+gO
+gO
+Pt
+Tq
+HF
+dH
+dH
+dH
+Pt
+tr
+GG
+jE
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(36,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+jn
+jn
+sL
+SU
+Po
+AM
+xE
+Iv
+eO
+Iy
+Vy
+eO
+Tq
+dH
+HF
+dH
+dH
+Pt
+BC
+mo
+jE
+Ak
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(37,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+Pt
+xU
+iD
+dB
+SH
+aW
+SJ
+bs
+rS
+MC
+LG
+LG
+LG
+oY
+Ms
+Ca
+IC
+XO
+KO
+Pt
+jn
+jn
+jn
+jn
+lc
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(38,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+SC
+wS
+uK
+Di
+Pt
+Zc
+hw
+Pt
+pl
+RY
+pt
+lB
+su
+Pt
+IP
+so
+Bn
+sV
+Pt
+OT
+ug
+Pt
+gw
+Jm
+Jm
+fY
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(39,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+jn
+jn
+jn
+Pt
+Pt
+Pt
+Pt
+OL
+Pt
+Pt
+Pt
+Pt
+Pt
+Pt
+Pt
+ia
+Pt
+ZZ
+Bq
+Pt
+am
+Jm
+ZB
+Dh
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(40,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dS
+ZM
+Zh
+ha
+qM
+ha
+yZ
+JK
+dT
+dT
+JK
+dT
+rG
+Pt
+CC
+yv
+iY
+fX
+Pt
+RT
+Jm
+Jm
+TZ
+TZ
+VX
+VX
+PG
+Cx
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(41,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+dT
+dT
+dT
+dT
+dT
+dT
+dT
+dT
+dT
+lm
+cv
+ER
+jE
+Nq
+sK
+Pt
+wT
+bD
+Jt
+Yw
+TZ
+VX
+HN
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(42,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+dT
+dT
+dT
+dT
+dT
+dT
+dT
+dT
+dT
+Xu
+vZ
+jE
+jE
+jE
+FZ
+Pt
+Ee
+Ht
+Jt
+Yw
+TZ
+VX
+VX
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(43,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ny
+dT
+dT
+dT
+Zd
+Uf
+Zd
+dT
+dT
+dT
+WO
+Pt
+mi
+jE
+ne
+Ai
+Pt
+kj
+dT
+Hx
+dT
+jn
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+Pg
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(44,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+dT
+dT
+Zd
+Ul
+yj
+Ul
+Zd
+dT
+dT
+dT
+Pt
+Dy
+DN
+DN
+GH
+NO
+SZ
+dT
+WQ
+dT
+jn
+PG
+PG
+PG
+PG
+PG
+jn
+mM
+Ul
+Zd
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(45,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+dT
+ul
+GT
+uU
+KL
+xB
+GT
+ul
+dT
+dT
+Pt
+VI
+kA
+QK
+qp
+Pt
+ty
+HS
+sH
+dT
+jn
+jn
+PG
+PG
+PG
+PG
+jn
+sd
+oH
+Zd
+Zd
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(46,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+dT
+ul
+im
+xB
+nK
+Wv
+RV
+ul
+dT
+dT
+Pt
+Pt
+Pt
+Pt
+Pt
+Pt
+kT
+Pt
+Pt
+Pt
+Pt
+jn
+jn
+jn
+jn
+jn
+FF
+jf
+hg
+Cc
+Zd
+Zd
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(47,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ny
+dT
+Zd
+mG
+xB
+ut
+xB
+FM
+Ga
+HS
+WZ
+Pt
+mV
+Qx
+pa
+KX
+fK
+ux
+Nf
+FC
+ID
+Pt
+nX
+Pa
+LM
+Pa
+Pa
+Pt
+jf
+RP
+Un
+Ys
+Zd
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(48,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+dT
+Zd
+Zw
+xB
+Zy
+CL
+fG
+Zd
+dT
+Cn
+Pt
+FK
+dP
+dP
+YJ
+Gn
+Hm
+zS
+BM
+yQ
+Hp
+vn
+lO
+vd
+CA
+lO
+fp
+GQ
+lM
+hg
+uO
+Zd
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(49,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+dT
+ul
+Zw
+xB
+Zy
+Jm
+gx
+ul
+dT
+Cn
+Pt
+wd
+dP
+xw
+FC
+YW
+cr
+oo
+Lr
+Qh
+Pt
+rn
+zj
+xe
+Xx
+Pa
+Pt
+wu
+CT
+hg
+Df
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(50,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+dT
+bd
+Zw
+xB
+Zy
+Jm
+gx
+zc
+dT
+Cn
+Pt
+Gc
+dP
+rt
+MH
+MH
+Pt
+Cd
+Lr
+FU
+Pt
+md
+zj
+Pa
+Xx
+Pa
+mK
+ee
+CT
+hg
+en
+Zd
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(51,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+QY
+dT
+ZM
+Ny
+dT
+ul
+Uw
+xB
+Zy
+BW
+Rh
+ul
+dT
+QP
+Pt
+Xh
+dP
+pK
+MH
+HI
+Pt
+GR
+Lr
+oS
+Pt
+QT
+Fs
+eo
+Xx
+ON
+Pt
+Zp
+UR
+xX
+eZ
+nQ
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(52,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+dT
+ul
+Sn
+Wv
+Oi
+xB
+ec
+ul
+dT
+Cn
+Pt
+Ii
+Pt
+Fr
+MH
+cY
+Pt
+IR
+Lr
+oS
+Pt
+Pt
+Pt
+Pt
+lY
+Pt
+pA
+ee
+CT
+hg
+DT
+Zd
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(53,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+dT
+ul
+MR
+Kq
+KD
+xB
+Qt
+ul
+dT
+Cn
+Pt
+qE
+AY
+YW
+TF
+xj
+Pt
+qn
+Lr
+uv
+Pt
+No
+Bi
+Gm
+KC
+zg
+Pt
+EX
+CT
+hg
+Df
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(54,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+dT
+ul
+xB
+xB
+Jl
+Kq
+hF
+ul
+dT
+Cn
+Pt
+Yd
+MH
+MH
+Pt
+Pt
+Pt
+WN
+Lr
+oS
+Pt
+oX
+Dz
+kD
+oq
+IS
+wn
+jf
+CT
+hg
+uO
+Zd
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(55,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ny
+ul
+ul
+xB
+xB
+ul
+Aw
+Kc
+ul
+ul
+QP
+Pt
+Fb
+MH
+MH
+bM
+TF
+vs
+MH
+Lr
+Qh
+Pt
+ST
+kD
+kD
+IS
+Zz
+Pt
+Jw
+hS
+OX
+bB
+Zd
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(56,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+ul
+ul
+xB
+xB
+ul
+Uz
+cx
+ul
+ul
+Cn
+Pt
+DD
+gX
+YC
+YC
+YC
+YC
+YC
+pV
+dM
+Pt
+jn
+Zd
+Zd
+jn
+jn
+tm
+jf
+hg
+do
+Zd
+Zd
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(57,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+ul
+ul
+xB
+xB
+CW
+QV
+ul
+ul
+ul
+Cn
+Pt
+DD
+JW
+XP
+MH
+MH
+MH
+MH
+MH
+oS
+jn
+jn
+PG
+PG
+PG
+PG
+jn
+tt
+dV
+Zd
+Zd
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(58,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+ul
+dT
+dT
+dT
+Sk
+Sk
+dT
+dT
+ul
+Cn
+Pt
+DD
+yn
+zP
+WY
+XC
+XC
+lE
+Vr
+wQ
+jn
+PG
+PG
+PG
+PG
+PG
+jn
+ie
+Zd
+Zd
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(59,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ny
+dT
+dT
+dT
+dT
+dT
+dT
+dT
+dT
+dT
+vM
+Pt
+pK
+LL
+MH
+oS
+Pt
+Pt
+Pt
+Pt
+Pt
+jn
+jn
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+zf
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(60,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+dT
+dT
+dT
+dT
+dT
+dT
+dT
+dT
+eN
+uF
+JD
+Ef
+fL
+Mt
+oS
+Pt
+Bm
+dT
+fC
+Yw
+Os
+Yw
+UA
+Ql
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(61,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+Ss
+dT
+dT
+dT
+dT
+dT
+dT
+dT
+dT
+zJ
+Xu
+vZ
+Gn
+zM
+JP
+RJ
+KH
+HG
+dT
+WQ
+Yw
+Yw
+Yw
+UA
+fo
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(62,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+ZM
+dT
+ZM
+bV
+ha
+EU
+ha
+Nk
+ro
+dT
+dT
+ro
+Rv
+Mj
+Pt
+kL
+SW
+ep
+ps
+Pt
+DE
+dT
+WO
+jn
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(63,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+jn
+jn
+jn
+Pt
+Pt
+Pt
+Pt
+Ko
+Pt
+Pt
+Pt
+Pt
+Pt
+Pt
+Pt
+Pt
+pQ
+Pt
+mv
+Pt
+ni
+Jm
+Jm
+KZ
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(64,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+rX
+fB
+Am
+xI
+pc
+Ac
+dW
+Pt
+Zo
+xu
+Dp
+Gw
+rk
+yA
+th
+th
+th
+Uv
+Ap
+Pt
+et
+Pt
+RW
+ZB
+Jm
+fY
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(65,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+XL
+hH
+Qb
+Yg
+We
+kO
+lK
+Pt
+UN
+Cm
+Sz
+yX
+Pt
+Yf
+iu
+aS
+iu
+Lx
+Pf
+jn
+jn
+jn
+jn
+qe
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(66,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+jn
+jn
+Pt
+Pt
+JI
+hH
+Ku
+JN
+Ku
+Wn
+qY
+Pt
+Tp
+BK
+BU
+TL
+Pt
+Uk
+CF
+CF
+CF
+gK
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(67,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+wH
+tI
+iN
+Tf
+tK
+Pt
+lb
+Es
+xS
+FO
+wV
+Zg
+UI
+LR
+Qc
+at
+LX
+XU
+Pt
+Nc
+qm
+sQ
+ev
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(68,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+mL
+Fw
+Mx
+DB
+DB
+bE
+MF
+EI
+my
+Yv
+gD
+gD
+gD
+UL
+Pt
+Pt
+Lo
+Pt
+Pt
+Pt
+jn
+jn
+jn
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(69,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+jn
+jn
+jn
+qc
+XD
+Bv
+MJ
+gQ
+wB
+Pt
+fr
+OE
+yW
+wK
+mg
+RH
+ky
+Pt
+nB
+vp
+XT
+Pt
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(70,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+kw
+jj
+CQ
+OH
+Ln
+Pt
+lZ
+EJ
+yK
+Pt
+jt
+pp
+Pt
+Pt
+eq
+Pt
+GY
+vU
+hH
+HL
+Pt
+nS
+gu
+Nm
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(71,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+cP
+Ds
+jI
+wX
+TI
+ra
+bx
+uC
+uq
+uW
+Kr
+OY
+Zd
+aP
+rp
+Pt
+VP
+NR
+NR
+uV
+Pt
+yw
+jk
+Xq
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(72,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+kw
+te
+oF
+dL
+Sl
+Pt
+kt
+sx
+KQ
+sc
+pw
+Qe
+Pt
+Id
+bG
+Pt
+Hy
+jn
+dT
+dT
+BR
+wF
+mt
+cF
+qK
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(73,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+jn
+jn
+jn
+zA
+zr
+zr
+jn
+jn
+Wg
+Eb
+jn
+jn
+jn
+QI
+jn
+dT
+dT
+jn
+jn
+jn
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(74,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+jn
+jn
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+jn
+jn
+jn
+dT
+dT
+jn
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(75,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+jn
+dT
+dT
+jn
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(76,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(77,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(78,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(79,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(80,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(81,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(82,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(83,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(84,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(85,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(86,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(87,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(88,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(89,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(90,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(91,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(92,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(93,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(94,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(95,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(96,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(97,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(98,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(99,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
+(100,1,1) = {"
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+"}
