@@ -805,7 +805,6 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1385;
 	id_tag = "surveyor_shuttle_dock";
-	req_one_access = list(113);
 	tag_door = "hegemony_dock_doors";
 	pixel_y = 25
 	},
@@ -4048,6 +4047,15 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/carpet/lightblue,
 /area/coc_survey_ship/captain)
+"Jg" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1385;
+	id_tag = "surveyor_shuttle_dock";
+	tag_door = "hegemony_dock_doors";
+	pixel_y = -25
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/hangar)
 "Jl" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -10660,7 +10668,7 @@ no
 GT
 ul
 dT
-dT
+Jg
 cM
 VI
 kA
