@@ -1,11 +1,20 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ae" = (
+/obj/effect/shuttle_landmark/coc_survey_ship/nav3,
+/turf/template_noop,
+/area/space)
+"ak" = (
+/mob/living/heavy_vehicle/premade/miner,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/reinforced,
+/area/coc_survey_ship/blaster)
 "am" = (
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "at" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
@@ -22,7 +31,10 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
+"aA" = (
+/turf/simulated/floor,
+/area/coc_survey_ship/starboard_propulsion)
 "aH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -33,18 +45,17 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "aP" = (
-/obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/turf/simulated/floor/plating/cooled,
+/area/coc_survey_ship/atmos)
 "aS" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/material/hatchet/butch,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "aW" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Medical"
@@ -61,13 +72,23 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cryo)
+"bb" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/shuttle/coc_survey_shuttle)
 "bd" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "starboard"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "bs" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -80,7 +101,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cryo)
 "bx" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -95,7 +116,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "bB" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
@@ -107,13 +128,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "bD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "bE" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -129,34 +150,39 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
+"bF" = (
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/north,
+/area/space)
 "bG" = (
-/obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/shower{
-	dir = 8;
-	pixel_x = 1;
-	pixel_y = 1
-	},
-/obj/structure/curtain/open/shower,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/turf/simulated/floor/plating/cooled,
+/area/coc_survey_ship/atmos)
 "bM" = (
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/mining_scanner,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
+"bN" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/coc_survey_ship/research)
+"bU" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/anomaly)
 "bV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 10
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "cn" = (
 /obj/machinery/light{
 	dir = 8
@@ -167,13 +193,13 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "cr" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "cv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor{
@@ -183,18 +209,23 @@
 	name = "Hanger"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "cx" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 1;
 	start_pressure = 5000
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "cF" = (
 /obj/machinery/vending/cigarette/merchant,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
+"cG" = (
+/obj/machinery/mining/drill,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/miningeva)
 "cL" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/curtain/open/medical,
@@ -202,7 +233,10 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
+"cM" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/research)
 "cP" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
@@ -210,7 +244,7 @@
 	name = "port thrusters"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/port_propulsion)
 "cY" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical{
@@ -219,7 +253,11 @@
 /obj/item/storage/belt/utility,
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
+"dc" = (
+/obj/effect/shuttle_landmark/coc_survey_shuttle/hangar,
+/turf/simulated/floor,
+/area/coc_survey_ship/hangar)
 "df" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -229,7 +267,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "do" = (
 /obj/machinery/computer/ship/targeting{
 	dir = 8
@@ -241,7 +279,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "dB" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -251,12 +289,12 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "dH" = (
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "dJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
@@ -265,7 +303,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "dL" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -274,7 +312,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/port_propulsion)
 "dM" = (
 /obj/machinery/suit_cycler/mining,
 /obj/effect/floor_decal/corner_wide/orange{
@@ -282,21 +320,21 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "dP" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "dS" = (
 /obj/item/reagent_containers/food/snacks/monkeycube/wrapped{
 	name = "garn cube";
 	desc = "add a monkey named garnascus. a monkey cube if it has to be subtle -geeves "
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "dT" = (
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "dV" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 4
@@ -305,7 +343,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "dW" = (
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /obj/effect/floor_decal/corner_wide/white{
@@ -316,12 +354,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "ec" = (
 /obj/machinery/light,
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "ee" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -329,7 +367,10 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
+"em" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/quarters)
 "en" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 1
@@ -341,14 +382,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "eo" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "ep" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
@@ -360,13 +401,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "eq" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
-	name = "Shower"
+	name = "Telecomms"
 	},
-/obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -374,8 +414,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "et" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -391,23 +432,23 @@
 	pixel_y = 23
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "ev" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "eN" = (
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "eO" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cryo)
 "eZ" = (
 /obj/machinery/computer/ship/helm{
 	req_access = list(203);
@@ -420,11 +461,19 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
+"fc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/coc_survey_ship/port_propulsion)
 "fo" = (
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_survey_ship/blaster)
 "fp" = (
 /obj/machinery/door/airlock/command{
 	name = "Bridge"
@@ -438,7 +487,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "fr" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 1
@@ -455,7 +504,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "fB" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -468,20 +517,27 @@
 	start_pressure = 8000
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "fC" = (
 /obj/machinery/ammunition_loader/blaster{
 	weapon_id = "Freebooter Ship Blaster"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/blaster)
 "fG" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
+"fH" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
+/area/coc_survey_ship/port_propulsion)
 "fK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -489,7 +545,7 @@
 	name = "DANGER - FLAMMABLE"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "fL" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -500,7 +556,13 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
+"fU" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/machinery/meter,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/coc_survey_ship/port_propulsion)
 "fX" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -517,11 +579,14 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "fY" = (
 /obj/structure/viewport,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/blaster)
+"gm" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/grauwolf)
 "gu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -533,7 +598,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "gw" = (
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
@@ -542,11 +607,11 @@
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "gx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "gD" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -559,7 +624,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "gK" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/sink{
@@ -568,14 +633,14 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "gO" = (
 /obj/machinery/cryopod{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cryo)
 "gQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -584,7 +649,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "gX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -597,17 +662,17 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "ha" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "hg" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "hw" = (
 /obj/machinery/computer/cryopod{
 	pixel_y = -1;
@@ -615,7 +680,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cryo)
 "hF" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -624,14 +689,14 @@
 	start_pressure = 8000.63
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "hH" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "hI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
@@ -639,14 +704,14 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "hJ" = (
 /obj/effect/map_effect/window_spawner/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "hL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -659,24 +724,24 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "hS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "hX" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "ia" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
-	name = "Storage"
+	name = "Anomalous Materials"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -691,7 +756,11 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
+"ib" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor,
+/area/coc_survey_ship/captain)
 "id" = (
 /obj/machinery/door/airlock/hatch{
 	name = "starboard thrusters"
@@ -710,7 +779,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "ie" = (
 /obj/structure/table/stone/marble,
 /obj/item/modular_computer/laptop/preset/civilian{
@@ -723,7 +792,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "im" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/large,
@@ -732,12 +801,12 @@
 /obj/item/storage/firstaid/large/stab,
 /obj/item/storage/firstaid/large/trauma,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "iu" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "iB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
@@ -749,7 +818,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "iD" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/body_scanconsole{
@@ -761,7 +830,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "iN" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -770,7 +839,10 @@
 	},
 /obj/machinery/autolathe,
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
+"iR" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/kitchen)
 "iY" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -785,14 +857,14 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "jf" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner_wide/paleblue,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "jj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -800,7 +872,7 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "jk" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -809,10 +881,10 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "jn" = (
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "jt" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor/noid,
@@ -821,11 +893,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
+"jz" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/medical)
 "jE" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "jI" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
@@ -833,7 +908,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "jN" = (
 /obj/item/storage/firstaid/adv{
 	pixel_x = 4
@@ -849,7 +924,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/hyronalin,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "jV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
@@ -864,7 +939,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "kj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -876,18 +951,26 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "kt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
+"ku" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
+/area/coc_survey_ship/port_propulsion)
 "kw" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "ky" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -913,15 +996,21 @@
 	},
 /obj/item/device/multitool,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "kA" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "kD" = (
 /turf/simulated/floor/carpet/lightblue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
+"kG" = (
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/miningeva)
 "kH" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -933,7 +1022,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "kL" = (
 /obj/effect/floor_decal/corner_wide/orange/full{
 	dir = 1
@@ -947,7 +1036,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "kN" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/fire{
@@ -964,7 +1053,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "kO" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -973,7 +1062,7 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
 /obj/machinery/meter,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "kT" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Flak Battery";
@@ -990,7 +1079,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "lb" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -1005,13 +1094,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "lc" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard flak"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "le" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -1019,7 +1108,10 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
+"lh" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/blaster)
 "lm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
@@ -1029,7 +1121,10 @@
 	dir = 6
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
+"lr" = (
+/turf/simulated/floor,
+/area/coc_survey_ship/atmos)
 "lB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -1064,7 +1159,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "lE" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
@@ -1073,7 +1168,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "lK" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -1090,7 +1185,7 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "lM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -1100,7 +1195,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "lO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1109,7 +1204,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "lY" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -1126,11 +1221,11 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "lZ" = (
 /obj/machinery/alarm/north,
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "md" = (
 /obj/structure/table/stone/marble,
 /obj/item/material/knife/butterfly{
@@ -1139,7 +1234,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "mg" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -1152,15 +1247,16 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "mi" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/structure/closet/excavation,
+/obj/item/clothing/suit/storage/toggle/labcoat,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "mo" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -1173,14 +1269,14 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/bluegrid,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "mt" = (
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/low/east,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "mv" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -1192,7 +1288,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "my" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -1211,25 +1307,25 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "mG" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "mK" = (
 /obj/structure/sign/flag/coalition,
 /turf/simulated/wall,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "mL" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "mM" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner_wide/paleblue/full{
@@ -1239,7 +1335,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "mV" = (
 /obj/machinery/conveyor{
 	dir = 10;
@@ -1248,7 +1344,7 @@
 	reversed = 1
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "mX" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
@@ -1256,12 +1352,18 @@
 	name = "starboard thrusters"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "ne" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
+"nf" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/starboard_propulsion)
 "ni" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -1272,7 +1374,16 @@
 	req_access = null
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/blaster)
+"no" = (
+/obj/machinery/computer/shuttle_control/explore/coc_survey_shuttle{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
+"nr" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/mess_hall)
 "nx" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -1280,7 +1391,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "nB" = (
 /obj/item/clothing/under/suit_jacket/burgundy,
 /obj/item/clothing/under/suit_jacket/burgundy,
@@ -1329,7 +1440,10 @@
 /obj/item/clothing/accessory/offworlder/bracer/neckbrace,
 /obj/item/clothing/accessory/offworlder/bracer/neckbrace,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
+"nI" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/cryo)
 "nK" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -1338,12 +1452,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "nQ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/fore,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "nS" = (
 /obj/item/clothing/shoes/workboots/dark,
 /obj/item/clothing/shoes/workboots/dark,
@@ -1361,7 +1475,7 @@
 	name = "Boots"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "nX" = (
 /obj/structure/cable{
 	dir = 8
@@ -1373,36 +1487,36 @@
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "ol" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard aft wing"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "oo" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "oq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
 "oF" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "oH" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "oJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1415,27 +1529,27 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "oQ" = (
 /obj/machinery/air_sensor{
 	frequency = 451;
 	id_tag = "survey_sensor"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "oS" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "oX" = (
 /obj/structure/table/steel,
 /obj/item/modular_computer/laptop/preset/civilian{
 	pixel_y = 13
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
 "oY" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1449,13 +1563,13 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "pa" = (
 /obj/machinery/mineral/stacking_machine{
 	id = s
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "pc" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -1467,7 +1581,7 @@
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "pl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -1481,7 +1595,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "pp" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1490,7 +1604,7 @@
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "ps" = (
 /obj/effect/floor_decal/corner_wide/orange/full{
 	dir = 4
@@ -1499,7 +1613,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "pt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -1513,18 +1627,22 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "pw" = (
 /obj/structure/railing/mapped,
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/greengrid,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "pA" = (
 /obj/structure/sign/flag/assunzione,
 /turf/simulated/wall,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
+"pJ" = (
+/obj/machinery/alarm/west,
+/turf/simulated/floor,
+/area/coc_survey_ship/port_propulsion)
 "pK" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
@@ -1533,7 +1651,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "pQ" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -1550,7 +1668,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "pV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -1562,7 +1680,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "qc" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -1573,18 +1691,18 @@
 	req_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "qe" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port blaster"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/blaster)
 "qm" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "qn" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -1596,26 +1714,35 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "qp" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
+"qy" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/medical)
+"qA" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/blaster)
 "qE" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "qK" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "port wing"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "qM" = (
 /obj/machinery/light{
 	dir = 8
@@ -1624,7 +1751,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "qR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1633,7 +1760,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "qY" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -1658,7 +1785,7 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "ra" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Port Thrusters"
@@ -1674,11 +1801,14 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
+"rb" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/port_propulsion)
 "ri" = (
 /obj/effect/map_effect/airlock/e_to_w/long/square,
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "rk" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Dorms"
@@ -1691,7 +1821,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "rn" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/soup/beet{
@@ -1706,43 +1836,54 @@
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "ro" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "rp" = (
-/obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/turf/simulated/floor/plating/cooled,
+/area/coc_survey_ship/atmos)
+"rq" = (
+/obj/effect/floor_decal/corner_wide/white/diagonal,
+/obj/structure/cable{
+	dir = 8
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	pixel_x = -12;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_survey_ship/mess_hall)
 "rt" = (
 /obj/machinery/mineral/equipment_vendor,
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "rG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/machinery/alarm/west,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "rR" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "rS" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Cryo and Medical"
@@ -1759,7 +1900,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "rX" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 8
@@ -1770,11 +1911,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "sc" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "sd" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -1784,13 +1925,16 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "sh" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "starboard wing"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
+"sn" = (
+/turf/simulated/floor,
+/area/coc_survey_ship/cargo)
 "so" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1798,7 +1942,7 @@
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "su" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
@@ -1811,15 +1955,18 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "sx" = (
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
+"sz" = (
+/turf/simulated/floor/reinforced,
+/area/coc_survey_ship/grauwolf)
 "sH" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/low/east,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "sK" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -1836,12 +1983,12 @@
 /obj/item/storage/box/gloves,
 /obj/item/clothing/glasses/science,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "sL" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "sQ" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	req_access = null
@@ -1887,7 +2034,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "sV" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1900,7 +2047,7 @@
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "te" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -1908,7 +2055,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "th" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1919,15 +2066,18 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
+"ti" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/bridge)
 "tm" = (
 /obj/structure/sign/flag/konyang,
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
 "tr" = (
 /obj/machinery/artifact_scanpad,
 /turf/simulated/floor/bluegrid,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "tt" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -1936,7 +2086,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "ty" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -1951,7 +2101,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "tI" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -1961,7 +2111,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "tK" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1971,7 +2121,7 @@
 /obj/structure/closet/radiation,
 /obj/machinery/light,
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "tR" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -1980,21 +2130,24 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
+"tY" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/research)
 "ug" = (
 /obj/machinery/radiocarbon_spectrometer,
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "ui" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "ul" = (
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "uq" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -2002,14 +2155,15 @@
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "ut" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/coc_survey_shuttle,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "uv" = (
 /obj/structure/sign/flag/coalition/unmovable{
 	pixel_y = -32
@@ -2018,7 +2172,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "ux" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 9
@@ -2033,7 +2187,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "uC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -2048,7 +2202,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "uF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -2064,7 +2218,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "uK" = (
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -2076,7 +2230,7 @@
 	name = "Blood Locker"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "uO" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
@@ -2085,11 +2239,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "uU" = (
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "uV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -2101,7 +2255,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "uW" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor/noid,
@@ -2109,7 +2263,7 @@
 	name = "Reactor Room"
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "vd" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -2122,7 +2276,10 @@
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
+"vk" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/cryo)
 "vn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2134,7 +2291,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "vp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2146,12 +2303,12 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "vs" = (
 /obj/structure/table/steel,
 /obj/machinery/recharger,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "vI" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -2160,7 +2317,7 @@
 	start_pressure = 8000.63
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "vM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -2172,7 +2329,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "vU" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -2182,24 +2339,24 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "vZ" = (
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "wd" = (
 /obj/machinery/mineral/processing_unit{
 	dir = 8;
 	id = "coalition_miner"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "wn" = (
 /obj/structure/sign/flag/vysoka,
 /turf/simulated/wall,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
 "wu" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -2214,7 +2371,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "wB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2223,7 +2380,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "wF" = (
 /obj/item/flame/lighter/zippo/coalition,
 /obj/item/flame/lighter/zippo/coalition,
@@ -2252,7 +2409,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "wH" = (
 /obj/machinery/power/smes/buildable/horizon_shuttle{
 	name = "SMES"
@@ -2261,7 +2418,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "wK" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 4
@@ -2278,7 +2435,15 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
+"wM" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1413;
+	id_tag = "surveyor_out_internal"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "wQ" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2290,7 +2455,7 @@
 	req_access = list(48)
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "wS" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/bed/roller,
@@ -2298,14 +2463,18 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "wT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/machinery/alarm/north,
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
+"wU" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor,
+/area/coc_survey_ship/blaster)
 "wV" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -2319,7 +2488,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "wX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -2328,19 +2497,19 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "xe" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "xj" = (
 /obj/structure/table/steel,
 /obj/item/rig/light/offworlder,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "xu" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
@@ -2355,24 +2524,27 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "xw" = (
 /obj/effect/floor_decal/corner_wide/orange/full{
 	dir = 8
 	},
 /obj/machinery/mineral/equipment_vendor,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "xB" = (
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
+"xC" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/grauwolf)
 "xE" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "xI" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -2392,11 +2564,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "xQ" = (
 /obj/machinery/alarm/north,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "xS" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -2409,23 +2581,23 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "xU" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/bodyscanner,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "xX" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "yj" = (
 /obj/machinery/computer/ship/helm{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "yn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2437,7 +2609,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "yv" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2449,7 +2621,7 @@
 	},
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "yw" = (
 /obj/item/clothing/under/color/aqua,
 /obj/item/clothing/under/color/black,
@@ -2472,7 +2644,7 @@
 /obj/random/colored_jumpsuit,
 /obj/random/colored_jumpsuit,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "yA" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -2486,7 +2658,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "yK" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light,
@@ -2494,7 +2666,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "yQ" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
@@ -2505,10 +2677,10 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "yV" = (
 /turf/simulated/wall/r_wall,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "yW" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
@@ -2527,7 +2699,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "yX" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -2547,7 +2719,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "yY" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -2555,19 +2727,19 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "yZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "zc" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "port"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "zf" = (
 /obj/machinery/iff_beacon/name_change,
 /obj/structure/railing/mapped,
@@ -2575,7 +2747,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "zg" = (
 /obj/structure/closet/cabinet,
 /obj/item/gun/energy/plasmacutter,
@@ -2610,14 +2782,14 @@
 /obj/random/spacecash,
 /obj/random/spacecash,
 /turf/simulated/floor/carpet/lightblue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
 "zj" = (
 /obj/structure/bed/stool/bar/padded/brown{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "zo" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/power/apc{
@@ -2629,7 +2801,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "zr" = (
 /obj/structure/reagent_dispensers/coolanttank{
 	pixel_x = 5
@@ -2640,7 +2812,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "zA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -2654,13 +2826,13 @@
 	name = "DANGER - RADIOACTIVE MATERIAL"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "zJ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "zM" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -2675,13 +2847,13 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "zP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "zS" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -2691,7 +2863,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Ac" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -2705,7 +2877,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "Ag" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
@@ -2715,7 +2887,7 @@
 	},
 /obj/machinery/power/apc/low/south,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "Ai" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -2727,8 +2899,9 @@
 	},
 /obj/machinery/light,
 /obj/structure/closet/excavation,
+/obj/item/clothing/suit/storage/toggle/labcoat,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "Ak" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/table/steel,
@@ -2740,7 +2913,7 @@
 	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "Am" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -2754,7 +2927,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "Ap" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2767,20 +2940,20 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "Aw" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "AM" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "AO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2794,7 +2967,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "AY" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "Coallit_Mining_1"
@@ -2803,7 +2976,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Bi" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -2814,27 +2987,30 @@
 	req_access = null
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
 "Bm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/machinery/alarm/north,
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/blaster)
 "Bn" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
+"Bo" = (
+/turf/space/transit/north,
+/area/space)
 "Bq" = (
 /obj/machinery/door/window{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "Bv" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -2847,21 +3023,21 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "BC" = (
 /obj/machinery/door/window{
 	dir = 4
 	},
 /obj/machinery/artifact_scanpad,
 /turf/simulated/floor/bluegrid,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "BJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/anomaly_container,
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "BK" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2877,7 +3053,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "BM" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -2892,16 +3068,16 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "BR" = (
 /obj/effect/map_effect/airlock/w_to_e/long/square,
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "BU" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/bed/stool/bar/padded/brown,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "BV" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
 	frequency = 451;
@@ -2911,7 +3087,7 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "BW" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2920,7 +3096,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "Ca" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2931,14 +3107,14 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "Cc" = (
 /obj/machinery/computer/ship/targeting{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/full,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "Cd" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -2955,7 +3131,7 @@
 	},
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Cm" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -2971,7 +3147,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "Cn" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -2979,7 +3155,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "Cx" = (
 /obj/machinery/ship_weapon/grauwolf,
 /turf/template_noop,
@@ -2998,8 +3174,11 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "CC" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -3012,11 +3191,11 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "CF" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "CL" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -3025,21 +3204,21 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "CQ" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "CT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "CV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3052,7 +3231,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "CW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -3061,7 +3240,11 @@
 	name = "engines"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
+"CZ" = (
+/obj/effect/shuttle_landmark/coc_survey_ship/nav4,
+/turf/template_noop,
+/area/space)
 "Df" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
@@ -3073,13 +3256,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "Dh" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore flak"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "Di" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/table/steel,
@@ -3088,7 +3271,7 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "Dp" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
@@ -3100,13 +3283,13 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "Ds" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/meter,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "Dy" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/cable{
@@ -3118,13 +3301,13 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "Dz" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
 "DB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -3137,12 +3320,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "DD" = (
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "DE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -3154,14 +3337,27 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/blaster)
+"DH" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/atmos)
 "DN" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
+"DR" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/low/east,
+/turf/simulated/floor,
+/area/coc_survey_ship/port_propulsion)
 "DT" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
@@ -3173,13 +3369,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "Eb" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port aft wing"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "Ee" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -3188,7 +3384,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "Ef" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
@@ -3199,7 +3395,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Eo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -3216,7 +3412,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "Es" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -3226,7 +3422,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "EC" = (
 /obj/machinery/light{
 	dir = 1
@@ -3236,7 +3432,7 @@
 	start_pressure = 8000.63
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "EI" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -3259,7 +3455,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "EJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3274,7 +3470,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "ER" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3284,7 +3480,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "EU" = (
 /obj/machinery/light{
 	dir = 4
@@ -3293,7 +3489,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "EX" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -3303,7 +3499,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "Fb" = (
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3311,7 +3507,20 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
+"Ff" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/bed/handrail,
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2;
+	id_tag = "surveyor_out_external";
+	frequency = 1413
+	},
+/turf/simulated/floor,
+/area/shuttle/coc_survey_shuttle)
 "Fr" = (
 /obj/machinery/mineral/processing_unit_console{
 	id = "coalition_miner";
@@ -3322,7 +3531,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Fs" = (
 /obj/structure/bed/stool/bar/padded/brown{
 	dir = 1
@@ -3330,7 +3539,7 @@
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "Fw" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -3343,17 +3552,24 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
+"FB" = (
+/obj/machinery/mining/brace{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/miningeva)
 "FC" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "FF" = (
 /obj/structure/sign/flag/himeo,
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "FK" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -3361,7 +3577,7 @@
 	layer = 2.9
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "FM" = (
 /obj/structure/cable{
 	d2 = 2;
@@ -3373,7 +3589,7 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "FO" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -3385,16 +3601,17 @@
 /obj/structure/table/steel,
 /obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "FU" = (
 /obj/structure/sign/flag/himeo{
 	pixel_y = -32
 	},
-/obj/effect/floor_decal/corner_wide/orange{
-	dir = 10
+/obj/machinery/mining/brace{
+	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "FZ" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3413,14 +3630,14 @@
 /obj/item/storage/box/gloves,
 /obj/item/clothing/glasses/science,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "Ga" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "Gc" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -3428,7 +3645,7 @@
 	layer = 2.9
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Gm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/cable{
@@ -3438,13 +3655,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
 "Gn" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Go" = (
 /obj/structure/closet/crate{
 	name = "DANGER - FLAMMABLE"
@@ -3455,7 +3672,7 @@
 /obj/item/tank/hydrogen,
 /obj/item/tank/hydrogen,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "Gw" = (
 /obj/effect/floor_decal/corner_wide/red/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3470,7 +3687,7 @@
 	},
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "GG" = (
 /obj/machinery/artifact_analyser{
 	pixel_y = 5
@@ -3478,7 +3695,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window,
 /turf/simulated/floor/bluegrid,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "GH" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3494,7 +3711,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "GQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3506,7 +3723,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "GR" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -3520,11 +3737,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "GT" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "GY" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -3541,7 +3758,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "Hm" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -3553,7 +3770,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Hp" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Common Area"
@@ -3567,30 +3784,30 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Ht" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "Hx" = (
 /obj/machinery/ammunition_loader/grauwolf,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "Hy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "HF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "HG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -3602,12 +3819,12 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/blaster)
 "HI" = (
 /obj/machinery/mineral/rigpress,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "HL" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -3620,29 +3837,26 @@
 	},
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "HN" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/template_noop,
-/area/space)
+/area/coc_survey_ship/grauwolf)
+"HP" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/cargo)
 "HS" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "Id" = (
-/obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/random/soap,
-/obj/random/soap,
-/obj/structure/table/rack,
-/obj/item/towel/random,
-/obj/item/towel/random,
-/obj/item/towel/random,
-/obj/item/towel/random,
-/turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/obj/machinery/telecomms/allinone/ship,
+/turf/simulated/floor/plating/cooled,
+/area/coc_survey_ship/atmos)
 "Ig" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3659,7 +3873,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "Ih" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 451;
@@ -3667,28 +3881,31 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "Ii" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Iv" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "Iy" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cryo)
+"IA" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/captain)
 "IC" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3701,48 +3918,56 @@
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "ID" = (
 /obj/effect/floor_decal/corner_wide/orange/full,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "IG" = (
 /obj/effect/map_effect/window_spawner/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
+"IN" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/grauwolf)
 "IP" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "IR" = (
 /obj/machinery/vending/cola{
 	name = "hacked Robust Softdrinks";
 	prices = list()
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "IS" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/carpet/lightblue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
 "Jl" = (
 /obj/effect/map_effect/airlock/w_to_e/long/square,
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "Jm" = (
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "Jt" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "Jw" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -3750,7 +3975,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "JD" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Hanger"
@@ -3764,7 +3989,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "JI" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -3777,13 +4002,22 @@
 /obj/item/inflatable_dispenser,
 /obj/item/pipewrench,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "JK" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
+"JM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/port_propulsion)
 "JN" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -3792,7 +4026,7 @@
 /obj/structure/table/steel,
 /obj/item/gun/energy/plasmacutter,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "JP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -3802,7 +4036,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "JR" = (
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
@@ -3810,7 +4044,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "JW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3822,7 +4056,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Kc" = (
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = -31
@@ -3831,7 +4065,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
+"Kf" = (
+/obj/effect/shuttle_landmark/coc_survey_ship/nav2,
+/turf/template_noop,
+/area/space)
 "Ko" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -3842,16 +4080,16 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "Kq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "Kr" = (
 /turf/simulated/floor/greengrid,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "Ku" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -3861,7 +4099,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "KC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3873,14 +4111,14 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
 "KD" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "KH" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Mining Laser"
@@ -3894,13 +4132,13 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "KL" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "KO" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -3930,11 +4168,11 @@
 	pixel_y = -5
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "KQ" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "KX" = (
 /obj/machinery/conveyor{
 	id = s;
@@ -3942,17 +4180,24 @@
 	},
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "KZ" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore blaster"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/blaster)
+"Lk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor,
+/area/shuttle/coc_survey_shuttle)
 "Ln" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "Lo" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -3969,7 +4214,11 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
+"Lq" = (
+/obj/machinery/light,
+/turf/simulated/floor,
+/area/coc_survey_ship/blaster)
 "Lr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -3981,7 +4230,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Lu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 8
@@ -4001,14 +4250,17 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "Lx" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
+"LE" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/starboard_propulsion)
 "LG" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4016,7 +4268,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "LL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4028,7 +4280,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "LM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -4038,7 +4290,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
+"LQ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark,
+/area/coc_survey_ship/bridge)
 "LR" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Engineering"
@@ -4057,17 +4313,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "LX" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "Mj" = (
 /obj/machinery/alarm/east,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "Ms" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4076,16 +4332,19 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/hatch{
+	name = "Anomalous Materials"
+	},
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "Mt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Mx" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4101,7 +4360,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "MC" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -4117,7 +4376,13 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
+"MD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "MF" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Power"
@@ -4133,10 +4398,10 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "MH" = (
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "MJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4145,7 +4410,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "MR" = (
 /obj/structure/cable/green{
 	d2 = 8;
@@ -4157,7 +4422,10 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
+"MY" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/engineering)
 "Nc" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/appliance/cooker/stove,
@@ -4165,7 +4433,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "Nf" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 9
@@ -4174,13 +4442,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Nk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "Nm" = (
 /obj/item/clothing/accessory/badge/passcard/konyang,
 /obj/item/clothing/accessory/badge/passcard/konyang,
@@ -4214,7 +4482,7 @@
 	name = "Passcards"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "No" = (
 /obj/structure/table/rack,
 /obj/item/rig/industrial/himeo,
@@ -4223,12 +4491,12 @@
 /obj/item/rig_module/maneuvering_jets,
 /obj/item/device/gps,
 /turf/simulated/floor/carpet/lightblue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
 "Nq" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "Ny" = (
 /obj/machinery/light{
 	dir = 1
@@ -4237,7 +4505,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "Nz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4254,7 +4522,10 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
+"NL" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/starboard_propulsion)
 "NO" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Artifact Storage";
@@ -4269,7 +4540,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "NR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -4282,13 +4553,17 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
+"NT" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/coc_survey_ship/port_propulsion)
 "Oa" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "Oi" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4296,7 +4571,10 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
+"Ol" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/quarters)
 "Os" = (
 /obj/machinery/ship_weapon/blaster{
 	pixel_y = -195;
@@ -4305,7 +4583,10 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/blaster)
+"Oz" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/blaster)
 "OE" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
@@ -4323,11 +4604,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "OH" = (
 /obj/machinery/alarm/west,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "OL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
@@ -4338,27 +4619,27 @@
 	name = "Hanger"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "ON" = (
 /obj/structure/table/stone/marble,
 /obj/item/toy/comic/inspector,
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "OT" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "OX" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "OY" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/power/portgen/basic/fusion,
@@ -4367,16 +4648,19 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/greengrid,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "Pa" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
+"Pd" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/mess_hall)
 "Pf" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "Pg" = (
 /obj/machinery/shipsensors/strong,
 /obj/structure/railing/mapped,
@@ -4384,7 +4668,7 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "Pk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -4400,7 +4684,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "Po" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/curtain/open/medical,
@@ -4408,13 +4692,23 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
+"Pq" = (
+/turf/simulated/floor/reinforced,
+/area/coc_survey_ship/blaster)
+"Pr" = (
+/obj/effect/shuttle_landmark/coc_survey_ship/nav1,
+/turf/template_noop,
+/area/space)
 "Pt" = (
 /turf/simulated/wall,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "PG" = (
 /turf/template_noop,
 /area/space)
+"PU" = (
+/turf/simulated/floor,
+/area/coc_survey_ship/blaster)
 "PV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 4
@@ -4427,7 +4721,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "Qb" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -4438,7 +4732,7 @@
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "Qc" = (
 /obj/effect/floor_decal/corner_wide/red/full{
 	dir = 1
@@ -4457,7 +4751,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "Qe" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/mass_driver{
@@ -4466,31 +4760,31 @@
 	_wifi_id = "pirate_core_driver"
 	},
 /turf/simulated/floor/greengrid,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "Qh" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Ql" = (
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_survey_ship/blaster)
 "Qt" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "Qx" = (
 /obj/machinery/conveyor{
 	id = s;
 	layer = 2.9
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "QI" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
@@ -4498,7 +4792,10 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
+"QJ" = (
+/turf/simulated/floor,
+/area/coc_survey_ship/grauwolf)
 "QK" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/table/reinforced/steel,
@@ -4514,7 +4811,12 @@
 /obj/item/storage/box/beakers,
 /obj/item/stack/nanopaste,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
+"QL" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/coc_survey_ship/port_propulsion)
 "QP" = (
 /obj/machinery/light,
 /obj/structure/cable{
@@ -4523,17 +4825,17 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "QT" = (
 /obj/structure/table/stone/marble,
 /obj/item/toy/comic/outlandish_tales,
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "QV" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "QY" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "hangar"
@@ -4542,7 +4844,7 @@
 	dir = 4;
 	name = "shuttle bay blast door"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "Rh" = (
 /obj/machinery/suspension_gen{
 	dir = 1
@@ -4552,14 +4854,14 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "Rv" = (
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/low/east,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "RH" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -4570,7 +4872,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "RJ" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
@@ -4581,20 +4883,20 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "RM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "RP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "RT" = (
 /obj/item/ship_ammunition/grauwolf_probe,
 /obj/item/ship_ammunition/grauwolf_probe,
@@ -4606,12 +4908,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "RV" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "RW" = (
 /obj/item/ship_ammunition/blaster,
 /obj/item/ship_ammunition/blaster,
@@ -4621,7 +4923,7 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/blaster)
 "RY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -4633,13 +4935,13 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "Sk" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "Sl" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -4649,7 +4951,7 @@
 	},
 /obj/machinery/power/apc/low/east,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "Sn" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -4658,13 +4960,21 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
+"Sq" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1;
+	layer = 2.8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/coc_survey_ship/port_propulsion)
 "Ss" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "Sy" = (
 /obj/structure/table/steel,
 /obj/item/clothing/under/rank/medical/surgeon,
@@ -4674,7 +4984,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "Sz" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4684,12 +4994,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "SC" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "SH" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4703,7 +5013,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "SJ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4717,13 +5027,17 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cryo)
 "ST" = (
 /obj/item/bedsheet,
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - coc_surveyor_captain";
+	identifier = "coc_surveyor_captain"
+	},
 /turf/simulated/floor/carpet/lightblue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
 "SU" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/sink{
@@ -4731,7 +5045,7 @@
 	pixel_x = 12
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/medical)
 "SW" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
@@ -4749,7 +5063,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "SZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -4757,13 +5071,13 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "Tc" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "Tf" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4774,7 +5088,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "To" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4782,7 +5096,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "Tp" = (
 /obj/structure/table/wood,
 /obj/machinery/media/jukebox/audioconsole{
@@ -4792,7 +5106,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "Tq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4809,12 +5123,12 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "TF" = (
 /obj/structure/table/steel,
 /obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "TI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -4829,7 +5143,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/port_propulsion)
 "TL" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -4845,22 +5159,22 @@
 /obj/item/storage/box/fancy/mre/random,
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "TZ" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "Ud" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "Uf" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/starboard{
 	name = "fore"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "Uk" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/cable{
@@ -4872,18 +5186,18 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "Ul" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "Un" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "Uq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -4894,7 +5208,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "Uv" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4907,7 +5221,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "Uw" = (
 /obj/structure/table/steel,
 /obj/machinery/recharger{
@@ -4920,7 +5234,10 @@
 	},
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
+"Uy" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/engineering)
 "Uz" = (
 /obj/machinery/light{
 	dir = 1
@@ -4929,11 +5246,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "UA" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_survey_ship/blaster)
+"UF" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/anomaly)
 "UI" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -4957,7 +5277,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "UL" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -4980,7 +5300,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "UN" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 5
@@ -4998,15 +5318,16 @@
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "UR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/coc_surveyor,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "UY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -5023,7 +5344,10 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
+"Vh" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/miningeva)
 "Vr" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5037,19 +5361,19 @@
 	name = "Oxygen Supplies Access"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Vy" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cryo)
 "VI" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/chemical_dispenser/full,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 "VM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/mop,
@@ -5057,7 +5381,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "VP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -5072,11 +5396,14 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "VX" = (
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
-/area/space)
+/area/coc_survey_ship/grauwolf)
+"Wd" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/miningeva)
 "We" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -5086,13 +5413,13 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "Wg" = (
 /obj/machinery/door/blast/regular{
 	id = "pirate_core_shunt"
 	},
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "Wn" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -5104,7 +5431,11 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
+"Wq" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor,
+/area/coc_survey_ship/engineering)
 "Wv" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5112,14 +5443,14 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "WC" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	frequency = 451
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "WM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -5133,7 +5464,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "WN" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -5148,28 +5479,28 @@
 	},
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "WO" = (
 /obj/machinery/light,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "WQ" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "WY" = (
 /obj/effect/floor_decal/corner_wide/orange,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "WZ" = (
 /obj/machinery/light,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "Xc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -5180,13 +5511,17 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "Xh" = (
 /obj/machinery/mineral/unloading_machine{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
+"Xl" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor,
+/area/coc_survey_ship/bridge)
 "Xq" = (
 /obj/item/clothing/accessory/flagpatch/konyang,
 /obj/item/clothing/accessory/flagpatch/konyang,
@@ -5212,13 +5547,13 @@
 	name = "Flagpatches"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "Xu" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
 "Xx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5231,13 +5566,13 @@
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/mess_hall)
 "XC" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "XD" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5252,7 +5587,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/engineering)
 "XL" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -5265,7 +5600,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "XO" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5274,13 +5609,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/anomaly)
 "XP" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
+"XR" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/atmos)
 "XT" = (
 /obj/item/clothing/head/vysoka/blue,
 /obj/item/clothing/head/vysoka/blue,
@@ -5316,7 +5654,7 @@
 /obj/item/clothing/head/softcap/himeo,
 /obj/item/clothing/head/softcap/himeo,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "XU" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
@@ -5347,15 +5685,23 @@
 /obj/effect/floor_decal/corner_wide/red/full{
 	dir = 4
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - coc_surveyor";
+	identifier = "coc_surveyor"
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - coc_surveyor";
+	identifier = "coc_surveyor"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "Yd" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
 	},
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Yf" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -5366,7 +5712,7 @@
 	},
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/kitchen)
 "Yg" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -5376,14 +5722,17 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
+"Yq" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/captain)
 "Ys" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/full,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "Yv" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -5396,11 +5745,22 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "Yw" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
+"Yx" = (
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/coc_survey_ship/port_propulsion)
+"YA" = (
+/obj/structure/viewport,
+/turf/simulated/floor,
+/area/coc_survey_ship/grauwolf)
 "YC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5408,24 +5768,24 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "YJ" = (
 /obj/machinery/mineral/stacking_unit_console{
 	id = "coalit_stacker_1";
 	pixel_y = -3
 	},
 /turf/simulated/wall,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "YU" = (
 /obj/effect/map_effect/window_spawner/borosilicate/reinforced/firedoor,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/starboard_propulsion)
 "YW" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/miningeva)
 "Zc" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -5438,11 +5798,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cryo)
 "Zd" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "Zg" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -5455,13 +5815,16 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/atmos)
 "Zh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 6
 	},
 /turf/simulated/floor,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
+"Zk" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/kitchen)
 "Zn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable{
@@ -5470,7 +5833,7 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
 "Zo" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
@@ -5501,8 +5864,16 @@
 	name = "top bunk";
 	desc = "This is used to lie in, sleep in or strap on. This one is just out of reach."
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - coc_surveyor";
+	identifier = "coc_surveyor"
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - coc_surveyor";
+	identifier = "coc_surveyor"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/quarters)
 "Zp" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -5513,27 +5884,27 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/bridge)
 "Zw" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "Zy" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/overgrown_mining_station)
+/area/shuttle/coc_survey_shuttle)
 "Zz" = (
 /obj/structure/table/steel,
 /obj/machinery/alarm/south,
 /turf/simulated/floor/carpet/lightblue,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/captain)
 "ZB" = (
 /mob/living/heavy_vehicle/premade/miner,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/grauwolf)
 "ZE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
@@ -5551,13 +5922,20 @@
 /turf/simulated/floor/shuttle/black{
 	name = "tile floor"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/cargo)
+"ZL" = (
+/obj/effect/shuttle_landmark/coc_survey_shuttle/transit,
+/turf/space/transit/north,
+/area/space)
 "ZM" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4;
 	name = "shuttle bay blast door"
 	},
-/area/overgrown_mining_station)
+/area/coc_survey_ship/hangar)
+"ZP" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/hangar)
 "ZZ" = (
 /obj/item/reagent_containers/glass/bucket{
 	pixel_x = -11;
@@ -5567,7 +5945,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/overgrown_mining_station)
+/area/coc_survey_ship/research)
 
 (1,1,1) = {"
 PG
@@ -5655,21 +6033,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (2,1,1) = {"
 PG
@@ -5757,21 +6135,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (3,1,1) = {"
 PG
@@ -5859,21 +6237,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (4,1,1) = {"
 PG
@@ -5961,21 +6339,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (5,1,1) = {"
 PG
@@ -6063,21 +6441,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (6,1,1) = {"
 PG
@@ -6165,21 +6543,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (7,1,1) = {"
 PG
@@ -6267,21 +6645,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (8,1,1) = {"
 PG
@@ -6369,21 +6747,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (9,1,1) = {"
 PG
@@ -6471,21 +6849,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (10,1,1) = {"
 PG
@@ -6573,21 +6951,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (11,1,1) = {"
 PG
@@ -6631,6 +7009,7 @@ PG
 PG
 PG
 PG
+Kf
 PG
 PG
 PG
@@ -6674,22 +7053,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (12,1,1) = {"
 PG
@@ -6777,21 +7155,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (13,1,1) = {"
 PG
@@ -6879,21 +7257,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (14,1,1) = {"
 PG
@@ -6981,21 +7359,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (15,1,1) = {"
 PG
@@ -7083,21 +7461,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (16,1,1) = {"
 PG
@@ -7185,21 +7563,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (17,1,1) = {"
 PG
@@ -7287,21 +7665,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+ZL
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (18,1,1) = {"
 PG
@@ -7389,21 +7767,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (19,1,1) = {"
 PG
@@ -7491,21 +7869,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (20,1,1) = {"
 PG
@@ -7593,21 +7971,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
+Bo
 "}
 (21,1,1) = {"
 PG
@@ -7695,21 +8073,21 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
+bF
+bF
+bF
+bF
+bF
+bF
+bF
+bF
+bF
+bF
+bF
+bF
+bF
+bF
+bF
 "}
 (22,1,1) = {"
 PG
@@ -8261,8 +8639,8 @@ PG
 PG
 PG
 jn
-dT
-dT
+sn
+sn
 ri
 PG
 PG
@@ -8348,13 +8726,13 @@ PG
 PG
 PG
 PG
-jn
-jn
-jn
-jn
-jn
-jn
-jn
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 PG
 PG
 PG
@@ -8363,8 +8741,8 @@ PG
 jn
 jn
 jn
-dT
-dT
+sn
+sn
 jn
 jn
 PG
@@ -8447,16 +8825,16 @@ PG
 PG
 PG
 PG
-jn
-jn
-jn
-jn
-jn
-jn
+LE
+LE
+LE
+LE
+LE
+LE
 vI
 Go
 Ud
-jn
+LE
 jn
 jn
 ol
@@ -8465,8 +8843,8 @@ jn
 jn
 tR
 jn
-dT
-dT
+sn
+sn
 jn
 jn
 jn
@@ -8554,10 +8932,10 @@ jj
 CQ
 OH
 Ln
-Pt
+NL
 rR
-dT
-dT
+aA
+aA
 RM
 Pt
 dJ
@@ -8567,8 +8945,8 @@ Oa
 HF
 le
 jn
-dT
-dT
+sn
+sn
 jn
 ui
 ui
@@ -8756,12 +9134,12 @@ PG
 kw
 te
 oF
-Xu
+nf
 Sl
-Pt
+NL
 EC
 hX
-Xu
+nf
 kH
 Pt
 qR
@@ -8855,12 +9233,12 @@ PG
 PG
 PG
 PG
-jn
-jn
-jn
-jn
-jn
-jn
+LE
+LE
+LE
+LE
+LE
+LE
 xQ
 Tc
 BV
@@ -8961,33 +9339,33 @@ PG
 PG
 PG
 PG
-jn
-jn
+LE
+LE
 yV
 hJ
 YU
 IG
-Pt
-Pt
-Pt
-Pt
-Pt
-Pt
-Pt
-Pt
-Pt
-Pt
+qy
+qy
+qy
+qy
+qy
+qy
+qy
+nI
+nI
+nI
 Pt
 Tq
 dH
 dH
 dH
 VM
-jn
-jn
-jn
-jn
-jn
+bU
+bU
+bU
+bU
+bU
 PG
 PG
 PG
@@ -9064,19 +9442,19 @@ PG
 PG
 PG
 PG
-jn
-jn
+LE
+LE
 WC
 oQ
 Ih
-Pt
+qy
 JR
 zo
 cL
 Sy
 kN
 jN
-Pt
+nI
 gO
 gO
 Pt
@@ -9085,12 +9463,12 @@ HF
 dH
 dH
 dH
-Pt
+UF
 tr
 GG
 jE
-jn
-jn
+bU
+tY
 PG
 PG
 PG
@@ -9167,11 +9545,11 @@ PG
 PG
 PG
 PG
-jn
-jn
-jn
-jn
-jn
+LE
+LE
+LE
+LE
+jz
 sL
 SU
 Po
@@ -9181,19 +9559,19 @@ Iv
 eO
 Iy
 Vy
-eO
+HP
 Tq
 dH
 HF
 dH
 dH
-Pt
+UF
 BC
 mo
 jE
 Ak
-jn
-jn
+tY
+tY
 PG
 PG
 PG
@@ -9273,9 +9651,9 @@ PG
 PG
 PG
 PG
-jn
-jn
-Pt
+jz
+jz
+qy
 xU
 iD
 dB
@@ -9294,14 +9672,14 @@ Ca
 IC
 XO
 KO
-Pt
-jn
-jn
-jn
-jn
+cM
+tY
+tY
+xC
+xC
 lc
-jn
-jn
+xC
+xC
 PG
 PG
 PG
@@ -9376,13 +9754,13 @@ PG
 PG
 PG
 PG
-jn
-jn
+jz
+jz
 SC
 wS
 uK
 Di
-Pt
+nI
 Zc
 hw
 Pt
@@ -9391,19 +9769,19 @@ RY
 pt
 lB
 su
-Pt
+UF
 IP
 so
 Bn
 sV
-Pt
+cM
 OT
 ug
-Pt
+gm
 gw
-Jm
-Jm
-fY
+sz
+sz
+YA
 PG
 PG
 PG
@@ -9479,31 +9857,31 @@ PG
 PG
 PG
 PG
-jn
-jn
-jn
-jn
-jn
-jn
-Pt
-Pt
+jz
+jz
+jz
+jz
+jz
+vk
+nI
+nI
 Pt
 Pt
 OL
 Pt
 Pt
 Pt
-Pt
-Pt
-Pt
-Pt
+ZP
+ZP
+ZP
+cM
 ia
-Pt
+cM
 ZZ
 Bq
-Pt
+gm
 am
-Jm
+sz
 ZB
 Dh
 PG
@@ -9598,15 +9976,15 @@ dT
 JK
 dT
 rG
-Pt
+cM
 CC
 yv
 iY
 fX
-Pt
+gm
 RT
-Jm
-Jm
+sz
+sz
 TZ
 TZ
 VX
@@ -9702,10 +10080,10 @@ dT
 lm
 cv
 ER
-jE
+bN
 Nq
 sK
-Pt
+gm
 wT
 bD
 Jt
@@ -9803,11 +10181,11 @@ dT
 dT
 Xu
 vZ
-jE
-jE
-jE
+bN
+bN
+bN
 FZ
-Pt
+gm
 Ee
 Ht
 Jt
@@ -9904,25 +10282,25 @@ dT
 dT
 dT
 WO
-Pt
+cM
 mi
-jE
+bN
 ne
 Ai
-Pt
+gm
 kj
-dT
+QJ
 Hx
-dT
-jn
+QJ
+xC
 PG
 PG
 PG
 PG
 PG
-jn
-jn
-jn
+ti
+ti
+ti
 Pg
 PG
 PG
@@ -10006,26 +10384,26 @@ Zd
 dT
 dT
 dT
-Pt
+cM
 Dy
 DN
 DN
 GH
 NO
 SZ
-dT
+QJ
 WQ
-dT
-jn
+QJ
+xC
 PG
 PG
 PG
 PG
 PG
-jn
+ti
 mM
-Ul
-Zd
+LQ
+Xl
 PG
 PG
 PG
@@ -10103,32 +10481,32 @@ ul
 GT
 uU
 KL
-xB
+no
 GT
 ul
 dT
 dT
-Pt
+cM
 VI
 kA
 QK
 qp
-Pt
+gm
 ty
-HS
+IN
 sH
-dT
-jn
-jn
+QJ
+xC
+xC
 PG
 PG
 PG
 PG
-jn
+ti
 sd
 oH
-Zd
-Zd
+Xl
+Xl
 PG
 PG
 PG
@@ -10210,28 +10588,28 @@ RV
 ul
 dT
 dT
-Pt
-Pt
-Pt
-Pt
-Pt
-Pt
+Vh
+Vh
+Vh
+Vh
+Vh
+Vh
 kT
-Pt
-Pt
-Pt
-Pt
-jn
-jn
-jn
-jn
-jn
+Vh
+Vh
+Vh
+Vh
+nr
+nr
+nr
+nr
+nr
 FF
 jf
 hg
 Cc
-Zd
-Zd
+Xl
+Xl
 PG
 PG
 PG
@@ -10312,7 +10690,7 @@ FM
 Ga
 HS
 WZ
-Pt
+Vh
 mV
 Qx
 pa
@@ -10322,18 +10700,18 @@ ux
 Nf
 FC
 ID
-Pt
+Vh
 nX
 Pa
 LM
+rq
 Pa
-Pa
-Pt
+Pd
 jf
 RP
 Un
 Ys
-Zd
+Xl
 PG
 PG
 PG
@@ -10414,7 +10792,7 @@ fG
 Zd
 dT
 Cn
-Pt
+Vh
 FK
 dP
 dP
@@ -10435,7 +10813,7 @@ GQ
 lM
 hg
 uO
-Zd
+Xl
 PG
 PG
 PG
@@ -10516,7 +10894,7 @@ gx
 ul
 dT
 Cn
-Pt
+Vh
 wd
 dP
 xw
@@ -10526,18 +10904,18 @@ cr
 oo
 Lr
 Qh
-Pt
+Vh
 rn
 zj
 xe
 Xx
 Pa
-Pt
+Pd
 wu
 CT
 hg
 Df
-jn
+ti
 PG
 PG
 PG
@@ -10618,17 +10996,17 @@ gx
 zc
 dT
 Cn
-Pt
+Vh
 Gc
 dP
 rt
 MH
 MH
-Pt
+Vh
 Cd
 Lr
 FU
-Pt
+Vh
 md
 zj
 Pa
@@ -10639,7 +11017,7 @@ ee
 CT
 hg
 en
-Zd
+Xl
 PG
 PG
 PG
@@ -10654,7 +11032,7 @@ PG
 PG
 PG
 PG
-PG
+CZ
 PG
 PG
 PG
@@ -10685,7 +11063,7 @@ PG
 PG
 PG
 PG
-PG
+ae
 PG
 PG
 PG
@@ -10720,23 +11098,23 @@ Rh
 ul
 dT
 QP
-Pt
+Vh
 Xh
 dP
 pK
 MH
 HI
-Pt
+Vh
 GR
 Lr
-oS
-Pt
+cG
+Vh
 QT
 Fs
 eo
 Xx
 ON
-Pt
+Pd
 Zp
 UR
 xX
@@ -10822,28 +11200,28 @@ ec
 ul
 dT
 Cn
-Pt
+Vh
 Ii
-Pt
+Vh
 Fr
 MH
 cY
-Pt
+Vh
 IR
 Lr
-oS
-Pt
-Pt
-Pt
-Pt
+FB
+Vh
+Pd
+Pd
+Pd
 lY
-Pt
+Pd
 pA
 ee
 CT
 hg
 DT
-Zd
+Xl
 PG
 PG
 PG
@@ -10924,28 +11302,28 @@ Qt
 ul
 dT
 Cn
-Pt
+Vh
 qE
 AY
 YW
 TF
 xj
-Pt
+Vh
 qn
 Lr
 uv
-Pt
+Vh
 No
 Bi
 Gm
 KC
 zg
-Pt
+Yq
 EX
 CT
 hg
 Df
-jn
+ti
 PG
 PG
 PG
@@ -11026,28 +11404,28 @@ hF
 ul
 dT
 Cn
-Pt
+Vh
 Yd
 MH
 MH
-Pt
-Pt
-Pt
+Vh
+Vh
+Vh
 WN
 Lr
 oS
-Pt
+Vh
 oX
 Dz
 kD
 oq
-IS
+Zz
 wn
 jf
 CT
 hg
 uO
-Zd
+Xl
 PG
 PG
 PG
@@ -11128,7 +11506,7 @@ Kc
 ul
 ul
 QP
-Pt
+Vh
 Fb
 MH
 MH
@@ -11138,18 +11516,18 @@ vs
 MH
 Lr
 Qh
-Pt
+Vh
 ST
 kD
 kD
 IS
 Zz
-Pt
+Yq
 Jw
 hS
 OX
 bB
-Zd
+Xl
 PG
 PG
 PG
@@ -11222,7 +11600,7 @@ ZM
 Ss
 ul
 ul
-xB
+wM
 xB
 ul
 Uz
@@ -11230,7 +11608,7 @@ cx
 ul
 ul
 Cn
-Pt
+Vh
 DD
 gX
 YC
@@ -11240,18 +11618,18 @@ YC
 YC
 pV
 dM
-Pt
-jn
-Zd
-Zd
-jn
-jn
+Vh
+IA
+ib
+ib
+IA
+IA
 tm
 jf
 hg
 do
-Zd
-Zd
+Xl
+Xl
 PG
 PG
 PG
@@ -11324,7 +11702,7 @@ ZM
 Ss
 ul
 ul
-xB
+MD
 xB
 CW
 QV
@@ -11332,7 +11710,7 @@ ul
 ul
 ul
 Cn
-Pt
+Vh
 DD
 JW
 XP
@@ -11342,17 +11720,17 @@ MH
 MH
 MH
 oS
-jn
-jn
+Wd
+IA
 PG
 PG
 PG
 PG
-jn
+ti
 tt
 dV
-Zd
-Zd
+Xl
+Xl
 PG
 PG
 PG
@@ -11425,16 +11803,16 @@ dT
 ZM
 Ss
 ul
-dT
-dT
-dT
+Ff
+bb
+Lk
 Sk
 Sk
 dT
 dT
 ul
 Cn
-Pt
+Vh
 DD
 yn
 zP
@@ -11444,16 +11822,16 @@ XC
 lE
 Vr
 wQ
-jn
+Wd
 PG
 PG
 PG
 PG
 PG
-jn
+ti
 ie
-Zd
-Zd
+Xl
+Xl
 PG
 PG
 PG
@@ -11529,32 +11907,32 @@ Ny
 dT
 dT
 dT
-dT
+dc
 dT
 dT
 dT
 dT
 dT
 vM
-Pt
+Vh
 pK
 LL
 MH
 oS
-Pt
-Pt
-Pt
-Pt
-Pt
-jn
-jn
+Vh
+Oz
+Oz
+Oz
+Oz
+lh
+lh
 PG
 PG
 PG
 PG
-jn
-jn
-jn
+ti
+ti
+ti
 zf
 PG
 PG
@@ -11643,13 +12021,13 @@ Ef
 fL
 Mt
 oS
-Pt
+Vh
 Bm
-dT
+PU
 fC
-Yw
+wU
 Os
-Yw
+wU
 UA
 Ql
 PG
@@ -11740,18 +12118,18 @@ dT
 dT
 zJ
 Xu
-vZ
+kG
 Gn
 zM
 JP
 RJ
 KH
 HG
-dT
-WQ
-Yw
-Yw
-Yw
+PU
+qA
+wU
+wU
+wU
 UA
 fo
 PG
@@ -11842,18 +12220,18 @@ dT
 ro
 Rv
 Mj
-Pt
+Vh
 kL
 SW
 ep
 ps
-Pt
+Vh
 DE
-dT
-WO
-jn
-jn
-jn
+PU
+Lq
+lh
+lh
+lh
 PG
 PG
 PG
@@ -11927,32 +12305,32 @@ PG
 PG
 PG
 PG
-jn
-jn
-jn
-jn
-jn
-jn
-Pt
-Pt
-Pt
-Pt
+MY
+DH
+DH
+DH
+DH
+DH
+XR
+XR
+XR
+em
 Ko
-Pt
-Pt
-Pt
-Pt
-Pt
-Pt
-Pt
-Pt
+em
+em
+em
+iR
+iR
+iR
+iR
+iR
 pQ
-Pt
+Vh
 mv
-Pt
+Vh
 ni
-Jm
-Jm
+Pq
+Pq
 KZ
 PG
 PG
@@ -12028,8 +12406,8 @@ PG
 PG
 PG
 PG
-jn
-jn
+MY
+MY
 rX
 fB
 Am
@@ -12037,7 +12415,7 @@ xI
 pc
 Ac
 dW
-Pt
+XR
 Zo
 xu
 Dp
@@ -12049,12 +12427,12 @@ th
 th
 Uv
 Ap
-Pt
+Vh
 et
-Pt
+Vh
 RW
-ZB
-Jm
+ak
+Pq
 fY
 PG
 PG
@@ -12129,9 +12507,9 @@ PG
 PG
 PG
 PG
-jn
-jn
-jn
+MY
+MY
+MY
 XL
 hH
 Qb
@@ -12139,25 +12517,25 @@ Yg
 We
 kO
 lK
-Pt
+XR
 UN
 Cm
 Sz
 yX
-Pt
+em
 Yf
 iu
 aS
 iu
 Lx
 Pf
-jn
-jn
-jn
-jn
+Wd
+Wd
+Wd
+lh
 qe
-jn
-jn
+lh
+lh
 PG
 PG
 PG
@@ -12227,13 +12605,13 @@ PG
 PG
 PG
 PG
-jn
-jn
-jn
-jn
-jn
-Pt
-Pt
+MY
+MY
+MY
+MY
+MY
+Uy
+Uy
 JI
 hH
 Ku
@@ -12241,19 +12619,19 @@ JN
 Ku
 Wn
 qY
-Pt
+XR
 Tp
 BK
 BU
 TL
-Pt
+em
 Uk
 CF
 CF
 CF
 gK
-jn
-jn
+Zk
+Wd
 PG
 PG
 PG
@@ -12328,14 +12706,14 @@ PG
 PG
 PG
 PG
-jn
-jn
+MY
+MY
 wH
 tI
 iN
 Tf
 tK
-Pt
+Uy
 lb
 Es
 xS
@@ -12348,13 +12726,13 @@ Qc
 at
 LX
 XU
-Pt
+em
 Nc
 qm
 sQ
 ev
-jn
-jn
+Zk
+Zk
 PG
 PG
 PG
@@ -12429,8 +12807,8 @@ PG
 PG
 PG
 PG
-jn
-jn
+rb
+MY
 mL
 Fw
 Mx
@@ -12445,17 +12823,17 @@ gD
 gD
 gD
 UL
-Pt
-Pt
+XR
+em
 Lo
-Pt
-Pt
-Pt
-jn
-jn
-jn
-jn
-jn
+em
+em
+em
+Zk
+Zk
+Zk
+Zk
+Zk
 PG
 PG
 PG
@@ -12527,19 +12905,19 @@ PG
 PG
 PG
 PG
-jn
-jn
-jn
-jn
-jn
-jn
+rb
+rb
+rb
+rb
+rb
+MY
 qc
 XD
 Bv
 MJ
 gQ
 wB
-Pt
+Uy
 fr
 OE
 yW
@@ -12547,13 +12925,13 @@ wK
 mg
 RH
 ky
-Pt
+XR
 nB
 vp
 XT
-Pt
-jn
-jn
+em
+Ol
+Zk
 PG
 PG
 PG
@@ -12629,32 +13007,32 @@ PG
 PG
 PG
 PG
-kw
-jj
-CQ
-OH
-Ln
-Pt
+QL
+fc
+Yx
+pJ
+NT
+Uy
 lZ
 EJ
 yK
-Pt
+Uy
 jt
 pp
-Pt
-Pt
+Uy
+XR
 eq
-Pt
+XR
 GY
 vU
 hH
 HL
-Pt
+XR
 nS
 gu
 Nm
-jn
-jn
+Ol
+Ol
 PG
 PG
 PG
@@ -12732,9 +13110,9 @@ PG
 PG
 PG
 cP
-Ds
-jI
-wX
+fU
+Sq
+JM
 TI
 ra
 bx
@@ -12743,19 +13121,19 @@ uq
 uW
 Kr
 OY
-Zd
+Wq
 aP
 rp
-Pt
+XR
 VP
 NR
 NR
 uV
-Pt
+XR
 yw
 jk
 Xq
-jn
+Ol
 PG
 PG
 PG
@@ -12833,26 +13211,26 @@ PG
 PG
 PG
 PG
-kw
-te
-oF
+QL
+ku
+fH
 dL
-Sl
-Pt
+DR
+Uy
 kt
 sx
 KQ
 sc
 pw
 Qe
-Pt
+Uy
 Id
 bG
-Pt
+XR
 Hy
-jn
-dT
-dT
+DH
+lr
+lr
 BR
 wF
 mt
@@ -12935,31 +13313,31 @@ PG
 PG
 PG
 PG
-jn
-jn
-jn
-jn
-jn
-jn
+rb
+rb
+rb
+rb
+rb
+MY
 zA
 zr
 zr
-jn
-jn
+MY
+MY
 Wg
 Eb
-jn
-jn
-jn
+DH
+DH
+DH
 QI
-jn
-dT
-dT
-jn
-jn
-jn
-jn
-jn
+DH
+lr
+lr
+DH
+Ol
+Ol
+Ol
+Ol
 PG
 PG
 PG
@@ -13040,25 +13418,25 @@ PG
 PG
 PG
 PG
-jn
-jn
-jn
-jn
-jn
-jn
-jn
+rb
+rb
+MY
+MY
+MY
+MY
+MY
 PG
 PG
 PG
 PG
 PG
-jn
-jn
-jn
-dT
-dT
-jn
-jn
+DH
+DH
+DH
+lr
+lr
+DH
+Ol
 PG
 PG
 PG
@@ -13156,10 +13534,10 @@ PG
 PG
 PG
 PG
-jn
-dT
-dT
-jn
+DH
+lr
+lr
+DH
 PG
 PG
 PG
@@ -14487,7 +14865,7 @@ PG
 PG
 PG
 PG
-PG
+Pr
 PG
 PG
 PG
