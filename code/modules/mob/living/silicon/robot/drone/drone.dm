@@ -577,7 +577,7 @@
 	gib()
 
 /mob/living/silicon/robot/drone/examine(mob/user)
-	..()
+	. = ..()
 
 /mob/living/silicon/robot/drone/self_diagnosis()
 	if(!is_component_functioning("diagnosis unit"))

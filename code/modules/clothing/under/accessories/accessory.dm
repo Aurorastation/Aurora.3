@@ -237,11 +237,10 @@
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
 	desc_info = "Click on the UI action button toggle between the examination modes. Automatic will use the stethoscope on the person you're \
 	examining when adjacent to them, automatically using it on the selected body part. Manual will make it so you don't automatically use it via examine."
+	icon = 'icons/clothing/accessories/stethoscope.dmi'
 	icon_state = "stethoscope"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
+	item_state = "stethoscope"
+	contained_sprite = TRUE
 	flippable = 1
 	var/auto_examine = FALSE
 

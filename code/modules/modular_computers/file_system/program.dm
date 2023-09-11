@@ -237,6 +237,11 @@
 	else
 		return -1
 
+/// Relays the call to nano module, if we have one
+/datum/computer_file/program/proc/grants_equipment_vision(var/mob/user)
+	if(NM)
+		return NM.grants_equipment_vision(user)
+
 /datum/computer_file/program/proc/message_dead(var/message)
 	for(var/mob/M in player_list)
 		if(M.stat == DEAD && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))

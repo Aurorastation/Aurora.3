@@ -21,10 +21,7 @@ the HUD updates properly! */
 	if(ismob(loc))
 		owner = loc
 
-
-
 /image/hud_overlay/Destroy()
-
 	if(owner)
 		owner?.client?.images -= src
 		owner = null
@@ -79,7 +76,6 @@ the HUD updates properly! */
 	Mob = null
 	Turf = null
 	. = ..()
-
 
 /proc/arrange_hud_process(var/mob/M, var/mob/Alt, var/list/hud_list)
 	hud_list |= M

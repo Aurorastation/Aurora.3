@@ -18,7 +18,6 @@
 
 	var/storage_cost
 
-
 	/**
 	 * Determines which slots an item can fit, eg. `SLOT_BACK`
 	 *
@@ -260,9 +259,11 @@
 
 /obj/item/update_icon()
 	. = ..()
+	if(build_from_parts || has_accents)
+		cut_overlays()
 	if(build_from_parts)
 		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
-	if(accent_color && has_accents)
+	if(has_accents)
 		add_overlay(overlay_image(icon,"[icon_state]_acc",accent_color, RESET_COLOR))
 
 /obj/item/device
@@ -316,7 +317,7 @@
 
 	I.forceMove(T)
 
-/obj/item/examine(mob/user, var/distance = -1)
+/obj/item/examine(mob/user, distance)
 	var/size
 	switch(src.w_class)
 		if (5.0 to INFINITY)

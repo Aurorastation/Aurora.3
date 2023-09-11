@@ -366,19 +366,11 @@
 	mob_win.open()
 
 //mob verbs are faster than object verbs. See http://www.byond.com/forum/?post=1326139&page=2#comment8198716 for why this isn't atom/verb/examine()
-/mob/verb/examinate(atom/A as mob|obj|turf in view())
+/mob/verb/ExaminateVerb(atom/A as mob|obj|turf in view())
 	set name = "Examine"
 	set category = "IC"
 
-	if(!A)
-		return
-
-	if((is_blind() || usr.stat) && !isobserver(src))
-		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
-		return 1
-
-	face_atom(A)
-	A.examine(src)
+	examinate(usr, A)
 
 /mob/proc/can_examine()
 	if(client?.eye == src)

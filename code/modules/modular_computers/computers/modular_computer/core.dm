@@ -393,8 +393,13 @@
 /obj/item/modular_computer/check_eye(var/mob/user)
 	if(active_program)
 		return active_program.check_eye(user)
-	else
-		return ..()
+	return ..()
+
+// Used by camera monitor program
+/obj/item/modular_computer/grants_equipment_vision(var/mob/user)
+	if(active_program)
+		return active_program.grants_equipment_vision(user)
+	return ..()
 
 /obj/item/modular_computer/get_cell()
 	return battery_module ? battery_module.get_cell() : DEVICE_NO_CELL

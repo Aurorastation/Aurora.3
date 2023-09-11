@@ -181,7 +181,7 @@
 		icon_state = "writing1"
 
 /obj/effect/decal/cleanable/blood/writing/examine(mob/user)
-	..(user)
+	. = ..()
 	to_chat(user, "It reads: <font color='[basecolor]'>\"[message]\"</font>")
 
 /obj/effect/decal/cleanable/blood/gibs

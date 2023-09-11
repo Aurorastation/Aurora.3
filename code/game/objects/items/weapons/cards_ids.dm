@@ -128,8 +128,9 @@ var/const/NO_EMAG_ACT = -50
 	QDEL_NULL(chat_user)
 	return ..()
 
-/obj/item/card/id/examine(mob/user)
-	if (..(user, 1))
+/obj/item/card/id/examine(mob/user, distance)
+	. = ..()
+	if (distance <= 1)
 		show(user)
 
 /obj/item/card/id/on_slotmove(var/mob/living/user, slot)
