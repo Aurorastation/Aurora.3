@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - maptweak: "Fixes awkwardly-placed air alarms and changes the airlock atmos to not overlay the air line. Moves that one pillar in the hallway to not be a pillar."
+  - maptweak: "Fixes awkwardly-placed air alarms and changes the airlock atmos to not overlay the air line. Moves that one pillar in the hallway to not be a pillar. Gets rid of fire alarms because they don't work on offships."
   - maptweak: "Adds neck and leg bracers plus breath masks for Off-Worlder Humans to the equipment locker."
-  - maptweak: "Adds sinks to the kitchen and the OR."
+  - maptweak: "Adds sinks to the kitchen and the OR. Adds a box of sterile gloves and masks to the OR. Adds a mini Nanomed to Medical."
