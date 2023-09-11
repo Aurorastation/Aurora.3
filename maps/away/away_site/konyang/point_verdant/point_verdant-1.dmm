@@ -177,10 +177,6 @@
 /obj/effect/decal/exterior_stairs/left,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
-"ea" = (
-/obj/structure/stairs/west,
-/turf/simulated/floor/wood,
-/area/point_verdant/interior)
 "ef" = (
 /obj/effect/decal/road_marking/center{
 	dir = 4
@@ -201,6 +197,14 @@
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"eN" = (
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = 8
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "eR" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 1
@@ -210,6 +214,9 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"eV" = (
+/turf/simulated/open,
+/area/point_verdant/interior)
 "fo" = (
 /obj/structure/stairs/urban{
 	dir = 8;
@@ -232,6 +239,17 @@
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
+"hh" = (
+/obj/structure/bed/stool/chair/sofa/brown{
+	dir = 4
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = -10
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "hm" = (
 /obj/structure/ledge{
 	dir = 1
@@ -274,6 +292,9 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior)
+"iw" = (
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "iy" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -293,6 +314,16 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"ja" = (
+/obj/structure/bed/stool/chair/sofa/left/brown,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
+"jm" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "jt" = (
 /obj/effect/decal/road_marking/center{
 	dir = 8
@@ -365,6 +396,12 @@
 /area/point_verdant/outdoors)
 "lC" = (
 /turf/simulated/wall,
+/area/point_verdant/interior)
+"lM" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 8
+	},
+/turf/simulated/floor/lino,
 /area/point_verdant/interior)
 "lV" = (
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -474,6 +511,22 @@
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/interior)
+"oQ" = (
+/obj/structure/table/reinforced/wood,
+/obj/machinery/light/colored/decayed{
+	dir = 2;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/turf/simulated/floor/lino,
 /area/point_verdant/interior)
 "oZ" = (
 /obj/structure/ledge/quarter{
@@ -699,6 +752,12 @@
 /obj/structure/road_barrier,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"up" = (
+/obj/structure/bed/stool/chair/sofa/right/brown{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "uL" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -737,6 +796,10 @@
 	},
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
+/area/point_verdant/interior)
+"vz" = (
+/obj/structure/table/rack/cafe_table,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "vH" = (
 /obj/effect/decal/road_marking/center{
@@ -975,6 +1038,13 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Bh" = (
+/obj/machinery/light/colored/decayed{
+	dir = 2;
+	pixel_y = -2
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "Bs" = (
 /obj/structure/shipping_container{
 	icon_state = "red3"
@@ -1041,6 +1111,14 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Dp" = (
+/obj/structure/table/reinforced/wood,
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "Dw" = (
 /obj/structure/ledge{
 	dir = 8
@@ -1051,6 +1129,9 @@
 /obj/structure/automobile_filler,
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/outdoors)
+"DV" = (
+/turf/unsimulated/wall/konyang,
+/area/point_verdant/interior)
 "DZ" = (
 /obj/effect/decal/road_marking/incline/center{
 	pixel_y = -17
@@ -1064,6 +1145,20 @@
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"Em" = (
+/obj/machinery/vending/boozeomat,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
+"En" = (
+/obj/structure/bed/stool/chair/sofa/brown{
+	dir = 2
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
+"Eq" = (
+/obj/effect/map_effect/particle_emitter/bar_smoke,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "EA" = (
 /obj/effect/decal/road_marking/center,
 /obj/effect/decal/road_marking/reflector,
@@ -1087,20 +1182,10 @@
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
-"Fd" = (
-/obj/structure/stairs_lower/stairs_upper{
-	dir = 2;
-	pixel_y = 0
-	},
-/turf/simulated/floor/wood,
-/area/point_verdant/interior)
 "Fe" = (
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
-"Fw" = (
-/turf/unsimulated/wall/konyang,
-/area/point_verdant/interior)
 "FN" = (
 /obj/effect/konyang_waterfall/mist{
 	pixel_y = -16;
@@ -1130,6 +1215,12 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Gv" = (
+/obj/structure/bed/stool/chair/sofa/corner/concave/brown{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "GH" = (
 /obj/effect/decal/road_marking/incline/center{
 	pixel_y = -17
@@ -1156,6 +1247,26 @@
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/outdoors)
+"GT" = (
+/obj/structure/bed/stool{
+	dir = 8
+	},
+/obj/machinery/light/colored/blue{
+	dir = 1;
+	pixel_y = 22
+	},
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
+"GV" = (
+/obj/structure/bed/stool/chair/sofa/corner/concave/brown{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
+"HL" = (
+/obj/structure/synthesized_instrument/synthesizer/piano,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
 "HN" = (
 /obj/structure/shipping_container{
 	icon_state = "blue3"
@@ -1241,6 +1352,16 @@
 /obj/structure/dock_structure/rail,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Jr" = (
+/obj/structure/stairs/west,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
+"Jt" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "JV" = (
 /obj/structure/dock_structure,
 /turf/simulated/floor/sidewalk/blocks,
@@ -1289,6 +1410,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant/interior)
+"LM" = (
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 4
+	},
+/turf/simulated/floor/lino,
 /area/point_verdant/interior)
 "Mc" = (
 /obj/effect/decal/road_marking/incline{
@@ -1390,11 +1517,23 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
+"PZ" = (
+/obj/structure/table/wood,
+/obj/machinery/chemical_dispenser/bar_alc/full,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "Qg" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/interior)
+"Qm" = (
+/obj/structure/stairs_lower/stairs_upper{
+	dir = 2;
+	pixel_y = 0
+	},
+/turf/unsimulated/wall/konyang,
 /area/point_verdant/interior)
 "Qz" = (
 /obj/structure/ledge/quarter/corner{
@@ -1465,6 +1604,20 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Sc" = (
+/obj/structure/table/reinforced/wood,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
+"Sp" = (
+/obj/structure/table/reinforced/wood,
+/obj/machinery/chemical_dispenser/coffeemaster/full,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
+"Ss" = (
+/obj/structure/table/reinforced/wood,
+/obj/machinery/chemical_dispenser/bar_soft/full,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior)
 "St" = (
 /obj/effect/decal/road_marking/no_pass{
 	dir = 4
@@ -1481,6 +1634,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
+/area/point_verdant/interior)
+"SO" = (
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 4
+	},
+/obj/effect/map_effect/particle_emitter/bar_smoke,
+/turf/simulated/floor/lino,
 /area/point_verdant/interior)
 "SQ" = (
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -1610,9 +1770,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/interior)
-"Vo" = (
-/turf/simulated/open,
-/area/point_verdant/interior)
 "VR" = (
 /obj/structure/shipping_container{
 	icon_state = "blue3"
@@ -1681,13 +1838,6 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/point_verdant/interior)
-"XD" = (
-/obj/structure/stairs_lower{
-	dir = 8;
-	pixel_y = 6
-	},
-/turf/unsimulated/mineral/konyang,
 /area/point_verdant/interior)
 "XT" = (
 /obj/effect/decal/road_marking/no_park,
@@ -2328,11 +2478,11 @@ rf
 rf
 rf
 rf
-Fw
-Fw
-Fw
-Fw
-Fw
+DV
+DV
+DV
+DV
+DV
 rf
 rf
 rf
@@ -2510,11 +2660,11 @@ rf
 rf
 rf
 rf
-Fw
+DV
 KA
-Vo
-Vo
-Fw
+eV
+eV
+DV
 rf
 rf
 rf
@@ -2692,7 +2842,7 @@ rf
 rf
 rf
 rf
-Fw
+DV
 KA
 KA
 KA
@@ -2874,7 +3024,7 @@ rf
 rf
 rf
 rf
-Fw
+DV
 KA
 KA
 KA
@@ -3056,11 +3206,11 @@ rf
 rf
 rf
 rf
-Fw
+DV
 KA
-Vo
-Vo
-Fw
+eV
+eV
+DV
 rf
 rf
 rf
@@ -3238,11 +3388,11 @@ rf
 rf
 rf
 rf
-Fw
-Fw
-Fw
-Fw
-Fw
+DV
+DV
+DV
+DV
+DV
 rf
 rf
 rf
@@ -12731,22 +12881,22 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+lC
+lC
+lC
+lC
+lC
+lC
+lC
+lC
+lC
+lC
+lC
+lC
+DV
+DV
+DV
+DV
 rf
 rf
 rf
@@ -12913,22 +13063,22 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-Fd
-ea
-ea
-XD
+lC
+Gv
+hh
+GV
+lC
+Gv
+hh
+GV
+lC
+Gv
+hh
+GV
+Qm
+Jr
+Jr
+DV
 rf
 rf
 rf
@@ -13095,22 +13245,22 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-rf
+lC
+En
+vz
+up
+lC
+ja
+vz
+up
+lC
+ja
+vz
+up
+DV
+iw
+iw
+DV
 rf
 rf
 rf
@@ -13277,22 +13427,22 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
+lC
+ja
 tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-rf
+iw
+iw
+iw
+Eq
+iw
+iw
+iw
+Eq
+iw
+iw
+iw
+Bh
+DV
 rf
 rf
 rf
@@ -13459,22 +13609,22 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
+lC
 tg
 tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-rf
+iw
+iw
+iw
+iw
+iw
+iw
+iw
+iw
+iw
+iw
+iw
+iw
+DV
 rf
 rf
 rf
@@ -13641,22 +13791,22 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-rf
-rf
-rf
-rf
+lC
+lC
+lC
+Jt
+Jt
+lM
+iw
+LM
+SO
+LM
+LM
+LM
+DV
+DV
+DV
+DV
 rf
 rf
 rf
@@ -13825,17 +13975,17 @@ rf
 rf
 rf
 rf
-rf
-rf
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-tg
-rf
+lC
+HL
+AN
+jm
+iw
+Sc
+Sc
+Sc
+Sc
+Dp
+lC
 OC
 tt
 tt
@@ -14007,17 +14157,17 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+lC
+GT
+AN
+jm
+iw
+Sc
+iw
+iw
+iw
+oQ
+lC
 jy
 tt
 tt
@@ -14189,17 +14339,17 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-LE
-SQ
-Sx
-Sx
-Sx
-SQ
+lC
+AN
+AN
+jm
+iw
+eN
+iw
+iw
+iw
+iw
+lC
 jy
 tt
 tt
@@ -14371,17 +14521,17 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-LE
-SQ
-Sx
-Sx
-Sx
-SQ
+lC
+lC
+lC
+lC
+lC
+lC
+Em
+PZ
+Ss
+Sp
+lC
 jy
 rf
 rf
@@ -14558,12 +14708,12 @@ rf
 rf
 rf
 rf
-LE
-SQ
-Sx
-Sx
-Sx
-SQ
+lC
+lC
+lC
+lC
+lC
+lC
 jy
 rf
 rf
