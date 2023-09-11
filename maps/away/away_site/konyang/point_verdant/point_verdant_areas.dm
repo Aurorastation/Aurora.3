@@ -46,6 +46,36 @@
 /area/point_verdant/interior/arcade
 	name = "Point Verdant - Arcade"
 
+/area/point_verdant/interior/police
+	name = "Point Verdant - Police Department"
+
+/area/point_verdant/interior/bar
+	name = "Point Verdant - Bar"
+
+/area/point_verdant/interior/robotics
+	name = "Point Verdant - Robotics Clinic"
+
+/area/point_verdant/interior/spaceport
+	name = "Point Verdant - Spaceport"
+
+/area/point_verdant/interior/decrepit
+	name = "Point Verdant - Decrepit Apartments"
+
+/area/point_verdant/interior/pharmacy
+	name = "Point Verdant - Pharmacy"
+
+/area/point_verdant/interior/parking
+	name = "Point Verdant - Parking Shelter"
+
+/area/point_verdant/interior/special_ops
+	name = "Point Verdant - Conglomerate Oversight"
+
+/area/point_verdant/interior/offices
+	name = "Point Verdant - Corporate Offices"
+
+/area/point_verdant/interior/tunnels
+	name = "Point Verdant - Tunnels"
+
 /area/point_verdant/interior/shallow//For open-walled areas, like awnings and balconies
 	sound_env = CITY
 	ambience = AMBIENCE_KONYANG_RAIN_INDOORS
