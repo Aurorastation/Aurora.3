@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed big mobs not appearing correctly in the loadout preview."
-  - bugfix: "Fixed the wrong gradient being selected when species are swapped."
-  - rscadd: "Added a scale adjuster in the loadout, so you can size your mob up and down to get a closer look, if you ever want to do that."
