@@ -36,6 +36,13 @@
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless/dark
 	)
 
+/datum/outfit/admin/coc_surveyor_crew/post_equip(mob/living/carbon/human/H)
+	if(!istype(H))
+		return
+	if(istajara(H))
+		H.equip_to_slot_or_del(new /obj/item/voidsuit_modkit/himeo/tajara, slot_r_hand)
+
+
 /datum/outfit/admin/coc_surveyor_crew/get_id_access()
 	return list(access_external_airlocks, access_generic_away_site)
 

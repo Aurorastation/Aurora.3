@@ -3462,6 +3462,8 @@
 #include "maps\away\away_site\wrecked_nt_ship\wrecked_nt_ship.dm"
 #include "maps\away\ships\casino\casino.dm"
 #include "maps\away\ships\casino\casino_areas.dm"
+#include "maps\away\ships\coc\coc_ranger\coc_ship.dm"
+#include "maps\away\ships\coc\coc_ranger\coc_ship_ghostroles.dm"
 #include "maps\away\ships\coc\coc_surveyor\coc_surveyor.dm"
 #include "maps\away\ships\coc\coc_surveyor\coc_surveyor_areas.dm"
 #include "maps\away\ships\coc\coc_surveyor\coc_surveyor_ghostroles.dm"
