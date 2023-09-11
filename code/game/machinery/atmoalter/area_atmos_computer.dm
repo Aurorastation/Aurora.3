@@ -16,7 +16,8 @@
 	scanscrubbers()
 
 /obj/machinery/computer/area_atmos/attack_ai(var/mob/user as mob)
-	return src.attack_hand(user)
+	ui_interact(user)
+	return
 
 /obj/machinery/computer/area_atmos/attack_hand(var/mob/user as mob)
 	ui_interact(user)
@@ -25,7 +26,7 @@
 /obj/machinery/computer/area_atmos/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AreaAtmos", ui_x=500, ui_y=300)
+		ui = new(user, src, "AreaAtmos")
 		ui.open()
 
 /obj/machinery/computer/area_atmos/ui_data(mob/user)
@@ -51,7 +52,7 @@
 
 	if(action=="scan")
 		scanscrubbers()
-		. = TRUE
+		return TRUE
 	
 	if(action=="cmode")
 		for(var/obj/machinery/portable_atmospherics/powered/scrubber/huge/scrubber in connectedscrubbers)
@@ -60,7 +61,7 @@
 				scrubber.update_icon()
 				break
 		
-		. = TRUE
+		return TRUE
 
 /obj/machinery/computer/area_atmos/proc/scanscrubbers()
 	connectedscrubbers = new()
