@@ -154,7 +154,7 @@
 		return
 
 	if(pdiff >= FIREDOOR_MAX_PRESSURE_DIFF)
-		to_chat(user, "<span class='warning'>WARNING: Current pressure differential is [pdiff]kPa! Opening door may result in injury!</span>")
+		to_chat(user, "<span class='danger'>WARNING: Current pressure differential is [pdiff]kPa! Opening door may result in injury!</span>")
 
 	to_chat(user, "<b>Sensor readings:</b>")
 	for(var/index = 1; index <= tile_info.len; index++)
@@ -167,14 +167,14 @@
 			if(3)
 				o += "EAST: "
 			if(4)
-				o += "WEST: "
+				o += "WEST: " 
 		if(tile_info[index] == null)
 			o += "<span class='warning'>DATA UNAVAILABLE</span>"
 			to_chat(user, o)
 			continue
 		var/celsius = convert_k2c(tile_info[index][1])
 		var/pressure = tile_info[index][2]
-		o += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "warning" : "color:blue"]'>"
+		o += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "danger" : "color:blue"]'>"
 		o += "[celsius]&deg;C</span> "
 		o += "<span style='color:blue'>"
 		o += "[pressure]kPa</span></li>"
@@ -467,7 +467,7 @@
 		if(blocked)
 			add_overlay("welded")
 		if(pdiff_alert)
-			add_overlay("palert")
+			add_overlay(overlay_image(icon, icon_state = "palert", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 			do_set_light = 1
 		if(dir_alerts)
 			for (var/d = 1; d <= 4; d++)
@@ -475,13 +475,12 @@
 				//2 = SOUTH
 				//3 = EAST
 				//4 = WEST
-				var/cdir = cardinal[d]
 				if (!dir_alerts[d])
 					continue
 				if (dir_alerts[d] & FIREDOOR_ALERT_COLD)
-					add_overlay("alert_cold_[cdir]")
+					add_overlay(overlay_image(icon, icon_state = "alert_cold", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 				if (dir_alerts[d] & FIREDOOR_ALERT_HOT)
-					add_overlay("alert_hot_[cdir]")
+					add_overlay(overlay_image(icon, icon_state = "alert_hot", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 
 				do_set_light = TRUE
 	else
