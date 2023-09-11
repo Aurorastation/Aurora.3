@@ -17,7 +17,7 @@
 	respawn_flag = null
 	extra_languages = list(LANGUAGE_AZAZIBA)
 	away_site = TRUE
-	welcome_message = "The Tarwa Conglomerate is a pirate group, largely operating towards the southeastern edge of the Spur. Little is known of them to others, and your ship likely thrives on this mystique. The wiki page for Unathi Piracy contains more information on this group, and how they operate."
+	welcome_message = "The Tarwa Conglomerate is a pirate group, largely operating towards the southeastern edge of the Spur. Little is known of them to others, and your ship likely thrives on this mystique. The wiki page for Unathi Piracy contains more information on this group, and how they operate. NOTE - If you spawned with a Diona limb and are missing a hand or foot, use the 'Detach Nymph' verb and then reattach the nymph to fix this."
 
 /datum/ghostspawner/human/tarwa/diona
 	short_name = "tarwa_diona"
@@ -34,7 +34,7 @@
 /datum/ghostspawner/human/tarwa/captain
 	short_name = "tarwa_captain"
 	name = "Tarwa Conglomerate Captain"
-	desc = "You are the captain of a pirate crew of the Tarwa Conglomerate - also called the living-dead fleet. Lead your crew to profit and glory, for the sake of your fleet. NOT AN ANTAGONIST! Do not act as such."
+	desc = "You are the captain of a pirate crew of the Tarwa Conglomerate - also called the living-dead fleet. Lead your crew to profit and glory, for the sake of your fleet. NOT AN ANTAGONIST! Do not act as such. NOTE - If you spawned with a Diona limb and are missing a hand or foot, use the 'Detach Nymph' verb and then reattach the nymph to fix this."
 	max_count = 1
 	uses_species_whitelist = TRUE
 	assigned_role = "Tarwa Conglomerate Captain"
@@ -59,7 +59,10 @@
 /datum/outfit/admin/tarwa/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
 		return
-	for(var/obj/item/organ/external/O in H.organs)
+	for(var/name in H.organs_by_name)
+		var/obj/item/organ/external/O = H.organs_by_name[name]
+		if(!O || name == BP_HEAD || name == BP_CHEST || name == BP_GROIN)
+			continue
 		if(prob(25))
 			O.AddComponent(/datum/component/nymph_limb)
 			var/datum/component/nymph_limb/D = O.GetComponent(/datum/component/nymph_limb)
@@ -73,6 +76,7 @@
 	name = "Tarwa Conglomerate Diona"
 	suit = /obj/item/clothing/accessory/poncho/green
 	head = /obj/item/clothing/head/bandana/pirate
+	backpack_contents = list(/obj/item/device/uv_light = 1)
 
 /datum/outfit/admin/tarwa/diona/post_equip(mob/living/carbon/human/H, visualsOnly) //don't give a diona a diona nymph limb. idiot.
 

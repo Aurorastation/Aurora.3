@@ -2,8 +2,7 @@
 	name = "Tarwa Conglomerate Ship"
 	description = "Ship with pirate lizards, pirate plants"
 	suffixes = list("away_site/unathi_pirate/tarwa/unathi_pirate_tarwa.dmm")
-	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_LIGHTS_EDGE, SECTOR_WEEPING_STARS, ALL_POSSIBLE_SECTORS)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_LIGHTS_EDGE, SECTOR_WEEPING_STARS)
 	spawn_weight = 1
 	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tarwa_shuttle)
