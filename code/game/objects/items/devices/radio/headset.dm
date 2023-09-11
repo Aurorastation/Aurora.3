@@ -56,8 +56,10 @@
 /obj/item/device/radio/headset/list_channels(var/mob/user)
 	return list_secure_channels()
 
-/obj/item/device/radio/headset/examine(mob/user)
-	if(!(..(user, 1) && radio_desc))
+/obj/item/device/radio/headset/examine(mob/user, distance, is_adjacent)
+	. = ..()
+
+	if(!(is_adjacent && radio_desc))
 		return
 
 	to_chat(user, "The following channels are available:")

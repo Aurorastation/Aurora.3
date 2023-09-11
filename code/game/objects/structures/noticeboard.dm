@@ -35,8 +35,7 @@
 // Since Topic() never seems to interact with usr on more than a superficial
 // level, it should be fine to let anyone mess with the board other than ghosts.
 /obj/structure/noticeboard/examine(var/mob/user)
-	if(!user)
-		user = usr
+	. = ..()
 	if(user.Adjacent(src))
 		var/dat = "<B>Noticeboard</B><BR>"
 		for(var/obj/item/paper/P in src)

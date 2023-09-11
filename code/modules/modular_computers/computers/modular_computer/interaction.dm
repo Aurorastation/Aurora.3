@@ -337,8 +337,8 @@
 			P.focused_conv.cl_send(P, text, M)
 	registered_message = text
 
-/obj/item/modular_computer/examine(mob/user)
+/obj/item/modular_computer/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	var/obj/item/card/id/id = GetID()
-	if(istype(id) && Adjacent(user))
+	if(istype(id) && is_adjacent)
 		id.show(user)

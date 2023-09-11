@@ -207,8 +207,9 @@
 	for(var/obj/O in src)
 		O.hide(0)
 
-/turf/simulated/open/examine(mob/user, distance, infix, suffix)
-	if(..(user, 2))
+/turf/simulated/open/examine(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 2)
 		var/depth = 1
 		for(var/T = GetBelow(src); isopenspace(T); T = GetBelow(T))
 			depth += 1

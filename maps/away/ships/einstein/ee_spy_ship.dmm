@@ -1065,7 +1065,7 @@
 	req_access = list(205)
 	},
 /obj/item/gun/projectile/pistol,
-/obj/item/silencer,
+/obj/item/suppressor,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled/dark,

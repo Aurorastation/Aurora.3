@@ -2,7 +2,7 @@
 	var/const/enterBelt		= 45
 	var/const/radIntervall 	= 5	// 20 ticks
 	var/const/leaveBelt		= 145
-	var/const/revokeAccess	= 200
+	var/const/revokeAccess	= 220
 	has_skybox_image = TRUE
 	startWhen				= 2
 	announceWhen			= 1

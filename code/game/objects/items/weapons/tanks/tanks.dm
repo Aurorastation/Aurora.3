@@ -47,9 +47,9 @@
 
 	return ..()
 
-/obj/item/tank/examine(mob/user)
-	. = ..(user, 0)
-	if(.)
+/obj/item/tank/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 0)
 		var/celsius_temperature = air_contents.temperature - T0C
 		var/descriptive
 		switch(celsius_temperature)

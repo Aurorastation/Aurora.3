@@ -393,6 +393,9 @@
 
 	var/button_number = 0
 	for(var/datum/action/A in actions)
+		if(QDELETED(A))
+			continue
+
 		button_number++
 		if(A.button == null)
 			var/obj/screen/movable/action_button/N = new(hud_used)

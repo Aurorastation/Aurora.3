@@ -234,7 +234,7 @@
 	icon_state = "cell_uraniumloader"
 	cell_increase = 300
 	capacity_increase = -5
-
+	firedelay_increase = 0.5 SECONDS
 	pump_restore = 0
 	pump_delay = 0
 

@@ -212,7 +212,7 @@
 	return
 
 /obj/item/organ/examine(mob/user)
-	..(user)
+	. = ..()
 	if(status & ORGAN_DEAD)
 		to_chat(user, "<span class='notice'>The decay has set in.</span>")
 

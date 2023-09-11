@@ -119,12 +119,12 @@ var/datum/antagonist/traitor/traitors
 	if(traitor_mob.client.prefs.uplinklocation == "Headset")
 		R = locate(/obj/item/device/radio) in traitor_mob.contents
 		if(!R)
-			R = locate(/obj/item/modular_computer) in traitor_mob.contents
+			R = locate(/obj/item/modular_computer/handheld) in traitor_mob.contents
 			to_chat(traitor_mob, "Could not locate a Radio, installing in PDA instead!")
 		if (!R)
 			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 	else if(traitor_mob.client.prefs.uplinklocation == "PDA")
-		R = locate(/obj/item/modular_computer) in traitor_mob.contents
+		R = locate(/obj/item/modular_computer/handheld) in traitor_mob.contents
 		if(!R)
 			R = locate(/obj/item/device/radio) in traitor_mob.contents
 			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
@@ -135,7 +135,7 @@ var/datum/antagonist/traitor/traitors
 		R = null
 	else
 		to_chat(traitor_mob, "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!")
-		R = locate(/obj/item/modular_computer) in traitor_mob.contents
+		R = locate(/obj/item/modular_computer/handheld) in traitor_mob.contents
 		if (!R)
 			R = locate(/obj/item/device/radio) in traitor_mob.contents
 			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")

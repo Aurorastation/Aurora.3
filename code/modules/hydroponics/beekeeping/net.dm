@@ -9,7 +9,7 @@
 	var/feralbees
 
 /obj/item/bee_net/examine(mob/user)
-	..()
+	. = ..()
 	if(caught_bees)
 		to_chat(user, SPAN_NOTICE("It contains [caught_bees] bees."))
 	else

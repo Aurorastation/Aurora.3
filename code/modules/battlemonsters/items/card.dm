@@ -164,9 +164,9 @@
 
 	transform = M
 
-/obj/item/battle_monsters/card/examine(mob/user)
+/obj/item/battle_monsters/card/examine(mob/user, distance, is_adjacent)
 
-	..()
+	. = ..()
 
 	if(facedown && src.loc != user)
 		to_chat(user, SPAN_NOTICE("You can't examine \the [src] while it's face down!"))

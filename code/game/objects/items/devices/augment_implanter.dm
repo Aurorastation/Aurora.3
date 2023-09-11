@@ -16,7 +16,7 @@
 		augment_type = new new_augment(src)
 
 /obj/item/device/augment_implanter/examine(mob/user)
-	..(user)
+	. = ..()
 	if(augment_type)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel.")))
 	else
