@@ -4209,7 +4209,7 @@
 /area/coc_survey_ship/engineering)
 "KX" = (
 /obj/machinery/conveyor{
-	id = s;
+	id = "Coallit_Mining_1";
 	layer = 2.9
 	},
 /obj/structure/plasticflaps/mining,
@@ -4814,7 +4814,7 @@
 /area/shuttle/coc_survey_shuttle)
 "Qx" = (
 /obj/machinery/conveyor{
-	id = s;
+	id = "Coallit_Mining_1";
 	layer = 2.9
 	},
 /turf/simulated/floor,
