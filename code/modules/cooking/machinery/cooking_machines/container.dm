@@ -23,7 +23,7 @@
 	w_class = ITEMSIZE_NORMAL
 
 /obj/item/reagent_containers/cooking_container/on_reagent_change()
-	..()
+	. = ..()
 	update_icon()
 
 /obj/item/reagent_containers/cooking_container/pickup(mob/user)
