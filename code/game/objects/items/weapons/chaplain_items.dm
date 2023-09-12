@@ -324,16 +324,17 @@
 /obj/item/storage/altar/attack_hand(mob/user)
 	if(!isturf(loc))
 		..()
-	if(Adjacent(user))
+	if(use_check_and_message(user))
+		return FALSE
+	else
 		open(user)
-		return TRUE
-	return FALSE
 
 /obj/item/storage/altar/MouseDrop(mob/user as mob)
-	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(ishuman(usr))
-			forceMove(get_turf(usr))
-			usr.put_in_hands(src)
+	if(use_check_and_message(user))
+		return
+	if(ishuman(user))
+		forceMove(get_turf(usr))
+		usr.put_in_hands(src)
 
 /obj/item/storage/altar/kraszar
 	name = "\improper Kraszar altar"
