@@ -35,7 +35,7 @@
 
 
 /obj/effect/decal/cleanable/floor_damage/random_burned
-	icon_state = "burned0"
+	icon_state = "burned3"
 	random_icon_states = list("burned0", "burned1", "burned2", "burned3", "burned4")
 /obj/effect/decal/cleanable/floor_damage/burned0
 	icon_state = "burned0"
@@ -64,7 +64,7 @@
 	icon_state = "tiled_broken4"
 
 
-/obj/effect/decal/cleanable/floor_damage/random_broke
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned
 	icon_state = "tiled_burned0"
 	random_icon_states = list("tiled_burned0", "tiled_burned1")
 /obj/effect/decal/cleanable/floor_damage/tiled_burned0
