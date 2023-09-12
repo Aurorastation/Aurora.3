@@ -37,12 +37,27 @@
 
 /obj/item/mecha_equipment/sleeper/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
-	if(.)
-		if(ishuman(target) && !sleeper.occupant)
-			visible_message("<span class='notice'>\The [src] begins loading \the [target] into \the [src].</span>")
-			sleeper.go_in(target, user)
-		else
-			to_chat(user, "<span class='warning'>You cannot load that in!</span>")
+	if(!.)
+		return
+
+	//Check it's a person and typecast if so
+	if(!ishuman(target))
+		return
+	var/mob/living/carbon/human/person_to_load = target
+
+	//Check that the person is not buckled
+	if(person_to_load.buckled_to)
+		to_chat(SPAN_WARNING("You must unbuckle [person_to_load] before loading!"))
+		return
+
+	//Check that the sleeper isn't already occupied
+	if(sleeper.occupant)
+		to_chat(user, SPAN_WARNING("You cannot load that in!"))
+		return
+
+	//All good, load the person
+	visible_message("<span class='notice'>\The [src] begins loading \the [target] into \the [src].</span>")
+	sleeper.go_in(person_to_load, user)
 
 /obj/item/mecha_equipment/sleeper/get_hardpoint_maptext()
 	if(sleeper && sleeper.occupant)
