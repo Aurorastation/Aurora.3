@@ -35,7 +35,7 @@
 	update_icon()
 
 /obj/item/reagent_containers/cooking_container/attack_hand()
-	..()
+	. = ..()
 	update_icon()
 
 /obj/item/reagent_containers/cooking_container/examine(var/mob/user)
