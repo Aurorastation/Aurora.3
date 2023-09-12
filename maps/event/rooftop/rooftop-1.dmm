@@ -2932,7 +2932,7 @@
 /obj/effect/decal/fake_object{
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
-	icon_state = "tcflcrate";
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 1
@@ -2941,7 +2941,7 @@
 	density = 1;
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
-	icon_state = "tcflcrate";
+	icon_state = "tcfl_crate_preview";
 	layer = 3.01;
 	name = "inconveniently placed crate";
 	pixel_x = 3;
@@ -2950,7 +2950,7 @@
 /obj/effect/decal/fake_object{
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
-	icon_state = "tcflcrate";
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 2;

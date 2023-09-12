@@ -7809,7 +7809,7 @@
 	density = 1;
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed.";
 	icon = 'icons/obj/crate.dmi';
-	icon_state = "tcflcrate";
+	icon_state = "tcfl_crate_preview";
 	layer = 3.01;
 	name = "foreign legion supply crate";
 	pixel_x = 3;
@@ -7818,14 +7818,14 @@
 /obj/effect/decal/fake_object{
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed.";
 	icon = 'icons/obj/crate.dmi';
-	icon_state = "tcflcrate";
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "foreign legion supply crate"
 	},
 /obj/effect/decal/fake_object{
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed.";
 	icon = 'icons/obj/crate.dmi';
-	icon_state = "tcflcrate";
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "foreign legion supply crate";
 	pixel_x = 2;
@@ -15924,7 +15924,7 @@
 /obj/effect/decal/fake_object{
 	desc = "This one looks particularly heavy.";
 	icon = 'icons/obj/crate.dmi';
-	icon_state = "tcflcrate";
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "legion supply crate";
 	pixel_x = 1;
@@ -16022,7 +16022,7 @@
 	density = 1;
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
-	icon_state = "tcflcrate";
+	icon_state = "tcfl_crate_preview";
 	layer = 3.01;
 	name = "inconveniently placed crate";
 	pixel_x = 3;
@@ -16031,7 +16031,7 @@
 /obj/effect/decal/fake_object{
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
-	icon_state = "tcflcrate";
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 2;
@@ -16040,7 +16040,7 @@
 /obj/effect/decal/fake_object{
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
-	icon_state = "tcflcrate";
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 1
