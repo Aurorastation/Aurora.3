@@ -52,6 +52,7 @@
 #define SPATIAL_GRID_CELL_EXITED(contents_type) "spatial_grid_cell_exited_[contents_type]"
 
 // /mob signals
+#define COMSIG_MOB_EXAMINATE "mob_examinate"
 #define COMSIG_MOB_FACEDIR "mob_facedir"
 #define COMSIG_MOB_POINT "mob_point"
 ///from base of /mob/Login(): ()

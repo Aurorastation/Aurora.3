@@ -30,7 +30,7 @@
 
 
 /obj/machinery/gumballmachine/examine(mob/user)
-	..(user)
+	. = ..()
 	to_chat(user, SPAN_NOTICE("\The [src] costs [gumprice] credits to use."))
 
 /obj/machinery/gumballmachine/update_icon()

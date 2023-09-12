@@ -73,7 +73,7 @@
 	. = ..()
 
 /obj/item/storage/box/fancy/examine(mob/user)
-	..()
+	. = ..()
 	if(!icon_type || !storage_type)
 		return
 	if(contents.len <= 0)

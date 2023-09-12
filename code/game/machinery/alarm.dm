@@ -980,7 +980,7 @@ pixel_x = 10;
 	queue_icon_update()
 
 /obj/machinery/alarm/examine(mob/user)
-	..(user)
+	. = ..()
 	if (buildstage < 2)
 		to_chat(user, "It is not wired.")
 	if (buildstage < 1)
