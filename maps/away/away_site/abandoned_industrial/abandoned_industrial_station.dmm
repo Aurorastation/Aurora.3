@@ -85,6 +85,7 @@
 /obj/structure/cable,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -159,6 +160,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/firedoor_assembly,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/quarters)
 "ay" = (
@@ -207,6 +209,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/engineering)
 "aJ" = (
@@ -234,6 +237,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_a2)
+"aN" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "aO" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic{
@@ -265,6 +276,7 @@
 	pixel_x = 12;
 	pixel_y = 19
 	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "aS" = (
@@ -279,6 +291,7 @@
 	pixel_x = 5;
 	pixel_y = 7
 	},
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
 /turf/simulated/floor/carpet,
 /area/abandoned_industrial_station/service)
 "aU" = (
@@ -440,6 +453,7 @@
 /obj/machinery/alarm/east{
 	req_one_access = null
 	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_a2)
 "bt" = (
@@ -549,6 +563,7 @@
 	icon_state = "0-4"
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/airless,
 /area/space)
 "bK" = (
@@ -715,6 +730,8 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -944,6 +961,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor/noid,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_central)
 "cS" = (
@@ -966,6 +984,7 @@
 	pixel_x = -6;
 	pixel_y = -6
 	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "cW" = (
@@ -1105,6 +1124,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/atmos)
+"dw" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/noid,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor,
+/area/abandoned_industrial_station/maint_a1)
 "dx" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
@@ -1191,6 +1216,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/operations)
 "dR" = (
@@ -1225,6 +1251,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/operations)
 "dT" = (
@@ -1289,6 +1316,7 @@
 	},
 /obj/random/loot,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/operations)
 "eb" = (
@@ -1300,6 +1328,7 @@
 	pixel_x = 11;
 	pixel_y = 8
 	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -1322,6 +1351,7 @@
 	icon_state = "plant-dead";
 	name = "dead plant"
 	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/docks_a1)
 "ee" = (
@@ -1510,6 +1540,7 @@
 	pixel_x = -6;
 	pixel_y = 0
 	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "eS" = (
@@ -1583,6 +1614,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/docks_a2)
+"fk" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/tiled/full/airless,
+/area/abandoned_industrial_station/operations)
 "fl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -1723,6 +1760,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "fG" = (
@@ -1756,6 +1794,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
+"fM" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/engineering)
 "fN" = (
 /turf/simulated/wall/r_wall,
 /area/abandoned_industrial_station/hallways)
@@ -1982,6 +2025,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "gt" = (
@@ -1993,6 +2037,15 @@
 /obj/structure/foamedmetal,
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/docks_a2)
+"gx" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/docks_a1)
 "gy" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -2184,6 +2237,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "hg" = (
@@ -2329,6 +2383,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/bridge)
+"hB" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "hE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -2476,6 +2535,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_a2)
 "id" = (
@@ -2508,6 +2568,7 @@
 	icon_state = "1-4"
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
 /turf/simulated/floor/airless,
 /area/space)
 "ik" = (
@@ -2579,6 +2640,7 @@
 "iy" = (
 /obj/structure/window_frame/empty,
 /obj/structure/grille,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/maint_a2)
 "iz" = (
@@ -2650,6 +2712,7 @@
 	pixel_y = -4
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/hangar)
 "iK" = (
@@ -2852,6 +2915,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "jm" = (
@@ -3229,14 +3293,22 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled/airless,
 /area/abandoned_industrial_station/operations)
+"kt" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/docks_a1)
 "ku" = (
 /obj/item/pipewrench{
 	pixel_x = 7;
 	pixel_y = 6
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/engineering)
 "kv" = (
@@ -3277,6 +3349,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/bridge)
 "kC" = (
@@ -3285,11 +3358,14 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/operations)
 "kD" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/violet,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
 /turf/simulated/floor/carpet/lightblue,
 /area/abandoned_industrial_station/quarters)
 "kE" = (
@@ -3555,6 +3631,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/operations)
 "lF" = (
@@ -3602,7 +3679,17 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
+"lM" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/hallways)
 "lP" = (
 /obj/effect/floor_decal/corner/orange{
@@ -3690,6 +3777,7 @@
 	pixel_y = 15
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/atmos)
 "mc" = (
@@ -3820,6 +3908,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/maint_a2)
 "my" = (
@@ -3988,6 +4077,7 @@
 	pixel_y = 15
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/airless,
 /area/space)
 "mZ" = (
@@ -4061,6 +4151,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/operations)
 "nq" = (
@@ -4083,6 +4174,24 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/operations)
+"ns" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/airless,
+/area/space)
 "nt" = (
 /obj/item/ore/coal{
 	pixel_x = 10;
@@ -4218,6 +4327,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -4439,6 +4549,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/docks_a1)
+"ow" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/airless,
+/area/space)
 "ox" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4451,6 +4574,7 @@
 /obj/item/clothing/head/softcap/colorable/random,
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
 /obj/random/gloves,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/quarters)
 "oC" = (
@@ -4503,8 +4627,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
+"oL" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/full,
+/area/abandoned_industrial_station/operations)
 "oM" = (
 /obj/structure/bed/stool/chair/office/dark,
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
 /turf/simulated/floor/carpet,
 /area/abandoned_industrial_station/service)
 "oN" = (
@@ -4527,6 +4658,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_industrial_station/medical)
+"oQ" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/airless,
+/area/space)
 "oR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -4585,6 +4722,7 @@
 	pixel_x = -6;
 	pixel_y = 12
 	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_a2)
 "oW" = (
@@ -4625,6 +4763,25 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/medical)
+"pj" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
+/turf/simulated/floor/airless,
+/area/space)
 "pk" = (
 /obj/structure/sign/emergency/evacuation/pods{
 	pixel_x = 32
@@ -4826,6 +4983,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/atmos)
 "pO" = (
@@ -4922,6 +5080,7 @@
 /obj/effect/decal/cleanable/generic{
 	pixel_x = -13
 	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/hallways)
 "qb" = (
@@ -5039,6 +5198,13 @@
 	burnt = 3
 	},
 /area/abandoned_industrial_station/docks_a2)
+"qv" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled{
+	burnt = 3
+	},
+/area/abandoned_industrial_station/quarters)
 "qx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/freezer/rations,
@@ -5095,6 +5261,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
+"qG" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/turf/simulated/floor/tiled/dark,
+/area/abandoned_industrial_station/hangar)
 "qH" = (
 /obj/structure/lattice,
 /obj/structure/girder,
@@ -5119,6 +5293,11 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/atmos)
+"qM" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/wood/birch,
+/area/abandoned_industrial_station/quarters)
 "qN" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4
@@ -5205,6 +5384,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_industrial_station/service)
+"rb" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/tiled{
+	burnt = 3
+	},
+/area/abandoned_industrial_station/hallways)
 "re" = (
 /obj/effect/shuttle_landmark/abandoned_industrial_station/nav_north,
 /turf/template_noop,
@@ -5339,6 +5530,7 @@
 "ry" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "rz" = (
@@ -5611,6 +5803,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hangar)
+"sx" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "sy" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -5671,6 +5871,7 @@
 	pixel_x = -7;
 	pixel_y = 17
 	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "sE" = (
@@ -5688,6 +5889,7 @@
 /area/abandoned_industrial_station/engineering)
 "sF" = (
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/docks_a2)
 "sI" = (
@@ -5708,6 +5910,7 @@
 	pixel_y = -8
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -5809,6 +6012,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/operations)
+"sY" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
+/turf/simulated/floor/carpet/lightblue,
+/area/abandoned_industrial_station/quarters)
 "sZ" = (
 /obj/structure/tank_wall{
 	density = 0;
@@ -5841,10 +6049,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/engineering)
+"te" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/tiled{
+	burnt = 3
+	},
+/area/abandoned_industrial_station/hallways)
 "tf" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/quarters)
 "tg" = (
@@ -5873,6 +6089,7 @@
 /obj/structure/closet/crate,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled/airless,
 /area/abandoned_industrial_station/operations)
 "tj" = (
@@ -5956,6 +6173,8 @@
 	},
 /obj/structure/cable/green,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
 /turf/simulated/floor/airless,
 /area/space)
 "tA" = (
@@ -6159,6 +6378,7 @@
 	pixel_y = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -6208,6 +6428,7 @@
 /area/abandoned_industrial_station/operations)
 "ul" = (
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled/airless,
 /area/abandoned_industrial_station/operations)
 "um" = (
@@ -6220,6 +6441,7 @@
 /obj/effect/decal/cleanable/generic{
 	pixel_x = 10
 	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "uq" = (
@@ -6279,6 +6501,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/birch,
 /area/abandoned_industrial_station/quarters)
 "uB" = (
@@ -6350,6 +6573,7 @@
 /obj/effect/decal/cleanable/generic{
 	pixel_x = 1
 	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/hallways)
 "uS" = (
@@ -6445,6 +6669,14 @@
 /obj/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/docks_a1)
+"vj" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable/green,
+/obj/machinery/power/solar,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/airless,
+/area/space)
 "vk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -6467,6 +6699,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/engineering)
+"vp" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/engineering)
+"vq" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable/green,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/airless,
+/area/space)
 "vr" = (
 /obj/machinery/door/airlock/glass{
 	dir = 1
@@ -6587,6 +6832,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/item/tank/oxygen/red,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
 "vL" = (
@@ -6684,6 +6930,7 @@
 	req_access = null
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_industrial_station/hangar)
 "wc" = (
@@ -6703,6 +6950,15 @@
 	burnt = 3
 	},
 /area/abandoned_industrial_station/hallways)
+"wd" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/docks_a1)
 "wg" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -6718,8 +6974,15 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/airless,
 /area/space)
+"wi" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/turf/simulated/floor,
+/area/abandoned_industrial_station/docks_a1)
 "wj" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -6740,6 +7003,7 @@
 	pixel_x = -2;
 	pixel_y = 4
 	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "wm" = (
@@ -6767,6 +7031,7 @@
 "wq" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/handheld/pda,
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
 /turf/simulated/floor/carpet,
 /area/abandoned_industrial_station/service)
 "wr" = (
@@ -6801,6 +7066,7 @@
 	pixel_x = 4;
 	pixel_y = -3
 	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "ww" = (
@@ -6821,6 +7087,7 @@
 	},
 /obj/item/ammo_casing/pistol,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "wz" = (
@@ -6869,6 +7136,11 @@
 	burnt = 3
 	},
 /area/abandoned_industrial_station/quarters)
+"wF" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/full,
+/area/abandoned_industrial_station/operations)
 "wG" = (
 /obj/random/tech_supply,
 /obj/random/dirt_75,
@@ -6898,6 +7170,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_central)
 "wM" = (
@@ -6915,6 +7188,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/miningcart/ore,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -6931,6 +7205,7 @@
 	icon_state = "0-2"
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/airless,
 /area/space)
 "wT" = (
@@ -7003,6 +7278,7 @@
 /obj/machinery/alarm/east{
 	req_one_access = null
 	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -7043,6 +7319,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "xg" = (
@@ -7280,6 +7557,17 @@
 	},
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_central)
+"xO" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
+/turf/simulated/floor/airless,
+/area/space)
 "xP" = (
 /obj/structure/toilet{
 	dir = 4
@@ -7368,6 +7656,7 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/airless,
 /area/space)
 "xY" = (
@@ -7426,6 +7715,7 @@
 /obj/machinery/alarm/south{
 	req_one_access = null
 	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "yh" = (
@@ -7516,7 +7806,10 @@
 /area/abandoned_industrial_station/operations)
 "yy" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/item/reagent_containers/blood/ripped,
+/obj/item/reagent_containers/blood/ripped{
+	pixel_x = -5;
+	pixel_y = 2
+	},
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 8;
@@ -7537,6 +7830,7 @@
 	pixel_x = 7;
 	pixel_y = 5
 	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_a2)
 "yE" = (
@@ -7808,6 +8102,15 @@
 /obj/structure/table/rack/fancy_table,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_central)
+"zF" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/turf/simulated/floor/airless,
+/area/space)
 "zH" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/airless,
@@ -7853,6 +8156,7 @@
 	dir = 6
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/airless,
 /area/space)
 "zP" = (
@@ -7961,6 +8265,7 @@
 /obj/structure/barricade/wooden,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "Ak" = (
@@ -8064,6 +8369,7 @@
 "Aw" = (
 /obj/machinery/vending/cigarette/hacked,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/birch,
 /area/abandoned_industrial_station/quarters)
 "Ax" = (
@@ -8132,6 +8438,7 @@
 "AF" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled/full/airless,
 /area/abandoned_industrial_station/operations)
 "AG" = (
@@ -8140,6 +8447,11 @@
 	burnt = 3
 	},
 /area/abandoned_industrial_station/docks_a2)
+"AH" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/airless,
+/area/abandoned_industrial_station/atmos)
 "AI" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/portable_atmospherics/canister/empty,
@@ -8269,6 +8581,7 @@
 /area/abandoned_industrial_station/medical)
 "AZ" = (
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/airless,
 /area/space)
 "Ba" = (
@@ -8297,6 +8610,7 @@
 	pixel_y = 6
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -8316,6 +8630,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_a2)
 "Bd" = (
@@ -8501,6 +8816,17 @@
 	burnt = 3
 	},
 /area/abandoned_industrial_station/quarters)
+"BA" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/airless,
+/area/space)
 "BB" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2
@@ -8517,6 +8843,7 @@
 /area/abandoned_industrial_station/quarters)
 "BE" = (
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "BG" = (
@@ -8543,6 +8870,7 @@
 	pixel_y = 7
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -8606,11 +8934,10 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "BU" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/full{
-	icon_state = "steel_full_broken0"
-	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/docks_a1)
 "BX" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -8817,6 +9144,12 @@
 /obj/item/tank/oxygen,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/operations)
+"Cu" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor,
+/area/abandoned_industrial_station/docks_a1)
 "Cv" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -8857,6 +9190,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/atmos)
+"CC" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/tiled{
+	burnt = 3
+	},
+/area/abandoned_industrial_station/hangar)
 "CD" = (
 /obj/structure/lattice,
 /obj/item/stack/rods{
@@ -8942,10 +9283,36 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/docks_a1)
+"CM" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable/green,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/airless,
+/area/space)
+"CN" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/airless,
+/area/space)
 "CO" = (
 /obj/machinery/light/broken{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -9002,6 +9369,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/greengrid,
 /area/abandoned_industrial_station/engineering)
+"CZ" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/noid,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor,
+/area/abandoned_industrial_station/maint_a2)
 "Da" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -9158,6 +9531,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/service)
+"DD" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/airless,
+/area/space)
 "DE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -9192,6 +9578,7 @@
 	icon_state = "2-8"
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
 /turf/simulated/floor/airless,
 /area/space)
 "DK" = (
@@ -9217,6 +9604,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/hangar)
+"DM" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "DN" = (
 /obj/structure/table/steel,
 /obj/random/tech_supply,
@@ -9265,6 +9663,13 @@
 	burnt = 3
 	},
 /area/abandoned_industrial_station/hallways)
+"DT" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/turf/simulated/floor/tiled/full,
+/area/abandoned_industrial_station/docks_a2)
 "DU" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
@@ -9410,6 +9815,13 @@
 	burnt = 3
 	},
 /area/abandoned_industrial_station/docks_a2)
+"Ez" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable/green,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/airless,
+/area/space)
 "EC" = (
 /obj/item/clothing/head/cone{
 	pixel_x = 11;
@@ -9452,6 +9864,7 @@
 	pixel_x = -7;
 	pixel_y = 3
 	},
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
 /turf/simulated/floor/carpet,
 /area/abandoned_industrial_station/service)
 "EI" = (
@@ -9520,6 +9933,7 @@
 	pixel_x = 2;
 	pixel_y = 2
 	},
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
 /turf/simulated/floor/carpet,
 /area/abandoned_industrial_station/service)
 "ES" = (
@@ -9627,6 +10041,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -9734,6 +10149,17 @@
 	burnt = 3
 	},
 /area/abandoned_industrial_station/hallways)
+"FC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/dark,
+/area/abandoned_industrial_station/hangar)
 "FD" = (
 /obj/structure/table/steel,
 /obj/item/stack/material/tritium{
@@ -10072,6 +10498,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "GR" = (
@@ -10160,6 +10587,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/maint_a2)
 "Hg" = (
@@ -10251,6 +10679,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
+"Hw" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hangar)
 "Hx" = (
 /obj/machinery/shower{
 	dir = 4
@@ -10301,6 +10735,7 @@
 /obj/machinery/alarm/east{
 	req_one_access = null
 	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/birch,
 /area/abandoned_industrial_station/quarters)
 "HD" = (
@@ -10670,6 +11105,7 @@
 /obj/item/storage/pill_bottle{
 	pixel_x = 5
 	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -10680,6 +11116,7 @@
 	pixel_y = 15
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/engineering)
 "IN" = (
@@ -10831,6 +11268,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/docks_a2)
+"Je" = (
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
 "Jf" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/structure/closet/crate/trashcart,
@@ -11081,6 +11526,7 @@
 /obj/random/dirt_75,
 /obj/item/gun/energy/pistol,
 /obj/item/melee/telebaton,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/bridge)
 "JX" = (
@@ -11109,6 +11555,13 @@
 	pixel_y = -6
 	},
 /turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hallways)
+"Ka" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/hallways)
 "Kb" = (
 /obj/structure/table/stone/marble,
@@ -11794,6 +12247,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hallways)
 "Mj" = (
@@ -11897,6 +12351,7 @@
 	icon_state = "2-4"
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/airless,
 /area/space)
 "Mx" = (
@@ -12066,6 +12521,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/docks_a1)
 "No" = (
@@ -12200,6 +12656,7 @@
 	pixel_y = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -12248,6 +12705,15 @@
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_industrial_station/atmos)
+"NL" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/airless,
+/area/space)
 "NM" = (
 /obj/random/dirt_75,
 /obj/structure/closet/crate/loot,
@@ -12552,6 +13018,7 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/airless,
 /area/space)
 "OQ" = (
@@ -12577,6 +13044,16 @@
 /obj/item/material/ashtray/glass,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/hallways)
+"OW" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/turf/simulated/floor/tiled/full,
+/area/abandoned_industrial_station/docks_a1)
 "OX" = (
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -12648,6 +13125,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/docks_a2)
+"Pl" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/turf/simulated/floor,
+/area/abandoned_industrial_station/maint_central)
 "Pm" = (
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = -6;
@@ -12674,6 +13156,7 @@
 	pixel_x = -4;
 	pixel_y = 5
 	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/hallways)
 "Pu" = (
@@ -12768,6 +13251,7 @@
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "PL" = (
@@ -12794,6 +13278,7 @@
 /area/abandoned_industrial_station/docks_a2)
 "PQ" = (
 /obj/machinery/photocopier,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "PR" = (
@@ -12844,6 +13329,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
 	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -12956,6 +13442,7 @@
 	pixel_x = 17;
 	pixel_y = 2
 	},
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
 /turf/simulated/floor/carpet,
 /area/abandoned_industrial_station/service)
 "Qr" = (
@@ -12975,6 +13462,7 @@
 	icon_state = "2-4"
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/airless,
 /area/space)
 "Qy" = (
@@ -13194,10 +13682,24 @@
 	burnt = 3
 	},
 /area/abandoned_industrial_station/quarters)
+"Rf" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
+/turf/simulated/floor/airless,
+/area/space)
 "Rh" = (
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/engineering)
+"Ri" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/operations)
 "Rj" = (
 /obj/random/tech_supply{
 	pixel_x = 3;
@@ -13260,6 +13762,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_a2)
 "Rt" = (
@@ -13273,6 +13776,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/docks_a2)
+"Rx" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/turf/simulated/floor/tiled/full,
+/area/abandoned_industrial_station/hallways)
 "Rz" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty/sleeping_agent,
@@ -13344,6 +13853,19 @@
 /obj/structure/table/rack/fancy_table,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/maint_central)
+"RN" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/airless,
+/area/space)
 "RQ" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4
@@ -13392,6 +13914,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/engineering)
+"RV" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hangar)
 "RW" = (
 /obj/machinery/light/colored/dying{
 	dir = 4
@@ -13437,6 +13964,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/operations)
 "Sd" = (
@@ -13446,6 +13974,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/gin,
 /obj/item/reagent_containers/food/drinks/cans/tonic,
 /obj/item/reagent_containers/food/drinks/cans/tonic,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "Se" = (
@@ -13519,6 +14048,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/hangar)
+"Sr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/airless,
+/area/space)
 "Ss" = (
 /obj/item/ore/diamond{
 	pixel_x = -8;
@@ -13567,6 +14109,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
+"Sy" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/quarters)
 "Sz" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
@@ -13666,6 +14217,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/maint_a2)
 "SP" = (
@@ -13768,6 +14320,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/birch,
 /area/abandoned_industrial_station/quarters)
 "Tf" = (
@@ -13798,6 +14351,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/operations)
 "Tn" = (
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /obj/effect/decal/cleanable/blood/oil/streak,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -13827,6 +14381,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -13850,6 +14405,14 @@
 	burnt = 3
 	},
 /area/abandoned_industrial_station/hangar)
+"Tw" = (
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor,
+/area/abandoned_industrial_station/engineering)
 "Tx" = (
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -13989,6 +14552,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/hangar)
 "TT" = (
@@ -14109,6 +14673,7 @@
 "Uk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/firedoor_assembly,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/docks_a2)
 "Ul" = (
@@ -14372,6 +14937,7 @@
 /obj/machinery/alarm/east{
 	req_one_access = null
 	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/atmos)
 "Vo" = (
@@ -14463,6 +15029,7 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
 /turf/simulated/floor/airless,
 /area/space)
 "VF" = (
@@ -14919,6 +15486,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -14938,6 +15506,11 @@
 /obj/structure/railing/mapped,
 /turf/template_noop,
 /area/space)
+"Xi" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/airless,
+/area/abandoned_industrial_station/operations)
 "Xj" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4
@@ -15048,6 +15621,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/quarters)
+"XB" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/turf/simulated/floor/tiled/full,
+/area/abandoned_industrial_station/docks_a2)
 "XD" = (
 /obj/structure/foamedmetal,
 /obj/random/dirt_75,
@@ -15090,6 +15672,7 @@
 	pixel_x = 1;
 	pixel_y = -3
 	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -15135,6 +15718,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_industrial_station/atmos)
+"XR" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/airless,
+/area/space)
 "XS" = (
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled/dark,
@@ -15161,6 +15753,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_industrial_station/service)
+"XX" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/airless,
+/area/abandoned_industrial_station/atmos)
 "XY" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/light/broken{
@@ -15241,6 +15838,22 @@
 /obj/item/clothing/suit/storage/medical_chest_rig,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/quarters)
+"Yj" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/airless,
+/area/space)
 "Yk" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4
@@ -15294,6 +15907,7 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor,
 /area/abandoned_industrial_station/engineering)
 "Yt" = (
@@ -15641,6 +16255,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -15699,6 +16314,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
 /turf/simulated/floor/tiled{
 	burnt = 3
 	},
@@ -15877,6 +16493,7 @@
 /obj/effect/decal/cleanable/vomit,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "ZV" = (
@@ -36103,7 +36720,7 @@ Df
 Fx
 Dv
 jj
-jj
+wi
 Dv
 RX
 Df
@@ -37119,7 +37736,7 @@ Zi
 az
 Xm
 nm
-nm
+BU
 nm
 bM
 lv
@@ -37906,7 +38523,7 @@ AN
 Fj
 yF
 Df
-jj
+Cu
 Dv
 Df
 Df
@@ -38375,7 +38992,7 @@ Zi
 Zi
 Zi
 Mw
-Kd
+Sr
 Wl
 Zi
 Zi
@@ -38639,7 +39256,7 @@ Zi
 Zi
 Bo
 Zy
-QE
+Ez
 Ay
 ob
 Zi
@@ -38894,7 +39511,7 @@ hQ
 Wl
 Wl
 Wl
-pm
+RN
 Zy
 hQ
 yA
@@ -39147,7 +39764,7 @@ Zi
 Zi
 Wl
 Wl
-QE
+vq
 Zi
 Zi
 Zi
@@ -39409,7 +40026,7 @@ sC
 sC
 sC
 Bo
-Zy
+CN
 hQ
 ob
 ob
@@ -39660,7 +40277,7 @@ Zi
 Zi
 Zi
 Bo
-Zy
+pj
 hQ
 Zi
 Zi
@@ -39916,13 +40533,13 @@ bI
 Zi
 Zi
 Zi
-pm
+DD
 Zy
-hQ
+vj
 Zi
 Zi
 Zi
-pm
+DD
 Zy
 hQ
 Zi
@@ -40169,18 +40786,18 @@ Zi
 Zi
 Wl
 Wl
-qe
+BA
 Zi
 Zi
 Zi
 Bo
 Zy
-QE
+CM
 Zi
 Zi
 Zi
 Bo
-Zy
+CN
 hQ
 Zi
 ob
@@ -40432,7 +41049,7 @@ Zi
 Zi
 Bo
 Zy
-QE
+Ez
 Zi
 Zi
 Zi
@@ -40470,7 +41087,7 @@ BZ
 Nl
 AN
 xF
-so
+dw
 AN
 AN
 Am
@@ -40682,8 +41299,8 @@ Zi
 Zi
 Wl
 Bo
-Zy
-QE
+ns
+CM
 Wl
 Wl
 Wl
@@ -40694,8 +41311,8 @@ Wl
 Wl
 Wl
 Bo
-Zy
-QE
+CN
+CM
 Wl
 ob
 Wl
@@ -40709,7 +41326,7 @@ tX
 KK
 IV
 BQ
-yY
+AH
 iO
 Wl
 Wl
@@ -40944,7 +41561,7 @@ QE
 Zi
 Zi
 Zi
-pm
+RN
 Zy
 hQ
 Zi
@@ -40952,7 +41569,7 @@ Zi
 Zi
 Bo
 Zy
-QE
+vq
 Zi
 ob
 Zi
@@ -40965,7 +41582,7 @@ KK
 KK
 KK
 bg
-yY
+XX
 yY
 fm
 sC
@@ -41195,7 +41812,7 @@ Zi
 Zi
 Zi
 Zi
-pm
+ow
 Zy
 hQ
 Zi
@@ -41247,7 +41864,7 @@ AN
 CK
 dL
 dL
-dL
+kt
 az
 Zi
 nc
@@ -41503,7 +42120,7 @@ Yq
 YR
 UU
 YF
-dL
+kt
 dL
 az
 Zi
@@ -41761,7 +42378,7 @@ AN
 rj
 TF
 TF
-Rb
+wd
 az
 Wl
 nc
@@ -42016,7 +42633,7 @@ Nl
 YQ
 AN
 iW
-iW
+OW
 iW
 iW
 Df
@@ -42233,7 +42850,7 @@ ob
 ob
 ob
 ob
-dp
+XR
 qe
 ob
 ob
@@ -42491,7 +43108,7 @@ Wl
 qV
 Xf
 dp
-qe
+xO
 Wl
 nc
 qV
@@ -42530,7 +43147,7 @@ Nh
 Co
 fW
 yq
-BU
+og
 Cf
 TO
 Df
@@ -43004,8 +43621,8 @@ Wl
 Wl
 Zi
 Wl
-dp
-hq
+NL
+oQ
 Wl
 nc
 Zi
@@ -43261,7 +43878,7 @@ Zi
 Wl
 Zi
 Zi
-dp
+zF
 mX
 Wl
 nc
@@ -43519,7 +44136,7 @@ Zi
 Zi
 NP
 tz
-JK
+Yj
 Wl
 nc
 Wl
@@ -43814,7 +44431,7 @@ rZ
 aO
 WK
 eX
-Rb
+gx
 DQ
 Jt
 as
@@ -44063,7 +44680,7 @@ BG
 Cj
 an
 Bm
-Bm
+rb
 II
 um
 FK
@@ -44289,7 +44906,7 @@ Zi
 Wl
 Zi
 Zi
-dp
+Rf
 qe
 ob
 mT
@@ -44581,7 +45198,7 @@ fW
 fW
 fW
 Kq
-BS
+Je
 AN
 RQ
 Df
@@ -46853,7 +47470,7 @@ eq
 Ca
 eZ
 eZ
-eZ
+fM
 io
 eZ
 dV
@@ -47659,7 +48276,7 @@ kh
 Bb
 Ao
 Ft
-eX
+Ka
 Ft
 dq
 Kv
@@ -47907,7 +48524,7 @@ bN
 bN
 eC
 tX
-AL
+DM
 Dq
 Aj
 CH
@@ -47916,12 +48533,12 @@ Iu
 XH
 DS
 tL
-aP
+Rx
 jx
 AB
 kE
 Wb
-Dq
+te
 tA
 AN
 AT
@@ -48408,7 +49025,7 @@ Wr
 Mn
 nO
 bX
-QS
+sx
 AB
 AB
 rT
@@ -48666,7 +49283,7 @@ bX
 bX
 bX
 Mi
-QC
+aN
 QC
 rT
 Iq
@@ -48907,7 +49524,7 @@ lK
 YA
 af
 DX
-DX
+vp
 AI
 DX
 eq
@@ -50718,7 +51335,7 @@ eq
 Zu
 Zs
 bX
-XK
+Pl
 uu
 ZA
 sQ
@@ -50756,8 +51373,8 @@ Zi
 ui
 yc
 cO
-As
-As
+qM
+qM
 ui
 Zi
 Zi
@@ -51013,7 +51630,7 @@ Zi
 ui
 mJ
 cO
-Is
+sY
 Is
 ui
 Zi
@@ -51482,7 +52099,7 @@ eq
 qS
 Rh
 vo
-vo
+Tw
 fI
 kI
 Qb
@@ -51528,7 +52145,7 @@ sP
 SH
 cO
 nl
-Is
+sY
 ui
 Wl
 Zi
@@ -52041,7 +52658,7 @@ Zi
 ui
 tt
 bW
-As
+qM
 As
 ui
 Zi
@@ -52516,7 +53133,7 @@ lx
 cp
 zM
 Cy
-je
+CC
 je
 AJ
 gM
@@ -53047,7 +53664,7 @@ fN
 fN
 fN
 bq
-bd
+lM
 bd
 fN
 Zi
@@ -53283,7 +53900,7 @@ gM
 Fk
 Zz
 Db
-Db
+Hw
 Do
 Do
 Mo
@@ -53535,7 +54152,7 @@ yh
 yh
 NB
 NB
-qP
+qG
 qP
 DY
 NB
@@ -53825,7 +54442,7 @@ Xa
 dm
 sP
 iX
-yc
+qv
 sO
 sP
 Us
@@ -53836,7 +54453,7 @@ sP
 wE
 hn
 fc
-tt
+hB
 sP
 pr
 XI
@@ -54580,11 +55197,11 @@ vr
 Av
 bQ
 zV
-zV
+wF
 sR
 HM
 cJ
-bw
+CZ
 Wh
 fN
 fN
@@ -54599,7 +55216,7 @@ pp
 aX
 aX
 XA
-WW
+Sy
 WW
 WW
 ax
@@ -55589,7 +56206,7 @@ Wl
 kI
 lp
 lF
-hk
+FC
 hk
 gU
 gU
@@ -55857,7 +56474,7 @@ Os
 Mt
 AP
 oG
-gM
+RV
 sw
 gM
 MX
@@ -58167,7 +58784,7 @@ Zi
 Zi
 Zi
 CA
-df
+Xi
 Ne
 CA
 ZY
@@ -58176,7 +58793,7 @@ QG
 HM
 dF
 UN
-na
+oL
 na
 dC
 HT
@@ -59733,7 +60350,7 @@ Wh
 Au
 Au
 Au
-aw
+XB
 nM
 Zi
 nc
@@ -59967,7 +60584,7 @@ gj
 iE
 Ij
 Ij
-AF
+fk
 Xe
 no
 pe
@@ -59975,7 +60592,7 @@ fA
 Jv
 iD
 ec
-MJ
+Ri
 cI
 Ab
 pH
@@ -60223,7 +60840,7 @@ Zi
 Zi
 CD
 Mp
-AF
+fk
 nS
 AA
 ZR
@@ -61530,7 +62147,7 @@ Wh
 Wh
 Wh
 aw
-aw
+XB
 Au
 Au
 nM
@@ -63572,7 +64189,7 @@ Lz
 fh
 lr
 lr
-Uw
+DT
 kW
 Zo
 pk
