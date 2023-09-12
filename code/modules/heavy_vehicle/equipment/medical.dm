@@ -52,7 +52,7 @@
 
 	//Check that the sleeper isn't already occupied
 	if(sleeper.occupant)
-		to_chat(user, SPAN_WARNING("You cannot load that in!"))
+		to_chat(user, SPAN_WARNING("The sleeper is already occupied!"))
 		return
 
 	//All good, load the person
