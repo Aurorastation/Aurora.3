@@ -27,7 +27,7 @@
 	update_icon()
 
 /obj/item/reagent_containers/cooking_container/pickup(mob/user)
-	..()
+	. = ..()
 	update_icon()
 
 /obj/item/reagent_containers/cooking_container/dropped(mob/user)
