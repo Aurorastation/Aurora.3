@@ -35,14 +35,14 @@
 		var/list/param = params[key]
 		if(queryparams[key] == null)
 			if(param["req"] == 0)
-				log_debug("API: The following parameter is OPTIONAL and missing: [param["name"]] - [param["desc"]]")
+				LOG_DEBUG("API: The following parameter is OPTIONAL and missing: [param["name"]] - [param["desc"]]")
 			else
-				log_debug("API: The following parameter is REQUIRED but missing: [param["name"]] - [param["desc"]]")
+				LOG_DEBUG("API: The following parameter is REQUIRED but missing: [param["name"]] - [param["desc"]]")
 				errorcount ++
 				missing_params += param["name"]
 	if(errorcount)
-		log_debug("API: Request aborted. Required parameters missing")
-		log_debug("API: Received the following params: [json_encode(queryparams)]")
+		LOG_DEBUG("API: Request aborted. Required parameters missing")
+		LOG_DEBUG("API: Received the following params: [json_encode(queryparams)]")
 		statuscode = 400
 		response = "Required params missing"
 		data = missing_params
@@ -54,7 +54,7 @@
 		return 2
 
 	if (no_auth)
-		log_debug("API: Auth bypassed - Command [name] set to no_auth")
+		LOG_DEBUG("API: Auth bypassed - Command [name] set to no_auth")
 		return 0
 
 	if (_is_authorized_via_token(addr, auth_key))
@@ -64,11 +64,11 @@
 
 /datum/topic_command/proc/_is_throttled(addr)
 	if (no_throttle)
-		log_debug("API: Throttling bypassed - Command [name] set to no_throttle")
+		LOG_DEBUG("API: Throttling bypassed - Command [name] set to no_throttle")
 		return FALSE
 
 	if (config.api_rate_limit_whitelist[addr])
-		log_debug("API: Throttling bypassed - IP [addr] is whitelisted.")
+		LOG_DEBUG("API: Throttling bypassed - IP [addr] is whitelisted.")
 		return FALSE
 
 	var/last_time = world_api_rate_limit[addr]
@@ -107,7 +107,7 @@
 	// Public - Token is set to NULL, IP is set to NULL and command matches
 
 	authquery.Execute(list("token" = auth_key, "ip" = addr, "command" = name))
-	log_debug("API: Auth Check - Query Executed - Returned Rows: [authquery.RowCount()]")
+	LOG_DEBUG("API: Auth Check - Query Executed - Returned Rows: [authquery.RowCount()]")
 
 	if (authquery.RowCount())
 		return TRUE

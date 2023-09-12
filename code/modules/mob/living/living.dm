@@ -995,16 +995,6 @@ default behaviour is:
 	update_icon()
 	return TRUE
 
-/mob/living/proc/apply_radiation_effects()
-	var/area/A = get_area(src)
-	if(!A)
-		return FALSE
-	if(isNotStationLevel(A.z))
-		return FALSE
-	if(A.flags & RAD_SHIELDED)
-		return FALSE
-	. = TRUE
-
 /mob/living/proc/needs_wheelchair()
 	return FALSE
 

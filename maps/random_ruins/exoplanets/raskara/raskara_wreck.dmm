@@ -82,9 +82,7 @@
 "kL" = (
 /obj/structure/table/standard,
 /obj/item/toy/desk/fan,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -138,7 +136,8 @@
 /area/exoplanet/barren/raskara)
 "qm" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Cockpit"
+	name = "Cockpit";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -148,7 +147,9 @@
 	},
 /area/exoplanet/barren/raskara)
 "qr" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},

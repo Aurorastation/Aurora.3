@@ -14,7 +14,7 @@ on:
 env:
   MACRO_COUNT: 0
   GENDER_COUNT: 6
-  TO_WORLD_COUNT: 185
+  TO_WORLD_COUNT: 186
   BYOND_MAJOR: ""
   BYOND_MINOR: ""
   RUST_G_VERSION: ""
@@ -40,7 +40,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/SpacemanDMM
-          key: ${{ runner.os }}-spacemandmm
+          key: ${{ runner.os }}-spacemandmm-${{ env.SPACEMAN_DMM_VERSION }}
       - name: Restore OpenDream cache
         uses: actions/cache@v3
         with:
@@ -130,7 +130,7 @@ jobs:
     needs: lint
     services:
       mariadb:
-        image: mariadb:latest
+        image: mariadb:10.4
         ports:
           - 3306
         env:
@@ -140,17 +140,19 @@ jobs:
           MYSQL_ROOT_PASSWORD: root
     steps:
       - uses: actions/checkout@v3
+      - name: "Set ENV variables"
+        run: source dependencies.sh
       - name: Restore BYOND cache
         uses: actions/cache@v3
         with:
           path: ~/BYOND/*
-          key: ${{ runner.os }}-byond
+          key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
         uses: actions/cache@v3
         with:
           path: ~/flyway
-          key: ${{ runner.os }}-flyway
+          key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
       - name: Prepare OS Environtment
         run: |
           sudo dpkg --add-architecture i386
@@ -159,7 +161,7 @@ jobs:
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
           packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
-          version: 1.0
+          version: 1.1
       - name: Install OS Packages (Native)
         run: |
           sudo apt-get install libgcc-s1:i386 libssl-dev:i386
@@ -192,3 +194,9 @@ jobs:
           $HOME/BYOND/byond/bin/DreamDaemon aurorastation.dmb -invisible -trusted -core 2>&1 | tee log.txt
           grep "All Unit Tests Passed" log.txt
           (! grep "runtime error:" log.txt)
+      - name: Upload Condensed UT Log
+        uses: actions/upload-artifact@v3
+        with:
+          name: condensed-${{ matrix.map }}.log
+          path: ./data/logs/**/condensed.log
+          retention-days: 5

@@ -109,8 +109,8 @@
 			I.pixel_y = -3
 		add_overlay(I)
 
-/obj/structure/bigDelivery/examine(mob/user)
-	if(..(user, 4))
+/obj/structure/bigDelivery/examine(mob/user, distance, is_adjacent)
+	if(distance <= 4)
 		if(sortTag)
 			to_chat(user, "<span class='notice'>It is labeled \"[sortTag]\"</span>")
 		if(examtext)
@@ -229,8 +229,8 @@
 				I.pixel_y = -3
 		add_overlay(I)
 
-/obj/item/smallDelivery/examine(mob/user)
-	if(..(user, 4))
+/obj/item/smallDelivery/examine(mob/user, distance, is_adjacent)
+	if(distance <= 4)
 		if(sortTag)
 			to_chat(user, "<span class='notice'>It is labeled \"[sortTag]\"</span>")
 		if(examtext)

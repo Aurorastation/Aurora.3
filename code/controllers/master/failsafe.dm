@@ -65,24 +65,42 @@ var/datum/controller/failsafe/Failsafe
 							FAILSAFE_MSG("Warning: DEFCON [defcon_pretty()]. The Master Controller has still not fired within the last [(5-defcon) * processing_interval] ticks. Killing and restarting...")
 							log_failsafe("MC has not fired within last [(5-defcon) * processing_interval] ticks, killing and restarting.")
 							--defcon
+
+							//Do not restart the MC if we are doing a REFERENCE_TRACKING hard lookup
+							#if !defined(GC_FAILURE_HARD_LOOKUP)
 							var/rtn = Recreate_MC()
+							#else
+							log_failsafe("MC was not actually recreated, because we're compiled with GC_FAILURE_HARD_LOOKUP.")
+							FAILSAFE_MSG("MC was not actually recreated, because we're compiled with GC_FAILURE_HARD_LOOKUP.")
+							var/rtn = TRUE
+							#endif
+
 							if(rtn > 0)
 								defcon = 4
 								master_iteration = 0
 								log_failsafe("MC restarted successfully.")
-								FAILSAFE_MSG("Master Controller restarted successfully!")
+								FAILSAFE_MSG("MC restarted successfully!")
 							else if(rtn < 0)
 								log_failsafe("Could not restart MC, runtime encountered. Entering defcon 0!")
-								FAILSAFE_MSG("ERROR: DEFCON [defcon_pretty()]. Unable to restart Master Controller, runtime encountered. Silently retrying.")
+								FAILSAFE_MSG("ERROR: DEFCON [defcon_pretty()]. Unable to restart MC, runtime encountered. Silently retrying.")
 							//if the return number was 0, it just means the mc was restarted too recently, and it just needs some time before we try again
 							//no need to handle that specially when defcon 0 can handle it
 						if(0) //DEFCON 0! (mc failed to restart)
+
+							//Do not restart the MC if we are doing a REFERENCE_TRACKING hard lookup
+							#if !defined(GC_FAILURE_HARD_LOOKUP)
 							var/rtn = Recreate_MC()
+							#else
+							var/rtn = TRUE
+							log_failsafe("MC was not actually recreated, because we're compiled with GC_FAILURE_HARD_LOOKUP.")
+							FAILSAFE_MSG("MC was not actually recreated, because we're compiled with GC_FAILURE_HARD_LOOKUP.")
+							#endif
+
 							if(rtn > 0)
 								defcon = 4
 								master_iteration = 0
 								log_failsafe("MC restarted successfully.")
-								FAILSAFE_MSG("Master Controller restarted successfully!")
+								FAILSAFE_MSG("MC restarted successfully.")
 				else
 					defcon = min(defcon + 1,5)
 					master_iteration = Master.iteration

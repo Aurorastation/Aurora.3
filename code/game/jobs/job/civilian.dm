@@ -377,7 +377,7 @@
 	if (religion)
 
 		if(religion.name == "None" || religion.name == "Other")
-			B.verbs += /obj/item/storage/bible/proc/Set_Religion
+			B.verbs += /obj/item/storage/bible/verb/Set_Religion
 			return 1
 
 		B.icon_state = religion.book_sprite

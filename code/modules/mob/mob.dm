@@ -360,19 +360,11 @@
 	mob_win.open()
 
 //mob verbs are faster than object verbs. See http://www.byond.com/forum/?post=1326139&page=2#comment8198716 for why this isn't atom/verb/examine()
-/mob/verb/examinate(atom/A as mob|obj|turf in view())
+/mob/verb/ExaminateVerb(atom/A as mob|obj|turf in view())
 	set name = "Examine"
 	set category = "IC"
 
-	if(!A)
-		return
-
-	if((is_blind() || usr.stat) && !isobserver(src))
-		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
-		return 1
-
-	face_atom(A)
-	A.examine(src)
+	examinate(usr, A)
 
 /mob/proc/can_examine()
 	if(client?.eye == src)
@@ -836,40 +828,50 @@
 				lying = TRUE
 				break
 	else if(!resting && cannot_stand() && can_stand_overridden())
-		lying = 0
-		canmove = 1
+		lying = FALSE
+		lying_is_intentional = FALSE
+		canmove = TRUE
 	else
 		if(istype(buckled_to, /obj/vehicle))
 			var/obj/vehicle/V = buckled_to
 			if(is_physically_disabled())
-				lying = 1
-				canmove = 0
+				lying = TRUE
+				lying_is_intentional = FALSE
+				canmove = FALSE
 				pixel_y = V.mob_offset_y - 5
 			else
 				if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
-				canmove = 1
+				lying_is_intentional = FALSE
+				canmove = TRUE
 				pixel_y = V.mob_offset_y
 		else if(buckled_to)
-			anchored = 1
-			canmove = 0
+			anchored = TRUE
+			canmove = FALSE
 			if(isobj(buckled_to))
 				if(buckled_to.buckle_lying != -1)
 					lying = buckled_to.buckle_lying
+					lying_is_intentional = FALSE
 				if(buckled_to.buckle_movable)
-					anchored = 0
-					canmove = 1
+					anchored = FALSE
+					canmove = TRUE
 		else if(captured)
-			anchored = 1
-			canmove = 0
-			lying = 0
+			anchored = TRUE
+			canmove = FALSE
+			lying = FALSE
+		else if(m_intent == M_LAY && !incapacitated())
+			lying = TRUE
+			lying_is_intentional = TRUE
+			canmove = TRUE
 		else
 			lying = MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
+			lying_is_intentional = FALSE
 			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT)
 
 	if(lying)
 		density = 0
-		if(l_hand) unEquip(l_hand)
-		if(r_hand) unEquip(r_hand)
+		if(!lying_is_intentional)
+			if(l_hand) unEquip(l_hand)
+			if(r_hand) unEquip(r_hand)
 	else
 		density = initial(density)
 
@@ -1428,7 +1430,7 @@
 		else
 			height_descriptor = "to tower over"
 	if(height_string)
-		return height_string + "[get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
+		return height_string + " [get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
 	return "[get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
 
 /mob/proc/get_speech_bubble_state_modifier()

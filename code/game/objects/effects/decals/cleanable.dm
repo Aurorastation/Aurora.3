@@ -1,5 +1,6 @@
 /obj/effect/decal/cleanable
 	layer = ABOVE_CABLE_LAYER
+	mouse_opacity = MOUSE_OPACITY_ICON
 	var/list/random_icon_states
 	var/swept_away
 

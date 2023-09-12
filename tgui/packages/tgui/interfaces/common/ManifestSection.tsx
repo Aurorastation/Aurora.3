@@ -55,7 +55,10 @@ export const ManifestSection = (props, context) => {
                           name="circle"
                           className={
                             'manifest-indicator-' +
-                            crewmate.active.toLowerCase()
+                            crewmate.active
+                              .toLowerCase()
+                              .replace(/\*/g, '')
+                              .replace(/\s/g, '-')
                           }
                         />
                       </Tooltip>

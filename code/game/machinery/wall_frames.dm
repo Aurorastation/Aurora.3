@@ -67,7 +67,7 @@
 /obj/item/frame/light
 	name = "light fixture frame"
 	desc = "Used for building lights."
-	icon = 'icons/obj/lights.dmi'
+	icon = 'icons/obj/machinery/light.dmi'
 	icon_state = "tube-construct-item"
 	build_machine_type = /obj/machinery/light_construct
 	reverse = 1

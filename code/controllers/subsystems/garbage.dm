@@ -127,8 +127,13 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 
 			// Something's still referring to the qdel'd object.  Kill it.
 			var/type = A.type
-			log_gc("-- \ref[A] | [type] was unable to be GC'd and was deleted --", type)
+			log_subsystem_garbage_harddel("-- \ref[A] | [type] was unable to be GC'd and was deleted --", type)
 			didntgc["[type]"]++
+
+			#ifdef REFERENCE_TRACKING
+			if(ref_searching)
+				continue //ref searching intentionally cancels all further fires while running so things that hold references don't end up getting deleted, so we want to return here instead of continue
+			#endif
 
 			HardDelete(A)
 
@@ -185,7 +190,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	if (time > highest_del_time)
 		highest_del_time = time
 	if (time > 10)
-		log_gc("Error: [type]([refID]) took longer then 1 second to delete (took [time/10] seconds to delete)", type, TRUE)
+		log_subsystem_garbage_error("Error: [type]([refID]) took longer then 1 second to delete (took [time/10] seconds to delete)", type, TRUE)
 		message_admins("Error: [type]([refID]) took longer then 1 second to delete (took [time/10] seconds to delete).")
 		postpone(time/5)
 
@@ -235,7 +240,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 				// indicates the objects Destroy() does not respect force
 				if(!SSgarbage.noforcerespect["[D.type]"])
 					SSgarbage.noforcerespect["[D.type]"] = "[D.type]"
-					testing("WARNING: [D.type] has been force deleted, but is \
+					log_subsystem_garbage_warning("WARNING: [D.type] has been force deleted, but is \
 						returning an immortal QDEL_HINT, indicating it does \
 						not respect the force flag for qdel(). It has been \
 						placed in the queue, further instances of this type \
@@ -258,7 +263,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 			else
 				if(!SSgarbage.noqdelhint["[D.type]"])
 					SSgarbage.noqdelhint["[D.type]"] = "[D.type]"
-					testing("WARNING: [D.type] is not returning a qdel hint. It is being placed in the queue. Further instances of this type will also be queued.")
+					log_subsystem_garbage_warning("WARNING: [D.type] is not returning a qdel hint. It is being placed in the queue. Further instances of this type will also be queued.")
 				SSgarbage.QueueForQueuing(D)
 	else if(D.gcDestroyed == GC_CURRENTLY_BEING_QDELETED)
 		CRASH("[D.type] destroy proc was called multiple times, likely due to a qdel loop in the Destroy logic")
@@ -266,7 +271,3 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 /client/Destroy()
 	..()
 	return QDEL_HINT_HARDDEL_NOW
-
-/image/Destroy()
-	..()
-	return QDEL_HINT_HARDDEL

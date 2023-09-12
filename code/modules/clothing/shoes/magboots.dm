@@ -16,13 +16,18 @@
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 
+/obj/item/clothing/shoes/magboots/Destroy()
+	. = ..()
+	src.shoes = null
+	src.wearer = null
+
 /obj/item/clothing/shoes/magboots/proc/set_slowdown()
 	slowdown = shoes? max(0, shoes.slowdown): 0	//So you can't put on magboots to make you walk faster.
 	if (magpulse)
 		slowdown += 3
 
 /obj/item/clothing/shoes/magboots/proc/update_wearer()
-	if(!wearer)
+	if(QDELETED(wearer))
 		return
 
 	var/mob/living/carbon/human/H = wearer
@@ -94,7 +99,7 @@
 		INVOKE_ASYNC(src, PROC_REF(update_wearer))
 
 /obj/item/clothing/shoes/magboots/examine(mob/user)
-	..(user)
+	. = ..()
 	var/state = "disabled"
 	if(item_flags & NOSLIP)
 		state = "enabled"
