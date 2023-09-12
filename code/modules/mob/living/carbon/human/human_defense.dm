@@ -418,14 +418,18 @@ emp_act
 
 			if(!O || !src) return
 
-			if(O.loc == src && O.sharp) //Projectile is embedded and suitable for pinning.
-				var/turf/T = near_wall(dir,2)
+			if(O != ITEMSIZE_TINY)
+				if(O.loc == src && O.sharp) //Projectile is embedded and suitable for pinning.
+					var/turf/T = near_wall(dir,2)
 
-				if(T)
-					src.forceMove(T)
-					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
-					src.anchored = 1
-					src.pinned += O
+					if(T)
+						src.forceMove(T)
+						visible_message(
+							SPAN_WARNING("\The [src] is pinned to the wall by \the [O]!"),
+							SPAN_WARNING("You are pinned to the wall by \the [O]!")
+						)
+						src.anchored = TRUE
+						src.pinned += O
 	else if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		H.Weaken(3)

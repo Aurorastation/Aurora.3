@@ -100,8 +100,9 @@
 	else
 		to_chat(user, "\The [src] is full.")
 
-/obj/structure/closet/examine(mob/user)
-	if(!src.opened && (..(user, 1) || isobserver(user)))
+/obj/structure/closet/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1 && !src.opened)
 		var/content_size = 0
 		for(var/obj/item/I in contents)
 			if(!I.anchored)
@@ -111,7 +112,7 @@
 	if(!src.opened && isobserver(user))
 		to_chat(user, "It contains: [counting_english_list(contents)]")
 
-	if(src.opened && linked_teleporter && (Adjacent(user) || isobserver(user)))
+	if(src.opened && linked_teleporter && is_adjacent)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("There appears to be a device attached to the interior backplate of \the [src]...")))
 
 /obj/structure/closet/proc/stored_weight()
@@ -228,7 +229,7 @@
 			added_units += item_size
 	return added_units
 
-/obj/structure/closet/proc/store_mobs(var/stored_units)
+/obj/structure/closet/proc/store_mobs(var/stored_units, var/mob_limit)
 	var/added_units = 0
 	for(var/mob/living/M in loc)
 		if(M.buckled_to || M.pinned.len)
@@ -242,6 +243,8 @@
 			M.client.eye = src
 		M.forceMove(src)
 		added_units += M.mob_size
+		if(mob_limit) //We only want to store one valid mob
+			break
 	return added_units
 
 /obj/structure/closet/proc/store_structure(var/stored_units)
@@ -534,7 +537,7 @@
 	if(!usr.canmove || usr.stat || usr.restrained())
 		return
 
-	if(ishuman(usr))
+	if(ishuman(usr) || (issilicon(usr) && Adjacent(usr)))
 		add_fingerprint(usr)
 		toggle(usr)
 	else
@@ -653,14 +656,13 @@
 			var/obj/O = A
 			O.hear_talk(M, text, verb, speaking)
 
-/obj/structure/closet/attack_generic(var/mob/user, var/damage, var/attack_message = "destroys", var/wallbreaker)
+/obj/structure/closet/attack_generic(var/mob/user, var/damage, var/attack_message = "attacks", var/wallbreaker)
 	if(!damage || !wallbreaker)
 		return
 	user.do_attack_animation(src)
-	visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"))
-	dump_contents()
-	QDEL_IN(src, 1)
-	return 1
+	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
+	damage(damage)
+	return TRUE
 
 /obj/structure/closet/proc/req_breakout()
 	if(!opened) //Door's open... wait, why are you in it's contents then?

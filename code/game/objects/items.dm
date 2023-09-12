@@ -3,104 +3,228 @@
 	icon = 'icons/obj/items.dmi'
 	w_class = ITEMSIZE_NORMAL
 
-	var/image/blood_overlay //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
+	///This saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
+	var/image/blood_overlay
+
 	var/randpixel = 6
 	var/abstract = 0
 	var/r_speed = 1.0
 	var/health
 	var/burn_point
 	var/burning
-	var/hitsound = /singleton/sound_category/swing_hit_sound//generic hit sound.
+
+	//Generic hit sound
+	var/hitsound = /singleton/sound_category/swing_hit_sound
+
 	var/storage_cost
-	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
-	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
+
+	/**
+	 * Determines which slots an item can fit, eg. `SLOT_BACK`
+	 *
+	 * See `code\__defines\items_clothing.dm` for the list of defined slots
+	 */
+	var/slot_flags = 0
+
+	///Boolean, determines if this object generates attack logs
+	var/no_attack_log = FALSE
+
 	pass_flags = PASSTABLE | PASSRAILING
 	var/obj/item/master
 
-	var/heat_protection = 0 //flags which determine which body parts are protected from heat. Use the HEAD, UPPER_TORSO, LOWER_TORSO, etc. flags. See setup.dm
-	var/cold_protection = 0 //flags which determine which body parts are protected from cold. Use the HEAD, UPPER_TORSO, LOWER_TORSO, etc. flags. See setup.dm
-	var/max_heat_protection_temperature //Set this variable to determine up to which temperature (IN KELVIN) the item protects against heat damage. Keep at null to disable protection. Only protects areas set by heat_protection flags
-	var/min_cold_protection_temperature //Set this variable to determine down to which temperature (IN KELVIN) the item protects against cold damage. 0 is NOT an acceptable number due to if(varname) tests!! Keep at null to disable protection. Only protects areas set by cold_protection flags
-	var/max_pressure_protection // Set this variable if the item protects its wearer against high pressures below an upper bound. Keep at null to disable protection.
-	var/min_pressure_protection // Set this variable if the item protects its wearer against low pressures above a lower bound. Keep at null to disable protection. 0 represents protection against hard vacuum.
+	/**
+	 * Flags which determine which body parts are protected from heat, eg. `HEAD` and `UPPER_TORSO`
+	 *
+	 * See `code\__defines\items_clothing.dm` for the list of defined parts
+	 */
+	var/heat_protection = 0
+
+	/**
+	 * Flags which determine which body parts are protected from cold, eg. `HEAD` and `UPPER_TORSO`
+	 *
+	 * See `code\__defines\items_clothing.dm` for the list of defined parts
+	 */
+	var/cold_protection = 0
+
+	/**
+	 * Set this variable to determine up to which temperature (IN KELVIN) the item protects against heat damage
+	 *
+	 * Keep at null to disable protection. Only protects areas set by heat_protection flags
+	 */
+	var/max_heat_protection_temperature = null
+
+	/**
+	 * Set this variable to determine down to which temperature (IN KELVIN) the item protects against cold damage
+	 *
+	 * 0 is NOT an acceptable number due to if(varname) tests!!
+	 *
+	 * Keep at null to disable protection. Only protects areas set by cold_protection flags
+	 */
+	var/min_cold_protection_temperature = null
+
+	//Set this variable if the item protects its wearer against high pressures below an upper bound. Keep at null to disable protection
+	var/max_pressure_protection
+
+	/**
+	 * Set this variable if the item protects its wearer against low pressures above a lower bound
+	 * Keep at null to disable protection
+	 *
+	 * 0 represents protection against hard vacuum
+	 */
+	var/min_pressure_protection
 
 	var/datum/action/item_action/action
-	var/action_button_name //It is also the text which gets displayed on the action button. If not set it defaults to 'Use [name]'. If it's not set, there'll be no button.
-	var/default_action_type = /datum/action/item_action // Specify the default type and behavior of the action button for this atom.
 
-	//This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
-	//It should be used purely for appearance. For gameplay effects caused by items covering body parts, use body_parts_covered.
+	/**
+	 * It is also the text which gets displayed on the action button
+	 *
+	 * If not set it defaults to 'Use [name]'
+	 *
+	 * If it's not set, there'll be no button
+	 */
+	var/action_button_name
+
+	///Specify the default type and behavior of the action button for this atom
+	var/default_action_type = /datum/action/item_action
+
+	/**
+	 * This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
+	 *
+	 * It should be used purely for appearance. For gameplay effects caused by items covering body parts, use body_parts_covered
+	 */
 	var/flags_inv = 0
-	var/body_parts_covered = 0 //see setup.dm for appropriate bit flags
 
-	var/item_flags = 0 //Miscellaneous flags pertaining to equippable objects.
+	///See `code\__defines\items_clothing.dm` for appropriate bit flags
+	var/body_parts_covered = 0
+
+	///Miscellaneous flags pertaining to equippable objects.
+	var/item_flags = 0
 
 	//var/heat_transfer_coefficient = 1 //0 prevents all transfers, 1 is invisible
-	var/gas_transfer_coefficient = 1 // for leaking gas from turf to mask and vice-versa (for masks right now, but at some point, i'd like to include space helmets)
-	var/permeability_coefficient = 1 // for chemicals/diseases
-	var/siemens_coefficient = 1 // for electrical admittance/conductance (electrocution checks and shit)
-	var/slowdown = 0 // How much clothing is slowing you down. Negative values speeds you up
-	var/slowdown_accessory = 0 // Updated on accessory add/remove. This is how much the current accessories slow you down.
-	var/canremove = 1 //Mostly for Ninja code at this point but basically will not allow the item to be removed if set to 0. /N
-	var/can_embed = 1//If zero, this item/weapon cannot become embedded in people when you hit them with it
+
+	///For leaking gas from turf to mask and vice-versa
+	var/gas_transfer_coefficient = 1
+
+	///For chemicals/diseases
+	var/permeability_coefficient = 1
+
+	///For electrical admittance/conductance (eg. electrocution checks)
+	var/siemens_coefficient = 1
+
+	///How much clothing is slowing you down. Negative values speeds you up
+	var/slowdown = 0
+
+	///Updated on accessory add/remove. This is how much the current accessories slow you down.
+	var/slowdown_accessory = 0
+
+	///Boolean, mostly for Ninja code at this point but basically will not allow the item to be removed if set to `FALSE`
+
+	var/canremove = TRUE
+
+	///If `FALSE`, this item/weapon cannot become embedded in people when you hit them with it
+	var/can_embed = TRUE
+
 	var/list/allowed = null //suit storage stuff.
-	var/obj/item/device/uplink/hidden/hidden_uplink // All items can have an uplink hidden inside, just remember to add the triggers.
-	var/zoomdevicename //name used for message when binoculars/scope is used
-	var/zoom = 0 //1 if item is actively being used to zoom. For scoped guns and binoculars.
-	var/contained_sprite = 0 //1 if item_state, lefthand, righthand, and worn sprite are all in one dmi
+
+	///All items can have an uplink hidden inside, just remember to add the triggers.
+	var/obj/item/device/uplink/hidden/hidden_uplink
+
+	///Name used for message when binoculars/scope is used
+	var/zoomdevicename
+
+	///Boolean, `TRUE` if item is actively being used to zoom. For scoped guns and binoculars.
+	var/zoom = FALSE
+
+	///Boolean, if item_state, lefthand, righthand, and worn sprite are all in one dmi
+	var/contained_sprite = FALSE
 
 	///Used when thrown into a mob
 	var/mob_throw_hit_sound
+
 	///Sound used when equipping the item into a valid slot
 	var/equip_sound = null
+
 	///Sound uses when picking the item up (into your hands)
 	var/pickup_sound = /singleton/sound_category/generic_pickup_sound
+
 	///Sound uses when dropping the item, or when its thrown.
-	var/drop_sound = /singleton/sound_category/generic_drop_sound // drop sound - this is the default
+	var/drop_sound = /singleton/sound_category/generic_drop_sound
 
 	var/list/armor
 	var/armor_degradation_speed //How fast armor will degrade, multiplier to blocked damage to get armor damage value.
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
-	var/item_state_slots //overrides the default item_state for particular slots.
 
-	var/base_icon // used in furniture for previews. used in material weapons too.
-	var/build_from_parts = FALSE // when it uses coloration and a part of it wants to remain uncolored. e.g., handle of the screwdriver is colored while the head is not.
-	var/worn_overlay = null // used similarly as above, except for inhands.
-	var/worn_overlay_color = null // When you want your worn overlay to have colors. So you can have more than one modular coloring.
-	var/alpha_mask // when you want to slice out a chunk from a sprite
+	///Overrides the default item_state for particular slots.
+	var/item_state_slots
 
-	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
-	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
-	// If icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.
-	// Only slot_l_hand/slot_r_hand are implemented at the moment. Others to be implemented as needed.
+	///used in furniture for previews. used in material weapons too
+	var/base_icon
+
+	///Boolean, when it uses coloration and a part of it wants to remain uncolored. e.g., handle of the screwdriver is colored while the head is not.
+	var/build_from_parts = FALSE
+
+	///Inhands overlay
+	var/worn_overlay = null
+
+	///When you want your worn overlay to have colors. So you can have more than one modular coloring.
+	var/worn_overlay_color = null
+
+	///When you want to slice out a chunk from a sprite
+	var/alpha_mask
+
+	///Boolean, determines whether accent colour is applied or not
+	var/has_accents = FALSE
+
+	///used for accents which are coloured differently to the main body of the sprite
+	var/accent_color = COLOR_GRAY
+
+	/**
+	 * ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
+	 *
+	 * Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
+	 * If icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.
+	 * Only slot_l_hand/slot_r_hand are implemented at the moment. Others to be implemented as needed.
+	 */
 	var/list/item_icons
 
-	//** These specify item/icon overrides for _species_
-
-	/* Species-specific sprites, concept stolen from Paradise//vg/.
-	ex:
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/cat/are/bad'
-		)
-	If index term exists and icon_override is not set, this sprite sheet will be used.
-	*/
+	/**
+	 * These specify item/icon overrides for _species_
+	 *
+	 * Species-specific sprites definition, eg:
+	 *
+	 * ```
+	 * sprite_sheets = list(
+	 * 		BODYTYPE_TAJARA = 'icons/cat/are/bad'
+	 * 		)
+	 * ```
+	 *
+	 * If index term exists and icon_override is not set, this sprite sheet will be used.
+	 */
 	var/list/sprite_sheets
 
-	// Species-specific sprite sheets for inventory sprites
-	// Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.
+	/**
+	 * Species-specific sprite sheets for inventory sprites
+	 *
+	 * Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called
+	 */
 	var/list/sprite_sheets_obj
 
-	var/icon_override  //Used to override hardcoded clothing dmis in human clothing pr
+	///Used to override hardcoded clothing dmis in human clothing pr
+	var/icon_override
 
 
 	var/charge_failure_message = " cannot be recharged."
 	var/held_maptext
 
 	var/cleaving = FALSE
-	var/reach = 1 // Length of tiles it can reach, 1 is adjacent.
-	var/lock_picking_level = 0 //used to determine whether something can pick a lock, and how well.
+
+	///Length of tiles it can reach, 1 is adjacent.
+	var/reach = 1
+
+	///Used to determine whether something can pick a lock, and how well
+	var/lock_picking_level = 0
+
 	// Its vital that if you make new power tools or new recipies that you include this
 
 /obj/item/Initialize()
@@ -121,13 +245,26 @@
 		m.update_inv_r_hand()
 		m.update_inv_l_hand()
 		src.loc = null
+
+	if(!QDELETED(action))
+		QDEL_NULL(action) /// /mob/living/proc/handle_actions() creates it, for ungodly reasons
+	action = null
+
+	if(!QDELETED(hidden_uplink))
+		QDEL_NULL(hidden_uplink)
+	hidden_uplink = null
+
+	master = null
 	return ..()
 
 /obj/item/update_icon()
 	. = ..()
-	if(build_from_parts)
+	if(build_from_parts || has_accents)
 		cut_overlays()
+	if(build_from_parts)
 		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+	if(has_accents)
+		add_overlay(overlay_image(icon,"[icon_state]_acc",accent_color, RESET_COLOR))
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
@@ -180,7 +317,7 @@
 
 	I.forceMove(T)
 
-/obj/item/examine(mob/user, var/distance = -1)
+/obj/item/examine(mob/user, distance)
 	var/size
 	switch(src.w_class)
 		if (5.0 to INFINITY)

@@ -1,9 +1,11 @@
 /obj/machinery/door/window
 	name = "interior door"
 	desc = "A strong door."
-	icon = 'icons/obj/doors/windoor.dmi'
+	icon = 'icons/obj/structure/window/window_panes.dmi'
 	icon_state = "left"
 	var/base_state = "left"
+	alpha = 196
+	layer = WINDOW_PANE_LAYER
 	min_force = 4
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 150 //If you change this, consiter changing ../door/window/brigdoor/ health at the bottom of this .dm file
@@ -37,6 +39,7 @@
 	new /obj/item/material/shard(loc)
 	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
 	CC.amount = 2
+	CC.update_icon()
 	src.density = FALSE
 	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
@@ -215,7 +218,7 @@
 
 /obj/machinery/door/window/brigdoor
 	name = "secure door"
-	icon = 'icons/obj/doors/windoor.dmi'
+	icon = 'icons/obj/structure/window/window_panes.dmi'
 	icon_state = "leftsecure"
 	base_state = "leftsecure"
 	req_access = list(access_security)
@@ -298,3 +301,39 @@
 	dir = SOUTH
 	icon_state = "rightsecure"
 	base_state = "rightsecure"
+
+/obj/machinery/door/window/desk
+	name = "desk door"
+	icon = 'icons/obj/structure/window/desk_windoors.dmi'
+
+/obj/machinery/door/window/desk/northleft
+	dir = NORTH
+
+/obj/machinery/door/window/desk/eastleft
+	dir = EAST
+
+/obj/machinery/door/window/desk/westleft
+	dir = WEST
+
+/obj/machinery/door/window/desk/southleft
+	dir = SOUTH
+
+/obj/machinery/door/window/desk/northright
+	dir = NORTH
+	icon_state = "right"
+	base_state = "right"
+
+/obj/machinery/door/window/desk/eastright
+	dir = EAST
+	icon_state = "right"
+	base_state = "right"
+
+/obj/machinery/door/window/desk/westright
+	dir = WEST
+	icon_state = "right"
+	base_state = "right"
+
+/obj/machinery/door/window/desk/southright
+	dir = SOUTH
+	icon_state = "right"
+	base_state = "right"

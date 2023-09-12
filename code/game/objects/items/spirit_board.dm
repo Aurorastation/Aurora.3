@@ -8,7 +8,7 @@
 	var/lastuser = null
 
 /obj/item/spirit_board/examine(mob/user)
-	..(user)
+	. = ..()
 	to_chat(user, "The planchette is sitting at \"[planchette]\".")
 
 /obj/item/spirit_board/attack_hand(mob/user)

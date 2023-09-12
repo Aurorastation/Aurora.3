@@ -106,10 +106,10 @@
 	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/trinary_robes
-    name = "trinary perfection robe"
-    desc = "Robes worn by those who serve The Trinary Perfection."
-    icon_state = "trinary_robes"
-    item_state = "trinary_robes"
+	name = "trinary perfection robe"
+	desc = "Robes worn by those who serve The Trinary Perfection."
+	icon_state = "trinary_robes"
+	item_state = "trinary_robes"
 
 /*
  * Misc
@@ -348,8 +348,10 @@
 /obj/item/clothing/suit/storage/toggle/trench
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat."
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/trenchcoat.dmi'
 	icon_state = "trench"
 	item_state = "trench"
+	contained_sprite = TRUE
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 
@@ -386,6 +388,11 @@
 /obj/item/clothing/suit/storage/toggle/trench/colorable/random/Initialize()
 	. = ..()
 	color = get_random_colour(lower = 150)
+
+/obj/item/clothing/suit/storage/toggle/trench/colorable/alt
+	icon_state = "trench_colorable2"
+	item_state = "trench_colorable2"
+	has_accents = TRUE
 
 /obj/item/clothing/suit/storage/toggle/highvis
 	name = "high visibility jacket"

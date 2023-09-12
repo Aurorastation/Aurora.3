@@ -29,7 +29,7 @@
 /turf/simulated/floor/holofloor/tiled
 	name = "floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
-	icon_state = "steel"
+	icon_state = "tiled_preview"
 	initial_flooring = /singleton/flooring/tiling
 
 /turf/simulated/floor/holofloor/tiled/ramp
@@ -46,42 +46,37 @@
 
 /turf/simulated/floor/holofloor/tiled/dark
 	name = "dark floor"
-	icon_state = "dark"
+	icon_state = "dark_preview"
 	initial_flooring = /singleton/flooring/tiling/dark
 
 /turf/simulated/floor/holofloor/lino
 	name = "lino"
 	icon = 'icons/turf/flooring/linoleum.dmi'
-	icon_state = "lino_grey"
-	initial_flooring = /singleton/flooring/linoleum/grey
+	icon_state = "lino_diamond"
+	initial_flooring = /singleton/flooring/linoleum/diamond
+	color = COLOR_LINOLEUM
 
 /turf/simulated/floor/holofloor/wood
 	name = "wooden floor"
-	icon = 'icons/turf/flooring/wood.dmi'
+	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "wood"
 	initial_flooring = /singleton/flooring/wood
+	tile_outline = "wood"
+	tile_outline_blend_process = ICON_ADD
+	color = WOOD_COLOR_GENERIC
 
 /turf/simulated/floor/holofloor/grass
 	name = "lush grass"
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
 	initial_flooring = /singleton/flooring/grass
-	footstep_sound = /singleton/sound_category/grass_footstep
-
-/turf/simulated/floor/holofloor/grass/alt
-	name = "lush grass"
-	icon = 'icons/turf/total_floors.dmi'
-	icon_state = "grass_alt"
-	initial_flooring = /singleton/flooring/grass/alt
 
 /turf/simulated/floor/holofloor/snow
 	name = "snow"
 	base_name = "snow"
-	icon = 'icons/turf/floors.dmi'
-	base_icon = 'icons/turf/floors.dmi'
-	icon_state = "snow"
-	base_icon_state = "snow"
-	footstep_sound = /singleton/sound_category/snow_footstep
+	icon = 'icons/turf/flooring/snow.dmi'
+	icon_state = "snow0"
+	initial_flooring = /singleton/flooring/snow
 
 /turf/simulated/floor/holofloor/reinforced
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -153,7 +148,7 @@
 /obj/structure/holostool
 	name = "stool"
 	desc = "Apply butt."
-	icon = 'icons/obj/furniture.dmi'
+	icon = 'icons/obj/structure/chairs.dmi'
 	icon_state = "stool_padded_preview"
 	anchored = 1.0
 

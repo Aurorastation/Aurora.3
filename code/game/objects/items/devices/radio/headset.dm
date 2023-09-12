@@ -56,8 +56,10 @@
 /obj/item/device/radio/headset/list_channels(var/mob/user)
 	return list_secure_channels()
 
-/obj/item/device/radio/headset/examine(mob/user)
-	if(!(..(user, 1) && radio_desc))
+/obj/item/device/radio/headset/examine(mob/user, distance, is_adjacent)
+	. = ..()
+
+	if(!(is_adjacent && radio_desc))
 		return
 
 	to_chat(user, "The following channels are available:")
@@ -647,7 +649,7 @@
 	name = "earmuffs"
 	desc = "Protects your hearing from loud noises, and quiet ones as well."
 	desc_antag = "This set of earmuffs has a secret compartment housing radio gear, allowing it to function as a standard headset."
-	icon = 'icons/obj/clothing/ears.dmi'
+	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
 	item_flags = SOUNDPROTECTION

@@ -110,8 +110,8 @@
 	spray_size = next_in_list(spray_size, spray_sizes)
 	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray, with a [spray_size] lane spray."))
 
-/obj/item/reagent_containers/spray/examine(mob/user)
-	if(..(user, 0) && loc == user)
+/obj/item/reagent_containers/spray/examine(mob/user, distance, is_adjacent)
+	if(is_adjacent)
 		to_chat(user, "[round(reagents.total_volume)] units left.")
 	return
 
@@ -168,8 +168,9 @@
 	safety = 1
 	reagents_to_add = list(/singleton/reagent/capsaicin/condensed = 40)
 
-/obj/item/reagent_containers/spray/pepper/examine(mob/user)
-	if(..(user, 1))
+/obj/item/reagent_containers/spray/pepper/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, "The safety is [safety ? "on" : "off"].")
 
 /obj/item/reagent_containers/spray/pepper/AltClick()

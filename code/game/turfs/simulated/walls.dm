@@ -3,8 +3,8 @@
 	desc = "A huge chunk of metal used to seperate rooms."
 	desc_info = "You can deconstruct this by welding it, and then wrenching the girder.<br>\
 	You can build a wall by using metal sheets and making a girder, then adding more material."
-	icon = 'icons/turf/wall_masks.dmi'
-	icon_state = "generic"
+	icon = 'icons/turf/smooth/composite_solid_color.dmi'
+	icon_state = "map_dark"
 	opacity = TRUE
 	density = TRUE
 	blocks_air = TRUE
@@ -13,13 +13,16 @@
 	canSmoothWith = list(
 		/turf/simulated/wall,
 		/turf/simulated/wall/r_wall,
-		/obj/structure/window/full/reinforced,
-		/obj/structure/window/full/phoron/reinforced,
-		/obj/structure/window/full/reinforced/polarized,
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/turf/unsimulated/wall/steel, // Centcomm wall.
+		/turf/unsimulated/wall/darkshuttlewall, // Centcomm wall.
+		/turf/unsimulated/wall/riveted, // Centcomm wall.
 		/obj/structure/window_frame,
 		/obj/structure/window_frame/unanchored,
-		/obj/structure/window_frame/empty
-		)
+		/obj/structure/window_frame/empty,
+		/obj/machinery/door,
+		/obj/machinery/door/airlock
+	)
 
 	var/damage = 0
 	var/damage_overlay = 0
@@ -40,7 +43,7 @@
 	var/tmp/image/fake_wall_image
 	var/tmp/cached_adjacency
 
-	smooth = SMOOTH_TRUE | SMOOTH_NO_CLEAR_ICON
+	smooth = SMOOTH_MORE | SMOOTH_NO_CLEAR_ICON | SMOOTH_UNDERLAYS
 
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
@@ -129,7 +132,7 @@
 
 //Appearance
 /turf/simulated/wall/examine(mob/user)
-	. = ..(user)
+	. = ..()
 
 	if(!damage)
 		to_chat(user, SPAN_NOTICE("It looks fully intact."))

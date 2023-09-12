@@ -24,14 +24,16 @@
 		if(hearer.is_blind())
 			continue
 		balloon_alert(hearer, message)
-	balloon_alert(src, self_message)
+
+	if(self_message)
+		balloon_alert(src, self_message)
 
 // Do not use.
 // MeasureText blocks. I have no idea for how long.
 // I would've made the maptext_height update on its own, but I don't know
 // if this would look bad on laggy clients.
 /atom/proc/balloon_alert_perform(mob/viewer, text)
-	var/client/viewer_client = viewer.client
+	var/client/viewer_client = viewer?.client
 	if (isnull(viewer_client))
 		return
 

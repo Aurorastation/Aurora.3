@@ -28,8 +28,9 @@
 	max_storage_space = 16
 	use_sound = 'sound/items/storage/briefcase.ogg'
 
-/obj/item/storage/secure/examine(mob/user)
-	if(..(user, 1))
+/obj/item/storage/secure/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, text("The service panel is [src.open ? "open" : "closed"]."))
 
 /obj/item/storage/secure/attackby(obj/item/W as obj, mob/user as mob)

@@ -247,11 +247,10 @@ var/global/list/frozen_crew = list()
 	on_exit_sound = 'sound/machines/cryopod/lift_exit.ogg'
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
 	allow_occupant_types = list(/mob/living/silicon/robot)
-	disallow_occupant_types = list(/mob/living/silicon/robot/drone)
 
 /obj/machinery/cryopod/living_quarters
 	name = "living quarters lift"
-	desc = "A lift heading to the ship's living quarters."
+	desc = "A lift heading to the living quarters."
 	icon = 'icons/obj/crew_quarters_lift.dmi'
 	icon_state = "pod"
 	on_store_message = "has departed for"
@@ -298,8 +297,8 @@ var/global/list/frozen_crew = list()
 	update_icon()
 	find_control_computer()
 
-/obj/machinery/cryopod/examine(mob/user)
-	..(user)
+/obj/machinery/cryopod/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	if(occupant)
 		to_chat(user, SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)]."))
 

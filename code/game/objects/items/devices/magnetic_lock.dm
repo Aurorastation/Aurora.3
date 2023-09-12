@@ -28,7 +28,6 @@
 	var/obj/machinery/door/airlock/target_node2 = null
 	var/obj/machinery/door/airlock/target = null
 	var/obj/item/cell/powercell
-	var/obj/item/cell/internal_cell
 
 /obj/item/device/magnetic_lock/security
 	department = "Security"
@@ -55,7 +54,6 @@
 	. = ..()
 
 	powercell = new /obj/item/cell/high()
-	internal_cell = new /obj/item/cell/device()
 
 	if (istext(department))
 		desc += " It is painted with [department] colors."
@@ -79,7 +77,7 @@
 		attach(newtarget)
 
 /obj/item/device/magnetic_lock/examine(mob/user)
-	..(user)
+	. = ..()
 
 	if (status == STATUS_BROKEN)
 		to_chat(user, "<span class='danger'>It looks broken!</span>")
@@ -88,8 +86,7 @@
 			var/power = round(powercell.charge / powercell.maxcharge * 100)
 			to_chat(user, "<span class='notice'>The powercell is at [power]% charge.</span>")
 		else
-			var/int_power = round(internal_cell.charge / internal_cell.maxcharge * 100)
-			to_chat(user, "<span class='warning'>It has no powercell to power it! Internal cell is at [int_power]% charge.</span>")
+			to_chat(user, "<span class='warning'>It has no powercell to power it!")
 
 /obj/item/device/magnetic_lock/attack_hand(var/mob/user)
 	add_fingerprint(user)
@@ -241,34 +238,18 @@
 /obj/item/device/magnetic_lock/process()
 	if(!processpower)
 		return
-	var/obj/item/cell/C = powercell // both of these are for viewing ease
-	var/obj/item/cell/BU = internal_cell
+	var/obj/item/cell/C = powercell 
 	var/delta_sec = (world.time - last_process_time) / 10
 	var/drainamount = drain_per_second * delta_sec
 	if (C)
 		if (C.charge > drainamount)
 			C.charge -= drainamount
-			var/int_diff = min(drainamount, BU.maxcharge - BU.charge)
-			if (C.charge > int_diff && BU.charge != BU.maxcharge)
-				if (int_diff < drainamount)
-					BU.charge = BU.maxcharge
-					C.charge -= int_diff
-				else
-					BU.charge += drainamount
-					C.charge -= drainamount
-		else if (BU.charge > (drainamount - C.charge))
-			var/diff = drainamount - C.charge
-			C.charge = 0
-			BU.charge -= diff
 		else
-			BU.charge = 0
+			C.charge = 0
 			visible_message(SPAN_DANGER("[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
 			detach(0)
-	else if (BU.charge > drainamount)
-		BU.charge -= drainamount
-	else
-		BU.charge = 0
-		visible_message(SPAN_DANGER("[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
+	if (!C)
+		visible_message(SPAN_DANGER("[src] gives two shrill beeps and falls off \the [target]. No cell appears to be installed."))
 		detach(0)
 	last_process_time = world.time
 
@@ -304,9 +285,10 @@
 
 		if (!check_target(newtarget, user)) return
 
-		if(!internal_cell.charge)
-			to_chat(user, "<span class='warning'>\The [src] looks dead and out of power.</span>")
-			return
+		if(powercell)
+			if(!powercell.charge)
+				to_chat(user, "<span class='warning'>\The [src] is clearly out of power.</span>")
+				return
 
 		var/direction = get_dir(user, newtarget)
 		if ((direction in alldirs) && !(direction in cardinal))

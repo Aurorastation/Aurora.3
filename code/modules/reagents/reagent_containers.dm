@@ -115,7 +115,7 @@
 		return ..()
 
 /obj/item/reagent_containers/afterattack(var/atom/target, var/mob/user, var/proximity, var/params)
-	if(!proximity || !is_open_container())
+	if(!proximity || (!is_open_container() && !is_pour_container()))
 		return
 	if(is_type_in_list(target,can_be_placed_into))
 		return
@@ -314,7 +314,7 @@
 				break
 		if(chugs > 3)
 			if(!(H.species.flags & NO_BREATHE))
-				H.visible_message(SPAN_NOTICE("[src] finishes chugging, exhausted..."), SPAN_NOTICE("You finish chugging, exhausted..."))
+				H.visible_message(SPAN_NOTICE("[H] finishes chugging, exhausted..."), SPAN_NOTICE("You finish chugging, exhausted..."))
 				H.emote("gasp")
 		return
 

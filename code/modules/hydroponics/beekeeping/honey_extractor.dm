@@ -1,7 +1,7 @@
 /obj/machinery/honey_extractor
 	name = "honey extractor"
 	desc = "A machine used to turn honeycombs on the frame into honey and wax."
-	icon = 'icons/obj/virology.dmi'
+	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "centrifuge"
 	anchored = TRUE
 
@@ -9,7 +9,7 @@
 	var/honey = 0
 
 /obj/machinery/honey_extractor/examine(var/mob/user)
-	..()
+	. = ..()
 	if(contained_frame)
 		to_chat(user, SPAN_NOTICE("It's holding \the <b>[contained_frame]</b>."))
 	to_chat(user, SPAN_NOTICE("It contains <b>[honey]</b> units of honey for collection."))

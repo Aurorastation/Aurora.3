@@ -98,6 +98,7 @@
 		list("name" = "Diffracted Carbon Dioxide Laser", "type" = "carbon"),
 		list("name" = "Potassium Refrigerant Cloud", "type" = "potassium"),
 		list("name" = "Nitrogen Tracer Field", "type" = "nitrogen"),
+		list("name" = "Mercury Dispersion Wave", "type" = "mercury"),
 		list("name" = "Iron Wafer Conduction Field", "type" = "iron")
 	)
 
@@ -168,9 +169,8 @@
 
 /obj/effect/suspension_field/examine(mob/user)
 	. = ..()
-	if(.)
-		to_chat(user, SPAN_NOTICE("You can see something floating inside it:"))
-		to_chat(user, SPAN_NOTICE(english_list(contents)))
+	to_chat(user, SPAN_NOTICE("You can see something floating inside it:"))
+	to_chat(user, SPAN_NOTICE(english_list(contents)))
 
 /obj/effect/suspension_field/Initialize()
 	. = ..()

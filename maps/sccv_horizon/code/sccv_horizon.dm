@@ -89,8 +89,8 @@
 	dust_end_message = "The ship has now passed through the belt of space dust."
 
 	radiation_detected_message = "High levels of radiation detected near the ship. Please evacuate into one of the shielded maintenance tunnels."
-	radiation_contact_message = "The ship has entered the radiation belt. Please remain in a sheltered area until the ship has cleared it."
-	radiation_end_message = "The ship has passed the radiation belt. Please report to the medbay if you experience any unusual symptoms. Maintenance will lose all-access again shortly."
+	radiation_contact_message = "The ship has entered the radiation belt. Please remain in a sheltered area until the ship has passed through it and engineering has given the all-clear."
+	radiation_end_message = "The ship has passed the radiation belt. Please await an all-clear from engineering staff before exiting maintenance as there may be residual radiation. Immediately make your way to the medbay if you experience any unusual symptoms. Maintenance will lose all-access again shortly."
 
 	rogue_drone_detected_messages = list("Combat drone swarms from a nearby facility have engaged the ship. If any are sighted in the area, approach with caution.",
 													"Malfunctioning combat drones have been detected close to the ship. If any are sighted in the area, approach with caution.")
@@ -99,9 +99,9 @@
 
 
 	map_shuttles = list(
-		/datum/shuttle/autodock/ferry/lift/scc_ship/cargo,
 		/datum/shuttle/autodock/ferry/lift/scc_ship/morgue,
-		/datum/shuttle/autodock/ferry/lift/scc_ship/robotics,
+		/datum/shuttle/autodock/multi/lift/operations,
+		/datum/shuttle/autodock/multi/lift/robotics,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod2,
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
@@ -193,3 +193,13 @@
 
 	post_comm_message("SCCV Horizon Sensor Readings", welcome_text)
 	priority_announcement.Announce(message = "Long-range sensor readings have been printed out at all communication consoles.")
+
+/datum/map/sccv_horizon/load_holodeck_programs()
+	// loads only if at least two engineers are present
+	// so as to not drain power on deadpop
+	// also only loads if no program is loaded already
+	var/list/roles = number_active_with_role()
+	if(roles && roles["Engineer"] && roles["Engineer"] >= 2)
+		for(var/obj/machinery/computer/HolodeckControl/holo in holodeck_controls)
+			if(!holo.active)
+				holo.load_random_program()

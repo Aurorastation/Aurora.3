@@ -7,7 +7,7 @@
 	name = "ore redemption console"
 	desc = "A handy console which can be use to retrieve mining points for use in the mining vendor, or to set processing values for various ore types."
 	desc_info = "Up to date settings for the refinery can be found in the Aurorastation Guide to Mining wikipage."
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "production_console"
 	density = FALSE
 	anchored = TRUE
@@ -79,8 +79,8 @@
 			scanned_id = null
 			get_user_id(user)
 		else
-			var/turf/id_turf = get_turf(ID)
-			if(!id_turf.Adjacent(loc))
+			var/turf/id_turf = get_turf(user)
+			if(id_turf && !id_turf.Adjacent(loc))
 				scanned_id = null
 				get_user_id(user)
 	interact(user)

@@ -19,6 +19,13 @@
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
+"aad" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Propulsion Maintenance";
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/tramp_freighter)
 "aap" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
@@ -128,13 +135,13 @@
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "aBb" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/freighter_shuttle)
 "aCd" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
@@ -164,8 +171,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet,
 /area/ship/tramp_freighter)
@@ -211,7 +218,7 @@
 /obj/structure/closet/crate/loot,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -226,9 +233,7 @@
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "aUn" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -278,8 +283,8 @@
 "bfg" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
@@ -366,7 +371,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/freighter_shuttle)
 "bXv" = (
-/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/item/clothing/head/bearpelt{
 	anchored = 1;
 	name = "bear pelt wall rug";
@@ -379,7 +384,7 @@
 "ckN" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp/green,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/art,
@@ -423,7 +428,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_in"
+	id_tag = "sfa_patrol_ship_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -458,7 +464,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_in"
+	id_tag = "sfa_patrol_ship_in";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor,
@@ -532,7 +539,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -555,8 +562,8 @@
 	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
@@ -576,7 +583,8 @@
 "dxh" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/airlock/hatch{
-	name = "Cargo Compartment"
+	name = "Cargo Compartment";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
@@ -595,7 +603,7 @@
 /obj/item/device/suit_cooling_unit,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/device/gps/mining,
 /obj/item/device/gps/mining,
@@ -640,19 +648,22 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
 "ecW" = (
-/obj/structure/lattice,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	layer = 2.31;
+	name = "lattice"
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -693,13 +704,14 @@
 "enr" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/airlock/glass{
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
 "eoK" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "etL" = (
 /turf/space/transit/north,
@@ -779,7 +791,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "freight_shuttle_out"
+	id_tag = "freight_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -846,8 +859,8 @@
 /area/ship/tramp_freighter)
 "ftq" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /obj/effect/decal/fake_object{
 	desc = "A lightweight support lattice.";
@@ -883,8 +896,8 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
@@ -959,7 +972,8 @@
 /area/ship/tramp_freighter)
 "fXG" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Anti-Piracy Armory"
+	name = "Anti-Piracy Armory";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
@@ -974,7 +988,7 @@
 /area/ship/tramp_freighter)
 "gcq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -986,8 +1000,8 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
@@ -1064,7 +1078,7 @@
 /obj/machinery/vending/boozeomat,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -1090,7 +1104,8 @@
 "hei" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/mining{
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
@@ -1099,7 +1114,7 @@
 /obj/machinery/vending/hydronutrients/xenobotany,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -1182,7 +1197,7 @@
 "hGK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1239,8 +1254,8 @@
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /obj/item/toy/desk/fan,
 /turf/simulated/floor/tiled/dark,
@@ -1255,7 +1270,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "freight_shuttle_out"
+	id_tag = "freight_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/freighter_shuttle)
@@ -1305,7 +1321,8 @@
 /area/ship/tramp_freighter)
 "iHx" = (
 /obj/machinery/door/airlock/mining{
-	name = "Crew Bunks"
+	name = "Crew Bunks";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
@@ -1375,8 +1392,8 @@
 	pixel_y = 6
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
@@ -1410,7 +1427,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, starboard side"
 	},
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "kMq" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1459,7 +1476,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_out"
+	id_tag = "sfa_patrol_ship_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port airlock"
@@ -1543,7 +1561,8 @@
 /area/ship/tramp_freighter)
 "nyj" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Cargo Compartment"
+	name = "Cargo Compartment";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -1551,7 +1570,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor,
@@ -1571,11 +1590,12 @@
 /area/ship/tramp_freighter)
 "nMu" = (
 /obj/effect/landmark/entry_point/fore,
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "nQT" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -1598,15 +1618,16 @@
 /area/ship/tramp_freighter)
 "onP" = (
 /obj/machinery/door/airlock{
-	name = "Head"
+	name = "Head";
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
 "ouc" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
@@ -1614,7 +1635,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "sfa_patrol_ship_out"
+	id_tag = "sfa_patrol_ship_out";
+	dir = 4
 	},
 /obj/effect/shuttle_landmark/tramp_freighter/nav2,
 /turf/simulated/floor,
@@ -1641,14 +1663,14 @@
 /area/ship/tramp_freighter)
 "oGo" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
 /obj/machinery/vending/cigarette/hacked,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
@@ -1692,7 +1714,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/art,
@@ -1713,7 +1735,7 @@
 /obj/machinery/appliance/cooker/fryer,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
@@ -1807,7 +1829,7 @@
 /turf/unsimulated/wall/fakepdoor,
 /area/ship/tramp_freighter)
 "rBU" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/art,
@@ -1815,8 +1837,8 @@
 "rMI" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
@@ -1825,20 +1847,20 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
 "rNF" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
 "rVB" = (
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/art,
@@ -1871,7 +1893,8 @@
 /area/ship/tramp_freighter)
 "sDF" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Propulsion Maintenance"
+	name = "Propulsion Maintenance";
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -1898,6 +1921,13 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	layer = 2.31;
+	name = "lattice"
+	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "sOb" = (
@@ -1909,8 +1939,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
@@ -1941,7 +1971,7 @@
 /obj/structure/table/steel,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
-/obj/effect/floor_decal/spline/plain{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/art,
@@ -2026,8 +2056,8 @@
 /area/ship/tramp_freighter)
 "uYP" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
@@ -2080,8 +2110,8 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/tramp_freighter)
@@ -2103,7 +2133,7 @@
 /turf/simulated/floor,
 /area/ship/tramp_freighter)
 "wYA" = (
-/turf/simulated/wall/shuttle/space_ship/cardinal,
+/turf/simulated/wall/shuttle/space_ship,
 /area/ship/tramp_freighter)
 "wZf" = (
 /turf/simulated/floor,
@@ -2174,7 +2204,8 @@
 /area/ship/tramp_freighter)
 "yme" = (
 /obj/machinery/door/airlock/mining{
-	name = "Captain's Office"
+	name = "Captain's Office";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/tramp_freighter)
@@ -36449,7 +36480,7 @@ ylV
 ylV
 ylV
 ylV
-sDF
+aad
 ylV
 ylV
 ylV

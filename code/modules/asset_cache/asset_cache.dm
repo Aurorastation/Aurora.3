@@ -449,11 +449,10 @@ var/list/asset_datums = list()
 /datum/asset/simple/namespaced/fontawesome
 	legacy = TRUE
 	assets = list(
-		"fa-regular-400.eot"  = 'html/font-awesome/webfonts/fa-regular-400.eot',
-		"fa-regular-400.woff" = 'html/font-awesome/webfonts/fa-regular-400.woff',
-		"fa-solid-900.eot"    = 'html/font-awesome/webfonts/fa-solid-900.eot',
-		"fa-solid-900.woff"   = 'html/font-awesome/webfonts/fa-solid-900.woff',
-		"v4shim.css"          = 'html/font-awesome/css/v4-shims.min.css'
+		"fa-regular-400.ttf" = 'html/font-awesome/webfonts/fa-regular-400.ttf',
+		"fa-solid-900.ttf" = 'html/font-awesome/webfonts/fa-solid-900.ttf',
+		"fa-v4compatibility.ttf" = 'html/font-awesome/webfonts/fa-v4compatibility.ttf',
+		"v4shim.css" = 'html/font-awesome/css/v4-shims.min.css',
 	)
 	parents = list("font-awesome.css" = 'html/font-awesome/css/all.min.css')
 	cross_round_cachable = TRUE
@@ -481,6 +480,7 @@ var/list/asset_datums = list()
 
 /datum/asset/simple/paper
 	legacy = TRUE
+	keep_local_name = TRUE
 	assets = list(
 		"talisman.png" = 'html/images/talisman.png',
 		"barcode0.png" = 'html/images/barcode0.png',
@@ -659,8 +659,8 @@ var/list/asset_datums = list()
 
 /datum/asset/spritesheet/chem_master
 	name = "chemmaster"
-	cross_round_cachable = TRUE
-	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4", "bottle-5", "bottle-6")
+	cross_round_cachable = FALSE
+	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4")
 	var/max_pill_sprite = 20
 
 /datum/asset/spritesheet/chem_master/register()
