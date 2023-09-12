@@ -60,6 +60,9 @@
 	..()
 	var/list/capes = list()
 	capes["tunnel cloak, Sedantis"] = /obj/item/storage/backpack/cloak/sedantis
+	capes["tunnel cloak, Zo'ra"] = /obj/item/storage/backpack/cloak/zora
+	capes["tunnel cloak, K'lax"] = /obj/item/storage/backpack/cloak/klax
+	capes["tunnel cloak, C'thur"] = /obj/item/storage/backpack/cloak/cthur
 	capes["tunnel cloak, medical"] = /obj/item/storage/backpack/cloak/medical
 	capes["tunnel cloak, engineering"] = /obj/item/storage/backpack/cloak/engi
 	capes["tunnel cloak, atmospherics"] = /obj/item/storage/backpack/cloak/atmos
