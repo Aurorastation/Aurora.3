@@ -41,7 +41,8 @@
 	var/use_sound = /singleton/sound_category/rustle_sound	//sound played when used. null for no sound.
 	var/list/starts_with // for pre-filled items
 	var/empty_delay = 0 SECOND // time it takes to empty bag. this is multiplies by number of objects stored
-	var/animated = TRUE /// whether or not we should have those cute little animations
+	///Boolean, whether or not we should have those cute little animations
+	var/animated = TRUE
 
 /obj/item/storage/Destroy()
 	close_all()
