@@ -8220,6 +8220,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/abandoned_industrial_station/atmos)
+"AT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor,
+/area/abandoned_industrial_station/maint_a1)
 "AU" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/item/broken_bottle{
@@ -8729,6 +8740,20 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/docks_a2)
+"Cl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor,
+/area/abandoned_industrial_station/maint_a1)
 "Cm" = (
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_industrial_station/hangar)
@@ -39161,7 +39186,7 @@ Nl
 Nl
 KF
 AN
-TK
+Cl
 AN
 le
 nC
@@ -47899,7 +47924,7 @@ Wb
 Dq
 tA
 AN
-gf
+AT
 AN
 AN
 EP
