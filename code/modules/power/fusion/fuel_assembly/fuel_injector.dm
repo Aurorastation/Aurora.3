@@ -15,10 +15,7 @@
 	var/injection_rate = 1
 
 /obj/machinery/fusion_fuel_injector/Initialize()
-	set_extension(src, /datum/extension/local_network_member)
-	if(initial_id_tag)
-		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
-		fusion.set_tag(null, initial_id_tag)
+	AddComponent(/datum/component/local_network_member, initial_id_tag)
 	. = ..()
 
 /obj/machinery/fusion_fuel_injector/Destroy()
@@ -30,7 +27,7 @@
 /obj/machinery/fusion_fuel_injector/mapped
 	anchored = TRUE
 
-/obj/machinery/fusion_fuel_injector/Process()
+/obj/machinery/fusion_fuel_injector/process()
 	if(injecting)
 		if(inoperable())
 			StopInjecting()
@@ -40,7 +37,7 @@
 /obj/machinery/fusion_fuel_injector/attackby(obj/item/W, mob/user)
 
 	if(W.ismultitool())
-		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
+		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return
 
@@ -74,7 +71,11 @@
 
 	return ..()
 
-/obj/machinery/fusion_fuel_injector/physical_attack_hand(mob/user)
+/obj/machinery/fusion_fuel_injector/attack_hand(mob/user)
+	. = ..()
+	if(.)
+		return
+
 	if(injecting)
 		to_chat(user, SPAN_WARNING("Shut \the [src] off before playing with the fuel rod!"))
 		return TRUE

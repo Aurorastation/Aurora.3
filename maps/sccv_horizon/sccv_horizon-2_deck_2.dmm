@@ -637,7 +637,6 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "aqR" = (
@@ -840,6 +839,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/horizon/zta)
+"atu" = (
+/obj/structure/cable/orange{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/tesla)
 "atB" = (
 /obj/machinery/light/small/red{
 	dir = 4
@@ -1018,6 +1023,7 @@
 /area/hallway/primary/central_one)
 "avM" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "avW" = (
@@ -2470,13 +2476,13 @@
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "beJ" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/obj/structure/cable/yellow{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "beY" = (
 /obj/structure/grille,
@@ -3241,14 +3247,10 @@
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "byx" = (
-/obj/machinery/power/tesla_coil,
-/obj/structure/cable/yellow{
-	icon_state = "0-4"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4
+	dir = 1
 	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "byC" = (
@@ -5252,6 +5254,17 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/morgue_lift)
+"cxQ" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/fusion_fuel_injector/mapped{
+	dir = 1;
+	initial_id_tag = horizon_fusion
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/tesla)
 "cyG" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -5350,6 +5363,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "cBF" = (
@@ -6333,19 +6347,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/aft_airlock)
-"ddA" = (
-/obj/machinery/power/emitter{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable/orange{
-	icon_state = "0-8"
-	},
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_room/tesla)
 "ddH" = (
 /obj/machinery/alarm/south,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -6782,9 +6783,7 @@
 /turf/simulated/floor/tiled/full,
 /area/engineering/storage_hard)
 "doG" = (
-/obj/structure/cable/orange{
-	icon_state = "4-8"
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "dpj" = (
@@ -7559,13 +7558,10 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/port)
 "dKB" = (
-/obj/structure/cable/orange{
-	icon_state = "1-2"
+/obj/machinery/air_sensor{
+	id_tag = fusion_sensor
 	},
-/obj/structure/cable/orange{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "dKE" = (
 /obj/structure/closet/hazmat/research,
@@ -7772,8 +7768,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
 "dPE" = (
-/obj/machinery/the_singularitygen/tesla,
-/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/power/fusion_core{
+	initial_id_tag = horizon_fusion
+	},
+/obj/structure/cable/orange{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "dPM" = (
@@ -10356,11 +10356,11 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
 "feM" = (
-/obj/machinery/power/tesla_coil,
-/obj/structure/cable/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/fusion_fuel_injector/mapped{
+	initial_id_tag = horizon_fusion
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
@@ -12639,17 +12639,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
-"gin" = (
-/obj/machinery/power/tesla_coil,
-/obj/structure/cable/yellow{
-	icon_state = "0-8"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_room/tesla)
 "gio" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 6
@@ -13317,9 +13306,6 @@
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
 "gvW" = (
-/obj/structure/cable/orange{
-	icon_state = "1-2"
-	},
 /obj/machinery/alarm/east{
 	req_one_access = list(24,11,55)
 	},
@@ -13450,12 +13436,10 @@
 /turf/simulated/floor/tiled/full,
 /area/medical/exam)
 "gzr" = (
-/obj/structure/cable/orange{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "gzF" = (
@@ -13566,14 +13550,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port)
-"gBg" = (
-/obj/machinery/field_generator,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_room/tesla)
 "gBk" = (
 /obj/machinery/newscaster/north,
 /obj/effect/floor_decal/spline/plain{
@@ -14483,7 +14459,9 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/secure_ammunition_storage)
 "gVl" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/closet/crate/rad,
+/obj/item/stack/material/tritium/ten,
+/obj/item/stack/material/tritium/ten,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "gVn" = (
@@ -16629,8 +16607,8 @@
 /turf/simulated/floor/reinforced,
 /area/horizon/bar)
 "iaQ" = (
-/obj/structure/particle_accelerator/particle_emitter/center{
-	dir = 1
+/obj/machinery/computer/fusion/fuel_control{
+	initial_id_tag = horizon_fusion
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
@@ -16985,14 +16963,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/telesci)
-"iix" = (
-/obj/machinery/field_generator,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_room/tesla)
 "ijb" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/cans/root_beer{
@@ -19519,11 +19489,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/garden)
 "jqZ" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
+/obj/machinery/power/emitter/gyrotron/anchored{
+	dir = 8;
+	initial_id_tag = horizon_fusion
 	},
 /obj/structure/cable/yellow{
-	icon_state = "2-8"
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
@@ -21330,6 +21301,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zta)
+"kkv" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/fusion_fuel_injector/mapped{
+	dir = 1;
+	initial_id_tag = horizon_fusion
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/tesla)
 "kkW" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/effect/floor_decal/industrial/outline/security,
@@ -22466,10 +22445,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "kRY" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
+/obj/machinery/fusion_fuel_compressor,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "kRZ" = (
@@ -23498,10 +23474,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "lui" = (
-/obj/machinery/field_generator,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
+	},
+/obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = fusion_injector_air;
+	injecting = 1;
+	use_power = 1
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
@@ -29486,12 +29466,10 @@
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "omA" = (
-/obj/structure/cable/orange{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "omD" = (
@@ -31187,10 +31165,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "pdF" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
+/obj/item/stack/material/deuterium/fifty,
+/obj/item/stack/material/deuterium/fifty,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "pea" = (
@@ -32088,11 +32065,8 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "pEA" = (
-/obj/structure/particle_accelerator/particle_emitter/left{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
+/obj/machinery/computer/fusion/gyrotron{
+	initial_id_tag = horizon_fusion
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
@@ -32317,11 +32291,11 @@
 /turf/simulated/floor/plating,
 /area/horizon/bar)
 "pIV" = (
-/obj/machinery/power/tesla_coil,
-/obj/structure/cable/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
+	},
+/obj/machinery/fusion_fuel_injector/mapped{
+	initial_id_tag = horizon_fusion
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
@@ -32396,11 +32370,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "pLv" = (
-/obj/machinery/power/tesla_coil,
-/obj/structure/cable/yellow,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
+	},
+/obj/machinery/fusion_fuel_injector/mapped{
+	initial_id_tag = horizon_fusion
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
@@ -32665,9 +32639,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "pRf" = (
-/obj/structure/cable/orange{
-	icon_state = "2-4"
-	},
 /obj/machinery/light/spot{
 	dir = 8
 	},
@@ -32843,14 +32814,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
 "pVY" = (
-/obj/structure/cable/orange{
-	icon_state = "1-2"
-	},
 /obj/structure/sign/electricshock/tesla{
 	pixel_x = 32
-	},
-/obj/structure/cable/orange{
-	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
@@ -34101,11 +34066,6 @@
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/port)
 "qBX" = (
-/obj/machinery/power/tesla_coil,
-/obj/structure/cable/yellow{
-	icon_state = "0-8"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -34579,6 +34539,14 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_two/fore/port)
+"qPf" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	layer = 8
+	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/tesla)
 "qPn" = (
 /obj/structure/closet/emcloset,
 /obj/structure/sign/nosmoking_1{
@@ -35250,9 +35218,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "reo" = (
-/obj/structure/cable/orange{
-	icon_state = "1-2"
-	},
 /obj/machinery/light/spot{
 	dir = 4
 	},
@@ -35272,6 +35237,9 @@
 	},
 /obj/structure/sign/electricshock/tesla{
 	pixel_x = 42
+	},
+/obj/structure/cable/orange{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
@@ -35493,15 +35461,13 @@
 /turf/simulated/open,
 /area/operations/office)
 "rkO" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+/obj/machinery/door/airlock/vault{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "rlf" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -35512,9 +35478,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
 "rlj" = (
-/obj/structure/cable/orange{
-	icon_state = "2-8"
-	},
 /obj/machinery/light/spot{
 	dir = 4
 	},
@@ -35590,10 +35553,10 @@
 /turf/simulated/floor/tiled/full,
 /area/engineering/storage_hard)
 "rmU" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
+/obj/structure/cable/orange{
+	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "rns" = (
 /obj/structure/cable/green{
@@ -35733,15 +35696,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
 "rqu" = (
-/obj/machinery/power/emitter{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
 	},
-/obj/structure/cable/orange{
-	icon_state = "0-4"
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
@@ -35989,12 +35949,6 @@
 /turf/simulated/floor/wood,
 /area/rnd/conference)
 "rwW" = (
-/obj/structure/cable/orange{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/orange{
-	icon_state = "1-4"
-	},
 /obj/structure/sign/electricshock/tesla{
 	pixel_x = -32
 	},
@@ -37321,14 +37275,10 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/substation/engineering)
 "seK" = (
-/obj/machinery/power/tesla_coil,
-/obj/structure/cable/yellow{
-	icon_state = "0-8"
+/obj/structure/cable/orange{
+	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "seQ" = (
@@ -37619,17 +37569,14 @@
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "soc" = (
-/obj/structure/particle_accelerator/power_box{
-	dir = 1
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/engineering/engine_monitoring/tesla)
+/area/engineering/engine_room/tesla)
 "sog" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
@@ -37647,14 +37594,8 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "soK" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
 "soW" = (
@@ -37911,11 +37852,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "swe" = (
-/obj/structure/particle_accelerator/particle_emitter/right{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
+/obj/machinery/computer/fusion/core_control{
+	initial_id_tag = horizon_fusion
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
@@ -38343,11 +38281,8 @@
 /turf/simulated/floor/wood/mahogany,
 /area/horizon/crew_quarters/lounge/bar)
 "sJS" = (
-/obj/structure/cable/orange{
-	icon_state = "4-8"
-	},
 /obj/structure/cable/yellow{
-	icon_state = "1-2"
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
@@ -38634,6 +38569,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/operations/lower/machinist)
+"sSE" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/fusion_fuel_injector/mapped{
+	dir = 1;
+	initial_id_tag = horizon_fusion
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/tesla)
 "sSY" = (
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -40579,6 +40525,12 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/central_one)
+"tPz" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/tesla)
 "tPJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -40937,9 +40889,6 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/brig)
 "tZr" = (
-/obj/structure/cable/orange{
-	icon_state = "1-4"
-	},
 /obj/machinery/camera/network/reactor{
 	c_tag = "Engineering - Tesla Room 1";
 	dir = 4
@@ -41970,15 +41919,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/aux_atmospherics/deck_2/starboard/wing)
 "uva" = (
-/obj/machinery/power/emitter{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
-	},
-/obj/structure/cable/orange{
-	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
@@ -42672,17 +42615,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "uLJ" = (
-/obj/structure/particle_accelerator/fuel_chamber{
-	dir = 1
+/obj/structure/cable/orange{
+	icon_state = "1-4"
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/engineering/engine_monitoring/tesla)
+/turf/simulated/floor/plating,
+/area/engineering/engine_room/tesla)
 "uMn" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 8
@@ -43008,10 +42945,14 @@
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "uUa" = (
-/obj/machinery/particle_accelerator/control_box,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
-/area/engineering/engine_monitoring/tesla)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/cable/orange{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_room/tesla)
 "uUn" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -44990,9 +44931,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
 "vTu" = (
-/obj/structure/cable/orange{
-	icon_state = "4-8"
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "vTJ" = (
@@ -45616,11 +45555,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/exam)
 "wfa" = (
-/obj/machinery/power/tesla_coil,
-/obj/structure/cable/yellow{
-	icon_state = "0-4"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -46069,8 +46003,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/xenobiology)
 "woL" = (
-/obj/machinery/field_generator,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -46919,6 +46851,12 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring)
+"wKM" = (
+/obj/structure/cable/orange{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/tesla)
 "wKP" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled/dark,
@@ -47353,9 +47291,6 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
 "wTD" = (
-/obj/structure/cable/orange{
-	icon_state = "1-2"
-	},
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
@@ -47422,10 +47357,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "wVn" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
 "wVT" = (
@@ -49554,13 +49489,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "xVf" = (
-/obj/machinery/power/tesla_coil,
-/obj/structure/cable/yellow{
-	icon_state = "0-4"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
+	},
+/obj/structure/cable/orange{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/tesla)
@@ -49828,12 +49761,15 @@
 /turf/simulated/floor/wood,
 /area/horizon/library)
 "yaT" = (
-/obj/structure/particle_accelerator/end_cap{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/airlock/vault{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor/tiled/dark/full,
-/area/engineering/engine_monitoring/tesla)
+/obj/structure/cable/orange{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_room/tesla)
 "ybf" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Burst Rifle)"
@@ -73536,8 +73472,8 @@ pRd
 ntt
 pRf
 rwW
-jKV
-jKV
+cYy
+cYy
 wTD
 tZr
 hax
@@ -73736,12 +73672,12 @@ fJv
 fJv
 ntt
 ntt
-vTu
+cYy
 uva
 cYy
 cYy
 cYy
-ddA
+uva
 qao
 uvM
 mPh
@@ -73938,11 +73874,11 @@ fJv
 ntt
 ntt
 shR
-sJS
+iIB
 iFp
-beJ
-beJ
-beJ
+iIB
+iIB
+iIB
 iFp
 iIB
 gqP
@@ -74140,10 +74076,10 @@ fJv
 ntt
 cYy
 uGp
-vTu
+cYy
 uud
-gin
-seK
+woL
+uoY
 qBX
 uud
 cYy
@@ -74343,15 +74279,15 @@ ntt
 nzn
 uGp
 vTu
-uud
-aBY
-hMt
-ubz
-uud
+beJ
+byx
+doG
+soK
+beJ
+vTu
 cYy
-cYy
-tiJ
-tiJ
+ecV
+ecV
 qdq
 tPU
 tPU
@@ -74549,10 +74485,10 @@ woL
 uoY
 uoY
 uoY
-iix
+qBX
+vTu
 cYy
-cYy
-tiJ
+ecV
 pzg
 nmF
 mcV
@@ -74744,7 +74680,7 @@ qgN
 qgN
 fJv
 ntt
-rkO
+uGp
 pLv
 omA
 aBY
@@ -74753,8 +74689,8 @@ hMt
 hMt
 ubz
 cBq
-cBq
-tiJ
+sSE
+ecV
 kRY
 swe
 sww
@@ -74946,7 +74882,7 @@ qgN
 qgN
 fJv
 ntt
-rkO
+uGp
 feM
 doG
 aBY
@@ -74955,13 +74891,13 @@ dPE
 hMt
 ubz
 avM
-avM
-tiJ
+kkv
+ecV
 gVl
 iaQ
-soc
-uLJ
-yaT
+ecV
+ecV
+ecV
 gAs
 uEq
 kvZ
@@ -75148,21 +75084,21 @@ qgN
 qgN
 fJv
 ntt
-rkO
+uGp
 pIV
 gzr
 aBY
-hMt
-hMt
-hMt
+dKB
+rmU
+uLJ
 ubz
 wVn
-wVn
-tiJ
+cxQ
+ecV
 pdF
 pEA
 tFH
-uUa
+ecV
 obd
 fhh
 uEq
@@ -75353,14 +75289,14 @@ ntt
 sWD
 vEo
 vTu
-gBg
+wfa
 hdo
 hdo
-hdo
+uUa
 lui
-cYy
-cYy
-tiJ
+qPf
+tPz
+ecV
 pzg
 tfd
 lAq
@@ -75555,15 +75491,15 @@ ntt
 nzn
 uGp
 vTu
-uud
-aBY
-hMt
-ubz
-uud
+beJ
+rkO
+seK
+yaT
+beJ
+vTu
 cYy
-cYy
-tiJ
-tiJ
+ecV
+ecV
 qXF
 iKV
 iKV
@@ -75756,16 +75692,16 @@ fJv
 ntt
 cYy
 uGp
-vTu
+cYy
 aky
 wfa
-byx
+hdo
 xVf
 aky
 cYy
 cYy
 cYy
-tiJ
+ecV
 tiJ
 qVS
 qVS
@@ -75959,13 +75895,13 @@ ntt
 ntt
 hvf
 sJS
-soK
+aky
+cYy
 jqZ
-jqZ
-jqZ
-soK
-iIB
-rmU
+wKM
+aky
+cYy
+cYy
 cYy
 hCe
 uEq
@@ -76160,14 +76096,14 @@ fJv
 fJv
 ntt
 ntt
-vTu
-rqu
-cYy
-cYy
-cYy
-rqu
-cYy
 sWD
+rqu
+iIB
+soc
+iIB
+rqu
+iIB
+iIB
 iIB
 iIB
 avb
@@ -76365,9 +76301,9 @@ ntt
 rlj
 pVY
 gvW
+cYy
+atu
 jKV
-jKV
-dKB
 reo
 jKV
 jKV

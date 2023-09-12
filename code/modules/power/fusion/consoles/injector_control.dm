@@ -27,7 +27,7 @@
 		var/new_injection_clamped = clamp(new_injection_rate, 1, 100) / 100
 		if(!new_injection_rate)
 			return TOPIC_NOACTION
-		if(!CanInteract(user,state))
+		if(!CanInteract(usr, state))
 			return TOPIC_NOACTION
 		for(var/obj/machinery/fusion_fuel_injector/F as anything in fuel_injectors)
 			F.injection_rate = new_injection_clamped
@@ -50,14 +50,14 @@
 				return TOPIC_NOACTION
 			if(!new_injection_rate)
 				return TOPIC_NOACTION
-			if(!CanInteract(user,state))
+			if(!CanInteract(usr, state))
 				return TOPIC_NOACTION
 			I.injection_rate = clamp(new_injection_rate, 1, 100) / 100
 		return TOPIC_REFRESH
 
 /obj/machinery/computer/fusion/fuel_control/build_ui_data()
 	. = ..()
-	var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
+	var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 	var/datum/local_network/lan = fusion.get_local_network()
 	var/list/injectors = list()
 	if(lan)

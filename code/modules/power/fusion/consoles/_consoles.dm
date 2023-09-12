@@ -8,30 +8,31 @@
 	var/initial_id_tag
 
 /obj/machinery/computer/fusion/Initialize()
-	set_extension(src, /datum/extension/local_network_member)
-	if(initial_id_tag)
-		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
-		fusion.set_tag(null, initial_id_tag)
+	AddComponent(/datum/component/local_network_member, initial_id_tag)
 	. = ..()
 
 /obj/machinery/computer/fusion/proc/get_local_network()
-	var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
+	var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 	return fusion.get_local_network()
 
 /obj/machinery/computer/fusion/attackby(obj/item/thing, mob/user)
 	if(thing.ismultitool())
-		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
+		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return
 	else
 		return ..()
 
-/obj/machinery/computer/fusion/interface_interact(mob/user)
+/obj/machinery/computer/fusion/attack_hand(mob/user)
+	. = ..()
+	if(.)
+		return
+
 	ui_interact(user)
 	return TRUE
 
 /obj/machinery/computer/fusion/proc/build_ui_data()
-	var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
+	var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 	var/datum/local_network/lan = fusion.get_local_network()
 	var/list/data = list()
 	data["id"] = lan ? lan.id_tag : "unset"

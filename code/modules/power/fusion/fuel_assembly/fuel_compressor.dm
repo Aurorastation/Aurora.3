@@ -21,13 +21,13 @@
 
 /obj/machinery/fusion_fuel_compressor/proc/do_fuel_compression(obj/item/thing, mob/user)
 	if(istype(thing) && thing.reagents && thing.reagents.total_volume && thing.is_open_container())
-		if(length(thing.reagents.reagent_list) > 1)
+		if(length(thing.reagents.reagent_volumes) > 1)
 			to_chat(user, SPAN_WARNING("The contents of \the [thing] are impure and cannot be used as fuel."))
 			return 1
 		if(thing.reagents.total_volume < 100)
 			to_chat(user, SPAN_WARNING("You need at least one hundred units of material to form a fuel rod."))
 			return 1
-		var/datum/reagent/R = thing.reagents.reagent_list[1]
+		var/singleton/reagent/R = GET_SINGLETON(thing.reagents.reagent_volumes[1])
 		visible_message(SPAN_NOTICE("\The [src] compresses the contents of \the [thing] into a new fuel assembly."))
 		var/obj/item/fuel_assembly/F = new(get_turf(src), R.type, R.color)
 		thing.reagents.remove_reagent(R.type, 100)

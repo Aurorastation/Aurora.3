@@ -12,21 +12,22 @@
 	var/obj/machinery/power/fusion_core/harvest_from
 
 /obj/machinery/kinetic_harvester/Initialize()
-	set_extension(src, /datum/extension/local_network_member)
-	if(initial_id_tag)
-		var/datum/extension/local_network_member/lanm = get_extension(src, /datum/extension/local_network_member)
-		lanm.set_tag(null, initial_id_tag)
+	AddComponent(/datum/component/local_network_member, initial_id_tag)
 	find_core()
 	queue_icon_update()
 	. = ..()
 
-/obj/machinery/kinetic_harvester/interface_interact(mob/user)
+/obj/machinery/kinetic_harvester/attack_hand(mob/user)
+	. = ..()
+	if(.)
+		return
+
 	ui_interact(user)
 	return TRUE
 
 /obj/machinery/kinetic_harvester/attackby(obj/item/thing, mob/user)
 	if(thing.ismultitool())
-		var/datum/extension/local_network_member/lanm = get_extension(src, /datum/extension/local_network_member)
+		var/datum/component/local_network_member/lanm = GetComponent(/datum/component/local_network_member)
 		if(lanm.get_new_tag(user))
 			find_core()
 		return
@@ -34,7 +35,7 @@
 
 /obj/machinery/kinetic_harvester/proc/find_core()
 	harvest_from = null
-	var/datum/extension/local_network_member/lanm = get_extension(src, /datum/extension/local_network_member)
+	var/datum/component/local_network_member/lanm = GetComponent(/datum/component/local_network_member)
 	var/datum/local_network/lan = lanm.get_local_network()
 
 	if(lan)
@@ -49,7 +50,7 @@
 		to_chat(user, SPAN_WARNING("This machine cannot locate a fusion core. Please ensure the machine is correctly configured to share a fusion plant network."))
 		return
 
-	var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
+	var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 	var/datum/local_network/plant = fusion.get_local_network()
 	var/list/data = list()
 
@@ -59,7 +60,7 @@
 	for(var/mat in stored)
 		var/material/material = SSmaterials.get_material_by_name(mat)
 		if(material)
-			var/sheets = Floor(stored[mat]/(material.units_per_sheet * 1.5))
+			var/sheets = Floor(stored[mat]/(SHEET_MATERIAL_AMOUNT * 1.5))
 			data["materials"] += list(list("material" = mat, "rawamount" = stored[mat], "amount" = sheets, "harvest" = harvesting[mat]))
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -69,7 +70,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/kinetic_harvester/Process()
+/obj/machinery/kinetic_harvester/process()
 	if(harvest_from && get_dist(src, harvest_from) > 10)
 		harvest_from = null
 
@@ -98,12 +99,12 @@
 	else
 		icon_state = "off"
 
-/obj/machinery/kinetic_harvester/OnTopic(mob/user, href_list, datum/topic_state/state)
+/obj/machinery/kinetic_harvester/Topic(mob/user, href_list)
 	if(href_list["remove_mat"])
 		var/mat = href_list["remove_mat"]
 		var/material/material = SSmaterials.get_material_by_name(mat)
 		if(material)
-			var/sheet_cost = (material.units_per_sheet * 1.5)
+			var/sheet_cost = (SHEET_MATERIAL_AMOUNT * 1.5)
 			var/sheets = Floor(stored[mat]/sheet_cost)
 			if(sheets > 0)
 				material.place_sheet(loc, sheets)

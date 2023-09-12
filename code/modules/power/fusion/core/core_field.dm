@@ -158,7 +158,7 @@
 		UNLINT(var/dm_filter/bloom = filters[3])
 		UNLINT(bloom.alpha = alpha)
 
-/obj/effect/fusion_em_field/Process()
+/obj/effect/fusion_em_field/process()
 	//make sure the field generator is still intact
 	if(QDELETED(owned_core))
 		qdel(src)

@@ -16,14 +16,11 @@
 	anchored = TRUE
 
 /obj/machinery/power/emitter/gyrotron/Initialize()
-	set_extension(src, /datum/extension/local_network_member)
-	if(initial_id_tag)
-		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
-		fusion.set_tag(null, initial_id_tag)
+	AddComponent(/datum/component/local_network_member, initial_id_tag)
 	change_power_consumption(mega_energy * GYRO_POWER, POWER_USE_ACTIVE)
 	. = ..()
 
-/obj/machinery/power/emitter/gyrotron/Process()
+/obj/machinery/power/emitter/gyrotron/process()
 	change_power_consumption(mega_energy * GYRO_POWER, POWER_USE_ACTIVE)
 	. = ..()
 
@@ -38,7 +35,7 @@
 	E.damage = mega_energy * 50
 	return E
 
-/obj/machinery/power/emitter/gyrotron/on_update_icon()
+/obj/machinery/power/emitter/gyrotron/update_icon()
 	if (active && powernet && avail(active_power_usage))
 		icon_state = "emitter-on"
 	else
@@ -46,7 +43,7 @@
 
 /obj/machinery/power/emitter/gyrotron/attackby(obj/item/W, mob/user)
 	if(W.ismultitool())
-		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
+		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return
 	return ..()

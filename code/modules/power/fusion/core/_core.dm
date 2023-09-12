@@ -23,10 +23,7 @@
 /obj/machinery/power/fusion_core/Initialize()
 	. = ..()
 	connect_to_network()
-	set_extension(src, /datum/extension/local_network_member)
-	if(initial_id_tag)
-		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
-		fusion.set_tag(null, initial_id_tag)
+	AddComponent(/datum/component/local_network_member, initial_id_tag)
 
 /obj/machinery/power/fusion_core/process()
 	. = ..()
@@ -93,7 +90,7 @@
 		return
 
 	if(W.ismultitool())
-		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
+		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return
 
@@ -121,6 +118,8 @@
 	return TRUE
 
 /obj/machinery/power/fusion_core/proc/check_core_status()
+	if(!powernet)
+		connect_to_network()
 	if(stat & BROKEN)
 		return FALSE
 	if(idle_power_usage > avail())

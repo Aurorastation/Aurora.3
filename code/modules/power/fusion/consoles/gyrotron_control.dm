@@ -45,7 +45,7 @@
 
 /obj/machinery/computer/fusion/gyrotron/build_ui_data()
 	. = ..()
-	var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
+	var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 	var/datum/local_network/lan = fusion.get_local_network()
 	var/list/gyrotrons = list()
 	if(lan && gyrotrons)

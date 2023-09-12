@@ -2,7 +2,7 @@
 	name = "\improper R-UST Mk. 8 core control"
 	ui_template = "fusion_core_control.tmpl"
 
-/obj/machinery/computer/fusion/core_control/OnTopic(mob/user, href_list, datum/topic_state/state)
+/obj/machinery/computer/fusion/core_control/Topic(mob/user, href_list)
 
 	if(href_list["toggle_active"] || href_list["str"])
 		var/obj/machinery/power/fusion_core/C = locate(href_list["machine"])
@@ -34,7 +34,7 @@
 
 /obj/machinery/computer/fusion/core_control/build_ui_data()
 	. = ..()
-	var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
+	var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 	var/datum/local_network/lan = fusion.get_local_network()
 	var/list/cores = list()
 	if(lan)
