@@ -2931,7 +2931,7 @@
 "qj" = (
 /obj/effect/decal/fake_object{
 	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/storage.dmi';
+	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcflcrate";
 	layer = 3.02;
 	name = "inconveniently placed crate";
@@ -2940,7 +2940,7 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/storage.dmi';
+	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcflcrate";
 	layer = 3.01;
 	name = "inconveniently placed crate";
@@ -2949,7 +2949,7 @@
 	},
 /obj/effect/decal/fake_object{
 	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/storage.dmi';
+	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcflcrate";
 	layer = 3.02;
 	name = "inconveniently placed crate";
@@ -8021,7 +8021,7 @@
 "Tb" = (
 /obj/effect/decal/fake_object{
 	desc = "A crate of military supplies.";
-	icon = 'icons/obj/storage.dmi';
+	icon = 'icons/obj/crate.dmi';
 	icon_state = "dropcrate";
 	layer = 3.02;
 	name = "metal crate";
