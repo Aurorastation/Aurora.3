@@ -175,9 +175,9 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-/obj/item/spacecash/ewallet/examine(mob/user)
-	..(user)
-	if (!(user in view(2)) && user!=src.loc) return
+/obj/item/spacecash/ewallet/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if (distance > 2 && user!=src.loc) return
 	to_chat(user, "<span class='notice'>Charge card's owner: [src.owner_name]. Credit chips remaining: [src.worth].</span>")
 
 /obj/item/spacecash/ewallet/lotto

@@ -32,8 +32,10 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-/obj/item/reagent_containers/personal_inhaler_cartridge/examine(var/mob/user)
-	if(!..(user, 2))
+/obj/item/reagent_containers/personal_inhaler_cartridge/examine(mob/user, distance, is_adjacent)
+	. = ..()
+
+	if (distance > 2)
 		return
 
 	if(is_open_container())
@@ -99,8 +101,9 @@
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	var/eject_when_empty = FALSE
 
-/obj/item/personal_inhaler/examine(var/mob/user)
-	if(!..(user, 2))
+/obj/item/personal_inhaler/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	if(stored_cartridge)
 		to_chat(user,"<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>")

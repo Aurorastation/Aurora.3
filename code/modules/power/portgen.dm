@@ -66,8 +66,8 @@
 	icon_state = "[base_icon]_[active]"
 	return ..()
 
-/obj/machinery/power/portgen/examine(mob/user)
-	if(!..(user, 1))
+/obj/machinery/power/portgen/examine(mob/user, distance, is_adjacent)
+	if(distance > 1)
 		return
 	if(active)
 		to_chat(user, SPAN_NOTICE("The generator is on."))
@@ -160,8 +160,8 @@
 
 	power_gen = round(initial(power_gen) * (max(2, temp_rating) / 2))
 
-/obj/machinery/power/portgen/basic/examine(mob/user)
-	..(user)
+/obj/machinery/power/portgen/basic/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	to_chat(user, "\The [src] appears to be producing [power_gen*power_output] W.")
 	to_chat(user, "There [sheets == 1 ? "is" : "are"] [sheets] sheet\s left in the hopper.")
 	if(IsBroken()) to_chat(user, SPAN_WARNING("\The [src] seems to have broken down."))
@@ -490,7 +490,7 @@
 	create_reagents(coolant_volume)
 	..()
 
-/obj/machinery/power/portgen/basic/fusion/examine(mob/user)
+/obj/machinery/power/portgen/basic/fusion/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	to_chat(user, "The auxilary tank shows [reagents.total_volume]u of liquid in it.")
 

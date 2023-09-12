@@ -182,9 +182,9 @@
 	for(var/obj/item/integrated_circuit/part in contents)
 		. |= part.GetAccess()
 
-/obj/item/device/electronic_assembly/examine(mob/user)
-	. = ..(user, 1)
-	if(.)
+/obj/item/device/electronic_assembly/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		for(var/obj/item/integrated_circuit/IC in contents)
 			IC.external_examine(user)
 		if(opened)

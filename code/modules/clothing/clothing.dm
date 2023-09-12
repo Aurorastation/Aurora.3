@@ -1195,8 +1195,8 @@
 		M.update_inv_w_uniform()
 		playsound(M, /singleton/sound_category/rustle_sound, 15, 1, -5)
 
-/obj/item/clothing/under/examine(mob/user)
-	..(user)
+/obj/item/clothing/under/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	switch(src.sensor_mode)
 		if(0)
 			to_chat(user, "Its sensors appear to be disabled.")
