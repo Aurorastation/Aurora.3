@@ -90,55 +90,6 @@ pixel_x = -10;
 dir = EAST; \
 pixel_x = 10;
 
-/**
- * Get the danger level of a zone
- *
- * * RETURN_VALUE - The variable to store the return value
- * * current_value - The current value to check the danger-ness against
- * * danger_levels - A list with the danger levels
- */
-#define ALARM_GET_DANGER_LEVEL(RETURN_VALUE, current_value, danger_levels)\
-	if((current_value > danger_levels[4] && danger_levels[4] > 0) || current_value < danger_levels[1]){\
-		RETURN_VALUE = 2;\
-	}\
-	else if((current_value > danger_levels[3] && danger_levels[3] > 0) || current_value < danger_levels[2]){\
-		RETURN_VALUE = 1;\
-	}\
-	else{\
-		RETURN_VALUE = 0;\
-	}
-
-/**
- * Get the overall danger level of the environment
- *
- * * RETURN_VALUE - The variable to store the return value
- * * environment - A `/datum/gas_mixture` to perform the danger level calculation against
- */
-#define ALARM_GET_OVERALL_DANGER_LEVEL(RETURN_VALUE, environment)\
-	do {\
-		var/partial_pressure = R_IDEAL_GAS_EQUATION*environment.temperature/environment.volume;\
-		var/other_moles = 0;\
-		for(var/g in trace_gas){\
-			other_moles += environment.gas[g];\
-		}\
-		ALARM_GET_DANGER_LEVEL(pressure_dangerlevel, environment.return_pressure(), TLV["pressure"]);\
-		ALARM_GET_DANGER_LEVEL(oxygen_dangerlevel, environment.gas[GAS_OXYGEN]*partial_pressure, TLV[GAS_OXYGEN]);\
-		ALARM_GET_DANGER_LEVEL(co2_dangerlevel, environment.gas[GAS_CO2]*partial_pressure, TLV[GAS_CO2]);\
-		ALARM_GET_DANGER_LEVEL(phoron_dangerlevel, environment.gas[GAS_PHORON]*partial_pressure, TLV[GAS_PHORON]);\
-		ALARM_GET_DANGER_LEVEL(hydrogen_dangerlevel, environment.gas[GAS_HYDROGEN]*partial_pressure, TLV[GAS_HYDROGEN]);\
-		ALARM_GET_DANGER_LEVEL(temperature_dangerlevel, environment.temperature, TLV["temperature"]);\
-		ALARM_GET_DANGER_LEVEL(other_dangerlevel, other_moles*partial_pressure, TLV["other"]);\
-		\
-		RETURN_VALUE = max(\
-		pressure_dangerlevel,\
-		oxygen_dangerlevel,\
-		co2_dangerlevel,\
-		phoron_dangerlevel,\
-		hydrogen_dangerlevel,\
-		other_dangerlevel,\
-		temperature_dangerlevel\
-		);\
-	} while (FALSE)
 
 //all air alarms in area are connected via magic
 /area
