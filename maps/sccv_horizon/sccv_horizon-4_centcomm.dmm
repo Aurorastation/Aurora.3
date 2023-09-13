@@ -1488,30 +1488,30 @@
 	dir = 5
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/storage/toggle/fib{
+/obj/item/clothing/suit/storage/toggle/bssb{
 	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/storage/toggle/fib{
+/obj/item/clothing/suit/storage/toggle/bssb{
 	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/storage/toggle/fib{
+/obj/item/clothing/suit/storage/toggle/bssb{
 	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/armor/vest/bssb{
+/obj/item/clothing/suit/storage/toggle/bssb/armor{
 	pixel_x = -6;
 	pixel_y = -3
 	},
-/obj/item/clothing/suit/armor/vest/bssb{
+/obj/item/clothing/suit/storage/toggle/bssb/armor{
 	pixel_x = -6;
 	pixel_y = -3
 	},
-/obj/item/clothing/suit/armor/vest/bssb{
+/obj/item/clothing/suit/storage/toggle/bssb/armor{
 	pixel_x = -6;
 	pixel_y = -3
 	},

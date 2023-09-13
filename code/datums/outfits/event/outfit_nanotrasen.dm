@@ -196,7 +196,7 @@
 	name = "BSSB Agent"
 
 	uniform = /obj/item/clothing/under/rank/bssb
-	suit = /obj/item/clothing/suit/storage/toggle/fib
+	suit = /obj/item/clothing/suit/storage/toggle/bssb
 	gloves = /obj/item/clothing/gloves/black
 
 	l_pocket = /obj/item/reagent_containers/spray/pepper
@@ -213,20 +213,28 @@
 		/obj/item/handcuffs = 1
 	)
 
-	id_icon = "fib"
+	id_icon = "bssb"
 	id_access = "CCIA Agent"
 
 /datum/outfit/admin/nt/bssb/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
-	if(H && H.suit)
+	if(H?.wear_suit)
 		var/obj/item/clothing/accessory/badge/bssb/senior/badge = new(src)
-		H.suit.attach_accessory(null, badge)
+		var/obj/item/clothing/U = H.wear_suit
+		U.attach_accessory(null, badge)
 
 /datum/outfit/admin/nt/bssb/guard
 	name = "BSSB Escort"
 
-	suit = /obj/item/clothing/suit/armor/vest/bssb
-	belt =/obj/item/storage/belt/security
+	suit = /obj/item/clothing/suit/storage/toggle/bssb/armor
+	belt = /obj/item/storage/belt/security
+
+	shoes = /obj/item/clothing/shoes/jackboots
+	species_shoes = list(
+		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_TAJARA = /obj/item/clothing/shoes/tajara/jackboots,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/tajara/jackboots
+	)
 	r_pocket = null
 	l_hand = null
 	belt_contents = list(
@@ -239,16 +247,16 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/storage/box/zipties = 1,
-		/obj/item/clothing/head/helmet = 1
+		/obj/item/gun/energy/gun = 1,
+		/obj/item/clothing/head/helmet/security = 1
 	)
-
-	id_access = "CCIA Agent"
 
 /datum/outfit/admin/nt/bssb/guard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
-	if(H && H.suit)
+	if(H?.wear_suit)
 		var/obj/item/clothing/accessory/badge/bssb/badge = new(src)
-		H.suit.attach_accessory(null, badge)
+		var/obj/item/clothing/U = H.wear_suit
+		U.attach_accessory(null, badge)
 
 /datum/outfit/admin/nt/odindoc
 	name = "NTCC Odin Medical Specialist"
