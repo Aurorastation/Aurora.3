@@ -219,7 +219,7 @@
 	stamina	=	500			  //Tireless automatons
 	stamina_recovery = 1
 	sprint_speed_factor = 0.1
-	exhaust_threshold = 0 //No oxyloss, so zero threshold
+	exhaust_threshold = 10
 
 	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes)
 
@@ -337,6 +337,7 @@
 
 	stamina = 50
 	sprint_speed_factor = 0.9
+	slowdown = 2
 	exhaust_threshold = 20
 
 	bump_flag = HEAVY
@@ -362,7 +363,8 @@
 	total_health = 90
 
 	stamina = 40
-	sprint_speed_factor = 0.7
+	sprint_speed_factor = 0.9
+	slowdown = -2
 	standing_jump_range = 5
 	natural_climbing = TRUE
 
