@@ -22,7 +22,7 @@
 	name = "Orion Express Courier"
 
 	uniform = /obj/item/clothing/under/rank/hangar_technician/orion/ship
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/sneakers/brown
 	back = /obj/item/storage/backpack/satchel/leather
 
 	id = /obj/item/card/id/orion_ship

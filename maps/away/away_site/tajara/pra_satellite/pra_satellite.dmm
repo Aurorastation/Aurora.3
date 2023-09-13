@@ -968,7 +968,7 @@
 /area/pra_satellite)
 "vA" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/cosmonaut,
 /obj/item/clothing/accessory/holster/hip,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{

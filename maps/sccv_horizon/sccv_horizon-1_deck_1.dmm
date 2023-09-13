@@ -15456,8 +15456,8 @@
 /obj/structure/closet/crate/bin{
 	name = "subject clothing"
 	},
-/obj/item/clothing/shoes/white,
-/obj/item/clothing/shoes/white,
+/obj/item/clothing/shoes/sneakers,
+/obj/item/clothing/shoes/sneakers,
 /obj/item/clothing/under/medical_gown/white,
 /obj/item/clothing/under/medical_gown/white,
 /obj/structure/cable/green{

@@ -178,7 +178,7 @@
 /area/ala_base)
 "gV" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/ala,
 /obj/item/clothing/head/beret/tajaran/dpra/alt,
 /obj/item/clothing/accessory/badge/dpra_passport,
@@ -927,7 +927,7 @@
 /area/ala_base)
 "DL" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/ala,
 /obj/item/clothing/head/beret/tajaran/dpra/alt,
 /obj/item/clothing/accessory/badge/dpra_passport,

@@ -21,7 +21,7 @@
 	uniform = /obj/item/clothing/under/rank/bartender/idris
 	head = /obj/item/clothing/head/flatcap/bartender/idris
 	suit = /obj/item/clothing/suit/storage/bartender/idris
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/sneakers/brown
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
@@ -76,7 +76,7 @@
 	uniform = /obj/item/clothing/under/rank/chef/idris
 	suit = /obj/item/clothing/suit/chef_jacket/idris
 	head = /obj/item/clothing/head/chefhat/idris
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/sneakers/brown
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
@@ -135,7 +135,7 @@
 
 /datum/outfit/admin/random/space_bar_patron/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H.shoes) //If they didn't get shoes, it's because they can't fit in them. Find something that works.
-		var/obj/item/clothing/shoes/S = pick(/obj/item/clothing/shoes/sandal, /obj/item/clothing/shoes/footwraps, /obj/item/clothing/shoes/workboots/toeless, /obj/item/clothing/shoes/jackboots/toeless)
+		var/obj/item/clothing/shoes/S = pick(/obj/item/clothing/shoes/sandals, /obj/item/clothing/shoes/footwraps, /obj/item/clothing/shoes/workboots/toeless, /obj/item/clothing/shoes/jackboots/toeless)
 		H.equip_to_slot_or_del(new S, slot_shoes)
 
 /datum/outfit/admin/random/space_bar_patron/vaurca

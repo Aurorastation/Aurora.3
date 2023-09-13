@@ -239,7 +239,7 @@
 	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice
-	shoes = /obj/item/clothing/shoes/orange
+	shoes = /obj/item/clothing/shoes/sneakers/orange
 	head = /obj/item/clothing/head/beret/engineering
 	belt = /obj/item/storage/belt/utility
 
@@ -271,7 +271,7 @@
 	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice
-	shoes = /obj/item/clothing/shoes/orange
+	shoes = /obj/item/clothing/shoes/sneakers/orange
 	head = /obj/item/clothing/head/beret/engineering
 	belt = /obj/item/storage/belt/utility
 
