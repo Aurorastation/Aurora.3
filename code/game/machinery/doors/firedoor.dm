@@ -8,7 +8,7 @@
 
 /obj/machinery/door/firedoor
 	name = "emergency shutter"
-	desc = "An airtight emergency shutter. Capable of sealing off breached areas."
+	desc = "An airtight emergency bulkhead door, capable of sealing off breached areas and areas with hostile temperatures."
 	icon = 'icons/obj/doors/basic/single/emergency/firedoor.dmi'
 	icon_state = "door_open"
 	req_one_access = list(access_atmospherics, access_engine_equip, access_first_responder)
@@ -54,8 +54,8 @@
 		"cold"
 	)
 
-	var/open_sound = 'sound/machines/firelockopen.ogg'
-	var/close_sound = 'sound/machines/firelockclose.ogg'
+	var/open_sound = 'sound/machines/blastdoor_open.ogg'
+	var/close_sound = 'sound/machines/blastdoor_close.ogg'
 
 	init_flags = 0
 
@@ -167,7 +167,7 @@
 			if(3)
 				o += "EAST: "
 			if(4)
-				o += "WEST: " 
+				o += "WEST: "
 		if(tile_info[index] == null)
 			o += "<span class='warning'>DATA UNAVAILABLE</span>"
 			to_chat(user, o)
