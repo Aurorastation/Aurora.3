@@ -113,13 +113,13 @@
 				if(blood_DNA)
 					S.blood_DNA |= blood_DNA.Copy()
 
-		else if (hasfeet)//Or feet
+		else if(hasfeet) //Or feet
 			perp.footprint_color = basecolor
 			perp.track_footprint = max(amount,perp.track_footprint)
 			LAZYINITLIST(perp.feet_blood_DNA)
-			if (blood_DNA)
+			if(blood_DNA)
 				perp.feet_blood_DNA |= blood_DNA.Copy()
-		else if (perp.buckled_to && istype(perp.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
+		else if(perp.buckled_to && istype(perp.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
 			var/obj/structure/bed/stool/chair/office/wheelchair/W = perp.buckled_to
 			W.bloodiness = 4
 
