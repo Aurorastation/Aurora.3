@@ -731,6 +731,11 @@
 	icon_state = "com_headset"
 	ks2type = /obj/item/device/encryptionkey/ert
 
+/obj/item/device/radio/headset/ert/alt
+	name = "emergency response team bowman headset"
+	icon_state = "com_headset_alt"
+	item_state = "headset_alt"
+
 /obj/item/device/radio/headset/legion
 	name = "Tau Ceti Foreign Legion radio headset"
 	desc = "The headset used by NanoTrasen sanctioned response forces."

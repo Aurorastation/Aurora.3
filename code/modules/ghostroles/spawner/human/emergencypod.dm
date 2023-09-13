@@ -59,7 +59,7 @@
 		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	else if(t == "fib")
 		welcome_message = "You are a stranded Federal Investigation Bureau Agent!<br>What was supposed to be a standard investigation turned into a nightmare when the vessel you were supposed to board opened fire! You just managed to reach an escape pod before your own ship was turned into smoldering rubble. You really need some coffee."
-		outfit = /datum/outfit/admin/pod/fib
+		outfit = /datum/outfit/admin/pod/bssb
 		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 
 	else
@@ -341,10 +341,10 @@
 /datum/outfit/admin/pod/scc/get_id_rank()
 	return "Stellar Corporate Conglomerate Functionary"
 
-/datum/outfit/admin/pod/fib
-	name = "RescuePod - FIB" // Doctor Pavel, I'm FIB.
+/datum/outfit/admin/pod/bssb
+	name = "RescuePod - BSSB" // Doctor Pavel, I'm FIB.
 
-	uniform = /obj/item/clothing/under/rank/fib
+	uniform = /obj/item/clothing/under/rank/bssb
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/black
 	l_pocket = /obj/item/reagent_containers/spray/pepper
@@ -354,7 +354,7 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
     	/obj/item/device/camera = 1,
-		/obj/item/clothing/suit/storage/toggle/fib = 1,
+		/obj/item/clothing/suit/storage/toggle/bssb = 1,
 		/obj/item/handcuffs = 1,
 		/obj/item/device/oxycandle = 1,
 		/obj/item/airbubble = 1,
@@ -363,10 +363,10 @@
 
 
 
-/datum/outfit/admin/pod/fib/get_id_assignment()
+/datum/outfit/admin/pod/bssb/get_id_assignment()
 	return "Federal Investigation Bureau Agent"
 
-/datum/outfit/admin/pod/fib/get_id_rank()
+/datum/outfit/admin/pod/bssb/get_id_rank()
 	return "Federal Investigation Bureau Agent"
 
 
