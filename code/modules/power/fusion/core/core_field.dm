@@ -9,6 +9,7 @@
 	alpha = 30
 	layer = 4
 	light_color = COLOR_RED
+	mouse_opacity = MOUSE_OPACITY_ICON
 
 	var/size = 1
 	var/energy = 0

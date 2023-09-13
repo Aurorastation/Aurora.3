@@ -357,6 +357,7 @@
 	sheet_singular_name = "crystal"
 	sheet_plural_name = "crystals"
 	golem = SPECIES_GOLEM_PHORON
+	is_fusion_fuel = TRUE
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
