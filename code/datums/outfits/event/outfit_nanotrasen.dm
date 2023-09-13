@@ -248,7 +248,7 @@
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/storage/box/zipties = 1,
 		/obj/item/gun/energy/gun = 1,
-		/obj/item/clothing/head/helmet/security = 1
+		/obj/item/clothing/head/helmet = 1
 	)
 
 /datum/outfit/admin/nt/bssb/guard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
