@@ -158,7 +158,7 @@
 		launchinterface()
 
 /obj/attack_ghost(mob/user)
-	if (isobserver(user) && check_rights(R_ADMIN, FALSE, user))
+	if(isobserver(user) && check_rights(R_ADMIN, FALSE, user))
 		..()
 	else // normal ghosts cannot use this
 		return
