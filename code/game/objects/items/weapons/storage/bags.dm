@@ -119,7 +119,7 @@
 
 /obj/item/storage/bag/plants
 	name = "plant bag"
-	desc = "For storing your stems, seeds, buds, and any other euphemism illicit substances."
+	desc = "For storing your stems, seeds, buds, and any other illicit substances."
 	icon_state = "plantbag"
 	item_state = "plantbag"
 	max_storage_space = 100
