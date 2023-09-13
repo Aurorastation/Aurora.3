@@ -187,7 +187,7 @@ var/datum/controller/subsystem/radio/SSradio
 			return "penradio"
 		if (ENG_FREQ)
 			return "engradio"
-		if (SCI_FREQ, EXP_FREQ)
+		if (SCI_FREQ)
 			return "sciradio"
 		if (MED_FREQ,MED_I_FREQ)
 			return"medradio"
@@ -201,6 +201,8 @@ var/datum/controller/subsystem/radio/SSradio
 			return "bluespaceradio"
 		if (HAIL_FREQ)
 			return "hailradio"
+		if(EXP_FREQ)
+			return "expradio"
 
 	if(DEPT_FREQS_ASSOC[fstr])
 		return "deptradio"
