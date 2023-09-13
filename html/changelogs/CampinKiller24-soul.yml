@@ -1,7 +1,0 @@
-author: CampinKiller24
-
-delete-after: True
-
-changes:
-  - rscadd: "Added the knockout-gas system to the communal brig observation room, and scrubbers to the communal brig."
-  - rscadd: "Updated the Area Atmos Computer to tgui and removed unused code."
