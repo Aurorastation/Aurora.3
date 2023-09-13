@@ -41,5 +41,5 @@ changes:
   - maptweak: "Adds air alarms to every room in the sensor relay, thus ensuring that in case of a breach, the vents will function."
   - maptweak: "Fixes the relay entrance airlock, adding two air canisters for it to fill and empty from."
   - maptweak: "Fixes the relay air supply so it doesn't draw from a tank of pure oxygen."
-  - maptweak: "Makes the bathroom private, removing windows and glass airlocks from the bathroom."
-  - maptweak: "Shuffles some windows and posters around."
+  - maptweak: "Makes the relay bathroom private, removing windows and glass airlocks from the bathroom."
+  - maptweak: "Shuffles some windows and posters around in the relay."
