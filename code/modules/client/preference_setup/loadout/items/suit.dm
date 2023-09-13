@@ -290,8 +290,14 @@
 	dominiacape["white dominian cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius/white
 	dominiacape["dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao
 	dominiacape["white dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/white
-	dominiacape["tribunalist medical cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/hospital
 	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
+
+/datum/gear/suit/dominia_medical_cape
+	display_name = "tribunalist medical cape"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/hospital
+	flags = GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/dominia
 	display_name = "dominia coat and jacket selection"
