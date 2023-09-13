@@ -535,8 +535,9 @@
 	if (!mapload)
 		addtimer(CALLBACK(src, PROC_REF(update)), 5, TIMER_UNIQUE)
 
-/obj/machinery/power/apc/examine(mob/user)
-	if(..(user, 1))
+/obj/machinery/power/apc/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		if(stat & BROKEN)
 			to_chat(user, "Looks broken.")
 			return

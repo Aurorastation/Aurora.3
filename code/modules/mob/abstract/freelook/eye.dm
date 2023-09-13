@@ -55,7 +55,7 @@
 	airflow_speed = 0
 	airflow_dest = null
 
-/mob/abstract/eye/examinate()
+/mob/abstract/eye/ExaminateVerb()
 	set popup_menu = 0
 	set src = usr.contents
 	return 0
@@ -97,7 +97,7 @@
 /mob/abstract/eye/proc/setLoc(var/T)
 	if(!owner)
 		return FALSE
-	
+
 	T = get_turf(T)
 	if(!T || T == loc)
 		return FALSE
@@ -108,7 +108,7 @@
 		owner.client.eye = src
 	if(owner_follows_eye)
 		owner.forceMove(loc)
-	
+
 	visualnet.update_eye_chunks(src)
 	return TRUE
 

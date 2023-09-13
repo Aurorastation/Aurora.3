@@ -108,7 +108,7 @@
 	matter = list(MATERIAL_GLASS = 100)
 	brightness_range = 8
 	brightness_power = 0.4
-	lighttype = "tube"
+	lighttype = "ltube"
 
 /obj/item/light/tube/colored
 	randomize_color = FALSE
@@ -145,7 +145,7 @@
 	brightness_range = 15
 	brightness_power = 0.75
 	randomize_range = FALSE
-	lighttype = "stube"
+	lighttype = "lstube"
 
 /obj/item/light/bulb
 	name = "light bulb"
@@ -156,7 +156,7 @@
 	brightness_range = 5
 	brightness_power = 0.4
 	brightness_color = LIGHT_COLOR_TUNGSTEN
-	lighttype = "bulb"
+	lighttype = "lbulb"
 
 /obj/item/light/bulb/colored
 	randomize_color = FALSE

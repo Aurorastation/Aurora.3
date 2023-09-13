@@ -8,7 +8,7 @@
 	var/open = FALSE
 
 /obj/structure/sarcophagus/examine(mob/user)
-	..()
+	. = ..()
 	if(!open)
 		to_chat(user, "\The [src]'s lid is closed shut.")
 	else

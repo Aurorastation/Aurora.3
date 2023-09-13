@@ -155,8 +155,9 @@
 		attached_mob = null
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/reagent_containers/blood/examine(mob/user, distance = 2)
-	if (..() && vampire_marks)
+/obj/item/reagent_containers/blood/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if (distance <= 2 && vampire_marks)
 		to_chat(user, SPAN_WARNING("There are teeth marks on it."))
 	return
 

@@ -191,31 +191,11 @@
 	. = SSspatial_grid.orthogonal_range_search(source, SPATIAL_GRID_CONTENTS_TYPE_TARGETS, view_radius)
 
 	for(var/mob/target as anything in .)
-		if(!check_los(source, target, view_radius))
+		var/los = null
+		SPATIAL_CHECK_LOS(los, source, target, view_radius)
+		if(!los)
 			. -= target
 			continue
-
-/proc/check_los(atom/source, atom/target, view_radius = world.view)
-	var/turf/source_turf = get_turf(source)
-	var/turf/target_turf = get_turf(target)
-
-	var/distance = get_dist(source_turf, target_turf)
-	if(distance > view_radius)
-		return FALSE
-
-	if(distance < 2)
-		return TRUE
-
-	var/turf/mid_turf = source_turf
-
-	for(var/step_counter in 1 to distance)
-		mid_turf = get_step_towards(mid_turf, target_turf)
-		if(mid_turf == target_turf)
-			break
-		if(IS_OPAQUE_TURF(mid_turf))
-			return FALSE
-
-	return TRUE
 
 ///Calculate if two atoms are in sight, returns TRUE or FALSE
 /proc/inLineOfSight(X1,Y1,X2,Y2,Z=1,PX1=16.5,PY1=16.5,PX2=16.5,PY2=16.5)

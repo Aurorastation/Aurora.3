@@ -198,9 +198,9 @@
 		icon_state = "c05r-e"
 
 /obj/item/gun/projectile/silenced
-	name = "silenced pistol"
+	name = "suppressed pistol"
 	desc = "A small, quiet, easily concealable gun."
-	desc_extended = "Created as a disposable and concealable weapon, the Mrrazhakulii suppressed pistol is a firearm with a silencer integrated as part of its barrel. \
+	desc_extended = "Created as a disposable and concealable weapon, the Mrrazhakulii suppressed pistol is a firearm with a suppressor integrated as part of its barrel. \
 		Carried by guerrilla forces and spies, those guns are used in assassination and subterfuge operations. Due to using cheap and available materials, such as \
 		recycled iron and tires, countless of those pistols were distributed among cells and ALA soldiers."
 	icon = 'icons/obj/guns/silenced_pistol.dmi'
@@ -211,7 +211,8 @@
 	accuracy = 1
 	offhand_accuracy = 1
 	caliber = ".45"
-	silenced = 1
+	suppressed = TRUE
+	can_unsuppress = FALSE
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45m
@@ -295,14 +296,15 @@
 	accuracy = 1
 	offhand_accuracy = 2
 	caliber = "9mm"
-	silenced = 0
+	suppressed = FALSE
+	can_suppress = TRUE
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
-	var/can_silence = TRUE
 	fire_delay = ROF_PISTOL
+	suppressor_x_offset = 5
 
 /obj/item/gun/projectile/pistol/flash
 	name = "9mm signal pistol"
@@ -316,7 +318,7 @@
 	icon = 'icons/obj/guns/detgun.dmi'
 	icon_state = "detgun"
 	item_state = "detgun"
-	can_silence = FALSE
+	can_suppress = FALSE
 
 /obj/item/gun/projectile/pistol/detective/update_icon()
 	..()
@@ -338,55 +340,11 @@
 	name = input
 	to_chat(usr, "You name the gun [input]. Say hello to your new friend.")
 
-/obj/item/gun/projectile/pistol/attack_hand(mob/user as mob)
-	if(user.get_inactive_hand() == src)
-		if(silenced && can_silence)
-			if(user.l_hand != src && user.r_hand != src)
-				..()
-				return
-			to_chat(user, "<span class='notice'>You unscrew [silenced] from [src].</span>")
-			user.put_in_hands(silenced)
-			silenced = 0
-			w_class = ITEMSIZE_SMALL
-			update_icon()
-			return
-	..()
-
-/obj/item/gun/projectile/pistol/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/silencer) && can_silence)
-		if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
-			to_chat(user, "<span class='notice'>You'll need [src] in your hands to do that.</span>")
-			return
-		user.drop_from_inventory(I,src)
-		to_chat(user, "<span class='notice'>You screw [I] onto [src].</span>")
-		silenced = I	//dodgy?
-		w_class = ITEMSIZE_NORMAL
-		update_icon()
-		return
-	..()
-
 /obj/item/gun/projectile/pistol/update_icon()
 	..()
-	if(silenced)
-		icon_state = "pistol-silencer"
-	else
-		icon_state = "pistol"
-
-/obj/item/gun/projectile/pistol/update_icon()
-	..()
-	if(silenced)
-		icon_state = "pistol-silencer"
-	else
-		icon_state = "pistol"
+	icon_state = "pistol"
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
 		icon_state = "[icon_state]-e"
-
-/obj/item/silencer
-	name = "silencer"
-	desc = "A silencer"
-	icon = 'icons/obj/guns/pistol.dmi'
-	icon_state = "silencer"
-	w_class = ITEMSIZE_SMALL
 
 /obj/item/gun/projectile/pirate
 	name = "zip gun"
@@ -447,7 +405,9 @@
 	icon = 'icons/obj/guns/sol_pistol.dmi'
 	icon_state = "m8"
 	item_state = "m8"
-	can_silence = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 9
+	suppressor_y_offset = 3
 
 /obj/item/gun/projectile/pistol/sol/update_icon()
 	..()
@@ -462,7 +422,7 @@
 	icon = 'icons/obj/guns/adhomian_pistol.dmi'
 	icon_state = "adhomian_pistol"
 	item_state = "adhomian_pistol"
-	can_silence = FALSE
+	can_suppress = FALSE
 	desc_extended = "A mass produced pistol issued to People's Republic officers, government officials and low-ranking Party members. Known for their simple, cheap and reliable \
 	design, this weapon is produced by nearly all weapon factories in the Republic. The Adar'Mazy is also found in the hands of Adhomai Liberation Army soldiers and commanders."
 
@@ -484,7 +444,7 @@
 	icon_state = "k2557-loaded"
 	item_state = "k2557-loaded"
 	contained_sprite = TRUE
-	can_silence = FALSE
+	can_suppress = FALSE
 	w_class = ITEMSIZE_NORMAL
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS

@@ -263,6 +263,13 @@
 	item_state = "legion_bag"
 	empty_delay = 0.8 SECOND
 
+/obj/item/storage/backpack/tcaf
+	name = "\improper TCAF carapace backpack"
+	desc = "A hard shelled backpack with the flag of the Republic of Biesel front and center. Made for the Tau Ceti Armed Forces."
+	icon_state = "tcaf_carapace_backpack"
+	item_state = "tcaf_carapace_backpack"
+	empty_delay = 0.8 SECOND
+
 /obj/item/storage/backpack/service
 	name = "idris service backpack"
 	desc = "The Idris Service Standard, known for it's professionalism. It also baffingly includes this monstrous, self-stabilizing back-mounted utensil and service item holder."
@@ -973,6 +980,24 @@
 	desc = "A Vaurca cloak with storage pockets. This one has the security department design."
 	icon_state = "seccape"
 	item_state = "seccape"
+
+/obj/item/storage/backpack/cloak/zora
+	name = "\improper Zo'ra tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the Zo'ra Hive flag design."
+	icon_state = "zoracape"
+	item_state = "zoracape"
+
+/obj/item/storage/backpack/cloak/klax
+	name = "\improper K'lax tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the K'lax Hive flag design."
+	icon_state = "klaxcape"
+	item_state = "klaxcape"
+
+/obj/item/storage/backpack/cloak/cthur
+	name = "\improper C'thur tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the C'thur Hive flag design."
+	icon_state = "cthurcape"
+	item_state = "cthurcape"
 
 /obj/item/storage/backpack/kala
 	name = "skrell backpack"

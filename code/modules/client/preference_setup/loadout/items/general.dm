@@ -169,6 +169,7 @@
 	banners["banner, Visegrad"] = /obj/item/flag/visegrad
 	banners["banner, Union of Port Antillia"] = /obj/item/flag/portantillia
 	banners["banner, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette
+	banners["banner, Old Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/old
 	banners["banner, Mictlan"] = /obj/item/flag/mictlan
 	banners["banner, New Hai Phong"] = /obj/item/flag/nhp
 	banners["banner, Silversun"] = /obj/item/flag/silversun
@@ -237,6 +238,7 @@
 	flags["flag, Republic of Assunzione"] = /obj/item/flag/assunzione/l
 	flags["flag, Union of Port Antillia"] = /obj/item/flag/portantillia/l
 	flags["flag, Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/l
+	flags["flag, Old Sovereign Solarian Republic of San Colette"] = /obj/item/flag/sancolette/old/l
 	flags["flag, Mictlan"] = /obj/item/flag/mictlan/l
 	flags["flag, New Hai Phong"] = /obj/item/flag/nhp/l
 	flags["flag, Silversun"] = /obj/item/flag/silversun/l

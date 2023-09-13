@@ -19,8 +19,8 @@
 	var/max_rockets = 1
 	var/list/rockets = new/list()
 
-/obj/item/gun/launcher/rocket/examine(mob/user)
-	if(!..(user, 2))
+/obj/item/gun/launcher/rocket/examine(mob/user, distance, is_adjacent)
+	if(distance > 2)
 		return
 	to_chat(user, "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>")
 

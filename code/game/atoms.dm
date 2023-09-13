@@ -86,6 +86,10 @@
 		return 0
 	return -1
 
+/// Primarily used on machinery, when this returns TRUE, equipment that helps with vision, such as prescription glasses for nearsighted characters, have an effect despite the client eye not being on the mob
+/atom/proc/grants_equipment_vision(var/mob/user)
+	return
+
 /atom/proc/additional_sight_flags()
 	return 0
 
@@ -104,6 +108,9 @@
 // Returns true if open, false if closed.
 /atom/proc/is_open_container()
 	return flags & OPENCONTAINER
+
+/atom/proc/is_pour_container()
+	return flags & POURCONTAINER
 
 /atom/proc/CheckExit()
 	return 1
@@ -237,7 +244,9 @@
 	return found
 
 // Examination code for all atoms.
-/atom/proc/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
+// Returns TRUE, the caller always expects TRUE
+// This is used rather than SHOULD_CALL_PARENT as it enforces that subtypes of a type that explicitly returns still call parent
+/atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "")
 	var/f_name = "\a [src][infix]."
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
@@ -269,10 +278,10 @@
 		if(H.glasses)
 			H.glasses.glasses_examine_atom(src, H)
 
-	return distance == -1 || (get_dist(src, user) <= distance)
+	return TRUE
 
 // Same as examine(), but without the "this object has more info" thing and with the extra information instead.
-/atom/proc/examine_fluff(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
+/atom/proc/examine_fluff(mob/user, distance, is_adjacent, infix = "", suffix = "")
 	var/f_name = "\a [src][infix]."
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
@@ -298,7 +307,7 @@
 		if(H.glasses)
 			H.glasses.glasses_examine_atom(src, H)
 
-	return distance == -1 || (get_dist(src, user) <= distance)
+	return TRUE
 
 // Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
 /atom/Topic(href, href_list)
@@ -307,7 +316,7 @@
 		return
 
 	if(href_list["examine_fluff"])
-		examine_fluff(usr)
+		examinate(usr, src, show_extended = TRUE)
 
 	var/client/usr_client = usr.client
 	var/list/paramslist = list()

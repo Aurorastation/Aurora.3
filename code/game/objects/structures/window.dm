@@ -34,7 +34,7 @@
 	atmos_canpass = CANPASS_PROC
 
 /obj/structure/window/examine(mob/user)
-	. = ..(user)
+	. = ..()
 
 	if(health == maxhealth)
 		to_chat(user, SPAN_NOTICE("It looks fully intact."))

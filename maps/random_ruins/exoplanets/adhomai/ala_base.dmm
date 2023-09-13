@@ -178,7 +178,7 @@
 /area/ala_base)
 "gV" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/ala,
 /obj/item/clothing/head/beret/tajaran/dpra/alt,
 /obj/item/clothing/accessory/badge/dpra_passport,
@@ -927,7 +927,7 @@
 /area/ala_base)
 "DL" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/ala,
 /obj/item/clothing/head/beret/tajaran/dpra/alt,
 /obj/item/clothing/accessory/badge/dpra_passport,
@@ -1071,7 +1071,8 @@
 "In" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Cell";
-	req_access = list(214)
+	req_access = list(214);
+	dir = 1
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
@@ -1133,7 +1134,8 @@
 "Lg" = (
 /obj/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(214)
+	req_access = list(214);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -1141,9 +1143,7 @@
 /area/ala_base)
 "LP" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 31
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},

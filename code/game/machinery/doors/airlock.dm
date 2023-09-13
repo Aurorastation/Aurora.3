@@ -1099,15 +1099,18 @@ About the new airlock wires panel:
 		if("opening")
 			set_airlock_overlays(AIRLOCK_OPENING, TRUE)
 			flick("opening", src)//[stat ? "_stat":]
+			update_icon(AIRLOCK_OPEN)
 		if("closing")
 			set_airlock_overlays(AIRLOCK_CLOSING, TRUE)
 			flick("closing", src)
+			update_icon(AIRLOCK_CLOSED)
 		if("deny")
 			set_airlock_overlays(AIRLOCK_DENY, TRUE)
 			if(density && arePowerSystemsOn())
 				flick("denied", src)
 				if(secured_wires)
 					playsound(src.loc, open_failure_access_denied, 50, 0)
+			update_icon(AIRLOCK_CLOSED)
 		if("emag")
 			set_airlock_overlays(AIRLOCK_EMAG, TRUE)
 			if(density && arePowerSystemsOn())
@@ -1947,7 +1950,7 @@ About the new airlock wires panel:
 				if(AM.blocks_airlock())
 					if(world.time > next_beep_at)
 						playsound(src.loc, close_failure_blocked, 30, 0, -3)
-						next_beep_at = world.time + SecondsToTicks(10)
+						next_beep_at = world.time + SecondsToTicks(20)
 					close_door_in(6)
 					return
 	var/has_opened_hatch = FALSE
@@ -2050,7 +2053,7 @@ About the new airlock wires panel:
 	return
 
 /obj/machinery/door/airlock/examine(mob/user)
-	..()
+	. = ..()
 	if (bolt_cut_state == BOLTS_EXPOSED)
 		to_chat(user, "The bolt cover has been cut open.")
 	if (bolt_cut_state == BOLTS_CUT)

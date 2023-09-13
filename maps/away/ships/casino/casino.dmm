@@ -135,7 +135,8 @@
 	frequency = 1380;
 	icon_state = "door_closed";
 	id_tag = "casino_dock_outer";
-	name = "Docking Port Airlock"
+	name = "Docking Port Airlock";
+	dir = 1
 	},
 /obj/effect/landmark/entry_point/south{
 	name = "fore, airlock"
@@ -173,10 +174,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
+/obj/item/device/radio/intercom/east,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	id_tag = "casino_solar_pump"
 	},
@@ -225,24 +223,21 @@
 	frequency = 1380;
 	icon_state = "door_closed";
 	id_tag = "casino_dock_inner";
-	name = "Docking Port Airlock"
+	name = "Docking Port Airlock";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
 "aV" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/casino/casino_bridge)
@@ -275,7 +270,7 @@
 /obj/structure/closet/emcloset,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_bridge)
@@ -290,7 +285,7 @@
 	id_tag = "casino_dock_airlock";
 	pixel_x = -24;
 	pixel_y = 6;
-	req_access = newlist();
+	req_access = null;
 	tag_airpump = "casino_dock_pump";
 	tag_chamber_sensor = "casino_dock_sensor";
 	tag_exterior_door = "casino_dock_outer";
@@ -327,7 +322,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Casino Bridge"
+	name = "Casino Bridge";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -341,7 +337,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Casino Bridge"
+	name = "Casino Bridge";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
@@ -530,7 +527,8 @@
 "bG" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Security wing"
+	name = "Security wing";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -596,15 +594,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
 "bM" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Shuttle control"
+	name = "Shuttle control";
+	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -648,15 +645,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_bunk)
 "bR" = (
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/casino/casino_security)
 "bS" = (
@@ -711,11 +704,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
 "cg" = (
@@ -860,11 +849,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_bunk)
 "cz" = (
@@ -930,11 +915,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
-	req_access = newlist()
+/obj/machinery/power/apc/north{
+	req_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_crew_bathroom)
@@ -942,7 +924,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Crew toilet"
+	name = "Crew toilet";
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -1000,7 +983,7 @@
 "cT" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/modular_computer/console{
 	dir = 8
@@ -1055,7 +1038,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Crew bunk room"
+	name = "Crew bunk room";
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -1135,9 +1119,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/casino/casino_hangar)
 "dn" = (
@@ -1164,7 +1146,7 @@
 "dt" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/structure/toilet{
@@ -1175,7 +1157,8 @@
 "du" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Crew toilet"
+	name = "Crew toilet";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_crew_bathroom)
@@ -1308,7 +1291,7 @@
 "ee" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/shower{
 	dir = 4;
@@ -1337,7 +1320,7 @@
 /obj/structure/casino/roulette_chart,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_storage)
@@ -1355,7 +1338,7 @@
 "el" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_storage)
@@ -1363,7 +1346,7 @@
 /obj/random/ammo,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled,
@@ -1484,7 +1467,8 @@
 "eB" = (
 /obj/machinery/door/airlock/highsecurity{
 	insecure = 0;
-	name = "Safe area"
+	name = "Safe area";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_security)
@@ -1505,7 +1489,7 @@
 "eF" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/casino/casino_hangar)
@@ -1628,11 +1612,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/plating,
 /area/casino/casino_storage)
 "eV" = (
@@ -1672,10 +1652,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	name = "south bump";
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled/dark,
 /area/casino/casino_hangar)
 "fa" = (
@@ -1686,7 +1663,7 @@
 /obj/structure/closet/emcloset,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/casino/casino_hangar)
@@ -1703,18 +1680,15 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
 "ff" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/structure/cable{
@@ -1729,7 +1703,8 @@
 "fg" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Security wing"
+	name = "Security wing";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -1739,7 +1714,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Shuttle hangar"
+	name = "Shuttle hangar";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -1784,7 +1760,8 @@
 "fo" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Main desk"
+	name = "Main desk";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -1819,7 +1796,8 @@
 "fr" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Shuttle checkpoint"
+	name = "Shuttle checkpoint";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -1866,7 +1844,7 @@
 "fw" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/coatrack,
 /turf/simulated/floor/tiled,
@@ -1911,7 +1889,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -1923,7 +1902,8 @@
 "fF" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Main desk"
+	name = "Main desk";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -1939,7 +1919,7 @@
 /obj/item/device/radio,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -1991,11 +1971,7 @@
 "fR" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/structure/cable,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "fS" = (
@@ -2030,7 +2006,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/reagent_containers/food/drinks/small_milk,
+/obj/item/reagent_containers/food/drinks/carton/small/milk,
 /turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
 "fW" = (
@@ -2067,7 +2043,7 @@
 "gb" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_bridge)
@@ -2075,7 +2051,7 @@
 /obj/structure/closet/emcloset,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -2086,7 +2062,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Casino"
+	name = "Casino";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -2138,7 +2115,7 @@
 /turf/simulated/floor/wood/birch,
 /area/casino/casino_private1)
 "gm" = (
-/obj/item/reagent_containers/food/drinks/flask/shiny,
+/obj/item/reagent_containers/food/drinks/flask,
 /obj/structure/bed/stool/padded,
 /turf/simulated/floor/tiled/rust,
 /area/casino/casino_crew_cantina)
@@ -2191,9 +2168,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/casino/casino_bow)
 "gw" = (
@@ -2234,7 +2209,8 @@
 	frequency = 1438;
 	icon_state = "door_locked";
 	id_tag = "casino_solar_outer";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_solar_control)
@@ -2243,7 +2219,7 @@
 	frequency = 1438;
 	id_tag = "casino_solar_airlock";
 	pixel_x = 24;
-	req_access = newlist();
+	req_access = null;
 	tag_airpump = "casino_solar_pump";
 	tag_chamber_sensor = "casino_solar_sensor";
 	tag_exterior_door = "casino_solar_outer";
@@ -2317,7 +2293,8 @@
 	icon_state = "door_locked";
 	id_tag = "casino_solar_inner";
 	locked = 1;
-	name = "External Access"
+	name = "External Access";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/yellow{
@@ -2489,9 +2466,7 @@
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_kitchen)
 "hs" = (
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
+/obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/tiled/white,
@@ -2520,7 +2495,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_kitchen)
@@ -2607,11 +2583,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
@@ -2657,7 +2629,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -2694,7 +2667,7 @@
 "hY" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/coatrack,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2753,7 +2726,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Solar control"
+	name = "Solar control";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -2766,7 +2740,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Atmos control"
+	name = "Atmos control";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -2828,7 +2803,7 @@
 "io" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/chem_master/condimaster,
 /obj/structure/table/stone/marble,
@@ -2899,9 +2874,7 @@
 /turf/simulated/floor/plating,
 /area/casino/casino_crew_atmos)
 "iz" = (
-/obj/structure/fireaxecabinet{
-	pixel_y = 30
-	},
+/obj/structure/fireaxecabinet/north,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -3123,7 +3096,7 @@
 "ja" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/fancybrown,
 /area/casino/casino_mainfloor)
@@ -3202,7 +3175,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Bar storage"
+	name = "Bar storage";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3237,7 +3211,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Bar"
+	name = "Bar";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3273,9 +3248,7 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "js" = (
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "jt" = (
@@ -3618,7 +3591,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -3649,9 +3623,7 @@
 /area/casino/casino_mainfloor)
 "ks" = (
 /obj/structure/bed/stool/chair/office/dark,
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/casino/casino_storage)
 "kt" = (
@@ -3985,11 +3957,7 @@
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/wood/birch,
 /area/casino/casino_private_vip)
 "ll" = (
@@ -4043,11 +4011,7 @@
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/wood/birch,
 /area/casino/casino_private1)
 "lp" = (
@@ -4101,18 +4065,15 @@
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/wood/birch,
 /area/casino/casino_private2)
 "lt" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Toilet room"
+	name = "Toilet room";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4129,7 +4090,7 @@
 "lv" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4224,14 +4185,15 @@
 "lS" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Toilet #1"
+	name = "Toilet #1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_patron_bathroom)
 "lT" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/toilet{
 	dir = 8
@@ -4254,7 +4216,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Bow"
+	name = "Bow";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4290,7 +4253,7 @@
 "mc" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood/birch,
 /area/casino/casino_private_vip)
@@ -4302,7 +4265,7 @@
 "me" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood/birch,
 /area/casino/casino_private1)
@@ -4314,7 +4277,7 @@
 "mg" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood/birch,
 /area/casino/casino_private2)
@@ -4323,11 +4286,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_patron_bathroom)
 "mj" = (
@@ -4433,7 +4392,8 @@
 "mC" = (
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Toilet #2"
+	name = "Toilet #2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_patron_bathroom)
@@ -4474,18 +4434,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/plating,
 /area/casino/casino_bow)
 "mL" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Bow"
+	name = "Bow";
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -4565,7 +4522,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Engines #1"
+	name = "Engines #1";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_bow)
@@ -4584,7 +4542,8 @@
 	icon_state = "door_locked";
 	id_tag = "escape_pod";
 	locked = 1;
-	name = "Escape Pod"
+	name = "Escape Pod";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_bow)
@@ -4592,14 +4551,13 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Engines #2"
+	name = "Engines #2";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_bow)
 "nc" = (
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 4
 	},
@@ -4636,10 +4594,7 @@
 /turf/simulated/floor,
 /area/casino/casino_bow)
 "nj" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = -22
-	},
+/obj/item/device/radio/intercom/west,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -4721,7 +4676,7 @@
 "oc" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -5102,7 +5057,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	insecure = 0;
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -5180,7 +5136,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Cutter door"
+	name = "Cutter door";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/rust,
@@ -5279,11 +5236,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -5309,7 +5262,7 @@
 "Ec" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/fancybrown,
 /area/casino/casino_mainfloor)
@@ -5332,9 +5285,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/alarm{
-	pixel_y = 25
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
 "Fc" = (
@@ -5423,7 +5374,7 @@
 /obj/structure/flora/pottedplant,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/fancybrown,
 /area/casino/casino_mainfloor)
@@ -5616,11 +5567,7 @@
 "Oc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/structure/cable,
 /obj/structure/cable{
 	d2 = 2;
@@ -5701,7 +5648,7 @@
 "Px" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/bed/stool/chair/shuttle,
 /obj/random/spacecash,
@@ -5744,9 +5691,7 @@
 /area/casino/casino_bow)
 "Qe" = (
 /obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/alarm{
-	pixel_y = 30
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "Qi" = (
@@ -5879,11 +5824,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/high/north,
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/casino_cutter)
 "Tc" = (
@@ -5914,7 +5855,7 @@
 /obj/random/soap,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/sink{
 	dir = 8;
@@ -6084,7 +6025,7 @@
 "Yx" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6101,10 +6042,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
 "Ze" = (

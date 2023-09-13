@@ -134,7 +134,7 @@
 	name = "RescuePod - Priest"
 
 	uniform = /obj/item/clothing/under/rank/chaplain
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 	pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
 
 	backpack_contents = list(
@@ -264,7 +264,7 @@
 	back = /obj/item/rig/retro // has an oxygen tank built in
 	belt = /obj/item/storage/belt/security/tactical
 	gloves = /obj/item/clothing/gloves/swat/ert
-	shoes = /obj/item/clothing/shoes/swat/ert
+	shoes = /obj/item/clothing/shoes/combat
 	id = /obj/item/card/id/distress/legion
 	uniform = /obj/item/clothing/under/legion
 	accessory = /obj/item/clothing/accessory/holster/thigh
@@ -392,8 +392,8 @@
 	belt = null
 
 	shoes = list(
-		/obj/item/clothing/shoes/laceup/all_species,
-		/obj/item/clothing/shoes/laceup/brown/all_species
+		/obj/item/clothing/shoes/laceup,
+		/obj/item/clothing/shoes/laceup/brown
 	)
 
 	glasses = list(

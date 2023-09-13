@@ -182,7 +182,7 @@
 /obj/structure/sign/flag/attack_hand(mob/user)
 	switch(user.a_intent)
 		if(I_HELP)
-			user.examinate(src)
+			examinate(user, src)
 		if(I_DISARM)
 			user.visible_message(SPAN_NOTICE("\The [user] begins to carefully fold up \the [src]."), SPAN_NOTICE("You begin to carefully fold up \the [src]."))
 			if(do_after(user, 50))
@@ -1907,6 +1907,45 @@
 	..(loc, EAST)
 
 /obj/structure/sign/flag/sancolette/large/west/New()
+	..(loc, WEST)
+
+/obj/item/flag/sancolette/old
+	name = "old Sovereign Solarian Republic of San Colette flag"
+	desc = "The flag of the Sovereign Solarian Republic of San Colette, before its re-integration with the Solarian Alliance through the Northern Solarian Reconstruction Mandate. Still common throughout the spur, as volunteers in the war for the Middle Ring Shield Pact often collected them as memorabilia."
+	flag_path = "sancolette_old"
+	flag_structure = /obj/structure/sign/flag/sancolette/old
+
+/obj/structure/sign/flag/sancolette/old
+	name = "old Sovereign Solarian Republic of San Colette flag"
+	desc = "The flag of the Sovereign Solarian Republic of San Colette, before its re-integration with the Solarian Alliance through the Northern Solarian Reconstruction Mandate. Still common throughout the spur, as volunteers in the war for the Middle Ring Shield Pact often collected them as memorabilia."
+	flag_path = "sancolette_old"
+	icon_state = "sancolette_old"
+	flag_item = /obj/item/flag/sancolette/old
+
+/obj/structure/sign/flag/sancolette/old/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/sancolette/old/l
+	name = "large old Sovereign Solarian Republic of San Colette flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/sancolette/old/large
+
+/obj/structure/sign/flag/sancolette/old/large
+	icon_state = "sancolette_old_l"
+	flag_path = "sancolette_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/sancolette/old/l
+
+/obj/structure/sign/flag/sancolette/old/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/sancolette/old/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/sancolette/old/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/sancolette/old/large/west/New()
 	..(loc, WEST)
 
 // Mictlan

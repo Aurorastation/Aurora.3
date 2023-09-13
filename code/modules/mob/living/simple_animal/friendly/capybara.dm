@@ -33,7 +33,7 @@
 	..()
 
 /mob/living/simple_animal/capybara/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "How can someone kill such a friendly creature?")
 

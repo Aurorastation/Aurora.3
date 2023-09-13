@@ -62,9 +62,9 @@
 	if(master)
 		master.update_icon()
 
-/obj/item/device/assembly_holder/examine(mob/user)
-	. = ..(user)
-	if(. && (in_range(src, user) || src.loc == user))
+/obj/item/device/assembly_holder/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1 || src.loc == user)
 		if (src.secured)
 			to_chat(user, SPAN_NOTICE("\The [src] is ready!"))
 		else

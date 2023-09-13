@@ -656,7 +656,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		slot_flags = SLOT_BELT
 
 /obj/item/stack/cable_coil/examine(mob/user)
-	..()
+	. = ..()
 	if(!uses_charge)
 		to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
 	else
