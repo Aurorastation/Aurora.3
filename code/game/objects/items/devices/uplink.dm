@@ -138,12 +138,12 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		// ui.close()
 	else if(action == "return")
 		nanoui_menu = round(nanoui_menu/10)
-	// else if(action == "menu")
-	// 	nanoui_menu = text2num(params["menu"])
-		// if(href_list["id"])
-		// 	exploit_id = href_list["id"]
-		// if(href_list["category"])
-		// 	category = locate(href_list["category"]) in uplink.categories
+	else if(action == "menu")
+		nanoui_menu = text2num(params["menu"])
+		if(params["id"])
+			exploit_id = params["id"]
+		if(params["category"])
+			category = locate(params["category"]) in uplink.categories
 	// if(action == ["contract_interact"])
 	// 	var/list/params = list("location" = "contract_details", "contract" = params["contract_interact"])
 	// 	usr.client.process_webint_link("interface/login/sso_server", list2params(params))
