@@ -112,6 +112,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	data["telecrystals"] = telecrystals
 	data["bluecrystals"] = bluecrystals
 	data["menu"] = nanoui_menu
+	update_nano_data()
 	data += nanoui_data
 	return data
 
@@ -149,13 +150,10 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	// 	usr.client.process_webint_link("interface/login/sso_server", list2params(params))
 	if(action == "contract_page")
 		nanoui_data["contracts_current_page"] = text2num(params["contract_page"])
-		update_nano_data()
 	if(action == "contract_view")
 		nanoui_data["contracts_view"] = text2num(params["contract_view"])
 		nanoui_data["contracts_current_page"] = 1
-		update_nano_data()
 
-	// update_nano_data()
 	return 1
 
 /obj/item/device/uplink/hidden/proc/update_nano_data()

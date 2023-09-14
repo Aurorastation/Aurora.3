@@ -1,25 +1,25 @@
 import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
-import { Button, NumberInput, Section, LabeledList, Table } from '../components';
+import { useBackend, useLocalState } from '../backend';
+import { Box, Button, NumberInput, Section, LabeledList, Table } from '../components';
 import { Window } from '../layouts';
 
 export type UplinkData = {
   menu: Number;
-  welcome: String;
+  welcome: string;
   telecrystals: Number;
   bluecrystals: Number;
-  categories: { name: String; ref: String }[];
+  categories: { name: string; ref: string }[];
   items: ItemData[];
 };
 
 type ItemData = {
-  name: String;
-  description: String;
+  name: string;
+  description: string;
   can_buy: BooleanLike;
-  tc_cost: Number;
-  bc_cost: Number;
-  left: Number;
-  ref: String;
+  tc_cost: number;
+  bc_cost: number;
+  left: number;
+  ref: string;
 };
 
 export const Uplink = (props, context) => {
@@ -55,7 +55,7 @@ export const Uplink = (props, context) => {
           </Table>
         </Section>
         {data.menu == 0 ? ItemCategoriesSection(act, data) : ''}
-        {data.menu == 1 ? ItemSection(act, data) : ''}
+        {data.menu == 1 ? ItemSection(context, act, data) : ''}
       </Window.Content>
     </Window>
   );
@@ -78,7 +78,34 @@ const ItemCategoriesSection = function (act: any, data: UplinkData) {
   );
 };
 
-const ItemSection = function (act: any, data: UplinkData) {
+const ItemSection = function (context: any, act: any, data: UplinkData) {
+  const [sortDesc, setSortDesc] = useLocalState<boolean>(
+    context,
+    `sortDesc`,
+    true
+  );
+
+  // sort by item cost first
+  data.items?.sort((a, b) => {
+    const a_cost = Math.max(a.bc_cost, a.tc_cost, 0);
+    const b_cost = Math.max(b.bc_cost, b.tc_cost, 0);
+    if (sortDesc) {
+      return b_cost - a_cost;
+    } else {
+      return a_cost - b_cost;
+    }
+  });
+  // and then sort to put unavailable items at the end
+  data.items?.sort((a, b) => {
+    if (!a.can_buy && b.can_buy) {
+      return +1;
+    } else if (a.can_buy && !b.can_buy) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+
   return (
     <Section title="Request Gear">
       <span class="white">
@@ -95,22 +122,46 @@ const ItemSection = function (act: any, data: UplinkData) {
         </b>
       </span>
       <br />
-      Category:
-      <LabeledList>
+      <Box textAlign="right">
+        <Button
+          icon="sort-numeric-down"
+          onClick={() => {
+            setSortDesc(!sortDesc);
+          }}></Button>
+      </Box>
+      <Table>
         {data.items?.map((item: ItemData) => (
-          <LabeledList.Item>
-            <>
-              <Button
-                content={item.name}
-                // disabled={true}
-                onClick={() => act('buy_item', { buy_item: item.ref })}
-              />
-              {item.bc_cost} BC
-              {item.tc_cost} TC
-            </>
-          </LabeledList.Item>
+          <>
+            <Table.Row color={item.can_buy ? null : 'gray'}>
+              <Table.Cell>
+                <Button
+                  content={item.name}
+                  disabled={!item.can_buy}
+                  onClick={() => act('buy_item', { buy_item: item.ref })}
+                />
+              </Table.Cell>
+              <Table.Cell>
+                {item.bc_cost ? item.bc_cost + ' BC' : ''}{' '}
+              </Table.Cell>
+              <Table.Cell>
+                {item.tc_cost ? item.tc_cost + ' TC' : ''}{' '}
+              </Table.Cell>
+              <Table.Cell>
+                {item.left < 42 ? item.left + ' LEFT' : ''}{' '}
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row color={item.can_buy ? null : 'gray'}>
+              <Table.Cell colspan={4}>
+                <Box width="75%">
+                  {item.description}
+                  <br />
+                  <br />
+                </Box>
+              </Table.Cell>
+            </Table.Row>
+          </>
         ))}
-      </LabeledList>
+      </Table>
     </Section>
   );
 };
