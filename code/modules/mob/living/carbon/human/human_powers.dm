@@ -1509,7 +1509,7 @@
 		to_chat(src, SPAN_DANGER("Your mind is dark, unable to communicate with the Hive."))
 		return
 	if(!istype(src.internal_organs_by_name[BP_NEURAL_SOCKET], /obj/item/organ/internal/vaurca/neuralsocket/admin))
-		to_chat(src, SPAN_WARNING("You lack the authority to do this!."))
+		to_chat(src, SPAN_WARNING("You lack the authority to do this!"))
 		return
 	for(var/mob/living/carbon/human/player in player_list)
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
