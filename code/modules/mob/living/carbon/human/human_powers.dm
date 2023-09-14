@@ -1727,7 +1727,6 @@
 		to_chat(src, SPAN_NOTICE("You extend your mind into the Hivenet, accessing [target]'s senses. Use this verb again to cancel."))
 		remoteview_target = target
 		reset_view(target)
-		return
 	else
 		host.last_action = world.time + 5 MINUTES
 		var/choice = alert(target, "[src] is attempting to access your senses. Do you wish to allow this?", "Hivenet Remote Observation", "Deny", "Allow")
@@ -1735,7 +1734,7 @@
 			to_chat(src, SPAN_NOTICE("You extend your mind into the Hivenet, accessing [target]'s senses. Use this verb again to cancel."))
 			remoteview_target = target
 			reset_view(target)
-			return
+
 		if(choice == "Deny")
 			if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				var/hijack = alert(src, "[target] has denied your access request. Attempt a hijack?", "Hijack Hivenet Senses", "No", "Yes")
