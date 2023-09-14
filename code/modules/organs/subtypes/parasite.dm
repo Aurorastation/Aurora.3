@@ -177,7 +177,7 @@
 
 		if(prob(5))
 			if(stage < 4)
-				to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
+				to_chat(owner, SPAN_WARNING("You feel something squirming inside of you!"))
 			else
 				to_chat(owner, SPAN_GOOD("You feel it, within you. Its presence soothes, a constant companion. There is no need to resist. We are with you. We will not abandon you."))
 			owner.reagents.add_reagent(/singleton/reagent/kois/black, 4)
@@ -220,15 +220,15 @@
 
 		if(prob(10))
 			if(owner.can_feel_pain())
-				to_chat(owner, "<span class='warning'>You feel an unbearable pain in your mind!</span>")
+				to_chat(owner, SPAN_WARNING("You feel an unbearable pain in your mind!"))
 				owner.emote("scream")
-			else if (full_zombie)
+			else if(full_zombie)
 				to_chat(owner, SPAN_GOOD("Your mind hums with a billion voices that are not your own. You will never be alone again. Unbidden, a smile comes to your face."))
 			owner.adjustBrainLoss(1, 55)
 
 		else if(prob(0.5))
 			if(stage <= 4)
-				to_chat(owner, "<span class='danger'>You feel something alien coming up your throat!</span>")
+				to_chat(owner, SPAN_DANGER("You feel something alien coming up your throat!"))
 			else
 				to_chat(owner, SPAN_GOOD("You can feel it, flowering within your lungs. What a beautiful feeling, to share it with the Spur. You exhale, and the companion nestled within your flesh blooms, drowning out the light."))
 			var/turf/T = get_turf(owner)
