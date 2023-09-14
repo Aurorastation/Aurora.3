@@ -186,6 +186,30 @@
 	allowed_roles = list("Shaft Miner", "Xenoarchaeologist")
 	cost = 2
 
+/datum/gear/accessory/polo
+	display_name = "polo selection"
+	path = /obj/item/clothing/accessory/polo
+	description = "A selection of polos."
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/polo/New()
+	..()
+	var/list/polo = list()
+	polo["polo"] = /obj/item/clothing/accessory/polo
+	polo["female polo"] = /obj/item/clothing/accessory/polo_fem
+	polo["blue polo"] = /obj/item/clothing/accessory/polo_blue
+	polo["blue female polo"] = /obj/item/clothing/accessory/polo_blue_fem
+	polo["red polo"] = /obj/item/clothing/accessory/polo_red
+	polo["red female polo"] = /obj/item/clothing/accessory/polo_red_fem
+	polo["gray-yellow polo"] = /obj/item/clothing/accessory/polo_grayyellow
+	polo["gray-yellow female polo"] = /obj/item/clothing/accessory/polo_grayyellow_fem
+	polo["polo green strip"] = /obj/item/clothing/accessory/polo_greenstrip
+	polo["female polo green strip"] = /obj/item/clothing/accessory/polo_greenstrip_fem
+	polo["polo blue strip"] = /obj/item/clothing/accessory/polo_bluestrip
+	polo["female polo blue strip"] = /obj/item/clothing/accessory/polo_bluestrip_fem
+	polo["polo red strip"] = /obj/item/clothing/accessory/polo_redstrip
+	polo["female polo red strip"] = /obj/item/clothing/accessory/polo_redstrip_fem
+
 /datum/gear/accessory/sweater
 	display_name = "sweater selection"
 	path = /obj/item/clothing/accessory/sweater
