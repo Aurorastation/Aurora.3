@@ -171,13 +171,13 @@
 	desc = "It's currently showing \the [I]."
 	update_icon()
 
-/obj/effect/projection/examine(mob/user, distance)
+/obj/effect/projection/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	var/obj/item/slide = source.resolve()
 	if(!istype(slide))
 		qdel(src)
 		return
-	return slide.examine(user, 1)
+	return slide.examine(user, max(distance, 1), FALSE)
 
 /obj/effect/projection/photo
 	alpha = 170

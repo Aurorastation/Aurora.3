@@ -35,8 +35,8 @@
 /obj/item/implant/integrated_circuit/emp_act(severity)
 	IC.emp_act(severity)
 
-/obj/item/implant/integrated_circuit/examine(mob/user)
-	IC.examine(user)
+/obj/item/implant/integrated_circuit/examine(mob/user, distance, is_adjacent)
+	IC.examine(user, distance, is_adjacent)
 
 /obj/item/implant/integrated_circuit/attackby(var/obj/item/O, var/mob/user)
 	if(O.iscrowbar() || istype(O, /obj/item/device/integrated_electronics) || istype(O, /obj/item/integrated_circuit) || O.isscrewdriver() || istype(O, /obj/item/cell/device) )

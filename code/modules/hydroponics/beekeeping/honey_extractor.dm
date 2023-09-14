@@ -9,7 +9,7 @@
 	var/honey = 0
 
 /obj/machinery/honey_extractor/examine(var/mob/user)
-	..()
+	. = ..()
 	if(contained_frame)
 		to_chat(user, SPAN_NOTICE("It's holding \the <b>[contained_frame]</b>."))
 	to_chat(user, SPAN_NOTICE("It contains <b>[honey]</b> units of honey for collection."))

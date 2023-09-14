@@ -66,9 +66,9 @@
 		qdel(CI)
 	return ..()
 
-/obj/machinery/appliance/examine(var/mob/user)
-	..()
-	if(Adjacent(usr))
+/obj/machinery/appliance/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		list_contents(user)
 		return TRUE
 

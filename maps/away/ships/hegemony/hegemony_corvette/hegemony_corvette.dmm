@@ -2766,7 +2766,7 @@
 /obj/item/clothing/glasses/safety/goggles/wasteland,
 /obj/item/clothing/head/unathi,
 /obj/item/clothing/accessory/poncho,
-/obj/item/clothing/shoes/caligae/armor,
+/obj/item/clothing/shoes/sandals/caligae,
 /obj/item/reagent_containers/food/snacks/meatsnack,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
@@ -3124,7 +3124,7 @@
 /obj/item/clothing/under/unathi,
 /obj/item/clothing/suit/unathi/robe/robe_coat,
 /obj/item/clothing/wrists/unathi/jeweled,
-/obj/item/clothing/shoes/caligae/armor,
+/obj/item/clothing/shoes/sandals/caligae,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
 "tL" = (
@@ -6445,7 +6445,7 @@
 /obj/item/spacecash/c100,
 /obj/item/spacecash/c10,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/item/clothing/shoes/caligae/armor,
+/obj/item/clothing/shoes/sandals/caligae,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
 "MO" = (
@@ -6559,7 +6559,7 @@
 /obj/item/clothing/head/unathi,
 /obj/item/clothing/suit/unathi/robe,
 /obj/item/clothing/under/unathi,
-/obj/item/clothing/shoes/caligae/armor,
+/obj/item/clothing/shoes/sandals/caligae,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
 "Nf" = (

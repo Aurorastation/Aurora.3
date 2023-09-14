@@ -585,7 +585,7 @@
 "cqJ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/tajara/workboots{
+/obj/item/clothing/shoes/workboots/tajara{
 	pixel_x = -5
 	},
 /obj/item/clothing/shoes/workboots/dark,
@@ -599,7 +599,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/clothing/shoes/hitops/red{
+/obj/item/clothing/shoes/sneakers/hitops/red{
 	pixel_x = -5;
 	pixel_y = 5
 	},

@@ -51,7 +51,6 @@
 /area/ship/ranger_corvette/canteen)
 "ajL" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine1)
 "aoI" = (
@@ -74,7 +73,6 @@
 /area/ship/ranger_corvette/bridge)
 "asD" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, starboard"
 	},
@@ -87,11 +85,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/brig)
 "awG" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
 	},
-/turf/template_noop,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor,
 /area/ship/ranger_corvette)
 "ayf" = (
 /obj/machinery/door/airlock/external{
@@ -759,9 +757,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/ranger_corvette/foyer)
-"ehv" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/leader)
 "eiR" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
@@ -1463,9 +1458,6 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine2)
-"hqk" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/janitor)
 "hqB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -1618,9 +1610,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ranger_corvette/crew)
-"iiC" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/bridge)
 "ilB" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/table/steel,
@@ -1973,7 +1962,7 @@
 	pixel_x = 8;
 	pixel_y = 5
 	},
-/obj/item/reagent_containers/glass/pitcher{
+/obj/item/reagent_containers/glass/beaker/pitcher{
 	pixel_x = -5;
 	reagents_to_add = list(/singleton/reagent/drink/coffee=30)
 	},
@@ -2096,14 +2085,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "kyh" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "coc_bridge";
 	name = "blast door"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/structure/grille,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/bridge)
 "kFU" = (
@@ -2126,9 +2113,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
-"kKC" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/cryo)
 "kLL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
@@ -2446,16 +2430,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/telecomms)
 "muQ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/door/blast/regular/open{
 	id = "coc_bridge";
 	name = "blast door"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/structure/grille,
 /obj/effect/landmark/entry_point/port{
 	name = "port, bridge"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/bridge)
 "mvd" = (
@@ -2520,9 +2502,6 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
-"mGO" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/crew)
 "mHw" = (
 /obj/effect/floor_decal/corner/black/full,
 /obj/machinery/computer/ship/navigation{
@@ -2657,9 +2636,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
-"nAQ" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/engine1)
 "nCd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1;
@@ -2884,9 +2860,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
-"oQn" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/brig)
 "oSw" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/sign/securearea{
@@ -3128,13 +3101,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/foyer)
-"pOf" = (
-/obj/effect/floor_decal/corner_wide/blue/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/ship/ranger_corvette/telecomms)
-"pPC" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/engine2)
 "pPX" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/table/steel,
@@ -3626,7 +3592,6 @@
 /area/ship/ranger_corvette/medbay)
 "scs" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines, port"
 	},
@@ -3687,9 +3652,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/crew)
-"soa" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/canteen)
 "spv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3771,12 +3733,10 @@
 	id = "coc_bridge";
 	name = "blast door"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/door/firedoor/noid,
-/obj/structure/grille,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/bridge)
 "sLq" = (
@@ -3845,9 +3805,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
-"sTK" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/munitions)
 "sXv" = (
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
@@ -4338,16 +4295,14 @@
 /turf/simulated/floor/carpet/red,
 /area/ship/ranger_corvette/crew)
 "unz" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/door/blast/regular/open{
 	id = "coc_bridge";
 	name = "blast door"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/structure/grille,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/bridge)
 "uoa" = (
@@ -4471,17 +4426,15 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/leader)
 "uzX" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/template_noop,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor,
 /area/ship/ranger_corvette)
 "uAk" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/machinery/door/blast/regular/open{
 	id = "coc_bridge";
 	name = "blast door"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/structure/grille,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/bridge)
 "uCz" = (
@@ -4738,9 +4691,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
-"wbK" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/ranger_corvette/medbay)
 "wdq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/molten_item{
@@ -4991,8 +4941,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/foyer)
 "xnY" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/canteen)
 "xrl" = (
@@ -5053,7 +5002,6 @@
 /area/ship/ranger_corvette/munitions)
 "xuX" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/ship/ranger_corvette/engine2)
 "xzg" = (
@@ -33848,12 +33796,12 @@ xRX
 xRX
 xRX
 xRX
-sTK
-sTK
+rrQ
+rrQ
 okk
-sTK
-sTK
-sTK
+rrQ
+rrQ
+rrQ
 xRX
 xRX
 xRX
@@ -34100,12 +34048,12 @@ tWh
 dYC
 tWh
 boM
-nAQ
-nAQ
+tWh
+tWh
 xRX
 xRX
 xRX
-sTK
+rrQ
 swi
 uVR
 itk
@@ -34358,11 +34306,11 @@ iIr
 kFU
 iOe
 nGj
-nAQ
+tWh
 xRX
 xRX
 xRX
-sTK
+rrQ
 tOx
 vdX
 wpk
@@ -35401,13 +35349,13 @@ tLA
 tLA
 tLA
 tLA
-mGO
-mGO
+mAx
+mAx
 bNr
-mGO
-mGO
-mGO
-mGO
+mAx
+mAx
+mAx
+mAx
 mAx
 mAx
 xRX
@@ -35658,7 +35606,7 @@ fmF
 wsA
 bhp
 nFy
-mGO
+mAx
 umS
 aMc
 eRR
@@ -35668,10 +35616,10 @@ ttk
 sSQ
 hdp
 hdp
-oQn
-oQn
+hdp
+hdp
 brx
-oQn
+hdp
 hdp
 hdp
 tYR
@@ -35915,7 +35863,7 @@ tQJ
 bCt
 bhp
 gUN
-mGO
+mAx
 eJp
 aqe
 viF
@@ -35923,7 +35871,7 @@ cij
 fro
 doJ
 oAP
-oQn
+hdp
 gzc
 avV
 dun
@@ -35932,10 +35880,10 @@ rki
 fnq
 dNG
 dNG
-kKC
+dNG
 mDK
-kKC
-kKC
+dNG
+dNG
 eGi
 eGi
 xRX
@@ -36158,7 +36106,7 @@ lkY
 mzO
 dmm
 vFS
-pOf
+rQB
 uwG
 rQB
 rBK
@@ -36180,23 +36128,23 @@ smZ
 kji
 tGV
 dgw
-oQn
+hdp
 qXP
 vpx
 lyg
 gin
 oUG
 nRI
-kKC
+dNG
 uvJ
 xzq
 dMX
 oTC
-kKC
+dNG
 rwS
 eGi
 eGi
-iiC
+tas
 tas
 unz
 uAk
@@ -36429,7 +36377,7 @@ bVs
 niD
 cZV
 gEg
-mGO
+mAx
 vVv
 hjK
 jih
@@ -36437,23 +36385,23 @@ jVf
 mMP
 ieN
 stJ
-oQn
+hdp
 cjg
 ust
 tlC
 xKE
 plP
 hAt
-kKC
+dNG
 qQd
 dUu
 dBx
 tBK
-kKC
+dNG
 ndT
 gWX
 aRc
-iiC
+tas
 jyf
 qCZ
 lGr
@@ -36686,31 +36634,31 @@ jgn
 jgn
 jgn
 yfz
-mGO
-mGO
-mGO
-mGO
-mGO
+mAx
+mAx
+mAx
+mAx
+mAx
 hZi
-mGO
-mGO
-oQn
-oQn
-oQn
+mAx
+mAx
+hdp
+hdp
+hdp
 eue
-oQn
-oQn
-oQn
-kKC
-kKC
-kKC
+hdp
+hdp
+hdp
+dNG
+dNG
+dNG
 vZn
-kKC
-kKC
+dNG
+dNG
 bnz
-hqk
-hqk
-iiC
+eGi
+eGi
+tas
 mVV
 iTN
 eSB
@@ -36967,7 +36915,7 @@ wMK
 tQD
 bGA
 kkN
-iiC
+tas
 jjc
 qcP
 teP
@@ -37453,13 +37401,13 @@ qbp
 tVB
 mdX
 sLq
-soa
-soa
+fwA
+fwA
 aiD
 mFt
 mFt
-soa
-soa
+fwA
+fwA
 tEO
 vXi
 pBE
@@ -37481,7 +37429,7 @@ jCF
 jCF
 jCF
 jCF
-iiC
+tas
 lCo
 uYQ
 ntW
@@ -37710,18 +37658,18 @@ wUT
 wUT
 aKd
 sLq
-soa
+fwA
 tmL
 iwS
 lym
 lym
 fJE
-soa
-soa
-soa
+fwA
+fwA
+fwA
 mbp
-soa
-soa
+fwA
+fwA
 xJk
 kiF
 wrD
@@ -37738,7 +37686,7 @@ moB
 bYx
 sEf
 gor
-iiC
+tas
 qqG
 kTh
 rfo
@@ -37967,7 +37915,7 @@ xzl
 wUT
 pVQ
 sLq
-soa
+fwA
 paq
 qza
 lIp
@@ -37995,7 +37943,7 @@ lWH
 nDb
 epG
 gjg
-iiC
+tas
 dgH
 aZS
 vLy
@@ -38250,9 +38198,9 @@ iGg
 tXz
 aoI
 qSw
-ehv
-ehv
-iiC
+jCF
+jCF
+tas
 tas
 muQ
 uAk
@@ -38481,7 +38429,7 @@ uwT
 wUT
 xFA
 xFA
-soa
+fwA
 ioq
 waI
 mmT
@@ -38500,14 +38448,14 @@ qZS
 nnM
 xBz
 tHU
-ehv
-ehv
+jCF
+jCF
 jCF
 hUx
 jCF
 jCF
-ehv
-ehv
+jCF
+jCF
 xRX
 xRX
 xRX
@@ -38738,7 +38686,7 @@ wve
 wUT
 xFA
 xFA
-soa
+fwA
 fmB
 lXU
 nmy
@@ -38750,14 +38698,14 @@ ufB
 bXG
 bsL
 oOX
-wbK
-wbK
+xJk
+xJk
 xJk
 xJk
 euV
 xJk
-wbK
-ehv
+xJk
+jCF
 wmz
 xRX
 xRX
@@ -38975,8 +38923,8 @@ xRX
 xRX
 xRX
 xRX
-pPC
-pPC
+gJZ
+gJZ
 uOy
 uOy
 hFA
@@ -38996,16 +38944,16 @@ wUT
 imn
 xFA
 jXh
-soa
+fwA
 xnY
 xnY
 xnY
-soa
+fwA
 xrl
-soa
-soa
-soa
-soa
+fwA
+fwA
+fwA
+fwA
 fwA
 fwA
 xRX
@@ -39235,13 +39183,13 @@ xRX
 xuX
 oXn
 diy
-pPC
-pPC
-pPC
-pPC
-pPC
+gJZ
+gJZ
+gJZ
+gJZ
+gJZ
 hmX
-pPC
+gJZ
 xRX
 xRX
 xRX
@@ -39492,13 +39440,13 @@ xRX
 scs
 bex
 dul
-pPC
+gJZ
 ibp
 jMZ
 lvN
 mNJ
 ptP
-pPC
+gJZ
 xRX
 xRX
 xRX
@@ -39755,7 +39703,7 @@ kcS
 lxT
 mPM
 pzP
-pPC
+gJZ
 xRX
 xRX
 xRX
@@ -40006,7 +39954,7 @@ xRX
 xuX
 bld
 dHA
-pPC
+gJZ
 iCX
 kxo
 lTc
@@ -40260,14 +40208,14 @@ xRX
 xRX
 xRX
 xRX
-pPC
-pPC
-pPC
-pPC
-pPC
+gJZ
+gJZ
+gJZ
+gJZ
+gJZ
 omu
-pPC
-pPC
+gJZ
+gJZ
 gJZ
 gJZ
 xRX

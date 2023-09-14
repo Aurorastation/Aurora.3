@@ -45,7 +45,7 @@
 
 	uniform = /obj/item/clothing/under/rank/research_director
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/sneakers/brown
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/clipboard
 
@@ -94,7 +94,7 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	shoes = /obj/item/clothing/shoes/science
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	id = /obj/item/card/id/white
 
 	headset = /obj/item/device/radio/headset/headset_sci
@@ -231,7 +231,7 @@
 	jobtype = /datum/job/intern_sci
 
 	uniform = /obj/item/clothing/under/rank/scientist/intern
-	shoes = /obj/item/clothing/shoes/science
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	headset = /obj/item/device/radio/headset/headset_sci
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sci

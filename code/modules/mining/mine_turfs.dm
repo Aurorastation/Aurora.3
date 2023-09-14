@@ -93,7 +93,7 @@ var/list/mineral_can_smooth_with = list(
 	return INITIALIZE_HINT_NORMAL
 
 /turf/simulated/mineral/examine(mob/user)
-	..()
+	. = ..()
 	if(mineral)
 		switch(mined_ore)
 			if(0)

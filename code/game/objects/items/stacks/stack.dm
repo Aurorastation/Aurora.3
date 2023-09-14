@@ -67,8 +67,9 @@
 	else
 		icon_state = "[initial(icon_state)]_3"
 
-/obj/item/stack/examine(mob/user)
-	if(..(user, 1))
+/obj/item/stack/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		if(!iscoil())
 			if(!uses_charge)
 				to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s in the stack.")

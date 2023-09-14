@@ -7463,7 +7463,7 @@
 	pixel_y = 14
 	},
 /obj/machinery/door/firedoor,
-/obj/item/reagent_containers/glass/teapot,
+/obj/item/reagent_containers/glass/beaker/teapot,
 /obj/machinery/door/blast/shutters/open{
 	id = "bar_east"
 	},
@@ -11206,7 +11206,7 @@
 "iQL" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/door/firedoor,
-/obj/item/reagent_containers/glass/teapot,
+/obj/item/reagent_containers/glass/beaker/teapot,
 /obj/machinery/door/blast/shutters/open{
 	id = "bar_southwest"
 	},

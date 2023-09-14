@@ -16,7 +16,7 @@
 	pick_constellation()
 
 /obj/item/stellascope/examine(mob/user)
-	..(user)
+	. = ..()
 	to_chat(user, "\The [src] displays the \"[selected_constellation]\".")
 
 /obj/item/stellascope/throw_impact(atom/hit_atom)
@@ -93,7 +93,7 @@
 	return ..()
 
 /obj/item/skrell_projector/examine(mob/user)
-	..(user)
+	. = ..()
 	if(selected_world && working)
 		to_chat(user, "\The [src] displays a hologram of [selected_world].")
 

@@ -136,7 +136,7 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot = 10,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup = 10,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 4,
-		/obj/item/reagent_containers/glass/pitcher = 4
+		/obj/item/reagent_containers/glass/beaker/pitcher = 4
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/tea = 10
@@ -279,7 +279,7 @@
 		/obj/item/reagent_containers/food/snacks/donut/normal = 6
 	)
 	premium = list(
-		/obj/item/reagent_containers/glass/teapot/ = 5
+		/obj/item/reagent_containers/glass/beaker/teapot/ = 5
 	)
 	vending_sound = 'sound/machines/vending/vending_coffee.ogg'
 	cooling_temperature = T0C + 57 //Optimal coffee temperature
@@ -971,7 +971,7 @@
 		/obj/item/material/hatchet/butch = 2,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
-		/obj/item/reagent_containers/glass/pitcher = 3,
+		/obj/item/reagent_containers/glass/beaker/pitcher = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
 		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 		/obj/item/clothing/accessory/apron/chef = 2,
@@ -1014,7 +1014,7 @@
 		/obj/item/material/kitchen/utensil/fork/chopsticks/cheap = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
-		/obj/item/reagent_containers/glass/pitcher = 3,
+		/obj/item/reagent_containers/glass/beaker/pitcher = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
 		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 	)
@@ -1025,7 +1025,7 @@
 	products = list(
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
-		/obj/item/reagent_containers/glass/pitcher = 3,
+		/obj/item/reagent_containers/glass/beaker/pitcher = 3,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup = 6,
 		/obj/item/reagent_containers/food/drinks/takeaway_cup_idris = 6,
 	)

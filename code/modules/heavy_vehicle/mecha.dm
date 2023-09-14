@@ -177,7 +177,7 @@
 		var/mob/M = locate(href_list["examine"])
 		if(!M)
 			return
-		usr.examinate(M, 1)
+		examinate(usr, M)
 
 /mob/living/heavy_vehicle/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
 	..()

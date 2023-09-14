@@ -126,8 +126,10 @@
 			to_chat(usr, SPAN_NOTICE("Synthesizer is now producing '[R.name]'."))
 			update_icon()
 
-/obj/item/reagent_containers/hypospray/borghypo/examine(mob/user)
-	if(!..(user, 2))
+/obj/item/reagent_containers/hypospray/borghypo/examine(mob/user, distance, is_adjacent)
+	. = ..()
+
+	if (distance > 2)
 		return
 
 	var/singleton/reagent/R = GET_SINGLETON(reagent_ids[mode])

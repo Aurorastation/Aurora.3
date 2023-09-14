@@ -103,7 +103,7 @@
 	update_held_icon()
 
 /obj/item/reagent_containers/dropper/examine(mob/user)
-	..(user)
+	. = ..()
 	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, SPAN_NOTICE("\The [src] is holding [reagents.total_volume] units out of [volume]. Current transfer is [amount_per_transfer_from_this] units."))
 	else

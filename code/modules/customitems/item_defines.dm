@@ -122,7 +122,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "oz_plushie"
 
 
-/obj/item/reagent_containers/glass/teapot/fluff/brianne_teapot //Ceramic Teapot - Sean Brianne - zelmana
+/obj/item/reagent_containers/glass/beaker/teapot/fluff/brianne_teapot //Ceramic Teapot - Sean Brianne - zelmana
 	name = "ceramic teapot"
 	desc = "A blue ceramic teapot, gilded with the abbreviation for NanoTrasen."
 	icon = 'icons/obj/custom_items/brianne_items.dmi'
@@ -162,8 +162,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = "corvo_cigarette"
 		item_state = "corvo_cigarette"
 
-/obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user)
-	if(..(user, 1))
+/obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, "It is [active ? "on" : "off"].")
 
 
@@ -473,8 +474,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_NORMAL
 	var/has_spear = TRUE
 
-/obj/item/fluff/tokash_spear/examine(mob/user)
-	if(..(user, 1) && has_spear)
+/obj/item/fluff/tokash_spear/examine(mob/user, distance, is_adjacent)
+	if(distance <= 1 && has_spear)
 		to_chat(user, "It currently holds an old looking spearhead.")
 
 /obj/item/fluff/tokash_spear/update_icon()
@@ -585,7 +586,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	user.update_inv_l_hand()
 	user.update_inv_r_hand()
 
-/obj/item/reagent_containers/glass/teapot/fluff/thea_teapot //Bronze Teapot - Thea Reeves - shestrying
+/obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot //Bronze Teapot - Thea Reeves - shestrying
 	name = "bronze teapot"
 	desc = "A round-bottomed, well-used teapot. It looks as though it's been carefully maintained."
 	icon = 'icons/obj/custom_items/thea_tea.dmi'
@@ -608,10 +609,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/thea_tea.dmi'
 	icon_state = "thea_teabox"
 	foldable = null
-	can_hold = list(/obj/item/reagent_containers/glass/teapot/fluff/thea_teapot, /obj/item/reagent_containers/food/drinks/fluff/thea_teacup)
+	can_hold = list(/obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot, /obj/item/reagent_containers/food/drinks/fluff/thea_teacup)
 
 /obj/item/storage/box/fluff/thea_teabox/fill()
-	new /obj/item/reagent_containers/glass/teapot/fluff/thea_teapot(src)
+	new /obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot(src)
 	for(var/i in 1 to 4)
 		new /obj/item/reagent_containers/food/drinks/fluff/thea_teacup(src)
 	make_exact_fit()
@@ -1640,7 +1641,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	return ..()
 
 /obj/item/fluff/nasira_burner/examine(mob/user)
-	..(user)
+	. = ..()
 	if(lit)
 		to_chat(user, "\The [src] is currently lit.")
 
@@ -1853,8 +1854,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	add_overlay("card_spin_fx")
 	addtimer(CALLBACK(src, PROC_REF(finish_selection), usr), 3 SECONDS)
 
-/obj/item/fluff/ielia_tarot/examine(mob/user)
-	if(..(user, 1))
+/obj/item/fluff/ielia_tarot/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		if(first_card && second_card && third_card)
 			to_chat(user, "The following constellations are displayed on the starfinder: [first_card], [second_card], and [third_card].")
 

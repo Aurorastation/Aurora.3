@@ -324,6 +324,9 @@
 /mob/living/carbon/alien/diona/Destroy()
 	walk_to(src, 0)
 	cleanupTransfer()
+	QDEL_NULL(ingested)
+	QDEL_NULL(vessel)
+	QDEL_NULL(DS)
 	. = ..()
 
 /mob/living/carbon/alien/diona/proc/wear_hat(var/obj/item/new_hat)

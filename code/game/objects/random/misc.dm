@@ -186,7 +186,7 @@
 		/obj/item/bikehorn = 11,
 		/obj/item/clothing/mask/fakemoustache = 11,
 		/obj/item/clothing/mask/gas/mime = 11,
-		/obj/item/clothing/shoes/carp = 9,
+		/obj/item/clothing/shoes/slippers/carp = 9,
 		/obj/item/gun/energy/wand/toy = 5,
 		/obj/item/device/binoculars = 11,
 		/obj/item/device/megaphone = 11,
