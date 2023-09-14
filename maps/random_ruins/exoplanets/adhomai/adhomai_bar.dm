@@ -45,7 +45,7 @@
 
 	uniform = /obj/item/clothing/under/sl_suit
 	head = /obj/item/clothing/head/flatcap
-	shoes = /obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+	shoes = /obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	back = /obj/item/storage/backpack/satchel/leather
 	suit = /obj/item/clothing/suit/storage/hooded/tajaran/maroon
 	l_pocket = /obj/item/pocketwatch/adhomai
@@ -78,7 +78,7 @@
 	name = "Adhomian Inn Staff"
 
 	uniform = /obj/item/clothing/under/sl_suit
-	shoes = /obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+	shoes = /obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	back = /obj/item/storage/backpack/satchel/leather
 	accessory = /obj/item/clothing/accessory/wcoat
 	l_ear = null
@@ -117,9 +117,9 @@
 
 	shoes = list(
 				/obj/item/clothing/shoes/tajara/footwraps,
-				/obj/item/clothing/shoes/tajara/jackboots,
-				/obj/item/clothing/shoes/tajara/workboots,
-				/obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+				/obj/item/clothing/shoes/jackboots/tajara,
+				/obj/item/clothing/shoes/workboots/tajara,
+				/obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	)
 
 	back = /obj/item/storage/backpack/satchel/leather

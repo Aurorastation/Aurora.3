@@ -105,7 +105,7 @@
 	return ..()
 
 /mob/living/simple_animal/construct/examine(mob/user)
-	..(user)
+	. = ..()
 	if(health < maxHealth)
 		if(health >= maxHealth / 2)
 			to_chat(user, SPAN_WARNING("It looks slightly dented."))

@@ -18,7 +18,7 @@
 	return ..()
 
 /obj/structure/bed/stool/chair/remote/examine(mob/user)
-	..()
+	. = ..()
 	if(portable_type)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("Can be packed up by using a wrench on it.")))
 

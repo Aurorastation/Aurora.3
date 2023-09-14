@@ -99,10 +99,10 @@
 	else
 		see_invisible = SEE_INVISIBLE_NOLIGHTING
 
-/mob/living/simple_animal/hostile/morph/examine(mob/user)
+/mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent)
 	if(morphed)
 		. = form.examine(user)
-		if(get_dist(src, user) > 2)
+		if(distance > 2)
 			return
 		to_chat(user, SPAN_WARNING("It doesn't look quite right..."))
 	else

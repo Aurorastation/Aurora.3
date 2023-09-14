@@ -230,7 +230,7 @@
 	. = ..()
 
 /obj/item/organ/internal/ipc_tag/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, SPAN_NOTICE("Serial Autogeneration: [auto_generate ? "Yes" : "No"]"))
 	to_chat(user, SPAN_NOTICE("Serial Number: [serial_number]"))
 	to_chat(user, SPAN_NOTICE("Ownership Info: [ownership_info]"))
@@ -246,7 +246,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] reads, \"Scanning failure, please submit scanner for repairs.\""))
 			return
 		if(!S.hacked)
-			user.examinate(src)
+			examinate(user, src)
 		else
 			user.visible_message(SPAN_WARNING("\The [user] starts fiddling with \the [src]..."), SPAN_NOTICE("You start fiddling with \the [src]..."))
 			if(do_after(user, 30, TRUE, src))

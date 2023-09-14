@@ -3,7 +3,7 @@
 
 	uniform = /obj/item/clothing/under/rank/security
 	belt = /obj/item/storage/belt/military
-	shoes = /obj/item/clothing/shoes/swat
+	shoes = /obj/item/clothing/shoes/combat
 	accessory = /obj/item/clothing/accessory/storage/black_vest
 	id = /obj/item/card/id/ert/scc
 	back = /obj/item/rig/ert/scc/security

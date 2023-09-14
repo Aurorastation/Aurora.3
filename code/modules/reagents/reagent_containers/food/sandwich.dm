@@ -69,6 +69,6 @@
 	return ..()
 
 /obj/item/reagent_containers/food/snacks/csandwich/examine(mob/user)
-	..(user)
+	. = ..()
 	var/obj/item/O = pick(contents)
 	to_chat(user, SPAN_NOTICE("You think you can see [O.name] in there."))

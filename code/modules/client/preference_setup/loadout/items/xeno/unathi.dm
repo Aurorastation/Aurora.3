@@ -205,6 +205,7 @@
 	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
 	path = /obj/item/organ/external/hand/right/autakh/tool
 	whitelisted = list(SPECIES_UNATHI)
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 	cost = 2
 	allowed_roles = list("Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist")
@@ -215,6 +216,7 @@
 	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
 	whitelisted = list(SPECIES_UNATHI)
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 	cost = 2
 	allowed_roles = list("Shaft Miner")
@@ -225,6 +227,7 @@
 	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
 	path = /obj/item/organ/external/hand/right/autakh/medical
 	whitelisted = list(SPECIES_UNATHI)
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 	cost = 2
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
@@ -235,6 +238,7 @@
 	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
 	path = /obj/item/organ/external/hand/right/autakh/security
 	whitelisted = list(SPECIES_UNATHI)
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 	cost = 2
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
@@ -322,6 +326,7 @@
 	path = /obj/item/organ/internal/anchor
 	cost = 0
 	whitelisted = list(SPECIES_UNATHI)
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/augment/autakh/calf_override

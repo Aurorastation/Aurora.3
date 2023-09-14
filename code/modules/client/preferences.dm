@@ -103,11 +103,10 @@ var/list/preferences_datums = list()
 
 	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
 	var/static/list/preview_screen_locs = list(
-		"1" = "character_preview_map:1,5:-12",
-		"2" = "character_preview_map:1,3:15",
-		"4"  = "character_preview_map:1:0,2:10",
-		"8"  = "character_preview_map:1:0,1:5",
-		"BG" = "character_preview_map:1,1 to 1,5"
+		"1" = list(1, 0, 5, -12),
+		"2" = list(1, 0, 3, 15),
+		"4" = list(1, 0, 2, 10),
+		"8" = list(1, 0, 1, 5)
 	)
 
 		//Jobs, uses bitflags
@@ -191,6 +190,9 @@ var/list/preferences_datums = list()
 
 	var/fov_cone_alpha = 255
 
+	var/scale_x = 1
+	var/scale_y = 1
+
 /datum/preferences/New(client/C)
 	new_setup()
 
@@ -260,7 +262,7 @@ var/list/preferences_datums = list()
 	popup.open(FALSE) // Skip registering onclose on the browser pane
 	onclose(user, "preferences_window", src) // We want to register on the window itself
 
-/datum/preferences/proc/update_character_previews(mutable_appearance/MA)
+/datum/preferences/proc/update_character_previews(mutable_appearance/MA, var/big_mob = FALSE)
 	if(!client)
 		return
 
@@ -277,8 +279,9 @@ var/list/preferences_datums = list()
 		LAZYSET(char_render_holders, "BG", BG)
 		client.screen |= BG
 	BG.icon_state = bgstate
-	BG.screen_loc = preview_screen_locs["BG"]
+	BG.screen_loc = "character_preview_map:1,1 to 1,5"
 
+	var/index = 0
 	for(var/D in global.cardinal)
 		var/obj/screen/O = LAZYACCESS(char_render_holders, "[D]")
 		if(!O)
@@ -287,7 +290,17 @@ var/list/preferences_datums = list()
 			client.screen |= O
 		O.appearance = MA
 		O.dir = D
-		O.screen_loc = preview_screen_locs["[D]"]
+		var/list/screen_locs = preview_screen_locs["[D]"]
+		var/screen_x = screen_locs[1]
+		var/screen_x_minor = screen_locs[2]
+		screen_x_minor -= MA.pixel_x
+		var/screen_y = screen_locs[3]
+		var/screen_y_minor = screen_locs[4]
+		if(big_mob)
+			screen_y_minor += round(30 - (index * 15))
+		screen_y_minor -= MA.pixel_y
+		O.screen_loc = "character_preview_map:[screen_x]:[screen_x_minor],[screen_y]:[screen_y_minor]"
+		index++
 
 /datum/preferences/proc/show_character_previews()
 	if(!client || !char_render_holders)

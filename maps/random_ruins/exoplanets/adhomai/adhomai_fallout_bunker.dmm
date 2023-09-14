@@ -218,7 +218,7 @@
 /area/adhomai_fallout_bunker)
 "jo" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/winter,
+/obj/item/clothing/shoes/winter/tajara,
 /obj/item/clothing/under/tajaran,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/mask/gas,
@@ -1031,7 +1031,7 @@
 /area/adhomai_fallout_bunker)
 "Hl" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/winter,
+/obj/item/clothing/shoes/winter/tajara,
 /obj/item/clothing/under/tajaran,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/mask/gas,
@@ -1287,7 +1287,7 @@
 /area/adhomai_fallout_bunker)
 "Qq" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/winter,
+/obj/item/clothing/shoes/winter/tajara,
 /obj/item/clothing/under/tajaran,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/mask/gas,
@@ -1415,7 +1415,7 @@
 /area/adhomai_fallout_bunker)
 "Vx" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/winter,
+/obj/item/clothing/shoes/winter/tajara,
 /obj/item/clothing/under/tajaran,
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/mask/gas,

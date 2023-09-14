@@ -184,7 +184,7 @@
 /obj/structure/sign/flag/attack_hand(mob/user)
 	switch(user.a_intent)
 		if(I_HELP)
-			user.examinate(src)
+			examinate(user, src)
 		if(I_DISARM)
 			user.visible_message(SPAN_NOTICE("\The [user] begins to carefully fold up \the [src]."), SPAN_NOTICE("You begin to carefully fold up \the [src]."))
 			if(do_after(user, 50))
