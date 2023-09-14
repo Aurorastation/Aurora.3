@@ -7,7 +7,7 @@
 	suit = /obj/item/clothing/suit/space/void/cruiser
 	head = /obj/item/clothing/head/helmet/space/void/cruiser
 	mask = /obj/item/clothing/mask/gas/tactical
-	shoes = /obj/item/clothing/shoes/swat/ert
+	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	glasses =  /obj/item/clothing/glasses/sunglasses
 	suit_store = /obj/item/gun/energy/rifle
@@ -91,7 +91,7 @@
 	head =  /obj/item/clothing/head/beret/corporate/pmc/epmc
 	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
-	shoes = /obj/item/clothing/shoes/swat/ert
+	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	belt = /obj/item/storage/belt/medical/first_responder/combat
 	back = /obj/item/storage/backpack/satchel/med
@@ -136,7 +136,7 @@
 	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
 	gloves = /obj/item/clothing/gloves/latex/nitrile
-	shoes = /obj/item/clothing/shoes/swat/ert
+	shoes = /obj/item/clothing/shoes/combat
 	back = /obj/item/storage/backpack/messenger/med
 	belt = /obj/item/storage/belt/medical/first_responder/combat
 	accessory = /obj/item/clothing/accessory/holster/thigh

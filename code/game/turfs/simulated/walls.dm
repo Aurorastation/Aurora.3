@@ -132,7 +132,7 @@
 
 //Appearance
 /turf/simulated/wall/examine(mob/user)
-	. = ..(user)
+	. = ..()
 
 	if(!damage)
 		to_chat(user, SPAN_NOTICE("It looks fully intact."))

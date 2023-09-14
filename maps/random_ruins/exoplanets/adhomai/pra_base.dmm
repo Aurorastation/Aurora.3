@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/combat,
+/obj/item/clothing/shoes/combat,
 /obj/item/clothing/under/tajaran/pra_uniform,
 /obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
 /obj/item/clothing/head/beret/tajaran/pra,
@@ -907,7 +907,7 @@
 /area/pra_base)
 "Jg" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/combat,
+/obj/item/clothing/shoes/combat,
 /obj/item/clothing/under/tajaran/pra_uniform,
 /obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
 /obj/item/clothing/head/beret/tajaran/pra,
@@ -1079,7 +1079,7 @@
 /area/pra_base)
 "PS" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/storage/backpack/satchel/leather,
 /obj/item/device/radio/headset/ship,
@@ -1127,7 +1127,7 @@
 /area/pra_base)
 "Rg" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/combat,
+/obj/item/clothing/shoes/combat,
 /obj/item/clothing/under/tajaran/pra_uniform,
 /obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
 /obj/item/clothing/head/beret/tajaran/pra,

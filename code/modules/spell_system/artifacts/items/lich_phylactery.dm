@@ -23,7 +23,7 @@
 	return ..()
 
 /obj/item/phylactery/examine(mob/user)
-	..(user)
+	. = ..()
 	if(!lich)
 		to_chat(user, "The heart is inert.")
 	else

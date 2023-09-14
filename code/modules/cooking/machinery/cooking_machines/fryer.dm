@@ -25,9 +25,9 @@
 	var/datum/reagents/oil
 	var/optimal_oil = 9000//90 litres of cooking oil
 
-/obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
+/obj/machinery/appliance/cooker/fryer/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if (.)//no need to duplicate adjacency check
+	if (is_adjacent)
 		to_chat(user, "Oil Level: [oil.total_volume]/[optimal_oil]")
 
 /obj/machinery/appliance/cooker/fryer/Initialize()

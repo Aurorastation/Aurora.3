@@ -129,9 +129,9 @@
 
 	return null
 
-/obj/item/gun/energy/examine(mob/user)
-	..(user)
-	if(get_dist(src, user) > 1)
+/obj/item/gun/energy/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 1)
 		return
 	var/shots_remaining = round(power_supply.charge / charge_cost)
 	to_chat(user, "Has [shots_remaining] shot\s remaining.")

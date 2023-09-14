@@ -12,13 +12,10 @@
 	name = "surgery tool parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/surgery.dmi'
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-	)
 	recyclable = TRUE
 
 /*

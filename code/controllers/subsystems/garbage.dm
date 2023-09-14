@@ -276,10 +276,6 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 	..()
 	return QDEL_HINT_HARDDEL_NOW
 
-// /image/Destroy()
-// 	..()
-// 	return QDEL_HINT_HARDDEL
-
 
 // REFERENCE TRACKING (the old garbage-debug file) //
 // Only present if the appropriate define is set   //

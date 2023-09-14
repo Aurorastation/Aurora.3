@@ -606,6 +606,15 @@ var/list/diona_banned_languages = list(
 	var/regen_limb_progress
 	var/pause_regen = FALSE
 
+/datum/dionastats/Destroy(force)
+	sampled_DNA = null
+	language_progress = null
+
+	last_location = null
+	regen_limb = null
+	regen_extra = null
+	. = ..()
+
 /datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/human/H)
 	user.visible_message(SPAN_DANGER("[user] is trying to bite [H.name]."), SPAN_DANGER("You start biting \the [H], you both must stay still!"))
 	user.face_atom(get_turf(H))

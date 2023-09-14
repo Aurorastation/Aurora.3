@@ -505,9 +505,9 @@ var/global/list/default_medbay_channels = list(
 	return get_hearers_in_view(canhear_range, src)
 
 
-/obj/item/device/radio/examine(mob/user)
+/obj/item/device/radio/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(show_modify_on_examine && (in_range(src, user) || loc == user))
+	if(show_modify_on_examine && (distance <= 1))
 		if (b_stat)
 			user.show_message("<span class='notice'>\The [src] can be attached and modified!</span>")
 		else

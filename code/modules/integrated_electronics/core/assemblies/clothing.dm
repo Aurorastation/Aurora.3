@@ -102,6 +102,8 @@
 /obj/item/clothing/under/circuitry
 	name = "electronic jumpsuit"
 	desc = "It's a wearable case for electronics. This one is a black jumpsuit with wiring weaved into the fabric."
+	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
+	contained_sprite = TRUE
 	icon_state = "jumpsuit"
 	item_state = "jumpsuit"
 	worn_state = "jumpsuit"
@@ -124,6 +126,8 @@
 	name = "electronic gloves"
 	desc = "It's a wearable case for electronics. This one is a pair of black gloves, with wires woven into them. A small \
 	device with a screen is attached to the left glove."
+	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
+	contained_sprite = TRUE
 	icon_state = "gloves"
 	item_state = "gloves"
 
@@ -155,6 +159,8 @@
 	name = "electronic goggles"
 	desc = "It's a wearable case for electronics. This one is a pair of goggles, with wiring sticking out. \
 	Could this augment your vision?" // Sadly it won't, or at least not yet.
+	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
+	contained_sprite = TRUE
 	icon_state = "goggles"
 	item_state = "goggles"
 
@@ -191,6 +197,8 @@
 	name = "electronic boots"
 	desc = "It's a wearable case for electronics. This one is a pair of boots, with wires attached to a small \
 	cover."
+	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
+	contained_sprite = TRUE
 	icon_state = "shoes"
 	item_state = "shoes"
 
@@ -212,6 +220,8 @@
 	name = "electronic headwear"
 	desc = "It's a wearable case for electronics. This one appears to be a very technical-looking piece that \
 	goes around the collar, with a heads-up-display attached on the right."
+	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
+	contained_sprite = TRUE
 	icon_state = "head"
 	item_state = "head"
 
@@ -232,7 +242,8 @@
 /obj/item/clothing/ears/circuitry
 	name = "electronic earwear"
 	desc = "It's a wearable case for electronics. This one appears to be a technical-looking headset."
-	icon = 'icons/obj/clothing/ears.dmi'
+	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
+	contained_sprite = TRUE
 	icon_state = "headset"
 	item_state = "headset"
 
@@ -254,6 +265,8 @@
 	name = "electronic chestpiece"
 	desc = "It's a wearable case for electronics. This one appears to be a very technical-looking vest, that \
 	almost looks professionally made, however the wiring popping out betrays that idea."
+	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
+	contained_sprite = TRUE
 	icon_state = "chest"
 	item_state = "chest"
 

@@ -116,7 +116,7 @@
 /obj/item/clothing/accessory/badge/nka_passport,
 /obj/item/clothing/accessory/flagpatch/nka,
 /obj/machinery/light,
-/obj/item/clothing/shoes/tajara/workboots,
+/obj/item/clothing/shoes/workboots/tajara,
 /obj/item/clothing/under/tajaran/nka_merchant_navy,
 /obj/item/clothing/under/tajaran/nka_merchant_navy/alt,
 /obj/item/clothing/head/tajaran/nka_merchant_navy,
@@ -986,8 +986,8 @@
 	pixel_x = 3;
 	pixel_y = -11
 	},
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
@@ -2712,7 +2712,7 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/badge/nka_passport,
 /obj/item/clothing/accessory/flagpatch/nka,
-/obj/item/clothing/shoes/tajara/workboots,
+/obj/item/clothing/shoes/workboots/tajara,
 /obj/item/clothing/under/tajaran/nka_merchant_navy,
 /obj/item/clothing/under/tajaran/nka_merchant_navy/alt,
 /obj/item/clothing/head/tajaran/nka_merchant_navy,

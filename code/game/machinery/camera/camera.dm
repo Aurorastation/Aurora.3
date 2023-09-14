@@ -290,6 +290,9 @@
 	if(isXRay()) return SEE_TURFS|SEE_MOBS|SEE_OBJS
 	return 0
 
+/obj/machinery/camera/grants_equipment_vision(mob/user)
+	return can_use()
+
 //This might be redundant, because of check_eye()
 /obj/machinery/camera/proc/kick_viewers()
 	for(var/mob/O in player_list)

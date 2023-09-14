@@ -23,7 +23,7 @@
 #define ABOVE_OBJ_LAYER 3.01
 #define UNDERDOOR 3.09		//Just barely under a closed door.
 #define WINDOW_PANE_LAYER 3.2
-#define DOOR_CLOSED_LAYER 8	//Above most items if closed
+#define DOOR_CLOSED_LAYER 3.6	//Above most items if closed
 #define BELOW_MOB_LAYER 3.7
 // MOB_LAYER			4
 #define ABOVE_MOB_LAYER 4.1

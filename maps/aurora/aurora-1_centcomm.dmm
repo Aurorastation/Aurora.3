@@ -6628,7 +6628,7 @@
 /obj/structure/window/reinforced,
 /obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
-/obj/item/clothing/shoes/white,
+/obj/item/clothing/shoes/sneakers,
 /obj/item/clothing/gloves/white,
 /obj/item/clothing/glasses/sunglasses/sechud,
 /obj/item/clothing/accessory/badge/holo,
@@ -8680,7 +8680,7 @@
 "bIQ" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/color/red,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/melee/energy/axe,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor,
@@ -9979,7 +9979,7 @@
 "cFp" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/color/red,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/head/helmet/swat,
 /obj/item/gun/energy/laser,
@@ -11539,10 +11539,10 @@
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /turf/unsimulated/floor{
 	icon_state = "lino_diamond"
 	},
@@ -12090,7 +12090,7 @@
 "dUW" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/color/green,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/tdome/green,
 /obj/item/clothing/head/helmet/thunderdome,
 /obj/item/melee/baton/loaded,
@@ -13657,7 +13657,7 @@
 "eUW" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/color/green,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/head/helmet/swat,
 /obj/item/gun/energy/laser,
@@ -13822,7 +13822,7 @@
 	},
 /obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
-/obj/item/clothing/shoes/white,
+/obj/item/clothing/shoes/sneakers,
 /obj/item/clothing/gloves/white,
 /obj/item/clothing/glasses/sunglasses/sechud,
 /obj/item/clothing/accessory/badge/holo,
@@ -16003,7 +16003,7 @@
 /obj/random/backpack,
 /obj/item/clothing/shoes/workboots,
 /obj/item/clothing/shoes/workboots/toeless,
-/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/shoes/sandals,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots/toeless,
 /obj/item/clothing/shoes/laceup,
@@ -16163,14 +16163,14 @@
 /obj/item/clothing/mask/horsehead,
 /obj/item/clothing/mask/gas/monkeymask,
 /obj/item/clothing/mask/luchador/tecnicos,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
 /obj/item/clothing/shoes/workboots,
 /obj/item/clothing/shoes/workboots,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
 /obj/item/clothing/under/suit_jacket/tan,
 /obj/item/clothing/under/suit_jacket/navy,
 /obj/item/clothing/under/suit_jacket,
@@ -16939,14 +16939,14 @@
 /obj/item/clothing/mask/horsehead,
 /obj/item/clothing/mask/gas/monkeymask,
 /obj/item/clothing/mask/luchador/tecnicos,
-/obj/item/clothing/shoes/laceup/brown/all_species,
-/obj/item/clothing/shoes/laceup/brown/all_species,
+/obj/item/clothing/shoes/laceup/brown,
+/obj/item/clothing/shoes/laceup/brown,
 /obj/item/clothing/shoes/workboots,
 /obj/item/clothing/shoes/workboots,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
 /obj/item/clothing/under/suit_jacket/tan,
 /obj/item/clothing/under/suit_jacket/navy,
 /obj/item/clothing/under/suit_jacket,
@@ -19007,7 +19007,7 @@
 "ihi" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/color/green,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/head/helmet/swat,
 /obj/item/gun/energy/laser,
@@ -19634,7 +19634,7 @@
 "iAl" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/color/green,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/melee/energy/axe,
 /turf/simulated/floor,
 /area/tdome/tdome1)
@@ -20174,30 +20174,30 @@
 	dir = 5
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/storage/toggle/fib{
+/obj/item/clothing/suit/storage/toggle/bssb{
 	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/storage/toggle/fib{
+/obj/item/clothing/suit/storage/toggle/bssb{
 	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/storage/toggle/fib{
+/obj/item/clothing/suit/storage/toggle/bssb{
 	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/clothing/suit/armor/vest/fib{
+/obj/item/clothing/suit/storage/toggle/bssb/armor{
 	pixel_x = -6;
 	pixel_y = -3
 	},
-/obj/item/clothing/suit/armor/vest/fib{
+/obj/item/clothing/suit/storage/toggle/bssb/armor{
 	pixel_x = -6;
 	pixel_y = -3
 	},
-/obj/item/clothing/suit/armor/vest/fib{
+/obj/item/clothing/suit/storage/toggle/bssb/armor{
 	pixel_x = -6;
 	pixel_y = -3
 	},
@@ -20501,7 +20501,7 @@
 "jbw" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/color/red,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/tdome/red,
 /obj/item/clothing/head/helmet/thunderdome,
 /obj/item/melee/baton/loaded,
@@ -21585,7 +21585,7 @@
 "jUu" = (
 /obj/item/clothing/suit/armor/carrier/ballistic,
 /obj/item/clothing/under/rank/centcom_officer,
-/obj/item/clothing/shoes/white,
+/obj/item/clothing/shoes/sneakers,
 /obj/item/clothing/gloves/white,
 /obj/item/clothing/glasses/sunglasses/sechud,
 /obj/item/clothing/accessory/badge/holo,
@@ -26028,7 +26028,7 @@
 "mLh" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/color/red,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/melee/energy/axe,
 /turf/simulated/floor,
 /area/tdome/tdome2)
@@ -26079,7 +26079,7 @@
 "mMJ" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/color/green,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/tdome/green,
 /obj/item/clothing/head/helmet/thunderdome,
 /obj/item/melee/baton/loaded,
@@ -26200,10 +26200,10 @@
 	layer = 2.99;
 	pixel_y = 6
 	},
-/obj/item/storage/lockbox/cciaa/fib{
+/obj/item/storage/lockbox/cciaa/bssb{
 	pixel_y = -1
 	},
-/obj/item/storage/lockbox/cciaa/fib{
+/obj/item/storage/lockbox/cciaa/bssb{
 	pixel_y = -1
 	},
 /obj/effect/floor_decal/corner/blue/full{
@@ -28910,9 +28910,9 @@
 /obj/item/clothing/under/rank/medical/surgeon/pmc,
 /obj/item/clothing/under/rank/medical/surgeon/pmc,
 /obj/item/clothing/under/rank/medical/surgeon/pmc,
-/obj/item/clothing/shoes/white,
-/obj/item/clothing/shoes/white,
-/obj/item/clothing/shoes/white,
+/obj/item/clothing/shoes/sneakers,
+/obj/item/clothing/shoes/sneakers,
+/obj/item/clothing/shoes/sneakers,
 /obj/item/clothing/head/surgery/pmc,
 /obj/item/clothing/head/surgery/pmc,
 /obj/item/clothing/head/surgery/pmc,
@@ -36321,7 +36321,7 @@
 "tLh" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/color/red,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/tdome/red,
 /obj/item/clothing/head/helmet/thunderdome,
 /obj/item/melee/baton/loaded,
@@ -37191,7 +37191,7 @@
 	},
 /area/shuttle/escape)
 "uql" = (
-/obj/item/reagent_containers/food/drinks/soymilk{
+/obj/item/reagent_containers/food/drinks/carton/soymilk{
 	pixel_x = 6;
 	pixel_y = 12
 	},
@@ -38175,7 +38175,7 @@
 "uWm" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/color/green,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/melee/energy/axe,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor,
@@ -39120,10 +39120,10 @@
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
-/obj/item/clothing/shoes/swat,
-/obj/item/clothing/shoes/swat,
-/obj/item/clothing/shoes/swat,
-/obj/item/clothing/shoes/swat,
+/obj/item/clothing/shoes/combat,
+/obj/item/clothing/shoes/combat,
+/obj/item/clothing/shoes/combat,
+/obj/item/clothing/shoes/combat,
 /obj/item/clothing/shoes/jackboots/toeless,
 /obj/item/clothing/shoes/jackboots/toeless,
 /obj/item/clothing/suit/storage/legion,
@@ -40840,7 +40840,7 @@
 "wEG" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/color/red,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/suit/armor/vest,
 /obj/item/clothing/head/helmet/swat,
 /obj/item/gun/energy/laser,

@@ -114,8 +114,10 @@
 /datum/species/bug/type_c/New()
 	..()
 	equip_adjust = list(
-		slot_l_hand_str = list("[NORTH]" = list("x" = 6, "y" = 8),  "[EAST]" = list("x" = 15, "y" = 5), "[SOUTH]" = list("x" = 16, "y" = 8), "[WEST]" = list("x" = -9, "y" = 4)),
-		slot_r_hand_str = list("[NORTH]" = list("x" = 11, "y" = 8), "[EAST]" = list("x" = 25, "y" = 4), "[SOUTH]" = list("x" = 2, "y" = 8),  "[WEST]" = list("x" = 1, "y" = 5))
+		slot_l_ear_str   = list("[EAST]" = list("x" = 8, "y" = 10),  "[SOUTH]" = list("x" = 9, "y" = 10),  "[WEST]" = list("x" = -8, "y" = 10)),
+		slot_r_ear_str   = list("[EAST]" = list("x" = 24, "y" = 10), "[SOUTH]" = list("x" = 7, "y" = 10),  "[WEST]" = list("x" = -8, "y" = 10)),
+		slot_l_hand_str = list("[EAST]" = list("x" = 15, "y" = 5), "[SOUTH]" = list("x" = 10, "y" = 8), "[WEST]" = list("x" = -9, "y" = 4)),
+		slot_r_hand_str = list("[EAST]" = list("x" = 25, "y" = 4), "[SOUTH]" = list("x" = 4, "y" = 8),  "[WEST]" = list("x" = 1, "y" = 5))
 	)
 
 /datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/human/H)

@@ -138,7 +138,7 @@
 	..()
 
 /obj/item/cloaking_device/examine(mob/user)
-	..()
+	. = ..()
 	if (!cell)
 		to_chat(user, "It needs a power cell to function.")
 	else
