@@ -52,8 +52,9 @@
 	armor_penetration = 20
 
 /obj/item/projectile/beam/psi_lightning/wide/Initialize()
+	. = ..()
 	for(var/i = 1 to 4)
 		var/turf/new_turf = get_random_turf_in_range(get_turf(firer), i + rand(0, i), 0, TRUE, FALSE)
 		var/obj/item/projectile/beam/psi_lightning/pellet/pellet = new(new_turf)
 		var/turf/front_turf = get_step(pellet, pellet.dir)
-		pellet.launch_projectile(front_turf)
+		INVOKE_ASYNC(pellet, TYPE_PROC_REF(/obj/item/projectile/beam/psi_lightning/pellet, launch_projectile), front_turf)
