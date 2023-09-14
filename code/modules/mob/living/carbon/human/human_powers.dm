@@ -1937,7 +1937,7 @@
 	var/obj/item/organ/internal/vaurca/neuralsocket/host = src.internal_organs_by_name[BP_NEURAL_SOCKET]
 	if(!src.can_hivenet())
 		return
-	if(stat!=CONSCIOUS)
+	if(stat != CONSCIOUS)
 		remoteview_target = null
 		reset_view(0)
 		return
