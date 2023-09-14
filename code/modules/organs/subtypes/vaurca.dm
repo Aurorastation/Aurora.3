@@ -181,7 +181,7 @@
 	organ_tag = BP_HIVENET_SHIELD
 	parent_organ = BP_HEAD
 	icon_state = "augment-pda"
-	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access or sabotage."
+	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access, and sabotage."
 	action_button_name = "Toggle Hivenet Defense Suite"
 	action_button_icon = "augment-pda"
 	activable = TRUE
