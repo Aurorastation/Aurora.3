@@ -74,6 +74,7 @@
 	var/disrupted = FALSE
 	var/disrupttime = 0
 	var/last_action = 0
+	var/adminperms = FALSE
 	var/encryption_key
 	var/decryption_key
 	var/list/granted_verbs = list(/mob/living/carbon/human/proc/hivenet_recieve)
@@ -133,7 +134,8 @@
 	icon_state = "admin_socket"
 	desc = "The single most important organ for a Vaurca, able to copy their mind into their Virtual Reality Afterlife upon death. \
 	This one appears to be the far rarer administrative model including encrypted Hivenet access codes and an Emergency Remote Cast System. These are almost never found on any Vaurca Bioform except the Ta."
-	var/remote_cast = TRUE //get out of death free card
+	var/remote_cast = FALSE //get out of death free card
+	adminperms = TRUE
 	var/list/shielded_sockets = list() //sockets that you are currently protecting
 	var/list/shielded_mobs = list() //mobs that you are currently protecting
 	granted_verbs = list(
@@ -166,7 +168,7 @@
 			owner.visible_message(SPAN_WARNING("[owner]'s corpse spasms suddenly, legs twitching and antennae moving wildly as something hums beneath [owner.get_pronoun("his")] exoskeleton. After a moment, [owner.get_pronoun("he")] goes still."))
 			icon_state = "admin_socket_on"
 			desc += "The Emergency Remote Cast light is green, indicating it has been triggered."
-			remote_cast = 1
+			remote_cast = TRUE
 		for(var/obj/item/organ/internal/vaurca/neuralsocket/S in shielded_sockets)
 			S.shielded = SOCKET_UNSHIELDED
 			to_chat(S.owner, SPAN_WARNING("You feel [owner]'s protection vanish from you, leaving your neural socket exposed."))
