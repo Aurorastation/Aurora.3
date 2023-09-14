@@ -31,7 +31,7 @@
 
 	var/singleton/emote/use_emote = usable_emotes[act]
 	if(!use_emote)
-		to_chat(src, "<span class='warning'>Unknown emote '[act]'. Type <b>say *help</b> for a list of usable emotes.</span>")
+		to_chat(src, SPAN_WARNING("Unknown emote '[act]'. Type <b>say *help</b> for a list of usable emotes."))
 		return
 
 	if(m_type && m_type != use_emote.message_type)
