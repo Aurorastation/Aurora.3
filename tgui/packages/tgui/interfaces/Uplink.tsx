@@ -28,8 +28,10 @@ export const Uplink = (props, context) => {
   return (
     <Window resizable theme="syndicate">
       <Window.Content scrollable>
-        <Section title={data.welcome}>
-          Functions:
+        <Section title="Functions">
+          {data.welcome}
+          <br />
+          <br />
           <LabeledList>
             {[
               ['Request Gear', () => act('menu', { menu: 0 })],
@@ -43,6 +45,7 @@ export const Uplink = (props, context) => {
               </LabeledList.Item>
             ))}
           </LabeledList>
+          <br />
           <Table>
             <Table.Row>
               <Table.Cell>Telecrystals</Table.Cell>
@@ -124,7 +127,7 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
       <br />
       <Box textAlign="right">
         <Button
-          icon="sort-numeric-down"
+          icon={sortDesc ? 'sort-amount-asc' : 'sort-amount-desc'}
           onClick={() => {
             setSortDesc(!sortDesc);
           }}></Button>
