@@ -59,9 +59,9 @@
 /datum/outfit/admin/tarwa/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
 		return
-	for(var/name in H.organs_by_name)
-		var/obj/item/organ/external/O = H.organs_by_name[name]
-		if(!O || name == BP_HEAD || name == BP_CHEST || name == BP_GROIN)
+	for(var/organ in H.organs_by_name)
+		var/obj/item/organ/external/O = H.organs_by_name[organ]
+		if(!O || organ == BP_HEAD || organ == BP_CHEST || organ == BP_GROIN)
 			continue
 		if(prob(25))
 			O.AddComponent(/datum/component/nymph_limb)
