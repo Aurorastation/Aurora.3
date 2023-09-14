@@ -131,9 +131,9 @@
 
 /obj/item/organ/internal/vaurca/neuralsocket/admin
 	name = "administrative neural socket"
-	icon_state = "admin_socket"
 	desc = "The single most important organ for a Vaurca, able to copy their mind into their Virtual Reality Afterlife upon death. \
 	This one appears to be the far rarer administrative model including encrypted Hivenet access codes and an Emergency Remote Cast System. These are almost never found on any Vaurca Bioform except the Ta."
+	icon_state = "admin_socket"
 	var/remote_cast = FALSE //get out of death free card
 	adminperms = TRUE
 	var/list/shielded_sockets = list() //sockets that you are currently protecting
@@ -181,7 +181,7 @@
 	organ_tag = BP_HIVENET_SHIELD
 	parent_organ = BP_HEAD
 	icon_state = "augment-pda"
-	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access or sabotage."
+	desc = "An augment often seen among Vaurcae specialising in espionage or cyberwarfare operations, this suite of tools is designed to protect a Vaurca's Hivenet connection against hacking, remote access, and sabotage."
 	action_button_name = "Toggle Hivenet Defense Suite"
 	action_button_icon = "augment-pda"
 	activable = TRUE
