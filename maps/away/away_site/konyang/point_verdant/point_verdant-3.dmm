@@ -1509,7 +1509,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "Gg" = (
-/turf/unsimulated/wall/konyang,
+/turf/simulated/wall/wood,
 /area/point_verdant/interior)
 "Gs" = (
 /obj/effect/decal/road_marking/no_pass{
