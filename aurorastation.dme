@@ -184,6 +184,7 @@
 #include "code\_helpers\logging\subsystems\ghostroles.dm"
 #include "code\_helpers\logging\subsystems\law.dm"
 #include "code\_helpers\logging\subsystems\mapfinalization.dm"
+#include "code\_helpers\logging\subsystems\ZAS.dm"
 #include "code\_helpers\sorting\__main.dm"
 #include "code\_helpers\sorting\cmp.dm"
 #include "code\_helpers\sorting\TimSort.dm"

@@ -25,7 +25,6 @@ Nothing should ever be included before this file.
 #define TESTING
 #define UNIT_TEST
 #define ZASDBG
-#define FIREDBG
 #define GC_FAILURE_HARD_LOOKUP
 #define DO_NOT_DEFER_ASSETS
 #define SQL_PREF_DEBUG

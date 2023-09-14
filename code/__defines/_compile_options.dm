@@ -69,8 +69,7 @@
 //Other debugs/tests, aurora specific snowflake
 
 //These needs some logging rework before being uncommented
-// #define FIREDBG
-// #define ZASDBG
+#define ZASDBG
 
 #define SQL_PREF_DEBUG
 #endif
