@@ -202,7 +202,7 @@
 
 						#ifdef ZASDBG
 						dbg(assigned)
-						LOG_DEBUG("Added to [zone]")
+						log_subsystem_zas_debug("Added to [zone]")
 						#endif
 
 				else if(sim.zone != zone)
