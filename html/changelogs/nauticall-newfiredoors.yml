@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added new emergency shutters, both 1x1 and 2x1 versions. They now flash, too, depending on the danger they're shielding you against, just like before: orange for pressure, red for extreme heat, blue for extreme cold."
+  - imageadd: "Added new emergency shutter sprites, both 1x1 and 2x1 versions. They now flash again, depending on the danger they're shielding you against, just like before: orange for pressure, red for extreme heat, and blue for extreme cold."

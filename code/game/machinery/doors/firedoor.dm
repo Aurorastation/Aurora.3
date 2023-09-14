@@ -8,7 +8,7 @@
 
 /obj/machinery/door/firedoor
 	name = "emergency shutter"
-	desc = "An airtight emergency bulkhead designed to seal off areas from hostile environments. It flashes a warning light if it detects an environmental hazard on the other side."
+	desc = "An airtight emergency shutter designed to seal off areas from hostile environments. It flashes a warning light if it detects an environmental hazard on any side."
 	icon = 'icons/obj/doors/basic/single/emergency/firedoor.dmi'
 	icon_state = "door_open"
 	req_one_access = list(access_atmospherics, access_engine_equip, access_first_responder)
@@ -154,7 +154,7 @@
 		return
 
 	if(pdiff >= FIREDOOR_MAX_PRESSURE_DIFF)
-		to_chat(user, "<span class='danger'>WARNING: Current pressure differential is [pdiff]kPa! Opening door may result in injury!</span>")
+		to_chat(user, SPAN_DANGER("Current pressure differential is [pdiff] kPa. Opening door will likely result in injury."))
 
 	to_chat(user, "<b>Sensor readings:</b>")
 	for(var/index = 1; index <= tile_info.len; index++)
