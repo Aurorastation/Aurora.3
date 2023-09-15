@@ -972,10 +972,17 @@
 	name = "[src.name] - [src.dogtags_name]"
 
 /obj/item/clothing/accessory/dogtags/examine(mob/user, distance)
-	if (..(user, 1))
+	..(user, distance)
+	if(distance <= 1)
 		show_tag(user)
 	else
-		to_chat(user, SPAN_NOTICE("You have to go closer if you want to examine them."))
+		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read them."))
+
+	if(can_be_broken == TRUE)
+		if(separated)
+			to_chat(user, SPAN_WARNING("One of the tags has been ripped off."))
+		else
+			to_chat(user, SPAN_NOTICE("One of the tags can be ripped off and removed in the event of the wearer's death."))
 
 /obj/item/clothing/accessory/dogtags/proc/show_tag(user)
 	var/list/dat = ("<table><tr><td>")
@@ -988,11 +995,12 @@
 	popup.set_content(JOINTEXT(dat))
 	popup.open()
 
-/obj/item/dogtag/examine(mob/user)
-	if (..(user, 1))
+/obj/item/dogtag/examine(mob/user, distance)
+	..(user, distance)
+	if(distance <= 1)
 		show_tag(user)
 	else
-		to_chat(user, SPAN_NOTICE("You have to go closer if you want to examine it."))
+		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
 
 /obj/item/dogtag/proc/show_tag(user)
 	var/list/dat = ("<table><tr><td>")
