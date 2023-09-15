@@ -358,70 +358,72 @@
 
 /obj/item/clothing/accessory/polo
 	desc = "A stylish golf polo."
+	icon = 'icons/clothing/under/shirts/polo.dmi'
 	icon_state = "polo"
 	item_state = "polo"
+	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/polo_fem
+/obj/item/clothing/accessory/polo/polo_fem
 	desc = "A stylish golf polo made for women."
 	icon_state = "polo_fem"
 	item_state = "polo_fem"
 
-/obj/item/clothing/accessory/polo_blue
+/obj/item/clothing/accessory/polo/polo_blue
 	desc = "A stylish golf polo. This one is blue."
 	icon_state = "polo_blue"
 	item_state = "polo_blue"
 
-/obj/item/clothing/accessory/polo_blue_fem
+/obj/item/clothing/accessory/polo/polo_blue_fem
 	desc = "A stylish golf polo made for women. This one is blue."
 	icon_state = "polo_blue_fem"
 	item_state = "polo_blue_fem"
 
-/obj/item/clothing/accessory/polo_red
+/obj/item/clothing/accessory/polo/polo_red
 	desc = "A stylish golf polo. This one is red."
 	icon_state = "polo_red"
 	item_state = "polo_red"
 
-/obj/item/clothing/accessory/polo_red_fem
+/obj/item/clothing/accessory/polo/polo_red_fem
 	desc = "A stylish golf polo made for women. This one is red."
 	icon_state = "polo_red_fem"
 	item_state = "polo_red_fem"
 
-/obj/item/clothing/accessory/polo_grayyellow
-	desc = "A stylish golf polo. This one is gray-yellow."
+/obj/item/clothing/accessory/polo/polo_grayyellow
+	desc = "A stylish golf polo. This one is tan."
 	icon_state = "polo_grayyellow"
 	item_state = "polo_grayyellow"
 
-/obj/item/clothing/accessory/polo_grayyellow_fem
-	desc = "A stylish golf polo made for women. This one is gray-yellow"
+/obj/item/clothing/accessory/polo/polo_grayyellow_fem
+	desc = "A stylish golf polo made for women. This one is tan"
 	icon_state = "polo_grayyellow_fem"
 	item_state = "polo_grayyellow_fem"
 
-/obj/item/clothing/accessory/polo_greenstrip
+/obj/item/clothing/accessory/polo/polo_greenstrip
 	desc = "A stylish golf polo. This one has a green strip around the collar."
 	icon_state = "polo_corp"
 	item_state = "polo_corp"
 
-/obj/item/clothing/accessory/polo_greenstrip_fem
+/obj/item/clothing/accessory/polo/polo_greenstrip_fem
 	desc = "A stylish golf polo made for women. This one has a green strip around the collar."
 	icon_state = "polo_corp_fem"
 	item_state = "polo_corp_fem"
 
-/obj/item/clothing/accessory/polo_bluestrip
+/obj/item/clothing/accessory/polo/polo_bluestrip
 	desc = "A stylish golf polo. This one has a blue strip around the collar"
 	icon_state = "polo_dais"
 	item_state = "polo_dais"
 
-/obj/item/clothing/accessory/polo_bluestrip_fem
+/obj/item/clothing/accessory/polo/polo_bluestrip_fem
 	desc = "A stylish golf polo made for women. This one has a blue strip around the collar."
 	icon_state = "polo_dais_fem"
 	item_state = "polo_dais_fem"
 
-/obj/item/clothing/accessory/polo_redstrip
+/obj/item/clothing/accessory/polo/polo_redstrip
 	desc = "A stylish golf polo. This one has a red strip around the collar"
 	icon_state = "polo_nt"
 	item_state = "polo_nt"
 
-/obj/item/clothing/accessory/polo_redstrip_fem
+/obj/item/clothing/accessory/polo/polo_redstrip_fem
 	desc = "A stylish golf polo made for women. This one has a red strip around the collar."
 	icon_state = "polo_nt_fem"
 	item_state = "polo_nt_fem"
