@@ -57,7 +57,7 @@
 				pan_icon_state = "pot"
 			else
 				continue
-		var/mutable_appearance/pan_overlay = mutable_appearance('icons/obj/cooking_machines.dmi', pan_icon_state)
+		var/mutable_appearance/pan_overlay = mutable_appearance('icons/obj/machinery/cooking_machines.dmi', pan_icon_state)
 		pan_overlay.pixel_x = positions[1]
 		pan_overlay.pixel_y = positions[2]
 		pan_overlay.color = CC.color
@@ -65,7 +65,7 @@
 		pan_number = pan_position_number
 		//filling
 		if(CC.reagents.total_volume)
-			var/mutable_appearance/filling_overlay = mutable_appearance('icons/obj/cooking_machines.dmi', "filling_overlay")
+			var/mutable_appearance/filling_overlay = mutable_appearance('icons/obj/machinery/cooking_machines.dmi', "filling_overlay")
 			filling_overlay.pixel_x = positions[1]
 			filling_overlay.pixel_y = positions[2]
 			filling_overlay.color = CC.reagents.get_color()
@@ -77,7 +77,7 @@
 			pans += filling_overlay
 		// flame overlay
 		if(!stat)
-			var/mutable_appearance/flame_overlay = mutable_appearance('icons/obj/cooking_machines.dmi', "stove_flame")
+			var/mutable_appearance/flame_overlay = mutable_appearance('icons/obj/machinery/cooking_machines.dmi', "stove_flame")
 			flame_overlay.pixel_x = positions[1]
 			flame_overlay.pixel_y = positions[2]
 			flame_overlay.color = "#006eff"
