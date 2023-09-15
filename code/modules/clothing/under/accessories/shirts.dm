@@ -357,6 +357,7 @@
 	item_state = "usweatshirt_black"
 
 /obj/item/clothing/accessory/polo
+	name = "polo"
 	desc = "A stylish golf polo."
 	icon = 'icons/clothing/under/shirts/polo.dmi'
 	icon_state = "polo"
@@ -369,31 +370,37 @@
 	item_state = "polo_fem"
 
 /obj/item/clothing/accessory/polo/polo_blue
+	name = "blue polo"
 	desc = "A stylish golf polo. This one is blue."
 	icon_state = "polo_blue"
 	item_state = "polo_blue"
 
 /obj/item/clothing/accessory/polo/polo_blue_fem
+	name = "blue polo"
 	desc = "A stylish golf polo made for women. This one is blue."
 	icon_state = "polo_blue_fem"
 	item_state = "polo_blue_fem"
 
 /obj/item/clothing/accessory/polo/polo_red
+	name = "red polo"
 	desc = "A stylish golf polo. This one is red."
 	icon_state = "polo_red"
 	item_state = "polo_red"
 
 /obj/item/clothing/accessory/polo/polo_red_fem
+	name = "red polo"
 	desc = "A stylish golf polo made for women. This one is red."
 	icon_state = "polo_red_fem"
 	item_state = "polo_red_fem"
 
 /obj/item/clothing/accessory/polo/polo_grayyellow
+	name = "tan polo"
 	desc = "A stylish golf polo. This one is tan."
 	icon_state = "polo_grayyellow"
 	item_state = "polo_grayyellow"
 
 /obj/item/clothing/accessory/polo/polo_grayyellow_fem
+	name = "tan polo"
 	desc = "A stylish golf polo made for women. This one is tan"
 	icon_state = "polo_grayyellow_fem"
 	item_state = "polo_grayyellow_fem"
