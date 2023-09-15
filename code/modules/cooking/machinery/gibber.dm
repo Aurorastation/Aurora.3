@@ -3,7 +3,7 @@
 	name = "gibber"
 	desc = "The name isn't descriptive enough?"
 	desc_extended = "WARNING : Insurance no longer covers entertaining intrusive thoughts. Keep your limbs to yourself."
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "grinder"
 	density = 1
 	anchored = TRUE

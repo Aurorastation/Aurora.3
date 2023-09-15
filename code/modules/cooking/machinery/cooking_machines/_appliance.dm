@@ -9,7 +9,7 @@
 	name = "cooker"
 	desc = DESC_PARENT
 	desc_info = "Control-click this to change its temperature."
-	icon = 'icons/obj/cooking_machines.dmi'
+	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	var/appliancetype = 0
 	density = 1
 	anchored = 1
