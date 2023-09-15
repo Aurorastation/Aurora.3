@@ -28,8 +28,8 @@
 	QDEL_NULL(cell)
 	return ..()
 
-/obj/machinery/light_construct/examine(mob/user)
-	if(!..(user, 2))
+/obj/machinery/light_construct/examine(mob/user, distance, is_adjacent)
+	if(distance > 2)
 		return
 
 	switch(stage)

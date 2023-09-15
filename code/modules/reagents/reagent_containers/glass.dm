@@ -24,8 +24,9 @@
 	. = ..()
 	AddComponent(/datum/component/base_name, name)
 
-/obj/item/reagent_containers/glass/examine(var/mob/user)
-	if(!..(user, 2))
+/obj/item/reagent_containers/glass/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of a reagent."))

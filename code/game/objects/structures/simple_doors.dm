@@ -59,7 +59,7 @@
 	return ..()
 
 /obj/structure/simple_door/examine(mob/user)
-	..(user)
+	. = ..()
 	if(lock)
 		to_chat(user, "<span class='notice'>It appears to have a lock.</span>")
 

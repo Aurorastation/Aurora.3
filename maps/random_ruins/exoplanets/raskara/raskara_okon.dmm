@@ -438,7 +438,7 @@
 /area/raskara_okon/mess_hall)
 "fy" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/database_freighter,
 /obj/structure/cable/green{
 	d2 = 8;
@@ -1772,7 +1772,7 @@
 /area/raskara_okon/mining)
 "xp" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/database_freighter,
 /obj/item/clothing/accessory/badge/pra_passport,
 /obj/item/clothing/accessory/badge/pra_passport,
@@ -1900,7 +1900,7 @@
 /area/raskara_okon/mining)
 "zd" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/database_freighter,
 /obj/machinery/light/small{
 	dir = 4

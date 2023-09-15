@@ -67,7 +67,7 @@ var/global/list/robot_modules = list(
 	apply_status_flags(R)
 
 	if(R.radio)
-		R.radio.recalculateChannels()
+		INVOKE_ASYNC(R.radio, TYPE_PROC_REF(/obj/item/device/radio/borg, recalculateChannels))
 
 	R.set_module_sprites(sprites)
 	R.icon_selected = FALSE
@@ -914,7 +914,7 @@ var/global/list/robot_modules = list(
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 	if(R.radio)
-		R.radio.recalculateChannels()
+		INVOKE_ASYNC(R.radio, TYPE_PROC_REF(/obj/item/device/radio/borg, recalculateChannels))
 
 /obj/item/robot_module/military
 	name = "military robot module"

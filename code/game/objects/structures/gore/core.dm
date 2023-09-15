@@ -13,8 +13,9 @@
 	. = ..()
 	health = maxHealth
 
-/obj/structure/gore/examine(mob/user)
-	if(..(user, 2))
+/obj/structure/gore/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 2)
 		var/health_div = health / maxHealth
 		if(health_div >= 0.9)
 			to_chat(user, SPAN_NOTICE("\The [src] appears completely intact."))
