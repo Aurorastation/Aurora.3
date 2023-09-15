@@ -131,6 +131,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	while (lq_idex <= curr_lights.len)
 		var/datum/light_source/L = curr_lights[lq_idex++]
+		ASSERT(!QDELETED(L))
 
 		if (L.needs_update != LIGHTING_NO_UPDATE)
 			total_ss_updates += 1
@@ -154,6 +155,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	while (cq_idex <= curr_corners.len)
 		var/datum/lighting_corner/C = curr_corners[cq_idex++]
+		ASSERT(!QDELETED(C))
 
 		if (C.needs_update)
 			C.update_overlays()
