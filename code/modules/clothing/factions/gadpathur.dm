@@ -145,8 +145,7 @@
 
 /obj/item/clothing/accessory/dogtags/gadpathur
 	name = "gadpathurian dogtags"
-	desc = "Gadpathurian dogtags are issued to every non-exiled member of the planet's highly-militarized society and list their wearer's name, cadre, cadre ID, religion, and blood type. \
-	They can be easily ripped in half in the event of the wearer's death."
+	desc = "Gadpathurian dogtags are issued to every non-exiled member of the planet's highly-militarized society and list their wearer's name, cadre, cadre ID, religion, and blood type."
 	icon_state = "gadpathur_dogtags"
 	item_state = "gadpathur_dogtags"
 	can_be_broken = TRUE
