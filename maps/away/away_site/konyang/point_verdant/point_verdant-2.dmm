@@ -1252,12 +1252,6 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/tailor)
-"fX" = (
-/obj/structure/blocker/building_structure/building_wall/corner_inner{
-	dir = 8
-	},
-/turf/simulated/wall/wood,
-/area/point_verdant/interior/arcade)
 "fZ" = (
 /obj/structure/dam{
 	icon_state = "dam8"
@@ -3954,7 +3948,6 @@
 /area/point_verdant/outdoors)
 "rH" = (
 /obj/effect/map_effect/window_spawner/full/wood,
-/turf/simulated/floor/building_foundation,
 /area/point_verdant/interior/arcade)
 "rI" = (
 /obj/structure/konyang_cliff{
@@ -4188,12 +4181,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
-"sH" = (
-/obj/structure/blocker/building_structure/building_wall/corner_inner{
-	dir = 1
-	},
-/turf/simulated/wall/wood,
-/area/point_verdant/interior/arcade)
 "sJ" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -4251,11 +4238,9 @@
 /area/point_verdant/outdoors)
 "tc" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/red,
 /obj/item/clothing/shoes/sandal,
 /obj/item/clothing/shoes/slippers,
 /obj/item/clothing/shoes/konyang,
-/obj/item/clothing/shoes/jackboots/thigh,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/winter,
 /obj/item/clothing/shoes/workboots,
@@ -5604,10 +5589,6 @@
 	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
-"yo" = (
-/obj/structure/blocker/building_structure/building_wall/corner_inner,
-/turf/simulated/wall/wood,
-/area/point_verdant/interior/arcade)
 "yq" = (
 /obj/structure/utility_pole/street/traffic/inverted{
 	dir = 4;
@@ -6901,12 +6882,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
-"DA" = (
-/obj/structure/blocker/building_structure/building_wall/corner_inner{
-	dir = 4
-	},
-/turf/simulated/wall/wood,
-/area/point_verdant/interior/arcade)
 "DB" = (
 /obj/effect/decal/road_marking/no_pass{
 	dir = 8
@@ -7602,9 +7577,6 @@
 	},
 /obj/item/clothing/shoes/laceup{
 	pixel_y = 4
-	},
-/obj/item/clothing/shoes/red{
-	pixel_y = -2
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/tailor)
@@ -40694,7 +40666,6 @@ iL
 iL
 WV
 Ir
-yo
 KN
 KN
 KN
@@ -40702,7 +40673,8 @@ KN
 KN
 KN
 KN
-DA
+KN
+KN
 bV
 LN
 iL
@@ -42750,7 +42722,6 @@ iL
 iL
 WV
 Ir
-sH
 KN
 KN
 KN
@@ -42758,7 +42729,8 @@ KN
 KN
 KN
 KN
-fX
+KN
+KN
 bV
 LN
 iL

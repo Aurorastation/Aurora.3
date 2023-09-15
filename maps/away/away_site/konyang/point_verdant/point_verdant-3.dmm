@@ -371,11 +371,9 @@
 /area/point_verdant/outdoors)
 "gp" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/red,
 /obj/item/clothing/shoes/sandal,
 /obj/item/clothing/shoes/slippers,
 /obj/item/clothing/shoes/konyang,
-/obj/item/clothing/shoes/jackboots/thigh,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/winter,
 /obj/item/clothing/shoes/workboots,
@@ -1642,11 +1640,9 @@
 /area/point_verdant/outdoors)
 "HT" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/red,
 /obj/item/clothing/shoes/sandal,
 /obj/item/clothing/shoes/slippers,
 /obj/item/clothing/shoes/konyang,
-/obj/item/clothing/shoes/jackboots/thigh,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/winter,
 /obj/item/clothing/shoes/workboots,
@@ -2434,11 +2430,9 @@
 	layer = 9.1
 	},
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/red,
 /obj/item/clothing/shoes/sandal,
 /obj/item/clothing/shoes/slippers,
 /obj/item/clothing/shoes/konyang,
-/obj/item/clothing/shoes/jackboots/thigh,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/winter,
 /obj/item/clothing/shoes/workboots,
