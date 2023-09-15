@@ -37,7 +37,7 @@
 		add_overlay("sheater-open")
 
 /obj/machinery/space_heater/examine(mob/user)
-	..(user)
+	. = ..()
 
 	to_chat(user, "The heater is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"].")
 	if(panel_open)

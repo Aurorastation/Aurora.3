@@ -19,7 +19,8 @@
 	var/list/ore_names
 
 /obj/item/ore_detector/examine(mob/user, distance)
-	if(..(user, 1))
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("Alt-click to set the ore you wish to search for.")))
 
 /obj/item/ore_detector/Destroy()

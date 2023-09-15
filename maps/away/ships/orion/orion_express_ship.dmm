@@ -1910,7 +1910,7 @@
 /turf/simulated/floor/airless,
 /area/ship/orion_express_ship)
 "nVM" = (
-/obj/item/clothing/shoes/laceup/brown/all_species,
+/obj/item/clothing/shoes/laceup/brown,
 /obj/item/clothing/under/rank/liaison/orion{
 	desc = "The plain, professional attire of a corporate employee. The collar is <i>immaculately</i> starched.";
 	name = "orion express suit"

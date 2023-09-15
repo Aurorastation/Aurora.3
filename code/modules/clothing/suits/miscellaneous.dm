@@ -106,10 +106,10 @@
 	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/trinary_robes
-    name = "trinary perfection robe"
-    desc = "Robes worn by those who serve The Trinary Perfection."
-    icon_state = "trinary_robes"
-    item_state = "trinary_robes"
+	name = "trinary perfection robe"
+	desc = "Robes worn by those who serve The Trinary Perfection."
+	icon_state = "trinary_robes"
+	item_state = "trinary_robes"
 
 /*
  * Misc
@@ -572,11 +572,26 @@
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/toggle/fib
-	name = "\improper FIB agent jacket"
-	desc = "A jacket used by Federal Investigations Bureau agents while on the field."
-	icon_state = "fib_jacket"
-	item_state = "fib_jacket"
+/obj/item/clothing/suit/storage/toggle/bssb
+	name = "\improper BSSB agent jacket"
+	desc = "A jacket used by Biesel Security Services Bureau agents while on the field."
+	icon_state = "bssb_jacket"
+	item_state = "bssb_jacket"
+	icon = 'icons/clothing/suits/coats/bssb_jacket.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/bssb/armor
+	name = "\improper BSSB agent armored jacket"
+	desc = "A jacket used by Biesel Security Services Bureau agents while on the field. This one has armored lining."
+	icon_state = "bssb_jacket_armored"
+	item_state = "bssb_jacket_armored"
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
 
 // Cardigans.
 

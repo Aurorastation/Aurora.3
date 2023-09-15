@@ -142,8 +142,9 @@
 
 	return 1
 
-/obj/item/reagent_containers/food/snacks/examine(mob/user)
-	if(!..(user, 1))
+/obj/item/reagent_containers/food/snacks/examine(mob/user, distance)
+	. = ..()
+	if(distance > 1)
 		return
 	if (coating)
 		var/singleton/reagent/coating_reagent = GET_SINGLETON(coating)

@@ -664,9 +664,9 @@
 	suppressor = null
 	update_icon()
 
-/obj/item/gun/examine(mob/user)
-	..()
-	if(get_dist(src, user) > 1)
+/obj/item/gun/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 1)
 		return
 	if(markings)
 		to_chat(user, SPAN_NOTICE("It has [markings] [markings == 1 ? "notch" : "notches"] carved into the stock."))

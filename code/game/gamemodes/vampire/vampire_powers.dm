@@ -379,6 +379,7 @@
 
 	for(var/obj/machinery/light/L in view(7))
 		L.broken()
+		CHECK_TICK
 
 	playsound(src.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
 	vampire.use_blood(90)

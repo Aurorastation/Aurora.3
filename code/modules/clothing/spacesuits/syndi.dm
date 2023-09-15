@@ -49,7 +49,7 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/helmet/space/syndicate/covert/examine(mob/user, distance)
-	..()
+	. = ..()
 	if(distance <= 1)
 		to_chat(user, SPAN_NOTICE("This helmet has extra armor compared to a normal softsuit helmet."))
 

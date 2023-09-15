@@ -622,9 +622,9 @@
 	else if(dead)
 		remove_dead(user)
 
-/obj/machinery/portable_atmospherics/hydroponics/examine()
+/obj/machinery/portable_atmospherics/hydroponics/examine(mob/user, distance, is_adjacent)
 
-	..()
+	. = ..()
 
 	if(!seed)
 		to_chat(usr, "[src] is empty.")
@@ -632,7 +632,7 @@
 
 	to_chat(usr, "<span class='notice'>[seed.display_name] are growing here.</span>")
 
-	if(!Adjacent(usr))
+	if(!is_adjacent)
 		return
 
 	to_chat(usr, "Water: [round(waterlevel,0.1)]/100")

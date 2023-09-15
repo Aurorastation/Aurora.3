@@ -98,7 +98,7 @@ var/list/mineral_can_smooth_with = list(
 	return INITIALIZE_HINT_NORMAL
 
 /turf/simulated/mineral/examine(mob/user)
-	..()
+	. = ..()
 	if(mineral)
 		switch(mined_ore)
 			if(0)
@@ -182,6 +182,8 @@ var/list/mineral_can_smooth_with = list(
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 
 /turf/unsimulated/mineral/asteroid/Initialize(mapload)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 

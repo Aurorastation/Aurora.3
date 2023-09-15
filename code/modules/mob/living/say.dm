@@ -196,7 +196,7 @@ var/list/channel_to_radio_key = new
 	var/regex/emote = regex("^(\[\\*^\])\[^*\]+$")
 
 	if(emote.Find(message))
-		if(emote.group[1] == "*") return emote(copytext(message, 2))
+		if(emote.group[1] == "*") return client_emote(copytext(message, 2))
 		if(emote.group[1] == "^") return custom_emote(VISIBLE_MESSAGE, copytext(message,2))
 
 	//parse the radio code and consume it
