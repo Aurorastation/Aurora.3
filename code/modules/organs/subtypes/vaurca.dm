@@ -161,6 +161,12 @@
 	if(air_contents)
 		QDEL_NULL(air_contents)
 
+	//Clear the reference to the phoron reserve as internals
+	var/mob/living/carbon/location = loc
+	if(istype(location) && location?.internal == src)
+		location?.internal = null
+		location?.internals?.icon_state = "internal0"
+
 	return ..()
 
 /obj/item/organ/internal/vaurca/preserve/examine(mob/user, distance, is_adjacent)
