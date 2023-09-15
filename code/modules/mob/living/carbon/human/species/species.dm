@@ -40,6 +40,8 @@
 	var/prone_icon                                       // If set, draws this from icobase when mob is prone.
 	var/icon_x_offset = 0
 	var/icon_y_offset = 0
+	var/typing_indicator_x_offset = 0
+	var/typing_indicator_y_offset = 0
 	var/floating_chat_x_offset = null
 	var/eyes = "eyes_s"                                  // Icon for eyes.
 	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
