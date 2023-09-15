@@ -405,7 +405,7 @@
 	var/list/L = turfs - affecting_turfs // New turfs, add us to the affecting lights of them.
 	affecting_turfs += L
 	for (thing in L)
-		ASSERT(!QDELETED(L))
+		ASSERT(!QDELETED(thing))
 		T = thing
 		LAZYADD(T.affecting_lights, src)
 
