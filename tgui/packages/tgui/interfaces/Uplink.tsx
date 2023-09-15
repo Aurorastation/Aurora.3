@@ -10,6 +10,9 @@ export type UplinkData = {
   bluecrystals: Number;
   categories: { name: string; ref: string }[];
   items: ItemData[];
+  exploit_records: { Name: string; id: number }[];
+  exploit: ExploitData;
+  exploit_exists: BooleanLike;
 };
 
 type ItemData = {
@@ -20,6 +23,19 @@ type ItemData = {
   bc_cost: number;
   left: number;
   ref: string;
+};
+
+type ExploitData = {
+  nanoui_exploit_record: string;
+  name: string;
+  sex: string;
+  age: string;
+  species: string;
+  rank: string;
+  citizenship: string;
+  employer: string;
+  religion: string;
+  fingerprint: string;
 };
 
 export const Uplink = (props, context) => {
@@ -34,19 +50,32 @@ export const Uplink = (props, context) => {
           <br />
           <LabeledList>
             {[
-              ['Request Gear', () => act('menu', { menu: 0 })],
-              ['Exploitable Information', () => act('menu', { menu: 2 })],
-              ['Extranet Contract Database', () => act('menu', { menu: 3 })],
-              ['Return', () => act('return')],
-              ['Close', () => act('lock')],
-            ].map(([text, action]: [String, any]) => (
+              ['shopping-cart', 'Request Gear', () => act('menu', { menu: 0 })],
+              [
+                'file-lines',
+                'Exploitable Information',
+                () => act('menu', { menu: 2 }),
+              ],
+              [
+                'network-wired',
+                'Extranet Contract Database',
+                () => act('menu', { menu: 3 }),
+              ],
+              ['arrow-left', 'Return', () => act('return')],
+              ['close', 'Close', () => act('lock')],
+            ].map(([icon, text, action]: [string, string, any]) => (
               <LabeledList.Item>
-                <Button content={text} onClick={action} />
+                <Button
+                  content={text}
+                  icon={icon}
+                  color={'transparent'}
+                  onClick={action}
+                />
               </LabeledList.Item>
             ))}
           </LabeledList>
           <br />
-          <Table>
+          <Table width="50%">
             <Table.Row>
               <Table.Cell>Telecrystals</Table.Cell>
               <Table.Cell>{data.telecrystals}</Table.Cell>
@@ -59,6 +88,9 @@ export const Uplink = (props, context) => {
         </Section>
         {data.menu == 0 ? ItemCategoriesSection(act, data) : ''}
         {data.menu == 1 ? ItemSection(context, act, data) : ''}
+        {data.menu == 2 ? ExploitSection(act, data) : ''}
+        {data.menu == 21 ? ExploitRecordSection(act, data) : ''}
+        {data.menu == 3 ? ContractsSection(act, data) : ''}
       </Window.Content>
     </Window>
   );
@@ -72,6 +104,7 @@ const ItemCategoriesSection = function (act: any, data: UplinkData) {
           <LabeledList.Item>
             <Button
               content={category.name}
+              color={'purple'}
               onClick={() => act('menu', { menu: 1, category: category.ref })}
             />
           </LabeledList.Item>
@@ -128,6 +161,7 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
       <Box textAlign="right">
         <Button
           icon={sortDesc ? 'sort-amount-asc' : 'sort-amount-desc'}
+          color={'purple'}
           onClick={() => {
             setSortDesc(!sortDesc);
           }}></Button>
@@ -139,6 +173,7 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
               <Table.Cell>
                 <Button
                   content={item.name}
+                  color={'purple'}
                   disabled={!item.can_buy}
                   onClick={() => act('buy_item', { buy_item: item.ref })}
                 />
@@ -165,6 +200,81 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
           </>
         ))}
       </Table>
+    </Section>
+  );
+};
+
+const ExploitSection = function (act: any, data: UplinkData) {
+  return (
+    <Section title="Information Record List">
+      Select a Record
+      <LabeledList>
+        {data.exploit_records?.map((exploit) => (
+          <LabeledList.Item>
+            <Button
+              content={exploit.Name}
+              color={'purple'}
+              onClick={() => act('menu', { menu: 21, id: exploit.id })}
+            />
+          </LabeledList.Item>
+        ))}
+      </LabeledList>
+    </Section>
+  );
+};
+
+const ExploitRecordSection = function (act: any, data: UplinkData) {
+  if (data.exploit_exists && data.exploit) {
+    const exploit = data.exploit;
+    return (
+      <Section title="Information Record">
+        <LabeledList>
+          <LabeledList.Item label="Name">{exploit.name}</LabeledList.Item>
+          <LabeledList.Item label="Sex">{exploit.sex}</LabeledList.Item>
+          <LabeledList.Item label="Species">{exploit.species}</LabeledList.Item>
+          <LabeledList.Item label="Age">{exploit.age}</LabeledList.Item>
+          <LabeledList.Item label="Rank">{exploit.rank}</LabeledList.Item>
+          <LabeledList.Item label="Citizenship">
+            {exploit.citizenship}
+          </LabeledList.Item>
+          <LabeledList.Item label="Faction">
+            {exploit.employer}
+          </LabeledList.Item>
+          <LabeledList.Item label="Religion">
+            {exploit.religion}
+          </LabeledList.Item>
+          <LabeledList.Item label="Fingerprint">
+            {exploit.fingerprint}
+          </LabeledList.Item>
+          <LabeledList.Item label="Acquired Information"></LabeledList.Item>
+        </LabeledList>
+        {exploit.nanoui_exploit_record}
+      </Section>
+    );
+  } else {
+    return (
+      <Section title="Information Record">
+        No exploitative information acquired!
+      </Section>
+    );
+  }
+};
+
+const ContractsSection = function (act: any, data: UplinkData) {
+  return (
+    <Section title="Information Record List">
+      Select a Record
+      <LabeledList>
+        {data.exploit_records?.map((exploit) => (
+          <LabeledList.Item>
+            <Button
+              content={exploit.Name}
+              color={'purple'}
+              onClick={() => act('menu', { menu: 21, id: exploit.id })}
+            />
+          </LabeledList.Item>
+        ))}
+      </LabeledList>
     </Section>
   );
 };
