@@ -359,7 +359,7 @@
 /obj/item/clothing/accessory/polo
 	name = "polo"
 	desc = "A stylish golf polo."
-	icon = 'icons/clothing/under/shirts/polo.dmi'
+	icon = 'icons/obj/item/clothing/accessory/polo.dmi'
 	icon_state = "polo"
 	item_state = "polo"
 	contained_sprite = TRUE
