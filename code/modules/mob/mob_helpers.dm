@@ -1305,6 +1305,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 /mob/proc/get_talk_bubble()
 	return 'icons/mob/talk.dmi'
 
+/mob/proc/adjust_typing_indicator_offsets(var/atom/movable/typing_indicator/indicator)
+	return
+
 /datum/proc/get_client()
 	return null
 

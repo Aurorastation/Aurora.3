@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed Vaurca Breeder typing indicator offsets."
+  - bugfix: "Fixed Vaurca Breeder floating chat offsets."
+  - bugfix: "Fixed Vaurca Breeder wings sometimes losing their sprites."
