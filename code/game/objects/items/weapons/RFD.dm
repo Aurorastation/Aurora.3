@@ -62,7 +62,7 @@
 	return (user.Adjacent(T) && user.get_active_hand() == src && !user.stat && !user.restrained())
 
 /obj/item/rfd/examine(var/mob/user)
-	..()
+	. = ..()
 	if(loc == user)
 		to_chat(user, "It currently holds [stored_matter]/30 matter units.")
 
@@ -539,7 +539,7 @@
 	return
 
 /obj/item/rfd/transformer/examine(var/mob/user)
-	..()
+	. = ..()
 	if(loc == user)
 		if(malftransformermade)
 			to_chat(user, "There is already a transformer machine made!")

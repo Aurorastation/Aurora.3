@@ -317,7 +317,7 @@
 
 	I.forceMove(T)
 
-/obj/item/examine(mob/user, var/distance = -1)
+/obj/item/examine(mob/user, distance)
 	var/size
 	switch(src.w_class)
 		if (5.0 to INFINITY)

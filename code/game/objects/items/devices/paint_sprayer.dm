@@ -290,7 +290,7 @@
 	return .
 
 /obj/item/device/paint_sprayer/examine(mob/user)
-	. = ..(user)
+	. = ..()
 	to_chat(user, "It is configured to produce the '[decal]' decal with a direction of '[paint_dir]' using [paint_colour] paint.")
 
 /obj/item/device/paint_sprayer/verb/choose_colour()

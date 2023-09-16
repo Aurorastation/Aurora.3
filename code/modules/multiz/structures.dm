@@ -287,8 +287,6 @@
 
 /obj/structure/stairs/east
 	dir = EAST
-	bound_x = -32
-	pixel_x = -32
 	bound_width = 64
 	bound_x = -32
 	pixel_x = -32

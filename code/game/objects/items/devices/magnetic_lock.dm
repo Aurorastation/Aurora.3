@@ -77,7 +77,7 @@
 		attach(newtarget)
 
 /obj/item/device/magnetic_lock/examine(mob/user)
-	..(user)
+	. = ..()
 
 	if (status == STATUS_BROKEN)
 		to_chat(user, "<span class='danger'>It looks broken!</span>")

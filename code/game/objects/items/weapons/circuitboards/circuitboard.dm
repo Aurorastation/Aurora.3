@@ -23,7 +23,7 @@
 	var/contain_parts = 1
 
 /obj/item/circuitboard/examine(mob/user)
-	..()
+	. = ..()
 	if(build_path)
 		var/obj/machine = new build_path // instantiate to get the name and desc
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("This circuitboard will build a <b>[capitalize_first_letters(machine.name)]</b>: [machine.desc]")))

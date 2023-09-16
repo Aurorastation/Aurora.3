@@ -80,7 +80,7 @@
 	var/old_angle = 0
 
 /obj/machinery/porta_turret/examine(mob/user)
-	..()
+	. = ..()
 	var/msg = ""
 	if(!health)
 		msg += SPAN_DANGER("\The [src] is destroyed!")

@@ -171,7 +171,7 @@
 		if(!card.radio)
 			card.radio = new /obj/item/device/radio/pai(src.card)
 		radio = card.radio
-		card.recalculateChannels()
+		INVOKE_ASYNC(card, TYPE_PROC_REF(/obj/item/device/paicard, recalculateChannels))
 
 	//Default languages without universal translator software
 

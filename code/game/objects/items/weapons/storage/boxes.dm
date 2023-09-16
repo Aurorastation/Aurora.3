@@ -86,7 +86,7 @@
 	..()
 
 /obj/item/storage/box/examine(var/mob/user)
-	..()
+	. = ..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
 			to_chat(user, SPAN_WARNING("It is slightly torn."))

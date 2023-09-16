@@ -32,9 +32,9 @@ var/global/list/total_active_bonfires = list()
 	total_active_bonfires -= src
 	. = ..()
 
-/obj/structure/bonfire/examine(mob/user)
-	..()
-	if(get_dist(src, user) > 2)
+/obj/structure/bonfire/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	if(on_fire)
 		switch(fuel)

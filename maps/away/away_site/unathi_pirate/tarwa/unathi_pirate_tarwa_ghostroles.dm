@@ -45,7 +45,7 @@
 /datum/outfit/admin/tarwa
 	name = "Tarwa Conglomerate Crew"
 	uniform = /obj/item/clothing/under/unathi
-	shoes = /obj/item/clothing/shoes/caligae
+	shoes = /obj/item/clothing/shoes/sandals/caligae
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
 	accessory = /obj/item/clothing/accessory/storage/webbing

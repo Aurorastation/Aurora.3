@@ -31,9 +31,9 @@
 	else
 		icon_state = "[initial(icon_state)]-[initial(uses)-uses]"
 
-/obj/item/ipc_overloader/examine(mob/user)
+/obj/item/ipc_overloader/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(Adjacent(user))
+	if(is_adjacent)
 		if(uses)
 			to_chat(user, SPAN_NOTICE("It has <b>[uses]</b> uses left."))
 		else
