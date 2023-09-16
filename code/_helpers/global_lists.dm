@@ -27,13 +27,13 @@ var/global/list/the_station_areas = list()
 
 var/global/list/implants = list()
 
-var/global/list/turfs = list()						//list of all turfs
 var/global/list/station_turfs = list()
 var/global/list/areas_by_type = list()
 var/global/list/all_areas = list()
 
 //Languages/species/whitelist.
 var/global/list/datum/species/all_species = list()
+var/global/list/all_species_short_names = list()
 var/global/list/all_languages = list()
 var/global/list/language_keys = list()					// Table of say codes for all languages
 var/global/list/whitelisted_species = list(SPECIES_HUMAN) // Species that require a whitelist check.
@@ -70,7 +70,7 @@ var/global/list/exclude_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job
 var/global/list/pdalist = list("Nothing", "Standard PDA", "Classic PDA", "Rugged PDA", "Slate PDA", "Smart PDA", "Tablet", "Wristbound")
 
 //Headset choice
-var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio")
+var/global/list/headsetlist = list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio", "Sleek Wristbound Radio")
 
 // Primary Radio Slot choice
 var/global/list/primary_radio_slot_choice = list("Left Ear", "Right Ear", "Wrist")
@@ -91,6 +91,9 @@ var/global/list/cloaking_devices = list()
 
 //Hearing sensitive listening in closely
 var/global/list/intent_listener = list()
+
+// cache for clothing species adaptability
+var/global/list/contained_clothing_species_adaption_cache = list()
 
 //////////////////////////
 /////Initial Building/////
@@ -182,6 +185,7 @@ var/global/list/intent_listener = list()
 		if(length(S.autohiss_basic_map) || length(S.autohiss_extra_map) || length(S.autohiss_basic_extend) || length(S.autohiss_extra_extend))
 			S.has_autohiss = TRUE
 		all_species[S.name] = S
+		all_species_short_names |= S.short_name
 
 	sortTim(all_species, GLOBAL_PROC_REF(cmp_text_asc))
 

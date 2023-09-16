@@ -221,6 +221,11 @@
 					new /obj/item/reagent_containers/food/snacks/carrotfries(get_turf(src))
 					qdel(src)
 					return
+				else if(!isnull(seed.chems[/singleton/reagent/drink/earthenrootjuice]))
+					to_chat(user, "You slice \the [src] into sticks.")
+					new /obj/item/reagent_containers/food/snacks/earthenroot_chopped(get_turf(src))
+					qdel(src)
+					return
 				else if(!isnull(seed.chems[/singleton/reagent/drink/milk/soymilk]))
 					to_chat(user, "You roughly chop up \the [src].")
 					new /obj/item/reagent_containers/food/snacks/soydope(get_turf(src))
@@ -276,7 +281,7 @@
 		var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
 		if(!flesh_colour) flesh_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 		for(var/i=0,i<2,i++)
-			var/obj/item/stack/tile/grass_alt/G = new (user.loc)
+			var/obj/item/stack/tile/grass/G = new (user.loc)
 			if(flesh_colour) G.color = flesh_colour
 			for (var/obj/item/stack/tile/grass/NG in user.loc)
 				if(G==NG)

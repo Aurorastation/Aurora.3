@@ -25,8 +25,8 @@
 
 	time_of_birth = world.time
 
-	verbs += /mob/living/proc/ventcrawl
-	verbs += /mob/living/proc/hide
+	add_verb(src, /mob/living/proc/ventcrawl)
+	add_verb(src, /mob/living/proc/hide)
 
 	name = "[initial(name)] ([rand(1, 1000)])"
 	real_name = name
@@ -40,9 +40,9 @@
 /mob/living/carbon/alien/u_equip(obj/item/W as obj)
 	return
 
-/mob/living/carbon/alien/Stat()
-	..()
-	stat(null, "Progress: [amount_grown]/[max_grown]")
+/mob/living/carbon/alien/get_status_tab_items()
+	. = ..()
+	. += "Progress: [amount_grown]/[max_grown]"
 
 /mob/living/carbon/alien/restrained()
 	return 0

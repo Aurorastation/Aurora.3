@@ -1,0 +1,42 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ab" = (
+/turf/simulated/floor/holofloor/tiled/ramp{
+	dir = 8
+	},
+/area/exoplanet)
+"aX" = (
+/turf/simulated/wall/shuttle/raider,
+/area/exoplanet)
+"br" = (
+/turf/simulated/floor/holofloor/tiled/ramp,
+/area/exoplanet)
+"pD" = (
+/turf/simulated/floor/holofloor/tiled/ramp{
+	dir = 1
+	},
+/area/exoplanet)
+"GU" = (
+/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone,
+/turf/simulated/floor/tiled/dark,
+/area/exoplanet)
+"HX" = (
+/turf/simulated/floor/holofloor/tiled/ramp{
+	dir = 4
+	},
+/area/exoplanet)
+
+(1,1,1) = {"
+aX
+ab
+aX
+"}
+(2,1,1) = {"
+pD
+GU
+br
+"}
+(3,1,1) = {"
+aX
+HX
+aX
+"}

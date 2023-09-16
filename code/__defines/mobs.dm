@@ -46,6 +46,8 @@
 #define HOSTILE_STANCE_ATTACKING 4
 #define HOSTILE_STANCE_TIRED     5
 
+#define ON_ATTACK_COOLDOWN(hostile_mob) world.time < hostile_mob.hostile_time_between_attacks + hostile_mob.hostile_last_attack
+
 #define LEFT  1
 #define RIGHT 2
 
@@ -89,6 +91,7 @@
 //movement intents
 #define M_WALK "walk"
 #define M_RUN  "run"
+#define M_LAY  "lay"	// Intentional lying only! To not confuse with the state (variable with the same name on the mob, but not necessarity intentional)
 
 // Limbs and robotic stuff.
 #define BP_L_FOOT "l_foot"
@@ -138,8 +141,10 @@
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
 
-// Zombie organ
+// Parasite organs
 #define BP_ZOMBIE_PARASITE "black tumour"
+#define BP_WORM_HEART "heart fluke"
+#define BP_WORM_NERVE "nerve fluke"
 
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
@@ -171,6 +176,7 @@
 #define BP_AUG_CORRECTIVE_LENS "corrective lenses"
 #define BP_AUG_GLARE_DAMPENER "glare dampeners"
 #define BP_AUG_ACC_CORDS       "modified synthetic vocal cords"
+#define BP_AUG_MAGBOOT		   "integrated mag-claws"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -227,7 +233,7 @@
 #define INV_R_HAND_DEF_ICON			'icons/mob/items/righthand.dmi'
 #define INV_W_UNIFORM_DEF_ICON		'icons/mob/uniform.dmi'
 #define INV_ACCESSORIES_DEF_ICON	'icons/mob/ties.dmi'
-#define INV_BELT_DEF_ICON 'icons/mob/belt.dmi'
+#define INV_BELT_DEF_ICON 			'icons/mob/belt.dmi'
 #define INV_SUIT_DEF_ICON			'icons/mob/suit.dmi'
 #define INV_L_EAR_DEF_ICON			'icons/mob/l_ear.dmi'
 #define INV_R_EAR_DEF_ICON			'icons/mob/r_ear.dmi'
@@ -467,3 +473,28 @@
 #define ROBOT_EYES		"eyetype"
 
 #define BLOOD_REGEN_RATE 0.1
+
+// Height Defines
+#define HEIGHT_NOT_USED 0
+#define HEIGHT_CLASS_TINY 130
+#define HEIGHT_CLASS_SHORT 150
+#define HEIGHT_CLASS_AVERAGE 170
+#define HEIGHT_CLASS_TALL 190
+#define HEIGHT_CLASS_HUGE 240
+#define HEIGHT_CLASS_GIGANTIC 300
+
+#define MOB_IS_INCAPACITATED(incapacitation_flags)\
+(\
+	((incapacitation_flags & INCAPACITATION_STUNNED) && stunned) ||\
+	((incapacitation_flags & INCAPACITATION_FORCELYING) && (weakened || resting)) ||\
+	((incapacitation_flags & INCAPACITATION_KNOCKOUT) && (stat || paralysis || sleeping || (status_flags & FAKEDEATH))) ||\
+	((incapacitation_flags & INCAPACITATION_RESTRAINED) && restrained())\
+	? TRUE :\
+	(\
+		((incapacitation_flags & (INCAPACITATION_BUCKLED_PARTIALLY|INCAPACITATION_BUCKLED_FULLY))) ?\
+		(\
+			(buckled_to() >= PARTIALLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_PARTIALLY)) ||	(buckled_to() == FULLY_BUCKLED && (incapacitation_flags & INCAPACITATION_BUCKLED_FULLY)) ?\
+			TRUE : FALSE\
+		) : FALSE\
+	)\
+)

@@ -46,7 +46,7 @@
 	head = /obj/item/clothing/head/hardhat/white
 	belt = /obj/item/storage/belt/utility/ce
 	id = /obj/item/card/id/navy
-	shoes = /obj/item/clothing/shoes/workboots
+	shoes = null
 	r_pocket = /obj/item/device/t_scanner
 
 	headset = /obj/item/device/radio/headset/heads/ce
@@ -66,11 +66,14 @@
 /datum/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow/specialt(H), slot_gloves)
 	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow/specialu(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow(H), slot_gloves)
 
 /datum/job/engineer
 	title = "Engineer"
@@ -105,7 +108,7 @@
 	head = /obj/item/clothing/head/hardhat
 	belt = /obj/item/storage/belt/utility
 	id = /obj/item/card/id/silver
-	shoes = /obj/item/clothing/shoes/workboots
+	shoes = null
 	r_pocket = /obj/item/device/t_scanner
 
 	headset = /obj/item/device/radio/headset/headset_eng
@@ -129,6 +132,15 @@
 		/obj/item/stack/cable_coil/random = 1,
 		/obj/item/powerdrill = 1
 	)
+
+/datum/outfit/job/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(istajara(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
+	else if(isunathi(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots(H), slot_shoes)
 
 /datum/job/atmos
 	title = "Atmospheric Technician"
@@ -162,7 +174,7 @@
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician
 	belt = /obj/item/storage/belt/utility
 	id = /obj/item/card/id/silver
-	shoes = /obj/item/clothing/shoes/workboots
+	shoes = null
 
 	headset = /obj/item/device/radio/headset/headset_eng
 	bowman = /obj/item/device/radio/headset/headset_eng/alt
@@ -188,12 +200,23 @@
 		/obj/item/powerdrill = 1
 	)
 
+/datum/outfit/job/atmos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(istajara(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
+	else if(isunathi(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots(H), slot_shoes)
+
 /datum/job/intern_eng
 	title = "Engineering Apprentice"
 	flag = INTERN_ENG
 	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
 	faction = "Station"
+	alt_titles = list("Atmospherics Apprentice")
+	alt_outfits = list("Atmospherics Apprentice" = /datum/outfit/job/intern_atmos)
 	total_positions = 3
 	spawn_positions = 3
 	intro_prefix = "an"
@@ -216,7 +239,7 @@
 	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice
-	shoes = /obj/item/clothing/shoes/orange
+	shoes = /obj/item/clothing/shoes/sneakers/orange
 	head = /obj/item/clothing/head/beret/engineering
 	belt = /obj/item/storage/belt/utility
 
@@ -241,3 +264,37 @@
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering
 	tablet = /obj/item/modular_computer/handheld/preset/engineering
+
+/datum/outfit/job/intern_atmos
+	name = "Atmospherics Apprentice"
+	jobtype = /datum/job/intern_eng
+	box = /obj/item/storage/box/survival/engineer
+
+	uniform = /obj/item/clothing/under/rank/engineer/apprentice
+	shoes = /obj/item/clothing/shoes/sneakers/orange
+	head = /obj/item/clothing/head/beret/engineering
+	belt = /obj/item/storage/belt/utility
+
+	belt_contents = list(
+		/obj/item/weldingtool = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
+		/obj/item/device/t_scanner = 1,
+		/obj/item/device/analyzer = 1,
+		/obj/item/pipewrench = 1,
+		/obj/item/powerdrill = 1
+	)
+
+	headset = /obj/item/device/radio/headset/headset_eng
+	bowman = /obj/item/device/radio/headset/headset_eng/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/eng
+	wrist_radio = /obj/item/device/radio/headset/wrist/eng
+
+	backpack = /obj/item/storage/backpack/industrial
+	satchel = /obj/item/storage/backpack/satchel/eng
+	dufflebag = /obj/item/storage/backpack/duffel/eng
+	messengerbag = /obj/item/storage/backpack/messenger/engi
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/engineering/atmos
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/atmos
+	tablet = /obj/item/modular_computer/handheld/preset/engineering/atmos

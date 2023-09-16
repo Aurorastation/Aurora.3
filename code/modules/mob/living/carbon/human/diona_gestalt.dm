@@ -14,10 +14,10 @@
 /mob/living/carbon/human/proc/setup_gestalt()
 	composition_reagent = /singleton/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	setup_dionastats()
-	verbs += /mob/living/carbon/human/proc/check_light
-	verbs += /mob/living/carbon/human/proc/diona_split_nymph
-	verbs += /mob/living/carbon/human/proc/diona_detach_nymph
-	verbs += /mob/living/carbon/human/proc/pause_regen_process
+	add_verb(src, /mob/living/carbon/human/proc/check_light)
+	add_verb(src, /mob/living/carbon/human/proc/diona_split_nymph)
+	add_verb(src, /mob/living/carbon/human/proc/diona_detach_nymph)
+	add_verb(src, /mob/living/carbon/human/proc/pause_regen_process)
 
 	spawn(10)
 	//This is delayed after a gestalt is spawned, to allow nymphs to be added to it before extras are created
@@ -25,7 +25,7 @@
 	//There are no initial nymphs for a newly spawned diona player
 
 		if (mind?.name && mind.name != real_name)
-			verbs += /mob/living/carbon/human/proc/gestalt_set_name
+			add_verb(src, /mob/living/carbon/human/proc/gestalt_set_name)
 			var/datum/language/L = locate(/datum/language/diona) in languages
 			var/newname
 			if (L)
@@ -100,7 +100,7 @@
 	if (severity)
 		damage_factor = (1 / severity)
 
-	var/armorval = get_blocked_ratio(BP_CHEST, BRUTE, DAM_DISPERSED, damage = damage)
+	var/armorval = get_blocked_ratio(BP_CHEST, DAMAGE_BRUTE, DAMAGE_FLAG_DISPERSED, damage = damage)
 	if (armorval)
 		damage_factor *= (1 - (armorval * 0.01))
 
@@ -251,9 +251,9 @@
 	src.ajourn = 0
 	DS.nym = WEAKREF(M)
 	M.gestalt = src
-	M.verbs += /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt
-	M.verbs += /mob/living/carbon/alien/diona/proc/switch_to_gestalt
-	verbs += /mob/living/carbon/human/proc/switch_to_nymph
+	add_verb(M, /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt)
+	add_verb(M, /mob/living/carbon/alien/diona/proc/switch_to_gestalt)
+	add_verb(M, /mob/living/carbon/human/proc/switch_to_nymph)
 	M.detached = TRUE
 	M.update_verbs(TRUE)
 	M.languages = languages.Copy()

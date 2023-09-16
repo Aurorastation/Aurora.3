@@ -176,20 +176,19 @@
 				var/min_job_age = job.get_minimum_character_age(V.get_species())
 				var/ideal_job_age = job.get_ideal_character_age(V.get_species())
 
-				switch(age)
-					if(min_job_age to (min_job_age+10))
-						weightedCandidates[V] = 3 // Still a bit young.
-					if((min_job_age+10) to (ideal_job_age-10))
-						weightedCandidates[V] = 6 // Better.
-					if((ideal_job_age-10) to (ideal_job_age+10))
-						weightedCandidates[V] = 10 // Great.
-					if((ideal_job_age+10) to (ideal_job_age+20))
-						weightedCandidates[V] = 6 // Still good.
-					if((ideal_job_age+20) to INFINITY)
-						weightedCandidates[V] = 3 // Geezer.
-					else
-						// If there's ABSOLUTELY NOBODY ELSE
-						if(candidates.len == 1) weightedCandidates[V] = 1
+				if(age > (ideal_job_age + 20)) // Elderly for the position
+					weightedCandidates[V] = 3
+				else if(age > (ideal_job_age + 10)) // Good, but on the elderly side
+					weightedCandidates[V] = 6
+				else if(age > (ideal_job_age - 10)) // Perfect
+					weightedCandidates[V] = 10
+				else if(age > (min_job_age + 10)) // Good, but on the young side
+					weightedCandidates[V] = 6
+				else if(age >= min_job_age) // Too young
+					weightedCandidates[V] = 3
+				else
+					if(candidates.len == 1) // There's only one option
+						weightedCandidates[V] = 1
 
 			var/mob/abstract/new_player/candidate = pickweight(weightedCandidates)
 			if(AssignRole(candidate, command_position))
@@ -490,8 +489,9 @@
 		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s cryostorage, and depart.</span>", range = 3)
 		DespawnMob(H)
 	else
-		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[current_map.dock_name] Robotic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s robotic storage, and depart.</span>", range = 3)
+		if(!isDrone(H))
+			global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[current_map.dock_name] Robotic Oversight")
+			H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s robotic storage, and depart.</span>", range = 3)
 		DespawnMob(H)
 
 /datum/controller/subsystem/jobs/proc/LoadJobs(jobsfile)
@@ -823,27 +823,22 @@
 			if(!G.augment)
 				continue
 
-			var/permitted = !G.allowed_roles || (rank.title in G.allowed_roles)
-			permitted = permitted && G.check_species_whitelist(H)
-			permitted = permitted && (!G.faction || (G.faction == H.employer_faction || H.employer_faction == "Stellar Corporate Conglomerate"))
-			var/singleton/origin_item/culture/our_culture = GET_SINGLETON(text2path(prefs.culture))
-			permitted = permitted && (!G.culture_restriction || (our_culture in G.culture_restriction))
-			var/singleton/origin_item/origin/our_origin = GET_SINGLETON(text2path(prefs.origin))
-			permitted = permitted && (!G.origin_restriction || (our_origin in G.origin_restriction))
-
-			if(!permitted)
-				to_chat(H, SPAN_WARNING("Your current job, culture, origin or whitelist status does not permit you to spawn with [thing]!"))
-				continue
-
 			var/metadata
 			var/list/gear_test = prefs.gear[G.display_name]
 			if(gear_test?.len)
 				metadata = gear_test
 			else
 				metadata = list()
+
+			var/cant_spawn_reason = G.cant_spawn_item_reason(null, metadata, H, rank, prefs)
+			if(cant_spawn_reason)
+				to_chat(H, SPAN_WARNING(cant_spawn_reason))
+				continue
+
 			var/obj/item/organ/A = G.spawn_item(H, metadata, H)
-			var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-			A.replaced(H, affected)
+			if(!istype(A, /obj/item/organ/external))
+				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+				A.replaced(H, affected)
 			H.update_body()
 
 	Debug("EA/([H]): Complete.")

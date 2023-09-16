@@ -6,6 +6,12 @@
 /obj/structure/closet/secure_closet/freezer/money,
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
+"ab" = (
+/obj/machinery/door/airlock/silver{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/grand_romanovich)
 "ac" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor,
@@ -45,6 +51,18 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
+"ai" = (
+/obj/machinery/door/airlock/silver{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/grand_romanovich)
+"aj" = (
+/obj/machinery/door/airlock/silver{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/grand_romanovich)
 "ak" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -76,8 +94,8 @@
 "ao" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
@@ -112,6 +130,26 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
+"as" = (
+/obj/machinery/door/airlock/silver{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/grand_romanovich)
+"at" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"au" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "av" = (
 /obj/machinery/light/small{
@@ -204,8 +242,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -354,15 +392,37 @@
 "bd" = (
 /obj/machinery/door/airlock/command{
 	name = "Vault";
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
+"be" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"bf" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"bg" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "bh" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9;
@@ -371,18 +431,32 @@
 /obj/machinery/vending/casino,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
+"bi" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"bj" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
 "bk" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "bl" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5;
@@ -397,9 +471,16 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"bn" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "bo" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -412,19 +493,47 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/vending/casino,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "bp" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"bq" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"br" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
+"bs" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
+"bt" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
 /area/grand_romanovich)
 "bu" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/grand_romanovich)
@@ -433,10 +542,7 @@
 	dir = 4;
 	icon_state = "spline_fancy"
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8;
 	icon_state = "spline_fancy"
@@ -468,7 +574,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/vending/casino,
 /turf/simulated/floor/wood,
@@ -494,10 +600,7 @@
 	dir = 4;
 	icon_state = "spline_fancy"
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8;
 	icon_state = "spline_fancy"
@@ -527,7 +630,7 @@
 "bE" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10;
@@ -539,7 +642,7 @@
 "bF" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6;
@@ -565,7 +668,9 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "bJ" = (
-/obj/machinery/door/airlock/silver,
+/obj/machinery/door/airlock/silver{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
 "bK" = (
@@ -804,7 +909,7 @@
 	dir = 10;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1;
 	icon_state = "spline_fancy_corner"
@@ -814,7 +919,7 @@
 "ck" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
@@ -830,6 +935,20 @@
 "cm" = (
 /obj/structure/kitchenspike,
 /turf/simulated/floor/tiled/freezer,
+/area/grand_romanovich)
+"cn" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"co" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "cp" = (
 /obj/structure/reagent_dispensers/cookingoil,
@@ -915,7 +1034,7 @@
 "cs" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -937,7 +1056,7 @@
 	dir = 10;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "cu" = (
@@ -959,7 +1078,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -967,7 +1086,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -1021,7 +1140,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -1038,7 +1157,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -1054,7 +1173,7 @@
 "cE" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -1073,7 +1192,7 @@
 "cG" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/ghostspawpoint{
 	identifier = "casino_guard";
@@ -1100,7 +1219,8 @@
 "cJ" = (
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
@@ -1119,7 +1239,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
@@ -1128,16 +1248,14 @@
 /obj/machinery/appliance/cooker/fryer{
 	pixel_y = 2
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 28
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
 "cO" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
@@ -1162,8 +1280,8 @@
 "cR" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/rack,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1175,7 +1293,7 @@
 "cS" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4;
@@ -1271,8 +1389,8 @@
 "dd" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
@@ -1308,9 +1426,16 @@
 /obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"di" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "dj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1382,10 +1507,10 @@
 /area/grand_romanovich)
 "ds" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -1422,7 +1547,7 @@
 /obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/material/kitchen/utensil/fork,
 /obj/item/material/kitchen/utensil/fork,
@@ -1444,7 +1569,7 @@
 	dir = 9;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "dA" = (
@@ -1454,25 +1579,25 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "dB" = (
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dC" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dD" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
 /obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
 /obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dE" = (
 /obj/structure/table/stone/marble,
@@ -1481,11 +1606,11 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
 /obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
 /obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dF" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "dG" = (
@@ -1500,7 +1625,7 @@
 /obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/material/kitchen/utensil/fork,
 /obj/item/material/kitchen/utensil/fork,
@@ -1520,7 +1645,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -1541,7 +1666,7 @@
 "dM" = (
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/drinkingglasses,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dN" = (
 /obj/item/chess_piece/rook/black,
@@ -1554,7 +1679,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dP" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -1579,26 +1704,26 @@
 "dR" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_alc/full,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dS" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dT" = (
 /obj/machinery/chemical_dispenser/full,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dU" = (
 /obj/machinery/vending/boozeomat{
 	req_access = null
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dV" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1638,7 +1763,7 @@
 /area/grand_romanovich)
 "eb" = (
 /obj/machinery/vending/dinnerware,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "ec" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1650,7 +1775,7 @@
 "ed" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
@@ -1718,18 +1843,17 @@
 /obj/structure/closet/wardrobe,
 /obj/item/clothing/under/rank/bartender,
 /obj/item/clothing/head/flatcap,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "eo" = (
 /obj/machinery/door/window{
 	dir = 8;
 	req_one_access = list(150)
 	},
-/obj/item/device/radio/intercom{
-	pixel_x = 0;
-	pixel_y = 25
+/obj/item/device/radio/intercom/north{
+	pixel_x = 0
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "ep" = (
 /obj/structure/bed/stool/padded,
@@ -1767,8 +1891,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -1827,7 +1951,9 @@
 /turf/simulated/floor/marble,
 /area/grand_romanovich)
 "eF" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "eG" = (
@@ -1864,7 +1990,8 @@
 "eJ" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "crime"
+	id_tag = "crime";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -1874,7 +2001,7 @@
 "eK" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
@@ -1886,7 +2013,8 @@
 "eM" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r6"
+	id_tag = "r6";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -1952,8 +2080,8 @@
 "eS" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -1968,8 +2096,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -1978,7 +2106,7 @@
 /obj/item/clothing/accessory/tajaran/charm/tajani,
 /obj/item/clothing/accessory/tajaran/cinnamon,
 /obj/item/clothing/gloves/brown/tajara,
-/obj/item/clothing/shoes/tajara/winter,
+/obj/item/clothing/shoes/winter/tajara,
 /obj/item/clothing/under/dress/tajaran/blue,
 /obj/item/clothing/under/tajaran,
 /turf/simulated/floor/wood{
@@ -2015,8 +2143,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/machinery/vending/casino,
 /turf/simulated/floor/wood,
@@ -2049,7 +2177,7 @@
 	dir = 6;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "fd" = (
@@ -2099,14 +2227,14 @@
 	dir = 5;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "fj" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -2129,14 +2257,14 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "fl" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "fm" = (
 /obj/machinery/atm{
@@ -2148,7 +2276,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -2162,7 +2290,7 @@
 "fo" = (
 /obj/structure/table/stone/marble,
 /obj/item/paper_bin,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "fp" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2171,8 +2299,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -2201,7 +2329,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -2218,7 +2346,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -2234,7 +2362,8 @@
 "fu" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r5"
+	id_tag = "r5";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -2244,7 +2373,8 @@
 "fv" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r4"
+	id_tag = "r4";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -2255,7 +2385,8 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
 	id_tag = "crime";
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -2265,7 +2396,8 @@
 "fx" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r3"
+	id_tag = "r3";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -2293,7 +2425,9 @@
 	},
 /area/grand_romanovich)
 "fA" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8;
 	icon_state = "corner_white_full"
@@ -2301,7 +2435,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "fB" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
 	icon_state = "corner_white_full"
@@ -2320,16 +2456,14 @@
 	dir = 10;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = -21
+/obj/random/pottedplant,
+/obj/item/device/radio/intercom/south{
+	pixel_x = 0
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -2342,10 +2476,10 @@
 	dir = 6;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -2378,8 +2512,8 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -2394,15 +2528,15 @@
 "fM" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "fN" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -2469,7 +2603,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -2490,10 +2624,7 @@
 	dir = 5;
 	icon_state = "spline_fancy"
 	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/machinery/vending/casino,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -2501,7 +2632,7 @@
 /obj/machinery/mech_recharger,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -2512,7 +2643,7 @@
 	},
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/vending/casino,
 /turf/simulated/floor/wood,
@@ -2525,7 +2656,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -2541,7 +2672,7 @@
 "gb" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
@@ -2552,12 +2683,20 @@
 "gc" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r2"
+	id_tag = "r2";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
 	},
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"gd" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "ge" = (
 /obj/effect/floor_decal/spline/plain{
@@ -2585,7 +2724,8 @@
 "gh" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r1"
+	id_tag = "r1";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -2595,7 +2735,8 @@
 "gi" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r10"
+	id_tag = "r10";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -2623,6 +2764,13 @@
 	},
 /turf/simulated/floor/snow,
 /area/grand_romanovich)
+"gm" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
 "gn" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1;
@@ -2636,12 +2784,12 @@
 	desc = "A small empty jar that is mostly used for giving a tip.";
 	name = "tip jar"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gp" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/shaker,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gq" = (
 /obj/structure/bed/stool/chair/wood,
@@ -2652,6 +2800,13 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
+"gs" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "gt" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -2666,10 +2821,8 @@
 /area/grand_romanovich)
 "gu" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = -21
+/obj/item/device/radio/intercom/south{
+	pixel_x = 0
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -2681,14 +2834,12 @@
 /area/grand_romanovich/outdoors)
 "gw" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = -21
+/obj/item/device/radio/intercom/south{
+	pixel_x = 0
 	},
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -2754,8 +2905,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -2797,7 +2948,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -2812,11 +2963,11 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -2841,29 +2992,28 @@
 "gS" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/rag,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gT" = (
 /obj/structure/table/stone/marble,
 /obj/item/device/radio/phone,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gU" = (
 /obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gV" = (
 /obj/structure/table/wood,
 /obj/item/phone,
-/obj/item/device/radio/intercom{
-	pixel_x = 0;
-	pixel_y = 25
+/obj/item/device/radio/intercom/north{
+	pixel_x = 0
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "gW" = (
 /obj/structure/table/wood,
@@ -2911,11 +3061,18 @@
 	},
 /turf/simulated/floor,
 /area/grand_romanovich)
+"hc" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
 "hd" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9;
@@ -2931,14 +3088,14 @@
 /area/grand_romanovich)
 "hf" = (
 /obj/machinery/computer/security/wooden_tv,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "hg" = (
 /obj/item/storage/secure/safe{
 	pixel_y = 32
 	},
-/obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/lino/grey,
+/obj/random/pottedplant,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "hh" = (
 /obj/structure/table/wood,
@@ -2959,6 +3116,13 @@
 	},
 /obj/item/gun/energy/stunrevolver,
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"hj" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "hk" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2989,7 +3153,7 @@
 "ho" = (
 /obj/structure/table/wood,
 /obj/item/pen/fountain/silver,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "hp" = (
 /obj/structure/table/wood,
@@ -3011,11 +3175,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
+"hr" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
 "hs" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
@@ -3023,7 +3194,7 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "hu" = (
 /obj/structure/table/wood,
@@ -3034,16 +3205,16 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "hv" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5;
@@ -3055,7 +3226,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "hx" = (
@@ -3071,7 +3242,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -3082,7 +3253,8 @@
 "hA" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r9"
+	id_tag = "r9";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -3099,8 +3271,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -3109,7 +3281,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -3129,7 +3301,8 @@
 /area/grand_romanovich)
 "hF" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -3147,13 +3320,14 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "hH" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -3171,13 +3345,13 @@
 "hJ" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "hK" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "hL" = (
@@ -3188,19 +3362,16 @@
 /area/grand_romanovich)
 "hM" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
-/obj/structure/flora/pottedplant/random,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/random/pottedplant,
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "hN" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
@@ -3208,7 +3379,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -3263,14 +3434,18 @@
 	icon_state = "spline_fancy"
 	},
 /obj/structure/bed/stool/chair/wood,
-/obj/item/device/radio/intercom{
-	pixel_y = 27
-	},
+/obj/item/device/radio/intercom/north,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "hZ" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"ia" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "ib" = (
 /obj/machinery/light/small,
@@ -3280,6 +3455,13 @@
 	temperature = 278
 	},
 /area/grand_romanovich/outdoors)
+"ic" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
 "id" = (
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/shuttle,
@@ -3307,7 +3489,7 @@
 "ii" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "ij" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3316,7 +3498,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -3338,7 +3520,7 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -3353,7 +3535,7 @@
 /area/grand_romanovich)
 "io" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "ip" = (
 /obj/random/loot,
@@ -3394,6 +3576,21 @@
 /obj/random/loot,
 /turf/simulated/floor,
 /area/grand_romanovich)
+"iw" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
+"ix" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "lockdown"
+	},
+/turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
 "iy" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10;
@@ -3404,7 +3601,7 @@
 "iA" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -3439,7 +3636,8 @@
 /area/grand_romanovich)
 "iF" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/grand_romanovich/outdoors)
@@ -3452,7 +3650,7 @@
 "iH" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
@@ -3463,14 +3661,16 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
 "iJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
@@ -3488,17 +3688,17 @@
 "iL" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "iN" = (
 /obj/structure/closet/wardrobe,
 /obj/item/clothing/head/chefhat,
-/obj/item/clothing/suit/chef,
+/obj/item/clothing/suit/chef_jacket,
 /obj/item/clothing/under/rank/chef,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/accessory/apron/chef,
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
 "iO" = (
@@ -3525,7 +3725,8 @@
 "iS" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r8"
+	id_tag = "r8";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -3581,6 +3782,15 @@
 "ja" = (
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
+"jb" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "lockdown"
+	},
+/turf/simulated/floor/carpet/art,
+/area/grand_romanovich)
 "jc" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8;
@@ -3588,8 +3798,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -3598,9 +3808,8 @@
 	dir = 1;
 	icon_state = "spline_fancy"
 	},
-/obj/item/device/radio/intercom{
-	pixel_x = 0;
-	pixel_y = 25
+/obj/item/device/radio/intercom/north{
+	pixel_x = 0
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -3613,9 +3822,16 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"jf" = (
+/obj/machinery/door/airlock/medical{
+	name = "Medbay";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
 "jg" = (
 /obj/structure/window/reinforced{
@@ -3635,19 +3851,39 @@
 	dir = 1;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"ji" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "jj" = (
 /obj/structure/table/stone/marble,
 /obj/item/device/radio/phone,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
+"jk" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"jl" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/grand_romanovich)
 "jm" = (
 /obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
@@ -3670,7 +3906,7 @@
 	icon_state = "spline_fancy"
 	},
 /obj/effect/floor_decal/spline/fancy/wood/corner,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "jp" = (
@@ -3699,23 +3935,29 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "jt" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "ju" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"jv" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "jw" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -3770,7 +4012,8 @@
 /area/grand_romanovich)
 "jE" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -3824,7 +4067,7 @@
 "jN" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
@@ -3863,8 +4106,8 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
@@ -3930,15 +4173,51 @@
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
+"kd" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"ke" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"kf" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
+"kg" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/grand_romanovich)
 "kh" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
-	id_tag = "r7"
+	id_tag = "r7";
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
 	},
 /turf/simulated/floor/wood,
+/area/grand_romanovich)
+"ki" = (
+/obj/machinery/door/airlock/hatch{
+	req_one_access = list(202);
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/grand_romanovich)
 "kj" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -3947,8 +4226,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -3960,7 +4239,7 @@
 "km" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -3998,20 +4277,20 @@
 "kx" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "kB" = (
 /obj/effect/ghostspawpoint{
 	identifier = "casino_staff";
 	name = "igs - casino_staff"
 	},
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "kI" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -4033,8 +4312,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4;
@@ -4058,7 +4337,8 @@
 /area/grand_romanovich)
 "kO" = (
 /obj/machinery/door/airlock/external{
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -4088,7 +4368,7 @@
 "kW" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
-/turf/simulated/floor/lino/grey,
+/turf/simulated/floor/lino,
 /area/grand_romanovich)
 "kX" = (
 /obj/structure/table/steel,
@@ -4113,7 +4393,9 @@
 /turf/space,
 /area/space)
 "la" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
 	},
@@ -4165,7 +4447,8 @@
 /area/grand_romanovich)
 "lf" = (
 /obj/machinery/door/airlock/glass{
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "lockdown"
@@ -4190,7 +4473,7 @@
 	},
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4232,7 +4515,7 @@
 "ln" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
@@ -4241,7 +4524,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lo" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lp" = (
@@ -4257,8 +4542,8 @@
 "lr" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
@@ -4276,7 +4561,7 @@
 "lt" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
@@ -4292,7 +4577,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lv" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
 	icon_state = "corner_white"
@@ -4324,8 +4609,8 @@
 "ly" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
@@ -4348,7 +4633,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lB" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8;
 	icon_state = "corner_white_full"
@@ -4360,7 +4645,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lD" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
 	icon_state = "corner_white"
@@ -4370,8 +4655,8 @@
 "lE" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4380,7 +4665,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lG" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lH" = (
@@ -4394,7 +4681,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lI" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
 	icon_state = "corner_white"
@@ -4413,7 +4700,7 @@
 /obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
 /obj/effect/floor_decal/corner/yellow{
@@ -4423,9 +4710,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "lL" = (
-/obj/item/device/radio/intercom{
-	pixel_x = 0;
-	pixel_y = 25
+/obj/item/device/radio/intercom/north{
+	pixel_x = 0
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
@@ -4470,7 +4756,7 @@
 "lR" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -4665,8 +4951,8 @@
 "mo" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/ramp{
 	dir = 4;
@@ -4819,8 +5105,8 @@
 "mG" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/ramp{
 	dir = 8
@@ -4921,7 +5207,7 @@
 "mU" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
@@ -4941,11 +5227,13 @@
 /area/grand_romanovich)
 "mX" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "mY" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1;
 	icon_state = "corner_white_full"
@@ -4971,7 +5259,7 @@
 "nb" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/yellow{
@@ -5006,25 +5294,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nf" = (
-/obj/effect/floor_decal/corner/blue,
+/obj/effect/floor_decal/corner/dark_blue,
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "ng" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nh" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 8;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nk" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4;
 	icon_state = "corner_white_full"
@@ -5041,7 +5329,7 @@
 "nn" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/porta_turret/ballistic,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -5052,10 +5340,7 @@
 	dir = 4;
 	icon_state = "spline_fancy"
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	pixel_x = 27
-	},
+/obj/item/device/radio/intercom/east,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "nq" = (
@@ -5079,14 +5364,14 @@
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "nu" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nv" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9;
 	icon_state = "corner_white"
 	},
@@ -5102,8 +5387,8 @@
 "ny" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9;
@@ -5123,7 +5408,7 @@
 /obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
 /obj/effect/floor_decal/corner/yellow{
@@ -5148,7 +5433,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nD" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5;
 	icon_state = "corner_white"
@@ -5167,60 +5454,62 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nF" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nG" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nH" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nI" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9;
 	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nJ" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6;
 	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nK" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
 	icon_state = "corner_white"
@@ -5250,33 +5539,33 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nN" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10;
 	icon_state = "corner_white"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nO" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10;
 	icon_state = "corner_white"
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nP" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10;
 	icon_state = "corner_white"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6;
 	icon_state = "corner_white"
 	},
@@ -5315,10 +5604,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nT" = (
-/obj/item/device/radio/intercom{
-	dir = 8;
-	pixel_x = 24
-	},
+/obj/item/device/radio/intercom/east,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6;
 	icon_state = "corner_white"
@@ -5326,19 +5612,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nU" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nV" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nW" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -5347,7 +5633,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nX" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -5357,7 +5643,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nY" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/yellow{
@@ -5367,7 +5653,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "nZ" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 1;
 	icon_state = "corner_white"
 	},
@@ -5387,10 +5673,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "oc" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
-	pixel_x = 0;
-	pixel_y = -21
+/obj/item/device/radio/intercom/south{
+	pixel_x = 0
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10;
@@ -5410,7 +5694,7 @@
 /obj/structure/table/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy,
 /obj/effect/floor_decal/corner/yellow{
@@ -5433,7 +5717,7 @@
 /obj/machinery/atm{
 	pixel_y = -32
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4;
 	icon_state = "corner_white_full"
@@ -5604,7 +5888,7 @@
 /obj/structure/closet/crate/extinguisher_cartridges,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/storage/toolbox/syndicate,
 /turf/simulated/floor/tiled/dark,
@@ -5619,7 +5903,8 @@
 /area/grand_romanovich)
 "pN" = (
 /obj/machinery/door/airlock/medical{
-	name = "Medbay"
+	name = "Medbay";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
@@ -5703,10 +5988,6 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
-"qO" = (
-/obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor/tiled/dark,
-/area/grand_romanovich)
 "qP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5;
@@ -5780,7 +6061,7 @@
 /obj/structure/closet/crate/rad,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/box/lights/mixed,
@@ -5799,14 +6080,15 @@
 "sF" = (
 /obj/machinery/door/airlock/glass{
 	name = "Staff Area";
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "sH" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
@@ -5814,7 +6096,8 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/machinery/door/airlock/command{
 	name = "Administration";
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -5848,10 +6131,10 @@
 /obj/machinery/optable,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "tJ" = (
@@ -5866,10 +6149,10 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "ub" = (
@@ -5956,7 +6239,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "uY" = (
@@ -6022,8 +6305,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4;
@@ -6033,7 +6316,8 @@
 /area/grand_romanovich)
 "vV" = (
 /obj/machinery/door/airlock/command{
-	id_tag = "suittwo"
+	id_tag = "suittwo";
+	dir = 4
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
@@ -6123,7 +6407,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -6146,7 +6430,9 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "xo" = (
-/obj/machinery/door/airlock/vault/bolted,
+/obj/machinery/door/airlock/vault/bolted{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "xq" = (
@@ -6204,7 +6490,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/iv_drip,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "yv" = (
@@ -6249,8 +6535,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /obj/structure/filingcabinet/filingcabinet,
 /turf/simulated/floor/wood,
@@ -6300,8 +6586,8 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -6376,7 +6662,7 @@
 	pixel_y = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Ch" = (
@@ -6519,8 +6805,8 @@
 "DX" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/machinery/button/remote/airlock{
 	id = "suitone";
@@ -6532,8 +6818,8 @@
 "Ev" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -6547,8 +6833,8 @@
 "EM" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9;
@@ -6567,7 +6853,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -6651,7 +6937,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8;
@@ -6660,7 +6946,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "FQ" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
 "FR" = (
@@ -6696,7 +6982,7 @@
 /obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Ga" = (
@@ -6773,7 +7059,8 @@
 /area/grand_romanovich)
 "Ib" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -6788,7 +7075,7 @@
 	pixel_x = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Iw" = (
@@ -6807,7 +7094,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Iz" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/corner/yellow/full{
 	icon_state = "corner_white_full"
 	},
@@ -6845,7 +7132,7 @@
 "Jb" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -6881,18 +7168,15 @@
 	dir = 6;
 	icon_state = "spline_fancy"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "JI" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/sign/flag/dpra/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "JO" = (
@@ -6910,13 +7194,15 @@
 	icon_state = "spline_fancy"
 	},
 /obj/machinery/door/airlock/command{
-	id_tag = "r5"
+	id_tag = "r5";
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Kd" = (
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(202)
+	req_one_access = list(202);
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -6976,8 +7262,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
@@ -7008,7 +7294,8 @@
 /area/grand_romanovich)
 "Lm" = (
 /obj/machinery/door/airlock/glass{
-	locked = 1
+	locked = 1;
+	dir = 1
 	},
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
@@ -7030,8 +7317,8 @@
 /obj/item/device/flashlight,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -7044,7 +7331,7 @@
 "LD" = (
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
@@ -7062,7 +7349,8 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/door/airlock/command{
-	id_tag = "r5"
+	id_tag = "r5";
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -7096,7 +7384,9 @@
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "Mk" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich/outdoors)
@@ -7108,9 +7398,7 @@
 /area/grand_romanovich)
 "Mo" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/sign/flag/dpra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/dpra/large/south,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Mz" = (
@@ -7120,7 +7408,7 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
@@ -7168,8 +7456,8 @@
 "Np" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8;
@@ -7231,8 +7519,8 @@
 "Ol" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_x = 0
+	pixel_x = 0;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
@@ -7246,7 +7534,7 @@
 "Ot" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4;
@@ -7296,9 +7584,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/item/device/radio/intercom{
-	pixel_y = 27
-	},
+/obj/item/device/radio/intercom/north,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Pu" = (
@@ -7365,7 +7651,7 @@
 	},
 /obj/item/storage/box/syringes,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Rc" = (
@@ -7404,7 +7690,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/cabinet,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
@@ -7416,11 +7702,11 @@
 /obj/item/clothing/under/dress/tajaran/green,
 /obj/item/clothing/under/dress/tajaran/red,
 /obj/item/clothing/under/dress/tajaran/summer,
-/obj/item/clothing/shoes/flats/tajara/blue,
-/obj/item/clothing/shoes/flats/tajara/green,
-/obj/item/clothing/shoes/flats/tajara/purple,
-/obj/item/clothing/shoes/flats/tajara/red,
-/obj/item/clothing/shoes/flats/tajara/white,
+/obj/item/clothing/shoes/flats/blue,
+/obj/item/clothing/shoes/flats/green,
+/obj/item/clothing/shoes/flats/purple,
+/obj/item/clothing/shoes/flats/red,
+/obj/item/clothing/shoes/flats/white,
 /obj/item/clothing/head/tajaran/circlet,
 /obj/item/clothing/head/tajaran/circlet/silver,
 /turf/simulated/floor/wood,
@@ -7464,7 +7750,7 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Sg" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10;
 	icon_state = "spline_fancy"
@@ -7521,7 +7807,7 @@
 	pixel_y = 18
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "SI" = (
@@ -7607,8 +7893,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	pixel_y = 0;
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/wood,
 /obj/item/device/radio/phone,
@@ -7659,7 +7945,8 @@
 /area/grand_romanovich)
 "UX" = (
 /obj/machinery/door/airlock/command{
-	id_tag = "r5"
+	id_tag = "r5";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
@@ -7682,7 +7969,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/syringes,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Vn" = (
@@ -7810,7 +8097,7 @@
 	pixel_y = -11
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Wy" = (
@@ -7848,7 +8135,7 @@
 	pixel_y = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Xa" = (
@@ -7872,7 +8159,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -7887,7 +8174,7 @@
 "XD" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1;
@@ -7978,7 +8265,8 @@
 /area/grand_romanovich)
 "Yj" = (
 /obj/machinery/door/airlock/command{
-	id_tag = "suitone"
+	id_tag = "suitone";
+	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 8
@@ -8027,7 +8315,7 @@
 "Zd" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "Zi" = (
@@ -8038,7 +8326,8 @@
 /area/grand_romanovich/outdoors)
 "Zp" = (
 /obj/machinery/door/airlock/command{
-	id_tag = "r5"
+	id_tag = "r5";
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
@@ -8063,10 +8352,10 @@
 /obj/machinery/optable,
 /obj/machinery/light{
 	dir = 2;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/unsimulated/floor{
-	icon_state = "new_white"
+	icon_state = "white"
 	},
 /area/grand_romanovich)
 "ZO" = (
@@ -16985,9 +17274,9 @@ kZ
 kZ
 kZ
 XU
-bJ
+ab
 XU
-bJ
+ai
 XU
 bC
 bC
@@ -18013,9 +18302,9 @@ kZ
 kZ
 kZ
 XU
-bJ
+aj
 XU
-bJ
+as
 XU
 bC
 bC
@@ -18536,7 +18825,7 @@ XU
 XU
 aK
 lO
-bu
+at
 OF
 OF
 XU
@@ -18790,13 +19079,13 @@ IP
 IP
 IP
 OF
-bu
+au
 lO
 lO
 XU
 OF
 IP
-bu
+be
 OF
 IP
 ig
@@ -19268,7 +19557,7 @@ yr
 yr
 ja
 hZ
-bu
+bf
 OF
 OF
 OF
@@ -19278,7 +19567,7 @@ OF
 OF
 OF
 OF
-bu
+bg
 OF
 IP
 XU
@@ -19538,7 +19827,7 @@ XU
 XU
 OF
 OF
-bu
+bi
 Pa
 jc
 bK
@@ -19567,7 +19856,7 @@ ed
 XU
 IP
 OF
-bu
+bj
 dv
 jc
 bK
@@ -20893,7 +21182,7 @@ OF
 gZ
 lS
 lS
-qO
+lS
 lS
 gY
 ZO
@@ -21337,7 +21626,7 @@ kZ
 XU
 OF
 IP
-bu
+bn
 dv
 jc
 bK
@@ -21366,7 +21655,7 @@ ed
 XU
 OF
 OF
-bu
+bq
 dv
 jc
 bK
@@ -23131,7 +23420,7 @@ lO
 lO
 lO
 lO
-eF
+br
 lO
 lO
 lO
@@ -23388,7 +23677,7 @@ lO
 lO
 lO
 lO
-eF
+bs
 lO
 lO
 lO
@@ -23435,7 +23724,7 @@ lO
 lO
 lO
 lO
-Kd
+bt
 OF
 IP
 XU
@@ -23952,7 +24241,7 @@ lO
 XU
 OF
 OF
-bu
+cn
 OF
 OF
 OF
@@ -24164,7 +24453,7 @@ XU
 IP
 OF
 OF
-bu
+co
 dv
 jc
 bK
@@ -24193,7 +24482,7 @@ ed
 XU
 OF
 IP
-bu
+di
 dv
 jc
 bK
@@ -25963,7 +26252,7 @@ OF
 XU
 OF
 OF
-bu
+gd
 dv
 jc
 bK
@@ -25992,7 +26281,7 @@ ed
 XU
 OF
 OF
-bu
+gm
 uq
 jc
 bK
@@ -26470,7 +26759,7 @@ ja
 ja
 ja
 hZ
-bu
+gs
 OF
 OF
 OF
@@ -26731,7 +27020,7 @@ XU
 OF
 OF
 OF
-bu
+hc
 OF
 OF
 XU
@@ -27515,7 +27804,7 @@ OF
 OF
 iq
 OF
-bu
+hj
 OF
 OF
 XU
@@ -27793,7 +28082,7 @@ OF
 IP
 IP
 IP
-bu
+hr
 dl
 cy
 dy
@@ -28564,7 +28853,7 @@ lO
 lO
 lO
 lO
-eF
+ia
 lO
 lO
 lO
@@ -28809,7 +29098,7 @@ IP
 il
 IP
 OF
-bu
+ic
 af
 ja
 ja
@@ -28821,7 +29110,7 @@ lO
 lO
 lO
 lO
-eF
+iw
 lO
 lO
 lO
@@ -30143,7 +30432,7 @@ lO
 lO
 lO
 lO
-la
+ix
 lO
 lO
 lO
@@ -30657,7 +30946,7 @@ lO
 lO
 lO
 lO
-la
+jb
 lO
 lO
 lO
@@ -32731,7 +33020,7 @@ XU
 XU
 XU
 XU
-pN
+jf
 XU
 XU
 XU
@@ -32899,7 +33188,7 @@ OF
 OF
 OF
 OF
-bu
+ji
 gP
 lO
 lO
@@ -33179,7 +33468,7 @@ kZ
 XU
 dY
 OF
-bu
+jk
 dB
 dB
 fM
@@ -35502,7 +35791,7 @@ lO
 lO
 af
 hZ
-lo
+jl
 nc
 lh
 XU
@@ -35759,7 +36048,7 @@ lO
 lO
 af
 hZ
-lo
+jv
 nc
 lh
 XU
@@ -37079,7 +37368,7 @@ eV
 fn
 nV
 lh
-bu
+kd
 OF
 IP
 XU
@@ -39090,7 +39379,7 @@ OF
 OF
 OF
 OF
-bu
+ke
 af
 ja
 ja
@@ -39379,7 +39668,7 @@ ik
 OF
 OF
 OF
-bu
+kf
 nc
 lE
 lh
@@ -39640,7 +39929,7 @@ XU
 nc
 lS
 lh
-bu
+kg
 IP
 IP
 OF
@@ -39649,7 +39938,7 @@ IP
 IP
 IP
 IP
-bu
+ki
 ig
 IP
 XU

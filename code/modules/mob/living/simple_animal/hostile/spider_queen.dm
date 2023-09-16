@@ -114,6 +114,6 @@
 		S.visible_message("<span class='danger'>\The [S] lands on the [target_turf]!</span>")
 		for(var/mob/living/M in target_turf)
 			if(M != src)
-				M.apply_damage(50, BRUTE)
+				M.apply_damage(50, DAMAGE_BRUTE)
 				M.apply_effect(6, STUN, blocked)
 	return TRUE

@@ -232,18 +232,18 @@
 
 /datum/record/char_infraction/proc/saveToDB()
 	if(!establish_db_connection(dbcon))
-		error("SQL database connection failed. Infractions Datum failed to save information")
+		log_world("ERROR: SQL database connection failed. Infractions Datum failed to save information")
 		return
 
 	//Dont save the infraction to the db if the char id is 0
 	if(char_id == 0)
-		log_debug("Infraction: Not saved to the db - Char ID = 0")
+		LOG_DEBUG("Infraction: Not saved to the db - Char ID = 0")
 		return
 
 	//Check for Level 3 infractions and dont run the query if there are some
 	for( var/datum/law/L in charges )
 		if (L.severity == 3)
-			log_debug("Infraction: Not saved to the db - Red Level Infraction")
+			LOG_DEBUG("Infraction: Not saved to the db - Red Level Infraction")
 			return
 
 	var/list/sql_args[] = list(
@@ -280,17 +280,17 @@
 
 /datum/record/char_infraction/proc/deleteFromDB(var/deleted_by)
 	if(!establish_db_connection(dbcon))
-		error("SQL database connection failed. Infractions Datum failed to save information")
+		log_world("ERROR: SQL database connection failed. Infractions Datum failed to save information")
 		return
 
 	//Dont save the infraction to the db if the char id is 0
 	if(char_id == 0)
-		log_debug("Infraction: Not deleted from the db - char_id = 0")
+		LOG_DEBUG("Infraction: Not deleted from the db - char_id = 0")
 		return
 
 	//Dont delete if the db_id is 0 (Then the incident has not been loaded from the db)
 	if(db_id == 0)
-		log_debug("Infraction: Not deleted from the db - db_id 0")
+		LOG_DEBUG("Infraction: Not deleted from the db - db_id 0")
 
 	var/list/sql_args[] = list(
 		"id" = db_id,

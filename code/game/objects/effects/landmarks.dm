@@ -156,7 +156,7 @@
 
 /obj/effect/landmark/costume/scratch/New()
 	new /obj/item/clothing/gloves/white(src.loc)
-	new /obj/item/clothing/shoes/white(src.loc)
+	new /obj/item/clothing/shoes/sneakers(src.loc)
 	new /obj/item/clothing/under/suit_jacket/white(src.loc)
 	delete_me = 1
 
@@ -170,7 +170,7 @@
 	new /obj/item/clothing/glasses/monocle(src.loc)
 	var/CHOICE= pick( /obj/item/clothing/head/bowler, /obj/item/clothing/head/that)
 	new CHOICE(src.loc)
-	new /obj/item/clothing/shoes/black(src.loc)
+	new /obj/item/clothing/shoes/sneakers/black(src.loc)
 	new /obj/item/cane(src.loc)
 	new /obj/item/clothing/under/sl_suit(src.loc)
 	new /obj/item/clothing/mask/fakemoustache(src.loc)
@@ -184,7 +184,7 @@
 /obj/effect/landmark/costume/waiter/New()
 	new /obj/item/clothing/under/waiter(src.loc)
 	new /obj/item/clothing/head/rabbitears(src.loc)
-	new /obj/item/clothing/suit/apron(src.loc)
+	new /obj/item/clothing/accessory/apron/random(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/pirate/New()

@@ -164,7 +164,7 @@ STOCK_ITEM_UNCOMMON(voidsuit, 2)
 	new /obj/random/voidsuit(L,1)
 
 STOCK_ITEM_UNCOMMON(violin, 1)
-	new /obj/item/device/violin(L)
+	new /obj/item/device/synthesized_instrument/violin(L)
 
 STOCK_ITEM_UNCOMMON(atmosfiresuit, 2)
 	new /obj/item/clothing/head/hardhat/atmos(L)

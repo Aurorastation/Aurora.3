@@ -96,10 +96,19 @@
 				ore.forceMove(src)
 				if(attached_satchel?.linked_box)
 					attached_satchel.insert_into_storage(ore)
+	else if(istype(get_turf(src), /turf/simulated/floor/exoplanet))
+		var/turf/simulated/floor/exoplanet/T = get_turf(src)
+		if(T.diggable)
+			new /obj/structure/pit(T)
+			T.diggable = 0
+			for(var/obj/item/ore/ore in range(1, src)) // gets_dug causes ore to spawn, this picks that ore up as well
+				ore.forceMove(src)
+				if(attached_satchel?.linked_box)
+					attached_satchel.insert_into_storage(ore)
 	else if(istype(get_turf(src), /turf/simulated/floor))
 		var/turf/simulated/floor/T = get_turf(src)
 		var/turf/below_turf = GetBelow(T)
-		if(!istype(below_turf.loc, /area/mine) && !istype(below_turf.loc, /area/template_noop))
+		if(below_turf && !istype(below_turf.loc, /area/mine) && !istype(below_turf.loc, /area/exoplanet) && !istype(below_turf.loc, /area/template_noop))
 			system_error("Potential station breach below.")
 			return
 		T.ex_act(2.0)
@@ -111,6 +120,8 @@
 		while(length(resource_field) && !harvesting.resources)
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
+			harvesting.cut_overlay(harvesting.resource_indicator)
+			QDEL_NULL(harvesting.resource_indicator)
 			resource_field -= harvesting
 			if(length(resource_field))
 				harvesting = pick(resource_field)
@@ -156,6 +167,8 @@
 		if(!found_resource)
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
+			harvesting.cut_overlay(harvesting.resource_indicator)
+			QDEL_NULL(harvesting.resource_indicator)
 			resource_field -= harvesting
 	else
 		active = FALSE
@@ -163,8 +176,8 @@
 		system_error("Resource field depleted.")
 		update_icon()
 
-/obj/machinery/mining/drill/examine(mob/user)
-	..(user)
+/obj/machinery/mining/drill/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	if(need_player_check)
 		to_chat(user, SPAN_WARNING("The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"]."))
 	else
@@ -172,7 +185,7 @@
 	if(panel_open)
 		to_chat(user, "The power cell is [cell ? "installed" : "missing"].")
 	to_chat(user, "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%.")
-	if(user.Adjacent(src))
+	if(is_adjacent)
 		if(attached_satchel)
 			to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it.")))
 		if(current_error)
@@ -493,12 +506,12 @@
 				connected.system_error("Unexpected user interface error.")
 				return
 			else
-				H.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
+				H.apply_damage(25, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 				connected.system_error("Unexpected user interface error.")
 				return
 		else
 			var/mob/living/M = user
-			M.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
+			M.apply_damage(25, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 
 	if(default_deconstruction_screwdriver(user, W))
 		return
@@ -571,3 +584,7 @@
 	connected.supports -= src
 	connected.check_supports()
 	connected = null
+
+#undef DRILL_LIGHT_IDLE
+#undef DRILL_LIGHT_WARNING
+#undef DRILL_LIGHT_ACTIVE

@@ -57,8 +57,8 @@
 /mob/living/simple_animal/hostile/morph/Initialize()
 	. = ..()
 
-	verbs += /mob/living/proc/ventcrawl
-	verbs -= /mob/living/simple_animal/verb/change_name
+	add_verb(src, /mob/living/proc/ventcrawl)
+	add_verb(src, /mob/living/simple_animal/verb/change_name)
 
 	var/list/morph_spells = list(/spell/aoe_turf/conjure/node, /spell/aoe_turf/conjure/nest)
 	for(var/spell in morph_spells)
@@ -99,10 +99,10 @@
 	else
 		see_invisible = SEE_INVISIBLE_NOLIGHTING
 
-/mob/living/simple_animal/hostile/morph/examine(mob/user)
+/mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent)
 	if(morphed)
 		. = form.examine(user)
-		if(get_dist(src, user) > 2)
+		if(distance > 2)
 			return
 		to_chat(user, SPAN_WARNING("It doesn't look quite right..."))
 	else
@@ -208,12 +208,6 @@
 			eat(I, 20)
 			return
 	return ..()
-
-/mob/living/simple_animal/hostile/bullet_act(obj/item/projectile/P, def_zone)
-	..()
-	if (ismob(P.firer) && target_mob != P.firer)
-		target_mob = P.firer
-		stance = HOSTILE_STANCE_ATTACK
 
 /mob/living/simple_animal/hostile/morph/attackby(obj/item/O, mob/user)
 	..()

@@ -41,6 +41,7 @@
 	var/con_port = 3306
 	var/con_database = ""
 	var/failed_connections = 0
+	var/last_fail
 
 /DBConnection/New(server, port = 3306, database, username, password_handler, cursor_handler = Default_Cursor, dbi_handler)
 	con_user = username
@@ -192,10 +193,11 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 
 	var/error = ErrorMsg()
 	if (error)
-		log_debug("SQL Error: '[error]'",SEVERITY_ERROR)
+		log_sql("SQL Error: '[error]'")
 		// This is hacky and should probably be changed
 		if (error == "MySQL server has gone away")
 			log_game("MySQL connection drop detected, attempting to reconnect.")
+			log_sql("MySQL connection drop detected, attempting to reconnect.")
 			message_admins("MySQL connection drop detected, attempting to reconnect.")
 			db_connection.Reconnect()
 
@@ -269,9 +271,9 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 /DBQuery/proc/parseArguments(var/query_to_parse = null, var/list/argument_list)
 	if (!query_to_parse || !argument_list || !argument_list.len)
 #ifdef UNIT_TEST
-		error("SQL ARGPARSE: Invalid arguments sent.")
+		log_world("ERROR: SQL ARGPARSE: Invalid arguments sent.")
 #else
-		log_debug("SQL ARGPARSE: Invalid arguments sent.")
+		log_sql("ERROR: SQL ARGPARSE: Invalid arguments sent.")
 #endif
 		return null
 
@@ -296,9 +298,9 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 			cache[key] = "NULL"
 		else
 #ifdef UNIT_TEST
-			error("SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
+			log_world("ERROR: SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
 #else
-			log_debug("SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
+			log_sql("ERROR: SQL ARGPARSE: Cannot identify argument! [key]. Argument: [argument]")
 #endif
 			return null
 
@@ -314,11 +316,11 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 					parsed += cache[curr_arg]
 				else
 #ifdef UNIT_TEST
-					error("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
-					error("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
+					log_world("ERROR: SQL ARGPARSE: Unpopulated argument found in an SQL query.")
+					log_world("ERROR: SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
 #else
-					log_debug("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
-					log_debug("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
+					log_sql("SQL ARGPARSE: Unpopulated argument found in an SQL query.")
+					log_sql("SQL ARGPARSE: [curr_arg]. Query: [query_to_parse]")
 #endif
 					return null
 

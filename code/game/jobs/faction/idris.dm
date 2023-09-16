@@ -34,6 +34,8 @@
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
 			SPECIES_UNATHI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
@@ -46,6 +48,7 @@
 		"Security Officer" = /datum/outfit/job/officer/idris,
 		"Warden" = /datum/outfit/job/warden/idris,
 		"Security Cadet" = /datum/outfit/job/intern_sec/idris,
+		"Investigator Intern" = /datum/outfit/job/intern_sec/forensics/idris,
 		"Investigator" =/datum/outfit/job/forensics/idris,
 		"Bartender" = /datum/outfit/job/bartender/idris,
 		"Chef" = /datum/outfit/job/chef/idris,
@@ -106,6 +109,17 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
 	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
+/datum/outfit/job/intern_sec/forensics/idris
+	name = "Investigator Intern - Idris"
+
+	uniform = /obj/item/clothing/under/rank/cadet/idris
+	id = /obj/item/card/id/idris/sec
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
+
 /datum/outfit/job/bartender/idris
 	name = "Bartender - Idris"
 
@@ -123,7 +137,7 @@
 	name = "Chef - Idris"
 
 	uniform = /obj/item/clothing/under/rank/chef/idris
-	suit = /obj/item/clothing/suit/chef/idris
+	suit = /obj/item/clothing/suit/chef_jacket/idris
 	head = /obj/item/clothing/head/chefhat/idris
 	id = /obj/item/card/id/idris
 

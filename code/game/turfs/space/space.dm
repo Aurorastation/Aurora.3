@@ -25,6 +25,8 @@
 
 // Copypaste of parent for performance.
 /turf/space/Initialize()
+	SHOULD_CALL_PARENT(FALSE)
+
 	if(use_space_appearance)
 		appearance = SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
 	if(config.starlight && use_starlight && lighting_overlays_initialized)
@@ -37,8 +39,6 @@
 
 	for(var/atom/movable/AM as mob|obj in src)
 		src.Entered(AM, AM.loc)
-
-	turfs += src
 
 	if (isStationLevel(z))
 		station_turfs += src
@@ -76,7 +76,7 @@
 	if(!config.starlight)
 		return
 	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
-		set_light(1, config.starlight, l_color = SSskybox.background_color)
+		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
 	else
 		set_light(0)
 
@@ -89,7 +89,7 @@
 		var/obj/item/stack/rods/R = C
 		if (R.use(1))
 			to_chat(user, "<span class='notice'>Constructing support lattice ...</span>")
-			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
 
@@ -100,7 +100,7 @@
 			if (S.get_amount() < 1)
 				return
 			qdel(L)
-			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			S.use(1)
 			ChangeTurf(/turf/simulated/floor/airless, keep_air = TRUE)
 			return
@@ -212,8 +212,8 @@
 					A.loc.Entered(A)
 	return
 
-/turf/space/ChangeTurf(var/turf/N, var/tell_universe=TRUE, var/force_lighting_update = FALSE, keep_air = FALSE)
-	return ..(N, tell_universe, TRUE, keep_air)
+/turf/space/ChangeTurf(turf/N, tell_universe=TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE, keep_air = FALSE)
+	return ..()
 
 /turf/space/is_open()
 	return TRUE

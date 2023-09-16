@@ -45,12 +45,8 @@
 
 //Medical
 
-/area/medical/or1
-	name = "Medical - Operating Room 1"
-	icon_state = "surgery"
-
-/area/medical/or2
-	name = "Medical - Operating Room 2"
+/area/medical/ors
+	name = "Medical - Combined Operating Rooms"
 	icon_state = "surgery"
 
 /area/medical/exam
@@ -135,6 +131,9 @@
 /area/maintenance/substation/hangar
 	name = "Hangar Substation"
 
+/area/hangar/canary
+	name = "Canary Hangar"
+
 //Operations
 
 /area/operations
@@ -174,6 +173,11 @@
 
 /area/operations/office
 	name = "Operations Office"
+	icon_state = "quartoffice"
+	sound_env = MEDIUM_SOFTFLOOR
+
+/area/operations/office_aux
+	name = "Operations Office (Aux)"
 	icon_state = "quartoffice"
 	sound_env = MEDIUM_SOFTFLOOR
 
@@ -283,21 +287,22 @@
 	name = "Intrepid"
 	icon_state = "intrepid"
 	requires_power = TRUE
-/area/shuttle/intrepid/crew_compartment 
+/area/shuttle/intrepid/crew_compartment
 	name = "Intrepid Crew Compartment"
 /area/shuttle/intrepid/cargo_bay
 	name = "Intrepid Cargo Bay"
-/area/shuttle/intrepid/medical_compartment
-	name = "Intrepid Medical Compartment"
-/area/shuttle/intrepid/engine_compartment 
+/area/shuttle/intrepid/engine_compartment
 	name = "Engine Compartment"
-/area/shuttle/intrepid/atmos_compartment 
+/area/shuttle/intrepid/atmos_compartment
 	name = "Atmos Compartment"
-/area/shuttle/intrepid/cockpit 
+/area/shuttle/intrepid/cockpit
 	name = "Cockpit"
-/area/shuttle/intrepid/rotary
-	name = "Intrepid Armament"
+/area/shuttle/intrepid/quarters
+	name = "Intrepid Crew Quarters"
 
+/area/shuttle/canary
+	name = "Canary"
+	requires_power = TRUE
 //
 // SCCV Horizon Areas
 //
@@ -334,6 +339,10 @@
 
 /area/horizon/maintenance/deck_two/fore/port
 	name = "Horizon - Maintenance - Deck Two - Fore Port"
+
+/area/horizon/maintenance/deck_three/aft/starboard
+	name = "Horizon - Maintenance - Deck Three - Aft Starboard"
+
 /********** Maintenance End **********/
 
 /********** Hallways Start **********/
@@ -471,6 +480,14 @@
 
 /********** Holodeck Start **********/
 // Holodeck
+/area/horizon/holodeck_control
+	name = "Horizon - Holodeck Alpha"
+	flags = RAD_SHIELDED
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+
+/area/horizon/holodeck_control/beta
+	name = "Horizon - Holodeck Beta"
+
 /area/horizon/holodeck
 	name = "Horizon - Holodeck (PARENT AREA - DON'T USE)"
 	icon_state = "Holodeck"
@@ -482,6 +499,10 @@
 
 /area/horizon/holodeck/alphadeck
 	name = "Horizon - Holodeck Alpha"
+	dynamic_lighting = TRUE
+
+/area/horizon/holodeck/betadeck
+	name = "Horizon - Holodeck Beta"
 	dynamic_lighting = TRUE
 
 /area/horizon/holodeck/source_plating
@@ -518,10 +539,6 @@
 	name = "Horizon - Holodeck - Courtroom"
 	sound_env = AUDITORIUM
 
-/area/horizon/holodeck/source_beach
-	name = "Horizon - Holodeck - Beach"
-	sound_env = PLAIN
-
 /area/horizon/holodeck/source_burntest
 	name = "Horizon - Holodeck - Atmospheric Burn Test"
 
@@ -533,7 +550,7 @@
 	sound_env = AUDITORIUM
 
 /area/horizon/holodeck/source_theatre
-	name = "Horizon - Holodeck - Theatre"
+	name = "Horizon - Holodeck - Callistean Theatre"
 	sound_env = CONCERT_HALL
 
 /area/horizon/holodeck/source_picnicarea
@@ -545,7 +562,7 @@
 	sound_env = PLAIN
 
 /area/horizon/holodeck/source_snowfield
-	name = "Horizon - Holodeck - Snow Field"
+	name = "Horizon - Holodeck - Bursa Tundra"
 	sound_env = FOREST
 
 /area/horizon/holodeck/source_desert
@@ -563,6 +580,37 @@
 
 /area/horizon/holodeck/source_chessboard
 	name = "Horizon - Holodeck - Chessboard"
+
+/area/horizon/holodeck/source_adhomai
+	name = "Horizon - Holodeck - Adhomian Campfire"
+
+/area/horizon/holodeck/source_beach
+	name = "Horizon - Holodeck - Silversunner Coast"
+	sound_env = PLAIN
+
+/area/horizon/holodeck/source_pool
+	name = "Horizon - Holodeck - Swimming Pool"
+
+/area/horizon/holodeck/source_sauna
+	name = "Horizon - Holodeck - Sauna"
+
+/area/horizon/holodeck/source_jupiter
+	name = "Horizon - Holodeck - Jupiter Upper Atmosphere"
+
+/area/horizon/holodeck/source_konyang
+	name = "Horizon - Holodeck - Konyanger Boardwalk"
+
+/area/horizon/holodeck/source_moghes
+	name = "Horizon - Holodeck - Moghresian Jungle"
+
+/area/horizon/holodeck/source_biesel
+	name = "Horizon - Holodeck - Foggy Mendell Skyline"
+
+/area/horizon/holodeck/source_tribunal
+	name = "Horizon - Holodeck - Tribunalist Chapel"
+
+/area/horizon/holodeck/source_trinary
+	name = "Horizon - Holodeck - Trinarist Chapel"
 /********** Holodeck End **********/
 
 /********** Unique Start **********/
@@ -610,6 +658,7 @@
 /area/horizon/bar/backroom
 	name = "Horizon - Bar - Backroom"
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	flags = RAD_SHIELDED
 
 // Cafeteria
 /area/horizon/cafeteria

@@ -21,6 +21,9 @@
 		created += src
 
 /atom/proc/Initialize(mapload, ...)
+	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
@@ -39,10 +42,10 @@
 		var/turf/T = loc
 		T.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 
-#ifdef AO_USE_LIGHTING_OPACITY
+	#ifdef AO_USE_LIGHTING_OPACITY
 		if (!mapload)
 			T.regenerate_ao()
-#endif
+	#endif
 
 	if (update_icon_on_init)
 		queue_icon_update()

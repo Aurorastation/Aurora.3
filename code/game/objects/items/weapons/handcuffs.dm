@@ -136,7 +136,7 @@
 	H.attack_log += text("\[[time_stamp()]\] <span class='warning'>[s] ([H.ckey])</span>")
 	log_attack("[s] ([H.ckey])",ckey=key_name(H))
 
-	if(O.take_damage(3, 0, damage_flags = DAM_SHARP|DAM_EDGE, used_weapon = "teeth marks"))
+	if(O.take_damage(3, 0, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, used_weapon = "teeth marks"))
 		H:UpdateDamageIcon()
 
 	last_chew = world.time
@@ -221,7 +221,7 @@
 			update_icon(user)
 	else if(can_be_cut && I.iswirecutter())
 		user.visible_message("[user] cuts the [src].", SPAN_NOTICE("You cut the [src]."))
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		new/obj/item/stack/cable_coil(get_turf(src), 15, color)
 		qdel(src)
 		update_icon(user)

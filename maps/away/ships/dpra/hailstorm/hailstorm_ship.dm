@@ -16,8 +16,16 @@
 	name = "Hailstorm Ship"
 	desc = "A skipjack armed with multiple mass-driver weapons designed for patrolling and brief engagements. When used for patrols, the Hailstorm is loaded with supplies to last weeks on its own; its crew is specifically trained to be as frugal as possible while aboard."
 	class = "DPRAMV" //Democratic People's Republic of Adhomai Vessel
-	icon_state = "ship"
-	moving_state = "ship_moving"
+	icon_state = "hailstorm"
+	moving_state = "hailstorm_moving"
+	colors = list("#B9BDC4")
+	scanimage = "hailstorm.png"
+	designer = "Obfuscated, hull origin uncertain"
+	volume = "37 meters length, 24 meters beam/width, 11 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Dual bow-mounted extruding low-caliber rotary ballistic armament, port obscured flight craft bay"
+	sizeclass = "Hailstorm-type Retrofitted Skipjack"
+	shiptype = "Short-distance military tasking, low-level naval interdiction"
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
@@ -31,10 +39,17 @@
 	initial_restricted_waypoints = list(
 		"Spacer Militia Shuttle" = list("nav_hailstorm_shuttle")
 	)
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/hailstorm_ship/New()
 	designation = "[pick("Al'mari", "Champion of the Tajara", "Nated's Revenge", "Mata'ke's Blade", "Star Guerilla", "Dreams of Freedom", "Al'mariist Comet", "Adhomai's Liberator")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/hailstorm_ship/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "hailstorm")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/hailstorm_ship
 	base_turf = /turf/space
@@ -63,6 +78,7 @@
 	desc = "A simple and reliable shuttle design used by the Spacer Militia Shuttle."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	colors = list("#B9BDC4")
 	class = "DPRAMV"
 	designation = "Yve'kha"
 	shuttle = "Spacer Militia Shuttle"

@@ -48,15 +48,17 @@
 	set src in view(1)
 
 	var/genemask = input("Choose a gene to modify.") as null|anything in SSplants.plant_gene_datums
-
 	if(!genemask)
 		return
-
 	gene = SSplants.plant_gene_datums[genemask]
 
 	to_chat(usr, SPAN_INFO("You set \the [src]\s targeted genetic area to [genemask]."))
 
-	return
+/obj/item/gun/energy/floragun/consume_next_projectile()
+	. = ..()
+	if(istype(., /obj/item/projectile/energy/floramut/gene))
+		var/obj/item/projectile/energy/floramut/gene/projectile = .
+		projectile.gene = gene
 
 /obj/item/gun/energy/meteorgun
 	name = "meteor gun"
@@ -266,30 +268,30 @@
 	return ..()
 
 /obj/item/gun/energy/vaurca/blaster
-	name = "\improper Zo'ra Blaster"
-	desc = "An elegant weapon for a more civilized time."
+	name = "\improper thermic blaster"
+	desc = "Designed after the Zo'ra arrival in the Spur, this modern reimagining of the venerable Zo'rane Thermic Blaster is as much a rare and brutal personal defense weapon as it is a badge of office for the Zo'ra Ta that now wield it. \
+	The design blends visual elements from a revolver, chosen by the Hive for its status as a respected weapon throughout much of the Spur, with the might of Zo'rane energy technology."
+	desc_extended = "The Thermic Blaster, sometimes known as the Zo'ra Blaster, is an incendiary energy weapon capable of tearing through any would-be interloper, though the phoron-powered battery is held back by an unremarkable capacity. \
+	While the blaster's smaller battery may cause problems in longer engagements, its intended use as the sidearm of Zo'ra Diplomats and certain Warriors makes it a low priority to increase given the already remarkably steep cost of the design."
 	icon = 'icons/obj/guns/blaster.dmi'
 	icon_state = "blaster"
 	item_state = "blaster"
 	has_item_ratio = FALSE
-	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4)
+	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_POWER = 4)
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 	accuracy = 1
+	recoil = 1
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster/incendiary
 	max_shots = 7
-	sel_mode = 1
 	burst = 1
 	burst_delay = 1
-	fire_delay = 0
+	fire_delay = 5
 	can_turret = 1
 	turret_sprite_set = "laser"
-	firemodes = list(
-		list(mode_name="single shot", burst=1, burst_delay = 1, fire_delay = 0),
-		list(mode_name="concentrated burst", burst=3, burst_delay = 1, fire_delay = 5)
-		)
+
 
 /obj/item/gun/energy/vaurca/typec
 	name = "thermal lance"

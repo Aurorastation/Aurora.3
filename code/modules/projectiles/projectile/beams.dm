@@ -4,11 +4,11 @@
 	ping_effect = "ping_s"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 30
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
 	check_armor = "laser"
 	eyeblur = 4
-	damage_flags = DAM_LASER
+	damage_flags = DAMAGE_FLAG_LASER
 	var/frequency = 1
 	hitscan = 1
 	invisibility = 101	//beam projectiles are invisible as they are rendered by the effect engine
@@ -20,7 +20,7 @@
 /obj/item/projectile/beam/practice
 	name = "laser"
 	damage = 5
-	damage_type = PAIN
+	damage_type = DAMAGE_PAIN
 	eyeblur = 0
 
 /obj/item/projectile/beam/pistol
@@ -45,7 +45,7 @@
 
 /obj/item/projectile/beam/midlaser
 	damage = 30
-	armor_penetration = 25
+	armor_penetration = 20
 
 /obj/item/projectile/beam/midlaser/skrell
 	armor_penetration = 0
@@ -53,6 +53,13 @@
 /obj/item/projectile/beam/midlaser/skrell/heavy
 	damage = 40
 	armor_penetration = 20
+
+/obj/item/projectile/beam/midlaser/hegemony
+	armor_penetration = 30
+	muzzle_type = /obj/effect/projectile/muzzle/hegemony
+	tracer_type = /obj/effect/projectile/tracer/hegemony
+	impact_type = /obj/effect/projectile/impact/hegemony
+
 
 /obj/item/projectile/beam/noctiluca
 	damage = 20
@@ -71,9 +78,6 @@
 	damage = 25
 	armor_penetration = 10
 
-/obj/item/projectile/beam/midlaser/mech
-	armor_penetration = 35
-
 /obj/item/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
@@ -83,6 +87,10 @@
 	muzzle_type = /obj/effect/projectile/muzzle/heavy_laser
 	tracer_type = /obj/effect/projectile/tracer/heavy_laser
 	impact_type = /obj/effect/projectile/impact/heavy_laser
+
+/obj/item/projectile/beam/heavylaser/mech
+	damage = 35
+	armor_penetration = 35
 
 /obj/item/projectile/beam/xray
 	name = "xray beam"
@@ -143,7 +151,7 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 0
 	no_attack_log = 1
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	check_armor = "laser"
 	var/laser_tag_color = "red"
 
@@ -198,7 +206,7 @@
 	sharp = FALSE
 	eyeblur = 1
 	agony = 45
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
@@ -219,7 +227,7 @@
 	name = "electrical arc"
 	icon_state = "stun"
 	damage = 1
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
@@ -268,7 +276,7 @@
 	name = "diffuse electrical arc"
 
 	nodamage = FALSE
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	damage = 15
 	agony = 30
 
@@ -414,7 +422,7 @@
 	name = "energy net projection"
 	icon_state = "xray"
 	nodamage = 1
-	damage_type = PAIN
+	damage_type = DAMAGE_PAIN
 
 	muzzle_type = /obj/effect/projectile/muzzle/xray
 	tracer_type = /obj/effect/projectile/tracer/xray
@@ -447,7 +455,7 @@
 	name = "tesla bolt"
 	icon_state = "lightning"
 	damage = 10
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	pass_flags = PASSTABLE | PASSGRILLE | PASSRAILING
 	range = 40
 	eyeblur = 0
@@ -461,21 +469,12 @@
 	if(isliving(target))
 		tesla_zap(target, 5, 5000)
 
-/obj/item/projectile/beam/tesla/master
-	damage = 15
-
-/obj/item/projectile/beam/tesla/grandmaster
-	damage = 20
-
-/obj/item/projectile/beam/tesla/paramount
-	damage = 25
-
 /obj/item/projectile/beam/freezer
 	name = "freezing ray"
 	icon_state = "bluelaser"
 	pass_flags = PASSTABLE | PASSRAILING
 	damage = 15
-	damage_type = BURN
+	damage_type = DAMAGE_BURN
 	check_armor = "energy"
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue

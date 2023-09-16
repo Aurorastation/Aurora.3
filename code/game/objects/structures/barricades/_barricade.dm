@@ -30,7 +30,7 @@
 	starting_maxhealth = maxhealth
 
 /obj/structure/barricade/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum efficiency."))
 	if(is_wired)
 		to_chat(user, SPAN_INFO("There is a length of wire strewn across the top of this barricade."))
@@ -54,7 +54,7 @@
 		switch(dir)
 			if(SOUTH)
 				layer = ABOVE_MOB_LAYER
-			else if(NORTH)
+			if(NORTH)
 				layer = initial(layer) - 0.01
 			else
 				layer = initial(layer)
@@ -136,7 +136,7 @@
 		playsound(src, barricade_hitsound, 50, 1)
 	if(is_wired)
 		visible_message(SPAN_DANGER("\The [src]'s barbed wire slices into [L]!"))
-		L.apply_damage(rand(5, 10), BRUTE, pick(BP_R_HAND, BP_L_HAND), "barbed wire", DAM_SHARP|DAM_EDGE, 25)
+		L.apply_damage(rand(5, 10), DAMAGE_BRUTE, pick(BP_R_HAND, BP_L_HAND), "barbed wire", DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, 25)
 	L.do_attack_animation(src)
 	take_damage(damage)
 

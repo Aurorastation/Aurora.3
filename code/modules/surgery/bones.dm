@@ -12,8 +12,8 @@
 	can_infect = TRUE
 	blood_level = 1
 
-	min_duration = 50
-	max_duration = 60
+	min_duration = 30
+	max_duration = 40
 
 /singleton/surgery_step/glue_bone/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -39,7 +39,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing some of [tool] in the incision in [target]'s [affected.name]!") , \
 	SPAN_WARNING("Your hand slips, smearing some of [tool] in the incision in [target]'s [affected.name]!"))
-	target.apply_damage(15, PAIN)
+	target.apply_damage(15, DAMAGE_PAIN)
 
 /singleton/surgery_step/set_bone
 	name = "Set Broken Bone"
@@ -48,8 +48,8 @@
 	WRENCH = 75		\
 	)
 
-	min_duration = 60
-	max_duration = 70
+	min_duration = 30
+	max_duration = 50
 
 /singleton/surgery_step/set_bone/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -79,7 +79,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging the bone in [target]'s [affected.name] with \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, damaging the bone in [target]'s [affected.name] with \the [tool]!"))
-	target.apply_damage(5, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(5, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/mend_skull
 	name = "Repair Broken Skull"
@@ -88,8 +88,8 @@
 	WRENCH = 75		\
 	)
 
-	min_duration = 60
-	max_duration = 70
+	min_duration = 40
+	max_duration = 50
 
 /singleton/surgery_step/mend_skull/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -113,7 +113,7 @@
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging [target]'s face with \the [tool]!")  , \
 		SPAN_WARNING("Your hand slips, damaging [target]'s face with \the [tool]!"))
 	var/obj/item/organ/external/head/h = affected
-	target.apply_damage(10, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(10, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	h.disfigured = 1
 
 /singleton/surgery_step/finish_bone
@@ -125,8 +125,8 @@
 	can_infect = TRUE
 	blood_level = 1
 
-	min_duration = 50
-	max_duration = 60
+	min_duration = 30
+	max_duration = 40
 
 /singleton/surgery_step/finish_bone/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -153,4 +153,4 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!") , \
 		SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
-	target.apply_damage(15, PAIN)
+	target.apply_damage(15, DAMAGE_PAIN)

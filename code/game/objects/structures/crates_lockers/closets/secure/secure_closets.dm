@@ -113,11 +113,9 @@
 		/obj/item/airbubble = 1,
 
 		// Rations
-		/obj/item/storage/box/fancy/mre/menu5 = 1,
-		/obj/item/storage/box/fancy/mre/menu9 = 1,
+		/obj/item/storage/box/fancy/mre/random = 2,
 		/obj/item/reagent_containers/food/drinks/waterbottle = 4,
 
 		// Medical Supplies
-		/obj/item/storage/firstaid/marooning_equipment = 1,
-		/obj/item/storage/firstaid/o2 = 1
+		/obj/item/storage/firstaid/stab = 1,
 	)

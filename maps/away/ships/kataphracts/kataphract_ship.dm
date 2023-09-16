@@ -6,7 +6,7 @@
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA)
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_WEEPING_STARS)
 
 /obj/effect/overmap/visitable/ship/kataphract_ship
 	name = "kataphract chapter ship"
@@ -14,8 +14,16 @@
 	class used by their counterparts in the Hegemony Navy. These vessels are rarely seen together and strive for maximum self-suffiency as they are the homes and primary means of transportation \
 	for questing Kataphracts and their followers. They usually carry enough firepower to deter the common pirate as well as a set of boarding pods for offensive actions. This ship however has no weapon hardpoints detected. It remains capable due to its sturdy design."
 	class = "IHKV" //Izweski Hegemony Kataphract Vessel
-	icon_state = "ship_green"
-	moving_state = "ship_green_moving"
+	icon_state = "voidbreaker"
+	moving_state = "voidbreaker_moving"
+	colors = list("#e38222", "#f0ba3e")
+	scanimage = "unathi_corvette.png"
+	designer = "Hephaestus Industries, Izweski Hegemonic Naval Guilds"
+	volume = "65 meters length, 45 meters beam/width, 21 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Not apparent, port obscured flight craft bay"
+	sizeclass = "Voidbreaker-class Armored Corvette"
+	shiptype = "Specialist long-distance extended-duration combat utility"
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
@@ -32,6 +40,8 @@
 		"Kataphract Transport" = list("nav_hangar_kataphract_shuttle"),
 		"Intrepid" = list("nav_kataphract_ship_dockintrepid")
 	)
+
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/kataphract_ship/New()
 	designation = "[pick("Pious Avenger", "Persistent Conviction", "Solemn Retribution", "Venerable Ironscales", "Blade of Faith", "Glorious Succor", "Sacred Retribution", "Unflinching Soul", "Unrelenting Fervor", "Ascendant Absolution")]"
@@ -76,8 +86,9 @@
 	designation = "Sasuna"
 	desc = "A small egg shaped shuttle of the 'Spearhead' class, commonly seen carried by Izweski Hegemony vessels. They're never far from their motherships and are a telltale sign of an Unathi presence within a sector. Affectionately called the 'Hatchling' by its operators. The transponder for this vessel identifies it as belonging to a traveling Kataphract Guild of the Hegemony."
 	shuttle = "Kataphract Transport"
-	icon_state = "shuttle_green"
-	moving_state = "shuttle_green_moving"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#e38222", "#f0ba3e")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 6000 //Ship has a lot of thrusters, so if its too low the shuttle goes too fast. Also, imagine a hard egg flying towards you.

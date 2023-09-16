@@ -5,13 +5,12 @@
 	set name = "Say"
 	set category = "IC"
 
+	SStyping.set_indicator_state(client, FALSE)
 	if(say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, SPAN_WARNING("Speech is currently admin-disabled."))
 		return
 
 	message = sanitize(message)
-
-	set_typing_indicator(0)
 
 	if (src.client.handle_spam_prevention(message, MUTE_IC))
 		return
@@ -22,19 +21,18 @@
 	set name = "Me"
 	set category = "IC"
 
+	SStyping.set_indicator_state(client, FALSE)
 	if(say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
 		return
 
 	message = sanitize(message)
 
-	set_typing_indicator(0)
-
 	if (src.client.handle_spam_prevention(message, MUTE_IC))
 		return
 
 	if(use_me)
-		usr.emote("me",usr.emote_type,message)
+		usr.client_emote("me",usr.emote_type,message)
 	else
 		usr.emote(message)
 
@@ -111,6 +109,12 @@
 			. = "exclaims"
 	else if(ending == "?")
 		. ="asks"
+
+
+/mob/proc/whisper(var/message, var/datum/language/speaking, var/is_singing = FALSE)
+	set name = "Whisper"
+	set category = "IC"
+	return
 
 /mob/proc/get_ear()
 	// returns an atom representing a location on the map from which this

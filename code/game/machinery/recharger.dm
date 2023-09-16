@@ -20,7 +20,7 @@
 		/obj/item/cell,
 		/obj/item/modular_computer,
 		/obj/item/computer_hardware/battery_module,
-		/obj/item/device/flashlight/survival,
+		/obj/item/device/flashlight,
 		/obj/item/clothing/mask/smokable/ecig,
 		/obj/item/inductive_charger/handheld,
 		/obj/item/auto_cpr,
@@ -32,10 +32,10 @@
 	var/portable = 1
 	var/list/chargebars
 
-/obj/machinery/recharger/examine(mob/user)
-	. = ..(user, 3)
+/obj/machinery/recharger/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	to_chat(user, "There is [charging ? "\a [charging]" : "nothing"] in [src].")
-	if (charging && .)
+	if (charging && distance <= 3)
 		var/obj/item/cell/C = charging.get_cell()
 		if (istype(C) && user.client && (!user.progressbars || !user.progressbars[src]))
 			var/datum/progressbar/progbar = new(user, C.maxcharge, src)
@@ -65,7 +65,7 @@
 				charging = null
 				update_icon()
 			else
-				to_chat(user, "<span class='danger'>Your gripper cannot hold \the [charging].</span>")
+				to_chat(user, SPAN_DANGER("Your gripper cannot hold \the [charging]."))
 		return TRUE
 
 	if(!G.dropsafety())
@@ -74,14 +74,14 @@
 	if(is_type_in_list(G, allowed_devices))
 		if (G.get_cell() == DEVICE_NO_CELL)
 			if (G.charge_failure_message)
-				to_chat(user, "<span class='warning'>\The [G][G.charge_failure_message]</span>")
+				to_chat(user, SPAN_WARNING("\The [G][G.charge_failure_message]"))
 			return TRUE
 		if(charging)
-			to_chat(user, "<span class='warning'>\A [charging] is already charging here.</span>")
+			to_chat(user, SPAN_WARNING("\A [charging] is already charging here."))
 			return TRUE
 		// Checks to make sure he's not in space doing it, and that the area got proper power.
 		if(!powered())
-			to_chat(user, "<span class='warning'>\The [name] blinks red as you try to insert the item!</span>")
+			to_chat(user, SPAN_WARNING("\The [name] blinks red as you try to insert the item!"))
 			return TRUE
 
 		user.drop_from_inventory(G,src)
@@ -144,7 +144,7 @@
 						bar.update(C.charge)
 
 		else if (cell == DEVICE_NO_CELL)
-			log_debug("recharger: Item [DEBUG_REF(charging)] was in charger, but claims to have no internal cell slot; booting item.")
+			LOG_DEBUG("recharger: Item [DEBUG_REF(charging)] was in charger, but claims to have no internal cell slot; booting item.")
 			charging.forceMove(loc)
 			charging.visible_message("\The [charging] falls out of [src].")
 			charging = null
@@ -179,7 +179,8 @@
 	active_power_usage = 75 KILOWATTS
 	allowed_devices = list(
 		/obj/item/gun/energy,
-		/obj/item/melee/baton
+		/obj/item/melee/baton,
+		/obj/item/device/flashlight
 	)
 	icon_state_charged = "wrecharger100"
 	icon_state_charging = "wrecharger"

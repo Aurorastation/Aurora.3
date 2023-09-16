@@ -5,8 +5,7 @@
 	var/image/wet_overlay = null
 
 	var/thermite = 0
-	oxygen = MOLES_O2STANDARD
-	nitrogen = MOLES_N2STANDARD
+	initial_gas = list("oxygen" = MOLES_O2STANDARD, "nitrogen" = MOLES_N2STANDARD)
 	var/to_be_destroyed = 0 //Used for fire, if a melting temperature was reached, it will be destroyed
 	var/max_fire_temperature_sustained = 0 //The max temperature of the fire which it was subjected to
 	var/dirt = 0
@@ -99,9 +98,7 @@
 					slip_stun = 4
 
 			if(M.slip("the [floor_type] floor",slip_stun) && slip_dist)
-				for (var/i in 1 to slip_dist)
-					sleep(1)
-					step(M, M.dir)
+				INVOKE_ASYNC(src, PROC_REF(slip_mob), M, slip_dist)
 
 		if(M.lying)
 			return ..()
@@ -116,6 +113,19 @@
 		M.inertia_dir = 0
 
 	..(A, OL)
+
+/**
+ * Slips a mob, moving it for N tiles
+ *
+ * Should be called asyncronously, as this process sleep
+ *
+ * * mob_to_slip - The mob that should be slipped
+ * * slip_distance - How many tiles to slip the mob for
+ */
+/turf/simulated/proc/slip_mob(var/mob/mob_to_slip, var/slip_distance)
+	for (var/i in 1 to slip_distance)
+		sleep(1)
+		step(mob_to_slip, mob_to_slip.dir)
 
 //returns TRUE if made bloody, returns FALSE otherwise
 /turf/simulated/add_blood(mob/living/carbon/human/M as mob)

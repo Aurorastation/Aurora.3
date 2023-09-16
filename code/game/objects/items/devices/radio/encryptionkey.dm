@@ -38,6 +38,9 @@
 	if(use_common)
 		channels += list(CHANNEL_COMMON = TRUE)
 
+	initialized = TRUE
+	return INITIALIZE_HINT_NORMAL
+
 /obj/item/device/encryptionkey/ship/common
 	use_common = TRUE
 
@@ -81,7 +84,7 @@
 
 /obj/item/device/encryptionkey/hivenet
 	name = "hivenet encryption chip"
-	desc = "It appears to be a Vaurca hivenet encryption chip, for localized broadcasts."
+	desc = "It appears to be a Vaurca Hivenet encryption chip, for localized broadcasts."
 	translate_hivenet = TRUE
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "neuralchip"

@@ -216,8 +216,7 @@
 				try
 					call(listener, proc_call)(arglist(args))
 				catch (var/exception/e)
-					error("[e.name] - [e.file] - [e.line]")
-					error(e.desc)
+					log_exception(e)
 					unregister_global(listener, proc_call)
 
 	// Call the listeners for this specific event source, if they exist.
@@ -232,8 +231,7 @@
 				try
 					call(listener, proc_call)(arglist(args))
 				catch (var/exception/e)
-					error("[e.name] - [e.file] - [e.line]")
-					error(e.desc)
+					log_exception(e)
 					unregister(source, listener, proc_call)
 
 	return TRUE

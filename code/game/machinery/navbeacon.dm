@@ -60,7 +60,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 	// called when turf state changes
 	// hide the object if turf is intact
 /obj/machinery/navbeacon/hide(var/intact)
-	invisibility = intact ? 101 : 0
+	set_invisibility(intact ? 101 : 0)
 	update_icon()
 
 	// update the icon_state

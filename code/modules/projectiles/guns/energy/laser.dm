@@ -35,7 +35,7 @@
 	desc = "A modified version of the HI G40E, this one fires less concentrated energy bolts designed for target practice."
 	projectile_type = /obj/item/projectile/beam/practice
 
-obj/item/gun/energy/retro
+/obj/item/gun/energy/retro
 	name = "retro laser"
 	icon = 'icons/obj/guns/retro.dmi'
 	icon_state = "retro"
@@ -169,7 +169,7 @@ obj/item/gun/energy/retro
 /obj/item/gun/energy/sniperrifle/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)

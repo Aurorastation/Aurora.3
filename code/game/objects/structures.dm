@@ -3,6 +3,7 @@
 	w_class = ITEMSIZE_IMMENSE
 	layer = OBJ_LAYER - 0.01
 
+	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
 	var/climbable
 	var/breakable
 	var/parts
@@ -66,6 +67,8 @@
 
 /obj/structure/Initialize(mapload)
 	. = ..()
+	if(!isnull(material) && !istype(material))
+		material = SSmaterials.get_material_by_name(material)
 	if (!mapload)
 		updateVisibility(src)	// No point checking this before visualnet initializes.
 	if(climbable)
@@ -100,17 +103,17 @@
 
 /obj/structure/proc/can_climb(var/mob/living/user, post_climb_check=0)
 	if (!climbable || !can_touch(user) || (!post_climb_check && (user in climbers)))
-		return 0
+		return FALSE
 
 	if (!user.Adjacent(src))
-		to_chat(user, "<span class='danger'>You can't climb there, the way is blocked.</span>")
-		return 0
+		to_chat(user, SPAN_WARNING("You must be next to \the [src] to climb it."))
+		return FALSE
 
 	var/obj/occupied = turf_is_crowded()
 	if(occupied)
-		to_chat(user, "<span class='danger'>There's \a [occupied] in the way.</span>")
-		return 0
-	return 1
+		to_chat(user, SPAN_WARNING("There's \a [occupied] in the way."))
+		return FALSE
+	return TRUE
 
 /obj/structure/proc/turf_is_crowded(var/exclude_self = FALSE)
 	var/turf/T = get_turf(src)

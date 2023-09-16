@@ -91,8 +91,8 @@
 	return main_ear
 
 
-/obj/item/clothing/examine(var/mob/user)
-	..(user)
+/obj/item/clothing/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
 			to_chat(user, "\A [A] [A.gender == PLURAL ? "are" : "is"] attached to it.")
@@ -108,6 +108,7 @@
 	src.verbs |= /obj/item/clothing/proc/removetie_verb
 	update_clothing_icon()
 	update_accessory_slowdown()
+	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
 	if(!(A in accessories))
@@ -117,6 +118,7 @@
 	LAZYREMOVE(accessories, A)
 	update_clothing_icon()
 	update_accessory_slowdown()
+	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/removetie_verb()
 	set name = "Remove Accessory"
@@ -132,7 +134,7 @@
 
 	if(!LAZYLEN(accessories))
 		return
-	
+
 	var/obj/item/clothing/accessory/A
 	if(LAZYLEN(accessories) > 1)
 		var/list/options = list()

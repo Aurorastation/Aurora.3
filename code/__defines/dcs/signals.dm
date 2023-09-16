@@ -21,7 +21,8 @@
 #define COMSIG_PARENT_PREQDELETED "parent_preqdeleted"
 /// just before a datum's Destroy() is called: (force), at this point none of the other components chose to interrupt qdel and Destroy will be called
 #define COMSIG_PARENT_QDELETING "parent_qdeleting"
-
+/// from datum ui_act (usr, action)
+#define COMSIG_UI_ACT "COMSIG_UI_ACT"
 /// fires on the target datum when an element is attached to it (/datum/element)
 #define COMSIG_ELEMENT_ATTACH "element_attach"
 /// fires on the target datum when an element is attached to it  (/datum/element)
@@ -51,6 +52,15 @@
 #define SPATIAL_GRID_CELL_EXITED(contents_type) "spatial_grid_cell_exited_[contents_type]"
 
 // /mob signals
+#define COMSIG_MOB_EXAMINATE "mob_examinate"
+#define COMSIG_MOB_FACEDIR "mob_facedir"
+#define COMSIG_MOB_POINT "mob_point"
+///from base of /mob/Login(): ()
+#define COMSIG_MOB_LOGIN "mob_login"
+///from base of /mob/Logout(): ()
+#define COMSIG_MOB_LOGOUT "mob_logout"
+/// from mob/get_status_tab_items(): (list/items)
+#define COMSIG_MOB_GET_STATUS_TAB_ITEMS "mob_get_status_tab_items"
 
 // /obj signals
 /// when a hood is unequipped

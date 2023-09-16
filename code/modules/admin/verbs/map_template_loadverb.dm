@@ -61,7 +61,7 @@
 	to_chat(usr, "Attempting to place map template [log_name].")
 	var/new_z_centre = template.load_new_z(FALSE) // Don't skip changeturf
 	if (new_z_centre)
-		log_and_message_admins("has placed a map template [log_name].")
+		log_and_message_admins("has placed a map template [log_name].", location = new_z_centre)
 		to_chat(usr, "Successfully place map template [log_name].")
 	else
 		log_and_message_admins("has failed to place a map template [log_name].")

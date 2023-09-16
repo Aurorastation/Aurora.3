@@ -2,7 +2,7 @@ var/global/datum/getrev/revdata = new()
 
 /hook/startup/proc/initialize_test_merges()
 	if (!revdata)
-		log_debug("GETREV: No rev found.")
+		LOG_DEBUG("GETREV: No rev found.")
 		return TRUE
 
 	revdata.testmerge_initialize()
@@ -40,7 +40,7 @@ var/global/datum/getrev/revdata = new()
 	world.log << date
 	world.log << revision
 
-client/verb/showrevinfo()
+/client/verb/showrevinfo()
 	set category = "OOC"
 	set name = "Show Server Revision"
 	set desc = "Check the current server code revision"
@@ -91,11 +91,11 @@ client/verb/showrevinfo()
 	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
 
 	if (api)
-		log_debug("GETREV: TGS API found.")
+		LOG_DEBUG("GETREV: TGS API found.")
 		test_merges = api.TestMerges()
-		log_debug("GETREV: [test_merges.len] test merges found.")
+		LOG_DEBUG("GETREV: [test_merges.len] test merges found.")
 	else
-		log_debug("GETREV: No TGS API found.")
+		LOG_DEBUG("GETREV: No TGS API found.")
 		test_merges = list()
 
 	generate_greeting_info()

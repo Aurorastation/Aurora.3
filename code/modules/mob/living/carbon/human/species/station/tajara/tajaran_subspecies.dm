@@ -8,6 +8,7 @@
 	such as law enforcement and even culinary work such as butchering. They experience a lot of racism \
 	from their fellow Tajara who cite their lackluster test scores, even among Tajara, and their higher \
 	crime rates."
+	species_height = HEIGHT_CLASS_TALL
 
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_DELVAHII)
 
@@ -54,6 +55,7 @@
 	They aren't as well-insulated against Adhomai's cold as their brethren. \
 	However, this gives them the benefit of being more agile. Hitorically, they often \
 	worked as hunters, later becoming warriors and soldiers as civilization developed."
+	species_height = HEIGHT_CLASS_AVERAGE
 
 	slowdown = -1.2 //As opposed to -1 for Base tajara
 	sprint_speed_factor = 0.75 // As opposed to 0.65
@@ -104,6 +106,7 @@
 	spawn_flags = IS_RESTRICTED
 	bodytype = BODYTYPE_TESLA_BODY
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_SKIN_COLOR | HAS_EYE_COLOR
+	species_height = HEIGHT_CLASS_HUGE
 
 	icon_x_offset = -8
 	healths_x = 22
@@ -153,7 +156,6 @@
 	standing_jump_range = 1
 
 	injection_mod = 2
-	has_fine_manipulation = FALSE
 
 	bodyfall_sound = /singleton/sound_category/bodyfall_machine_sound
 
@@ -204,3 +206,6 @@
 
 /datum/species/tajaran/tesla_body/can_double_fireman_carry()
 	return TRUE
+
+/datum/species/tajaran/tesla_body/can_use_guns()
+	return FALSE

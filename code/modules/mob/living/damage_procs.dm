@@ -8,7 +8,7 @@
 	standard 0 if fail
 */
 
-/mob/living/proc/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone, var/used_weapon, var/damage_flags = 0, var/armor_pen, var/silent = FALSE)
+/mob/living/proc/apply_damage(var/damage = 0, var/damagetype = DAMAGE_BRUTE, var/def_zone, var/used_weapon, var/damage_flags = 0, var/armor_pen, var/silent = FALSE)
 	if(!damage)
 		return FALSE
 
@@ -20,33 +20,33 @@
 		return FALSE
 
 	switch(damagetype)
-		if(BRUTE)
+		if(DAMAGE_BRUTE)
 			adjustBruteLoss(damage)
-		if(BURN)
+		if(DAMAGE_BURN)
 			if(HAS_FLAG(mutations, COLD_RESISTANCE))
 				damage = 0
 			adjustFireLoss(damage)
-		if(TOX)
+		if(DAMAGE_TOXIN)
 			adjustToxLoss(damage)
-		if(OXY)
+		if(DAMAGE_OXY)
 			adjustOxyLoss(damage)
-		if(CLONE)
+		if(DAMAGE_CLONE)
 			adjustCloneLoss(damage)
-		if(PAIN)
+		if(DAMAGE_PAIN)
 			adjustHalLoss(damage)
-		if(IRRADIATE)
+		if(DAMAGE_RADIATION)
 			apply_radiation(damage)
 
 	updatehealth()
 	return TRUE
 
 /mob/living/proc/apply_damages(var/brute = 0, var/burn = 0, var/tox = 0, var/oxy = 0, var/clone = 0, var/halloss = 0, var/def_zone, var/damage_flags = 0)
-	if(brute)	apply_damage(brute, BRUTE, def_zone, blocked)
-	if(burn)	apply_damage(burn, BURN, def_zone, blocked)
-	if(tox)		apply_damage(tox, TOX, def_zone, blocked)
-	if(oxy)		apply_damage(oxy, OXY, def_zone, blocked)
-	if(clone)	apply_damage(clone, CLONE, def_zone, blocked)
-	if(halloss) apply_damage(halloss, PAIN, def_zone, blocked)
+	if(brute)	apply_damage(brute, DAMAGE_BRUTE, def_zone, blocked)
+	if(burn)	apply_damage(burn, DAMAGE_BURN, def_zone, blocked)
+	if(tox)		apply_damage(tox, DAMAGE_TOXIN, def_zone, blocked)
+	if(oxy)		apply_damage(oxy, DAMAGE_OXY, def_zone, blocked)
+	if(clone)	apply_damage(clone, DAMAGE_CLONE, def_zone, blocked)
+	if(halloss) apply_damage(halloss, DAMAGE_PAIN, def_zone, blocked)
 	return TRUE
 
 /mob/living/proc/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
@@ -58,7 +58,7 @@
 			Weaken(effect * BLOCKED_MULT(blocked))
 		if(PARALYZE)
 			Paralyse(effect * BLOCKED_MULT(blocked))
-		if(PAIN)
+		if(DAMAGE_PAIN)
 			adjustHalLoss(effect * BLOCKED_MULT(blocked)) //Changed this to use the wrapper function, it shouldn't directly alter the value
 		if(STUTTER)
 			if(status_flags & CANSTUN) // stun is usually associated with stutter
@@ -81,7 +81,7 @@
 	if(stutter)		apply_effect(stutter, STUTTER, blocked)
 	if(eyeblur)		apply_effect(eyeblur, EYE_BLUR, blocked)
 	if(drowsy)		apply_effect(drowsy, DROWSY, blocked)
-	if(agony)		apply_effect(agony, PAIN, blocked)
+	if(agony)		apply_effect(agony, DAMAGE_PAIN, blocked)
 	if(incinerate) apply_effect(incinerate, INCINERATE, blocked)
 	return 1
 

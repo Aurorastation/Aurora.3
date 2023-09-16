@@ -14,8 +14,8 @@
 	can_infect = TRUE
 	blood_level = 1
 
-	min_duration = 70
-	max_duration = 90
+	min_duration = 40
+	max_duration = 60
 
 /singleton/surgery_step/fix_vein/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -62,8 +62,8 @@
 	can_infect = TRUE
 	blood_level = 1
 
-	min_duration = 110
-	max_duration = 160
+	min_duration = 80
+	max_duration = 130
 
 /singleton/surgery_step/internal/fix_dead_tissue/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -127,8 +127,8 @@
 	can_infect = FALSE
 	blood_level = 0
 
-	min_duration = 100
-	max_duration = 110
+	min_duration = 80
+	max_duration = 90
 
 /singleton/surgery_step/treat_necrosis/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -193,8 +193,8 @@
 	can_infect = TRUE
 	blood_level = 1
 
-	min_duration = 70
-	max_duration = 90
+	min_duration = 50
+	max_duration = 70
 
 /singleton/surgery_step/fix_tendon/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -221,7 +221,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!") , \
 		SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
-	target.apply_damage(15, PAIN)
+	target.apply_damage(15, DAMAGE_PAIN)
 
 /singleton/surgery_step/hardsuit
 	name = "Remove Hardsuit"
@@ -234,8 +234,8 @@
 	can_infect = FALSE
 	blood_level = 0
 
-	min_duration = 120
-	max_duration = 180
+	min_duration = 100
+	max_duration = 160
 
 /singleton/surgery_step/hardsuit/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -271,8 +271,8 @@
 	/obj/item/material/hatchet = 55
 	)
 
-	min_duration = 110
-	max_duration = 160
+	min_duration = 90
+	max_duration = 140
 
 /singleton/surgery_step/amputate/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -331,5 +331,5 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, sawing through the bone in [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, sawwing through the bone in [target]'s [affected.name] with \the [tool]!"))
-	target.apply_damage(30, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(30, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()

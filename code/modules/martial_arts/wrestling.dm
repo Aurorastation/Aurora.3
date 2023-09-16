@@ -22,7 +22,7 @@
 
 	D.visible_message("<span class='danger'>[A] suplexes [D]!</span>")
 	D.forceMove(A.loc)
-	D.apply_damage(30, BRUTE)
+	D.apply_damage(30, DAMAGE_BRUTE)
 	D.apply_effect(6, WEAKEN)
 	add_logs(A, D, "suplexed")
 
@@ -46,7 +46,7 @@
 	D.grabbedby(A,1)
 	D.visible_message("<span class='danger'>[A] holds [D] down!</span>")
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
-	D.apply_damage(40, PAIN, affecting)
+	D.apply_damage(40, DAMAGE_PAIN, affecting)
 	return 1
 
 /datum/martial_art/wrestling/proc/wrestling_help()

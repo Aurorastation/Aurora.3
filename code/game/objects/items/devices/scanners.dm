@@ -29,6 +29,7 @@ BREATH ANALYZER
 	if(last_scan <= world.time - 20) //Spam limiter.
 		last_scan = world.time
 		sound_scan = TRUE
+	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
 	health_scan_mob(M, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
 
@@ -37,6 +38,7 @@ BREATH ANALYZER
 	if(last_scan <= world.time - 20) //Spam limiter.
 		last_scan = world.time
 		sound_scan = TRUE
+	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
 	health_scan_mob(user, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
 
@@ -157,7 +159,7 @@ BREATH ANALYZER
 	var/pulse_result = "normal"
 	if(H.should_have_organ(BP_HEART))
 		if(H.status_flags & FAKEDEATH)
-			pulse_result = 0
+			pulse_result = "<span class='danger'>0</span>"
 		else
 			pulse_result = H.get_pulse(GETPULSE_TOOL)
 		pulse_result = "<span class='scan_green'>[pulse_result]</span>"
@@ -184,6 +186,8 @@ BREATH ANALYZER
 				oxygenation_string = "<span class='scan_warning'>[oxygenation_string]</span>"
 			if(-(INFINITY) to BLOOD_VOLUME_SURVIVE)
 				oxygenation_string = "<span class='scan_danger'>[oxygenation_string]</span>"
+		if(H.status_flags & FAKEDEATH)
+			oxygenation_string = "<span class='scan_danger'>0% blood oxygenation</span>"
 
 		var/blood_pressure_string
 		switch(H.get_blood_pressure_alert())
@@ -350,6 +354,7 @@ BREATH ANALYZER
 /obj/item/device/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"
 	set category = "Object"
+	set src in usr
 
 	mode = !mode
 

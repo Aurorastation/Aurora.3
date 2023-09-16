@@ -1,9 +1,9 @@
 /datum/citizenship/zora
 	name = CITIZENSHIP_ZORA
-	description = "Zo'ra, the largest and most powerful hive, and also the first one discovered by Humanity following their Hive-ship 'Titan Prime.' Information gained through contact \
+	description = "Zo'ra, the largest and most powerful Hive, and also the first one discovered by Humanity following their Hive-ship 'Titan Prime.' Information gained through contact \
 	with Vaurca present in Tau Ceti has lead to unconfirmed projections putting their population in Vaurca space at 77 billion (17.1 million in known space). Zo'ra believe themselves to \
-	be the Alpha of the Vaurca and the face of their species. They make up the majority of the Vaurca present in Tau Ceti and human space.Zo'ra have cold relations with other hives. In \
-	Tau Ceti, this has lead to confrontations between them and other hives arriving in the system. The Zo'ra are the most politically developed hive, recently helping in the funding of \
+	be the Alpha of the Vaurca and the face of their species. They make up the majority of the Vaurca present in Tau Ceti and human space.Zo'ra have cold relations with other Hives. In \
+	Tau Ceti, this has lead to confrontations between them and other Hives arriving in the system. The Zo'ra are the most politically developed Hive, recently helping in the funding of \
 	the Tau Ceti Foreign Legion, and making active progress to spread their influence."
 	consular_outfit = /datum/outfit/job/representative/consular/zora
 
@@ -47,7 +47,7 @@
 							"Sell [rand(3,6)] copies of the Tau Ceti Foreign Legion pamphlets 10 credits each")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the Zo'ra hive to all SCC employees")
+							"Protect and promote the public image of the Zo'ra Hive to all SCC employees")
 
 	return rep_objectives
 
@@ -59,17 +59,17 @@
 	glasses = null
 	head = /obj/item/clothing/head/vaurca_breeder
 	shoes = /obj/item/clothing/shoes/vaurca/breeder
-	mask = /obj/item/clothing/mask/breath/vaurca/filter
+	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder
 
 /datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H && !visualsOnly)
+	if(H)
 		if(isvaurca(H))
-
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
 			H.equip_to_slot_or_del(new /obj/item/storage/box/tcfl_pamphlet(H), slot_in_backpack)
-
-		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_in_backpack)
+		if(!visualsOnly)
+			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
 /datum/citizenship/klax
@@ -118,7 +118,7 @@
 			rep_objectives = pick("Promote [rand(3,6)] amount of K'laxan products, be it energy drinks or merchandise")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the K'lax hive to all [current_map.boss_name] employees")
+							"Protect and promote the public image of the K'lax Hive to all [current_map.boss_name] employees")
 
 	return rep_objectives
 
@@ -130,25 +130,24 @@
 	glasses = null
 	head = /obj/item/clothing/head/vaurca_breeder/klax
 	shoes = /obj/item/clothing/shoes/vaurca/breeder/klax
-	mask = /obj/item/clothing/mask/breath/vaurca/filter
+	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/klax
 
 /datum/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H && !visualsOnly)
+	if(H)
 		if(isvaurca(H))
-
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
-
-		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
+		if(!visualsOnly)
+			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
 /datum/citizenship/cthur
 	name = CITIZENSHIP_CTHUR
 	description = "They are the third Hive that has developed relationships with other sophonts of the Orion Spur. \
 	While their arrival was kept in secret by the Nralakk Federation, the revelation has reignited diplomatic disputes between K'lax and C'thur, with outright hostility met by the K'lax towards the C'thur. \
-	Unlike all other hives, the C'thur are led by their original Hive Queen, who, with a council of three other Lesser Queens, leads the Hive in this new age. \
+	Unlike all other Hives, the C'thur are led by their original Hive Queen, who, with a council of three other Lesser Queens, leads the Hive in this new age. \
 	In this effort, the Hive has begun dealing with the multitude of governments and corporations of the galaxy, all under the auspices of their Skrellian saviors. \
-	The C'thur are the most economically developed hive, having stakes in Einstein Engines and Zeng-Hu Pharmaceuticals."
+	The C'thur are the most economically developed Hive, having stakes in Einstein Engines and Zeng-Hu Pharmaceuticals."
 	consular_outfit = /datum/outfit/job/representative/consular/cthur
 
 	job_species_blacklist = list(
@@ -189,7 +188,7 @@
 
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
-							"Protect and promote the public image of the C'thur hive to all [current_map.boss_name] employees")
+							"Protect and promote the public image of the C'thur Hive to all [current_map.boss_name] employees")
 
 	return rep_objectives
 
@@ -201,12 +200,13 @@
 	glasses = null
 	head = /obj/item/clothing/head/vaurca_breeder/cthur
 	shoes = /obj/item/clothing/shoes/vaurca/breeder/cthur
-	mask = /obj/item/clothing/mask/breath/vaurca/filter
+	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/vaurca/breeder/cthur
 
 /datum/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H && !visualsOnly)
+	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
-		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
+		if(!visualsOnly)
+			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE

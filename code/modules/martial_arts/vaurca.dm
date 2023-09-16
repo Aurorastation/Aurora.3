@@ -49,7 +49,7 @@
 	var/atk_verb = pick("slices", "pinches", "chops", "bites", "claws")
 	D.visible_message("<span class='danger'>[A] [atk_verb] [D]!</span>", \
 					  "<span class='danger'>[A] [atk_verb] you!</span>")
-	D.apply_damage(rand(5,15), BRUTE, damage_flags = DAM_SHARP)
+	D.apply_damage(rand(5,15), DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP)
 	playsound(get_turf(D), 'sound/weapons/slash.ogg', 25, 1, -1)
 
 	return 1
@@ -74,7 +74,7 @@
 		var/obj/item/grab/G = A.get_active_hand()
 		if(G && G.affecting == D)
 			A.visible_message("<span class='warning'>[A] crushes [D] with its mandibles!</span>")
-			D.apply_damage(30, BRUTE)
+			D.apply_damage(30, DAMAGE_BRUTE)
 			D.apply_effect(6, WEAKEN)
 			qdel(G)
 	return 1

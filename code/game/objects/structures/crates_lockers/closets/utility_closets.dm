@@ -203,8 +203,8 @@
 		new /obj/item/clothing/head/radiation(src)
 		new /obj/item/clothing/suit/radiation(src)
 		new /obj/item/clothing/glasses/safety/goggles(src)
-	for(var/i = 1 to 2)
-		new /obj/item/reagent_containers/hypospray/autoinjector/hyronalin(src)
+		new /obj/item/storage/firstaid/radiation(src)
+		new /obj/item/device/geiger(src)
 
 /*
  * Bombsuit closet
@@ -217,7 +217,7 @@
 /obj/structure/closet/bombcloset/fill()
 	new /obj/item/clothing/suit/bomb_suit(src)
 	new /obj/item/clothing/under/color/black(src)
-	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/clothing/head/bomb_hood(src)
 	new /obj/item/wirecutters/bomb(src)
 
@@ -229,6 +229,6 @@
 /obj/structure/closet/bombclosetsecurity/fill()
 	new /obj/item/clothing/suit/bomb_suit/security(src)
 	new /obj/item/clothing/under/rank/security(src)
-	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/head/bomb_hood/security(src)
 	new /obj/item/wirecutters/bomb(src)

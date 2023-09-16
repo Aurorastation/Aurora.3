@@ -2,8 +2,8 @@
 	name = "Masked Killer"
 
 	uniform = /obj/item/clothing/under/overalls
-	suit = /obj/item/clothing/suit/apron
-	shoes = /obj/item/clothing/shoes/white
+	suit = /obj/item/clothing/accessory/apron/random
+	shoes = /obj/item/clothing/shoes/sneakers
 	gloves = /obj/item/clothing/gloves/latex
 	mask = /obj/item/clothing/mask/surgical
 	head = /obj/item/clothing/head/welding
@@ -25,7 +25,7 @@
 
 	uniform = /obj/item/clothing/under/suit_jacket
 	suit = /obj/item/clothing/suit/wcoat
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/sneakers/black
 	gloves = /obj/item/clothing/gloves/black
 	l_ear = /obj/item/device/radio/headset
 	glasses = /obj/item/clothing/glasses/sunglasses

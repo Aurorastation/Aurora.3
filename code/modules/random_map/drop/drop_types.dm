@@ -92,8 +92,8 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/reagent_containers/food/condiment/flour,
 		/obj/item/reagent_containers/food/condiment/flour,
 		/obj/item/reagent_containers/food/condiment/flour,
-		/obj/item/reagent_containers/food/drinks/milk,
-		/obj/item/reagent_containers/food/drinks/milk,
+		/obj/item/reagent_containers/food/drinks/carton/milk,
+		/obj/item/reagent_containers/food/drinks/carton/milk,
 		/obj/item/storage/box/fancy/egg_box,
 		/obj/item/reagent_containers/food/snacks/tofu,
 		/obj/item/reagent_containers/food/snacks/tofu,
@@ -142,9 +142,11 @@ var/global/list/datum/supply_drop_loot/supply_drop
 	..()
 	contents = list(
 		/obj/item/storage/firstaid/regular,
+		/obj/item/storage/firstaid/trauma,
 		/obj/item/storage/firstaid/fire,
 		/obj/item/storage/firstaid/toxin,
 		/obj/item/storage/firstaid/o2,
+		/obj/item/storage/firstaid/radiation,
 		/obj/item/storage/firstaid/adv,
 		/obj/item/reagent_containers/glass/bottle/antitoxin,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline,

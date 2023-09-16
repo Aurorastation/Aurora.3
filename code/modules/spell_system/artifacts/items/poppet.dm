@@ -16,7 +16,7 @@
 	return ..()
 
 /obj/item/poppet/examine(mob/user)
-	..(user)
+	. = ..()
 	if(countenance)
 		to_chat(user, "<span class='notice'>It is modeled after a [countenance].</span>")
 
@@ -109,7 +109,7 @@
 
 		if(W.edge)
 			to_chat(H, "<span class='warning'>You stab \the [src] with \the [W]!</span>")
-			H.apply_damage(2, BRUTE, target_zone, damage_flags = DAM_EDGE)
+			H.apply_damage(2, DAMAGE_BRUTE, target_zone, damage_flags = DAMAGE_FLAG_EDGE)
 			playsound(get_turf(H), 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 			if(H.can_feel_pain())
 				var/obj/item/organ/external/organ = H.get_organ(target_zone)
@@ -141,7 +141,7 @@
 /obj/item/poppet/bullet_act(var/obj/item/projectile/Proj)
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
-		H.apply_damage(Proj.damage, PAIN)
+		H.apply_damage(Proj.damage, DAMAGE_PAIN)
 
 /obj/item/poppet/fire_act()
 	var/mob/living/carbon/human/H = target.resolve()

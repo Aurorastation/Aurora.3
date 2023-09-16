@@ -199,7 +199,7 @@
 					if(!rad_shield)
 						//irradiate nearby mobs
 						for(var/mob/living/M in view(7,src))
-							M.apply_damage(radiation / 25, IRRADIATE, damage_flags = DAM_DISPERSED)
+							M.apply_damage(radiation / 25, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 				else
 					t_left_radspike = pick(10,15,25)
 

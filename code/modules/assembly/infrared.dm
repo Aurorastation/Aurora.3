@@ -78,7 +78,7 @@
 		//We cannot create beams while being held or in a bag. So we have to compare locs to turfs.
 		//We need to check if whatever we're attached to, if anything, is on a turf. Since we can be attached to an assembly and that assembly can be attached, we have to check a couple locs.
 		//First check if we're part of an assembly(holder) and if that assembly is attached (holder.master). If we are, THOSE are the locs we care about.
-		var/true_location = holder ? holder.master ? holder.master.loc : holder.loc : loc 
+		var/true_location = holder ? holder.master ? holder.master.loc : holder.loc : loc
 		if(!isturf(true_location)) //Wherever we are, we're not on a turf, nor is our assembly, nor is our bomb/whatever the assembly is attached to. We cannot make a beam.
 			return
 		beam_origin = true_location
@@ -128,33 +128,37 @@
 	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 10)
 
 /obj/item/device/assembly/infra/interact(mob/user)
+	. = ..()
 	if(!secured)
 		to_chat(user, SPAN_WARNING("\The [src] is unsecured!"))
 		return
+	ui_interact(user)
 
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+/obj/item/device/assembly/infra/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "devices-assembly-infrared", 320, 220, capitalize_first_letters(name), state = deep_inventory_state)
-	ui.open()
+		ui = new(user, src, "Infrared", "Infrared Emitter", 320, 220)
+		ui.open()
 
-/obj/item/device/assembly/infra/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		data = list()
+/obj/item/device/assembly/infra/ui_data(mob/user)
+	var/list/data = list()
+	data["active"] = on
+	data["visible"] = visible
+	return data
 
-	VUEUI_SET_CHECK(data["active"], on, ., data)
-	VUEUI_SET_CHECK(data["visible"], visible, ., data)
+/obj/item/device/assembly/infra/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-/obj/item/device/assembly/infra/Topic(href, href_list)
-	..()
+	switch(action)
+		if("state")
+			toggle_on()
+			. = TRUE
 
-	if(href_list["state"])
-		toggle_on()
-
-	if(href_list["visible"])
-		visible = !visible
-
-	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
-	ui.check_for_change()
+		if("visible")
+			visible = !visible
+			. = TRUE
 
 
 /***************************IBeam*********************************/
@@ -182,9 +186,9 @@
 
 /obj/effect/beam/i_beam/proc/check_visiblity()
 	if(master.visible)
-		invisibility = 0
+		set_invisibility(0)
 	else
-		invisibility = 101
+		set_invisibility(101)
 
 /obj/effect/beam/i_beam/process()
 	if(loc?.density || !master)

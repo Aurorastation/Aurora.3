@@ -27,7 +27,7 @@
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	holder_type = /obj/item/holder/cat
-	mob_size = 2.5
+	mob_size = 3.5
 	scan_range = 3//less aggressive about stealing food
 	metabolic_factor = 0.75
 	max_nutrition = 60
@@ -155,11 +155,6 @@
 /mob/living/simple_animal/cat/Life()
 	. = ..()
 	handle_radiation_light()
-
-/mob/living/simple_animal/cat/apply_radiation_effects()
-	. = ..()
-	if(.)
-		apply_effect((rand(30,60)),IRRADIATE,blocked=0)
 
 /mob/living/simple_animal/cat/proc/handle_flee_target()
 	//see if we should stop fleeing
@@ -295,7 +290,7 @@
 	holder_type = /obj/item/holder/cat/black
 
 /mob/living/simple_animal/cat/fluff/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "Oh no, [name] is dead! What kind of monster would do this?")
 
@@ -311,7 +306,7 @@
 	holder_type = /obj/item/holder/cat/kitten
 
 /mob/living/simple_animal/cat/kitten/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "It's a dead kitten! What kind of monster would do this?")
 
@@ -358,6 +353,6 @@
 	holder_type = /obj/item/holder/cat/crusher
 
 /mob/living/simple_animal/cat/crusher/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "Crusher's dead. How could this have happened? She counted on you!")

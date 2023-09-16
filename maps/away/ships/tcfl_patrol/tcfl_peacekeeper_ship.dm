@@ -26,13 +26,21 @@
 	name = "TCFL Corvette"
 	class = "BLV"
 	desc = "Serving as the very foundation of the SCC's (And more specifically, NanoTrasen's) fleet of asset protection vessels, the Cetus-class is versatile and durable, but also clumsy and somewhat underpowered in regards to its engine and propulsion. It features small weapon hardpoints in its thruster arms, and a massive hangar host to the design's interdiction counterpart - the Hydrus-class shuttle. This one appears to be a Decanus-class, the Tau Ceti Foreign Legion variation of the design."
-	icon_state = "ship_blue"
-	moving_state = "ship_blue_moving"
+	icon_state = "cetus"
+	moving_state = "cetus_moving"
+	colors = list("#263aeb", "#3d8cfa")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
+	scanimage = "tcfl_cetus.png"
+	designer = "NanoTrasen, Stellar Corporate Conglomerate"
+	volume = "51 meters length, 42 meters beam/width, 12 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Two extruding wing mounted naval ballistic weapon mounts, aft obscured flight craft bay"
+	sizeclass = "Cetus Class Corvette"
+	shiptype = "Military patrol and combat utility"
 	initial_restricted_waypoints = list(
 		"TCFL Shuttle" = list("nav_hangar_tcfl")
 	)
@@ -42,9 +50,17 @@
 		"nav_tcfl_peacekeeper_ship_2"
 	)
 
+	invisible_until_ghostrole_spawn = TRUE
+
 /obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship/New()
 	designation = "[pick("Castle", "Rook", "Gin Rummy", "Pawn", "Bishop", "Knight", "Blackjack", "Torch", "Liberty", "President Dorn", "Independence", "Civic Duty", "Democracy", "Progress", "Prosperity", "New Gibson", "Biesel", "Justice", "Equality")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/tcfl_peacekeeper_ship/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "tcfl_corvette")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/tcfl_peacekeeper_ship/nav1
 	name = "TCFL Corvette - Port Side"
@@ -70,8 +86,9 @@
 	class = "Stake"
 	desc = "A large and unusually-shaped shuttle, the Hydrus-class is deceptively fast and is designed to operate out of a Cetus-class corvette's rear hangar bay, interdicting targets that its mothership intercepts. This one appears to be a Velite-class Interceptor - the TCFL designation for this design."
 	shuttle = "TCFL Shuttle"
-	icon_state = "shuttle_blue"
-	moving_state = "shuttle_blue_moving" 
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#263aeb", "#3d8cfa")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

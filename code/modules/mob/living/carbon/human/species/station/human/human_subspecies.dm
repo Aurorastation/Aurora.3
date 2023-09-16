@@ -4,6 +4,9 @@
 	blurb = "The Offworlders are humans that have adapted to zero-G conditions through a lifetime of conditioning, exposure, and physical modification. \
 	They thrive in thinner atmosphere and weightlessness, more often than not utilizing advanced life support and body-bracing equipment to sustain themselves in normal Human environments."
 	hide_name = FALSE
+	species_height = HEIGHT_CLASS_TALL
+	height_min = 180
+	height_max = 230
 
 	icobase = 'icons/mob/human_races/human/r_offworlder.dmi'
 	deform = 'icons/mob/human_races/human/r_offworlder.dmi'

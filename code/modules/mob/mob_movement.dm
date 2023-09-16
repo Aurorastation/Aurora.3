@@ -313,6 +313,8 @@
 			if (H.m_intent == M_RUN && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE))) //This will return false if we collapse from exhaustion
 				sprint_tally = tally
 				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
+			else if (H.m_intent == M_LAY && (H.status_flags & GODMODE || H.species.handle_sprint_cost(H, tally, TRUE)))
+				tally = (tally / (1 + H.lying_speed_factor)) * config.lying_delay_multiplier
 			else
 				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
 		else
@@ -325,12 +327,6 @@
 			var/crawl_tally = H.get_crawl_tally()
 			if(crawl_tally >= 120)
 				return FALSE
-
-		var/tickcomp = 0 //moved this out here so we can use it for vehicles
-		if(config.Tickcomp)
-			// move_delay -= 1.3 //~added to the tickcomp calculation below
-			tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
-			move_delay = move_delay + tickcomp
 
 		if(istype(mob.machine, /obj/machinery))
 			if(mob.machine.relaymove(mob,direct))

@@ -18,68 +18,84 @@
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
 
-	New()
-		..()
-		if(!icon_state)
-			icon_state = "pill[rand(1, 20)]"
+/obj/item/reagent_containers/pill/New()
+	..()
+	if(!icon_state)
+		icon_state = "pill[rand(1, 20)]"
 
-	attack(mob/M as mob, mob/user as mob, def_zone)
-		//TODO: replace with standard_feed_mob() call.
+/obj/item/reagent_containers/pill/attack(mob/M as mob, mob/user as mob, def_zone)
+	//TODO: replace with standard_feed_mob() call.
 
-		if(M == user)
-			if(!M.can_eat(src))
-				return
-
-			M.visible_message("<b>[M]</b> swallows a pill.", SPAN_NOTICE("You swallow \the [src]."), null, 2)
-			if(reagents.total_volume)
-				reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
-			qdel(src)
-			return 1
-
-		else if(istype(M, /mob/living/carbon/human))
-			if(!M.can_force_feed(user, src))
-				return
-
-			user.visible_message(SPAN_WARNING("[user] attempts to force [M] to swallow \the [src]!"))
-
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			if(!do_mob(user, M))
-				return
-
-			user.visible_message(SPAN_WARNING("[user] forces [M] to swallow \the [src]."))
-
-			var/contained = reagentlist()
-			M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>")
-			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Fed [name] to [key_name(M)] Reagents: [contained]</span>")
-			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(M)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
-
-			if(reagents.total_volume)
-				reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
-			qdel(src)
-
-			return 1
-
-		return 0
-
-	afterattack(obj/target, mob/user, proximity)
-
-		if(proximity && target.is_open_container() && target.reagents)
-			if(!target.reagents.total_volume)
-				to_chat(user, SPAN_NOTICE("You can't dissolve \the [src] in an empty [target]."))
-				return
-			to_chat(user, SPAN_NOTICE("You dissolve \the [src] in [target]."))
-
-			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Spiked \a [target] with a pill. Reagents: [reagentlist()]</span>")
-			msg_admin_attack("[user.name] ([user.ckey]) spiked \a [target] with a pill. Reagents: [reagentlist()] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
-
-			reagents.trans_to(target, reagents.total_volume)
-			for(var/mob/O in viewers(2, user))
-				O.show_message(SPAN_WARNING("[user] puts something in \the [target]."), 1)
-
-			qdel(src)
+	if(M == user)
+		if(!M.can_eat(src))
 			return
 
-		. = ..()
+		M.visible_message("<b>[M]</b> swallows a pill.", SPAN_NOTICE("You swallow \the [src]."), null, 2)
+		if(reagents.total_volume)
+			reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
+		qdel(src)
+		return 1
+
+	else if(istype(M, /mob/living/carbon/human))
+		if(!M.can_force_feed(user, src))
+			return
+
+		user.visible_message(SPAN_WARNING("[user] attempts to force [M] to swallow \the [src]!"))
+
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		if(!do_mob(user, M))
+			return
+
+		user.visible_message(SPAN_WARNING("[user] forces [M] to swallow \the [src]."))
+
+		var/contained = reagentlist()
+		M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>")
+		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Fed [name] to [key_name(M)] Reagents: [contained]</span>")
+		msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(M)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
+
+		if(reagents.total_volume)
+			reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
+		qdel(src)
+
+		return 1
+
+	return 0
+
+/obj/item/reagent_containers/pill/afterattack(obj/target, mob/user, proximity)
+	if(proximity && target.is_open_container() && target.reagents)
+		if(!target.reagents.total_volume)
+			to_chat(user, SPAN_NOTICE("You can't dissolve \the [src] in an empty [target]."))
+			return
+		to_chat(user, SPAN_NOTICE("You dissolve \the [src] in [target]."))
+
+		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Spiked \a [target] with a pill. Reagents: [reagentlist()]</span>")
+		msg_admin_attack("[user.name] ([user.ckey]) spiked \a [target] with a pill. Reagents: [reagentlist()] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+
+		reagents.trans_to(target, reagents.total_volume)
+		for(var/mob/O in viewers(2, user))
+			O.show_message(SPAN_WARNING("[user] puts something in \the [target]."), 1)
+
+		qdel(src)
+		return
+
+	. = ..()
+
+/obj/item/reagent_containers/pill/attackby(obj/item/W, mob/user)
+	if(is_sharp(W) || istype(W, /obj/item/card/id))
+		var/obj/item/reagent_containers/powder/J = new /obj/item/reagent_containers/powder(loc)
+		user.visible_message(
+			SPAN_WARNING("\The [user] gently cuts up \the [src] with \a [W]!"),
+			SPAN_NOTICE("You gently cut up \the [src] with \the [W]."),
+			SPAN_WARNING("You hear quiet grinding.")
+		)
+		playsound(loc, 'sound/effects/chop.ogg', 50, 1)
+
+		if(reagents)
+			reagents.trans_to_obj(J, reagents.total_volume)
+		J.get_appearance()
+		qdel(src)
+
+	return ..()
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Pills. END
@@ -235,7 +251,7 @@
 	icon_state = "pill18"
 	reagents_to_add = list(/singleton/reagent/impedrezene = 5, /singleton/reagent/synaptizine = 5, /singleton/reagent/hyperzine = 5)
 
-obj/item/reagent_containers/pill/joy
+/obj/item/reagent_containers/pill/joy
 	name = "Joy Pill"
 	desc = "Peace, at last."
 	icon_state = "pill8"
@@ -275,3 +291,45 @@ obj/item/reagent_containers/pill/joy
 	desc = "Used to treat dementia."
 	icon_state = "pill8"
 	reagents_to_add = list(/singleton/reagent/skrell_nootropic = 5)
+
+/obj/item/reagent_containers/pill/hyronalin
+	name = "7u Hyronalin"
+	desc = "Used to treat radiation poisoning."
+	icon_state = "pill1"
+	reagents_to_add = list(/singleton/reagent/hyronalin = 7)
+
+/obj/item/reagent_containers/pill/antirad
+	name = "AntiRad"
+	desc = "Used to treat radiation poisoning."
+	icon_state = "yellow"
+	reagents_to_add = list(/singleton/reagent/hyronalin = 5, /singleton/reagent/dylovene = 10)
+
+/obj/item/reagent_containers/pill/sugariron
+	name = "10u Sugar-Iron"
+	desc = "Used to help the body naturally replenish blood."
+	icon_state = "pill1"
+	reagents_to_add = list(/singleton/reagent/iron = 5, /singleton/reagent/sugar = 10)
+
+/obj/item/reagent_containers/pill/antidexafen
+	name = "15u Antidexafen"
+	desc = "Common cold mediciation. Safe for babies!"
+	icon_state = "pill4"
+	reagents_to_add = list(/singleton/reagent/antidexafen = 10, /singleton/reagent/drink/lemonjuice = 5, /singleton/reagent/nutriment/mint = REM*0.2)
+
+/obj/item/reagent_containers/pill/antiparasitic
+	name = "5u Helmizole"
+	desc = "An antiparasitic used to treat worms."
+	icon_state = "pill11"
+	reagents_to_add = list(/singleton/reagent/antiparasitic = 5)
+
+/obj/item/reagent_containers/pill/asinodryl
+	name = "10u Asinodryl"
+	desc = "An antiemetic which prevents vomiting."
+	icon_state = "pill20"
+	reagents_to_add = list(/singleton/reagent/asinodryl = 10)
+
+/obj/item/reagent_containers/pill/steramycin
+	name = "5u Steramycin"
+	desc = "A prophylactic antibiotic that kills infections before they start."
+	icon_state = "pill8"
+	reagents_to_add = list(/singleton/reagent/steramycin = 5)

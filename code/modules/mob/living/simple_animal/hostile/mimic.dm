@@ -5,9 +5,9 @@
 /mob/living/simple_animal/hostile/mimic
 	name = "crate"
 	desc = "A rectangular steel crate."
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "crate"
-	icon_living = "crate"
+	icon = 'icons/obj/crate.dmi'
+	icon_state = "crate_preview"
+	icon_living = "crate_preview"
 
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
 	organ_names = list("lid", "body")
@@ -70,15 +70,9 @@
 
 /mob/living/simple_animal/hostile/mimic/crate/DestroySurroundings()
 	..()
-	if(prob(90))
-		icon_state = "[initial(icon_state)]open"
-	else
-		icon_state = initial(icon_state)
 
-/mob/living/simple_animal/hostile/mimic/crate/ListTargets()
-	if(attempt_open)
-		return ..()
-	return view(src, 1)
+/mob/living/simple_animal/hostile/mimic/crate/get_targets()
+	return ..(attempt_open ? world.view : 1)
 
 /mob/living/simple_animal/hostile/mimic/crate/FindTarget()
 	. = ..()
@@ -147,10 +141,8 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 		M.forceMove(get_turf(src))
 	..()
 
-/mob/living/simple_animal/hostile/mimic/copy/ListTargets()
-	// Return a list of targets that isn't the creator
-	. = ..()
-	return . - creator
+/mob/living/simple_animal/hostile/mimic/copy/get_targets()
+	return ..() - creator
 
 /mob/living/simple_animal/hostile/mimic/copy/proc/CopyObject(var/obj/O, var/mob/living/creator)
 

@@ -13,7 +13,6 @@
 	contact_levels = list(1, 2, 3)
 	player_levels = list(1, 2, 3)
 	accessible_z_levels = list(1, 2, 3)
-	meteor_levels = list(1, 2, 3)
 
 	overmap_event_areas = 10
 
@@ -42,8 +41,8 @@
 		NETWORK_ENGINEERING,
 	)
 
-	num_exoplanets = 3
-	planet_size = list(65, 65)
+	num_exoplanets = 1
+	planet_size = list(255, 255)
 
 	away_site_budget = 2
 	away_ship_budget = 2

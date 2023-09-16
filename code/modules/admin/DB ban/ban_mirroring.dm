@@ -7,7 +7,7 @@
 		return
 
 	if (!establish_db_connection(dbcon))
-		error("Ban database connection failure while attempting to mirror. Key passed for mirror handling: [ckey].")
+		log_world("ERROR: Ban database connection failure while attempting to mirror. Key passed for mirror handling: [ckey].")
 		log_misc("Ban database connection failure while attempting to mirror. Key passed for mirror handling: [ckey].")
 		return
 
@@ -49,7 +49,7 @@
 		return
 
 	else
-		error("No ban retreived while attempting to handle ban mirroring. Passed ban_id: [ban_id], ckey: [ckey].")
+		log_world("ERROR: No ban retreived while attempting to handle ban mirroring. Passed ban_id: [ban_id], ckey: [ckey].")
 		log_misc("No ban retreived while attempting to handle ban mirroring. Passed ban_id: [ban_id], ckey: [ckey].")
 		return
 
@@ -58,7 +58,7 @@
 		return null
 
 	if (!establish_db_connection(dbcon))
-		error("Ban database connection failure while attempting to check mirrors. Key passed for mirror checking: [ckey].")
+		log_world("ERROR: Ban database connection failure while attempting to check mirrors. Key passed for mirror checking: [ckey].")
 		log_misc("Ban database connection failure while attempting to check mirrors. Key passed for mirror checking: [ckey].")
 		return null
 
@@ -258,10 +258,10 @@
 
 	catch(var/exception/E)
 		data_object = list()
-		log_debug("CONN DATA: [E] encountered when loading data for [C.ckey].")
+		LOG_DEBUG("CONN DATA: [E] encountered when loading data for [C.ckey].")
 
 	if (!data_object || !data_object.len)
-		log_debug("CONN DATA: [C.ckey] has no connection data to showcase.")
+		LOG_DEBUG("CONN DATA: [C.ckey] has no connection data to showcase.")
 		return
 
 	if (data_object["vms"])
@@ -289,7 +289,7 @@
 	if (!conn_info || !conn_info.len)
 		return
 	else if (conn_info.len > 100)
-		log_debug("MIRROR BANS: [C.ckey] has [conn_info.len] unique sets. They were dropped and not processed.")
+		LOG_DEBUG("MIRROR BANS: [C.ckey] has [conn_info.len] unique sets. They were dropped and not processed.")
 		update_connection_data(C)
 		return
 

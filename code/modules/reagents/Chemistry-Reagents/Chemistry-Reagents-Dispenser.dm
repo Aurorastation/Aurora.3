@@ -66,7 +66,7 @@
 			to_chat(M, SPAN_WARNING(pick("Your throat burns!", "Your insides are on fire!", "Your feel a burning pain in your chest!")))
 	else
 		if(prob(5))
-			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something really digusting.", "Your chest doesn't feel so great.")))
+			to_chat(M, SPAN_WARNING(pick("Your throat stings a bit.", "You can taste something really disgusting.", "Your chest doesn't feel so great.")))
 
 /singleton/reagent/ammonia/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(!(alien == IS_DIONA))
@@ -392,7 +392,7 @@
 	var/message_shown = FALSE
 
 /singleton/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
+	M.apply_effect(10 * removed, DAMAGE_RADIATION, blocked = 0) // Radium may increase your chances to cure a disease
 
 /singleton/reagent/radium/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 3)

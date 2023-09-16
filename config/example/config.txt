@@ -2,13 +2,13 @@
 # SERVERNAME spacestation13
 
 ## Alert levels
-ALERT_GREEN All threats to the station have passed. Security may not have weapons visible, privacy laws are once again fully enforced.
-ALERT_BLUE_UPTO The station has received reliable information about possible hostile activity on the station. Security staff may have weapons visible, random searches are permitted.
+ALERT_GREEN All threats to the ship have passed. Security may not have weapons visible, privacy laws are once again fully enforced.
+ALERT_BLUE_UPTO The ship has received reliable information about possible hostile activity onboard. Security staff may have weapons visible, random searches are permitted.
 ALERT_BLUE_DOWNTO The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed.
-ALERT_YELLOW_TO The station is now under an elevated alert status due to a confirmed biological hazard. All crew are to follow command instruction in order to ensure a safe return to standard operations.
-ALERT_RED_UPTO There is an immediate serious threat to the station. Security may have weapons unholstered at all times. Random searches are allowed and advised.
-ALERT_RED_DOWNTO The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the station. Security may have weapons unholstered at all times, random searches are allowed and advised.
-ALERT_DELTA The station's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.
+ALERT_YELLOW_TO The ship is now under an elevated alert status due to a confirmed biological hazard. All crew are to follow command instruction in order to ensure a safe return to standard operations.
+ALERT_RED_UPTO There is an immediate serious threat to the ship. Security may have weapons unholstered at all times. Random searches are allowed and advised.
+ALERT_RED_DOWNTO The self-destruct mechanism has been deactivated, there is still however an immediate serious threat to the ship. Security may have weapons unholstered at all times, random searches are allowed and advised.
+ALERT_DELTA The ship's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.
 
 ## Add a # in front of this to disable automatic admin rights for users connecting from the host the server is running on.
 AUTO_LOCAL_ADMIN
@@ -47,54 +47,6 @@ JOBS_HAVE_MINIMAL_ACCESS
 
 # What to subtract power by when crossing Z-levels.
 #EXPLOSION_Z_SUB 2
-
-## log OOC channel
-LOG_OOC
-
-## log client Say
-LOG_SAY
-
-## log admin actions
-LOG_ADMIN
-
-## log signaler actions
-LOG_SIGNALER
-
-## log client access (logon/logoff)
-LOG_ACCESS
-
-## log game actions (start of round, results, etc.)
-LOG_GAME
-
-## log player votes
-LOG_VOTE
-
-## log client Whisper
-LOG_WHISPER
-
-## log emotes
-LOG_EMOTE
-
-## log attack messages
-LOG_ATTACK
-
-## log pda messages
-LOG_PDA
-
-## log world.log messages
-# LOG_WORLD_OUTPUT
-
-## log all Topic() calls (for use by coders in tracking down Topic issues)
-# LOG_HREFS
-
-## log runtime errors and hard-deletes to a file
-## 0 - no such logging will be done. (Same effect if simply commented out.)
-## 1 - all runtimes and hard-deletes will be logged to a file.
-## 2 - all runtimes will also be broadcast to log_debug() to make them easier to spot ingame.
-# LOG_RUNTIME 0
-
-## log admin warning messages
-##LOG_ADMINWARN  ## Also duplicates a bunch of other messages.
 
 ## sql switching
 # SQL_ENABLED
@@ -305,9 +257,6 @@ ALLOW_HOLIDAYS
 ##Defines the ticklag for the world.  0.33 (30 FPS) is the normal one, though you can go as low as 0.2 (50 FPS) for low-load servers.
 TICKLAG 0.33
 
-## Defines if Tick Compensation is used.  It results in a minor slowdown of movement of all mobs, but attempts to result in a level movement speed across all ticks.
-#TICKCOMP
-
 ## Uncomment this to activate the five day from character creation timelock on modifying IPC tags
 #IPC_TIMELOCK_ACTIVE
 
@@ -401,7 +350,7 @@ EVENT_CUSTOM_START_MAJOR 80;100
 ## Respawn delay in minutes before one may respawn as a crew member.
 #RESPAWN_DELAY 30
 
-## Strength of ambient star light. Set to 0 or less to turn off. A value of 1 is unlikely to have a noticeable effect in most lighting systems.
+## Determines whether or not starlight is enabled. 0 will disable starlight, any other number will enable it.
 STARLIGHT 0
 
 ## If defined, starlight applies to open space turfs as well. Causes a significant number of lighting updates at round-start, may increase server's memory usage.
@@ -507,6 +456,13 @@ LOG_GELF_ENABLED 0
 ## Domain name to query (leave commented out for the default, only needed if you pay getipintel.net for more querys)
 #IPINTEL_DOMAIN check.getipintel.net
 
+### BYOND Tracy:
+### Uncomment this option to enable profiling with byond-tracy. Admins and Developers have the ability to use the appropriate debug verb
+### to start the profiler in the middle of the round even if this option is uncommented, otherwise tracy will start on /world/New().
+### Warning: Do not uncomment this configuration option unless you know what you are doing and need it. It will create a gigabyte-large file
+### everytime you start the server, which will grow as the server continues to run.
+#ENABLE_BYOND_TRACY
+
 ### ACCESS CONTROL:
 ### This allows you to adjust various parametres by which potentially malicious users can by identified.
 ### Note that none of these are 100% accurate, and should only be used in cases where a "panic bunker" is warranted.
@@ -529,7 +485,7 @@ FASTBOOT
 CARGO_LOAD_ITEMS_FROM json
 
 
-# Forces the maploader to load the specified map path. Valid options: sccv_horizon, runtime, aurora, away_sites_testing
+# Forces the maploader to load the specified map path. Valid options: sccv_horizon, runtime, aurora, away_sites_testing, exoplanet_testing
 FORCE_MAP runtime
 
 # Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.
@@ -618,3 +574,48 @@ FAIL2TOPIC_ENABLED 0
 ## Lore Summary
 ## The text that will appear when the player clicks the lore button at the start screen
 LORE_SUMMARY
+
+## Assets can opt-in to caching their results into `tmp`.
+## This is important, as preferences assets take upwards of 30 seconds (without sleeps) to collect.
+## The cache is assumed to be cleared by TGS recompiling, which deletes `tmp`.
+## This should be disabled (through `CACHE_ASSETS 0`) on development,
+## but enabled on production (the default).
+CACHE_ASSETS 0
+
+########################
+# Browser Asset Config #
+########################
+# Browser assets are any file included in interfaces. css, images, javascript, etc.
+# This handles configuring how we get these to the player so interfaces can access them.
+
+# Asset Transport
+# The normal way of getting assets to clients is to use the internal byond system. This can be slow and delay the opening of interface windows. It also doesn't allow the internal IE windows byond uses to cache anything.
+# You can instead have the server save them to a website via a folder within the game server that the web server can read. This could be a simple webserver or something backed by a CDN.
+# Valid values: simple, webroot. Simple is the default.
+#ASSET_TRANSPORT simple
+
+
+# Simple asset transport configurable values.
+
+# Uncomment this to have the server passively send all browser assets to each client in the background. (instead of waiting for them to be needed)
+# This should be uncommented in production and commented in development
+#ASSET_SIMPLE_PRELOAD
+
+
+# Webroot asset transport configurable values.
+
+# Local folder to save assets to.
+# Assets will be saved in the format of asset.MD5HASH.EXT or in namespaces/hash/ as ASSET_FILE_NAME or asset.MD5HASH.EXT
+#ASSET_CDN_WEBROOT data/asset-store/
+
+# URL the folder from above can be accessed from.
+# for best results the webserver powering this should return a long cache validity time, as all assets sent via this transport use hash based urls
+# Encryption (https) is supported here, but linux clients will have issues if you require higher then tls 1.0. Windows clients down to windows 7 can handle tls 1.2 no issue.
+# if you want to test this locally, you simpily run the `localhost-asset-webroot-server.py` python3 script to host assets stored in `data/asset-store/` via http://localhost:58715/
+#ASSET_CDN_URL http://localhost:58715/
+
+# CDN webservers must provide CORS headers, or TGUI will break and not be able to load all elements. The following example is for IIS:
+# <add name="Access-Control-Allow-Origin" value="*" />
+# <add name="Vary" value="Origin" />
+# <add name="Access-Control-Allow-Methods" value="GET, POST, OPTIONS" />
+# <add name="Access-Control-Max-Age" value="0" />

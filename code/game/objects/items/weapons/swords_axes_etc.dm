@@ -26,7 +26,7 @@
 		user.Weaken(3 * force)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			H.apply_damage(2*force, BRUTE, BP_HEAD)
+			H.apply_damage(2*force, DAMAGE_BRUTE, BP_HEAD)
 		else
 			user.take_organ_damage(2*force)
 		return
@@ -96,14 +96,14 @@
 			user.Weaken(3 * force)
 			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
-				H.apply_damage(2 * force, BRUTE, BP_HEAD)
+				H.apply_damage(2 * force, DAMAGE_BRUTE, BP_HEAD)
 			else
 				user.take_organ_damage(2 * force)
 			return
 		if(..() && user.a_intent == I_DISARM)
 			if(ishuman(target))
 				var/mob/living/carbon/human/T = target
-				T.apply_damage(40, PAIN, target_zone)
+				T.apply_damage(40, DAMAGE_PAIN, target_zone)
 		return
 	return ..()
 

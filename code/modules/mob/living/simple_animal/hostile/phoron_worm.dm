@@ -137,7 +137,7 @@
 	if(mob_size > 15)
 		for(var/mob/living/M in orange(1,src))
 			if(M != src)
-				M.apply_damage(50, BRUTE)
+				M.apply_damage(50, DAMAGE_BRUTE)
 				M.apply_effect(6, STUN, blocked)
 				M.throw_at(get_random_turf_in_range(get_turf(src), 1), 2)
 

@@ -38,6 +38,7 @@
 #define SMOOTH_BORDER         8 // atom will smooth with the borders of the map
 #define SMOOTH_QUEUED        16 // atom is currently queued to smooth.
 #define SMOOTH_NO_CLEAR_ICON 32 // don't clear the atom's icon_state on smooth.
+#define SMOOTH_UNDERLAYS     64 // Add underlays, detached from diagonal smoothing.
 
 #define SMOOTHHINT_CUT_F              1 // Don't draw the 'F' state. Useful with SMOOTH_NO_CLEAR_ICON.
 #define SMOOTHHINT_ONLY_MATCH_TURF    2 // Only try to match turfs (this is faster than matching all atoms)
@@ -57,6 +58,9 @@
 	var/tmp/bottom_left_corner
 	var/tmp/bottom_right_corner
 	var/list/canSmoothWith = null // TYPE PATHS I CAN SMOOTH WITH~~~~~ If this is null and atom is smooth, it smooths only with itself
+	var/list/can_blend_with = null
+	var/blend_overlay //Icon state of the blending overlay.
+	var/attach_overlay //Icon state of the overlay this object uses to attach to other objects.
 
 /atom/movable
 	var/can_be_unanchored = 0
@@ -66,6 +70,10 @@
 /turf
 	var/list/fixed_underlay
 	var/smooth_underlays	// Determines if we should attempt to generate turf underlays for this type.
+	var/tile_decal_state // override if you don't want decals to cut from the icon state directly but something else. used for coloring decals, mostly
+	var/tile_outline // decal effect for "sinking in" the edges.
+	var/tile_outline_alpha // how dark you want the sinking in to be. set this if you want above to do stuff.
+	var/tile_outline_blend_process = ICON_OVERLAY
 
 /turf/simulated/wall/shuttle
 	smooth_underlays = TRUE
@@ -157,6 +165,7 @@
 		return
 	if(QDELETED(A))
 		return
+	A.flags |= HTML_USE_INITAL_ICON
 	if((A.smooth & SMOOTH_TRUE) || (A.smooth & SMOOTH_MORE))
 		var/adjacencies = A.calculate_adjacencies()
 
@@ -228,6 +237,65 @@
 				underlay_appearance.icon_state = DEFAULT_UNDERLAY_ICON_STATE
 
 		underlays = U
+
+/turf/proc/get_underlays(var/list/adjacencies)
+	//First of all, check if there are turfs like us we can ask for underlays.
+	adjacencies = calculate_adjacencies()
+	var/success = FALSE
+	if (smooth_underlays)
+		var/mutable_appearance/underlay_appearance = mutable_appearance(null, layer = TURF_LAYER)
+		var/list/U = list(underlay_appearance)
+		for(var/direction in alldirs)
+			if(adjacencies & direction)
+				var/turf/T = get_step(src, direction)
+				if(T)
+					if(!T.get_smooth_underlay_icon(underlay_appearance, src, direction))
+						continue
+					else
+						success = TRUE
+						break
+
+		//if all else fails, ask our own turf
+		if(!success)
+			underlay_appearance.icon = base_icon
+			underlay_appearance.icon_state = base_icon_state
+
+		underlays = U
+
+//Blend atoms 
+/atom/proc/handle_blending(adjacencies, var/list/dir_mods, var/overlay_layer = 3)
+	LAZYINITLIST(dir_mods)
+	var/walls_found = 0 //Bitfield of the directions of walls we've found.
+	for(var/adjacency in list(N_NORTH, N_EAST, N_SOUTH, N_WEST))
+		if(adjacencies & adjacency)
+			var/turf/T = get_step(src, reverse_ndir(adjacency))
+			if(is_type_in_list(T, can_blend_with))
+				if(attach_overlay)
+					add_overlay("[reverse_ndir(adjacency)]_[attach_overlay]", overlay_layer)
+				walls_found |= adjacency
+				dir_mods["[adjacency]"] = "-[blend_overlay]"
+	for(var/adjacency in list(N_NORTH, N_SOUTH))
+		for(var/diagonal in list(N_WEST, N_EAST))
+			var/prefix = ndir_to_initial(adjacency)
+			var/suffix = ndir_to_initial(adjacency)
+			var/has_adjacency = walls_found & adjacency
+			var/has_diagonal = walls_found & diagonal
+			if(((adjacencies & adjacency) && (adjacencies && diagonal)) && (has_adjacency || has_diagonal))
+				dir_mods["[adjacency][diagonal]"] = "-[prefix][walls_found & adjacency ? "wall" : "win"]-[suffix][walls_found & diagonal ? "wall" : "win"]"
+				if(attach_overlay)
+					add_overlay("[prefix][suffix]_[attach_overlay]", overlay_layer)
+	return dir_mods
+
+/proc/ndir_to_initial(var/ndir)
+	switch(ndir)
+		if(N_NORTH)
+			return "n"
+		if(N_SOUTH)
+			return "s"
+		if(N_EAST)
+			return "e"
+		if(N_WEST)
+			return "w"
 
 /atom/proc/cardinal_smooth(adjacencies, var/list/dir_mods)
 	//NW CORNER

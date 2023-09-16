@@ -21,7 +21,7 @@
 	var/apc_powered = FALSE									// Set automatically. Whether the computer used APC power last tick.
 	var/base_active_power_usage = 50						// Power usage when the computer is open (screen is active) and can be interacted with. Remember hardware can use power too.
 	var/base_idle_power_usage = 5							// Power usage when the computer is idle and screen is off (currently only applies to laptops)
-	var/enrolled = 0										// Weather the computer is enrolled in the company device management or not. 0 - unconfigured 1 - enrolled (work device) 2 - unenrolled (private device)
+	var/enrolled = DEVICE_UNSET							// Weather the computer is enrolled in the company device management or not. 0 - unconfigured 1 - enrolled (work device) 2 - unenrolled (private device)
 	var/_app_preset_type									// Used for specifying the software preset of the console
 	var/ambience_last_played_time							// Last time sound was played
 	var/pAI_lock = FALSE									// Toggles whether pAI can interact with the modular computer while installed in it
@@ -32,6 +32,7 @@
 	var/doorcode = "smindicate"
 	var/hidden = FALSE
 	var/initial_name
+	var/obj/effect/overmap/visitable/linked // overmap sector the computer is linked to
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)
 	// must have it's own DMI file. Icon states must be called exactly the same in all files, but may look differently
@@ -79,7 +80,10 @@
 	var/obj/item/computer_hardware/tesla_link/tesla_link					// Tesla Link, Allows remote charging from nearest APC.
 	var/obj/item/device/paicard/personal_ai									// Personal AI, can control the device via a verb when installed
 	var/obj/item/computer_hardware/flashlight/flashlight
+	var/listener/listener
 
 	var/registered_message = ""
+
+	var/click_sound = 'sound/machines/holoclick.ogg'
 
 	charge_failure_message = " does not have a battery installed."

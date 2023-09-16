@@ -12,13 +12,10 @@
 	name = "surgery tool parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/surgery.dmi'
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-	)
 	recyclable = TRUE
 
 /*
@@ -26,7 +23,7 @@
  */
 /obj/item/surgery/retractor
 	name = "retractor"
-	desc = "A surgical instrument which allows careful opening of incisions to reach inside someone."
+	desc = "A pair of retractor forceps. Allows careful opening of incisions to reach inside someone."
 	icon_state = "retractor"
 	item_state = "retractor"
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
@@ -38,7 +35,7 @@
  */
 /obj/item/surgery/hemostat
 	name = "hemostat"
-	desc = "Primarily utilized to control initial incision bleeding, this instrument allows for careful removal of objects inside someone."
+	desc = "A pair of hemostatic forceps, able to clamp blood vessels shut to stop bleeding during surgery. Its narrow tip also lets it double as a tool for removing things from surgical sites."
 	icon_state = "hemostat"
 	item_state = "hemostat"
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
@@ -51,7 +48,7 @@
  */
 /obj/item/surgery/cautery
 	name = "cautery"
-	desc = "A specialized surgical tool which applies just enough heat to safely close surgical incisions, when used correctly at least."
+	desc = "An electrocautery pen. Uses electrical currents to burn tissue closed, useful for quickly sealing wounds or incisions."
 	icon_state = "cautery"
 	item_state = "cautery"
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
@@ -64,7 +61,7 @@
  */
 /obj/item/surgery/surgicaldrill
 	name = "surgical drill"
-	desc = "A drill specialized for surgical use, capable of creating surgical cavities and safely breaching through Vaurcae carapace for initial incisions."
+	desc = "A drill specialized for surgical use. Capable of creating surgical cavities and safely breaching through Vaurcae carapace for initial incisions."
 	icon_state = "drill"
 	item_state = "drill"
 	hitsound = /singleton/sound_category/drillhit_sound
@@ -82,7 +79,7 @@
  */
 /obj/item/surgery/scalpel
 	name = "scalpel"
-	desc = "A metallic scalpel with long-lasting edge. Used in a variety of surgical situations from incisions, to transplants, to debridements."
+	desc = "A surgical-grade scalpel with an incredibly sharp blade that keeps its edge. Used in a variety of surgical situations from incisions, to transplants, to debridements."
 	icon_state = "scalpel"
 	item_state = "scalpel"
 	flags = CONDUCT
@@ -133,8 +130,8 @@
  * Circular Saw
  */
 /obj/item/surgery/circular_saw
-	name = "circular saw"
-	desc = "A circular bone saw specialized for cutting through bones, amputations, and even hardsuits if required."
+	name = "surgical saw"
+	desc = "A reciprocating electric bonesaw. While designed to cut through bone, it's powerful enough to cut limbs and even hardsuits if necessary. Watch your fingers."
 	icon_state = "saw"
 	item_state = "saw"
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
@@ -155,7 +152,7 @@
 // Miscellanous
 /obj/item/surgery/bone_gel
 	name = "bone gel"
-	desc = "A highly specialized gel which promotes fast bone healing."
+	desc = "A bottle-and-nozzle applicator containing a specialized gel. When applied to bone tissue, it can reinforce and repair breakages and act as a glue to keep bones in place while they heal."
 	icon_state = "bone-gel"
 	item_state = "bone-gel"
 	force = 2
@@ -164,8 +161,8 @@
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 
 /obj/item/surgery/fix_o_vein
-	name = "FixOVein"
-	desc = "A specialized surgical instrument capable of quickly and safely healing torn veins and arteries, being capable of repairing torn ligaments as well."
+	name = "vascular recoupler"
+	desc = "An advanced automatic surgical instrument that operates with extreme finesse. It can quickly and safely repair and recouple ruptured blood vessels and ligaments using highly elaborate, biodegradable microsutures. It can also be used for transplantations to attach organs to the body."
 	icon_state = "fixovein"
 	item_state = "fixovein"
 	force = 2
@@ -177,7 +174,7 @@
 
 /obj/item/surgery/bonesetter
 	name = "bone setter"
-	desc = "A surgical tool designed to firmly set damaged bones back together for proper healing."
+	desc = "A pair of forceps with a screw. It's designed to manipulate bones and hold them together, and is best paired with a bottle of bone gel for mending fractures."
 	icon_state = "bonesetter"
 	item_state = "bonesetter"
 	force = 8
@@ -334,6 +331,7 @@
 		/obj/item/surgery/hemostat,
 		/obj/item/surgery/retractor,
 		/obj/item/surgery/scalpel,
+		/obj/item/surgery/bone_gel,
 		/obj/item/stack/nanopaste
 		)
 
@@ -342,5 +340,6 @@
 		/obj/item/surgery/circular_saw = 1,
 		/obj/item/surgery/hemostat = 1,
 		/obj/item/surgery/retractor = 1,
-		/obj/item/surgery/scalpel = 1
+		/obj/item/surgery/scalpel = 1,
+		/obj/item/surgery/bone_gel = 1
 	)

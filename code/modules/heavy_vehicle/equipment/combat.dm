@@ -38,7 +38,16 @@
 	name = "mounted submachinegun"
 	desc = "An exosuit-mounted automatic weapon. Handle with care."
 	icon_state = "mecha_ballistic"
-	holding_type = /obj/item/gun/energy/mountedsmg
+	holding_type = /obj/item/gun/energy/mountedsmg/mech
+
+/obj/item/mecha_equipment/mounted_system/combat/smg/attack_self(mob/user)
+	if(owner && istype(holding, /obj/item/gun/energy/mountedsmg/mech))
+		var/obj/item/gun/energy/mountedsmg/mech/R = holding
+		R.toggle_firing_mode(user)
+
+/obj/item/mecha_equipment/mounted_system/combat/smg/pra_egg
+	icon_state = "pra_egg_smg"
+	restricted_hardpoints = list(HARDPOINT_RIGHT_HAND)
 
 /obj/item/mecha_equipment/mounted_system/combat/pulse
 	name = "heavy pulse cannon"
@@ -76,11 +85,18 @@
 	self_recharge = TRUE
 	has_safety = FALSE
 
+/obj/item/gun/energy/mountedsmg/mech
+	max_shots = 30
+	firemodes = list(
+		list(mode_name = "semi-automatic", burst = 1, fire_delay = 0,    move_delay = null, burst_accuracy = null,                dispersion=list(0)),
+		list(mode_name = "3-round burst",  burst = 3, fire_delay = null, move_delay = 4,    burst_accuracy = list(0,-1,-1),       dispersion=list(0, 15, 15))
+	)
+
 /obj/item/gun/energy/laser/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
-	projectile_type = /obj/item/projectile/beam/midlaser/mech
+	projectile_type = /obj/item/projectile/beam/heavylaser/mech
 
 /obj/item/gun/energy/pulse/mounted/mech
 	use_external_power = TRUE
@@ -347,7 +363,7 @@
 	layer = ABOVE_MOB_LAYER
 	pixel_x = 8
 	pixel_y = 4
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/aura/mechshield/added_to(mob/living/target)
 	..()

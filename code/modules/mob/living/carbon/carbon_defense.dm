@@ -7,11 +7,6 @@
 
 /mob/living/carbon/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
 	..(AM, speed)
-	var/t_him = "it"
-	if (src.gender == MALE)
-		t_him = "him"
-	else if (src.gender == FEMALE)
-		t_him = "her"
 	var/show_ssd
 	var/mob/living/carbon/human/H
 	if(ishuman(src))
@@ -19,7 +14,7 @@
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
-			visible_message(SPAN_DANGER("[src] is hit by [AM] waking [t_him] up!"))
+			visible_message(SPAN_DANGER("[src] is hit by [AM] waking [get_pronoun("him")] up!"))
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
@@ -29,17 +24,12 @@
 		else if(!vr_mob)
 			visible_message(SPAN_DANGER("[src] is hit by [AM], but they do not respond... Maybe they have S.S.D?"))
 	else if(client && willfully_sleeping)
-		visible_message(SPAN_DANGER("[src] is hit by [AM] waking [t_him] up!"))
+		visible_message(SPAN_DANGER("[src] is hit by [AM] waking [get_pronoun("him")] up!"))
 		sleeping = 0
 		willfully_sleeping = FALSE
 
 /mob/living/carbon/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..(P, def_zone)
-	var/t_him = "it"
-	if (src.gender == MALE)
-		t_him = "him"
-	else if (src.gender == FEMALE)
-		t_him = "her"
 	var/show_ssd
 	var/mob/living/carbon/human/H
 	if(ishuman(src))
@@ -47,7 +37,7 @@
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
-			visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
+			visible_message("<span class='danger'>[P] hit [src] waking [get_pronoun("him")] up!</span>")
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
@@ -57,16 +47,11 @@
 		else if(!vr_mob)
 			visible_message("<span class='danger'>[P] hit [src], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
-		visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
+		visible_message("<span class='danger'>[P] hit [src] waking [get_pronoun("him")] up!</span>")
 		sleeping = 0
 		willfully_sleeping = FALSE
 
 /mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
-	var/t_him = "it"
-	if (src.gender == MALE)
-		t_him = "him"
-	else if (src.gender == FEMALE)
-		t_him = "her"
 	var/show_ssd
 	var/mob/living/carbon/human/H
 	if(ishuman(src))
@@ -81,11 +66,11 @@
 			else
 				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
 		else if(!vr_mob)
-			user.visible_message("<span class='danger'>[user] attacks [src] with [I] waking [t_him] up!</span>", \
+			user.visible_message("<span class='danger'>[user] attacks [src] with [I] waking [get_pronoun("him")] up!</span>", \
 					    "<span class='danger'>You attack [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
-		user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
-							"<span class='danger'>You attack [src] with [I], waking [t_him] up!</span>")
+		user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [get_pronoun("him")] up!</span>", \
+							"<span class='danger'>You attack [src] with [I], waking [get_pronoun("him")] up!</span>")
 		sleeping = 0
 		willfully_sleeping = FALSE
 
@@ -102,14 +87,14 @@
 	apply_damage(effective_force, I.damtype, hit_zone, I, damage_flags, I.armor_penetration)
 
 	//Melee weapon embedded object code.
-	if (I && I.damtype == BRUTE && !I.anchored && !is_robot_module(I) && I.canremove)
+	if (I && I.damtype == DAMAGE_BRUTE && !I.anchored && !is_robot_module(I) && I.canremove)
 		var/damage = effective_force //just the effective damage used for sorting out embedding, no further damage is applied here
 		damage *= 1 - get_blocked_ratio(hit_zone, I.damtype, I.damage_flags(), I.armor_penetration, I.force)
 
 		if(I.can_embed) //If this weapon is allowed to embed in people.
 			//blunt objects should really not be embedding in things unless a huge amount of force is involved
-			var/sharp = damage_flags & DAM_SHARP
-			var/edge = damage_flags & DAM_EDGE
+			var/sharp = damage_flags & DAMAGE_FLAG_SHARP
+			var/edge = damage_flags & DAMAGE_FLAG_EDGE
 			var/embed_chance = sharp? damage/I.w_class : damage/(I.w_class*3)
 			var/embed_threshold = edge? 5*I.w_class : 15*I.w_class
 
@@ -131,7 +116,7 @@
 // Knifing
 /mob/living/carbon/proc/attack_throat(obj/item/W, obj/item/grab/G, mob/user)
 	var/damage_flags = W.damage_flags()
-	if(!(damage_flags & (DAM_SHARP|DAM_EDGE)) || W.damtype != BRUTE)
+	if(!(damage_flags & (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)) || W.damtype != DAMAGE_BRUTE)
 		return FALSE //unsuitable weapon
 
 	user.visible_message("<span class='danger'>\The [user] begins to slit [src]'s throat with \the [W]!</span>")
@@ -148,7 +133,7 @@
 	if(istype(helmet) && (helmet.body_parts_covered & HEAD) && (helmet.min_pressure_protection == 0))
 		var/datum/component/armor/armor_component = helmet.GetComponent(/datum/component/armor)
 		if(armor_component)
-			damage_mod -= armor_component.get_blocked(BRUTE, damage_flags, W.armor_penetration, W.force*1.5)
+			damage_mod -= armor_component.get_blocked(DAMAGE_BRUTE, damage_flags, W.armor_penetration, W.force*1.5)
 
 	var/total_damage = 0
 	for(var/i in 1 to 3)

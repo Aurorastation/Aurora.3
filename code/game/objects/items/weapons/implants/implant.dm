@@ -45,7 +45,7 @@
 		part.take_damage(burn = 15, used_weapon = "Electronics meltdown")
 	else
 		var/mob/living/M = imp_in
-		M.apply_damage(15,BURN)
+		M.apply_damage(15,DAMAGE_BURN)
 	name = "melted implant"
 	desc = "Charred circuit in melted plastic case. Wonder what that used to be..."
 	icon_state = "implant_melted"
@@ -54,6 +54,7 @@
 /obj/item/implant/Destroy()
 	if(part)
 		part.implants.Remove(src)
+		part = null
 	STOP_PROCESSING(SSprocessing, src)
 	implants -= src
 	return ..()
@@ -741,3 +742,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 			if (prob(25))
 				qdel(src)
 	return
+
+
+#undef MALFUNCTION_TEMPORARY
+#undef MALFUNCTION_PERMANENT

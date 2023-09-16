@@ -8,9 +8,10 @@ var/global/list/map_sectors = list()
 	icon_state = "start"
 	requires_power = 0
 	base_turf = /turf/unsimulated/map
+	dynamic_lighting = 0
 
 /turf/unsimulated/map
-	icon = 'icons/turf/space.dmi'
+	icon = 'icons/obj/overmap/overmap.dmi'
 	icon_state = "map"
 	permit_ao = FALSE
 
@@ -54,7 +55,7 @@ var/list/moving_levels = list()
 //Proc to 'move' stars in spess
 //yes it looks ugly, but it should only fire when state actually change.
 //null direction stops movement
-proc/toggle_move_stars(zlevel, direction)
+/proc/toggle_move_stars(zlevel, direction)
 	if(!zlevel)
 		return
 

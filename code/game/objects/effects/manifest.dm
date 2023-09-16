@@ -5,8 +5,7 @@
 	unacidable = 1//Just to be sure.
 
 /obj/effect/manifest/New()
-
-	src.invisibility = 101
+	set_invisibility(101)
 	return
 
 /obj/effect/manifest/proc/manifest()

@@ -10,11 +10,8 @@
 	name = "syringe"
 	desc = "A syringe."
 	desc_info = "This tool can be used to reinflate a collapsed lung. To do this, activate grab intent, select the patient's chest, then click on them. It will hurt a lot, but it will buy time until surgery can be performed."
-	icon = 'icons/obj/syringe.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
+	contained_sprite = TRUE
 	icon_state = "0"
 	item_state = "syringe"
 	build_from_parts = TRUE
@@ -146,12 +143,12 @@
 				last_jab = 0 //Resets to try again immediately
 				user.visible_message("<b>[user]</b> fumbles with \the [src]!", SPAN_NOTICE("You fumble with \the [src]!"))
 				return
-			var/blocked = H.get_blocked_ratio(BP_CHEST, BRUTE, DAM_SHARP, damage = 5)
+			var/blocked = H.get_blocked_ratio(BP_CHEST, DAMAGE_BRUTE, DAMAGE_FLAG_SHARP, damage = 5)
 			if(blocked > 20)
 				user.visible_message("<b>[user]</b> jabs \the [src] into [H], but their armor blocks it!", SPAN_WARNING("You jab \the [src] into [H], but their armor blocks it!"))
 				return
 			user.visible_message("<b>[user]</b> jabs \the [src] between [P] ribs!", SPAN_NOTICE("You jab \the [src] between [SM] ribs!"))
-			H.apply_damage(3, BRUTE, BP_CHEST)
+			H.apply_damage(3, DAMAGE_BRUTE, BP_CHEST)
 			H.custom_pain("The pain in your chest is living hell!", 50, affecting = H.organs_by_name[BP_CHEST])
 			L.oxygen_deprivation = 0
 			L.rescued = TRUE
@@ -285,11 +282,11 @@
 
 	if(reagents && reagents.total_volume)
 		worn_overlay = Clamp(round((reagents.total_volume / volume * 15),5), 1, 15) //rounded_vol
-		add_overlay(overlay_image('icons/obj/reagentfillings.dmi', "[iconstring][worn_overlay]", color = reagents.get_color()))
+		add_overlay(overlay_image(icon, "[iconstring][worn_overlay]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
-		update_held_icon()
 	else
-		worn_overlay = 0
+		worn_overlay = 0 // don't change to null, or it will break
+	update_held_icon()
 	icon_state = "[worn_overlay]"
 	if(ismob(loc))
 		var/injoverlay
@@ -320,7 +317,7 @@
 		if((user != target) && H.check_shields(7, src, user, "\the [src]"))
 			return
 
-		var/armor = H.get_blocked_ratio(target_zone, BRUTE, damage_flags = DAM_SHARP, damage = 5)*100
+		var/armor = H.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP, damage = 5)*100
 		if (target != user && armor > 50)
 			user.visible_message(SPAN_DANGER("[user] tries to stab \the [target] in the [hit_area] with \the [src], but the attack is deflected by [target.get_pronoun("his")] armor!"), SPAN_WARNING("You try to stab \the [target] in the [hit_area] with \the [src], but the attack is deflected by [target.get_pronoun("his")] armor!"))
 			user.remove_from_mob(src)
@@ -359,7 +356,7 @@
 /obj/item/reagent_containers/syringe/large
 	name = "large syringe"
 	desc = "A large syringe - for those patients who need a little more."
-	icon = 'icons/obj/large_syringe.dmi'
+	icon = 'icons/obj/item/reagent_containers/large_syringe.dmi'
 	icon_state = "0"
 	possible_transfer_amounts = list(5, 15, 30)
 	volume = 30
@@ -438,6 +435,16 @@
 	reagents_to_add = list(/singleton/reagent/polysomnine = 60)
 
 /obj/item/reagent_containers/syringe/large/ld50_syringe/chloral/Initialize()
+	. = ..()
+	mode = SYRINGE_INJECT
+	update_icon()
+
+/obj/item/reagent_containers/syringe/antiparasitic
+	name = "Syringe (helmizole)"
+	desc = "Contains an antiparasitic medication."
+	reagents_to_add = list(/singleton/reagent/antiparasitic = 10)
+
+/obj/item/reagent_containers/syringe/antiparasitic/Initialize()
 	. = ..()
 	mode = SYRINGE_INJECT
 	update_icon()

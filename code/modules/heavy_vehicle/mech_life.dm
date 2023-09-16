@@ -101,7 +101,7 @@
 		bodytemperature += ((environment.temperature - bodytemperature) / 3)
 
 	if(environment.temperature >= T0C+1400) //A bit higher because I like to assume there's a difference between a mech and a wall
-		apply_damage(damage = environment.temperature /5 , damagetype = BURN)
+		apply_damage(damage = environment.temperature /5 , damagetype = DAMAGE_BURN)
 	//A possibility is to hook up interface icons here. But this works pretty well in my experience
 		if(prob(5))
 			visible_message("<span class='danger'>\The [src]'s hull bends and buckles under the intense heat!</span>")

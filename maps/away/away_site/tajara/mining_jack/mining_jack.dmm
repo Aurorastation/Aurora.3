@@ -11,11 +11,10 @@
 	},
 /area/mining_jack_outpost/smelter)
 "am" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(202);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(202)
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -62,7 +61,7 @@
 	},
 /area/mining_jack_outpost/hangar)
 "aN" = (
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -74,7 +73,7 @@
 	pixel_y = -1;
 	req_access = null
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
@@ -82,9 +81,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(202);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(202)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -116,7 +114,7 @@
 	},
 /area/mining_jack_outpost/hangar)
 "br" = (
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -130,11 +128,8 @@
 /area/shuttle/mining_jack/engines)
 "by" = (
 /obj/structure/table/standard,
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(202)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -151,7 +146,7 @@
 	req_access = null
 	},
 /obj/item/pickaxe,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -163,7 +158,7 @@
 "bU" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -177,10 +172,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
-/turf/simulated/floor/tiled/steel{
+/obj/structure/extinguisher_cabinet/west,
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -202,9 +195,8 @@
 /area/mining_jack_outpost/hangar)
 "cG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm/cold{
-	req_one_access = list(202);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(202)
 	},
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/food/drinks/waterbottle,
@@ -221,14 +213,14 @@
 /obj/item/reagent_containers/food/snacks/hardbread,
 /obj/item/reagent_containers/food/snacks/hardbread,
 /obj/item/reagent_containers/food/snacks/hardbread,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "da" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -278,7 +270,7 @@
 /obj/item/storage/belt/mining,
 /obj/item/storage/belt/mining,
 /obj/item/storage/belt/mining,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -287,10 +279,8 @@
 /obj/machinery/mining/brace{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/steel{
+/obj/structure/extinguisher_cabinet/north,
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -349,7 +339,7 @@
 /obj/machinery/computer/ship/sensors{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -370,7 +360,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/mining_jack/bridge)
 "fm" = (
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
@@ -378,7 +368,7 @@
 /obj/structure/table/steel,
 /obj/item/gun/energy/plasmacutter,
 /obj/item/gun/energy/plasmacutter,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -403,7 +393,8 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Power Room"
+	name = "Power Room";
+	dir = 1
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -445,7 +436,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -462,14 +453,12 @@
 	},
 /area/mining_jack_outpost/atmos)
 "gq" = (
-/obj/machinery/alarm/cold{
-	dir = 1;
-	pixel_y = -32;
+/obj/machinery/alarm/cold/south{
 	req_one_access = list(202)
 	},
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -478,7 +467,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
@@ -486,7 +475,7 @@
 /obj/machinery/computer/ship/navigation{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -529,9 +518,7 @@
 	},
 /area/mining_jack_outpost/smelter)
 "hi" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
+/obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -569,7 +556,7 @@
 	dir = 8;
 	level = 2
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -605,7 +592,7 @@
 	id = "mining_jack_base_belt";
 	layer = 2.9
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -616,10 +603,8 @@
 	},
 /area/mining_jack_outpost/atmos)
 "iq" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled/steel{
+/obj/structure/extinguisher_cabinet/west,
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
@@ -635,7 +620,7 @@
 	identifier = "tajara_mining_jack";
 	name = "igs - tajara_mining_jack"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -682,7 +667,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -694,7 +679,7 @@
 /obj/machinery/computer/shuttle_control/explore/tajara_mining_jack{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -703,15 +688,12 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(202)
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -728,7 +710,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -784,7 +766,7 @@
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/device/gps/mining,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -821,7 +803,7 @@
 /obj/item/plastique/seismic,
 /obj/item/plastique/seismic,
 /obj/item/plastique/seismic,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -849,7 +831,7 @@
 "lL" = (
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -890,7 +872,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
@@ -899,7 +881,7 @@
 /obj/item/shovel,
 /obj/item/shovel,
 /obj/item/shovel,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -918,7 +900,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
@@ -962,10 +944,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -1037,15 +1016,13 @@
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/machinery/light,
 /obj/item/device/gps/mining,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
 "py" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/steel{
+/obj/structure/extinguisher_cabinet/south,
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -1068,7 +1045,7 @@
 /obj/machinery/mineral/processing_unit_console{
 	pixel_y = 28
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -1092,7 +1069,7 @@
 	identifier = "tajara_mining_jack";
 	name = "igs - tajara_mining_jack"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -1115,7 +1092,7 @@
 	id = "mining_jack_base_belt"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -1144,13 +1121,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "sp" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -1169,7 +1147,7 @@
 	req_access = null;
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -1210,12 +1188,12 @@
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "tJ" = (
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -1235,13 +1213,10 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(202)
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
@@ -1272,7 +1247,7 @@
 /area/mining_jack_outpost/hangar)
 "uw" = (
 /obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -1334,7 +1309,7 @@
 	identifier = "tajara_mining_jack";
 	name = "igs - tajara_mining_jack"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -1343,13 +1318,10 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24;
+/obj/machinery/power/apc/west{
 	req_access = list(202)
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -1387,7 +1359,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -1424,11 +1396,8 @@
 	},
 /area/mining_jack_outpost/hangar)
 "wD" = (
-/obj/machinery/power/apc{
-	dir = 2;
+/obj/machinery/power/apc/south{
 	is_critical = 1;
-	name = "south bump";
-	pixel_y = -24;
 	req_access = list(202)
 	},
 /obj/structure/cable/green{
@@ -1447,7 +1416,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -1510,7 +1479,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -1520,7 +1489,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -1579,9 +1548,10 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Equipment Storage";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 4
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -1634,7 +1604,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -1651,9 +1621,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/alarm/cold{
-	dir = 4;
-	pixel_x = -32;
+/obj/machinery/alarm/cold/west{
 	req_one_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -1712,7 +1680,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -1726,9 +1694,10 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Atmospherics"
+	name = "Atmospherics";
+	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/atmos)
@@ -1763,7 +1732,7 @@
 	},
 /obj/effect/overmap/visitable/ship/landable/tajara_mining_jack,
 /obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -1777,12 +1746,10 @@
 	},
 /area/shuttle/mining_jack/engines)
 "Eb" = (
-/obj/machinery/alarm/cold{
-	dir = 8;
-	pixel_x = 32;
+/obj/machinery/alarm/cold/east{
 	req_one_access = list(202)
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -1806,9 +1773,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 32
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1843,7 +1808,8 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Smelter";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 1
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1869,7 +1835,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -1889,7 +1855,8 @@
 	id_tag = "tajara_mining_jack_hatch";
 	layer = 2.8;
 	name = "Ship External Access";
-	open_layer = 2.8
+	open_layer = 2.8;
+	dir = 4
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1956,7 +1923,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/overmap/visitable/sector/tajara_mining_jack,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -1993,14 +1960,15 @@
 "JL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/drill,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
 "JU" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(202);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2009,7 +1977,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -2080,7 +2048,7 @@
 /obj/machinery/cryopod{
 	dir = 2
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
@@ -2114,7 +2082,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -2185,7 +2153,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -2251,7 +2219,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -2265,9 +2233,8 @@
 	},
 /area/mining_jack_outpost/atmos)
 "Qp" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(202);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(202)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2280,14 +2247,14 @@
 	dir = 4
 	},
 /obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
 "Rm" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -2296,7 +2263,7 @@
 	req_access = list(202)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -2332,7 +2299,7 @@
 /obj/machinery/mining/brace{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -2363,7 +2330,7 @@
 /obj/machinery/computer/ship/engines{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -2378,7 +2345,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
@@ -2403,7 +2370,7 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -2429,7 +2396,7 @@
 /obj/machinery/mineral/stacking_unit_console{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -2437,7 +2404,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/shuttle/mining_jack/bridge)
@@ -2474,7 +2441,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/smelter)
@@ -2534,9 +2501,10 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "Crew Quarters";
-	req_access = list(202)
+	req_access = list(202);
+	dir = 4
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
@@ -2571,7 +2539,7 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/storage)
@@ -2584,12 +2552,9 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
+/obj/machinery/power/apc/north{
 	is_critical = 1;
-	name = "north bump";
 	pixel_x = 0;
-	pixel_y = 24;
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{
@@ -2600,7 +2565,7 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
 /area/mining_jack_outpost/quarters)
@@ -39721,19 +39686,19 @@ Kn
 Kn
 Kn
 Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
 xL
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
 Kn
 Kn
 Kn

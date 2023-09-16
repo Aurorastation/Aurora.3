@@ -6,8 +6,7 @@
 	set desc = "Style your hair."
 	set category = "IC"
 
-	if(!use_check_and_message())
-		to_chat(src, SPAN_WARNING("You can't tie your hair when you are incapacitated!"))
+	if(incapacitated())
 		return
 
 	if(h_style)
@@ -55,7 +54,7 @@
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
-mob/living/carbon/human/proc/change_monitor()
+/mob/living/carbon/human/proc/change_monitor()
 	set name = "Change IPC Screen"
 	set desc = "Change the display on your screen."
 	set category = "Abilities"
@@ -228,26 +227,28 @@ mob/living/carbon/human/proc/change_monitor()
 
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
-		H.apply_damage(50,BRUTE)
+		H.apply_damage(50,DAMAGE_BRUTE)
 		if(H.stat == 2)
 			H.gib()
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M)) return //wut
-		M.apply_damage(50,BRUTE)
+		M.apply_damage(50,DAMAGE_BRUTE)
 		if(M.stat == 2)
 			M.gib()
 
 
 // Simple mobs cannot use Skrellepathy
-/mob/proc/can_commune()
+/mob/proc/has_psionics()
 	return FALSE
 
-/mob/living/carbon/human/can_commune()
+/mob/living/carbon/human/has_psionics()
+	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
+		return FALSE
 	if(psi)
 		return TRUE
 	else
-		return species ? species.can_commune() : FALSE
+		return species ? species.has_psionics() : FALSE
 
 /mob/living/carbon/human/proc/commune()
 	set category = "Abilities"
@@ -323,14 +324,14 @@ mob/living/carbon/human/proc/change_monitor()
 			to_chat(M,"<span class='notice'>[src] telepathically says to [target]:</span> [text]")
 
 	var/mob/living/carbon/human/H = target
-	if (target.can_commune())
+	if (target.has_psionics())
 		to_chat(H,"<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]")
 	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 		to_chat(H,"<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]")
 	else
 		to_chat(H,"<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
 		if(istype(H))
-			if (target.can_commune())
+			if (target.has_psionics())
 				return
 			if(prob(10) && !(H.species.flags & NO_BLOOD))
 				to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
@@ -393,14 +394,14 @@ mob/living/carbon/human/proc/change_monitor()
 			to_chat(H, SPAN_WARNING("They are missing that limb!"))
 			return
 
-		H.apply_damage(25, BRUTE, hit_zone, damage_flags = DAM_SHARP|DAM_EDGE)
+		H.apply_damage(25, DAMAGE_BRUTE, hit_zone, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
-		M.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
+		M.apply_damage(25, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(get_turf(src), 'sound/weapons/slash.ogg', 50, TRUE)
@@ -421,8 +422,8 @@ mob/living/carbon/human/proc/change_monitor()
 			playsound(F, 'sound/items/countdown.ogg', 125, 1)
 			spawn(20)
 				explosion(F.loc, -1, -1, 2)
-				M.apply_damage(20,BRUTE)
-				M.apply_damage(15,BURN)
+				M.apply_damage(20,DAMAGE_BRUTE)
+				M.apply_damage(15,DAMAGE_BURN)
 				qdel(F)
 
 	for(var/obj/item/material/shard/shrapnel/flechette/F in range(7, src))
@@ -602,7 +603,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	visible_message("<span class='warning'><b>[src]</b> launches a spine-quill at [target]!</span>")
 
-	src.apply_damage(10,BRUTE)
+	src.apply_damage(10,DAMAGE_BRUTE)
 	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 	var/obj/item/arrow/quill/A = new /obj/item/arrow/quill(usr.loc)
 	A.throw_at(target, 10, 30, usr)
@@ -641,6 +642,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	for(var/obj/machinery/light/L in range(7))
 		L.broken()
+		CHECK_TICK
 
 /mob/living/carbon/human/proc/create_darkness()
 	set category = "Abilities"
@@ -673,7 +675,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='notice'>You return your vision to normal.</span>")
 		src.stop_sight_update = 0
 
-/mob/living/carbon/human/proc/shadow_step(var/turf/T in turfs)
+/mob/living/carbon/human/proc/shadow_step(var/turf/T in world)
 	set category = "Abilities"
 	set name = "Shadow Step"
 	set desc = "Travel from place to place using the shadows."
@@ -835,7 +837,7 @@ mob/living/carbon/human/proc/change_monitor()
 			earpain(3, TRUE, 1)
 		else if (T in range(src, 2))
 			earpain(2, TRUE, 2)
-	
+
 	for (var/mob/living/carbon/human/T in hearers(2, src) - src)
 		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
 			continue
@@ -1263,7 +1265,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(!istype(M))
 		to_chat(usr, SPAN_WARNING("You aren't allowed to rename \the [src]."))
 		return
-	 
+
 	if(usr == src)
 		to_chat(usr, SPAN_WARNING("You're a simple creature, you can't rename yourself!"))
 		return
@@ -1320,3 +1322,18 @@ mob/living/carbon/human/proc/change_monitor()
 	if (is_listening())
 		visible_message("<b>[src]</b> stops listening intently.")
 		intent_listener -= src
+
+/mob/living/carbon/human/proc/open_tail_storage()
+	set name = "Tail Accessories"
+	set desc = "Opens the tail accessory slot."
+	set category = "Abilities"
+
+	var/obj/item/organ/external/groin/G = organs_by_name[BP_GROIN]
+	if(!G)
+		to_chat(usr, SPAN_WARNING("You have no tail!"))
+		return
+	if(!G.tail_storage)
+		to_chat(usr, SPAN_WARNING("Your tail storage is missing!"))
+		return
+
+	G.tail_storage.open(usr)

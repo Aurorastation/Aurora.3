@@ -18,7 +18,7 @@
 		)
 
 /obj/machinery/weapons_analyzer/examine(mob/user)
-	..()
+	. = ..()
 	var/name_of_thing = ""
 	if(item)
 		name_of_thing = item.name
@@ -136,145 +136,147 @@
 		gun_overlay.pixel_y += 8
 		add_overlay(gun_overlay)
 
-/obj/machinery/weapons_analyzer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	if(!data)
-		. = data = list()
-
-	data["has_inserted"] = item ? TRUE : FALSE
-
-	data["name"] = ""
-	data["item"] = FALSE
-	data["energy"] = FALSE
-	data["gun"] = FALSE
-	data["damage_type"] = "none"
+/obj/machinery/weapons_analyzer/ui_data(mob/user)
+	var/list/data = list()
 
 	if(istype(item, /obj/item/device/laser_assembly))
 		var/obj/item/device/laser_assembly/assembly = item
-		data["name"] = assembly.name
 		var/list/mods = list()
-		data["gun_mods"] = mods
 		for(var/i in list(assembly.capacitor, assembly.focusing_lens, assembly.modulator) + assembly.gun_mods)
 			var/obj/item/laser_components/l_component = i
 			if(!l_component)
 				continue
 
 			var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
-			mods[initial(l_component.name)] = list(
-				"reliability" = initial(l_component.reliability), "damage modifier" = initial(l_component.damage), "fire delay modifier" = initial(l_component.fire_delay),
-					"shots modifier" = initial(l_component.shots), "burst modifier" = initial(l_component.burst), "accuracy modifier" = initial(l_component.accuracy), "repair tool" = l_repair_name
-				)
+			mods += list(list(
+				"name" = initial(l_component.name),
+				"reliability" = initial(l_component.reliability),
+				"damage_modifier" = initial(l_component.damage),
+				"fire_delay_modifier" = initial(l_component.fire_delay),
+				"shots_modifier" = initial(l_component.shots),
+				"burst_modifier" = initial(l_component.burst),
+				"accuracy_modifier" = initial(l_component.accuracy),
+				"repair_tool" = l_repair_name
+			))
 		data["gun_mods"] = mods
+		data["laser_assembly"] = list("name" = assembly.name)
 
 	else if(istype(item, /obj/item/gun))
 		var/obj/item/gun/gun = item
-		data["name"] = gun.name
-		data["gun"] = TRUE
-		data["max_shots"] = 0
-		data["recharge"] = "none"
-		data["recharge_time"] = "none"
-		data["damage"] = 0
-		data["shrapnel_type"] = "none"
-		data["armor_penetration"] = "none"
-		data["gun_mods"] = FALSE
+		data["gun"] = list(
+			"name" = gun.name,
+			"max_shots" = 0,
+			"recharge" = "none",
+			"recharge_time" = "none",
+			"damage" = 0,
+			"shrapnel_type" = "none",
+			"armor_penetration" = "none",
+			"gun_mods" = "none",
+			"stun" = "does not stun"
+		)
 
 		if(istype(gun, /obj/item/gun/energy))
 			var/obj/item/gun/energy/E = gun
 			var/obj/item/projectile/P = new E.projectile_type
-			data["max_shots"] = initial(E.max_shots)
-			data["recharge"] = initial(E.self_recharge) ? "self recharging" : "not self recharging"
-			data["recharge_time"] = initial(E.recharge_time)
-			data["damage"] = initial(P.damage)
-			data["damage_type"] = initial(P.damage_type)
-			data["check_armor"] = initial(P.check_armor)
-			data["stun"] = initial(P.stun) ? "stuns" : "does not stun"
+			data["gun"]["max_shots"] = initial(E.max_shots)
+			data["gun"]["recharge"] = initial(E.self_recharge) ? "self recharging" : "not self recharging"
+			data["gun"]["recharge_time"] = initial(E.recharge_time)
+			data["gun"]["damage"] = initial(P.damage)
+			data["gun"]["damage_type"] = initial(P.damage_type)
+			data["gun"]["check_armor"] = initial(P.check_armor)
+			data["gun"]["stun"] = initial(P.stun) ? "stuns" : "does not stun"
 			if(P.shrapnel_type)
 				var/obj/item/S = new P.shrapnel_type
-				data["shrapnel_type"] = S.name
+				data["gun"]["shrapnel_type"] = S.name
 			else
-				data["shrapnel_type"] = "none"
-			data["armor_penetration"] = initial(P.armor_penetration)
+				data["gun"]["shrapnel_type"] = "none"
+			data["gun"]["armor_penetration"] = initial(P.armor_penetration)
 
 			if(istype(gun, /obj/item/gun/energy/laser/prototype))
 				var/obj/item/gun/energy/laser/prototype/E_prototype = gun
 				var/list/mods = list()
-				data["gun_mods"] = mods
 				for(var/i in list(E_prototype.capacitor, E_prototype.focusing_lens, E_prototype.modulator) + E_prototype.gun_mods)
 					var/obj/item/laser_components/l_component = i
 					var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
-					mods[initial(l_component.name)] = list(
-						"reliability" = initial(l_component.reliability), "damage modifier" = initial(l_component.damage), "fire delay modifier" = initial(l_component.fire_delay),
-						 "shots modifier" = initial(l_component.shots), "burst modifier" = initial(l_component.burst), "accuracy modifier" = initial(l_component.accuracy), "repair tool" = l_repair_name
-						)
+					mods += list(list(
+						"name" = initial(l_component.name),
+						"reliability" = initial(l_component.reliability),
+						"damage_modifier" = initial(l_component.damage),
+						"fire_delay_modifier" = initial(l_component.fire_delay),
+						"shots_modifier" = initial(l_component.shots),
+						"burst_modifier" = initial(l_component.burst),
+						"accuracy_modifier" = initial(l_component.accuracy),
+						"repair_tool" = l_repair_name
+					))
 				data["gun_mods"] = mods
 
 			if(E.secondary_projectile_type)
 				var/obj/item/projectile/P_second = E.secondary_projectile_type
-				data["secondary_damage"] = initial(P_second.damage)
-				data["secondary_damage_type"] = initial(P_second.damage_type)
-				data["secondary_check_armor"] = initial(P_second.check_armor)
-				data["secondary_stun"] = initial(P_second.stun) ? "stuns" : "does not stun"
-				data["secondary_shrapnel_type"] = initial(P_second.shrapnel_type) ? initial(P_second.shrapnel_type) : "none"
-				data["secondary_armor_penetration"] = initial(P_second.armor_penetration)
+				data["gun"]["secondary_damage"] = initial(P_second.damage)
+				data["gun"]["secondary_damage_type"] = initial(P_second.damage_type)
+				data["gun"]["secondary_check_armor"] = initial(P_second.check_armor)
+				data["gun"]["secondary_stun"] = initial(P_second.stun) ? "stuns" : "does not stun"
+				data["gun"]["secondary_shrapnel_type"] = initial(P_second.shrapnel_type) ? initial(P_second.shrapnel_type) : "none"
+				data["gun"]["secondary_armor_penetration"] = initial(P_second.armor_penetration)
 
 		else
 			var/obj/item/gun/projectile/P_gun = gun
 			var/obj/item/ammo_casing/casing = new P_gun.ammo_type
 			var/obj/item/projectile/P = new casing.projectile_type
-			data["max_shots"] = P_gun.max_shells
-			data["damage"] = initial(P.damage)
-			data["damage_type"] = initial(P.damage_type)
-			data["check_armor"] = initial(P.check_armor)
-			data["stun"] = initial(P.stun) ? "stuns" : "does not stun"
+			data["gun"]["max_shots"] = P_gun.max_shells
+			data["gun"]["damage"] = initial(P.damage)
+			data["gun"]["damage_type"] = initial(P.damage_type)
+			data["gun"]["check_armor"] = initial(P.check_armor)
+			data["gun"]["stun"] = initial(P.stun) ? "stuns" : "does not stun"
 			if(P.shrapnel_type)
 				var/obj/item/S = new P.shrapnel_type
 				data["shrapnel_type"] = S.name
 			else
 				data["shrapnel_type"] = "none"
-		data["burst"] = gun.burst
-		data["reliability"] = gun.reliability
+		data["gun"]["burst"] = gun.burst
+		data["gun"]["reliability"] = gun.reliability
 
 	else if(item)
-		data["name"] = item.name
-		data["item"] = TRUE
-		data["force"] = item.force
-		data["sharp"] = item.sharp ? "yes" : "no"
-		data["edge"] = item.edge ? "likely to dismember" : "unlikely to dismember"
-		data["penetration"] = item.armor_penetration
-		data["throw_force"] = item.throwforce
-		data["damage_type"] = item.damtype
+		data["item"] = list()
+		data["item"]["name"] = item.name
+		data["item"]["force"] = item.force
+		data["item"]["sharp"] = item.sharp ? "yes" : "no"
+		data["item"]["edge"] = item.edge ? "likely to dismember" : "unlikely to dismember"
+		data["item"]["penetration"] = item.armor_penetration
+		data["item"]["throw_force"] = item.throwforce
+		data["item"]["damage_type"] = item.damtype
 		if(istype(item, /obj/item/melee/energy))
-			data["energy"] = TRUE
+			data["item"]["energy"] = TRUE
 			var/obj/item/melee/energy/E_item = item
-			data["active_force"] = E_item.active_force
-			data["active_throw_force"] = E_item.active_throwforce
-			data["can_block"] = E_item.can_block_bullets ? "can block" : "cannot block"
-			data["base_reflectchance"] = E_item.base_reflectchance
-			data["base_block_chance"] = E_item.base_block_chance
-			data["shield_power"] = E_item.shield_power
+			data["item"]["active_force"] = E_item.active_force
+			data["item"]["active_throw_force"] = E_item.active_throwforce
+			data["item"]["can_block"] = E_item.can_block_bullets ? "can block" : "cannot block"
+			data["item"]["base_reflect_chance"] = E_item.base_reflectchance
+			data["item"]["base_block_chance"] = E_item.base_block_chance
+			data["item"]["shield_power"] = E_item.shield_power
+	return data
 
-/obj/machinery/weapons_analyzer/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+/obj/machinery/weapons_analyzer/ui_interact(mob/user, var/datum/tgui/ui)
 	var/height = item ? 600: 300
 	var/width = item ? 500 : 300
 	if(istype(item, /obj/item/gun/energy/laser/prototype) || istype(item, /obj/item/device/laser_assembly))
 		width = 600
 
-	if (!ui)
-		ui = new(user, src, "wanalyzer-analyzer", width, height, capitalize(name))
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "WeaponsAnalyzer", "Weapons Analyzer", width, height)
+		ui.open()
 
-	if(item)
-		var/icon/Icon_used = new /icon(item.icon, item.icon_state)
-		ui.add_asset("icon", Icon_used)
-		ui.send_asset("icon")
 	ui.open()
 
-/obj/machinery/weapons_analyzer/Topic(href, href_list, datum/topic_state/state)
+/obj/machinery/weapons_analyzer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
 
-	if(href_list["print"] && item)
+	if((action == "print") && item)
 		do_print()
+		. = TRUE
 
 /obj/machinery/weapons_analyzer/proc/do_print()
 	var/obj/item/paper/R = new /obj/item/paper(get_turf(src))

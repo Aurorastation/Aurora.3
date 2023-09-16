@@ -23,8 +23,8 @@
 	/obj/item/material/knife/tacknife = 75
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 70
+	max_duration = 90
 
 /singleton/surgery_step/generic/prepare_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_CUT_OPEN
@@ -42,8 +42,8 @@
 /singleton/surgery_step/generic/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
-	target.apply_damage(20, OXY)
+	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_OXY)
 	target.losebreath += 10
 
 
@@ -55,8 +55,8 @@
 	/obj/item/device/assembly/mousetrap = 10	//I don't know. Don't ask me. But I'm leaving it because hilarity.
 	)
 
-	min_duration = 40
-	max_duration = 90
+	min_duration = 30
+	max_duration = 70
 
 /singleton/surgery_step/generic/alter_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_RETRACTED
@@ -88,8 +88,8 @@
 /singleton/surgery_step/generic/alter_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
-	target.apply_damage(20, OXY)
+	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_OXY)
 	target.losebreath += 10
 
 
@@ -102,8 +102,8 @@
 	/obj/item/weldingtool = 25
 	)
 
-	min_duration = 70
-	max_duration = 100
+	min_duration = 50
+	max_duration = 80
 
 /singleton/surgery_step/face/cauterize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target.op_stage.face > FACE_NORMAL
@@ -128,7 +128,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, leaving a small burn on [target]'s face with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, leaving a small burn on [target]'s face with \the [tool]!"))
-	target.apply_damage(5, BURN, affected)
+	target.apply_damage(5, DAMAGE_BURN, affected)
 
 /singleton/surgery_step/robotics/face
 	priority = 2
@@ -145,8 +145,8 @@
 	/obj/item/material/shard = 50
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 70
+	max_duration = 90
 
 /singleton/surgery_step/robotics/face/synthskinopen/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target.op_stage.face == FACE_NORMAL && target.get_species() == SPECIES_IPC_SHELL
@@ -164,7 +164,7 @@
 /singleton/surgery_step/robotics/face/synthskinopen/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/robotics/face/prepare_face
 	name = "Prepare Face"
@@ -173,8 +173,8 @@
 	/obj/item/material/knife/tacknife = 75
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 70
+	max_duration = 90
 
 /singleton/surgery_step/robotics/face/prepare_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_CUT_OPEN
@@ -192,7 +192,7 @@
 /singleton/surgery_step/robotics/face/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/robotics/face/alter_synthface
 	name = "Alter Face"
@@ -202,8 +202,8 @@
 	/obj/item/device/assembly/mousetrap = 10	//I don't know. Don't ask me. But I'm leaving it because hilarity.
 	)
 
-	min_duration = 40
-	max_duration = 90
+	min_duration = 30
+	max_duration = 70
 
 /singleton/surgery_step/robotics/face/alter_synthface/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_RETRACTED
@@ -236,7 +236,7 @@
 /singleton/surgery_step/robotics/face/alter_synthface/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/robotics/face/seal_face
 	name = "Seal face"
@@ -247,8 +247,8 @@
 	/obj/item/weldingtool = 25
 	)
 
-	min_duration = 70
-	max_duration = 100
+	min_duration = 50
+	max_duration = 80
 
 /singleton/surgery_step/robotics/face/seal_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target.op_stage.face > FACE_NORMAL
@@ -272,4 +272,4 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, leaving a small burn on [target]'s synthskin face with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, leaving a small burn on [target]'s synthskin face with \the [tool]!"))
-	target.apply_damage(5, BURN, affected)
+	target.apply_damage(5, DAMAGE_BURN, affected)

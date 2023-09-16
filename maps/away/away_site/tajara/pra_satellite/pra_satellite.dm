@@ -14,6 +14,12 @@
 /obj/effect/overmap/visitable/sector/pra_satellite
 	name = "hadiist satellite"
 	desc = "A People's Republic of Adhomai satellite used to survey the system."
+	static_vessel = TRUE
+	generic_object = FALSE
+	designer = "People's Republic of Adhomai"
+	volume = "25 meters length, 25 meters beam/width, 8 meters vertical height"
+	sizeclass = "Small-scale surveillance station"
+
 	initial_generic_waypoints = list(
 		"nav_hadiist_satellite_1",
 		"nav_hadiist_satellite_2",
@@ -46,3 +52,4 @@
 	requires_power = TRUE
 	base_turf = /turf/simulated/floor/plating
 	no_light_control = TRUE
+	ambience = AMBIENCE_TECH_RUINS

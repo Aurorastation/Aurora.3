@@ -119,7 +119,7 @@
 
 /mob/living/carbon/human/proc/get_blood_oxygenation()
 	var/blood_volume = get_blood_circulation()
-	if(is_asystole()) // Heart is missing or isn't beating and we're not breathing (hardcrit)
+	if(is_asystole() || (status_flags & FAKEDEATH)) // Heart is missing or isn't beating and we're not breathing (hardcrit)
 		return min(blood_volume, BLOOD_VOLUME_SURVIVE)
 
 	if(!need_breathe())
@@ -176,7 +176,7 @@
 	vessel.add_reagent(/singleton/reagent/blood, amount, REAGENT_DATA(donor, /singleton/reagent/blood), temperature = species?.body_temperature)
 	..()
 
-proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
+/proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 	if(!donor || !receiver) return 0
 
 	if(donor_species && receiver_species)
@@ -225,12 +225,15 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 		trace_chems = LAZYACCESS(vessel.reagent_data[/singleton/reagent/blood], "trace_chem") || list()
 	.["trace_chem"] = trace_chems.Copy()
 
-proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/sourceless_color)
-
+/proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/sourceless_color)
 	var/obj/effect/decal/cleanable/blood/splatter
 	var/decal_type = /obj/effect/decal/cleanable/blood/splatter
 	if(sourceless_color == COLOR_OIL)
 		decal_type = /obj/effect/decal/cleanable/blood/oil/streak
+	if(ishuman(source))
+		var/mob/living/carbon/human/H = source
+		if(H.isSynthetic())
+			decal_type = /obj/effect/decal/cleanable/blood/oil/streak
 	var/turf/T = get_turf(target)
 
 	// Are we dripping or splattering?
@@ -292,5 +295,5 @@ proc/blood_splatter(var/target, var/source, var/large, var/spray_dir, var/source
 			splatter.blood_DNA[blood_data["blood_DNA"]] = "O+"
 
 	splatter.fluorescent  = 0
-	splatter.invisibility = 0
+	splatter.set_invisibility(0)
 	return splatter

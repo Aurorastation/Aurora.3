@@ -178,6 +178,22 @@
 	overlay_state = "goldbadge"
 	slot_flags = SLOT_TIE
 
+/obj/item/clothing/accessory/badge/bssb
+	name = "\improper BSSB agent's badge"
+	desc = "A silver badge, set in purple leather, denoting the wearer as an agent of the Biesel Security Services Bureau."
+	desc_extended = "The overseeing authority of the domestic agencies that operate within the Republic of Biesel. In reality, the Biesel Security Services Bureau has become incredibly important to the enforcement of the Republic's laws. The BSSB was founded with the goal of monitoring the planetary policing forces within the Republic of Biesel and stepping in when needed. Most of the BSSB was sponsored by NanoTrasen, with even its headquarters having been constructed by the megacorporation. The agency quickly found its footing within the Republic and found itself being labelled as Biesel's most skilled law enforcement agency despite the accusation of bribery on behalf of NanoTrasen. Today, the BSSB has become an easily recognisable organization with several action movies and novels produced within the Republic of Biesel making it a centrepiece of the Republic's image. It is headed by Director Clarrise Lyon."
+	icon_state = "badge_round_bssb"
+	overlay_state = "badge_round_bssb"
+	slot_flags = SLOT_TIE
+	contained_sprite = TRUE
+	icon = 'icons/clothing/accessories/bssb_badge.dmi'
+
+/obj/item/clothing/accessory/badge/bssb/senior
+	name = "\improper BSSB senior agent's badge"
+	desc = "A golden badge, set in purple leather, denoting the wearer as a senior agent of the Biesel Security Services Bureau."
+	icon_state = "badge_round_bssb_sen"
+	overlay_state = "badge_round_bssb_sen"
+
 /obj/item/clothing/accessory/badge/sol_visa
 	name = "\improper ASSN visa recommendation slip"
 	desc = "A compact piece of legal paperwork that can replace the enormous amounts of documents required to obtain a Sol Alliance visa."
@@ -440,8 +456,12 @@
 	desc = "A dagger issued as a writ of passage to Scarabs abroad."
 	desc_extended = "By Scarab traditions, one should show their weapon to non-Scarabs upon first meeting. This dagger, sheathed in hakhma chitin, is often given to noncombatants, the Released, or the young, so they \
 	may meet with outsiders with at least a blade between them. Despite this, the blade is sealed tightly within the scabbard."
-	icon_state = "passcard_scarab"
-	item_state = "passcard_scarab"
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	icon_state = "passblade_scarab"
+	item_state = "passblade_scarab"
+	worn_overlay = "over"
+	contained_sprite = TRUE
+	build_from_parts = TRUE
 	slot_flags = SLOT_HOLSTER
 	w_class = ITEMSIZE_SMALL
 

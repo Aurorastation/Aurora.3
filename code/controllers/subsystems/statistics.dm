@@ -262,8 +262,8 @@
 			"special"=H?.mind.special_role,
 			"pod"=podname,
 			"tod"=time2text(world.realtime, "YYYY-MM-DD hh:mm:ss"),
-			"laname"=H?.lastattacker.real_name,
-			"lackey"=H?.lastattacker.ckey,
+			"laname"=H?.lastattacker?.real_name,
+			"lackey"=H?.lastattacker?.ckey,
 			"gender"=H.gender,
 			"bruteloss"=H.getBruteLoss(),
 			"fireloss"=H.getFireLoss(),
@@ -288,5 +288,6 @@
 		return FALSE
 	S.increment_value(key)
 
-/datum/controller/subsystem/statistics/stat_entry()
-	..("Kicked: [kicked_clients]")
+/datum/controller/subsystem/statistics/stat_entry(msg)
+	msg = "Kicked: [kicked_clients]"
+	return ..()

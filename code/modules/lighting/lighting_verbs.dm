@@ -15,7 +15,7 @@ var/list/admin_verbs_lighting = list(
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	to_chat(src, SPAN_NOTICE("Lighting debug verbs have been shown."))
-	verbs += admin_verbs_lighting
+	add_verb(src, admin_verbs_lighting)
 
 /client/proc/lighting_hide_verbs()
 	set category = "Lighting"
@@ -25,7 +25,7 @@ var/list/admin_verbs_lighting = list(
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	to_chat(src, SPAN_NOTICE("Lighting debug verbs have been hidden."))
-	verbs -= admin_verbs_lighting
+	remove_verb(src, admin_verbs_lighting)
 
 /client/proc/lighting_flush()
 	set category = "Lighting"
@@ -42,7 +42,7 @@ var/list/admin_verbs_lighting = list(
 	SSlighting.corner_queue = list()
 	SSlighting.overlay_queue = list()
 
-/client/proc/lighting_reconsider_target(turf/T in turfs)
+/client/proc/lighting_reconsider_target(turf/T in world)
 	set category = "Lighting"
 	set name = "Reconsider Visibility"
 	set desc = "Triggers a visibility update for a turf."
@@ -57,7 +57,7 @@ var/list/admin_verbs_lighting = list(
 
 	T.reconsider_lights()
 
-/client/proc/lighting_build_overlay(turf/T in turfs)
+/client/proc/lighting_build_overlay(turf/T in world)
 	set category = "Lighting"
 	set name = "Build Overlay"
 	set desc = "Builds a lighting overlay for a turf if it does not have one."
@@ -72,7 +72,7 @@ var/list/admin_verbs_lighting = list(
 
 	T.lighting_build_overlay()
 
-/client/proc/lighting_clear_overlay(turf/T in turfs)
+/client/proc/lighting_clear_overlay(turf/T in world)
 	set category = "Lighting"
 	set name = "Clear Overlay"
 	set desc = "Clears a lighting overlay for a turf if it has one."

@@ -84,8 +84,8 @@
  */
 
 /obj/item/storage/backpack/holding
-	name = "bag of holding"
-	desc = "A backpack that opens into a localized pocket of Blue Space."
+	name = "portable bluespace pocket"
+	desc = "A backpack that opens into a localized pocket of bluespace. Extremely dangerous, and officially these devices do not exist. Officially."
 	origin_tech = list(TECH_BLUESPACE = 4)
 	icon_state = "holdingpack"
 	item_state = "holdingpack"
@@ -94,18 +94,18 @@
 	storage_cost = 29
 	empty_delay = 0.8 SECOND
 
-	attackby(obj/item/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/storage/backpack/holding))
-			to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
-			qdel(W)
-			return
-		..()
+/obj/item/storage/backpack/holding/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/storage/backpack/holding))
+		to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
+		qdel(W)
+		return
+	..()
 
 	//Please don't clutter the parent storage item with stupid hacks.
-	can_be_inserted(obj/item/W as obj, stop_messages = 0)
-		if(istype(W, /obj/item/storage/backpack/holding))
-			return 1
-		return ..()
+/obj/item/storage/backpack/holding/can_be_inserted(obj/item/W as obj, stop_messages = 0)
+	if(istype(W, /obj/item/storage/backpack/holding))
+		return 1
+	return ..()
 
 /obj/item/storage/backpack/santabag
 	name = "\improper Santa's gift bag"
@@ -113,7 +113,7 @@
 	icon_state = "giftbag0"
 	item_state = "giftbag"
 	w_class = ITEMSIZE_LARGE
-	max_storage_space = 400 // can store a ton of shit!
+	max_storage_space = 200 // can store a ton of shit!
 	empty_delay = 1 SECOND
 
 /obj/item/storage/backpack/cultpack
@@ -261,6 +261,13 @@
 	desc = "A sturdy backpack with the emblems and markings of the Tau Ceti Foreign Legion."
 	icon_state = "legion_bag"
 	item_state = "legion_bag"
+	empty_delay = 0.8 SECOND
+
+/obj/item/storage/backpack/tcaf
+	name = "\improper TCAF carapace backpack"
+	desc = "A hard shelled backpack with the flag of the Republic of Biesel front and center. Made for the Tau Ceti Armed Forces."
+	icon_state = "tcaf_carapace_backpack"
+	item_state = "tcaf_carapace_backpack"
 	empty_delay = 0.8 SECOND
 
 /obj/item/storage/backpack/service
@@ -973,6 +980,24 @@
 	desc = "A Vaurca cloak with storage pockets. This one has the security department design."
 	icon_state = "seccape"
 	item_state = "seccape"
+
+/obj/item/storage/backpack/cloak/zora
+	name = "\improper Zo'ra tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the Zo'ra Hive flag design."
+	icon_state = "zoracape"
+	item_state = "zoracape"
+
+/obj/item/storage/backpack/cloak/klax
+	name = "\improper K'lax tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the K'lax Hive flag design."
+	icon_state = "klaxcape"
+	item_state = "klaxcape"
+
+/obj/item/storage/backpack/cloak/cthur
+	name = "\improper C'thur tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the C'thur Hive flag design."
+	icon_state = "cthurcape"
+	item_state = "cthurcape"
 
 /obj/item/storage/backpack/kala
 	name = "skrell backpack"

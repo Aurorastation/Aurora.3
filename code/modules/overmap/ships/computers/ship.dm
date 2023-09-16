@@ -56,6 +56,9 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	if(user.eyeobj)
 		moved_event.register(user.eyeobj, src, PROC_REF(unlook))
 	LAZYDISTINCTADD(viewers, WEAKREF(user))
+	if(linked)
+		LAZYDISTINCTADD(linked.navigation_viewers, WEAKREF(user))
+	ADD_TRAIT(user, TRAIT_COMPUTER_VIEW, ref(src))
 
 /obj/machinery/computer/ship/proc/unlook(var/mob/user)
 	user.reset_view()
@@ -78,9 +81,17 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		moved_event.unregister(E.owner, src, PROC_REF(unlook))
 		LAZYREMOVE(viewers, WEAKREF(E.owner))
 	LAZYREMOVE(viewers, WEAKREF(user))
+	if(linked)
+		LAZYREMOVE(linked.navigation_viewers, WEAKREF(user))
+
+	if(linked)
+		for(var/obj/machinery/computer/ship/sensors/sensor in linked.consoles)
+			sensor.hide_contacts(user)
+
+	REMOVE_TRAIT(user, TRAIT_COMPUTER_VIEW, ref(src))
 
 /obj/machinery/computer/ship/proc/viewing_overmap(mob/user)
-	return (WEAKREF(user) in viewers)
+	return (WEAKREF(user) in viewers) || (linked && (WEAKREF(user) in linked.navigation_viewers))
 
 /obj/machinery/computer/ship/CouldNotUseTopic(mob/user)
 	. = ..()
@@ -99,9 +110,11 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	if (use_check_and_message(user, flags) || user.blinded || inoperable() || !linked)
 		return -1
 	else
-		return 0
+		return SEE_THRU
 
 /obj/machinery/computer/ship/Destroy()
+	if(linked)
+		linked = null
 	if(connected)
 		LAZYREMOVE(connected.consoles, src)
 	. = ..()
@@ -114,6 +127,8 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 			var/M = W.resolve()
 			if(M)
 				unlook(M)
+				if(linked)
+					LAZYREMOVE(linked.navigation_viewers, W)
 	. = ..()
 
 /obj/machinery/computer/ship/on_user_login(mob/M)

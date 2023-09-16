@@ -118,33 +118,6 @@
 		src.icon_state = "cake0"
 		src.item_state = "cake0"
 	return
-
-
-/*
- * Ushanka
- */
-/obj/item/clothing/head/ushanka
-	name = "ushanka"
-	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way."
-	icon_state = "ushanka"
-	flags_inv = HIDEEARS
-	var/earsup = 0
-
-/obj/item/clothing/head/ushanka/grey
-	name = "grey ushanka"
-	desc = "Perfect for winter in Siberia, da?"
-	icon_state = "greyushanka"
-
-/obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
-	src.earsup = !src.earsup
-	if(src.earsup)
-		icon_state = "[icon_state]_up"
-		to_chat(user, "You raise the ear flaps on the ushanka.")
-	else
-		src.icon_state = initial(icon_state)
-		to_chat(user, "You lower the ear flaps on the ushanka.")
-	update_clothing_icon()
-
 /*
  * Pumpkin head
  */

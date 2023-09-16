@@ -56,7 +56,7 @@
 	TornadoAnimate(A)
 	A.visible_message("<span class='warning'>[A] sweeps [D] with their tail!</span>")
 	playsound(get_turf(A), /singleton/sound_category/swing_hit_sound, 50, 1, -1)
-	D.apply_damage(5, BRUTE)
+	D.apply_damage(5, DAMAGE_BRUTE)
 	D.Weaken(2)
 	return 1
 

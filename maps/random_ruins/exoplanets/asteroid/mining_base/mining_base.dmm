@@ -1,44 +1,44 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "j" = (
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "k" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "o" = (
 /turf/simulated/mineral,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "r" = (
 /turf/unsimulated/floor/asteroid/ash,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "s" = (
 /mob/living/simple_animal/hostile/retaliate/minedrone,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "t" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
 /mob/living/simple_animal/hostile/retaliate/minedrone,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "u" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "v" = (
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "z" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/structure/table/reinforced,
 /obj/item/storage/bag/ore,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "B" = (
 /obj/structure/closet/crate,
 /obj/item/ore/hydrogen,
@@ -51,13 +51,13 @@
 /obj/item/ore/coal,
 /obj/item/ore/coal,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "C" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "D" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -65,43 +65,43 @@
 /obj/structure/table/reinforced,
 /obj/item/clothing/accessory/storage/overalls/mining,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "H" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "L" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 9
 	},
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "N" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "O" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "P" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
 	},
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "R" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/structure/table/reinforced,
 /obj/item/rfd/mining,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "T" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -109,18 +109,18 @@
 /obj/structure/table/reinforced,
 /obj/item/device/flashlight/lantern,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "U" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/mech_wreckage/powerloader,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "V" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "X" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
@@ -128,14 +128,14 @@
 /obj/structure/table/reinforced,
 /obj/item/pickaxe/jackhammer,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 "Y" = (
 /obj/structure/closet/crate,
 /obj/item/ore/diamond,
 /obj/item/ore/diamond,
 /obj/item/ore/diamond,
 /turf/simulated/floor/airless/ceiling,
-/area/exoplanet/barren/asteroid)
+/area/template_noop)
 
 (1,1,1) = {"
 r

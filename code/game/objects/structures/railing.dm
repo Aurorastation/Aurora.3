@@ -1,7 +1,7 @@
 /obj/structure/railing
 	name = "railing"
 	desc = "A simple bar railing designed to protect against careless trespass."
-	icon = 'icons/obj/railing.dmi'
+	icon = 'icons/obj/structure/blocker/railing_basic.dmi'
 	icon_state = "railing0-1"
 	density = TRUE
 	throwpass = TRUE
@@ -41,7 +41,7 @@
 	if(!material || !material.radioactivity)
 		return
 	for(var/mob/living/L in range(1,src))
-		L.apply_damage(round(material.radioactivity / 20), IRRADIATE)
+		L.apply_damage(round(material.radioactivity / 20), DAMAGE_RADIATION)
 
 /obj/structure/railing/Initialize()
 	. = ..()
@@ -72,7 +72,15 @@
 	return ..()
 
 /obj/structure/railing/examine(mob/user)
-	..()
+	. = ..()
+	if(health < maxhealth)
+		switch(health / maxhealth)
+			if(0.0 to 0.5)
+				to_chat(user, SPAN_WARNING("It looks severely damaged!"))
+			if(0.25 to 0.5)
+				to_chat(user, SPAN_WARNING("It looks damaged!"))
+			if(0.5 to 1.0)
+				to_chat(user, SPAN_NOTICE("It has a few scrapes and dents."))
 	to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is <b>[density ? "closed" : "open"]</b> to passage.")))
 	to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is <b>[anchored ? "" : "not"] screwed</b> to the floor.")))
 
@@ -86,17 +94,6 @@
 	if(get_dir(loc, target) == dir)
 		return !density
 	return TRUE
-
-/obj/structure/railing/examine(mob/user)
-	..()
-	if(health < maxhealth)
-		switch(health / maxhealth)
-			if(0.0 to 0.5)
-				to_chat(user, SPAN_WARNING("It looks severely damaged!"))
-			if(0.25 to 0.5)
-				to_chat(user, SPAN_WARNING("It looks damaged!"))
-			if(0.5 to 1.0)
-				to_chat(user, SPAN_NOTICE("It has a few scrapes and dents."))
 
 /obj/structure/railing/proc/take_damage(amount)
 	health -= amount
@@ -144,6 +141,10 @@
 /obj/structure/railing/update_icon(var/update_neighbors = TRUE)
 	NeighborsCheck(update_neighbors)
 	overlays.Cut()
+	if(dir == SOUTH)
+		layer = ABOVE_MOB_LAYER
+	else
+		layer = initial(layer)
 	if(!neighbor_status || !anchored)
 		icon_state = "railing0-[density]"
 	else
@@ -213,7 +214,7 @@
 					playsound(get_turf(src), 'sound/effects/grillehit.ogg', 50, TRUE)
 					if(prob(30))
 						G.affecting.Weaken(5)
-					G.affecting.apply_damage(15, BRUTE, BP_HEAD)
+					G.affecting.apply_damage(15, DAMAGE_BRUTE, BP_HEAD)
 				else
 					G.affecting.forceMove(get_step(src, get_dir(user, src)))
 					G.affecting.Weaken(5)
@@ -273,7 +274,7 @@
 			update_icon()
 		return
 
-	if(W.force && (W.damtype == BURN || W.damtype == BRUTE))
+	if(W.force && (W.damtype == DAMAGE_BURN || W.damtype == DAMAGE_BRUTE))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		visible_message(SPAN_WARNING("\The [src] has been [LAZYLEN(W.attack_verb) ? pick(W.attack_verb) : "attacked"] with \the [W] by \the [user]!"))
 		take_damage(W.force)
@@ -329,3 +330,18 @@
 	. = get_turf(src) // by default, we pop into the turf the railing's on
 	if(get_turf(user) == . || !(get_dir(src, user) & dir)) // if the user's inside our turf or behind us, go in front of us
 		. = get_step(src, dir)
+
+//fence
+
+/obj/structure/railing/fence
+	name = "fence"
+	color = "#824B28"
+	anchored = TRUE
+
+/obj/structure/railing/fence/Initialize()
+	. = ..()
+	color = "#824B28"
+
+/obj/structure/railing/fence/New(var/newloc, var/material_key = MATERIAL_WOOD)
+	material = material_key
+	..(newloc)

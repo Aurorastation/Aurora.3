@@ -14,6 +14,9 @@
 	mob_swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 
+	/// The type of damage this mob deals.
+	var/damage_type = DAMAGE_BRUTE
+
 	var/show_stat_health = 1	//does the percentage health show in the stat panel for the mob
 
 	var/icon_living = ""
@@ -88,7 +91,7 @@
 	var/armor_penetration = 0
 	var/attack_flags = 0
 	var/attacktext = "attacked"
-	var/attack_sound = null
+	var/attack_sound = /singleton/sound_category/swing_hit_sound
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
 	var/resistance		  = 0	// Damage reduction
@@ -148,6 +151,8 @@
 	var/return_damage_min
 	var/return_damage_max
 
+	var/dead_on_map = FALSE //if true, kills the mob when it spawns (it is for mapping)
+	var/vehicle_version = null
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
@@ -159,7 +164,7 @@
 	seek_move_delay = (1 / seek_speed) * 10	//number of ds between moves
 	turns_since_scan = rand(min_scan_interval, max_scan_interval)//Randomise this at the start so animals don't sync up
 	health = maxHealth
-	verbs -= /mob/verb/observe
+	remove_verb(src, /mob/verb/observe)
 	health = maxHealth
 	if (mob_size)
 		update_nutrition_stats()
@@ -177,7 +182,10 @@
 
 	if(simple_default_language)
 		add_language(simple_default_language)
-		set_default_language(all_languages[simple_default_language])
+		default_language = all_languages[simple_default_language]
+
+	if(dead_on_map)
+		death()
 
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()
@@ -202,7 +210,7 @@
 	..()
 
 /mob/living/simple_animal/examine(mob/user)
-	..()
+	. =  ..()
 
 	if (stat == DEAD)
 		to_chat(user, "<span class='danger'>It looks dead.</span>")
@@ -278,15 +286,15 @@
 	//Atmos effect
 	if(bodytemperature < minbodytemp)
 		fire_alert = 2
-		apply_damage(cold_damage_per_tick, BURN, used_weapon = "Cold Temperature")
+		apply_damage(cold_damage_per_tick, DAMAGE_BURN, used_weapon = "Cold Temperature")
 	else if(bodytemperature > maxbodytemp)
 		fire_alert = 1
-		apply_damage(heat_damage_per_tick, BURN, used_weapon = "High Temperature")
+		apply_damage(heat_damage_per_tick, DAMAGE_BURN, used_weapon = "High Temperature")
 	else
 		fire_alert = 0
 
 	if(!atmos_suitable)
-		apply_damage(unsuitable_atoms_damage, OXY, used_weapon = "Atmosphere")
+		apply_damage(unsuitable_atoms_damage, DAMAGE_OXY, used_weapon = "Atmosphere")
 
 	if(has_udder)
 		if(stat == CONSCIOUS)
@@ -301,14 +309,10 @@
 	if(stop_thinking)
 		return
 
-	if(!stop_automated_movement && wander && !anchored)
-		if(isturf(loc) && !resting && !buckled_to && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
-			if(turns_since_move >= turns_per_move && !(stop_automated_movement_when_pulled && pulledby))	 //Some animals don't move when pulled
-				var/moving_to = 0 // otherwise it always picks 4, fuck if I know.   Did I mention fuck BYOND
-				moving_to = wanders_diagonally ? pick(alldirs) : pick(cardinal)
-				set_dir(moving_to)			//How about we turn them the direction they are moving, yay.
-				Move(get_step(src,moving_to))
-				turns_since_move = 0
+	if(wander && !anchored && !stop_automated_movement)
+		if(isturf(loc) && !resting && !buckled_to && canmove)
+			if(!(pulledby && stop_automated_movement_when_pulled))
+				step_rand(src)
 
 	//Speaking
 	if(speak_chance && rand(0,200) < speak_chance)
@@ -464,6 +468,8 @@
 
 //This is called when an animal 'speaks'. It does nothing here, but descendants should override it to add audio
 /mob/living/simple_animal/proc/speak_audio()
+	if(emote_sounds.len)
+		make_noise(TRUE)
 	return
 
 /mob/living/simple_animal/proc/visible_emote(var/act_desc)
@@ -537,12 +543,22 @@
 	simple_harm_attack(user)
 
 /mob/living/simple_animal/proc/simple_harm_attack(var/mob/living/user)
-	apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [user.name]")
+	apply_damage(harm_intent_damage, damage_type, used_weapon = "Attack by [user.name]")
 	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	poke(TRUE)
 
 /mob/living/simple_animal/attackby(obj/item/O, mob/user)
+	if(istype(O, /obj/item/saddle) && vehicle_version && (stat != DEAD))
+		var/obj/vehicle/V = new vehicle_version (get_turf(src))
+		V.health = health
+		V.maxhealth = maxHealth
+		to_chat(user, SPAN_WARNING("You place \the [O] on the \the [src]."))
+		user.drop_from_inventory(O)
+		O.forceMove(get_turf(src))
+		qdel(O)
+		qdel(src)
+
 	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
 		attacked_with_item(O, user)
 		return
@@ -590,7 +606,7 @@
 
 	if(O.force > resistance)
 		var/damage = O.force
-		if (O.damtype == PAIN)
+		if (O.damtype == DAMAGE_PAIN)
 			damage = 0
 		if(supernatural && istype(O,/obj/item/nullrod))
 			damage *= 2
@@ -671,12 +687,12 @@
 		stop_automated_movement = 1
 		walk_to(src, movement_target, 0, DS2TICKS(seek_move_delay))
 
-/mob/living/simple_animal/Stat()
-	..()
+/mob/living/simple_animal/get_status_tab_items()
+	. = ..()
 
-	if(statpanel("Status") && show_stat_health)
-		stat(null, "Health: [round((health / maxHealth) * 100)]%")
-		stat(null, "Nutrition: [nutrition]/[max_nutrition]")
+	if(show_stat_health)
+		. += "Health: [round((health / maxHealth) * 100)]%"
+		. += "Nutrition: [nutrition]/[max_nutrition]"
 
 /mob/living/simple_animal/updatehealth()
 	..()
@@ -707,7 +723,7 @@
 		if(3.0)
 			damage = 30
 
-	apply_damage(damage, BRUTE, damage_flags = DAM_EXPLODE)
+	apply_damage(damage, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_EXPLODE)
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
 	if (isliving(target_mob))
@@ -850,7 +866,7 @@
 //Wakes the mob up from sleeping
 /mob/living/simple_animal/proc/wake_up()
 	if (stat != DEAD)
-		set_stat(UNCONSCIOUS)
+		set_stat(CONSCIOUS)
 		resting = 0
 		canmove = 1
 		wander = 1
@@ -879,7 +895,7 @@
 
 //Todo: add snowflakey shit to it.
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
-	apply_damage(shock_damage, BURN)
+	apply_damage(shock_damage, DAMAGE_BURN)
 	playsound(loc, /singleton/sound_category/spark_sound, 50, 1, -1)
 	spark(loc, 5, alldirs)
 	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), SPAN_WARNING("You are shocked by \the [source]!"), SPAN_WARNING("You hear an electrical crack!"))
@@ -924,7 +940,7 @@
 	..()
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)
-			if(P.damage_type == BRUTE)
+			if(P.damage_type == DAMAGE_BRUTE)
 				var/hit_dir = get_dir(P.starting, src)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
@@ -966,6 +982,10 @@
 		attacker.apply_damage(rand(return_damage_min, return_damage_max), damage_type, hand_hurtie, used_weapon = description)
 		if(rand(25))
 			to_chat(attacker, SPAN_WARNING("Your attack has no obvious effect on \the [src]'s [description]!"))
+
+/mob/living/simple_animal/get_speech_bubble_state_modifier()
+	return ..() || "rough"
+
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

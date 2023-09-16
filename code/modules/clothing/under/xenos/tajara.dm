@@ -232,17 +232,38 @@
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 	armor = list(melee = ARMOR_MELEE_SMALL)
 
+/obj/item/clothing/under/tajaran/nka_uniform/commander
+	name = "imperial adhomian army officer uniform"
+	desc = "A military uniform used by the officers of the New Kingdom of Adhomai's army."
+	icon_state = "nka_commander"
+	item_state = "nka_commander"
+	starting_accessories = null
+
+/obj/item/clothing/under/tajaran/nka_uniform/sailor
+	name = "royal navy sailor uniform"
+	desc = "A military uniform used by the sailor of the New Kingdom of Adhomai's navy."
+	icon_state = "nka_sailor"
+	item_state = "nka_sailor"
+
 /obj/item/clothing/under/tajaran/consular
 	name = "people's republic consular uniform"
 	desc = "An olive uniform used by the diplomatic service of the People's Republic of Adhomai."
 	icon_state = "pra_consular"
 	item_state = "pra_consular"
 
+/obj/item/clothing/under/tajaran/consular/female
+	icon_state = "pra_con_f"
+	item_state = "pra_con_f"
+
 /obj/item/clothing/under/tajaran/consular/dpra
 	name = "democratic people's republic consular uniform"
 	desc = "A grey uniform used by the diplomatic service of the Democratic People's Republic of Adhomai."
 	icon_state = "dpra_consular"
 	item_state = "dpra_consular"
+
+/obj/item/clothing/under/tajaran/consular/dpra/female
+	icon_state = "dpra_con_f"
+	item_state = "dpra_con_f"
 
 /obj/item/clothing/under/tajaran/consular/nka
 	name = "new kingdom consular uniform"
@@ -282,7 +303,7 @@
 
 /obj/item/clothing/under/tajaran/nka_merchant_navy
 	name = "her majesty's mercantile flotilla crew uniform"
-	desc = "An uniform used by the crew of the New Kingdom's merchant space ships. It is clearly inspired on the ones used back in Adhomai."
+	desc = "An uniform used by the crew of the New Kingdom's merchant space ships. It is clearly inspired by the ones used back on Adhomai."
 	icon_state = "nka_merchant_navy"
 	item_state = "nka_merchant_navy"
 
@@ -353,3 +374,127 @@
 	item_state = "tesla_body_jumpsuit"
 	species_restricted = list(BODYTYPE_TESLA_BODY)
 	sprite_sheets = list(BODYTYPE_TESLA_BODY = 'icons/mob/species/tajaran/tesla_body/uniform.dmi')
+
+/obj/item/clothing/under/tajaran/archeologist
+	name = "archaeologist uniform"
+	desc = "A rugged uniform used by Adhomian archaeologists. It is already covered in dirt and ancient dust."
+	icon_state = "explorer_uniform"
+	item_state = "explorer_uniform"
+
+/obj/item/clothing/under/tajaran/army_commissar
+	name = "army commissar uniform"
+	desc = "A military uniform used by Party Commissars attached to military units."
+	desc_extended = "Party Commissars are high ranking members of the Party of the Free Tajara under the Leadership of Hadii attached to army units, who ensures that soldiers and \
+	their commanders follow the principles of Hadiism. Their duties are not only limited to enforcing the republican ideals among the troops and reporting possible subversive elements, \
+	they are expected to display bravery in combat and lead by example."
+	icon_state = "pracommisar"
+	item_state = "pracommisar"
+	starting_accessories = (/obj/item/clothing/accessory/holster/hip)
+
+/obj/item/clothing/under/tajaran/psis
+	name = "people's strategic intelligence service uniform"
+	desc = "An uniform used by the agents of the People's Strategic Intelligence Service. The sight of this uniform is feared by most Tajara."
+	desc_extended = "The People's Strategic Intelligence service is the main intelligence agency of the People's Republic. In the wake of the revolution that had won the species their independence, \
+	the budding government recognized the need for covert operations. Several agents and informants are employed by the PSIS, both in domestic and foreign theaters. The agency makes use of \
+	espionage, sabotage, assassination, interrogation, blackmail, and all other short of subterfuge, during their operations. Subversive elements within the People's Republican are dealt with \
+	quickly, usually through night raids and abductions conducted with aid of black unmarked cars. Tajara residing in other systems are not truly safe from the Intelligence Service, as they are \
+	known to deploy their agents against off-world targets. Republican spies, enforces and collaborators are present in Mendell City's district six, carrying out orders or watching their fellow Tajara."
+	icon_state = "psis"
+	item_state = "psis"
+	starting_accessories = (/obj/item/clothing/accessory/holster/hip)
+
+// Red Polka Dot Dress
+/obj/item/clothing/under/dress/tajaran/polka_dot
+	name = "red polka dot dress"
+	desc = "A newer fashion style, this dress sports a jaunty, summery print with a scandalous shape by tajara standards. This one is red."
+	desc_extended = "Fundamentally at odds with the more traditional \"Flapper\" variety of clothing popular in the 2440s and 2450s, newer, more revealing and less restrictive dresses have found themselves surging amongst the teenage and young adult demographic on Adhomai, and in the People's Republic of Adhomai specifically. Many parents do not approve of these new styles, but shops sell them all the same, and celebrities flaunt them at red carpet events. Like it or not, times have begun to change."
+	icon = 'icons/obj/item/clothing/under/dress/tajaran/polka_dot_dresses.dmi'
+	icon_state = "polka_red"
+	item_state = "polka_red"
+
+// Black Polka Dot Dress
+/obj/item/clothing/under/dress/tajaran/polka_dot/black
+	name = "black polka dot dress"
+	desc = "A newer fashion style, this dress sports a jaunty, summery print with a scandalous shape by tajara standards. This one is black."
+	icon_state = "polka_black"
+	item_state = "polka_black"
+
+// Floral Dress
+/obj/item/clothing/under/dress/tajaran/floral
+	name = "floral dress"
+	desc = "A newer fashion style, this flower-printed blouse and pencil skirt sport a colorful print and a scandalous shape by tajara standards."
+	icon = 'icons/obj/item/clothing/under/dress/tajaran/floral_dress.dmi'
+	icon_state = "floral_dress"
+	item_state = "floral_dress"
+
+// Plaid Housewife Dress
+/obj/item/clothing/under/dress/tajaran/housewife
+	name = "plaid housewife dress"
+	desc = "A modest plaid dress, done in the latest tajaran styles."
+	icon = 'icons/obj/item/clothing/under/dress/tajaran/housewife_dresses.dmi'
+	icon_state = "housewife_plaid"
+	item_state = "housewife_plaid"
+
+// Mauve Housewife Dress
+/obj/item/clothing/under/dress/tajaran/housewife/mauve
+	name = "mauve housewife dress"
+	desc = "A modest mauve dress with a white collar, done in the latest tajaran styles."
+	icon_state = "housewife_mauve"
+	item_state = "housewife_mauve"
+	desc_extended = "Born of changing styles in the People's Republic and elsewhere, this dress blends the newer, more flattering shapes and traditional modestness so that the modern tajara woman may avail herself of the latest fashion trends. It blends this earnestness and fashionability together in a beautiful compromise, so it should come as no surprise that housewives and middle-aged women are oft found in dresses just like this."
+
+// Yellow Housewife Dress
+/obj/item/clothing/under/dress/tajaran/housewife/yellow
+	name = "yellow housewife dress"
+	desc = "A modest yellow dress, accented in black, done in the latest tajaran styles."
+	icon_state = "housewife_yellow"
+	item_state = "housewife_yellow"
+
+// Adhomian Evening Suit
+/obj/item/clothing/under/tajaran/fancy/evening_suit
+	name = "adhomian evening suit"
+	desc = "A rich purple evening suit meant for lounging or other luxury."
+	icon = 'icons/obj/item/clothing/under/tajaran/fancy/evening_suit.dmi'
+	icon_state = "evening_suit"
+	item_state = "evening_suit"
+
+// High-waisted Men's Wear
+/obj/item/clothing/under/tajaran/high_waisted
+	name = "high-waisted men's wear"
+	desc = "Dark, black, and high-waisted trousers with accompanying vibrant yellow shirt, for the modern and fashionable men."
+	desc_extended = "Fashion for men, much like for women, is slowly moving away from many-layered outfits and extravagant and flashy suits and dresses; one would be hard-pressed to find young men sporting three-piece suits any longer. Teenage boys and young adults are drawn more and more to relaxing styles and more comfortable fits that would never have found root on Adhomai before. Now, though, up-and-coming businessmen and well-to-do middle-class boys would rather wear trousers and a dress shirt than waste time with vests and oxfords."
+	icon = 'icons/obj/item/clothing/under/tajaran/high_waisted_wear.dmi'
+	icon_state = "high_waisted"
+	item_state = "high_waisted"
+
+// High-waisted Men's Business Wear
+/obj/item/clothing/under/tajaran/high_waisted/business
+	name = "high-waisted men's business wear"
+	desc = "Blue trousers and a white dress shirt with accompanying tie, all for the eventual fashionable used car salesman."
+	icon_state = "high_waisted_business"
+	item_state = "high_waisted_business"
+
+// Relaxed Men's Wear
+/obj/item/clothing/under/tajaran/relaxed
+	name = "relaxed men's wear"
+	desc = "Plaid pants and an unbuttoned silk shirt mean comfort and style."
+	desc_extended = "Fashion for men, much like for women, is slowly moving away from many-layered outfits and extravagant and flashy suits and dresses; one would be hard-pressed to find young men sporting three-piece suits any longer. Teenage boys and young adults are drawn more and more to relaxing styles and more comfortable fits that would never have found root on Adhomai before. Now, though, up-and-coming businessmen and well-to-do middle-class boys would rather wear trousers and a dress shirt than waste time with vests and oxfords."
+	icon = 'icons/obj/item/clothing/under/tajaran/relaxed_wear.dmi'
+	icon_state = "relaxed_wear"
+	item_state = "relaxed_wear"
+
+// Stylish Relaxed Men's Wear
+/obj/item/clothing/under/tajaran/relaxed/stylish
+	name = "stylish relaxed men's wear"
+	desc = "Blue trousers and a silken shirt with matching accents. It even has a pocket."
+	icon_state = "stylish_relaxed_wear"
+	item_state = "stylish_relaxed_wear"
+
+// Smart Study Outfit
+/obj/item/clothing/under/tajaran/smart
+	name = "smart study outfit"
+	desc = "A brown, interwoven argyle sweater with accompanying trousers - for the modern academian in all of us."
+	desc_extended = "Fashion for men, much like for women, is slowly moving away from many-layered outfits and extravagant and flashy suits and dresses; one would be hard-pressed to find young men sporting three-piece suits any longer. Teenage boys and young adults are drawn more and more to relaxing styles and more comfortable fits that would never have found root on Adhomai before. Now, though, up-and-coming businessmen and well-to-do middle-class boys would rather wear trousers and a dress shirt than waste time with vests and oxfords."
+	icon = 'icons/obj/item/clothing/under/tajaran/smart_study_outfit.dmi'
+	icon_state = "study_outfit"
+	item_state = "study_outfit"

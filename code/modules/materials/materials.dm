@@ -52,12 +52,15 @@
 	var/destruction_desc = "breaks apart" // Fancy string for barricades/tables/objects exploding.
 
 	// Icons
+	var/colour_blend = TRUE
 	var/icon_colour                                      // Colour applied to products of this material.
-	var/icon_base = "metal"                              // Wall and table base icon tag. See header.
+	var/wall_colour                                      // Colour applied to walls specifically.
+	var/icon_base = "solid"                              // Wall and table base icon tag. See header.
 	var/door_icon_base = "metal"                         // Door base icon tag. See header.
 	var/icon_reinf = "reinf_metal"                       // Overlay used
 	var/list/stack_origin_tech = list(TECH_MATERIAL = 1) // Research level for stacks.
 	var/icon/wall_icon
+	var/icon/table_icon = 'icons/obj/structure/tables/greyscale_table.dmi'
 	var/icon/multipart_reinf_icon
 
 	// Attributes
@@ -89,7 +92,7 @@
 	// Noise made when a simple door made of this material opens or closes.
 	var/dooropen_noise = 'sound/effects/stonedoor_openclose.ogg'
 	// Noise made when you hit structure made of this material.
-	var/hitsound = 'sound/weapons/genhit.ogg'
+	var/hitsound = 'sound/weapons/Genhit.ogg'
 	// Path to resulting stacktype. Todo remove need for this.
 	var/stack_type
 	// Wallrot crumble message.
@@ -149,16 +152,20 @@
 		adjective_name = display_name
 	if(!shard_icon)
 		shard_icon = shard_type
-
+	if(!icon_base)
+		world.log <<  "materials: [src] has unknown icon_base [icon_base]."
+/*
 	var/skip_blend = FALSE
 	switch (icon_base)
 		if ("solid")
-			wall_icon = 'icons/turf/smooth/composite_solid.dmi'
+			wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 		if ("stone")
 			wall_icon = 'icons/turf/smooth/composite_stone.dmi'
 			multipart_reinf_icon = 'icons/turf/smooth/composite_stone_reinf.dmi'
 		if ("metal")
 			wall_icon = 'icons/turf/smooth/composite_metal.dmi'
+		if ("wood")
+			wall_icon = 'icons/turf/smooth/composite_wood.dmi'
 		if ("cult")
 			wall_icon = 'icons/turf/smooth/cult_wall.dmi'
 			skip_blend = TRUE
@@ -175,15 +182,18 @@
 			skip_blend = TRUE
 		if ("skrell")
 			skip_blend = TRUE
+		if("concrete")
+			wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
+			skip_blend = TRUE
 		else
-			world.log <<  "materials: [src] has unknown icon_base [icon_base]."
-
-	if (wall_icon && icon_colour && !skip_blend)
+			world.log <<  "materials: [src] has unknown icon_base [icon_base]."*/
+	var/blend_colour = wall_colour ? wall_colour : icon_colour
+	if (wall_icon && blend_colour && colour_blend)
 		wall_icon = new(wall_icon)
-		wall_icon.Blend(icon_colour, ICON_MULTIPLY)
+		wall_icon.Blend(blend_colour, ICON_MULTIPLY)
 		if (multipart_reinf_icon)
 			multipart_reinf_icon = new(multipart_reinf_icon)
-			multipart_reinf_icon.Blend(icon_colour, ICON_MULTIPLY)
+			multipart_reinf_icon.Blend(blend_colour, ICON_MULTIPLY)
 
 // This is a placeholder for proper integration of windows/windoors into the system.
 /material/proc/build_windows(var/mob/living/user, var/obj/item/stack/used_stack)
@@ -350,7 +360,9 @@
 	stack_type = /obj/item/stack/material/sandstone
 	icon_base = "stone"
 	icon_reinf = "reinf_stone"
-	icon_colour = "#D9C179"
+	icon_colour = "#d9c179"
+	wall_icon = 'icons/turf/smooth/composite_stone.dmi'
+	multipart_reinf_icon = 'icons/turf/smooth/composite_stone_reinf.dmi'
 	shard_type = SHARD_STONE_PIECE
 	weight = 22
 	hardness = 55
@@ -365,7 +377,8 @@
 
 /material/stone/marble
 	name = MATERIAL_MARBLE
-	icon_colour = "#AAAAAA"
+	icon_colour = "#b4b1a6"
+	table_icon = 'icons/obj/structure/tables/marble_table.dmi'
 	weight = 26
 	hardness = 70
 	integrity = 201 //hack to stop kitchen benches being flippable, todo: refactor into weight system
@@ -374,24 +387,39 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
+/material/stone/concrete
+	name = MATERIAL_CONCRETE
+	icon_base = "concrete"
+	icon_colour = "#D2D1CD"
+	colour_blend = FALSE
+	wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
+	stack_type = null
+	golem = null
+
 /material/steel
 	name = DEFAULT_WALL_MATERIAL
 	stack_type = /obj/item/stack/material/steel
 	integrity = 150
 	conductivity = 11
 	protectiveness = 10 // 33%
-	icon_base = "solid"
+	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
+	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
 	icon_reinf = "reinf_over"
-	icon_colour = "#666666"
+	icon_colour = COLOR_GRAY40
+	wall_colour = COLOR_GRAY20
 	golem = SPECIES_GOLEM_STEEL
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+
 
 /material/diona
 	name = MATERIAL_DIONA
 	icon_colour = null
 	stack_type = null
+	wall_icon = 'icons/turf/smooth/diona_wall.dmi'
+	table_icon = 'icons/obj/structure/tables/diona_table.dmi'
 	icon_base = "biomass"
+	colour_blend = FALSE
 	integrity = 100
 	// below is same as wood
 	melting_point = T0C + 300
@@ -416,9 +444,11 @@
 	stack_type = /obj/item/stack/material/plasteel
 	integrity = 400
 	melting_point = 6000
-	icon_base = "solid"
+	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
+	table_icon = 'icons/obj/structure/tables/reinforced_table.dmi'
 	icon_reinf = "reinf_over"
-	icon_colour = "#666666"
+	icon_colour = "#545c68"
+	wall_colour = COLOR_GRAY20
 	explosion_resistance = 25
 	hardness = 80
 	weight = 23
@@ -447,8 +477,9 @@
 /material/glass
 	name = MATERIAL_GLASS
 	stack_type = /obj/item/stack/material/glass
+	table_icon = 'icons/obj/structure/tables/glass_table.dmi'
 	flags = MATERIAL_BRITTLE
-	icon_colour = "#00E1FF"
+	icon_colour = null
 	opacity = 0.3
 	integrity = 100
 	shard_type = SHARD_SHARD
@@ -457,6 +488,7 @@
 	weight = 15
 	protectiveness = 0 // 0%
 	conductivity = 1 // Glass shards don't conduct.
+	icon_base = "glass"
 	door_icon_base = "stone"
 	destruction_desc = "shatters"
 	window_options = list("One Direction" = 1, "Full Window" = 4)
@@ -562,6 +594,7 @@
 	name = MATERIAL_GLASS_REINFORCED
 	display_name = "reinforced glass"
 	stack_type = /obj/item/stack/material/glass/reinforced
+	table_icon = 'icons/obj/structure/tables/rglass_table.dmi'
 	flags = MATERIAL_BRITTLE
 	icon_colour = "#00E1FF"
 	opacity = 0.3
@@ -607,7 +640,6 @@
 	name = MATERIAL_PLASTIC
 	stack_type = /obj/item/stack/material/plastic
 	flags = MATERIAL_BRITTLE
-	icon_base = "solid"
 	icon_reinf = "reinf_over"
 	icon_colour = "#CCCCCC"
 	hardness = 10
@@ -678,6 +710,7 @@
 	display_name = "elevator panelling"
 	stack_type = null
 	icon_colour = "#666666"
+	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	integrity = 1200
 	melting_point = 6000
 	explosion_resistance = 200
@@ -688,9 +721,11 @@
 /material/wood
 	name = MATERIAL_WOOD
 	stack_type = /obj/item/stack/material/wood // why wouldn't it have a stacktype seriously guys why
-	icon_colour = "#824B28"
+	icon_colour = WOOD_COLOR_GENERIC
 	integrity = 50
-	icon_base = "metal"
+	icon_base = "wood"
+	wall_icon = 'icons/turf/smooth/composite_wood.dmi'
+	table_icon = 'icons/obj/structure/tables/wood_table.dmi'
 	explosion_resistance = 2
 	shard_type = SHARD_SPLINTER
 	shard_can_repair = 0 // you can't weld splinters back into planks
@@ -716,7 +751,7 @@
 	weapon_hitsound = 'sound/weapons/woodenhit.ogg'
 	shatter_sound = /singleton/sound_category/wood_break_sound
 
-/material/wood/birch 
+/material/wood/birch
 	name = MATERIAL_BIRCH
 	stack_type = /obj/item/stack/material/wood/coloured/birch
 	icon_colour = WOOD_COLOR_BIRCH
@@ -727,7 +762,7 @@
 	icon_colour = WOOD_COLOR_RICH
 
 /material/wood/maple
-	name = MATERIAL_MAPLE  
+	name = MATERIAL_MAPLE
 	stack_type = /obj/item/stack/material/wood/coloured/maple
 	icon_colour = WOOD_COLOR_PALE
 
@@ -753,10 +788,9 @@
 
 /material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
 	name = MATERIAL_WOOD_LOG
-	stack_type = /obj/item/stack/material/woodlog
+	stack_type = /obj/item/stack/material/wood/log
 	icon_colour = "#824B28"
 	integrity = 50
-	icon_base = "solid"
 	explosion_resistance = 4
 	hardness = 30
 	weight = 30 //Logs are heavier then normal pieces of wood
@@ -764,22 +798,21 @@
 	melting_point = T0C+380
 	ignition_point = T0C+328
 	destruction_desc = "splinters"
-	sheet_singular_name = "log"
-	sheet_plural_name = "logs"
+	sheet_singular_name = "pice"
+	sheet_plural_name = "piles"
 
 /material/wood/branch
 	name = MATERIAL_WOOD_BRANCH
-	stack_type = /obj/item/stack/material/woodbranch
+	stack_type = /obj/item/stack/material/wood/branch
 	icon_colour = "#824B28"
-	integrity = 50
-	icon_base = "solid"
+	integrity = 10
 	explosion_resistance = 0
 	hardness = 0.1
 	weight = 7
 	melting_point = T0C+220
 	ignition_point = T0C+218
-	sheet_singular_name = "branch"
-	sheet_plural_name = "branch"
+	sheet_singular_name = "bundle"
+	sheet_plural_name = "bundle"
 
 /material/rust
 	name = MATERIAL_RUST
@@ -787,6 +820,7 @@
 	stack_type = null
 	icon_colour = "#B7410E"
 	icon_base = "arust"
+	wall_icon = 'icons/turf/smooth/rusty_wall.dmi'
 	icon_reinf = "reinf_over"
 	integrity = 250
 	explosion_resistance = 8
@@ -804,7 +838,6 @@
 	stack_type = /obj/item/stack/material/cardboard
 	flags = MATERIAL_BRITTLE
 	integrity = 10
-	icon_base = "solid"
 	icon_reinf = "reinf_over"
 	icon_colour = "#AAAAAA"
 	hardness = 1
@@ -825,6 +858,8 @@
 	name = MATERIAL_CULT
 	display_name = "daemon stone"
 	icon_base = "cult"
+	wall_icon = 'icons/turf/smooth/cult_wall.dmi'
+	colour_blend = FALSE
 	icon_colour = COLOR_CULT
 	icon_reinf = "reinf_cult"
 	dooropen_noise = 'sound/effects/doorcreaky.ogg'
@@ -1005,6 +1040,8 @@
 	stack_type = null
 	icon_colour = "#1C7400"
 	icon_base = "vaurca"
+	wall_icon = 'icons/turf/smooth/vaurca_wall.dmi'
+	colour_blend = FALSE
 	integrity = 400
 	melting_point = 6000
 	explosion_resistance = 25
@@ -1017,7 +1054,10 @@
 	name = MATERIAL_SHUTTLE
 	display_name = "plastitanium alloy"
 	stack_type = null
+	icon_reinf = "no_sprite"//placeholder
 	icon_base = "shuttle"
+	//wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
+	colour_blend = FALSE
 	integrity = 1200
 	melting_point = 6000       // Hull plating.
 	explosion_resistance = 200 // Hull plating.
@@ -1028,14 +1068,15 @@
 
 /material/shuttle/skrell
 	name = MATERIAL_SHUTTLE_SKRELL
+	table_icon = 'icons/obj/structure/tables/skrell_table.dmi'
 	display_name = "superadvanced alloy"
+	colour_blend = FALSE
 	icon_colour = null
 	icon_base = "skrell"
 
 /material/graphite
 	name = MATERIAL_GRAPHITE
 	stack_type = /obj/item/stack/material/graphite
-	icon_base = "graphite"
 	icon_colour = "#666666"
 	shard_type = SHARD_STONE_PIECE
 	weight = 20

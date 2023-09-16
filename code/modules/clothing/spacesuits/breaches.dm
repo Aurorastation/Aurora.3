@@ -5,7 +5,7 @@
 /datum/breach
 	var/class = 0                           // Size. Lower is smaller. Uses floating point values!
 	var/descriptor                          // 'gaping hole' etc.
-	var/damtype = BURN                      // Punctured or melted
+	var/damtype = DAMAGE_BURN                      // Punctured or melted
 	var/obj/item/clothing/suit/space/holder // Suit containing the list of breaches holding this instance.
 
 /obj/item/clothing/suit/space
@@ -46,9 +46,9 @@ var/global/list/breach_burn_descriptors = list(
 	//Sanity...
 	class = between(1, round(class), 5)
 	//Apply the correct descriptor.
-	if(damtype == BURN)
+	if(damtype == DAMAGE_BURN)
 		descriptor = breach_burn_descriptors[class]
-	else if(damtype == BRUTE)
+	else if(damtype == DAMAGE_BRUTE)
 		descriptor = breach_brute_descriptors[class]
 
 //Repair a certain amount of brute or burn damage to the suit.
@@ -118,9 +118,9 @@ var/global/list/breach_burn_descriptors = list(
 				existing.class = 5
 				amount -= needs
 
-			if(existing.damtype == BRUTE)
+			if(existing.damtype == DAMAGE_BRUTE)
 				T.visible_message("<span class = 'warning'>\The [existing.descriptor] on [src] gapes wider!</span>")
-			else if(existing.damtype == BURN)
+			else if(existing.damtype == DAMAGE_BURN)
 				T.visible_message("<span class = 'warning'>\The [existing.descriptor] on [src] widens!</span>")
 
 	if (amount)
@@ -134,9 +134,9 @@ var/global/list/breach_burn_descriptors = list(
 		B.update_descriptor()
 		B.holder = src
 
-		if(B.damtype == BRUTE)
+		if(B.damtype == DAMAGE_BRUTE)
 			T.visible_message("<span class = 'warning'>\A [B.descriptor] opens up on [src]!</span>")
-		else if(B.damtype == BURN)
+		else if(B.damtype == DAMAGE_BURN)
 			T.visible_message("<span class = 'warning'>\A [B.descriptor] marks the surface of [src]!</span>")
 
 	calc_breach_damage()
@@ -158,9 +158,9 @@ var/global/list/breach_burn_descriptors = list(
 			qdel(B)
 		else
 			damage += B.class
-			if(B.damtype == BRUTE)
+			if(B.damtype == DAMAGE_BRUTE)
 				brute_damage += B.class
-			else if(B.damtype == BURN)
+			else if(B.damtype == DAMAGE_BURN)
 				burn_damage += B.class
 
 	if(damage >= 3)
@@ -200,7 +200,7 @@ var/global/list/breach_burn_descriptors = list(
 		var/obj/item/stack/P = W
 		var/use_amt = min(P.get_amount(), 3)
 		if(use_amt && P.use(use_amt))
-			repair_breaches(BURN, use_amt * repair_power, user)
+			repair_breaches(DAMAGE_BURN, use_amt * repair_power, user)
 		return
 
 	else if(W.iswelder())
@@ -218,13 +218,13 @@ var/global/list/breach_burn_descriptors = list(
 			to_chat(user, "<span class='warning'>You need more welding fuel to repair this suit.</span>")
 			return
 
-		repair_breaches(BRUTE, 3, user)
+		repair_breaches(DAMAGE_BRUTE, 3, user)
 		return
 
 	..()
 
 /obj/item/clothing/suit/space/examine(mob/user)
-	..(user)
+	. = ..()
 	if(can_breach && breaches && breaches.len)
 		for(var/datum/breach/B in breaches)
 			to_chat(user, "<span class='danger'>It has \a [B.descriptor].</span>")

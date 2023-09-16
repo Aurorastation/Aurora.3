@@ -19,17 +19,17 @@ var/list/whitelist_jobconfig = list()
 
 /proc/load_whitelist_jobconfig()
 	if(fexists("config/whitelist_jobconfig.json"))
-		log_debug("Whitelist JobConfig: Loading from json")
+		LOG_DEBUG("Whitelist JobConfig: Loading from json")
 		try
 			whitelist_jobconfig = json_decode(return_file_text("config/whitelist_jobconfig.json"))
 		catch(var/exception/e)
-			log_debug("Whitelist JobConfig: Failed to load whitelist_jobconfig.json: [e]")
+			LOG_DEBUG("Whitelist JobConfig: Failed to load whitelist_jobconfig.json: [e]")
 
 /proc/load_whitelist()
 	if (config.sql_whitelists)
 		if (!establish_db_connection(dbcon))
 			//Continue with the old code if we have no database.
-			error("Database connection failed while loading whitelists. Reverting to legacy system.")
+			log_world("ERROR: Database connection failed while loading whitelists. Reverting to legacy system.")
 			config.sql_whitelists = 0
 		else
 			return
@@ -72,7 +72,7 @@ var/list/whitelist_jobconfig = list()
 	if (config.sql_whitelists)
 		if (!establish_db_connection(dbcon))
 			//Continue with the old code if we have no database.
-			error("Database connection failed while loading alien whitelists. Reverting to legacy system.")
+			log_world("ERROR: Database connection failed while loading alien whitelists. Reverting to legacy system.")
 			config.sql_whitelists = 0
 		else
 			var/DBQuery/query = dbcon.NewQuery("SELECT status_name, flag FROM ss13_whitelist_statuses")

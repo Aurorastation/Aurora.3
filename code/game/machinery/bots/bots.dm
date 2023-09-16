@@ -54,7 +54,7 @@
 		return 1
 
 /obj/machinery/bot/examine(mob/user)
-	..(user)
+	. = ..()
 	if (src.health < maxhealth)
 		if (src.health > maxhealth/3)
 			to_chat(user, "<span class='warning'>[src]'s parts look loose.</span>")
@@ -94,7 +94,7 @@
 			return ..()
 
 /obj/machinery/bot/bullet_act(var/obj/item/projectile/Proj)
-	if(!(Proj.damage_type == BRUTE || Proj.damage_type == BURN))
+	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
 		return
 	health -= Proj.damage
 	..()

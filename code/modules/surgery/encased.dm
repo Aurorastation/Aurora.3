@@ -24,8 +24,8 @@
 	/obj/item/material/hatchet = 75
 	)
 
-	min_duration = 50
-	max_duration = 70
+	min_duration = 30
+	max_duration = 50
 
 /singleton/surgery_step/open_encased/saw/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -60,7 +60,7 @@
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, cracking [target]'s [affected.encased] with \the [tool]!") , \
 		SPAN_WARNING("Your hand slips, cracking [target]'s [affected.encased] with \the [tool]!") )
 
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
 
 
@@ -71,8 +71,8 @@
 	/obj/item/crowbar = 75
 	)
 
-	min_duration = 30
-	max_duration = 40
+	min_duration = 20
+	max_duration = 30
 
 /singleton/surgery_step/open_encased/retract/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -112,7 +112,7 @@
 	var/self_msg = SPAN_WARNING("Your hand slips, cracking [target]'s [affected.encased]!")
 	user.visible_message(msg, self_msg)
 
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
 
 /singleton/surgery_step/open_encased/close
@@ -123,7 +123,7 @@
 	)
 
 	min_duration = 20
-	max_duration = 40
+	max_duration = 30
 
 /singleton/surgery_step/open_encased/close/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -164,7 +164,7 @@
 	var/self_msg = SPAN_WARNING("Your hand slips, bending [target]'s [affected.encased] the wrong way!")
 	user.visible_message(msg, self_msg)
 
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
 
 	if(affected.internal_organs && affected.internal_organs.len)
@@ -181,7 +181,7 @@
 	)
 
 	min_duration = 20
-	max_duration = 40
+	max_duration = 30
 
 /singleton/surgery_step/open_encased/mend/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

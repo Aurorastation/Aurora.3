@@ -12,8 +12,24 @@ the HUD updates properly! */
 /image/hud_overlay
 	appearance_flags = APPEARANCE_UI
 
+	///Owner of the hud_overlay, aka who has the overlay
+	var/mob/living/owner = null
+
+/image/hud_overlay/New(icon, loc, icon_state, layer, dir)
+	. = ..()
+
+	if(ismob(loc))
+		owner = loc
+
+/image/hud_overlay/Destroy()
+	if(owner)
+		owner?.client?.images -= src
+		owner = null
+
+	. = ..()
+
 //Medical HUD outputs. Called by the Life() proc of the mob using it, usually.
-proc/process_med_hud(var/mob/M, var/local_scanner, var/mob/Alt)
+/proc/process_med_hud(var/mob/M, var/local_scanner, var/mob/Alt)
 	if(!can_process_hud(M))
 		return
 
@@ -35,7 +51,7 @@ proc/process_med_hud(var/mob/M, var/local_scanner, var/mob/Alt)
 				P.Client.images += patient.hud_list[TRIAGE_HUD]
 
 //Security HUDs. Pass a value for the second argument to enable implant viewing or other special features.
-proc/process_sec_hud(var/mob/M, var/advanced_mode, var/mob/Alt)
+/proc/process_sec_hud(var/mob/M, var/advanced_mode, var/mob/Alt)
 	if(!can_process_hud(M))
 		return
 	var/datum/arranged_hud_process/P = arrange_hud_process(M, Alt, sec_hud_users)
@@ -50,12 +66,18 @@ proc/process_sec_hud(var/mob/M, var/advanced_mode, var/mob/Alt)
 			P.Client.images += perp.hud_list[IMPLOYAL_HUD]
 			P.Client.images += perp.hud_list[IMPCHEM_HUD]
 
-datum/arranged_hud_process
+/datum/arranged_hud_process
 	var/client/Client
 	var/mob/Mob
 	var/turf/Turf
 
-proc/arrange_hud_process(var/mob/M, var/mob/Alt, var/list/hud_list)
+/datum/arranged_hud_process/Destroy(force)
+	Client = null
+	Mob = null
+	Turf = null
+	. = ..()
+
+/proc/arrange_hud_process(var/mob/M, var/mob/Alt, var/list/hud_list)
 	hud_list |= M
 	var/datum/arranged_hud_process/P = new
 	P.Client = M.client
@@ -63,7 +85,7 @@ proc/arrange_hud_process(var/mob/M, var/mob/Alt, var/list/hud_list)
 	P.Turf = get_turf(P.Mob)
 	return P
 
-proc/can_process_hud(var/mob/M)
+/proc/can_process_hud(var/mob/M)
 	if(!M)
 		return 0
 	if(!M.client)
@@ -73,14 +95,14 @@ proc/can_process_hud(var/mob/M)
 	return 1
 
 //Deletes the current HUD images so they can be refreshed with new ones.
-mob/proc/handle_hud_glasses() //Used in the life.dm of mobs that can use HUDs.
+/mob/proc/handle_hud_glasses() //Used in the life.dm of mobs that can use HUDs.
 	if(client)
 		for(var/image/hud_overlay/hud in client.images)
 			client.images -= hud
 	med_hud_users -= src
 	sec_hud_users -= src
 
-mob/proc/in_view(var/turf/T)
+/mob/proc/in_view(var/turf/T)
 	return view(T)
 
 /mob/abstract/eye/in_view(var/turf/T)
@@ -90,7 +112,7 @@ mob/proc/in_view(var/turf/T)
 			viewed += H
 	return viewed
 
-proc/get_sec_hud_icon(var/mob/living/carbon/human/H)//This function is called from human/life,dm, ~line 1663
+/proc/get_sec_hud_icon(var/mob/living/carbon/human/H)//This function is called from human/life,dm, ~line 1663
 	var/state
 	var/obj/item/card/id/I = H.GetIdCard()
 	if(I)

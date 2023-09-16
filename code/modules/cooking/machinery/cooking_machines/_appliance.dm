@@ -32,12 +32,15 @@
 	var/cooking						// Whether or not the machine is currently operating.
 	var/cook_type					// A string value used to track what kind of food this machine makes.
 	var/can_cook_mobs				// Whether or not this machine accepts grabbed mobs.
-	var/mobdamagetype = BRUTE		// Burn damage for cooking appliances, brute for cereal/candy
+	var/mobdamagetype = DAMAGE_BRUTE		// Burn damage for cooking appliances, brute for cereal/candy
 	var/food_color					// Colour of resulting food item.
 	var/cooked_sound = 'sound/machines/ding.ogg'				// Sound played when cooking completes.
 	var/can_burn_food				// Can the object burn food that is left inside?
 	var/burn_chance = 10			// How likely is the food to burn?
 	var/list/cooking_objs = list()	// List of things being cooked
+	var/particles/particle_holder
+	var/particle_type = /particles/cooking_smoke
+	var/smoke_percent = 0
 
 	// If the machine has multiple output modes, define them here.
 	var/selected_option
@@ -53,6 +56,7 @@
 		stat &= ~NOPOWER
 	else
 		stat |= NOPOWER
+	particle_holder = new particle_type
 
 /obj/machinery/appliance/Destroy()
 	for (var/a in cooking_objs)
@@ -62,9 +66,9 @@
 		qdel(CI)
 	return ..()
 
-/obj/machinery/appliance/examine(var/mob/user)
-	..()
-	if(Adjacent(usr))
+/obj/machinery/appliance/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		list_contents(user)
 		return TRUE
 
@@ -317,11 +321,36 @@
 
 	return TRUE
 
+/obj/machinery/appliance/proc/get_smoke_percent()
+	if(can_burn_food == FALSE)
+		return 0
+	var/closest_to_burn = 0
+	for (var/datum/cooking_item/i in cooking_objs)
+		if(i.burned | !i.max_cookwork)
+			continue
+		var/progress = i.cookwork / i.max_cookwork
+		var/half_overcook = (i.overcook_mult - 1)*0.5
+		var/normalized_burn = (progress - half_overcook)/(i.overcook_mult - half_overcook)
+		if(progress < 1+half_overcook)
+			continue
+		if(normalized_burn > closest_to_burn)
+			closest_to_burn = normalized_burn
+	return closest_to_burn
+
+/obj/machinery/appliance/proc/adjust_smoke()
+	smoke_percent = get_smoke_percent()
+	particle_holder.spawning = 3 * smoke_percent
+	if(smoke_percent > 0)
+		particles = particle_holder
+	else
+		particles = null
+
 /obj/machinery/appliance/process()
 	if (cooking_power > 0 && cooking)
 		for (var/i in cooking_objs)
 			do_cooking_tick(i)
-
+	if(can_burn_food)
+		adjust_smoke()
 
 /obj/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
 	audible_message("<b>[src]</b> [finish_verb]", intent_message = PING_SOUND)

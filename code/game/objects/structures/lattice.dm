@@ -10,7 +10,6 @@
 	w_class = ITEMSIZE_NORMAL
 	layer = UNDER_PIPE_LAYER //under pipes
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/restrict_placement = TRUE
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/lattice,
@@ -26,12 +25,12 @@
 
 /obj/structure/lattice/Initialize()
 	. = ..()
-	if (restrict_placement)
-		if(!(istype(loc, /turf/space) || isopenturf(loc) || istype(loc, /turf/unsimulated/floor/asteroid)))
-			return INITIALIZE_HINT_QDEL
 	for(var/obj/structure/lattice/LAT in loc)
-		if(LAT != src)
-			qdel(LAT)
+		if(LAT == src)
+			continue
+		stack_trace("multiple lattices found in ([loc.x], [loc.y], [loc.z])")
+		return INITIALIZE_HINT_QDEL
+
 	if(isturf(loc))
 		var/turf/turf = loc
 		turf.is_hole = FALSE
@@ -50,14 +49,14 @@
 			qdel(src)
 	return
 
-/obj/structure/lattice/attackby(obj/item/C as obj, mob/user as mob)
+/obj/structure/lattice/attackby(obj/item/C, mob/user)
 	if (istype(C, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
 		T.attackby(C, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
 	if (C.iswelder())
 		var/obj/item/weldingtool/WT = C
-		if(WT.use(0, user))
+		if(WT.use(1, user))
 			to_chat(user, "<span class='notice'>Slicing lattice joints ...</span>")
 		new /obj/item/stack/rods(src.loc)
 		qdel(src)
@@ -65,7 +64,7 @@
 		var/obj/item/stack/rods/R = C
 		if (R.use(2))
 			to_chat(user, "<span class='notice'>Constructing catwalk ...</span>")
-			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice/catwalk(src.loc)
 			qdel(src)
 		return
@@ -85,7 +84,6 @@
 // Special catwalk that can be placed on regular flooring.
 /obj/structure/lattice/catwalk/indoor
 	desc = "A floor-mounted catwalk designed to protect pipes & station wiring from passing feet."
-	restrict_placement = FALSE
 	can_be_unanchored = TRUE
 	layer = 2.7	// Above wires.
 
@@ -122,44 +120,22 @@
 	name = "grate"
 	desc = "A metal grate."
 	icon = 'icons/obj/grate.dmi'
-	icon_state = "grate_dark"
+	icon_state = "grate"
 	return_amount = 1
 	smooth = null
-	var/base_icon_state = "grate_dark"
+	color = COLOR_TILED
+	var/base_icon_state = "grate"
 	var/damaged = FALSE
-
-/obj/structure/lattice/catwalk/indoor/grate/old
-	icon_state = "grate_dark_old"
-
-/obj/structure/lattice/catwalk/indoor/grate/damaged
-	icon_state = "grate_dark_dam0"
-	damaged = TRUE
-
-/obj/structure/lattice/catwalk/indoor/grate/damaged/Initialize()
-	.=..()
-	icon_state = "[base_icon_state]_dam[rand(0,3)]"
-
-/obj/structure/lattice/catwalk/indoor/grate/light
-	icon_state = "grate_light"
-	base_icon_state = "grate_light"
-	return_amount = 1
-
-/obj/structure/lattice/catwalk/indoor/grate/light/old
-	icon_state = "grate_light_old"
-
-/obj/structure/lattice/catwalk/indoor/grate/light/damaged
-	icon_state = "grate_light_dam0"
-	damaged = TRUE
-
-/obj/structure/lattice/catwalk/indoor/grate/light/damaged/Initialize()
-	.=..()
-	icon_state = "[base_icon_state]_dam[rand(0,3)]"
 
 /obj/structure/lattice/catwalk/indoor/grate/attackby(obj/item/C, mob/user)
 	if(C.iswelder() && damaged)
 		var/obj/item/weldingtool/WT = C
 		if(C.use_tool(src, user, 5, volume = 50) && WT.use(1, user))
-			to_chat(user, SPAN_NOTICE("You slice apart the [src] leaving nothing useful behind."))
+			user.visible_message(
+				SPAN_NOTICE("\The [user] slices apart \the [src], leaving nothing useful behind."),
+				SPAN_NOTICE("You slice apart \the [src], leaving nothing useful behind."),
+				SPAN_NOTICE("You hear the sound of a welder, slicing apart metal.")
+			)
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			qdel(src)
 	else
@@ -176,3 +152,36 @@
 			else
 				qdel(src)
 	return
+
+/obj/structure/lattice/catwalk/indoor/grate/old/Initialize()
+	. = ..()
+	add_overlay("rust")
+
+/obj/structure/lattice/catwalk/indoor/grate/damaged
+	icon_state = "grate_dark_dam0"
+	damaged = TRUE
+
+/obj/structure/lattice/catwalk/indoor/grate/damaged/Initialize()
+	. = ..()
+	icon_state = "[base_icon_state]_dam[rand(0,3)]"
+
+/obj/structure/lattice/catwalk/indoor/grate/light
+	icon_state = "grate_light"
+	base_icon_state = "grate_light"
+	return_amount = 1
+	color = COLOR_GUNMETAL
+
+/obj/structure/lattice/catwalk/indoor/grate/light/old/Initialize()
+	. = ..()
+	add_overlay("rust")
+
+/obj/structure/lattice/catwalk/indoor/grate/light/damaged
+	icon_state = "grate_light_dam0"
+	damaged = TRUE
+
+/obj/structure/lattice/catwalk/indoor/grate/light/damaged/Initialize()
+	. = ..()
+	icon_state = "[base_icon_state]_dam[rand(0,3)]"
+
+/obj/structure/lattice/catwalk/indoor/grate/dark
+	color = COLOR_DARK_GUNMETAL

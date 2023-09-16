@@ -91,8 +91,9 @@
 			else
 				to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
 
-/obj/item/paper_bundle/examine(mob/user)
-	if(..(user, 1))
+/obj/item/paper_bundle/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		src.show_content(user)
 	else
 		to_chat(user, "<span class='notice'>It is too far away.</span>")
@@ -256,7 +257,7 @@
 /obj/item/paper_bundle/update_icon()
 	var/obj/item/paper/P = pages[1]
 	icon_state = P.icon_state
-	copy_overlays(P.overlays, TRUE)
+	copy_overlays(P, TRUE)
 	underlays = 0
 	var/i = 0
 	var/photo

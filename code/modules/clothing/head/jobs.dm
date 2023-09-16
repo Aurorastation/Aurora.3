@@ -117,28 +117,6 @@
 	icon_state = "surgcap_idris"
 	item_state = "surgcap_idris"
 
-//Detective
-
-/obj/item/clothing/head/det
-	name = "fedora"
-	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-	icon_state = "brown_fedora"
-	item_state_slots = list(
-		slot_l_hand_str = "det_hat",
-		slot_r_hand_str = "det_hat"
-		)
-	allowed = list(/obj/item/reagent_containers/food/snacks/candy_corn, /obj/item/pen)
-	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR
-	)
-	siemens_coefficient = 0.75
-
-/obj/item/clothing/head/det/grey
-	icon_state = "grey_fedora"
-	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-
 /obj/item/clothing/head/warden
 	name = "warden hat"
 	desc = "A warden hat. For showing who is in charge of the brig."
@@ -151,7 +129,7 @@
 /obj/item/clothing/head/warden/zavod
 	icon_state = "zav_warden_hat"
 	item_state = "zav_warden_hat"
-	
+
 /obj/item/clothing/head/warden/zavod/alt
 	icon_state = "zav_warden_hat_alt"
 	item_state = "zav_warden_hat_alt"
@@ -191,3 +169,35 @@
 /obj/item/clothing/head/flatcap/bartender/idris
 	icon_state = "idris_bartender_flatcap"
 	item_state = "idris_bartender_flatcap"
+
+/obj/item/clothing/head/sidecap
+	name = "side cap"
+	desc = "A simple cap, often worn by pilots."
+	icon = 'icons/obj/item/clothing/head/sidecap.dmi'
+	contained_sprite = TRUE
+	icon_state = "side_cap"
+	item_state = "side_cap"
+
+/obj/item/clothing/head/sidecap/zavod
+	name = "zavodskoi pilotka cap"
+	desc = "A simple cap, often worn by pilots. This one is in Zavodskoi colors."
+	icon_state = "zavodskoi_pilotka"
+	item_state = "zavodskoi_pilotka"
+
+/obj/item/clothing/head/sidecap/pmcg
+	name = "pmcg garrison cap"
+	desc = "A simple cap, often worn by pilots. This one is in PMCG colors."
+	icon_state = "pmcg_side_cap"
+	item_state = "pmcg_side_cap"
+
+/obj/item/clothing/head/sidecap/heph
+	name = "hephaestus side cap"
+	desc = "A simple cap, often worn by pilots. This one is in Hephaestus colors."
+	icon_state = "heph_side_cap"
+	item_state = "heph_side_cap"
+
+/obj/item/clothing/head/sidecap/zavod/alt
+	name = "black zavodskoi pilotka cap"
+	desc = "A simple cap, often worn by pilots. This one is in Zavodskoi colors."
+	icon_state = "zavodskoi_pilotka_alt"
+	item_state = "zavodskoi_pilotka_alt"

@@ -38,7 +38,7 @@
 
 	var/modifiers = params2list(params)
 	if(modifiers["shift"])
-		A.examine(user)
+		examinate(user, A)
 		return
 
 	if(modifiers["alt"])
@@ -239,6 +239,7 @@
 	to_chat(user, "<span class='notice'>You climb into \the [src].</span>")
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
+	RegisterSignal(user, COMSIG_MOB_FACEDIR, PROC_REF(handle_user_turn))
 	sync_access()
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 	if(user.client) user.client.screen |= hud_elements
@@ -277,31 +278,26 @@
 	if(user in pilots)
 		set_intent(I_HURT)
 		LAZYREMOVE(pilots, user)
+		UnregisterSignal(user, COMSIG_MOB_FACEDIR)
 		UNSETEMPTY(pilots)
 
-/mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction)
+/mob/living/heavy_vehicle/proc/handle_user_turn(var/mob/living/user, var/direction)
+	SIGNAL_HANDLER
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, relaymove), user, direction, TRUE)
+
+/mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction, var/turn_only = FALSE)
 	if(!can_move(user))
 		return
 
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
 		direction = pick(cardinal)
 
-	if(dir == direction)
-		var/turf/target_loc = get_step(src, direction)
-		if(!legs.can_move_on(loc, target_loc))
-			return
-		if(incorporeal_move)
-			if(legs && legs.mech_step_sound)
-				playsound(src.loc,legs.mech_step_sound,40,1)
-			use_cell_power(legs.power_use * CELLRATE)
-			user.client.Process_Incorpmove(direction, src)
-		else
-			Move(target_loc, direction)
-	else
+	if(user.facing_dir == null && dir != direction)
 		use_cell_power(legs.power_use * CELLRATE)
 		if(legs && legs.mech_turn_sound)
 			playsound(src.loc,legs.mech_turn_sound,40,1)
-		next_mecha_move = world.time + legs.turn_delay
+		if(world.time + legs.turn_delay > next_mecha_move)
+			next_mecha_move = world.time + legs.turn_delay
 		set_dir(direction)
 		if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/shield))
 			var/obj/item/mecha_equipment/shield/S = hardpoints[HARDPOINT_BACK]
@@ -312,6 +308,18 @@
 				else
 					S.aura.layer = ABOVE_MOB_LAYER
 		update_icon()
+
+	if(!turn_only)
+		var/turf/target_loc = get_step(src, direction)
+		if(!legs.can_move_on(loc, target_loc))
+			return
+		if(incorporeal_move)
+			if(legs && legs.mech_step_sound)
+				playsound(src.loc,legs.mech_step_sound,40,1)
+			use_cell_power(legs.power_use * CELLRATE)
+			user.client.Process_Incorpmove(direction, src)
+		else
+			Move(target_loc, user.facing_dir || direction)
 
 /mob/living/heavy_vehicle/Move()
 	if(..() && !istype(loc, /turf/space))
@@ -368,6 +376,7 @@
 					remote_network = RM.mech_remote_network
 					does_hardpoint_lock = RM.hardpoint_lock
 					dummy_type = RM.dummy_path
+					remote_type = RM.type
 					become_remote()
 					qdel(thing)
 			else if(thing.ismultitool())
@@ -388,7 +397,7 @@
 				return
 
 			else if(thing.iswrench())
-				if(length(pilots))
+				if(!remote && length(pilots))
 					to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
 					return
 				if(!maintenance_protocols)
@@ -396,13 +405,21 @@
 					return
 				user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start disassembling \the [src]..."))
 				if(do_after(user, 30, TRUE, src))
-					if(length(pilots))
+					if(!remote && length(pilots))
 						to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
 						return
 					if(!maintenance_protocols)
 						to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
 						return
 					user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You disassemble \the [src]."))
+					if(remote)
+						for(var/mob/pilot in pilots)
+							if(pilot.client)
+								pilot.body_return()
+							hatch_locked = FALSE
+							eject(pilot, TRUE)
+							qdel(pilot)
+							new remote_type(get_turf(src))
 					dismantle()
 					return
 			else if(thing.iswelder())
@@ -458,7 +475,7 @@
 					thing.forceMove(body)
 					body.cell = thing
 					to_chat(user, "<span class='notice'>You install \the [body.cell] into \the [src].</span>")
-					playsound(user.loc, 'sound/items/screwdriver.ogg', 50, 1)
+					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 					visible_message("<span class='notice'>\The [user] installs \the [body.cell] into \the [src].</span>")
 				return
 			else if(istype(thing, /obj/item/device/robotanalyzer))
@@ -503,9 +520,9 @@
 			return h
 	return 0
 
-/var/global/datum/topic_state/default/mech_state = new()
+/var/global/datum/ui_state/default/mech_state = new()
 
-/datum/topic_state/default/mech/can_use_topic(var/mob/living/heavy_vehicle/src_object, var/mob/user)
+/datum/ui_state/default/mech/can_use_topic(var/mob/living/heavy_vehicle/src_object, var/mob/user)
 	if(istype(src_object))
 		if(user in src_object.pilots)
 			return ..()
@@ -541,7 +558,7 @@
 				attack_log += text("\[[time_stamp()]\] <span class='warning'>trampled [D.name] ([D.ckey]) with \the [src].</span>")
 				msg_admin_attack("[src] trampled [key_name(D)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)" )
 				src.visible_message("<span class='danger'>\The [src] runs over \the [D]!</span>")
-				D.apply_damage(legs.trample_damage, BRUTE)
+				D.apply_damage(legs.trample_damage, DAMAGE_BRUTE)
 				return TRUE
 
 		else
@@ -551,7 +568,7 @@
 				if(issmall(L) && (L.stat == DEAD))
 					L.gib()
 					return TRUE
-			L.apply_damage(legs.trample_damage, BRUTE)
+			L.apply_damage(legs.trample_damage, DAMAGE_BRUTE)
 			return TRUE
 
 /mob/living/heavy_vehicle/proc/ToggleLockdown()

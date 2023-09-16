@@ -37,7 +37,7 @@
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, scraping around inside [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, scraping around inside [target]'s [affected.name] with \the [tool]!"))
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/cavity/make_space
 	name = "Hollow Out Cavity"
@@ -47,8 +47,8 @@
 	/obj/item/stack/rods = 50
 	)
 
-	min_duration = 60
-	max_duration = 80
+	min_duration = 50
+	max_duration = 70
 
 /singleton/surgery_step/cavity/make_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -80,8 +80,8 @@
 	/obj/item/weldingtool = 25
 	)
 
-	min_duration = 60
-	max_duration = 80
+	min_duration = 50
+	max_duration = 70
 
 /singleton/surgery_step/cavity/close_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -107,8 +107,8 @@
 	priority = 0
 	allowed_tools = list(/obj/item = 100)
 
-	min_duration = 80
-	max_duration = 100
+	min_duration = 60
+	max_duration = 80
 
 /singleton/surgery_step/cavity/place_item/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -162,8 +162,8 @@
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
 
-	min_duration = 80
-	max_duration = 100
+	min_duration = 60
+	max_duration = 80
 
 /singleton/surgery_step/cavity/implant_removal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -231,5 +231,5 @@
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user] loses their grip and stabs [target] with \the [tool]!"), SPAN_WARNING("You lose your grip on \the [tool] and stab [target]!"))
 	affected.sever_artery()
-	target.apply_damage(25, BRUTE, target_zone)
+	target.apply_damage(25, DAMAGE_BRUTE, target_zone)
 

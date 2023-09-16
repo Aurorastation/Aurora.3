@@ -39,9 +39,9 @@
 
 /obj/machinery/atmospherics/valve/Initialize()
 	switch(dir)
-		if(NORTH || SOUTH)
+		if(NORTH, SOUTH)
 			initialize_directions = NORTH|SOUTH
-		if(EAST || WEST)
+		if(EAST, WEST)
 			initialize_directions = EAST|WEST
 	. = ..()
 
@@ -325,5 +325,5 @@
 		return TRUE
 
 /obj/machinery/atmospherics/valve/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "It is [open ? "open" : "closed"].")

@@ -1,6 +1,7 @@
 /obj/structure/bed/stool
 	name = "stool"
 	desc = "Apply butt."
+	icon = 'icons/obj/structure/chairs.dmi'
 	icon_state = "stool_preview"
 	base_icon = "stool"
 	anchored = FALSE
@@ -153,8 +154,24 @@
 	..(newloc, MATERIAL_SHUTTLE_SKRELL)
 	set_light(1,1,LIGHT_COLOR_CYAN)
 
+/obj/structure/bed/chair/stool/bamboo
+	name = "bamboo stool"
+	desc = "A makeshift bamboo stool with a rustic look."
+	icon_state = "bamboo_stool_item"
+	item_state = "bamboo_stool"
+	base_icon = "bamboo_stool"
+	icon_state = "bamboo_stool"
+	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
+	held_item = /obj/item/material/stool/bamboo
+	can_pad = FALSE
+
+/obj/structure/bed/stool/bamboo/New(var/newloc)
+	..(newloc, MATERIAL_BAMBOO)
+
+// Stool Items
+
 /obj/item/material/stool
-	icon = 'icons/obj/furniture.dmi'
+	icon = 'icons/obj/structure/chairs.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_chairs.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_chairs.dmi',
@@ -207,9 +224,9 @@
 
 /obj/item/material/stool/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	if(prob(300 / force)) // Weaker materials are more likely to shatter on people randomly.
-		var/blocked = target.get_blocked_ratio(hit_zone, BRUTE)
+		var/blocked = target.get_blocked_ratio(hit_zone, DAMAGE_BRUTE)
 		target.Weaken(force * BLOCKED_MULT(blocked))
-		target.apply_damage(force * 2, BRUTE, hit_zone, blocked, src)
+		target.apply_damage(force * 2, DAMAGE_BRUTE, hit_zone, blocked, src)
 		user.visible_message(SPAN_DANGER("[user] [material.destruction_desc] \the [src] to pieces against \the [target]'s [hit_zone]!"), SPAN_DANGER("\The [src] [material.destruction_desc] to pieces against \the [target]'s [hit_zone]!"))
 		use_material_shatter = FALSE
 		shatter()
@@ -299,3 +316,24 @@
 	item_state = "hover_stool"
 	base_icon = "hover_stool"
 	origin_type = /obj/structure/bed/stool/hover
+
+/obj/item/material/stool/bamboo
+	icon_state = "bamboo_stool_item"
+	item_state = "bamboo_stool"
+	base_icon = "bamboo_stool"
+	origin_type = /obj/structure/bed/stool/bamboo
+
+/obj/structure/flora/log_bench
+	name = "log bench"
+	desc = "Apply butt."
+	icon = 'icons/obj/wood.dmi'
+	icon_state = "tree_log"
+	anchored = FALSE
+	density = FALSE
+
+/obj/structure/flora/log_bench/fire_act()
+	for(var/obj/structure/bonfire/B in get_turf(src))
+		if(B.on_fire)
+			B.fuel = min(B.max_fuel, B.fuel + 300)
+	new /obj/effect/decal/cleanable/ash(get_turf(src))
+	qdel(src)

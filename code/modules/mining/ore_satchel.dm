@@ -11,9 +11,9 @@
 	var/linked_beacon = FALSE // can't hold an actual beacon beclause storage code a shit
 	var/linked_beacon_uses = 3 // to hold the amount of uses the beacon had, storage code a shit.
 
-/obj/item/storage/bag/ore/examine(mob/user)
-	..()
-	if(user.Adjacent(src) && linked_beacon)
+/obj/item/storage/bag/ore/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent && linked_beacon)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a <b>warp extraction pack</b> inside.")))
 
 /obj/item/storage/bag/ore/drone

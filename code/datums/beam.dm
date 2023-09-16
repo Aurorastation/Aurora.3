@@ -48,6 +48,9 @@
 	timing_id = null
 	var/turf/origin_turf = get_turf(origin)
 	var/turf/target_turf = get_turf(target)
+	if(!istype(origin_turf) || !istype(target_turf) || QDELETED(origin) || QDELETED(target))
+		End()
+		return
 	curr_distance = get_dist(origin_turf, target_turf)
 	if(!(curr_distance == -1 && origin_turf != target_turf) && curr_distance < max_distance && origin_turf.z == target_turf.z)
 		if((origin_turf != origin_oldloc || target_turf != target_oldloc))
@@ -84,6 +87,8 @@
 	elements.Cut()
 
 /datum/beam/Destroy()
+	if(timing_id)
+		deltimer(timing_id)
 	Reset()
 	target = null
 	origin = null
@@ -191,7 +196,7 @@
 	return (world.icon_size * target_oldloc.y) - (world.icon_size * origin_oldloc.y)
 
 /obj/effect/ebeam
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = 1
 	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	blend_mode = BLEND_ADD

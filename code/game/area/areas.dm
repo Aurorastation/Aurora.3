@@ -3,7 +3,7 @@
 //
 
 #define VOLUME_AMBIENCE 30
-#define VOLUME_AMBIENT_HUM 35
+#define VOLUME_AMBIENT_HUM 18
 #define VOLUME_MUSIC 30
 
 /area
@@ -21,7 +21,7 @@
 	icon_state = "unknown"
 	layer = 10
 	luminosity = 0
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 	var/obj/machinery/power/apc/apc = null
 	var/turf/base_turf // The base turf type of the area, which can be used to override the z-level's base turf.
@@ -31,7 +31,7 @@
 	var/eject = null
 
 	var/requires_power = 1
-	var/always_unpowered = 0	//this gets overriden to 1 for space in area/New()
+	var/always_unpowered = 0	//this gets overridden to 1 for space in area/New()
 
 	var/power_equip = 1 // Status vars
 	var/power_light = 1
@@ -179,7 +179,7 @@
 	if(!fire)
 		fire = 1	//used for firedoor checks
 		update_icon()
-		mouse_opacity = 0
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
@@ -191,7 +191,7 @@
 	if (fire)
 		fire = 0	//used for firedoor checks
 		update_icon()
-		mouse_opacity = 0
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)
 				if(D.operating)
@@ -213,12 +213,12 @@
 	if (!party)
 		party = 1
 		update_icon()
-		mouse_opacity = 0
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /area/proc/partyreset()
 	if (party)
 		party = 0
-		mouse_opacity = 0
+		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		update_icon()
 		for(var/obj/machinery/door/firedoor/D in all_doors)
 			if(!D.blocked)

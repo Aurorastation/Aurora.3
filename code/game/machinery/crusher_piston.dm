@@ -88,8 +88,8 @@
 /obj/machinery/crusher_base/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(status != "idle" && prob(40) && ishuman(user))
 		var/mob/living/carbon/human/M = user
-		M.apply_damage(45, BRUTE, user.get_active_hand())
-		M.apply_damage(45, PAIN)
+		M.apply_damage(45, DAMAGE_BRUTE, user.get_active_hand())
+		M.apply_damage(45, DAMAGE_PAIN)
 		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")
 		M.say("*scream")
 		return TRUE
@@ -174,7 +174,7 @@
 	if(!pstn) //We dont process if theres no piston
 		return
 	if(process_lock)
-		log_debug("crusher_piston process() has been called while it was still locked. Aborting")
+		LOG_DEBUG("crusher_piston process() has been called while it was still locked. Aborting")
 		return
 	process_lock = 1
 	var/timediff = world.time - action_start_time
@@ -467,7 +467,7 @@
 	density = 1
 	anchored = 1
 	opacity = 1
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 //
 // The piston_move proc for various objects

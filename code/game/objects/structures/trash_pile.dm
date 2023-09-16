@@ -38,7 +38,7 @@
 		hider = user
 		if(ishuman(user) && prob(5))
 			var/mob/living/carbon/human/H = user
-			H.take_overall_damage(5, 0, DAM_SHARP, src)
+			H.take_overall_damage(5, 0, DAMAGE_FLAG_SHARP, src)
 			to_chat(user, SPAN_WARNING("You cut yourself while climbing into \the [src]!"))
 
 /obj/structure/trash_pile/relaymove(mob/user)
@@ -117,7 +117,7 @@
 		/obj/item/storage/box = 5,
 		/obj/item/clothing/head/hardhat = 4,
 		/obj/item/clothing/mask/breath = 4,
-		/obj/item/clothing/shoes/black = 4,
+		/obj/item/clothing/shoes/sneakers/black = 4,
 		/obj/item/clothing/shoes/laceup = 4,
 		/obj/item/clothing/shoes/laceup/brown = 4,
 		/obj/item/clothing/suit/storage/hazardvest = 4,
@@ -132,7 +132,7 @@
 		/obj/item/clothing/gloves/botanic_leather = 3,
 		/obj/item/clothing/head/hardhat/red = 3,
 		/obj/item/clothing/mask/gas = 3,
-		/obj/item/clothing/suit/apron = 3,
+		/obj/item/clothing/accessory/apron/random = 3,
 		/obj/item/clothing/suit/storage/toggle/bomber = 3,
 		/obj/item/clothing/suit/storage/toggle/brown_jacket = 3,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie = 3,
@@ -172,7 +172,7 @@
 		/obj/item/clothing/gloves/yellow = 1,
 		/obj/item/clothing/head/hazmat/general = 1,
 		/obj/item/clothing/head/ushanka = 1,
-		/obj/item/clothing/shoes/syndigaloshes = 1,
+		/obj/item/clothing/shoes/galoshes/syndie = 1,
 		/obj/item/clothing/suit/hazmat/general = 1,
 		/obj/item/clothing/suit/space/emergency = 1,
 		/obj/item/clothing/under/gearharness = 1,
@@ -206,7 +206,7 @@
 		/obj/item/trap = 1,
 		/obj/item/cell/hyper/empty = 1,
 		/obj/item/material/knife/tacknife = 1,
-		/obj/item/storage/firstaid/brute = 1,
+		/obj/item/storage/firstaid/trauma = 1,
 		/obj/item/reagent_containers/pill/dexalin_plus = 1
 		)
 

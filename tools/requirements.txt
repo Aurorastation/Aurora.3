@@ -1,5 +1,5 @@
-pygit2==1.4.0
-bidict==0.21.2
-Pillow==9.3.0
-PyYAML==5.4.1
-beautifulsoup4==4.10.0
+pygit2==1.11.1
+bidict==0.22.1
+Pillow==9.4.0
+PyYAML==6.0
+beautifulsoup4==4.11.2

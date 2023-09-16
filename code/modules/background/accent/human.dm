@@ -60,6 +60,13 @@
 	tag_icon = "scarabs"
 	text_tag = "SCA"
 
+/datum/accent/burzsia
+	name = ACCENT_BURZSIA
+	description = "The native Burzsian accent is harsh, guttural, and aggressive. Burzsians refuse to pull any punches with their vocabulary, in accordance with their \
+	dangerous, and at times, adventurous lifestyle."
+	tag_icon = "burzsia"
+	text_tag = "BRZ"
+
 /datum/accent/silversun_original
 	name = ACCENT_SILVERSUN_ORIGINAL
 	description = "The native accent of Silversun is a sing-song take on standard Sol Common that has, since massive investment into the planet by Idris Incorporated, come to be associated with the planet's renowned tourism industry. \
@@ -173,10 +180,10 @@
 
 /datum/accent/dominia_frontier
 	name = ACCENT_DOMINIA_FRONTIER
-	description = "Resembling more Freespeak than the Vulgar Morozi dialect found in more civilised regions of the Empire, most accents of the Imperial Frontier are looked down upon by those from the Core Worlds. \
+	description = "Resembling Freespeak more than the Vulgar Morozi dialect found in more civilised regions of the Empire, most accents of the Imperial Frontier are looked down upon by those from the Core Worlds. \
 	Many Primaries and Secondaries look down upon the dialects of the Imperial Frontier as rogue, coarse, and often grating to hear compared to their Common-descended dialects. Many from this region who wish to rise \
 	through the ranks of the Empire’s Ma'zals spend great amounts of time learning an ersatz Solarian Common dialect based upon this one which is known as the Refined Imperial Frontier Dialect. While not nearly as \
-	prestigious see its counterparts the Refined Frontier dialect is often viewed as a mark of loyalty and dedication to the Empire."
+	prestigious as its counterparts, the Refined Frontier dialect is often viewed as a mark of loyalty and dedication to the Empire."
 	tag_icon = "dominia_frontier"
 	text_tag = "IFR"
 
@@ -185,7 +192,7 @@
 	description = "Much like the planet itself, the Jadranic dialect of Solarian Common sits between standard Solarian Common-influenced Vulgar Morozi and the more Freespeak-derived accents of the Imperial Frontier. \
 	The dialect possesses grammar and pronunciation similar to Vulgar Morozi but possesses multiple loan words from Freespeak which make it distinct from its Morozian counterpart. Jadraners are valued highly for their \
 	loyalty and this dialect is often regarded as the most common accent of the Imperial Army. More educated Jadraners, such as those from the planet's few urban centers, will often leave the dialect's Freespeak \
-	loan words our while talking with Morozians or other Dominians."
+	loan words out while talking with Morozians or other Dominians."
 	tag_icon = "dominia_novijadran"
 	text_tag = "NOV"
 
@@ -197,6 +204,15 @@
 	spoken or sing during Lyodic rituals often state it has an eerie beauty, as the sounds of these rituals can carry for kilometers across the barren landscape of the Lyod."
 	tag_icon = "dominia_lyodii"
 	text_tag = "LYD"
+
+/datum/accent/dominia_sunreach
+	name = ACCENT_DOMINIA_SUNREACH
+	description = "Regarded by most linguists as a Freespeak dialect, but classified by the Empire as a dialect of Vulgar Morozi, the Sun Reacher dialect is one of the more well-known accents of the Imperial Frontier. \
+	Previously associated with the Pirate Lords of Sun Reach and their raids on nearby worlds, the Reacher accent is now commonly heard from the voidsmen and officers of the Imperial Fleet and Goddess' Flotilla. \
+	Reachers who wish to demonstrate their loyalty to the Empire and a desire to assimilate into its culture will often go to great lengths to learn and speak a House Zhao-design pronunciation system which replaces \
+	the more guttural sounds of the Reacher dialect with lighter sounds closer in pronunciation to Jadranic Common."
+	tag_icon = "dominia_sunreach"
+	text_tag = "SRE"
 
 /datum/accent/jupiter
 	name = ACCENT_JUPITER
@@ -231,9 +247,9 @@
 
 /datum/accent/xanu
 	name = ACCENT_XANU
-	description = "The Xanu Standard dialect is arguably the most notable Freespeak dialect. Xanu Standard first emerged as an informal creole designed to make communication between the various nationalities \
-	who settled the planet more easily and possessed loan words from upwards of a half-dozen languages during this early period. Over time this creole would morph into the Xanu Standard dialect of Freespeak \
-	and is arguably the oldest and most widespread of the 25th century's common Freespeak dialects. Freespeak taught abroad, such as in the Serene Republic of Elyra and Republic of Biesel, is most often based upon the Xanu Standard dialect."
+	description = "Xanan Freespeak is arguably the most notable Freespeak dialect. Xanan Freespeak first emerged as an informal creole designed to make communication between the various nationalities \
+	who settled the planet easier, being a hybridization of languages from the Indian subcontinent with a large share of loanwords from French and Dutch. Over time this creole would morph into Xanan Freespeak \
+	and is arguably the oldest and most widespread of the 25th century's common Freespeak dialects. Freespeak taught abroad, such as in the Serene Republic of Elyra and Republic of Biesel, is most often based upon Xanan Freespeak."
 	tag_icon = "xanu"
 	text_tag = "XAN"
 
@@ -246,7 +262,7 @@
 
 /datum/accent/fisanduh
 	name = ACCENT_FISANDUH
-	description = "While it is similar to the typical Morozian accent, to those not familiar with it; or not from the Empire of Dominia, the standard Fisanduhian accent has some variations that mark it as distinctive. \
+	description = "While it is similar to the typical Morozian accent to those not familiar with it, the standard Fisanduhian accent has some variations that mark it as distinctive. \
 	The accent is higher pitched than its Dominian counterpart, and has been described as more tonal. Members of the Fisanduh Freedom Front will often go to great lengths to disguise this accent, \
 	though most will slip back into it when off-world."
 	tag_icon = "fisanduh"
@@ -259,6 +275,37 @@
 	been described as sounding relatively similar no matter which area of the planet they hail from."
 	tag_icon = "gadpathur"
 	text_tag = "GAD"
+
+/datum/accent/galatea
+	name = ACCENT_GALATEA
+	description = "Galatean Ministerial Common is one of two Ministerial Common dialects within the Federal Technocracy. Centrally managed by the Ministry of Galatean Culture (MfGC), Galatea proper's \
+	dialect is an unusual Solarian Common dialect characterized by its total lack of loan words and use of antiquated Common terms which date to the early 2300s — when it was established as a dialect — and \
+	have since fallen out of common use. Linguistically it is similar to Gadpathurian Common but lacks the Freespeak influence of Gadpathurian Common due to the MfGC's tight control over the language."
+	tag_icon = "galatea"
+	text_tag = "GAL"
+
+/datum/accent/tsukuyomi
+	name = ACCENT_TSUKUYOMI
+	description = "Significantly more rare abroad than Galatean Ministerial Common, Tsukuyomian Standard is one of two Ministerial Common dialects managed by the Ministry of Galatean Culture (MfGC). Like Galatean Ministerial \
+	Common, it lacks loan words due to central management and sounds comparatively antiquated when compared to more modern Solarian Common dialects. Tsukuyomian Standard is commonly associated with the Galatean Federal Navy, \
+	which has its headquarters on Tsukuyomi."
+	tag_icon = "tsukuyomi"
+	text_tag = "TSU"
+
+/datum/accent/empyrean
+	name = ACCENT_EMPYREAN
+	description = "Empyrean Federal Freespeak is a creole of Coalition Freespeak and Ministerial Common which features a multitude of Solarian Common loanwords due to most residents of Empyrean being bilingual, and often speaking \
+	Freespeak and Solarian Common. Compared to Svarogite Freespeak it features a heavier influence from foreign Freespeak and Solarian Common dialects due to Empyrean's status as a major point of entry for the Yggdrasil System. "
+	tag_icon = "empyrean"
+	text_tag = "EMY"
+
+/datum/accent/svarog
+	name = ACCENT_SVAROG
+	description = "Svarogite Federal Freespeak is an unusual creole which combines Coalition Freespeak with the Ministerial Common dialect of Solarian Common. It features many Solarian Common loanwords and speakers of this dialect \
+	are almost always bilingual, speaking both Solarian Common and Freespeak, which can lead to further linguistic blending. The universal lung bioaugmentations of Svarogites ensure that they, unlike their New Hai Phongese counterparts, \
+	do not suffer from chronic lung issues which would impact their speech."
+	tag_icon = "svarog"
+	text_tag = "SVA"
 
 /datum/accent/pluto
 	name = ACCENT_PLUTO
@@ -306,7 +353,8 @@
 
 /datum/accent/antillia
 	name = ACCENT_ANTILLIA
-	description = "There are two distinct dialects present on the planet: one that sees heavy lifting from Tradeband and the other more influenced by Solarian Common. It is relatively easy to identify the differences between the two: Antilleans influenced by Tradeband sound more nasal and rhythmic, whereas those that grew up in regions where Solarian Common is the dominant language are more soft-spoken and enunciated."
+	description = "There are two distinct dialects present on the planet: one that sees heavy lifting from Tradeband, and another more influenced by Solarian Common. It is relatively easy to identify the differences between \
+	the two: Antilleans influenced by Tradeband sound more nasal and rhythmic, whereas those that grew up in regions where Solarian Common is the dominant language are more soft-spoken and enunciated."
 	tag_icon = "antillia"
 	text_tag = "PRT"
 
@@ -344,3 +392,17 @@
 	than the standard dictionary might, Damascene Elyran retains a refined, cultured, and historically resonant weight to its words, much like the storied planet itself."
 	tag_icon = "damascus"
 	text_tag = "DAM"
+
+/datum/accent/orepitter
+	name = ACCENT_OREPIT
+	description = "Native Orepitters developed their own way of speech that stemmed from centuries of complete isolation. The vast distances of the planet's desert surface required loud, high pitched sounds for reliable communication, \
+	making it the primary characteristic of the Orepitter accent."
+	tag_icon = "orepit"
+	text_tag = "ORE"
+
+/datum/accent/providence
+	name = ACCENT_PROVIDENCE
+	description = "While the capital of the Trinarists never had a sole language, its people from all over the Spur have come to adopt a unified accent. Characterised by fast-paced speaking and unique intonations to match the style of their \
+	synthetic brethren, IPCs have also come to adopt the accent for non-EAL languages."
+	tag_icon = "providence"
+	text_tag = "PDE"

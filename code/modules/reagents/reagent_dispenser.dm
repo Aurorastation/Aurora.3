@@ -21,8 +21,9 @@
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
 		desc_info = ""
 
-/obj/structure/reagent_dispensers/examine(mob/user)
-	if(!..(user, 2))
+/obj/structure/reagent_dispensers/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	to_chat(user,"<span class='notice'>It contains [reagents.total_volume] units of reagents.</span>")
 
@@ -127,8 +128,9 @@
 	var/obj/item/device/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
 
-/obj/structure/reagent_dispensers/fueltank/examine(mob/user)
-	if(!..(user, 2))
+/obj/structure/reagent_dispensers/fueltank/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	if (is_leaking)
 		to_chat(user, "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>")
@@ -387,7 +389,7 @@
 
 /obj/structure/reagent_dispensers/coolanttank/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
-		if (Proj.damage_type != PAIN)
+		if (Proj.damage_type != DAMAGE_PAIN)
 			explode()
 
 /obj/structure/reagent_dispensers/coolanttank/ex_act(var/severity = 2.0)
@@ -410,3 +412,18 @@
 				env.temperature -= 100
 
 	QDEL_IN(src, 10)
+
+//acid barrel
+
+/obj/structure/reagent_dispensers/acid_barrel
+	name = "chemical barrel"
+	desc = "A metal barrel containing some unknown chemical."
+	icon_state = "acid_barrel"
+	amount_per_transfer_from_this = 300
+
+/obj/structure/reagent_dispensers/radioactive_waste
+	name = "radioactive waste barrel"
+	desc = "A metal barrel containing radioactive waste."
+	icon_state = "chemical_barrel"
+	amount_per_transfer_from_this = 300
+	reagents_to_add = list(/singleton/reagent/radioactive_waste = 1000)

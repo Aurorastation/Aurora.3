@@ -3,8 +3,22 @@
 /turf/template_noop,
 /area/template_noop)
 "ab" = (
-/turf/simulated/mineral,
-/area/template_noop)
+/obj/machinery/door/airlock/external{
+	frequency = 1353;
+	icon_state = "door_locked";
+	id_tag = "digsite_exterior";
+	locked = 1;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/access_button/airlock_exterior{
+	frequency = 1353;
+	master_tag = "digsite_airlock";
+	pixel_x = -6;
+	pixel_y = 31
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
 "ac" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -23,10 +37,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "af" = (
 /obj/machinery/atmospherics/unary/vent_pump{
@@ -43,19 +54,12 @@
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
-"ah" = (
-/obj/structure/inflatable/wall,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/template_noop)
 "ai" = (
 /obj/machinery/floodlight,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "aj" = (
 /obj/machinery/artifact,
@@ -63,19 +67,13 @@
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "ak" = (
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "al" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "am" = (
 /obj/structure/inflatable/wall,
@@ -85,19 +83,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "ao" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "ap" = (
 /obj/machinery/floodlight,
@@ -108,13 +100,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "ar" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/template_noop)
 "as" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -137,10 +127,7 @@
 /area/template_noop)
 "av" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "aw" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -164,10 +151,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/plating/asteroid{
-	nitrogen = 0;
-	oxygen = 0
-	},
+/turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "az" = (
 /turf/simulated/wall,
@@ -210,12 +194,9 @@
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "aE" = (
-/obj/machinery/access_button/airlock_exterior{
-	frequency = 1353;
-	master_tag = "digsite_airlock";
-	pixel_x = 25
-	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
+/obj/machinery/artifact_analyser,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
 "aF" = (
 /obj/structure/table/standard,
@@ -244,16 +225,13 @@
 /obj/machinery/artifact_scanpad,
 /turf/simulated/floor/tiled,
 /area/dungeon/anomaly_outpost)
-"aJ" = (
-/obj/machinery/artifact_analyser,
-/turf/simulated/floor/tiled,
-/area/dungeon/anomaly_outpost)
 "aL" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1353;
 	icon_state = "door_locked";
 	id_tag = "digsite_exterior";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor,
@@ -266,7 +244,8 @@
 	frequency = 1353;
 	icon_state = "door_locked";
 	id_tag = "digsite_interior";
-	locked = 1
+	locked = 1;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -369,11 +348,10 @@
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "bc" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/dungeon/anomaly_outpost)
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "bd" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -454,23 +432,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 "}
 (2,1,1) = {"
 aa
 aa
-ar
+bc
 ar
 al
 ai
 ae
 ar
 ar
-aa
-aa
-aa
 aa
 aa
 aa
@@ -498,25 +470,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 "}
 (4,1,1) = {"
 ar
 ar
 al
-ah
-ah
 am
-ah
-ah
+am
+am
+am
+am
 ae
 ar
 ar
-aa
-aa
-aa
 aa
 aa
 aa
@@ -528,11 +494,11 @@ aa
 ar
 al
 ar
-ah
+am
 aD
 ad
 ac
-ah
+am
 ar
 ae
 ar
@@ -541,9 +507,6 @@ ar
 ar
 ar
 ap
-ar
-aa
-aa
 aa
 "}
 (6,1,1) = {"
@@ -563,53 +526,44 @@ ak
 ak
 ak
 ar
-ar
-aa
-aa
 aa
 "}
 (7,1,1) = {"
 ar
 an
 ar
-ah
+am
 at
 Vd
 au
-ah
+am
 ar
 ao
 ar
 ar
-aE
-ak
-ak
-bc
 ar
-aa
-aa
+ak
+ak
+ar
 aa
 "}
 (8,1,1) = {"
 ar
 ar
 an
-ah
-ah
 am
-ah
-ah
+am
+am
+am
+am
 ao
 ar
 ar
-ar
-az
-aL
-aL
+aa
 az
 ab
-aa
-aa
+aL
+az
 aa
 "}
 (9,1,1) = {"
@@ -623,15 +577,12 @@ ar
 ao
 ar
 ar
-ar
-ar
+aa
+aa
 aA
 aM
 aU
 az
-ab
-ab
-aa
 aa
 "}
 (10,1,1) = {"
@@ -644,61 +595,52 @@ aq
 ao
 ar
 ar
-ar
-ar
-ar
+aa
+aa
+aa
 aC
 af
 aw
 az
-ab
-ab
-ab
 aa
 "}
 (11,1,1) = {"
 aa
 aa
 aa
+bc
 ar
 ar
 ar
 ar
-ar
-ar
-ar
-ar
+aa
+aa
+aa
 az
 az
 aO
 aO
 az
 az
-ab
-ab
-ab
 "}
 (12,1,1) = {"
 aa
 aa
 aa
 aa
-ar
-ar
-ar
-ar
-ar
-ar
-ar
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aA
 aF
 aP
 aW
 bd
 az
-ab
-ab
-ab
 "}
 (13,1,1) = {"
 aa
@@ -706,21 +648,18 @@ aa
 aa
 aa
 aa
-ar
-ar
-ar
-ar
-ar
-ar
+aa
+aa
+aa
+aa
+aa
+aa
 aB
 aG
 aQ
 aX
 be
 az
-ab
-ab
-ab
 "}
 (14,1,1) = {"
 aa
@@ -729,20 +668,17 @@ aa
 aa
 aa
 aa
-ar
-ar
-ar
-ar
-ar
+aa
+aa
+aa
+aa
+aa
 aB
 aH
 aR
 aX
 bf
 az
-ab
-ab
-ab
 "}
 (15,1,1) = {"
 aa
@@ -751,20 +687,17 @@ aa
 aa
 aa
 aa
-ar
-ar
-ar
-ar
-ar
+aa
+aa
+aa
+aa
+aa
 aB
 aI
 aR
 aX
 bg
 az
-ab
-ab
-ab
 "}
 (16,1,1) = {"
 aa
@@ -774,19 +707,16 @@ aa
 aa
 aa
 aa
-ar
-ar
-ar
-ar
+aa
+aa
+aa
+aa
 aC
-aJ
+aE
 aS
 aY
 bh
 az
-ab
-ab
-ab
 "}
 (17,1,1) = {"
 aa
@@ -796,19 +726,16 @@ aa
 aa
 aa
 aa
-ar
-ar
-ar
-ar
+aa
+aa
+aa
+aa
 az
 az
 bi
 aZ
 az
 az
-ab
-ab
-ab
 "}
 (18,1,1) = {"
 aa
@@ -822,15 +749,12 @@ aa
 aa
 aa
 aa
-ab
+aa
 az
 aT
 ba
 az
-ab
-ab
-ab
-ab
+aa
 "}
 (19,1,1) = {"
 aa
@@ -844,57 +768,10 @@ aa
 aa
 aa
 aa
-ab
+aa
 az
 az
 az
 az
-ab
-ab
-ab
-ab
-"}
-(20,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aa
-"}
-(21,1,1) = {"
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-ab
-ab
-ab
-ab
-aa
 aa
 "}

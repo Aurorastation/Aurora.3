@@ -9,6 +9,7 @@
 
 	var/list/warrants
 	var/list/viruses
+	var/list/shuttle_manifests
 
 	var/list/excluded_fields
 	var/list/localized_fields
@@ -34,6 +35,7 @@
 	records_locked = list()
 	warrants = list()
 	viruses = list()
+	shuttle_manifests = list()
 	excluded_fields = list()
 	localized_fields = list()
 	manifest = list()
@@ -106,6 +108,8 @@
 			warrants += record
 		if(/datum/record/virus)
 			viruses += record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests += record
 
 /datum/controller/subsystem/records/proc/update_record(var/datum/record/record)
 	switch(record.type)
@@ -118,6 +122,8 @@
 			warrants |= record
 		if(/datum/record/virus)
 			viruses |= record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests |= record
 	onModify(record)
 
 /datum/controller/subsystem/records/proc/remove_record(var/datum/record/record)
@@ -131,6 +137,8 @@
 			warrants -= record
 		if(/datum/record/virus)
 			viruses *= record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests -= record
 	onDelete(record)
 	qdel(record)
 
@@ -178,39 +186,39 @@
 
 /datum/controller/subsystem/records/proc/reset_manifest()
 	manifest.Cut()
+	update_static_data_for_all_viewers()
 
-/datum/controller/subsystem/records/CanUseTopic(var/mob/user, var/datum/topic_state/state = default_state) // this is needed because VueUI closes otherwise
-	if(isnewplayer(user))
-		return STATUS_INTERACTIVE
-	if(isobserver(user))
-		return STATUS_INTERACTIVE
-	if(issilicon(user)) // silicons have the show manifest verb
-		return STATUS_INTERACTIVE
-	return ..()
+/datum/controller/subsystem/records/ui_state(mob/user)
+	return always_state
 
-/datum/controller/subsystem/records/Topic(href, href_list)
-	if(href_list["action"] == "follow") // from manifest.vue
+/datum/controller/subsystem/records/ui_status(mob/user, datum/ui_state/state)
+	return (isnewplayer(user) || isobserver(user) || issilicon(user)) ? UI_INTERACTIVE : UI_CLOSE
+
+/datum/controller/subsystem/records/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	if(action == "follow")
 		var/mob/abstract/observer/O = usr
 		if(istype(O))
-			for(var/mob/living/M in player_list)
-				if(istype(M) && M.real_name == href_list["name"])
+			for(var/mob/living/M in human_mob_list)
+				if(istype(M) && M.real_name == params["name"])
 					O.ManualFollow(M)
 					break
 	. = ..()
 
-/datum/controller/subsystem/records/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data || list()
+/datum/controller/subsystem/records/ui_static_data(mob/user)
+	var/list/data = list()
+	data["manifest"] = SSrecords.get_manifest_list()
+	data["allow_follow"] = isobserver(usr)
+	return data
 
-	VUEUI_SET_CHECK_LIST(data["manifest"], SSrecords.get_manifest_list(), ., data)
-	VUEUI_SET_CHECK(data["allow_follow"], isobserver(usr), ., data)
-
-/datum/controller/subsystem/records/proc/open_manifest_vueui(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "manifest", 580, 700, "Crew Manifest")
-		ui.header = "minimal"
-	ui.open()
+/datum/controller/subsystem/records/proc/open_manifest_tgui(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "CrewManifest", "Crew Manifest")
+		ui.open()
 
 /datum/controller/subsystem/records/proc/get_manifest_text()
 	var/dat = "<h2>Crew Manifest</h2><em>as of [worlddate2text()] [worldtime2text()]</em>"
@@ -228,7 +236,7 @@
 	if(manifest.len)
 		return manifest
 	if(!SSjobs)
-		error("SSjobs not available, cannot build manifest")
+		log_world("ERROR: SSjobs not available, cannot build manifest")
 		return
 	manifest = DEPARTMENTS_LIST_INIT
 	for(var/datum/record/general/t in records)
@@ -266,6 +274,10 @@
 			var/mob/living/silicon/ai/A = S
 			manifest[dept][++manifest[dept].len] = list("name" = sanitize(A.name), "rank" = "Station Intelligence", "active" = "Online", "head" = TRUE)
 			manifest[dept].Swap(1, manifest[dept].len)
+
+	for(var/department in manifest)
+		if(!length(manifest[department]))
+			manifest -= department
 
 	manifest_json = json_encode(manifest)
 	return manifest

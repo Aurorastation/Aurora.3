@@ -26,6 +26,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	eyes = "blank_eyes"
 
 	bodytype = BODYTYPE_GOLEM
+	species_height = HEIGHT_CLASS_SHORT
 
 	language = "Ceti Basic"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch)
@@ -97,6 +98,8 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	hud_type = /datum/hud_data/construct
 
+	psi_deaf = TRUE
+
 	var/turn_into_materials = TRUE //the golem will turn into materials upon its death
 	var/golem_designation = "Coal" //used in the creation of the name
 
@@ -113,17 +116,12 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 /datum/species/golem/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)
-		set waitfor = 0
-		sleep(1)
 		new H.species.meat_type(H.loc, rand(3,8))
 		qdel(H)
 
 /datum/species/golem/handle_death_check(var/mob/living/carbon/human/H)
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
-	return FALSE
-
-/datum/species/golem/has_psi_potential()
 	return FALSE
 
 /datum/species/golem/iron
@@ -411,8 +409,6 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 			return -1 // complete projectile permutation
 
 /datum/species/golem/glass/handle_death(var/mob/living/carbon/human/H)
-	set waitfor = 0
-	sleep(1)
 	for(var/i in 1 to 5)
 		var/obj/item/material/shard/T = new meat_type(H.loc)
 		var/turf/landing = get_step(H, pick(alldirs))
@@ -451,8 +447,6 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	golem_designation = "Phoron"
 
 /datum/species/golem/phoron/handle_death(var/mob/living/carbon/human/H)
-	set waitfor = 0
-	sleep(1)
 	var/turf/location = get_turf(H)
 	for(var/turf/simulated/floor/target_tile in range(0,location))
 		target_tile.assume_gas(GAS_PHORON, 200, 100+T0C)
@@ -768,7 +762,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 /datum/species/golem/uranium/handle_environment_special(var/mob/living/carbon/human/H)
 	if(prob(25))
 		for(var/mob/living/L in view(7, H))
-			L.apply_damage(20, IRRADIATE, damage_flags = DAM_DISPERSED)
+			L.apply_damage(20, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /datum/species/golem/homunculus
 	name = SPECIES_GOLEM_MEAT
@@ -815,7 +809,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	death_message = "collapses into a pile of flesh!"
 	death_message_range = 7
 
-	death_sound = 'sound/magic/disintegrate.ogg'
+	death_sound = 'sound/magic/Disintegrate.ogg'
 
 	golem_designation = "Flesh"
 
@@ -829,8 +823,6 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 /datum/species/golem/homunculus/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)
-		set waitfor = 0
-		sleep(1)
 		H.gib()
 
 /datum/species/golem/homunculus/handle_environment_special(var/mob/living/carbon/human/H)

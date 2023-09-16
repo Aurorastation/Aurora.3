@@ -10,15 +10,16 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/chem_recharge_rate = 0.5
 	var/chem_storage = 50
 	var/sting_range = 1
-	var/space_adapted = FALSE
+	var/using_thermals = FALSE
 	var/changelingID = "Changeling"
 	var/geneticdamage = 0
 	var/isabsorbing = 0
-	var/geneticpoints = 5
+	var/geneticpoints = 10
 	var/list/purchasedpowers = list()
 	var/mimicing = ""
 	var/mimiced_accent = "Biesellite"
 	var/justate
+	var/can_respec = FALSE
 
 /datum/changeling/New(var/gender=FEMALE)
 	..()
@@ -38,6 +39,9 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	for(var/datum/absorbed_dna/DNA in absorbed_dna)
 		if(dna_owner == DNA.name)
 			return DNA
+
+/datum/changeling/proc/use_charges(var/charges_used)
+	chem_charges = max(0, chem_charges - charges_used)
 
 /mob/proc/absorbDNA(var/datum/absorbed_dna/newDNA)
 	var/datum/changeling/changeling = null
@@ -62,8 +66,8 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(!mind.antag_datums[MODE_CHANGELING])
 		mind.antag_datums[MODE_CHANGELING] = new /datum/changeling(gender)
 
-	verbs += /datum/changeling/proc/EvolutionMenu
-	add_language("Changeling")
+	add_verb(src, /datum/changeling/proc/EvolutionMenu)
+	add_language(LANGUAGE_CHANGELING)
 
 	var/lesser_form = !ishuman(src)
 
@@ -83,7 +87,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		if(P.isVerb)
 			if(lesser_form && !P.allowduringlesserform)	continue
 			if(!(P in src.verbs))
-				src.verbs += P.verbpath
+				add_verb(src, P.verbpath)
 
 	for(var/language in languages)
 		changeling.absorbed_languages |= language
@@ -96,16 +100,46 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	return TRUE
 
-//removes our changeling verbs
-/mob/proc/remove_changeling_powers()
+/**
+ * Resets a changeling to the point where they were when they first became a changeling.
+ */
+/mob/proc/changeling_respec()
+	var/datum/changeling/changeling = null
+	if(mind)
+		changeling = mind.antag_datums[MODE_CHANGELING]
+	if(!changeling)
+		return
+	remove_changeling_powers(TRUE)
+	changeling.prepared_sting = null
+	changeling.absorbedcount = initial(changeling.absorbedcount)
+	changeling.chem_charges = initial(changeling.chem_charges)
+	changeling.sting_range = initial(changeling.sting_range)
+	changeling.chem_recharge_rate = initial(changeling.chem_recharge_rate)
+	changeling.chem_storage = initial(changeling.chem_storage)
+	changeling.chem_charges = min(changeling.chem_charges, changeling.chem_storage)
+	changeling.geneticpoints = initial(changeling.geneticpoints)
+	changeling.mimicing = null
+	changeling.mimiced_accent = initial(changeling.mimiced_accent)
+
+/**
+ * Removes a changeling's abilities
+ */
+/mob/proc/remove_changeling_powers(reset_powers = FALSE)
 	var/datum/changeling/changeling
 	if(mind)
 		changeling = mind.antag_datums[MODE_CHANGELING]
 	if(!changeling)
 		return
 	for(var/datum/power/changeling/P in changeling.purchasedpowers)
-		if(P.isVerb)
-			verbs -= P.verbpath
+		if(P.isVerb && !reset_powers)
+			remove_verb(src, P.verbpath)
+		else if(reset_powers && (P.genomecost != 0))
+			if(P.isVerb)
+				remove_verb(src, P.verbpath)
+			changeling.purchasedpowers -= P
+			qdel(P)
+	if(!reset_powers)
+		remove_language(LANGUAGE_CHANGELING)
 
 
 //Helper proc. Does all the checks and stuff for us to avoid copypasta
@@ -140,8 +174,26 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	for(var/language in updated_languages)
 		languages += language
 	//This isn't strictly necessary but just to be safe...
-	add_language("Changeling")
+	add_language(LANGUAGE_CHANGELING)
 	return
+
+/mob/proc/changeling_try_respec()
+	set category = "Changeling"
+	set name = "Re-evolve"
+
+	var/datum/changeling/changeling
+	if(mind)
+		changeling = mind.antag_datums[MODE_CHANGELING]
+	if(!changeling)
+		return FALSE
+	if(changeling.can_respec)
+		to_chat(src, SPAN_NOTICE("We have removed our evolutions in this form, and are now ready to re-adapt."))
+		changeling_respec()
+		changeling.can_respec = FALSE
+		return TRUE
+	else
+		to_chat(src, SPAN_WARNING("You lack the power to re-adapt your evolutions!"))
+		return FALSE
 
 //DNA related datums
 
@@ -150,24 +202,30 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/datum/dna/dna
 	var/speciesName
 	var/list/languages
+	var/height
 
-/datum/absorbed_dna/New(var/newName, var/newDNA, var/newSpecies, var/newLanguages)
+/datum/absorbed_dna/New(var/newName, var/newDNA, var/newSpecies, var/newLanguages, newHeight)
 	..()
 	name = newName
 	dna = newDNA
 	speciesName = newSpecies
 	languages = newLanguages
+	height = newHeight
 
 //Helper for stingcode
 
 /mob/proc/sting_can_reach(mob/M as mob, sting_range = 1)
 	if(M.loc == src.loc)
 		return TRUE //target and source are in the same thing
+	var/target_distance = get_dist(src, M)
+	if(target_distance < sting_range)
+		to_chat(src, SPAN_WARNING("\The [M] is too far for our sting!"))
+		return FALSE //Too far, don't bother pathfinding
 	if(!isturf(src.loc) || !isturf(M.loc))
-		to_chat(src, "<span class='warning'>We cannot reach \the [M] with a sting!</span>")
+		to_chat(src, SPAN_WARNING("We cannot reach \the [M] with a sting!"))
 		return FALSE //One is inside, the other is outside something.
 	// Maximum queued turfs set to 25; I don't *think* anything raises sting_range above 2, but if it does the 25 may need raising
 	if(!AStar(src.loc, M.loc, /turf/proc/AdjacentTurfs, /turf/proc/Distance, max_nodes=25, max_node_depth=sting_range)) //If we can't find a path, fail
-		to_chat(src, "<span class='warning'>We cannot find a path to sting \the [M] by!</span>")
+		to_chat(src, SPAN_WARNING("We cannot find a path to sting \the [M] by!"))
 		return FALSE
 	return TRUE

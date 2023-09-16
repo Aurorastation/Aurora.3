@@ -102,8 +102,7 @@
 	var/list/species_restricted = list(BODYTYPE_HUMAN,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 
 /obj/item/rig/examine()
-	to_chat(usr, "This is [icon2html(src, usr)][src.name].")
-	to_chat(usr, "[src.desc]")
+	. = ..()
 	if(wearer)
 		for(var/obj/item/piece in list(helmet,gloves,chest,boots))
 			if(!piece || piece.loc != wearer)
@@ -245,12 +244,22 @@
 	sealing = 1
 
 	if(!seal_target && !suit_is_deployed())
-		wearer.visible_message("<span class='danger'>[wearer]'s suit flashes an error light.</span>","<span class='danger'>Your suit flashes an error light. It can't function properly without being fully deployed.</span>")
+		wearer.visible_message(
+			SPAN_DANGER("[wearer]'s suit flashes an error light."),
+			SPAN_DANGER("Your suit flashes an error light. It can't function properly without being fully deployed.")
+		)
 		playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 		failed_to_seal = 1
 
 	var/is_in_cycler = istype(initiator.loc, /obj/machinery/suit_cycler)
 	seal_delay = is_in_cycler ? 1 : initial(seal_delay)
+
+	var/jumpsuit_was_hidden = FALSE
+	if(suit_is_deployed() && (wearer.wear_suit.flags_inv & HIDEJUMPSUIT) && !instant)
+		/// Don't hide the jumpsuit while removing the rig.
+		wearer.wear_suit.flags_inv &= ~HIDEJUMPSUIT
+		wearer.update_inv_wear_suit()
+		jumpsuit_was_hidden = TRUE
 
 	if(!failed_to_seal)
 		if(!instant)
@@ -263,7 +272,11 @@
 		if(!wearer)
 			failed_to_seal = 1
 		else
-			for(var/list/piece_data in list(list(wearer.shoes,boots,"boots",boot_type),list(wearer.gloves,gloves,"gloves",glove_type),list(wearer.head,helmet,"helmet",helm_type),list(wearer.wear_suit,chest,BP_CHEST,chest_type)))
+			for(var/list/piece_data in list(
+					list(wearer.shoes, boots, "boots", boot_type),
+					list(wearer.gloves, gloves, "gloves", glove_type),
+					list(wearer.head, helmet, "helmet", helm_type),
+					list(wearer.wear_suit, chest, "chest", chest_type)))
 
 				var/obj/item/clothing/piece = piece_data[1]
 				var/obj/item/compare_piece = piece_data[2]
@@ -293,8 +306,12 @@
 						if("gloves")
 							to_chat(wearer, "<span class='notice'>\The [piece] [!seal_target ? "tighten around your fingers and wrists" : "become loose around your fingers"].</span>")
 							wearer.update_inv_gloves()
-						if(BP_CHEST)
-							to_chat(wearer, "<span class='notice'>\The [piece] [!seal_target ? "cinches tight again your chest" : "releases your chest"].</span>")
+						if("chest")
+							to_chat(wearer, "<span class='notice'>\The [piece] [!seal_target ? "cinches your chest tightly" : "releases your chest"].</span>")
+							if(!seal_target)
+								piece.flags_inv |= HIDEJUMPSUIT
+							else
+								piece.flags_inv &= ~HIDEJUMPSUIT
 							wearer.update_inv_wear_suit()
 						if("helmet")
 							to_chat(wearer, "<span class='notice'>\The [piece] hisses [!seal_target ? "closed" : "open"].</span>")
@@ -318,11 +335,14 @@
 
 	if(failed_to_seal)
 		for(var/obj/item/piece in list(helmet,boots,gloves,chest))
-			if(!piece) continue
+			if(!piece)
+				continue
 			piece.icon_state = "[initial(icon_state)][!seal_target ? "" : "_sealed"]"
 		canremove = !seal_target
 		if(airtight)
 			update_component_sealed()
+		if(jumpsuit_was_hidden && wearer.wear_suit == chest)
+			wearer.wear_suit.flags_inv |= HIDEJUMPSUIT
 		update_icon(1)
 		return 0
 
@@ -348,6 +368,7 @@
 	update_icon(1)
 	if(is_in_cycler)
 		initiator.loc.update_icon()
+	SSstatpanels.set_action_tabs(initiator.client, initiator)
 
 /obj/item/rig/proc/update_component_sealed()
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
@@ -569,7 +590,7 @@
 
 /obj/item/rig/proc/check_suit_access(var/mob/living/carbon/human/user)
 
-	if(!security_check_enabled)
+	if(!security_check_enabled || !locked)
 		return 1
 
 	if(istype(user))
@@ -589,10 +610,12 @@
 
 //TODO: Fix Topic vulnerabilities for malfunction and AI override.
 /obj/item/rig/Topic(href,href_list)
-	if(ismob(href))
-		do_rig_thing(href, href_list)
-		return
-	do_rig_thing(usr, href_list)
+    if(href_list["examine_fluff"])
+        examine_fluff(usr)
+    if(ismob(href))
+        do_rig_thing(href, href_list)
+        return
+    do_rig_thing(usr, href_list)
 
 /obj/item/rig/proc/do_rig_thing(mob/user, var/list/href_list)
 	if(!check_suit_access(user))
@@ -767,6 +790,7 @@
 
 /obj/item/rig/dropped(var/mob/user)
 	..()
+	SSstatpanels.set_action_tabs(user.client, user)
 	null_wearer(user)
 
 
@@ -948,15 +972,10 @@
 	// AIs are a bit slower than regular and ignore move intent.
 	wearer_move_delay = world.time + ai_controlled_move_delay
 
-	var/tickcomp = 0
-	if(config.Tickcomp)
-		tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
-		wearer_move_delay += tickcomp
-
 	if(istype(wearer.buckled_to, /obj/vehicle))
 		//manually set move_delay for vehicles so we don't inherit any mob movement penalties
 		//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
-		wearer_move_delay = world.time + tickcomp
+		wearer_move_delay = world.time
 		return wearer.buckled_to.relaymove(wearer, direction)
 
 	if(istype(wearer.machine, /obj/machinery))

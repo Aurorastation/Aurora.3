@@ -101,7 +101,7 @@
 					playsound(loc, 'sound/arcade/Ori_begin.ogg', 1, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
 					cooldown = world.time + 300
 				dat = "<center><h1>Orion Trail[emagged ? ": Realism Edition" : ""]</h1><br>Learn how our ancestors got to Orion, and have fun in the process!</center><br><P ALIGN=Right><a href='?src=\ref[src];continue=1'>Start New Game</a></P>"
-				send_theme_resources(user)
+
 				var/datum/browser/arcade_win = new(user, "window=arcade", capitalize_first_letters(name))
 				arcade_win.set_content(dat)
 				arcade_win.open()
@@ -187,7 +187,7 @@
 	dat += "[view==ORION_VIEW_SUPPLIES ? "" : "<a href='?src=\ref[src];supplies=1'>"]Supplies[view==ORION_VIEW_SUPPLIES ? "" : "</a>"]<BR>"
 	dat += "[view==ORION_VIEW_CREW ? "" : "<a href='?src=\ref[src];crew=1'>"]Crew[view==ORION_VIEW_CREW ? "" : "</a>"]</P>"
 
-	send_theme_resources(user)
+
 	var/datum/browser/arcade_win = new(user, "window=arcade", capitalize_first_letters(name))
 	arcade_win.set_content(dat)
 	arcade_win.open()
@@ -497,14 +497,13 @@
 	icon_state = "ship"
 	w_class = ITEMSIZE_SMALL
 	var/active = 0 //if the ship is on
-/obj/item/orion_ship/examine(mob/user)
-	..()
-	if(!(in_range(user, src)))
+
+/obj/item/orion_ship/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 1)
 		return
-	if(!active)
-		to_chat(user, "<span class='notice'>There's a little switch on the bottom. It's flipped down.</span>")
-	else
-		to_chat(user, "<span class='notice'>There's a little switch on the bottom. It's flipped up.</span>")
+	to_chat(user, SPAN_NOTICE("There's a little switch on the bottom. It's flipped [active ? "up" : "down"]."))
+
 /obj/item/orion_ship/attack_self(mob/user)
 	if(active)
 		return

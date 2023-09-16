@@ -1,5 +1,3 @@
-#define CITIZENSHIPS_DOMINIA list(CITIZENSHIP_DOMINIA, CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
-
 /singleton/origin_item/culture/dominia
 	name = "Empire of Dominia"
 	desc = "The Empire of Dominia (often simply referred to as \"the Empire\") is an autocratic monarchy that is heavily influenced by its state religion, the Moroz Holy Tribunal, which is often regarded as an offshoot of old Earth faiths. Imperial society is sharply divided between Morozians, which are themselves divided between noble Primaries and commoner Secondaries, and Ma'zals, which make up the population of its conquered worlds. Militaristic and expansionist, the Empire has been increasingly brought into conflict with its neighbors: the Serene Republic of Elyra and Coalition of Colonies. Dominians are often stereotyped as militant, religious, and egotistical."
@@ -26,7 +24,7 @@
 	desc = "A mountainous region of Moroz that is technically under Imperial control, Fisanduh has long been a zone of conflict between the Dominian military and the remains of the Confederated States of Fisanduh, the democratic state that once controlled the region. Fisanduh has been devastated by decades of war and insurgency, with stretches of land rendered uninhabitable by artillery exchanges during the War of Moroz and an economy stuck in freefall."
 	possible_accents = list(ACCENT_FISANDUH)
 	possible_citizenships = list(CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_SOL)
-	possible_religions = list(RELIGION_MOROZ, RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SHINTO, RELIGION_OTHER)
+	possible_religions = list(RELIGION_MOROZ, RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SHINTO, RELIGION_SIKHISM, RELIGION_OTHER)
 	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
 	origin_traits_descriptions = list("are more acclimatised to the cold.")
 
@@ -49,7 +47,7 @@
 /singleton/origin_item/origin/imperial_frontier
 	name = "Imperial Frontier"
 	desc = "The Imperial Frontier consists of worlds conquered by the Empire of Dominia and mostly populated by Ma'zals. Military governments are common here, as are the often-hated viceroyalties that the Empire has become infamous for abroad. The planets of the Imperial Frontier stand at varying levels of development, but most of their resources are sent back to the region that truly matters to the Empire: the Imperial Core."
-	possible_accents = list(ACCENT_DOMINIA_FRONTIER, ACCENT_COC)
+	possible_accents = list(ACCENT_DOMINIA_FRONTIER, ACCENT_DOMINIA_SUNREACH, ACCENT_COC)
 	possible_citizenships = CITIZENSHIPS_DOMINIA
 	possible_religions = list(RELIGION_NONE, RELIGION_MOROZ, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER)
 
@@ -57,8 +55,8 @@
 	name = "Dominian Exile"
 	desc = "Made up of the worst of Imperial society, these Edict Breakers and assorted ne'er-do-wells have been banished or fled from the Empire for a variety of reasons. Some are criminals and deserters, others have more noble reasons, such as fleeing due to religious persecution or political oppression. One thing is common among them: they cannot go home again without facing the judgment of the Empire's courts."
 	important_information = "This origin is for the purposes of playing Edict Breakers that have fled the Empire of Dominia's justice. It is <b>NOT</b> an excuse to play a character with a Dominian accent that is totally divorced from the Empire."
-	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_NOVIJADRAN, ACCENT_DOMINIA_FRONTIER, ACCENT_DOMINIA_LYODII)
+	possible_accents = list(ACCENT_DOMINIA_VULGAR, ACCENT_DOMINIA_HIGH, ACCENT_DOMINIA_NOVIJADRAN, ACCENT_DOMINIA_FRONTIER, ACCENT_DOMINIA_LYODII, ACCENT_DOMINIA_SUNREACH)
 	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_MOROZ, RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SHINTO, RELIGION_OTHER)
+	possible_religions = list(RELIGION_MOROZ, RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SHINTO, RELIGION_SIKHISM, RELIGION_OTHER)
 	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE) //they're all Morozi anyway
 	origin_traits_descriptions = list("are more acclimatised to the cold.")

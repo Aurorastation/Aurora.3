@@ -38,10 +38,9 @@
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
 	head = /obj/item/clothing/head/hos
-	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/navy
+	shoes = null
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
-	l_pocket = /obj/item/device/flash
 
 	headset = /obj/item/device/radio/headset/heads/hos
 	bowman = /obj/item/device/radio/headset/heads/hos/alt
@@ -52,10 +51,6 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
 	tablet = /obj/item/modular_computer/handheld/preset/security/hos
 
-	backpack_contents = list(
-		/obj/item/handcuffs = 1
-	)
-
 	implants = list(
 		/obj/item/implant/mindshield
 	)
@@ -64,6 +59,18 @@
 	satchel = /obj/item/storage/backpack/satchel/hos
 	dufflebag = /obj/item/storage/backpack/duffel/hos
 	messengerbag = /obj/item/storage/backpack/messenger/hos
+
+/datum/outfit/job/hos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(istajara(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/tajara(H), slot_gloves)
+	else if(isunathi(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/unathi(H), slot_gloves)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
 
 /datum/job/warden
 	title = "Warden"
@@ -96,9 +103,8 @@
 
 	uniform = /obj/item/clothing/under/rank/warden
 	suit = /obj/item/clothing/suit/storage/toggle/warden
-	shoes = /obj/item/clothing/shoes/jackboots
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/aviator
-	l_pocket = /obj/item/device/flash
+	shoes = null
 
 	headset = /obj/item/device/radio/headset/headset_warden
 	bowman = /obj/item/device/radio/headset/headset_warden/alt
@@ -114,9 +120,17 @@
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
-	backpack_contents = list(
-		/obj/item/handcuffs = 1
-	)
+/datum/outfit/job/warden/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(istajara(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/tajara(H), slot_gloves)
+	else if(isunathi(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/unathi(H), slot_gloves)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
 
 /datum/job/investigator
 	title = "Investigator"
@@ -167,6 +181,10 @@
 		/obj/item/storage/box/evidence = 1
 	)
 
+/datum/outfit/job/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_or_collect(new /obj/item/clothing/gloves/black/forensic(H), slot_gloves)
+
 /datum/job/officer
 	title = "Security Officer"
 	flag = OFFICER
@@ -197,8 +215,7 @@
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security
-	shoes = /obj/item/clothing/shoes/jackboots
-	l_pocket = /obj/item/device/flash
+	shoes = null
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
@@ -214,9 +231,17 @@
 	dufflebag = /obj/item/storage/backpack/duffel/sec
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
-	backpack_contents = list(
-		/obj/item/handcuffs = 1
-	)
+/datum/outfit/job/officer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(istajara(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/tajara(H), slot_gloves)
+	else if(isunathi(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/unathi(H), slot_gloves)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
 
 /datum/job/intern_sec
 	title = "Security Cadet"
@@ -224,6 +249,18 @@
 	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
 	faction = "Station"
+	alt_titles = list("Investigator Intern", "Warden Cadet")
+	alt_outfits = list("Investigator Intern" = /datum/outfit/job/intern_sec/forensics)
+	alt_ages = list("Investigator Intern" = list(
+		SPECIES_HUMAN = 24,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
+	),
+	"Warden Cadet" = list(
+		SPECIES_HUMAN = 24,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
+	))
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Head of Security"
@@ -246,7 +283,7 @@
 	uniform = /obj/item/clothing/under/rank/cadet
 	suit = /obj/item/clothing/suit/storage/hazardvest/security
 	head = /obj/item/clothing/head/beret/security
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = null
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
@@ -261,3 +298,26 @@
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
 	tablet = /obj/item/modular_computer/handheld/preset/security
+
+/datum/outfit/job/intern_sec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(istajara(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/tajara(H), slot_gloves)
+	else if(isunathi(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather/unathi(H), slot_gloves)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
+
+/datum/outfit/job/intern_sec/forensics
+	name = "Investigator Intern"
+	jobtype = /datum/job/intern_sec
+
+	shoes = /obj/item/clothing/shoes/laceup
+
+/datum/outfit/job/intern_sec/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_or_collect(new /obj/item/clothing/gloves/black/forensic(H), slot_gloves)
+

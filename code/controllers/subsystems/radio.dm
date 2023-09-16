@@ -107,8 +107,9 @@ var/datum/controller/subsystem/radio/SSradio
 /datum/controller/subsystem/radio/New()
 	NEW_SS_GLOBAL(SSradio)
 
-/datum/controller/subsystem/radio/stat_entry()
-	..("F:[frequencies.len]")
+/datum/controller/subsystem/radio/stat_entry(msg)
+	msg = "F:[frequencies.len]"
+	return ..()
 
 /datum/controller/subsystem/radio/proc/add_object(obj/device, new_frequency, filter = null)
 	var/f_text = num2text(new_frequency)
@@ -128,12 +129,6 @@ var/datum/controller/subsystem/radio/SSradio
 
 	if(frequency)
 		frequency.remove_listener(device)
-
-		if(frequency.devices.len == 0)
-			qdel(frequency)
-			frequencies -= f_text
-
-	return 1
 
 /datum/controller/subsystem/radio/proc/remove_object_all(obj/device)
 	for(var/freq in frequencies)

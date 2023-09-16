@@ -38,6 +38,7 @@
 /obj/machinery/atmospherics/binary/passive_gate/on/input/max/Initialize()
 	. = ..()
 	target_pressure = max_pressure_setting
+
 /obj/machinery/atmospherics/binary/passive_gate/scrubbers
 	name = "scrubbers pressure regulator"
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for scrubber pipes."
@@ -54,6 +55,26 @@
 	icon_state = "map-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
 	icon_connect_type = "-supply"
+
+	unlocked = TRUE
+	target_pressure = 200
+
+/obj/machinery/atmospherics/binary/passive_gate/fuel
+	name = "fuel pressure regulator"
+	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for fuel pipes."
+	icon_state = "map-fuel"
+	connect_types = CONNECT_TYPE_FUEL
+	icon_connect_type = "-fuel"
+
+	unlocked = TRUE
+	target_pressure = 200
+
+/obj/machinery/atmospherics/binary/passive_gate/aux
+	name = "auxiliary pressure regulator"
+	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. This is one is for auxiliary pipes."
+	icon_state = "map-aux"
+	connect_types = CONNECT_TYPE_AUX
+	icon_connect_type = "-aux"
 
 	unlocked = TRUE
 	target_pressure = 200
@@ -208,33 +229,61 @@
 	ui_interact(user)
 	return
 
-/obj/machinery/atmospherics/binary/passive_gate/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if(stat & (BROKEN|NOPOWER))
+/obj/machinery/atmospherics/binary/passive_gate/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "AtmosPressureRegulator", capitalize_first_letters(name))
+		ui.open()
+
+/obj/machinery/atmospherics/binary/passive_gate/ui_data()
+	var/data = list()
+	data["on"] = unlocked
+	data["pressure"] = round(target_pressure)
+	data["max_pressure"] = max_pressure_setting
+	data["rate"] = round(set_flow_rate)
+	data["max_rate"] = air1.volume
+	data["flow_rate"] = round(last_flow_rate)
+	data["regulate_mode"] = regulate_mode
+	return data
+
+/obj/machinery/atmospherics/binary/passive_gate/ui_act(action, params)
+	. = ..()
+	if(.)
 		return
-
-	// this is the data which will be sent to the ui
-	var/data[0]
-
-	data = list(
-		"on" = unlocked,
-		"pressure_set" = round(target_pressure*100),	//Nano UI can't handle rounded non-integers, apparently.
-		"max_pressure" = max_pressure_setting,
-		"input_pressure" = round(air1.return_pressure()*100),
-		"output_pressure" = round(air2.return_pressure()*100),
-		"regulate_mode" = regulate_mode,
-		"set_flow_rate" = round(set_flow_rate*10),
-		"last_flow_rate" = round(last_flow_rate*10)
-	)
-
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "pressure_regulator.tmpl", name, 470, 370)
-		ui.set_initial_data(data)	// when the ui is first opened this is the data it will use
-		ui.open()					// open the new ui window
-		ui.set_auto_update(1)		// auto update every Master Controller tick
+	switch(action)
+		if("toggle_valve")
+			unlocked = !unlocked
+			. = TRUE
+		if("pressure")
+			var/pressure = params["pressure"]
+			if(pressure == "max")
+				pressure = ATMOS_PUMP_MAX_PRESSURE
+				. = TRUE
+			else if(text2num(pressure) != null)
+				pressure = text2num(pressure)
+				. = TRUE
+			if(.)
+				target_pressure = clamp(pressure, 0, ATMOS_PUMP_MAX_PRESSURE)
+		if("rate")
+			var/rate = params["rate"]
+			if(rate == "max")
+				rate = air1.volume
+				. = TRUE
+			else if(text2num(rate) != null)
+				rate = text2num(rate)
+				. = TRUE
+			if(.)
+				set_flow_rate = clamp(rate, 0, air1.volume)
+		if("regulate_off")
+			regulate_mode = REGULATE_NONE
+			. = TRUE
+		if("regulate_input")
+			regulate_mode = REGULATE_INPUT
+			. = TRUE
+		if("regulate_output")
+			regulate_mode = REGULATE_OUTPUT
+			. = TRUE
+	update_icon()
 
 
 /obj/machinery/atmospherics/binary/passive_gate/Topic(href,href_list)

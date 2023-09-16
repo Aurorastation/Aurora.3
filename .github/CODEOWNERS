@@ -5,23 +5,75 @@
 # If you want to be added, make a PR that adds you to it.
 # If you are added, then you are expected to review PRs in a timely manner.
 
+
+# This code requires the host/head dev to know of changes, therefore it's places in
+# this dedicated section
+/code/__defines/master_controller.dm @Arrow768
+/code/controllers/master @Arrow768
+/code/controllers/subsystems/fail2topic.dm @Arrow768
 /code/world.dm @Arrow768
-/code/controllers/subsystems/cargo.dm @Arrow768
+/code/modules/admin/ @Arrow768
+/code/modules/web_interface/ @Arrow768
+/code/modules/world_api/ @Arrow768
+/code/datums/discord/ @Arrow768
+/code/modules/udp/ @Arrow768
+/code/defines/procs/dbcore.dm @Arrow768
+/SQL/ @Arrow768
+/code/modules/http/ @Arrow768
 /code/datums/api.dm @Arrow768
-/code/datums/cargo.dm @Arrow768
-/code/datums/discord/ @Skull132
-/code/defines/procs/dbcore.dm @Skull132
-/code/modules/http/ @Arrow768 @Skull132
-/code/modules/client/preference_setup/ @Skull132
+
+# Custom items, alb
 /code/modules/customitems/item_defines.dm @Alberyk
+
+# Overmap, away sites and organs (brainmed), matt's expertise
+/code/__defines/overmap.dm @NonQueueingMatt
+/code/_helpers/overmap.dm @NonQueueingMatt
+/code/modules/overmap/ @NonQueueingMatt
+/maps/away/ @NonQueueingMatt
+
+/code/__defines/organs.dm @NonQueueingMatt
+/code/modules/organs/ @NonQueueingMatt
+
+# UIs. Wildkins or Matt.
+/tgui/ @JohnWildkins
+code/__defines/tgui.dm @JohnWildkins
+code/modules/tgui @JohnWildkins
+
+# Tools, often binary in nature, let arrow and alb know
+/tools/ @Arrow768 @Alberyk
+
+# Pipeline/CI stuffs, arrow
+/scripts/ @Arrow768
+/.github/ @Arrow768
+/.travis.yml @Arrow768
+/.drone.yml @Arrow768
+/flyway.conf @Arrow768
+
+# ZAS, the dreaded and esoteric atmos system, since Matt is the last to have touched it and
+# all others I can find are long gone...
+/code/__defines/ZAS.dm @NonQueueingMatt
+/code/ZAS/ @NonQueueingMatt
+
+# Matt is also the implementer/porter of the observable design pattern
+/code/datums/observation/ @NonQueueingMatt
+
+# Spatial gridmap, Wildkins
+/code/__defines/spatial_gridmap.dm @JohnWildkins
+/code/_helpers/spatial_info.dm @JohnWildkins
+/controllers/subsystems/spatial_gridmap.dm @JohnWildkins
+
+# Tcomms and radios, Wildkins
+/code/game/machinery/telecomms/ @JohnWildkins
+/code/game/objects/items/devices/radio/ @JohnWildkins
+
+# Whatever else
+/code/controllers/subsystems/cargo.dm @Arrow768
+/code/datums/cargo.dm @Arrow768
+/code/modules/client/preference_setup/ @Arrow768
 /code/modules/item_worth/ @Arrow768
 /code/modules/modular_computers/ @Arrow768
 /code/modules/telesci/ @Arrow768
 /code/modules/cargo/ @Arrow768
-/code/modules/udp/ @Arrow768
-/code/modules/vueui/ @Karolis2011
-/code/modules/web_interface/ @Arrow768
-/lib/ @Skull132
 /nano/templates/ @Arrow768
-/SQL/ @Arrow768
-/vueui/ @Karolis2011
+
+

@@ -227,10 +227,10 @@
 			var/damage = 0
 			total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 			if(prob(25))
-				damage = 1
+				damage = 2
 
 			if (total_radiation > 50)
-				damage = 1
+				damage = 3
 				total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
 					src.apply_radiation(-5 * RADIATION_SPEED_COEFFICIENT)
@@ -247,9 +247,10 @@
 
 			if (total_radiation > 75)
 				src.apply_radiation(-1 * RADIATION_SPEED_COEFFICIENT)
-				damage = 3
+				damage = 7
 				if(prob(5))
-					take_overall_damage(0, 5 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
+					take_overall_damage(0, 10 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
+					to_chat(src, "<span class='warning'>You feel a burning sensation!</span>")
 				if(prob(1))
 					to_chat(src, "<span class='warning'>You feel strange!</span>")
 					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
@@ -431,13 +432,19 @@
 	if (is_diona())
 		diona_handle_temperature(DS)
 
+/mob/living/carbon/human/proc/get_baseline_body_temperature()
+	var/baseline = species.body_temperature
+	for(var/obj/item/clothing/clothing in list(w_uniform, wear_suit))
+		baseline += clothing.body_temperature_change
+	return baseline
+
 /mob/living/carbon/human/proc/stabilize_body_temperature()
 	if (species.passive_temp_gain) // We produce heat naturally.
 		bodytemperature += species.passive_temp_gain
 	if (species.body_temperature == null)
 		return //this species doesn't have metabolic thermoregulation
 
-	var/body_temperature_difference = species.body_temperature - bodytemperature
+	var/body_temperature_difference = get_baseline_body_temperature() - bodytemperature
 
 	if (abs(body_temperature_difference) < 0.5)
 		return //fuck this precision
@@ -453,7 +460,10 @@
 		var/recovery_amt = body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR
 		bodytemperature += recovery_amt
 	else if(bodytemperature > species.heat_level_1) //360.15 is 310.15 + 50, the temperature where you start to feel effects.
-		//We totally need a sweat system cause it totally makes sense...~
+		if(hydration >= 2)
+			adjustHydrationLoss(2)
+			if(HAS_FLAG(species.flags, CAN_SWEAT) && fire_stacks == 0)
+				fire_stacks = -1
 		var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
 		bodytemperature += recovery_amt
 
@@ -596,10 +606,7 @@
 			adjustToxLoss(chem_effects[CE_TOXIN])
 
 		if(CE_EMETIC in chem_effects)
-			var/nausea = chem_effects[CE_EMETIC]
-			if(CE_ANTIEMETIC in chem_effects)
-				nausea -= min(nausea, chem_effects[CE_ANTIEMETIC]) // so it can only go down to 0
-			if(prob(nausea))
+			if(prob(chem_effects[CE_EMETIC]))
 				delayed_vomit()
 
 		if(CE_ITCH in chem_effects)
@@ -654,9 +661,9 @@
 			for(var/obj/item/I in src)
 				if(I.contaminated && !(species.flags & PHORON_IMMUNE))
 					if(I == r_hand)
-						apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_R_HAND)
+						apply_damage(vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
 					else if(I == l_hand)
-						apply_damage(vsc.plc.CONTAMINATION_LOSS, BURN, BP_L_HAND)
+						apply_damage(vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
 					else
 						adjustFireLoss(vsc.plc.CONTAMINATION_LOSS)
 
@@ -740,7 +747,7 @@
 			silent = 0
 			return 1
 
-		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
+		if(hallucination && (HAS_TRAIT(src, TRAIT_BYPASS_HALLUCINATION_RESTRICTION) || !HAS_FLAG(species.flags, NO_POISON|IS_PLANT)))
 			handle_hallucinations()
 
 		if(get_shock() >= species.total_health)
@@ -841,6 +848,7 @@
 // corresponds with the status overlay in hud_status.dmi
 #define DRUNK_STRING "drunk"
 #define BLEEDING_STRING "bleeding"
+#define POSING_STRING "posing"
 
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
@@ -1098,6 +1106,14 @@
 				qdel(status_overlays[BLEEDING_STRING])
 				status_overlays -= BLEEDING_STRING
 
+			var/has_posing_status = LAZYISIN(status_overlays, POSING_STRING)
+			if(pose)
+				if(!has_posing_status)
+					add_status_to_hud(POSING_STRING, SPAN_NOTICE("You are posing. Your current pose is \"[pose]\""))
+			else if(has_posing_status)
+				qdel(status_overlays[POSING_STRING])
+				status_overlays -= POSING_STRING
+
 			UNSETEMPTY(status_overlays)
 		else
 			for(var/status in status_overlays)
@@ -1107,6 +1123,7 @@
 
 #undef DRUNK_STRING
 #undef BLEEDING_STRING
+#undef POSING_STRING
 
 /mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
 	var/obj/screen/status/new_status = new /obj/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
@@ -1154,7 +1171,7 @@
 						"Ennoia be with you, it's a bit too dark..."
 					)
 					to_chat(src, SPAN_WARNING(pick(assunzione_messages)))
-		
+
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
 			if(T.get_lumcount() > 0.8)
 				if(prob(1))
@@ -1381,12 +1398,14 @@
 /mob/living/carbon/human/handle_vision()
 	if(client)
 		client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
+	var/machine_has_equipment_vision = FALSE
 	if(machine)
 		var/viewflags = machine.check_eye(src)
 		if(viewflags < 0)
 			reset_view(null, 0)
 		else if(viewflags)
 			set_sight(sight, viewflags)
+		machine_has_equipment_vision = machine.grants_equipment_vision(src)
 	else if(eyeobj)
 		if(eyeobj.owner != src)
 			reset_view(null)
@@ -1401,7 +1420,7 @@
 			remoteview_target = null
 			reset_view(null, 0)
 
-	update_equipment_vision()
+	update_equipment_vision(machine_has_equipment_vision)
 	species.handle_vision(src)
 
 /mob/living/carbon/human/handle_hearing()

@@ -6,7 +6,7 @@
 	suit = /obj/item/clothing/suit/space/void/kataphract
 	suit_store = /obj/item/tank/oxygen/brown
 	belt = /obj/item/melee/energy/sword/hegemony
-	shoes = /obj/item/clothing/shoes/caligae/grey
+	shoes = /obj/item/clothing/shoes/sandals/caligae/socks
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/pistol/hegemony = 1)
 	gloves = /obj/item/clothing/gloves/black/unathi
@@ -43,7 +43,7 @@
 
 	uniform = /obj/item/clothing/under/vaurca
 	head = /obj/item/clothing/head/helmet/unathi/klax
-	mask = /obj/item/clothing/mask/breath/vaurca/filter
+	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	suit = /obj/item/clothing/suit/armor/unathi/klax
 	suit_store = /obj/item/gun/launcher/grenade
 	shoes = /obj/item/clothing/shoes/vaurca

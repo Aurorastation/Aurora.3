@@ -44,7 +44,7 @@ var/global/photo_count = 0
 	id = photo_count++
 
 /obj/item/photo/attack_self(mob/user as mob)
-	user.examinate(src)
+	examinate(user, src)
 
 /obj/item/photo/attackby(obj/item/P as obj, mob/user as mob)
 	if(P.ispen())
@@ -53,9 +53,9 @@ var/global/photo_count = 0
 			scribble = txt
 	..()
 
-/obj/item/photo/examine(mob/user)
+/obj/item/photo/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(in_range(user, src) || isobserver(user) || in_slide_projector(user))
+	if(distance <= 1)
 		show(user)
 		to_chat(user, "<span class='notice'>[picture_desc]</span>")
 	else
@@ -144,14 +144,16 @@ var/global/photo_count = 0
 	var/icon_off = "camera_off"
 	var/size = 3
 
-/obj/item/device/camera/examine(mob/user, distance)
-	..()
-	if(Adjacent(user))
+/obj/item/device/camera/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		to_chat(user, SPAN_NOTICE("It has <b>[pictures_left]</b> photos left."))
 
 /obj/item/device/camera/verb/change_size()
 	set name = "Set Photo Focus"
 	set category = "Object"
+	set src in usr
+
 	var/nsize = input("Photo Size","Pick a size of resulting photo.") as null|anything in list(1,3,5,7)
 	if(nsize)
 		size = nsize

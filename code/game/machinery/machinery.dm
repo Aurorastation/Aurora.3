@@ -84,7 +84,7 @@ Class Procs:
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
 	w_class = ITEMSIZE_IMMENSE
-	layer = OBJ_LAYER - 0.01
+	layer = OBJ_LAYER - 0.1
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	var/stat = 0
@@ -121,6 +121,10 @@ Class Procs:
 	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
 	var/obj/effect/overmap/visitable/linked // overmap sector the machine is linked to
 
+	/// Manufacturer of this machine. Used for TGUI themes, when you have a base type and subtypes with different themes (like the coffee machine).
+	/// Pass the manufacturer in ui_data and then use it in the UI.
+	var/manufacturer = null
+
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	. = ..()
 	if(d)
@@ -150,6 +154,7 @@ Class Procs:
 
 /obj/machinery/Destroy()
 	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_ALL)
+	SSmachinery.machinery -= src
 	if(component_parts)
 		for(var/atom/A in component_parts)
 			if(A.loc == src) // If the components are inside the machine, delete them.
@@ -159,23 +164,23 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/examine(mob/user)
+/obj/machinery/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(signaler && Adjacent(user))
+	if(signaler && is_adjacent)
 		to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
 
-/obj/machinery/proc/process_all()
-	/* Uncomment this if/when you need component processing
-	if(processing_flags & MACHINERY_PROCESS_COMPONENTS)
-		for(var/thing in processing_parts)
-			var/obj/item/stock_parts/part = thing
-			if(part.machine_process(src) == PROCESS_KILL)
-				part.stop_processing() */
+// /obj/machinery/proc/process_all()
+// 	/* Uncomment this if/when you need component processing
+// 	if(processing_flags & MACHINERY_PROCESS_COMPONENTS)
+// 		for(var/thing in processing_parts)
+// 			var/obj/item/stock_parts/part = thing
+// 			if(part.machine_process(src) == PROCESS_KILL)
+// 				part.stop_processing() */
 
-	if((processing_flags & MACHINERY_PROCESS_SELF))
-		. = process()
-		if(. == PROCESS_KILL)
-			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+// 	if((processing_flags & MACHINERY_PROCESS_SELF))
+// 		. = process()
+// 		if(. == PROCESS_KILL)
+// 			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 /obj/machinery/process()
 	return PROCESS_KILL
@@ -207,7 +212,6 @@ Class Procs:
 			if (prob(25))
 				qdel(src)
 				return
-		else
 	return
 
 /proc/is_operable(var/obj/machinery/M, var/mob/user)
@@ -314,7 +318,7 @@ Class Procs:
 	if(!detach_turf)
 		detach_turf = get_turf(src)
 	if(!detach_turf)
-		log_debug("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
+		LOG_DEBUG("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
 		return
 
 	var/obj/item/device/assembly/signaler/S = signaler
@@ -497,12 +501,12 @@ Class Procs:
 			return
 
 	if(hair_style.length >= 4 && prob(25))
-		H.apply_damage(30, BRUTE, BP_HEAD)
+		H.apply_damage(30, DAMAGE_BRUTE, BP_HEAD)
 		H.visible_message(SPAN_DANGER("\The [H]'s hair catches in \the [src]!"),
 					SPAN_DANGER("Your hair gets caught in \the [src]!"))
 		if(H.can_feel_pain())
 			H.emote("scream")
-			H.apply_damage(45, PAIN)
+			H.apply_damage(45, DAMAGE_PAIN)
 
 /obj/machinery/proc/do_signaler() // override this to customize effects
 	return
@@ -531,7 +535,7 @@ Class Procs:
 		if((. = .(candidate)))
 			return
 
-/obj/machinery/proc/on_user_login(mob/M)
+/obj/proc/on_user_login(mob/M)
 	return
 
 /obj/machinery/proc/set_emergency_state(var/new_security_level)
@@ -545,3 +549,9 @@ Class Procs:
 		return
 	else
 		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
+
+/obj/machinery/ui_status(mob/user, datum/ui_state/state)
+	. = ..()
+	if(. < UI_INTERACTIVE)
+		if(user.machine)
+			user.unset_machine()

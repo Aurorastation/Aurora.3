@@ -156,7 +156,7 @@
 	affect_ingest(M, alien, removed, holder)
 
 /singleton/reagent/uranium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.apply_effect(5 * removed, IRRADIATE, blocked = 0)
+	M.apply_damage(5 * removed, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /singleton/reagent/uranium/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	if(amount >= 3)
@@ -164,6 +164,28 @@
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
 			if(!glow)
 				new /obj/effect/decal/cleanable/greenglow(T)
+			return
+
+/singleton/reagent/radioactive_waste
+	name = "Radioactive Waste"
+	description = "The byproduct of a nuclear reaction. " + SPAN_DANGER("Highly radioactive.")
+	reagent_state = SOLID
+	color = "#E0FF66"
+	taste_description = "warm, tingly imminent death"
+	fallback_specific_heat = 2.286
+
+/singleton/reagent/radioactive_waste/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	affect_ingest(M, alien, removed, holder)
+
+/singleton/reagent/radioactive_waste/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.apply_effect(25 * removed, DAMAGE_RADIATION, blocked = 0)
+
+/singleton/reagent/radioactive_waste/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
+	if(amount >= 3)
+		if(!istype(T, /turf/space))
+			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
+			if(!glow)
+				new /obj/effect/decal/cleanable/greenglow/radioactive(T)
 			return
 
 /singleton/reagent/platinum
@@ -308,7 +330,7 @@
 				++S.discipline
 		if(M.chem_doses[type] == removed)
 			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the space cleaner touches it!"), SPAN_DANGER("Your flesh burns in the space cleaner!"))
-	
+
 /singleton/reagent/spacecleaner/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(REAGENT_VOLUME(holder, type) > 15)
 		M.add_chemical_effect(CE_EMETIC, 5)
@@ -661,8 +683,9 @@
 	P.icon_state = "anom"
 	P.name = "wormhole"
 	var/list/pick_turfs = list()
-	for(var/turf/simulated/floor/exit in turfs)
-		if(isStationLevel(exit.z))
+	for(var/turf/TIW in world)
+		var/turf/simulated/floor/exit = TIW
+		if(istype(exit) && isStationLevel(exit.z))
 			pick_turfs += exit
 	P.target = pick(pick_turfs)
 	QDEL_IN(P, rand(150,300))

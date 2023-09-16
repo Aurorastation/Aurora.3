@@ -130,12 +130,14 @@
 		if(attempt_move(interim))
 			on_move_interim()
 			var/fwooshed = 0
+			destination.deploy_landing_indicators(src)
 			while (world.time < arrive_time)
 				if(!fwooshed && (arrive_time - world.time) < 100)
 					fwooshed = 1
 					playsound(destination, sound_landing, 50, 20, is_global = TRUE)
 				sleep(5)
 			if(!attempt_move(destination))
+				destination.clear_landing_indicators()
 				attempt_move(start_location) //try to go back to where we started. If that fails, I guess we're stuck in the interim location
 
 		moving_status = SHUTTLE_IDLE
@@ -212,8 +214,8 @@
 						shake_camera(M, 3, 1)
 					else if(M.Check_Shoegrip(FALSE))
 						to_chat(M, SPAN_WARNING("You feel immense pressure in your feet as you cling to the floor!"))
-						M.apply_damage(10, PAIN, BP_L_FOOT)
-						M.apply_damage(10, PAIN, BP_R_FOOT)
+						M.apply_damage(10, DAMAGE_PAIN, BP_L_FOOT)
+						M.apply_damage(10, DAMAGE_PAIN, BP_R_FOOT)
 						shake_camera(M, 5, 1)
 					else
 						to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")

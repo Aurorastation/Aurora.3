@@ -9,10 +9,12 @@
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/pin
-	icon_state = "pin"
-	item_state = "pin"
 	name = "hair pin"
 	desc = "A nice hair pin."
+	icon = 'icons/obj/item/clothing/accessory/hair_pins.dmi'
+	contained_sprite = TRUE
+	icon_state = "pin"
+	item_state = "pin"
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0
 	drop_sound = 'sound/items/drop/ring.ogg'
@@ -330,15 +332,6 @@
 	icon_state = "hijab_black"
 	item_state = "hijab_black"
 
-/obj/item/clothing/head/cowboy
-	name = "cowboy hat"
-	desc = "A wide-brimmed hat, in the prevalent style of the frontier."
-	icon_state = "cowboyhat"
-
-/obj/item/clothing/head/cowboy/wide
-	name = "wide-brimmed cowboy hat"
-	icon_state = "cowboy_wide"
-
 /obj/item/clothing/head/sombrero
 	name = "sombrero"
 	desc = "You can practically taste the fiesta."
@@ -411,44 +404,7 @@
 	. = ..()
 	color = get_random_colour(lower = 150)
 
-/obj/item/clothing/head/fedora
-	name = "fedora"
-	icon_state = "fedora"
-	desc = "A sharp, stylish hat."
-
-/obj/item/clothing/head/fedora/black
-	name = "black fedora"
-	icon_state = "black_fedora"
-
-/obj/item/clothing/head/fedora/brown
-	name = "fedora"
-	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-	icon_state = "brown_fedora"
-	item_state_slots = list(
-		slot_l_hand_str = "det_hat",
-		slot_r_hand_str = "det_hat"
-		)
-	siemens_coefficient = 0.7
-
-/obj/item/clothing/head/fedora/brown/dark
-	icon_state = "darkbrown_fedora"
-
-/obj/item/clothing/head/fedora/grey
-	icon_state = "grey_fedora"
-	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-
-/obj/item/clothing/head/beanie
-	name = "beanie"
-	desc = "A head-hugging brimless winter cap. This one is tight."
-	icon_state = "beanie"
-	item_state = "beanie"
-
-/obj/item/clothing/head/beanie/random/Initialize()
-	. = ..()
-	color = get_random_colour(lower = 150)
-
 //Flower crowns
-
 /obj/item/clothing/head/sunflower_crown
 	name = "sunflower crown"
 	desc = "A flower crown weaved with sunflowers."
@@ -484,50 +440,6 @@
 	icon_state = "legion_cap"
 	item_state = "legion_cap"
 
-//golden beep stuff
-
-/obj/item/clothing/head/headchain
-	name = "cobalt head chains"
-	desc = "A set of luxurious chains intended to be wrapped around one's head. They don't seem particularly comfortable. They're encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
-	icon_state = "cobalt_headchains"
-	item_state = "cobalt_headchains"
-	body_parts_covered = 0
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/clothing/head/headchain/emerald
-	name = "emerald head chains"
-	desc = "A set of luxurious chains intended to be wrapped around one's head. They don't seem particularly comfortable. They're encrusted with emerald-green gems, and made of <b>REAL</b> faux gold."
-	icon_state = "emerald_headchains"
-	item_state = "emerald_headchains"
-
-/obj/item/clothing/head/headchain/ruby
-	name = "ruby head chains"
-	desc = "A set of luxurious chains intended to be wrapped around one's head. They don't seem particularly comfortable. They're encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
-	icon_state = "ruby_headchains"
-	item_state = "ruby_headchains"
-
-/obj/item/clothing/head/crest
-	name = "cobalt head crest"
-	desc = "A solemn crest wrapping around the back of one's head, seeming to bend in the center on multiple hinges and clip on. It's encrusted with cobalt-blue gems, and made of <b>REAL</b> faux gold."
-	icon_state = "cobalt_crest"
-	item_state = "cobalt_crest"
-	body_parts_covered = 0
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/clothing/head/crest/emerald
-	name = "emerald head crest"
-	desc = "A solemn crest wrapping around the back of one's head, seeming to bend in the center on multiple hinges and clip on. It's encrusted with emerald-green gems, and made of <b>REAL</b> faux gold."
-	icon_state = "emerald_crest"
-	item_state = "emerald_crest"
-
-/obj/item/clothing/head/crest/ruby
-	name = "ruby head crest"
-	desc = "A solemn crest wrapping around the back of one's head, seeming to bend in the center on multiple hinges and clip on. It's encrusted with ruby-red gems, and made of <b>REAL</b> faux gold."
-	icon_state = "ruby_crest"
-	item_state = "ruby_crest"
-
 /obj/item/clothing/head/fake_culthood
 	name = "occultist hood"
 	icon_state = "culthood"
@@ -537,22 +449,84 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 
+/obj/item/clothing/head/padded
+	name = "padded cap"
+	desc = "A padded skullcap for those prone to bumping their heads against hard surfaces."
+	icon_state = "tank"
+	flags_inv = BLOCKHEADHAIR
+
+/obj/item/clothing/head/papersack
+	name = "paper sack hat"
+	desc = "A paper sack with crude holes cut out for eyes. Useful for hiding one's identity or ugliness."
+	icon_state = "papersack"
+	flags_inv = BLOCKHEADHAIR
+
+/obj/item/clothing/head/papersack/smiley
+	name = "paper sack hat"
+	desc = "A paper sack with crude holes cut out for eyes and a sketchy smile drawn on the front. Not creepy at all."
+	icon_state = "papersack_smile"
+	flags_inv = BLOCKHEADHAIR
+
+/obj/item/clothing/head/hachimaki
+	name = "konyanger hachimaki"
+	desc = "A simple headband emblazoned with the taijitu national emblem of the planet Konyang. It is typically worn as a symbol of effort or courage, or perhaps national pride and patriotic sentiment."
+	icon = 'icons/obj/item/clothing/head/hachimaki.dmi'
+	icon_state = "hachimaki"
+	item_state = "hachimaki"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/leader_headband
+	name = "militia leader headband"
+	desc = "A simple headband that is used to denote the leader of a Horizon militia team."
+	icon = 'icons/obj/item/clothing/head/leader_headband.dmi'
+	icon_state = "leader_headband"
+	item_state = "leader_headband"
+	contained_sprite = TRUE
+
+//sol stuff
+
 /obj/item/clothing/head/sol
 	name = "sol navy utility cover"
-	desc = "A military cover issued to Sol Alliance navy members as part of their field uniform."
+	desc = "A military cover issued to Solarian Navy personnel as part of their utility uniform."
 	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
-	icon_state = "greyutility"
-	item_state = "greyutility"
+	icon_state = "navy_utility"
+	item_state = "navy_utility"
 	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_MINOR
 		)
 
+/obj/item/clothing/head/sol/dress
+	name = "sol navy black peaked cap"
+	desc = "A black cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by junior officers."
+	icon_state = "navy_cap_officer"
+	item_state = "navy_cap_officer"
+
+/obj/item/clothing/head/sol/dress/officer
+	name = "sol navy officer peaked cap"
+	desc = "A white cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by senior officers."
+	icon_state = "navy_cap_senioroff"
+	item_state = "navy_cap_senioroff"
+
+/obj/item/clothing/head/sol/dress/admiral
+	name = "sol navy admiral peaked cap"
+	desc = "A white cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by admirals."
+	icon_state = "navy_cap_admiral"
+	item_state = "navy_cap_admiral"
+
+//solarian marines
+
 /obj/item/clothing/head/sol/marine
 	name = "sol marine utility cover"
 	desc = "An eight pointed cover issued to Sol Alliance marines as part of their field uniform."
-	icon_state = "greenutility"
-	item_state = "greenutility"
+	icon_state = "marine_utility"
+	item_state = "marine_utility"
+
+/obj/item/clothing/head/sol/marine/grey
+	name = "sol marine utility cover"
+	desc = "An eight pointed cover issued to Sol Alliance marines as part of their field uniform."
+	icon_state = "marine_utility_grey"
+	item_state = "marine_utility_grey"
 
 /obj/item/clothing/head/sol/garrison
 	name = "sol marine garrison cap"
@@ -560,28 +534,13 @@
 	icon_state = "greengarrisoncap"
 	item_state = "greengarrisoncap"
 
-/obj/item/clothing/head/sol/dress
-	name = "sol navy black peaked cap"
-	desc = "A black cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by junior officers."
-	icon_state = "whitepeakcap"
-	item_state = "whitepeakcap"
 /obj/item/clothing/head/sol/dress/marine
 	name = "sol marine peaked cap"
 	desc = "A green cap issued as part of the Sol Alliance marine service and dress uniforms."
 	icon_state = "whitepeakcap"
 	item_state = "whitepeakcap"
 
-/obj/item/clothing/head/sol/dress/officer
-	name = "sol navy officer peaked cap"
-	desc = "A white cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by senior officers."
-	icon_state = "whitewheelcap"
-	item_state = "whitewheelcap"
-
-/obj/item/clothing/head/sol/dress/admiral
-	name = "sol navy admiral peaked cap"
-	desc = "A white cap issued as part of the Sol Alliance naval officer uniforms. This one is worn by admirals."
-	icon_state = "admiral_cap"
-	item_state = "admiral_cap"
+//solarian army
 
 /obj/item/clothing/head/helmet/sol
 	name = "sol combat helmet"
@@ -598,28 +557,56 @@
 	)
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/padded
-	name = "padded cap"
-	desc = "A padded skullcap for those prone to bumping their heads against hard surfaces."
-	icon_state = "tank"
-	flags_inv = BLOCKHEADHAIR
+/obj/item/clothing/head/sol/army
+	name = "sol army field cap"
+	desc = "A cloth field issued to Solarian soldiers as part of their field uniform."
+	icon_state = "army_field"
+	item_state = "army_field"
 
-/obj/item/clothing/head/buckethat
-	name = "bucket hat"
-	desc = "A hat with an all-around visor. Only slightly better than wearing an actual bucket."
-	icon_state = "buckethat"
-	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi'
-		)
+/obj/item/clothing/head/sol/army/grey
+	name = "sol army field cap"
+	desc = "A cloth field issued to Solarian soldiers as part of their field uniform."
+	icon_state = "army_field_grey"
+	item_state = "army_field_grey"
 
-/obj/item/clothing/head/papersack
-	name = "paper sack hat"
-	desc = "A paper sack with crude holes cut out for eyes. Useful for hiding one's identity or ugliness."
-	icon_state = "papersack"
-	flags_inv = BLOCKHEADHAIR
+/obj/item/clothing/head/sol/army/service
+	name = "sol army peaked cap"
+	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A small silver pin of the ASSN seal is attached to the peak. A enlisted-person or NCO should wear this."
+	icon_state = "army_cap"
+	item_state = "army_cap"
 
-/obj/item/clothing/head/papersack/smiley
-	name = "paper sack hat"
-	desc = "A paper sack with crude holes cut out for eyes and a sketchy smile drawn on the front. Not creepy at all."
-	icon_state = "papersack_smile"
-	flags_inv = BLOCKHEADHAIR
+/obj/item/clothing/head/sol/army/service/officer
+	name = "sol army officer peaked cap"
+	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak. A Second Lieutenant, First Lieutenant or Captain should wear this."
+	icon_state = "army_cap_officer"
+	item_state = "army_cap_officer"
+
+/obj/item/clothing/head/sol/army/service/senioroff
+	name = "sol army senior officer peaked cap"
+	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak and leaf-shaped embellishments rap around the visor. A Major, Lieutenant Colonel or Colonel should wear this."
+	icon_state = "army_cap_senioroff"
+	item_state = "army_cap_senioroff"
+
+/obj/item/clothing/head/sol/army/service/general
+	name = "sol army general peaked cap"
+	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak and leaf-shaped embellishments rap around the visor. A Brigadier General, Major General, Lieutenant General or full General should wear this."
+	icon_state = "army_cap_general"
+	item_state = "army_cap_general"
+
+/obj/item/clothing/head/sol/army/service/garrison
+	name = "sol army garrison cap"
+	desc = "A green garrison cap issued as part of Solarian Army service uniforms, for when a peaked cap is impractical or unnecessary. All enlisted-people and NCOs should wear this."
+	icon_state = "army_garrison"
+	item_state = "army_garrison"
+
+/obj/item/clothing/head/sol/army/service/garrison/officer
+	name = "sol army garrison cap"
+	desc = "A green garrison cap issued as part of Solarian Army service uniforms, for when a peaked cap is impractical or unnecessary. A golden rank pin is attached to one side. All officers, including generals, should wear this."
+	icon_state = "army_garrison_officer"
+	item_state = "army_garrison_officer"
+
+/obj/item/clothing/head/sol/army/service/campaign
+	name = "sol army campaign hat"
+	desc = "A green campaign hat issued as part of Solarian Army service uniforms. The NCOs that scream at you more than the normal ones should wear this."
+	icon_state = "army_campaign"
+	item_state = "army_campaign"

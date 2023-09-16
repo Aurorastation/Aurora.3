@@ -280,10 +280,11 @@
 				if(!bibledelay)
 
 					var/obj/item/storage/bible/B = new /obj/item/storage/bible(src.loc)
-					if((SSticker.Bible_icon_state && SSticker.Bible_item_state) )
-						B.icon_state = SSticker.Bible_icon_state
-						B.item_state = SSticker.Bible_item_state
-						B.name = SSticker.Bible_name
+					B.verbs += /obj/item/storage/bible/verb/Set_Religion
+					var/randbook = "book" + pick("1", "2", "3", "4", "5", "6" , "7", "8", "9", "10", "11", "12", "13" , "14", "15" , "16")
+					B.icon_state = randbook
+					B.item_state = randbook
+					B.name = "religious book"
 
 					bibledelay = 1
 					spawn(60)
@@ -414,7 +415,7 @@
 	if(istype(O, /obj/item/book))
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("\The [src] must be secured to the floor first!"))
-			return	
+			return
 		user.drop_from_inventory(O,src)
 	if(O.iswrench())
 		playsound(get_turf(src), O.usesound, 75, TRUE)

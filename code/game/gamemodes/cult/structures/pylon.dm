@@ -63,7 +63,7 @@
 	update_icon()
 
 /obj/structure/cult/pylon/examine(var/mob/user)
-	..()
+	. = ..()
 	if(damagetaken)
 		switch(damagetaken)
 			if(1 to 8)
@@ -380,7 +380,7 @@
 		if(istype(I, /obj/item/nullrod))
 			shatter()
 			return
-		if(I.damtype != BRUTE)
+		if(I.damtype != DAMAGE_BRUTE)
 			to_chat(user, SPAN_WARNING("You swing at the pylon to no effect."))
 			return
 
@@ -388,7 +388,7 @@
 		if(istype(source, /obj/item/projectile/beam/cult))
 			return //No feedback loops
 		var/obj/item/projectile/proj = source
-		if(proj.damage_type == BURN)
+		if(proj.damage_type == DAMAGE_BURN)
 			if(empowered <= 0)
 				visible_message(SPAN_CULT("The beam refracts inside the pylon, splitting into an indistinct violet glow. The crystal takes on a new, more ominous aura!"))
 			empowered += damage * 0.2
@@ -398,7 +398,7 @@
 			start_process()
 			update_icon()
 			return
-		else if(proj.damage_type != BRUTE)
+		else if(proj.damage_type != DAMAGE_BRUTE)
 			return
 		ranged = TRUE
 

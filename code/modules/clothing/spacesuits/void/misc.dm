@@ -40,7 +40,7 @@
 
 /obj/item/clothing/head/helmet/space/void/coalition
 	name = "coalition vulture voidsuit helmet"
-	desc = "A helmet resembling an avian, built for the Human head. Heavy and plated with plasteel across its faces."
+	desc = "A helmet resembling an avian, built for the All-Xanu Grand Army and the Frontier Rangers. Heavy and plated with plasteel across its faces."
 	icon_state = "vulture"
 	item_state = "vulture"
 	armor = list(
@@ -53,14 +53,13 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC, BODYTYPE_SKRELL, BODYTYPE_TAJARA)
 
 	brightness_on = 6
-	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/coalition
 	name = "coalition vulture voidsuit"
-	desc = "An iconic voidsuit of Xanusian make, designed after the Interstellar War and seen in use to this day all throughout the Coalition of Colonies."
+	desc = "An iconic voidsuit of Xanan make, designed after the Interstellar War. It sees use to this day all throughout the Coalition of Colonies."
 	icon_state = "vulture"
 	item_state = "vulture"
 	slowdown = 1
@@ -75,8 +74,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN)
-	refittable = FALSE
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC, BODYTYPE_SKRELL, BODYTYPE_TAJARA)
 
 
 /obj/item/clothing/head/helmet/space/void/cruiser
@@ -309,6 +307,18 @@
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit. It is relatively fragile but has very apparent radiation shielding. Most often seen in the hands of post-disaster cleanup teams and private military contractors."
 	refittable = FALSE
 
+/obj/item/clothing/head/helmet/space/void/zenghu/skrell
+	name = "skrell dragon biohazard suit helmet"
+	desc = "A remarkably lightweight Zeng-Hu Pharmaceuticals suit sporting excellent ambient radiation protection. This one appears to be fitted for a Skrell wearer."
+	species_restricted = list(BODYTYPE_SKRELL)
+	icon_state = "dragonhelm_skrell"
+	item_state = "dragonhelm_skrell"
+
+/obj/item/clothing/suit/space/void/zenghu/skrell
+	name = "skrell dragon biohazard control suit"
+	desc = "A remarkably lightweight Zeng-Hu Pharmaceuticals suit sporting excellent ambient radiation protection. This one appears to be fitted for a Skrell wearer."
+	species_restricted = list(BODYTYPE_SKRELL)
+
 //Hephaestus Industries espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/hephaestus
 	name = "caiman drop suit helmet"
@@ -358,6 +368,20 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	desc_extended = "An easily recognized Hephaestus terraforming suit. Used often on jungle worlds to handle local wildlife and safely deforest areas in hostile environments. It found recent popularity due to its combat effectiveness that resulted in its proliferation in the hands of Hephaestus private military."
 	refittable = FALSE
+
+/obj/item/clothing/head/helmet/space/void/hephaestus/unathi
+	name = "unathi caiman drop suit helmet"
+	desc = "A massively heavy helmet, part of a larger terraforming suit assembly. This one looks to have been refitted for an Unathi wearer."
+	species_restricted = list(BODYTYPE_UNATHI)
+	icon_state = "caimanhelm_unathi"
+	item_state = "caimanhelm_unathi"
+
+/obj/item/clothing/suit/space/void/hephaestus/unathi
+	name = "caiman drop suit"
+	desc = "A superheavy Hephaestus-designed terraforming suit, iconic for its usage in orbital drops onto hostile jungle worlds. This one looks to have been refitted for an Unathi wearer."
+	species_restricted = list(BODYTYPE_UNATHI)
+	icon_state = "caiman_unathi"
+	item_state = "caiman_unathi"
 
 //Zavodskoi Interstellar espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/zavodskoi
@@ -449,73 +473,6 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
-
-/obj/item/clothing/head/helmet/space/void/kataphract
-	name = "kataphract voidsuit helmet"
-	desc = "A tough plated helmet with slits for the eyes, emblazoned paint across the top indicates that it belongs to the Kataphracts of the Unathi Izweski Hegemony."
-	icon = 'icons/obj/clothing/species/unathi/hats.dmi'
-	icon_override = 'icons/mob/species/unathi/helmet.dmi'
-	icon_state = "rig0-kataphract"
-	item_state = "rig0-kataphract"
-	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
-	)
-	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_UNATHI)
-	refittable = FALSE
-
-/obj/item/clothing/suit/space/void/kataphract
-	name = "kataphract voidsuit"
-	desc = "A large suit of spaceproof armor, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony."
-	icon = 'icons/obj/clothing/species/unathi/suits.dmi'
-	icon_override = 'icons/mob/species/unathi/suit.dmi'
-	icon_state = "rig-kataphract"
-	item_state = "rig-kataphract"
-	slowdown = 1
-	w_class = ITEMSIZE_NORMAL
-	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
-	)
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
-	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_UNATHI)
-	refittable = FALSE
-
-/obj/item/clothing/head/helmet/space/void/kataphract/spec
-	name = "kataphract specialist voidsuit helmet"
-	desc = "A tough plated helmet with slits for the eyes, emblazoned paint across the top indicates that it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Specialist."
-	icon_state = "rig0-kataphract-spec"
-	item_state = "rig0-kataphract-spec"
-
-/obj/item/clothing/suit/space/void/kataphract/spec
-	name = "kataphract specialist voidsuit"
-	desc = "A large suit of spaceproof armor, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Specialist."
-	icon_state = "rig-kataphract-spec"
-	item_state = "rig-kataphract-spec"
-
-/obj/item/clothing/head/helmet/space/void/kataphract/lead
-	name = "kataphract knight voidsuit helmet"
-	desc = "A tough plated helmet with slits for the eyes, emblazoned paint across the top indicates that it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Knight."
-	icon_state = "rig0-kataphract-lead"
-	item_state = "rig0-kataphract-lead"
-
-/obj/item/clothing/suit/space/void/kataphract/lead
-	name = "kataphract knight voidsuit"
-	desc = "A large suit of spaceproof armor, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Knight."
-	icon_state = "rig-kataphract-lead"
-	item_state = "rig-kataphract-lead"
 
 /obj/item/clothing/head/helmet/space/void/dominia
 	name = "dominian prejoroub combat helmet"

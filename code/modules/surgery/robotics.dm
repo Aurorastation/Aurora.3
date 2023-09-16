@@ -30,8 +30,8 @@
 		/obj/item/material/kitchen/utensil/knife = 50
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 70
+	max_duration = 90
 
 	requires_surgery_compatibility = FALSE
 
@@ -72,8 +72,8 @@
 		/obj/item/material/kitchen/utensil/knife = 50
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 70
+	max_duration = 90
 
 	requires_surgery_compatibility = FALSE
 
@@ -114,8 +114,8 @@
 		/obj/item/material/kitchen/utensil = 50
 	)
 
-	min_duration = 30
-	max_duration = 40
+	min_duration = 20
+	max_duration = 30
 
 /singleton/surgery_step/robotics/open_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -151,8 +151,8 @@
 		/obj/item/material/kitchen/utensil = 50
 	)
 
-	min_duration = 70
-	max_duration = 100
+	min_duration = 50
+	max_duration = 80
 
 /singleton/surgery_step/robotics/close_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -191,8 +191,8 @@
 		/obj/item/gun/energy/plasmacutter = 50
 	)
 
-	min_duration = 50
-	max_duration = 60
+	min_duration = 30
+	max_duration = 40
 
 /singleton/surgery_step/robotics/repair_brute/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -227,7 +227,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, damaging the internal structure of [target]'s [affected.name]."),
 		SPAN_WARNING("Your [tool.name] slips, damaging the internal structure of [target]'s [affected.name]."))
-	target.apply_damage(rand(5,10), BURN, affected)
+	target.apply_damage(rand(5,10), DAMAGE_BURN, affected)
 
 /singleton/surgery_step/robotics/repair_burn
 	name = "Repair Burns"
@@ -236,8 +236,8 @@
 		/obj/item/stack/cable_coil/cyborg = 100
 	)
 
-	min_duration = 50
-	max_duration = 60
+	min_duration = 30
+	max_duration = 40
 
 /singleton/surgery_step/robotics/repair_burn/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -271,7 +271,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user] causes a short circuit in [target]'s [affected.name]!"),
 		SPAN_WARNING("You cause a short circuit in [target]'s [affected.name]!"))
-	target.apply_damage(rand(5,10), BURN, affected)
+	target.apply_damage(rand(5,10), DAMAGE_BURN, affected)
 
 /singleton/surgery_step/robotics/detach_organ_robotic
 	name = "Detach Robotic Organ"
@@ -279,8 +279,8 @@
 	/obj/item/device/multitool = 100
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 70
+	max_duration = 90
 
 /singleton/surgery_step/robotics/detach_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -329,8 +329,8 @@
 		SCREWDRIVER = 100
 	)
 
-	min_duration = 100
-	max_duration = 120
+	min_duration = 80
+	max_duration = 100
 
 	requires_surgery_compatibility = FALSE
 
@@ -380,8 +380,8 @@
 	/obj/item/device/mmi = 100
 	)
 
-	min_duration = 60
-	max_duration = 80
+	min_duration = 40
+	max_duration = 60
 
 /singleton/surgery_step/robotics/install_mmi/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

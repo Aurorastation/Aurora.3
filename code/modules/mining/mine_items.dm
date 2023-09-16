@@ -1,19 +1,3 @@
-/******************************Lantern*******************************/
-
-/obj/item/device/flashlight/lantern
-	name = "lantern"
-	desc = "A mining lantern."
-	icon_state = "lantern"
-	item_state = "lantern"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
-		)
-	light_power = 1
-	brightness_on = 4
-	light_wedge = LIGHT_OMNI
-	light_color = LIGHT_COLOR_FIRE
-
 /*****************************Pickaxe********************************/
 
 /obj/item/pickaxe
@@ -94,6 +78,7 @@
 	return ..()
 
 /obj/item/pickaxe/dropped(mob/user)
+	. = ..()
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
 		var/obj/item/pickaxe/O = user.get_inactive_hand()
@@ -352,6 +337,9 @@
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	usesound = /singleton/sound_category/shovel_sound
+
+/obj/item/shovel/is_shovel()
+	return TRUE
 
 /obj/item/shovel/spade
 	name = "spade"
@@ -778,13 +766,10 @@
 /obj/item/lazarus_injector
 	name = "lazarus injector"
 	desc = "An injector with a secret patented cocktail of nanomachines and chemicals, this device can seemingly raise animals from the dead. If no effect in 3 days please call customer support."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	icon_state = "lazarus_loaded"
 	item_state = "lazarus_loaded"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi'
-		)
+	contained_sprite = TRUE
 	throwforce = 0
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
@@ -822,7 +807,7 @@
 	if(isliving(target) && proximity_flag)
 		if(istype(target, /mob/living/simple_animal))
 			var/mob/living/simple_animal/M = target
-			if(!(M.find_type() & revive_type))
+			if(!(M.find_type() & revive_type) || !(M.tameable))
 				to_chat(user, SPAN_INFO("\The [src] does not work on this sort of creature."))
 				return
 			if(M.stat == DEAD)
@@ -858,7 +843,7 @@
 		update_icon()
 
 /obj/item/lazarus_injector/examine(mob/user)
-	..()
+	. = ..()
 	if(!loaded)
 		to_chat(user, SPAN_INFO("\The [src] is empty."))
 	if(malfunctioning || emagged)
@@ -884,7 +869,7 @@
 	..()
 
 /obj/item/card/mining_point_card/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, SPAN_NOTICE("There's [points] point\s on the card."))
 
 /**********************"Fultons"**********************/
@@ -1061,7 +1046,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "shield2"
 	layer = 5
 	anchored = TRUE
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/resonance_damage = 20
 	var/creator
 	var/obj/item/resonator/res
@@ -1095,7 +1080,7 @@ var/list/total_extraction_beacons = list()
 		if(creator)
 			add_logs(creator, L, "used a resonator field on", "resonator")
 		to_chat(L, SPAN_DANGER("\The [src] ruptured with you in it!"))
-		L.apply_damage(resonance_damage, BRUTE)
+		L.apply_damage(resonance_damage, DAMAGE_BRUTE)
 	qdel(src)
 
 
@@ -1220,7 +1205,7 @@ var/list/total_extraction_beacons = list()
 		user.visible_message(SPAN_NOTICE("\The [user] begins sculpting."), SPAN_NOTICE("You begin sculpting."))
 
 		if(prob(25))
-			playsound(loc, 'sound/items/screwdriver.ogg', 20, TRUE)
+			playsound(loc, 'sound/items/Screwdriver.ogg', 20, TRUE)
 		else
 			playsound(loc, /singleton/sound_category/pickaxe_sound, 20, TRUE)
 

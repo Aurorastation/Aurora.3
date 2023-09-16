@@ -10,10 +10,11 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 10
 	armor_penetration = 40
-	attack_flags = DAM_SHARP|DAM_EDGE
+	attack_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE
 	break_stuff_probability = 25
 	attacktext = "slashed"
-	projectilesound = 'sound/weapons/bladeslice.ogg'
+	attack_sound = /singleton/sound_category/hivebot_melee
+	projectilesound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike
 	organ_names = list("head", "core", "side thruster", "bottom thruster")
 	faction = "hivebot"
@@ -32,6 +33,13 @@
 	smart_melee = FALSE
 	see_in_dark = 8
 	pass_flags = PASSTABLE|PASSRAILING
+	emote_hear = list("emits a harsh noise")
+	emote_sounds = list(
+		'sound/effects/creatures/hivebot/hivebot-bark-001.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-003.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-005.ogg',
+	)
+	speak_chance = 5
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 	psi_pingable = FALSE
@@ -94,7 +102,7 @@
 /mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()
 	..()
 	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
+	change_stance(HOSTILE_STANCE_TIRED)
 	stop_automated_movement = 1
 	wander = 0
 	if(!has_exploded)
@@ -167,7 +175,7 @@
 
 /mob/living/simple_animal/hostile/hivebot/emp_act(severity)
 	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
+	change_stance(HOSTILE_STANCE_TIRED)
 	addtimer(CALLBACK(src, PROC_REF(wakeup)), 50)
 	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
@@ -175,4 +183,4 @@
 	do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebot/proc/wakeup()
-	stance = HOSTILE_STANCE_IDLE
+	change_stance(HOSTILE_STANCE_IDLE)

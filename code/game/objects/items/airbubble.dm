@@ -83,7 +83,7 @@
 
 // Examine to see tank pressure
 /obj/structure/closet/airbubble/examine(mob/user)
-	..()
+	. = ..()
 	if(!isnull(internal_tank))
 		to_chat(user, "<span class='notice'>\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.</span>")
 	else
@@ -451,7 +451,7 @@
 		"<span class='warning'>[user] begins cutting cable restrains on zipper of [src].</span>",
 		"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>"
 		)
-		playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
+		playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
 			return TRUE
 		zipped = !zipped
@@ -485,8 +485,8 @@
 	else
 		return attack_hand(user)
 
-/obj/structure/closet/airbubble/store_mobs(var/stored_units)
-	contains_body = ..()
+/obj/structure/closet/airbubble/store_mobs(var/stored_units, var/mob_limit)
+	contains_body = ..(stored_units, mob_limit = TRUE)
 	return contains_body
 
 /obj/structure/closet/airbubble/update_icon()

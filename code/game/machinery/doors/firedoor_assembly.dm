@@ -1,7 +1,7 @@
-obj/structure/firedoor_assembly
+/obj/structure/firedoor_assembly
 	name = "emergency shutter assembly"
 	desc = "An emergency shutter assembly."
-	icon = 'icons/obj/doors/DoorHazard.dmi'
+	icon = 'icons/obj/doors/basic/single/emergency/firedoor.dmi'
 	icon_state = "door_construction"
 	anchored = 0
 	opacity = 0
@@ -9,13 +9,13 @@ obj/structure/firedoor_assembly
 	build_amt = 4
 	var/wired = 0
 
-obj/structure/firedoor_assembly/update_icon()
+/obj/structure/firedoor_assembly/update_icon()
 	if(anchored)
 		icon_state = "door_anchored"
 	else
 		icon_state = "door_construction"
 
-obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
+/obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
 	if(C.iscoil() && !wired && anchored)
 		var/obj/item/stack/cable_coil/cable = C
 		if (cable.get_amount() < 1)

@@ -41,7 +41,7 @@
 		if(covered && (stat & NOPOWER)) //Only bounce off if its powered (i.e. shield active)
 			. = ..()
 		else
-			user.visible_message("<span class='danger'>[src] has been hit by [user] with [W], but it bounces off the forcefield.</span>","<span class='danger'>You hit [src] with [W], but it bounces off the forcefield.</span>","You hear something boucing off a forcefield.")
+			user.visible_message("<span class='danger'>[src] has been hit by [user] with [W], but it bounces off the forcefield.</span>","<span class='danger'>You hit [src] with [W], but it bounces off the forcefield.</span>","You hear something bouncing off a forcefield.")
 			. = TRUE
 	update_icon()
 
@@ -98,7 +98,7 @@
 
 
 /obj/machinery/case_button/shuttle
-	name = "\improper Emergency Shuttle Button"
+	name = "bluespace jump button"
 	desc = "A button in a case protected with a forcefield."
 	icon_state = "c2"
 	button_type = "button_case_emergencyshuttle"
@@ -107,7 +107,7 @@
 
 /obj/machinery/case_button/shuttle/activate(mob/user)
 	..()
-	return call_shuttle_proc(user, TRUE)
+	return call_shuttle_proc(user, TRANSFER_JUMP)
 
 /obj/machinery/case_button/shuttle/deactivate(mob/user)
 	..()

@@ -57,9 +57,9 @@
 	add_language(LANGUAGE_TCB)
 	default_language = all_languages[LANGUAGE_TCB]
 	internal_id = new /obj/item/card/id(src)
-	verbs |= /mob/living/proc/ventcrawl
-	verbs |= /mob/living/proc/hide
-	verbs |= /mob/living/simple_animal/spiderbot/proc/control_integrated_radio
+	add_verb(src, /mob/living/proc/ventcrawl)
+	add_verb(src, /mob/living/proc/hide)
+	add_verb(src, /mob/living/simple_animal/spiderbot/proc/control_integrated_radio)
 	voice_name = name
 
 /mob/living/simple_animal/spiderbot/can_name(var/mob/living/M)
@@ -312,7 +312,7 @@
 	return 0
 
 /mob/living/simple_animal/spiderbot/examine(mob/user)
-	..(user)
+	. = ..()
 	if(src.held_item)
 		to_chat(user, "It is carrying [icon2html(src.held_item, user)] \a [src.held_item].")
 

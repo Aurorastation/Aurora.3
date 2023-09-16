@@ -15,7 +15,6 @@ var/list/mineral_can_smooth_with = list(
 	/turf/unsimulated/wall
 )
 
-
 /turf/simulated/mineral //wall piece
 	name = "rock"
 	icon = 'icons/turf/map_placeholders.dmi'
@@ -23,14 +22,13 @@ var/list/mineral_can_smooth_with = list(
 	desc = "It's a greyish rock. Exciting."
 	gender = PLURAL
 	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
-	layer = 2.01
+	layer = ON_TURF_LAYER
 
 	// canSmoothWith is set in Initialize().
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	opacity = TRUE
 	density = TRUE
 	blocks_air = TRUE
@@ -69,8 +67,6 @@ var/list/mineral_can_smooth_with = list(
 
 	initialized = TRUE
 
-	turfs += src
-
 	if(isStationLevel(z))
 		station_turfs += src
 
@@ -85,10 +81,6 @@ var/list/mineral_can_smooth_with = list(
 		canSmoothWith = mineral_can_smooth_with
 		pixel_x = -4
 		pixel_y = -4
-		queue_smooth(src)
-
-	if(!mapload)
-		queue_smooth_neighbors(src)
 
 	rock_health = rand(10,20)
 
@@ -98,15 +90,10 @@ var/list/mineral_can_smooth_with = list(
 		// Hard-coding this for performance reasons.
 		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
 
-	if (current_map.use_overmap && istype(A, /area/exoplanet))
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
-		if (istype(E) && istype(E.theme))
-			E.theme.on_turf_generation(src, E.planetary_area)
-
 	return INITIALIZE_HINT_NORMAL
 
 /turf/simulated/mineral/examine(mob/user)
-	..()
+	. = ..()
 	if(mineral)
 		switch(mined_ore)
 			if(0)
@@ -190,6 +177,8 @@ var/list/mineral_can_smooth_with = list(
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 
 /turf/unsimulated/mineral/asteroid/Initialize(mapload)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 
@@ -197,8 +186,6 @@ var/list/mineral_can_smooth_with = list(
 		icon = actual_icon
 
 	initialized = TRUE
-
-	turfs += src
 
 	if(isStationLevel(z))
 		station_turfs += src
@@ -214,15 +201,6 @@ var/list/mineral_can_smooth_with = list(
 		canSmoothWith = asteroid_can_smooth_with
 		pixel_x = -4
 		pixel_y = -4
-		queue_smooth(src)
-
-	if(!mapload)
-		queue_smooth_neighbors(src)
-
-	if (current_map.use_overmap && istype(loc, /area/exoplanet))
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
-		if (istype(E) && istype(E.theme))
-			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -431,6 +409,21 @@ var/list/mineral_can_smooth_with = list(
 		visible_message(SPAN_NOTICE("An old dusty crate was buried within!"))
 		new /obj/structure/closet/crate/secure/loot(src)
 
+/turf/simulated/mineral/ChangeTurf(N, tell_universe, force_lighting_update, ignore_override, mapload)
+	var/old_has_resources = has_resources
+	var/list/old_resources = resources
+	var/image/old_resource_indicator = resource_indicator
+
+	var/turf/new_turf = ..()
+
+	new_turf.has_resources = old_has_resources
+	new_turf.resources = old_resources
+	new_turf.resource_indicator = old_resource_indicator
+	if(new_turf.resource_indicator)
+		new_turf.add_overlay(new_turf.resource_indicator)
+
+	return new_turf
+
 /turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F)
 	//with skill and luck, players can cleanly extract finds
 	//otherwise, they come out inside a chunk of rock
@@ -490,6 +483,13 @@ var/list/mineral_can_smooth_with = list(
 				var/obj/item/stack/material/uranium/R = new(src)
 				R.amount = rand(5, 25)
 
+/turf/simulated/mineral/proc/change_mineral(mineral_name, force = FALSE)
+	if(mineral_name && (mineral_name in ore_data))
+		if(mineral && !force)
+			return FALSE
+		mineral = ore_data[mineral_name]
+		UpdateMineral()
+
 /turf/simulated/mineral/random
 	name = "mineral deposit"
 	var/mineralSpawnChanceList = list(
@@ -527,6 +527,11 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/random/exoplanet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
+/turf/simulated/mineral/random/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+
 /turf/simulated/mineral/random/high_chance
 	mineralSpawnChanceList = list(
 		ORE_URANIUM = 2,
@@ -552,6 +557,11 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/random/high_chance/exoplanet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
+
+/turf/simulated/mineral/random/high_chance/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/random/higher_chance
 	mineralSpawnChanceList = list(
@@ -597,6 +607,11 @@ var/list/mineral_can_smooth_with = list(
 /turf/simulated/mineral/planet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
+/turf/simulated/mineral/adhomai
+	icon = 'icons/turf/smooth/icy_wall.dmi'
+	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
+
 /**********************Asteroid**************************/
 
 // Setting icon/icon_state initially will use these values when the turf is built on/replaced.
@@ -612,8 +627,7 @@ var/list/mineral_can_smooth_with = list(
 	base_icon = 'icons/turf/map_placeholders.dmi'
 	base_icon_state = "ash"
 
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
@@ -643,8 +657,6 @@ var/list/asteroid_floor_smooth = list(
 	base_desc = desc
 	base_name = name
 
-	turfs += src
-
 	if(isStationLevel(z))
 		station_turfs += src
 
@@ -660,18 +672,9 @@ var/list/asteroid_floor_smooth = list(
 		canSmoothWith = asteroid_floor_smooth
 		pixel_x = -4
 		pixel_y = -4
-		queue_smooth(src)
-
-	if(!mapload)
-		queue_smooth_neighbors(src)
 
 	if(light_range && light_power)
 		update_light()
-
-	if (current_map.use_overmap && istype(loc, /area/exoplanet))
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
-		if (istype(E) && istype(E.theme))
-			E.theme.on_turf_generation(src, E.planetary_area)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -709,7 +712,7 @@ var/list/asteroid_floor_smooth = list(
 		var/obj/item/stack/rods/R = W
 		if(R.use(1))
 			to_chat(user, SPAN_NOTICE("Constructing support lattice..."))
-			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
 
@@ -720,7 +723,7 @@ var/list/asteroid_floor_smooth = list(
 			if(S.get_amount() < 1)
 				return
 			qdel(L)
-			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
+			playsound(src, 'sound/weapons/Genhit.ogg', 50, TRUE)
 			S.use(1)
 			ChangeTurf(/turf/simulated/floor/airless)
 			return

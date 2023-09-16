@@ -71,11 +71,11 @@
 	worn_state = "centcom"
 	displays_id = 0
 
-/obj/item/clothing/under/rank/fib
-	name = "\improper FIB agent uniform"
-	desc = "A formal uniform used by Federal Investigations Bureau agents."
-	icon_state = "fib_uniform"
-	worn_state = "fib_uniform"
+/obj/item/clothing/under/rank/bssb
+	name = "\improper BSSB agent uniform"
+	desc = "A formal uniform used by Biesel Security Services Bureau agents."
+	icon_state = "bssb_uniform"
+	worn_state = "bssb_uniform"
 
 /obj/item/clothing/under/rank/scc
 	name = "Stellar Corporate Conglomerate agent uniform"
@@ -335,7 +335,10 @@
 /obj/item/clothing/under/dress/offworlder
 	name = "\improper CR dress"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear, made of strong woven spider-silk. This variant seems to be tailored to resemble a dress, revealing much more skin."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "crdress"
+	item_state = "crdress"
 	worn_state = "crdress"
 
 /obj/item/clothing/under/hosformalmale
@@ -387,7 +390,7 @@
 	item_state = "lb_suit"
 	worn_state = "tan_suit"
 
-/obj/item/clothing/under/serviceoveralls
+/obj/item/clothing/under/service_overalls
 	name = "workman outfit"
 	desc = "The very image of a working man. Not that you're probably doing work."
 	icon_state = "mechanic"
@@ -537,10 +540,22 @@
 	item_state = "tauceti_pilot"
 	worn_state = "tauceti_pilot"
 
+/obj/item/clothing/under/legion/tcaf
+	name = "\improper TCAF armsman uniform"
+	desc = "A black longsleeved top over rough khaki tactical pants. Designed for the use of on-ship legionnaires serving the Republic."
+	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
+	contained_sprite = TRUE
+	icon_state = "tcaf_armsman_uniform"
+	item_state = "tcaf_armsman_uniform"
+	worn_state = "tcaf_armsman_uniform"
+
 /obj/item/clothing/under/offworlder
 	name = "\improper CR suit"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "crsuit"
+	item_state = "crsuit"
 	worn_state = "crsuit"
 
 /obj/item/clothing/under/tactical

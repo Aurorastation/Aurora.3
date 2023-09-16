@@ -98,7 +98,7 @@
 	..()
 
 /obj/item/clothing/accessory/holster/examine(mob/user)
-	..(user)
+	. = ..()
 	if (holstered)
 		to_chat(user, "A [holstered] is holstered here.")
 	else
@@ -231,4 +231,17 @@
 	desc = "A brown utility holster which can't hold actual firearms. This particular one is designed for custodial personnel."
 	icon_state = "custodial_brown_hip"
 	item_state = "custodial_brown_hip"
+
+/obj/item/clothing/accessory/holster/utility/machete
+	name = "machete sheath"
+	desc = "A handsome synthetic leather sheath with matching belt."
+	icon_state = "holster_machete"
+	item_state = "thigh_brown"
+	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
+	allowed_items = list(
+		/obj/item/material/hatchet/machete,
+		/obj/item/material/hatchet/machete/deluxe,
+		/obj/item/material/hatchet/machete/unbreakable,
+		/obj/item/material/hatchet/machete/steel
+	)
 /********** Utility Holsters End **********/

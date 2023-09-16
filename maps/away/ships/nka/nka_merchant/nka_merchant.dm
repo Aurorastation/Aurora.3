@@ -16,12 +16,20 @@
 	name = "Her Majesty's Mercantile Flotilla Ship"
 	desc = "The Hma'trra class is a modified version of the corporate freighter sold by the SCC to the New Kingdom. It is simple model adapted to the long journey between Adhomai and Tau Ceti."
 	class = "NKAMV" //New Kingdom of Adhomai Vessel
-	icon_state = "ship"
-	moving_state = "ship_moving"
+	icon_state = "hmatrra"
+	moving_state = "hmatrra_moving"
+	colors = list("#3e9af0", "#2b5cff")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
+	scanimage = "nka_freighter.png"
+	designer = "NanoTrasen, New Kingdom of Adhomai"
+	volume = "49 meters length, 28 meters beam/width, 11 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Not apparent, port obscured flight craft bay"
+	sizeclass = "Hma'trra Freighter"
+	shiptype = "Long-term shipping utilities"
 	initial_generic_waypoints = list(
 		"nka_merchant_ship_1",
 		"nka_merchant_ship_2",
@@ -29,12 +37,20 @@
 		"nka_merchant_ship_4"
 	)
 	initial_restricted_waypoints = list(
-		"Orbital Fleet Shuttle" = list("nav_nka_merchant_shuttle")
+		"Her Majesty's Mercantile Flotilla Shuttle" = list("nav_nka_merchant_shuttle")
 	)
+
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/nka_merchant/New()
 	designation = "[pick("Minharrzka's Daughter", "Her Majesty's Merchant", "Vahzirthaamro", "Azunja's Favorite", "Wealth-Beyond-Measure", "Miran'mir", "Crown Traveller", "Space Monarch")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/nka_merchant/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "nka_freighter")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/nka_merchant
 	base_turf = /turf/space
@@ -62,6 +78,7 @@
 	desc = "A simple corporate shuttle design used by Her Majesty's Mercantile Flotilla."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	colors = list("#3e9af0", "#2955e6")
 	class = "NKAMV"
 	designation = "Tajani"
 	shuttle = "Her Majesty's Mercantile Flotilla Shuttle"

@@ -20,7 +20,7 @@
 	fire_sound = 'sound/weapons/kinetic_accel.ogg'
 	fire_sound_text = "blast"
 	recoil = 0
-	silenced = 0
+	suppressed = FALSE
 	muzzle_flash = 3
 	accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
 	scoped_accuracy = null
@@ -92,7 +92,7 @@
 		if(custom_name)
 			to_chat(user,"[custom_name] is written crudely in pen across the side, covering up the offical designation.")
 		else
-			to_chat(user,"The offical designation \"[official_name]\" is etched neatly on the side.")
+			to_chat(user,"The official designation \"[official_name]\" is etched neatly on the side.")
 
 	if(installed_cell)
 		to_chat(user, "It has <b>[get_ammo()]</b> shots remaining.")
@@ -234,19 +234,30 @@
 		installed_upgrade_chip.on_fire(src)
 	if(installed_barrel)
 		installed_barrel.on_fire(src)
+	
+	var/turf/T = get_turf(src)
 
-	if(ispath(installed_barrel.projectile_type, /obj/item/projectile/kinetic))
-		var/obj/item/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
-		shot_projectile.damage = damage_increase
-		shot_projectile.range = range_increase
-		shot_projectile.aoe = max(1, aoe_increase)
-		shot_projectile.base_damage = damage_increase
-		return shot_projectile
-	if(ispath(installed_barrel.projectile_type, /obj/item/projectile/beam))
-		var/obj/item/projectile/beam/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
-		shot_projectile.damage = damage_increase
-		shot_projectile.range = range_increase
-		return shot_projectile
+	if(T)
+		var/datum/gas_mixture/environment = T.return_air()
+		var/pressure = (environment)? environment.return_pressure() : 0
+		if(ispath(installed_barrel.projectile_type, /obj/item/projectile/kinetic))
+			var/obj/item/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
+			shot_projectile.damage = damage_increase
+			shot_projectile.range = range_increase
+			shot_projectile.aoe = max(1, aoe_increase)
+			//If pressure is greater than about 40 kPA, reduce damage
+			if(pressure > ONE_ATMOSPHERE*0.4)
+				shot_projectile.base_damage = 5
+				return shot_projectile
+			else
+				shot_projectile.base_damage = damage_increase
+				return shot_projectile
+				
+		if(ispath(installed_barrel.projectile_type, /obj/item/projectile/beam))
+			var/obj/item/projectile/beam/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
+			shot_projectile.damage = damage_increase
+			shot_projectile.range = range_increase
+			return shot_projectile
 
 /obj/item/gun/custom_ka/Initialize()
 	. = ..()
@@ -433,7 +444,7 @@
 			installed_cell.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
 		return TRUE
 	else if(istype(I,/obj/item/custom_ka_upgrade/barrels))
 		if(!installed_cell)
@@ -447,7 +458,7 @@
 			installed_barrel.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
 		return TRUE
 	else if(istype(I,/obj/item/custom_ka_upgrade/upgrade_chips))
 		if(!installed_cell || !installed_barrel)
@@ -465,7 +476,7 @@
 			installed_upgrade_chip.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
 		return TRUE
 
 	if(installed_cell)

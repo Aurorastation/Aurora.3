@@ -53,7 +53,7 @@
 		/obj/item/device/camera                     = TRADER_BLACKLIST_SUB, // a lot of ai/drone/cyborg/fluff items
 		/obj/item/device/uv_light                   = TRADER_BLACKLIST, // CSI item
 		/obj/item/device/eftpos                     = TRADER_BLACKLIST,
-		/obj/item/device/nanoquikpay                = TRADER_BLACKLIST,
+		/obj/item/device/quikpay                = TRADER_BLACKLIST,
 		/obj/item/device/electronic_assembly        = TRADER_BLACKLIST_ALL, // Not a circuit trader
 		/obj/item/device/integrated_circuit_printer = TRADER_BLACKLIST_ALL, //Not a circuit trader
 		/obj/item/device/integrated_electronics     = TRADER_BLACKLIST_ALL, // Not a circuit trader
@@ -67,7 +67,6 @@
 		/obj/item/device/depth_scanner              = TRADER_BLACKLIST, // Xenoarch
 		/obj/item/device/beacon_locator             = TRADER_BLACKLIST, // Telescience
 		/obj/item/device/telepad_beacon             = TRADER_BLACKLIST, // Telescience
-		/obj/item/device/udp_debugger               = TRADER_BLACKLIST // Circuits
 	)
 
 	possible_trading_items = list(
@@ -94,7 +93,6 @@
 		/obj/item/storage/wallet                              = TRADER_THIS_TYPE,
 		/obj/item/storage/photo_album                         = TRADER_THIS_TYPE,
 		/obj/item/clothing/glasses                            = TRADER_SUBTYPES_ONLY,
-		/obj/item/clothing/glasses/threedglasses/fluff        = TRADER_BLACKLIST_ALL, // Custom items
 		/obj/item/clothing/glasses/hud                        = TRADER_BLACKLIST_ALL, //don't want mech/advanced stuff
 		/obj/item/clothing/glasses/sunglasses/blindfold/tape  = TRADER_BLACKLIST, // Literally just tape over someone's eyes
 		/obj/item/clothing/glasses/chameleon                  = TRADER_BLACKLIST, // traitor stuff
@@ -178,6 +176,5 @@
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/stoxin       = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/polysomnine  = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/glass/bottle/antitoxin    = TRADER_THIS_TYPE,
-		/obj/item/device/handheld_medical                      = TRADER_THIS_TYPE
+		/obj/item/reagent_containers/glass/bottle/antitoxin    = TRADER_THIS_TYPE
 	)

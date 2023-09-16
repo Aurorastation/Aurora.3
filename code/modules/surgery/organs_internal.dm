@@ -26,8 +26,8 @@
 	/obj/item/stack/medical/bruise_pack = 20
 	)
 
-	min_duration = 70
-	max_duration = 90
+	min_duration = 50
+	max_duration = 70
 
 /singleton/surgery_step/internal/fix_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -99,7 +99,7 @@
 	else if(istype(tool, /obj/item/stack/medical/bruise_pack))
 		dam_amt = 5
 		target.adjustToxLoss(10)
-		target.apply_damage(5, BRUTE, target_zone, 0, tool)
+		target.apply_damage(5, DAMAGE_BRUTE, target_zone, 0, tool)
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I && I.is_damaged())
@@ -113,8 +113,8 @@
 	SCREWDRIVER = 70
 	)
 
-	min_duration = 70
-	max_duration = 90
+	min_duration = 50
+	max_duration = 70
 
 /singleton/surgery_step/internal/fix_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -167,7 +167,7 @@
 		SPAN_WARNING("Your hand slips, gumming up the mechanisms inside of [target]'s [affected.name] with \the [tool]!"))
 
 	target.adjustToxLoss(5)
-	target.apply_damage(5, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(5, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I)
@@ -183,8 +183,8 @@
 	/obj/item/material/shard = 50
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 70
+	max_duration = 90
 
 /singleton/surgery_step/internal/detach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -236,7 +236,7 @@
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"))
 	affected.sever_artery()
-	target.apply_damage(rand(30, 50), BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(rand(30, 50), DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/internal/remove_organ
 	name = "Remove Organ"
@@ -246,8 +246,8 @@
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
 
-	min_duration = 60
-	max_duration = 80
+	min_duration = 40
+	max_duration = 60
 
 /singleton/surgery_step/internal/remove_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -297,7 +297,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, damaging [target]'s [affected.name] with \the [tool]!"))
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/internal/replace_organ
 	name = "Replace Organ"
@@ -305,8 +305,8 @@
 	/obj/item/organ = 100
 	)
 
-	min_duration = 60
-	max_duration = 80
+	min_duration = 40
+	max_duration = 60
 
 /singleton/surgery_step/internal/replace_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -410,8 +410,8 @@
 	/obj/item/stack/cable_coil = 75
 	)
 
-	min_duration = 100
-	max_duration = 120
+	min_duration = 80
+	max_duration = 100
 
 /singleton/surgery_step/internal/attach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -454,7 +454,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"))
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/internal/prepare
 	name = "Prepare Brain"
@@ -464,8 +464,8 @@
 	/obj/item/pickaxe/ = 5
 	)
 
-	min_duration = 100
-	max_duration = 120
+	min_duration = 80
+	max_duration = 100
 
 /singleton/surgery_step/internal/prepare/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -499,4 +499,4 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"))
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())

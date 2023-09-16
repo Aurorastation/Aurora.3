@@ -163,11 +163,7 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/obj/machinery/power/apc/low{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/low/east,
 /turf/simulated/floor/airless,
 /area/magshield/north)
 "at" = (
@@ -356,7 +352,9 @@
 /turf/simulated/floor/airless,
 /area/magshield/engine)
 "aZ" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	icon_state = "pdoor0";
@@ -401,6 +399,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/magshield/smes_storage)
+"bg" = (
+/obj/machinery/door/airlock{
+	insecure = 0;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/magshield/south)
 "bh" = (
 /obj/structure/table/steel,
 /obj/random/desktoy,
@@ -935,11 +940,7 @@
 /turf/simulated/floor/airless,
 /area/magshield/smes_storage)
 "cH" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
+/obj/machinery/power/apc/east,
 /obj/structure/cable{
 	d2 = 2;
 	icon_state = "0-2"
@@ -1042,7 +1043,8 @@
 "cS" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1069,7 +1071,8 @@
 "cU" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -1093,7 +1096,9 @@
 /turf/simulated/floor/airless,
 /area/magshield/smes_storage)
 "cW" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1155,10 +1160,7 @@
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/power/apc{
-	name = "south bump";
-	pixel_y = -24
-	},
+/obj/machinery/power/apc/south,
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
@@ -1272,7 +1274,8 @@
 /area/magshield/north)
 "dB" = (
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1396,7 +1399,8 @@
 /area/magshield/north)
 "ee" = (
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/magshield/south)
@@ -1556,11 +1560,7 @@
 /turf/simulated/floor/airless,
 /area/magshield/north)
 "ex" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -1741,7 +1741,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/magshield/engine)
 "fb" = (
@@ -1871,7 +1873,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/magshield/north)
@@ -2309,7 +2312,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -2328,11 +2332,7 @@
 /turf/simulated/wall,
 /area/magshield/west)
 "gQ" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable,
 /turf/simulated/floor/tiled/white/airless,
 /area/magshield/west)
@@ -2402,8 +2402,8 @@
 /area/magshield/west)
 "hc" = (
 /obj/effect/shuttle_landmark/nav_magshield/nav1,
-/turf/simulated/floor/airless,
-/area/magshield/north)
+/turf/template_noop,
+/area/space)
 "hd" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -2459,11 +2459,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -2491,7 +2487,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/magshield/west)
@@ -2607,7 +2603,8 @@
 "hH" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2779,7 +2776,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -2956,7 +2954,7 @@
 "iH" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/magshield/south)
@@ -3299,7 +3297,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/magshield/south)
@@ -3420,7 +3418,7 @@
 "kv" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/magshield/south)
@@ -3790,7 +3788,8 @@
 "os" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3875,7 +3874,8 @@
 /area/magshield/south)
 "yw" = (
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3910,7 +3910,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -3922,7 +3923,8 @@
 "Ch" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4014,7 +4016,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/magshield/south)
@@ -4132,7 +4135,8 @@
 /area/magshield/north)
 "VU" = (
 /obj/machinery/door/airlock{
-	insecure = 0
+	insecure = 0;
+	dir = 4
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -20670,7 +20674,7 @@ de
 de
 jH
 dw
-hc
+dj
 aa
 aa
 aa
@@ -21046,7 +21050,7 @@ aa
 aa
 aa
 aa
-aa
+hc
 aa
 aa
 aa
@@ -22700,7 +22704,7 @@ bA
 iu
 iu
 iu
-ee
+bg
 kx
 kW
 ip

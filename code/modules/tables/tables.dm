@@ -1,6 +1,6 @@
 /obj/structure/table
 	name = "table frame"
-	icon = 'icons/obj/tables.dmi'
+	icon = 'icons/obj/structure/tables/table.dmi'
 	icon_state = "frame"
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
 	density = 1
@@ -8,6 +8,7 @@
 	climbable = TRUE
 	layer = LAYER_TABLE
 	throwpass = 1
+	breakable = TRUE
 	var/flipped = 0
 	var/maxhealth = 10
 	var/health = 10
@@ -51,6 +52,13 @@
 			visible_message(SPAN_WARNING("\The [src] breaks down!"), intent_message = THUNK_SOUND)
 		return break_to_parts() // if we break and form shards, return them to the caller to do !FUN! things with
 
+/obj/structure/table/attack_generic(var/mob/user, var/damage, var/attack_message = "attacks", var/wallbreaker)
+	if(!damage || !wallbreaker)
+		return
+	user.do_attack_animation(src)
+	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
+	take_damage(damage)
+	return TRUE
 
 /obj/structure/table/ex_act(severity)
 	switch(severity)
@@ -164,7 +172,7 @@
 			update_material()
 		return 1
 
-	if(!material && can_plate && istype(W, /obj/item/reagent_containers/cooking_container/plate/bowl))
+	if(!material && can_plate && istype(W, /obj/item/reagent_containers/cooking_container/board/bowl))
 		new /obj/structure/chemkit(loc)
 		qdel(W)
 		qdel(src)
@@ -197,13 +205,15 @@
 
 	reinforced = common_material_add(S, user, "reinforc")
 	if(reinforced)
+		breakable = FALSE
 		update_desc()
 		queue_icon_update()
 		update_material()
 
 /obj/structure/table/proc/update_desc()
 	if(material)
-		name = "[material.display_name] table"
+		if(material_alteration & MATERIAL_ALTERATION_NAME)
+			name = "[material.display_name] table"
 	else
 		name = "table frame"
 
@@ -252,7 +262,8 @@
 	return null
 
 /obj/structure/table/proc/remove_reinforced(obj/item/screwdriver/S, mob/user)
-	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", 'sound/items/screwdriver.ogg')
+	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", 'sound/items/Screwdriver.ogg')
+	breakable = TRUE
 
 /obj/structure/table/proc/remove_material(obj/item/wrench/W, mob/user)
 	material = common_material_remove(user, material, 20, "plating", "bolts", W.usesound)
@@ -311,25 +322,22 @@
 
 		var/image/I
 
-		// Base frame shape. Mostly done for glass/diamond tables, where this is visible.
-		for(var/i = 1 to 4)
-			I = image(icon, dir = 1<<(i-1), icon_state = connections[i])
-			add_overlay(I)
-
-		// Standard table image
+		// Standard table image.
 		if(material)
 			for(var/i = 1 to 4)
 				I = image(icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
-				if(material.icon_colour) I.color = material.icon_colour
-				I.alpha = 255 * material.opacity
+				if(material_alteration & MATERIAL_ALTERATION_COLOR) I.color = material.icon_colour
+				add_overlay(I)
+		else
+			for(var/i = 1 to 4)
+				I = image(icon, dir = 1<<(i-1), icon_state = connections[i])
 				add_overlay(I)
 
-		// Reinforcements
+		// Reinforcements.
 		if(reinforced)
 			for(var/i = 1 to 4)
 				I = image(icon, "[reinforced.icon_reinf]_[connections[i]]", dir = 1<<(i-1))
 				I.color = reinforced.icon_colour
-				I.alpha = 255 * reinforced.opacity
 				add_overlay(I)
 
 		if(carpeted)
@@ -357,16 +365,15 @@
 		if(material)
 			var/image/I = image(icon, "[material.icon_base]_flip[type]")
 			I.color = material.icon_colour
-			I.alpha = 255 * material.opacity
 			add_overlay(I)
-			name = "[material.display_name] table"
+			if(material_alteration & MATERIAL_ALTERATION_NAME)
+				name = "[material.display_name] table"
 		else
 			name = "table frame"
 
 		if(reinforced)
 			var/image/I = image(icon, "[reinforced.icon_reinf]_flip[type]")
 			I.color = reinforced.icon_colour
-			I.alpha = 255 * reinforced.opacity
 			add_overlay(I)
 
 		if(carpeted)

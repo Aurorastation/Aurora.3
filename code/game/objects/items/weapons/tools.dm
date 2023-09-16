@@ -62,7 +62,7 @@
 	w_class = ITEMSIZE_TINY
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
-	usesound = 'sound/items/screwdriver.ogg'
+	usesound = 'sound/items/Screwdriver.ogg'
 	drop_sound = 'sound/items/drop/screwdriver.ogg'
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 	lock_picking_level = 5
@@ -137,7 +137,7 @@
 	attack_verb = list("pinched", "nipped")
 	sharp = TRUE
 	edge = TRUE
-	usesound = 'sound/items/wirecutter.ogg'
+	usesound = 'sound/items/Wirecutter.ogg'
 	drop_sound = 'sound/items/drop/wirecutter.ogg'
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
 	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
@@ -219,7 +219,7 @@
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
-	usesound = 'sound/items/welder.ogg'
+	usesound = 'sound/items/Welder.ogg'
 
 	attack_verb = list("hit", "bludgeoned", "whacked")
 
@@ -335,8 +335,9 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weldingtool/examine(mob/user)
-	if(..(user, 0))
+/obj/item/weldingtool/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 0)
 		to_chat(user, text("[icon2html(src, user)] [] contains []/[] units of fuel!", src.name, get_fuel(),src.max_fuel ))
 
 /obj/item/weldingtool/attackby(obj/item/W, mob/user)
@@ -533,7 +534,7 @@
 				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
 			playsound(loc, 'sound/items/welder_activate.ogg', 50, 1)
 			force = 15
-			damtype = BURN
+			damtype = DAMAGE_BURN
 			w_class = ITEMSIZE_LARGE
 			welding = TRUE
 			hitsound = SOUNDS_LASER_MEAT
@@ -552,7 +553,7 @@
 			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
 		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, 1)
 		force = 3
-		damtype = BRUTE
+		damtype = DAMAGE_BRUTE
 		w_class = initial(w_class)
 		welding = FALSE
 		hitsound = /singleton/sound_category/swing_hit_sound
@@ -791,7 +792,7 @@
 
 /obj/item/combitool/examine(var/mob/user)
 	. = ..()
-	if(. && tools.len)
+	if(tools.len)
 		to_chat(user, "It has the following fittings: <b>[english_list(tools)]</b>.")
 
 /obj/item/combitool/iswrench()
@@ -850,7 +851,7 @@
 
 /obj/item/powerdrill/examine(var/mob/user)
 	. = ..()
-	if(. && tools.len)
+	if(tools.len)
 		to_chat(user, "It has the following fittings:")
 		for(var/tool in tools)
 			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
@@ -946,10 +947,10 @@
 		if(!user.gloves)
 			var/UserLoc = get_equip_slot()
 			if(UserLoc == slot_l_hand)
-				user.apply_damage(5, BURN, BP_L_HAND)
+				user.apply_damage(5, DAMAGE_BURN, BP_L_HAND)
 				to_chat(user, SPAN_DANGER("The steel wool burns your left hand!"))
 			else if(UserLoc == slot_r_hand)
-				user.apply_damage(5, BURN, BP_R_HAND)
+				user.apply_damage(5, DAMAGE_BURN, BP_R_HAND)
 				to_chat(user, SPAN_DANGER("The steel wool burns your right hand!"))
 
 	new /obj/effect/decal/cleanable/ash(get_turf(src))

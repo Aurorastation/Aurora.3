@@ -52,7 +52,7 @@
 
 /obj/item/rig/skrell/tup
 	name = "outdated tupkala suit control module"
-	desc = "A suit control module designed by the Jargon Federation for Tup operations. The best of the best, albeit outdated now."
+	desc = "A suit control module designed by the Nralakk Federation for Tup operations. The best of the best, albeit outdated now."
 	icon = 'icons/clothing/rig/tup.dmi'
 	icon_state = "tup_rig"
 	suit_type = "tup suit"

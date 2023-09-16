@@ -15,9 +15,9 @@
 	var/ChargeCapacity = 5000000
 	var/IOCapacity = 250000
 
-/obj/item/smes_coil/examine(mob/user)
+/obj/item/smes_coil/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(Adjacent(user))
+	if(is_adjacent)
 		to_chat(user, "The label reads:\
 			<div class='notice' style='padding-left:2rem'>Only certified professionals are allowed to handle and install this component.<br>\
 			Charge capacity: [ChargeCapacity/1000000] MJ<br>\
@@ -72,6 +72,11 @@
 	output_attempt = TRUE
 	output_level = 500000
 	charge =1.5e+7
+
+// For the substation SMES around the Horizon.
+/obj/machinery/power/smes/buildable/substation
+	input_level = 150000
+	output_level = 140000
 
 // The Horizon's shuttles want something with decent capacity to sustain themselves and enough transmission to meet their energy needs.
 /obj/machinery/power/smes/buildable/horizon_shuttle/Initialize()

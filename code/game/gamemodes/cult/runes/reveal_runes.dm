@@ -14,7 +14,7 @@
 	for(var/obj/effect/rune/R in orange(radius, get_turf(A)))
 		if(R == src)
 			continue
-		R.invisibility = 0
+		R.set_invisibility(0)
 		did_reveal = TRUE
 	if(did_reveal)
 		if(iscultist(user))

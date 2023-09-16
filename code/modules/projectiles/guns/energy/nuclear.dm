@@ -71,7 +71,7 @@
 			to_chat(M, "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>")
 		else
 			to_chat(M, "<span class='warning'>You feel a warm sensation.</span>")
-		M.apply_effect(rand(3,120), IRRADIATE)
+	SSradiation.radiate(src, rand(3, 50))
 	return
 
 /obj/item/gun/energy/gun/nuclear/medium_fail(var/mob/user)
@@ -85,7 +85,7 @@
 	to_chat(user, "<span class='danger'>Your gun's reactor overloads!</span>")
 	for (var/mob/living/M in range(rand(1,4),src))
 		to_chat(M, "<span class='warning'>You feel a wave of heat wash over you.</span>")
-		M.apply_effect(300, IRRADIATE)
+	SSradiation.radiate(src, rand(3, 80))
 	crit_fail = 1 //break the gun so it stops recharging
 	self_recharge = FALSE
 	update_icon()
@@ -95,7 +95,7 @@
 	if (crit_fail)
 		add_overlay("nucgun-whee")
 		return
-	var/ratio = power_supply.charge / power_supply.maxcharge
+	var/ratio = max((power_supply?.charge / power_supply?.maxcharge), 0)
 	ratio = round(ratio, 0.25) * 100
 	add_overlay("nucgun-[ratio]")
 
@@ -105,7 +105,7 @@
 		return
 	if(lightfail)
 		add_overlay("nucgun-medium")
-	else if ((power_supply.charge/power_supply.maxcharge) <= 0.5)
+	else if ((power_supply?.charge/power_supply?.maxcharge) <= 0.5)
 		add_overlay("nucgun-light")
 	else
 		add_overlay("nucgun-clean")
@@ -207,7 +207,7 @@
 	fire_sound = 'sound/weapons/Laser2.ogg'
 	modifystate = null
 	charge_failure_message = "'s charging socket was removed to make room for a recharger."
-	secondary_fire_sound = 'sound/weapons/Laser3.ogg'
+	secondary_fire_sound = 'sound/weapons/laser3.ogg'
 
 /obj/item/gun/energy/gun/skrell/emp_act(severity)
 	return //Fuck robots.
@@ -225,7 +225,7 @@
 
 	firemodes = list(
 		list(mode_name="disable", projectile_type=/obj/item/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pulse/skrell, fire_sound='sound/weapons/Laser3.ogg')
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pulse/skrell, fire_sound='sound/weapons/laser3.ogg')
 		)
 
 /obj/item/gun/energy/gun/skrell/smg
@@ -242,7 +242,7 @@
 
 	firemodes = list(
 		list(mode_name="disable", projectile_type=/obj/item/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pulse/skrell, fire_sound='sound/weapons/Laser3.ogg', burst = 2, burst_delay = 2)
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pulse/skrell, fire_sound='sound/weapons/laser3.ogg', burst = 2, burst_delay = 2)
 		)
 
 /obj/item/gun/energy/gun/qukala
@@ -270,3 +270,28 @@
 		)
 
 	has_item_ratio = FALSE
+
+/obj/item/gun/energy/psipistol
+	name = "psionic pistol"
+	desc = "A pistol that utilises psionics. It's made from a lightweight alloy."
+	desc_extended = "A sidearm usually seen in the hands of Nralakk Federation officials and law enforcement, the Psi Pistol has a psionically-linked firing pin that checks for a developed Zona Bovinae in its user before it can be fired. A wire can be attached to the user's wrist to allow for mode switching using psionics rather than changing it physically, enabling the weapon to be used entirely one-handed."
+	icon = 'icons/obj/guns/psi_pistol.dmi'
+	icon_state = "psipistolstun100"
+	item_state = "psipistolstun100"
+	fire_sound = 'sound/weapons/Taser.ogg'
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	pin = /obj/item/device/firing_pin/psionic
+	max_shots = 8
+	fire_delay = 4
+	can_turret = FALSE
+	secondary_projectile_type = /obj/item/projectile/energy/blaster/skrell
+	secondary_fire_sound = 'sound/weapons/laser3.ogg'
+	can_switch_modes = 1
+	projectile_type = /obj/item/projectile/energy/disruptorstun/skrell
+	modifystate = "psipistolstun"
+
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/disruptorstun/skrell, modifystate="psipistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster/skrell, modifystate="psipistollethal", fire_sound='sound/weapons/laser3.ogg'),
+		list(mode_name="ion", projectile_type=/obj/item/projectile/ion/small, modifystate="psipistolion", fire_sound='sound/weapons/laser1.ogg')
+		)

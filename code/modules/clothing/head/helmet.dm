@@ -45,8 +45,8 @@
 		for(var/obj/item/thing in hold.contents)
 			var/icon_type = hold.helmet_storage_types[thing.type]
 			var/thing_state = icon_type == HELMET_GARB_PASS_ICON ? initial(thing.icon_state) : icon_type
+			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
 			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, thing_state))
-		I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
 	return I
 
 /obj/item/clothing/head/helmet/attack_hand(mob/user)
@@ -96,8 +96,8 @@
 		else
 			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
 
-/obj/item/clothing/head/helmet/space/examine(var/mob/user)
-	if(..(user, 1) && camera)
+/obj/item/clothing/head/helmet/space/examine(mob/user, distance, is_adjacent)
+	if((distance <= 1) && camera)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>.")))
 		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
 
@@ -135,6 +135,8 @@
 	desc = "It's a helmet specifically designed to protect against close range attacks."
 	icon = 'icons/clothing/kit/modular_armor.dmi'
 	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
 	icon_state = "helm_riot"
 	item_state = "helm_riot"
 	body_parts_covered = HEAD|FACE|EYES //face shield
@@ -176,7 +178,7 @@
 	armor = list(
 		melee = ARMOR_MELEE_SMALL,
 		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_RIFLE,
+		laser = ARMOR_LASER_MAJOR,
 		energy = ARMOR_ENERGY_RESISTANT
 	)
 	siemens_coefficient = 0
@@ -363,8 +365,8 @@
 	)
 
 /obj/item/clothing/head/helmet/unathi/klax
-	name = "klaxan hopeful helmet"
-	desc = "A helmet designated to be worn by a K'lax hopeful. The retrofit features a modified shape and an extra two eye visors. Flash protection blocks many flashes, shielding sensitive Vaurca eyes."
+	name = "klaxan warrior helmet"
+	desc = "A helmet designated to be worn by a K'lax warrior. The retrofit features a modified shape and an extra two eye visors. Flash protection blocks many flashes, shielding sensitive Vaurca eyes."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "klax_hopeful_helmet"
 	item_state = "klax_hopeful_helmet"

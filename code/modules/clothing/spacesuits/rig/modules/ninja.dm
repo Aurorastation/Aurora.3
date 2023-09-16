@@ -43,7 +43,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	to_chat(H, SPAN_NOTICE("<b>You are now invisible to normal detection.</b>"))
-	H.invisibility = INVISIBILITY_LEVEL_TWO
+	H.set_invisibility(INVISIBILITY_LEVEL_TWO)
 
 	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity", null, 20, null)
 
@@ -56,7 +56,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	to_chat(H, SPAN_NOTICE("<b>You are now visible.</b>"))
-	H.invisibility = FALSE
+	H.set_invisibility(0)
 
 	anim(get_turf(H), H, 'icons/mob/mob.dmi', ,"uncloak", , H.dir)
 	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity", null, 20, null)

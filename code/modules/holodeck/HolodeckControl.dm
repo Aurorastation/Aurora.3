@@ -1,3 +1,6 @@
+
+var/global/list/obj/machinery/computer/HolodeckControl/holodeck_controls = list()
+
 /obj/machinery/computer/HolodeckControl
 	name = "holodeck control console"
 	desc = "A computer used to control a nearby holodeck."
@@ -6,11 +9,11 @@
 	icon_screen = "holocontrolw"
 	light_color = LIGHT_COLOR_CYAN
 
-	active_power_usage = 8000 //8kW for the scenery + 500W per holoitem
+	active_power_usage = 2000 //Pretty low, 15 per item too. Will still drain power like crazy on more complex programs
 
 	circuit = /obj/item/circuitboard/holodeckcontrol
 
-	var/item_power_usage = 500
+	var/item_power_usage = 15
 
 	var/area/linkedholodeck = null
 	var/linkedholodeck_area
@@ -29,6 +32,7 @@
 /obj/machinery/computer/HolodeckControl/Initialize()
 	. = ..()
 	linkedholodeck = locate(linkedholodeck_area)
+	holodeck_controls += src
 
 /obj/machinery/computer/HolodeckControl/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
@@ -159,7 +163,7 @@
 	if (safety_disabled)
 		item_power_usage = 2500
 		for(var/obj/item/holo/esword/H in linkedholodeck)
-			H.damtype = BRUTE
+			H.damtype = DAMAGE_BRUTE
 	else
 		item_power_usage = initial(item_power_usage)
 		for(var/obj/item/holo/esword/H in linkedholodeck)
@@ -294,7 +298,7 @@
 
 	holographic_objs = A.copy_contents_to(linkedholodeck , 1)
 	for(var/obj/holo_obj in holographic_objs)
-		holo_obj.alpha *= 0.8 //give holodeck objs a slight transparency
+		holo_obj.alpha *= 1 //no more transparency, otherwise new presets look like crap -kyres
 
 	if(HP.ambience)
 		linkedholodeck.music = HP.ambience
@@ -372,6 +376,10 @@
 		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return TRUE
 
+/obj/machinery/computer/HolodeckControl/proc/load_random_program()
+	var/datum/holodeck_program/prog_to_load = pick(current_map.holodeck_programs)
+	loadProgram(current_map.holodeck_programs[prog_to_load])
+
 /obj/machinery/computer/HolodeckControl/Aurora
 	density = 0
 	linkedholodeck_area = /area/holodeck/alphadeck
@@ -379,3 +387,6 @@
 /obj/machinery/computer/HolodeckControl/Horizon
 	density = 0
 	linkedholodeck_area = /area/horizon/holodeck/alphadeck
+
+/obj/machinery/computer/HolodeckControl/Horizon/beta
+	linkedholodeck_area = /area/horizon/holodeck/betadeck

@@ -32,7 +32,6 @@
 	set_listening(TRUE)
 	recalculateChannels(TRUE)
 	possibly_deactivate_in_loc()
-	moved_event.register(src, src, PROC_REF(possibly_deactivate_in_loc))
 
 /obj/item/device/radio/headset/proc/possibly_deactivate_in_loc()
 	if(ismob(loc))
@@ -45,6 +44,10 @@
 	QDEL_NULL(keyslot2)
 	return ..()
 
+/obj/item/device/radio/headset/Moved(atom/old_loc, forced)
+	. = ..()
+	possibly_deactivate_in_loc()
+
 /obj/item/device/radio/headset/set_listening(new_listening, actual_setting = TRUE)
 	. = ..()
 	if(listening && on)
@@ -53,8 +56,10 @@
 /obj/item/device/radio/headset/list_channels(var/mob/user)
 	return list_secure_channels()
 
-/obj/item/device/radio/headset/examine(mob/user)
-	if(!(..(user, 1) && radio_desc))
+/obj/item/device/radio/headset/examine(mob/user, distance, is_adjacent)
+	. = ..()
+
+	if(!(is_adjacent && radio_desc))
 		return
 
 	to_chat(user, "The following channels are available:")
@@ -644,7 +649,7 @@
 	name = "earmuffs"
 	desc = "Protects your hearing from loud noises, and quiet ones as well."
 	desc_antag = "This set of earmuffs has a secret compartment housing radio gear, allowing it to function as a standard headset."
-	icon = 'icons/obj/clothing/ears.dmi'
+	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
 	item_flags = SOUNDPROTECTION
@@ -725,6 +730,11 @@
 	desc = "The headset of the boss's boss."
 	icon_state = "com_headset"
 	ks2type = /obj/item/device/encryptionkey/ert
+
+/obj/item/device/radio/headset/ert/alt
+	name = "emergency response team bowman headset"
+	icon_state = "com_headset_alt"
+	item_state = "headset_alt"
 
 /obj/item/device/radio/headset/legion
 	name = "Tau Ceti Foreign Legion radio headset"

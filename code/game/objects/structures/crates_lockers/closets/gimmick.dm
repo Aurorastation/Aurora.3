@@ -61,8 +61,8 @@
 	new /obj/item/clothing/head/helmet/swat(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/clothing/mask/gas(src)
-	new /obj/item/clothing/shoes/swat(src)
-	new /obj/item/clothing/shoes/swat(src)
+	new /obj/item/clothing/shoes/combat(src)
+	new /obj/item/clothing/shoes/combat(src)
 	new /obj/item/clothing/suit/armor/swat(src)
 	new /obj/item/clothing/suit/armor/swat(src)
 	new /obj/item/clothing/under/syndicate/tacticool(src)
@@ -125,3 +125,12 @@
 /obj/structure/closet/skrell
 	icon_state = "alien"
 	layer = BELOW_OBJ_LAYER
+
+/obj/structure/closet/outhouse
+	name = "outhouse"
+	desc = "A rustic sanitation structure."
+	icon_state = "outhouse"
+	anchored = TRUE
+	canbemoved = FALSE
+	open_sound = 'sound/machines/wooden_closet_open.ogg'
+	close_sound = 'sound/machines/wooden_closet_close.ogg'

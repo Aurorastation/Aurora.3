@@ -6,6 +6,7 @@
 	item_state = "colt"
 	pixel_offset_x = 30
 	pixel_offset_y = 18
+	fakecaliber = ".45"
 
 /obj/item/gun/bang/sec
 	name = "\improper .45 pistol"
@@ -16,9 +17,10 @@
 	item_state = "secgun"
 	pixel_offset_x = 28
 	pixel_offset_y = 14
-
+	fakecaliber = ".45"
 /obj/item/gun/bang/sec/flash
 	name = ".45 signal pistol"
+	fakecaliber = ".45 signal"
 
 /obj/item/gun/bang/sec/wood
 	name = "custom .45 pistol"
@@ -27,7 +29,7 @@
 	icon = 'icons/obj/guns/secgun_wood.dmi'
 	icon_state = "secgunwood"
 	item_state = "secgunwood"
-
+	fakecaliber = ".45"
 /obj/item/gun/bang/x9
 	name = "automatic .45 pistol"
 	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .45 rounds."
@@ -36,6 +38,7 @@
 	item_state = "x9"
 	pixel_offset_x = 28
 	pixel_offset_y = 13
+	fakecaliber = ".45"
 
 /obj/item/gun/bang/tanto
 	desc = "A crude-looking open-bolt machine pistol manufactured by a multitude of arms companies, or in some cases, particularly handy individuals. \
@@ -47,6 +50,7 @@
 	item_state = "c05r"
 	pixel_offset_x = 31
 	pixel_offset_y = 14
+	fakecaliber = "10mm"
 
 /obj/item/gun/bang/silenced
 	name = "silenced pistol"
@@ -56,8 +60,8 @@
 	item_state = "silenced_pistol"
 	pixel_offset_x = -4
 	pixel_offset_y = 15
-
-obj/item/gun/bang/deagle
+	fakecaliber = ".45"
+/obj/item/gun/bang/deagle
 	name = ".50 magnum pistol"
 	desc = "A robust handgun that uses .50 AE ammo."
 	icon = 'icons/obj/guns/deagle.dmi'
@@ -65,6 +69,7 @@ obj/item/gun/bang/deagle
 	item_state = "deagle"
 	pixel_offset_x = -4
 	pixel_offset_y = 16
+	fakecaliber = ".50"
 
 /obj/item/gun/bang/pistol
 	name = "9mm pistol"
@@ -74,6 +79,7 @@ obj/item/gun/bang/deagle
 	item_state = "pistol"
 	pixel_offset_x = 26
 	pixel_offset_y = 14
+	fakecaliber = "9mm"
 
 /obj/item/gun/bang/pirate
 	name = "zip gun"
@@ -83,3 +89,4 @@ obj/item/gun/bang/deagle
 	item_state = "zipgun"
 	pixel_offset_x = 0
 	pixel_offset_y = 12
+	fakecaliber = "7.62mm"

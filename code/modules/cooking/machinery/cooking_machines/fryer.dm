@@ -24,11 +24,10 @@
 
 	var/datum/reagents/oil
 	var/optimal_oil = 9000//90 litres of cooking oil
-	var/datum/looping_sound/deep_fryer/fry_loop
 
-/obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
+/obj/machinery/appliance/cooker/fryer/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if (.)//no need to duplicate adjacency check
+	if (is_adjacent)
 		to_chat(user, "Oil Level: [oil.total_volume]/[optimal_oil]")
 
 /obj/machinery/appliance/cooker/fryer/Initialize()
@@ -41,10 +40,8 @@
 		//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
 		variance = rand()*0.5
 	oil.add_reagent(/singleton/reagent/nutriment/triglyceride/oil/corn, optimal_oil*(1 - variance))
-	fry_loop = new(list(src), FALSE)
 
 /obj/machinery/appliance/cooker/fryer/Destroy()
-	QDEL_NULL(fry_loop)
 	QDEL_NULL(oil)
 	return ..()
 
@@ -81,6 +78,17 @@
 		icon_state = on_icon
 	else
 		icon_state = off_icon
+	cut_overlays()
+	var/list/pans = list()
+	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
+		var/image/pan_overlay
+		if(CC.appliancetype == FRYER)
+			pan_overlay = image('icons/obj/cooking_machines.dmi', "basket[Clamp(length(pans)+1, 1, 2)]")
+		pan_overlay.color = CC.color
+		pans += pan_overlay
+	if(isemptylist(pans))
+		return
+	add_overlay(pans)
 	..()
 
 //Fryer gradually infuses any cooked food with oil. Moar calories
@@ -180,7 +188,7 @@
 
 			E.take_damage(0, damage, used_weapon = "hot oil")
 		else
-			victim.apply_damage(damage, BURN, user.zone_sel.selecting)
+			victim.apply_damage(damage, DAMAGE_BURN, user.zone_sel.selecting)
 
 		if(!nopain)
 			var/arrows_var1 = E ? E.name : "flesh"
@@ -219,11 +227,3 @@
 			return TRUE
 	//If neither of the above returned, then call parent as normal
 	..()
-
-/obj/machinery/appliance/cooker/fryer/add_content(obj/item/I, mob/user)
-	. = ..()
-	fry_loop.start(src)
-
-/obj/machinery/appliance/cooker/fryer/eject(datum/cooking_item/CI, mob/user)
-	. = ..()
-	fry_loop.stop(src)

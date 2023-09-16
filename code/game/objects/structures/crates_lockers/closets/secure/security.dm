@@ -12,7 +12,7 @@
 	new /obj/item/storage/backpack/duffel/cap(src)
 	// Armor
 	new /obj/item/clothing/head/helmet(src)
-	new /obj/item/clothing/suit/armor/carrier/officer(src)
+	new /obj/item/clothing/suit/armor/carrier/generic(src)
 	//Tools
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
@@ -40,7 +40,7 @@
 	new /obj/item/clothing/head/bandana/captain(src)
 	new /obj/item/clothing/under/rank/captain(src)
 	new /obj/item/clothing/suit/storage/vest(src)
-	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/gloves/captain(src)
 	new /obj/item/clothing/under/dress/dress_cap(src)
 	new /obj/item/clothing/head/helmet/formalcaptain(src)
@@ -61,7 +61,7 @@
 	new /obj/item/storage/box/fancy/keypouch/service(src)
 	//Appearance
 	new /obj/item/clothing/glasses/sunglasses(src)
-	new /obj/item/clothing/suit/armor/carrier/officer(src)
+	new /obj/item/clothing/suit/armor/carrier/generic(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	//Tools
@@ -82,12 +82,13 @@
 /obj/structure/closet/secure_closet/xo2/fill()
 	..()
 	new /obj/item/clothing/under/rank/xo(src)
+	new /obj/item/clothing/head/caphat/xo(src)
 	new /obj/random/suit(src)
 	new /obj/random/suit(src)
-	new /obj/item/clothing/shoes/brown(src)
-	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/clothing/shoes/laceup/brown(src)
-	new /obj/item/clothing/shoes/white(src)
+	new /obj/item/clothing/shoes/sneakers(src)
 	new /obj/item/clothing/head/caphat/cap/beret/xo(src)
 	new /obj/item/clothing/gloves/captain/white/xo(src)
 
@@ -112,7 +113,6 @@
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
-	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/suit/storage/security/hos(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
@@ -181,7 +181,6 @@
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/head/helmet/security(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
-	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
@@ -281,8 +280,7 @@
 	new /obj/item/clothing/under/det/pmc(src)
 	new /obj/item/clothing/under/det/zavod(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
-	new /obj/item/clothing/gloves/black/forensic(src)
-	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
@@ -295,9 +293,12 @@
 	new /obj/item/device/camera/detective(src)
 	new /obj/item/device/camera_film(src)
 	new /obj/item/stamp/investigations(src)
+	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
+	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/clothing/accessory/storage/pouches/black(src)
+	new /obj/item/storage/belt/security(src)
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"
@@ -326,7 +327,7 @@
 
 /obj/structure/closet/secure_closet/brig/fill()
 	new /obj/item/clothing/under/color/orange( src )
-	new /obj/item/clothing/shoes/orange( src )
+	new /obj/item/clothing/shoes/sneakers/orange( src )
 
 /obj/structure/closet/secure_closet/courtroom
 	name = "courtroom locker"
@@ -336,7 +337,7 @@
 	..()
 	//Appearance
 	new /obj/item/clothing/head/powdered_wig (src)
-	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/suit/judgerobe (src)
 	//Tools
 	new /obj/item/paper/Court (src)
@@ -354,6 +355,7 @@
 /obj/structure/closet/secure_closet/bridge_crew/fill()
 	..()
 	new /obj/item/clothing/under/rank/bridge_crew(src)
+	new /obj/item/clothing/head/caphat/bridge_crew(src)
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)

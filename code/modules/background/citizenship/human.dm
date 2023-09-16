@@ -19,15 +19,30 @@
 
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
-			rep_objectives = pick("Compile and report and audit [rand(1,3)] suspicious indivduals who might be spies or otherwise act hostile against the Republic.",
-							"Have [rand(2,6)] crewmembers sign a pledge of loyalty to the Republic.")
+			if(isvaurca(H))
+				rep_objectives = pick("Compile and report and audit [rand(1,3)] suspicious indivduals who might be spies or otherwise act hostile against the Republic.",
+								"Collect evidence of the [current_map.boss_name] being unfair or bigoted to Vaurca employees, to be used as leverage in future hive labor negotiations.",
+								"Convince the command of the [current_map.station_name] of the utility of Bound labor over similar alternatives such as cyborgs or owned synthetics.")
+			else
+				rep_objectives = pick("Compile and report and audit [rand(1,3)] suspicious indivduals who might be spies or otherwise act hostile against the Republic.",
+								"Have [rand(2,6)] crewmembers sign a pledge of loyalty to the Republic.")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Convince [rand(2,4)] Tau Ceti crewmembers who are not a part of Command or Security to join the Tau Ceti Foreign Legion.",
-							"Convince [rand(3,6)] crewmembers of Tau Ceti superiority over the Sol Alliance.")
+			if(isvaurca(H))
+				rep_objectives = pick("Promote the superiority of the Republic of Biesel over the Sol Alliance.",
+								"Encourage non-citizens to seek citizenship in the Republic via enlistment in the Tau Ceti Foreign Legion.",
+								"Promote Zo'rane products such as Zo'ra Soda to the crew.")
+			else
+				rep_objectives = pick("Convince [rand(2,4)] Tau Ceti crewmembers who are not a part of Command or Security to join the Tau Ceti Foreign Legion.",
+								"Convince [rand(3,6)] crewmembers of Tau Ceti superiority over the Sol Alliance.")
 		else
-			rep_objectives = pick("Run a questionnaire on Tau Ceti citizens' views on synthetic citizenship.",
-							"Run a questionnaire on Tau Ceti citizens' views on vaurca citizenship.")
+			if(isvaurca(H))
+				rep_objectives = pick("Run a questionanaire on Tau Ceti citizens' views on Vaurca citizenship.",
+								"Question non-Vaurca employees about their Vaurca coworkers, looking for areas of improvement.",
+								"Protect and promote the public image of the Zo'ra Hive to all [current_map.boss_name] employees.")
+			else
+				rep_objectives = pick("Run a questionnaire on Tau Ceti citizens' views on synthetic citizenship.",
+								"Run a questionnaire on Tau Ceti citizens' views on vaurca citizenship.")
 
 
 	return rep_objectives
@@ -42,9 +57,23 @@
 		/obj/item/storage/box/tcfl_pamphlet = 1,
 		/obj/item/device/versebook/biesel = 1, //constitution
 		/obj/item/stamp/biesel = 1,
-		/obj/item/gun/energy/blaster/revolver = 1
 	)
 
+/datum/outfit/job/representative/consular/ceti/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(H)
+		if(isvaurca(H))
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/biesel(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder(H), slot_wear_suit)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_belt)
+		else
+			H.equip_to_slot_or_del(new /obj/item/gun/energy/blaster/revolver(H), slot_belt)
+		if(!visualsOnly)
+			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+	return TRUE
 
 /datum/citizenship/sol_alliance
 	name = CITIZENSHIP_SOL
@@ -156,7 +185,7 @@
 	western asia and northern africa during the early years of space colonization from Pre-Alliance Earth. It is made up of multiple star systems. It's national motto \
 	is \"For Greatness We Strive\". It's official language is Tau Ceti Basic, though several old-earth languages cling to life in small enclaves, such as arabic, persian, and farsi. \
 	The Republic has mixed relations with NanoTrasen, due to their own possession of phoron."
-	demonym = "elyrian"
+	demonym = "elyran"
 	consular_outfit = /datum/outfit/job/representative/consular/elyra
 
 /datum/outfit/job/representative/consular/elyra
@@ -164,6 +193,43 @@
 
 	backpack_contents = list(
 		/obj/item/gun/projectile/plasma/bolter/pistol = 1
+	)
+/datum/citizenship/elyran_ncp
+	name = CITIZENSHIP_ELYRA_NCP
+	description = "\"Non-Citizen Persons,\" (NCPs) as they are officially called, make-up approximately one-third of the total population of the Republic Elyra. \
+					Most of these people are poor migrant labourers from the less wealthy planets in the Coalition of Colonies or the stateless Human Frontier. \
+					They are often unskilled and undereducated, coming to Elyra in order to make enough money to send back home as remittances to their families, \
+					or alternatively to save up enough money to return to their homeworlds with enough cash to make their lives there. their lack of citizenship \
+					shuts them out of the Elyran public health and education systems, and grossly restricts the amount of influences they have on Elyran society, \
+					having little to no legal representation in most courts of law either. They cannot vote and are not provided with any of the other benefits \
+					that the average Elyran citizens enjoys."
+	demonym = "elyran non-citizen person"
+	consular_outfit = null
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
+		)
 	)
 
 /datum/citizenship/dominia

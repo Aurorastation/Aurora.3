@@ -566,8 +566,8 @@ var/list/diona_banned_languages = list(
 				C.diona_handle_regeneration(C.DS, TRUE)
 			to_chat(C, SPAN_NOTICE("Your lost nymph merged back."))
 			C.add_nymph()
-			verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
-			C.verbs -= /mob/living/carbon/human/proc/switch_to_nymph
+			remove_verb(src, /mob/living/carbon/alien/diona/proc/switch_to_gestalt)
+			remove_verb(C, /mob/living/carbon/human/proc/switch_to_nymph)
 			C.DS.nym = null
 			detached = FALSE
 			src.forceMove(C)
@@ -605,6 +605,15 @@ var/list/diona_banned_languages = list(
 	var/datum/callback/regen_extra
 	var/regen_limb_progress
 	var/pause_regen = FALSE
+
+/datum/dionastats/Destroy(force)
+	sampled_DNA = null
+	language_progress = null
+
+	last_location = null
+	regen_limb = null
+	regen_extra = null
+	. = ..()
 
 /datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/human/H)
 	user.visible_message(SPAN_DANGER("[user] is trying to bite [H.name]."), SPAN_DANGER("You start biting \the [H], you both must stay still!"))

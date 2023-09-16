@@ -297,24 +297,24 @@
 
 		if(breath.temperature >= owner.species.heat_level_1)
 			if(breath.temperature < owner.species.heat_level_2)
-				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_1, BURN, BP_HEAD, used_weapon = "Excessive Heat")
+				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_1, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Heat")
 				owner.fire_alert = max(owner.fire_alert, 2)
 			else if(breath.temperature < species.heat_level_3)
-				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_2, BURN, BP_HEAD, used_weapon = "Excessive Heat")
+				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_2, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Heat")
 				owner.fire_alert = max(owner.fire_alert, 2)
 			else
-				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_3, BURN, BP_HEAD, used_weapon = "Excessive Heat")
+				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_3, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Heat")
 				owner.fire_alert = max(owner.fire_alert, 2)
 
 		else if(breath.temperature <= owner.species.cold_level_1)
 			if(breath.temperature > species.cold_level_2)
-				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_1, BURN, BP_HEAD, used_weapon = "Excessive Cold")
+				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_1, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Cold")
 				owner.fire_alert = max(owner.fire_alert, 1)
 			else if(breath.temperature > species.cold_level_3)
-				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_2, BURN, BP_HEAD, used_weapon = "Excessive Cold")
+				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_2, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Cold")
 				owner.fire_alert = max(owner.fire_alert, 1)
 			else
-				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_3, BURN, BP_HEAD, used_weapon = "Excessive Cold")
+				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_3, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Cold")
 				owner.fire_alert = max(owner.fire_alert, 1)
 
 		//breathing in hot/cold air also heats/cools you a bit
@@ -331,13 +331,16 @@
 		if (temp_adj < BODYTEMP_COOLING_MAX) temp_adj = BODYTEMP_COOLING_MAX
 		owner.bodytemperature += temp_adj
 
-	else if(breath.temperature >= owner.species.heat_discomfort_level)
+	else if(owner.bodytemperature >= owner.species.heat_discomfort_level)
 		owner.species.get_environment_discomfort(owner,"heat")
-	else if(breath.temperature <= owner.species.cold_discomfort_level)
+	else if(owner.bodytemperature <= owner.species.cold_discomfort_level)
 		owner.species.get_environment_discomfort(owner,"cold")
 
 /obj/item/organ/internal/lungs/listen()
 	if(owner.failed_last_breath)
+		return "no respiration"
+
+	if(owner.status_flags & FAKEDEATH)
 		return "no respiration"
 
 	if(BP_IS_ROBOTIC(src))

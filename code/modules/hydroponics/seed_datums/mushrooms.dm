@@ -50,6 +50,8 @@
 	set_trait(TRAIT_POTENCY,60)
 	set_trait(TRAIT_BIOLUM,1)
 	set_trait(TRAIT_IDEAL_LIGHT,1)
+	set_trait(TRAIT_REQUIRES_NUTRIENTS,0)
+	set_trait(TRAIT_REQUIRES_WATER,0)
 	set_trait(TRAIT_LIGHT_TOLERANCE,2)
 	set_trait(TRAIT_ENDURANCE,50)
 	set_trait(TRAIT_BIOLUM_COLOUR,"#E6E600")
@@ -107,7 +109,7 @@
 	name = "plumphelmet"
 	seed_name = "plump helmet"
 	display_name = "plump helmet mushrooms"
-	mutants = list("walkingmushroom","towercap")
+	mutants = list("towercap")
 	chems = list(/singleton/reagent/nutriment = list(2,10))
 	kitchen_tag = "plumphelmet"
 

@@ -8,6 +8,14 @@
 	circuit = /obj/item/circuitboard/ship/engines
 	var/display_state = "status"
 
+/obj/machinery/computer/ship/engines/cockpit
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "right"
+	icon_screen = "engine"
+	icon_keyboard = null
+	circuit = null
+
 /obj/machinery/computer/ship/engines/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!connected)
 		display_reconnect_dialog(user, "ship control systems")

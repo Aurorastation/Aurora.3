@@ -8,8 +8,6 @@
 	var/required_access_download							// List of required accesses to download the program.
 	var/requires_access_to_run = PROGRAM_ACCESS_ONE			// Whether the program checks for required_access when run. (1 = requires single access, 2 = requires single access from list, 3 = requires all access from list)
 	var/requires_access_to_download = PROGRAM_ACCESS_ONE	// Whether the program checks for required_access when downloading. (1 = requires single access, 2 = requires single access from list, 3 = requires all access from list)
-	var/datum/nano_module/NM								// If the program uses NanoModule, put it here and it will be automagically opened. Otherwise implement ui_interact.
-	var/nanomodule_path										// Path to nanomodule, make sure to set this if implementing new program.
 	var/program_state = PROGRAM_STATE_KILLED				// PROGRAM_STATE_KILLED or PROGRAM_STATE_BACKGROUND or PROGRAM_STATE_ACTIVE - specifies whether this program is running.
 	var/obj/item/modular_computer/computer					// Device that runs this program.
 	var/extended_desc = "N/A"								// Short description of this program's function.
@@ -27,6 +25,16 @@
 	var/color = "#FFFFFF"									// The color of light the computer should emit when this program is open.
 	var/service_state = PROGRAM_STATE_DISABLED				// PROGRAM_STATE_KILLED or PROGRAM_STATE_ACTIVE - specifies whether this program's service is running.
 	var/silent = FALSE
+	/// Name of the TGUI Interface
+	var/tgui_id
+	/// Theme of this TGUI interface
+	var/tgui_theme = "scc"
+	/// If this TGUI should autoupdate or not.
+	var/ui_auto_update = TRUE
+
+	// TO BE DEPRECATED:
+	var/datum/nano_module/NM								// If the program uses NanoModule, put it here and it will be automagically opened. Otherwise implement ui_interact.
+	var/nanomodule_path										// Path to nanomodule, make sure to set this if implementing new program.
 
 /datum/computer_file/program/New(var/obj/item/modular_computer/comp)
 	..()
@@ -48,6 +56,23 @@
 
 /datum/computer_file/program/ui_host()
 	return computer.ui_host()
+
+/datum/computer_file/program/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
+	if(tgui_id) // we shouldn't use ui_interact on TGUI programs; see [code/modules/modular_computers/computers/modular_computer/ui.dm]
+		stack_trace("Computer program tgUI [src] with tgui_id [tgui_id] called ui_interact on program datum")
+	if(computer)
+		. = computer.ui_interact(user, ui)
+
+/datum/computer_file/program/update_static_data(mob/user, datum/tgui/ui)
+	. = ..()
+	if(computer)
+		. = computer.update_static_data(user, ui)
+
+/datum/computer_file/program/update_static_data_for_all_viewers()
+	. = ..()
+	if(computer)
+		. = computer.update_static_data_for_all_viewers()
 
 /datum/computer_file/program/clone(var/rename = FALSE, var/computer)
 	var/datum/computer_file/program/temp = ..(rename, computer)
@@ -198,23 +223,6 @@
 		return computer.get_header_data()
 
 
-// This is called every tick when the program is enabled. Ensure you do parent call if you override it. If parent returns 1 continue with UI initialisation.
-// It returns 0 if it can't run or if NanoModule was used instead. I suggest using NanoModules where applicable.
-/datum/computer_file/program/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if(program_state != PROGRAM_STATE_ACTIVE) // Our program was closed. Close the ui if it exists.
-		if(ui)
-			ui.close()
-		return computer.ui_interact(user)
-	if(istype(NM))
-		NM.ui_interact(user, ui_key, null, force_open)
-		return FALSE
-	return TRUE
-
-
-// CONVENTIONS, READ THIS WHEN CREATING NEW PROGRAM AND OVERRIDING THIS PROC:
-// Topic calls are automagically forwarded from NanoModule this program contains.
-// Calls beginning with "PC_" are reserved for computer handling (by whatever runs the program)
-// ALWAYS INCLUDE PARENT CALL ..() OR DIE IN FIRE.
 /datum/computer_file/program/Topic(href, href_list)
 	if(..())
 		return TRUE
@@ -227,6 +235,11 @@
 		return NM.check_eye(user)
 	else
 		return -1
+
+/// Relays the call to nano module, if we have one
+/datum/computer_file/program/proc/grants_equipment_vision(var/mob/user)
+	if(NM)
+		return NM.grants_equipment_vision(user)
 
 /datum/computer_file/program/proc/message_dead(var/message)
 	for(var/mob/M in player_list)

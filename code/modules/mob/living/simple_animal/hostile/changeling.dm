@@ -1,7 +1,8 @@
 /mob/living/simple_animal/hostile/true_changeling
 	name = "shambling horror"
-	desc = "A monstrous creature, made of twisted flesh and bone."
-	speak_emote = list("gibbers")
+	desc = "An entity ripped from your nightmares. A monstrous creature, a warped parody of a living being. It is created from a twisted amalgamation of flesh and bone, covered in oozing sores, open wounds, and serrated knife-like blades of bone. A strong, sickening smell of rot, blood, and sickness emanates from it."
+	speak_emote = list("snarls")
+	emote_hear = list("gibbers")
 	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "abomination"
 	icon_living = "abomination"
@@ -15,33 +16,42 @@
 
 	tameable = FALSE
 
-	organ_names = list("head", "chest", "tail", "leg")
-	response_help  = "pets"
+	organ_names = list("gaping maw", "misshapen head", "engorged abdomen", "bladed tail", "warped legs", "scythelike arm")
+	response_help  = "pokes"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
-	blood_amount = 600
-	maxHealth = 750
-	health = 750
+	blood_amount = 1000
+	maxHealth = 1250
+	health = 1250
 	harm_intent_damage = 0
 	melee_damage_lower = 30
-	melee_damage_upper = 30
-	resist_mod = 3
+	melee_damage_upper = 45
+	armor_penetration = 30
+	ranged = 1
+	projectiletype = /obj/item/projectile/bonedart/ling
+	projectilesound = 'sound/weapons/bloodyslice.ogg'
+	resist_mod = 15
 	mob_size = 25
 	environment_smash = 2
 	attacktext = "mangled"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
+	emote_sounds = list('sound/effects/creatures/bear_loud_1.ogg', 'sound/effects/creatures/bear_loud_2.ogg', 'sound/effects/creatures/bear_loud_3.ogg', 'sound/effects/creatures/bear_loud_4.ogg')
 
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	minbodytemp = 0
 	maxbodytemp = 350
-	min_oxy = 0
+	min_oxy = 5
 	max_co2 = 0
 	max_tox = 0
 
 	var/is_devouring = FALSE
 	var/mob/living/carbon/human/occupant = null
+	var/loud_sounds = list('sound/effects/creatures/bear_loud_1.ogg',
+	'sound/effects/creatures/bear_loud_2.ogg',
+	'sound/effects/creatures/bear_loud_3.ogg',
+	'sound/effects/creatures/bear_loud_4.ogg')
 
 /mob/living/simple_animal/hostile/true_changeling/Initialize()
 	. = ..()
@@ -49,24 +59,27 @@
 		icon_state = "horror"
 		icon_living = "horror"
 		icon_dead = "horror_dead"
-	else if(prob(25))
-		icon_state = "horror_alt"
-		icon_living = "horror_alt"
-		icon_dead = "horror_alt_dead"
 
-/mob/living/simple_animal/hostile/true_changeling/Life()
-	..()
-	adjustBruteLoss(-10) //it will slowly heal brute damage, making fire/laser a stronger option
+/mob/living/simple_animal/hostile/true_changeling/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 
 /mob/living/simple_animal/hostile/true_changeling/mind_initialize()
 	..()
 	mind.assigned_role = "Changeling"
 
+
+/mob/living/simple_animal/hostile/true_changeling/Life()
+	if(prob(10))
+		custom_emote(VISIBLE_MESSAGE, pick( list("shrieks!","roars!", "screeches!", "snarls!", "bellows!", "screams!") ) )
+		var/sound = pick(loud_sounds)
+		playsound(src, sound, 90, 1, 15, usepressure = 0)
+
+
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)
 	..()
 	if(!gibbed)
-		visible_message("<b>[src]</b> lets out a waning scream as it falls, twitching, to the floor!")
-		playsound(loc, 'sound/effects/creepyshriek.ogg', 30, 1)
+		visible_message("<b>[src]</b> lets out a waning scream as it disintegrates into a pile of flesh!")
+		playsound(loc, 'sound/effects/creatures/vannatusk_attack.ogg', 90, 1, 15)
 		if(occupant)
 			qdel(occupant)
 		gibs(src.loc)
@@ -75,7 +88,7 @@
 
 /mob/living/simple_animal/hostile/true_changeling/verb/ling_devour(mob/living/target as mob in oview())
 	set category = "Changeling"
-	set name = "Devour"
+	set name = "Devour (Heal)"
 	set desc = "Devours a creature, destroying its body and regenerating health."
 
 	if(!Adjacent(target))
@@ -124,26 +137,9 @@
 	src.is_devouring = FALSE
 	return
 
-/mob/living/simple_animal/hostile/true_changeling/verb/dart(mob/living/target as mob in oview())
-	set name = "Launch Bone Dart"
-	set desc = "Launches a Bone Dart at a target."
-	set category = "Changeling"
-
-	if(!health)
-		to_chat(usr, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
-		return
-
-	if(last_special > world.time)
-		return
-
-	last_special = world.time + 30
-
-	visible_message("<span class='warning'>\The [src]'s skin bulges and tears, launching a bone-dart at [target]!</span>")
-
-	playsound(src.loc, 'sound/weapons/bloodyslice.ogg', 50, 1)
-	var/obj/item/bone_dart/A = new /obj/item/bone_dart(usr.loc)
-	A.throw_at(target, 10, 20, usr)
-	add_logs(src, target, "launched a bone dart at")
+/mob/living/simple_animal/hostile/true_changeling/attempt_grab(var/mob/living/grabber)
+	to_chat(grabber, SPAN_WARNING("\The [src] contorts and shifts away from you when you try to grab it!"))
+	return FALSE
 
 /mob/living/simple_animal/hostile/lesser_changeling
 	name = "crawling horror"
@@ -190,7 +186,8 @@
 
 /mob/living/simple_animal/hostile/lesser_changeling/Initialize()
 	. = ..()
-	verbs += /mob/living/proc/ventcrawl
+	add_verb(src, /mob/living/proc/ventcrawl)
+	add_verb(src, /mob/living/simple_animal/hostile/lesser_changeling/verb/untransform)
 
 /mob/living/simple_animal/hostile/lesser_changeling/mind_initialize()
 	..()
@@ -204,6 +201,7 @@
 			occupant.status_flags &= ~GODMODE
 			if(mind)
 				mind.transfer_to(occupant)
+				occupant.client.init_verbs()
 
 		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
 		gibs(src.loc)
@@ -232,6 +230,7 @@
 		occupant.status_flags &= ~GODMODE
 		if(mind)
 			mind.transfer_to(occupant)
+		occupant.client.init_verbs()
 		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
 		gibs(src.loc)
 		qdel(src)

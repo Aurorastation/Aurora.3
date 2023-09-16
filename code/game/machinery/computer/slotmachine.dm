@@ -47,9 +47,7 @@
 	toggle_reel_spin(FALSE)
 
 	for(cointype in typesof(/obj/item/coin))
-		var/obj/item/coin/C = new cointype
-		coinvalues["[cointype]"] = get_value(C)
-		qdel(C) //Sigh
+		coinvalues["[cointype]"] = get_value(cointype)
 
 /obj/machinery/computer/slot_machine/Destroy()
 	if(balance)
@@ -246,9 +244,14 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/computer/slot_machine/proc/toggle_reel_spin(value, delay = 0) //value is 1 or 0 aka on or off
+/obj/machinery/computer/slot_machine/proc/toggle_reel_spin(value) //value is 1 or 0 aka on or off
 	for(var/list/reel in reels)
 		reels[reel] = value
+
+/obj/machinery/computer/slot_machine/proc/toggle_reel_spin_delay(value, delay = 0) //value is 1 or 0 aka on or off
+	toggle_reel_spin(value)
+
+	if(delay)
 		sleep(delay)
 
 /obj/machinery/computer/slot_machine/proc/randomize_reels()

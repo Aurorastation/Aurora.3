@@ -38,6 +38,7 @@
 	minbodytemp = 0
 
 	environment_smash = 1
+	destroy_surroundings = FALSE
 
 	faction = "scarybat"
 	flying = TRUE
@@ -62,11 +63,6 @@
 	if(.)
 		emote("flutters towards [.]")
 
-/mob/living/simple_animal/hostile/scarybat/Found(var/atom/A)//This is here as a potential override to pick a specific target if available
-	if(istype(A) && A == owner)
-		return 0
-	return ..()
-
 /mob/living/simple_animal/hostile/scarybat/AttackingTarget()
 	. =..()
 	var/mob/living/L = .
@@ -87,4 +83,3 @@
 /mob/living/simple_animal/hostile/scarybat/cult/Life()
 	..()
 	check_horde()
-

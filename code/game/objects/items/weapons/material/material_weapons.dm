@@ -17,6 +17,8 @@
 	var/applies_material_colour = TRUE
 	var/unbreakable
 	var/force_divisor = 0.5
+	var/max_force = 40	 //any damage above this is added to armor penetration value
+	var/max_pen = 100 //any penetration above this value is ignored
 	var/thrown_force_divisor = 0.5
 	var/default_material = DEFAULT_WALL_MATERIAL
 	var/material/material
@@ -44,11 +46,19 @@
 	return material
 
 /obj/item/material/proc/update_force()
+	var/new_force
 	if(edge || sharp)
-		force = material.get_edge_damage()
+		new_force = material.get_edge_damage()
 	else
-		force = material.get_blunt_damage()
-	force = round(force*force_divisor)
+		new_force = material.get_blunt_damage()
+	new_force = round(new_force*force_divisor)
+	force = min(new_force, max_force)
+
+	if(new_force > max_force)
+		armor_penetration = initial(armor_penetration) + new_force - max_force
+	armor_penetration += 2*max(0, material.protectiveness - 2)
+	armor_penetration = min(max_pen, armor_penetration)
+
 	throwforce = round(material.get_blunt_damage()*thrown_force_divisor)
 
 /obj/item/material/proc/set_material(var/new_material)

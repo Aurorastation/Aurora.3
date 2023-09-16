@@ -5,8 +5,9 @@
 /proc/Random_Egg()
     to_world("<h3>There is a golden egg hidden somewhere on the station...</h3>")
     var/list/Floorlist = list()
-    for(var/turf/simulated/floor/T in turfs)
-        if(T.contents)
+    for(var/turf/T in world)
+        var/turf/simulated/floor/F = T
+        if(istype(F) && F.contents)
             Floorlist += T
     var/turf/simulated/floor/F = Floorlist[rand(1,Floorlist.len)]
     Floorlist = null

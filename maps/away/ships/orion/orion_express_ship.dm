@@ -2,7 +2,7 @@
 	name = "Orion Express Mobile Station"
 	description = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation's fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it."
 	suffixes = list("ships/orion/orion_express_ship.dmm")
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+	sectors = list(ALL_CORPORATE_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "orion_express_ship"
@@ -26,8 +26,15 @@
 	name = "Orion Express Mobile Station"
 	class = "OEV"
 	desc = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation's fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it."
-	icon_state = "ship"
-	moving_state = "ship_moving"
+	icon = 'icons/obj/overmap/overmap_stationary.dmi'
+	icon_state = "waystation"
+	moving_state = "waystation"
+	colors = list("#a1a8e2", "#818be0")
+	scanimage = "oe_platform.png"
+	designer = "Orion Express, Refurbished Design"
+	volume = "51 meters length, 55 meters beam/width, 29 meters vertical height"
+	sizeclass = "Traveler-class Mobile Waystation"
+	shiptype = "Refuel, resupply and commercial logistics services"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -43,9 +50,17 @@
 		"nav_orion_express_ship_3"
 	)
 
+	invisible_until_ghostrole_spawn = TRUE
+
 /obj/effect/overmap/visitable/ship/orion_express_ship/New()
 	designation = "[pick("Messenger", "Traveler", "Highspeed", "Punctual", "Unstoppable", "Pony Express", "Courier", "Telegram", "Carrier Pigeon", "Fuel Stop", "Convenience")]"
 	..()
+
+/obj/effect/overmap/visitable/ship/orion_express_ship/get_skybox_representation()
+	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "oe_platform")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+	return skybox_image
 
 /obj/effect/shuttle_landmark/orion_express_ship/nav1
 	name = "Orion Express Mobile Station - Port Side"
@@ -78,6 +93,9 @@
 	designation = "Packmaster"
 	desc = "The Troubadour-class skiff is not quite an independent design, and is instead essentially a component of the larger Traveler-class station as a whole, seamlessly attaching and detaching for operations as is necessary. This one's transponder identifies it as part of an Orion Express refueling station."
 	shuttle = "Orion Express Shuttle"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#a1a8e2", "#818be0")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

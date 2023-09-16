@@ -26,8 +26,9 @@
 	name = "Militia Ship"
 	class = "IPV"
 	desc = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus."
-	icon_state = "ship_grey"
-	moving_state = "ship_grey_moving"
+	icon_state = "generic"
+	moving_state = "generic_moving"
+	colors = list("#c3c7eb", "#a0a8ec")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
@@ -41,6 +42,8 @@
 		"nav_militia_ship_1",
 		"nav_militia_ship_2"
 	)
+
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/militia_ship/New()
     designation = "[pick("Volunteer", "Part-Timer", "Last Line", "Fearless", "Protector", "Minuteman", "Watchdog", "Family Man", "Guardian", "Hoplite", "Home Guard", "Defender")]"
@@ -70,8 +73,9 @@
 	designation = "Boulevard"
 	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus. This one's transponder identifies it as belonging to an independent militia."
 	shuttle = "Militia Ship"
-	icon_state = "shuttle_grey"
-	moving_state = "shuttle_grey_moving" 
+	icon_state = "pod"
+	moving_state = "pod_moving"
+	colors = list("#c3c7eb", "#a0a8ec")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod

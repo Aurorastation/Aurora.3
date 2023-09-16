@@ -11,10 +11,6 @@
 	h_l_hand = /obj/item/mecha_equipment/drill
 	h_r_hand = /obj/item/mecha_equipment/clamp
 
-/mob/living/heavy_vehicle/premade/ripley/Initialize()
-	. = ..()
-	body.armor = new /obj/item/robot_parts/robot_component/armor/mech(src)
-
 /mob/living/heavy_vehicle/premade/ripley/cargo
 	h_back = /obj/item/mecha_equipment/autolathe
 
@@ -82,7 +78,7 @@
 
 /obj/item/mech_component/chassis/ripley/prebuild()
 	. = ..()
-	armor = new /obj/item/robot_parts/robot_component/armor/mech(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech(src)
 
 /obj/item/mech_component/chassis/ripley/Initialize()
 	pilot_positions = list(
@@ -159,7 +155,7 @@
 
 /mob/living/heavy_vehicle/premade/combatripley/Initialize()
 	. = ..()
-	body.mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
+	body.mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(body)
 
 /obj/item/mech_component/sensors/combatripley
 	name = "exosuit sensors"
@@ -183,6 +179,7 @@
 	name = "penal power loader"
 	dummy_colour = "#302e2b"
 	remote_network = REMOTE_PRISON_MECH
+	remote_type = /obj/item/remote_mecha/penal
 
 /mob/living/heavy_vehicle/premade/ripley/remote_ai
 	name = "stationbound power loader"
@@ -190,6 +187,7 @@
 	dummy_colour = COLOR_GREEN_GRAY
 	dummy_type = /mob/living/simple_animal/spiderbot/ai
 	remote_network = REMOTE_AI_MECH
+	remote_type = /obj/item/remote_mecha/ai
 	does_hardpoint_lock = FALSE
 
 	h_l_hand = /obj/item/mecha_equipment/toolset

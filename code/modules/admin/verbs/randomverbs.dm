@@ -33,7 +33,7 @@
 	if(usr)
 		if (usr.client)
 			if(usr.client.holder)
-				to_chat(M, "\bold You hear a voice in your head... \italic [msg]")
+				to_chat(M, "<b>You hear a voice in your head... <i>[msg]</i></b>")
 
 	log_admin("SubtlePM: [key_name(usr)] -> [key_name(M)] : [msg]",admin_key=key_name(usr),ckey=key_name(M))
 	message_admins("<span class='notice'><b>SubtleMessage: [key_name_admin(usr)] -> [key_name_admin(M)] : [msg]</b></span>", 1)
@@ -157,7 +157,7 @@
 	feedback_add_details("admin_verb","GOD") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
-proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
+/proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 	if(automute)
 		if(!config.automute_on)	return
 	else
@@ -231,7 +231,7 @@ Allow admins to set players to be able to respawn/bypass 30 min wait, without th
 Ccomp's first proc.
 */
 
-proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
+/proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 	// what = 1, return ghosts ass list.
 	// what = 2, return mob list
 
@@ -332,7 +332,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 	if(config.antag_hud_allowed)
 		for(var/mob/abstract/observer/g in get_ghosts())
 			if(!g.client.holder)						//Remove the verb from non-admin ghosts
-				g.verbs -= /mob/abstract/observer/verb/toggle_antagHUD
+				remove_verb(g, /mob/abstract/observer/verb/toggle_antagHUD)
 			if(g.antagHUD)
 				g.antagHUD = 0						// Disable it on those that have it enabled
 				g.has_enabled_antagHUD = 2				// We'll allow them to respawn
@@ -343,7 +343,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 	else
 		for(var/mob/abstract/observer/g in get_ghosts())
 			if(!g.client.holder)						// Add the verb back for all non-admin ghosts
-				g.verbs += /mob/abstract/observer/verb/toggle_antagHUD
+				add_verb(g,  /mob/abstract/observer/verb/toggle_antagHUD)
 			to_chat(g, "<span class='notice'><B>The Administrator has enabled AntagHUD.</B></span>")	// Notify all observers they can now use AntagHUD)
 		config.antag_hud_allowed = 1
 		action = "enabled"
@@ -907,8 +907,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if(input("The evacuation will just be cancelled if you call it. Call anyway?") in list("Confirm", "Cancel") != "Confirm")
 			return
 
-	var/choice = input("Is this an emergency evacuation or a crew transfer?") in list("Emergency", "Crew Transfer")
-	evacuation_controller.call_evacuation(usr, (choice == "Emergency"))
+	var/choice = input("Is this an emergency evacuation, bluespace jump, or a crew transfer?") in list(TRANSFER_EMERGENCY, TRANSFER_CREW, TRANSFER_JUMP)
+	evacuation_controller.call_evacuation(usr, choice)
 
 
 	feedback_add_details("admin_verb","CSHUT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -1036,13 +1036,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!input)
 		return
 
-	SSticker.selected_tip = input
-
-	// If we've already tipped, then send it straight away.
-	if(SSticker.tipped)
-		SSticker.send_tip_of_the_round()
-		SSticker.selected_tip = initial(SSticker.selected_tip)
-
+	SSticker.send_tip_of_the_round(input)
 
 	message_admins("[key_name_admin(usr)] sent a tip of the round.")
 	log_admin("[key_name(usr)] sent \"[input]\" as the Tip of the Round.",admin_key=key_name(usr))
@@ -1051,13 +1045,25 @@ Traitors and the like can also be revived with the previous role mostly intact.
 /client/proc/show_tip()
 	set category = "Debug"
 	set name = "Show Tip"
-	set desc = "Sends a tip (that the config specifies) to all players. After all \
+	set desc = "Sends a random tip to all players. After all \
 		you're not the experienced player here."
 
 	if(!holder)
 		return
 
-	SSticker.send_tip_of_the_round()
+	var/list/possible_categories = list("Random") + tips_by_category.Copy()
+	var/input = input(usr, "Please specify the tip category that you want to send to the players.", "Tip", "Random") as null|anything in possible_categories
+	if(!input)
+		return
+
+	var/datum/tip/tip_datum
+	if(input == "Random")
+		var/chosen_tip_category = pick(tips_by_category)
+		tip_datum = tips_by_category[chosen_tip_category]
+	else
+		tip_datum = tips_by_category[input]
+
+	SSticker.send_tip_of_the_round(pick(tip_datum.messages))
 
 
 	message_admins("[key_name_admin(usr)] sent a pregenerated tip of the round.")

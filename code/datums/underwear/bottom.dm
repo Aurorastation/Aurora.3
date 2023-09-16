@@ -29,6 +29,10 @@
 	icon_state = "boxers_loveheart"
 	has_color = TRUE
 
+/datum/category_item/underwear/bottom/boxers_Lprint
+	name = "Boxers, Leopard Print"
+	icon_state = "boxers_lprint"
+
 /datum/category_item/underwear/bottom/panties
 	name = "Panties"
 	icon_state = "panties"

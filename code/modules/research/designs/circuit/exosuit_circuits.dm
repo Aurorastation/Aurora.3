@@ -30,5 +30,5 @@
 
 /datum/design/circuit/exosuit/weapons
 	name = "Basic Weapon Control"
-	req_tech = list(TECH_DATA = 4)
+	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/exosystem/weapons

@@ -118,9 +118,9 @@
 	walk(src,0)
 	..()
 
-/mob/living/simple_animal/parrot/Stat()
-	..()
-	stat("Held Item", held_item)
+/mob/living/simple_animal/parrot/get_status_tab_items()
+	. = ..()
+	. += "Held Item: [held_item]"
 
 /*
  * Inventory
@@ -482,7 +482,7 @@
 				var/mob/living/carbon/human/H = parrot_interest
 				var/obj/item/organ/external/affecting = H.get_organ(ran_zone(pick(parrot_dam_zone)))
 
-				H.apply_damage(damage, BRUTE, affecting, damage_flags = DAM_SHARP)
+				H.apply_damage(damage, DAMAGE_BRUTE, affecting, damage_flags = DAMAGE_FLAG_SHARP)
 				visible_emote(pick("pecks [H]'s [affecting].", "cuts [H]'s [affecting] with its talons."))
 
 			else

@@ -28,6 +28,9 @@
 /proc/Floor(x)
 	return round(x)
 
+/// Value or the next integer in a positive direction: Ceil(-1.5) = -1 , Ceil(1.5) = 2
+#define Ceil(value) ( -round(-(value)) )
+
 /proc/Ceiling(x, y=1)
 	return -round(-x / y) * y
 
@@ -112,13 +115,10 @@
 	if(discriminant != 0)
 		. += (-b - root) / bottom
 
-/proc/ToDegrees(radians)
-	// 180 / Pi ~ 57.2957795
-	return radians * 57.2957795
-
-/proc/ToRadians(degrees)
-	// Pi / 180 ~ 0.0174532925
-	return degrees * 0.0174532925
+/// 180 / Pi ~ 57.2957795
+#define TO_DEGREES(radians) ((radians) * 57.2957795)
+/// Pi / 180 ~ 0.0174532925
+#define TO_RADIANS(degrees) ((degrees) * 0.0174532925)
 
 // Vector algebra.
 /proc/squaredNorm(x, y)
@@ -172,6 +172,13 @@
 /// Value or the next multiple of divisor in a positive direction. Ceilm(-1.5, 0.3) = -1.5 , Ceilm(-1.5, 0.4) = -1.2
 #define Ceilm(value, divisor) ( -round(-(value) / (divisor)) * (divisor) )
 
+/// Value or the nearest multiple of divisor in either direction
+#define Roundm(value, divisor) round((value), (divisor))
+
+/// A random real number between low and high inclusive
+#define Frand(low, high) ( rand() * ((high) - (low)) + (low) )
+
+
 /**
  * Get a list of turfs in a line from `starting_atom` to `ending_atom`.
  *
@@ -218,3 +225,19 @@
 			line += locate(current_x_step, current_y_step, starting_z)
 
 	return line
+
+
+/// Returns the distance between two points
+#define DIST_BETWEEN_TWO_POINTS(ax, ay, bx, by) (sqrt((bx-ax)*(bx-ax))+((by-ay)*(by-ay)))
+
+/**
+ * Returns bearing of object relative to observer (0-360)
+ * a is the observer, b is the other object
+ *
+ * observer_x - Observer's X coordinate
+ * observer_y - Observer's Y coordinate
+ * target_x - Target's X coordinate
+ * target_y - Target's Y coordinate
+ */
+#define BEARING_RELATIVE(observer_x, observer_y, target_x, target_y) (90 - Atan2(target_x - observer_x, target_y - observer_y))
+

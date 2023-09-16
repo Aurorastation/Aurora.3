@@ -15,6 +15,8 @@
 	var/list/allowed_containers = list(/obj/item/reagent_containers/glass/beaker, /obj/item/reagent_containers/glass/bottle)
 	var/affected_area = 3
 
+	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 300)
+
 /obj/item/grenade/chem_grenade/Initialize()
 	. = ..()
 	create_reagents(1000)
@@ -110,7 +112,7 @@
 				to_chat(user, "<span class='warning'>\The [W] is empty.</span>")
 
 /obj/item/grenade/chem_grenade/examine(mob/user)
-	..(user)
+	. = ..()
 	if(detonator)
 		to_chat(user, "With attached [detonator.name]")
 
@@ -176,7 +178,7 @@
 		C.drop_from_inventory(src)
 		C.throw_mode_off()
 
-	invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
+	set_invisibility(INVISIBILITY_MAXIMUM) //Why am i doing this?
 	//To make sure all reagents can work
 	//correctly before deleting the grenade.
 	QDEL_IN(src, 50)
@@ -189,6 +191,8 @@
 	allowed_containers = list(/obj/item/reagent_containers/glass)
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	affected_area = 4
+
+	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 500)
 
 /obj/item/grenade/chem_grenade/metalfoam
 	name = "metal-foam grenade"
@@ -374,18 +378,18 @@
 	stage = 2
 	path = 1
 
-	Initialize()
-		. = ..()
-		var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
-		var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
+/obj/item/grenade/chem_grenade/monoammoniumphosphate/Initialize()
+	. = ..()
+	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 
-		B1.reagents.add_reagent(/singleton/reagent/surfactant, 40)
-		B1.reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
-		B2.reagents.add_reagent(/singleton/reagent/water, 40)
-		B2.reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
+	B1.reagents.add_reagent(/singleton/reagent/surfactant, 40)
+	B1.reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
+	B2.reagents.add_reagent(/singleton/reagent/water, 40)
+	B2.reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
 
-		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
-		beakers += B1
-		beakers += B2
-		icon_state = initial(icon_state) +"_locked"
+	beakers += B1
+	beakers += B2
+	icon_state = initial(icon_state) +"_locked"

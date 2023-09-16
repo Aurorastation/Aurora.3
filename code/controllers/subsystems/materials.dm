@@ -18,6 +18,9 @@ var/datum/controller/subsystem/materials/SSmaterials
 	create_material_lists()
 	. = ..()
 
+/**
+ * Initialize the lists of materials, if they are not initialized already
+ */
 /datum/controller/subsystem/materials/proc/create_material_lists()
 	if(LAZYLEN(materials))
 		return
@@ -31,14 +34,24 @@ var/datum/controller/subsystem/materials/SSmaterials
 			materials += material
 			materials_by_name[lowertext(material.name)] = material
 
-/datum/controller/subsystem/materials/proc/get_material_by_name(var/M)
+/**
+ * Returns a `/material` based on its name, or null if the material does not exists
+ *
+ * * material_name - A string, lowercase, representing the name of the material
+ */
+/datum/controller/subsystem/materials/proc/get_material_by_name(var/material_name)
 	if(!materials_by_name)
 		create_material_lists()
-	. = materials_by_name[M]
+	. = materials_by_name[material_name]
 	if(!.)
-		log_debug("Material not found: [M].")
+		stack_trace("SSmaterials received a request for a material that was not found: [material_name].")
 
-/datum/controller/subsystem/materials/proc/material_display_name(var/M)
-	var/material/material = get_material_by_name(M)
+/**
+ * Returns a `/material` based on its display name
+ *
+ * * material_name - A string, lowercase, representing the display name of the material
+ */
+/datum/controller/subsystem/materials/proc/material_display_name(var/material_name)
+	var/material/material = get_material_by_name(material_name)
 	if(material)
 		return material.display_name

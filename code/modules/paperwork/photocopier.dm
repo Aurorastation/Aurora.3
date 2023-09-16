@@ -2,104 +2,116 @@
 	name = "photocopier"
 	icon = 'icons/obj/library.dmi'
 	icon_state = "photocopier"
-	var/insert_anim = "photocopier_scan"
 	anchored = 1
 	density = 1
 	idle_power_usage = 30
 	active_power_usage = 200
 	power_channel = EQUIP
-	var/obj/item/copyitem = null	//what's in the copier!
-	var/toner = 30 //how much toner is left! woooooo~
-	var/maxcopies = 10	//how many copies can be copied at once- idea shamelessly stolen from bs12's copier!
+	/// Item to copy.
+	var/obj/item/copy_item
+	/// How much toner is left.
+	var/toner = 30
+	/// Maximum amount of toner that can be stored at once.
+	var/max_toner = 30
+	/// How many copies can be copied at once.
+	var/max_copies = 10
+	/// How many copies will be printed with one click of the 'copy' button.
+	var/num_copies = 1
+	/// Item insert animation.
+	var/insert_anim = "photocopier_scan"
+	/// Print animation.
+	var/print_animation = "photocopier_print"
 
 /obj/machinery/photocopier/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
-	watch_var("toner", "toner")
-	watch_var("maxcopies", "maxcopies")
-	watch_var("copyitem", "gotitem", CALLBACK(null, PROC_REF(transform_to_boolean), FALSE))
-
-/obj/machinery/photocopier/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data
-	if(data && data["isAI"] != istype(user, /mob/living/silicon))
-		data["isAI"] = istype(user, /mob/living/silicon)
-		. = data
-	if(data && !isnum(data["copies"]))
-		data["copies"] = 1
-		. = data
+/obj/machinery/photocopier/ui_data(mob/user)
+	var/list/data = list()
+	data["toner"] = toner
+	data["max_toner"] = max_toner
+	data["max_copies"] = max_copies
+	data["gotitem"] = !!copy_item
+	data["is_silicon"] = issilicon(user)
+	data["num_copies"] = num_copies
+	return data
 
 /obj/machinery/photocopier/attack_hand(mob/user)
 	user.set_machine(src)
 	ui_interact(user)
 
-/obj/machinery/photocopier/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "paperwork-photocopier", 300, 200, capitalize(src.name))
-	ui.open()
+/obj/machinery/photocopier/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Photocopier", "Nanocopier", 300, 300)
+		ui.open()
 
-/obj/machinery/photocopier/Topic(href, href_list)
-	if(href_list["copy"])
-		if(stat & (BROKEN|NOPOWER))
-			return
-		var/datum/vueui/ui = href_list["vueui"]
-		if(!istype(ui))
-			return
-		var/copies = between(0, ui.data["copies"], maxcopies)
+/obj/machinery/photocopier/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
 
-		for(var/i = 0, i < copies, i++)
-			if(toner <= 0)
-				break
-
-			var/c_type = copy_type(src, copyitem, toner)
-
-			if(!c_type) // if there's something that can't be copied
-				break
-
-			use_power_oneoff(active_power_usage)
-		SSvueui.check_uis_for_change(src)
-	else if(href_list["remove"])
-		if(copyitem)
-			copyitem.forceMove(usr.loc)
-			usr.put_in_hands(copyitem)
-			to_chat(usr, SPAN_NOTICE("You take \the [copyitem] out of \the [src]."))
-			copyitem = null
-			SSvueui.check_uis_for_change(src)
-	else if(href_list["aipic"])
-		if(!istype(usr,/mob/living/silicon)) return
-		if(stat & (BROKEN|NOPOWER)) return
-
-		if(toner >= 5)
-			var/mob/living/silicon/tempAI = usr
-			var/obj/item/device/camera/siliconcam/camera = tempAI.ai_camera
-
-			if(!camera)
-				return
-			var/obj/item/photo/selection = camera.selectpicture()
-			if (!selection)
+	switch(action)
+		if("copy")
+			if(stat & (BROKEN|NOPOWER))
 				return
 
-			var/obj/item/photo/p = photocopy(src, selection)
-			if (p.desc == "")
-				p.desc += "Copied by [tempAI.name]"
-			else
-				p.desc += " - Copied by [tempAI.name]"
-			sleep(15)
-		SSvueui.check_uis_for_change(src)
+			for(var/i = 0, i < num_copies, i++)
+				if(toner <= 0)
+					break
+
+				var/c_type = copy_type(src, copy_item, toner)
+
+				if(!c_type) // if there's something that can't be copied
+					break
+
+				use_power_oneoff(active_power_usage)
+			return TRUE
+
+		if("remove")
+			if(copy_item)
+				copy_item.forceMove(usr.loc)
+				usr.put_in_hands(copy_item)
+				to_chat(usr, SPAN_NOTICE("You take \the [copy_item] out of \the [src]."))
+				copy_item = null
+				return TRUE
+
+		if("aipic")
+			if(!istype(usr,/mob/living/silicon)) return
+			if(stat & (BROKEN|NOPOWER)) return
+
+			if(toner >= 5)
+				var/mob/living/silicon/tempAI = usr
+				var/obj/item/device/camera/siliconcam/camera = tempAI.ai_camera
+
+				if(!camera)
+					return
+				var/obj/item/photo/selection = camera.selectpicture()
+				if (!selection)
+					return
+
+				var/obj/item/photo/p = photocopy(src, selection)
+				if (p.desc == "")
+					p.desc += "Copied by [tempAI.name]"
+				else
+					p.desc += " - Copied by [tempAI.name]"
+				sleep(15)
+				return TRUE
+
+		if("set_copies")
+			num_copies = clamp(text2num(params["num_copies"]), 1, max_copies)
+			return TRUE
 
 /obj/machinery/photocopier/attackby(obj/item/O as obj, mob/user as mob)
 	if(istype(O, /obj/item/paper) || istype(O, /obj/item/photo) || istype(O, /obj/item/paper_bundle))
-		if(!copyitem)
+		if(!copy_item)
 			user.drop_from_inventory(O,src)
-			copyitem = O
+			copy_item = O
 			to_chat(user, SPAN_NOTICE("You insert \the [O] into \the [src]."))
 			flick(insert_anim, src)
 			playsound(loc, 'sound/bureaucracy/scan.ogg', 75, 1)
-			SSvueui.check_uis_for_change(src)
+			SStgui.update_uis(src)
 		else
 			to_chat(user, SPAN_NOTICE("There is already something in \the [src]."))
 	else if(istype(O, /obj/item/device/toner))
@@ -108,10 +120,10 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 			flick("photocopier_toner", src)
 			playsound(loc, /singleton/sound_category/switch_sound, 50, 1)
 			var/obj/item/device/toner/T = O
-			toner += T.toner_amount
+			toner = min(toner + T.toner_amount, max_toner)
 			user.drop_from_inventory(O,get_turf(src))
 			qdel(O)
-			SSvueui.check_uis_for_change(src)
+			SStgui.update_uis(src)
 		else
 			to_chat(user, SPAN_NOTICE("This cartridge is not yet ready for replacement! Use up the rest of the toner."))
 			flick("photocopier_notoner", src)
@@ -194,8 +206,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		img.pixel_y = copy.offset_y[j]
 		c.add_overlay(img)
 
-	toner--
-	if(toner == 0)
+	if(!toner)
 		target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."))
 		if(target.type == /obj/machinery/photocopier)
 			flick("photocopier_notoner", target)
@@ -204,9 +215,9 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 
 	c.set_content_unsafe(pname, info)
 	if (print)
-		if(target.type == /obj/machinery/photocopier)
+		if(istype(target, /obj/machinery/photocopier))
 			var/obj/machinery/photocopier/T = target
-			flick("photocopier_print", target)
+			flick(T.print_animation, target)
 			--T.toner
 		target.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay)
 	return c

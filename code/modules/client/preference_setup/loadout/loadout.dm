@@ -96,7 +96,7 @@ var/list/gear_datums = list()
 			try
 				pref.gear_list = json_decode(pref.gear_list)
 			catch
-				log_debug("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
+				LOG_DEBUG("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
 				gear_reset = TRUE
 
 	var/mob/preference_mob = preference_mob()
@@ -356,7 +356,7 @@ var/list/gear_datums = list()
 
 	else if(href_list["select_category"])
 		current_tab = href_list["select_category"]
-		return TOPIC_REFRESH_UPDATE_PREVIEW
+		return TOPIC_REFRESH
 	else if(href_list["clear_loadout"])
 		pref.gear.Cut()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -388,8 +388,10 @@ var/list/gear_datums = list()
 		description = initial(O.desc)
 	if(flags & GEAR_HAS_COLOR_SELECTION)
 		gear_tweaks += list(gear_tweak_free_color_choice)
-	if(flags & GEAR_HAS_ADDITIONAL_COLOR_SELECTION)
-		gear_tweaks += list(gear_tweak_additional_color)
+	if(flags & GEAR_HAS_ALPHA_SELECTION)
+		gear_tweaks += list(gear_tweak_alpha_choice)
+	if(flags & GEAR_HAS_ACCENT_COLOR_SELECTION)
+		gear_tweaks += list(gear_tweak_accent_color)
 	if(flags & GEAR_HAS_NAME_SELECTION)
 		gear_tweaks += list(gear_tweak_free_name)
 	if(flags & GEAR_HAS_DESC_SELECTION)
@@ -437,6 +439,11 @@ var/list/gear_datums = list()
 			gt.tweak_gear_data(metadata["[gt]"], gd, H)
 		else
 			gt.tweak_gear_data(gt.get_default(), gd, H)
+	if(ispath(gd.path, /obj/item/organ/external))
+		var/obj/item/organ/external/external_aug = gd.path
+		var/obj/item/organ/external/replaced_limb = H.get_organ(initial(external_aug.limb_name))
+		replaced_limb.droplimb(TRUE, DROPLIMB_EDGE, FALSE)
+		qdel(replaced_limb)
 	var/item = new gd.path(gd.location)
 	for(var/datum/gear_tweak/gt in gear_tweaks)
 		if(metadata["[gt]"])
