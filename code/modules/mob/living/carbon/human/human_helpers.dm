@@ -408,6 +408,13 @@
 		return species.floating_chat_x_offset
 	return species.icon_x_offset
 
+/mob/living/carbon/human/get_floating_chat_y_offset()
+	if(!species)
+		return ..()
+	if(!isnull(species.floating_chat_y_offset))
+		return species.floating_chat_y_offset
+	return species.icon_y_offset
+
 /mob/living/carbon/human/get_stutter_verbs()
 	return species.stutter_verbs
 

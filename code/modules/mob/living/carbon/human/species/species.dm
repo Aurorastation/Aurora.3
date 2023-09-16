@@ -43,6 +43,7 @@
 	var/typing_indicator_x_offset = 0
 	var/typing_indicator_y_offset = 0
 	var/floating_chat_x_offset = null
+	var/floating_chat_y_offset = null
 	var/eyes = "eyes_s"                                  // Icon for eyes.
 	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
