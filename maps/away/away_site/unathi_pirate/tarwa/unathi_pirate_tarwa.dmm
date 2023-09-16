@@ -146,22 +146,16 @@
 /turf/simulated/floor/lino,
 /area/tarwa_ship/canteen)
 "bI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/tarwa_ship/engineering2)
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/unathi_pirate/tarwa,
+/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/eva)
 "bN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
@@ -195,6 +189,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
+"ci" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tarwa_ship/engineering2)
 "cl" = (
 /obj/structure/ship_weapon_dummy/barrel,
 /obj/effect/landmark/entry_point/fore{
@@ -403,7 +403,10 @@
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
 "fy" = (
-/turf/simulated/floor/foamedmetal,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
 /area/tarwa_ship/oldhangar)
 "fC" = (
 /obj/structure/viewport/unathi,
@@ -786,6 +789,15 @@
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
+"kI" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/window/reinforced{
+	dir = 8;
+	maxhealth = 140
+	},
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor/plating,
+/area/tarwa_ship/engineering2)
 "kR" = (
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/helm,
@@ -1913,8 +1925,13 @@
 /area/tarwa_ship/cic)
 "De" = (
 /obj/structure/table/rack,
-/turf/simulated/wall/shuttle/raider,
-/area/tarwa_ship/captain)
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/eva)
 "Di" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -2081,6 +2098,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/bridge)
+"Fb" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tarwa_ship/oldhangar)
 "Fc" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
@@ -2159,6 +2189,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
+"FT" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/tarwa_ship/oldhangar)
 "FW" = (
 /obj/machinery/light{
 	dir = 1
@@ -2199,19 +2236,8 @@
 "GO" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector,
-/obj/machinery/door/window,
-/obj/structure/window/reinforced{
-	dir = 8;
-	maxhealth = 140
-	},
 /obj/structure/window/reinforced{
 	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
@@ -2328,6 +2354,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
+"Il" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tarwa_ship/oldhangar)
 "Iz" = (
 /obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor/diona/airless,
@@ -2342,6 +2374,12 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
+"IS" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/eva)
 "Jc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/diona,
@@ -2372,6 +2410,24 @@
 "Jw" = (
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/canteen)
+"JG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/plating,
+/area/tarwa_ship/engineering2)
 "JO" = (
 /obj/machinery/alarm/north{
 	req_one_access = list(210)
@@ -2919,6 +2975,10 @@
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
+"PM" = (
+/obj/effect/map_effect/airlock/long/square,
+/turf/simulated/wall/shuttle/raider,
+/area/tarwa_ship/oldhangar)
 "PO" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
@@ -2942,6 +3002,12 @@
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/eva)
+"Qm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/table/rack,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "QA" = (
@@ -13508,7 +13574,7 @@ Gs
 uB
 uB
 uB
-Uw
+Gs
 uB
 uB
 ef
@@ -13666,12 +13732,12 @@ KF
 bi
 bi
 Ii
-qt
 Gs
 Gs
 Gs
-Uw
-Uw
+Gs
+Gs
+Gs
 uB
 ef
 ef
@@ -13829,12 +13895,12 @@ pd
 pd
 pd
 pd
-pd
-qt
+Fb
+FT
 ND
-Uw
-Uw
-Uw
+Gs
+Gs
+PM
 uB
 ef
 ef
@@ -13991,12 +14057,12 @@ pd
 pd
 pd
 pd
-pd
-pd
-ND
-Uw
-GM
-Uw
+fy
+Il
+Up
+Up
+Up
+Up
 uB
 ef
 ef
@@ -14155,10 +14221,10 @@ SZ
 pd
 qt
 pd
-ND
-Uw
-GM
-Uw
+Up
+Up
+Up
+Up
 uB
 ef
 ef
@@ -14319,7 +14385,7 @@ LS
 LS
 hi
 Uw
-GM
+Uw
 Uw
 uB
 uB
@@ -15104,7 +15170,7 @@ LT
 XU
 HG
 Gd
-Gd
+ci
 Gd
 Gd
 Pz
@@ -15127,8 +15193,8 @@ pd
 pd
 ND
 Gs
-Uw
 Ei
+Qm
 bp
 qy
 Uw
@@ -15267,9 +15333,9 @@ Rz
 sC
 sC
 sC
-Gd
-Gd
-bI
+sC
+kI
+st
 uS
 ET
 Np
@@ -15278,7 +15344,7 @@ HC
 zs
 pw
 UM
-De
+HC
 SZ
 SZ
 Gs
@@ -15288,9 +15354,9 @@ Gs
 qt
 Up
 ND
-fy
-Uw
+Gs
 Xi
+IS
 as
 Ql
 Uw
@@ -15431,7 +15497,7 @@ sC
 sC
 sC
 GO
-st
+JG
 uS
 ys
 Ff
@@ -15449,10 +15515,10 @@ Up
 Up
 pd
 ND
-fy
-fy
-Uw
-vO
+ND
+Gs
+bI
+De
 MP
 Ql
 Uw
