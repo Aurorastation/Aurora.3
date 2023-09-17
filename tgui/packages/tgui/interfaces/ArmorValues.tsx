@@ -1,6 +1,5 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Collapsible, Divider, Input, ProgressBar, Section } from '../components';
+import { useBackend } from '../backend';
+import { Box, Divider, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 export type ArmorValuesData = {
