@@ -50,6 +50,7 @@
 	slot_flags = SLOT_BELT
 	force = 8 //looks heavier than a pistol
 	self_recharge = 1
+	recharge_time = 2
 	accepts_charge_module = FALSE
 	modifystate = null
 	reliability = 95
