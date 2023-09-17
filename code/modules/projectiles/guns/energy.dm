@@ -30,6 +30,8 @@
 	var/use_external_power = 0 //if set, the weapon will look for an external power source to draw from, otherwise it recharges magically
 	var/recharge_time = 4
 	var/charge_tick = 0
+	var/obj/item/device/self_charge_module/charge_module = null
+	var/accepts_charge_module = TRUE
 
 	//vars passed to turrets
 	var/can_turret = 0						//1 allows you to attach the gun on a turret
@@ -59,7 +61,7 @@
 		to_chat(M, SPAN_DANGER("[src] locks up!"))
 		playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
 	var/initial_charge = power_supply.charge
-	power_supply.charge = 0	
+	power_supply.charge = 0
 	sleep(severity * 20)
 	power_supply.give(initial_charge)
 	update_maptext()
@@ -76,11 +78,27 @@
 		power_supply = new cell_type(src)
 	else
 		power_supply = new /obj/item/cell/device/variable(src, max_shots*charge_cost)
+	if(charge_module)
+		self_recharge = TRUE
+		use_external_power = FALSE
+		recharge_time = charge_module.charge_rate
 	update_maptext()
 
 /obj/item/gun/energy/Destroy()
 	QDEL_NULL(power_supply)
+	if(istype(charge_module))
+		qdel(charge_module)
 	return ..()
+
+/obj/item/gun/energy/attackby(obj/item/I, mob/user)
+	. = ..()
+	if(charge_module && I.iswirecutter())
+		to_chat(user, SPAN_NOTICE("You snip the wires connecting [charge_module] to \the [src]'s battery'."))
+		charge_module.forceMove(get_turf(src))
+		user.put_in_hands(charge_module)
+		charge_module = null
+		self_recharge = FALSE
+		return TRUE
 
 /obj/item/gun/energy/proc/try_recharge()
 	. = 1
@@ -135,6 +153,8 @@
 		return
 	var/shots_remaining = round(power_supply.charge / charge_cost)
 	to_chat(user, "Has [shots_remaining] shot\s remaining.")
+	if(charge_module)
+		to_chat(user, "[charge_module] is installed on the battery.")
 	return
 
 /obj/item/gun/energy/update_icon()
@@ -160,7 +180,7 @@
 		else
 			icon_state = "[initial(icon_state)][icon_state_ratio]"
 			item_state = "[initial(item_state)][item_state_ratio]"
-			
+
 	..()
 
 /obj/item/gun/energy/handle_post_fire()

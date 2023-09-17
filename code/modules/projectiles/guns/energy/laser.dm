@@ -209,6 +209,7 @@
 	name = "expedition shotgun"
 	desc = "A NanoTrasen designed laser weapon, designed to split a single amplified beam four times. This one is marked for expeditionary use."
 	pin = /obj/item/device/firing_pin/away_site
+	charge_module = /obj/item/device/self_charge_module
 
 ////////Laser Tag////////////////////
 

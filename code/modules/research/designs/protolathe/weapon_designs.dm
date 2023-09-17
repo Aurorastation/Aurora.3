@@ -62,3 +62,15 @@
 	req_tech = list(TECH_COMBAT = 5, TECH_BLUESPACE = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 5000, MATERIAL_SILVER = 3000, MATERIAL_GOLD = 3000, MATERIAL_PHORON = 500)
 	build_path = /obj/item/gun/energy/gravity_gun
+
+/datum/design/item/weapon/self_charge_module
+	desc = "This module can be attached to most energy weapons to allow them to self-recharge."
+	req_tech = list(TECH_COMBAT = 4, TECH_POWER = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 2000, MATERIAL_URANIUM = 1000)
+	build_path = /obj/item/device/self_charge_module
+
+/datum/design/item/weapon/advanced_charge_module
+	desc = "A more advanced version of the self-charge module, allowing for a faster recharge speed."
+	req_tech = list(TECH_COMBAT = 6, TECH_POWER = 6)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 2000, MATERIAL_PHORON = 1000)
+	build_path = /obj/item/device/self_charge_module/standard

@@ -70,6 +70,7 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	offhand_accuracy = 0
 	projectile_type = /obj/item/projectile/energy/blaster
+	charge_module = /obj/item/device/self_charge_module/standard
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 
@@ -83,6 +84,7 @@
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
 	offhand_accuracy = 0
 	projectile_type = /obj/item/projectile/energy/blaster/heavy
+	charge_module = /obj/item/device/self_charge_module/standard
 
 	force = 10
 	slot_flags = SLOT_BACK

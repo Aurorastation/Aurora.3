@@ -52,6 +52,7 @@
 	fire_sound = 'sound/weapons/Genhit.ogg'
 	projectile_type = /obj/item/projectile/energy/bolt
 	max_shots = 5
+	accepts_charge_module = FALSE
 	self_recharge = 1
 	charge_meter = 0
 	can_turret = 1

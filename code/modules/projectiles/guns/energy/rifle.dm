@@ -148,6 +148,7 @@
 	can_switch_modes = 0
 	turret_sprite_set = "pulse"
 	turret_is_lethal = 1
+	charge_module = /obj/item/device/self_charge_module/standard
 
 	modifystate = null
 
@@ -187,6 +188,7 @@
 	can_turret = 0
 	zoomdevicename = "rifle scope"
 	var/obj/screen/overlay = null
+	charge_module = /obj/item/device/self_charge_module/hyper
 
 /obj/item/gun/energy/rifle/laser/tachyon/verb/scope()
 	set category = "Object"
@@ -239,6 +241,7 @@
 	item_state = "qukala_heavy"
 	max_shots = 10
 	projectile_type = /obj/item/projectile/beam/midlaser/skrell/heavy
+	charge_module = /obj/item/device/self_charge_module/standard
 
 /obj/item/gun/energy/rifle/hegemony
 	name = "hegemony energy rifle"
@@ -258,3 +261,4 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 4)
 	is_wieldable = TRUE
 	modifystate = "hegemonyrifle"
+	charge_module = /obj/item/device/self_charge_module/standard

@@ -2865,6 +2865,7 @@
 #include "code\modules\projectiles\gun.dm"
 #include "code\modules\projectiles\pins.dm"
 #include "code\modules\projectiles\projectile.dm"
+#include "code\modules\projectiles\self_charge.dm"
 #include "code\modules\projectiles\suppressor.dm"
 #include "code\modules\projectiles\ammunition\ammo_pile.dm"
 #include "code\modules\projectiles\ammunition\boxes.dm"

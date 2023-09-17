@@ -17,6 +17,7 @@
 	can_switch_modes = 0
 	turret_sprite_set = "pulse"
 	turret_is_lethal = 1
+	charge_module = /obj/item/device/self_charge_module/standard
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),

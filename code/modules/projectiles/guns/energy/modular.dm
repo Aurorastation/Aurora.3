@@ -18,6 +18,7 @@
 	max_shots = 0
 	burst_delay = 0
 	pin = null
+	accepts_charge_module = FALSE
 	var/origin_chassis
 	var/gun_type
 	var/list/gun_mods = list()

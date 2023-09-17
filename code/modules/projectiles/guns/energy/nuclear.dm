@@ -50,6 +50,7 @@
 	slot_flags = SLOT_BELT
 	force = 8 //looks heavier than a pistol
 	self_recharge = 1
+	accepts_charge_module = FALSE
 	modifystate = null
 	reliability = 95
 	turret_sprite_set = "nuclear"
@@ -167,6 +168,7 @@
 	secondary_projectile_type = /obj/item/projectile/beam/pistol/hegemony
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
 	can_switch_modes = TRUE
+	charge_module = /obj/item/device/self_charge_module/standard
 
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
@@ -203,7 +205,7 @@
 		)
 
 /obj/item/gun/energy/gun/skrell
-	self_recharge = TRUE
+	charge_module = /obj/item/device/self_charge_module/hyper
 	fire_sound = 'sound/weapons/Laser2.ogg'
 	modifystate = null
 	charge_failure_message = "'s charging socket was removed to make room for a recharger."
@@ -259,6 +261,7 @@
 	secondary_projectile_type = /obj/item/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
 	can_switch_modes = 1
+	charge_module = /obj/item/device/self_charge_module/standard
 
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -288,6 +291,7 @@
 	secondary_fire_sound = 'sound/weapons/laser3.ogg'
 	can_switch_modes = 1
 	projectile_type = /obj/item/projectile/energy/disruptorstun/skrell
+	charge_module = /obj/item/device/self_charge_module/standard
 	modifystate = "psipistolstun"
 
 	firemodes = list(

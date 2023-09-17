@@ -285,6 +285,7 @@
 	recoil = 1
 	force = 10
 	projectile_type = /obj/item/projectile/energy/blaster/incendiary
+	charge_module = /obj/item/device/self_charge_module/standard
 	max_shots = 7
 	burst = 1
 	burst_delay = 1
@@ -486,6 +487,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser3.ogg'
 	projectile_type = /obj/item/projectile/beam/tachyon
+	charge_module = /obj/item/device/self_charge_module/hyper
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	max_shots = 10
 	accuracy = 1
