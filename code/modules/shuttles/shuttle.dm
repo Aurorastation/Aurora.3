@@ -162,7 +162,8 @@
 	var/list/translation = list()
 	for(var/area/A in shuttle_area)
 		testing("Moving [A]")
-		translation += get_turf_translation(get_turf(current_location), get_turf(destination), A.contents)
+		// translation += get_turf_translation(get_turf(current_location), get_turf(destination), A.contents)
+		translation += get_turf_translation_with_rotation(get_turf(current_location), get_turf(destination), A.contents, current_location.dir, destination.dir)
 	var/old_location = current_location
 	shuttle_pre_move_event.raise_event(src, old_location, destination)
 	shuttle_moved(destination, translation)
