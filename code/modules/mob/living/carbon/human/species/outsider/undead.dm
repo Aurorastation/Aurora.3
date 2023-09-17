@@ -328,6 +328,8 @@
 /datum/species/zombie/bull
 	name = SPECIES_ZOMBIE_BULL
 	name_plural = SPECIES_ZOMBIE_BULL+"s"
+	icobase = 'icons/mob/human_races/zombie/r_zombie_bull.dmi'
+	deform = 'icons/mob/human_races/zombie/r_zombie_bull.dmi'
 	slowdown = 2
 	total_health = 200
 
@@ -346,9 +348,9 @@
 	natural_armor = list(
 		ballistic = ARMOR_BALLISTIC_RIFLE,
 		laser = ARMOR_LASER_MEDIUM,
-		melee = ARMOR_MELEE_MINOR,
+		melee = ARMOR_MELEE_MAJOR,
 		bomb = null,
-		energy = ARMOR_ENERGY_MINOR
+		energy = ARMOR_ENERGY_RESISTANT
 	)
 
 	unarmed_types = list(/datum/unarmed_attack/bite/infectious)
@@ -358,6 +360,8 @@
 /datum/species/zombie/hunter
 	name = SPECIES_ZOMBIE_HUNTER
 	name_plural = SPECIES_ZOMBIE_HUNTER+"s"
+	icobase = 'icons/mob/human_races/zombie/r_zombie_hunter.dmi'
+	deform = 'icons/mob/human_races/zombie/r_zombie_hunter.dmi'
 	slowdown = 2
 
 	total_health = 90
@@ -385,6 +389,8 @@
 /datum/species/zombie/rhino
 	name = SPECIES_ZOMBIE_THINO
 	name_plural = SPECIES_ZOMBIE_THINO+"s"
+	icobase = 'icons/mob/human_races/zombie/r_zombie_rhino.dmi'
+	deform = 'icons/mob/human_races/zombie/r_zombie_rhino.dmi'
 	slowdown = 2
 
 	total_health = 90

@@ -124,7 +124,13 @@
 
 /singleton/maneuver/leap/areagrab/show_initial_message(mob/living/user, atom/target)
 	. = ..()
-	user.balloon_alert_to_viewers("*OUUGUGUUUUUUUUUUUGBHGH*", "*OUUGUGUUUUUUUUUUUGBHGH*")
+	user.balloon_alert_to_viewers("OUUGUGUUUUUUUUUUUGBHGH", "OUUGUGUUUUUUUUUUUGBHGH")
+
+	//Let them hear, let them fear
+	for(var/mob/living/carbon/human/person_in_range in (get_hearers_in_LOS(world.view)+5))
+		to_chat(person_in_range,
+			SPAN_HIGHDANGER("OUUGUGUUUUUUUUUUUGBHGH!!!")
+			)
 
 /singleton/maneuver/leap/areagrab/end_leap(var/mob/living/user, var/atom/target, pass_flag)
 	. = ..()
@@ -141,7 +147,7 @@
 
 		for(var/mob/living/subject as anything in (affected_mobs - very_unlucky_guy))
 			INVOKE_ASYNC(subject, TYPE_PROC_REF(/atom/movable, throw_at_random), FALSE, 3, THROWNOBJ_KNOCKBACK_SPEED)
-			subject.Weaken(5)
+			INVOKE_ASYNC(subject, TYPE_PROC_REF(/mob/living, Weaken), 5)
 
 		if(ismob(very_unlucky_guy) && user.Adjacent(very_unlucky_guy))
 
