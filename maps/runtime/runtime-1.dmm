@@ -1000,7 +1000,10 @@
 /obj/effect/shuttle_landmark/runtime/r4{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
 /area/template_noop)
 "cw" = (
 /turf/simulated/floor/plating,
@@ -1445,8 +1448,7 @@
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
 "fz" = (
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "fX" = (
 /turf/template_noop,
@@ -1461,7 +1463,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 2
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "ie" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -1522,10 +1524,8 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "mk" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "mn" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1698,10 +1698,10 @@
 /turf/simulated/floor/plating,
 /area/construction)
 "Bq" = (
-/obj/effect/shuttle_landmark/runtime/r3{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "BP" = (
 /obj/machinery/firealarm/east,
@@ -1720,7 +1720,8 @@
 /area/maintenance/maintcentral)
 "EN" = (
 /obj/effect/shuttle_landmark/runtime/r2,
-/turf/simulated/floor/plating,
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "ES" = (
 /obj/structure/lattice/catwalk,
@@ -1874,20 +1875,23 @@
 /obj/effect/shuttle_landmark/runtime/r1{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
 /area/template_noop)
 "Sz" = (
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "SU" = (
-/turf/simulated/floor/plating,
+/turf/simulated/wall/r_wall,
 /area/template_noop)
 "Tp" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "Tq" = (
 /obj/effect/overmap/visitable/ship/landable/runtime,
@@ -1937,6 +1941,13 @@
 "Vm" = (
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
+"VC" = (
+/obj/effect/shuttle_landmark/runtime/r3{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/airless,
+/area/template_noop)
 "Wa" = (
 /obj/machinery/door/airlock{
 	dir = 4
@@ -1961,7 +1972,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "XQ" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1996,7 +2007,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/template_noop)
 "ZE" = (
 /obj/structure/lattice/catwalk,
@@ -2719,9 +2730,9 @@ aa
 aa
 aa
 SU
+fz
+fz
 SU
-SU
-aa
 aa
 aa
 aa
@@ -2976,9 +2987,9 @@ aa
 aa
 aa
 SU
+fz
+fz
 SU
-SU
-aa
 aa
 aa
 aa
@@ -3233,9 +3244,9 @@ aa
 aa
 aa
 SU
+fz
+fz
 SU
-SU
-aa
 aa
 aa
 aa
@@ -3490,9 +3501,9 @@ aa
 aa
 aa
 SU
+fz
+fz
 SU
-SU
-aa
 aa
 aa
 aa
@@ -3747,9 +3758,9 @@ aa
 aa
 aa
 SU
+fz
+fz
 SU
-SU
-aa
 aa
 aa
 aa
@@ -4004,9 +4015,9 @@ aa
 aa
 aa
 SU
+fz
+fz
 SU
-SU
-aa
 aa
 aa
 aa
@@ -4261,9 +4272,9 @@ aa
 aa
 aa
 SU
+fz
+fz
 SU
-SU
-aa
 aa
 aa
 aa
@@ -4518,9 +4529,9 @@ aa
 aa
 aa
 SU
-Tp
-Tp
-aa
+fz
+fz
+SU
 aa
 aa
 aa
@@ -4775,9 +4786,9 @@ aa
 aa
 aa
 SU
+fz
+fz
 SU
-SU
-aa
 aa
 aa
 aa
@@ -5032,9 +5043,9 @@ aa
 aa
 aa
 SU
+fz
+fz
 SU
-SU
-aa
 aa
 aa
 aa
@@ -5289,9 +5300,9 @@ aa
 aa
 aa
 SU
+fz
+fz
 SU
-SU
-aa
 aa
 aa
 aa
@@ -5546,9 +5557,9 @@ aa
 aa
 aa
 SU
+Tp
+Tp
 SU
-SU
-aa
 aa
 aa
 aa
@@ -5803,9 +5814,9 @@ aa
 aa
 aa
 SU
+fz
+fz
 SU
-SU
-aa
 aa
 aa
 aa
@@ -6061,8 +6072,8 @@ aa
 aa
 SU
 Zr
+fz
 SU
-aa
 aa
 aa
 aa
@@ -6318,8 +6329,8 @@ aa
 aa
 SU
 RY
+Tp
 SU
-aa
 aa
 aa
 aa
@@ -11712,21 +11723,21 @@ aa
 aa
 EN
 hf
-SU
-SU
 fz
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
+mk
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
 aa
 ab
 aa
@@ -11967,23 +11978,23 @@ aa
 aa
 aa
 aa
-SU
-SU
-SU
-SU
+mk
 fz
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
+fz
+mk
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
 aa
 ab
 aa
@@ -12224,23 +12235,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
 aa
 ab
 aa
@@ -14530,22 +14541,22 @@ fX
 fX
 fX
 aa
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-fz
-SU
-SU
-SU
-SU
-SU
-SU
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14787,22 +14798,22 @@ fX
 fX
 fX
 aa
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-fz
-SU
-SU
-SU
-SU
-mk
-Bq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -15044,22 +15055,22 @@ fX
 fX
 fX
 aa
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-SU
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -16329,19 +16340,19 @@ fX
 fX
 fX
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
 aa
 aa
 aa
@@ -16586,19 +16597,19 @@ fX
 fX
 fX
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+mk
+fz
+fz
+mk
 aa
 aa
 aa
@@ -16843,20 +16854,19 @@ fX
 fX
 fX
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+fz
+mk
+fz
+Bq
+VC
 aa
 aa
 aa
@@ -16874,6 +16884,7 @@ aa
 aa
 aa
 SU
+Tp
 cv
 SU
 aa
@@ -17100,20 +17111,19 @@ fX
 fX
 fX
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
+SU
 aa
 aa
 aa
@@ -17131,6 +17141,7 @@ aa
 aa
 aa
 SU
+fz
 XD
 SU
 aa
@@ -17386,9 +17397,9 @@ aa
 aa
 aa
 aa
-aa
 SU
-SU
+fz
+fz
 SU
 aa
 aa
@@ -17643,9 +17654,9 @@ aa
 aa
 aa
 aa
-aa
 SU
-SU
+Tp
+Tp
 SU
 aa
 aa
@@ -17900,9 +17911,9 @@ aa
 aa
 aa
 aa
-aa
 SU
-SU
+fz
+fz
 SU
 aa
 aa
@@ -18157,9 +18168,9 @@ aa
 aa
 aa
 aa
-aa
 SU
-SU
+fz
+fz
 SU
 aa
 aa
@@ -18414,9 +18425,9 @@ aa
 aa
 aa
 aa
-aa
 SU
-SU
+fz
+fz
 SU
 aa
 aa
@@ -18671,9 +18682,9 @@ aa
 aa
 aa
 aa
-aa
 SU
-SU
+fz
+fz
 SU
 aa
 aa
@@ -18928,9 +18939,9 @@ aa
 aa
 aa
 aa
-aa
 SU
-SU
+fz
+fz
 SU
 aa
 aa
@@ -19185,9 +19196,9 @@ aa
 aa
 aa
 aa
-aa
-Tp
-Tp
+SU
+fz
+fz
 SU
 aa
 aa
@@ -19442,9 +19453,9 @@ aa
 aa
 aa
 aa
-aa
 SU
-SU
+fz
+fz
 SU
 aa
 aa
@@ -19699,9 +19710,9 @@ aa
 aa
 aa
 aa
-aa
 SU
-SU
+fz
+fz
 SU
 aa
 aa
@@ -19956,9 +19967,9 @@ aa
 aa
 aa
 aa
-aa
 SU
-SU
+fz
+fz
 SU
 aa
 aa
@@ -20213,9 +20224,9 @@ aa
 aa
 aa
 aa
-aa
 SU
-SU
+fz
+fz
 SU
 aa
 aa
@@ -20470,9 +20481,9 @@ aa
 aa
 aa
 aa
-aa
 SU
-SU
+fz
+fz
 SU
 aa
 aa
@@ -20727,9 +20738,9 @@ aa
 aa
 aa
 aa
-aa
 SU
-SU
+fz
+fz
 SU
 aa
 aa
