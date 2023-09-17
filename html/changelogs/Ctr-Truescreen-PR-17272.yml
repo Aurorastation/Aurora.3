@@ -40,4 +40,4 @@ delete-after: True
 changes:
   - rscadd: "Adds imprint functionality to dogtags and any seperated singular tags, allowing them to show information about the user when examined."
   - bugfix: "Classic dogtags can now be seperated without creating invalid icons."
-  - rsctweak: "Singular tags are now tiny-sized and can fit inside wallets."
+  - tweak: "Singular tags are now tiny-sized and can fit inside wallets."
