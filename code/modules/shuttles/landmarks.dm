@@ -69,7 +69,7 @@
 	if(shuttle.current_location == src)
 		return FALSE
 	for(var/area/A in shuttle.shuttle_area)
-		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
+		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), shuttle.current_location.dir, src.dir, A.contents)
 		if(check_collision(base_area, list_values(translation)))
 			return FALSE
 	var/conn = GetConnectedZlevels(z)
@@ -81,7 +81,7 @@
 /obj/effect/shuttle_landmark/proc/deploy_landing_indicators(var/datum/shuttle/shuttle)
 	LAZYINITLIST(landing_indicators)
 	for(var/area/A in shuttle.shuttle_area)
-		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
+		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), shuttle.current_location.dir, src.dir, A.contents)
 		for(var/target_turf in list_values(translation))
 			landing_indicators += new /obj/effect/shuttle_warning(target_turf)
 

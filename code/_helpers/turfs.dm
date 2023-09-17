@@ -123,64 +123,15 @@
 	Turf manipulation
 */
 
-//Returns an assoc list that describes how turfs would be changed if the
-//turfs in turfs_src were translated by shifting the src_origin to the dst_origin
-/proc/get_turf_translation(turf/src_origin, turf/dst_origin, list/turfs_src)
-	var/list/turf_map = list()
-	for(var/turf/source in turfs_src)
-		var/x_pos = (source.x - src_origin.x)
-		var/y_pos = (source.y - src_origin.y)
-		var/z_pos = (source.z - src_origin.z)
-
-		var/turf/target = locate(dst_origin.x + x_pos, dst_origin.y + y_pos, dst_origin.z + z_pos)
-		if(!target)
-			log_world("ERROR: Null turf in translation @ ([dst_origin.x + x_pos], [dst_origin.y + y_pos], [dst_origin.z + z_pos])")
-		turf_map[source] = target //if target is null, preserve that information in the turf map
-
-	return turf_map
-
-// POINT rotate_point(float cx,float cy,float angle,POINT p)
-// {
-//   float s = sin(angle);
-//   float c = cos(angle);
-//   p.x -= cx;
-//   p.y -= cy;
-//   float xnew = p.x * c - p.y * s;
-//   float ynew = p.x * s + p.y * c;
-//   p.x = xnew + cx;
-//   p.y = ynew + cy;
-//   return p;
-// }
-
-// /proc/rotate_around_point_x(cx, cy, angle_deg, px, py)
-// 	var/s = (sin(angle_deg))
-// 	var/c = (cos(angle_deg))
-// 	px -= cx
-// 	py -= cy
-// 	var/xnew = px * c - py * s
-// 	var/ynew = px * s + py * c
-// 	px = xnew + cx
-// 	py = ynew + cy
-// 	return px
-
-// /proc/rotate_around_point_y(cx, cy, angle_deg, px, py)
-// 	var/s = (sin(angle_deg))
-// 	var/c = (cos(angle_deg)) // TO_RADIANS
-// 	px -= cx
-// 	py -= cy
-// 	var/xnew = px * c - py * s
-// 	var/ynew = px * s + py * c
-// 	px = xnew + cx
-// 	py = ynew + cy
-// 	return py
-
 /proc/rotate_around_point_x(cx, cy, angle_deg, px, py)
 	return (cos(angle_deg)) * (px - cx) - (sin(angle_deg)) * (py - cy) + cx
-
 /proc/rotate_around_point_y(cx, cy, angle_deg, px, py)
 	return (sin(angle_deg)) * (px - cx) + (cos(angle_deg)) * (py - cy) + cy
 
-/proc/get_turf_translation_with_rotation(turf/src_origin, turf/dst_origin, list/turfs_src, dir_orig, dir_dest)
+//Returns an assoc list that describes how turfs would be changed if the
+//turfs in turfs_src were translated by shifting the src_origin to the dst_origin
+//and from direction dir_orig to dir_dest
+/proc/get_turf_translation(turf/src_origin, turf/dst_origin, dir_orig, dir_dest, list/turfs_src)
 	var/list/turf_map = list()
 	for(var/turf/source in turfs_src)
 		var/x_pos_orig = (source.x - src_origin.x)
@@ -190,7 +141,7 @@
 		var/y_pos = y_pos_orig
 		var/z_pos = z_pos_orig
 		var/angle = dir2angle(dir_orig) - dir2angle(dir_dest)
-		if(angle!=0)
+		if(dir_orig && dir_dest && angle!=0)
 			y_pos = rotate_around_point_y(0, 0, angle, x_pos_orig, y_pos_orig)
 			x_pos = rotate_around_point_x(0, 0, angle, x_pos_orig, y_pos_orig)
 			x_pos = round(x_pos, 1)

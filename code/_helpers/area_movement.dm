@@ -64,7 +64,7 @@
 	var/trg_origin = locate(A.x, A.y, A.z)
 
 	if(src_origin && trg_origin)
-		var/translation = get_turf_translation(src_origin, trg_origin, turfs_src)
+		var/translation = get_turf_translation(src_origin, trg_origin, null, null, turfs_src)
 		translate_turfs(translation, null)
 
 // Called when a movable area wants to move this object.

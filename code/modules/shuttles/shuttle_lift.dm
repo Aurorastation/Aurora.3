@@ -31,7 +31,7 @@
 /datum/shuttle/autodock/ferry/lift/proc/obstruction_check(var/obj/effect/shuttle_landmark/start, var/obj/effect/shuttle_landmark/destination)
 	var/list/translation = list()
 	for(var/area/A in shuttle_area)
-		translation += get_turf_translation(get_turf(current_location), get_turf(destination), A.contents)
+		translation += get_turf_translation(get_turf(current_location), get_turf(destination), null, null, A.contents)
 
 	for(var/turf/src_turf in translation)
 		var/turf/dst_turf = translation[src_turf]
