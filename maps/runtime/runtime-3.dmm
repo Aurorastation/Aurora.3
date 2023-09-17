@@ -5,18 +5,6 @@
 	},
 /turf/simulated/floor,
 /area/construction/qmaint)
-"ab" = (
-/obj/machinery/door/airlock/external/blue{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/antag/mercenary)
-"ac" = (
-/obj/machinery/door/airlock/external/purple{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/antag/mercenary)
 "ad" = (
 /obj/machinery/alarm/north{
 	pixel_y = 18
@@ -25,12 +13,6 @@
 /area/construction/solars)
 "ae" = (
 /obj/machinery/door/airlock/external/khaki{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/antag/mercenary)
-"af" = (
-/obj/machinery/door/airlock/external/red{
 	dir = 1
 	},
 /turf/simulated/floor,
@@ -44,12 +26,6 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
-"ah" = (
-/obj/machinery/door/airlock/external/merc{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/antag/mercenary)
 "aj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -175,12 +151,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
-"dT" = (
-/obj/machinery/door/airlock/external/khaki{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/antag/mercenary)
 "dX" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -754,12 +724,6 @@
 "pz" = (
 /turf/template_noop,
 /area/space)
-"pI" = (
-/obj/machinery/door/airlock/generic/maintenance{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/construction/qmaint)
 "pM" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -1562,12 +1526,6 @@
 /obj/machinery/ringer_button,
 /turf/simulated/floor/tiled,
 /area/construction/solars)
-"JH" = (
-/obj/effect/landmark{
-	name = "Observer-Start"
-	},
-/turf/simulated/floor,
-/area/antag/mercenary)
 "Kb" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
@@ -24805,7 +24763,7 @@ eX
 GT
 GT
 GT
-pI
+aa
 GT
 US
 HJ
@@ -30979,7 +30937,7 @@ cJ
 cJ
 cJ
 cJ
-JH
+Bd
 Bd
 Wi
 cJ
@@ -31239,7 +31197,7 @@ za
 ek
 Bd
 Bd
-ab
+wo
 Bd
 Bd
 Bd
@@ -32781,7 +32739,7 @@ bb
 ek
 Bd
 Bd
-ac
+Cj
 Bd
 Bd
 Bd
@@ -34316,7 +34274,7 @@ pz
 pz
 pz
 pz
-dT
+ae
 Vu
 lB
 Dt
@@ -35865,7 +35823,7 @@ ol
 ek
 Bd
 Bd
-af
+bY
 Bd
 Bd
 Bd
@@ -37407,7 +37365,7 @@ DE
 ek
 Bd
 Bd
-ah
+KZ
 Bd
 Bd
 Bd
