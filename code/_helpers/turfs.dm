@@ -171,10 +171,10 @@
 			else
 				. += transport_turf_contents(source, target, ignore_background)
 			// rotate atoms on new turfs
-			for(var/atom/atom in target)
-				if(dir_dest)
-					//atom.dir = angle2dir(360 + dir2angle(atom.dir) - dir2angle(dir_dest))
-					atom.dir = turn(atom.dir, (dir2angle(dir_orig) - dir2angle(dir_dest)))
+			if(dir_orig && dir_dest)
+				for(var/atom/atom in target)
+					if(dir_dest)
+						atom.dir = turn(atom.dir, (dir2angle(dir_orig) - dir2angle(dir_dest)))
 	//change the old turfs
 	for(var/turf/source in translation)
 		if(ignore_background && (source.turf_flags & TURF_FLAG_BACKGROUND))
