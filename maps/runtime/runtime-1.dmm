@@ -1444,6 +1444,10 @@
 /obj/machinery/computer/shuttle_control/explore/runtime,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
+"fz" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "fX" = (
 /turf/template_noop,
 /area/space)
@@ -1877,6 +1881,12 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "SU" = (
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Tp" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/template_noop)
 "Tq" = (
@@ -3772,8 +3782,8 @@ aa
 cK
 de
 Qe
-Qe
 ZH
+aE
 aE
 cq
 Qe
@@ -4508,8 +4518,8 @@ aa
 aa
 aa
 SU
-SU
-SU
+Tp
+Tp
 aa
 aa
 aa
@@ -11704,7 +11714,7 @@ EN
 hf
 SU
 SU
-SU
+fz
 SU
 SU
 SU
@@ -11961,7 +11971,7 @@ SU
 SU
 SU
 SU
-SU
+fz
 SU
 SU
 SU
@@ -14529,7 +14539,7 @@ SU
 SU
 SU
 SU
-SU
+fz
 SU
 SU
 SU
@@ -14786,7 +14796,7 @@ SU
 SU
 SU
 SU
-SU
+fz
 SU
 SU
 SU
@@ -19176,8 +19186,8 @@ aa
 aa
 aa
 aa
-SU
-SU
+Tp
+Tp
 SU
 aa
 aa
