@@ -72,5 +72,5 @@
 /datum/design/item/weapon/advanced_charge_module
 	desc = "A more advanced version of the self-charge module, allowing for a faster recharge speed."
 	req_tech = list(TECH_COMBAT = 6, TECH_POWER = 6)
-	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 2000, MATERIAL_PHORON = 1000)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 2000, MATERIAL_PHORON = 1000, MATERIAL_GOLD = 1000)
 	build_path = /obj/item/device/self_charge_module/standard

@@ -250,3 +250,10 @@
 	telecrystal_cost = 2
 	bluecrystal_cost = 2
 	path = /obj/item/stack/liquidbags/half_full
+
+/datum/uplink_item/tools/self_charge_module
+	name = "Energy Weapon Recharging Module"
+	desc = "Attach this to an energy weapon to make it self-charging"
+	telecrystal_cost = 4
+	bluecrystal_cost = 4
+	path = /obj/item/device/self_charge_module/standard
