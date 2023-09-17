@@ -165,7 +165,7 @@
 		translation += get_turf_translation(get_turf(current_location), get_turf(destination), current_location.dir, destination.dir, A.contents)
 	var/old_location = current_location
 	shuttle_pre_move_event.raise_event(src, old_location, destination)
-	shuttle_moved(destination, translation)
+	shuttle_moved(destination, translation, current_location.dir, destination.dir)
 	shuttle_moved_event.raise_event(src, old_location, destination)
 	destination.shuttle_arrived(src)
 	return TRUE
@@ -173,7 +173,7 @@
 //just moves the shuttle from A to B, if it can be moved
 //A note to anyone overriding move in a subtype. shuttle_moved() must absolutely not, under any circumstances, fail to move the shuttle.
 //If you want to conditionally cancel shuttle launches, that logic must go in short_jump(), long_jump() or attempt_move()
-/datum/shuttle/proc/shuttle_moved(var/obj/effect/shuttle_landmark/destination, var/list/turf_translation)
+/datum/shuttle/proc/shuttle_moved(var/obj/effect/shuttle_landmark/destination, var/list/turf_translation, dir_orig = null, dir_dest = null)
 
 	if((flags & SHUTTLE_FLAGS_ZERO_G))
 		var/new_grav = 1
@@ -227,7 +227,7 @@
 		for(var/obj/structure/cable/C in A)
 			powernets |= C.powernet
 
-	translate_turfs(turf_translation, current_location.base_area, current_location.base_turf, TRUE)
+	translate_turfs(turf_translation, current_location.base_area, current_location.base_turf, TRUE, dir_orig, dir_dest)
 	current_location = destination
 
 	// if there's a zlevel above our destination, paint in a ceiling on it so we retain our air

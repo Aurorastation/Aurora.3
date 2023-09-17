@@ -157,7 +157,7 @@
 
 	return turf_map
 
-/proc/translate_turfs(var/list/translation, var/area/base_area = null, var/turf/base_turf, var/ignore_background)
+/proc/translate_turfs(var/list/translation, var/area/base_area = null, var/turf/base_turf, var/ignore_background, var/dir_orig = null, var/dir_dest = null)
 	. = list()
 	for(var/turf/source in translation)
 
@@ -170,13 +170,17 @@
 				ChangeArea(source, base_area)
 			else
 				. += transport_turf_contents(source, target, ignore_background)
+			// rotate atoms on new turfs
+			for(var/atom/atom in target)
+				if(dir_dest)
+					//atom.dir = angle2dir(360 + dir2angle(atom.dir) - dir2angle(dir_dest))
+					atom.dir = turn(atom.dir, (dir2angle(dir_orig) - dir2angle(dir_dest)))
 	//change the old turfs
 	for(var/turf/source in translation)
 		if(ignore_background && (source.turf_flags & TURF_FLAG_BACKGROUND))
 			continue
 		var/old_turf = base_turf || get_base_turf_by_area(source)
 		source.ChangeTurf(old_turf)
-
 
 //Transports a turf from a source turf to a target turf, moving all of the turf's contents and making the target a copy of the source.
 //If ignore_background is set to true, turfs with TURF_FLAG_BACKGROUND set will only translate anchored contents.
