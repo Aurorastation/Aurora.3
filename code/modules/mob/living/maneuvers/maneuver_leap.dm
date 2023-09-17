@@ -127,7 +127,7 @@
 	user.balloon_alert_to_viewers("OUUGUGUUUUUUUUUUUGBHGH", "OUUGUGUUUUUUUUUUUGBHGH")
 
 	//Let them hear, let them fear
-	for(var/mob/living/carbon/human/person_in_range in (get_hearers_in_LOS(world.view)+5))
+	for(var/mob/living/carbon/human/person_in_range in get_hearers_in_LOS(world.view+5))
 		to_chat(person_in_range,
 			SPAN_HIGHDANGER("OUUGUGUUUUUUUUUUUGBHGH!!!")
 			)

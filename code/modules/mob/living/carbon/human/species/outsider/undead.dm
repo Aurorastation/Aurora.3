@@ -330,7 +330,7 @@
 	name_plural = SPECIES_ZOMBIE_BULL+"s"
 	icobase = 'icons/mob/human_races/zombie/r_zombie_bull.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie_bull.dmi'
-	slowdown = 2
+
 	total_health = 200
 
 	allowed_eat_types = TYPE_ORGANIC | TYPE_HUMANOID | TYPE_SYNTHETIC | TYPE_WEIRD
