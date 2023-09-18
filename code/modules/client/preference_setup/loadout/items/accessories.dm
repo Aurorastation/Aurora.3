@@ -212,9 +212,9 @@
 	gear_tweaks += new /datum/gear_tweak/path(polo)
 
 /datum/gear/accessory/polo_colorable
-	display_name = "polo selection (colorable)"
+	display_name = "polo shirts selection (colorable)"
+	description = "A selection of colorable polo shirts."
 	path = /obj/item/clothing/accessory/polo
-	description = "A selection of colorable polos."
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/polo_colorable/New()
