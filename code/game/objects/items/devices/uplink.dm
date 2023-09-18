@@ -129,14 +129,12 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	if(..())
 		return 1
 
-	var/mob/user = usr
 	if(action == "buy_item")
 		var/datum/uplink_item/UI = (locate(params["buy_item"]) in uplink.items)
 		UI.buy(src, usr)
 	else if(action == "lock")
 		toggle()
-		// var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
-		// ui.close()
+		SStgui.close_uis(src)
 	else if(action == "return")
 		nanoui_menu = round(nanoui_menu/10)
 	else if(action == "menu")
