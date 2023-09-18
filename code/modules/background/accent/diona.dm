@@ -62,6 +62,6 @@
 
 /datum/accent/xrimsong
 	name = ACCENT_XRIMSONG
-	desc = "A unique combination of elements from both Nral'malic and Rootsong, Xrim's accent can generally be picked up due to its slow, dulcet sound. It has wide range, and can reach as high as a Soprano and as low as an Alto. Its fluctuations are generally an easy way to detect the accent, being one of the more novel accents within the Federation, and abroad."
+	description = "A unique combination of elements from both Nral'malic and Rootsong, Xrim's accent can generally be picked up due to its slow, dulcet sound. It has wide range, and can reach as high as a Soprano and as low as an Alto. Its fluctuations are generally an easy way to detect the accent, being one of the more novel accents within the Federation, and abroad."
 	tag_icon = "dionae_xrim"
 	text_tag = "XMS"
