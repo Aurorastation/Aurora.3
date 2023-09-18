@@ -63,4 +63,4 @@
 	origin_traits_descriptions = list("have a small resistance to radiation")
 
 /singleton/origin_item/origin/wastelander/on_apply(var/mob/living/carbon/human/H)
-  H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
+	H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
