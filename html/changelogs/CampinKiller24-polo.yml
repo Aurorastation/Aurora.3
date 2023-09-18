@@ -3,4 +3,4 @@ author: CampinKiller24
 delete-after: True
 
 changes:
-  - rscadd: "Moves polos from undershirts to the loadout."
+  - tweak: "Moves the polo shirts in the undershirts character option to the loadout."
