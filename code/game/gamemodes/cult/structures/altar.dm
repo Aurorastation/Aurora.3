@@ -9,7 +9,7 @@
 	. = ..()
 	if(iscultist(user) && ishuman(user))
 		if(last_use <= world.time)
-			last_use = world.time + 1200 // Cooldown of two minutes
+			last_use = world.time + 15 SECONDS // Cooldown of 15 seconds.
 			var/mob/living/carbon/human/H = user
 			H.heal_overall_damage(20, 20)
 			to_chat(H, SPAN_CULT("You begin your prayer to Nar'Sie, your wounds slowly closing up..."))
@@ -29,6 +29,11 @@
 					if(do_after(user, 20))
 						O.status &= ~ORGAN_BROKEN
 				O.update_damages()
+			if(!(H.species.flags & NO_BLOOD))
+				var/total_blood = REAGENT_VOLUME(H.vessel, /singleton/reagent/blood)
+				var/blood_to_add = H.species.blood_volume * 0.45
+				if(total_blood < blood_to_add)
+					H.vessel.add_reagent(/singleton/reagent/blood, blood_to_add, temperature = H.species.body_temperature)
 		else
 			to_chat(user, SPAN_WARNING("This altar isn't ready to be prayed at yet."))
 	else
