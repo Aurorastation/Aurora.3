@@ -207,6 +207,7 @@
 /turf/template_noop,
 /area/template_noop)
 "aB" = (
+/obj/structure/railing/mapped,
 /obj/effect/landmark{
 	name = "Observer-Start"
 	},
@@ -968,8 +969,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "cq" = (
-/obj/machinery/power/apc/south,
-/turf/simulated/wall/r_wall,
+/obj/effect/floor_decal/industrial/loading/grey{
+	dir = 1
+	},
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
 "cr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1425,10 +1429,15 @@
 /turf/simulated/floor/tiled,
 /area/construction)
 "dH" = (
-/obj/machinery/ion_engine{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/light{
+	brightness_range = 16;
+	dir = 8;
+	must_start_working = 1
+	},
+/turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
 "eH" = (
 /obj/machinery/firealarm/south,
@@ -1445,6 +1454,9 @@
 /area/hallway/primary/central_one)
 "fq" = (
 /obj/machinery/computer/shuttle_control/explore/runtime,
+/obj/structure/fuel_port/phoron{
+	pixel_x = 32
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
 "fz" = (
@@ -1486,6 +1498,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
+/obj/machinery/alarm/west,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
 "kc" = (
@@ -1785,6 +1798,12 @@
 /obj/effect/floor_decal/industrial/loading/grey{
 	dir = 1
 	},
+/obj/machinery/light{
+	brightness_range = 16;
+	dir = 8;
+	must_start_working = 1
+	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
 "IY" = (
@@ -2014,8 +2033,8 @@
 /turf/template_noop,
 /area/engineering)
 "ZH" = (
-/obj/structure/fuel_port/phoron,
-/turf/simulated/wall/r_wall,
+/obj/machinery/power/apc/south,
+/turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
 
 (1,1,1) = {"
@@ -3022,8 +3041,8 @@ aa
 cK
 de
 qx
-jZ
-Ix
+dH
+cq
 jZ
 Ix
 Qn
@@ -3282,8 +3301,8 @@ xt
 Vm
 Jx
 wL
-Vm
-dH
+ZH
+Qe
 de
 cK
 aa
@@ -3793,10 +3812,10 @@ aa
 cK
 de
 Qe
-ZH
+Qe
 aE
 aE
-cq
+Qe
 Qe
 de
 cK
