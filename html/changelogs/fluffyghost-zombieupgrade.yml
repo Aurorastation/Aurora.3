@@ -45,5 +45,5 @@ changes:
   - rscadd: "Zombie producing chemical grenade added."
   - tweak: "Turning into zombie is now ~40% faster than before."
   - tweak: "Zombies now have a limited stamina."
-  - tweak: "Normal zombies don't see through walls anymore, only the hunter do."
+  - balance: "Normal zombies no longer see through walls; only the hunter does."
   - backend: "Some dmdoc and spacemandmm constrains added."

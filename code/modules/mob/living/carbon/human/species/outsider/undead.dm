@@ -387,8 +387,8 @@
 
 ///A zombie tuned for charge attacks
 /datum/species/zombie/rhino
-	name = SPECIES_ZOMBIE_THINO
-	name_plural = SPECIES_ZOMBIE_THINO+"s"
+	name = SPECIES_ZOMBIE_RHINO
+	name_plural = SPECIES_ZOMBIE_RHINO+"s"
 	icobase = 'icons/mob/human_races/zombie/r_zombie_rhino.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie_rhino.dmi'
 	slowdown = 2

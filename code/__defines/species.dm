@@ -41,7 +41,7 @@
 #define SPECIES_ZOMBIE				"Zombie"
 #define SPECIES_ZOMBIE_BULL			"Zombie Bull"
 #define SPECIES_ZOMBIE_HUNTER		"Zombie Hunter"
-#define SPECIES_ZOMBIE_THINO		"Zombie Rhino"
+#define SPECIES_ZOMBIE_RHINO		"Zombie Rhino"
 #define SPECIES_ZOMBIE_TAJARA		"Tajara Zombie"
 #define SPECIES_ZOMBIE_UNATHI		"Unathi Zombie"
 #define SPECIES_ZOMBIE_SKRELL		"Skrell Zombie"
