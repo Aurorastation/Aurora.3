@@ -182,8 +182,8 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		nanoui_data["items"] = items
 	else if(nanoui_menu == 2)
 		var/permanentData[0]
-		for(var/datum/record/general/locked/L in sortRecord(SSrecords.records_locked))
-			permanentData[++permanentData.len] = list(Name = L.name,"id" = L.id)
+		for(var/datum/record/general/locked/record in SSrecords.records_locked)
+			permanentData[++permanentData.len] = list("name" = record.name,"id" = record.id, "has_exploitables" = !!record.exploit_record)
 		nanoui_data["exploit_records"] = permanentData
 	else if(nanoui_menu == 21)
 		nanoui_data["exploit_exists"] = 0

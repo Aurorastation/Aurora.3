@@ -10,7 +10,7 @@ export type UplinkData = {
   bluecrystals: Number;
   categories: { name: string; ref: string }[];
   items: ItemData[];
-  exploit_records: { Name: string; id: number }[];
+  exploit_records: ExploitData[];
   exploit: ExploitData;
   exploit_exists: BooleanLike;
 };
@@ -26,6 +26,7 @@ type ItemData = {
 };
 
 type ExploitData = {
+  id: number;
   nanoui_exploit_record: string;
   name: string;
   sex: string;
@@ -36,6 +37,7 @@ type ExploitData = {
   employer: string;
   religion: string;
   fingerprint: string;
+  has_exploitables: BooleanLike;
 };
 
 export const Uplink = (props, context) => {
@@ -205,20 +207,30 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
 };
 
 const ExploitSection = function (act: any, data: UplinkData) {
+  const exploit_sort = (a: ExploitData, b: ExploitData) => {
+    return a.name.localeCompare(b.name);
+  };
+
   return (
     <Section title="Information Record List">
       Select a Record
-      <LabeledList>
-        {data.exploit_records?.map((exploit) => (
-          <LabeledList.Item>
-            <Button
-              content={exploit.Name}
-              color={'purple'}
-              onClick={() => act('menu', { menu: 21, id: exploit.id })}
-            />
-          </LabeledList.Item>
-        ))}
-      </LabeledList>
+      <br />
+      <br />
+      <Box>
+        {data.exploit_records
+          ?.sort(exploit_sort)
+          .map((exploit: ExploitData) => (
+            <>
+              <Button
+                content={exploit.name}
+                color={'purple'}
+                icon={exploit.has_exploitables ? 'warning' : null}
+                onClick={() => act('menu', { menu: 21, id: exploit.id })}
+              />
+              <br />
+            </>
+          ))}
+      </Box>
     </Section>
   );
 };
@@ -248,7 +260,9 @@ const ExploitRecordSection = function (act: any, data: UplinkData) {
           </LabeledList.Item>
           <LabeledList.Item label="Acquired Information"></LabeledList.Item>
         </LabeledList>
-        {exploit.nanoui_exploit_record}
+        {exploit.nanoui_exploit_record
+          ? exploit.nanoui_exploit_record
+          : 'No additional information acquired.'}
       </Section>
     );
   } else {
@@ -268,7 +282,7 @@ const ContractsSection = function (act: any, data: UplinkData) {
         {data.exploit_records?.map((exploit) => (
           <LabeledList.Item>
             <Button
-              content={exploit.Name}
+              content={exploit.name}
               color={'purple'}
               onClick={() => act('menu', { menu: 21, id: exploit.id })}
             />
