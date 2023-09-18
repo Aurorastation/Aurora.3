@@ -195,18 +195,19 @@
 /datum/gear/accessory/polo/New()
 	..()
 	var/list/polo = list()
-	polo["blue polo"] = /obj/item/clothing/accessory/polo/polo_blue
-	polo["blue female polo"] = /obj/item/clothing/accessory/polo/polo_blue_fem
-	polo["red polo"] = /obj/item/clothing/accessory/polo/polo_red
-	polo["red female polo"] = /obj/item/clothing/accessory/polo/polo_red_fem
-	polo["tan polo"] = /obj/item/clothing/accessory/polo/polo_grayyellow
-	polo["tan female polo"] = /obj/item/clothing/accessory/polo/polo_grayyellow_fem
-	polo["polo green strip"] = /obj/item/clothing/accessory/polo/polo_greenstrip
-	polo["female polo green strip"] = /obj/item/clothing/accessory/polo/polo_greenstrip_fem
-	polo["polo blue strip"] = /obj/item/clothing/accessory/polo/polo_bluestrip
-	polo["female polo blue strip"] = /obj/item/clothing/accessory/polo/polo_bluestrip_fem
-	polo["polo red strip"] = /obj/item/clothing/accessory/polo/polo_redstrip
-	polo["female polo red strip"] = /obj/item/clothing/accessory/polo/polo_redstrip_fem
+
+	polo["blue polo shirt"] = /obj/item/clothing/accessory/polo/polo_blue
+	polo["blue polo shirt (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_blue_fem
+	polo["red polo shirt"] = /obj/item/clothing/accessory/polo/polo_red
+	polo["red polo shirt (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_red_fem
+	polo["tan polo shirt"] = /obj/item/clothing/accessory/polo/polo_grayyellow
+	polo["tan polo shirt (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_grayyellow_fem
+	polo["polo shirt, green strip"] = /obj/item/clothing/accessory/polo/polo_greenstrip
+	polo["polo shirt, green strip (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_greenstrip_fem
+	polo["polo shirt, blue strip"] = /obj/item/clothing/accessory/polo/polo_bluestrip
+	polo["polo shirt, blue strip (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_bluestrip_fem
+	polo["polo shirt, red strip"] = /obj/item/clothing/accessory/polo/polo_redstrip
+	polo["polo shirt, red strip (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_redstrip_fem
 
 	gear_tweaks += new /datum/gear_tweak/path(polo)
 
