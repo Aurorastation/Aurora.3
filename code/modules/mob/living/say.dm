@@ -341,6 +341,7 @@ var/list/channel_to_radio_key = new
 	var/image/speech_bubble
 	if(speech_bubble_state)
 		speech_bubble = image('icons/mob/talk.dmi', src, speech_bubble_state)
+		adjust_typing_indicator_offsets(speech_bubble)
 		speech_bubble.layer = layer
 		speech_bubble.plane = plane
 

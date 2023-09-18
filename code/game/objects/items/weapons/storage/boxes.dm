@@ -757,7 +757,6 @@
 /obj/item/storage/box/freezer
 	name = "portable freezer"
 	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
-	icon = 'icons/obj/storage.dmi'
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
 	max_w_class = ITEMSIZE_NORMAL
@@ -769,7 +768,7 @@
 	name = "organ cooler"
 	desc = "A sealed, cooled container to keep organs from decaying."
 	icon_state = "organcooler"
-	item_state = "advfirstaid"
+	item_state = "redbox"
 	max_w_class = ITEMSIZE_NORMAL
 	foldable = FALSE
 	w_class = ITEMSIZE_LARGE
