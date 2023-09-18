@@ -1,5 +1,5 @@
 /datum/map_template/ruin/exoplanet/konyang_landing_zone
-	name = "Wilderness Command Center Landing Zone"
+	name = "SCC Expedition Command Center Landing Zone"
 	id = "konyang_landing_zone"
 	description = "An artificial orbitally-dropped prefab of flattened ground established for shuttle landing."
 
@@ -8,7 +8,7 @@
 	suffixes = list("konyang/landing_zone.dmm")
 
 /area/konyang_landing_zone
-	name = "Wilderness Command Center"
+	name = "SCC Expedition Command Center"
 	icon_state = "bluenew"
 	requires_power = FALSE
 	dynamic_lighting = TRUE
@@ -17,38 +17,38 @@
 	flags = HIDE_FROM_HOLOMAP
 
 /area/konyang_landing_zone/command_center
-	name = "Wilderness Command Center"
+	name = "SCC Expedition Command Center"
 	requires_power = TRUE
 
 /area/konyang_landing_zone/command_center/reactor
-	name = "Wilderness Command Center Reactor"
+	name = "SCC Expedition Command Center Reactor"
 
 /area/konyang_landing_zone/command_center/garage
-	name = "Wilderness Command Center Garage"
+	name = "SCC Expedition Command Center Garage"
 
 /area/konyang_landing_zone/command_center/living
-	name = "Wilderness Command Center Living Area"
+	name = "SCC Expedition Command Center Living Area"
 
 /area/konyang_landing_zone/command_center/greenhouse
-	name = "Wilderness Command Center Greenhouse"
+	name = "SCC Expedition Command Center Greenhouse"
 
 /area/konyang_landing_zone/command_center/landing_pads
-	name = "Wilderness Command Center Landing Pads"
+	name = "SCC Expedition Command Center Landing Pads"
 
 /obj/effect/shuttle_landmark/konyang_landing_zone_intrepid
-	name = "Wilderness Command Center - Intrepid"
+	name = "SCC Expedition Command Center - Intrepid"
 	landmark_tag = "nav_konyang_landing_zone_intrepid"
 	base_turf = /turf/simulated/floor/asphalt
 	base_area = /area/konyang_landing_zone
 
 /obj/effect/shuttle_landmark/konyang_landing_zone_canary
-	name = "Wilderness Command Center - Canary"
+	name = "SCC Expedition Command Center - Canary"
 	landmark_tag = "nav_konyang_landing_zone_canary"
 	base_turf = /turf/simulated/floor/asphalt
 	base_area = /area/konyang_landing_zone
 
 /obj/effect/shuttle_landmark/konyang_landing_zone_spark
-	name = "Wilderness Command Center - Spark"
+	name = "SCC Expedition Command Center - Spark"
 	landmark_tag = "nav_konyang_landing_zone_spark"
 	base_turf = /turf/simulated/floor/asphalt
 	base_area = /area/konyang_landing_zone

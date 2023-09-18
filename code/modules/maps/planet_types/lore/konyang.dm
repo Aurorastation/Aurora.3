@@ -20,7 +20,7 @@
 	ruin_planet_type = PLANET_LORE
 	ruin_type_whitelist = null
 	possible_themes = null
-	place_near_main = list(0,0)
+	place_near_main = list(1,0)
 	var/landing_theme
 	var/landing_details
 

@@ -1006,11 +1006,9 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "eR" = (
-/obj/structure/chainlink_fence{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/generic/beet_tree_petals,
-/turf/simulated/floor/sidewalk,
+/obj/effect/decal/curb,
+/obj/structure/ladder/up,
+/turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "eT" = (
 /obj/structure/flora/rock/konyang/water,
@@ -1532,12 +1530,10 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "hh" = (
-/obj/effect/decal/curb{
-	dir = 8
-	},
 /obj/effect/decal/curb/corner{
 	dir = 4
 	},
+/obj/effect/decal/curb/corner,
 /obj/effect/decal/curb/corner{
 	dir = 1
 	},
@@ -3421,6 +3417,12 @@
 	},
 /turf/simulated/open,
 /area/point_verdant/interior)
+"pp" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/bar)
 "pr" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -3948,6 +3950,7 @@
 /area/point_verdant/outdoors)
 "rH" = (
 /obj/effect/map_effect/window_spawner/full/wood,
+/turf/simulated/floor/concrete,
 /area/point_verdant/interior/arcade)
 "rI" = (
 /obj/structure/konyang_cliff{
@@ -4453,7 +4456,10 @@
 /obj/effect/decal/curb{
 	dir = 5
 	},
-/obj/effect/decal/curb/corner,
+/obj/structure/ladder/up,
+/obj/effect/decal/curb{
+	dir = 6
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "tM" = (
@@ -6097,6 +6103,10 @@
 /obj/effect/decal/road_marking/turn_left{
 	dir = 4
 	},
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Az" = (
@@ -7665,11 +7675,11 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "Ho" = (
-/obj/effect/decal/curb{
-	dir = 10
-	},
 /obj/effect/decal/curb/corner{
 	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -7945,6 +7955,9 @@
 	layer = 2.01
 	},
 /turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
+"Il" = (
+/turf/simulated/wall/wood,
 /area/point_verdant/outdoors)
 "Io" = (
 /obj/structure/bed/padded,
@@ -9312,6 +9325,10 @@
 /obj/effect/decal/curb{
 	dir = 5
 	},
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1
+	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Ov" = (
@@ -9453,15 +9470,10 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "Pa" = (
-/obj/structure/chainlink_fence{
-	layer = 9.1;
-	dir = 1
-	},
-/obj/structure/chainlink_fence{
-	dir = 8
-	},
-/turf/simulated/floor/sidewalk,
-/area/point_verdant/outdoors)
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/table/rack/cafe_table,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant/interior/shallow)
 "Pc" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner1"
@@ -11335,6 +11347,16 @@
 "Yf" = (
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/police)
+"Yi" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "Yk" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -36524,7 +36546,7 @@ BT
 BT
 BT
 BT
-BT
+oV
 oV
 oV
 oV
@@ -36764,7 +36786,7 @@ iL
 Fq
 Kh
 KK
-Us
+Pa
 Us
 Us
 Ro
@@ -36782,7 +36804,7 @@ oV
 oV
 oV
 oV
-oV
+pp
 Cc
 LS
 kX
@@ -37280,7 +37302,7 @@ Kh
 KK
 Us
 Us
-Us
+Pa
 Us
 Tx
 BT
@@ -38071,7 +38093,7 @@ mc
 mc
 LD
 oV
-ve
+eR
 iL
 Lj
 cC
@@ -42664,7 +42686,7 @@ iL
 iL
 iL
 Ay
-wx
+dh
 nY
 Bt
 OB
@@ -42920,9 +42942,9 @@ iL
 iL
 iL
 iL
-Ja
-wx
-ve
+Yi
+od
+eR
 WT
 sJ
 sJ
@@ -43198,8 +43220,8 @@ pY
 pY
 pY
 hh
-pY
-pY
+lU
+Il
 tJ
 tV
 vf
@@ -43443,8 +43465,8 @@ YP
 YP
 YP
 qD
-Pa
-eR
+Db
+IZ
 cY
 cY
 cY
@@ -43454,10 +43476,10 @@ cY
 cY
 cY
 cY
-cY
-LE
-cY
-Vd
+ve
+WT
+sJ
+CT
 tV
 tV
 tV
@@ -43710,10 +43732,10 @@ Wq
 JY
 kO
 Wq
-Wq
-Wq
-Wq
 cY
+IY
+cC
+cC
 Ho
 Wa
 Wa
@@ -43967,9 +43989,9 @@ Ha
 kO
 kO
 Wq
-RD
-JY
-Wq
+cY
+cY
+cY
 cY
 cY
 cY
@@ -44222,12 +44244,12 @@ Wq
 kO
 Wq
 Wq
-Wq
+RD
 Wq
 kO
 Wq
 Wq
-RD
+Wq
 Wq
 tC
 RD
@@ -44483,7 +44505,7 @@ Ha
 Wq
 Wq
 Wq
-Wq
+RD
 Wq
 Ha
 Wq

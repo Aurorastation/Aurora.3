@@ -1,0 +1,6862 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/simulated/wall,
+/area/konyang_landing_zone/command_center/garage)
+"ac" = (
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/obj/machinery/computer/cryopod{
+	pixel_x = 28;
+	pixel_y = 7
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"ae" = (
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"ah" = (
+/obj/structure/tank_wall/carbon_dioxide{
+	density = 0;
+	icon_state = "co2-11";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/konyang_landing_zone/command_center/landing_pads)
+"as" = (
+/obj/structure/ledge{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"av" = (
+/turf/simulated/wall,
+/area/konyang_landing_zone/command_center)
+"ax" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"aA" = (
+/turf/simulated/floor/reinforced/airmix,
+/area/konyang_landing_zone/command_center/landing_pads)
+"aC" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"aJ" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"aM" = (
+/obj/structure/ledge/corner,
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"bh" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"bo" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"br" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"bx" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular/open{
+	id = "lz_lockdown";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/living)
+"bD" = (
+/obj/effect/decal/curb{
+	dir = 10
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"bK" = (
+/obj/effect/decal/exterior_stairs/half/right{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"bN" = (
+/obj/effect/decal/exterior_stairs/left{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"bR" = (
+/obj/machinery/door/urban,
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "lz_lockdown";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"bV" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"bY" = (
+/obj/effect/shuttle_landmark/automatic/spark,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone)
+"bZ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/table/wood,
+/obj/machinery/photocopier/faxmachine{
+	department = "Konyang SCC Forward Operating Post - Horizon Crew Alpha LZ"
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"ca" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/pen,
+/obj/item/device/binoculars,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"cb" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/power/breakerbox/activated,
+/turf/simulated/floor/sidewalk/flat,
+/area/konyang_landing_zone/command_center/landing_pads)
+"cd" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"ch" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced,
+/obj/item/device/flashlight/lamp/box{
+	pixel_y = 5
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/konyang_landing_zone/command_center/living)
+"ci" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/computer/general_air_control/large_tank_control{
+	name = "LZ Air Supply Monitor";
+	sensors = list("lz_air_sensor"="Site Tank");
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"cj" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air10"
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"cl" = (
+/obj/structure/bed/roller,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center)
+"cm" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"cp" = (
+/turf/simulated/wall/r_wall,
+/area/konyang_landing_zone/command_center/landing_pads)
+"cr" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/random/booze,
+/obj/random/booze{
+	pixel_x = -11
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/konyang_landing_zone/command_center/living)
+"cs" = (
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/planks/stairs{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"ct" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-9"
+	},
+/turf/simulated/floor/airless,
+/area/konyang_landing_zone/command_center/landing_pads)
+"cu" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"cS" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center)
+"de" = (
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"dg" = (
+/obj/structure/railing/mapped{
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"di" = (
+/turf/simulated/wall,
+/area/konyang_landing_zone/command_center/living)
+"dm" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"dq" = (
+/obj/structure/tank_wall/air{
+	density = 0;
+	icon_state = "air6";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/konyang_landing_zone/command_center/landing_pads)
+"du" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"dw" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/effect/decal/exterior_stairs/half/right{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"dy" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
+	pixel_x = 4;
+	pixel_y = 11
+	},
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/o2,
+/obj/item/clothing/glasses/hud/health,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center)
+"dC" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"dH" = (
+/obj/effect/floor_decal/big/scc_full,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"dJ" = (
+/obj/structure/railing/mapped,
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"dM" = (
+/obj/structure/ledge/quarter,
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"ea" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"ek" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/garage)
+"el" = (
+/obj/machinery/meter{
+	name = "Air Reserve"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"ep" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/curtain/open/bed{
+	pixel_x = 32
+	},
+/turf/simulated/floor/carpet/purple,
+/area/konyang_landing_zone/command_center/living)
+"eu" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"eC" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"eG" = (
+/obj/machinery/seed_storage/garden,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"eQ" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"eS" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"eU" = (
+/obj/effect/decal/road_marking,
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"fb" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/decal/road_marking,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"fg" = (
+/obj/structure/railing/mapped,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"fn" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone)
+"fp" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"fx" = (
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/konyang_landing_zone/command_center/living)
+"fC" = (
+/obj/machinery/button/remote/blast_door{
+	id = "lz_vehiclebay";
+	name = "Exterior Blast Door";
+	pixel_y = 26;
+	dir = 1
+	},
+/obj/machinery/light_switch{
+	pixel_x = -12;
+	pixel_y = 24;
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"fE" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	dir = 5
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"fH" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining{
+	pixel_x = -7
+	},
+/obj/item/device/gps/mining{
+	pixel_x = 6
+	},
+/obj/structure/table/rack,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"fI" = (
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"fP" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"fV" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"fY" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone/command_center/landing_pads)
+"gh" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"gj" = (
+/obj/effect/decal/curb{
+	dir = 5
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"gr" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"gF" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"gG" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/effect/decal/road_marking,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"gH" = (
+/obj/structure/ledge,
+/obj/structure/railing/mapped{
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"gM" = (
+/obj/structure/closet/crate/bin/urban/dumpster,
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/konyang_landing_zone/command_center)
+"gP" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"gS" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"gW" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -8;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"hd" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"hf" = (
+/obj/effect/decal/exterior_stairs/center,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"hg" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/floor/airless,
+/area/konyang_landing_zone/command_center/landing_pads)
+"hz" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/corner/pink/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"hB" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/light/small,
+/obj/machinery/power/apc/south{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"hF" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"hT" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/full,
+/area/konyang_landing_zone/command_center/reactor)
+"hW" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"ir" = (
+/obj/effect/decal/curb{
+	dir = 6
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"iw" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"iC" = (
+/obj/structure/punching_bag,
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"iG" = (
+/obj/structure/railing/mapped,
+/obj/effect/decal/road_marking,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"iQ" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"iX" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"jd" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/decal/curb,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"je" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"jo" = (
+/obj/structure/closet/crate/secure/large,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/full,
+/area/konyang_landing_zone/command_center/reactor)
+"jG" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"jH" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"jZ" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/scythe,
+/obj/item/material/scythe/sickle,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/shovel/spade,
+/obj/item/shovel/spade,
+/obj/item/wrench,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"kc" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "lz_lockdown";
+	name = "Building Lockdown";
+	pixel_y = 26;
+	pixel_x = 23;
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"kd" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "lz_co2_sensor"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/konyang_landing_zone/command_center/landing_pads)
+"kj" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"kn" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"kx" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"kI" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/smes/buildable/horizon_shuttle,
+/turf/simulated/floor/tiled/full,
+/area/konyang_landing_zone/command_center/reactor)
+"kV" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/konyang_landing_zone/command_center/landing_pads)
+"kZ" = (
+/obj/machinery/door/urban,
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"lb" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"lk" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/effect/decal/exterior_stairs/left{
+	dir = 4;
+	layer = 2.01
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"lo" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"ls" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"lt" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center)
+"lw" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"lA" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 8;
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"lK" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"lM" = (
+/obj/machinery/portable_atmospherics/canister,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"lX" = (
+/obj/structure/table/wood,
+/obj/item/device/radio/phone,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"mA" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"mH" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-15"
+	},
+/turf/simulated/floor/airless,
+/area/konyang_landing_zone/command_center/landing_pads)
+"mI" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"mJ" = (
+/obj/effect/decal/road_marking/turn_right,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"mL" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/sink/kitchen{
+	name = "sink";
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"mN" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"mV" = (
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"mW" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"nj" = (
+/obj/machinery/light_switch{
+	pixel_x = -25;
+	pixel_y = 24;
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"nk" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/photocopier,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"nu" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/full,
+/area/konyang_landing_zone/command_center/reactor)
+"nw" = (
+/obj/machinery/appliance/cooker/stove,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"nx" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/recharger,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"nz" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/reagent_dispensers/water_cooler,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"nA" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center)
+"nH" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"nM" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"nP" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"nU" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular/open{
+	id = "lz_lockdown"
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/greenhouse)
+"nY" = (
+/turf/simulated/wall/r_wall,
+/area/konyang_landing_zone/command_center)
+"od" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"ok" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-8"
+	},
+/turf/simulated/floor/airless,
+/area/konyang_landing_zone/command_center/landing_pads)
+"om" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/konyang_landing_zone/command_center)
+"on" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/machinery/reagentgrinder{
+	pixel_x = 1;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"ou" = (
+/turf/simulated/floor/carpet/purple,
+/area/konyang_landing_zone/command_center/living)
+"oW" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"pb" = (
+/obj/effect/decal/exterior_stairs/half/center,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"pe" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/biogenerator{
+	icon_state = "biogen-empty"
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"pj" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"pl" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/structure/sink/kitchen{
+	dir = 4;
+	name = "sink";
+	pixel_x = -20
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"pn" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular/open{
+	id = "lz_lockdown";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/greenhouse)
+"po" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/bed/stool/padded/red,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"pv" = (
+/obj/structure/bed/stool/chair/sofa/right/red{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/konyang_landing_zone/command_center/living)
+"pH" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/item/hoist_kit,
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"pW" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-7"
+	},
+/turf/simulated/floor/airless,
+/area/konyang_landing_zone/command_center/landing_pads)
+"qb" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/pink/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"qe" = (
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 1
+	},
+/obj/machinery/door/urban,
+/obj/machinery/door/blast/regular/open{
+	id = "lz_lockdown";
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"qi" = (
+/obj/item/hullbeacon/red,
+/obj/effect/decal/road_marking/no_pass{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"qq" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"qC" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"qD" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"rc" = (
+/obj/effect/shuttle_landmark/automatic/intrepid,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"rf" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"rh" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"rj" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"rw" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-13"
+	},
+/turf/simulated/floor/airless,
+/area/konyang_landing_zone/command_center/landing_pads)
+"ry" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone/command_center/garage)
+"rH" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/appliance/cooker/oven/small{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/item/storage/box/produce{
+	pixel_y = -10
+	},
+/obj/item/storage/box/produce{
+	pixel_y = -18
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"rJ" = (
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center)
+"rM" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"rQ" = (
+/obj/effect/decal/exterior_stairs/left{
+	dir = 4;
+	layer = 2.01
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"rS" = (
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"rV" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/rack,
+/obj/item/material/hatchet/lumber,
+/obj/item/hammer,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"rX" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"sp" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/crate/trashcart,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center)
+"su" = (
+/obj/structure/shipping_container{
+	icon_state = "red3"
+	},
+/obj/effect/overlay/container_logo{
+	icon_state = "heph2"
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"sK" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/effect/decal/exterior_stairs/half/left{
+	layer = 3
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"sL" = (
+/obj/structure/ledge/quarter{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"sR" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 1
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"sW" = (
+/obj/machinery/mech_recharger/hephaestus,
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"ta" = (
+/obj/structure/ledge/quarter{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"tb" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"te" = (
+/obj/machinery/door/urban,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/full,
+/area/konyang_landing_zone/command_center/reactor)
+"tf" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/air{
+	icon_state = "air14"
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"tu" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-4"
+	},
+/turf/simulated/floor/airless,
+/area/konyang_landing_zone/command_center/landing_pads)
+"tz" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/item/device/camera,
+/obj/item/device/camera_film,
+/obj/item/tape_roll{
+	pixel_x = 14
+	},
+/obj/item/folder/blue{
+	pixel_x = 8
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"tH" = (
+/obj/effect/decal/exterior_stairs/left,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"tJ" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "Carbon dioxide to Connector"
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"tR" = (
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/konyang_landing_zone/command_center/landing_pads)
+"ur" = (
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "lz_air_sensor"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/reinforced/airmix,
+/area/konyang_landing_zone/command_center/landing_pads)
+"us" = (
+/obj/structure/closet/cabinet,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/flag/scc,
+/obj/item/flag/scc,
+/obj/item/device/taperecorder,
+/turf/simulated/floor/carpet/purple,
+/area/konyang_landing_zone/command_center/living)
+"uy" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"uE" = (
+/obj/machinery/light_switch{
+	pixel_x = -12;
+	pixel_y = 24;
+	dir = 1
+	},
+/obj/structure/closet/firecloset/full,
+/turf/simulated/floor/tiled/full,
+/area/konyang_landing_zone/command_center/reactor)
+"vb" = (
+/obj/item/stack/material/steel/full,
+/obj/item/stack/rods{
+	amount = 50
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/gloves/yellow,
+/obj/item/storage/box/lights/bulbs,
+/obj/item/storage/box/lights,
+/obj/item/device/suit_cooling_unit,
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"vc" = (
+/obj/effect/decal/curb{
+	dir = 10
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"vd" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"ve" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"vj" = (
+/obj/effect/decal/exterior_stairs/right,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"vm" = (
+/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/full,
+/area/konyang_landing_zone/command_center/reactor)
+"vn" = (
+/obj/structure/ledge{
+	dir = 6
+	},
+/obj/structure/railing/mapped{
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"vy" = (
+/obj/structure/ledge/quarter,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"vO" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/konyang_landing_zone/command_center)
+"vU" = (
+/obj/structure/railing/mapped,
+/obj/effect/decal/curb{
+	dir = 9
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"vX" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"wi" = (
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"wn" = (
+/obj/machinery/door/blast/regular{
+	id = "lz_vehiclebay"
+	},
+/obj/structure/plasticflaps/airtight{
+	layer = 2.5
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"wo" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center)
+"wt" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/full,
+/area/konyang_landing_zone/command_center/reactor)
+"wv" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"wz" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"wE" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"wF" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/machinery/recharger,
+/obj/structure/table/wood,
+/obj/item/device/flashlight/flare{
+	pixel_x = 8
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"wR" = (
+/obj/machinery/light/small,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"wS" = (
+/obj/structure/bed/padded,
+/obj/structure/bed/padded/bunk,
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/black,
+/obj/item/bedsheet/blue{
+	pixel_y = 16
+	},
+/turf/simulated/floor/carpet/purple,
+/area/konyang_landing_zone/command_center/living)
+"wZ" = (
+/obj/effect/decal/exterior_stairs/right{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_landing_zone)
+"xb" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "lz_lockdown"
+	},
+/turf/simulated/floor/tiled/full,
+/area/konyang_landing_zone/command_center)
+"xd" = (
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"xj" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"xr" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"xR" = (
+/obj/structure/railing/mapped,
+/obj/structure/ledge/quarter,
+/obj/structure/ledge/quarter/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"xT" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"ye" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"yg" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"yi" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air13"
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"yn" = (
+/obj/structure/ledge/quarter{
+	dir = 9
+	},
+/obj/effect/decal/exterior_stairs/half/left{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"yp" = (
+/obj/structure/sign/emergency/evacuation,
+/turf/simulated/wall,
+/area/konyang_landing_zone/command_center)
+"yv" = (
+/obj/effect/decal/road_marking/no_park,
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"yB" = (
+/obj/structure/bed/stool/chair/sofa/red{
+	dir = 4
+	},
+/obj/item/newspaper{
+	pixel_x = 4
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/konyang_landing_zone/command_center/living)
+"yJ" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	frequency = 1441;
+	id_tag = "lz_co2_out";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/konyang_landing_zone/command_center/landing_pads)
+"yK" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone)
+"zn" = (
+/obj/structure/dock_structure,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"zu" = (
+/obj/structure/table/wood,
+/obj/structure/television{
+	pixel_y = -8
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/konyang_landing_zone/command_center/living)
+"zE" = (
+/obj/structure/table/wood,
+/obj/item/flame/lighter{
+	pixel_y = 2;
+	pixel_x = -7
+	},
+/obj/item/storage/box/fancy/cigarettes/dromedaryco{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/konyang_landing_zone/command_center/living)
+"zG" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular/open{
+	id = "lz_lockdown";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center)
+"zM" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"zQ" = (
+/obj/structure/weightlifter,
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"Af" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"Ah" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/structure/ore_box,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Ar" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 10
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Ax" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/binary/pump/aux{
+	dir = 4;
+	name = "Air to Connector";
+	layer = 2.8
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"AD" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"AG" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"AS" = (
+/obj/structure/tank_wall/air{
+	density = 0;
+	icon_state = "air5";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Bc" = (
+/obj/machinery/seed_extractor,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"Bf" = (
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Bh" = (
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/obj/structure/ledge/quarter{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"Bt" = (
+/obj/structure/tank_wall/air{
+	density = 0;
+	icon_state = "air12";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Bx" = (
+/obj/item/pickaxe,
+/obj/structure/table/rack,
+/obj/item/pickaxe,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"By" = (
+/obj/structure/crane,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"BA" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"BG" = (
+/obj/structure/closet/crate/rad/gear,
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"BN" = (
+/obj/structure/closet/crate/miningcart/ore,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"BR" = (
+/obj/structure/bed/stool/chair/sofa/left/red,
+/obj/item/device/laser_pointer,
+/turf/simulated/floor/carpet/magenta,
+/area/konyang_landing_zone/command_center/living)
+"Ch" = (
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"Cr" = (
+/obj/structure/bed/stool/chair/office/dark,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"Cw" = (
+/obj/structure/sign/emergency/evacuation/stairs,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"Cx" = (
+/obj/structure/tank_wall/carbon_dioxide{
+	density = 0;
+	icon_state = "co2-6";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/konyang_landing_zone/command_center/landing_pads)
+"CL" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-3"
+	},
+/turf/simulated/floor/airless,
+/area/konyang_landing_zone/command_center/landing_pads)
+"CM" = (
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"CR" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Dh" = (
+/turf/simulated/wall/r_wall,
+/area/konyang_landing_zone/command_center/reactor)
+"Dj" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Do" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"Dp" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/tank_wall/air,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Ds" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/meter{
+	name = "Fuel Reserve"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Dy" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	layer = 9.1;
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"DB" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"DJ" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"DN" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/obj/structure/bed/stool/chair/office/dark,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"DU" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced,
+/obj/item/clothing/gloves/janitor,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"DZ" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Ea" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Ee" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"Eo" = (
+/obj/structure/window/reinforced,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/mop,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"EB" = (
+/obj/structure/ledge{
+	dir = 10
+	},
+/obj/structure/railing/mapped{
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Fe" = (
+/obj/machinery/meter{
+	name = "Fuel Reserve"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Fh" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/tank_wall/carbon_dioxide,
+/turf/simulated/floor/airless,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Fn" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/air{
+	icon_state = "air16"
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Fo" = (
+/obj/structure/ledge{
+	dir = 5
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Fr" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/reagent_dispensers/coolanttank,
+/turf/simulated/floor/tiled/full,
+/area/konyang_landing_zone/command_center/reactor)
+"Fs" = (
+/obj/structure/tank_wall/carbon_dioxide{
+	density = 0;
+	icon_state = "co2-12";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Fu" = (
+/obj/machinery/computer/general_air_control/large_tank_control{
+	name = "LZ Carbon Dioxide Supply Monitor";
+	sensors = list("lz_co2_sensor"="Site Tank");
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"Fy" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 4
+	},
+/obj/effect/decal/curb,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"FJ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"FK" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"FR" = (
+/obj/effect/decal/road_marking/reflector,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"FU" = (
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Ge" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Gi" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Gq" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"Gs" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"GB" = (
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/mechanical,
+/obj/structure/table/rack,
+/obj/item/wrench,
+/obj/machinery/light/small,
+/obj/item/clothing/gloves/yellow,
+/obj/item/device/analyzer,
+/obj/item/extinguisher,
+/turf/simulated/floor/tiled/full,
+/area/konyang_landing_zone/command_center/reactor)
+"GE" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/obj/structure/utility_pole/street/on,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"GG" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"GL" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"GM" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-16"
+	},
+/turf/simulated/floor/airless,
+/area/konyang_landing_zone/command_center/landing_pads)
+"GN" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"GQ" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"GR" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"GX" = (
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"Ha" = (
+/obj/structure/ledge{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Hc" = (
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"Ho" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Hr" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Ht" = (
+/obj/structure/table/wood,
+/obj/structure/bedsheetbin,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"Hz" = (
+/obj/machinery/smartfridge/secure,
+/turf/simulated/wall,
+/area/konyang_landing_zone/command_center/greenhouse)
+"HG" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "Carbon dioxide to Connector"
+	},
+/obj/effect/decal/curb,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"HZ" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Ik" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"IK" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/crate/plastic,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center)
+"IL" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 9
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Jh" = (
+/obj/effect/decal/curb,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Js" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small,
+/obj/machinery/chem_master,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"Jt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air8"
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Ju" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"JA" = (
+/obj/structure/table/standard,
+/obj/item/roller,
+/obj/item/roller,
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/inhaler/pneumalin{
+	pixel_y = -13
+	},
+/obj/item/clothing/mask/surgical,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center)
+"JB" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"JD" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"JG" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/konyang_landing_zone/command_center)
+"JV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"JW" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air4"
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Kb" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Kn" = (
+/obj/structure/railing/mapped,
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Ky" = (
+/obj/structure/railing/mapped,
+/obj/machinery/computer/ship/sensors{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"KD" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"KL" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"KT" = (
+/obj/effect/decal/road_marking/no_park,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"KU" = (
+/obj/structure/shipping_container{
+	icon_state = "red1"
+	},
+/obj/effect/overlay/container_logo{
+	icon_state = "heph3";
+	pixel_y = 12;
+	pixel_x = 8
+	},
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Lb" = (
+/obj/machinery/light_switch{
+	pixel_x = -21;
+	pixel_y = 33;
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/light,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"Lr" = (
+/obj/effect/decal/road_marking/reflector,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"LA" = (
+/obj/structure/railing/mapped,
+/obj/structure/bed/stool/chair/office/bridge{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"LN" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"LP" = (
+/obj/effect/decal/road_marking/no_park,
+/obj/machinery/floodlight,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"LQ" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Carbon dioxide to Connector"
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"LY" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Mh" = (
+/obj/structure/ledge/quarter/corner,
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"Mi" = (
+/obj/effect/decal/road_marking,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Mv" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/konyang_landing_zone/command_center/landing_pads)
+"MD" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"MH" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"MN" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"MX" = (
+/obj/machinery/meter{
+	name = "Fuel Reserve"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"MZ" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Nb" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/watertank,
+/obj/structure/table/rack,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"Nc" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"Nf" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"Ni" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"Nj" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Nk" = (
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"No" = (
+/obj/effect/decal/exterior_stairs/half,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"Nv" = (
+/obj/structure/closet/secure_closet/freezer/meat/super_meat,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"Nw" = (
+/obj/structure/bookcase/libraryspawn/fiction,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/carpet/magenta,
+/area/konyang_landing_zone/command_center/living)
+"NI" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-14"
+	},
+/turf/simulated/floor/airless,
+/area/konyang_landing_zone/command_center/landing_pads)
+"NU" = (
+/obj/structure/ledge/quarter,
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"NY" = (
+/obj/structure/table/rack,
+/obj/item/pickaxe/jackhammer,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Oa" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"Og" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"On" = (
+/obj/effect/decal/curb{
+	dir = 6
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Oo" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Ot" = (
+/obj/effect/decal/exterior_stairs/center,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Ov" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"Oz" = (
+/obj/structure/railing/mapped,
+/obj/structure/ledge/quarter,
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"OR" = (
+/obj/machinery/washing_machine,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"OU" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"OX" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air3"
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Pk" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"Pl" = (
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Pq" = (
+/obj/effect/decal/road_marking/no_pass,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"PA" = (
+/obj/machinery/power/portgen/basic,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"PC" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"PG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"PO" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	dir = 1;
+	frequency = 1441;
+	id_tag = "lz_air_out"
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/konyang_landing_zone/command_center/landing_pads)
+"PX" = (
+/obj/machinery/shipsensors/weak,
+/obj/item/device/gps/stationary{
+	pixel_x = -23;
+	name = "static GPS (Command Center)";
+	gpstag = "SCC-FOB"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/konyang_landing_zone/command_center)
+"Qn" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Qs" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air9"
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Qy" = (
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"QF" = (
+/obj/item/hullbeacon/red,
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/effect/decal/road_marking,
+/obj/structure/railing/mapped{
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"QJ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"QM" = (
+/obj/effect/decal/exterior_stairs/half/right,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"QT" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/effect/decal/exterior_stairs/right{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"QU" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/portables_connector/aux{
+	layer = 2.8
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/konyang_landing_zone/command_center/landing_pads)
+"QX" = (
+/obj/machinery/light_switch{
+	pixel_x = 23;
+	pixel_y = 24;
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"QY" = (
+/obj/machinery/door/urban,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"Rm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"RC" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"RD" = (
+/obj/machinery/autolathe,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"RG" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"RH" = (
+/turf/simulated/floor/carpet/magenta,
+/area/konyang_landing_zone/command_center/living)
+"Sc" = (
+/obj/item/reagent_containers/glass/bucket,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/konyang_landing_zone/command_center/reactor)
+"Si" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full{
+	pixel_y = 9
+	},
+/obj/item/stack/material/glass/full{
+	pixel_y = 9
+	},
+/obj/item/device/radio{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/item/device/radio{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/item/device/ano_scanner{
+	pixel_x = -5
+	},
+/obj/item/device/measuring_tape,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"Ss" = (
+/obj/effect/decal/road_marking/turn_left,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"Sw" = (
+/obj/structure/table/wood,
+/obj/item/storage/toolbox/emergency,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/item/device/paicard,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"Sx" = (
+/obj/effect/decal/curb{
+	dir = 9
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"SI" = (
+/obj/machinery/vending/hydronutrients,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"SN" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/carpet/purple,
+/area/konyang_landing_zone/command_center/living)
+"SP" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/computer/arcade,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"SS" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"SU" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air7"
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"SY" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"Ta" = (
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/closet/secure_closet/freezer,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/machinery/power/apc/west{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"Td" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"Tg" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/greenhouse)
+"Tq" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/machinery/chemical_dispenser,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"Tr" = (
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Tw" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"Tz" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"TA" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"TJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-10"
+	},
+/turf/simulated/floor/airless,
+/area/konyang_landing_zone/command_center/landing_pads)
+"TP" = (
+/obj/structure/window/reinforced,
+/obj/structure/table/wood,
+/obj/item/stack/material/cardboard{
+	amount = 10;
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/stack/material/cardboard{
+	amount = 10;
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/storage/box/cups,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"TX" = (
+/obj/machinery/meter{
+	name = "Air Reserve"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"TY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Ua" = (
+/obj/effect/decal/curb{
+	dir = 1;
+	layer = 2.02
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Uk" = (
+/obj/effect/decal/curb/corner,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"Uw" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Uy" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/structure/dock_structure,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"UB" = (
+/obj/structure/ledge{
+	dir = 9
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"UD" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"UO" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"UU" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular/open{
+	id = "lz_lockdown"
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/living)
+"Vc" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Vk" = (
+/obj/effect/shuttle_landmark/automatic/canary,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Vo" = (
+/obj/effect/decal/road_marking/no_park,
+/obj/structure/closet/crate/secure/large,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Vu" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone)
+"VD" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"VP" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/concrete,
+/area/konyang_landing_zone)
+"Wb" = (
+/obj/structure/tank_wall/air{
+	density = 0;
+	icon_state = "air11";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Wf" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/structure/closet/crate/secure/large,
+/obj/item/stack/material/graphite/full,
+/obj/item/stack/material/graphite/full,
+/obj/item/stack/material/graphite/full,
+/obj/item/stack/material/graphite/full,
+/obj/item/stack/material/graphite/full,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"Wh" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"Ww" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Wy" = (
+/obj/structure/table/stone/marble,
+/obj/item/storage/box/drinkingglasses{
+	pixel_y = 6
+	},
+/obj/item/storage/box/kitchen,
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = 17;
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/corner/pink/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"Wz" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"WA" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"WS" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/structure/closet/walllocker{
+	pixel_x = -27
+	},
+/obj/item/storage/box/toothpaste,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/structure/sink{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang_landing_zone/command_center/living)
+"WT" = (
+/obj/structure/table/rack/clothing{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"Xr" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Xs" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone)
+"Xt" = (
+/obj/effect/decal/exterior_stairs/center{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_landing_zone)
+"XE" = (
+/obj/structure/closet/crate/bin,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center/living)
+"XI" = (
+/obj/structure/tank_wall/carbon_dioxide{
+	density = 0;
+	icon_state = "co2-5";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/konyang_landing_zone/command_center/landing_pads)
+"XK" = (
+/obj/structure/railing/mapped,
+/obj/structure/ledge/quarter{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"XM" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/reinforced,
+/area/konyang_landing_zone/command_center/garage)
+"XR" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/machinery/papershredder,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"XW" = (
+/obj/structure/ledge,
+/obj/structure/utility_pole/street/on{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Yd" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Ye" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Yl" = (
+/turf/simulated/wall,
+/area/konyang_landing_zone/command_center/reactor)
+"Yp" = (
+/obj/effect/decal/curb{
+	dir = 5
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Yr" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/decal/road_marking,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"YD" = (
+/obj/effect/decal/curb,
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"YJ" = (
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"YP" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/air{
+	icon_state = "air15"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/blue,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"YU" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"YY" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center/landing_pads)
+"Zy" = (
+/obj/structure/shipping_container{
+	icon_state = "red2"
+	},
+/obj/effect/overlay/container_logo,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"ZA" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"ZK" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood,
+/area/konyang_landing_zone/command_center)
+"ZL" = (
+/obj/effect/decal/exterior_stairs/right{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"ZR" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/konyang_landing_zone)
+"ZW" = (
+/turf/simulated/wall,
+/area/konyang_landing_zone/command_center/greenhouse)
+"ZZ" = (
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/konyang_landing_zone/command_center)
+
+(1,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+mW
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(2,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+ir
+ZA
+ZA
+ZA
+ZA
+aC
+wz
+aC
+ZA
+aC
+ZA
+aC
+wz
+aC
+ZA
+aC
+ZA
+Yp
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(3,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+YD
+FU
+FU
+FU
+tb
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+eU
+ye
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(4,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+Jh
+FU
+FU
+FU
+tb
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gh
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(5,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+Jh
+FU
+wi
+br
+fp
+bY
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+Mi
+ye
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(6,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+Jh
+CR
+KD
+FU
+tb
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gh
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(7,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+Jh
+LQ
+KD
+FU
+tb
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+Mi
+ye
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(8,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+Jh
+MX
+KD
+FU
+tb
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gh
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(9,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+YD
+Qn
+rM
+FU
+tb
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+eU
+ye
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(10,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+bD
+sR
+fY
+QT
+lk
+Gs
+qC
+Gs
+UD
+Gs
+UD
+Gs
+qC
+Gs
+UD
+Gs
+UD
+IL
+Wz
+VD
+VD
+VD
+ZR
+mW
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(11,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+aM
+jG
+dM
+UO
+ae
+ae
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+Tw
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(12,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+AD
+ae
+On
+Og
+Og
+Og
+gj
+ae
+By
+ae
+On
+Og
+Og
+Og
+gj
+ae
+ae
+ae
+dH
+ae
+zn
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(13,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+HZ
+ae
+Jh
+KU
+AG
+lK
+Ua
+ae
+ae
+ae
+Jh
+Ah
+Ah
+Ah
+Ua
+ae
+ae
+ae
+ae
+ae
+ae
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(14,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+AD
+ae
+Jh
+Zy
+lM
+vX
+Ua
+ae
+ae
+ae
+Jh
+BN
+Bx
+NY
+Ua
+ae
+ae
+ae
+ae
+ae
+zn
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(15,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+JB
+ae
+Jh
+su
+yv
+Vo
+Ua
+ae
+ae
+ae
+Jh
+LP
+LP
+KT
+Ua
+ae
+ae
+ae
+ae
+ae
+ae
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(16,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+vy
+AD
+ae
+Jh
+dm
+dm
+dm
+Ua
+ae
+ae
+ae
+Jh
+nM
+fH
+dm
+Ua
+ae
+ae
+ae
+ae
+ae
+zn
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(17,1,1) = {"
+rS
+rS
+rS
+rS
+VD
+VD
+VD
+VD
+mW
+vy
+AD
+ae
+vc
+yg
+yg
+yg
+Sx
+ae
+ae
+ae
+vc
+yg
+yg
+yg
+Sx
+ae
+ae
+ae
+ae
+ae
+RG
+ta
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+mW
+rS
+rS
+rS
+rS
+rS
+"}
+(18,1,1) = {"
+rS
+rS
+rS
+rS
+zn
+ae
+ae
+RG
+uy
+vy
+Gi
+Ww
+Ea
+Vc
+Vc
+Vc
+Ea
+Ea
+Vc
+Ea
+Ea
+Vc
+Vc
+Vc
+Ea
+Ea
+Vc
+Vc
+Vc
+Ea
+Ea
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+qq
+KL
+KL
+qq
+sK
+Uw
+Uw
+hd
+GG
+uy
+rS
+rS
+rS
+rS
+rS
+"}
+(19,1,1) = {"
+rS
+rS
+rS
+rS
+ae
+ae
+ae
+RG
+uy
+vy
+HZ
+TY
+FR
+FR
+FR
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+jH
+FR
+FR
+FR
+ae
+pb
+ae
+mV
+TX
+Fe
+uy
+rS
+rS
+rS
+rS
+rS
+"}
+(20,1,1) = {"
+rS
+rS
+rS
+rS
+zn
+ae
+ae
+RG
+uy
+vy
+JB
+Rm
+UB
+Ha
+Ha
+Ha
+Ha
+as
+Ha
+Ha
+Ha
+Ha
+as
+Ha
+Ha
+Ha
+Ha
+as
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+Ha
+as
+Ha
+Ha
+Ha
+Ha
+as
+Ha
+EB
+ae
+QM
+jH
+ae
+Xr
+fV
+ta
+fI
+VD
+VD
+mW
+rS
+"}
+(21,1,1) = {"
+rS
+rS
+rS
+rS
+ek
+eQ
+eQ
+Uk
+ry
+vy
+fP
+el
+tH
+FU
+FU
+Nk
+FU
+Dj
+FU
+Dj
+FU
+Dj
+FU
+Dj
+FU
+Dj
+FU
+Dj
+FU
+Dj
+FU
+Dj
+FU
+Dj
+FU
+Dj
+FU
+Dj
+FU
+Dj
+FU
+FU
+gH
+RG
+sL
+XK
+ae
+LN
+cp
+tu
+ok
+TJ
+cp
+uy
+rS
+"}
+(22,1,1) = {"
+rS
+rS
+rS
+rS
+aa
+wn
+wn
+aa
+aa
+kV
+Ax
+nH
+hf
+ve
+Oo
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+Nk
+gH
+RG
+uy
+Oz
+ae
+LN
+Fh
+XI
+Pl
+ah
+NI
+uy
+rS
+"}
+(23,1,1) = {"
+rS
+rS
+aa
+aa
+aa
+fC
+xd
+sW
+aa
+QU
+JV
+Ss
+vj
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+XW
+RG
+uy
+Oz
+ae
+YU
+hg
+yJ
+kd
+Pl
+mH
+uy
+rS
+"}
+(24,1,1) = {"
+rS
+rS
+aa
+zQ
+iC
+xd
+xd
+xd
+aa
+tR
+ae
+RG
+GE
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+RG
+uy
+Oz
+ae
+YY
+CL
+Cx
+Pl
+Fs
+GM
+uy
+rS
+"}
+(25,1,1) = {"
+rS
+rS
+aa
+Wf
+pH
+Td
+je
+sW
+aa
+Mv
+rJ
+RG
+mI
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+RG
+uy
+Oz
+ae
+YY
+cp
+pW
+ct
+rw
+cp
+uy
+rS
+"}
+(26,1,1) = {"
+rS
+rS
+aa
+PA
+XM
+xd
+mN
+aa
+aa
+cb
+rJ
+RG
+mI
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+RG
+uy
+Oz
+ae
+YY
+VP
+fn
+Bh
+jG
+jG
+iX
+rS
+"}
+(27,1,1) = {"
+rS
+rS
+aa
+vb
+BG
+xd
+rX
+aa
+gM
+om
+rJ
+RG
+mI
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+XW
+RG
+uy
+Oz
+ae
+Ju
+yK
+Vu
+uy
+rS
+rS
+rS
+rS
+"}
+(28,1,1) = {"
+rS
+rS
+aa
+aa
+aa
+bK
+Hc
+aa
+vO
+JG
+rJ
+RG
+GE
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+RG
+uy
+Oz
+ae
+YY
+sL
+jG
+iX
+rS
+rS
+rS
+rS
+"}
+(29,1,1) = {"
+rS
+rS
+rS
+NU
+zG
+nP
+gr
+av
+xb
+yp
+rJ
+ae
+vj
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+RG
+uy
+Oz
+ae
+YY
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(30,1,1) = {"
+rS
+rS
+rS
+NU
+zG
+Si
+Pk
+eC
+Lb
+av
+ZZ
+Ss
+vj
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+rc
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+RG
+uy
+Oz
+ae
+YY
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(31,1,1) = {"
+rS
+rS
+rS
+NU
+zG
+RD
+Wh
+de
+iQ
+zG
+rJ
+Cw
+vj
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+RG
+uy
+Oz
+ae
+YY
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(32,1,1) = {"
+rS
+rS
+Yl
+Yl
+Yl
+Yl
+Oa
+ZK
+wF
+zG
+rJ
+mJ
+vj
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+ae
+No
+MH
+ae
+YY
+ta
+VD
+fI
+VD
+VD
+mW
+rS
+"}
+(33,1,1) = {"
+rS
+rS
+Yl
+vm
+Fr
+Yl
+Oa
+iQ
+av
+av
+ZZ
+ae
+vj
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+RG
+uy
+Oz
+ae
+FJ
+cp
+JW
+Jt
+cj
+cp
+uy
+rS
+"}
+(34,1,1) = {"
+rS
+rS
+Yl
+Sc
+nu
+Yl
+cd
+wR
+av
+sp
+rJ
+RG
+GE
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+RG
+uy
+Oz
+ae
+du
+Dp
+AS
+aA
+Wb
+tf
+uy
+rS
+"}
+(35,1,1) = {"
+rS
+rS
+Yl
+kI
+hT
+Yl
+hF
+av
+av
+IK
+rJ
+RG
+mI
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+XW
+RG
+uy
+Oz
+ae
+Ar
+PG
+PO
+ur
+aA
+YP
+uy
+rS
+"}
+(36,1,1) = {"
+rS
+rS
+Yl
+jo
+wt
+te
+DB
+lo
+av
+rJ
+rJ
+RG
+mI
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+RG
+uy
+Oz
+ae
+od
+OX
+dq
+aA
+Bt
+Fn
+uy
+rS
+"}
+(37,1,1) = {"
+rS
+rS
+Yl
+uE
+GB
+Yl
+Oa
+iQ
+qe
+rJ
+rJ
+RG
+mI
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+RG
+uy
+Oz
+ae
+od
+cp
+SU
+Qs
+yi
+cp
+uy
+rS
+"}
+(38,1,1) = {"
+rS
+rS
+Dh
+Dh
+Dh
+Yl
+Oa
+iQ
+av
+av
+ZZ
+RG
+mI
+FU
+lb
+Pq
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+KD
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+Nk
+gH
+RG
+uy
+Oz
+ae
+od
+VP
+od
+Bh
+jG
+jG
+iX
+rS
+"}
+(39,1,1) = {"
+rS
+rS
+nY
+PX
+nY
+XR
+Nf
+DN
+tz
+zG
+rJ
+RG
+mI
+FU
+lb
+Nk
+FU
+DZ
+FU
+DZ
+FU
+DZ
+FU
+DZ
+FU
+DZ
+FU
+KD
+FU
+DZ
+FU
+DZ
+FU
+DZ
+FU
+DZ
+FU
+DZ
+FU
+DZ
+FU
+FU
+XW
+RG
+ta
+xR
+Ni
+Ge
+SS
+MZ
+uy
+rS
+rS
+rS
+rS
+"}
+(40,1,1) = {"
+rS
+rS
+nY
+nA
+nY
+nk
+xT
+kj
+bZ
+zG
+rJ
+RG
+GE
+FU
+Bf
+mA
+mA
+vd
+ve
+ve
+ve
+ve
+ve
+ve
+ve
+ax
+Ye
+GR
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+ae
+zn
+uy
+Mh
+jG
+jG
+jG
+iX
+rS
+rS
+rS
+rS
+"}
+(41,1,1) = {"
+rS
+rS
+av
+ca
+Ky
+SY
+Af
+lt
+cl
+av
+ZZ
+lw
+tH
+FU
+FU
+FU
+FU
+MX
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+lb
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gH
+ae
+ae
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(42,1,1) = {"
+rS
+rS
+zG
+Cr
+LA
+cs
+Ee
+cS
+wo
+av
+rJ
+mJ
+Ot
+FU
+FU
+FU
+FU
+tJ
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+lb
+FU
+Nk
+ZL
+rQ
+pj
+wE
+wE
+wE
+wE
+GQ
+wE
+wE
+wE
+wE
+GQ
+wE
+vn
+ae
+zn
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(43,1,1) = {"
+rS
+rS
+zG
+kc
+xj
+MD
+ea
+JA
+dy
+av
+rJ
+lw
+vj
+FU
+FU
+FU
+FU
+MN
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+lb
+FU
+dg
+ae
+ae
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+gF
+Lr
+Lr
+Lr
+ae
+ae
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(44,1,1) = {"
+rS
+rS
+av
+Fu
+lX
+ci
+Do
+di
+di
+di
+rJ
+RG
+Fo
+wE
+wE
+wE
+wE
+GQ
+wE
+wE
+wE
+wE
+GQ
+wE
+wE
+RC
+wE
+Hr
+ae
+ae
+ae
+ae
+ae
+Xs
+Xs
+Xs
+Xs
+Xs
+Xs
+Xs
+Xs
+Xs
+Xs
+Xs
+Uy
+ta
+mW
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(45,1,1) = {"
+rS
+rS
+di
+di
+di
+GX
+kn
+bV
+ac
+di
+rJ
+ae
+Lr
+Lr
+Lr
+Dy
+Dy
+Dy
+Dy
+Dy
+Dy
+Dy
+eS
+eS
+eS
+dC
+MH
+MH
+jH
+JD
+yn
+LY
+dw
+cm
+Tz
+GL
+Tz
+cm
+Tz
+cm
+hW
+cm
+Tz
+cm
+Tz
+fE
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(46,1,1) = {"
+rS
+rS
+di
+WS
+kZ
+nj
+PC
+rj
+di
+di
+di
+di
+di
+di
+di
+Tz
+Tz
+Tz
+Tz
+Tz
+Tz
+Tz
+bN
+Xt
+wZ
+wv
+aJ
+aJ
+FK
+Yd
+Fy
+FU
+qi
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+QF
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(47,1,1) = {"
+rS
+rS
+di
+Qy
+di
+SP
+PC
+ls
+fx
+yB
+pv
+Nw
+rH
+Ov
+di
+di
+ZW
+nU
+nU
+nU
+nU
+nU
+FU
+FU
+FU
+FU
+YJ
+kx
+rS
+fg
+Jh
+FU
+tb
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+dJ
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(48,1,1) = {"
+rS
+rS
+di
+di
+di
+nx
+xr
+ls
+BR
+RH
+RH
+ch
+on
+pl
+Ta
+Nv
+ZW
+mL
+bo
+bo
+rf
+pn
+jZ
+FU
+FU
+FU
+FU
+kx
+rS
+fg
+Jh
+FU
+tb
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gG
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(49,1,1) = {"
+rS
+rS
+bx
+Ht
+DU
+po
+PC
+ls
+zu
+zE
+RH
+cr
+nw
+cu
+rh
+OU
+QY
+QX
+Tg
+Tg
+Gq
+pn
+Nj
+FU
+Ik
+Mi
+Ik
+iG
+rS
+Kn
+qD
+Ye
+Ye
+FU
+FU
+FU
+FU
+Vk
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gh
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(50,1,1) = {"
+rS
+rS
+bx
+WT
+CM
+bh
+eu
+gS
+gP
+QJ
+QJ
+Nc
+qb
+qb
+hz
+cu
+ZW
+Nb
+rV
+pe
+hB
+ZW
+Tr
+FU
+Ik
+Mi
+Ik
+iG
+rS
+Oz
+Ds
+FU
+tb
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+gG
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(51,1,1) = {"
+rS
+rS
+bx
+OR
+Eo
+SN
+ou
+us
+XE
+DJ
+CM
+Ch
+WA
+cu
+cu
+Wy
+Hz
+oW
+oW
+oW
+oW
+bR
+GN
+FU
+Ik
+Mi
+Ik
+iG
+rS
+Oz
+HG
+FU
+tb
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+dJ
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(52,1,1) = {"
+rS
+rS
+bx
+UU
+di
+wS
+ep
+wS
+di
+Sw
+nz
+TP
+Tq
+cu
+lA
+gW
+ZW
+SI
+eG
+Bc
+Js
+ZW
+TA
+TA
+Ho
+fb
+Ho
+Yr
+rS
+Oz
+jd
+FU
+qi
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+FU
+QF
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(53,1,1) = {"
+rS
+rS
+rS
+rS
+di
+di
+UU
+di
+di
+di
+UU
+UU
+UU
+UU
+di
+di
+ZW
+nU
+nU
+nU
+ZW
+ZW
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+Oz
+bD
+iw
+iw
+Kb
+iw
+zM
+iw
+Kb
+iw
+Kb
+BA
+Kb
+iw
+Kb
+iw
+vU
+uy
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(54,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
+(55,1,1) = {"
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+rS
+"}
