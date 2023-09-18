@@ -41,7 +41,7 @@ changes:
   - rscadd: "Added 3 subtypes of zombie."
   - rscadd: "Subtype of zombie: bull, very tanky, slow moving, short sprint and low stamina."
   - rscadd: "Subtype of zombie: hunter, very fast and sensitive to sounds, can see through walls other mobs, can leap far and often, natural climber, relatively squishy, cannot infect, attacks have a chance to electric shock, good against IPCs."
-  - rscadd: "Subtype of zombie: thino, relatively slow, can leap after a small delay and land sending people in a radius of 1 to fly except one, that gets red grabbed, punches relatively hard."
+  - rscadd: "Subtype of zombie: rhino, relatively slow, can leap after a small delay and land sending people in a radius of 1 to fly except one, that gets red grabbed, punches relatively hard."
   - rscadd: "Zombie producing chemical grenade added."
   - tweak: "Turning into zombie is now ~40% faster than before."
   - tweak: "Zombies now have a limited stamina."
