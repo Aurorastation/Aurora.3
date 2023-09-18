@@ -4238,7 +4238,6 @@
 /area/point_verdant/outdoors)
 "tc" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/sandal,
 /obj/item/clothing/shoes/slippers,
 /obj/item/clothing/shoes/konyang,
 /obj/item/clothing/shoes/jackboots,
@@ -6805,22 +6804,6 @@
 /area/point_verdant/outdoors)
 "Dj" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/storage/box/donkpockets/gwok{
-	pixel_y = 16
-	},
-/obj/item/storage/box/donkpockets/gwok{
-	pixel_y = 16
-	},
-/obj/item/storage/box/donkpockets/gwok{
-	pixel_y = 16
-	},
-/obj/item/storage/box/donkpockets/gwok{
-	pixel_y = 16
-	},
-/obj/item/storage/box/donkpockets/gwok/takoyaki,
-/obj/item/storage/box/donkpockets/gwok/takoyaki,
-/obj/item/storage/box/donkpockets/gwok/takoyaki,
-/obj/item/storage/box/donkpockets/gwok/takoyaki,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior)
 "Dk" = (

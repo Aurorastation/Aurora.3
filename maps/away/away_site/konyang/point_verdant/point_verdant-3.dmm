@@ -371,7 +371,6 @@
 /area/point_verdant/outdoors)
 "gp" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/sandal,
 /obj/item/clothing/shoes/slippers,
 /obj/item/clothing/shoes/konyang,
 /obj/item/clothing/shoes/jackboots,
@@ -1640,7 +1639,6 @@
 /area/point_verdant/outdoors)
 "HT" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/sandal,
 /obj/item/clothing/shoes/slippers,
 /obj/item/clothing/shoes/konyang,
 /obj/item/clothing/shoes/jackboots,
