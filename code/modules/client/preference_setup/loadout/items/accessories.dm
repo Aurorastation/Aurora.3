@@ -187,9 +187,9 @@
 	cost = 2
 
 /datum/gear/accessory/polo
-	display_name = "polo selection"
+	display_name = "polo shirts selection"
+	description = "A selection of polo shirts."
 	path = /obj/item/clothing/accessory/polo
-	description = "A selection of polos."
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/polo/New()
