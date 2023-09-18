@@ -286,6 +286,7 @@
 /obj/item/clothing/accessory/badge/ftc_passport
 	name = "free tajaran council passport"
 	desc = "A temporary passport issued to the citizens of the Free Tajaran Council."
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "ftc-passport"
 	overlay_state = "ftc-passport"
 	slot_flags = null

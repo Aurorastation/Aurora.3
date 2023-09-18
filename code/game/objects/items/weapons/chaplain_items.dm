@@ -20,6 +20,12 @@
 	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame, "Tribunal Rod" = /obj/item/nullrod/dominia, "Tajaran charm" = /obj/item/nullrod/charm,
 									"Mata'ke Sword" = /obj/item/nullrod/matake, "Rredouane Sword" = /obj/item/nullrod/rredouane, "Shumaila Hammer" = /obj/item/nullrod/shumaila, "Zhukamir Ladle" = /obj/item/nullrod/zhukamir, "Azubarre Torch" = /obj/item/nullrod/azubarre)
 
+/obj/item/nullrod/obsidianshards
+	name = "obsidian shards"
+	desc = "A loose pile of obsidian shards, waiting to be assembled into a religious focus."
+	icon_state = "nullshards"
+	item_state = "nullshards"
+
 /obj/item/nullrod/dominia
 	name = "tribunalist purification rod"
 	desc = "A holy Symbol often carried by female Tribunalist clergy, the obsidian encased in the wooden handle is intended to ward off malevolent spirits and bless followers of the Goddess. The ornament on top depicts 'The Eye'\
@@ -71,34 +77,42 @@
 /obj/item/nullrod/matake
 	name = "\improper Mata'ke sword"
 	desc = "A ceremonial spear crafted after the image of Mata'ke's holy weapon."
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "matake_spear"
 	item_state = "matake_spear"
+	contained_sprite = TRUE
 	slot_flags = SLOT_BELT | SLOT_BACK
 	w_class = ITEMSIZE_LARGE
 
 /obj/item/nullrod/rredouane
 	name = "\improper Rredouane sword"
 	desc = "A ceremonial sword crafted after the image of Rredouane's holy sword."
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "rredouane_sword"
 	item_state = "rredouane_sword"
+	contained_sprite = TRUE
 
 /obj/item/nullrod/shumaila
 	name = "\improper Shumaila hammer"
 	desc = "A ceremonial hammer carried by the priesthood of Shumaila."
 	icon_state = "shumaila_hammer"
 	item_state = "shumaila_hammer"
+	contained_sprite = TRUE
 
 /obj/item/nullrod/zhukamir
 	name = "\improper Zhukamir ladle"
 	desc = "A golden ladle used by Zhukamir's most faithful worshippers."
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "zhukamir_ladle"
 	item_state = "zhukamir_ladle"
 
 /obj/item/nullrod/azubarre
 	name = "\improper Azubarre torch"
 	desc = "A ceremonial torch used by Azubarre's priesthood in their rituals."
+	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "azubarre_torch"
 	item_state = "azubarre_torch"
+	contained_sprite = TRUE
 	var/lit = FALSE
 
 /obj/item/nullrod/azubarre/attack_self(mob/user)
