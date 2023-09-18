@@ -59,3 +59,9 @@
 	description = "Spoken exclusively by Dionae hailing from the Conglomerated Choir of Nralakk, Starsong is a constructed variation of Sunkensong developed by Federation linguists soon after first contact was made. The accent was purposefully curated to further culturally align the cluster with Skrell and to create closer ties between the two species. Through curated communications and manipulation of blood samples, Starsong is considered a desirable accent by many Dionae in the Federation, furthering the Choir's idol-like status amongst gestalts."
 	tag_icon = "dionae_starsong"
 	text_tag = "SRS"
+
+/datum/accent/xrimsong
+	name = ACCENT_XRIMSONG
+	desc = "A unique combination of elements from both Nral'malic and Rootsong, Xrim's accent can generally be picked up due to its slow, dulcet sound. It has wide range, and can reach as high as a Soprano and as low as an Alto. Its fluctuations are generally an easy way to detect the accent, being one of the more novel accents within the Federation, and abroad."
+	tag_icon = "dionae_xrim"
+	text_tag = "XMS"
