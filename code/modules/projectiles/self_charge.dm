@@ -1,8 +1,8 @@
 /obj/item/device/self_charge_module
 	name = "weapon recharging module"
 	desc = "A small device attached to the power cell of an energy weapon, designed to allow it to continue operation when away from a convenient recharger. This one seems outdated, with an abysmally slow recharge rate."
-	icon = 'icons/obj/guns/modular_laser.dmi'
-	icon_state = "reinforced_capacitor"
+	icon = 'icons/obj/charge_modules.dmi'
+	icon_state = "low-selfchargemodule"
 	var/charge_rate = 10 //how long does it take for a shot to recharge (in ticks)
 	origin_tech = list(TECH_POWER = 3, TECH_COMBAT = 3)
 	flags = CONDUCT
@@ -41,13 +41,13 @@
 /obj/item/device/self_charge_module/standard
 	name = "advanced weapon recharging module"
 	desc = "A small device attached to the power cell of an energy weapon, designed to allow it to continue operation when away from a convenient recharger. This one is the current standard in the field, frequently used by the Orion Spur's military forces."
-	icon_state = "phoron_capacitor"
+	icon_state = "medium-selfchargemodule"
 	charge_rate = 4
 	origin_tech = list(TECH_POWER = 6, TECH_COMBAT = 6)
 
 /obj/item/device/self_charge_module/hyper
 	name = "experimental weapon recharging module"
 	desc = "A small device attached to the power cell of an energy weapon, designed to allow it to continue operation when away from a convenient recharger. This one seems to be a product of extremely advanced technology, with a truly outstanding recharge rate."
-	icon_state = "bluespace_capacitor"
+	icon_state = "fast-selfchargemodule"
 	origin_tech = list(TECH_POWER = 7, TECH_COMBAT = 9)
 	charge_rate = 2
