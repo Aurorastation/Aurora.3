@@ -220,8 +220,9 @@
 /datum/gear/accessory/polo_colorable/New()
 	..()
 	var/list/polo_colorable = list()
-	polo_colorable["polo"] = /obj/item/clothing/accessory/polo
-	polo_colorable["female polo"] = /obj/item/clothing/accessory/polo/polo_fem
+
+	polo_colorable["polo shirt"] = /obj/item/clothing/accessory/polo
+	polo_colorable["polo shirt (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_fem
 
 	gear_tweaks += new /datum/gear_tweak/path(polo_colorable)
 
