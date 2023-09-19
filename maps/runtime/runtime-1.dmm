@@ -1867,6 +1867,9 @@
 	dir = 1
 	},
 /obj/effect/landmark/entry_point/fore,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/runtime)
 "QV" = (
