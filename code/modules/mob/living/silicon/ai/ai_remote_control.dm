@@ -20,7 +20,16 @@
 					LANGUAGE_YA_SSA =      FALSE
 					)
 
-	sprites = list("Basic" = list(ROBOT_CHASSIS = "shell", ROBOT_PANEL = "shell", ROBOT_EYES = "shell"))
+	sprites = list(
+		"Basic" = 	       list(ROBOT_CHASSIS = "robot", ROBOT_PANEL = "robot", ROBOT_EYES = "robot"),
+		"Interrogator" =       list(ROBOT_CHASSIS = "interrogator", ROBOT_PANEL = "robot", ROBOT_EYES = "interrogator"),
+		"Curator" =      list(ROBOT_CHASSIS = "curator", ROBOT_PANEL = "robot", ROBOT_EYES = "curator"),
+		"Surveyor" =      list(ROBOT_CHASSIS = "surveyor", ROBOT_PANEL = "robot", ROBOT_EYES = "surveyor"),
+		"Hunter" = 	   	   list(ROBOT_CHASSIS = "hunter", ROBOT_PANEL = "robot", ROBOT_EYES = "hunter"),
+		"Protector" = list(ROBOT_CHASSIS = "protector", ROBOT_PANEL = "robot", ROBOT_EYES = "protector"),
+		"Strider" =        list(ROBOT_CHASSIS = "strider", ROBOT_PANEL = "robot", ROBOT_EYES = "strider"),
+		"Coordinator" =           list(ROBOT_CHASSIS = "coordinator", ROBOT_PANEL = "robot", ROBOT_EYES = "coordinator")
+	)
 	all_access = TRUE
 
 /obj/item/robot_module/aicontrol/Initialize()
@@ -43,9 +52,6 @@
 	name = "AI shell"
 
 /mob/living/silicon/robot/shell/show_laws()
-	return
-
-/mob/living/silicon/robot/shell/choose_icon()
 	return
 
 /obj/item/crowbar/robotic/jawsoflife
