@@ -1132,12 +1132,11 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "adc" = (
-/obj/effect/shuttle_landmark/intrepid/transit{
+/obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/effect/step_trigger/thrower/shuttle/north,
-/turf/space/transit/north,
-/area/template_noop)
+/turf/simulated/wall/shuttle/scc,
+/area/supply/dock)
 "add" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Holding Cells";
@@ -6176,11 +6175,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "ank" = (
-/obj/structure/window/reinforced/crescent{
+/obj/effect/step_trigger/thrower/shuttle/north,
+/obj/effect/shuttle_landmark/intrepid/transit{
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/scc,
-/area/supply/dock)
+/turf/space/transit/north,
+/area/template_noop)
 "anl" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 1
@@ -51327,7 +51327,7 @@ aQJ
 anh
 aQJ
 aPv
-ank
+adc
 aMt
 aOi
 aNR
@@ -52355,7 +52355,7 @@ aQJ
 aQK
 aQJ
 ani
-ank
+adc
 aMt
 aOi
 aNR
@@ -55532,7 +55532,7 @@ aac
 aab
 aac
 aac
-aac
+jWJ
 aac
 aac
 aac
@@ -55789,7 +55789,7 @@ aac
 aab
 aac
 aac
-jWJ
+aac
 aac
 aac
 aac
@@ -72736,7 +72736,7 @@ aab
 aac
 aac
 aac
-bLy
+ank
 aac
 aac
 aac
@@ -72993,7 +72993,7 @@ aab
 aac
 aac
 aac
-adc
+bLy
 aac
 aac
 aac

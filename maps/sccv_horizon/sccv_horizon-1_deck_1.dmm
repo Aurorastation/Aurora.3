@@ -2063,6 +2063,9 @@
 /obj/machinery/light/spot{
 	dir = 1
 	},
+/obj/effect/shuttle_landmark/canary/hangar{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/hangar/canary)
 "bBA" = (
@@ -28653,15 +28656,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
-"ujV" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/shuttle_landmark/canary/hangar{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hangar/canary)
 "ukl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -54939,7 +54933,7 @@ hYy
 apf
 aaa
 pvn
-pvn
+dSQ
 nvn
 gDj
 dir
@@ -55142,7 +55136,7 @@ hYy
 hhv
 aaa
 pvn
-dSQ
+pvn
 kxk
 rKh
 yib
@@ -60221,7 +60215,7 @@ wce
 hot
 nNh
 pPV
-ujV
+pEk
 mWR
 sck
 wht
