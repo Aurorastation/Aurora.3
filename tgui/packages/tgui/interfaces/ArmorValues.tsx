@@ -13,6 +13,12 @@ export const ArmorValues = (props, context) => {
     <Window resizable>
       <Window.Content scrollable>
         <Section>
+          <Box>
+            THE STATISTICS BELOW IS OUT OF CHARACTER INFO, YOU CAN USE THIS TO
+            REFERENCE ARMOR VALUES, BUT DO NOT STATE THE PERCENTAGES IN
+            CHARACTER
+          </Box>
+          <Divider />
           {Object.keys(data.armor_values).map((line) =>
             line ? (
               <Box>
