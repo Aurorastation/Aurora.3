@@ -2024,3 +2024,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ashkii_cloak"
 	item_state = "ashkii_cloak"
 	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/medical_chest_rig/fluff/pleig_rig
+	name = "\improper Raqa'Nuul medical rig"
+	desc = "This blue chestpiece, stylized after a traditional paramedic's chest rig, contains the iconography of the Federation Resistance cell known as Raqa'Nuul or the Cybers, with \
+	the flag of the Free Traverse on the back and loose wiring on the front. It is most suited to the form of a worker or warrior Vaurca."
+	icon = 'icons/obj/custom_items/pleig_rig.dmi'
+	icon_override = 'icons/obj/custom_items/pleig_rig.dmi'
+	icon_state = "pleig_rig"
+	item_state = "pleig_rig"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_VAURCA)
+
