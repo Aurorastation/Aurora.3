@@ -2,7 +2,8 @@
 /obj/machinery/gibber
 	name = "gibber"
 	desc = "The name isn't descriptive enough?"
-	icon = 'icons/obj/kitchen.dmi'
+	desc_extended = "WARNING : Insurance no longer covers entertaining intrusive thoughts. Keep your limbs to yourself."
+	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "grinder"
 	density = 1
 	anchored = TRUE
@@ -16,7 +17,7 @@
 
 	idle_power_usage = 2
 	active_power_usage = 500
-	
+
 //auto-gibs anything that bumps into it
 /obj/machinery/gibber/autogibber
 	var/turf/input_plate

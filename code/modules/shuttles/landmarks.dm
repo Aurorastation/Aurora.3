@@ -1,12 +1,15 @@
 //making this separate from /obj/effect/landmark until that mess can be dealt with
 /obj/effect/shuttle_landmark
 	name = "Nav Point"
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "energynet"
+	icon = 'icons/effects/map_effects_96x96.dmi'
+	icon_state = "shuttle_landmark"
 	anchored = TRUE
 	unacidable = TRUE
 	simulated = 0
 	invisibility = 101
+	layer = ABOVE_ALL_MOB_LAYER
+	pixel_x = -32
+	pixel_y = -32
 
 	var/landmark_tag
 	//ID of the controller on the dock side

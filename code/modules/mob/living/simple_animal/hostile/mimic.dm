@@ -5,9 +5,9 @@
 /mob/living/simple_animal/hostile/mimic
 	name = "crate"
 	desc = "A rectangular steel crate."
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "crate"
-	icon_living = "crate"
+	icon = 'icons/obj/crate.dmi'
+	icon_state = "crate_preview"
+	icon_living = "crate_preview"
 
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
 	organ_names = list("lid", "body")
@@ -70,10 +70,6 @@
 
 /mob/living/simple_animal/hostile/mimic/crate/DestroySurroundings()
 	..()
-	if(prob(90))
-		icon_state = "[initial(icon_state)]open"
-	else
-		icon_state = initial(icon_state)
 
 /mob/living/simple_animal/hostile/mimic/crate/get_targets()
 	return ..(attempt_open ? world.view : 1)
