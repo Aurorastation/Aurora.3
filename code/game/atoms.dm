@@ -350,6 +350,7 @@
 // Called to set the atom's dir and used to add behaviour to dir-changes.
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
+	var/old_dir = dir
 	dir = new_dir
 
 	// Lighting.
@@ -359,6 +360,7 @@
 			L = thing
 			if (L.light_angle)
 				L.source_atom.update_light()
+		dir_set_event.raise_event(src, old_dir, dir)
 
 /atom/proc/ex_act()
 	set waitfor = FALSE
