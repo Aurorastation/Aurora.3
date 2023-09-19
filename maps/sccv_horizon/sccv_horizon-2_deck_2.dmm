@@ -2294,6 +2294,9 @@
 	pixel_x = -32;
 	req_access = list(13)
 	},
+/obj/effect/shuttle_landmark/merchant/dock{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
 "aZA" = (
@@ -48367,10 +48370,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/engine_airlock)
-"xnZ" = (
-/obj/effect/shuttle_landmark/merchant/dock,
-/turf/template_noop,
-/area/template_noop)
 "xoj" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
@@ -61193,7 +61192,7 @@ qgN
 qgN
 qgN
 qgN
-xnZ
+qgN
 qgN
 qgN
 qgN

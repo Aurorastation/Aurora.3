@@ -476,18 +476,8 @@
 	},
 /area/centcom/bar)
 "abs" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "centcom_dock_airlock";
-	locked = 1;
-	name = "Arrivals Airlock";
-	req_access = list(13);
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor,
-/area/centcom/evac)
+/turf/simulated/floor/tiled/white,
+/area/merchant_station)
 "abt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -1119,27 +1109,12 @@
 	},
 /area/centcom/control)
 "adb" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "centcom_dock_airlock";
-	locked = 1;
-	name = "Arrivals Airlock";
-	req_access = list(13);
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor,
-/area/centcom/evac)
-"adc" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Holding Cells";
-	req_access = list(150);
+/obj/effect/shuttle_landmark/merchant/interim{
 	dir = 1
 	},
-/turf/unsimulated/floor,
-/area/antag/mercenary)
-"add" = (
+/turf/space/transit/east,
+/area/template_noop)
+"adc" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Holding Cells";
 	req_access = list(150);
@@ -2360,8 +2335,12 @@
 	id_tag = "merchant_station_door";
 	locked = 1;
 	req_access = list(110);
-	dir = 4
+	dir = 1
 	},
+/obj/effect/shuttle_landmark/merchant/start{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "afp" = (
@@ -5113,13 +5092,10 @@
 /area/merchant_station)
 "ald" = (
 /obj/structure/curtain/open/shower,
-/obj/effect/floor_decal/corner/dark_blue/full{
-	dir = 8
-	},
 /obj/machinery/shower{
 	pixel_y = 20
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/merchant_station)
 "ale" = (
 /obj/structure/closet/gmcloset,
@@ -5489,10 +5465,7 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/merchant_station)
 "alM" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -5747,9 +5720,12 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "Locked during work hours due to safety concerns. Particularly pirate ones.";
-	icon = 'icons/obj/doors/Doorglass.dmi';
-	icon_state = "door_locked";
-	name = "Upper Levels Access"
+	icon = 'icons/obj/doors/basic/single/generic/door.dmi';
+	icon_state = "preview_glass";
+	name = "Upper Levels Access";
+	dir = 1;
+	pixel_x = -16;
+	pixel_y = -16
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -5765,10 +5741,7 @@
 /obj/structure/toilet{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/white,
 /area/merchant_station)
 "amk" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -5980,7 +5953,9 @@
 	identifier = "MerchantAss";
 	name = "call button";
 	pixel_x = 24;
-	pixel_y = 26
+	pixel_y = 26;
+	icon = 'icons/obj/airlock_machines.dmi';
+	icon_state = "airlock_control_standby"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -7466,7 +7441,9 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "arz" = (
-/obj/item/modular_computer/console/preset/merchant,
+/obj/item/modular_computer/console/preset/merchant{
+	dir = 2
+	},
 /turf/simulated/floor/wood,
 /area/merchant_station/warehouse)
 "arC" = (
@@ -7855,6 +7832,10 @@
 "asJ" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/secure/briefcase,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
 "asK" = (
@@ -7868,18 +7849,16 @@
 	name = "viewing shutters";
 	pixel_x = -7;
 	pixel_y = 25;
-	req_access = null
-	},
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube_empty"
+	req_access = null;
+	dir = 1
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "merchant_airlock";
 	name = "external airlock shutter";
 	pixel_x = -7;
 	pixel_y = 35;
-	req_access = null
+	req_access = null;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
@@ -7987,14 +7966,16 @@
 	name = "viewing shutters";
 	pixel_x = -7;
 	pixel_y = 25;
-	req_access = null
+	req_access = null;
+	dir = 1
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "merchant_airlock";
 	name = "external airlock shutter";
 	pixel_x = -7;
 	pixel_y = 35;
-	req_access = null
+	req_access = null;
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/shuttle/merchant)
@@ -8007,22 +7988,13 @@
 	name = "Ship External Access";
 	open_layer = 2.8;
 	req_access = list(110);
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/machinery/door/blast/shutters/open{
 	id = "merchant_airlock";
 	name = "external airlock shutter"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant)
 "asW" = (
@@ -8353,6 +8325,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant)
 "atX" = (
@@ -8378,6 +8354,7 @@
 	req_access = list(110);
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
 "aub" = (
@@ -8680,10 +8657,6 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/grass,
 /area/centcom/evac)
-"auI" = (
-/obj/effect/shuttle_landmark/merchant/start,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/merchant)
 "auJ" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
@@ -8721,35 +8694,27 @@
 	req_access = list(110);
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
 "auV" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
-	},
 /obj/machinery/atm{
-	pixel_x = 32
+	dir = 4;
+	pixel_x = 16
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant)
 "auW" = (
 /obj/structure/table/reinforced,
 /obj/machinery/button/remote/blast_door{
-	dir = 4;
+	dir = 10;
 	id = "merchant_bridge";
 	name = "bridge window shutters";
 	pixel_x = -6;
-	pixel_y = -1
+	pixel_y = 0
 	},
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant)
@@ -9079,22 +9044,20 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/obj/structure/closet/walllocker/emerglocker/north{
-	pixel_x = 32;
-	pixel_y = 0
-	},
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant)
 "avI" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/wallet/random,
+/obj/machinery/light{
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
 "avJ" = (
 /obj/structure/closet/secure_closet/merchant,
-/obj/machinery/light{
-	icon_state = "tube_empty"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
 "avK" = (
@@ -9127,8 +9090,9 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1337;
 	id_tag = "merchant_shuttle";
-	pixel_y = -24;
-	tag_door = "merchant_shuttle_hatch"
+	pixel_y = -19;
+	tag_door = "merchant_shuttle_hatch";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
@@ -10202,6 +10166,9 @@
 	req_access = list(110);
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "ayr" = (
@@ -10542,6 +10509,12 @@
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube_empty"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
@@ -35339,10 +35312,6 @@
 /area/template_noop)
 "bIJ" = (
 /obj/effect/shuttle_landmark/legion/interim,
-/turf/space/transit/east,
-/area/template_noop)
-"bIK" = (
-/obj/effect/shuttle_landmark/merchant/interim,
 /turf/space/transit/east,
 /area/template_noop)
 "bIL" = (
@@ -65982,9 +65951,9 @@ amF
 amF
 ats
 ats
-abs
 act
-adb
+act
+act
 ats
 ats
 amF
@@ -78385,7 +78354,7 @@ bFg
 bFg
 bFg
 bFg
-bIK
+bFg
 bFg
 bFg
 bFg
@@ -79151,17 +79120,17 @@ bFg
 bFg
 bFg
 bFg
-bFg
-bHF
-bFg
+bHt
 bFg
 bFg
 bFg
 bFg
 bFg
 bFg
-bHE
 bFg
+bFg
+bFg
+bJw
 bFg
 bFg
 bFg
@@ -79408,17 +79377,17 @@ bFg
 bFg
 bFg
 bFg
+bHt
 bFg
-bHF
-bFg
-bFg
-bFg
+adb
 bFg
 bFg
 bFg
 bFg
-bHE
 bFg
+bFg
+bFg
+bJw
 bFg
 bFg
 bFg
@@ -96029,7 +95998,7 @@ bix
 bix
 bix
 bix
-add
+adc
 bnr
 bnr
 bta
@@ -97003,7 +96972,7 @@ aaa
 aaa
 aaa
 aam
-aam
+aaa
 apk
 aAe
 aAe
@@ -97260,7 +97229,7 @@ ayX
 aam
 aam
 aam
-aam
+aaa
 aaa
 aAe
 asP
@@ -98036,7 +98005,7 @@ aaa
 aoc
 asO
 atP
-auI
+atZ
 auZ
 avT
 amV
@@ -99817,7 +99786,7 @@ aam
 aam
 ajR
 alL
-aoj
+abs
 ajR
 any
 aob
