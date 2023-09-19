@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "There is no longer an oil spill behind the intro scrolling text."
-  - tweak: "The intro scrolling text now remains on-screen for ten seconds."
