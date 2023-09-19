@@ -86,6 +86,9 @@
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("taj")
 
+/obj/item/clothing/shoes/workboots/all_species
+	species_restricted = null
+
 /obj/item/clothing/shoes/workboots/brown
 	name = "brown workboots"
 	desc = "A pair of brown steel-toed work boots designed for use in industrial settings. Safety first."
