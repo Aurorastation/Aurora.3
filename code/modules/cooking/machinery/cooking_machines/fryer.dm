@@ -83,7 +83,7 @@
 	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
 		var/image/pan_overlay
 		if(CC.appliancetype == FRYER)
-			pan_overlay = image('icons/obj/cooking_machines.dmi', "basket[Clamp(length(pans)+1, 1, 2)]")
+			pan_overlay = image('icons/obj/machinery/cooking_machines.dmi', "basket[Clamp(length(pans)+1, 1, 2)]")
 		pan_overlay.color = CC.color
 		pans += pan_overlay
 	if(isemptylist(pans))
