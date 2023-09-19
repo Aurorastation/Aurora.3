@@ -233,7 +233,7 @@
 #define INV_R_HAND_DEF_ICON			'icons/mob/items/righthand.dmi'
 #define INV_W_UNIFORM_DEF_ICON		'icons/mob/uniform.dmi'
 #define INV_ACCESSORIES_DEF_ICON	'icons/mob/ties.dmi'
-#define INV_BELT_DEF_ICON 'icons/mob/belt.dmi'
+#define INV_BELT_DEF_ICON 			'icons/mob/belt.dmi'
 #define INV_SUIT_DEF_ICON			'icons/mob/suit.dmi'
 #define INV_L_EAR_DEF_ICON			'icons/mob/l_ear.dmi'
 #define INV_R_EAR_DEF_ICON			'icons/mob/r_ear.dmi'

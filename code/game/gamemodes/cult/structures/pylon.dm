@@ -63,7 +63,7 @@
 	update_icon()
 
 /obj/structure/cult/pylon/examine(var/mob/user)
-	..()
+	. = ..()
 	if(damagetaken)
 		switch(damagetaken)
 			if(1 to 8)

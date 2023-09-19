@@ -35,9 +35,9 @@
 		welding_tool.forceMove(src)
 	update_icon()
 
-/obj/item/flamethrower/examine(mob/user)
-	..()
-	if(Adjacent(user))
+/obj/item/flamethrower/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		if(gas_tank)
 			to_chat(user, SPAN_NOTICE("Release pressure is set to [throw_amount] kPa. The tank has about [round(gas_tank.air_contents.return_pressure(), 10)] kPa left in it."))
 		else

@@ -28,9 +28,9 @@
 	else
 		name = "robot [initial(name)]"
 
-/obj/item/robot_parts/examine(mob/user, distance)
+/obj/item/robot_parts/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(Adjacent(user))
+	if(is_adjacent)
 		report_missing_parts(user)
 
 /obj/item/robot_parts/proc/report_missing_parts(var/mob/user)

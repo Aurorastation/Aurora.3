@@ -434,5 +434,6 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 	nationcapes["Sol Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/sol
 	nationcapes["Coalition Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/coc
 	nationcapes["Biesel Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel
+	nationcapes["Ouerea Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/ouerea
 	gear_tweaks += new /datum/gear_tweak/path(nationcapes)
 

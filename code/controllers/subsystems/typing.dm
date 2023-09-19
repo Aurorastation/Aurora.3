@@ -156,6 +156,9 @@ Updated 09/10/2022 to include chatbar using Spookerton's SStyping system from Po
 	if(!ismovable(master))
 		stack_trace("Typing indicator initialized with [isnull(master) ? "null" : master] as master.")
 		return INITIALIZE_HINT_QDEL
+	if(ismob(master))
+		var/mob/mob = master
+		mob.adjust_typing_indicator_offsets(src)
 
 /atom/movable/typing_indicator/Destroy()
 	if(master)

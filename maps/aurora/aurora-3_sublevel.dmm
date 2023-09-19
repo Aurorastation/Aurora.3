@@ -1601,8 +1601,8 @@
 "adO" = (
 /obj/item/clothing/under/medical_gown/white,
 /obj/item/clothing/under/medical_gown/white,
-/obj/item/clothing/shoes/white,
-/obj/item/clothing/shoes/white,
+/obj/item/clothing/shoes/sneakers,
+/obj/item/clothing/shoes/sneakers,
 /obj/structure/closet/crate/bin{
 	name = "Subject wear"
 	},
@@ -21746,7 +21746,7 @@
 /area/medical/medbay4)
 "aVg" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/clothing/shoes/medical{
+/obj/item/clothing/shoes/sneakers/medsci{
 	pixel_x = 4;
 	pixel_y = -8
 	},
