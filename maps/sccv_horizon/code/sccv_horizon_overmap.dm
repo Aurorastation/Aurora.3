@@ -207,8 +207,8 @@
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/horizon/dock2 //shares a spot with the TCFL ERT shuttle, but having multiple use cases is fine, ERTs are adminspawned only as well
-	name = "Third Deck Starboard Dock 2"
+/obj/effect/shuttle_landmark/horizon/dock2
+	name = "Third Deck Port Dock 1"
 	landmark_tag = "nav_dock_horizon_2"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
