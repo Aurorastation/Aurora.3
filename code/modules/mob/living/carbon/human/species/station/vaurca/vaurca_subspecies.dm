@@ -61,6 +61,10 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icon_x_offset = -8
+	floating_chat_x_offset = 8
+	floating_chat_y_offset = 16
+	typing_indicator_x_offset = 16
+	typing_indicator_y_offset = 12
 	healths_x = 22
 	healths_overlay_x = 9
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
@@ -78,9 +82,9 @@
 	The Type C caste is not suitable for physical work and will often delegate any duties to the rest of the Vaurcae, which are below them in the hierarchy.<br>
 	<b>Vaurca Breeders can only be played as Hive Representatives of Queens affiliated to the Court of Queens.</b>"}
 
-	age_max = 1000
+	age_max = 30000
 	default_genders = list(FEMALE)
-	economic_modifier = 3
+	economic_modifier = 12
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 	speech_chance = 100

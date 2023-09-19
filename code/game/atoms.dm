@@ -247,7 +247,7 @@
 // Returns TRUE, the caller always expects TRUE
 // This is used rather than SHOULD_CALL_PARENT as it enforces that subtypes of a type that explicitly returns still call parent
 /atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "")
-	var/f_name = "\a [src][infix]."
+	var/f_name = "\a [src]. [infix]"
 	if(src.blood_DNA && !istype(src, /obj/effect/decal))
 		if(gender == PLURAL)
 			f_name = "some "

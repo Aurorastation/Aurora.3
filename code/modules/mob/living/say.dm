@@ -196,7 +196,7 @@ var/list/channel_to_radio_key = new
 	var/regex/emote = regex("^(\[\\*^\])\[^*\]+$")
 
 	if(emote.Find(message))
-		if(emote.group[1] == "*") return emote(copytext(message, 2))
+		if(emote.group[1] == "*") return client_emote(copytext(message, 2))
 		if(emote.group[1] == "^") return custom_emote(VISIBLE_MESSAGE, copytext(message,2))
 
 	//parse the radio code and consume it
@@ -341,6 +341,7 @@ var/list/channel_to_radio_key = new
 	var/image/speech_bubble
 	if(speech_bubble_state)
 		speech_bubble = image('icons/mob/talk.dmi', src, speech_bubble_state)
+		adjust_typing_indicator_offsets(speech_bubble)
 		speech_bubble.layer = layer
 		speech_bubble.plane = plane
 
