@@ -3739,6 +3739,13 @@
 	},
 /turf/space/dynamic,
 /area/horizon/exterior)
+"cIg" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/shuttle_landmark/intrepid/hangar{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "cIj" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
@@ -19250,7 +19257,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "nyl" = (
-/obj/effect/shuttle_landmark/intrepid/hangar,
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "9,13"
 	},
@@ -55213,7 +55219,7 @@ hYy
 hhv
 aaa
 pvn
-pvn
+cIg
 kxk
 rKh
 yib
