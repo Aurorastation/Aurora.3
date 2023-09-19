@@ -11,10 +11,10 @@
 	burn_delay = 2 SECONDS
 	base = TRUE
 	initial_generic_waypoints = list(
-		// "nav_runtime_1",
-		// "nav_runtime_2",
+		"nav_runtime_1",
+		"nav_runtime_2",
 		"nav_runtime_3",
-		// "nav_runtime_4",
+		"nav_runtime_4",
 		"nav_runtime_hangar",
 	)
 
