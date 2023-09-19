@@ -14,9 +14,12 @@ disallow_relative_proc_definitions = true
 use_typepath_names = true
 
 [diagnostics]
+disabled_directive = "error"
 sets_directive_twice = "error"
 invalid_lint_directive_value = "error"
 invalid_set_value = "error"
+unknown_linter_setting = "error"
+override_missing_keyword_arg = "error"
 ambiguous_in_lhs = "error"
 ambiguous_not_bitwise = "error"
 no_typehint_implicit_new = "error"
@@ -29,6 +32,7 @@ control_condition_static = "error"
 if_condition_determinate = "error"
 loop_condition_determinate = "error"
 integer_precision_loss = "error"
+var_in_proc_parameter = "disabled"
 static_in_proc_parameter = "error"
 semicolon_in_proc_parameter = "error"
 in_precedes_as = "error"
