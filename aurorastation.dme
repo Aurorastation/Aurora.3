@@ -3536,6 +3536,7 @@
 #include "maps\away\ships\yacht\yacht_areas.dm"
 #include "maps\away_sites_testing\away_sites_testing.dm"
 #include "maps\event\code\event.dm"
+#include "maps\event\combatship\deathbox.dm"
 #include "maps\event\generic_dock\code\generic_dock.dm"
 #include "maps\event\generic_dock\code\generic_dock_areas.dm"
 #include "maps\event\idris_cruise\code\idris_cruise.dm"
