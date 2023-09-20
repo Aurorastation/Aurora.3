@@ -71,6 +71,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/space)
+"dA" = (
+/obj/structure/flora/pottedplant/woodyshrubbloom,
+/turf/simulated/floor/wood,
+/area/space)
 "dN" = (
 /obj/structure/sink{
 	pixel_y = 28
@@ -332,6 +336,11 @@
 /obj/structure/flora/tree/konyang/spring,
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
+"vU" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/flora/pottedplant/woodyshrubdying,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
 "wo" = (
 /obj/structure/closet/crate/bin/urban,
 /turf/simulated/floor/concrete,
@@ -405,13 +414,7 @@
 /turf/simulated/wall/wood,
 /area/space)
 "BR" = (
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/dirt_konyang,
+/turf/simulated/floor/asphalt,
 /area/space)
 "BZ" = (
 /obj/structure/coatrack{
@@ -482,6 +485,12 @@
 /area/space)
 "Ew" = (
 /turf/simulated/floor/tiled/white,
+/area/space)
+"Gb" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/space)
 "Gx" = (
 /obj/structure/table/rack/clothing{
@@ -640,11 +649,8 @@
 /turf/simulated/floor/wood,
 /area/space)
 "Sn" = (
-/obj/effect/decal/exterior_stairs/half/center{
-	layer = 3
-	},
-/obj/machinery/door/urban,
-/turf/simulated/floor/tiled/full,
+/obj/structure/flora/pottedplant/woodyshrub,
+/turf/simulated/floor/wood,
 /area/space)
 "SD" = (
 /turf/simulated/floor/exoplanet/konyang,
@@ -744,7 +750,7 @@ SD
 SD
 SD
 SD
-SD
+ys
 SD
 SD
 SD
@@ -783,10 +789,10 @@ SD
 SD
 SD
 SD
+vF
 SD
-SD
-SD
-SD
+Tl
+ys
 SD
 SD
 SD
@@ -827,8 +833,8 @@ SD
 SD
 SD
 SD
-SD
-SD
+BR
+ys
 SD
 SD
 SD
@@ -868,9 +874,9 @@ SD
 SD
 SD
 SD
-SD
-SD
-SD
+ys
+BR
+ys
 SD
 SD
 SD
@@ -909,13 +915,13 @@ SD
 SD
 SD
 SD
+ys
+ys
+BR
+ys
+ys
 SD
-SD
-SD
-SD
-SD
-SD
-SD
+ys
 SD
 vF
 SD
@@ -951,12 +957,12 @@ SD
 SD
 ys
 ys
+ys
 SD
-SD
-SD
-SD
-SD
-SD
+BR
+Tl
+ys
+Tl
 SD
 SD
 SD
@@ -995,9 +1001,9 @@ ys
 SD
 SD
 SD
-SD
-SD
-SD
+BR
+ys
+ys
 SD
 SD
 SD
@@ -1036,10 +1042,10 @@ Tl
 SD
 SD
 SD
-SD
-SD
-SD
-SD
+vF
+BR
+BR
+ys
 SD
 SD
 Ut
@@ -1079,9 +1085,9 @@ ys
 SD
 SD
 SD
-SD
-SD
-SD
+BR
+BR
+ys
 SD
 ys
 ys
@@ -1120,10 +1126,10 @@ SD
 ys
 ys
 SD
-SD
-SD
-SD
-SD
+ys
+BR
+BR
+ys
 SD
 UB
 eq
@@ -1162,10 +1168,10 @@ SD
 SD
 ys
 ys
-SD
-SD
-SD
-SD
+ys
+BR
+BR
+Tl
 SD
 ys
 ys
@@ -1203,11 +1209,11 @@ SD
 SD
 SD
 SD
-ys
-ys
+ll
+ll
+BR
+BR
 fF
-fF
-SD
 Bb
 Bb
 Bb
@@ -1236,8 +1242,6 @@ SD
 ys
 ys
 ys
-UB
-SD
 SD
 SD
 SD
@@ -1248,8 +1252,10 @@ qU
 Hw
 Bb
 Bb
+ll
+BR
+BR
 fF
-SD
 Bb
 dN
 Bb
@@ -1277,9 +1283,7 @@ Tl
 ys
 ys
 ys
-ys
-ys
-SD
+Tl
 SD
 SD
 SD
@@ -1290,8 +1294,10 @@ Lg
 Lg
 aH
 Bb
+ll
+BR
+BR
 fF
-SD
 Bb
 XS
 Bb
@@ -1320,8 +1326,6 @@ fm
 ys
 ys
 ys
-Tl
-SD
 SD
 SD
 SD
@@ -1332,11 +1336,13 @@ VR
 VR
 VR
 sf
+ll
+BR
+BR
 fF
-SD
 Bb
 VR
-VR
+dA
 VR
 VR
 VR
@@ -1362,8 +1368,6 @@ sA
 ys
 ys
 ys
-ys
-ys
 SD
 SD
 SD
@@ -1374,7 +1378,9 @@ VR
 VR
 dn
 KO
-fF
+ll
+BR
+BR
 fF
 Ql
 VR
@@ -1404,8 +1410,6 @@ sA
 UB
 ys
 ys
-ys
-ys
 UB
 SD
 SD
@@ -1416,8 +1420,10 @@ Ac
 VR
 pn
 KO
-fF
-SD
+ll
+BR
+BR
+ll
 KO
 Lg
 Lg
@@ -1447,8 +1453,6 @@ md
 md
 md
 ll
-ll
-ll
 md
 md
 Bb
@@ -1459,7 +1463,9 @@ VR
 rW
 KO
 ll
-SD
+BR
+BR
+ll
 KO
 Lg
 Lg
@@ -1489,8 +1495,6 @@ ll
 ys
 ys
 ys
-Tl
-ys
 SD
 ll
 Bb
@@ -1501,7 +1505,9 @@ KO
 KO
 Bb
 ll
-SD
+BR
+BR
+ll
 Bb
 KO
 KO
@@ -1530,8 +1536,6 @@ ys
 Jh
 ys
 Tl
-ys
-ys
 SD
 SD
 ll
@@ -1541,9 +1545,11 @@ SD
 rS
 bI
 zi
-Al
+vU
 ll
-SD
+BR
+BR
+ll
 SD
 SD
 SD
@@ -1574,8 +1580,6 @@ ys
 ys
 SD
 SD
-SD
-SD
 ll
 SD
 SD
@@ -1585,10 +1589,12 @@ Al
 Al
 Al
 ll
-SD
-SD
-SD
-SD
+BR
+BR
+ll
+ll
+fF
+fF
 SD
 SD
 SD
@@ -1616,8 +1622,6 @@ UB
 SD
 SD
 SD
-SD
-SD
 ll
 ll
 ll
@@ -1627,13 +1631,15 @@ ll
 ll
 ll
 ll
-ll
+BR
+BR
+BR
+BR
+BR
 fF
-fF
-SD
-SD
-SD
-SD
+Tl
+ys
+ys
 UB
 ys
 ys
@@ -1663,16 +1669,16 @@ SD
 SD
 SD
 SD
-ll
-SD
-SD
-SD
-SD
-SD
-PB
-SD
 fF
 SD
+SD
+ll
+BR
+BR
+BR
+BR
+BR
+fF
 Bb
 Bb
 Bb
@@ -1705,16 +1711,16 @@ SD
 SD
 SD
 SD
-ll
-SD
-SD
-SD
-SD
-SD
-SD
-SD
 fF
 SD
+SD
+ll
+ll
+fF
+fF
+BR
+BR
+fF
 Bb
 VR
 VR
@@ -1752,10 +1758,10 @@ Bb
 Bb
 Bb
 SD
-SD
-SD
 iG
 fF
+BR
+BR
 fF
 Ql
 VR
@@ -1794,11 +1800,11 @@ VR
 VR
 Bb
 SD
-SD
-SD
 oM
 fF
-SD
+BR
+BR
+fF
 Bb
 VR
 rF
@@ -1837,10 +1843,10 @@ VR
 Bb
 Bb
 Bb
-SD
-oM
 fF
-NF
+BR
+BR
+fF
 Bb
 Bb
 Bb
@@ -1879,10 +1885,10 @@ VR
 Bb
 yA
 Bb
-SD
-oM
-ys
-SD
+fF
+BR
+BR
+fF
 Bb
 VR
 VR
@@ -1915,16 +1921,16 @@ Bb
 Xv
 NZ
 Le
-VR
+Sn
 VR
 VR
 bE
 Ew
 Bb
-SD
-oM
 ys
-ys
+BR
+BR
+fF
 Ql
 VR
 VR
@@ -1958,15 +1964,15 @@ Bb
 Bb
 Bb
 Bb
-XS
+Gb
 Bb
 Bb
 kB
 Bb
-SD
-oM
 Tl
-PB
+BR
+BR
+Tl
 Bb
 VR
 VR
@@ -1993,7 +1999,7 @@ ys
 ys
 fF
 fF
-Sn
+Ql
 VR
 VR
 VR
@@ -2005,13 +2011,13 @@ hT
 Bb
 Bb
 Bb
-SD
-nx
 ys
-SD
+BR
+BR
+ys
 Bb
 Bb
-XS
+Gb
 Bb
 Bb
 Bb
@@ -2048,9 +2054,9 @@ KO
 SD
 SD
 ys
-nx
+BR
+BR
 Tl
-NF
 Bb
 VR
 VR
@@ -2089,10 +2095,10 @@ DG
 KO
 SD
 ys
-Tl
-nx
 ys
-SD
+BR
+BR
+ys
 KO
 VR
 VR
@@ -2131,10 +2137,10 @@ Bb
 Bb
 AX
 aP
-wB
+ys
+BR
 BR
 ys
-SD
 KO
 VR
 VR
@@ -2173,10 +2179,10 @@ SD
 SD
 SD
 ys
-ys
-SD
 Tl
-SD
+BR
+BR
+Tl
 Bb
 KO
 KO
@@ -2215,10 +2221,10 @@ SD
 SD
 SD
 Tl
-SD
-SD
 ys
-SD
+ys
+BR
+ys
 SD
 SD
 SD
@@ -2258,9 +2264,9 @@ SD
 SD
 SD
 SD
-SD
-SD
-SD
+ys
+BR
+ys
 SD
 SD
 SD
@@ -2300,8 +2306,8 @@ SD
 SD
 SD
 SD
-SD
-SD
+ys
+BR
 SD
 SD
 SD
@@ -2340,10 +2346,10 @@ SD
 SD
 SD
 SD
-SD
-SD
 vF
 SD
+SD
+Tl
 SD
 SD
 SD
