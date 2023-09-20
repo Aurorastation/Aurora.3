@@ -544,9 +544,6 @@
 /area/ship/deathbox)
 "sfp" = (
 /obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/tiled/dark,
-/area/ship/deathbox)
-"spD" = (
 /obj/effect/overmap/visitable/ship/deathbox,
 /turf/simulated/floor/tiled/dark,
 /area/ship/deathbox)
@@ -580,9 +577,6 @@
 /obj/item/warhead/longbow/bunker,
 /obj/item/warhead/longbow/bunker,
 /obj/item/warhead/longbow/bunker,
-/obj/machinery/light/colored/red{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/deathbox)
 "tRN" = (
@@ -34200,9 +34194,9 @@ cqW
 dJo
 bXU
 bXU
+bXU
 aCu
-aCu
-aCu
+bXU
 bXU
 cuy
 cuy
@@ -34714,7 +34708,7 @@ qql
 dJo
 dJo
 cQX
-spD
+dJo
 dJo
 cQX
 dJo
