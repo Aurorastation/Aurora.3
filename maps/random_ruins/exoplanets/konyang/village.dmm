@@ -24,6 +24,10 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/space)
+"aJ" = (
+/obj/structure/flora/pottedplant/smelly,
+/turf/simulated/floor/wood,
+/area/space)
 "aN" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/condiment/sugar{
@@ -59,20 +63,22 @@
 /obj/structure/table/rack/cafe_table,
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
+"bK" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
 "cd" = (
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/sidewalk,
 /area/space)
 "dn" = (
 /obj/structure/bed/stool/bar/wood{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
-/area/space)
-"dA" = (
-/obj/structure/flora/pottedplant/woodyshrubbloom,
 /turf/simulated/floor/wood,
 /area/space)
 "dN" = (
@@ -91,6 +97,9 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
+"eE" = (
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
 "fa" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
@@ -100,7 +109,7 @@
 	dir = 8
 	},
 /obj/structure/trash_pile,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/sidewalk,
 /area/space)
 "fm" = (
 /obj/structure/chainlink_fence{
@@ -109,10 +118,26 @@
 /obj/structure/chainlink_fence{
 	dir = 8
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/sidewalk,
+/area/space)
+"fC" = (
+/turf/simulated/floor/sidewalk/flat,
 /area/space)
 "fF" = (
 /turf/simulated/floor/sidewalk,
+/area/space)
+"hG" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep,
+/obj/structure/light_pole/konyang/left,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_y = 7;
+	pixel_x = 16
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "hQ" = (
 /obj/structure/chainlink_fence{
@@ -173,11 +198,20 @@
 "ll" = (
 /turf/simulated/floor/concrete,
 /area/space)
+"lm" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/flora/pottedplant/woodyshrubdying,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"lC" = (
+/obj/structure/flora/pottedplant/woodyshrub,
+/turf/simulated/floor/wood,
+/area/space)
 "md" = (
 /obj/structure/chainlink_fence{
 	dir = 8
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/sidewalk,
 /area/space)
 "mD" = (
 /obj/structure/window/urban{
@@ -194,11 +228,19 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/space)
+"mQ" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/space)
 "mT" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 2
 	},
 /turf/simulated/floor/wood,
+/area/space)
+"ne" = (
+/obj/effect/decal/road_marking/no_pass,
+/turf/simulated/floor/concrete/square,
 /area/space)
 "nu" = (
 /obj/structure/chainlink_fence{
@@ -206,12 +248,17 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/bin/urban/dumpster,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/sidewalk,
 /area/space)
 "nx" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1
 	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"nY" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "of" = (
@@ -239,6 +286,13 @@
 "pn" = (
 /obj/structure/table/rack/cafe_table,
 /turf/simulated/floor/wood,
+/area/space)
+"pp" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "pD" = (
 /obj/structure/table/stone/marble,
@@ -322,7 +376,12 @@
 /obj/structure/chainlink_fence{
 	layer = 9.1
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/sidewalk,
+/area/space)
+"sE" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep,
+/obj/item/towel_flat,
+/turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "uN" = (
 /obj/structure/chainlink_fence{
@@ -330,26 +389,27 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/trashcart,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/sidewalk,
 /area/space)
 "vF" = (
 /obj/structure/flora/tree/konyang/spring,
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
-"vU" = (
-/obj/structure/lattice/catwalk/indoor/planks,
-/obj/structure/flora/pottedplant/woodyshrubdying,
-/turf/simulated/floor/exoplanet/konyang,
-/area/space)
 "wo" = (
 /obj/structure/closet/crate/bin/urban,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/sidewalk,
 /area/space)
 "wB" = (
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"yj" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk/blocks,
 /area/space)
 "ys" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -414,7 +474,7 @@
 /turf/simulated/wall/wood,
 /area/space)
 "BR" = (
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/concrete/square,
 /area/space)
 "BZ" = (
 /obj/structure/coatrack{
@@ -486,12 +546,6 @@
 "Ew" = (
 /turf/simulated/floor/tiled/white,
 /area/space)
-"Gb" = (
-/obj/machinery/door/urban{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/space)
 "Gx" = (
 /obj/structure/table/rack/clothing{
 	dir = 4;
@@ -519,12 +573,25 @@
 /obj/item/clothing/under/konyangdresstraditional/national/vest,
 /turf/simulated/floor/lino/diamond,
 /area/space)
+"Ii" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
 "Jh" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1;
 	dir = 1
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"Km" = (
+/turf/simulated/floor/sidewalk/detail,
+/area/space)
+"KB" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep,
+/turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "KO" = (
 /obj/effect/map_effect/window_spawner/full/wood,
@@ -627,7 +694,7 @@
 	dir = 1
 	},
 /obj/structure/trash_pile,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/sidewalk,
 /area/space)
 "NF" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -636,6 +703,10 @@
 "NZ" = (
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"OO" = (
+/obj/structure/flora/pottedplant/woodyshrubbloom,
+/turf/simulated/floor/wood,
 /area/space)
 "PB" = (
 /obj/effect/floor_decal/konyang_flowers,
@@ -649,8 +720,15 @@
 /turf/simulated/floor/wood,
 /area/space)
 "Sn" = (
-/obj/structure/flora/pottedplant/woodyshrub,
-/turf/simulated/floor/wood,
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk,
+/area/space)
+"Sw" = (
+/obj/effect/decal/road_marking/no_pass,
+/turf/simulated/floor/concrete,
 /area/space)
 "SD" = (
 /turf/simulated/floor/exoplanet/konyang,
@@ -665,8 +743,16 @@
 /area/space)
 "TW" = (
 /obj/structure/bed/padded,
-/obj/item/bedsheet/blue,
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 4
+	},
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/wood,
+/area/space)
+"Um" = (
+/obj/structure/flora/rock/konyang/water,
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/konyang,
 /area/space)
 "Ut" = (
 /obj/structure/light_pole,
@@ -727,6 +813,10 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/space)
+"ZL" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
 
 (1,1,1) = {"
 SD
@@ -782,9 +872,9 @@ vF
 SD
 SD
 SD
-SD
-SD
-SD
+NF
+NF
+NF
 SD
 SD
 SD
@@ -795,11 +885,11 @@ Tl
 ys
 SD
 SD
+NF
 SD
 SD
 SD
-SD
-SD
+NF
 SD
 SD
 SD
@@ -822,12 +912,12 @@ SD
 SD
 SD
 SD
+PB
 SD
 SD
 SD
 SD
-SD
-SD
+NF
 SD
 SD
 SD
@@ -837,17 +927,17 @@ BR
 ys
 SD
 SD
+NF
+NF
 SD
 SD
-SD
-SD
-SD
-SD
+NF
 SD
 SD
 SD
 SD
 NF
+SD
 SD
 SD
 SD
@@ -862,9 +952,9 @@ ys
 ys
 SD
 SD
+NF
 SD
-SD
-SD
+NF
 SD
 SD
 SD
@@ -898,26 +988,26 @@ vF
 "}
 (5,1,1) = {"
 SD
-SD
+NF
 SD
 SD
 ys
 Tl
 SD
+NF
 SD
 SD
 SD
 SD
 SD
 SD
-SD
-SD
+NF
 SD
 SD
 SD
 ys
 ys
-BR
+ll
 ys
 ys
 SD
@@ -934,13 +1024,13 @@ SD
 NF
 SD
 SD
-SD
+NF
 SD
 SD
 "}
 (6,1,1) = {"
 SD
-SD
+NF
 SD
 SD
 ys
@@ -959,7 +1049,7 @@ ys
 ys
 ys
 SD
-BR
+ll
 Tl
 ys
 Tl
@@ -983,25 +1073,25 @@ SD
 (7,1,1) = {"
 SD
 SD
+NF
+SD
+SD
+ys
+ys
+SD
+SD
+SD
+SD
 SD
 SD
 SD
 ys
 ys
-SD
-SD
-SD
-SD
-SD
-SD
-SD
-ys
-ys
 ys
 SD
 SD
 SD
-BR
+ll
 ys
 ys
 SD
@@ -1025,8 +1115,8 @@ SD
 (8,1,1) = {"
 SD
 SD
-SD
-SD
+NF
+NF
 SD
 UB
 ys
@@ -1043,7 +1133,7 @@ SD
 SD
 SD
 vF
-BR
+ll
 BR
 ys
 SD
@@ -1057,8 +1147,8 @@ ys
 ys
 qP
 oM
-NF
 SD
+NF
 SD
 SD
 SD
@@ -1085,8 +1175,8 @@ ys
 SD
 SD
 SD
-BR
-BR
+ll
+ll
 ys
 SD
 ys
@@ -1099,8 +1189,8 @@ ys
 sc
 YH
 nx
-NF
 SD
+NF
 SD
 SD
 SD
@@ -1112,9 +1202,9 @@ vF
 SD
 SD
 SD
-SD
-SD
-SD
+NF
+NF
+NF
 SD
 Tl
 ys
@@ -1127,8 +1217,8 @@ ys
 ys
 SD
 ys
-BR
-BR
+ll
+ll
 ys
 SD
 UB
@@ -1141,9 +1231,9 @@ ys
 ys
 of
 oI
+SD
 NF
-SD
-SD
+NF
 SD
 NF
 NF
@@ -1154,7 +1244,7 @@ SD
 SD
 SD
 SD
-SD
+NF
 SD
 SD
 SD
@@ -1169,8 +1259,8 @@ SD
 ys
 ys
 ys
-BR
-BR
+ll
+ll
 Tl
 SD
 ys
@@ -1183,8 +1273,8 @@ ys
 UB
 ys
 nx
-NF
 SD
+NF
 SD
 SD
 NF
@@ -1201,6 +1291,7 @@ SD
 Tl
 SD
 SD
+PB
 SD
 SD
 SD
@@ -1208,11 +1299,10 @@ SD
 SD
 SD
 SD
-SD
+eE
+fC
 ll
 ll
-BR
-BR
 fF
 Bb
 Bb
@@ -1252,9 +1342,9 @@ qU
 Hw
 Bb
 Bb
+fF
+BR
 ll
-BR
-BR
 fF
 Bb
 dN
@@ -1276,7 +1366,7 @@ SD
 "}
 (14,1,1) = {"
 SD
-SD
+PB
 SD
 SD
 Tl
@@ -1294,10 +1384,10 @@ Lg
 Lg
 aH
 Bb
-ll
-BR
-BR
 fF
+ne
+ll
+eE
 Bb
 XS
 Bb
@@ -1336,13 +1426,13 @@ VR
 VR
 VR
 sf
-ll
-BR
-BR
 fF
+ne
+ll
+fC
 Bb
 VR
-dA
+OO
 VR
 VR
 VR
@@ -1363,7 +1453,7 @@ SD
 SD
 ys
 nu
-ll
+fF
 sA
 ys
 ys
@@ -1378,10 +1468,10 @@ VR
 VR
 dn
 KO
-ll
-BR
-BR
 fF
+Sw
+ll
+eE
 Ql
 VR
 VR
@@ -1405,7 +1495,7 @@ SD
 SD
 Bb
 wo
-ll
+eE
 sA
 UB
 ys
@@ -1420,10 +1510,10 @@ Ac
 VR
 pn
 KO
+fF
+Sw
 ll
-BR
-BR
-ll
+eE
 KO
 Lg
 Lg
@@ -1447,14 +1537,14 @@ SD
 Tl
 ys
 uN
-ll
-ll
+fF
+eE
 md
 md
 md
-ll
+fF
 md
-md
+yj
 Bb
 YI
 pU
@@ -1462,10 +1552,10 @@ VR
 VR
 rW
 KO
+fF
+Sw
 ll
-BR
-BR
-ll
+eE
 KO
 Lg
 Lg
@@ -1473,7 +1563,7 @@ Lg
 Bb
 VR
 VR
-VR
+hT
 Bb
 SD
 SD
@@ -1489,14 +1579,14 @@ ys
 ys
 ys
 Mx
+bK
 cd
-cd
-ll
+fC
 ys
 ys
+ZL
 ys
-SD
-ll
+eE
 Bb
 Bb
 Bb
@@ -1504,10 +1594,10 @@ KO
 KO
 KO
 Bb
+eE
 ll
-BR
-BR
 ll
+fF
 Bb
 KO
 KO
@@ -1523,7 +1613,7 @@ SD
 ys
 ys
 ys
-SD
+NF
 SD
 "}
 (20,1,1) = {"
@@ -1535,21 +1625,21 @@ ys
 ys
 Jh
 ys
-Tl
-SD
-SD
-ll
+nY
+Um
+ZL
+fF
 SD
 SD
 SD
 rS
 bI
 zi
-vU
+lm
+eE
 ll
-BR
-BR
 ll
+fF
 SD
 SD
 SD
@@ -1565,7 +1655,7 @@ ys
 ys
 ys
 ys
-SD
+NF
 SD
 "}
 (21,1,1) = {"
@@ -1576,11 +1666,11 @@ ys
 Tl
 ys
 Jh
-ys
-ys
-SD
-SD
-ll
+ZL
+mQ
+mQ
+NF
+fF
 SD
 SD
 SD
@@ -1588,13 +1678,13 @@ Al
 Al
 Al
 Al
-ll
+eE
 BR
-BR
-ll
 ll
 fF
 fF
+fF
+Km
 SD
 SD
 SD
@@ -1607,7 +1697,7 @@ ys
 Tl
 ys
 ys
-SD
+NF
 SD
 "}
 (22,1,1) = {"
@@ -1619,21 +1709,21 @@ SD
 ys
 Jh
 UB
+Um
 SD
-SD
-SD
-ll
-ll
-ll
-ll
-ll
-ll
-ll
-ll
-ll
+vF
+fC
+eE
+eE
+eE
+fF
+Km
+fF
+eE
+eE
 BR
-BR
-BR
+ll
+ll
 BR
 BR
 fF
@@ -1648,7 +1738,7 @@ ys
 ys
 ys
 UB
-SD
+NF
 SD
 SD
 "}
@@ -1660,6 +1750,8 @@ SD
 SD
 ys
 Jh
+ZL
+NF
 SD
 SD
 SD
@@ -1667,16 +1759,14 @@ SD
 SD
 SD
 SD
+eE
 SD
 SD
-fF
-SD
-SD
+eE
+BR
+BR
+BR
 ll
-BR
-BR
-BR
-BR
 BR
 fF
 Bb
@@ -1702,8 +1792,8 @@ SD
 SD
 ys
 Jh
-SD
-SD
+ys
+ZL
 SD
 SD
 SD
@@ -1714,13 +1804,13 @@ SD
 fF
 SD
 SD
+fF
+fF
+fF
+fC
 ll
 ll
-fF
-fF
-BR
-BR
-fF
+eE
 Bb
 VR
 VR
@@ -1743,9 +1833,9 @@ SD
 SD
 SD
 UB
-Jh
-ll
-ll
+Sn
+fF
+Km
 SD
 SD
 SD
@@ -1760,9 +1850,9 @@ Bb
 SD
 iG
 fF
-BR
-BR
-fF
+ll
+ll
+eE
 Ql
 VR
 VR
@@ -1776,18 +1866,18 @@ ys
 Tl
 SD
 SD
-SD
+NF
 "}
 (26,1,1) = {"
 SD
 SD
-SD
+PB
 SD
 SD
 SD
 DA
 SD
-ll
+eE
 SD
 SD
 SD
@@ -1802,9 +1892,9 @@ Bb
 SD
 oM
 fF
-BR
-BR
-fF
+ll
+ll
+eE
 Bb
 VR
 rF
@@ -1817,22 +1907,22 @@ ys
 SD
 SD
 SD
-SD
-SD
+NF
+NF
 "}
 (27,1,1) = {"
 SD
-SD
+NF
 SD
 SD
 SD
 SD
 DA
 SD
-ll
+eE
 SD
-SD
-SD
+KB
+hG
 KO
 pD
 Ew
@@ -1843,10 +1933,10 @@ VR
 Bb
 Bb
 Bb
-fF
+eE
 BR
-BR
-fF
+ll
+eE
 Bb
 Bb
 Bb
@@ -1864,7 +1954,7 @@ SD
 "}
 (28,1,1) = {"
 SD
-SD
+NF
 SD
 SD
 SD
@@ -1873,8 +1963,8 @@ DA
 SD
 fF
 SD
-SD
-SD
+KB
+sE
 KO
 LV
 Ew
@@ -1885,10 +1975,10 @@ VR
 Bb
 yA
 Bb
-fF
+eE
 BR
-BR
-fF
+ll
+eE
 Bb
 VR
 VR
@@ -1906,8 +1996,8 @@ SD
 "}
 (29,1,1) = {"
 SD
-SD
-SD
+NF
+NF
 SD
 SD
 SD
@@ -1921,16 +2011,16 @@ Bb
 Xv
 NZ
 Le
-Sn
+lC
 VR
 VR
 bE
 Ew
 Bb
 ys
+ll
 BR
-BR
-fF
+eE
 Ql
 VR
 VR
@@ -1940,15 +2030,15 @@ KO
 SD
 SD
 SD
-SD
-SD
+NF
+NF
 SD
 SD
 SD
 "}
 (30,1,1) = {"
 SD
-SD
+NF
 SD
 SD
 ys
@@ -1964,17 +2054,17 @@ Bb
 Bb
 Bb
 Bb
-Gb
+Ii
 Bb
 Bb
 kB
 Bb
 Tl
-BR
-BR
-Tl
+ll
+ll
+eE
 Bb
-VR
+aJ
 VR
 VR
 VR
@@ -1983,7 +2073,7 @@ SD
 vF
 SD
 SD
-SD
+NF
 SD
 SD
 SD
@@ -1997,8 +2087,8 @@ SD
 ys
 ys
 ys
-fF
-fF
+eE
+eE
 Ql
 VR
 VR
@@ -2012,12 +2102,12 @@ Bb
 Bb
 Bb
 ys
-BR
-BR
+ll
+ll
 ys
 Bb
 Bb
-Gb
+Ii
 Bb
 Bb
 Bb
@@ -2051,11 +2141,11 @@ VR
 hT
 Mw
 KO
-SD
-SD
+NF
+NF
 ys
-BR
-BR
+ll
+ll
 Tl
 Bb
 VR
@@ -2082,7 +2172,7 @@ SD
 DA
 SD
 SD
-SD
+NF
 KO
 VR
 VR
@@ -2093,10 +2183,10 @@ mT
 Mw
 DG
 KO
-SD
+NF
 ys
 ys
-BR
+ll
 BR
 ys
 KO
@@ -2120,11 +2210,11 @@ SD
 SD
 SD
 SD
+NF
+NF
+NF
 SD
-SD
-SD
-SD
-SD
+NF
 Bb
 VR
 VR
@@ -2135,11 +2225,11 @@ Bb
 Bb
 Bb
 Bb
-AX
+pp
 aP
 ys
 BR
-BR
+ll
 ys
 KO
 VR
@@ -2160,28 +2250,28 @@ SD
 SD
 SD
 SD
-SD
+PB
 SD
 SD
 SD
 sg
 SD
-SD
+NF
 Bb
 Bb
 KO
 Bb
 Bb
-SD
-SD
-SD
+NF
+NF
+NF
 SD
 SD
 SD
 ys
 Tl
-BR
-BR
+ll
+ll
 Tl
 Bb
 KO
@@ -2208,7 +2298,7 @@ SD
 SD
 UB
 je
-SD
+NF
 SD
 SD
 ys
@@ -2223,9 +2313,9 @@ SD
 Tl
 ys
 ys
-BR
+ll
 ys
-SD
+NF
 SD
 SD
 SD
@@ -2242,8 +2332,8 @@ SD
 "}
 (37,1,1) = {"
 SD
-SD
-SD
+NF
+NF
 SD
 SD
 SD
@@ -2261,7 +2351,7 @@ SD
 SD
 SD
 SD
-SD
+NF
 SD
 SD
 ys
@@ -2293,7 +2383,7 @@ SD
 SD
 SD
 Tl
-SD
+NF
 SD
 SD
 ys
@@ -2308,7 +2398,7 @@ SD
 SD
 ys
 BR
-SD
+NF
 SD
 SD
 SD
@@ -2320,8 +2410,8 @@ SD
 SD
 NF
 SD
-SD
-SD
+NF
+NF
 SD
 "}
 (39,1,1) = {"
@@ -2331,11 +2421,11 @@ SD
 SD
 vF
 SD
+NF
 SD
 SD
-SD
-SD
-SD
+NF
+NF
 SD
 SD
 SD
@@ -2350,9 +2440,9 @@ vF
 SD
 SD
 Tl
-SD
-SD
-SD
+NF
+NF
+NF
 SD
 SD
 SD
@@ -2363,7 +2453,7 @@ PB
 SD
 SD
 SD
-SD
+NF
 SD
 "}
 (40,1,1) = {"
@@ -2373,6 +2463,17 @@ SD
 SD
 SD
 SD
+NF
+NF
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+NF
+NF
 SD
 SD
 SD
@@ -2394,17 +2495,6 @@ SD
 SD
 SD
 SD
-SD
-SD
-SD
-SD
-SD
-SD
-SD
-SD
-SD
-SD
-SD
-SD
+NF
 SD
 "}
