@@ -294,6 +294,12 @@
 "ikt" = (
 /turf/simulated/wall/shuttle/dark,
 /area/ship/deathbox/two)
+"ikF" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/deathbox)
 "iuw" = (
 /obj/machinery/ammunition_loader/longbow{
 	weapon_id = "Sol Battle Ship Longbow Cannon"
@@ -316,9 +322,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/deathbox)
 "iMy" = (
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor,
-/area/space)
+/obj/machinery/light/colored/red{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/turf/simulated/floor/tiled/dark,
+/area/ship/deathbox)
 "iOh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -514,6 +523,13 @@
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor,
 /area/ship/deathbox)
+"qIX" = (
+/obj/machinery/light/colored/red,
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/deathbox)
 "rmm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -540,17 +556,25 @@
 /area/ship/deathbox)
 "rBF" = (
 /obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark,
 /area/ship/deathbox/two)
 "rPE" = (
-/obj/machinery/light/colored/red{
-	dir = 1
-	},
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/tiled/dark,
-/area/ship/deathbox/two)
+/area/ship/deathbox)
+"rYM" = (
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor/tiled/dark,
+/area/ship/deathbox)
+"sfp" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/dark,
+/area/ship/deathbox)
 "spD" = (
-/turf/simulated/wall/shuttle/dark,
-/area/space)
+/obj/effect/overmap/visitable/ship/deathbox,
+/turf/simulated/floor/tiled/dark,
+/area/ship/deathbox)
 "sOb" = (
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/dark,
@@ -30350,7 +30374,7 @@ bXU
 kxZ
 bXU
 aap
-spD
+bXU
 xPN
 aAY
 aAY
@@ -30607,7 +30631,7 @@ bXU
 bXU
 bXU
 bXU
-spD
+bXU
 nDF
 nDF
 nDF
@@ -30864,7 +30888,7 @@ dJo
 dJo
 dJo
 dJo
-spD
+bXU
 iuw
 aaa
 fAD
@@ -31121,9 +31145,9 @@ dJo
 dJo
 dJo
 phR
-spD
-rPE
+bXU
 nkz
+afz
 nkz
 nkz
 nkz
@@ -31378,11 +31402,11 @@ dJo
 dJo
 dJo
 dJo
-iMy
+aCu
 nkz
 nkz
 nkz
-afz
+nkz
 nkz
 nkz
 ikt
@@ -31635,7 +31659,7 @@ dJo
 dJo
 dJo
 dJo
-iMy
+aCu
 nkz
 nkz
 nkz
@@ -31892,7 +31916,7 @@ dJo
 dJo
 dJo
 dJo
-spD
+bXU
 rBF
 nkz
 nkz
@@ -32149,7 +32173,7 @@ bXU
 aCu
 bXU
 bXU
-spD
+bXU
 rBF
 nkz
 nkz
@@ -32158,8 +32182,8 @@ nkz
 aHt
 aAY
 lJq
-lJq
-lJq
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -32406,7 +32430,7 @@ bXU
 dJo
 bXU
 bXU
-spD
+bXU
 rBF
 nkz
 nkz
@@ -32415,8 +32439,8 @@ nkz
 bwv
 ikt
 ikt
-ikt
-lJq
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -32663,7 +32687,7 @@ bXU
 aCu
 bXU
 bXU
-spD
+bXU
 rBF
 nkz
 nkz
@@ -32920,7 +32944,7 @@ etL
 dJo
 sOb
 bXU
-spD
+bXU
 nkz
 nkz
 nkz
@@ -33174,10 +33198,10 @@ dJo
 bXU
 bXU
 hMA
-dJo
+rPE
 axB
 bXU
-spD
+bXU
 tRN
 nkz
 nkz
@@ -33431,7 +33455,7 @@ lNt
 bXU
 bXU
 pZL
-dJo
+sfp
 que
 bXU
 cuy
@@ -33683,14 +33707,14 @@ phR
 bXU
 bXU
 bXU
-dJo
+rYM
 dJo
 bXU
-bXU
-hMA
+iMy
 dJo
-phR
-bXU
+dJo
+dJo
+qIX
 cuy
 cuy
 jjm
@@ -33943,11 +33967,11 @@ bXU
 eNl
 dJo
 bXU
-bXU
+rPE
 dJo
 dJo
 dJo
-bXU
+ikF
 cuy
 cuy
 jjm
@@ -34715,7 +34739,7 @@ qql
 dJo
 dJo
 cQX
-dJo
+spD
 dJo
 cQX
 dJo
@@ -35480,8 +35504,8 @@ tAW
 dJo
 phR
 bXU
-dJo
-dJo
+bXU
+bXU
 dJo
 dJo
 bXU
