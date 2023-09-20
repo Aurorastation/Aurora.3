@@ -260,10 +260,6 @@
 	},
 /turf/simulated/wall/shuttle/dark,
 /area/ship/deathbox/two)
-"gzu" = (
-/obj/effect/shuttle_landmark/elyran_strike_craft/nav1,
-/turf/template_noop,
-/area/space)
 "gBG" = (
 /obj/machinery/light/colored/red{
 	dir = 1
@@ -527,15 +523,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/deathbox)
-"rmm" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
-/area/ship/deathbox/one)
 "rtf" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, gunnery"
@@ -551,10 +538,6 @@
 /obj/item/warhead/longbow/ap,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/deathbox)
-"rBF" = (
-/obj/machinery/mech_recharger,
-/turf/simulated/floor/tiled/dark,
-/area/ship/deathbox/two)
 "rPE" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/tiled/dark,
@@ -31909,7 +31892,7 @@ dJo
 dJo
 dJo
 bXU
-rBF
+nkz
 nkz
 nkz
 nkz
@@ -32166,7 +32149,7 @@ aCu
 bXU
 bXU
 bXU
-rBF
+nkz
 nkz
 nkz
 nkz
@@ -32423,7 +32406,7 @@ dJo
 bXU
 bXU
 bXU
-rBF
+nkz
 nkz
 nkz
 nkz
@@ -32680,7 +32663,7 @@ aCu
 bXU
 bXU
 bXU
-rBF
+nkz
 nkz
 nkz
 nkz
@@ -33969,7 +33952,7 @@ cuy
 jjm
 jjm
 cuy
-rmm
+cuy
 oFn
 cQc
 cQc
@@ -44486,7 +44469,7 @@ xRX
 xRX
 xRX
 xRX
-gzu
+xRX
 xRX
 xRX
 xRX
