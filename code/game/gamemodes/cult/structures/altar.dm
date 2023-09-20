@@ -29,7 +29,7 @@
 					if(do_after(user, 20))
 						O.status &= ~ORGAN_BROKEN
 				O.update_damages()
-			if(!(H.species.flags & NO_BLOOD))
+			if(NOT_FLAG(H.species.flags, NO_BLOOD))
 				var/total_blood = REAGENT_VOLUME(H.vessel, /singleton/reagent/blood)
 				var/blood_to_add = H.species.blood_volume * 0.45
 				if(total_blood < blood_to_add)
