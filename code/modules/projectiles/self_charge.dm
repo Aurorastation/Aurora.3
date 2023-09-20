@@ -3,13 +3,14 @@
 	desc = "A small device attached to the power cell of an energy weapon, designed to allow it to continue operation when away from a convenient recharger. This one seems outdated, with an abysmally slow recharge rate."
 	icon = 'icons/obj/charge_modules.dmi'
 	icon_state = "low-selfchargemodule"
-	var/charge_rate = 10 //how long does it take for a shot to recharge (in ticks)
 	origin_tech = list(TECH_POWER = 3, TECH_COMBAT = 3)
 	flags = CONDUCT
 	w_class = ITEMSIZE_TINY
-	var/obj/item/gun/energy/gun
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
+	var/obj/item/gun/energy/gun
+	var/charge_rate = 10 //how long does it take for a shot to recharge (in ticks)
+
 
 /obj/item/device/self_charge_module/Initialize(mapload)
 	. = ..()
