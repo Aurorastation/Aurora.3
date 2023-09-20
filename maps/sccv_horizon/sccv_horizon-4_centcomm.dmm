@@ -10896,16 +10896,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/merchant_station/warehouse)
-"aAg" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	id = "merchant_airlock";
-	name = "viewing shutter"
-	},
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/turf/simulated/floor/plating,
-/area/shuttle/merchant)
 "aAh" = (
 /obj/structure/shuttle/engine/propulsion/burst{
 	dir = 4
@@ -100059,7 +100049,7 @@ rCq
 amd
 amd
 amd
-aAg
+aAe
 atU
 avY
 ave
@@ -100573,7 +100563,7 @@ axf
 amd
 amd
 amd
-aAg
+aAe
 atW
 auV
 avH
