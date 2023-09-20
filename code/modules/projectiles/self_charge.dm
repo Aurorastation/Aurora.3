@@ -36,7 +36,6 @@
 	gun.self_recharge = TRUE
 	gun.use_external_power = FALSE
 	gun.recharge_time = src.charge_rate
-	return
 
 /obj/item/device/self_charge_module/standard
 	name = "advanced weapon recharging module"
