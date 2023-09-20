@@ -53,10 +53,7 @@
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "butch"
 	item_state = "butch"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
-		)
+	contained_sprite = TRUE
 	desc = "A huge thing used for chopping and chopping up meat."
 	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
 	slot_flags = SLOT_BELT
@@ -133,10 +130,7 @@
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "hook_knife"
 	item_state = "hook_knife"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
-	)
+	contained_sprite = TRUE
 	sharp = 1
 	edge = TRUE
 	force_divisor = 0.25

@@ -1798,8 +1798,8 @@
 /obj/item/material/kitchen/utensil/fork,
 /obj/item/material/kitchen/utensil/fork,
 /obj/item/material/kitchen/utensil/fork,
-/obj/item/material/kitchen/utensil/fork/chopsticks/cheap,
-/obj/item/material/kitchen/utensil/fork/chopsticks/cheap,
+/obj/item/material/kitchen/utensil/fork/chopsticks/bamboo,
+/obj/item/material/kitchen/utensil/fork/chopsticks/bamboo,
 /turf/simulated/floor/tiled,
 /area/old_outpost/dorms)
 "Aa" = (
