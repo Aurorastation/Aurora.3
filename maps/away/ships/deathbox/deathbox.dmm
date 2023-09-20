@@ -398,9 +398,6 @@
 	},
 /turf/simulated/wall/shuttle/dark,
 /area/ship/deathbox)
-"lJq" = (
-/turf/simulated/floor/plating,
-/area/ship/deathbox/two)
 "lNt" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor/tiled/dark,
@@ -562,10 +559,6 @@
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/tiled/dark,
 /area/ship/deathbox)
-"rYM" = (
-/mob/living/heavy_vehicle/premade/ripley/loader,
-/turf/simulated/floor/tiled/dark,
-/area/ship/deathbox)
 "sfp" = (
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
@@ -662,11 +655,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/ship/deathbox/two)
-"vVs" = (
-/obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/ripley/loader/sol,
-/turf/simulated/floor/tiled/dark,
 /area/ship/deathbox/two)
 "wrJ" = (
 /obj/machinery/door/airlock,
@@ -31921,7 +31909,7 @@ dJo
 dJo
 dJo
 bXU
-vVs
+rBF
 nkz
 nkz
 nkz
@@ -32184,8 +32172,8 @@ nkz
 nkz
 nkz
 aHt
-aAY
-lJq
+aFo
+ikt
 xRX
 xRX
 xRX
@@ -32692,7 +32680,7 @@ aCu
 bXU
 bXU
 bXU
-vVs
+rBF
 nkz
 nkz
 nkz
@@ -33711,7 +33699,7 @@ phR
 bXU
 bXU
 bXU
-rYM
+dJo
 dJo
 bXU
 iMy
