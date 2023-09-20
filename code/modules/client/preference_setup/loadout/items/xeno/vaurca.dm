@@ -274,7 +274,7 @@
 	sort_category = "Xenowear - Vaurca"
 	allowed_roles = list("Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
 	flags = GEAR_NO_SELECTION
-  
+
 /datum/gear/augment/vaurcamag
 	display_name = "vaurca integrated mag-claws"
 	description = "An integrated magnetic grip system, designed for Vaurcae without easy access to magboots."
@@ -283,3 +283,13 @@
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist")
+
+/datum/gear/augment/vaurcapsiaug
+	display_name = "c'thuric psionic receiver"
+	description = "An augment installed into the head that functions as a surrogate for a missing zona bovinae, also functioning as a filter for the psionically-challenged. All members of hive C'thur receive one at no cost due to their status as citizens of the Nralakk Federation."
+	cost = 0
+	path = /obj/item/organ/internal/augment/psi
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	culture_restriction = list(/singleton/origin_item/culture/cthur)
+	flags = GEAR_NO_SELECTION
