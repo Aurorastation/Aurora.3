@@ -18,8 +18,8 @@
 /obj/structure/Destroy()
 	if(parts)
 		new parts(loc)
-	if (smooth)
-		queue_smooth_neighbors(src)
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue_neighbors(src)
 	return ..()
 
 /obj/structure/attack_hand(mob/user)
@@ -73,9 +73,9 @@
 		updateVisibility(src)	// No point checking this before visualnet initializes.
 	if(climbable)
 		verbs += /obj/structure/proc/climb_on
-	if (smooth)
-		queue_smooth(src)
-		queue_smooth_neighbors(src)
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue(src)
+		SSicon_smooth.add_to_queue_neighbors(src)
 
 /obj/structure/proc/climb_on()
 

@@ -135,8 +135,8 @@
 	qdel(internal_tank)
 	if(parts)
 		new parts(loc)
-	if (smooth)
-		queue_smooth_neighbors(src)
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue_neighbors(src)
 	return ..()
 
 /obj/structure/closet/airbubble/toggle(mob/user as mob)

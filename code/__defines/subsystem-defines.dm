@@ -43,6 +43,8 @@
 
 // -- SSatoms stuff --
 // Technically this check will fail if someone loads a map mid-round, but that's not enabled right now.
+
+///TRUE if the INITIAL SSatoms initialization has finished, aka the atoms are initialized and mapload has finished
 #define SSATOMS_IS_PROBABLY_DONE (SSatoms.initialized == INITIALIZATION_INNEW_REGULAR)
 
 //type and all subtypes should always call Initialize in New()
@@ -54,10 +56,14 @@
     }\
 }
 
-// 	SSatoms Initialization state.
-#define INITIALIZATION_INSSATOMS 0	//New should not call Initialize
-#define INITIALIZATION_INNEW_MAPLOAD 1	//New should call Initialize(TRUE)
-#define INITIALIZATION_INNEW_REGULAR 2	//New should call Initialize(FALSE)
+/* Initialization subsystem */
+
+///New should not call Initialize
+#define INITIALIZATION_INSSATOMS 0
+///New should call Initialize(TRUE)
+#define INITIALIZATION_INNEW_MAPLOAD 2
+///New should call Initialize(FALSE)
+#define INITIALIZATION_INNEW_REGULAR 1
 
 //	Initialize() hints for SSatoms.
 #define INITIALIZE_HINT_NORMAL 0    //Nothing happens

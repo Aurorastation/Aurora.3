@@ -19,7 +19,7 @@
 	name = "over-frame grille"
 	icon = 'icons/obj/smooth/window/grille_over.dmi'
 	layer = BELOW_OBJ_LAYER
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/turf/simulated/wall,
 		/turf/simulated/wall/r_wall,

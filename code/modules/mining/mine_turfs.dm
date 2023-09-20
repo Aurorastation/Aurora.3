@@ -25,7 +25,7 @@ var/list/mineral_can_smooth_with = list(
 	layer = ON_TURF_LAYER
 
 	// canSmoothWith is set in Initialize().
-	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 
 	initial_gas = null
@@ -77,7 +77,7 @@ var/list/mineral_can_smooth_with = list(
 
 	has_opaque_atom = TRUE
 
-	if(smooth)
+	if(smoothing_flags)
 		canSmoothWith = mineral_can_smooth_with
 		pixel_x = -4
 		pixel_y = -4
@@ -173,7 +173,7 @@ var/list/mineral_can_smooth_with = list(
 		/turf/unsimulated/mineral,
 		/turf/unsimulated/mineral/asteroid
 	)
-	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 
 /turf/unsimulated/mineral/asteroid/Initialize(mapload)
@@ -197,7 +197,7 @@ var/list/mineral_can_smooth_with = list(
 
 	has_opaque_atom = TRUE
 
-	if(smooth)
+	if(smoothing_flags)
 		canSmoothWith = asteroid_can_smooth_with
 		pixel_x = -4
 		pixel_y = -4
@@ -621,7 +621,7 @@ var/list/mineral_can_smooth_with = list(
 	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = ""
 	desc = "An exposed developer texture. Someone wasn't paying attention."
-	smooth = SMOOTH_FALSE
+	smoothing_flags = SMOOTH_FALSE
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	gender = PLURAL
 	base_icon = 'icons/turf/map_placeholders.dmi'
@@ -668,7 +668,7 @@ var/list/asteroid_floor_smooth = list(
 	if(mapload && permit_ao)
 		queue_ao()
 
-	if(smooth)
+	if(smoothing_flags)
 		canSmoothWith = asteroid_floor_smooth
 		pixel_x = -4
 		pixel_y = -4
