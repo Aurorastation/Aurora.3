@@ -398,9 +398,6 @@
 	},
 /turf/simulated/wall/shuttle/dark,
 /area/ship/deathbox)
-"lJq" = (
-/turf/simulated/floor/plating,
-/area/ship/deathbox/two)
 "lNt" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor/tiled/dark,
@@ -32181,7 +32178,7 @@ nkz
 nkz
 aHt
 aAY
-lJq
+ikt
 xRX
 xRX
 xRX
