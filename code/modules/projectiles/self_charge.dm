@@ -25,7 +25,7 @@
 				return
 			if(!G.charge_module)
 				gun_insert(user, G)
-				to_chat(user, SPAN_NOTICE("You attach [src] to \the [G]"))
+				to_chat(user, SPAN_NOTICE("You attach \the [src] to \the [G]."))
 			else
 				to_chat(user, SPAN_NOTICE("\The [G] already has a recharging module installed."))
 
