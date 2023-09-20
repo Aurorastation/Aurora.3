@@ -1191,7 +1191,7 @@
 /area/pra_base)
 "Uc" = (
 /obj/effect/decal/fake_object{
-	icon = 'icons/obj/cooking_machines.dmi';
+	icon = 'icons/obj/machinery/cooking_machines.dmi';
 	icon_state = "adhomai_stove_on";
 	name = "water heater";
 	desc = "A rustic Adhomian heater typically filled with firewood This one is connected to a nearby water tank. Warm enough to gather around the winter."

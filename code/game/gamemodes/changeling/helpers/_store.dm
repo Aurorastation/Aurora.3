@@ -569,8 +569,8 @@ var/list/datum/power/changeling/powerinstances = list()
 		to_chat(M.current, SPAN_WARNING("We lack the genome to evolve this. Re-evolve yourself to reset your genome points."))
 		return
 
-	if(absorbed_dna < power.required_dna)
-		to_chat(M.current, SPAN_WARNING("Our DNA structure is not complex enough to evolve this. We need at least [(power.required_dna - absorbed_dna)] more assimilated DNA structures to buy it."))
+	if(length(absorbed_dna) < power.required_dna)
+		to_chat(M.current, SPAN_WARNING("Our DNA structure is not complex enough to evolve this. We need at least [(power.required_dna - length(absorbed_dna))] more assimilated DNA structures to buy it."))
 		return
 
 	geneticpoints -= power.genomecost

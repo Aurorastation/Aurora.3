@@ -7808,8 +7808,8 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed.";
-	icon = 'icons/obj/storage.dmi';
-	icon_state = "tcflcrate";
+	icon = 'icons/obj/crate.dmi';
+	icon_state = "tcfl_crate_preview";
 	layer = 3.01;
 	name = "foreign legion supply crate";
 	pixel_x = 3;
@@ -7817,15 +7817,15 @@
 	},
 /obj/effect/decal/fake_object{
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed.";
-	icon = 'icons/obj/storage.dmi';
-	icon_state = "tcflcrate";
+	icon = 'icons/obj/crate.dmi';
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "foreign legion supply crate"
 	},
 /obj/effect/decal/fake_object{
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed.";
-	icon = 'icons/obj/storage.dmi';
-	icon_state = "tcflcrate";
+	icon = 'icons/obj/crate.dmi';
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "foreign legion supply crate";
 	pixel_x = 2;
@@ -8007,7 +8007,7 @@
 	},
 /obj/structure/undies_wardrobe{
 	anchored = 1;
-	icon = 'icons/obj/storage.dmi';
+	icon = 'icons/obj/crate.dmi';
 	icon_state = "drop_crate-grey";
 	name = "underwear crate"
 	},
@@ -8170,7 +8170,7 @@
 	},
 /obj/effect/decal/fake_object{
 	desc = "A crate of military supplies.";
-	icon = 'icons/obj/storage.dmi';
+	icon = 'icons/obj/crate.dmi';
 	icon_state = "dropcrate";
 	layer = 3.02;
 	name = "metal crate";
@@ -15923,8 +15923,8 @@
 	},
 /obj/effect/decal/fake_object{
 	desc = "This one looks particularly heavy.";
-	icon = 'icons/obj/storage.dmi';
-	icon_state = "tcflcrate";
+	icon = 'icons/obj/crate.dmi';
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "legion supply crate";
 	pixel_x = 1;
@@ -16021,8 +16021,8 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/storage.dmi';
-	icon_state = "tcflcrate";
+	icon = 'icons/obj/crate.dmi';
+	icon_state = "tcfl_crate_preview";
 	layer = 3.01;
 	name = "inconveniently placed crate";
 	pixel_x = 3;
@@ -16030,8 +16030,8 @@
 	},
 /obj/effect/decal/fake_object{
 	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/storage.dmi';
-	icon_state = "tcflcrate";
+	icon = 'icons/obj/crate.dmi';
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 2;
@@ -16039,8 +16039,8 @@
 	},
 /obj/effect/decal/fake_object{
 	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/storage.dmi';
-	icon_state = "tcflcrate";
+	icon = 'icons/obj/crate.dmi';
+	icon_state = "tcfl_crate_preview";
 	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 1
@@ -16080,7 +16080,7 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "A wooden crate containing spare parts.";
-	icon = 'icons/obj/storage.dmi';
+	icon = 'icons/obj/crate.dmi';
 	icon_state = "densecrate";
 	name = "mechanical supply crate";
 	pixel_x = 1
@@ -22867,7 +22867,7 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "A wooden crate containing spare parts.";
-	icon = 'icons/obj/storage.dmi';
+	icon = 'icons/obj/crate.dmi';
 	icon_state = "densecrate";
 	name = "mechanical supply crate";
 	pixel_x = 1
@@ -25551,7 +25551,7 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "A wooden crate containing spare parts.";
-	icon = 'icons/obj/storage.dmi';
+	icon = 'icons/obj/crate.dmi';
 	icon_state = "densecrate";
 	name = "mechanical supply crate";
 	pixel_x = 1
