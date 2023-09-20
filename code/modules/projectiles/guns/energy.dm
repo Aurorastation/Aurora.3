@@ -30,7 +30,7 @@
 	var/use_external_power = 0 //if set, the weapon will look for an external power source to draw from, otherwise it recharges magically
 	var/recharge_time = 4
 	var/charge_tick = 0
-	var/obj/item/device/self_charge_module/charge_module = null
+	var/obj/item/device/self_charge_module/charge_module
 	var/accepts_charge_module = TRUE
 
 	//vars passed to turrets
