@@ -79,6 +79,7 @@
 	backpack_contents = list(/obj/item/device/uv_light = 1)
 
 /datum/outfit/admin/tarwa/diona/post_equip(mob/living/carbon/human/H, visualsOnly) //don't give a diona a diona nymph limb. idiot.
+	return
 
 /datum/outfit/admin/tarwa/captain
 	name = "Tarwa Conglomerate Captain"
