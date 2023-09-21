@@ -3,10 +3,6 @@
 	desc = "A plain white coffee cup."
 	icon = 'icons/obj/drink_glasses/coffecup.dmi'
 	icon_state = "coffeecup"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi',
-		)
 	item_state = "coffeecup"
 	volume = 30
 	var/fillsource = "coffeecup"

@@ -432,6 +432,7 @@
 	name = "meat-pie"
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "meatpie"
+	item_state = "pie"
 	desc = "An old barber recipe, very delicious!"
 	trash = /obj/item/trash/plate
 	filling_color = "#948051"
@@ -444,6 +445,7 @@
 	name = "tofu-pie"
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "meatpie"
+	item_state = "pie"
 	desc = "A delicious tofu pie."
 	trash = /obj/item/trash/plate
 	filling_color = "#FFFEE0"
@@ -456,6 +458,7 @@
 	name = "xeno-pie"
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "xenomeatpie"
+	item_state = "pie"
 	desc = "A delicious meatpie. Probably heretical."
 	trash = /obj/item/trash/plate
 	filling_color = "#43DE18"
@@ -469,6 +472,7 @@
 	desc = "Just like back home, on clown planet! HONK!"
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "pie"
+	item_state = "pie"
 	trash = /obj/item/trash/plate
 	filling_color = "#FBFFB8"
 	center_of_mass = list("x"=16, "y"=13)
@@ -487,6 +491,7 @@
 	desc = "A pie containing sweet sweet love... or apple."
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "applepie"
+	item_state = "pie"
 	filling_color = "#E0EDC5"
 	center_of_mass = list("x"=16, "y"=13)
 	reagents_to_add = list(/singleton/reagent/nutriment = 4)
@@ -498,6 +503,7 @@
 	desc = "Taste so good, make a grown man cry."
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "cherrypie"
+	item_state = "pie"
 	filling_color = "#FF525A"
 	center_of_mass = list("x"=16, "y"=11)
 	reagents_to_add = list(/singleton/reagent/nutriment = 4)

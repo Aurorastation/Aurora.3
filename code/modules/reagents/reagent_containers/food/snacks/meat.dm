@@ -36,6 +36,7 @@
 	desc = "A great meal all round."
 	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
 	icon_state = "meatball"
+	item_state = "meatball"
 	filling_color = "#DB0000"
 	bitesize = 2
 

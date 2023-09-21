@@ -3,7 +3,7 @@
 	desc = "The cornerstone of every nutritious breakfast."
 	icon = 'icons/obj/item/reagent_containers/food/burger.dmi'
 	icon_state = "hburger"
-	item_state = "hburger"
+	item_state = "burger" // Don't touch this unless you know what you're doing
 	filling_color = "#D63C3C"
 	center_of_mass = list("x"=16, "y"=11)
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 3)
@@ -202,6 +202,7 @@
 	desc = "Fried chicken, in sandwich format. Beauty is simplicity."
 	icon = 'icons/obj/item/reagent_containers/food/burger.dmi'
 	icon_state = "chickenfillet"
+	item_state = "burger" // Don't touch this unless you know what you're doing
 	filling_color = "#E9ADFF"
 	center_of_mass = list("x"=16, "y"=16)
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 8)

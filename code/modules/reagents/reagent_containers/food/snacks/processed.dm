@@ -132,6 +132,7 @@
 	desc = "Nougat, love it or hate it. Made with real sugar, and no artificial preservatives!"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "candy"
+	item_state = "candy"
 	trash = /obj/item/trash/candy
 	filling_color = "#7D5F46"
 
@@ -156,6 +157,7 @@
 	desc = "SwoleMAX brand protein bars, guaranteed to get you feeling perfectly overconfident."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "proteinbar"
+	item_state = "candy"
 	trash = /obj/item/trash/proteinbar
 	bitesize = 6
 
@@ -178,6 +180,7 @@
 	desc = "Cured eki shipped all the way from Nralakk IV, almost like jerky! Almost."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "skrellsnacks"
+	item_state = "candy"
 	trash = /obj/item/trash/skrellsnacks
 	filling_color = "#A66829"
 	center_of_mass = list("x"=15, "y"=12)
@@ -190,6 +193,7 @@
 	desc = "Bread in a tube. Chewy."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "tastybread"
+	item_state = "candy"
 	trash = /obj/item/trash/tastybread
 	filling_color = "#A66829"
 	center_of_mass = list("x"=17, "y"=16)
@@ -201,6 +205,7 @@
 	desc = "Getmore potato chips. Not actually chips, these are instead flash-fried wafers of potato paste. Delicious!"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "chips"
+	item_state = "chips"
 	trash = /obj/item/trash/chips
 	filling_color = "#E8C31E"
 	reagents_to_add = list(/singleton/reagent/nutriment = 3)
@@ -211,6 +216,7 @@
 	name = "mo'gunz meat pie"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "meatsnack"
+	item_state = "chips"
 	desc = "Made from stok meat, packed into a crispy crust."
 	trash = /obj/item/trash/meatsnack
 	filling_color = "#631212"
@@ -244,6 +250,7 @@
 	desc = "Now let's find some cinema."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "popcorn"
+	item_state = "candy"
 	trash = /obj/item/trash/popcorn
 	var/unpopped = 0
 	filling_color = "#FFFAD4"
@@ -266,6 +273,7 @@
 	name = "Scaredy's Private Reserve beef jerky"
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "sosjerky"
+	item_state = "candy"
 	desc = "Beef jerky. A little oversalted, actually."
 	trash = /obj/item/trash/sosjerky
 	filling_color = "#631212"

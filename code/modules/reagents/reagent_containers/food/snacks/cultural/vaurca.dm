@@ -108,6 +108,7 @@
 	desc = "Deep fried k'ois shaped into a donut."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "kois_donut"
+	item_state = "kois_donut"
 	filling_color = "#dcd9cd"
 	overlay_state = "box-kois_donut"
 	reagents_to_add = list(/singleton/reagent/kois = 15, /singleton/reagent/toxin/phoron = 10)
@@ -171,6 +172,7 @@
 	desc = "Rock candy popular in Flagsdale. Actually contains phoron."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "rock_candy"
+	item_state = "rock_candy"
 	filling_color = "#ff22d9"
 	reagents_to_add = list(/singleton/reagent/toxin/phoron = 25)
 	bitesize = 5

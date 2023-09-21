@@ -181,6 +181,7 @@
 	desc = "Goes great with Robust Coffee."
 	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
 	icon_state = "donut1"
+	item_state = "donut1"
 	filling_color = "#D9C386"
 	overlay_state = "box-donut1"
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "donut" = 2))
@@ -207,6 +208,7 @@
 	. = ..()
 	if(prob(30))
 		src.icon_state = "donut2"
+		src.item_state = "donut2"
 		src.overlay_state = "box-donut2"
 		src.name = "frosted donut"
 		reagents.add_reagent(/singleton/reagent/nutriment/sprinkles, 2)
@@ -216,6 +218,7 @@
 	desc = "Like life, it never quite tastes the same."
 	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
 	icon_state = "donut1"
+	item_state = "donut1"
 	filling_color = "#ED11E6"
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/sprinkles = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "donut" = 2))
