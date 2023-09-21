@@ -152,7 +152,7 @@
 /datum/species/bug/after_equip(var/mob/living/carbon/human/H)
 	if(H.shoes)
 		return
-	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
+	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
 	H.equip_to_slot_or_del(S,slot_shoes)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)

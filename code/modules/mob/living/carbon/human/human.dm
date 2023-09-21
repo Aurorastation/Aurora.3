@@ -768,19 +768,19 @@
 		var/obj/item/I = locate(href_list["lookitem"])
 		if(!I)
 			return
-		src.examinate(I)
+		examinate(src, I)
 
 	if (href_list["lookitem_desc_only"])
 		var/obj/item/I = locate(href_list["lookitem_desc_only"])
 		if(!I)
 			return
-		usr.examinate(I, 1)
+		examinate(usr, I)
 
 	if (href_list["lookmob"])
 		var/mob/M = locate(href_list["lookmob"])
 		if(!M)
 			return
-		src.examinate(M)
+		examinate(src, M)
 
 	if (href_list["flavor_change"])
 		if(src != usr)
@@ -1477,6 +1477,8 @@
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
 	speech_bubble_type = species.possible_speech_bubble_types[1]
+	if(typing_indicator)
+		adjust_typing_indicator_offsets(typing_indicator)
 
 	fill_out_culture_data()
 
@@ -2027,30 +2029,6 @@
 				var/scale = min(1, round(damage / 50, 0.2))
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
-
-/mob/living/carbon/human/apply_radiation_effects()
-	. = ..()
-	if(. == TRUE)
-		if(src.is_diona())
-			var/damage = rand(15, 30)
-			src.adjustToxLoss(-damage)
-			if(prob(5))
-				damage = rand(20, 60)
-				src.adjustToxLoss(-damage)
-			to_chat(src, SPAN_NOTICE("You can feel flow of energy which makes you regenerate."))
-
-		if(species.radiation_mod <= 0)
-			return
-
-		apply_damage((rand(15,30)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-		if(prob(4))
-			apply_damage((rand(20,60)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-			if (prob(75))
-				randmutb(src) // Applies bad mutation
-				domutcheck(src,null,MUTCHK_FORCED)
-			else
-				randmutg(src) // Applies good mutation
-				domutcheck(src,null,MUTCHK_FORCED)
 
 /mob/living/carbon/human/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	var/used_accent = accent //starts with the mob's default accent

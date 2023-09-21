@@ -142,8 +142,9 @@
 
 	return 1
 
-/obj/item/reagent_containers/food/snacks/examine(mob/user)
-	if(!..(user, 1))
+/obj/item/reagent_containers/food/snacks/examine(mob/user, distance)
+	. = ..()
+	if(distance > 1)
 		return
 	if (coating)
 		var/singleton/reagent/coating_reagent = GET_SINGLETON(coating)
@@ -2089,12 +2090,13 @@
 
 /obj/item/reagent_containers/food/snacks/burger/jelly/cherry/reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/cherryjelly = 5)
 
-/obj/item/reagent_containers/food/snacks/soup/milo
-	name = "milosoup"
-	desc = "The universes best soup! Yum!!!"
-	icon_state = "milosoup"
+/obj/item/reagent_containers/food/snacks/soup/miso
+	name = "miso soup"
+	desc = "Miso paste, dashi, and tofu."
+	icon_state = "miso_soup"
+	filling_color = "#774f0f"
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/water = 5)
-	reagent_data = list(/singleton/reagent/nutriment = list("soy" = 8))
+	reagent_data = list(/singleton/reagent/nutriment = list("savory soy broth" = 8))
 	bitesize = 4
 
 /obj/item/reagent_containers/food/snacks/stewedsoymeat
@@ -3848,7 +3850,7 @@
 	set category = "Object"
 	set src in usr
 
-	var/obj/item/material/kitchen/utensil/fork/chopsticks/cheap/S = new()
+	var/obj/item/material/kitchen/utensil/fork/chopsticks/bamboo/S = new()
 
 	if(use_check_and_message(usr))
 		return

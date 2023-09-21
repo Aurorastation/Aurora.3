@@ -20,8 +20,7 @@
 	stored_doors = max_doors
 
 /obj/item/inflatable_dispenser/examine(mob/user)
-	if(!..(user))
-		return
+	. = ..()
 	to_chat(user, SPAN_NOTICE("It has [stored_walls] wall segment\s and [stored_doors] door segment\s stored."))
 	to_chat(user, SPAN_NOTICE("It is set to deploy [mode ? "doors" : "walls"]"))
 

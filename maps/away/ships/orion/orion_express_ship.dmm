@@ -855,8 +855,8 @@
 	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -9;
@@ -1910,7 +1910,7 @@
 /turf/simulated/floor/airless,
 /area/ship/orion_express_ship)
 "nVM" = (
-/obj/item/clothing/shoes/laceup/brown/all_species,
+/obj/item/clothing/shoes/laceup/brown,
 /obj/item/clothing/under/rank/liaison/orion{
 	desc = "The plain, professional attire of a corporate employee. The collar is <i>immaculately</i> starched.";
 	name = "orion express suit"

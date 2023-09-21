@@ -242,7 +242,7 @@
 		new spawn_module(src, src)
 	if(key_type)
 		radio.keyslot = new key_type(radio)
-		radio.recalculateChannels()
+		INVOKE_ASYNC(radio, TYPE_PROC_REF(/obj/item/device/radio/borg, recalculateChannels))
 	if(law_update)
 		var/new_ai = select_active_ai_with_fewest_borgs()
 		if(new_ai)

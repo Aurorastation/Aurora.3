@@ -562,8 +562,8 @@
 	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/tramp_freighter)
@@ -2029,8 +2029,8 @@
 /obj/item/clothing/glasses/fakesunglasses/aviator,
 /obj/item/clothing/glasses/regular/circle,
 /obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/shoes/laceup/all_species,
-/obj/item/clothing/shoes/laceup/all_species,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/fingerless,
@@ -2188,7 +2188,7 @@
 /obj/structure/closet/crate/medical{
 	name = "IAC crate"
 	},
-/obj/item/clothing/shoes/iac,
+/obj/item/clothing/shoes/sneakers/medsci/pmc,
 /obj/item/clothing/under/rank/iacjumpsuit,
 /obj/item/clothing/suit/storage/hazardvest/iac,
 /obj/item/clothing/mask/balaclava/iac,

@@ -1,7 +1,7 @@
 /obj/structure/bigDelivery
 	desc = "A big wrapped package."
 	name = "large parcel"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/misc.dmi'
 	icon_state = "deliverycloset"
 	var/obj/wrapped = null
 	density = 1
@@ -83,7 +83,7 @@
 /obj/structure/bigDelivery/update_icon()
 	cut_overlays()
 	if(nameset || examtext)
-		var/image/I = new/image('icons/obj/storage.dmi',"delivery_label")
+		var/image/I = new/image('icons/obj/storage/misc.dmi',"delivery_label")
 		if(icon_state == "deliverycloset")
 			I.pixel_x = 2
 			if(label_y == null)
@@ -96,7 +96,7 @@
 			I.pixel_y = -3
 		add_overlay(I)
 	if(src.sortTag)
-		var/image/I = new/image('icons/obj/storage.dmi',"delivery_tag")
+		var/image/I = new/image('icons/obj/storage/misc.dmi',"delivery_tag")
 		if(icon_state == "deliverycloset")
 			if(tag_x == null)
 				tag_x = rand(-2, 3)
@@ -109,8 +109,8 @@
 			I.pixel_y = -3
 		add_overlay(I)
 
-/obj/structure/bigDelivery/examine(mob/user)
-	if(..(user, 4))
+/obj/structure/bigDelivery/examine(mob/user, distance, is_adjacent)
+	if(distance <= 4)
 		if(sortTag)
 			to_chat(user, "<span class='notice'>It is labeled \"[sortTag]\"</span>")
 		if(examtext)
@@ -120,7 +120,7 @@
 /obj/item/smallDelivery
 	desc = "A small wrapped package."
 	name = "small parcel"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/misc.dmi'
 	icon_state = "deliverycrate3"
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
@@ -207,12 +207,12 @@
 /obj/item/smallDelivery/update_icon()
 	cut_overlays()
 	if((nameset || examtext) && icon_state != "deliverycrate1")
-		var/image/I = new/image('icons/obj/storage.dmi',"delivery_label")
+		var/image/I = new/image('icons/obj/storage/misc.dmi',"delivery_label")
 		if(icon_state == "deliverycrate5")
 			I.pixel_y = -1
 		add_overlay(I)
 	if(src.sortTag)
-		var/image/I = new/image('icons/obj/storage.dmi',"delivery_tag")
+		var/image/I = new/image('icons/obj/storage/misc.dmi',"delivery_tag")
 		switch(icon_state)
 			if("deliverycrate1")
 				I.pixel_y = -5
@@ -229,8 +229,8 @@
 				I.pixel_y = -3
 		add_overlay(I)
 
-/obj/item/smallDelivery/examine(mob/user)
-	if(..(user, 4))
+/obj/item/smallDelivery/examine(mob/user, distance, is_adjacent)
+	if(distance <= 4)
 		if(sortTag)
 			to_chat(user, "<span class='notice'>It is labeled \"[sortTag]\"</span>")
 		if(examtext)

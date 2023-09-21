@@ -633,8 +633,6 @@
 	status = LIGHT_BROKEN
 	stat |= BROKEN
 	update()
-	if (!skip_sound_and_sparks)
-		CHECK_TICK	// For lights-out events.
 
 /obj/machinery/light/proc/shatter()
 	if(status == LIGHT_EMPTY)

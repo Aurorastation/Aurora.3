@@ -38,7 +38,7 @@
 
 	var/modifiers = params2list(params)
 	if(modifiers["shift"])
-		A.examine(user)
+		examinate(user, A)
 		return
 
 	if(modifiers["alt"])

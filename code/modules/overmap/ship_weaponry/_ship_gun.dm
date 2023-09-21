@@ -174,7 +174,7 @@
 		var/list/connected_z_levels = GetConnectedZlevels(z)
 		for(var/mob/M in living_mob_list)
 			if(M.z in connected_z_levels)
-				if(!M.Check_Shoegrip() && !M.buckled_to)
+				if(!M.Check_Shoegrip() && !M.buckled_to && !M.anchored)
 					M.throw_at_random(FALSE, 7, 10)
 	flick("weapon_firing", src)
 	return TRUE

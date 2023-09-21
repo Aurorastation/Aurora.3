@@ -179,7 +179,7 @@
 	icon_state = "[icon_base][deployed]"
 
 /obj/item/trap/animal/examine(mob/user)
-	..()
+	. = ..()
 	if(captured)
 		var/datum/L = captured.resolve()
 		if (L)

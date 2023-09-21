@@ -10,7 +10,7 @@
 	var/mob/living/silicon/ai/carded_ai
 
 /obj/item/aicard/examine(mob/user)
-	..()
+	. = ..()
 	var/message = "Status of [carded_ai] is: "
 	if(!carded_ai)
 		message = "There is no AI loaded to the card."

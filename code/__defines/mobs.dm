@@ -91,6 +91,7 @@
 //movement intents
 #define M_WALK "walk"
 #define M_RUN  "run"
+#define M_LAY  "lay"	// Intentional lying only! To not confuse with the state (variable with the same name on the mob, but not necessarity intentional)
 
 // Limbs and robotic stuff.
 #define BP_L_FOOT "l_foot"
@@ -175,6 +176,7 @@
 #define BP_AUG_CORRECTIVE_LENS "corrective lenses"
 #define BP_AUG_GLARE_DAMPENER "glare dampeners"
 #define BP_AUG_ACC_CORDS       "modified synthetic vocal cords"
+#define BP_AUG_MAGBOOT		   "integrated mag-claws"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -231,7 +233,7 @@
 #define INV_R_HAND_DEF_ICON			'icons/mob/items/righthand.dmi'
 #define INV_W_UNIFORM_DEF_ICON		'icons/mob/uniform.dmi'
 #define INV_ACCESSORIES_DEF_ICON	'icons/mob/ties.dmi'
-#define INV_BELT_DEF_ICON 'icons/mob/belt.dmi'
+#define INV_BELT_DEF_ICON 			'icons/mob/belt.dmi'
 #define INV_SUIT_DEF_ICON			'icons/mob/suit.dmi'
 #define INV_L_EAR_DEF_ICON			'icons/mob/l_ear.dmi'
 #define INV_R_EAR_DEF_ICON			'icons/mob/r_ear.dmi'

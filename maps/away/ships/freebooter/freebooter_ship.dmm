@@ -4181,8 +4181,8 @@
 	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -9;
 	pixel_y = 5
@@ -8936,8 +8936,8 @@
 /obj/item/clothing/head/sidecap/zavod,
 /obj/item/clothing/under/pmc_modsuit,
 /obj/item/clothing/under/rank/security/zavod,
-/obj/item/clothing/shoes/hitops/red,
-/obj/item/clothing/shoes/hitops/black,
+/obj/item/clothing/shoes/sneakers/hitops/red,
+/obj/item/clothing/shoes/sneakers/hitops/black,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/under/syndicate/combat,
 /obj/item/clothing/under/syndicate,
