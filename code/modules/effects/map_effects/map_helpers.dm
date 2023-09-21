@@ -5,6 +5,7 @@
 	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/effect/map_effect/map_helper/Initialize(mapload)
+	..()
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/map_effect/map_helper/mark_good
