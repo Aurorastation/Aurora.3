@@ -1,9 +1,283 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ad" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "16,25";
+	outside_part = 0;
+	pixel_x = 32
+	},
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "15,25"
+	},
+/area/template_noop)
+"ah" = (
+/obj/structure/bed/padded,
+/obj/structure/bed/padded/bunk,
+/obj/item/bedsheet/yellow,
+/obj/item/bedsheet/brown{
+	pixel_y = 16
+	},
+/obj/structure/curtain/open/bed,
+/obj/item/device/radio/intercom/east,
+/turf/simulated/floor/carpet/lightblue,
+/area/template_noop)
+"ak" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,19"
+	},
+/area/template_noop)
+"aq" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "15,23";
+	opacity = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"ay" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "14,7"
+	},
+/turf/template_noop,
+/area/template_noop)
+"aB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"aT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"aU" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "12,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/structure/shuttle_part/scc/scout{
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid.";
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
+	icon_state = "nozzle";
+	layer = 2.4;
+	name = "pathfinder class shuttle hull";
+	opacity = 1;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"aY" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "7,4";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "0,2"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"bf" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "intrepid_outer";
+	name = "Intrepid Shutter"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "bn" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 2
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"bz" = (
+/obj/effect/overmap/visitable/ship/landable/intrepid,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/fuel_port/phoron/scc{
+	pixel_x = 5;
+	pixel_y = 23
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"bI" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"bL" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "16,19"
+	},
+/area/template_noop)
+"bM" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "7,6";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "0,4"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"bN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	frequency = 1385;
+	icon_state = "door_locked";
+	id_tag = "intrepid_shuttle_cargo_in"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"bO" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Emergency Weaponry";
+	req_access = list(73)
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/energy/laser/shotgun/research,
+/obj/item/gun/energy/laser/shotgun/research,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/hatchet/machete/steel,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"bS" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "intrepid_outer";
+	name = "Intrepid Shutter"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"bV" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -8;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = 26;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = 26;
+	pixel_y = 5
+	},
+/obj/machinery/alarm/north,
+/obj/item/storage/box/snack{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/turf/simulated/floor/lino,
+/area/template_noop)
+"cc" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"cl" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "16,17"
+	},
+/area/template_noop)
+"cA" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "4,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/structure/shuttle_part/scc/scout{
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid.";
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
+	icon_state = "nozzle";
+	layer = 2.4;
+	name = "pathfinder class shuttle hull";
+	opacity = 1;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "cB" = (
 /obj/machinery/door/airlock/external{
@@ -14,16 +288,114 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"cG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"cL" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/template_noop)
+"dt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/lino,
+/area/template_noop)
 "du" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"dw" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "17,20"
+	},
+/turf/template_noop,
+/area/template_noop)
+"dx" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "5,8"
+	},
 /area/template_noop)
 "dA" = (
 /obj/effect/map_effect/map_helper/mark_good,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"dC" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_pump_out_external";
+	layer = 2.8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "intrepid_bay_outer";
+	name = "Intrepid Shutter"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "dM" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"dQ" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "10,2"
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	density = 0;
+	icon_state = "3,0"
+	},
+/turf/template_noop,
+/area/template_noop)
+"dW" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "14,12";
+	layer = 2.6;
+	outside_part = 0
+	},
+/obj/structure/table/reinforced,
+/obj/item/material/kitchen/utensil/knife/plastic{
+	pixel_x = 9
+	},
+/obj/item/material/kitchen/utensil/knife/plastic{
+	pixel_x = 7
+	},
+/obj/item/storage/box/drinkingglasses{
+	pixel_y = 6
+	},
+/obj/item/storage/box/drinkingglasses{
+	pixel_y = 6
+	},
+/obj/item/storage/box/kitchen,
+/obj/item/storage/box/kitchen,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/template_noop)
+"ew" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "eB" = (
@@ -32,17 +404,118 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"eH" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,10"
+	},
+/area/template_noop)
+"eJ" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "7,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "eM" = (
 /obj/machinery/computer/ship{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"eQ" = (
+/obj/item/stack/material/phoron{
+	amount = 30
+	},
+/obj/item/stack/material/uranium{
+	amount = 10
+	},
+/obj/item/stock_parts/capacitor,
+/obj/item/stack/cable_coil{
+	amount = 5
+	},
+/obj/item/circuitboard/rtg,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced,
+/obj/structure/closet/crate{
+	name = "power generation supplies"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"fm" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "8,3";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "1,1"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"ft" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "15,11"
+	},
+/area/template_noop)
+"fB" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "3,22";
+	opacity = 1;
+	outside_part = 0
+	},
+/turf/template_noop,
+/area/template_noop)
 "fG" = (
 /obj/effect/shuttle_landmark{
 	dir = 1
 	},
 /turf/template_noop,
+/area/template_noop)
+"gh" = (
+/obj/machinery/shower{
+	dir = 4
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 1;
+	id = "intrepid_washroom";
+	name = "Door Bolt Control";
+	pixel_x = 40;
+	pixel_y = 25;
+	specialfunctions = 4
+	},
+/obj/structure/curtain/open/shower,
+/obj/structure/closet/walllocker{
+	pixel_x = -27
+	},
+/obj/random/soap,
+/obj/random/soap,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/storage/box/toothpaste,
+/obj/item/storage/box/toothpaste,
+/obj/item/reagent_containers/toothbrush,
+/obj/item/reagent_containers/toothbrush,
+/obj/item/reagent_containers/toothbrush/green,
+/obj/item/reagent_containers/toothbrush/red,
+/turf/simulated/floor/tiled/freezer,
+/area/template_noop)
+"gi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "gm" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -51,11 +524,200 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"gp" = (
+/obj/machinery/door/window/westleft,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/closet/crate/freezer/rations,
+/obj/item/storage/box/kitchen,
+/obj/item/storage/box/kitchen,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"gx" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "9,12"
+	},
+/area/template_noop)
+"gC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	frequency = 1385;
+	icon_state = "door_locked";
+	id_tag = "intrepid_shuttle_cargo_in"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"gF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/light/small,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/item/device/radio/intercom/south,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"gS" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"gZ" = (
+/obj/machinery/firealarm/north,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/machinery/light_switch{
+	pixel_x = -12;
+	pixel_y = 24
+	},
+/obj/structure/bed/stool/chair/sofa/right/red,
+/turf/simulated/floor/lino,
+/area/template_noop)
+"ha" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,25"
+	},
+/area/template_noop)
+"hg" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/glass_command{
+	dir = 1;
+	name = "Intrepid Cargo Bay"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"hm" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/table/rack,
+/obj/item/pipewrench,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/mechanical,
+/obj/item/wrench{
+	pixel_y = -8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "hu" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"hA" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "3,24";
+	opacity = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"id" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/floodlight,
+/obj/machinery/power/apc/intrepid/west,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"io" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "6,7"
+	},
+/area/template_noop)
+"iq" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/cryopod,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"iw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/machinery/iv_drip,
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"ix" = (
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide/scc_shuttle{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"iJ" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "0,21";
+	outside_part = 0;
+	pixel_x = -32
+	},
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "1,21"
+	},
+/area/template_noop)
+"iP" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,9"
+	},
+/area/template_noop)
+"iT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Utility and Atmosphere Control";
+	req_access = list(73)
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "iU" = (
 /obj/effect/map_effect/map_helper/mark_bad,
@@ -64,23 +726,191 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"iX" = (
+/obj/structure/bed/stool/chair/office/bridge,
+/obj/item/device/radio/intercom/west{
+	pixel_y = 2
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "intrepid_outer";
+	name = "side facing external blast door controller";
+	pixel_x = -34;
+	pixel_y = -2
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 1;
+	id = "intrepid_cockpit";
+	name = "Cockpit Bolts";
+	pixel_x = -34;
+	pixel_y = 7;
+	specialfunctions = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "iY" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"jb" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "2,17"
+	},
+/area/template_noop)
+"jd" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,24"
+	},
+/area/template_noop)
+"jf" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "6,16"
+	},
+/area/template_noop)
+"jg" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/iff_beacon/horizon/shuttle{
+	pixel_y = -15
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
+"jl" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "13,17"
+	},
+/area/template_noop)
+"jx" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "13,4"
+	},
+/turf/template_noop,
+/area/template_noop)
+"jA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/closet/cabinet,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/coatrack{
+	pixel_x = -14
+	},
+/obj/item/tank/emergency_oxygen{
+	pixel_x = 5
+	},
+/obj/item/tank/emergency_oxygen,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/machinery/power/apc/intrepid/north,
+/turf/simulated/floor/lino,
+/area/template_noop)
+"jK" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "13,5"
+	},
+/turf/template_noop,
+/area/template_noop)
+"jP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "3,11"
+	},
+/area/template_noop)
+"kk" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "13,7"
+	},
+/turf/template_noop,
+/area/template_noop)
+"kn" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
 "kp" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "8,2"
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	density = 0;
+	icon_state = "1,0"
+	},
+/turf/template_noop,
+/area/template_noop)
+"kt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"ku" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "10,0"
+	},
+/turf/template_noop,
+/area/template_noop)
+"kX" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "2,9"
+	},
 /turf/template_noop,
 /area/template_noop)
 "kZ" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"lb" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "12,4";
+	layer = 2.97;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"lr" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "4,11";
+	layer = 2.6;
+	outside_part = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/computer/ship/navigation{
+	dir = 4
+	},
+/turf/simulated/floor/lino,
+/area/template_noop)
 "ly" = (
 /obj/effect/map_effect/map_helper/mark_acceptable,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/template_noop)
+"lE" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/red{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	frequency = 1385;
+	icon_state = "door_locked";
+	id_tag = "intrepid_shuttle_cargo_out"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "lO" = (
 /obj/machinery/door/airlock/external{
@@ -89,8 +919,137 @@
 /obj/effect/map_effect/map_helper/mark_good,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"lR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"mg" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"mh" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,17"
+	},
+/area/template_noop)
+"mo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/lino,
+/area/template_noop)
+"ms" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "15,10"
+	},
+/area/template_noop)
+"mu" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/bed/padded/bunk,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black,
+/obj/item/bedsheet/blue{
+	pixel_y = 16
+	},
+/obj/structure/curtain/open/bed,
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/carpet/lightblue,
+/area/template_noop)
+"mC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"nb" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "18,21";
+	outside_part = 0;
+	pixel_x = 32
+	},
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "17,21"
+	},
+/area/template_noop)
 "nd" = (
 /turf/simulated/wall,
+/area/template_noop)
+"ng" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "10,7"
+	},
+/area/template_noop)
+"nj" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "8,13"
+	},
+/area/template_noop)
+"ny" = (
+/obj/structure/window/shuttle/unique/scc/tall{
+	icon_state = "long1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, center"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"nD" = (
+/obj/effect/shuttle_landmark/intrepid/hangar,
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "9,13"
+	},
+/area/template_noop)
+"nO" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,10"
+	},
+/area/template_noop)
+"nP" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "6,20"
+	},
+/area/template_noop)
+"nT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "od" = (
 /obj/effect/shuttle_landmark{
@@ -99,9 +1058,139 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/template_noop,
 /area/template_noop)
+"ol" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,18"
+	},
+/area/template_noop)
+"oq" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "3,26"
+	},
+/turf/template_noop,
+/area/template_noop)
+"oz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "3,10"
+	},
+/area/template_noop)
+"oG" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,22"
+	},
+/area/template_noop)
+"oI" = (
+/obj/machinery/door/airlock{
+	dir = 1;
+	id_tag = "intrepid_washroom";
+	name = "Washroom Compartment"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/freezer,
+/area/template_noop)
+"oO" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "16,22";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/machinery/atmospherics/unary/engine/scc_shuttle,
+/turf/template_noop,
+/area/template_noop)
+"pm" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "intrepid_cockpit";
+	name = "Intrepid Cockpit";
+	req_access = list(73)
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"pA" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/valve/digital/open{
+	name = "airlock shutoff valve"
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/door/window/southright{
+	req_access = list(73)
+	},
+/obj/machinery/light_switch{
+	pixel_x = 21;
+	pixel_y = 9
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"pC" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 20
+	},
+/turf/simulated/floor/wood,
+/area/template_noop)
+"pD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"pE" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,17"
+	},
+/area/template_noop)
+"pO" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_pump";
+	layer = 2.8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/device/radio/intercom/east,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "pQ" = (
 /obj/effect/map_effect/map_helper/mark_bad,
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"pR" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "pS" = (
 /obj/machinery/door/airlock/external{
@@ -110,17 +1199,129 @@
 /obj/effect/map_effect/map_helper/mark_bad,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"pT" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/table/standard,
+/obj/item/roller{
+	pixel_x = -8
+	},
+/obj/item/roller{
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = 19
+	},
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
+	pixel_x = 4;
+	pixel_y = 11
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"qa" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "3,23";
+	opacity = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"qn" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "13,8"
+	},
+/area/template_noop)
+"qp" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "12,6";
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "qD" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 2
 	},
 /turf/template_noop,
 /area/template_noop)
+"qN" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "qS" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 2
 	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"rc" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "15,22";
+	opacity = 1;
+	outside_part = 0
+	},
+/turf/template_noop,
+/area/template_noop)
+"ri" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Cargo";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"rt" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "13,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/machinery/atmospherics/unary/engine/scc_shuttle,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engines"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"rw" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"rB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Crew Area";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "rT" = (
 /obj/effect/shuttle_landmark{
@@ -129,11 +1330,36 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/template_noop,
 /area/template_noop)
+"sf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"so" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "sw" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"sA" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,17"
+	},
+/area/template_noop)
+"sG" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "12,24"
+	},
 /area/template_noop)
 "sX" = (
 /obj/machinery/door/airlock/external{
@@ -144,15 +1370,479 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"ta" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,9"
+	},
+/area/template_noop)
+"tc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"tl" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,23"
+	},
+/area/template_noop)
+"tE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/hatch{
+	dir = 1;
+	name = "Thruster Compartment";
+	req_access = list(73)
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"tO" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,16"
+	},
+/area/template_noop)
+"tP" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_pump_out_external";
+	layer = 2.8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "intrepid_bay_outer";
+	name = "Intrepid Shutter"
+	},
+/obj/item/device/radio/intercom/east,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"tT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"tU" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "9,1";
+	outside_part = 0
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/template_noop,
+/area/template_noop)
+"tW" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "7,5";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "0,3"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"tX" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "2,25";
+	outside_part = 0;
+	pixel_x = -32
+	},
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "3,25"
+	},
+/area/template_noop)
+"ug" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
+	cycle_to_external_air = 1;
+	dir = 8;
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo";
+	layer = 3.3;
+	master_tag = "intrepid_shuttle";
+	pixel_x = 24;
+	tag_airpump = "intrepid_shuttle_cargo_pump";
+	tag_chamber_sensor = "intrepid_shuttle_cargo_sensor";
+	tag_exterior_door = "intrepid_shuttle_cargo_out";
+	tag_exterior_sensor = "intrepid_shuttle_cargo_exterior_sensor";
+	tag_interior_door = "intrepid_shuttle_cargo_in";
+	tag_interior_sensor = "intrepid_shuttle_cargo_interior_sensor"
+	},
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_pump_out_internal";
+	layer = 2.8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"un" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"uw" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "17,19"
+	},
+/turf/template_noop,
+/area/template_noop)
+"uB" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "1,20"
+	},
+/turf/template_noop,
+/area/template_noop)
+"uM" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "15,13"
+	},
+/area/template_noop)
+"uR" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "2,10"
+	},
+/turf/template_noop,
+/area/template_noop)
+"uU" = (
+/obj/machinery/airlock_sensor{
+	dir = 4;
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_sensor";
+	pixel_x = -24;
+	pixel_y = -6
+	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_pump";
+	layer = 2.8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"uX" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/docking_port_multi{
+	child_names_txt = "Cargo Airlock";
+	child_tags_txt = "intrepid_shuttle_cargo";
+	frequency = 1385;
+	id_tag = "intrepid_shuttle";
+	pixel_x = -9;
+	pixel_y = 23
+	},
+/obj/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Cockpit";
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/intrepid/north,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"uY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "8,13"
+	},
+/area/template_noop)
+"vb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"vc" = (
+/obj/machinery/shipsensors/weak/scc_shuttle{
+	pixel_y = -15
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced,
+/area/template_noop)
+"vi" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/tank/air/scc_shuttle{
+	dir = 8
+	},
+/obj/structure/closet/walllocker/emerglocker/east,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"vz" = (
+/obj/structure/window/shuttle/unique/scc/tall{
+	icon_state = "long2-2"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"vL" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "6,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/structure/shuttle_part/scc/scout{
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid.";
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
+	icon_state = "nozzle";
+	layer = 2.4;
+	name = "pathfinder class shuttle hull";
+	opacity = 1;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"vR" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "1,19"
+	},
+/turf/template_noop,
+/area/template_noop)
+"vX" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/table/rack,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/rods{
+	amount = 50
+	},
+/obj/item/stack/rods{
+	amount = 50
+	},
+/obj/item/stack/material/glass/reinforced{
+	amount = 50
+	},
+/obj/item/stack/material/glass/reinforced{
+	amount = 50
+	},
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"vY" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "5,7"
+	},
+/turf/template_noop,
+/area/template_noop)
+"wc" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "16,18"
+	},
+/area/template_noop)
+"wA" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,7"
+	},
+/area/template_noop)
+"wD" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_pump_out_external";
+	layer = 2.8
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	dir = 4;
+	frequency = 1385;
+	layer = 3.1;
+	master_tag = "intrepid_shuttle_cargo";
+	name = "exterior access button";
+	pixel_x = -22;
+	pixel_y = 2
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	dir = 4;
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_exterior_sensor";
+	pixel_x = -21;
+	pixel_y = 10
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "intrepid_bay_outer";
+	name = "Intrepid Shutter"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"wP" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/item/pen{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/item/flame/candle{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/item/device/radio/intercom/north,
+/turf/simulated/floor/lino,
+/area/template_noop)
 "wS" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"xb" = (
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/glasses/hud/health,
+/obj/item/storage/firstaid/o2,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/toxin,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"xc" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "6,5";
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"xf" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,13"
+	},
+/area/template_noop)
+"xh" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "11,6";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "4,4"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"xm" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "5,4"
+	},
+/turf/template_noop,
+/area/template_noop)
+"xC" = (
+/obj/structure/window/shuttle/unique/scc/tall,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"xG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/alarm/north,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
 "yc" = (
 /obj/machinery/computer/ship,
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"yk" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,13"
+	},
+/area/template_noop)
+"yv" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "8,4";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	density = 0;
+	icon_state = "1,2"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "zb" = (
 /obj/machinery/atmospherics/unary/vent_pump{
@@ -166,6 +1856,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"zq" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,24"
+	},
+/area/template_noop)
+"zt" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_pump";
+	layer = 2.8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "zG" = (
 /obj/effect/shuttle_landmark{
 	dir = 4
@@ -173,17 +1877,73 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/template_noop,
 /area/template_noop)
+"zL" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "15,24";
+	opacity = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"zO" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "11,4";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	density = 0;
+	icon_state = "4,2"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"zU" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/machinery/power/portgen/basic,
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/item/stack/material/graphite/full,
+/obj/item/stack/material/graphite/full,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_x = -12;
+	pixel_y = 24
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"zZ" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,22"
+	},
+/area/template_noop)
 "Ad" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"Ar" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/template_noop)
 "Az" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"AA" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "12,8"
+	},
 /area/template_noop)
 "AE" = (
 /obj/effect/shuttle_landmark{
@@ -198,12 +1958,168 @@
 /obj/effect/map_effect/map_helper/mark_good,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"AT" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "1,13";
+	outside_part = 0;
+	pixel_x = -32
+	},
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "2,13"
+	},
+/area/template_noop)
+"Bm" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "13,3"
+	},
+/turf/template_noop,
+/area/template_noop)
+"Bo" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "4,7"
+	},
+/turf/template_noop,
+/area/template_noop)
+"Bq" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "9,11"
+	},
+/area/template_noop)
+"Bx" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "2,19"
+	},
+/area/template_noop)
+"BD" = (
+/obj/machinery/atmospherics/pipe/tank/air/scc_shuttle{
+	dir = 8;
+	name = "Pressure Tank (Air - Main Airlock)"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"BF" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/command{
+	dir = 1;
+	name = "Fore Crew Compartment"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/lino,
+/area/template_noop)
+"BW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/floor/lino,
+/area/template_noop)
+"Cr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1385;
+	master_tag = "intrepid_shuttle_cargo";
+	name = "interior access button";
+	pixel_x = -5;
+	pixel_y = 20
+	},
+/obj/machinery/airlock_sensor/airlock_interior{
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_interior_sensor";
+	pixel_x = -5;
+	pixel_y = 25
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "intrepid_bay_outer";
+	name = "inner cargo hold blast doors";
+	pixel_x = 7;
+	pixel_y = 25
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "Cz" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 1
 	},
 /obj/effect/map_effect/map_helper/mark_bad,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"CB" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,17"
+	},
+/area/template_noop)
+"CH" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/closet/firecloset/full,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/power/apc/intrepid/north,
+/obj/machinery/vending/wallmed1{
+	pixel_x = -23;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"CJ" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "16,13"
+	},
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "17,13";
+	outside_part = 0;
+	pixel_x = 32
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"CO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "CY" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -212,8 +2128,395 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"Db" = (
+/turf/simulated/wall/shuttle/unique/scc/research,
+/area/template_noop)
+"De" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "7,2"
+	},
+/turf/template_noop,
+/area/template_noop)
+"Do" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
+"Du" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,23"
+	},
+/area/template_noop)
+"Dy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/platform_stairs/full/east_west_cap{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"DB" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "intrepid_inner";
+	name = "Intrepid Shutter"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"DC" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/closet/firecloset/full,
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"DE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "DW" = (
 /turf/template_noop,
+/area/template_noop)
+"DZ" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "16,10"
+	},
+/turf/template_noop,
+/area/template_noop)
+"Eb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/light/small/red{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Eg" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "14,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/structure/shuttle_part/scc/scout{
+	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid.";
+	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
+	icon_state = "nozzle";
+	layer = 2.4;
+	name = "pathfinder class shuttle hull";
+	opacity = 1;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Ei" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/door/blast/shutters/open{
+	dir = 8;
+	id = "intrepid_outer";
+	name = "Intrepid Shutter"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Ej" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "9,0"
+	},
+/turf/template_noop,
+/area/template_noop)
+"El" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Eu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/sleeper,
+/obj/machinery/vending/wallmed1{
+	pixel_x = -4;
+	pixel_y = 26;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Ey" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "5,3"
+	},
+/turf/template_noop,
+/area/template_noop)
+"ES" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "5,5"
+	},
+/turf/template_noop,
+/area/template_noop)
+"Fb" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,8"
+	},
+/area/template_noop)
+"Fe" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "intrepid_inner";
+	name = "inner cargo hold blast doors";
+	pixel_x = -24;
+	pixel_y = 26
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Fk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/power/smes/buildable/horizon_shuttle{
+	RCon_tag = "Intrepid"
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/item/device/radio/intercom/east{
+	pixel_y = 21
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Fm" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Fs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"FE" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "7,3";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	density = 0;
+	icon_state = "0,1"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"FG" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "12,5";
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"FO" = (
+/obj/machinery/door/window/eastright,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"FQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"FV" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,23"
+	},
+/area/template_noop)
+"Go" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "9,2";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "2,0"
+	},
+/obj/machinery/door/firedoor,
+/turf/template_noop,
+/area/template_noop)
+"Gv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/bed/roller,
+/obj/item/device/radio/intercom/south,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"GA" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "6,24"
+	},
+/area/template_noop)
+"GC" = (
+/obj/structure/window/shuttle/unique/scc/research/over{
+	density = 0;
+	icon_state = "1,3"
+	},
+/obj/structure/bed/stool/chair/office/bridge{
+	dir = 8
+	},
+/obj/machinery/computer/ship/sensors/cockpit{
+	layer = 3;
+	pixel_x = -22;
+	pixel_y = 7
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"GE" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "9,3";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	density = 0
+	},
+/obj/machinery/computer/ship/helm/cockpit{
+	layer = 3.1
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"GG" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "3,12";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/tall{
+	icon_state = "short1_top";
+	layer = 3
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"GK" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1;
+	layer = 2.8
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
+"GP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Hc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Hi" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Hq" = (
 /obj/machinery/computer/ship{
@@ -225,9 +2528,209 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/template_noop)
+"Hu" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,16"
+	},
+/area/template_noop)
+"HD" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "3,13"
+	},
+/area/template_noop)
+"HS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"HT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "External Ports to Air Reserve"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"HV" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "2,11"
+	},
+/turf/template_noop,
+/area/template_noop)
+"If" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "2,18"
+	},
+/area/template_noop)
+"In" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "5,26";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/machinery/atmospherics/unary/engine/scc_shuttle,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engines"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Io" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/structure/closet/walllocker/emerglocker/west,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "IL" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/template_noop,
+/area/template_noop)
+"IT" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "12,7"
+	},
+/area/template_noop)
+"Jj" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Jt" = (
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/firealarm/north,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"JA" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/red{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	frequency = 1385;
+	icon_state = "door_locked";
+	id_tag = "intrepid_shuttle_cargo_out"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"JO" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"JP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/computer/cryopod{
+	pixel_x = 28;
+	pixel_y = 7
+	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"JS" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "11,2"
+	},
+/turf/template_noop,
+/area/template_noop)
+"Kc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 4;
+	target_pressure = 250
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Kh" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "11,5";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "4,3"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"KG" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "4,12";
+	layer = 2.6;
+	outside_part = 0
+	},
+/obj/structure/table/wood,
+/obj/item/device/binoculars{
+	pixel_x = 12
+	},
+/obj/machinery/recharger{
+	pixel_x = 1;
+	pixel_y = 6
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/template_noop)
+"KN" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "KT" = (
 /obj/machinery/atmospherics/unary/vent_pump{
@@ -236,17 +2739,178 @@
 /obj/effect/map_effect/map_helper/mark_acceptable,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"KV" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,24"
+	},
+/area/template_noop)
 "KX" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"KZ" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "8,7"
+	},
+/area/template_noop)
+"Ld" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/obj/effect/map_effect/map_helper/mark_good,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "Lt" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/template_noop)
+"Lv" = (
+/obj/structure/bed/stool/chair/sofa/left/red,
+/obj/item/device/radio/intercom/north,
+/turf/simulated/floor/lino,
+/area/template_noop)
+"Lw" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/wood,
+/area/template_noop)
+"LG" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "6,23"
+	},
+/area/template_noop)
+"LH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/structure/table/rack,
+/obj/item/hoist_kit,
+/obj/item/device/multitool,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Mc" = (
+/obj/item/device/gps/stationary/sccv_intrepid{
+	pixel_x = 3;
+	pixel_y = 24
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Medbay"
+	},
+/obj/structure/bedsheetbin,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Md" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "10,1"
+	},
+/turf/template_noop,
+/area/template_noop)
+"Mp" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/atmospherics/binary/pump{
+	name = "Air Reserve to Airlock Cycling"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Mq" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Mv" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,8"
+	},
+/area/template_noop)
+"Mz" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Engine Compartment";
+	dir = 1
+	},
+/obj/machinery/recharge_station,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "MH" = (
 /obj/effect/shuttle_landmark{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"MM" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "11,3";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	density = 0;
+	icon_state = "4,1"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"MO" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "8,1"
+	},
+/turf/template_noop,
+/area/template_noop)
+"Ng" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/bed/handrail{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -260,15 +2924,340 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"Nn" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,24"
+	},
+/area/template_noop)
+"NF" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/red,
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,17"
+	},
+/area/template_noop)
+"Og" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,20"
+	},
+/area/template_noop)
+"On" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/closet/walllocker/emerglocker/west,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Oq" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/machinery/light/small/red{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Ot" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "16,11"
+	},
+/turf/template_noop,
+/area/template_noop)
+"OQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"OT" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "14,11";
+	layer = 2.6;
+	outside_part = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "sink";
+	pixel_x = 21
+	},
+/turf/simulated/floor/lino,
+/area/template_noop)
 "Pb" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Px" = (
+/obj/structure/window/shuttle/unique/scc/tall{
+	icon_state = "long2-1"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, medbay"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Py" = (
+/obj/machinery/door/airlock/command{
+	dir = 4;
+	name = "Crew Quarters and Office"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/wood,
+/area/template_noop)
+"PA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/extinguisher_cabinet/east,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"PP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/cell_charger,
+/obj/structure/table/reinforced,
+/obj/random/powercell,
+/obj/random/powercell,
+/obj/machinery/power/apc/intrepid/north,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"PV" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "10,4";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	density = 0;
+	icon_state = "3,2"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/machinery/computer/shuttle_control/explore/intrepid,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Qa" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"Qm" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "intrepid_inner";
+	name = "Intrepid Shutter"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/plain/corner,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Qz" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/door/blast/shutters/open{
+	dir = 8;
+	id = "intrepid_outer";
+	name = "Intrepid Shutter"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"QF" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/obj/machinery/meter{
+	name = "Fuel Reserve";
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"QI" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "6,6";
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"QR" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "1,22";
+	opacity = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"QT" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "2,22";
+	opacity = 1;
+	outside_part = 0
+	},
+/obj/machinery/atmospherics/unary/engine/scc_shuttle,
+/turf/template_noop,
+/area/template_noop)
+"Rl" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "16,16"
+	},
+/area/template_noop)
+"Rp" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"RE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"RN" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,22"
+	},
+/area/template_noop)
+"RO" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "7,20"
+	},
+/area/template_noop)
+"RP" = (
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Airlock Aft";
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_pump_out_internal";
+	layer = 2.8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"RX" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "6,4";
+	layer = 2.97;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Sg" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "2,16"
+	},
+/area/template_noop)
+"Sh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Sl" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/firealarm/north{
+	pixel_x = -20
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/closet/walllocker/medical{
+	name = "Blood Locker";
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"So" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "9,10"
+	},
+/area/template_noop)
+"Sp" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "17,22"
+	},
+/turf/template_noop,
 /area/template_noop)
 "Ss" = (
 /obj/machinery/door/airlock/external{
@@ -279,6 +3268,110 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"Sy" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,23"
+	},
+/area/template_noop)
+"SF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/turf/simulated/floor/lino,
+/area/template_noop)
+"SK" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "16,12"
+	},
+/turf/template_noop,
+/area/template_noop)
+"SM" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Tb" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "4,8"
+	},
+/turf/template_noop,
+/area/template_noop)
+"Tk" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/binary/pump/fuel{
+	dir = 1;
+	name = "Fuel Tank to Thrusters"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/camera/network/intrepid{
+	c_tag = "Intrepid - Atmos Compartment";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"TB" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp{
+	pixel_y = 4
+	},
+/turf/simulated/floor/wood,
+/area/template_noop)
+"TF" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "14,22"
+	},
+/area/template_noop)
+"TM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"TN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"TW" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "11,26";
+	layer = 2.91;
+	opacity = 1;
+	outside_part = 0
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Us" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"UD" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "6,8"
+	},
+/area/template_noop)
 "UG" = (
 /obj/effect/shuttle_landmark{
 	dir = 8
@@ -286,8 +3379,285 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/template_noop,
 /area/template_noop)
+"UL" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "4,10"
+	},
+/area/template_noop)
+"Vg" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Vj" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "2,12"
+	},
+/turf/template_noop,
+/area/template_noop)
+"VA" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "10,3";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/research/over{
+	icon_state = "3,1"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"VG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/bluespace_beacon,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"VX" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "12,23"
+	},
+/area/template_noop)
+"Wh" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "15,26";
+	outside_part = 0
+	},
+/turf/template_noop,
+/area/template_noop)
+"Wu" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1385;
+	id_tag = "intrepid_shuttle_cargo_pump_out_internal";
+	layer = 2.8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Ww" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/machinery/alarm/west,
+/obj/machinery/power/apc/intrepid/east,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Wx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Wz" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/structure/sink{
+	layer = 3;
+	pixel_x = -7;
+	pixel_y = 23
+	},
+/obj/structure/mirror{
+	pixel_x = -7;
+	pixel_y = 32
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/template_noop)
+"Xa" = (
+/obj/machinery/atmospherics/binary/pump/fuel{
+	dir = 8;
+	name = "External Ports to Fuel Tank"
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Xf" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/item/device/binoculars/high_power{
+	pixel_x = -2;
+	pixel_y = -4
+	},
+/obj/structure/table/reinforced,
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/item/pen{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/recharger{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Xt" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,7"
+	},
+/area/template_noop)
+"Xw" = (
+/obj/structure/window/shuttle/unique/scc/research/over{
+	density = 0;
+	icon_state = "3,3"
+	},
+/obj/structure/bed/stool/chair/office/bridge{
+	dir = 4
+	},
+/obj/machinery/computer/ship/engines/cockpit{
+	layer = 3;
+	pixel_x = 24;
+	pixel_y = 7
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Xy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/hatch{
+	dir = 1;
+	name = "Thruster Compartment";
+	req_access = list(73)
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"XJ" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "16,9"
+	},
+/turf/template_noop,
+/area/template_noop)
+"XS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Ym" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "14,8"
+	},
+/turf/template_noop,
+/area/template_noop)
+"Yr" = (
+/obj/structure/shuttle_part/scc/research{
+	icon_state = "15,12";
+	outside_part = 0
+	},
+/obj/structure/window/shuttle/unique/scc/tall{
+	icon_state = "short2_top";
+	layer = 3
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"Yy" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "2,20"
+	},
+/area/template_noop)
+"Yz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/wood,
+/area/template_noop)
 "YK" = (
 /turf/simulated/floor/plating,
+/area/template_noop)
+"YY" = (
+/obj/machinery/meter{
+	name = "Air Reserve"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"YZ" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "11,25"
+	},
+/area/template_noop)
+"Zh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Zi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "Zz" = (
 /obj/machinery/door/airlock/external{
@@ -302,6 +3672,28 @@
 	dir = 2
 	},
 /turf/template_noop,
+/area/template_noop)
+"ZL" = (
+/turf/simulated/wall/shuttle/unique/scc/research{
+	icon_state = "16,20"
+	},
+/area/template_noop)
+"ZM" = (
+/obj/structure/shuttle_part/scc/research{
+	density = 0;
+	icon_state = "8,0"
+	},
+/turf/template_noop,
+/area/template_noop)
+"ZS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -6460,42 +9852,42 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
 DW
 DW
 DW
@@ -6612,6 +10004,7 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
@@ -6646,8 +10039,7 @@ DW
 DW
 DW
 DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -6764,42 +10156,42 @@ DW
 DW
 DW
 DW
+nd
 DW
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -6916,6 +10308,9 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -6946,12 +10341,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -7068,6 +10460,9 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -7098,12 +10493,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -7220,6 +10612,17 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+DW
+DW
+DW
+DW
+QR
+iJ
+uB
+vR
 DW
 DW
 DW
@@ -7242,20 +10645,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -7372,6 +10764,27 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+DW
+DW
+DW
+DW
+QT
+Eb
+Yy
+Bx
+If
+jb
+Sg
+Qz
+Ei
+AT
+Vj
+HV
+uR
+kX
 DW
 DW
 DW
@@ -7384,30 +10797,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -7524,6 +10916,27 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+oq
+tX
+hA
+qa
+fB
+FO
+Og
+CH
+hm
+vX
+Hu
+ny
+xC
+HD
+GG
+jP
+oz
+GK
 DW
 DW
 DW
@@ -7536,30 +10949,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -7676,6 +11068,29 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+cA
+Oq
+zq
+Du
+zZ
+Hc
+pR
+YY
+HT
+nT
+qN
+pD
+Fs
+xf
+KG
+lr
+UL
+ta
+Tb
+Bo
 DW
 DW
 DW
@@ -7686,32 +11101,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -7828,42 +11220,42 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+In
+TN
+JP
+tE
+cG
+QF
+Tk
+sf
+Mp
+Rp
+pA
+Kc
+gF
+nj
+wP
+mo
+Lw
+TB
+dx
+vY
+DW
+ES
+xm
+Ey
 DW
 DW
 DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -7980,42 +11372,42 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+vL
+iq
+GA
+LG
+Fk
+Ng
+nP
+vi
+ix
+BD
+jf
+xG
+TM
+uY
+jA
+dt
+pC
+Yz
+UD
+io
+QI
+xc
+RX
+jg
 DW
 DW
 DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -8132,42 +11524,42 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+eJ
+ha
+KV
+tl
+oG
+iT
+RO
+ak
+ol
+pE
+tO
+PP
+mC
+nj
+mu
+cL
+eH
+Py
+Mv
+wA
+bM
+tW
+aY
+FE
+De
 DW
 DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -8284,42 +11676,42 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+wD
+JA
+RP
+uU
+bN
+CO
+id
+Jj
+Io
+Og
+zU
+tc
+Xa
+nj
+ah
+Ar
+Db
+Dy
+bO
+KZ
+Xf
+GC
+yv
+fm
+kp
+MO
+ZM
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -8436,42 +11828,42 @@ DW
 DW
 DW
 DW
+nd
+DW
+od
+dC
+NF
+Wu
+zt
+sA
+DE
+OQ
+Ld
+Wx
+DB
+Fe
+VG
+kn
+nD
+gx
+Bq
+So
+bz
+KN
+pm
+tT
+Hi
+iX
+GE
+Go
+tU
+Ej
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -8588,42 +11980,42 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+tP
+lE
+ug
+pO
+gC
+vb
+JO
+Us
+ew
+Qm
+Sh
+aT
+GP
+BF
+aB
+On
+rB
+PA
+so
+ng
+uX
+Xw
+PV
+VA
+dQ
+Md
+ku
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -8740,42 +12132,42 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+TW
+YZ
+Nn
+Sy
+RN
+Cr
+gi
+SM
+ZS
+CB
+Mc
+XS
+iw
+jl
+gZ
+SF
+eH
+gx
+Fb
+Xt
+xh
+Kh
+zO
+MM
+JS
 DW
 DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -8892,42 +12284,42 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+aU
+Mz
+sG
+VX
+Jt
+RE
+LH
+Mq
+Zi
+hg
+HS
+lR
+Gv
+nj
+Lv
+BW
+oI
+gh
+AA
+IT
+qp
+FG
+lb
+vc
 DW
 DW
 DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -9044,42 +12436,42 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+rt
+TN
+Ww
+Xy
+ri
+rw
+El
+so
+un
+jl
+Eu
+kt
+pT
+mh
+bV
+BW
+nj
+Wz
+qn
+kk
+DW
+jK
+jx
+Bm
 DW
 DW
 DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -9196,6 +12588,29 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+Eg
+DC
+jd
+FV
+TF
+Zh
+cc
+mg
+eQ
+mh
+Sl
+Fm
+xb
+yk
+dW
+OT
+nO
+iP
+Ym
+ay
 DW
 DW
 DW
@@ -9206,32 +12621,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -9348,6 +12740,27 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+Wh
+ad
+zL
+aq
+rc
+gp
+gS
+Vg
+bI
+RO
+gx
+vz
+Px
+uM
+Yr
+ft
+ms
+Do
 DW
 DW
 DW
@@ -9360,30 +12773,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -9500,6 +12892,27 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+DW
+DW
+DW
+DW
+oO
+FQ
+ZL
+bL
+wc
+cl
+Rl
+bS
+bf
+CJ
+SK
+Ot
+DZ
+XJ
 DW
 DW
 DW
@@ -9512,30 +12925,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -9652,6 +13044,17 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
+DW
+DW
+DW
+DW
+Sp
+nb
+dw
+uw
 DW
 DW
 DW
@@ -9674,20 +13077,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -9804,6 +13196,9 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -9834,12 +13229,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -9956,42 +13348,42 @@ DW
 DW
 DW
 DW
+nd
 DW
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -10108,6 +13500,7 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
@@ -10142,8 +13535,7 @@ DW
 DW
 DW
 DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -10260,42 +13652,42 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
 DW
 DW
 DW
@@ -10564,42 +13956,42 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
 DW
 DW
 DW
@@ -10716,6 +14108,7 @@ DW
 DW
 DW
 DW
+nd
 DW
 DW
 DW
@@ -10750,8 +14143,7 @@ DW
 DW
 DW
 DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -10868,42 +14260,42 @@ DW
 DW
 DW
 DW
+nd
 DW
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -11020,6 +14412,9 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -11050,12 +14445,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -11172,6 +14564,9 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -11202,12 +14597,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -11324,6 +14716,9 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -11354,12 +14749,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -11476,6 +14868,9 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -11506,12 +14901,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -11628,6 +15020,9 @@ DW
 DW
 DW
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -11658,12 +15053,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -11780,6 +15172,9 @@ nd
 nd
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -11810,26 +15205,23 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+IL
 DW
 nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 nd
 nd
 nd
@@ -11932,6 +15324,9 @@ DW
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -11962,11 +15357,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -11982,7 +15375,6 @@ DW
 DW
 DW
 nd
-DW
 DW
 DW
 DW
@@ -12084,6 +15476,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -12114,11 +15509,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -12142,7 +15535,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -12236,6 +15628,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -12266,11 +15661,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -12294,7 +15687,6 @@ lO
 zb
 YK
 KX
-DW
 DW
 DW
 DW
@@ -12388,6 +15780,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -12418,11 +15813,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -12446,7 +15839,6 @@ KX
 zb
 YK
 cB
-DW
 DW
 DW
 DW
@@ -12540,6 +15932,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+od
 DW
 DW
 DW
@@ -12570,11 +15965,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -12598,7 +15991,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -12692,6 +16084,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -12722,11 +16117,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -12747,7 +16140,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -12844,6 +16236,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -12874,11 +16269,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -12894,7 +16287,6 @@ DW
 DW
 DW
 nd
-DW
 DW
 DW
 DW
@@ -12996,6 +16388,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -13026,11 +16421,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -13055,7 +16448,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -13148,6 +16540,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -13178,11 +16573,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -13207,7 +16600,6 @@ zb
 YK
 KX
 YK
-DW
 DW
 DW
 DW
@@ -13300,6 +16692,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -13330,11 +16725,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -13359,7 +16752,6 @@ zb
 YK
 KX
 MH
-DW
 DW
 DW
 DW
@@ -13417,7 +16809,7 @@ DW
 DW
 DW
 DW
-kp
+IL
 Lt
 Lt
 Lt
@@ -13452,6 +16844,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -13482,11 +16877,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -13511,7 +16904,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -13532,7 +16924,7 @@ DW
 DW
 nd
 DW
-kp
+IL
 Lt
 Lt
 Lt
@@ -13604,6 +16996,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -13634,11 +17029,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -13659,7 +17052,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -13756,6 +17148,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -13786,11 +17181,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -13806,7 +17199,6 @@ DW
 DW
 DW
 nd
-DW
 DW
 DW
 DW
@@ -13908,6 +17300,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -13938,11 +17333,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -13968,7 +17361,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 Lt
@@ -14060,41 +17452,42 @@ IL
 DW
 nd
 DW
+nd
 DW
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -14120,7 +17513,6 @@ YK
 KX
 YK
 YK
-DW
 DW
 DW
 kZ
@@ -14212,21 +17604,7 @@ IL
 DW
 nd
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -14263,6 +17641,21 @@ DW
 DW
 nd
 DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+nd
+DW
 kZ
 kZ
 kZ
@@ -14272,7 +17665,6 @@ YK
 KX
 YK
 MH
-DW
 DW
 DW
 kZ
@@ -14364,41 +17756,42 @@ IL
 DW
 nd
 DW
+nd
 DW
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -14424,7 +17817,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 Lt
@@ -14516,6 +17908,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -14546,11 +17941,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -14571,7 +17964,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -14668,6 +18060,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -14698,11 +18093,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -14718,7 +18111,6 @@ DW
 DW
 DW
 nd
-DW
 DW
 DW
 DW
@@ -14820,6 +18212,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -14850,26 +18245,23 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+IL
 DW
 nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 nd
 nd
 nd
@@ -14972,6 +18364,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -15002,12 +18397,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -15124,6 +18516,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -15154,12 +18549,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -15276,6 +18668,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -15306,26 +18701,23 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+IL
 DW
 nd
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 nd
 nd
 nd
@@ -15428,6 +18820,9 @@ DW
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -15458,11 +18853,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -15478,7 +18871,6 @@ DW
 DW
 DW
 nd
-DW
 DW
 DW
 DW
@@ -15580,6 +18972,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -15610,11 +19005,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -15635,7 +19028,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -15732,6 +19124,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -15762,11 +19157,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -15787,7 +19180,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -15884,6 +19276,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -15914,11 +19309,9 @@ DW
 DW
 DW
 DW
+ZA
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -15939,7 +19332,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -16036,6 +19428,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -16066,11 +19461,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -16091,7 +19484,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -16188,6 +19580,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -16218,11 +19613,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -16246,7 +19639,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -16340,6 +19732,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -16370,11 +19765,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -16398,7 +19791,6 @@ KX
 AS
 YK
 KX
-DW
 DW
 DW
 DW
@@ -16492,6 +19884,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -16522,11 +19917,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -16550,7 +19943,6 @@ KX
 zb
 YK
 cB
-DW
 DW
 DW
 DW
@@ -16644,6 +20036,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -16674,11 +20069,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -16702,7 +20095,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -16796,6 +20188,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -16826,11 +20221,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -16851,7 +20244,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -16913,7 +20305,7 @@ DW
 DW
 DW
 DW
-kp
+IL
 Lt
 Lt
 Lt
@@ -16948,6 +20340,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -16978,11 +20373,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -17003,7 +20396,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -17028,7 +20420,7 @@ DW
 DW
 nd
 DW
-kp
+IL
 Lt
 Lt
 Lt
@@ -17100,6 +20492,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -17130,11 +20525,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -17155,7 +20548,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -17252,6 +20644,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -17282,11 +20677,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -17307,7 +20700,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -17404,6 +20796,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -17434,11 +20829,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -17454,7 +20847,6 @@ DW
 DW
 DW
 nd
-DW
 DW
 DW
 DW
@@ -17556,54 +20948,55 @@ IL
 DW
 nd
 DW
+nd
 DW
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
 DW
 nd
 DW
@@ -17614,7 +21007,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -17708,8 +21100,7 @@ IL
 DW
 nd
 DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -17759,14 +21150,15 @@ DW
 DW
 nd
 DW
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
-Lt
+nd
 DW
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
+Lt
 DW
 DW
 DW
@@ -17860,54 +21252,55 @@ IL
 DW
 nd
 DW
+nd
 DW
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
 DW
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+CY
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -17918,7 +21311,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -18012,6 +21404,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -18032,6 +21427,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -18052,14 +21450,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -18070,7 +21463,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -18164,6 +21556,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -18184,6 +21579,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -18204,14 +21602,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -18222,7 +21615,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -18316,6 +21708,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -18336,6 +21731,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -18356,14 +21754,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -18374,7 +21767,6 @@ KX
 KT
 YK
 KX
-DW
 DW
 DW
 DW
@@ -18468,6 +21860,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -18488,6 +21883,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -18508,14 +21906,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -18526,7 +21919,6 @@ KX
 zb
 YK
 cB
-DW
 DW
 DW
 DW
@@ -18620,6 +22012,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -18640,6 +22035,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -18660,14 +22058,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -18678,7 +22071,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -18772,6 +22164,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -18792,6 +22187,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -18812,14 +22210,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -18830,7 +22223,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -18924,6 +22316,9 @@ DW
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -18944,6 +22339,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -18964,14 +22362,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -18982,7 +22375,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -19076,6 +22468,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -19096,6 +22491,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -19116,14 +22514,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -19134,7 +22527,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -19228,6 +22620,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -19248,6 +22643,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -19268,14 +22666,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 nd
 DW
@@ -19286,7 +22679,6 @@ Lt
 Lt
 Lt
 Lt
-DW
 DW
 DW
 DW
@@ -19380,6 +22772,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -19400,6 +22795,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -19420,17 +22818,11 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+IL
 DW
 nd
 DW
+nd
 DW
 DW
 DW
@@ -19532,6 +22924,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -19552,6 +22947,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -19572,16 +22970,10 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+IL
 DW
 nd
+DW
 nd
 nd
 nd
@@ -19684,6 +23076,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -19704,6 +23099,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -19724,15 +23122,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -19836,6 +23228,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -19856,6 +23251,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -19876,15 +23274,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -19988,6 +23380,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -20008,6 +23403,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -20028,15 +23426,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -20140,6 +23532,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -20160,6 +23555,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -20180,15 +23578,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -20292,6 +23684,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -20312,6 +23707,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -20332,15 +23730,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -20409,7 +23801,7 @@ Lt
 Lt
 DW
 DW
-kp
+IL
 Lt
 Lt
 Lt
@@ -20425,6 +23817,56 @@ kZ
 kZ
 Lt
 wS
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+IL
+DW
+nd
+DW
+nd
+DW
+IL
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+IL
+DW
+IL
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -20469,62 +23911,12 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
 "}
 (134,1,1) = {"
 DW
 nd
 DW
-kp
+IL
 Lt
 Lt
 Lt
@@ -20596,6 +23988,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -20616,6 +24011,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -20636,15 +24034,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -20748,6 +24140,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -20768,6 +24163,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -20788,15 +24186,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -20900,6 +24292,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -20920,6 +24315,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -20940,15 +24338,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -21052,6 +24444,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -21072,6 +24467,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -21092,15 +24490,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -21204,6 +24596,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -21224,6 +24619,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -21244,15 +24642,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -21356,6 +24748,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -21376,6 +24771,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -21396,15 +24794,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -21508,6 +24900,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -21528,6 +24923,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -21548,15 +24946,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -21660,6 +25052,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -21680,6 +25075,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -21700,15 +25098,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -21812,6 +25204,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -21832,6 +25227,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -21852,15 +25250,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -21964,6 +25356,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -21984,6 +25379,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -22004,15 +25402,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -22116,6 +25508,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -22136,6 +25531,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -22156,15 +25554,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -22268,6 +25660,9 @@ IL
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -22288,6 +25683,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -22308,15 +25706,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -22420,6 +25812,9 @@ DW
 DW
 nd
 DW
+nd
+DW
+IL
 DW
 DW
 DW
@@ -22440,6 +25835,9 @@ DW
 DW
 DW
 DW
+IL
+DW
+IL
 DW
 DW
 DW
@@ -22460,15 +25858,9 @@ DW
 DW
 DW
 DW
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -22572,55 +25964,55 @@ DW
 DW
 nd
 DW
+nd
 DW
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+gm
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
 DW
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
+IL
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -22724,6 +26116,7 @@ DW
 DW
 nd
 DW
+nd
 DW
 DW
 DW
@@ -22771,8 +26164,7 @@ DW
 DW
 DW
 DW
-DW
-DW
+nd
 DW
 DW
 DW
@@ -22876,55 +26268,55 @@ nd
 nd
 nd
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
+nd
 DW
 DW
 DW
