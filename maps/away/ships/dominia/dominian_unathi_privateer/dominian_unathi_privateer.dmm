@@ -6447,7 +6447,9 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/shuttle_landmark/dominian_unathi_shuttle/hangar,
+/obj/effect/shuttle_landmark/dominian_unathi_shuttle/hangar{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/hangar)
 "Xn" = (
