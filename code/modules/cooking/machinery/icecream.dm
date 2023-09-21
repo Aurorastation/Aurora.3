@@ -12,7 +12,7 @@
 /obj/machinery/icecream_vat
 	name = "icecream vat"
 	desc = "Ding-aling ding dong. Get your SCC-approved ice cream!"
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "icecream_vat"
 	density = 1
 	anchored = 0
