@@ -1501,17 +1501,8 @@
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
 "nX" = (
-/obj/structure/cable{
-	dir = 8
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
-	req_access = null
-	},
-/obj/effect/floor_decal/corner_wide/white/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/coc_survey_ship/mess_hall)
+/turf/template_noop,
+/area/coc_survey_ship/grauwolf)
 "ol" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard aft wing"
@@ -2330,18 +2321,6 @@
 "vk" = (
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/coc_survey_ship/cryo)
-"vn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner_wide/white/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/coc_survey_ship/mess_hall)
 "vp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3859,7 +3838,7 @@
 /area/coc_survey_ship/grauwolf)
 "Hx" = (
 /obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "Survey Ship Flak Cannon"
+	weapon_id = "Survey Ship Flak Cannon"ssssssssss
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/grauwolf)
@@ -3929,7 +3908,7 @@
 "HN" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/ship_weapon_dummy/barrel,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/coc_survey_ship/grauwolf)
 "HP" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -5304,10 +5283,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
-"TZ" = (
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/coc_survey_ship/grauwolf)
 "Ud" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor,
@@ -5536,7 +5511,7 @@
 /area/coc_survey_ship/atmos)
 "VX" = (
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/coc_survey_ship/grauwolf)
 "Wb" = (
 /obj/structure/lattice/catwalk,
@@ -6098,7 +6073,9 @@
 	},
 /area/coc_survey_ship/cargo)
 "ZL" = (
-/obj/effect/shuttle_landmark/coc_survey_shuttle/transit,
+/obj/effect/shuttle_landmark/coc_survey_shuttle/transit{
+	dir = 4
+	},
 /turf/space/transit/east,
 /area/space)
 "ZM" = (
@@ -10159,8 +10136,8 @@ gm
 RT
 sz
 sz
-TZ
-TZ
+Yw
+Yw
 VX
 VX
 PG
@@ -10262,7 +10239,7 @@ wT
 bD
 Jt
 Yw
-TZ
+Yw
 VX
 HN
 PG
@@ -10364,7 +10341,7 @@ Ee
 Ht
 Jt
 Yw
-TZ
+Yw
 VX
 VX
 PG
@@ -10467,7 +10444,7 @@ QJ
 Hx
 QJ
 xC
-PG
+nX
 PG
 PG
 PG
@@ -10875,7 +10852,7 @@ Nf
 FC
 ID
 Vh
-nX
+Pa
 Pa
 LM
 rq
@@ -10977,7 +10954,7 @@ zS
 BM
 yQ
 Hp
-vn
+lO
 lO
 vd
 CA
