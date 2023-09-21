@@ -64,7 +64,8 @@
 		"nav_ccia_dock",
 		"nav_merc_dock",
 		"nav_dock_horizon_1",
-		"nav_legion_green",
+		"nav_dock_horizon_2",
+		"nav_dock_horizon_3",
 		"nav_dock_horizon_4",
 		"nav_ert_dock"
 	)
