@@ -2,7 +2,7 @@
 */
 /obj/machinery/smartfridge
 	name = "\improper SmartFridge"
-	icon = 'icons/obj/vending.dmi'
+	icon = 'icons/obj/machinery/smartfridge.dmi'
 	icon_state = "smartfridge"
 	layer = 2.9
 	density = 1
@@ -10,11 +10,9 @@
 	idle_power_usage = 5
 	active_power_usage = 100
 	flags = NOREACT
+	opacity = FALSE
 	var/ui_sort_alphabetically = TRUE
 	var/global/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.
-	var/icon_on = "smartfridge"
-	var/icon_off = "smartfridge-off"
-	var/icon_panel = "smartfridge-panel"
 	var/item_quants = list()
 	var/seconds_electrified = 0;
 	var/shoot_inventory = 0
@@ -29,6 +27,11 @@
 	var/heating = 0 //Whether or not to vend products at the heating temperature
 	var/cooling_temperature = T0C + 5 //Best temp for soda.
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
+
+	// what icon overlay to use to show its contents
+	var/contents_path = "-plant"
+	/// If the machine shows an approximate number of its contents on its sprite
+	var/visible_contents = TRUE
 
 	component_types = list(
 		/obj/item/circuitboard/smartfridge,
@@ -91,6 +94,7 @@
 
 	for(var/obj/item/reagent_containers/food/snacks/grown/g in contents)
 		item_quants[g.name]++
+	update_overlays()
 
 /obj/machinery/smartfridge/Initialize()
 	. = ..()
@@ -98,6 +102,7 @@
 		wires = new/datum/wires/smartfridge/secure(src)
 	else
 		wires = new(src)
+	update_icon()
 
 /obj/machinery/smartfridge/Destroy()
 	qdel(wires)
@@ -112,10 +117,7 @@
 /obj/machinery/smartfridge/foodheater
 	name = "\improper SmartHeater"
 	desc = "To keep the food warm!"
-	icon_state = "smartfridge_food"
-	icon_on = "smartfridge_food"
-	icon_off = "smartfridge_food-off"
-	opacity = FALSE
+	contents_path = "-food"
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 
 /obj/machinery/smartfridge/foodheater/abandoned
@@ -128,13 +130,14 @@
 	desc = "When you need seeds fast!"
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "nutrimat"
-	icon_on = "nutrimat"
-	icon_off = "nutrimat-off"
+	opacity = TRUE
+	visible_contents = FALSE
 	accepted_items = list(/obj/item/seeds)
 
 /obj/machinery/smartfridge/secure/extract
 	name = "\improper Slime Extract Storage"
 	desc = "A refrigerated storage unit for slime extracts"
+	contents_path = "-slime"
 	req_access = list(access_research)
 	accepted_items = list(/obj/item/slime_extract)
 
@@ -145,8 +148,7 @@
 /obj/machinery/smartfridge/secure/medbay
 	name = "\improper Refrigerated Chemical Storage"
 	desc = "A refrigerated storage unit for storing medicine and chemicals."
-	icon_state = "smartfridge" //To fix the icon in the map editor.
-	icon_on = "smartfridge_chem"
+	contents_path = "-chem"
 	req_one_access = list(access_medical,access_pharmacy)
 	accepted_items = list(/obj/item/reagent_containers/glass,
 						/obj/item/storage/pill_bottle,
@@ -159,15 +161,14 @@
 /obj/machinery/smartfridge/secure/virology
 	name = "\improper Refrigerated Virus Storage"
 	desc = "A refrigerated storage unit for storing viral material."
+	contents_path = "-viro"
 	req_access = list(access_virology)
-	icon_state = "smartfridge_virology"
-	icon_on = "smartfridge_virology"
-	icon_off = "smartfridge_virology-off"
 	accepted_items = list(/obj/item/reagent_containers/glass/beaker/vial)
 
 /obj/machinery/smartfridge/chemistry
 	name = "\improper Smart Chemical Storage"
 	desc = "A refrigerated storage unit for medicine and chemical storage."
+	contents_path = "-chem"
 	accepted_items = list(/obj/item/reagent_containers/glass,
 						/obj/item/storage/pill_bottle,
 						/obj/item/reagent_containers/pill,
@@ -179,10 +180,12 @@
 /obj/machinery/smartfridge/chemistry/virology
 	name = "\improper Smart Virus Storage"
 	desc = "A refrigerated storage unit for volatile sample storage."
+	contents_path = "-viro"
 
 /obj/machinery/smartfridge/drinks
 	name = "\improper Drink Showcase"
 	desc = "A refrigerated storage unit for tasty tasty alcohol."
+	contents_path = "-drink"
 	cooling = TRUE
 	accepted_items = list(/obj/item/reagent_containers/glass,
 						/obj/item/reagent_containers/food/drinks,
@@ -191,7 +194,10 @@
 /obj/machinery/smartfridge/drying_rack
 	name = "\improper Drying Rack"
 	desc = "A machine for drying plants."
+	icon_state = "drying_rack"
+	opacity = TRUE
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
+	visible_contents = FALSE
 
 /obj/machinery/smartfridge/drying_rack/accept_check(var/obj/item/O)
 	if(!..())
@@ -213,6 +219,14 @@
 			item_quants[S.name]++
 			item_quants[old_name]--
 	return
+
+/obj/machinery/smartfridge/drying_rack/update_overlays()
+	cut_overlays()
+	if(length(contents))
+		add_overlay("drying_rack_drying")
+	var/list/shown_contents = contents - component_parts
+	if(shown_contents.len)
+		add_overlay("drying_rack_filled")
 
 /obj/machinery/smartfridge/process()
 	if(stat & (BROKEN|NOPOWER))
@@ -249,9 +263,27 @@
 
 /obj/machinery/smartfridge/update_icon()
 	if(stat & (BROKEN|NOPOWER))
-		icon_state = icon_off
+		icon_state = "[initial(icon_state)]-off"
 	else
-		icon_state = icon_on
+		icon_state = "[initial(icon_state)]"
+	update_overlays()
+
+/obj/machinery/smartfridge/proc/update_overlays()
+	cut_overlays()
+	if(panel_open)
+		add_overlay("[initial(icon_state)]-panel")
+	var/list/shown_contents = contents - component_parts
+	if(visible_contents && shown_contents.len > 0)
+		var/contents_icon_state
+		switch(shown_contents.len)
+			if(1 to 25)
+				contents_icon_state = "-1"
+			if(26 to 50)
+				contents_icon_state = "-2"
+			if(50 to INFINITY)
+				contents_icon_state = "-3"
+		add_overlay("[initial(icon_state)][contents_path][contents_icon_state]")
+	add_overlay("[initial(icon_state)]-glass[(stat & BROKEN) ? "-broken" : ""]")
 
 /*******************
 *   Item Adding
@@ -261,9 +293,7 @@
 	if(O.isscrewdriver())
 		panel_open = !panel_open
 		user.visible_message("\The [user] [panel_open ? "opens" : "closes"] the maintenance panel of \the [src].", "You [panel_open ? "open" : "close"] the maintenance panel of \the [src].")
-		cut_overlays()
-		if(panel_open)
-			add_overlay(icon_panel)
+		update_icon()
 		return
 
 	if(O.iswrench())
@@ -320,6 +350,7 @@
 		O.forceMove(src)
 		item_quants[O.name]++
 		user.visible_message("<b>[user]</b> adds \a [O] to [src].", SPAN_NOTICE("You add [O] to [src]."))
+		update_overlays()
 		return
 
 	if(istype(O, /obj/item/storage))
@@ -336,6 +367,7 @@
 			user.visible_message("<b>[user]</b> loads [src] with [P].", SPAN_NOTICE("You load [src] with [P]."))
 			if(length(P.contents) > 0)
 				to_chat(user, SPAN_NOTICE("Some items are refused."))
+			update_overlays()
 		return TRUE
 	to_chat(user, SPAN_NOTICE("[src] smartly refuses [O]."))
 	return TRUE
@@ -416,6 +448,7 @@
 						else
 							O.forceMove(loc)
 						i--
+						update_overlays()
 						if(i <= 0)
 							break
 		if("switch_sort_alphabetically")
