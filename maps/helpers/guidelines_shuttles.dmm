@@ -114,6 +114,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"bk" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/template_noop)
 "bn" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 2
@@ -1340,6 +1345,10 @@
 	icon_state = "7,23"
 	},
 /area/template_noop)
+"ty" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/template_noop)
 "tE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1571,6 +1580,12 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"vG" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/template_noop,
 /area/template_noop)
 "vL" = (
 /obj/structure/shuttle_part/scc/research{
@@ -3060,6 +3075,11 @@
 /obj/machinery/atmospherics/unary/engine/scc_shuttle,
 /turf/template_noop,
 /area/template_noop)
+"Rh" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "Rl" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "16,16"
@@ -3136,6 +3156,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Si" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/template_noop,
 /area/template_noop)
 "Sl" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -4079,24 +4106,24 @@ nd
 DW
 IL
 IL
+Si
 IL
 IL
+Si
 IL
 IL
-IL
-IL
-IL
+Si
 IL
 CY
 IL
 IL
+Si
 IL
 IL
+Si
 IL
 IL
-IL
-IL
-IL
+Si
 IL
 IL
 DW
@@ -5924,7 +5951,7 @@ kZ
 Lt
 IL
 DW
-IL
+bk
 DW
 Lt
 Lt
@@ -6380,7 +6407,7 @@ kZ
 Lt
 IL
 DW
-IL
+bk
 DW
 Lt
 kZ
@@ -6836,7 +6863,7 @@ kZ
 Lt
 IL
 DW
-IL
+bk
 DW
 Lt
 kZ
@@ -7596,7 +7623,7 @@ Lt
 Lt
 IL
 DW
-IL
+bk
 DW
 Lt
 kZ
@@ -8052,7 +8079,7 @@ DW
 DW
 IL
 DW
-IL
+bk
 DW
 Lt
 yc
@@ -8465,12 +8492,12 @@ DW
 DW
 DW
 DW
-DW
+vG
 IL
 IL
 zG
 IL
-IL
+Si
 DW
 DW
 DW
@@ -8508,7 +8535,7 @@ DW
 DW
 IL
 DW
-IL
+bk
 DW
 Lt
 Lt
@@ -8616,6 +8643,7 @@ DW
 DW
 DW
 DW
+ty
 DW
 DW
 DW
@@ -8623,8 +8651,7 @@ DW
 DW
 DW
 DW
-DW
-DW
+ty
 DW
 DW
 DW
@@ -9376,7 +9403,7 @@ Lt
 DW
 DW
 DW
-IL
+bk
 DW
 DW
 DW
@@ -9384,7 +9411,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 DW
 DW
@@ -9451,7 +9478,7 @@ Lt
 Lt
 DW
 DW
-IL
+bk
 DW
 nd
 DW
@@ -9468,7 +9495,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -9681,12 +9708,12 @@ DW
 DW
 DW
 DW
-DW
+vG
 IL
 UG
 IL
 IL
-IL
+Si
 DW
 DW
 DW
@@ -9907,7 +9934,7 @@ yc
 Lt
 DW
 DW
-IL
+bk
 DW
 nd
 DW
@@ -9924,7 +9951,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 oq
 tX
 hA
@@ -10363,7 +10390,7 @@ kZ
 Lt
 DW
 DW
-IL
+bk
 DW
 nd
 DW
@@ -10380,7 +10407,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 vL
 iq
 GA
@@ -11123,7 +11150,7 @@ kZ
 kZ
 Lt
 DW
-IL
+bk
 DW
 nd
 DW
@@ -11140,7 +11167,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 TW
 YZ
 Nn
@@ -11579,7 +11606,7 @@ kZ
 kZ
 Lt
 DW
-IL
+bk
 DW
 nd
 DW
@@ -11596,7 +11623,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 Eg
 DC
 jd
@@ -12035,7 +12062,7 @@ Lt
 Lt
 Lt
 DW
-IL
+bk
 DW
 nd
 DW
@@ -12052,7 +12079,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -13807,24 +13834,24 @@ nd
 DW
 IL
 IL
+Si
 IL
 IL
+Si
 IL
 IL
-IL
-IL
-IL
+Si
 IL
 IL
 gm
 IL
+Si
 IL
 IL
+Si
 IL
 IL
-IL
-IL
-IL
+Si
 IL
 IL
 DW
@@ -14484,7 +14511,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -14940,7 +14967,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -15396,7 +15423,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -15657,7 +15684,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 DW
 DW
@@ -15772,7 +15799,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -16113,7 +16140,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 DW
 DW
@@ -16156,7 +16183,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -16228,7 +16255,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 bn
 Lt
@@ -16569,7 +16596,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 Lt
 kZ
@@ -16612,7 +16639,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -16684,7 +16711,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 Lt
 Lt
@@ -17068,7 +17095,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -17329,7 +17356,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 Lt
 kZ
@@ -17444,7 +17471,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 Lt
 Lt
@@ -17785,7 +17812,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 DW
 DW
@@ -17900,7 +17927,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 bn
 Lt
@@ -18011,7 +18038,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 nd
 DW
@@ -18241,7 +18268,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 DW
 DW
@@ -18356,7 +18383,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -18467,7 +18494,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 nd
 DW
@@ -18923,7 +18950,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 nd
 DW
@@ -19153,7 +19180,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 DW
 DW
@@ -19268,7 +19295,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 Lt
 kZ
@@ -19609,7 +19636,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 DW
 DW
@@ -19683,7 +19710,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 nd
 DW
@@ -19724,7 +19751,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 Lt
 kZ
@@ -20065,7 +20092,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 Lt
 kZ
@@ -20139,7 +20166,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 nd
 DW
@@ -20180,7 +20207,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 Lt
 kZ
 kZ
@@ -20595,7 +20622,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 nd
 DW
@@ -20825,7 +20852,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 Lt
 kZ
@@ -20940,7 +20967,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 Lt
 kZ
 kZ
@@ -21197,24 +21224,24 @@ IL
 DW
 IL
 IL
+Si
 IL
 IL
+Si
 IL
 IL
-IL
-IL
-IL
+Si
 IL
 CY
 IL
 IL
+Si
 IL
 IL
+Si
 IL
 IL
-IL
-IL
-IL
+Si
 IL
 IL
 DW
@@ -21281,7 +21308,7 @@ DW
 DW
 Lt
 kZ
-Pb
+Rh
 kZ
 kZ
 kZ
@@ -21396,7 +21423,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 Lt
 kZ
@@ -21737,7 +21764,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 DW
 DW
@@ -21852,7 +21879,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 Lt
 Lt
@@ -22649,7 +22676,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 DW
 DW
@@ -22764,7 +22791,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -23105,7 +23132,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 DW
 DW
@@ -23220,7 +23247,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -23561,7 +23588,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 Lt
 kZ
@@ -23676,7 +23703,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 Lt
@@ -24321,7 +24348,7 @@ Lt
 wS
 DW
 DW
-IL
+bk
 DW
 Lt
 kZ
@@ -24436,7 +24463,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 Lt
@@ -24777,7 +24804,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 DW
 DW
@@ -24892,7 +24919,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -25233,7 +25260,7 @@ DW
 DW
 DW
 DW
-IL
+bk
 DW
 DW
 DW
@@ -25348,7 +25375,7 @@ DW
 DW
 nd
 DW
-IL
+bk
 DW
 DW
 DW
@@ -25886,24 +25913,24 @@ nd
 DW
 IL
 IL
+Si
 IL
 IL
+Si
 IL
 IL
-IL
-IL
-IL
+Si
 IL
 IL
 gm
 IL
+Si
 IL
 IL
+Si
 IL
 IL
-IL
-IL
-IL
+Si
 IL
 IL
 DW

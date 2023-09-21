@@ -22,3 +22,10 @@
 	name = "BAD"
 	icon = 'icons/effects/map_effects_96x96.dmi'
 	icon_state = "mark_bad"
+
+/obj/effect/map_effect/map_helper/ruler_tiles_3
+	name = "ruler, three tiles long"
+	icon = 'icons/effects/map_effects_96x96.dmi'
+	icon_state = "ruler_tiles_3"
+	pixel_x = -32
+	pixel_y = -32
