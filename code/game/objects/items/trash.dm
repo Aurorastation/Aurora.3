@@ -87,7 +87,7 @@
 
 /obj/item/trash/candle
 	name = "candle"
-	icon = 'icons/obj/candle.dmi'
+	icon = 'icons/obj/storage/fancy/candle.dmi'
 	icon_state = "candle4"
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
@@ -182,7 +182,7 @@
 
 /obj/item/trash/stew
 	name = "empty pot"
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "stew_empty"
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	pickup_sound = 'sound/items/pickup/shovel.ogg'

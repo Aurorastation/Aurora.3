@@ -186,6 +186,7 @@
 /obj/item/reagent_containers/food/snacks/icecream
 	name = "ice cream cone"
 	desc = "Delicious waffle cone, but no ice cream."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
 	icon_state = "icecream_cone_waffle" //default for admin-spawned cones, href_list["cone"] should overwrite this all the time
 	layer = 3.1
 	bitesize = 3
