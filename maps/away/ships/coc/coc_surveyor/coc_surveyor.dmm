@@ -242,7 +242,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "port thrusters"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/coc_survey_ship/port_propulsion)
 "cY" = (
 /obj/structure/table/steel,
@@ -981,7 +981,7 @@
 "kw" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/coc_survey_ship/starboard_propulsion)
 "ky" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -1375,7 +1375,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "starboard thrusters"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/coc_survey_ship/starboard_propulsion)
 "ne" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
@@ -4950,7 +4950,7 @@
 "QL" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/coc_survey_ship/port_propulsion)
 "QP" = (
 /obj/machinery/light,
