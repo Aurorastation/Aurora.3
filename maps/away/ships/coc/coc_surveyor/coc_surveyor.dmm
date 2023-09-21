@@ -41,9 +41,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor,
 /area/coc_survey_ship/starboard_propulsion)
@@ -75,14 +72,16 @@
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/cryo)
 "bb" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/door/airlock/external{
+	frequency = 1389;
+	icon_state = "door_locked";
+	id_tag = "surveyor_shuttle_out";
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "bd" = (
 /obj/effect/landmark/entry_point/aft{
@@ -255,7 +254,9 @@
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "dc" = (
-/obj/effect/shuttle_landmark/coc_survey_shuttle/hangar,
+/obj/effect/shuttle_landmark/coc_survey_shuttle/hangar{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/coc_survey_ship/hangar)
 "df" = (
@@ -589,6 +590,12 @@
 "gm" = (
 /turf/simulated/wall,
 /area/coc_survey_ship/grauwolf)
+"gr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/shuttle/coc_survey_shuttle)
 "gu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -768,9 +775,6 @@
 	name = "starboard thrusters"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
@@ -1133,6 +1137,12 @@
 "lr" = (
 /turf/simulated/floor,
 /area/coc_survey_ship/atmos)
+"lx" = (
+/obj/effect/landmark/entry_point/port{
+	name = "engines"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/shuttle/coc_survey_shuttle)
 "lB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -3291,13 +3301,16 @@
 	},
 /area/coc_survey_ship/cargo)
 "CW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2;
+	id_tag = "surveyor_out_external";
+	frequency = 1413
 	},
-/obj/effect/landmark/entry_point/port{
-	name = "engines"
+/obj/structure/lattice/catwalk,
+/obj/structure/bed/handrail{
+	dir = 1
 	},
-/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/turf/simulated/floor/plating,
 /area/shuttle/coc_survey_shuttle)
 "CZ" = (
 /obj/effect/shuttle_landmark/coc_survey_ship/nav4,
@@ -3567,31 +3580,10 @@
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "Ff" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 10
 	},
-/obj/structure/bed/handrail,
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	id_tag = "surveyor_out_external";
-	frequency = 1413
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1389;
-	master_tag = "surveyor_shuttle";
-	name = "exterior access button";
-	pixel_x = -24;
-	pixel_y = -5;
-	dir = 4
-	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1389;
-	id_tag = "surveyor_shuttle_exterior_sensor";
-	pixel_y = 30
-	},
-/turf/simulated/floor,
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/coc_survey_shuttle)
 "Fr" = (
 /obj/machinery/mineral/processing_unit_console{
@@ -3806,6 +3798,12 @@
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
+"GS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
+/area/shuttle/coc_survey_shuttle)
 "GT" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
@@ -4367,9 +4365,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
@@ -4503,16 +4498,10 @@
 	},
 /area/coc_survey_ship/cargo)
 "MD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1389;
-	icon_state = "door_locked";
-	id_tag = "surveyor_shuttle_out";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/coc_survey_shuttle)
 "MF" = (
 /obj/machinery/door/airlock/hatch{
@@ -4808,9 +4797,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 1
 	},
@@ -4848,9 +4834,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor,
 /area/coc_survey_ship/starboard_propulsion)
 "Qb" = (
@@ -4910,14 +4893,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "Qv" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/door/airlock/external{
+	frequency = 1389;
+	icon_state = "door_locked";
+	id_tag = "surveyor_shuttle_out";
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 4
 	},
-/turf/simulated/floor,
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1389;
+	master_tag = "surveyor_shuttle";
+	name = "exterior access button";
+	pixel_x = 8;
+	pixel_y = 27;
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "Qx" = (
 /obj/machinery/conveyor{
@@ -4974,7 +4968,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/mess_hall)
 "QV" = (
-/obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/coc_survey_shuttle)
 "QY" = (
@@ -5087,10 +5083,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc/low/east,
 /turf/simulated/floor,
 /area/coc_survey_ship/starboard_propulsion)
 "Sn" = (
@@ -5547,16 +5539,18 @@
 /turf/template_noop,
 /area/coc_survey_ship/grauwolf)
 "Wb" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/lattice/catwalk,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
 	frequency = 1389;
-	icon_state = "door_locked";
-	id_tag = "surveyor_shuttle_out";
+	id_tag = "surveyor_shuttle_exterior_sensor";
+	pixel_y = -25;
+	pixel_x = 41;
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/shuttle/coc_survey_shuttle)
 "Wd" = (
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
@@ -5675,9 +5669,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor,
 /area/coc_survey_ship/starboard_propulsion)
@@ -11479,7 +11470,7 @@ dT
 ul
 MR
 Xj
-KD
+xB
 xB
 Qt
 ul
@@ -11579,9 +11570,9 @@ ZM
 Ss
 dT
 ul
-WR
-BS
-ul
+xB
+Xj
+KD
 Kq
 hF
 ul
@@ -11681,8 +11672,8 @@ ZM
 Ny
 ul
 ul
-HH
-Lk
+WR
+BS
 ul
 Aw
 Kc
@@ -11781,10 +11772,10 @@ ZM
 dT
 ZM
 Ss
-ul
-ul
-wM
-wM
+CW
+gr
+HH
+Lk
 ul
 Uz
 cx
@@ -11883,13 +11874,13 @@ ZM
 dT
 ZM
 Ss
-ul
-ul
-MD
 Wb
-CW
-QV
+GS
+wM
+wM
 ul
+QV
+MD
 ul
 ul
 Cn
@@ -11989,9 +11980,9 @@ ul
 Ff
 Qv
 bb
+lx
 Sk
 Sk
-dT
 dT
 ul
 Cn
