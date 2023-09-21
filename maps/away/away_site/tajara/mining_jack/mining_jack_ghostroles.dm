@@ -29,9 +29,9 @@
 
 	shoes = list(
 				/obj/item/clothing/shoes/tajara/footwraps,
-				/obj/item/clothing/shoes/tajara/jackboots,
-				/obj/item/clothing/shoes/tajara/workboots,
-				/obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+				/obj/item/clothing/shoes/jackboots/tajara,
+				/obj/item/clothing/shoes/workboots/tajara,
+				/obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	)
 
 	back = list(

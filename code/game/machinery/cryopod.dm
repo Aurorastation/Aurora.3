@@ -250,7 +250,7 @@ var/global/list/frozen_crew = list()
 
 /obj/machinery/cryopod/living_quarters
 	name = "living quarters lift"
-	desc = "A lift heading to the ship's living quarters."
+	desc = "A lift heading to the living quarters."
 	icon = 'icons/obj/crew_quarters_lift.dmi'
 	icon_state = "pod"
 	on_store_message = "has departed for"

@@ -161,7 +161,7 @@
 	jobtype = /datum/job/investigator
 
 	uniform = /obj/item/clothing/under/det
-	shoes = /obj/item/clothing/shoes/laceup/all_species
+	shoes = /obj/item/clothing/shoes/laceup
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
@@ -315,8 +315,9 @@
 	name = "Investigator Intern"
 	jobtype = /datum/job/intern_sec
 
-	shoes = /obj/item/clothing/shoes/laceup/all_species
+	shoes = /obj/item/clothing/shoes/laceup
 
 /datum/outfit/job/intern_sec/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	H.equip_or_collect(new /obj/item/clothing/gloves/black/forensic(H), slot_gloves)
+

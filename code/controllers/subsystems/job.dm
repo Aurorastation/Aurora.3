@@ -415,7 +415,7 @@
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 
-	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(show_location_blurb), H.client, 30)
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(show_location_blurb), H.client, 10 SECONDS)
 
 	if(spawning_at == "Arrivals Shuttle")
 		to_chat(H, "<b>[current_map.command_spawn_message]</b>")
@@ -852,6 +852,7 @@
 	text = uppertext(text)
 
 	var/obj/effect/overlay/T = new()
+	T.icon_state = "nothing"
 	T.maptext_height = 64
 	T.maptext_width = 512
 	T.layer = SCREEN_LAYER+1
