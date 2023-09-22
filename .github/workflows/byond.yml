@@ -103,6 +103,17 @@ jobs:
       - name: Check Indentation
         run: |
           awk -f tools/indentation.awk **/*.dm
+      # We use megalinter for this because it's fairly well updated and used
+      # https://megalinter.io/latest/
+      - name: Check EditorConfig Compliance
+        id: ml
+        uses: oxsecurity/megalinter@v7
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENABLE:
+            EDITORCONFIG
+            PYTHON
       - name: Run OpenDream
         run: |
           tools/ci/run_od.sh
