@@ -5,6 +5,7 @@
 	icon_state = "asphalt0"
 
 /turf/simulated/floor/asphalt/Initialize(mapload)
+	. = ..()
 	icon_state = "asphalt[rand(0,3)]"
 
 /turf/simulated/floor/sidewalk
@@ -25,6 +26,7 @@
 	icon_state = "flat"
 
 /turf/simulated/floor/sidewalk/flat/Initialize(mapload)
+	. = ..()
 	icon_state = "flat[rand(1,3)]"
 
 /turf/simulated/floor/sidewalk/blocks
@@ -32,6 +34,7 @@
 	icon_state = "blocks"
 
 /turf/simulated/floor/sidewalk/blocks/Initialize(mapload)
+	. = ..()
 	icon_state = "blocks[rand(1,3)]"
 
 /turf/simulated/floor/roofing_tiles
@@ -41,6 +44,7 @@
 	icon_state = "rooftop"
 
 /turf/simulated/floor/roofing_tiles/Initialize(mapload)
+	. = ..()
 	icon_state = "rooftop[rand(1,3)]"
 
 /obj/structure/ledge
