@@ -377,7 +377,7 @@
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
-	cost = 0
+	cost = 1
 
 /datum/gear/tajaran_passports/New()
 	..()
