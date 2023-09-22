@@ -25,6 +25,39 @@ env:
   PYTHON_VERSION: ""
 
 jobs:
+  code-compliance:
+    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
+    runs-on: ubuntu-22.04
+    name: Code Compliance
+    concurrency:
+      group: code-compliance-${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    steps:
+      # Clone Repo
+      - uses: actions/checkout@v3
+
+      # We use megalinter for this because it's fairly well updated and used
+      # https://megalinter.io/latest/
+      - name: Check EditorConfig Compliance
+        id: ml
+        uses: oxsecurity/megalinter/flavors/python@v7.3.0
+        # Env config options outlined in https://megalinter.io/configuration/
+        env:
+          PRINT_ALPACA: false
+          VALIDATE_ALL_CODEBASE: false
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENABLE: EDITORCONFIG
+          EXCLUDED_DIRECTORIES: tools/bootstrap/.cache/
+          FILTER_REGEX_INCLUDE: (.*\.dm$|.*\.dme$|.*\.yml$)
+          APPLY_FIXES: EDITORCONFIG
+          APPLY_FIXES_EVENT: all
+          APPLY_FIXES_MODE: commit
+
   lint:
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
     runs-on: ubuntu-22.04
@@ -32,10 +65,6 @@ jobs:
     concurrency:
       group: run_linters-${{ github.head_ref || github.run_id }}
       cancel-in-progress: true
-    permissions:
-      contents: write
-      pull-requests: write
-      issues: write
     steps:
       # Clone Repo
       - uses: actions/checkout@v3
@@ -107,22 +136,6 @@ jobs:
       - name: Check Indentation
         run: |
           awk -f tools/indentation.awk **/*.dm
-      # We use megalinter for this because it's fairly well updated and used
-      # https://megalinter.io/latest/
-      - name: Check EditorConfig Compliance
-        id: ml
-        uses: oxsecurity/megalinter/flavors/python@v7.3.0
-        # Env config options outlined in https://megalinter.io/configuration/
-        env:
-          PRINT_ALPACA: false
-          VALIDATE_ALL_CODEBASE: false
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ENABLE: EDITORCONFIG
-          EXCLUDED_DIRECTORIES: tools/bootstrap/.cache/
-          FILTER_REGEX_INCLUDE: (.*\.dm$|.*\.dme$|.*\.yml$)
-          APPLY_FIXES: EDITORCONFIG
-          APPLY_FIXES_EVENT: all
-          APPLY_FIXES_MODE: commit
       - name: Run OpenDream
         run: |
           tools/ci/run_od.sh
