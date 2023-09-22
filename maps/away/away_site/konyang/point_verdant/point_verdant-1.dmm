@@ -388,9 +388,6 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
-"eV" = (
-/turf/simulated/open,
-/area/point_verdant/interior)
 "eX" = (
 /obj/structure/flora/rock/konyang,
 /obj/structure/flora/bush/konyang_reeds,
@@ -14756,8 +14753,8 @@ rf
 rf
 DV
 KA
-eV
-eV
+KA
+KA
 DV
 rf
 rf
@@ -15015,7 +15012,7 @@ DV
 KA
 KA
 KA
-KA
+DV
 rf
 rf
 rf
@@ -15272,7 +15269,7 @@ DV
 KA
 KA
 KA
-KA
+DV
 rf
 rf
 rf
@@ -15527,8 +15524,8 @@ rf
 rf
 DV
 KA
-eV
-eV
+KA
+KA
 DV
 rf
 rf
