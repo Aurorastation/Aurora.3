@@ -4,10 +4,10 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "af" = (
-/obj/structure/chainlink_fence{
+/obj/random/dirt_75,
+/obj/structure/railing/fence{
 	dir = 8
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks,
 /area/space)
 "ak" = (
@@ -47,6 +47,11 @@
 	dir = 1
 	},
 /obj/structure/closet/crate/bin,
+/obj/item/trash/gum,
+/obj/item/trash/kokobar,
+/obj/item/trash/mollusc_shell/clam,
+/obj/item/trash/ramen,
+/obj/item/trash/ramen,
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "be" = (
@@ -57,6 +62,13 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"bn" = (
+/obj/structure/closet/crate/bin,
+/obj/item/trash/chips,
+/obj/item/trash/gum,
+/obj/item/trash/ramen,
+/turf/simulated/floor/lino/diamond,
 /area/space)
 "bs" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
@@ -238,6 +250,15 @@
 "fF" = (
 /turf/simulated/floor/sidewalk,
 /area/space)
+"fI" = (
+/obj/random/dirt_75,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"fK" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
 "fN" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
@@ -370,11 +391,14 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "je" = (
-/obj/structure/chainlink_fence{
-	layer = 9.1;
-	dir = 1
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"jE" = (
+/obj/structure/railing/fence{
+	dir = 8
 	},
-/turf/simulated/floor/exoplanet/dirt_konyang,
+/turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "kB" = (
 /obj/machinery/shower{
@@ -511,6 +535,10 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/trash/cigbutt/roll{
+	pixel_y = -11;
+	pixel_x = -4
+	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/space)
 "nx" = (
@@ -572,6 +600,11 @@
 	pixel_y = 14
 	},
 /turf/simulated/floor/lino/diamond,
+/area/space)
+"oe" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "of" = (
 /obj/effect/floor_decal/spline/plain{
@@ -723,6 +756,10 @@
 /obj/item/seeds/riceseed,
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
+"sq" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
 "sA" = (
 /obj/structure/closet/crate/bin,
 /obj/random/dirt_75,
@@ -794,6 +831,7 @@
 	pixel_x = 11;
 	pixel_y = 0
 	},
+/obj/item/trash/ricetub,
 /turf/simulated/floor/sidewalk,
 /area/space)
 "uR" = (
@@ -815,7 +853,12 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/sidewalk,
+/area/space)
+"vZ" = (
+/obj/structure/flora/ausbushes/palebush,
+/turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "wc" = (
 /obj/structure/railing/fence{
@@ -852,9 +895,7 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/space)
 "wB" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "xg" = (
@@ -950,13 +991,6 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "zx" = (
-/obj/structure/chainlink_fence{
-	layer = 9.1;
-	dir = 1
-	},
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
 /obj/random/junk{
 	pixel_x = 1
 	},
@@ -993,9 +1027,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "AX" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
+/obj/item/trash/ramen,
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "Bb" = (
@@ -1091,7 +1123,7 @@
 /area/space)
 "Eb" = (
 /obj/structure/flora/rock/konyang/small,
-/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "Ef" = (
@@ -1153,7 +1185,12 @@
 /area/space)
 "Gx" = (
 /obj/structure/flora/pottedplant/drooping,
+/obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/lino/diamond,
+/area/space)
+"Hg" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
 /area/space)
 "Hw" = (
 /obj/structure/window/urban{
@@ -1233,6 +1270,10 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/space)
+"KN" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
 "KO" = (
 /obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/tiled/full,
@@ -1279,6 +1320,7 @@
 /area/space)
 "LN" = (
 /obj/structure/closet/crate/bin,
+/obj/item/trash/proteinbar,
 /turf/simulated/floor/lino/diamond,
 /area/space)
 "LV" = (
@@ -1387,6 +1429,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/flat,
 /area/space)
+"PQ" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
 "Ql" = (
 /obj/effect/decal/exterior_stairs/half/center{
 	layer = 3
@@ -1427,6 +1476,13 @@
 	pixel_y = 18
 	},
 /turf/simulated/floor/wood/bamboo,
+/area/space)
+"RA" = (
+/obj/random/dirt_75,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk,
 /area/space)
 "RW" = (
 /obj/structure/flora/rock/konyang/small,
@@ -1510,6 +1566,10 @@
 "SD" = (
 /turf/simulated/floor/exoplanet/konyang,
 /area/space)
+"SY" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/lino/diamond,
+/area/space)
 "Tf" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -1528,6 +1588,7 @@
 	pixel_x = -3;
 	pixel_y = 2
 	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/wood,
 /area/space)
 "Tl" = (
@@ -1553,6 +1614,14 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
+"TG" = (
+/obj/structure/closet/crate/bin,
+/obj/item/trash/cigbutt/roll,
+/obj/item/trash/tastybread,
+/obj/item/trash/ramen,
+/obj/item/trash/ramen,
+/turf/simulated/floor/wood,
+/area/space)
 "TH" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/structure/flora/bush/konyang_reeds,
@@ -1560,6 +1629,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"TL" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
 "TW" = (
 /obj/structure/bed/padded,
@@ -1666,6 +1742,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/concrete,
 /area/space)
+"ZJ" = (
+/obj/structure/flora/rock/konyang,
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
 
 (1,1,1) = {"
 SD
@@ -1683,7 +1764,7 @@ BU
 SD
 SD
 SD
-SD
+vZ
 SD
 SD
 SD
@@ -1701,7 +1782,7 @@ SD
 SD
 SD
 SD
-SD
+je
 SD
 SD
 BU
@@ -1937,7 +2018,7 @@ SD
 ys
 ys
 ys
-SD
+KN
 SD
 SD
 YI
@@ -1999,7 +2080,7 @@ oM
 SD
 NF
 SD
-PB
+sq
 SD
 SD
 "}
@@ -2101,7 +2182,7 @@ SD
 SD
 SD
 SD
-SD
+je
 SD
 SD
 SD
@@ -2178,7 +2259,7 @@ SD
 SD
 SD
 SD
-ys
+wB
 ys
 au
 SD
@@ -2248,7 +2329,7 @@ NJ
 Bb
 SD
 oM
-ys
+JS
 SD
 SD
 SD
@@ -2309,7 +2390,7 @@ ys
 ys
 SD
 SD
-SD
+sq
 KO
 nC
 DZ
@@ -2392,7 +2473,7 @@ ll
 ll
 ll
 pn
-ll
+RA
 af
 Bb
 md
@@ -2459,7 +2540,7 @@ Bb
 RW
 SD
 SD
-ys
+wB
 Cg
 ys
 NF
@@ -2476,7 +2557,7 @@ Jh
 Cg
 xY
 BJ
-VC
+fI
 pn
 PB
 NF
@@ -2539,7 +2620,7 @@ SD
 SD
 SD
 IK
-Cg
+fI
 Cg
 ys
 ys
@@ -2642,13 +2723,13 @@ NF
 ys
 oF
 ys
-JS
+oe
 SD
 PB
 SD
 SD
 SD
-SD
+KN
 SD
 pn
 fU
@@ -2710,7 +2791,7 @@ RW
 Cg
 ys
 ys
-ys
+wB
 ys
 Tl
 SD
@@ -2916,7 +2997,7 @@ Bb
 Rh
 VR
 VR
-VR
+TG
 KO
 SD
 vF
@@ -2941,7 +3022,7 @@ Kv
 Sn
 Lg
 Lg
-Lg
+SY
 Bb
 Kt
 VR
@@ -2983,7 +3064,7 @@ SD
 KO
 ey
 Lg
-Lg
+bn
 Bb
 Mw
 VR
@@ -3015,7 +3096,7 @@ SD
 SD
 vF
 SD
-SD
+Hg
 SD
 SD
 DA
@@ -3145,8 +3226,8 @@ SD
 SD
 SD
 SD
-UB
-je
+ZJ
+ys
 NF
 SD
 ys
@@ -3176,7 +3257,7 @@ SD
 SD
 SD
 SD
-SD
+fK
 SD
 "}
 (37,1,1) = {"
@@ -3187,10 +3268,10 @@ SD
 SD
 SD
 SD
-SD
+Ss
 zx
 wB
-AX
+SD
 SD
 Tl
 ys
@@ -3230,9 +3311,9 @@ SD
 SD
 SD
 SD
-SD
-Tl
-NF
+jE
+TL
+PQ
 SD
 SD
 ys
@@ -3303,7 +3384,7 @@ SD
 BU
 SD
 NF
-SD
+AX
 "}
 (40,1,1) = {"
 SD
