@@ -64,9 +64,7 @@
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/interior/arcade)
 "bf" = (
-/obj/structure/window/urban/full,
-/obj/structure/window_frame/urban/full,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/wall,
 /area/point_verdant/interior)
 "bz" = (
 /obj/effect/decal/curb/corner{
@@ -286,6 +284,9 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/laundromat)
+"eV" = (
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "eZ" = (
 /obj/effect/decal/curb{
 	dir = 9
@@ -691,7 +692,7 @@
 /area/point_verdant/interior/restaurant)
 "kX" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "lp" = (
 /turf/simulated/floor/wood,
@@ -770,6 +771,12 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"mO" = (
+/obj/structure/road_barrier/bot_in{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/point_verdant/outdoors)
 "na" = (
 /obj/structure/ledge/quarter/corner{
 	dir = 8
@@ -784,7 +791,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "nk" = (
 /obj/machinery/light/small{
@@ -890,6 +897,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"oY" = (
+/obj/structure/road_barrier/bot_in{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/point_verdant/outdoors)
 "pl" = (
 /turf/simulated/open,
 /area/point_verdant/interior/special_ops)
@@ -986,7 +999,7 @@
 /obj/item/storage/slide_projector{
 	pixel_x = -5
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "rx" = (
 /obj/effect/decal/road_marking,
@@ -1108,8 +1121,17 @@
 /obj/machinery/door/urban{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"tY" = (
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/obj/structure/ledge/roof{
+	dir = 1
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "ub" = (
 /obj/structure/rod_railing,
 /turf/simulated/open,
@@ -1291,7 +1313,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "xk" = (
-/obj/structure/road_barrier/bot_end,
+/obj/structure/road_barrier,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "xr" = (
@@ -1412,6 +1434,12 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/point_verdant/interior)
+"An" = (
+/obj/structure/road_barrier{
+	dir = 8
+	},
+/turf/simulated/open,
+/area/point_verdant/outdoors)
 "AC" = (
 /obj/machinery/door/urban{
 	dir = 4
@@ -1561,6 +1589,19 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"CN" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1
+	},
+/obj/structure/ledge/roof{
+	dir = 1
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "CT" = (
 /obj/structure/ledge,
 /obj/structure/utility_pole/street/on{
@@ -1630,6 +1671,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
+"Em" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/obj/structure/ledge/roof{
+	dir = 1
+	},
+/turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "Eu" = (
 /obj/effect/decal/curb/corner{
@@ -1707,7 +1757,7 @@
 /obj/machinery/door/window/southleft{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "FM" = (
 /turf/simulated/open,
@@ -1729,7 +1779,7 @@
 "FV" = (
 /obj/structure/window/urban/full,
 /obj/structure/window_frame/urban/full,
-/turf/simulated/floor/lino/diamond,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "Ge" = (
 /obj/structure/undies_wardrobe,
@@ -1847,7 +1897,7 @@
 /obj/item/modular_computer/console{
 	dir = 2
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "HM" = (
 /obj/structure/table/wood,
@@ -1954,7 +2004,7 @@
 	pixel_x = -6
 	},
 /obj/item/paper_bin,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "Jt" = (
 /obj/effect/decal/curb{
@@ -1979,7 +2029,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "JE" = (
 /obj/machinery/light/small{
@@ -2010,7 +2060,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "Kq" = (
 /obj/structure/sink/kitchen{
@@ -2442,7 +2492,7 @@
 /area/point_verdant/outdoors)
 "SI" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "SK" = (
 /obj/effect/decal/curb{
@@ -12985,23 +13035,23 @@ lW
 lW
 TE
 hw
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
 IJ
 Xr
 IJ
@@ -13242,23 +13292,23 @@ DD
 DD
 sh
 hw
-Gg
+bf
 Zq
 qY
 qY
-Gg
+bf
 lp
 lp
-Gg
+bf
 lp
 lp
-Gg
+bf
 lp
 lp
-Gg
+bf
 kc
 na
-Gg
+bf
 HB
 VF
 Ht
@@ -13499,7 +13549,7 @@ DD
 DD
 sh
 hw
-Gg
+bf
 Zq
 Zq
 Zq
@@ -13756,7 +13806,7 @@ DD
 DD
 sh
 hw
-Gg
+bf
 Zq
 Zq
 Zq
@@ -14013,11 +14063,11 @@ DD
 DD
 Ue
 hw
-Gg
+bf
 Zq
 qY
 qY
-Gg
+bf
 lp
 lp
 lp
@@ -14270,11 +14320,11 @@ DD
 DD
 Ue
 hw
-Gg
-Gg
-Gg
-Gg
-Gg
+bf
+bf
+bf
+bf
+bf
 lp
 kc
 na
@@ -14286,7 +14336,7 @@ Tm
 rT
 GQ
 sL
-Gg
+bf
 HB
 dB
 SK
@@ -14531,7 +14581,7 @@ hw
 hw
 hw
 hw
-Gg
+bf
 lH
 ZD
 Hx
@@ -14788,7 +14838,7 @@ hw
 hw
 hw
 hw
-Gg
+bf
 lH
 LE
 Hx
@@ -15045,7 +15095,7 @@ hw
 hw
 hw
 hw
-Gg
+bf
 AK
 Wf
 Hx
@@ -15298,11 +15348,11 @@ DD
 DD
 sh
 hw
-Gg
-Gg
-Gg
-Gg
-Gg
+bf
+bf
+bf
+bf
+bf
 lp
 GQ
 sL
@@ -15314,7 +15364,7 @@ Tm
 rT
 kc
 na
-Gg
+bf
 HB
 GV
 IJ
@@ -15555,11 +15605,11 @@ eb
 eb
 Zg
 hw
-Gg
-Zq
-Zq
-Zq
-Gg
+bf
+eV
+eV
+eV
+bf
 lp
 lp
 lp
@@ -15812,10 +15862,10 @@ hw
 hw
 hw
 hw
-bf
-Zq
-Zq
-Zq
+FV
+eV
+eV
+eV
 FA
 nX
 nX
@@ -15874,7 +15924,7 @@ rX
 qY
 qY
 qY
-Zq
+eV
 Gg
 Ml
 Cw
@@ -16069,10 +16119,10 @@ lW
 lW
 TE
 hw
-bf
-Zq
-Zq
-Zq
+FV
+eV
+eV
+eV
 FA
 lx
 lx
@@ -16119,11 +16169,11 @@ Cw
 Cw
 Gg
 nC
-Zq
-Zq
+eV
+eV
 Gg
 Fv
-Zq
+eV
 ru
 Ji
 SI
@@ -16131,7 +16181,7 @@ Be
 vv
 vv
 vv
-Zq
+eV
 Gg
 Ml
 Cw
@@ -16326,23 +16376,23 @@ DD
 DD
 sh
 hw
+FV
+eV
+eV
+eV
 bf
-Zq
-Zq
-Zq
-Gg
 lp
 lp
-Gg
+bf
 lp
 lp
-Gg
+bf
 lp
 lp
-Gg
+bf
 GQ
 sL
-Gg
+bf
 HB
 VF
 Wn
@@ -16380,7 +16430,7 @@ FI
 tV
 Gg
 Fv
-Zq
+eV
 JD
 JD
 JD
@@ -16388,7 +16438,7 @@ Fv
 Fv
 Fv
 Fv
-Zq
+eV
 Gg
 Ml
 Cw
@@ -16583,23 +16633,23 @@ DD
 DD
 sh
 hw
-Gg
-Zq
-Zq
-Zq
-Gg
-Gg
-Gg
-Gg
+bf
+eV
+eV
+eV
+bf
+bf
+bf
+bf
 kX
 kX
-Gg
+bf
 lp
 lp
-Gg
-Gg
-Gg
-Gg
+bf
+bf
+bf
+bf
 wy
 HW
 Jt
@@ -16633,19 +16683,19 @@ Cw
 Cw
 Gg
 QI
-Zq
-Zq
+eV
+eV
 nh
-Zq
-Zq
-Zq
-Zq
-Zq
-Zq
-Zq
-Zq
-Zq
-Zq
+eV
+eV
+eV
+eV
+eV
+eV
+eV
+eV
+eV
+eV
 Gg
 Ml
 Cw
@@ -16840,20 +16890,20 @@ DD
 DD
 Ue
 hw
-Gg
-Zq
-Zq
-Zq
-Zq
-Zq
-Zq
-Gg
+bf
+eV
+eV
+eV
+eV
+eV
+eV
+bf
 HE
 Ke
 kX
 lp
 lp
-Gg
+bf
 hw
 hw
 hw
@@ -16890,14 +16940,14 @@ Cw
 Cw
 Gg
 QI
-Zq
-Zq
-Zq
-Zq
-Zq
-Zq
-Zq
-Zq
+eV
+eV
+eV
+eV
+eV
+eV
+eV
+eV
 Fv
 Fv
 Fv
@@ -17097,20 +17147,20 @@ DD
 DD
 Ue
 hw
+FV
+eV
+eV
+eV
+eV
+eV
+eV
 bf
-Zq
-Zq
-Zq
-Zq
-Zq
-Zq
-Gg
-Zq
-Zq
+eV
+eV
 kX
 lp
 lp
-bf
+FV
 hw
 hw
 hw
@@ -17354,20 +17404,20 @@ DD
 DD
 Ue
 hw
+FV
+eV
+eV
+eV
+eV
+eV
+eV
 bf
-Zq
-Zq
-Zq
-Zq
-Zq
-Zq
-Gg
-Zq
-Zq
-Zq
+eV
+eV
+eV
 lp
 lp
-bf
+FV
 hw
 hw
 mK
@@ -17611,20 +17661,20 @@ DD
 DD
 sh
 hw
+FV
+eV
+eV
+eV
+eV
+eV
+eV
 bf
-Zq
-Zq
-Zq
-Zq
-Zq
-Zq
-Gg
-Zq
-Zq
-Zq
+eV
+eV
+eV
 lp
 lp
-bf
+FV
 hw
 hw
 UV
@@ -17659,11 +17709,11 @@ Cw
 Cw
 Cw
 Cw
-OY
-DD
-DD
-DD
-Ey
+Em
+Uj
+Uj
+Uj
+jF
 Ey
 Ey
 Ey
@@ -17868,20 +17918,20 @@ DD
 DD
 sh
 hw
-Gg
-Zq
-Zq
-Zq
-Zq
-Zq
-Zq
-Gg
-Zq
-Zq
-Zq
-Zq
-Zq
-Gg
+bf
+eV
+eV
+eV
+eV
+eV
+eV
+bf
+eV
+eV
+eV
+eV
+eV
+bf
 hw
 hw
 UV
@@ -17916,11 +17966,11 @@ Cw
 Cw
 Cw
 Cw
-OY
-DD
-DD
-DD
-Ey
+CN
+DB
+DB
+GF
+MN
 Ey
 Ey
 Ey
@@ -18125,20 +18175,20 @@ kv
 kv
 sY
 MX
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
+bf
 hw
 um
 vo
@@ -18173,11 +18223,11 @@ Cw
 Cw
 Cw
 Cw
-OY
+CN
 DD
+Xn
 DD
-DD
-Ey
+MN
 Ey
 Ey
 Ey
@@ -18395,16 +18445,16 @@ Cw
 Cw
 Cw
 Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
-Cw
+oY
+An
+An
+An
+An
+An
+An
+An
+An
+mO
 Cw
 Cw
 Cw
@@ -18430,11 +18480,11 @@ Cw
 Cw
 Cw
 Cw
-OY
+CN
 DD
+Xn
 DD
-DD
-Ey
+MN
 Ey
 Ey
 Ey
@@ -18687,11 +18737,11 @@ Cw
 Cw
 Cw
 Cw
-OY
-DD
-DD
-DD
-Ey
+CN
+Ur
+Ur
+tO
+MN
 Ey
 Ey
 Ey
@@ -18944,11 +18994,11 @@ Cw
 Cw
 Cw
 Cw
-OY
-DD
-DD
-DD
-Ey
+tY
+se
+se
+se
+GX
 Ey
 Ey
 Ey
@@ -21752,11 +21802,11 @@ Cw
 Cw
 Cw
 vj
-OY
-Ey
-Ey
-Ey
-Ey
+Em
+Uj
+Uj
+Uj
+jF
 mB
 Bi
 Hd
@@ -22009,11 +22059,11 @@ Cw
 Cw
 Cw
 vj
-OY
-Ey
-Ey
-Ey
-Ey
+CN
+DB
+DB
+GF
+MN
 mB
 XQ
 OI
@@ -22266,11 +22316,11 @@ Cw
 Cw
 Cw
 vj
-OY
-Ey
-Ey
-Ey
-Ey
+CN
+DD
+Xn
+DD
+MN
 mB
 XQ
 OY
@@ -22523,11 +22573,11 @@ Cw
 Cw
 Cw
 vj
-OY
-Ey
-Ey
-Ey
-Ey
+CN
+Ur
+Ur
+tO
+MN
 mB
 XQ
 OY
@@ -22780,11 +22830,11 @@ Cw
 Cw
 Cw
 vj
-OY
-Ey
-Ey
-Ey
-Ey
+tY
+se
+se
+se
+GX
 mB
 XQ
 OY
@@ -23045,11 +23095,11 @@ Ey
 mB
 XQ
 OY
-Ey
-Ey
-Ey
-Ey
-Ey
+Eu
+Uj
+Uj
+Uj
+jF
 Ey
 Ey
 mB
@@ -23302,11 +23352,11 @@ Ey
 mB
 XQ
 OY
-Ey
-Ey
-Ey
-Ey
-Ey
+gn
+DB
+DB
+GF
+MN
 Ey
 Ey
 mB
@@ -23552,18 +23602,18 @@ Cw
 Cw
 vj
 OY
-Yv
+Ey
 Ey
 Ey
 BN
 aW
 XQ
 OY
-Ey
-Ey
-Ey
-Ey
-Ey
+gn
+DD
+Xn
+DD
+MN
 Ey
 BN
 aW
@@ -23816,11 +23866,11 @@ aW
 jp
 Lp
 OY
-Ey
-Ey
-Ey
-Ey
-Ey
+gn
+Ur
+Ur
+tO
+MN
 Ey
 mB
 jp
@@ -24073,11 +24123,11 @@ tx
 Bj
 eJ
 OY
-Ey
-Ey
-Ey
-Ey
-Ey
+GN
+se
+se
+se
+GX
 Ey
 mB
 Ml
@@ -25101,7 +25151,7 @@ Ey
 Ey
 Ey
 Ey
-Yv
+Ey
 Ey
 Ey
 Ey
@@ -25358,7 +25408,7 @@ Ey
 Ey
 Ey
 Ey
-Yv
+Ey
 Ey
 Ey
 Ey
@@ -28697,8 +28747,8 @@ vj
 OY
 Ey
 gn
-Xn
 DD
+Xn
 DD
 MN
 BN

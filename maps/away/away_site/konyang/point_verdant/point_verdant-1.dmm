@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ai" = (
 /obj/machinery/door/urban,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "am" = (
 /obj/effect/decal/road_marking{
@@ -430,7 +430,7 @@
 	layer = 9.1;
 	dir = 8
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "fx" = (
 /obj/structure/flora/rock/konyang/small,
@@ -456,6 +456,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
+"fR" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "fS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -850,7 +854,7 @@
 	name = "imposing rod railing";
 	layer = 9.1
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "kk" = (
 /obj/structure/rod_railing{
@@ -1201,7 +1205,7 @@
 /obj/machinery/door/airlock/glass{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "oz" = (
 /obj/effect/decal/road_marking,
@@ -1525,7 +1529,7 @@
 /area/point_verdant/interior/tunnels)
 "rE" = (
 /obj/structure/stairs/north,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "rM" = (
 /obj/machinery/light/small/emergency{
@@ -1598,7 +1602,7 @@
 /area/point_verdant/interior/tunnels)
 "sq" = (
 /obj/machinery/door/airlock/multi_tile/glass,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "ss" = (
 /obj/effect/decal/curb/corner{
@@ -1647,7 +1651,7 @@
 /area/point_verdant/interior/bar)
 "ti" = (
 /obj/machinery/door/blast/shutters,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "tl" = (
 /obj/structure/shipping_container{
@@ -2284,7 +2288,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
 /area/point_verdant/outdoors)
 "AN" = (
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "AO" = (
 /obj/structure/chainlink_fence{
@@ -3131,7 +3135,7 @@
 	layer = 9.1;
 	dir = 8
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "Ly" = (
 /obj/structure/ledge/quarter/corner{
@@ -3773,7 +3777,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "SN" = (
 /obj/structure/barricade/wooden{
@@ -17889,13 +17893,13 @@ DQ
 Ks
 Ir
 ou
-Yn
+fR
 Ir
 ou
-Yn
+fR
 Ir
 ou
-Yn
+fR
 Ir
 lC
 lC

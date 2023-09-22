@@ -108,6 +108,7 @@
 	icon = 'icons/obj/structure/industrial/infrastructure.dmi'
 	icon_state = "truss"
 	density = TRUE
+	anchored = TRUE
 
 /obj/structure/structural_support/side
 	icon_state = "truss_side"
@@ -120,12 +121,14 @@
 	light_color = LIGHT_COLOR_CYAN
 	light_range = 1.2
 	density = TRUE
+	anchored = TRUE
 
 /obj/structure/manhole
 	name = "sewer access manhole"
 	desc = "Probably a bad idea to open this."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "manhole_closed"
+	anchored = TRUE
 	var/open = 0
 
 /obj/structure/manhole/attackby(obj/item/W as obj, mob/user as mob)
@@ -155,6 +158,7 @@
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "hydrant"
 	layer = ABOVE_ALL_MOB_LAYER
+	anchored = TRUE
 
 /obj/structure/parking_meter
 	name = "parking meter"
@@ -162,12 +166,14 @@
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "parking"
 	layer = ABOVE_ALL_MOB_LAYER
+	anchored = TRUE
 
 /obj/structure/television
 	name = "wide-screen television"
 	desc = "A fancy wide-screen television with a wide selection of channels."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "television"
+	anchored = TRUE
 
 /obj/structure/dressing_divider
 	name = "wardrobe dressing divider"
@@ -175,6 +181,7 @@
 	icon = 'icons/obj/structure/urban/tailoring.dmi'
 	icon_state = "divider1"
 	layer = ABOVE_ALL_MOB_LAYER
+	anchored = TRUE
 
 /obj/structure/neon_sign
 	name = "large neon sign"
@@ -361,6 +368,7 @@
 	icon = 'icons/obj/structure/urban/wood.dmi'
 	icon_state = "post"
 	density = FALSE
+	anchored = TRUE
 	layer = 3
 
 /obj/structure/statue
