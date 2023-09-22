@@ -111,9 +111,7 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ENABLE:
-            EDITORCONFIG
-            PYTHON
+          ENABLE: EDITORCONFIG,PYTHON,SPELL
       - name: Run OpenDream
         run: |
           tools/ci/run_od.sh
