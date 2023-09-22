@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/ladle
 	name = "ladle"
-	desc = "A serving ladle. Holds 30u."
+	desc = "A serving ladle. Soup's on!"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "ladle"
 	amount_per_transfer_from_this = 10

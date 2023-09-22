@@ -57746,7 +57746,7 @@
 	name = "Patient's Closet"
 	},
 /obj/item/clothing/under/medical_gown/white,
-/obj/item/clothing/shoes/white,
+/obj/item/clothing/shoes/sneakers,
 /obj/random/loot,
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
@@ -60219,7 +60219,7 @@
 	name = "Patient's Closet"
 	},
 /obj/item/clothing/under/medical_gown/white,
-/obj/item/clothing/shoes/white,
+/obj/item/clothing/shoes/sneakers,
 /obj/random/loot,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -60690,7 +60690,7 @@
 /area/maintenance/medbay)
 "hqT" = (
 /obj/item/clothing/mask/gas/mime,
-/obj/item/clothing/shoes/mime,
+/obj/item/clothing/shoes/sneakers,
 /obj/item/toy/figure/mime,
 /obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
@@ -62909,8 +62909,8 @@
 /obj/item/clothing/under/lawyer/red,
 /obj/item/clothing/under/lawyer/purple,
 /obj/item/clothing/suit/storage/lawyer/purpjacket,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/black,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/black,
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
@@ -63803,7 +63803,7 @@
 	name = "Patient's Closet"
 	},
 /obj/item/clothing/under/medical_gown/white,
-/obj/item/clothing/shoes/white,
+/obj/item/clothing/shoes/sneakers,
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,

@@ -24,6 +24,8 @@
 	use_to_pickup = 1
 	slot_flags = SLOT_BELT
 	var/use_deferred = TRUE
+	icon = 'icons/obj/storage/bags.dmi'
+	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
@@ -33,11 +35,6 @@
 /obj/item/storage/bag/trash
 	name = "trash bag"
 	desc = "It's the heavy-duty black polymer kind. Time to take out the trash!"
-	icon = 'icons/obj/janitor.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
-		)
 	icon_state = "trashbag0"
 	item_state = "trashbag"
 
@@ -78,9 +75,9 @@
 				handle_storage_deferred(user)
 
 			if (count)
-				to_chat(user, "<span class='notice'>You empty [count] broken bulbs into the trashbag.</span>")
+				to_chat(user, SPAN_NOTICE("You empty [count] broken bulbs into the trashbag."))
 			else if (!bagfull)
-				to_chat(user, "<span class='notice'>There are no broken bulbs to empty out.</span>")
+				to_chat(user, SPAN_NOTICE("There are no broken bulbs to empty out."))
 			return 1
 	..()
 
@@ -107,10 +104,8 @@
 /obj/item/storage/bag/plasticbag
 	name = "plastic bag"
 	desc = "It's a very flimsy, very noisy alternative to a bag."
-	icon = 'icons/obj/trash.dmi'
 	icon_state = "plasticbag"
 	item_state = "plasticbag"
-
 	w_class = ITEMSIZE_LARGE
 	max_w_class = ITEMSIZE_SMALL
 	can_hold = null // any
@@ -124,12 +119,9 @@
 
 /obj/item/storage/bag/plants
 	name = "plant bag"
-	icon = 'icons/obj/hydroponics_machines.dmi'
+	desc = "For storing your stems, seeds, buds, and any other illicit substances."
 	icon_state = "plantbag"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
-		)
+	item_state = "plantbag"
 	max_storage_space = 100
 	max_w_class = ITEMSIZE_NORMAL
 	w_class = ITEMSIZE_SMALL
@@ -143,7 +135,6 @@
 
 /obj/item/storage/bag/sheetsnatcher
 	name = "sheet snatcher"
-	icon = 'icons/obj/mining.dmi'
 	icon_state = "sheetsnatcher"
 	desc = "A patented storage system designed for any kind of mineral sheet."
 
@@ -164,7 +155,7 @@
 		current += S.amount
 	if(capacity == current)//If it's full, you're done
 		if(!stop_messages)
-			to_chat(usr, "<span class='warning'>The snatcher is full.</span>")
+			to_chat(usr, SPAN_WARNING("The snatcher is full."))
 		return 0
 	return 1
 
@@ -280,10 +271,10 @@
 // -----------------------------
 
 /obj/item/storage/bag/money
-	icon = 'icons/obj/storage.dmi'
 	name = "money bag"
 	desc = "A bag for carrying lots of money. It's got a big dollar sign printed on the front."
 	icon_state = "moneybag"
+	item_state = "moneybag"
 	flags = CONDUCT
 	max_storage_space = 100
 	w_class = ITEMSIZE_LARGE
@@ -311,7 +302,6 @@
 /obj/item/storage/bag/books
 	name = "book bag"
 	desc = "A bag for books."
-	icon = 'icons/obj/library.dmi'
 	icon_state = "bookbag"
 	storage_slots = 7
 	max_storage_space = 200
@@ -324,9 +314,8 @@
 	// -----------------------------
 /obj/item/storage/bag/chemistry
 	name = "chemistry bag"
-	icon = 'icons/obj/chemical.dmi'
-	contained_sprite = TRUE
 	icon_state = "chembag"
+	item_state = "chembag"
 	desc = "A bag for storing pills and bottles of medicine."
 	max_storage_space = 200
 	w_class = ITEMSIZE_LARGE
