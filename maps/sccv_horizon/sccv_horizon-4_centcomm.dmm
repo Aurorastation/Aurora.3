@@ -476,18 +476,15 @@
 	},
 /area/centcom/bar)
 "abs" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "centcom_dock_airlock";
-	locked = 1;
-	name = "Arrivals Airlock";
-	req_access = list(13);
-	dir = 4
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube_empty"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor,
-/area/centcom/evac)
+/obj/effect/shuttle_landmark/supply/horizon/start{
+	dir = 1
+	},
+/turf/unsimulated/floor/plating,
+/area/centcom/suppy)
 "abt" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -861,18 +858,21 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "act" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "centcom_dock_airlock";
-	locked = 1;
-	name = "Arrivals Airlock";
-	req_access = list(13);
-	dir = 4
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/unsimulated/floor,
-/area/centcom/evac)
+/obj/effect/shuttle_landmark/mining/transit{
+	dir = 1
+	},
+/turf/space/transit/north,
+/area/template_noop)
 "acu" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -1132,13 +1132,11 @@
 /turf/unsimulated/floor,
 /area/centcom/evac)
 "adc" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Holding Cells";
-	req_access = list(150);
+/obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/turf/unsimulated/floor,
-/area/antag/mercenary)
+/turf/simulated/wall/shuttle/scc,
+/area/supply/dock)
 "add" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Holding Cells";
@@ -6174,20 +6172,15 @@
 	req_access = list(13,31);
 	dir = 1
 	},
-/obj/effect/shuttle_landmark/supply/horizon/start,
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "ank" = (
-/obj/structure/shuttle_part{
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "se2";
-	opacity = 1
+/obj/effect/step_trigger/thrower/shuttle/north,
+/obj/effect/shuttle_landmark/intrepid/transit{
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/reinforced,
-/area/supply/dock)
+/turf/space/transit/north,
+/area/template_noop)
 "anl" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 1
@@ -17569,17 +17562,6 @@
 	icon_state = "tiled_preview"
 	},
 /area/tdome/tdome1)
-"aRL" = (
-/obj/structure/shuttle_part{
-	icon = 'icons/turf/shuttles_unique/scc_shuttle_pieces.dmi';
-	icon_state = "se2";
-	opacity = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor/reinforced,
-/area/supply/dock)
 "aRM" = (
 /obj/effect/floor_decal/corner/red/full,
 /turf/unsimulated/floor{
@@ -38663,7 +38645,9 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
 "jWJ" = (
-/obj/effect/shuttle_landmark/canary/transit,
+/obj/effect/shuttle_landmark/canary/transit{
+	dir = 1
+	},
 /turf/space/transit/north,
 /area/template_noop)
 "kcw" = (
@@ -40169,20 +40153,6 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
-"pTp" = (
-/obj/effect/step_trigger/teleporter/random{
-	affect_ghosts = 1;
-	name = "escapeshuttle_leave";
-	teleport_x = 25;
-	teleport_x_offset = 245;
-	teleport_y = 25;
-	teleport_y_offset = 245;
-	teleport_z = 6;
-	teleport_z_offset = 6
-	},
-/obj/effect/shuttle_landmark/mining/transit,
-/turf/space/transit/north,
-/area/template_noop)
 "pVx" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/beach/sand{
@@ -40438,20 +40408,6 @@
 	},
 /turf/simulated/floor/holofloor/reinforced,
 /area/horizon/holodeck/source_biesel)
-"reg" = (
-/obj/effect/step_trigger/teleporter/random{
-	affect_ghosts = 1;
-	name = "escapeshuttle_leave";
-	teleport_x = 25;
-	teleport_x_offset = 245;
-	teleport_y = 25;
-	teleport_y_offset = 245;
-	teleport_z = 6;
-	teleport_z_offset = 6
-	},
-/obj/effect/shuttle_landmark/intrepid/transit,
-/turf/space/transit/north,
-/area/template_noop)
 "reI" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/fancy,
@@ -51105,7 +51061,7 @@ hcy
 aJs
 aNR
 aOi
-ank
+aMt
 aMt
 aMt
 aQY
@@ -51371,7 +51327,7 @@ aQJ
 anh
 aQJ
 aPv
-aMt
+adc
 aMt
 aOi
 aNR
@@ -51875,7 +51831,7 @@ axj
 jqV
 aJs
 aNR
-aOh
+abs
 anj
 anf
 anf
@@ -52399,7 +52355,7 @@ aQJ
 aQK
 aQJ
 ani
-aMt
+adc
 aMt
 aOi
 aNR
@@ -52647,7 +52603,7 @@ fww
 aJs
 aNR
 aOi
-aRL
+aMt
 aMt
 aMt
 aQY
@@ -55576,14 +55532,14 @@ aac
 aab
 aac
 aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
 jWJ
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aac
@@ -57630,24 +57586,24 @@ aac
 aac
 aac
 aab
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aab
 aac
 aac
@@ -57886,26 +57842,26 @@ aac
 aac
 aac
 aac
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aac
@@ -65982,8 +65938,8 @@ amF
 amF
 ats
 ats
-abs
-act
+adb
+adb
 adb
 ats
 ats
@@ -70470,6 +70426,10 @@ aac
 aac
 aac
 aac
+aac
+aab
+aab
+aab
 aab
 aab
 aab
@@ -70478,16 +70438,12 @@ aac
 aac
 aac
 aac
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
-aab
+aac
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aac
@@ -70724,13 +70680,6 @@ aab
 aac
 aac
 aac
-aac
-aac
-aac
-aab
-aac
-aab
-aab
 aab
 aab
 aab
@@ -70740,9 +70689,16 @@ aac
 aac
 aac
 aac
-aac
-aac
-aac
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aab
 aab
 aab
@@ -70981,10 +70937,10 @@ aab
 aac
 aac
 aac
-aac
-aac
-aac
 aab
+aac
+aac
+aac
 aac
 aac
 aac
@@ -71238,9 +71194,6 @@ aab
 aac
 aac
 aac
-aac
-aac
-aac
 aab
 aac
 aac
@@ -71259,8 +71212,11 @@ aac
 aac
 aac
 aac
+aac
+aac
+aac
 aab
-aab
+aac
 aac
 aac
 aac
@@ -71495,9 +71451,6 @@ aab
 aac
 aac
 aac
-aac
-aac
-aab
 aab
 aac
 aac
@@ -71517,10 +71470,13 @@ aac
 aac
 aac
 aac
+aac
+aac
 aab
-aac
-aac
-aac
+aab
+aab
+aab
+aab
 aac
 aac
 aac
@@ -71752,32 +71708,32 @@ aab
 aac
 aac
 aac
+bLy
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aab
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aab
-aab
-aab
-aac
 aac
 aac
 aac
@@ -72009,35 +71965,35 @@ aab
 aac
 aac
 aac
+bLy
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aab
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
 aab
-aac
-aac
-aac
-aac
+aab
+aab
 aac
 aac
 aac
@@ -72266,35 +72222,35 @@ aab
 aac
 aac
 aac
+bLy
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aab
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aab
-aac
-aac
-aac
-aac
 aac
 aac
 aac
@@ -72523,35 +72479,35 @@ aab
 aac
 aac
 aac
+bLy
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aab
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aab
-aac
-aac
-aac
-aac
 aac
 aac
 aac
@@ -72780,9 +72736,13 @@ aab
 aac
 aac
 aac
+ank
 aac
 aac
-reg
+aac
+aac
+aac
+aac
 aac
 aac
 aac
@@ -72805,10 +72765,6 @@ aac
 aac
 aac
 aab
-aac
-aac
-aac
-aac
 aac
 aac
 aac
@@ -73037,35 +72993,35 @@ aab
 aac
 aac
 aac
+bLy
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aab
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aab
-aac
-aac
-aac
-aac
 aac
 aac
 aac
@@ -73294,35 +73250,35 @@ aab
 aac
 aac
 aac
+bLy
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aab
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aab
-aac
-aac
-aac
-aac
 aac
 aac
 aac
@@ -73551,35 +73507,35 @@ aab
 aac
 aac
 aac
+bLy
 aac
 aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aab
 aab
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
 aab
 aab
-aab
-aac
-aac
-aac
-aac
 aac
 aac
 aac
@@ -73808,32 +73764,32 @@ aab
 aac
 aac
 aac
+bLy
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aab
-aab
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aab
-aab
-aac
-aac
-aac
 aac
 aac
 aac
@@ -74065,9 +74021,6 @@ aab
 aac
 aac
 aac
-aac
-aac
-aac
 aab
 aac
 aac
@@ -74086,11 +74039,14 @@ aac
 aac
 aac
 aac
+aac
+aac
+aac
 aab
-aac
-aac
-aac
-aac
+aab
+aab
+aab
+aab
 aac
 aac
 aac
@@ -74322,10 +74278,10 @@ aab
 aac
 aac
 aac
-aac
-aac
-aac
 aab
+aac
+aac
+aac
 aac
 aac
 aac
@@ -74579,17 +74535,6 @@ aab
 aac
 aac
 aac
-aac
-aac
-aac
-aab
-aac
-aab
-aab
-aab
-aab
-aab
-aab
 aab
 aac
 aac
@@ -74598,8 +74543,19 @@ aac
 aac
 aac
 aac
-aab
-aab
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aab
 aac
 aac
@@ -74836,21 +74792,6 @@ aab
 aac
 aac
 aac
-aac
-aac
-aac
-aab
-aab
-aab
-aac
-aac
-aac
-aac
-aac
-aab
-aab
-aab
-aab
 aab
 aab
 aab
@@ -74858,6 +74799,21 @@ aab
 aab
 aac
 aac
+aac
+aac
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aac
 aac
 aac
@@ -75097,13 +75053,13 @@ aac
 aac
 aac
 aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aac
 aac
 aac
@@ -84559,7 +84515,7 @@ aab
 aab
 aab
 aab
-aac
+aab
 aac
 aac
 aac
@@ -84815,8 +84771,8 @@ aac
 aac
 aac
 aac
-aab
 aac
+aab
 aac
 aac
 aac
@@ -85072,8 +85028,8 @@ aac
 aac
 aac
 aac
-aab
 aac
+aab
 aac
 aac
 aac
@@ -85318,19 +85274,19 @@ aac
 aac
 aac
 aac
+act
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aab
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aab
-aac
 aac
 aac
 aac
@@ -85586,8 +85542,8 @@ aac
 aac
 aac
 aac
-aab
 aac
+aab
 aac
 aac
 aac
@@ -85843,8 +85799,8 @@ aac
 aac
 aac
 aac
-aab
 aac
+aab
 aac
 aac
 aac
@@ -86089,7 +86045,8 @@ aac
 aac
 aac
 aac
-pTp
+aab
+aac
 aac
 aac
 aac
@@ -86101,7 +86058,6 @@ aac
 aac
 aac
 aab
-aac
 aac
 aac
 aac
@@ -86357,8 +86313,8 @@ aac
 aac
 aac
 aac
-aab
 aac
+aab
 aac
 aac
 aac
@@ -86615,7 +86571,7 @@ aab
 aab
 aab
 aab
-aac
+aab
 aac
 aac
 aac
@@ -95772,7 +95728,7 @@ bix
 bix
 bix
 bix
-adc
+add
 bnq
 boZ
 bpJ
