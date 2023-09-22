@@ -3,7 +3,6 @@
 	name = "snack"
 	desc = "Yummy!"
 	icon_state = null
-	contained_sprite = TRUE
 	center_of_mass = list("x"=16, "y"=16)
 	w_class = ITEMSIZE_SMALL
 	is_liquid = FALSE

@@ -175,7 +175,7 @@
 	else
 		reagents.add_reagent(PB.reagents, 4)
 
-	/obj/item/reagent_containers/food/snacks/skrellsnacks
+/obj/item/reagent_containers/food/snacks/skrellsnacks
 	name = "\improper SkrellSnax"
 	desc = "Cured eki shipped all the way from Nralakk IV, almost like jerky! Almost."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'

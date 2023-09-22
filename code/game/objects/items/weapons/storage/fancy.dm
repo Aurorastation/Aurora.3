@@ -510,10 +510,7 @@
 	item_state = "pizzabox" // don't touch this shit unless you know what you're doing
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
-		)
+	contained_sprite = TRUE
 	center_of_mass = list("x" = 16,"y" = 6)
 
 	var/open = 0 // Is the box open?
