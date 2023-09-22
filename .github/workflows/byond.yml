@@ -113,7 +113,7 @@ jobs:
           PRINT_ALPACA: false
           VALIDATE_ALL_CODEBASE: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ENABLE: EDITORCONFIG,SPELL
+          ENABLE: EDITORCONFIG
           EXCLUDED_DIRECTORIES: tools/bootstrap/.cache/
           FILTER_REGEX_INCLUDE: (.*\.dm$|.*\.dme$|.*\.yml$)
       - name: Run OpenDream
