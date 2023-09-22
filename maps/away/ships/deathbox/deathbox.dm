@@ -34,6 +34,9 @@
 	desc = "An unmarked ship."
 	icon_state = "line_cruiser"
 	moving_state = "line_cruiser_moving"
+	weapons = "Three visible weapon bays, ranging from high-power Artillery to point defense."
+	designer = "Unknown"
+	shiptype = "Heavy Combatant"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
