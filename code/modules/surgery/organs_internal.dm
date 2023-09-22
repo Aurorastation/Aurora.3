@@ -36,6 +36,9 @@
 	var/is_organ_damaged = FALSE
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I.is_damaged())
+			if(BP_IS_ROBOTIC(I))
+				to_chat(user, SPAN_NOTICE("You notice that \the [I] in [user]'s [affected] is a mechanical organ, and is also damaged."))
+				continue
 			is_organ_damaged = TRUE
 			break
 	return is_organ_damaged
@@ -56,8 +59,6 @@
 			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 			"You start treating damage to [target]'s [I.name] with [tool_name]." )
 	target.custom_pain("The pain in your [affected.name] is living hell!",100, affecting = affected)
-
-	..()
 
 /singleton/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/tool_name = "\the [tool]"
@@ -123,7 +124,10 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/is_organ_damaged = 0
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I.is_damaged() && I.robotic >= 2)
+		if(I.is_damaged())
+			if(!BP_IS_ROBOTIC(I))
+				to_chat(user, SPAN_NOTICE("You notice that \the [I] in [user]'s [affected] is a biological organ, and is also damaged."))
+				continue
 			is_organ_damaged = TRUE
 			break
 	return is_organ_damaged && IS_ORGAN_FULLY_OPEN
@@ -172,7 +176,6 @@
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I)
 			I.take_damage(rand(3,5),0)
-
 
 /singleton/surgery_step/internal/detach_organ
 	name = "Separate Organ"
