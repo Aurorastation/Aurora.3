@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed being unable to select different matake god altars in the loadout."

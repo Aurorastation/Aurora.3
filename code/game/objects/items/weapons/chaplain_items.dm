@@ -75,7 +75,7 @@
 	return "around [user.get_pronoun("his")] neck"
 
 /obj/item/nullrod/matake
-	name = "\improper Mata'ke sword"
+	name = "\improper Mata'ke spear"
 	desc = "A ceremonial spear crafted after the image of Mata'ke's holy weapon."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "matake_spear"
