@@ -107,11 +107,12 @@ jobs:
       # https://megalinter.io/latest/
       - name: Check EditorConfig Compliance
         id: ml
-        uses: oxsecurity/megalinter@v7
+        uses: oxsecurity/megalinter/flavors/python@v7.3.0
+        # Env config options outlined in https://megalinter.io/configuration/
         env:
           VALIDATE_ALL_CODEBASE: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ENABLE: EDITORCONFIG,PYTHON,SPELL
+          ENABLE: EDITORCONFIG,SPELL
       - name: Run OpenDream
         run: |
           tools/ci/run_od.sh
