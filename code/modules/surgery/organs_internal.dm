@@ -37,10 +37,9 @@
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I.is_damaged())
 			if(BP_IS_ROBOTIC(I))
-				to_chat(user, SPAN_NOTICE("You notice that \the [I] in [user]'s [affected] is a mechanical organ, and is also damaged."))
+				to_chat(user, SPAN_NOTICE("You notice that \the [I] in [user]'s [affected.name] is a mechanical organ, and is also damaged."))
 				continue
 			is_organ_damaged = TRUE
-			break
 	return is_organ_damaged
 
 /singleton/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -126,10 +125,9 @@
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I.is_damaged())
 			if(!BP_IS_ROBOTIC(I))
-				to_chat(user, SPAN_NOTICE("You notice that \the [I] in [user]'s [affected] is a biological organ, and is also damaged."))
+				to_chat(user, SPAN_NOTICE("You notice that \the [I] in [user]'s [affected.name] is a biological organ, and is also damaged."))
 				continue
 			is_organ_damaged = TRUE
-			break
 	return is_organ_damaged && IS_ORGAN_FULLY_OPEN
 
 /singleton/surgery_step/internal/fix_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
