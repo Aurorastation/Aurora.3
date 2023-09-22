@@ -110,9 +110,12 @@ jobs:
         uses: oxsecurity/megalinter/flavors/python@v7.3.0
         # Env config options outlined in https://megalinter.io/configuration/
         env:
+          PRINT_ALPACA: false
           VALIDATE_ALL_CODEBASE: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ENABLE: EDITORCONFIG,SPELL
+          EXCLUDED_DIRECTORIES: tools/bootstrap/.cache/
+          FILTER_REGEX_INCLUDE: (.*\.dm$|.*\.dme$|.*\.yml$)
       - name: Run OpenDream
         run: |
           tools/ci/run_od.sh
