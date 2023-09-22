@@ -120,6 +120,9 @@ jobs:
           ENABLE: EDITORCONFIG
           EXCLUDED_DIRECTORIES: tools/bootstrap/.cache/
           FILTER_REGEX_INCLUDE: (.*\.dm$|.*\.dme$|.*\.yml$)
+          APPLY_FIXES: EDITORCONFIG
+          APPLY_FIXES_EVENT: all
+          APPLY_FIXES_MODE: commit
       - name: Run OpenDream
         run: |
           tools/ci/run_od.sh
