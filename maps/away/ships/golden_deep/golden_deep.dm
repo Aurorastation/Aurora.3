@@ -1,4 +1,123 @@
+/datum/map_template/ruin/away_site/golden_deep
+	name = "Golden Deep Merchant Vessel"
+	id = "golden_deep"
+	description = "A mercantile transport vessel, registered to the Golden Deep."
+	suffixes = list("ships/golden_deep/golden_deep_merchant.dmm")
+	//ship_cost = 1
+	//spawn_weight = 1
 
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/golden_deep)
+	//sectors = list(SECTOR_WEEPING_STARS, SECTOR_CORP_ZONE, SECTOR_TAU_CETI) //add konyang whenever :)
+	sectors = list(ALL_POSSIBLE_SECTORS)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
+/singleton/submap_archetype/golden_deep
+	map = "Golden Deep Merchant Vessel"
+	descriptor = "A mercantile transport vessel, registered to the Golden Deep."
+
+/obj/effect/overmap/visitable/ship/golden_deep
+	name = "Golden Deep Merchant Ship"
+	desc = ""
+	class = "GDMV" //Golden Deep Mercantile Vessel
+	icon_state = "tramp"
+	moving_state = "tramp_moving"
+	color = "#efd10fe4"
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 5000
+	fore_dir = SOUTH
+	vessel_size = SHIP_SIZE_SMALL
+	designer = "Grand Camarilla Estriconian, Midaion Anchorage"
+	volume = "65 meters length, 35 meters beam/width, 18 meters vertical height"
+	drive = "Low-Speed Warp Acceleration FTL Drive"
+	weapons = "Not apparent, aft obscured flight craft bay"
+	sizeclass = "Anchurus-class mercantile freighter"
+	shiptype = "Long-term shipping utilities"
+	initial_restricted_waypoints = list(
+		"Golden Deep Shuttle" = list("gd_nav_hangar")
+	)
+	initial_generic_waypoints = list(
+		"gd_nav1",
+		"gd_nav2",
+		"gd_nav3",
+		"gd_nav4",
+		"gd_dock"
+	)
+
+/obj/effect/overmap/visitable/ship/golden_deep/New()
+	designation = "[pick("Pessinus", "Phyrgia", "Gordia", "Bermion", "Ancyra", "Silenus", "Alyattes", "Orpheus")]"
+	..()
+
+/obj/effect/shuttle_landmark/golden_deep
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/golden_deep/nav1
+	name = "Golden Deep Mercantile Vessel, Fore"
+	landmark_tag = "gd_nav1"
+
+/obj/effect/shuttle_landmark/golden_deep/nav2
+	name = "Golden Deep Mercantile Vessel, Aft"
+	landmark_tag = "gd_nav2"
+
+/obj/effect/shuttle_landmark/golden_deep/nav3
+	name = "Golden Deep Mercantile Vessel, Port"
+	landmark_tag = "gd_nav3"
+
+/obj/effect/shuttle_landmark/golden_deep/nav4
+	name = "Golden Deep Mercantile Vessel, Starboard"
+	landmark_tag = "gd_nav4"
+
+/obj/effect/shuttle_landmark/golden_deep/dock
+	name = "Golden Deep Mercantile Vessel, Docking Port"
+	landmark_tag = "gd_dock"
+
+//Shuttle
+/obj/effect/overmap/visitable/ship/landable/golden_deep_shuttle
+	name = "Golden Deep Shuttle"
+	desc = ""
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	color = "#efd10fe4"
+	class = "GDMV"
+	designation = "Cybele"
+	shuttle = "Golden Deep Shuttle"
+	max_speed = 1/(3 SECONDS)
+	burn_delay = 2 SECONDS
+	vessel_mass = 3000 //very inefficient pod
+	fore_dir = EAST
+	vessel_size = SHIP_SIZE_TINY
+
+/obj/machinery/computer/shuttle_control/explore/golden_deep
+	name = "shuttle control console"
+	shuttle_tag = "Golden Deep Shuttle"
+	req_access = list(access_golden_deep)
+
+/datum/shuttle/autodock/overmap/golden_deep
+	name = "Golden Deep Shuttle"
+	move_time = 20
+	shuttle_area = list(/area/shuttle/golden_deep)
+	current_location = "gd_nav_hangar"
+	landmark_transition = "gd_nav_transit"
+	dock_target = "golden_shuttle"
+	range = 1
+	fuel_consumption = 2
+	logging_home_tag = "gd_nav_hangar"
+	defer_initialisation = TRUE
+
+/obj/effect/shuttle_landmark/golden_deep_shuttle/hangar
+	name = "Golden Deep Mercantile Vessel - Hangar"
+	landmark_tag = "gd_nav_hangar"
+	base_turf = /turf/simulated/floor/plating
+	base_area = /area/golden_deep/hangar
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+
+/obj/effect/shuttle_landmark/golden_deep_shuttle/transit
+	name = "In transit"
+	landmark_tag = "gd_nav_transit"
+	base_turf = /turf/space/transit/east
+
+//Fluff items
 /obj/item/storage/secure/safe/golden_deep
 	starts_with = list(
 	/obj/item/clothing/accessory/badge/passport = 1,

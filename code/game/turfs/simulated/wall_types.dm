@@ -112,6 +112,7 @@
 	canSmoothWith = list(src.type)
 	. = ..(mapload, MATERIAL_GOLD, MATERIAL_PLASTEEL)
 	canSmoothWith = list(src.type)
+	color = COLOR_GOLD
 
 /turf/simulated/wall/wood
 	icon = 'icons/turf/smooth/composite_wood.dmi'

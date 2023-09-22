@@ -1,22 +1,86 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aH" = (
-/obj/machinery/door/blast/regular{
-	dir = 4
+"ac" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/hangar)
+"ag" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"au" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"ax" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
+"aH" = (
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
+"aK" = (
+/obj/machinery/atmospherics/binary/pump/fuel{
+	name = "canister to thrusters"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"aQ" = (
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/secure)
+"aR" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"aT" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
 "aZ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning"
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/golden_deep/engineering)
 "bd" = (
 /obj/structure/table/rack/fancy_table/black,
 /obj/item/modular_computer/laptop/preset/civilian,
 /turf/simulated/floor/wood/mahogany,
-/area/space)
+/area/golden_deep/captain)
+"bi" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_access = list(217);
+	name = "Custodial"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/tiled,
+/area/golden_deep/custodial)
 "bB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -26,23 +90,220 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/golden_deep/engineering)
 "bO" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/golden_deep/engineering)
+"bQ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/gold{
+	req_access = list(217);
+	dir = 8;
+	name = "Captain's Quarters"
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/golden_deep/captain)
+"bU" = (
+/obj/machinery/atmospherics/portables_connector/fuel,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"bZ" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/random/civgun,
+/obj/random/civgun,
+/obj/random/civgun,
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"ca" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"ce" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/south{
+	req_access = list(217)
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
 "ck" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/art,
-/area/space)
-"cZ" = (
-/obj/structure/closet/secure_closet/guncabinet,
-/obj/random/civgun,
-/obj/random/civgun,
-/obj/random/civgun,
+/area/golden_deep/captain)
+"cl" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"cs" = (
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep)
+"ct" = (
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/storage)
+"cv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"cA" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
+"cG" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"cM" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/alarm/east{
+	req_one_access = list(217)
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"cN" = (
+/obj/structure/closet/secure_closet/custodial/offship,
 /turf/simulated/floor/tiled,
+/area/golden_deep/custodial)
+"cP" = (
+/obj/effect/floor_decal/spline/fancy{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep)
+"cS" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"cU" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/borosilicate/reinforced,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"cZ" = (
+/obj/structure/safe/cash,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"db" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"df" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"ds" = (
+/obj/structure/cable{
+	dir = 1;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"dz" = (
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"dB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"dK" = (
+/obj/machinery/atmospherics/binary/pump/fuel{
+	name = "canister to thrusters"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
+"dW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
+"dY" = (
+/obj/effect/step_trigger/teleporter,
+/turf/space,
 /area/space)
 "ei" = (
 /obj/machinery/cryopod{
@@ -50,18 +311,37 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/storage)
+"ek" = (
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/warehouse)
 "en" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 36;
-	pixel_y = 3
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 36;
-	pixel_y = -10
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
+/obj/item/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"ex" = (
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/golden_deep/engineering)
+"eD" = (
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"eG" = (
+/obj/structure/table/wood,
+/obj/machinery/photocopier/faxmachine{
+	department = "Golden Deep Merchant Vessel"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
 "eJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -71,32 +351,135 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/golden_deep/engineering)
+"eR" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"eU" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
 "eX" = (
 /obj/structure/safe/cash,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/golden_deep/secure)
+"eY" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"fj" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/portable_atmospherics/canister/empty/sleeping_agent,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
 "fr" = (
 /obj/machinery/photocopier,
 /turf/simulated/floor/gold,
-/area/space)
+/area/golden_deep/office)
 "fs" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/carpet/art,
-/area/space)
+/area/golden_deep/captain)
 "ft" = (
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
-/area/space)
+/area/golden_deep/warehouse)
+"fx" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"fA" = (
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
 "fO" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating/cooled,
+/area/golden_deep/engineering)
+"fU" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"fV" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"fW" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/obj/machinery/alarm/north{
+	req_one_access = list(217)
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/custodial)
+"gb" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"gn" = (
+/obj/item/modular_computer/console/preset/merchant/golden_deep{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 278.15
+	},
+/area/golden_deep/office)
+"gp" = (
+/obj/effect/shuttle_landmark/golden_deep/nav4,
+/turf/template_noop,
 /area/space)
+"gq" = (
+/obj/structure/closet/firecloset/full,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"gr" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/gold,
+/area/golden_deep)
 "gz" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -105,41 +488,678 @@
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
-/area/space)
+/area/golden_deep/office)
+"gG" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"gN" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_access = list(217);
+	dir = 4;
+	name = "Propulsion"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"gP" = (
+/obj/structure/cable/green,
+/obj/machinery/power/terminal,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"hd" = (
+/obj/machinery/door/airlock/gold{
+	req_access = list(217);
+	dir = 4;
+	name = "Trading Desk"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"hf" = (
+/obj/effect/shuttle_landmark/golden_deep/dock{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/dock)
+"hh" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
 "hk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/art,
-/area/space)
+/area/golden_deep/captain)
+"ho" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"ht" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"hw" = (
+/obj/structure/table/steel,
+/obj/machinery/door/window{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"hz" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
+"hB" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/storage)
+"hI" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/gold{
+	req_access = list(217);
+	dir = 4;
+	name = "Secure Storage"
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"hM" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
+"hY" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled,
+/area/golden_deep/custodial)
+"ie" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"iq" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = 3
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36;
+	pixel_y = -10
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"ix" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"iF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"iN" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/golden_deep,
+/obj/item/clothing/head/helmet/space/void/golden_deep,
+/obj/item/device/suit_cooling_unit,
+/obj/item/clothing/shoes/magboots,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window,
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"iT" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 2;
+	door_color = "#ffcc33"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
 "iY" = (
 /obj/structure/table/wood,
 /obj/item/spacecash/c1000{
 	pixel_x = 2
 	},
 /turf/simulated/floor/gold,
-/area/space)
+/area/golden_deep/office)
+"ja" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/south{
+	req_access = list(217)
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
+"jf" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"jm" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/gold{
+	req_access = list(217);
+	dir = 1;
+	name = "Bridge"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/office)
 "jq" = (
 /obj/machinery/atm{
 	pixel_y = 32
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/wood/mahogany,
-/area/space)
+/area/golden_deep/captain)
+"js" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"jt" = (
+/obj/structure/cable{
+	dir = 1;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"jE" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/obj/random/tool,
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"jJ" = (
+/obj/structure/closet/crate/secure/phoron{
+	req_access = list(217)
+	},
+/obj/item/stack/material/diamond/full,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"jO" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/golden_deep/storage)
+"jY" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"ka" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"kg" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/storage/box/frags,
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/handcuffs,
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"km" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"kt" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/secure)
+"kA" = (
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/bridge)
+"kM" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"kN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"kZ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/door/airlock/gold{
+	req_access = list(217);
+	dir = 4;
+	name = "Atmospherics"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"le" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"lg" = (
+/obj/structure/cable/green,
+/obj/machinery/power/apc/west{
+	req_access = list(217)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/golden_deep/captain)
+"lk" = (
+/obj/machinery/airlock_sensor/airlock_interior{
+	pixel_x = -23;
+	id_tag = "golden_shuttle_interior_sensor";
+	frequency = 1385;
+	pixel_y = 10
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"ll" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/structure/table/steel,
+/obj/random/technology_scanner,
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
+"lp" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/golden_deep/captain)
+"lu" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	layer = 2.8;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
+"lv" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
+"lx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"lA" = (
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/electrical,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"lG" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/secure)
 "lS" = (
 /obj/machinery/cryopod/robot,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/storage)
+"lV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"lX" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"mb" = (
+/obj/machinery/computer/ship/navigation,
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"md" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/turf/simulated/floor/gold,
+/area/golden_deep)
+"mg" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"mp" = (
+/obj/structure/cable/green,
+/obj/machinery/power/apc/east{
+	req_access = list(217)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"mq" = (
+/obj/item/storage/secure/safe/golden_deep{
+	pixel_x = -30
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/golden_deep/captain)
+"mu" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
 "mv" = (
 /turf/simulated/wall/gold_reinforced{
 	can_open = 1
 	},
-/area/space)
+/area/golden_deep/engineering)
+"mI" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"mL" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/bed/handrail,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	id_tag = "golden_shuttle_pump_out_external";
+	frequency = 1385;
+	layer = 2.8
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1385;
+	master_tag = "golden_shuttle";
+	name = "exterior access button";
+	pixel_x = -23;
+	pixel_y = -10
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	frequency = 1385;
+	id_tag = "golden_shuttle_exterior_sensor";
+	pixel_y = -11;
+	pixel_x = -36
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"mR" = (
+/obj/machinery/computer/shuttle_control/explore/golden_deep{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"mS" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"mY" = (
+/obj/machinery/computer/ship/helm{
+	dir = 4;
+	req_access = null
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"nb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"nf" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
 "no" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/storage)
+"nu" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
+"nz" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"nZ" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/north{
+	pixel_x = 0;
+	req_access = list(217)
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/custodial)
+"oc" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8;
+	icon_state = "map"
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1385;
+	icon_state = "door_locked";
+	id_tag = "golden_shuttle_in";
+	dir = 1
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"oh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"oj" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"ow" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
 "oy" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -150,47 +1170,362 @@
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
-/area/space)
+/area/golden_deep/office)
+"oz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/shuttle,
+/obj/structure/fuel_port/phoron{
+	pixel_x = 10;
+	pixel_y = 32
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"oG" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1385;
+	id_tag = "golden_shuttle_pump_in"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
+	id_tag = "hegemony_shuttle";
+	master_tag = "hegemony_shuttle";
+	pixel_y = null;
+	tag_interior_door = "golden_shuttle_in";
+	tag_exterior_door = "golden_shuttle_out";
+	tag_interior_sensor = "golden_shuttle_interior_sensor";
+	tag_exterior_sensor = "golden_shuttle_exterior_sensor";
+	tag_chamber_sensor = "golden_shuttle_chamber_sensor";
+	tag_airpump = "golden_shuttle_pump_in";
+	frequency = 1385;
+	pixel_x = -25
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"oJ" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
+"oR" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"oV" = (
+/obj/machinery/atmospherics/pipe/tank/air,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"pe" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
+"pl" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/alarm/north{
+	req_one_access = list(217)
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/office)
+"po" = (
+/obj/effect/shuttle_landmark/golden_deep_shuttle/hangar,
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
 "pp" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/golden_deep/engineering)
+"pq" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"pt" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
 "pu" = (
 /turf/template_noop,
 /area/space)
+"pw" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
 "pA" = (
 /obj/machinery/computer/cryopod{
 	pixel_x = -32
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
-/area/space)
-"qa" = (
-/obj/structure/table/wood,
-/obj/machinery/photocopier/faxmachine{
-	department = "Golden Deep Merchant Vessel"
+/area/golden_deep/storage)
+"pC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"pD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
+"pE" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/alarm/west{
+	req_one_access = list(217)
 	},
 /turf/simulated/floor/gold,
-/area/space)
+/area/golden_deep/dock)
+"pK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"pV" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
+"pZ" = (
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/hangar)
+"qa" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/gold,
+/area/golden_deep/office)
+"qe" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/gold,
+/area/golden_deep)
+"ql" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"qr" = (
+/turf/simulated/floor/reinforced{
+	temperature = 278.15
+	},
+/area/golden_deep/office)
+"qt" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"qw" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/gold,
+/area/golden_deep/office)
+"qD" = (
+/obj/machinery/computer/ship/navigation{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
 "qI" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /turf/simulated/floor/wood/mahogany,
-/area/space)
+/area/golden_deep/captain)
+"qP" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
+"qY" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_access = list(217);
+	dir = 4;
+	name = "Propulsion"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"rh" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
 "rn" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/golden_deep/eva)
 "rp" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/storage)
+"rr" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/alarm/east{
+	req_one_access = list(217)
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/storage)
 "rs" = (
 /obj/structure/plasticflaps/airtight,
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_access = list(217);
+	dir = 4;
+	name = "Telecomms"
+	},
 /turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"rt" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/golden_deep,
+/obj/item/clothing/head/helmet/space/void/golden_deep,
+/obj/item/device/suit_cooling_unit,
+/obj/item/clothing/shoes/magboots,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window,
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"rw" = (
+/obj/structure/closet/crate/secure/phoron{
+	req_access = list(217)
+	},
+/obj/item/stack/material/silver/full,
+/obj/item/stack/material/silver/full,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"rB" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/bed/handrail,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"rI" = (
+/obj/structure/janitorialcart/full{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/custodial)
+"rL" = (
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"rO" = (
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"sg" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"sj" = (
+/obj/machinery/atmospherics/binary/passive_gate/on,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"sl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"sm" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/autolathe,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"st" = (
+/turf/space,
 /area/space)
 "sA" = (
 /obj/machinery/conveyor{
@@ -207,26 +1542,115 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/office)
+"sU" = (
+/obj/machinery/atmospherics/pipe/tank,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"sX" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
+"tp" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"tz" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "pump to waste"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"tD" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"tH" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/alarm/west{
+	req_one_access = list(217)
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/golden_deep/captain)
+"tO" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep)
 "tQ" = (
 /obj/structure/bookcase/libraryspawn/nonfiction,
+/obj/machinery/light,
 /turf/simulated/floor/wood/mahogany,
-/area/space)
+/area/golden_deep/captain)
 "tU" = (
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/wood/mahogany,
-/area/space)
+/area/golden_deep/captain)
 "uh" = (
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/storage)
+"un" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/closet/walllocker/emerglocker/north,
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"uu" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
 "uw" = (
 /obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/gold,
-/area/space)
+/area/golden_deep/bridge)
 "uK" = (
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/gold,
-/area/space)
+/area/golden_deep/bridge)
+"uL" = (
+/obj/machinery/door/blast/regular{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
 "uM" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -234,24 +1658,204 @@
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
-/area/space)
-"vk" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_x = -24;
-	pixel_y = 3
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = -24;
-	pixel_y = -10
-	},
+/area/golden_deep/warehouse)
+"uR" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"uZ" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/portable_atmospherics/canister/empty/air,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"vg" = (
+/turf/simulated/floor/gold,
+/area/golden_deep/engineering)
+"vi" = (
+/obj/structure/table/steel,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/golden_deep/custodial)
+"vk" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/energy/rifle/laser/noctiluca,
+/obj/item/gun/energy/rifle/laser/noctiluca,
+/obj/item/gun/energy/rifle/laser/noctiluca,
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"vo" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/north{
+	pixel_x = 0;
+	req_access = list(217)
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"vw" = (
+/obj/machinery/light,
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"vz" = (
+/obj/structure/table/steel,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/paper_bin,
+/obj/item/device/eftpos,
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"vA" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"vB" = (
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/engineering)
+"vH" = (
+/obj/structure/table/steel,
+/obj/random/toolbox,
+/obj/random/tool,
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
+"vK" = (
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 8
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"vM" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
 "vO" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/gold,
-/area/space)
+/area/golden_deep/office)
+"vR" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"vT" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"wi" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/door/airlock/gold{
+	req_access = list(217);
+	dir = 1;
+	name = "Hangar"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
+"wr" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"wv" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"ww" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"wA" = (
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/tiled,
+/area/golden_deep/custodial)
+"wH" = (
+/obj/item/modular_computer/console/preset/civilian{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"wI" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"wJ" = (
+/obj/structure/table/steel,
+/obj/random/toolbox,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"wL" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
+"wN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1385;
+	icon_state = "door_locked";
+	id_tag = "golden_shuttle_out";
+	dir = 1
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"wR" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/gold{
+	req_access = list(217);
+	dir = 1;
+	name = "Warehouse"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/office)
+"wU" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
 "xd" = (
 /obj/item/storage/overloader/classic,
 /obj/item/storage/overloader/jitterbug,
@@ -274,14 +1878,37 @@
 /obj/item/clothing/ears/antenna/whip/single,
 /obj/item/clothing/ears/antenna/curved,
 /turf/simulated/floor/wood/mahogany,
-/area/space)
-"xg" = (
-/obj/structure/closet/secure_closet/guncabinet,
-/obj/item/gun/energy/rifle/laser/noctiluca,
-/obj/item/gun/energy/rifle/laser/noctiluca,
-/obj/item/gun/energy/rifle/laser/noctiluca,
+/area/golden_deep/captain)
+"xe" = (
+/obj/structure/reagent_dispensers/acid_barrel,
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/golden_deep/custodial)
+"xg" = (
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"xp" = (
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"xr" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"xz" = (
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/custodial)
+"xB" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"xK" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
 "xP" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -292,7 +1919,21 @@
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
-/area/space)
+/area/golden_deep/office)
+"xU" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
 "xV" = (
 /obj/item/spacecash/c1000,
 /obj/item/spacecash/c1000,
@@ -325,29 +1966,350 @@
 /obj/item/spacecash/c10,
 /obj/item/spacecash/c10,
 /obj/item/spacecash/c1,
+/obj/structure/closet/secure_closet/cabinet,
 /turf/simulated/floor/wood/mahogany,
-/area/space)
+/area/golden_deep/captain)
+"ym" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"ys" = (
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/portprop)
+"yA" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/power/apc/east{
+	req_access = list(217)
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/plating,
+/area/golden_deep/storage)
+"yG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1385;
+	id_tag = "golden_shuttle_pump_in"
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"yH" = (
+/obj/structure/cable{
+	dir = 1;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"yL" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
 "zb" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/art,
-/area/space)
+/area/golden_deep/captain)
+"zm" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
+"zr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"zy" = (
+/obj/structure/table/steel,
+/obj/random/tool,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"zA" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/head/helmet/merc,
+/obj/item/clothing/head/helmet/merc,
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"zL" = (
+/obj/structure/closet/crate/secure/weapon{
+	name = "contraband crate"
+	},
+/obj/random/civgun/rifle,
+/obj/random/civgun/rifle,
+/obj/item/storage/overloader/tranquil,
+/obj/item/storage/overloader/screenshaker,
+/obj/item/storage/overloader/rainbow,
+/obj/item/storage/overloader/jitterbug,
+/obj/item/storage/overloader/classic,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"zN" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/gold,
+/area/golden_deep)
 "zP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/golden_deep/engineering)
+"zR" = (
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"zX" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"zZ" = (
+/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/cable{
+	dir = 1
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/engineering)
 "Ab" = (
 /turf/simulated/floor/carpet/art,
-/area/space)
+/area/golden_deep/captain)
+"Am" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/golden_deep,
+/obj/item/clothing/head/helmet/space/void/golden_deep,
+/obj/item/device/suit_cooling_unit,
+/obj/item/clothing/shoes/magboots,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window,
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"Au" = (
+/obj/random/booze,
+/obj/random/booze,
+/obj/structure/closet/crate/secure/weapon{
+	name = "contraband crate"
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"Ay" = (
+/mob/living/simple_animal/rat/brown,
+/turf/simulated/floor/tiled,
+/area/golden_deep/custodial)
+"AC" = (
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	dir = 8
+	},
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"Ba" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"Bc" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
 "Bf" = (
 /obj/structure/table/wood,
 /obj/item/device/hand_labeler,
 /obj/item/stack/packageWrap,
 /turf/simulated/floor/gold,
-/area/space)
+/area/golden_deep/office)
+"Bk" = (
+/obj/structure/table/steel,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"Bp" = (
+/obj/structure/table/steel,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/device/price_scanner,
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"Bq" = (
+/obj/structure/table/steel,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/machinery/vending/wallmed1{
+	pixel_y = 27
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"Bu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"BD" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 8
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"BE" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/alarm/east{
+	req_one_access = list(217)
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/secure)
+"BF" = (
+/obj/structure/table/steel,
+/obj/random/tool,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"BP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"BR" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"BS" = (
+/obj/structure/cable{
+	dir = 1;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"BW" = (
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/office)
+"Cb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"Cq" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	frequency = 0451;
+	id_tag = "co2_out";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/golden_deep/eva)
+"CC" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"CZ" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/borosilicate/reinforced,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
 "Da" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -364,11 +2326,64 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/office)
 "Dc" = (
 /obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/wood/mahogany,
-/area/space)
+/area/golden_deep/captain)
+"Dg" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"Di" = (
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/captain)
+"Dn" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
+"Ds" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/office)
+"Dt" = (
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
+"Dv" = (
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
+"Dw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
+"DK" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
 "DV" = (
 /obj/structure/bed/stool/chair/wood/wings{
 	dir = 4
@@ -377,20 +2392,202 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/art,
+/area/golden_deep/captain)
+"DX" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/firefighter,
+/turf/simulated/floor/plating,
+/area/golden_deep/storage)
+"DZ" = (
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/atmos)
+"Eh" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/pipedispenser,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"Ep" = (
+/obj/effect/shuttle_landmark/golden_deep/nav3,
+/turf/template_noop,
 /area/space)
+"Ex" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
 "Ey" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/art,
-/area/space)
+/area/golden_deep/captain)
+"Ez" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "golden_deep";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/office)
+"EB" = (
+/obj/machinery/door/airlock/multi_tile{
+	dir = 2;
+	door_color = "#ffcc33"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/storage)
+"EC" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/north{
+	pixel_x = 0;
+	req_access = list(217)
+	},
+/obj/machinery/alarm/east{
+	req_one_access = list(217)
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"ED" = (
+/obj/structure/janitorialcart/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/custodial)
+"EF" = (
+/obj/machinery/alarm/south{
+	req_one_access = list(217)
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
+"EI" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/blue,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"ER" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"EV" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"EW" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
+"Fi" = (
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/obj/machinery/power/apc/east{
+	req_access = list(217)
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep)
 "Fk" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/gold,
-/area/space)
+/area/golden_deep/engineering)
+"Fm" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"Fn" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/table/steel,
+/obj/item/book/manual/evaguide,
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
+"Fy" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/west{
+	req_access = list(217)
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"FB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"FQ" = (
+/obj/structure/cable/green,
+/obj/machinery/power/apc/east{
+	req_access = list(217)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/secure)
 "FV" = (
+/obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/golden_deep/engineering)
+"FW" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"Gf" = (
+/obj/structure/table/steel,
+/obj/machinery/recharger{
+	pixel_x = 5
+	},
+/obj/machinery/recharger{
+	pixel_x = -7
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
 "Gk" = (
 /obj/machinery/conveyor{
 	dir = 9;
@@ -403,6 +2600,10 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"Gq" = (
+/obj/effect/shuttle_landmark/golden_deep/nav1,
+/turf/template_noop,
 /area/space)
 "Gs" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -411,64 +2612,500 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/golden_deep/engineering)
+"Gx" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/random/civgun/rifle,
+/obj/random/civgun/rifle,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"GA" = (
+/obj/machinery/atmospherics/portables_connector{
+	layer = 2.8;
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"GE" = (
+/obj/structure/closet/hazmat/custodial,
+/turf/simulated/floor/tiled,
+/area/golden_deep/custodial)
+"GH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"GK" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/north{
+	pixel_x = 0;
+	req_access = list(217)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/office)
+"GM" = (
+/obj/structure/table/steel,
+/obj/machinery/cell_charger,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
 "GP" = (
 /obj/machinery/computer/cryopod/robot{
 	pixel_x = 32
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - golden_deep";
+	identifier = "golden_deep"
+	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/storage)
+"GZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"Hd" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"Hk" = (
+/obj/machinery/light,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
 "Hm" = (
 /obj/machinery/cryopod/robot,
 /turf/simulated/floor/wood/mahogany,
-/area/space)
+/area/golden_deep/captain)
+"Hr" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	dir = 8
+	},
+/obj/machinery/meter,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"Hv" = (
+/obj/machinery/atm{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/golden_deep/captain)
+"Hw" = (
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"HB" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
+"HC" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
+"HD" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/golden_deep_shuttle,
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"HO" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"HP" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"HQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
+"Ic" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"Ij" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"Im" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1385;
+	icon_state = "door_locked";
+	id_tag = "golden_shuttle_in";
+	dir = 1
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"II" = (
+/obj/structure/closet/crate/secure/phoron{
+	req_access = list(217)
+	},
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"IV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - golden_deep";
+	identifier = "golden_deep"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/storage)
+"IY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/machinery/door/airlock/external{
+	frequency = 1385;
+	icon_state = "door_locked";
+	id_tag = "golden_shuttle_out";
+	dir = 1
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"Jf" = (
+/obj/structure/cable{
+	dir = 1;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/engineering)
+"Jz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2;
+	id_tag = "golden_shuttle_pump_out_internal";
+	frequency = 1385;
+	layer = 2.8
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1385;
+	id_tag = "golden_shuttle_chamber_sensor";
+	pixel_y = null;
+	dir = 1;
+	pixel_x = 23
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
 "JQ" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/wood/mahogany,
-/area/space)
+/area/golden_deep/captain)
+"JS" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/alarm/north{
+	req_one_access = list(217)
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"JY" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"Kb" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"Kd" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/gold{
+	req_access = list(217);
+	dir = 1;
+	name = "Warehouse"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep)
+"Kh" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"Ki" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/golden_deep/custodial)
+"Kj" = (
+/obj/effect/map_effect/airlock/w_to_e/long/square,
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/dock)
+"Kq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
 "Kw" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/art,
-/area/space)
+/area/golden_deep/captain)
+"Ky" = (
+/obj/machinery/alarm/north{
+	req_one_access = list(217)
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"KL" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/plasteel/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"KY" = (
+/obj/structure/bed/stool/chair/office/dark,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"KZ" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/gold,
+/area/golden_deep)
+"Lb" = (
+/obj/machinery/shipsensors,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/airless,
+/area/golden_deep/bridge)
+"Lf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
 "Ll" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/bridge)
+"LC" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/door/airlock/gold{
+	req_access = list(217);
+	dir = 4;
+	name = "Engineering"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
 "LG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - golden_deep_boss";
+	identifier = "golden_deep_boss"
+	},
 /turf/simulated/floor/carpet/art,
-/area/space)
+/area/golden_deep/captain)
 "LH" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/storage)
 "LM" = (
+/obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/golden_deep/engineering)
+"Mj" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "pump to waste"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"Mo" = (
+/obj/structure/table/steel,
+/obj/random/tool,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"Mq" = (
+/obj/structure/cable{
+	dir = 1
+	},
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"Mr" = (
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/dock)
 "Mz" = (
 /obj/structure/table/wood,
 /obj/item/device/price_scanner,
 /turf/simulated/floor/gold,
-/area/space)
+/area/golden_deep/office)
+"MJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
 "MM" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /turf/simulated/wall/gold_reinforced,
-/area/space)
+/area/golden_deep/office)
 "MN" = (
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/portprop)
+"MO" = (
+/obj/structure/table/steel,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
+"MQ" = (
+/obj/machinery/computer/ship/engines,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"MW" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/storage)
 "Ni" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/art,
-/area/space)
+/area/golden_deep/captain)
+"Nm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
 "Nn" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -484,47 +3121,439 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/warehouse)
 "No" = (
 /obj/structure/table/rack/fancy_table/black,
 /obj/item/paper_bin,
 /obj/item/pen/fountain/captain,
 /turf/simulated/floor/wood/mahogany,
+/area/golden_deep/captain)
+"Nu" = (
+/obj/effect/shuttle_landmark/golden_deep/nav2,
+/turf/template_noop,
 /area/space)
+"Nz" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"NH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"NL" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"NR" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"Oh" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"Oi" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"OC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"OD" = (
+/turf/simulated/floor/plating,
+/area/golden_deep/dock)
+"OH" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -24;
+	pixel_y = 3
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -24;
+	pixel_y = -10
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"OP" = (
+/obj/structure/closet/toolcloset,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"OV" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/golden_deep/captain)
+"Pf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"Py" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"PK" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
 "PM" = (
 /turf/simulated/wall/gold_reinforced,
-/area/space)
+/area/golden_deep/eva)
+"PR" = (
+/obj/machinery/light,
+/obj/item/storage/belt/utility,
+/obj/structure/table/steel,
+/obj/item/rig/eva,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
 "PU" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
-/area/space)
+/area/golden_deep/warehouse)
+"PX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
+"Qm" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
 "Qx" = (
-/obj/structure/closet/secure_closet/guncabinet,
-/obj/item/clothing/suit/armor/carrier/heavy,
-/obj/item/clothing/suit/armor/carrier/heavy,
-/obj/item/clothing/head/helmet/merc,
-/obj/item/clothing/head/helmet/merc,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"QB" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/voidsuit/no_nanotrasen,
+/obj/random/rig_module,
+/obj/random/rig_module,
+/obj/structure/closet/crate,
+/obj/random/highvalue,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"QF" = (
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/structure/closet/crate/secure/weapon{
+	name = "contraband crate"
+	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/golden_deep/engineering)
+"QG" = (
+/obj/machinery/iff_beacon/name_change,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/airless,
+/area/golden_deep/bridge)
+"QX" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/gold,
+/area/golden_deep)
+"Rc" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/storage)
 "Rf" = (
-/obj/structure/closet/secure_closet/guncabinet,
-/obj/random/civgun/rifle,
-/obj/random/civgun/rifle,
+/obj/structure/safe/cash,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/golden_deep/secure)
+"Rh" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"Rk" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/engineering)
+"Rm" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"Ro" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
+"Ru" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"RH" = (
+/obj/machinery/door/airlock/multi_tile{
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
+"RR" = (
+/obj/item/clothing/accessory/badge/passport,
+/obj/item/clothing/accessory/badge/passport,
+/obj/item/clothing/accessory/badge/passport,
+/obj/item/clothing/accessory/badge/passport/coc,
+/obj/item/clothing/accessory/badge/passport/coc,
+/obj/item/clothing/accessory/badge/passport/coc,
+/obj/item/clothing/accessory/badge/passport/sol,
+/obj/item/clothing/accessory/badge/passport/sol,
+/obj/item/clothing/accessory/badge/passport/elyra,
+/obj/item/clothing/accessory/badge/passport/elyra,
+/obj/item/clothing/accessory/badge/passport/elyra,
+/obj/structure/closet/crate/secure/weapon{
+	name = "contraband crate"
+	},
+/obj/machinery/light/broken,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
 "Sg" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/machinery/recharge_station,
 /turf/simulated/floor/wood/mahogany,
-/area/space)
+/area/golden_deep/captain)
+"Sh" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"Sr" = (
+/obj/machinery/alarm/north{
+	req_one_access = list(217)
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"Sy" = (
+/turf/simulated/wall/gold_reinforced,
+/area/golden_deep/starboardprop)
+"SA" = (
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep)
+"SD" = (
+/obj/structure/table/steel,
+/obj/random/tech_supply,
+/obj/random/toolbox,
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"SL" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/south{
+	req_access = list(217)
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"SP" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/keg,
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
 "SQ" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
 /turf/simulated/floor/gold,
-/area/space)
+/area/golden_deep)
+"SZ" = (
+/obj/machinery/air_sensor{
+	frequency = 0451;
+	id_tag = "co2_sensor"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/golden_deep/eva)
+"Tq" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/north{
+	pixel_x = 0;
+	req_access = list(217)
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"Tx" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/gold,
+/area/golden_deep)
+"TD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
+"TJ" = (
+/obj/machinery/alarm/east{
+	req_one_access = list(217)
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"TK" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"TM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
 "TQ" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -532,33 +3561,522 @@
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
-/area/space)
+/area/golden_deep/office)
+"Uf" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/freezer,
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/random/contraband,
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"Ul" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"Un" = (
+/obj/structure/closet/crate/secure/phoron{
+	req_access = list(217)
+	},
+/obj/item/tank/phoron/shuttle,
+/obj/item/tank/phoron/shuttle,
+/obj/item/tank/phoron/shuttle,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
+"Uo" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"Us" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
+"Uu" = (
+/obj/machinery/computer/ship/navigation{
+	dir = 8
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"UE" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/custodial)
+"UK" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/custodial)
+"UQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
+"UZ" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
 "Va" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/gold,
-/area/space)
+/area/golden_deep/office)
+"Vg" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 8
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
+"Vk" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor/plating,
+/area/golden_deep/storage)
+"VC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"VD" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/gold,
+/area/golden_deep/dock)
+"VV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"Wa" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"Wc" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/west{
+	req_access = list(217)
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"We" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"Wg" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"Wr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1385;
+	master_tag = "golden_shuttle";
+	name = "interior access button";
+	pixel_x = -5;
+	pixel_y = -20;
+	dir = 1
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"Ws" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"Ww" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"WA" = (
+/obj/structure/cable/green,
+/obj/machinery/power/apc/east{
+	req_access = list(217)
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
 "WJ" = (
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/gold,
-/area/space)
+/area/golden_deep/bridge)
+"WN" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/computer/general_air_control/large_tank_control{
+	frequency = 0451;
+	input_tag = "co2_in";
+	name = "Carbon Dioxide Supply Monitor";
+	output_tag = "co2_out";
+	sensors = list("co2_sensor"="Tank")
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
 "WO" = (
 /obj/structure/table/rack/fancy_table/black,
 /obj/item/ipc_overloader/tranquil,
 /turf/simulated/floor/wood/mahogany,
-/area/space)
+/area/golden_deep/captain)
+"WP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/turf/simulated/wall/gold_reinforced,
+/area/shuttle/golden_deep)
+"WT" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2;
+	id_tag = "golden_shuttle_pump_out_internal";
+	frequency = 1385;
+	layer = 2.8
+	},
+/turf/simulated/floor/gold,
+/area/shuttle/golden_deep)
+"WY" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/storage)
 "WZ" = (
 /turf/simulated/floor/gold,
-/area/space)
+/area/golden_deep/office)
+"Xb" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
+"Xc" = (
+/obj/machinery/power/smes/buildable/main_engine,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"Xd" = (
+/turf/simulated/wall/gold_reinforced,
+/area/shuttle/golden_deep)
+"Xg" = (
+/obj/effect/floor_decal/spline/fancy{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep)
+"Xh" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/office)
 "Xi" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
-/area/space)
+/area/golden_deep/eva)
+"Xk" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/portable_atmospherics/canister/empty/hydrogen,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"Xm" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/golden_deep,
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
 "XC" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
 	},
 /turf/simulated/floor/gold,
+/area/golden_deep)
+"XJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"XS" = (
+/obj/structure/closet/crate/secure/phoron{
+	req_access = list(217)
+	},
+/obj/item/stack/material/gold/full,
+/obj/item/stack/material/gold/full,
+/obj/item/stack/material/gold/full,
+/obj/item/stack/material/gold/full,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"Yf" = (
+/turf/simulated/floor/tiled,
+/area/golden_deep/custodial)
+"Yo" = (
+/obj/machinery/portable_atmospherics/canister/phoron_scarce,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/eva)
+"Yq" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/engineering)
+"Yu" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"Yv" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/atmos)
+"YA" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
+"YC" = (
+/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"YF" = (
+/obj/structure/closet/crate/secure/phoron{
+	req_access = list(217)
+	},
+/obj/random/contraband,
+/obj/random/contraband,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
+"YI" = (
+/obj/effect/shuttle_landmark/golden_deep_shuttle/transit,
+/turf/space,
 /area/space)
+"YS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/golden_deep/starboardprop)
+"YX" = (
+/turf/simulated/floor/wood/mahogany,
+/area/golden_deep/captain)
+"Ze" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"Zj" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"Zl" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/animal_crate,
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
+"Zn" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - golden_deep_boss";
+	identifier = "golden_deep_boss"
+	},
+/turf/simulated/floor/carpet/art,
+/area/golden_deep/captain)
+"Zu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/portable_atmospherics/canister/empty/air,
+/turf/simulated/floor/plating,
+/area/golden_deep/portprop)
+"Zy" = (
+/obj/machinery/alarm/south{
+	req_one_access = list(217)
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/atmos)
+"Zz" = (
+/obj/machinery/atmospherics/binary/pump/fuel{
+	dir = 4;
+	name = "tank to thrusters"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"ZA" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
+"ZJ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/golden_deep/eva)
+"ZL" = (
+/obj/structure/closet/crate/secure/phoron{
+	req_access = list(217)
+	},
+/obj/random/highvalue/cash,
+/obj/random/highvalue/cash,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/book/manual/robotics_cyborgs,
+/turf/simulated/floor/tiled,
+/area/golden_deep/secure)
 
 (1,1,1) = {"
 pu
@@ -706,21 +4224,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (2,1,1) = {"
 pu
@@ -868,21 +4386,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (3,1,1) = {"
 pu
@@ -1030,21 +4548,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (4,1,1) = {"
 pu
@@ -1192,21 +4710,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (5,1,1) = {"
 pu
@@ -1354,21 +4872,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (6,1,1) = {"
 pu
@@ -1516,21 +5034,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (7,1,1) = {"
 pu
@@ -1678,21 +5196,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (8,1,1) = {"
 pu
@@ -1840,21 +5358,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+YI
+st
 "}
 (9,1,1) = {"
 pu
@@ -2002,21 +5520,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (10,1,1) = {"
 pu
@@ -2164,21 +5682,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (11,1,1) = {"
 pu
@@ -2326,21 +5844,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (12,1,1) = {"
 pu
@@ -2488,21 +6006,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (13,1,1) = {"
 pu
@@ -2650,21 +6168,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (14,1,1) = {"
 pu
@@ -2812,21 +6330,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (15,1,1) = {"
 pu
@@ -2974,21 +6492,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (16,1,1) = {"
 pu
@@ -3136,21 +6654,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (17,1,1) = {"
 pu
@@ -3298,21 +6816,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (18,1,1) = {"
 pu
@@ -3460,21 +6978,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (19,1,1) = {"
 pu
@@ -3622,21 +7140,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (20,1,1) = {"
 pu
@@ -3784,21 +7302,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (21,1,1) = {"
 pu
@@ -3946,21 +7464,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (22,1,1) = {"
 pu
@@ -4108,21 +7626,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
+st
 "}
 (23,1,1) = {"
 pu
@@ -4270,21 +7788,21 @@ pu
 pu
 pu
 pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
-pu
+dY
+dY
+dY
+dY
+dY
+dY
+dY
+dY
+dY
+dY
+dY
+dY
+dY
+dY
+dY
 "}
 (24,1,1) = {"
 pu
@@ -4360,7 +7878,7 @@ pu
 pu
 pu
 pu
-pu
+gp
 pu
 pu
 pu
@@ -7717,17 +11235,17 @@ pu
 pu
 pu
 pu
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
 pu
 pu
 pu
@@ -7879,18 +11397,18 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+cU
+GZ
+YS
+Nz
+uR
+HP
+TK
+sg
+Xk
+xB
+Sy
+Sy
 pu
 pu
 pu
@@ -8041,19 +11559,19 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+Sy
+Qx
+nb
+Qx
+Qx
+HP
+xB
+xB
+TK
+TK
+fj
+Sy
+Sy
 pu
 pu
 pu
@@ -8203,20 +11721,20 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+cU
+GZ
+Qm
+uR
+uR
+HP
+sg
+TK
+xB
+TK
+TK
+TK
+Sy
+Sy
 pu
 pu
 pu
@@ -8365,21 +11883,21 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+Sy
+Qx
+nb
+Qx
+Qx
+HP
+We
+TK
+We
+TK
+sg
+TK
+TK
+Sy
+Sy
 pu
 pu
 pu
@@ -8527,22 +12045,22 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+cU
+GZ
+Qm
+Qx
+Qx
+HP
+HP
+HP
+HP
+HP
+HP
+HP
+HP
+HP
+Sy
+Sy
 pu
 pu
 pu
@@ -8689,23 +12207,23 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+Sy
+Qx
+nb
+Qx
+Qx
+Qx
+Qx
+Qx
+HP
+Qx
+Qx
+Qx
+Qx
+Qx
+Nz
+Sy
+Sy
 pu
 pu
 pu
@@ -8851,24 +12369,24 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+cU
+GZ
+Qm
+Qx
+Qx
+Qx
+Qx
+Qx
+HP
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Sy
+Sy
 pu
 pu
 pu
@@ -9013,25 +12531,25 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+Sy
+Qx
+Sh
+lx
+GZ
+GZ
+GZ
+GZ
+GZ
+GZ
+GZ
+GZ
+GZ
+GZ
+GZ
+YS
+Qx
+Sy
+Sy
 pu
 pu
 pu
@@ -9175,26 +12693,26 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+cU
+GZ
+TM
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+FB
+Qx
+Qx
+Qx
+Qx
+nb
+Qx
+Qx
+Sy
+Sy
 pu
 pu
 pu
@@ -9337,27 +12855,27 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+Sy
+Qx
+Qx
+Ul
+Qx
+Qx
+Qx
+Qx
+Ul
+Qx
+Qx
+Qx
+Qx
+Qx
+uR
+nb
+Qx
+Qx
+Qx
+Sy
+Sy
 pu
 pu
 pu
@@ -9499,28 +13017,28 @@ pu
 pu
 pu
 pu
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
+Qx
+Qx
+Qx
+Qx
+Qx
+nb
+Qx
+Qx
+uR
+Qx
+Sy
+Sy
 pu
 pu
 pu
@@ -9670,19 +13188,19 @@ pu
 pu
 pu
 pu
-PM
-PM
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
+Sy
+Sy
+Qx
+Ul
+Qx
+cM
+Rh
+mp
+Qx
+Ul
+Qx
+Qx
+Sy
 pu
 pu
 pu
@@ -9833,18 +13351,18 @@ pu
 pu
 pu
 pu
-PM
-PM
-PM
-PM
-PM
-MN
-PM
-PM
-PM
-PM
-PM
-PM
+Sy
+Sy
+Sy
+Sy
+Sy
+gN
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
 pu
 pu
 pu
@@ -9998,14 +13516,14 @@ pu
 pu
 PM
 PM
-LM
-LM
-LM
-LM
-LM
-Xi
-rn
-rn
+rt
+Hw
+ym
+Ze
+WN
+Ro
+SZ
+Cq
 PM
 pu
 pu
@@ -10160,11 +13678,11 @@ pu
 pu
 pu
 PM
-LM
-LM
-LM
-LM
-LM
+iN
+Hw
+ym
+Hw
+lu
 Xi
 rn
 rn
@@ -10322,11 +13840,11 @@ pu
 pu
 pu
 PM
-LM
-LM
-LM
-LM
-LM
+iN
+Hw
+Wa
+ix
+UQ
 PM
 PM
 PM
@@ -10484,14 +14002,14 @@ pu
 pu
 pu
 PM
-LM
-LM
-LM
-LM
-LM
-MN
-MN
-MN
+Am
+Kh
+Hw
+CC
+ZJ
+dK
+Us
+uu
 PM
 pu
 pu
@@ -10646,14 +14164,14 @@ pu
 pu
 pu
 PM
-LM
-LM
-LM
-LM
-LM
-MN
-MN
-MN
+GM
+Hw
+qt
+ca
+DK
+pw
+TD
+Ex
 PM
 pu
 pu
@@ -10795,27 +14313,27 @@ pu
 pu
 pu
 pu
-pu
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
 PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-LM
-LM
-LM
-LM
-LM
-MN
-MN
-MN
+SD
+xr
+Hw
+ym
+Hw
+pw
+pw
+Un
 PM
 pu
 pu
@@ -10957,27 +14475,27 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
+aH
+UZ
+aH
+aH
+UZ
+aH
+aH
+aH
+pD
+aH
 PM
-LM
-LM
-LM
-LM
-LM
-MN
-MN
-MN
+zy
+jE
+TJ
+zX
+eY
+WA
+Yo
+Yo
 PM
 pu
 pu
@@ -11119,29 +14637,29 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
-PM
-PM
-LM
-LM
-PM
-PM
-PM
-PM
-PM
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+DZ
+DZ
+DZ
+DZ
+Xb
+RH
+DZ
+DZ
+DZ
+xz
+xz
 pu
 pu
 pu
@@ -11281,30 +14799,30 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
-PM
-PM
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+cA
+aH
+aH
+DZ
+oV
+zr
+Dv
+nz
+BP
+Dv
+wU
+Dv
+xz
+xz
+xz
 pu
 pu
 pu
@@ -11443,31 +14961,31 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
-LM
-PM
-PM
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+Dt
+DZ
+oV
+EI
+sj
+fU
+cG
+ll
+hz
+Dv
+xz
+xe
+xz
+xz
 pu
 pu
 pu
@@ -11605,32 +15123,32 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
-LM
-LM
-PM
-PM
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+DZ
+le
+Ww
+Dv
+Yv
+Cb
+Fn
+vH
+MO
+xz
+Yf
+UE
+xz
+aQ
 pu
 pu
 pu
@@ -11767,50 +15285,50 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
-LM
-LM
-LM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
+aH
+Xd
+eR
+eR
+eR
+Xd
+aH
+aH
+aH
+aH
+DZ
+wL
+EW
+Dv
+Yv
+sl
+Dv
+Dv
+Dv
+xz
+Yf
+Yf
+wA
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+aQ
+ct
+ct
+ct
+ct
+ct
+ct
+ct
+ct
+ct
+ct
 pu
 pu
 pu
@@ -11929,52 +15447,52 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-Ll
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
-LM
-LM
-LM
-PM
-eX
-LM
-LM
-LM
-LM
-LM
+lX
+Xd
+Dg
+mY
+mR
+Xd
+xK
+aH
+aH
+aH
+DZ
+sU
+Hr
+Mj
+fU
+tD
+Dv
+Dv
+HB
+xz
+Ay
+Ki
+hY
+aQ
+Rf
+II
+NL
+kt
+xp
+OH
 vk
-xg
-PM
-no
-MN
+Rf
+ct
+Vk
 uh
 LH
 LH
-rp
+LH
+LH
 pA
 ei
-PM
-PM
-PM
+ct
+ek
+ek
 pu
 pu
 pu
@@ -12091,70 +15609,70 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-Ll
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
-LM
-LM
-LM
-PM
-eX
-LM
-LM
-LM
-LM
-LM
-LM
+Xd
+Xd
+zR
+BD
+vw
+Xd
+Xd
+aH
+aH
+Dt
+DZ
+Oi
+ka
+Dv
+Yv
+sl
+EW
+Dv
+ce
+xz
+nZ
+Yf
+hY
+aQ
 Rf
-PM
-no
-MN
-uh
+XS
+xp
+kt
+xp
+xp
+Gx
+Rf
+ct
+DX
+jO
+LH
+LH
 LH
 LH
 rp
-MN
 ei
-PM
-MN
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
+ct
+xg
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+BW
+BW
+BW
+BW
+BW
 pu
 pu
 pu
@@ -12253,71 +15771,71 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-Ll
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
+Xd
+Bq
+zR
+zR
+zR
+EV
+Xd
+aH
+aH
+aH
+Uo
+Dv
+Dv
+Dv
+Wg
+mg
+Kb
+Kb
+xU
+bi
+UK
+Yf
+vi
+aQ
 eX
-LM
-LM
-LM
-LM
-LM
-LM
+rw
+xp
+kt
+xp
+xp
+bZ
 cZ
-PM
+ct
 no
-MN
-uh
+jO
+LH
+LH
 LH
 LH
 rp
-MN
 ei
-PM
-MN
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-PM
+ct
+ER
+jY
+jY
+Yu
+jY
+jY
+Yu
+oR
+jY
+Yu
+gb
+Uf
+Yu
+jY
+jY
+BW
 WZ
 WZ
 qa
-PM
-PM
+BW
+kA
 pu
 pu
 pu
@@ -12415,72 +15933,72 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-Ll
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
-LM
-LM
-LM
-PM
-eX
-LM
-LM
-LM
-LM
-LM
-LM
-Qx
-PM
+Xd
+un
+vR
+HD
+mb
+EV
+Xd
+rB
+aH
+aH
+Uo
+Dv
+Dv
+EW
+Fm
+Dv
+Dv
+Dv
+Zy
+xz
+fW
+Yf
+GE
+aQ
+Rf
+jJ
+xp
+kt
+xp
+xp
+zA
+Rf
+ct
 no
-MN
-uh
+jO
 LH
 LH
-rp
-MN
+LH
+LH
+IV
 lS
-PM
-MN
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-PM
-WZ
+ct
+Ij
+jY
+jY
+ER
+jY
+jY
+ER
+gb
+jY
+ER
+gb
+Uf
+ER
+jY
+jY
+BW
+Ds
 WZ
 vO
-PM
-PM
-PM
+BW
+kA
+kA
 pu
 pu
 pu
@@ -12562,6 +16080,7 @@ pu
 pu
 pu
 pu
+Nu
 pu
 pu
 pu
@@ -12576,77 +16095,76 @@ pu
 pu
 pu
 pu
-pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-Ll
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
-LM
-LM
-LM
-PM
-eX
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
+Xd
+MJ
+Bu
+kN
+Xd
+Xd
+Xd
+Xd
+aH
+aH
+Uo
+Dv
+Bc
+Dv
+Fm
+Dv
+Bc
+Dv
+Dv
+xz
+Ki
+Yf
+cN
+aQ
+Rf
+ZL
+xp
+kt
+xp
+xp
+kg
+Rf
+ct
 no
-MN
-uh
+jO
 LH
 LH
-rp
-MN
+LH
+LH
+IV
 lS
-PM
-MN
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-PM
+ct
+ER
+jY
+jY
+ER
+jY
+jY
+ER
+gb
+jY
+ER
+jY
+gb
+ER
+Zl
+Zl
+BW
 WZ
 WZ
 Bf
-PM
-WZ
-PM
-PM
-PM
-PM
-pu
+BW
+eU
+kA
+kA
+kA
+kA
+Lb
 pu
 pu
 pu
@@ -12739,78 +16257,78 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
-PM
-PM
-LM
-PM
-PM
-PM
-PM
-PM
-LM
-LM
-LM
-PM
-eX
-LM
-LM
-LM
-LM
-LM
+Xd
+oz
+VV
+Nm
+oc
+oG
+WT
+wN
+po
+ja
+DZ
+DZ
+DZ
+DZ
+kZ
+DZ
+DZ
+DZ
+DZ
+xz
+ED
+rI
+ED
+aQ
+Rf
+YF
+BE
+lG
+FQ
+iq
 en
-LM
-PM
+Rf
+ct
 no
-MN
-uh
-LH
-LH
-rp
+hB
+yA
+Rc
+MW
+rr
 GP
 lS
-PM
-MN
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-PM
+ct
+ER
+gb
+gb
+ER
+jY
+jY
+ER
+gb
+oR
+ER
+jY
+gb
+ER
+gb
+gb
+BW
 WZ
 WZ
 Va
-PM
-WZ
-WZ
-WZ
-WZ
-PM
-PM
-PM
-PM
+BW
+vM
+wI
+qD
+wH
+kA
+kA
+kA
+kA
 pu
 pu
 pu
@@ -12844,7 +16362,7 @@ pu
 pu
 pu
 pu
-pu
+Gq
 pu
 pu
 pu
@@ -12901,76 +16419,76 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-Ll
+Xd
+AC
+VV
+lV
+Im
+yG
+Jz
+IY
+PX
+pe
+zm
 XC
 XC
 XC
+Xg
 XC
 XC
+cP
 XC
-XC
-XC
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-LM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-MN
-MN
-PM
-PM
-PM
-PM
-MN
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-PM
-WZ
+xz
+xz
+xz
+xz
+aQ
+aQ
+aQ
+aQ
+hI
+aQ
+aQ
+aQ
+aQ
+ct
+ct
+ct
+ct
+WY
+EB
+ct
+ct
+ct
+ct
+JS
+gb
+gb
+ER
+jY
+jY
+ER
+jY
+oR
+ER
+jY
+gb
+ER
+gb
+gb
+BW
+pl
 WZ
 fr
-PM
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
+BW
+Ky
+cS
+Vg
+dz
+FW
+dz
 uw
 Ll
 pu
@@ -13063,76 +16581,76 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-MN
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-LH
-MN
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
+Xd
+NH
+pK
+Wr
+Xd
+Xd
+Xd
+WP
+ax
+sX
+wi
+qe
+qe
+qe
+md
+Tx
+QX
+zN
+Tx
+tO
+Tx
+Tx
+Tx
+tO
+Tx
+Tx
+tO
+gr
+Tx
+tO
+Tx
+Tx
+tO
+Tx
+Tx
+tO
+KZ
+Tx
+tO
+Tx
+Tx
+Kd
+yL
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+pt
+wR
+Xh
+qw
+qw
+jm
+JY
+dB
+dz
+Xm
+dz
+rL
 WJ
 Ll
 pu
@@ -13225,76 +16743,76 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-Ll
+Xd
+db
+tz
+Zz
+lk
+MQ
+Xd
+mL
+aH
+ac
+zm
 SQ
 SQ
+Fi
+SA
+SQ
+cs
 SQ
 SQ
-SQ
-SQ
-SQ
-SQ
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-tU
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-WZ
-WZ
-PM
-PM
-PM
-PM
-MN
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
+vB
+vB
+vB
+vB
+Di
+Di
+Di
+Di
+bQ
+Di
+Di
+Di
+Di
+Mr
+Mr
+Mr
+Mr
+Oh
+iT
+Mr
+Mr
+Mr
+Mr
+vo
+gb
+gb
+ER
+gb
+gb
+ER
+jY
+QB
+ER
+gb
+jY
+ER
 ft
 ft
-PM
-WZ
+BW
+GK
 WZ
 Mz
-PM
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
+BW
+Tq
+NR
+HO
+dz
+rh
+dz
 uK
 Ll
 pu
@@ -13387,78 +16905,78 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
-PM
-PM
-LM
-PM
-PM
-PM
-PM
-PM
+Xd
+aT
+XJ
+df
+gP
+YC
+Xd
+aH
+aH
+EF
+vB
+vB
+vB
+vB
+LC
+vB
+vB
+vB
+vB
+vB
 bB
 pp
 fO
-PM
+Di
 qI
 tU
-tU
-tU
-tU
-tU
-tU
+tH
+lp
+lg
+YX
+mq
 xV
-PM
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-PM
-MN
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
+Mr
+Fy
+pE
+jf
+cl
+Ba
+eD
+mS
+eD
+Mr
+ER
+gb
+jY
+ER
+gb
+gb
+ER
+jY
+jY
+ER
+gb
+jY
+ER
 ft
 ft
-PM
-WZ
+BW
+Ds
 WZ
 iY
-PM
-WZ
-WZ
-WZ
-WZ
-PM
-PM
-PM
-PM
+BW
+vM
+eG
+Uu
+vK
+kA
+kA
+kA
+kA
 pu
 pu
 pu
@@ -13549,32 +17067,32 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-Ll
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
+Xd
+bU
+aK
+aR
+ZA
+mI
+Xd
+aH
+aH
+aH
+hM
+fA
+fA
+ex
+oJ
+wr
+wr
+Ic
+OP
+vB
 zP
 FV
 bO
-PM
+Di
 Hm
 LG
 Kw
@@ -13583,42 +17101,42 @@ Kw
 Kw
 Ni
 xd
-PM
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-PM
-MN
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
+Mr
+eD
+tp
+eD
+BR
+eD
+tp
+eD
+eD
+Mr
+ER
+gb
+jY
+ER
+jY
+gb
+ER
+jY
+gb
+ER
+jY
+jY
+ER
 ft
 uM
-PM
+BW
 TQ
-ft
+qr
 oy
-PM
-WZ
-PM
-PM
-PM
-PM
-pu
+BW
+eU
+kA
+kA
+kA
+kA
+QG
 pu
 pu
 pu
@@ -13711,72 +17229,72 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-Ll
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
+Xd
+ZA
+ZA
+km
+ZA
+SL
+Xd
+aH
+aH
+aH
+hM
+fA
+fA
+fA
+Dw
+fA
+fA
+Rm
+OP
+vB
 eJ
 aZ
 Gs
-PM
+Di
 Hm
-hk
+Zn
 Ab
 Ab
 Ab
 Ab
 fs
 Dc
-PM
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-PM
-MN
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
+Mr
+Mr
+Mr
+vz
+hw
+Bp
+Mr
+Mr
+hd
+Mr
+Ij
+gb
+gb
+ER
+jY
+gb
+ER
+SP
+SP
+ER
+jY
+gb
+ER
 PU
 Nn
 MM
 gz
 xP
-ft
-PM
-PM
-PM
+gn
+BW
+kA
+kA
 pu
 pu
 pu
@@ -13873,33 +17391,33 @@ pu
 pu
 pu
 pu
-pu
+uL
+Xd
+Xd
+ZA
+ZA
+km
+ZA
+ZA
+Xd
+Xd
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-Ll
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
-PM
+aH
+hM
+fA
+fA
+fA
+Dw
+HC
+fA
+Rm
+OP
+vB
+vB
 rs
-PM
-PM
-jq
+vB
+Di
+Hv
 hk
 Ab
 Ab
@@ -13907,37 +17425,37 @@ Ab
 Ab
 fs
 Dc
-PM
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-PM
-MN
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
-MN
-MN
-LH
+Mr
+eD
+eD
+eD
+eD
+eD
+eD
+eD
+eD
+Mr
+ER
+jY
+gb
+Zj
+jY
+jY
+Zj
+SP
+SP
+Zj
+jY
+gb
+Zj
 PU
 Gk
-sA
+Ez
 sA
 sA
 Da
-PM
-PM
+BW
+kA
 pu
 pu
 pu
@@ -14035,32 +17553,32 @@ pu
 pu
 pu
 pu
-pu
+uL
+Xd
+nf
+pC
+OC
+hh
+OC
+Kq
+Hk
+Xd
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-Ll
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
+Dt
+vB
+wJ
+Mo
+BF
+dW
+Dn
+HQ
+Rm
+fA
+fA
+Ws
+fA
+fA
+Di
 jq
 zb
 ck
@@ -14069,36 +17587,36 @@ ck
 ck
 Ey
 tQ
-PM
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-WZ
-PM
-MN
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
+Mr
+eD
+tp
+eD
+iF
+VD
+Pf
+eD
+eD
+Mr
+xg
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+ek
+BW
+BW
+BW
+BW
+BW
 pu
 pu
 pu
@@ -14197,52 +17715,52 @@ pu
 pu
 pu
 pu
-pu
+uL
+Xd
+Xd
+ho
+Xd
+ho
+Xd
+ho
+Xd
+Xd
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-Ll
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
-PM
+aH
+vB
+fA
+KY
+wJ
+fA
+nu
+Dw
+Rm
+fA
+vB
+vB
 mv
-PM
-PM
+vB
+Di
 Sg
-tU
+YX
 No
 bd
 WO
-tU
-tU
+YX
+YX
 JQ
-PM
-WZ
-WZ
-MN
-MN
-WZ
-WZ
-WZ
-WZ
-PM
-PM
-PM
+Mr
+eD
+Mr
+OD
+OD
+Kj
+GA
+tp
+eD
+Mr
+ek
+ek
 pu
 pu
 pu
@@ -14359,50 +17877,50 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
-LM
-LM
-LM
-PM
-PM
-Ll
-Ll
-Ll
-Ll
-Ll
-Ll
-PM
-PM
-PM
-PM
-MN
-MN
-PM
-PM
-PM
-PM
-PM
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+vB
+ie
+fA
+Bk
+fA
+fA
+Dw
+Rm
+PR
+vB
+fA
+fA
+RR
+Di
+Di
+OV
+OV
+OV
+OV
+OV
+OV
+Di
+Mr
+Mr
+Mr
+OD
+OD
+Mr
+Mr
+Mr
+Mr
+Mr
 pu
 pu
 pu
@@ -14521,32 +18039,32 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
-LM
-LM
-PM
-PM
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+vB
+gq
+fA
+fA
+fA
+fA
+Dw
+Rm
+lA
+mv
+zL
+Au
+vB
+Di
 pu
 pu
 pu
@@ -14557,10 +18075,10 @@ pu
 pu
 pu
 pu
-PM
-MN
-MN
-PM
+Mr
+OD
+OD
+Mr
 pu
 pu
 pu
@@ -14683,31 +18201,31 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
-PM
-PM
-PM
-LM
-LM
-LM
-LM
-PM
-LM
-PM
-PM
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+Dt
+vB
+vB
+vB
+vB
+vB
+fA
+Dw
+Rm
+Gf
+vB
+QF
+vB
+vB
 pu
 pu
 pu
@@ -14719,10 +18237,10 @@ pu
 pu
 pu
 pu
-PM
-MN
-MN
-PM
+Mr
+hf
+OD
+Mr
 pu
 pu
 pu
@@ -14845,30 +18363,30 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-WZ
-WZ
-WZ
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+vB
+vg
+vg
+vg
 Fk
-LM
-LM
-LM
-LM
-PM
-PM
-PM
+fA
+Dw
+Rm
+fA
+vB
+vB
+vB
 pu
 pu
 pu
@@ -15007,29 +18525,29 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-WZ
-WZ
-WZ
-WZ
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+vB
+Yq
+zZ
+Jf
+Jf
+BS
+Dw
+Rm
 LM
-LM
-LM
-LM
-PM
-PM
+vB
+vB
 pu
 pu
 pu
@@ -15169,28 +18687,28 @@ pu
 pu
 pu
 pu
-pu
+uL
 aH
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-WZ
-WZ
-WZ
+aH
+qP
+aH
+aH
+qP
+aH
+aH
+qP
+aH
+aH
+vB
+vg
+vg
+vg
 Fk
-LM
-LM
-LM
-LM
-PM
+ds
+Dw
+Rm
+KL
+vB
 pu
 pu
 pu
@@ -15331,28 +18849,28 @@ pu
 pu
 pu
 pu
-pu
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-LM
-LM
-LM
-LM
-PM
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
+pZ
+vB
+vB
+vB
+vB
+vB
+ds
+Dw
+Rm
+sm
+vB
 pu
 pu
 pu
@@ -15505,16 +19023,16 @@ pu
 pu
 pu
 pu
-PM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
+vB
+Xc
+Mq
+yH
+yH
+jt
+Dw
+Rm
+Eh
+vB
 pu
 pu
 pu
@@ -15667,16 +19185,16 @@ pu
 pu
 pu
 pu
-PM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
+vB
+wv
+fA
+fA
+fA
+fA
+Dw
+Rm
+pq
+vB
 pu
 pu
 pu
@@ -15829,16 +19347,16 @@ pu
 pu
 pu
 pu
-PM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
+vB
+kM
+ww
+Rk
+pV
+pV
+lv
+YA
+vT
+vB
 pu
 pu
 pu
@@ -15991,16 +19509,16 @@ pu
 pu
 pu
 pu
-PM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-LM
-PM
+vB
+EC
+fA
+ow
+Ws
+fA
+fA
+fA
+ag
+vB
 pu
 pu
 pu
@@ -16152,17 +19670,17 @@ pu
 pu
 pu
 pu
-PM
-PM
-PM
-PM
-LM
-PM
-PM
-PM
-PM
-PM
-PM
+ys
+ys
+ys
+ys
+qY
+ys
+ys
+ys
+ys
+ys
+ys
 pu
 pu
 pu
@@ -16314,17 +19832,17 @@ pu
 pu
 pu
 pu
-PM
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
+ys
+Sr
+rO
+Wc
+PK
+fx
+rO
+fx
+rO
+rO
+ys
 pu
 pu
 pu
@@ -16475,18 +19993,18 @@ pu
 pu
 pu
 pu
-PM
-PM
+ys
+ys
+rO
 MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
+rO
+Ru
+rO
+rO
+rO
+rO
+rO
+ys
 pu
 pu
 pu
@@ -16636,19 +20154,19 @@ pu
 pu
 pu
 pu
-PM
-PM
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+ys
+ys
+rO
+rO
+rO
+rO
+Ru
+rO
+rO
+rO
+rO
+ys
+ys
 pu
 pu
 pu
@@ -16789,27 +20307,27 @@ pu
 pu
 pu
 pu
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+ys
+ys
+ys
+ys
+ys
+ys
+ys
+ys
+ys
+ys
+rO
+rO
+rO
+rO
+mu
+au
+gG
+rO
+rO
+ys
+ys
 pu
 pu
 pu
@@ -16951,26 +20469,26 @@ pu
 pu
 pu
 pu
-pu
+CZ
+oh
+fx
+rO
+rO
+fx
+rO
+rO
+fx
+rO
+rO
+rO
 MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+rO
+rO
+cv
+rO
+rO
+ys
+ys
 pu
 pu
 pu
@@ -17113,25 +20631,25 @@ pu
 pu
 pu
 pu
-pu
+ys
+cv
+rO
+rO
+rO
+rO
+rO
+rO
+rO
 MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+rO
+rO
+rO
+rO
+rO
+cv
+rO
+ys
+ys
 pu
 pu
 pu
@@ -17275,24 +20793,24 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+CZ
+vA
+ht
+VC
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+ht
+GH
+ys
+ys
 pu
 pu
 pu
@@ -17437,23 +20955,23 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+ys
+cv
+rO
+rO
+rO
+rO
+rO
+rO
+rO
+rO
+rO
+rO
+rO
+rO
+rO
+ys
+ys
 pu
 pu
 pu
@@ -17599,22 +21117,22 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+CZ
+Py
+rO
+rO
+rO
+rO
+rO
+rO
+rO
+rO
+rO
+rO
+rO
+Hd
+ys
+ys
 pu
 pu
 pu
@@ -17761,21 +21279,21 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+ys
+cv
+rO
+rO
+rO
+ql
+ql
+ql
+js
+ql
+ql
+uZ
+uZ
+ys
+ys
 pu
 pu
 pu
@@ -17923,20 +21441,20 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+CZ
+Py
+rO
+rO
+rO
+ql
+ql
+ql
+Zu
+ql
+ql
+fV
+ys
+ys
 pu
 pu
 pu
@@ -18085,19 +21603,19 @@ pu
 pu
 pu
 pu
-pu
+ys
+cv
+rO
 MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+rO
+fV
+ql
+ql
+ql
+ql
+fV
+ys
+ys
 pu
 pu
 pu
@@ -18247,18 +21765,18 @@ pu
 pu
 pu
 pu
-pu
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-MN
-PM
-PM
+CZ
+Lf
+Hd
+rO
+rO
+oj
+uZ
+fV
+oj
+fV
+ys
+ys
 pu
 pu
 pu
@@ -18409,17 +21927,17 @@ pu
 pu
 pu
 pu
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
-PM
+ys
+ys
+ys
+ys
+ys
+ys
+ys
+ys
+ys
+ys
+ys
 pu
 pu
 pu
@@ -19752,7 +23270,7 @@ pu
 pu
 pu
 pu
-pu
+Ep
 pu
 pu
 pu
