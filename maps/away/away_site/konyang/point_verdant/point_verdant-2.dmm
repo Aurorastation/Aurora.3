@@ -12138,7 +12138,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
 	},
-/turf/space,
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
 "Zy" = (
 /obj/structure/flora/bush/konyang_reeds/water,
