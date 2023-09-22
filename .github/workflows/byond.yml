@@ -32,6 +32,10 @@ jobs:
     concurrency:
       group: run_linters-${{ github.head_ref || github.run_id }}
       cancel-in-progress: true
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
     steps:
       # Clone Repo
       - uses: actions/checkout@v3
