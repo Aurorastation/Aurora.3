@@ -29,7 +29,8 @@
 	item_state = "box"
 	contained_sprite = TRUE
 	var/illustration = "writing"
-	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
+	///BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
+	var/foldable = /obj/item/stack/material/cardboard
 	var/trash = null // if set, can be crushed into a trash item when empty
 	var/maxHealth = 20	//health is already defined
 	use_sound = 'sound/items/storage/box.ogg'
