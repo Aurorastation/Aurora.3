@@ -2270,9 +2270,9 @@
 /area/headmaster_ship/engineering)
 "hm" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/stack/material/tritium/full,
-/obj/item/stack/material/tritium/full,
-/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/fifty,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

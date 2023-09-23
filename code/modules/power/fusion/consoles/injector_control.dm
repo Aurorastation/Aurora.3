@@ -55,8 +55,8 @@
 			I.injection_rate = clamp(new_injection_rate, 1, 100) / 100
 		return TOPIC_REFRESH
 
-/obj/machinery/computer/fusion/fuel_control/build_ui_data()
-	. = ..()
+/obj/machinery/computer/fusion/fuel_control/ui_data(mob/user)
+	var/list/data = ..()
 	var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 	var/datum/local_network/lan = fusion.get_local_network()
 	var/list/injectors = list()
@@ -72,4 +72,5 @@
 			injector["depletion"] = "[I.cur_assembly ? (I.cur_assembly.percent_depleted * 100) : 100]%"
 			injector["injection_rate"] = "[I.injection_rate * 100]%"
 			injectors += list(injector)
-	.["injectors"] = injectors
+	data["injectors"] = injectors
+	return data

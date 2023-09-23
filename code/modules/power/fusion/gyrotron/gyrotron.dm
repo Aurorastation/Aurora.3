@@ -1,4 +1,4 @@
-#define GYRO_POWER 25000
+#define GYRO_POWER 1500
 
 /obj/machinery/power/emitter/gyrotron
 	name = "gyrotron"

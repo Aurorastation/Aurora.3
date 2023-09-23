@@ -14499,8 +14499,7 @@
 /area/horizon/secure_ammunition_storage)
 "gVl" = (
 /obj/structure/closet/crate/rad,
-/obj/item/stack/material/tritium/ten,
-/obj/item/stack/material/tritium/ten,
+/obj/item/stack/material/tritium/fifty,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/tesla)
 "gVn" = (

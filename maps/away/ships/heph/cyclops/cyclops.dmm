@@ -2948,11 +2948,11 @@
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "EJ" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/stack/material/tritium/full,
-/obj/item/stack/material/tritium/full,
-/obj/item/stack/material/tritium/full,
-/obj/item/stack/material/tritium/full,
-/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/fifty,
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
 	},
