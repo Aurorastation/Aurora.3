@@ -169,7 +169,7 @@
 			icon_state = "grille"
 			ROD.use(1)
 			user.visible_message("<span class='notice'>[user] repairs the grille.</span>", \
-								 "<span class='notice'>You have repaired the grille.</span>")
+								"<span class='notice'>You have repaired the grille.</span>")
 			return
 
 //window placing begin //TODO CONVERT PROPERLY TO MATERIAL DATUM
