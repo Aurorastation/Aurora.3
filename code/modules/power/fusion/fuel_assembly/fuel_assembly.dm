@@ -2,7 +2,6 @@
 	name = "fuel rod assembly"
 	icon = 'icons/obj/machinery/fusion.dmi'
 	icon_state = "fuel_assembly"
-	layer = 4
 
 	var/material_name
 	var/percent_depleted = 1

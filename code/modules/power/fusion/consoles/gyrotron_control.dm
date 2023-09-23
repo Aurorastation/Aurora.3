@@ -21,19 +21,17 @@
 
 	switch(action)
 		if("modifypower")
-			// 1 - 50
 			G.mega_energy = clamp(params["modifypower"], 1, 50)
 			G.change_power_consumption(G.mega_energy * GYRO_POWER, POWER_USE_ACTIVE)
-			return TOPIC_REFRESH
+			return TRUE
 
-		// 2 - 10
 		if("modifyrate")
 			G.rate = clamp(params["modifyrate"], 2, 10)
-			return TOPIC_REFRESH
+			return TRUE
 
 		if("toggle")
 			G.activate(usr)
-			return TOPIC_REFRESH
+			return TRUE
 
 /obj/machinery/computer/fusion/gyrotron/ui_data(mob/user)
 	var/list/data = ..()

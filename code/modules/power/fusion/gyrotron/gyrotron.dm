@@ -1,5 +1,3 @@
-#define GYRO_POWER 1500
-
 /obj/machinery/power/emitter/gyrotron
 	name = "gyrotron"
 	icon = 'icons/obj/machinery/fusion.dmi'
@@ -47,5 +45,3 @@
 		fusion.get_new_tag(user)
 		return
 	return ..()
-
-#undef GYRO_POWER
