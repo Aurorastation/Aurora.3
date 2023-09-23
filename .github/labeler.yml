@@ -11,7 +11,7 @@ Database:
 '🗺️ Mapping - Away Ship/Away Site':
 - maps/away/*
 
-'🗺️Mapping - Deungeon':
+'🗺️Mapping - Dungeon':
 - maps/dungeon_spawns/*
 
 '🗺️Mapping - Event':
