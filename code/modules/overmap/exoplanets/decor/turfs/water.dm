@@ -13,7 +13,7 @@
 	icon_state = "unsmooth"
 	base_icon_state = "unsmooth"
 	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_deep_water.dmi'
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
@@ -36,15 +36,15 @@
 	icon_state = "unsmooth"
 	base_icon_state = "unsmooth"
 	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_smooth_water.dmi'
-	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	canSmoothWith = list(/turf/simulated/floor/exoplanet/water/shallow/konyang, /turf/simulated/floor/exoplanet/water/konyang, /turf/simulated/floor/exoplanet/water/shallow/konyang/beach)
 
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth
-	smooth = SMOOTH_FALSE
+	smoothing_flags = SMOOTH_FALSE
 
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach
 	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_beach.dmi'
-	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	canSmoothWith = list(/turf/simulated/floor/exoplanet/water/shallow/konyang, /turf/simulated/floor/exoplanet/water/konyang, /turf/simulated/floor/exoplanet/water/shallow/konyang/beach)
 
 /turf/simulated/floor/exoplanet/water/shallow/sewage//What horror.

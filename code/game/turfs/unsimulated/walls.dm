@@ -83,6 +83,6 @@
 		/obj/machinery/door,
 		/obj/machinery/door/airlock
 	)
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	icon_state = "map_white"
 

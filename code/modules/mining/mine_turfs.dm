@@ -7,7 +7,7 @@
 	density = TRUE
 	gender = PLURAL
 	opacity = TRUE
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	color = "#6e632f"
 
 /turf/unsimulated/mineral/konyang

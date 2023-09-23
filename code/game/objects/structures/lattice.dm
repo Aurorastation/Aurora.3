@@ -192,7 +192,7 @@
 	icon = 'icons/obj/structure/over_turf.dmi'
 	icon_state = "city_grate"
 	return_amount = 1
-	smooth = null
+	smoothing_flags = null
 
 /obj/structure/lattice/catwalk/indoor/tatami
 	name = "tatami spread"
@@ -200,7 +200,7 @@
 	icon = 'icons/obj/structure/over_turf.dmi'
 	icon_state = "tatami"
 	return_amount = null
-	smooth = null
+	smoothing_flags = null
 	footstep_sound = /singleton/sound_category/carpet_footstep
 
 /obj/structure/lattice/catwalk/indoor/planks
@@ -209,7 +209,7 @@
 	icon = 'icons/obj/structure/urban/wood.dmi'
 	icon_state = "plank"
 	return_amount = null
-	smooth = null
+	smoothing_flags = null
 	footstep_sound = /singleton/sound_category/wood_footstep
 
 /obj/structure/lattice/catwalk/indoor/planks/opaque

@@ -496,7 +496,7 @@
 	icon_state = "frame_half"
 	//basestate = "frame_half"
 	color = COLOR_GUNMETAL
-	smooth = null
+	smoothing_flags = null
 
 /obj/structure/window_frame/urban/full
 	name = "window frame"
