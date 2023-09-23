@@ -182,13 +182,6 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/space)
-"ey" = (
-/obj/structure/table/wood,
-/obj/machinery/appliance/cooker/oven/small{
-	pixel_y = 12
-	},
-/turf/simulated/floor/lino/diamond,
-/area/space)
 "eN" = (
 /obj/structure/table/rack,
 /obj/item/toy/comic/inspector{
@@ -914,10 +907,6 @@
 	pixel_y = 18;
 	pixel_x = 1
 	},
-/obj/machinery/appliance/cooker/oven/small{
-	pixel_x = -3;
-	pixel_y = 0
-	},
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
 /area/space)
@@ -1471,9 +1460,6 @@
 /obj/item/reagent_containers/food/drinks/dry_ramen{
 	pixel_y = 0;
 	pixel_x = -7
-	},
-/obj/machinery/appliance/cooker/oven/small{
-	pixel_y = 18
 	},
 /turf/simulated/floor/wood/bamboo,
 /area/space)
@@ -3062,7 +3048,7 @@ SD
 SD
 SD
 KO
-ey
+SY
 Lg
 bn
 Bb

@@ -1341,10 +1341,6 @@
 /area/konyang_landing_zone/command_center/garage)
 "rH" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/appliance/cooker/oven/small{
-	pixel_x = 6;
-	pixel_y = 5
-	},
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/item/storage/box/produce{
 	pixel_y = -10

@@ -3340,10 +3340,6 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
 "oE" = (
-/obj/machinery/appliance/cooker/oven/small{
-	pixel_x = -2;
-	pixel_y = 7
-	},
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/bar)
@@ -5336,10 +5332,6 @@
 /obj/machinery/chemical_dispenser/coffee/full{
 	pixel_y = 16;
 	pixel_x = -1
-	},
-/obj/machinery/appliance/cooker/oven/small{
-	pixel_x = -2;
-	pixel_y = -5
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)

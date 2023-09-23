@@ -683,10 +683,6 @@
 /area/point_verdant/outdoors)
 "kT" = (
 /obj/structure/table/wood,
-/obj/machinery/appliance/cooker/oven/small{
-	pixel_x = 15;
-	pixel_y = 6
-	},
 /obj/item/storage/box/cups,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)
@@ -1474,10 +1470,6 @@
 /obj/item/reagent_containers/food/drinks/pslatte{
 	pixel_x = -9;
 	pixel_y = 9
-	},
-/obj/machinery/appliance/cooker/oven/small{
-	pixel_x = 15;
-	pixel_y = 6
 	},
 /obj/item/clothing/head/collectable/petehat{
 	pixel_x = -6;
@@ -2612,10 +2604,6 @@
 /area/point_verdant/outdoors)
 "UY" = (
 /obj/structure/rod_railing,
-/obj/machinery/appliance/cooker/oven/small{
-	pixel_x = 7;
-	pixel_y = 7
-	},
 /obj/structure/table/wood,
 /obj/item/storage/box/donkpockets{
 	pixel_y = 6;
