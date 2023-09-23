@@ -1054,7 +1054,7 @@
 		/obj/item/material/kitchen/utensil/fork/plastic = 12,
 		/obj/item/material/kitchen/utensil/spoon/plastic = 12,
 		/obj/item/material/kitchen/utensil/knife/plastic = 12,
-		/obj/item/material/kitchen/utensil/fork/chopsticks/cheap = 12,
+		/obj/item/material/kitchen/utensil/fork/chopsticks/bamboo = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 3,
 		/obj/item/reagent_containers/glass/beaker/pitcher = 3,

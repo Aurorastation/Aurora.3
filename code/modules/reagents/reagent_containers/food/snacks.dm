@@ -3874,7 +3874,7 @@
 	set category = "Object"
 	set src in usr
 
-	var/obj/item/material/kitchen/utensil/fork/chopsticks/cheap/S = new()
+	var/obj/item/material/kitchen/utensil/fork/chopsticks/bamboo/S = new()
 
 	if(use_check_and_message(usr))
 		return

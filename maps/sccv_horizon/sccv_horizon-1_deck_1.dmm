@@ -735,9 +735,6 @@
 	},
 /area/shuttle/intrepid/quarters)
 "aFf" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1037,9 +1034,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
 "aOC" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/machinery/camera/network/supply{
@@ -1672,13 +1666,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
-"boy" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/hangar/operations)
 "boB" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2074,6 +2061,9 @@
 	dir = 1
 	},
 /obj/machinery/light/spot{
+	dir = 1
+	},
+/obj/effect/shuttle_landmark/canary/hangar{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -3518,9 +3508,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
 "cya" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
 	dir = 4;
 	frequency = 1380;
@@ -4401,9 +4388,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "deV" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/light/spot{
 	dir = 8
 	},
@@ -4616,10 +4600,6 @@
 /area/shuttle/intrepid/crew_compartment)
 "dnX" = (
 /obj/structure/table/reinforced,
-/obj/machinery/appliance/cooker/oven/small{
-	pixel_x = 6;
-	pixel_y = 5
-	},
 /obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -8;
 	pixel_y = 9
@@ -4637,6 +4617,10 @@
 	pixel_y = 5
 	},
 /obj/machinery/alarm/north,
+/obj/item/storage/box/snack{
+	pixel_x = 6;
+	pixel_y = 5
+	},
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
 "dob" = (
@@ -5216,12 +5200,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/canary)
-"dJQ" = (
-/obj/machinery/shieldwallgen,
-/obj/structure/cable/green,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/airless,
-/area/hangar/operations)
 "dJT" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5282,17 +5260,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "dKS" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "0-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -5301,6 +5270,9 @@
 	dir = 4
 	},
 /obj/machinery/power/apc/super/critical/north,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "dKY" = (
@@ -5336,9 +5308,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
 "dLp" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -5462,6 +5431,13 @@
 	},
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
+"dSQ" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/shuttle_landmark/intrepid/hangar{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "dTe" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -5776,9 +5752,6 @@
 /turf/simulated/floor/airless,
 /area/engineering/atmos)
 "eep" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/west,
@@ -6180,7 +6153,9 @@
 	req_access = list(13)
 	},
 /obj/structure/plasticflaps/airtight,
-/obj/effect/shuttle_landmark/mining/hangar,
+/obj/effect/shuttle_landmark/mining/hangar{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/hangar/operations)
 "euz" = (
@@ -6306,9 +6281,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "eyI" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -9284,12 +9256,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -10727,10 +10693,6 @@
 /obj/machinery/power/apc/super/west,
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
-"htv" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/airless,
-/area/hangar/operations)
 "htx" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -12280,10 +12242,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "iHE" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/hangar/operations)
 "iHM" = (
 /obj/structure/cable/green{
@@ -12933,9 +12901,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
 "jfc" = (
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
@@ -14360,9 +14325,6 @@
 /turf/space/dynamic,
 /area/template_noop)
 "kjv" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -14679,9 +14641,6 @@
 	},
 /area/shuttle/intrepid/engine_compartment)
 "ksR" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -14921,9 +14880,6 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "kBV" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
 	dir = 4;
 	frequency = 1380;
@@ -15525,13 +15481,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "kWB" = (
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -19250,7 +19200,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "nyl" = (
-/obj/effect/shuttle_landmark/intrepid/hangar,
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "9,13"
 	},
@@ -21020,9 +20969,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "oRA" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -21383,9 +21329,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "pes" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/light/spot{
 	dir = 1
 	},
@@ -22176,6 +22119,9 @@
 "pHy" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/loading/grey,
+/obj/effect/shuttle_landmark/supply/horizon/dock{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "pHI" = (
@@ -25246,9 +25192,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "rOz" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -25849,9 +25792,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "slv" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
@@ -27145,9 +27085,6 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -27683,9 +27620,6 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/camera/network/supply{
@@ -28354,9 +28288,6 @@
 /turf/simulated/wall/r_wall,
 /area/rnd/isolation_b)
 "tXS" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/structure/sign/emergency/evacuation{
 	dir = 8;
 	pixel_x = -32
@@ -28725,10 +28656,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
-"ujV" = (
-/obj/effect/shuttle_landmark/supply/horizon/dock,
-/turf/simulated/floor/plating,
-/area/hangar/operations)
 "ukl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -28865,9 +28792,6 @@
 /turf/space/dynamic,
 /area/engineering/atmos/propulsion/starboard)
 "unZ" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/light/spot{
 	dir = 8
 	},
@@ -31165,7 +31089,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/shuttle_landmark/canary/hangar,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "vUT" = (
@@ -47301,13 +47224,13 @@ bLO
 gvZ
 jfc
 tXS
-dJT
+rcA
 kBV
 oRA
 unZ
 oRA
 cya
-dJT
+rcA
 tXS
 aOC
 deV
@@ -47516,8 +47439,8 @@ san
 san
 san
 kWB
-iHE
-dJQ
+jEx
+jEx
 jEx
 pRz
 eSV
@@ -47705,7 +47628,7 @@ crZ
 qDJ
 wlh
 gvZ
-wos
+iHE
 jWJ
 paB
 mwO
@@ -47719,8 +47642,8 @@ mwO
 mwO
 mwO
 mwO
-tNp
-htv
+mwO
+suw
 tNp
 eSV
 eSV
@@ -47922,8 +47845,8 @@ mwO
 mwO
 mwO
 mwO
-tNp
-htv
+mwO
+mwO
 tNp
 eSV
 eSV
@@ -48125,8 +48048,8 @@ mwO
 mwO
 mwO
 mwO
-tNp
-htv
+mwO
+mwO
 tNp
 eSV
 eSV
@@ -48328,8 +48251,8 @@ mwO
 mwO
 mwO
 mwO
-tNp
-htv
+mwO
+mwO
 tNp
 eSV
 eSV
@@ -48517,10 +48440,9 @@ bEm
 ngD
 goO
 qMM
-wos
+iHE
 rcA
 pHy
-ujV
 mwO
 mwO
 mwO
@@ -48531,8 +48453,9 @@ mwO
 mwO
 mwO
 mwO
-tNp
-htv
+mwO
+mwO
+mwO
 oLi
 eSV
 eSV
@@ -48734,8 +48657,8 @@ mwO
 mwO
 mwO
 mwO
-tNp
-htv
+mwO
+mwO
 tNp
 eSV
 eSV
@@ -48937,8 +48860,8 @@ mwO
 mwO
 mwO
 mwO
-tNp
-htv
+mwO
+mwO
 tNp
 eSV
 eSV
@@ -49140,8 +49063,8 @@ mwO
 mwO
 mwO
 mwO
-tNp
-htv
+mwO
+mwO
 tNp
 eSV
 eSV
@@ -49329,7 +49252,7 @@ fbu
 fpy
 eDa
 gvZ
-wos
+iHE
 jWJ
 paB
 mwO
@@ -49343,8 +49266,8 @@ mwO
 mwO
 mwO
 mwO
-tNp
-htv
+mwO
+nhi
 tNp
 eSV
 eSV
@@ -49533,7 +49456,7 @@ dNk
 dNk
 dNk
 dKS
-boy
+uTz
 tgY
 tgY
 tgY
@@ -49546,8 +49469,8 @@ tgY
 tgY
 tgY
 gub
-iHE
-dJQ
+jEx
+jEx
 jEx
 kVe
 kVe
@@ -55010,7 +54933,7 @@ hYy
 apf
 aaa
 pvn
-pvn
+dSQ
 nvn
 gDj
 dir
