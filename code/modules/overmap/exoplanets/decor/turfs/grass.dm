@@ -4,6 +4,7 @@
 	icon_state = "greygrass"
 	color = "#799c4b"
 	footstep_sound = /singleton/sound_category/grass_footstep
+	does_footprint = FALSE
 
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
@@ -28,7 +29,7 @@
 	icon_state = "grove_grass[rand(1,2)]"
 
 /turf/simulated/floor/exoplanet/grass/stalk
-	icon = 'icons/turf/total_floors.dmi'
+	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass_stalk"
 	color = null
 	has_edge_icon = null
@@ -39,6 +40,7 @@
 	color = null
 	has_edge_icon = null
 	footstep_sound = /singleton/sound_category/water_footstep
+	does_footprint = TRUE
 
 /turf/simulated/floor/exoplanet/grass/marsh/Initialize()
 	. = ..()

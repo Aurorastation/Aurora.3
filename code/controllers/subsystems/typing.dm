@@ -146,7 +146,7 @@ Updated 09/10/2022 to include chatbar using Spookerton's SStyping system from Po
 /atom/movable/typing_indicator
 	icon = 'icons/mob/talk.dmi'
 	icon_state = "typing"
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	vis_flags = VIS_INHERIT_ID
 	var/atom/movable/master
 
@@ -156,6 +156,9 @@ Updated 09/10/2022 to include chatbar using Spookerton's SStyping system from Po
 	if(!ismovable(master))
 		stack_trace("Typing indicator initialized with [isnull(master) ? "null" : master] as master.")
 		return INITIALIZE_HINT_QDEL
+	if(ismob(master))
+		var/mob/mob = master
+		mob.adjust_typing_indicator_offsets(src)
 
 /atom/movable/typing_indicator/Destroy()
 	if(master)

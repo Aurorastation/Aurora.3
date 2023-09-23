@@ -20,9 +20,9 @@
 	unset_registered_user(registered_user)
 	return ..()
 
-/obj/item/card/id/syndicate/examine(mob/user)
-	..()
-	if(Adjacent(user))
+/obj/item/card/id/syndicate/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		if(user == registered_user)
 			to_chat(user, FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge.")))
 
@@ -133,7 +133,7 @@
 		QDEL_NULL(obfuscation_image)
 	update_icon()
 
-/obj/item/card/id/syndicate/Topic(href, href_list, var/datum/topic_state/state)
+/obj/item/card/id/syndicate/Topic(href, href_list, var/datum/ui_state/state)
 	if(..())
 		return 1
 

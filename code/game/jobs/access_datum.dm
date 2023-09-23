@@ -623,7 +623,6 @@ var/const/access_kataphract_knight = 114
 	id = access_unathi_pirate
 	access_type = ACCESS_TYPE_CENTCOM
 
-
 /var/const/access_iac_rescue_ship = 211
 /datum/access/access_iac_rescue_ship
 	id = access_iac_rescue_ship
@@ -642,4 +641,14 @@ var/const/access_kataphract_knight = 114
 /var/const/access_dpra = 214
 /datum/access/access_dpra
 	id = access_dpra
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_merchants_guild = 215
+/datum/access/access_merchants_guild
+	id = access_merchants_guild
+	access_type = ACCESS_TYPE_CENTCOM
+
+/var/const/access_hephaestus= 216
+/datum/access/access_hephaestus
+	id = access_hephaestus
 	access_type = ACCESS_TYPE_CENTCOM

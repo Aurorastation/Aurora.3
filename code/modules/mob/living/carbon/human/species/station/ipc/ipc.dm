@@ -4,6 +4,9 @@
 	name_plural = "Baselines"
 	category_name = "Integrated Positronic Chassis"
 	bodytype = BODYTYPE_IPC
+	species_height = HEIGHT_CLASS_SHORT
+	height_min = 100
+	height_max = 250
 	age_min = 1
 	age_max = 60
 	economic_modifier = 3
@@ -128,8 +131,7 @@
 		/singleton/origin_item/culture/ipc_tau_ceti,
 		/singleton/origin_item/culture/golden_deep,
 		/singleton/origin_item/culture/megacorporate,
-		/singleton/origin_item/culture/scrapper,
-		/singleton/origin_item/culture/orepit_trinary
+		/singleton/origin_item/culture/scrapper
 	)
 
 	alterable_internal_organs = list()
@@ -140,6 +142,7 @@
 	var/move_charge_factor = 1
 
 	use_alt_hair_layer = TRUE
+	psi_deaf = TRUE
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
@@ -369,9 +372,6 @@
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
-
-/datum/species/machine/has_psi_potential()
-	return FALSE
 
 /datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
 	if(H.get_total_health() <= config.health_threshold_dead)

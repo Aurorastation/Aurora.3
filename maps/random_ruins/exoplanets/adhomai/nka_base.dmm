@@ -68,9 +68,6 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/blue,
-/obj/structure/sign/flag/nka/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -159,9 +156,6 @@
 	},
 /area/nka_base)
 "mb" = (
-/obj/structure/sign/flag/nka/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -244,7 +238,7 @@
 /area/nka_base)
 "pB" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/nka_uniform,
 /obj/item/clothing/head/tajaran/nka_cap,
 /obj/item/clothing/accessory/badge/nka_passport,
@@ -570,7 +564,7 @@
 /area/nka_base)
 "Ec" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/nka_uniform,
 /obj/item/clothing/head/tajaran/nka_cap,
 /obj/item/clothing/accessory/badge/nka_passport,
@@ -602,7 +596,7 @@
 /area/nka_base)
 "Et" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/nka_uniform,
 /obj/item/clothing/head/tajaran/nka_cap,
 /obj/item/clothing/accessory/badge/nka_passport,
@@ -646,9 +640,6 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug,
 /obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/obj/structure/sign/flag/nka/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -713,9 +704,7 @@
 	},
 /area/nka_base)
 "Qx" = (
-/obj/structure/sign/flag/nka/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/nka/large/south,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -769,9 +758,7 @@
 "Up" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/obj/structure/sign/flag/nka/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/nka/large/north,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
@@ -806,7 +793,7 @@
 /area/nka_base)
 "VN" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/nka_uniform/commander,
 /obj/item/clothing/head/tajaran/nka_cap/commander,
 /obj/item/ammo_magazine/c38,
@@ -853,9 +840,7 @@
 	},
 /area/nka_base)
 "Yr" = (
-/obj/structure/sign/flag/nka/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/nka/large/north,
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},

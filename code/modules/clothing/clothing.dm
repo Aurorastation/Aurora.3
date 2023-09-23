@@ -20,6 +20,8 @@
 	*/
 	var/list/sprite_sheets_refit = null
 
+	var/species_sprite_adaption_type = WORN_UNDER
+
 	//material things
 	var/material/material = null
 	var/applies_material_color = TRUE
@@ -54,6 +56,25 @@
 //Updates the icons of the mob wearing the clothing item, if any.
 /obj/item/clothing/proc/update_clothing_icon()
 	return
+
+/obj/item/clothing/proc/build_and_apply_species_adaption()
+	if(!contained_sprite)
+		return
+	if(type in contained_clothing_species_adaption_cache)
+		var/list/adaption_cache = contained_clothing_species_adaption_cache[type]
+		if(length(adaption_cache))
+			icon_auto_adapt = TRUE
+			icon_supported_species_tags = adaption_cache
+		return
+	var/list/new_adaption_cache = list()
+	var/list/all_icon_states = icon_states(icon)
+	for(var/short_name in all_species_short_names)
+		if((short_name + "_" + item_state + species_sprite_adaption_type) in all_icon_states)
+			new_adaption_cache += short_name
+	contained_clothing_species_adaption_cache[type] = length(new_adaption_cache) ? new_adaption_cache : null
+	if(length(new_adaption_cache))
+		icon_auto_adapt = TRUE
+		icon_supported_species_tags = new_adaption_cache
 
 // Aurora forensics port.
 /obj/item/clothing/clean_blood()
@@ -313,6 +334,7 @@
 /obj/item/clothing/ears
 	name = "ears"
 	icon = 'icons/obj/clothing/ears.dmi'
+	species_sprite_adaption_type = WORN_LEAR
 	w_class = ITEMSIZE_TINY
 	throwforce = 2
 	slot_flags = SLOT_EARS
@@ -391,6 +413,7 @@
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_gloves.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_gloves.dmi'
 		)
+	species_sprite_adaption_type = WORN_GLOVES
 	siemens_coefficient = 0.75
 	var/wired = FALSE
 	var/obj/item/cell/cell = 0
@@ -442,7 +465,7 @@
 			update_icon()
 			return
 
-		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message(SPAN_WARNING("[user] cuts the fingertips off of \the [src]."),SPAN_WARNING("You cut the fingertips off of \the [src]."))
 
 		clipped = 1
@@ -483,9 +506,8 @@
 
 	var/mob/living/carbon/human/H = wearer
 	if(ring && istype(H))
-		if(!H.equip_to_slot_if_possible(ring, slot_gloves))
-			ring.forceMove(get_turf(src))
-		src.ring = null
+		H.equip_to_slot(ring, slot_gloves)
+		ring = null
 	wearer = null
 
 /obj/item/clothing/gloves/dropped()
@@ -509,11 +531,12 @@
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_hats.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_hats.dmi'
 		)
+	species_sprite_adaption_type = WORN_HEAD
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_SMALL
 	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM, BODYTYPE_TESLA_BODY)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
@@ -535,6 +558,7 @@
 /obj/item/clothing/head/proc/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object"
+	set src in usr
 
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
@@ -698,6 +722,7 @@
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_masks.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_masks.dmi'
 		)
+	species_sprite_adaption_type = WORN_MASK
 	slot_flags = SLOT_MASK
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
@@ -802,12 +827,8 @@
 //Shoes
 /obj/item/clothing/shoes
 	name = "shoes"
-	icon = 'icons/obj/clothing/shoes.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_shoes.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_shoes.dmi'
-		)
 	desc = "Comfortable-looking shoes."
+	species_sprite_adaption_type = WORN_SHOES
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	siemens_coefficient = 0.9
 	body_parts_covered = FEET
@@ -837,7 +858,7 @@
 	set category = "Object"
 	set src in usr
 
-	if(usr.stat || usr.restrained() || usr.incapacitated())
+	if(use_check_and_message(usr))
 		return
 
 	holding.forceMove(get_turf(usr))
@@ -963,6 +984,7 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/suit.dmi'
 	)
 	name = "suit"
+	species_sprite_adaption_type = WORN_SUIT
 	var/fire_resist = T0C+100
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	allowed = list(/obj/item/tank/emergency_oxygen)
@@ -971,7 +993,7 @@
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = ITEMSIZE_NORMAL
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM, BODYTYPE_TESLA_BODY)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
 
@@ -1163,7 +1185,7 @@
 	else if(item_icons && (slot_head_str in item_icons))
 		our_image = image(item_icons[slot_head_str], icon_state)
 	else
-		our_image = image(INV_W_UNIFORM_DEF_ICON, icon_state)
+		our_image = image((icon ? icon : INV_W_UNIFORM_DEF_ICON), icon_state)
 	our_image.color = color
 	return our_image
 
@@ -1173,8 +1195,8 @@
 		M.update_inv_w_uniform()
 		playsound(M, /singleton/sound_category/rustle_sound, 15, 1, -5)
 
-/obj/item/clothing/under/examine(mob/user)
-	..(user)
+/obj/item/clothing/under/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	switch(src.sensor_mode)
 		if(0)
 			to_chat(user, "Its sensors appear to be disabled.")
@@ -1335,6 +1357,7 @@
 	name = "ring"
 	w_class = ITEMSIZE_TINY
 	icon = 'icons/obj/clothing/rings.dmi'
+	species_sprite_adaption_type = WORN_GLOVES
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER
 	drop_sound = 'sound/items/drop/ring.ogg'

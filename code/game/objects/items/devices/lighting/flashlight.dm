@@ -32,7 +32,7 @@
 	var/obj/item/cell/cell
 	var/cell_type = /obj/item/cell/device
 	var/list/brightness_levels
-	var/brightness_level = "medium"
+	var/brightness_level = "high"
 	var/power_usage
 	/// Does the light use power?
 	var/power_use = TRUE
@@ -52,7 +52,7 @@
 	if(power_use && cell_type)
 		if(starts_with_cell)
 			cell = new cell_type(src)
-		brightness_levels = list("low" = 0.25, "medium" = 0.5, "high" = 1)
+		brightness_levels = list("low" = 1/32, "medium" = 1/16, "high" = 1/8) // ~26 minutes at high power with a device cell.
 		power_usage = (brightness_levels[brightness_level] / efficiency_modifier)
 	else
 		verbs -= /obj/item/device/flashlight/verb/toggle_brightness
@@ -124,12 +124,14 @@
 		M.update_inv_r_ear()
 		M.update_inv_head()
 
-/obj/item/device/flashlight/examine(mob/user)
+/obj/item/device/flashlight/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	if(power_use && brightness_level)
 		to_chat(user, SPAN_NOTICE("\The [src] is set to [brightness_level]."))
 		if(cell)
-			to_chat(user, SPAN_NOTICE("\The [src] has a \the [cell] attached."))
+			to_chat(user, SPAN_NOTICE("\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining."))
+	if(light_wedge && isturf(loc))
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is facing [dir2text(dir)].")))
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(always_on)
@@ -143,7 +145,7 @@
 			return 0
 
 	if(!isturf(user.loc))
-		to_chat(user, SPAN_NOTICE("You cannot turn the light on while in this [user.loc].")) //To prevent some lighting anomalities.
+		to_chat(user, SPAN_NOTICE("You cannot turn the light on while in this [user.loc].")) //To prevent some lighting anomalies.
 		return 0
 
 	playsound(src.loc, toggle_sound, 60, 1)
@@ -199,11 +201,6 @@
 /obj/item/device/flashlight/vendor_action(var/obj/machinery/vending/V)
 	toggle()
 
-/obj/item/device/flashlight/examine(mob/user, distance)
-	. = ..()
-	if(light_wedge && isturf(loc))
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is facing [dir2text(dir)].")))
-
 /obj/item/device/flashlight/dropped(mob/user)
 	. = ..()
 	if(light_wedge)
@@ -257,6 +254,9 @@
 				H.flash_act(length = 1 SECOND)
 	else
 		return ..()
+
+/obj/item/device/flashlight/AltClick()
+	toggle_brightness()
 
 /obj/item/device/flashlight/proc/inspect_vision(obj/item/organ/vision, mob/living/user)
 	var/mob/living/carbon/human/H = vision.owner
@@ -317,6 +317,7 @@
 	item_state = ""
 	flags = CONDUCT
 	brightness_on = 2
+	efficiency_modifier = 2
 	w_class = ITEMSIZE_TINY
 
 /obj/item/device/flashlight/heavy
@@ -337,6 +338,7 @@
 	item_state = "maglight"
 	force = 10
 	brightness_on = 5
+	efficiency_modifier = 0.8
 	w_class = ITEMSIZE_NORMAL
 	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
@@ -391,9 +393,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
 		)
-	force = 10
 	attack_verb = list("bludgeoned, bashed, whacked")
-	w_class = ITEMSIZE_NORMAL
 	matter = list(MATERIAL_STEEL = 200,MATERIAL_GLASS = 100)
 	flashlight_power = 1
 	brightness_on = 4

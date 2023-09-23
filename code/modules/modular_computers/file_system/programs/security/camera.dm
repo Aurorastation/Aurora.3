@@ -30,7 +30,6 @@
 /datum/computer_file/program/camera_monitor
 	filename = "cammon"
 	filedesc = "Camera Monitoring"
-	nanomodule_path = /datum/nano_module/camera_monitor
 	program_icon_state = "cameras"
 	program_key_icon_state = "yellow_key"
 	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements."
@@ -40,19 +39,17 @@
 	required_access_download = access_heads
 	color = LIGHT_COLOR_ORANGE
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
-
-/datum/nano_module/camera_monitor
-	name = "Camera Monitoring program"
+	tgui_id = "CameraMonitoring"
 	var/obj/machinery/camera/current_camera
 	var/current_network
 
-/datum/nano_module/camera_monitor/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = TRUE, state = default_state)
-	var/list/data = host.initial_data()
+/datum/computer_file/program/camera_monitor/ui_data(mob/user)
+	var/list/data = initial_data()
 
 	data["current_camera"] = current_camera ? current_camera.nano_structure() : null
 	data["current_network"] = current_network
 
-	var/list/all_networks[0]
+	var/list/all_networks = list()
 	for(var/network in current_map.station_networks)
 		all_networks += list(
 			list(
@@ -68,63 +65,73 @@
 	if(current_network)
 		data["cameras"] = camera_repository.cameras_in_network(current_network)
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "sec_camera.tmpl", "Camera Monitoring", 900, 800, state = state)
-		// ui.auto_update_layout = 1 // Disabled as with suit sensors monitor - breaks the UI map. Re-enable once it's fixed somehow.
-
-		ui.add_template("mapContent", "sec_camera_map_content.tmpl")
-		ui.add_template("mapHeader", "sec_camera_map_header.tmpl")
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 // Intended to be overriden by subtypes to manually add non-station networks to the list.
-/datum/nano_module/camera_monitor/proc/modify_networks_list(var/list/networks)
+/datum/computer_file/program/camera_monitor/proc/modify_networks_list(var/list/networks)
 	return networks
 
-/datum/nano_module/camera_monitor/proc/can_access_network(var/mob/user, var/network_access)
+/datum/computer_file/program/camera_monitor/proc/check_network_access(var/mob/user, var/access)
+	if(!access)
+		return 1
+
+	if(!istype(user))
+		return 0
+
+	var/obj/item/card/id/I = user.GetIdCard()
+	if(!I)
+		return 0
+
+	if(access in I.access)
+		return 1
+
+	return 0
+
+/datum/computer_file/program/camera_monitor/proc/can_access_network(var/mob/user, var/network_access)
 	// No access passed, or 0 which is considered no access requirement. Allow it.
 	if(!network_access)
 		return TRUE
 
-	return (check_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_access(user, network_access)
+	return (check_network_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
 
-/datum/nano_module/camera_monitor/Topic(href, href_list)
-	if(..())
+/datum/computer_file/program/camera_monitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return TRUE
 
-	if(href_list["switch_camera"])
-		var/obj/machinery/camera/C = locate(href_list["switch_camera"]) in cameranet.cameras
-		if(!C)
-			return
-		if(!(current_network in C.network))
-			return
+	switch(action)
+		if("switch_camera")
+			var/obj/machinery/camera/C = locate(params["switch_camera"]) in cameranet.cameras
+			if(!C)
+				return
+			if(!(current_network in C.network))
+				return
 
-		var/access_granted = FALSE
-		for(var/network in C.network)
-			if(can_access_network(usr, get_camera_access(network)))
-				access_granted = TRUE //We only need access to one of the networks.
-		if(!access_granted)
-			to_chat(usr, SPAN_WARNING("Access unauthorized."))
-			return
+			var/access_granted = FALSE
+			for(var/network in C.network)
+				if(can_access_network(usr, get_camera_access(network)))
+					access_granted = TRUE //We only need access to one of the networks.
+			if(!access_granted)
+				to_chat(usr, SPAN_WARNING("Access unauthorized."))
+				return
 
-		switch_to_camera(usr, C)
-		return TRUE
+			switch_to_camera(usr, C)
+			return TRUE
 
-	else if(href_list["switch_network"])
-		// Either security access, or access to the specific camera network's department is required in order to access the network.
-		if(can_access_network(usr, get_camera_access(href_list["switch_network"])))
-			current_network = href_list["switch_network"]
-		else
-			to_chat(usr, "\The [ui_host()] shows an \"Network Access Denied\" error message.")
-		return TRUE
+		if("switch_network")
+			// Either security access, or access to the specific camera network's department is required in order to access the network.
+			if(can_access_network(usr, get_camera_access(params["switch_network"])))
+				current_network = params["switch_network"]
+			else
+				to_chat(usr, SPAN_WARNING("\The [ui_host()] shows an \"Network Access Denied\" error message."))
+			return TRUE
 
-	else if(href_list["reset"])
-		reset_current()
-		usr.reset_view(current_camera)
-		return TRUE
+		if("reset")
+			reset_current()
+			usr.reset_view(current_camera)
+			return TRUE
 
-/datum/nano_module/camera_monitor/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
+/datum/computer_file/program/camera_monitor/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
 	//don't need to check if the camera works for AI because the AI jumps to the camera location and doesn't actually look through cameras.
 	if(isAI(user))
 		var/mob/living/silicon/ai/A = user
@@ -151,7 +158,7 @@
 
 	return TRUE
 
-/datum/nano_module/camera_monitor/proc/set_current(var/obj/machinery/camera/C)
+/datum/computer_file/program/camera_monitor/proc/set_current(var/obj/machinery/camera/C)
 	if(current_camera == C)
 		return
 
@@ -164,14 +171,14 @@
 		if(istype(L))
 			L.tracking_initiated()
 
-/datum/nano_module/camera_monitor/proc/reset_current()
+/datum/computer_file/program/camera_monitor/proc/reset_current()
 	if(current_camera)
 		var/mob/living/L = current_camera.loc
 		if(istype(L))
 			L.tracking_cancelled()
 	current_camera = null
 
-/datum/nano_module/camera_monitor/check_eye(var/mob/user as mob)
+/datum/computer_file/program/camera_monitor/check_eye(var/mob/user as mob)
 	var/obj/item/modular_computer/MC = user.machine
 	if(istype(MC) && ui_host() == MC)
 		if(!MC.working || user.blinded || user.stat)
@@ -183,6 +190,18 @@
 	if ( viewflag < 0 ) //camera doesn't work
 		reset_current()
 	return viewflag
+
+/datum/computer_file/program/camera_monitor/grants_equipment_vision(mob/user)
+	var/obj/item/modular_computer/MC = user.machine
+	if(istype(MC) && ui_host() == MC)
+		if(!MC.working || user.blinded || user.stat)
+			return FALSE
+	if(!current_camera)
+		return FALSE
+	var/viewflag = current_camera.check_eye(user)
+	if (viewflag < 0) //camera doesn't work
+		return FALSE
+	return TRUE
 
 
 // ERT Variant of the program
@@ -199,7 +218,7 @@
 	available_to_ai = FALSE
 
 // The ERT variant has access to ERT and crescent cams, but still checks for accesses. ERT members should be able to use it.
-/datum/nano_module/camera_monitor/ert/modify_networks_list(var/list/networks)
+/datum/computer_file/program/camera_monitor/ert/modify_networks_list(var/list/networks)
 	..()
 	networks.Add(list(list("tag" = NETWORK_ERT, "has_access" = 1)))
 	networks.Add(list(list("tag" = NETWORK_CRESCENT, "has_access" = 1)))

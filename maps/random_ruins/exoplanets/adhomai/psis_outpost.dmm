@@ -9,9 +9,6 @@
 /area/psis_outpost)
 "as" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
@@ -30,7 +27,8 @@
 "ch" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Outpost"
+	name = "Outpost";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -118,9 +116,6 @@
 /obj/item/folder/red,
 /obj/item/folder/red,
 /obj/item/folder/red,
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /obj/machinery/light{
 	dir = 4;
 	status = 2
@@ -237,9 +232,7 @@
 /obj/item/folder/red,
 /obj/item/folder/red,
 /obj/item/folder/red,
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /obj/item/folder/red,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
 	pixel_y = 5;
@@ -271,9 +264,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
 	pixel_x = 7;
 	pixel_y = 2
@@ -286,9 +277,6 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
-	},
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -359,7 +347,8 @@
 "rM" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Cells"
+	name = "Cells";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -512,7 +501,8 @@
 "Cz" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Outpost"
+	name = "Outpost";
+	dir = 1
 	},
 /obj/machinery/door/blast/shutters{
 	id = "psis_outpost_shutter"
@@ -534,9 +524,6 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -741,9 +728,7 @@
 	},
 /area/psis_outpost)
 "OX" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
@@ -847,9 +832,7 @@
 	dir = 8
 	},
 /obj/item/device/flashlight/lamp,
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -857,7 +840,8 @@
 "TJ" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Office"
+	name = "Office";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -884,7 +868,8 @@
 "UM" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Interrogation"
+	name = "Interrogation";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -905,9 +890,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
 	pixel_x = -8;
 	pixel_y = 5
@@ -958,9 +941,6 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},

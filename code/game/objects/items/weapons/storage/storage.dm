@@ -14,7 +14,6 @@
 
 /obj/item/storage
 	name = "storage"
-	icon = 'icons/obj/storage.dmi'
 	w_class = ITEMSIZE_NORMAL
 	var/list/can_hold  //List of objects which this item can store (if set, it can't store anything else)
 	var/can_hold_strict = FALSE // if strict, the exact path has to be matched
@@ -28,9 +27,7 @@
 	var/obj/screen/storage/storage_start //storage UI
 	var/obj/screen/storage/storage_continue
 	var/obj/screen/storage/storage_end
-	var/obj/screen/storage/stored_start
-	var/obj/screen/storage/stored_continue
-	var/obj/screen/storage/stored_end
+	var/list/storage_screens = list()
 	var/obj/screen/close/closer
 	var/care_about_storage_depth = TRUE
 	var/use_to_pickup	//Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
@@ -44,6 +41,7 @@
 	var/use_sound = /singleton/sound_category/rustle_sound	//sound played when used. null for no sound.
 	var/list/starts_with // for pre-filled items
 	var/empty_delay = 0 SECOND // time it takes to empty bag. this is multiplies by number of objects stored
+	var/animated = TRUE 	///Boolean, whether or not we should have the squish animation when inserting and removing objects
 
 /obj/item/storage/Destroy()
 	close_all()
@@ -51,9 +49,7 @@
 	QDEL_NULL(storage_start)
 	QDEL_NULL(storage_continue)
 	QDEL_NULL(storage_end)
-	QDEL_NULL(stored_start)
-	QDEL_NULL(stored_continue)
-	QDEL_NULL(stored_end)
+	QDEL_NULL_LIST(storage_screens)
 	QDEL_NULL(closer)
 	return ..()
 
@@ -158,6 +154,8 @@
 /obj/item/storage/proc/open(mob/user as mob)
 	if (use_sound)
 		playsound(src.loc, src.use_sound, 50, 0, -5)
+	if(animated)
+		animate_parent()
 
 	orient2hud(user)
 	if (user.s_active)
@@ -167,7 +165,10 @@
 /obj/item/storage/proc/close(mob/user as mob)
 	hide_from(user)
 	user.s_active = null
-	return
+	if(!length(can_see_contents()))
+		storage_start.vis_contents = list()
+		QDEL_NULL_LIST(storage_screens)
+		storage_screens = list()
 
 /obj/item/storage/proc/close_all()
 	for(var/mob/M in can_see_contents())
@@ -266,9 +267,17 @@
 	var/startpoint = 0
 	var/endpoint = 1
 
+	storage_start.vis_contents = list()
+	QDEL_NULL_LIST(storage_screens)
+	storage_screens = list()
+
 	for(var/obj/item/O in contents)
 		startpoint = endpoint + 1
 		endpoint += storage_width * O.get_storage_cost()/max_storage_space
+
+		var/obj/screen/storage/background/stored_start = new /obj/screen/storage/background(null, O, "stored_start")
+		var/obj/screen/storage/background/stored_continue = new /obj/screen/storage/background(null, O, "stored_continue")
+		var/obj/screen/storage/background/stored_end = new /obj/screen/storage/background(null, O, "stored_end")
 
 		var/matrix/M_start = matrix()
 		var/matrix/M_continue = matrix()
@@ -280,11 +289,13 @@
 		stored_start.transform = M_start
 		stored_continue.transform = M_continue
 		stored_end.transform = M_end
-		storage_start.add_overlay(list(stored_start, stored_continue, stored_end))
+
+		storage_screens += list(stored_start, stored_continue, stored_end)
+		storage_start.vis_contents += list(stored_start, stored_continue, stored_end)
 
 		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		O.maptext = ""
-		O.layer = SCREEN_LAYER+0.01
+		O.layer = SCREEN_LAYER+0.02
 
 	if (!defer_overlays)
 		storage_start.compile_overlays()
@@ -403,6 +414,8 @@
 	W.on_enter_storage(src)
 	if(use_sound)
 		playsound(src.loc, src.use_sound, 50, 0, -5)
+	if(animated)
+		animate_parent()
 	if(user)
 		W.dropped(user)
 		if(!istype(W, /obj/item/forensics))
@@ -410,13 +423,12 @@
 
 		if(!prevent_warning)
 			for(var/mob/M in viewers(user, null))
-				if (M == usr)
-					to_chat(usr, "<span class='notice'>You put \the [W] into [src].</span>")
+				if(M == usr)
+					continue
 				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
-					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
+					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
 				else if (W && W.w_class >= ITEMSIZE_NORMAL) //Otherwise they can only see large or normal items from a distance...
-					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
-
+					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
 		orient2hud(user)
 		if(user.s_active)
 			user.s_active.show_to(user)
@@ -448,6 +460,9 @@
 /obj/item/storage/proc/remove_from_storage(obj/item/W, atom/new_location)
 	if(!istype(W))
 		return FALSE
+
+	if(animated)
+		animate_parent()
 
 	if(istype(src, /obj/item/storage/box/fancy))
 		var/obj/item/storage/box/fancy/F = src
@@ -568,7 +583,7 @@
 	return handle_item_insertion(W, null, user)
 
 /obj/item/storage/dropped(mob/user as mob)
-	return
+	return ..()
 
 /obj/item/storage/attack_hand(mob/user)
 	if(ishuman(user))
@@ -601,6 +616,7 @@
 /obj/item/storage/verb/toggle_gathering_mode()
 	set name = "Switch Gathering Method"
 	set category = "Object"
+	set src in usr
 
 	collection_mode = !collection_mode
 	switch (collection_mode)
@@ -613,6 +629,7 @@
 /obj/item/storage/verb/quick_empty()
 	set name = "Empty Contents"
 	set category = "Object"
+	set src in usr
 
 	if((!ishuman(usr) && (src.loc != usr)) || usr.stat || usr.restrained())
 		return
@@ -648,7 +665,7 @@
 	. = ..()
 
 	if (max_storage_space > STORAGE_SPACE_CAP)
-		log_debug("STORAGE: [type] exceed STORAGE_SPACE_CAP. It has been reset to [STORAGE_SPACE_CAP].")
+		LOG_DEBUG("STORAGE: [type] exceed STORAGE_SPACE_CAP. It has been reset to [STORAGE_SPACE_CAP].")
 		max_storage_space = STORAGE_SPACE_CAP
 
 	fill()
@@ -670,12 +687,6 @@
 
 	storage_end = new /obj/screen/storage{icon_state = "storage_end"}
 	storage_end.master = src
-
-	stored_start = new /obj/storage_bullshit{icon_state = "stored_start"} //we just need these to hold the icon
-
-	stored_continue = new /obj/storage_bullshit{icon_state = "stored_continue"}
-
-	stored_end = new /obj/storage_bullshit{icon_state = "stored_end"}
 
 	closer = new /obj/screen/close{
 		icon_state = "x";
@@ -739,6 +750,11 @@
 // putting a sticker on something puts it in its contents, storage items use their contents to store their items
 /obj/item/storage/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	return FALSE
+
+/obj/item/storage/proc/animate_parent()
+	var/matrix/M = src.transform
+	animate(src, time = 1.5, loop = 0, transform = src.transform.Scale(1.07, 0.9))
+	animate(time = 2, transform = M)
 
 //Returns the storage depth of an atom. This is the number of storage items the atom is contained in before reaching toplevel (the area).
 //Returns -1 if the atom was not found on container.

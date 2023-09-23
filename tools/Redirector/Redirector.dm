@@ -60,7 +60,7 @@ world
 
 	send_link(src, serverlink)
 
-proc/extract(var/data, var/type = PLAYERS)
+/proc/extract(var/data, var/type = PLAYERS)
 
 	var/nextpos = 0
 

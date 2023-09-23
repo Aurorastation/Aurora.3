@@ -1,5 +1,8 @@
 /atom/movable
 	layer = 3
+	glide_size = 6
+	animate_movement = SLIDE_STEPS
+
 	var/last_move = null
 	var/anchored = 0
 	var/movable_flags
@@ -588,6 +591,9 @@
 	animate(src, alpha = old_alpha, pixel_x = old_x, pixel_y = old_y, transform = old_transform, time = 3, easing = CUBIC_EASING)
 
 /atom/movable/proc/get_floating_chat_x_offset()
+	return 0
+
+/atom/movable/proc/get_floating_chat_y_offset()
 	return 0
 
 /atom/movable/proc/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)

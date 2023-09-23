@@ -26,8 +26,8 @@
 			output += "<tr><td><a href=\"byond://?src=\ref[src];pollid=[pollid]\"><b>[pollquestion]</b></a></td></tr>"
 
 		output += "</table>"
-		send_theme_resources(src)
-		src << browse(enable_ui_theme(src, output),"window=playerpolllist;size=500x300")
+
+		src << browse(output,"window=playerpolllist;size=500x300")
 
 /mob/abstract/new_player/proc/show_poll_link(var/pollid = -1)
 	if(pollid == -1) return
@@ -42,7 +42,7 @@
 		if(link && link != "")
 			send_link(usr, link)
 		else
-			log_debug("Polling: [usr.ckey] tried to open poll [pollid] with a invalid link: [link]")
+			LOG_DEBUG("Polling: [usr.ckey] tried to open poll [pollid] with a invalid link: [link]")
 
 /mob/abstract/new_player/proc/poll_player(var/pollid = -1)
 	if(pollid == -1) return
@@ -128,8 +128,8 @@
 
 				output += "</div>"
 
-				send_theme_resources(src)
-				src << browse(enable_ui_theme(src, output),"window=playerpoll;size=500x250")
+
+				src << browse(output,"window=playerpoll;size=500x250")
 
 			//Polls with a text input
 			if("TEXT")
@@ -174,8 +174,8 @@
 				else
 					output += "[vote_text]"
 
-				send_theme_resources(src)
-				src << browse(enable_ui_theme(src, output),"window=playerpoll;size=500x500")
+
+				src << browse(output,"window=playerpoll;size=500x500")
 
 			//Polls with a text input
 			if("NUMVAL")
@@ -249,8 +249,8 @@
 					output += "<p><input type='submit' value='Submit'>"
 					output += "</form>"
 
-				send_theme_resources(src)
-				src << browse(enable_ui_theme(src, output),"window=playerpoll;size=500x500")
+
+				src << browse(output,"window=playerpoll;size=500x500")
 
 			if("MULTICHOICE")
 				var/DBQuery/voted_query = dbcon.NewQuery("SELECT optionid FROM ss13_poll_vote WHERE pollid = [pollid] AND ckey = '[usr.ckey]'")
@@ -316,8 +316,8 @@
 
 				output += "</div>"
 
-				send_theme_resources(src)
-				src << browse(enable_ui_theme(src, output),"window=playerpoll;size=500x250")
+
+				src << browse(output,"window=playerpoll;size=500x250")
 		return
 
 /mob/abstract/new_player/proc/vote_on_poll(var/pollid = -1, var/optionid = -1, var/multichoice = 0)

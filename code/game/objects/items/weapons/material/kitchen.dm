@@ -1,9 +1,6 @@
 /obj/item/material/kitchen
 	icon = 'icons/obj/kitchen.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
-		)
+	contained_sprite = TRUE
 
 /*
  * Utensils
@@ -25,6 +22,8 @@
 	var/scoop_food = 1
 	var/transfer_amt = 1
 	var/list/bite_sizes = list(1,2,3,4,5)
+	use_material_name = FALSE
+	applies_material_colour = FALSE
 
 /obj/item/material/kitchen/utensil/Initialize(newloc, material_key)
 	. = ..()
@@ -84,6 +83,8 @@
 /obj/item/material/kitchen/utensil/verb/bite_size()
 	set name = "Change bite size"
 	set category = "Object"
+	set src in usr
+
 	var/nsize = input("Bite Size","Pick the amount of reagents to pick up.") as null|anything in bite_sizes
 	if(nsize)
 		transfer_amt = nsize
@@ -96,7 +97,10 @@
 	sharp = TRUE
 
 /obj/item/material/kitchen/utensil/fork/plastic
+	icon_state = "plastic_fork"
 	default_material = MATERIAL_PLASTIC
+	use_material_name = TRUE
+	applies_material_colour = TRUE
 
 /obj/item/material/kitchen/utensil/spork
 	name = "spork"
@@ -104,21 +108,21 @@
 	icon_state = "spork"
 
 /obj/item/material/kitchen/utensil/spork/plastic
+	icon_state = "plastic_spork"
 	default_material = MATERIAL_PLASTIC
+	use_material_name = TRUE
+	applies_material_colour = TRUE
 
 /obj/item/material/kitchen/utensil/fork/chopsticks
 	name = "chopsticks"
-	desc = "A pair of chopsticks. The most challenging utensil in the Spur."
+	desc = "A pair of chopsticks. An extension of one's fingers, one might say."
 	icon_state = "chopsticks"
-	default_material = MATERIAL_WOOD
-	transfer_amt = 2 //Chopsticks are hard to grab stuff with
-	bite_sizes = list(1,2)
 
-/obj/item/material/kitchen/utensil/fork/chopsticks/cheap
-	name = "cheap chopsticks"
-	desc = "A pair of cheap, disposable chopsticks."
-	use_material_name = 0
-	applies_material_colour = 0
+/obj/item/material/kitchen/utensil/fork/chopsticks/bamboo
+	icon_state = "plastic_chopsticks"
+	default_material = MATERIAL_BAMBOO
+	use_material_name = TRUE
+	applies_material_colour = TRUE
 
 /obj/item/material/kitchen/utensil/spoon
 	name = "spoon"
@@ -128,7 +132,10 @@
 	force_divisor = 0.1 //2 when wielded with weight 20 (steel)
 
 /obj/item/material/kitchen/utensil/spoon/plastic
+	icon_state = "plastic_spoon"
 	default_material = MATERIAL_PLASTIC
+	use_material_name = TRUE
+	applies_material_colour = TRUE
 
 /*
  * Knives
@@ -161,7 +168,10 @@
 	return ..()
 
 /obj/item/material/kitchen/utensil/knife/plastic
+	icon_state = "plastic_knife"
 	default_material = MATERIAL_PLASTIC
+	use_material_name = TRUE
+	applies_material_colour = TRUE
 
 /*
  * Rolling Pins
@@ -175,6 +185,8 @@
 	default_material = "wood"
 	force_divisor = 0.7 // 10 when wielded with weight 15 (wood)
 	thrown_force_divisor = 1 // as above
+	use_material_name = TRUE
+	applies_material_colour = TRUE
 
 /obj/item/material/kitchen/rollingpin/attack(mob/living/M, mob/living/user, var/target_zone)
 	if ((user.is_clumsy()) && prob(50))

@@ -45,7 +45,7 @@
 
 /obj/item/projectile/beam/midlaser
 	damage = 30
-	armor_penetration = 25
+	armor_penetration = 20
 
 /obj/item/projectile/beam/midlaser/skrell
 	armor_penetration = 0
@@ -53,6 +53,13 @@
 /obj/item/projectile/beam/midlaser/skrell/heavy
 	damage = 40
 	armor_penetration = 20
+
+/obj/item/projectile/beam/midlaser/hegemony
+	armor_penetration = 30
+	muzzle_type = /obj/effect/projectile/muzzle/hegemony
+	tracer_type = /obj/effect/projectile/tracer/hegemony
+	impact_type = /obj/effect/projectile/impact/hegemony
+
 
 /obj/item/projectile/beam/noctiluca
 	damage = 20
@@ -461,15 +468,6 @@
 	. = ..()
 	if(isliving(target))
 		tesla_zap(target, 5, 5000)
-
-/obj/item/projectile/beam/tesla/master
-	damage = 15
-
-/obj/item/projectile/beam/tesla/grandmaster
-	damage = 20
-
-/obj/item/projectile/beam/tesla/paramount
-	damage = 25
 
 /obj/item/projectile/beam/freezer
 	name = "freezing ray"

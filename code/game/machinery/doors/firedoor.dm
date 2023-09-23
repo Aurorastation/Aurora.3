@@ -8,21 +8,20 @@
 
 /obj/machinery/door/firedoor
 	name = "emergency shutter"
-	desc = "An airtight emergency shutter. Capable of sealing off breached areas."
-	icon = 'icons/obj/doors/DoorHazard.dmi'
+	desc = "An airtight emergency shutter designed to seal off areas from hostile environments. It flashes a warning light if it detects an environmental hazard on any side."
+	icon = 'icons/obj/doors/basic/single/emergency/firedoor.dmi'
 	icon_state = "door_open"
 	req_one_access = list(access_atmospherics, access_engine_equip, access_first_responder)
 	opacity = 0
 	density = 0
-	layer = DOOR_OPEN_LAYER - 0.01
-	open_layer = DOOR_OPEN_LAYER - 0.01 // Just below doors when open
+	layer = LAYER_UNDER_TABLE
+	open_layer = LAYER_UNDER_TABLE // Just below doors when open
 	closed_layer = DOOR_CLOSED_LAYER + 0.2 // Just above doors when closed
 
 	//These are frequenly used with windows, so make sure zones can pass.
 	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.
 	block_air_zones = 0
 	hashatch = 1
-	hatch_colour = "#f7d003"
 
 	var/blocked = 0
 	var/lockdown = 0 // When the door has detected a problem, it locks.
@@ -42,6 +41,8 @@
 
 	turf_hand_priority = 2 //Lower priority than normal doors to prevent interference
 
+	/// Enables smart generation of firedoor dir.
+	/// So it automatically aligns to face same dir as the door above it, etc.
 	var/enable_smart_generation = TRUE
 
 	var/list/tile_info[4]
@@ -52,10 +53,6 @@
 		"hot",
 		"cold"
 	)
-
-	var/door_directions = 0
-	var/noair_directions = 0
-	var/diffarea_directions = 0
 
 	var/open_sound = 'sound/machines/firelockopen.ogg'
 	var/close_sound = 'sound/machines/firelockclose.ogg'
@@ -79,54 +76,55 @@
 		enable_smart_generation = 0
 
 	for(var/direction in cardinal)
-
 		var/turf/T = get_step(src,direction)
-
-		if(enable_smart_generation)
-			if(locate(src.type) in T)
-				door_directions |= direction
-
-			if(T.oxygen <= 0)
-				noair_directions |= direction
-
-			if(get_area(src.loc) != get_area(T))
-				diffarea_directions |= direction
-
 		A = get_area(T)
 		if(istype(A) && !(A in areas_added))
 			A.all_doors.Add(src)
 			areas_added += A
 
-	if(enable_smart_generation)
+	smart_generation()
 
-		var/turf/T = get_turf(src)
-		if(locate(/obj/structure/grille,T))
-			hashatch = 0
+/obj/machinery/door/firedoor/proc/smart_generation()
+	if(!enable_smart_generation)
+		return .
 
-		if(locate(/obj/machinery/door/airlock,T))
-			dir = SOUTH
-		else
-			if(door_directions & (EAST | WEST))
-				if(noair_directions & NORTH)
-					dir = SOUTH
-				else if(noair_directions & SOUTH)
-					dir = NORTH
-				else if(diffarea_directions & NORTH)
-					dir = NORTH
-				else if(diffarea_directions & SOUTH)
-					dir = SOUTH
-			else if(door_directions & (NORTH | SOUTH) )
-				if(noair_directions & EAST)
-					dir = WEST
-				else if(noair_directions & WEST)
-					dir = EAST
-				else if(diffarea_directions & EAST)
-					dir = EAST
-				else if(diffarea_directions & WEST)
-					dir = WEST
+	var/turf/current_turf = get_turf(src)
+	if(locate(/obj/structure/grille, current_turf))
+		hashatch = 0
 
-	if (!density)
-		cut_overlay(hatch_image)	// Parent call adds this, but we don't want it just yet.
+	// if there is adjacent wall
+	if(istype(get_step(src,NORTH), /turf/simulated/wall))
+		dir = EAST
+		return .
+	if(istype(get_step(src,SOUTH), /turf/simulated/wall))
+		dir = WEST
+		return .
+	if(istype(get_step(src,WEST), /turf/simulated/wall))
+		dir = NORTH
+		return .
+	if(istype(get_step(src,EAST), /turf/simulated/wall))
+		dir = SOUTH
+		return .
+
+	// if there is adjacent firedoor
+	if(locate(/obj/machinery/door/firedoor, get_step(src,NORTH)))
+		dir = EAST
+		return .
+	if(locate(/obj/machinery/door/firedoor, get_step(src,SOUTH)))
+		dir = WEST
+		return .
+	if(locate(/obj/machinery/door/firedoor, get_step(src,WEST)))
+		dir = NORTH
+		return .
+	if(locate(/obj/machinery/door/firedoor, get_step(src,EAST)))
+		dir = SOUTH
+		return .
+
+	// face same dir as door if on the same tile
+	var/obj/machinery/door/airlock/door = locate(/obj/machinery/door/airlock, current_turf)
+	if(istype(door))
+		dir = door.dir
+		return .
 
 /obj/machinery/door/firedoor/Destroy()
 	for(var/area/A in areas_added)
@@ -150,13 +148,13 @@
 /obj/machinery/door/firedoor/get_material()
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 
-/obj/machinery/door/firedoor/examine(mob/user)
-	. = ..(user, 1)
-	if(!. || !density)
+/obj/machinery/door/firedoor/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(!is_adjacent || !density)
 		return
 
 	if(pdiff >= FIREDOOR_MAX_PRESSURE_DIFF)
-		to_chat(user, "<span class='warning'>WARNING: Current pressure differential is [pdiff]kPa! Opening door may result in injury!</span>")
+		to_chat(user, SPAN_DANGER("Current pressure differential is [pdiff] kPa. Opening door will likely result in injury."))
 
 	to_chat(user, "<b>Sensor readings:</b>")
 	for(var/index = 1; index <= tile_info.len; index++)
@@ -176,7 +174,7 @@
 			continue
 		var/celsius = convert_k2c(tile_info[index][1])
 		var/pressure = tile_info[index][2]
-		o += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "warning" : "color:blue"]'>"
+		o += "<span class='[(dir_alerts[index] & (FIREDOOR_ALERT_HOT|FIREDOOR_ALERT_COLD)) ? "danger" : "color:blue"]'>"
 		o += "[celsius]&deg;C</span> "
 		o += "<span style='color:blue'>"
 		o += "[pressure]kPa</span></li>"
@@ -274,7 +272,7 @@
 				SPAN_NOTICE("You begin welding [src] [blocked ? "open" : "shut"]."),
 				SPAN_ITALIC("You hear a welding torch on metal.")
 			)
-			playsound(src, 'sound/items/welder.ogg', 50, 1)
+			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, PROC_REF(is_open), src.density)))
 				return
 			if(!WT.use(0,user))
@@ -469,7 +467,7 @@
 		if(blocked)
 			add_overlay("welded")
 		if(pdiff_alert)
-			add_overlay("palert")
+			add_overlay(overlay_image(icon, icon_state = "palert", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 			do_set_light = 1
 		if(dir_alerts)
 			for (var/d = 1; d <= 4; d++)
@@ -477,22 +475,14 @@
 				//2 = SOUTH
 				//3 = EAST
 				//4 = WEST
-				var/cdir = cardinal[d]
 				if (!dir_alerts[d])
 					continue
 				if (dir_alerts[d] & FIREDOOR_ALERT_COLD)
-					add_overlay("alert_cold_[cdir]")
+					add_overlay(overlay_image(icon, icon_state = "alert_cold", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 				if (dir_alerts[d] & FIREDOOR_ALERT_HOT)
-					add_overlay("alert_hot_[cdir]")
+					add_overlay(overlay_image(icon, icon_state = "alert_hot", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 
 				do_set_light = TRUE
-
-		if (hashatch && hatch_image)
-			if (hatchstate)
-				hatch_image.icon_state = "[hatchstyle]_open"
-			else
-				hatch_image.icon_state = hatchstyle
-			add_overlay(hatch_image)
 	else
 		icon_state = "door_open"
 		if(blocked)
@@ -503,6 +493,11 @@
 
 /obj/machinery/door/firedoor/noid
 	req_one_access = null
+
+/obj/machinery/door/firedoor/noid/closed
+	req_one_access = null
+	icon_state = "door_closed"
+	density = 1
 
 //These are playing merry hell on ZAS.  Sorry fellas :(
 
@@ -545,3 +540,10 @@
 		if(istype(destination)) SSair.tiles_to_update += destination
 		return 1
 */
+
+
+#undef FIREDOOR_MAX_PRESSURE_DIFF
+#undef FIREDOOR_MAX_TEMP
+#undef FIREDOOR_MIN_TEMP
+#undef FIREDOOR_ALERT_HOT
+#undef FIREDOOR_ALERT_COLD

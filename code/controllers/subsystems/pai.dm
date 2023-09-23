@@ -24,6 +24,63 @@
 	pai_software_by_key = SSpai.pai_software_by_key
 	default_pai_software = SSpai.default_pai_software
 
+/datum/controller/subsystem/pai/ui_state(mob/user)
+    return always_state
+
+/datum/controller/subsystem/pai/ui_status(mob/user, datum/ui_state/state)
+    return UI_INTERACTIVE
+
+
+/datum/controller/subsystem/pai/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	var/datum/paiCandidate/candidate
+	for(var/datum/paiCandidate/c in pai_candidates)
+		if(!istype(c))
+			continue
+		if(c.key == usr.key)
+			candidate = c
+			break
+	if(!candidate)
+		return FALSE
+
+	switch(action)
+		if("submit_candidate")
+			if(length(candidate.name) < 1)
+				to_chat(usr, SPAN_WARNING("Please set your pAI name."))
+				return
+			candidate.ready = TRUE
+			for(var/obj/item/device/paicard/p in all_pai_devices)
+				if(p.looking_for_personality)
+					p.alertUpdate()
+			ui.close()
+
+		if("name")
+			params["name"] = sanitizeSafe(params["name"], MAX_NAME_LEN)
+			if(params["name"])
+				candidate.name = params["name"]
+				. = TRUE
+
+		if("description")
+			params["description"] = sanitize(params["description"])
+			if(params["description"])
+				candidate.description = params["description"]
+				. = TRUE
+
+		if("role")
+			params["role"] = sanitize(params["role"])
+			if(params["role"])
+				candidate.role = params["role"]
+				. = TRUE
+
+		if("comments")
+			params["comments"] = sanitize(params["comments"])
+			if(params["comments"])
+				candidate.comments = params["comments"]
+				. = TRUE
+
 /datum/controller/subsystem/pai/Topic(href, list/href_list)
 	if(href_list["download"])
 		var/datum/paiCandidate/candidate = locate(href_list["candidate"])
@@ -45,41 +102,13 @@
 			card.setPersonality(pai)
 			card.looking_for_personality = 0
 
-			if(pai.mind) update_antag_icons(pai.mind)
+			if(pai.mind)
+				update_antag_icons(pai.mind)
 
 			pai_candidates -= candidate
 			usr << browse(null, "window=findPai")
 
-	var/datum/vueui/ui = href_list["vueui"]
-	if(!istype(ui))
-		return
-
-	if(href_list["submit_candidate"])
-		var/datum/paiCandidate/candidate = ui.metadata["candidate"]
-		if(!istype(candidate))
-			return
-		href_list["submit_candidate"]["name"] = sanitizeSafe(href_list["submit_candidate"]["name"], MAX_NAME_LEN)
-		href_list["submit_candidate"]["description"] = sanitize(href_list["submit_candidate"]["description"])
-		href_list["submit_candidate"]["role"] = sanitize(href_list["submit_candidate"]["role"])
-		href_list["submit_candidate"]["comments"] = sanitize(href_list["submit_candidate"]["comments"])
-		if(href_list["submit_candidate"]["name"])
-			candidate.name = href_list["submit_candidate"]["name"]
-		if(href_list["submit_candidate"]["description"])
-			candidate.description = href_list["submit_candidate"]["description"]
-		if(href_list["submit_candidate"]["role"])
-			candidate.role = href_list["submit_candidate"]["role"]
-		if(href_list["submit_candidate"]["comments"])
-			candidate.comments = href_list["submit_candidate"]["comments"]
-		if(length(candidate.name) < 1)
-			to_chat(ui.user, "Please set your pAI name.")
-			return
-		candidate.ready = 1
-		for(var/obj/item/device/paicard/p in all_pai_devices)
-			if(p.looking_for_personality == 1)
-				p.alertUpdate()
-		ui.close()
-
-/datum/controller/subsystem/pai/proc/revokeCandidancy(mob/M as mob)
+/datum/controller/subsystem/pai/proc/revokeCandidancy(mob/M)
 	var/datum/paiCandidate/candidate
 	if(!istype(M))
 		return FALSE
@@ -94,8 +123,7 @@
 	candidate.ready = FALSE
 	return TRUE
 
-
-/datum/controller/subsystem/pai/proc/recruitWindow(mob/M as mob)
+/datum/controller/subsystem/pai/proc/recruitWindow(mob/M)
 	var/datum/paiCandidate/candidate
 	for(var/datum/paiCandidate/c in pai_candidates)
 		if(!istype(c) || !istype(M))
@@ -122,18 +150,32 @@
 		if(pai["comments"])
 			candidate.comments = sanitize(pai["comments"])
 
-	var/datum/vueui/ui = SSvueui.get_open_ui(M, src)
-	if(!ui)
-		ui = new(M, src, "misc-pai-recruit", 580, 590, "pAI Personality Configuration", list(
-			"name" = candidate.name,
-			"description" = candidate.description,
-			"role" = candidate.role,
-			"comments" = candidate.comments),
-		state = interactive_state)
-		ui.metadata = list("candidate" = candidate)
-		ui.header = "minimal"
+	ui_interact(M)
 
-	return ui.open()
+/datum/controller/subsystem/pai/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "pAIRecruitment", "pAI Configuration", 560, 590)
+		ui.open()
+
+/datum/controller/subsystem/pai/ui_data(mob/user)
+	var/datum/paiCandidate/candidate
+	for(var/datum/paiCandidate/c in pai_candidates)
+		if(!istype(c) || !istype(user))
+			break
+		if(c.key == user.key)
+			candidate = c
+	if(!candidate)
+		return
+
+	var/list/data = list(
+		"name" = candidate.name,
+		"description" = candidate.description,
+		"role" = candidate.role,
+		"comments" = candidate.comments
+	)
+
+	return data
 
 /datum/controller/subsystem/pai/proc/findPAI(obj/item/device/paicard/p, mob/user)
 	requestRecruits(user)

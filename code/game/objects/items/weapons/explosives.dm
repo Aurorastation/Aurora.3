@@ -138,3 +138,21 @@
 			R.cell.use(1000)
 	can_deploy = TRUE
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"
+
+/obj/item/plastique/dirty
+	name = "dirty bomb"
+	desc = "A small explosive laced with radium. The explosion is small, but the radioactive material will remain for a fair while."
+	timer = 300
+
+/obj/item/plastique/dirty/attack_self(mob/user as mob)
+	var/newtime = input(usr, "Please set the timer.", "Timer", 10) as num
+	if(user.get_active_hand() == src)
+		newtime = Clamp(newtime, 300, 60000)
+		timer = newtime
+		to_chat(user, SPAN_NOTICE("Timer set for [timer] seconds."))
+
+/obj/item/plastique/dirty/explode(turf/location)
+	if(location)
+		SSradiation.radiate(src, 250)
+		new /obj/effect/decal/cleanable/greenglow(get_turf(src))
+	..()

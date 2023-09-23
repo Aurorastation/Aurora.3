@@ -4,6 +4,9 @@
 	name_plural = "Type A"
 	category_name = "Vaurca"
 	bodytype = BODYTYPE_VAURCA
+	species_height = HEIGHT_CLASS_TALL
+	height_min = 150
+	height_max = 250
 	age_min = 1
 	age_max = 20
 	default_genders = list(NEUTER)
@@ -138,25 +141,23 @@
 
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
+	psi_deaf = TRUE
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
-	var/obj/item/clothing/mask/breath/vaurca/filter/M = new /obj/item/clothing/mask/breath/vaurca/filter(H)
+	var/obj/item/clothing/mask/gas/vaurca/filter/M = new /obj/item/clothing/mask/gas/vaurca/filter(H)
 	H.equip_to_slot_or_del(M, slot_wear_mask)
 
 /datum/species/bug/after_equip(var/mob/living/carbon/human/H)
 	if(H.shoes)
 		return
-	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
+	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
 	H.equip_to_slot_or_del(S,slot_shoes)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	return ..()
-
-/datum/species/bug/has_psi_potential()
-	return FALSE
 
 /datum/species/bug/is_naturally_insulated()
 	return TRUE
@@ -165,3 +166,4 @@
 	if(I.w_class <= ITEMSIZE_SMALL)
 		return TRUE
 	return FALSE
+

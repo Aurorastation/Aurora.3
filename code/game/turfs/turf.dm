@@ -6,11 +6,7 @@
 	var/holy = 0
 
 	// Initial air contents (in moles)
-	var/oxygen = 0
-	var/carbon_dioxide = 0
-	var/nitrogen = 0
-	var/phoron = 0
-	var/hydrogen = 0
+	var/list/initial_gas
 
 	//Properties for airtight tiles (/wall)
 	var/thermal_conductivity = 0.05
@@ -47,17 +43,22 @@
 	//Mining resources (for the large drills).
 	var/has_resources
 	var/list/resources
+	var/image/resource_indicator
 
 	// Plating data.
 	var/base_name = "plating"
 	var/base_desc = "The naked hull."
 	var/base_icon = 'icons/turf/flooring/plating.dmi'
 	var/base_icon_state = "plating"
+	var/base_color = null
+
 	var/last_clean //for clean log spam.
 
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 
@@ -121,6 +122,8 @@
 
 	if (z_flags & ZM_MIMIC_BELOW)
 		cleanup_zmimic()
+
+	resource_indicator = null
 
 	..()
 	return QDEL_HINT_IWILLGC
@@ -286,7 +289,7 @@ var/const/enterloopsanity = 100
 				break
 			objects++
 
-			if (oAM.simulated)
+			if (oAM.simulated && (oAM.flags & PROXMOVE))
 				AM.proximity_callback(oAM)
 
 /turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color="#A10808")
@@ -315,6 +318,9 @@ var/const/enterloopsanity = 100
 	return can_have_cabling()
 
 /turf/attackby(obj/item/C, mob/user)
+	if(istype(C, /obj/item/grab))
+		var/obj/item/grab/grab = C
+		step(grab.affecting, get_dir(grab.affecting, src))
 	if (can_lay_cable() && C.iscoil())
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)
@@ -392,7 +398,14 @@ var/const/enterloopsanity = 100
 		if(istype(src, /turf/simulated))
 			var/turf/simulated/T = src
 			T.dirt = 0
-			T.color = null
+			if(istype(src, /turf/simulated/floor))
+				var/turf/simulated/floor/F = src
+				if(F.flooring)
+					F.color = F.flooring.color
+				else
+					F.color = null
+			else
+				T.color = null
 		for(var/obj/effect/O in src)
 			if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
 				qdel(O)

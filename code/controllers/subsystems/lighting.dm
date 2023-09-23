@@ -37,7 +37,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 /datum/controller/subsystem/lighting/New()
 	NEW_SS_GLOBAL(SSlighting)
 
-/datum/controller/subsystem/lighting/stat_entry()
+/datum/controller/subsystem/lighting/stat_entry(msg)
 	var/list/out = list(
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
 		"IUR: [total_ss_updates ? round(total_instant_updates/(total_instant_updates+total_ss_updates)*100, 0.1) : "NaN"]%\n",
@@ -46,7 +46,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 		"\tP:{L:[light_queue.len - (lq_idex - 1)]|C:[corner_queue.len - (cq_idex - 1)]|O:[overlay_queue.len - (oq_idex - 1)]}\n",
 		"\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}\n"
 	)
-	..(out.Join())
+	msg = out.Join()
+	return ..()
 
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
 
@@ -106,7 +107,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	admin_notice(SPAN_DANGER("Processed [processed_overlays] light overlays."), R_DEBUG)
 	admin_notice(SPAN_DANGER("Lighting pre-bake completed in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 
-	log_ss("lighting", "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
+	log_subsystem("lighting", "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
 
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
 	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(handle_roundstart)))
@@ -130,6 +131,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	while (lq_idex <= curr_lights.len)
 		var/datum/light_source/L = curr_lights[lq_idex++]
+		if(QDELETED(L))
+			continue
 
 		if (L.needs_update != LIGHTING_NO_UPDATE)
 			total_ss_updates += 1
@@ -153,6 +156,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	while (cq_idex <= curr_corners.len)
 		var/datum/lighting_corner/C = curr_corners[cq_idex++]
+		if(QDELETED(C))
+			continue
 
 		if (C.needs_update)
 			C.update_overlays()
@@ -181,7 +186,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 			O.needs_update = FALSE
 
 			processed_overlays++
-		
+
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)

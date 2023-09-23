@@ -80,7 +80,7 @@
 	var/old_angle = 0
 
 /obj/machinery/porta_turret/examine(mob/user)
-	..()
+	. = ..()
 	var/msg = ""
 	if(!health)
 		msg += SPAN_DANGER("\The [src] is destroyed!")
@@ -216,16 +216,18 @@
 /obj/machinery/porta_turret/attack_hand(mob/user)
 	ui_interact(user)
 
-/obj/machinery/porta_turret/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data
-	if(!data)
-		data = list()
-	VUEUI_SET_CHECK(data["locked"], locked, ., data)
-	VUEUI_SET_CHECK(data["enabled"], enabled, ., data)
-	VUEUI_SET_CHECK(data["is_lethal"], 1, ., data)
-	VUEUI_SET_CHECK(data["lethal"], lethal, ., data)
-	VUEUI_SET_CHECK(data["can_switch"], egun, ., data)
+/obj/machinery/porta_turret/ui_data(mob/user)
+	var/list/data = list()
+	data["locked"] = locked
+	data["enabled"] = enabled
+	data["is_lethal"] = TRUE
+	data["lethal"] = lethal
+	data["can_switch"] = egun
+	data["settings"] = get_settings()
+	return data
+
+/obj/machinery/porta_turret/proc/get_settings()
+	. = list()
 
 	var/usedSettings = list(
 		"check_synth" = "Neutralize All Non-Synthetics",
@@ -236,42 +238,44 @@
 		"check_arrest" = "Check Arrest Status",
 		"check_access" = "Check Access Authorization"
 	)
-	VUEUI_SET_IFNOTSET(data["settings"], list(), ., data)
+
 	for(var/v in usedSettings)
 		var/name = usedSettings[v]
-		VUEUI_SET_IFNOTSET(data["settings"][v], list(), ., data)
-		data["settings"][v]["category"] = name
-		VUEUI_SET_CHECK(data["settings"][v]["value"], vars[v], ., data)
+		. += list(list("category" = name, "value" = vars[v], "variable_name" = v))
 
-
-/obj/machinery/porta_turret/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "turrets-control", 375, 725, "Turret Controls")
-	ui.open()
+/obj/machinery/porta_turret/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "TurretControl", "Defense Systems Control Panel", 375, 725)
+		ui.open()
 
 /obj/machinery/porta_turret/proc/HasController()
 	var/area/A = get_area(src)
 	return A && A.turret_controls.len > 0
 
-/obj/machinery/porta_turret/CanUseTopic(var/mob/user)
+/obj/machinery/porta_turret/ui_status(mob/user, datum/ui_state/state)
+	. = ..()
 	if(HasController())
 		to_chat(user, "<span class='notice'>Turrets can only be controlled using the assigned turret controller.</span>")
-		return STATUS_CLOSE
+		return UI_CLOSE
 
 	if(isLocked(user))
-		return STATUS_CLOSE
+		return UI_CLOSE
 
 	if(!anchored)
 		to_chat(usr, "<span class='notice'>\The [src] has to be secured first!</span>")
-		return STATUS_CLOSE
+		return UI_CLOSE
 
 	return ..()
 
-/obj/machinery/porta_turret/Topic(href, href_list)
-	if(href_list["command"] && !isnull(href_list["value"]))
-		var/value = text2num(href_list["value"])
-		if(href_list["command"] == "enable")
+/obj/machinery/porta_turret/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	if(action == "command" && !isnull(params["value"]))
+		var/value = text2num(params["value"])
+		if(params["command"] == "enable")
 			enabled = value
 			if (enabled)
 				START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
@@ -283,25 +287,24 @@
 			else
 				STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 				popDown()
-		else if(href_list["command"] == "lethal")
+		else if(params["command"] == "lethal")
 			lethal = value
 			lethal_icon = value
-		else if(href_list["command"] == "check_synth")
+		else if(params["command"] == "check_synth")
 			check_synth = value
-		else if(href_list["command"] == "target_borgs")
+		else if(params["command"] == "target_borgs")
 			target_borgs = value
-		else if(href_list["command"] == "check_weapons")
+		else if(params["command"] == "check_weapons")
 			check_weapons = value
-		else if(href_list["command"] == "check_records")
+		else if(params["command"] == "check_records")
 			check_records = value
-		else if(href_list["command"] == "check_arrest")
+		else if(params["command"] == "check_arrest")
 			check_arrest = value
-		else if(href_list["command"] == "check_access")
+		else if(params["command"] == "check_access")
 			check_access = value
-		else if(href_list["command"] == "check_wildlife")
+		else if(params["command"] == "check_wildlife")
 			check_wildlife = value
-		SSvueui.check_uis_for_change(src)
-		return 1
+		. = TRUE
 
 /obj/machinery/porta_turret/power_change()
 	..()
@@ -887,7 +890,7 @@
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 					return TRUE
 
-				playsound(loc, pick('sound/items/welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
+				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
 				if(I.use_tool(src, user, 20, volume = 50))
 					if(!src || !WT.use(5, user)) return TRUE
 					build_step = 1
@@ -976,7 +979,7 @@
 				if(WT.get_fuel() < 5)
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 
-				playsound(loc, pick('sound/items/welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
+				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
 				if(I.use_tool(src, user, 30, volume = 50))
 					if(!src || !WT.use(5, user))
 						return
@@ -1093,7 +1096,7 @@
 	sprite_set = "crossbow"
 
 	eprojectile = /obj/item/projectile/energy/bolt/large
-	eshot_sound	= 'sound/weapons/genhit.ogg'
+	eshot_sound	= 'sound/weapons/Genhit.ogg'
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/cannon

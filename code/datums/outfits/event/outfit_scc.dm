@@ -36,6 +36,7 @@
 	head = /obj/item/clothing/head/helmet/merc/scc
 	uniform = /obj/item/clothing/under/tactical
 	suit = /obj/item/clothing/suit/armor/carrier/heavy/scc
+	l_ear = /obj/item/device/radio/headset/ert/ccia/alt
 	shoes = /obj/item/clothing/shoes/jackboots
 	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/security
 

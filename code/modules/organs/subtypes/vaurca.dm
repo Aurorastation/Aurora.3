@@ -69,7 +69,7 @@
 	parent_organ = BP_HEAD
 	robotic = ROBOTIC_MECHANICAL
 
-obj/item/organ/vaurca/neuralsocket/process()
+/obj/item/organ/vaurca/neuralsocket/process()
 	if (is_broken())
 		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
 			owner.remove_language(LANGUAGE_VAURCA)
@@ -115,6 +115,17 @@ obj/item/organ/vaurca/neuralsocket/process()
 		"wirecutters"
 		)
 
+/obj/item/organ/internal/augment/tool/vaurcamag
+	name = "integrated mag-claws"
+	desc = "An integrated magnetic grip system, designed for Vaurcae without easy access to magboots."
+	icon_state = "suspension"
+	item_state = "suspension"
+	action_button_name = "Deploy Mag-Claws"
+	action_button_icon = "magclaws"
+	augment_type = /obj/item/clothing/shoes/magboots/vaurca/aug
+	parent_organ = BP_GROIN
+	organ_tag = BP_AUG_MAGBOOT
+	aug_slot = slot_shoes
 
 /obj/item/organ/internal/vaurca/preserve
 	icon = 'icons/obj/organs/vaurca_organs.dmi'
@@ -152,9 +163,9 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 	return ..()
 
-/obj/item/organ/internal/vaurca/preserve/examine(mob/user)
-	. = ..(user, 0)
-	if(.)
+/obj/item/organ/internal/vaurca/preserve/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 0)
 		var/celsius_temperature = air_contents.temperature - T0C
 		var/descriptive
 		switch(celsius_temperature)
@@ -414,3 +425,108 @@ obj/item/organ/vaurca/neuralsocket/process()
 /obj/item/organ/external/head/vaurca
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
 	encased = null
+
+//Beefier augments
+
+/obj/item/organ/external/hand/right/vaurca/security
+	name = "security grasper"
+	action_button_name = "Activate Integrated Electroshock Weapon"
+	dislocated = -1
+	encased = "support frame"
+	robotize_type = PROSTHETIC_VAURCA
+
+/obj/item/organ/external/hand/right/vaurca/security/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "baton"
+		if(action.button)
+			action.button.update_icon()
+
+/obj/item/organ/external/hand/right/vaurca/security/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+
+		if(owner.last_special > world.time)
+			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			return
+
+		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
+			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
+			return
+
+		if(is_broken())
+			to_chat(owner, "<span class='danger'>\The [src] is too damaged to be used!</span>")
+			return
+
+		if(is_bruised())
+			spark(get_turf(owner), 3)
+
+		var/obj/item/grab/G = owner.get_active_hand()
+		if(!istype(G))
+			to_chat(owner, "<span class='danger'>You must grab someone before trying to use your [src]!</span>")
+			return
+
+		if(owner.nutrition <= 150) //slightly more energy-efficient than aut'akh bc bugs are better at augments
+			to_chat(owner, "<span class='danger'>Your energy reserves are too low to use your [src]!</span>")
+			return
+
+		if(ishuman(G.affecting))
+
+			var/mob/living/carbon/human/H = G.affecting
+			var/target_zone = check_zone(owner.zone_sel.selecting)
+
+			owner.last_special = world.time + 100
+			owner.adjustNutritionLoss(50)
+
+			if(owner.a_intent == I_HURT)
+				H.electrocute_act(10, owner, def_zone = target_zone)
+			else
+				H.stun_effect_act(0, 50, target_zone, owner)
+
+			owner.visible_message("<span class='danger'>[H] has been prodded with [src] by [owner]!</span>")
+			playsound(get_turf(owner), 'sound/weapons/Egloves.ogg', 50, 1, -1)
+
+/obj/item/organ/external/hand/right/vaurca/medical
+	name = "medical grasper"
+	action_button_name = "Activate Integrated Biological Analyser"
+	dislocated = -1
+	encased = "support frame"
+	robotize_type = PROSTHETIC_VAURCA
+
+/obj/item/organ/external/hand/right/vaurca/medical/refresh_action_button()
+	. = ..()
+	if(.)
+		action.button_icon_state = "health"
+		if(action.button)
+			action.button.update_icon()
+
+/obj/item/organ/external/hand/right/vaurca/medical/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+
+		if(owner.last_special > world.time)
+			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			return
+
+		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
+			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
+			return
+
+		if(is_broken())
+			to_chat(owner, "<span class='danger'>\The [src] is too damaged to be used!</span>")
+			return
+
+		if(is_bruised())
+			spark(get_turf(owner), 3)
+
+		var/obj/item/grab/G = owner.get_active_hand()
+		if(!istype(G))
+			to_chat(owner, "<span class='danger'>You must grab someone before trying to analyze their health!</span>")
+			return
+
+		owner.last_special = world.time + 50
+		if(ishuman(G.affecting))
+			var/mob/living/carbon/human/H = G.affecting
+			health_scan_mob(H, owner)

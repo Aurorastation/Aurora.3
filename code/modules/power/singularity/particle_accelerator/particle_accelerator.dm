@@ -95,7 +95,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			desc = "[initial(desc)] It seems completely assembled."
 			if(powered)
 				desc = initial(desc)
-	..()
+	. = ..()
 	return
 
 /obj/structure/particle_accelerator/attackby(obj/item/W, mob/user)
@@ -125,7 +125,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			if(prob(25))
 				qdel(src)
 				return
-		else
+
 	return
 
 /obj/structure/particle_accelerator/update_icon()
@@ -249,7 +249,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			desc = "[initial(desc)] It seems completely assembled."
 			if(powered)
 				desc = initial(desc)
-	..()
+	. = ..()
 	return
 
 
@@ -273,7 +273,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			if(prob(25))
 				qdel(src)
 			return
-		else
+
 	return
 
 /obj/machinery/particle_accelerator/proc/update_state()

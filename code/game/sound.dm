@@ -815,6 +815,12 @@
 		'sound/items/shaker_lid_off2.ogg'
 	)
 
+/singleton/sound_category/boops
+	sounds = list(
+		'sound/machines/boop1.ogg',
+		'sound/machines/boop2.ogg'
+	)
+
 /singleton/sound_category/quick_arcade // quick punchy arcade sounds
 	sounds = list(
 		'sound/arcade/get_fuel.ogg',
@@ -936,4 +942,23 @@
 		'sound/items/ointment1.ogg',
 		'sound/items/ointment2.ogg',
 		'sound/items/ointment3.ogg'
+	)
+
+/singleton/sound_category/clown_sound
+	sounds = list(
+		'sound/effects/clownstep1.ogg',
+		'sound/effects/clownstep2.ogg'
+	)
+
+/singleton/sound_category/hivebot_melee
+	sounds = list(
+		'sound/effects/creatures/hivebot/hivebot-attack.ogg',
+		'sound/effects/creatures/hivebot/hivebot-attack-001.ogg'
+	)
+
+/singleton/sound_category/hivebot_wail
+	sounds = list(
+		'sound/effects/creatures/hivebot/hivebot-bark-001.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-003.ogg',
+		'sound/effects/creatures/hivebot/hivebot-bark-005.ogg',
 	)

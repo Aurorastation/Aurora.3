@@ -3,7 +3,7 @@
 	name = "sparks"
 	icon_state = "sparks"
 	anchored = 1
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/effect/visual/sparks/Initialize(mapload)
 	. = ..(mapload)

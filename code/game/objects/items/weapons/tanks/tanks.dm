@@ -47,9 +47,9 @@
 
 	return ..()
 
-/obj/item/tank/examine(mob/user)
-	. = ..(user, 0)
-	if(.)
+/obj/item/tank/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 0)
 		var/celsius_temperature = air_contents.temperature - T0C
 		var/descriptive
 		switch(celsius_temperature)
@@ -87,10 +87,21 @@
 
 	ui_interact(user)
 
-/obj/item/tank/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/tank/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Tank", ui_x=400, ui_y=180)
+		ui.open()
+
+/obj/item/tank/ui_host(mob/user)
+	. = ..()
+	if(istype(loc,/obj/item/device/transfer_valve))
+		return loc
+
+/obj/item/tank/ui_data(mob/user)
 	var/mob/living/carbon/location = null
 
-	if(istype(loc, /obj/item/rig))		// check for tanks in rigs
+	if(istype(loc, /obj/item/rig))
 		if(istype(loc.loc, /mob/living/carbon))
 			location = loc.loc
 	else if(istype(loc, /mob/living/carbon))
@@ -101,8 +112,8 @@
 		if(location.internal==src)
 			using_internal = 1
 
-	// this is the data which will be sent to the ui
-	var/data[0]
+	var/list/data = list()
+
 	data["tankPressure"] = round(air_contents.return_pressure() ? air_contents.return_pressure() : 0)
 	data["releasePressure"] = round(distribute_pressure ? distribute_pressure : 0)
 	data["defaultReleasePressure"] = round(TANK_DEFAULT_RELEASE_PRESSURE)
@@ -131,36 +142,13 @@
 				if(H.head && (H.head.item_flags & AIRTIGHT))
 					data["maskConnected"] = 1
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "tanks.tmpl", "Tank", 500, 300)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
-		// open the new ui window
-		ui.open()
-		// auto update every Master Controller tick
-		ui.set_auto_update(1)
+	return data
 
-/obj/item/tank/Topic(href, href_list)
-	..()
-	if (usr.stat|| usr.restrained())
-		return 0
-	if (src.loc != usr)
-		return 0
-
-	if (href_list["dist_p"])
-		if (href_list["dist_p"] == "reset")
-			src.distribute_pressure = TANK_DEFAULT_RELEASE_PRESSURE
-		else if (href_list["dist_p"] == "max")
-			src.distribute_pressure = TANK_MAX_RELEASE_PRESSURE
-		else
-			var/cp = text2num(href_list["dist_p"])
-			src.distribute_pressure += cp
-		src.distribute_pressure = min(max(round(src.distribute_pressure), 0), TANK_MAX_RELEASE_PRESSURE)
-	if (href_list["stat"])
+/obj/item/tank/ui_act(action,params)
+	. = ..()
+	if(.)
+		return
+	if(action=="toggleReleaseValve")
 		if(istype(loc,/mob/living/carbon))
 			var/mob/living/carbon/location = loc
 			if(location.internal == src)
@@ -170,7 +158,6 @@
 				if (location.internals)
 					location.internals.icon_state = "internal0"
 			else
-
 				var/can_open_valve
 				if(location.wear_mask && (location.wear_mask.item_flags & AIRTIGHT))
 					can_open_valve = 1
@@ -186,10 +173,11 @@
 						location.internals.icon_state = "internal1"
 				else
 					to_chat(usr, "<span class='warning'>You need something to connect to \the [src].</span>")
-
-	src.add_fingerprint(usr)
-	return 1
-
+			. = TRUE
+			update_icon()
+	if(action=="setReleasePressure")
+		distribute_pressure = min(max(round(text2num(params["release_pressure"])), 0), TANK_MAX_RELEASE_PRESSURE)
+		. = TRUE
 
 /obj/item/tank/remove_air(amount)
 	return air_contents.remove(amount)
@@ -279,7 +267,7 @@
 
 	else if(pressure > TANK_RUPTURE_PRESSURE)
 		#ifdef FIREDBG
-		log_debug("<span class='warning'>[x],[y] tank is rupturing: [pressure] kPa, integrity [integrity]</span>")
+		LOG_DEBUG("<span class='warning'>[x],[y] tank is rupturing: [pressure] kPa, integrity [integrity]</span>")
 		#endif
 
 		if(integrity <= 0)
@@ -294,7 +282,7 @@
 
 	else if(pressure > TANK_LEAK_PRESSURE)
 		#ifdef FIREDBG
-		log_debug("<span class='warning'>[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]</span>")
+		LOG_DEBUG("<span class='warning'>[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]</span>")
 		#endif
 
 		if(integrity <= 0)

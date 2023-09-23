@@ -4,9 +4,10 @@
 /obj/item/reagent_containers/personal_inhaler_cartridge
 	name = "small inhaler cartridge"
 	desc = "Fill this when chemicals and attach this to personal inhalers. Contains enough aerosol for 15u of reagents. The container must be activated for aerosol reagents to mix for the use in inhalers."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	item_state = "pi_cart_small"
 	icon_state = "pi_cart_small"
+	contained_sprite = TRUE
 	volume = 15
 	w_class = ITEMSIZE_TINY
 	unacidable = 1
@@ -27,12 +28,14 @@
 	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
 
 	if(reagents.total_volume)
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/syringe.dmi', "[initial(icon_state)][rounded_vol]")
+		var/mutable_appearance/filling = mutable_appearance(icon, "[initial(icon_state)][rounded_vol]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-/obj/item/reagent_containers/personal_inhaler_cartridge/examine(var/mob/user)
-	if(!..(user, 2))
+/obj/item/reagent_containers/personal_inhaler_cartridge/examine(mob/user, distance, is_adjacent)
+	. = ..()
+
+	if (distance > 2)
 		return
 
 	if(is_open_container())
@@ -87,9 +90,10 @@
 /obj/item/personal_inhaler
 	name = "inhaler"
 	desc = "A safe way to administer small amounts of drugs into the lungs by trained personnel."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	item_state = "pi"
 	icon_state = "pi"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	var/obj/item/reagent_containers/stored_cartridge
@@ -97,8 +101,9 @@
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	var/eject_when_empty = FALSE
 
-/obj/item/personal_inhaler/examine(var/mob/user)
-	if(!..(user, 2))
+/obj/item/personal_inhaler/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	if(stored_cartridge)
 		to_chat(user,"<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>")
@@ -210,18 +215,20 @@
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine
 	name = "large inhaler cartridge (hyperzine)"
-	Initialize()
-		. =..()
-		reagents.add_reagent(/singleton/reagent/hyperzine, 30)
-		flags ^= OPENCONTAINER
-		update_icon()
-		return
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine/Initialize()
+	. = ..()
+	reagents.add_reagent(/singleton/reagent/hyperzine, 30)
+	flags ^= OPENCONTAINER
+	update_icon()
+	return
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline
 	name = "large inhaler cartridge (inaprovaline)"
-	Initialize()
-		. =..()
-		reagents.add_reagent(/singleton/reagent/inaprovaline, 30)
-		flags ^= OPENCONTAINER
-		update_icon()
-		return
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline/Initialize()
+	. = ..()
+	reagents.add_reagent(/singleton/reagent/inaprovaline, 30)
+	flags ^= OPENCONTAINER
+	update_icon()
+	return

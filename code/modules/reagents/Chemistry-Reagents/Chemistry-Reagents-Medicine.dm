@@ -768,6 +768,28 @@
 	M.make_dizzy(5)
 	M.adjustToxLoss(1) //Antibodies start fighting your body
 
+/singleton/reagent/cytophenolate
+	name = "Cytophenolate"
+	description =  "A general-purpose immunosuppressant capable of treating organ rejections. Calms down the immune system, but also drastically reduces the effectiveness of antibiotics while in the body, making one more susceptible to infection."
+	reagent_state = LIQUID
+	color = "#337758"
+	od_minimum_dose = 1
+	overdose = REAGENTS_OVERDOSE
+	scannable = TRUE
+	metabolism = REM * 0.25
+	taste_description = "bitter vegetables"
+
+/singleton/reagent/cytophenolate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(check_min_dose(M, 0.25))
+		M.add_chemical_effect(CE_ANTIIMMUNE, M.chem_doses[type])
+
+/singleton/reagent/cytophenolate/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	to_chat(M, SPAN_WARNING("You feel extremely weak."))
+	M.dizziness = max(150, M.dizziness)
+	M.make_dizzy(5)
+	M.AdjustWeakened(5)
+	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/8)
+
 /singleton/reagent/asinodryl
 	name = "Asinodryl"
 	description = "Asinodryl is an anti-emetic medication which acts by preventing the two regions in the brain responsible for vomiting from controlling the act of emesis."
@@ -777,10 +799,17 @@
 	metabolism = REM * 0.25
 	fallback_specific_heat = 1
 
+/singleton/reagent/asinodryl/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_ANTIEMETIC, M.chem_doses[type]/4) // 1u should suppress 2u thetamycin
+		M.add_chemical_effect(CE_STRAIGHTWALK)
+
 /singleton/reagent/asinodryl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		return
-	M.add_chemical_effect(CE_ANTIEMETIC, M.chem_doses[type]/4) // 1u should suppress 2u thetamycin
+	M.confused = max(M.confused - 10, 0)
+	M.dizziness = max(M.confused - 10, 0)
 
 /singleton/reagent/antidexafen
 	name = "Antidexafen"
@@ -1624,3 +1653,29 @@
 				if(heart)
 					to_chat(H, SPAN_DANGER("Your heart skips a beat and screams out in pain!"))
 					heart.take_internal_damage(10)
+
+/singleton/reagent/antiparasitic
+	name = "Helmizole"
+	description = "Helmizole is an anti-helminthic medication which combats parasitic worm infections, compromising their nervous system and inducing respiratory paralysis."
+	reagent_state = LIQUID
+	color = "#c7f3a4"
+	overdose = 10
+	od_minimum_dose = 1
+	metabolism  = REM*0.2
+	scannable = TRUE
+	taste_description = "alcohol"
+
+/singleton/reagent/antiparasitic/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(.)
+		M.add_chemical_effect(CE_ANTIPARASITE, 50) //~10u will get rid of a standard-lengthed (stage interval = 300) parasitic infection. ~5mins to eliminate symptoms, ~7.5mins to kill parasite.
+		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/2)
+
+/singleton/reagent/antiparasitic/overdose(mob/living/carbon/M, alien, removed, scale, datum/reagents/holder)
+	if(istype(M,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+
+		for(var/obj/item/organ/internal/parasite/P in H.internal_organs)
+			if(P)
+				if(P.drug_resistance == 0)
+					P.drug_resistance = 1

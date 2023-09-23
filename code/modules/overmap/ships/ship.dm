@@ -22,6 +22,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	generic_object = FALSE
 	var/moving_state = "ship_moving"
 
+	layer = OVERMAP_SHIP_LAYER
+
 //RP fluff details to appear on scan readouts for mobile objects.
 	var/propulsion = "Chemical Composite Gas Thrust" 	//Slower than light propulsion method. No variation in this currently exists yet except the Horizon which heats its gas.
 	var/drive = "None equipped, FTL incapable" 			//Faster than light propulsion method, will usually be warp drives for third party ships and nothing for shuttles
@@ -40,6 +42,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	var/burn_delay = 1 SECOND           // how often ship can do burns
 	var/fore_dir = NORTH                // what dir ship flies towards for purpose of moving stars effect procs
 	var/last_combat_roll = 0
+	var/last_turn = 0
 	var/last_combat_turn = 0
 
 	var/list/engines = list()
@@ -121,6 +124,10 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 /obj/effect/overmap/visitable/ship/proc/get_speed()
 	return round(sqrt(speed[1] ** 2 + speed[2] ** 2), SHIP_MOVE_RESOLUTION)
+
+// returns a two-item list with the speed of the ship on x and y axes
+/obj/effect/overmap/visitable/ship/proc/get_speed_xy()
+	return list(round(speed[1], SHIP_MOVE_RESOLUTION), round(speed[2], SHIP_MOVE_RESOLUTION))
 
 /obj/effect/overmap/visitable/ship/proc/get_heading()
 	var/res = 0
@@ -207,7 +214,6 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	pixel_y = position[2] * (world.icon_size/2)
 	if(!is_still())
 		icon_state = moving_state
-		dir = get_heading()
 	else
 		icon_state = initial(icon_state)
 	for(var/obj/machinery/computer/ship/machine in consoles)
@@ -219,9 +225,9 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 					M.client.pixel_y = pixel_y
 	..()
 
-/obj/effect/overmap/visitable/ship/proc/burn()
+/obj/effect/overmap/visitable/ship/proc/burn(var/power_modifier = 1)
 	for(var/datum/ship_engine/E in engines)
-		. += E.burn()
+		. += E.burn(power_modifier)
 
 /obj/effect/overmap/visitable/ship/proc/get_total_thrust()
 	for(var/datum/ship_engine/E in engines)
@@ -287,25 +293,23 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		return TRUE
 	return FALSE
 
-/obj/effect/overmap/visitable/ship/proc/combat_roll(var/new_dir)
-	burn()
-	var/dir_to_move = turn(dir, new_dir == WEST ? 90 : -90)
-	forceMove(get_step(src, dir_to_move))
-	for(var/mob/living/L in living_mob_list)
-		if(L.z in map_z)
-			if(!gravity_generator?.on && !L.anchored)
-				to_chat(L, SPAN_DANGER("<font size=4>The ship rapidly inclines beneath you!</font>"))
-				if(!L.buckled_to)
-					var/turf/T = get_step_away(get_turf(L), get_step(L, new_dir), 10)
-					L.throw_at(T, 10, 10)
-			else
-				to_chat(L, SPAN_WARNING("The ship inclines beneath you, but the artificial gravity keeps you on your feet."))
-			shake_camera(L, 2 SECONDS, 10)
-			sound_to(L, sound('sound/effects/combatroll.ogg'))
-	last_combat_roll = world.time
+/obj/effect/overmap/visitable/ship/proc/can_turn()
+	if(!can_burn())
+		return FALSE
+	var/cooldown = min(vessel_mass / 10, 1) SECONDS //max 1s for horizon
+	if(world.time >= (last_turn + cooldown))
+		return TRUE
+	return FALSE
+
+/obj/effect/overmap/visitable/ship/proc/turn_ship(var/new_dir)
+	burn(0.25)
+	var/angle = new_dir == WEST ? 45 : -45
+	dir = turn(dir, angle)
+	update_icon()
+	last_turn = world.time
 
 /obj/effect/overmap/visitable/ship/proc/combat_turn(var/new_dir)
-	burn()
+	burn(1.0)
 	var/angle = -45
 	if(new_dir == WEST)
 		angle = 45
@@ -325,7 +329,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 			speed[2] = -speed[2]
 	else
 		speed[2] = 0
-	update_icon()
+		update_icon()
+	dir = get_heading()
 	for(var/mob/living/L in living_mob_list)
 		if(L.z in map_z)
 			if(!gravity_generator?.on && !L.anchored)
@@ -337,6 +342,23 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 			shake_camera(L, 1 SECOND, 2)
 			L.playsound_simple(soundin = 'sound/machines/thruster.ogg', volume = 50)
 	last_combat_turn = world.time
+
+/obj/effect/overmap/visitable/ship/proc/combat_roll(var/new_dir)
+	burn()
+	var/dir_to_move = turn(dir, new_dir == WEST ? 90 : -90)
+	forceMove(get_step(src, dir_to_move))
+	for(var/mob/living/L in living_mob_list)
+		if(L.z in map_z)
+			if(!gravity_generator?.on && !L.anchored)
+				to_chat(L, SPAN_DANGER("<font size=4>The ship rapidly inclines beneath you!</font>"))
+				if(!L.buckled_to)
+					var/turf/T = get_step_away(get_turf(L), get_step(L, new_dir), 10)
+					L.throw_at(T, 10, 10)
+			else
+				to_chat(L, SPAN_WARNING("The ship inclines beneath you, but the artificial gravity keeps you on your feet."))
+			shake_camera(L, 2 SECONDS, 10)
+			sound_to(L, sound('sound/effects/combatroll.ogg'))
+	last_combat_roll = world.time
 
 /obj/effect/overmap/visitable/ship/signal_hit(var/list/hit_data)
 	for(var/obj/machinery/computer/ship/targeting/TR in consoles)

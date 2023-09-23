@@ -96,7 +96,7 @@ var/list/gear_datums = list()
 			try
 				pref.gear_list = json_decode(pref.gear_list)
 			catch
-				log_debug("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
+				LOG_DEBUG("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
 				gear_reset = TRUE
 
 	var/mob/preference_mob = preference_mob()
@@ -388,8 +388,10 @@ var/list/gear_datums = list()
 		description = initial(O.desc)
 	if(flags & GEAR_HAS_COLOR_SELECTION)
 		gear_tweaks += list(gear_tweak_free_color_choice)
-	if(flags & GEAR_HAS_ADDITIONAL_COLOR_SELECTION)
-		gear_tweaks += list(gear_tweak_additional_color)
+	if(flags & GEAR_HAS_ALPHA_SELECTION)
+		gear_tweaks += list(gear_tweak_alpha_choice)
+	if(flags & GEAR_HAS_ACCENT_COLOR_SELECTION)
+		gear_tweaks += list(gear_tweak_accent_color)
 	if(flags & GEAR_HAS_NAME_SELECTION)
 		gear_tweaks += list(gear_tweak_free_name)
 	if(flags & GEAR_HAS_DESC_SELECTION)

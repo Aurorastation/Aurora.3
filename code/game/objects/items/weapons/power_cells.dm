@@ -125,9 +125,10 @@
 	maxcharge = 30000 //determines how badly mobs get shocked
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 80)
 
-	check_charge()
+/obj/item/cell/infinite/check_charge()
 		return 1
-	use()
+
+/obj/item/cell/infinite/use()
 		return 1
 
 /obj/item/cell/potato

@@ -14,7 +14,15 @@ var/list/lunchables_lunches_ = list(
 	/obj/item/reagent_containers/food/snacks/funnelcake,
 	/obj/item/reagent_containers/food/snacks/hotdog,
 	/obj/item/reagent_containers/food/snacks/tajaran_bread,
-	/obj/item/reagent_containers/food/snacks/soup/earthenroot
+	/obj/item/reagent_containers/food/snacks/soup/earthenroot,
+	/obj/item/reagent_containers/food/snacks/redcurry,
+	/obj/item/reagent_containers/food/snacks/greencurry,
+	/obj/item/reagent_containers/food/snacks/yellowcurry,
+	/obj/item/reagent_containers/food/snacks/neaerakabob,
+	/obj/item/reagent_containers/food/snacks/soup/qilvo,
+	/obj/item/reagent_containers/food/snacks/soup/zantiri,
+	/obj/item/reagent_containers/food/snacks/xuqqil
+
 )
 
 var/list/lunchables_snacks_ = list(
@@ -50,7 +58,13 @@ var/list/lunchables_snacks_ = list(
 	/obj/item/reagent_containers/food/snacks/nathisnack,
 	/obj/item/reagent_containers/food/snacks/adhomian_can,
 	/obj/item/reagent_containers/food/snacks/adhomian_sausage,
-	/obj/item/reagent_containers/food/snacks/chocolatebar
+	/obj/item/reagent_containers/food/snacks/chocolatebar,
+	/obj/item/reagent_containers/food/drinks/jyalra,
+	/obj/item/reagent_containers/food/drinks/jyalra/cheese,
+	/obj/item/reagent_containers/food/drinks/jyalra/apple,
+	/obj/item/reagent_containers/food/drinks/jyalra/cherry,
+	/obj/item/reagent_containers/food/snacks/gnaqmi,
+	/obj/item/reagent_containers/food/snacks/lortl
 )
 
 var/list/lunchables_drinks_ = list(
@@ -72,9 +86,10 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda,
 	/obj/item/reagent_containers/food/drinks/bottle/small/midynhr_water,
 	/obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
-	/obj/item/reagent_containers/food/drinks/small_milk,
-	/obj/item/reagent_containers/food/drinks/small_milk_choco,
-	/obj/item/reagent_containers/food/drinks/small_milk_strawberry
+	/obj/item/reagent_containers/food/drinks/carton/small/milk,
+	/obj/item/reagent_containers/food/drinks/carton/small/milk/choco,
+	/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry,
+	/obj/item/reagent_containers/food/drinks/cans/melon_soda
 )
 
 var/list/lunchables_vaurca_ = list(
@@ -94,7 +109,7 @@ var/list/lunchables_vaurca_snack_ = list(
 
 var/list/lunchables_utensil_ = list(
 	/obj/item/material/kitchen/utensil/fork/chopsticks,
-	/obj/item/material/kitchen/utensil/fork/chopsticks/cheap,
+	/obj/item/material/kitchen/utensil/fork/chopsticks/bamboo,
 	/obj/item/material/kitchen/utensil/fork/plastic,
 	/obj/item/material/kitchen/utensil/spoon/plastic,
 	/obj/item/material/kitchen/utensil/knife/plastic

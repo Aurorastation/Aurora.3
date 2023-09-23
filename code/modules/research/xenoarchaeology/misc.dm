@@ -47,15 +47,15 @@
 /obj/structure/bookcase/manuals/xenoarchaeology
 	name = "Xenoarchaeology Manuals bookcase"
 
-	New()
-		..()
-		new /obj/item/book/manual/excavation(src)
-		new /obj/item/book/manual/mass_spectrometry(src)
-		new /obj/item/book/manual/materials_chemistry_analysis(src)
-		new /obj/item/book/manual/anomaly_testing(src)
-		new /obj/item/book/manual/anomaly_spectroscopy(src)
-		new /obj/item/book/manual/stasis(src)
-		update_icon()
+/obj/structure/bookcase/manuals/xenoarchaeology/New()
+	..()
+	new /obj/item/book/manual/excavation(src)
+	new /obj/item/book/manual/mass_spectrometry(src)
+	new /obj/item/book/manual/materials_chemistry_analysis(src)
+	new /obj/item/book/manual/anomaly_testing(src)
+	new /obj/item/book/manual/anomaly_spectroscopy(src)
+	new /obj/item/book/manual/stasis(src)
+	update_icon()
 
 //---- Lockers and closets
 
@@ -67,7 +67,7 @@
 /obj/structure/closet/secure_closet/xenoarchaeologist/fill()
 	new /obj/item/clothing/under/rank/scientist(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/shoes/science(src)
+	new /obj/item/clothing/shoes/sneakers/medsci(src)
 	new /obj/item/clothing/glasses/science(src)
 	new /obj/item/device/radio/headset/headset_sci(src)
 	new /obj/item/storage/belt/archaeology(src)

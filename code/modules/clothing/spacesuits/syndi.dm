@@ -39,6 +39,33 @@
 	siemens_coefficient = 0.5
 	contained_sprite = FALSE
 
+/obj/item/clothing/head/helmet/space/syndicate/covert
+	name = "softsuit helmet"
+	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
+	desc_antag = "This helmet is specially armored for additional protection, compared to a standard softsuit helmet."
+	icon = 'icons/obj/item/clothing/softsuits/softsuit.dmi'
+	icon_state = "softsuit_helmet"
+	item_state = "softsuit_helmet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/syndicate/covert/examine(mob/user, distance)
+	. = ..()
+	if(distance <= 1)
+		to_chat(user, SPAN_NOTICE("This helmet has extra armor compared to a normal softsuit helmet."))
+
+/obj/item/clothing/suit/space/syndicate/covert
+	name = "softsuit"
+	desc = "A suit that protects against low pressure environments."
+	desc_antag = "This suit is specially armored for additional protection, compared to a standard softsuit."
+	icon = 'icons/obj/item/clothing/softsuits/softsuit.dmi'
+	icon_state = "softsuit"
+	item_state = "softsuit"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/space/syndicate/covert/examine(mob/user, distance)
+	..()
+	if(distance <= 1)
+		to_chat(user, SPAN_NOTICE("This suit has extra armor compared to a normal softsuit."))
 
 //Green syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/green

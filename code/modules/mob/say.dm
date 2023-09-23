@@ -32,7 +32,7 @@
 		return
 
 	if(use_me)
-		usr.emote("me",usr.emote_type,message)
+		usr.client_emote("me",usr.emote_type,message)
 	else
 		usr.emote(message)
 

@@ -4,7 +4,7 @@
 	head = /obj/item/clothing/head/beret/legion/field
 	uniform = /obj/item/clothing/under/legion
 	l_ear = /obj/item/device/radio/headset/legion
-	shoes = /obj/item/clothing/shoes/swat/ert
+	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/swat/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
 	back = /obj/item/storage/backpack/legion
@@ -17,7 +17,7 @@
 /datum/outfit/admin/ert/legion/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"

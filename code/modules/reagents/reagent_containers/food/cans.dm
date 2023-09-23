@@ -16,6 +16,7 @@
 	volume = 40 //just over one and a half cups
 	amount_per_transfer_from_this = 5
 	flags = 0 //starts closed
+	icon = 'icons/obj/item/reagent_containers/food/drinks/soda.dmi'
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
 	desc_info = "Click it in your hand to open it.\
@@ -158,24 +159,13 @@
 			detonate(FALSE)
 
 /obj/item/reagent_containers/food/drinks/cans/proc/detonate(var/instant)
-	var/fuel = REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 	if(instant)
-		fuselength = 0
-	else if(prob(fuselength * 6)) // the longer the fuse, the higher chance it will fizzle out (18% chance minimum)
-		var/fizzle = rand(1, fuselength - 1)
-		sleep(fizzle * 1 SECOND)
-
-		fuselength -= fizzle
-		visible_message(SPAN_WARNING("The fuse on \the [name] fizzles out early."))
-		playsound(get_turf(src), 'sound/items/cigs_lighters/cig_snuff.ogg', 50)
-		fuselit = FALSE
-		set_light(0, 0)
-		update_icon()
-		return
+		handle_detonation()
 	else
-		fuselength += rand(-2, 2) // if the fuse isn't fizzling out or detonating instantly, make it a little harder to predict the fuse by +2/-2 seconds
-	sleep(fuselength * 1 SECOND)
+		addtimer(CALLBACK(src, PROC_REF(handle_detonation)), (fuselength + rand(-2, 2)) SECONDS)
 
+/obj/item/reagent_containers/food/drinks/cans/proc/handle_detonation()
+	var/fuel = REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 	switch(round(fuel))
 		if(0)
 			visible_message(SPAN_NOTICE("\The [name]'s fuse burns out and nothing happens."))
@@ -184,7 +174,7 @@
 			update_icon()
 			set_light(0, 0)
 			return
-		if(1 to FUSELENGTH_MAX) // baby explosion.
+		if(1 to 10) // baby explosion.
 			var/obj/item/trash/can/popped_can = new(get_turf(src))
 			popped_can.icon_state = icon_state
 			popped_can.name = "popped can"
@@ -195,15 +185,13 @@
 			playsound(get_turf(src), 'sound/effects/bang.ogg', 50)
 			visible_message(SPAN_WARNING("\The [name] bursts violently into pieces!"))
 		if(LETHAL_FUEL_CAPACITY to INFINITY) // boom
-			fragem(src, shrapnelcount, shrapnelcount, 1, 0, 5, 1, TRUE, 2) // The main aim of the grenade should be to hit and wound people with shrapnel instead of causing a lot of station damage, hence the small explosion radius
+			fragem(src, shrapnelcount, shrapnelcount, 3, 5, 15, 3, TRUE, 5)
 			playsound(get_turf(src), 'sound/effects/Explosion1.ogg', 50)
 			visible_message(SPAN_DANGER("<b>\The [name] explodes!</b>"))
-	fuselit = FALSE
-	update_icon()
 	qdel(src)
 
 /obj/item/reagent_containers/food/drinks/cans/proc/can_light() // just reverses the fuselit var to return a TRUE or FALSE, should hopefully make things a little easier if someone adds more fuse interactions later.
-    return !fuselit && fuselength
+	return !fuselit && fuselength
 
 /obj/item/reagent_containers/food/drinks/cans/proc/FuseRemove(var/CableRemoved = fuselength)
 	fuselength -= CableRemoved
@@ -446,7 +434,7 @@
 	desc_extended = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as a herbal tea by the \
 	colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university \
 	students because of its stimulant effect."
-	icon_state = "hrozamal_soda_can"
+	icon_state = "hrozamal_soda"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/hrozamal_soda = 30)
@@ -465,3 +453,33 @@
 	icon_state = "xanu_rush"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/drink/peach_soda = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/beer
+	name = "\improper Virklunder canned beer"
+	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in the Ovanstad of \
+	Virklund in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel and has since been in stock in practically every bar across the nation."
+	icon_state = "space_beer"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/alcohol/beer = 40)
+
+/obj/item/reagent_containers/food/drinks/cans/beer/rice
+	name = "\improper Ebisu Super Dry"
+	desc = "Konyang's favourite rice beer brand, 200 years running."
+	icon_state = "ebisu"
+	reagents_to_add = list(/singleton/reagent/alcohol/rice_beer = 40)
+
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma
+	name = "\improper Shimauma Ichiban"
+	desc = "Konyang's most middling rice beer brand. Not as popular as Ebisu, but it's comfortable in second place."
+	icon_state = "shimauma"
+
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor
+	name = "\improper Moonlabor Malt's"
+	desc = "Konyang's underdog rice beer brand. Popular amongst New Hai Phongers, for reasons unknown."
+	icon_state = "moonlabor"
+
+/obj/item/reagent_containers/food/drinks/cans/melon_soda
+	name = "Kansumi Melon Soda"
+	desc = "Konyang's favourite melon soda, now available in can form!"
+	icon_state = "melon_soda"
+	reagents_to_add = list(/singleton/reagent/drink/melon_soda = 30)

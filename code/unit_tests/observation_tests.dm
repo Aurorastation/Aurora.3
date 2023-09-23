@@ -1,14 +1,14 @@
 /proc/is_listening_to_movement(var/atom/movable/listening_to, var/listener)
 	return moved_event.is_listening(listening_to, listener)
 
-datum/unit_test/observation
+/datum/unit_test/observation
 	name = "OBSERVATION template"
 	async = 0
 
-datum/unit_test/observation/moved_observer_shall_register_on_follow
+/datum/unit_test/observation/moved_observer_shall_register_on_follow
 	name = "OBSERVATION: Moved - Observer Shall Register on Follow"
 
-datum/unit_test/observation/moved_observer_shall_register_on_follow/start_test()
+/datum/unit_test/observation/moved_observer_shall_register_on_follow/start_test()
 	var/turf/T = locate(20,20,1)
 	var/mob/living/carbon/human/H = new(T)
 	var/mob/abstract/observer/O = new(T)
@@ -23,10 +23,10 @@ datum/unit_test/observation/moved_observer_shall_register_on_follow/start_test()
 	QDEL_IN(O, 10 SECONDS)
 	return 1
 
-datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow
+/datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow
 	name = "OBSERVATION: Moved - Observer Shall Unregister on NoFollow"
 
-datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow/start_test()
+/datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow/start_test()
 	var/turf/T = locate(20,20,1)
 	var/mob/living/carbon/human/H = new(T)
 	var/mob/abstract/observer/O = new(T)
@@ -42,10 +42,10 @@ datum/unit_test/observation/moved_observer_shall_unregister_on_nofollow/start_te
 	QDEL_IN(O, 10 SECONDS)
 	return 1
 
-datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener
+/datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener
 	name = "OBSERVATION: Moved - Shall Register Recursively on New Listener"
 
-datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener/start_test()
+/datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener/start_test()
 	var/turf/T = locate(20,20,1)
 	var/mob/living/carbon/human/H = new(T)
 	var/obj/structure/closet/C = new(T)
@@ -65,10 +65,10 @@ datum/unit_test/observation/moved_shall_registers_recursively_on_new_listener/st
 	QDEL_IN(O, 10 SECONDS)
 	return 1
 
-datum/unit_test/observation/moved_shall_registers_recursively_with_existing_listener
+/datum/unit_test/observation/moved_shall_registers_recursively_with_existing_listener
 	name = "OBSERVATION: Moved - Shall Register Recursively with Existing Listener"
 
-datum/unit_test/observation/moved_shall_registers_recursively_with_existing_listener/start_test()
+/datum/unit_test/observation/moved_shall_registers_recursively_with_existing_listener/start_test()
 	var/turf/T = locate(20,20,1)
 	var/mob/living/carbon/human/H = new(T)
 	var/obj/structure/closet/C = new(T)

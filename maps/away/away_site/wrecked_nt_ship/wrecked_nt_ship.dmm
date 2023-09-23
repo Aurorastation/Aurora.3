@@ -1,14 +1,106 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless{
+	burnt = 3
+	},
+/area/wrecked_nt_ship)
 "ab" = (
 /turf/simulated/floor/tiled/white/airless{
 	icon_state = "freezer"
 	},
+/area/wrecked_nt_ship)
+"ac" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless,
+/area/wrecked_nt_ship)
+"ad" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/wrecked_nt_ship)
+"ae" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/wrecked_nt_ship)
+"af" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/wrecked_nt_ship)
+"ag" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/wrecked_nt_ship)
+"ah" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/wrecked_nt_ship)
+"ai" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/wrecked_nt_ship)
+"aj" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/wrecked_nt_ship)
+"ak" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/wrecked_nt_ship)
+"al" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless,
 /area/wrecked_nt_ship)
 "am" = (
 /obj/structure/filingcabinet,
 /turf/simulated/floor/tiled/steel/airless{
 	icon_state = "damaged2"
 	},
+/area/wrecked_nt_ship)
+"an" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless,
+/area/wrecked_nt_ship)
+"ao" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless,
+/area/wrecked_nt_ship)
+"ap" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless,
+/area/wrecked_nt_ship)
+"aq" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "ar" = (
 /obj/item/stack/material/silver,
@@ -17,6 +109,12 @@
 /obj/item/stack/material/silver,
 /obj/item/stack/material/silver,
 /obj/item/stack/material/silver,
+/turf/simulated/floor/tiled/steel/airless,
+/area/wrecked_nt_ship)
+"as" = (
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "ax" = (
@@ -105,7 +203,9 @@
 /turf/simulated/wall/r_wall,
 /area/wrecked_nt_ship)
 "bT" = (
-/obj/machinery/door/airlock/glass,
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "bV" = (
@@ -137,23 +237,11 @@
 /obj/machinery/recharger,
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
-"cs" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/item/ore/glass,
-/turf/template_noop,
-/area/space)
 "cA" = (
 /obj/item/mecha_equipment/mounted_system/flarelauncher,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
-"cJ" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/item/material/shard,
-/turf/template_noop,
-/area/space)
 "cT" = (
 /obj/item/clothing/suit/caution,
 /turf/simulated/floor/tiled/steel/airless{
@@ -193,7 +281,7 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "dP" = (
-/obj/structure/sign/flag/nanotrasen/left,
+/obj/structure/sign/flag/nanotrasen/large/north,
 /turf/simulated/wall/r_wall,
 /area/wrecked_nt_ship)
 "dR" = (
@@ -316,13 +404,15 @@
 "gr" = (
 /obj/effect/floor_decal/asteroid,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/wrecked_nt_ship)
 "gv" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/wrecked_nt_ship)
 "gy" = (
@@ -410,7 +500,7 @@
 /area/space)
 "iy" = (
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned1"
+	burnt = 3
 	},
 /area/wrecked_nt_ship)
 "iz" = (
@@ -439,11 +529,10 @@
 	icon_state = "wood_broken1"
 	},
 /area/wrecked_nt_ship)
-"iQ" = (
-/turf/simulated/wall/r_wall,
-/area/wrecked_nt_ship)
 "iR" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/airless,
 /area/wrecked_nt_ship)
 "iU" = (
@@ -463,7 +552,7 @@
 	},
 /area/space)
 "jM" = (
-/turf/simulated/floor/ice,
+/turf/simulated/floor/airless/ice,
 /area/wrecked_nt_ship)
 "jN" = (
 /turf/simulated/floor/wood/airless{
@@ -477,7 +566,7 @@
 "jR" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/wrecked_nt_ship)
 "jU" = (
@@ -629,7 +718,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/wrecked_nt_ship)
 "ng" = (
@@ -651,7 +740,9 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "nI" = (
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/hatch{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "nR" = (
@@ -683,7 +774,6 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "ot" = (
-/obj/structure/sign/flag/nanotrasen/right,
 /turf/simulated/wall/r_wall,
 /area/wrecked_nt_ship)
 "ox" = (
@@ -781,12 +871,14 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "qq" = (
-/obj/machinery/door/airlock/highsecurity,
+/obj/machinery/door/airlock/highsecurity{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "qw" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/ice,
+/turf/simulated/floor/airless/ice,
 /area/wrecked_nt_ship)
 "qD" = (
 /obj/effect/decal/remains/human,
@@ -829,16 +921,10 @@
 	icon_state = "damaged2"
 	},
 /area/wrecked_nt_ship)
-"rx" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/item/stack/rods{
-	icon_state = "rods-1"
-	},
-/turf/template_noop,
-/area/space)
 "rA" = (
-/obj/machinery/door/airlock/external,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_broken4"
 	},
@@ -866,13 +952,6 @@
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
-"rW" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/structure/grille/broken,
-/turf/template_noop,
-/area/space)
 "rY" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced/tinted{
@@ -1260,7 +1339,7 @@
 /area/wrecked_nt_ship)
 "Ao" = (
 /obj/item/trash/spitgum,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "AD" = (
@@ -1284,7 +1363,9 @@
 	},
 /area/wrecked_nt_ship)
 "BC" = (
-/obj/machinery/door/airlock/centcom,
+/obj/machinery/door/airlock/centcom{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "BF" = (
@@ -1331,12 +1412,6 @@
 /obj/item/wrench,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
-"Cz" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/structure/grille/broken,
-/turf/template_noop,
-/area/space)
 "CI" = (
 /obj/item/melee/vaurca/rock,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -1416,7 +1491,9 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "Fw" = (
-/obj/machinery/door/airlock/centcom,
+/obj/machinery/door/airlock/centcom{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white/airless{
 	icon_state = "freezer"
 	},
@@ -1432,15 +1509,6 @@
 	icon_state = "damaged3"
 	},
 /area/wrecked_nt_ship)
-"FJ" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/structure/lattice,
-/obj/item/stack/rods{
-	icon_state = "rods-1"
-	},
-/turf/template_noop,
-/area/space)
 "FP" = (
 /obj/structure/shuttle/engine/propulsion,
 /turf/template_noop,
@@ -1566,7 +1634,7 @@
 /area/wrecked_nt_ship)
 "HS" = (
 /obj/item/trash/grease,
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Ih" = (
@@ -1741,7 +1809,7 @@
 /area/wrecked_nt_ship)
 "Mc" = (
 /turf/simulated/floor/tiled/airless{
-	icon_state = "steel_burned0"
+	burnt = 3
 	},
 /area/wrecked_nt_ship)
 "Mn" = (
@@ -1879,7 +1947,7 @@
 /turf/simulated/floor/airless,
 /area/wrecked_nt_ship)
 "Px" = (
-/obj/structure/flora/pottedplant/random,
+/obj/random/pottedplant,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "Py" = (
@@ -2187,7 +2255,6 @@
 /area/wrecked_nt_ship)
 "WI" = (
 /obj/structure/lattice,
-/obj/structure/lattice,
 /obj/item/stack/rods{
 	icon_state = "rods-1"
 	},
@@ -2248,11 +2315,6 @@
 "XR" = (
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/steel/airless,
-/area/space)
-"XV" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/template_noop,
 /area/space)
 "Yb" = (
 /obj/effect/decal/remains/human,
@@ -27455,11 +27517,11 @@ Kn
 Kn
 Kn
 Kn
-iQ
+ot
 gv
-gv
+aa
 iR
-iQ
+ot
 Kn
 Kn
 Kn
@@ -28483,11 +28545,11 @@ Kn
 Kn
 Kn
 Kn
-iQ
+ot
 rA
 rA
-iR
-iQ
+ac
+ot
 Kn
 Kn
 Kn
@@ -28740,11 +28802,11 @@ Kn
 Kn
 Kn
 Kn
-iQ
+ot
 iy
 iy
 aF
-iQ
+ot
 Kn
 Kn
 Kn
@@ -28995,23 +29057,23 @@ Kn
 Kn
 Kn
 Kn
-iQ
-iQ
-iQ
+ot
+ot
+ot
 Zh
 Zh
 iy
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
 FP
 Kn
 Kn
@@ -29236,23 +29298,23 @@ AD
 RX
 RX
 RX
-iQ
-iQ
-iQ
+ot
+ot
+ot
 lV
 AD
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
 dU
 ll
 ll
@@ -29260,7 +29322,7 @@ Bi
 ll
 ll
 uV
-iQ
+ot
 iy
 Zh
 Mc
@@ -29268,7 +29330,7 @@ Zh
 Zh
 Zh
 aF
-iQ
+ot
 FP
 Kn
 Kn
@@ -29491,14 +29553,14 @@ AD
 AD
 GH
 RX
-iQ
-iQ
+ot
+ot
 Xl
 uV
 uV
-iQ
-iQ
-iQ
+ot
+ot
+ot
 sd
 dB
 jU
@@ -29506,7 +29568,7 @@ Fj
 cm
 ll
 Px
-iQ
+ot
 Zq
 ll
 ll
@@ -29517,7 +29579,7 @@ ll
 dU
 aY
 kO
-iQ
+ot
 aF
 to
 nZ
@@ -29525,7 +29587,7 @@ iy
 nZ
 LI
 Zh
-iQ
+ot
 FP
 Kn
 Kn
@@ -29755,7 +29817,7 @@ ll
 ll
 ll
 dU
-iQ
+ot
 vT
 vx
 vx
@@ -29767,14 +29829,14 @@ BC
 ll
 aY
 mj
-iQ
-iQ
-iQ
-iQ
+ot
+ot
+ot
+ot
 dP
 Px
 zc
-iQ
+ot
 Mc
 bn
 bn
@@ -29782,7 +29844,7 @@ Mc
 py
 lT
 Zh
-iQ
+ot
 FP
 Kn
 Kn
@@ -30012,7 +30074,7 @@ Tw
 ll
 pi
 ll
-iQ
+ot
 vT
 vx
 vx
@@ -30020,18 +30082,18 @@ UP
 zU
 ll
 yq
-iQ
-iQ
-iQ
-iQ
-iQ
+ot
+ot
+ot
+ot
+ot
 ng
 Xs
 ll
 ot
 ll
 ll
-iQ
+ot
 Zh
 jR
 nf
@@ -30039,7 +30101,7 @@ Mc
 Zh
 iy
 iy
-iQ
+ot
 FP
 Kn
 Kn
@@ -30257,19 +30319,19 @@ AD
 xi
 xi
 xi
-iQ
-iQ
+ot
+ot
 ox
 bO
-iQ
-iQ
+ot
+ot
 ll
 tN
 fb
 fC
 SE
 aY
-iQ
+ot
 sd
 IM
 vx
@@ -30277,7 +30339,7 @@ vx
 Rr
 ll
 yq
-iQ
+ot
 pw
 TW
 vx
@@ -30285,7 +30347,7 @@ vx
 vx
 ll
 ll
-iQ
+ot
 ll
 wt
 nI
@@ -30295,8 +30357,8 @@ Zh
 Mc
 LQ
 Qb
-iQ
-iQ
+ot
+ot
 FP
 Kn
 Kn
@@ -30514,19 +30576,19 @@ xi
 xi
 xi
 xi
-iQ
+ot
 iU
 bO
 BS
 HM
-iQ
+ot
 BF
 Bi
 aY
 ll
 ll
 Bi
-iQ
+ot
 YB
 vx
 GP
@@ -30534,7 +30596,7 @@ vX
 px
 zc
 yq
-iQ
+ot
 Eg
 vx
 dB
@@ -30542,17 +30604,17 @@ IB
 Kt
 vx
 wT
-iQ
+ot
 ll
 ll
-iQ
-iQ
+ot
+ot
 zs
 zs
 dI
 zs
-iQ
-iQ
+ot
+ot
 Kn
 Kn
 Kn
@@ -30776,7 +30838,7 @@ qX
 Bi
 tr
 Lt
-iQ
+ot
 Bi
 ll
 MY
@@ -30799,10 +30861,10 @@ fa
 MV
 dB
 St
-iQ
+ot
 Kn
 Kn
-iQ
+ot
 Kn
 Kn
 Kn
@@ -31024,8 +31086,8 @@ II
 xi
 xi
 xi
-iQ
-iQ
+ot
+ot
 cA
 IY
 aY
@@ -31033,22 +31095,22 @@ BS
 zc
 Bi
 uV
-iQ
+ot
 ll
 uQ
 Ab
 Wd
 ll
 hC
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-BC
-iQ
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ad
+ot
 jM
 jM
 jM
@@ -31056,10 +31118,10 @@ iv
 pM
 UP
 kC
-iQ
-XV
+ot
+Kh
 Kn
-iQ
+ot
 Kn
 Kn
 Kn
@@ -31290,7 +31352,7 @@ dK
 iA
 ll
 uV
-iQ
+ot
 ll
 ll
 bt
@@ -31305,18 +31367,18 @@ HS
 aY
 IU
 ll
-iQ
+ot
 qw
 jM
 jM
-XV
+Kh
 WI
-cJ
+tt
 ll
-iQ
+ot
 Kh
 Kh
-Cz
+HB
 Kn
 Kn
 Kn
@@ -31562,11 +31624,11 @@ ll
 ll
 ll
 zc
-iQ
+ot
 jM
 jM
 vx
-Cz
+HB
 Kh
 Kh
 bO
@@ -31574,8 +31636,8 @@ kO
 wj
 ll
 Kh
-XV
-rW
+Kh
+HB
 Kn
 Kn
 Kn
@@ -31804,7 +31866,7 @@ SL
 Ub
 Bi
 fg
-iQ
+ot
 ll
 ll
 YY
@@ -31819,7 +31881,7 @@ rE
 Hp
 ll
 Bi
-iQ
+ot
 jM
 ll
 pM
@@ -31831,8 +31893,8 @@ Kn
 vx
 lO
 PQ
-FJ
-rx
+wf
+wf
 Kn
 Kn
 Kn
@@ -32061,7 +32123,7 @@ ll
 ll
 zc
 ll
-iQ
+ot
 aY
 Xp
 CN
@@ -32076,7 +32138,7 @@ bs
 kc
 ll
 ll
-iQ
+ot
 jM
 kO
 dB
@@ -32333,7 +32395,7 @@ JG
 Bh
 ll
 Bi
-iQ
+ot
 MB
 WM
 uk
@@ -32566,39 +32628,39 @@ AD
 AD
 AD
 II
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-BC
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-BC
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-BC
-iQ
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ae
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+af
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ag
+ot
 ll
 Kn
 Kn
@@ -33339,37 +33401,37 @@ yh
 AD
 AD
 ll
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-BC
-iQ
+ot
+ot
+ot
+ot
+ot
+ot
+ah
+ot
 ll
 CR
 aY
 vx
 ll
 Px
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-BC
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ai
+ot
+ot
+ot
+ot
+ot
+ot
+ot
 Fw
-iQ
+ot
 Tl
 vx
 vx
@@ -33598,12 +33660,12 @@ Uk
 vx
 QJ
 JZ
-iQ
+ot
 am
 ZE
 am
 ll
-iQ
+ot
 uR
 iA
 vx
@@ -33618,7 +33680,7 @@ Sv
 OG
 Mb
 iK
-iQ
+ot
 ug
 gW
 sp
@@ -33855,19 +33917,19 @@ AD
 UP
 zc
 uV
-iQ
+ot
 ll
 BF
 ll
 zj
-iQ
+ot
 vx
 si
 vx
 dB
 th
 LJ
-iQ
+ot
 jN
 uC
 uC
@@ -33875,7 +33937,7 @@ iK
 uC
 uC
 BZ
-iQ
+ot
 ab
 vx
 vx
@@ -33886,7 +33948,7 @@ ab
 vx
 PQ
 tt
-rx
+wf
 Kn
 PA
 Kn
@@ -34117,7 +34179,7 @@ Bi
 PM
 zZ
 mT
-iQ
+ot
 ch
 ch
 vx
@@ -34132,18 +34194,18 @@ HI
 tU
 bg
 uC
-iQ
+ot
 ab
 WV
 Kn
 PQ
-rx
+wf
 ab
 ax
-iQ
+ot
 vx
 UP
-rW
+HB
 wf
 Kn
 Kn
@@ -34374,7 +34436,7 @@ BF
 jn
 xL
 UH
-iQ
+ot
 vx
 ch
 Qc
@@ -34389,7 +34451,7 @@ bg
 Mb
 bg
 FY
-iQ
+ot
 GK
 Kn
 Kn
@@ -34397,7 +34459,7 @@ nq
 Kh
 Wb
 Dz
-iQ
+ot
 jU
 RT
 iz
@@ -34623,30 +34685,30 @@ xi
 CI
 gZ
 AD
-iQ
-iQ
-iQ
+ot
+ot
+ot
 sb
 ll
 iA
 ll
 IW
-iQ
+ot
 dB
 OW
 Pp
 Pp
 Pp
 ch
-iQ
-iQ
+ot
+ot
 uC
-iQ
-iQ
-iQ
-iQ
-BC
-iQ
+ot
+ot
+ot
+ot
+aj
+ot
 sC
 Kn
 PQ
@@ -34654,10 +34716,10 @@ Kn
 sI
 vx
 ab
-iQ
+ot
 BF
 Cb
-iQ
+ot
 Kn
 PQ
 Kh
@@ -34883,27 +34945,27 @@ AD
 xi
 xi
 xi
-iQ
+ot
 zj
 dX
 zj
 BF
-iQ
+ot
 Yb
 vx
 ch
 ch
 ch
 Gl
-iQ
+ot
 ue
 uC
 WW
-iQ
+ot
 Mn
 BC
 BF
-iQ
+ot
 Ak
 nq
 Kn
@@ -34911,17 +34973,17 @@ Kn
 pv
 RT
 ab
-iQ
+ot
 ll
 aY
-iQ
-iQ
+ot
+ot
 zs
 yd
 tt
 NX
-iQ
-iQ
+ot
+ot
 Kn
 Kn
 Kn
@@ -35140,27 +35202,27 @@ Uk
 xi
 xi
 xi
-iQ
+ot
 Hc
 On
 Bi
 pL
-iQ
+ot
 cT
 Gl
 vx
 dB
 ll
 aY
-iQ
+ot
 gj
 uC
-iQ
-iQ
-iQ
+ot
+ot
+ot
 aP
 ll
-iQ
+ot
 vx
 vx
 Th
@@ -35168,7 +35230,7 @@ BR
 OM
 vx
 ab
-iQ
+ot
 xy
 ll
 nI
@@ -35178,8 +35240,8 @@ Kh
 Kn
 lH
 yV
-iQ
-iQ
+ot
+ot
 FP
 Kn
 Kn
@@ -35397,27 +35459,27 @@ AD
 xi
 xi
 xi
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
+ot
+ot
+ot
+ot
+ot
+ot
 tg
 Eq
 ll
 Gl
 WS
 ll
-iQ
+ot
 YT
 FY
 YT
-iQ
+ot
 Ke
 BC
 Bi
-iQ
+ot
 vx
 Wb
 Kh
@@ -35425,10 +35487,10 @@ Kh
 Kn
 ab
 tp
-iQ
+ot
 zc
 ll
-iQ
+ot
 aF
 LI
 mt
@@ -35436,7 +35498,7 @@ vx
 vx
 vx
 aF
-iQ
+ot
 FP
 Kn
 Kn
@@ -35659,22 +35721,22 @@ xi
 xi
 xi
 xi
-iQ
+ot
 is
 SJ
 aY
 ll
 zc
 Yb
-iQ
+ot
 ta
 uC
 YT
-iQ
-iQ
-iQ
-BC
-iQ
+ot
+ot
+ot
+ak
+ot
 ab
 TN
 Kh
@@ -35682,10 +35744,10 @@ PQ
 Dz
 ab
 ab
-iQ
+ot
 aY
 dU
-iQ
+ot
 Mc
 mt
 LI
@@ -35693,7 +35755,7 @@ iy
 mt
 LI
 aF
-iQ
+ot
 FP
 Kn
 Kn
@@ -35916,22 +35978,22 @@ xi
 xi
 xi
 xi
-iQ
+ot
 uV
 aY
 OW
 OW
 Wp
 ll
-iQ
-iQ
+ot
+ot
 bF
-iQ
-iQ
+ot
+ot
 eZ
 Uo
 aY
-iQ
+ot
 YE
 Kh
 pE
@@ -35939,10 +36001,10 @@ Ej
 ab
 ab
 Vl
-iQ
+ot
 ll
 ll
-iQ
+ot
 iy
 LI
 mt
@@ -35950,7 +36012,7 @@ gr
 LI
 nZ
 Zh
-iQ
+ot
 FP
 Kn
 Kn
@@ -36173,22 +36235,22 @@ AD
 xi
 xi
 xi
-iQ
-iQ
-iQ
-iR
-iR
-iQ
-iQ
-iQ
+ot
+ot
+ot
+al
+an
+ot
+ot
+ot
 lh
 uC
 ue
-iQ
+ot
 eZ
 Uo
 ll
-iQ
+ot
 uY
 Kn
 ab
@@ -36196,10 +36258,10 @@ ab
 ab
 ZC
 Vc
-iQ
+ot
 uV
 uV
-iQ
+ot
 Mc
 Mc
 Mc
@@ -36207,7 +36269,7 @@ aF
 Mc
 Mc
 iy
-iQ
+ot
 FP
 Kn
 Kn
@@ -36432,39 +36494,39 @@ xi
 xi
 xi
 xi
-iQ
+ot
 Zh
 Zh
-iQ
+ot
 Kn
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
 PQ
 Kn
 Kh
 wf
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
 FP
 Kn
 Kn
@@ -36707,7 +36769,7 @@ Kn
 Kn
 Kn
 Kn
-cs
+NX
 Kn
 Kn
 Kn
@@ -38231,10 +38293,10 @@ AD
 qH
 AD
 qH
-iQ
+ot
 dB
 Zh
-iQ
+ot
 Kn
 Kn
 nq
@@ -38484,26 +38546,26 @@ AD
 xi
 xi
 xi
-iQ
-iQ
-iQ
-iQ
-iQ
-iR
-iR
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
+ot
+ot
+ot
+ot
+ot
+ao
+ap
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
 zs
 zs
 TC
-XV
+Kh
 NX
 zs
 zs
@@ -38740,15 +38802,15 @@ AD
 AD
 xi
 xi
-iQ
-iQ
+ot
+ot
 QK
 kE
 dP
 VY
 ll
 yJ
-iQ
+ot
 Cd
 Cd
 PK
@@ -38756,7 +38818,7 @@ iA
 nR
 mF
 ll
-iQ
+ot
 kt
 nk
 aU
@@ -39005,7 +39067,7 @@ ot
 VY
 aY
 uV
-iQ
+ot
 zc
 Bi
 ll
@@ -39258,11 +39320,11 @@ vx
 fe
 FA
 xC
-iQ
+ot
 xQ
 ll
 VY
-iQ
+ot
 NS
 ll
 jP
@@ -39270,7 +39332,7 @@ qK
 YR
 iA
 Hi
-iQ
+ot
 Bi
 kt
 aU
@@ -39515,11 +39577,11 @@ ll
 Hr
 hu
 dB
-iQ
+ot
 xQ
 ll
 VY
-iQ
+ot
 fi
 ll
 jP
@@ -39527,7 +39589,7 @@ GO
 Uu
 yw
 oz
-iQ
+ot
 zs
 zs
 zs
@@ -39767,7 +39829,7 @@ AD
 xi
 kD
 Nf
-iQ
+ot
 WD
 ll
 aY
@@ -39784,7 +39846,7 @@ ll
 ll
 ll
 ll
-iQ
+ot
 hZ
 hZ
 hZ
@@ -40024,16 +40086,16 @@ II
 AD
 AD
 II
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-BC
-iQ
-iQ
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+aq
+ot
+ot
 lC
 kt
 kt
@@ -40041,7 +40103,7 @@ kt
 kt
 wO
 Eq
-iQ
+ot
 zs
 zs
 vx
@@ -40290,7 +40352,7 @@ Lh
 ki
 ll
 fy
-iQ
+ot
 Hi
 FS
 uD
@@ -40298,7 +40360,7 @@ kt
 kt
 kt
 ll
-iQ
+ot
 ll
 Bi
 vx
@@ -40547,7 +40609,7 @@ zl
 aY
 hH
 ll
-iQ
+ot
 ll
 zc
 ll
@@ -40804,7 +40866,7 @@ zF
 pF
 su
 aY
-iQ
+ot
 fo
 kt
 OQ
@@ -40812,7 +40874,7 @@ MW
 kt
 OQ
 qo
-iQ
+ot
 MW
 kt
 MW
@@ -41061,15 +41123,15 @@ ph
 Bi
 ll
 ll
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
 sM
 zs
 yd
@@ -41310,15 +41372,15 @@ xi
 xi
 xi
 AD
-iQ
+ot
 ar
 os
 Pg
-iQ
+ot
 nF
-bT
+as
 nF
-iQ
+ot
 Kn
 Kn
 Kn
@@ -41567,15 +41629,15 @@ xi
 xi
 xi
 Uk
-iQ
+ot
 aY
 Bi
 hp
-iQ
+ot
 SJ
 ll
 ll
-iQ
+ot
 Kn
 Kn
 Kn
@@ -41824,15 +41886,15 @@ xi
 xi
 AD
 AD
-iQ
+ot
 Pg
 JI
 wZ
-iQ
+ot
 ll
 aY
 WS
-iQ
+ot
 Kn
 Kn
 Kn
@@ -42085,11 +42147,11 @@ xi
 uV
 ll
 FE
-iQ
+ot
 ll
 zc
 ll
-iQ
+ot
 Kn
 Kn
 Kn
@@ -42340,13 +42402,13 @@ xi
 xi
 xi
 xi
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
-iQ
+ot
+ot
+ot
+ot
+ot
+ot
+ot
 Kn
 Kn
 Kn

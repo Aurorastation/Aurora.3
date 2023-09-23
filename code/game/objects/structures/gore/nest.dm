@@ -13,8 +13,9 @@
 	. = ..()
 	health = maxHealth
 
-/obj/structure/bed/nest/examine(mob/user)
-	if(..(user, 2))
+/obj/structure/bed/nest/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 2)
 		var/health_div = health / maxHealth
 		if(health_div >= 0.9)
 			to_chat(user, SPAN_NOTICE("\The [src] appears completely intact."))
@@ -64,3 +65,5 @@
 		var/final_message = replacetext(destroy_message, "THE STRUCTURE", "\The [src]")
 		visible_message(SPAN_WARNING(final_message))
 		qdel(src)
+
+#undef NEST_RESIST_TIME

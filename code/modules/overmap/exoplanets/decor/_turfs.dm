@@ -6,6 +6,9 @@
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 	turf_flags = TURF_FLAG_BACKGROUND
 	flags = null
+
+	does_footprint = TRUE
+
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
 	var/has_edge_icon = TRUE
@@ -15,8 +18,10 @@
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 		if(istype(E))
 			if(E.atmosphere)
+				initial_gas = E.atmosphere.gas.Copy()
 				temperature = E.atmosphere.temperature
 			else
+				initial_gas = list()
 				temperature = T0C
 			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
 			set_light(MINIMUM_USEFUL_LIGHT_RANGE, E.lightlevel, COLOR_WHITE)
@@ -38,6 +43,14 @@
 		if(T.use(1))
 			playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 			ChangeTurf(/turf/simulated/floor, FALSE, FALSE, FALSE, TRUE)
+	else if(diggable && istype(C,/obj/item/material/minihoe))
+		visible_message(SPAN_NOTICE("\The [user] starts clearing \the [src]"))
+		if(C.use_tool(src, user, 50, volume = 50))
+			to_chat(user, SPAN_NOTICE("You make a small clearing."))
+			new /obj/structure/clearing(src)
+			diggable = FALSE
+		else
+			to_chat(user, SPAN_NOTICE("You stop shoveling."))
 
 /turf/simulated/floor/exoplanet/ex_act(severity)
 	switch(severity)
@@ -49,11 +62,14 @@
 
 /turf/simulated/floor/exoplanet/Initialize()
 	. = ..()
+	footprint_color = dirt_color
 	update_icon(1)
 
 /turf/simulated/floor/exoplanet/update_icon(var/update_neighbors)
 	if(has_edge_icon)
 		cut_overlays()
+		if(resource_indicator)
+			add_overlay(resource_indicator)
 		if(LAZYLEN(decals))
 			add_overlay(decals)
 		for(var/direction in cardinal)
@@ -73,8 +89,127 @@
 			else if(update_neighbors)
 				turf_to_check.update_icon()
 
-/turf/simulated/floor/exoplanet/update_dirt()
-	return // it's already dirt, silly
+//Water
+/turf/simulated/floor/exoplanet/water/update_icon()
+	return
+
+/turf/simulated/floor/exoplanet/water/shallow
+	name = "shallow water"
+	icon = 'icons/misc/beach.dmi'
+	icon_state = "seashallow"
+	footstep_sound = /singleton/sound_category/water_footstep
+
+/turf/simulated/floor/exoplanet/water/shallow/attackby(obj/item/O, var/mob/living/user)
+	var/obj/item/reagent_containers/RG = O
+	if (reagent_type && istype(RG) && RG.is_open_container() && RG.reagents)
+		RG.reagents.add_reagent(reagent_type, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
+		user.visible_message("<span class='notice'>[user] fills \the [RG] from \the [src].</span>","<span class='notice'>You fill \the [RG] from \the [src].</span>")
+	else
+		return ..()
+
+/turf/simulated/floor/exoplanet/water/update_dirt()
+	return	// Water doesn't become dirty
+
+//Ice
+/turf/simulated/floor/exoplanet/ice
+	name = "ice"
+	icon = 'icons/turf/flooring/snow.dmi'
+	icon_state = "ice"
+
+/turf/simulated/floor/exoplanet/ice/update_icon()
+	return
+
+/turf/simulated/floor/exoplanet/ice/dark
+	icon_state = "icedark"
+
+//Snow
+/turf/simulated/floor/exoplanet/snow
+	name = "snow"
+	icon = 'icons/turf/smooth/snow40.dmi'
+	icon_state = "snow0"
+	dirt_color = "#e3e7e8"
+	footstep_sound = /singleton/sound_category/snow_footstep
+	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
+	canSmoothWith = list(
+		/turf/simulated/floor/exoplanet/snow,
+		/turf/simulated/wall,
+		/turf/unsimulated/wall
+	) //Smooths with walls but not the inverse. This way to avoid layering over walls.
+
+/turf/simulated/floor/exoplanet/snow/Initialize()
+	. = ..()
+	pixel_x = -4
+	pixel_y = -4
+	icon_state = pick("snow[rand(1,2)]","snow0","snow0")
+	queue_smooth_neighbors(src)
+	queue_smooth(src)
+
+/turf/simulated/floor/exoplanet/snow/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+	melt()
+
+/turf/simulated/floor/exoplanet/snow/melt()
+	ChangeTurf(/turf/simulated/floor/exoplanet/permafrost)
+
+/turf/simulated/floor/exoplanet/permafrost
+	name = "permafrost"
+	icon = 'icons/turf/flooring/snow.dmi'
+	icon_state = "permafrost"
+	footstep_sound = /singleton/sound_category/asteroid_footstep
+
+//Grass
+/turf/simulated/floor/exoplanet/grass
+	name = "grass"
+	icon = 'icons/turf/jungle.dmi'
+	icon_state = "greygrass"
+	color = "#799c4b"
+	footstep_sound = /singleton/sound_category/grass_footstep
+
+/turf/simulated/floor/exoplanet/grass/Initialize()
+	. = ..()
+	if(current_map.use_overmap)
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		if(istype(E) && E.grass_color)
+			color = E.grass_color
+	if(!resources)
+		resources = list()
+	if(prob(5))
+		resources[MATERIAL_URANIUM] = rand(1,3)
+	if(prob(2))
+		resources[MATERIAL_DIAMOND] = 1
+
+/turf/simulated/floor/exoplanet/grass/grove
+	icon_state = "grove_grass1"
+	color = null
+	has_edge_icon = FALSE
+
+/turf/simulated/floor/exoplanet/grass/grove/Initialize()
+	. = ..()
+	icon_state = "grove_grass[rand(1,2)]"
+
+//Sand
+/turf/simulated/floor/exoplanet/desert
+	name = "sand"
+	desc = "It's coarse and gets everywhere."
+	dirt_color = "#ae9e66"
+	footstep_sound = /singleton/sound_category/sand_footstep
+
+/turf/simulated/floor/exoplanet/desert/Initialize()
+	. = ..()
+	icon_state = "desert[rand(0,4)]"
+
+/turf/simulated/floor/exoplanet/mineral
+	name = "sand"
+	desc = "It's coarse and gets everywhere."
+	dirt_color = "#544c31"
+	footstep_sound = /singleton/sound_category/sand_footstep
+
+//Concrete
+/turf/simulated/floor/exoplanet/concrete
+	name = "concrete"
+	desc = "Stone-like artificial material."
+	icon = 'icons/turf/flooring/concrete.dmi'
+	icon_state = "concrete"
 
 //Special world edge turf,
 /turf/unsimulated/planet_edge
@@ -109,7 +244,7 @@
 
 	//Need to put a mouse-opaque overlay there to prevent people turning/shooting towards ACTUAL location of vis_content things
 	var/obj/effect/overlay/O = new(src)
-	O.mouse_opacity = 2
+	O.mouse_opacity = MOUSE_OPACITY_OPAQUE
 	O.name = "distant terrain"
 	O.desc = "You need to come over there to take a better look."
 

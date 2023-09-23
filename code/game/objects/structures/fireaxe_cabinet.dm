@@ -14,6 +14,22 @@
 	var/shattered
 	var/obj/item/material/twohanded/fireaxe/fireaxe
 
+/obj/structure/fireaxecabinet/north
+	dir = NORTH
+	pixel_y = 24
+
+/obj/structure/fireaxecabinet/east
+	dir = EAST
+	pixel_x = 19
+
+/obj/structure/fireaxecabinet/west
+	dir = WEST
+	pixel_x = -19
+
+/obj/structure/fireaxecabinet/south
+	dir = SOUTH
+	pixel_y = -20
+
 /obj/structure/fireaxecabinet/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
 	user.do_attack_animation(src)
 	playsound(user, 'sound/effects/glass_hit.ogg', 50, 1)
@@ -49,6 +65,16 @@
 	..()
 	fireaxe = new(src)
 	update_icon()
+
+/obj/structure/fireaxecabinet/Initialize(mapload)
+	. = ..()
+
+	if(!mapload)
+		set_pixel_offsets()
+
+/obj/structure/fireaxecabinet/set_pixel_offsets()
+	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 19 : -(19)))
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 24 : -(20)) : 0)
 
 /obj/structure/fireaxecabinet/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))

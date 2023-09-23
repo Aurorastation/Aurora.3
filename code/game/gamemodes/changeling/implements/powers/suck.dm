@@ -68,7 +68,7 @@
 	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 
 	changeling.chem_charges += 50
-	changeling.geneticpoints += 3
+	changeling.can_respec = TRUE
 
 	//Steal all of their languages!
 	for(var/language in T.languages)
@@ -77,7 +77,7 @@
 
 	changeling_update_languages(changeling.absorbed_languages)
 
-	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.get_cloning_variant(), T.languages)
+	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.get_cloning_variant(), T.languages, T.height)
 	absorbDNA(newDNA)
 
 	var/datum/changeling/changeling_check = T.get_antag_datum(MODE_CHANGELING)

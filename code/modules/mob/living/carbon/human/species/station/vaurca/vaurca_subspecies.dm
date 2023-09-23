@@ -3,6 +3,9 @@
 	short_name = "vaw"
 	name_plural = "Type BA"
 	language = LANGUAGE_VAURCA
+	species_height = HEIGHT_CLASS_TALL
+	height_min = 150
+	height_max = 250
 	primitive_form = SPECIES_VAURCA_WORKER
 	greater_form = SPECIES_VAURCA_BREEDER
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
@@ -51,10 +54,17 @@
 	name_plural = "Type CB"
 	bodytype = BODYTYPE_VAURCA_BREEDER
 	primitive_form = SPECIES_VAURCA_WARRIOR
+	species_height = HEIGHT_CLASS_GIGANTIC
+	height_min = 220
+	height_max = 335
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icon_x_offset = -8
+	floating_chat_x_offset = 8
+	floating_chat_y_offset = 16
+	typing_indicator_x_offset = 16
+	typing_indicator_y_offset = 12
 	healths_x = 22
 	healths_overlay_x = 9
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
@@ -72,9 +82,9 @@
 	The Type C caste is not suitable for physical work and will often delegate any duties to the rest of the Vaurcae, which are below them in the hierarchy.<br>
 	<b>Vaurca Breeders can only be played as Hive Representatives of Queens affiliated to the Court of Queens.</b>"}
 
-	age_max = 1000
+	age_max = 30000
 	default_genders = list(FEMALE)
-	economic_modifier = 3
+	economic_modifier = 12
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 	speech_chance = 100
@@ -108,8 +118,10 @@
 /datum/species/bug/type_c/New()
 	..()
 	equip_adjust = list(
-		slot_l_hand_str = list("[NORTH]" = list("x" = 6, "y" = 8),  "[EAST]" = list("x" = 15, "y" = 5), "[SOUTH]" = list("x" = 16, "y" = 8), "[WEST]" = list("x" = -9, "y" = 4)),
-		slot_r_hand_str = list("[NORTH]" = list("x" = 11, "y" = 8), "[EAST]" = list("x" = 25, "y" = 4), "[SOUTH]" = list("x" = 2, "y" = 8),  "[WEST]" = list("x" = 1, "y" = 5))
+		slot_l_ear_str   = list("[EAST]" = list("x" = 8, "y" = 10),  "[SOUTH]" = list("x" = 9, "y" = 10),  "[WEST]" = list("x" = -8, "y" = 10)),
+		slot_r_ear_str   = list("[EAST]" = list("x" = 24, "y" = 10), "[SOUTH]" = list("x" = 7, "y" = 10),  "[WEST]" = list("x" = -8, "y" = 10)),
+		slot_l_hand_str = list("[EAST]" = list("x" = 15, "y" = 5), "[SOUTH]" = list("x" = 10, "y" = 8), "[WEST]" = list("x" = -9, "y" = 4)),
+		slot_r_hand_str = list("[EAST]" = list("x" = 25, "y" = 4), "[SOUTH]" = list("x" = 4, "y" = 8),  "[WEST]" = list("x" = 1, "y" = 5))
 	)
 
 /datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/human/H)
@@ -128,6 +140,7 @@
 	deform = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
 	default_language = LANGUAGE_GIBBERING
 	language = LANGUAGE_VAURCA
+	species_height = HEIGHT_NOT_USED
 	icon_x_offset = -8
 	unarmed_types = list(/datum/unarmed_attack/claws/cleave, /datum/unarmed_attack/bite/strong)
 	rarity_value = 10
@@ -197,6 +210,9 @@
 	short_name = "vak"
 	name_plural = "Type E"
 	bodytype = BODYTYPE_VAURCA_BULWARK
+	species_height = HEIGHT_CLASS_GIGANTIC
+	height_min = 220
+	height_max = 320
 	preview_icon = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcae.dmi'

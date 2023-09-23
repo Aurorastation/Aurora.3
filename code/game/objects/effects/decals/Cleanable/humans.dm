@@ -89,40 +89,49 @@
 	var/hasfeet = 1
 	if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
 		hasfeet = 0
-	if(perp.shoes && !perp.buckled_to)//Adding blood to shoes
-		var/obj/item/clothing/shoes/S = perp.shoes
-		if(istype(S))
-			if(S.item_flags & LIGHTSTEP)
-				return
-			S.blood_color = basecolor
-			S.track_footprint = max(amount, S.track_footprint)
-			if(!S.blood_overlay)
-				S.generate_blood_overlay()
-			if(!S.blood_DNA)
-				S.blood_DNA = list()
-				S.blood_overlay.color = basecolor
-				S.add_overlay(S.blood_overlay)
-			if(S.blood_overlay && S.blood_overlay.color != basecolor)
-				S.cut_overlay(S.blood_overlay, TRUE)
-				S.blood_overlay.color = basecolor
-				S.add_overlay(S.blood_overlay, TRUE)
+
+	//If thrown (or leap manouvering), the mob is considered flying, so don't dirt its shoes
+	if(!perp.throwing)
+
+		if(perp.shoes && !perp.buckled_to)//Adding blood to shoes
+			var/obj/item/clothing/shoes/S = perp.shoes
+			if(istype(S))
+				if(S.item_flags & LIGHTSTEP)
+					return
+				S.blood_color = basecolor
+				S.track_footprint = max(amount, S.track_footprint)
+				if(!S.blood_overlay)
+					S.generate_blood_overlay()
+				if(!S.blood_DNA)
+					S.blood_DNA = list()
+					S.blood_overlay.color = basecolor
+					S.add_overlay(S.blood_overlay)
+				if(S.blood_overlay && S.blood_overlay.color != basecolor)
+					S.cut_overlay(S.blood_overlay, TRUE)
+					S.blood_overlay.color = basecolor
+					S.add_overlay(S.blood_overlay, TRUE)
+				if(blood_DNA)
+					S.blood_DNA |= blood_DNA.Copy()
+
+		else if(hasfeet) //Or feet
+			perp.footprint_color = basecolor
+			perp.track_footprint = max(amount,perp.track_footprint)
+			LAZYINITLIST(perp.feet_blood_DNA)
 			if(blood_DNA)
-				S.blood_DNA |= blood_DNA.Copy()
+				perp.feet_blood_DNA |= blood_DNA.Copy()
+		else if(perp.buckled_to && istype(perp.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
+			var/obj/structure/bed/stool/chair/office/wheelchair/W = perp.buckled_to
+			W.bloodiness = 4
 
-	else if (hasfeet)//Or feet
-		perp.footprint_color = basecolor
-		perp.track_footprint = max(amount,perp.track_footprint)
-		LAZYINITLIST(perp.feet_blood_DNA)
-		if (blood_DNA)
-			perp.feet_blood_DNA |= blood_DNA.Copy()
-	else if (perp.buckled_to && istype(perp.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
-		var/obj/structure/bed/stool/chair/office/wheelchair/W = perp.buckled_to
-		W.bloodiness = 4
+		perp.update_inv_shoes(1)
+		amount--
 
-	perp.update_inv_shoes(1)
-	amount--
+	//Point and laugh
 	if(amount > 2 && prob(perp.slip_chance(perp.m_intent == M_RUN ? 20 : 5)))
 		perp.slip(src, 4)
+
+		if(perp.throwing)
+			amount--
 
 /obj/effect/decal/cleanable/blood/attack_hand(mob/living/carbon/human/user)
 	..()
@@ -143,7 +152,7 @@
 		user.bloody_hands = taken
 		user.hand_blood_color = basecolor
 		user.update_inv_gloves(1)
-		user.verbs += /mob/living/carbon/human/proc/bloody_doodle
+		add_verb(user,  /mob/living/carbon/human/proc/bloody_doodle)
 
 /obj/effect/decal/cleanable/blood/splatter
     random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
@@ -181,7 +190,7 @@
 		icon_state = "writing1"
 
 /obj/effect/decal/cleanable/blood/writing/examine(mob/user)
-	..(user)
+	. = ..()
 	to_chat(user, "It reads: <font color='[basecolor]'>\"[message]\"</font>")
 
 /obj/effect/decal/cleanable/blood/gibs
@@ -263,3 +272,5 @@
 /obj/effect/decal/cleanable/mucus/Initialize()
 	. = ..()
 	animate(src, color = "#000000", time = DRYING_TIME * 2, loop = 0, flags = ANIMATION_RELATIVE)
+
+#undef DRYING_TIME

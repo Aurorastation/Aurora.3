@@ -46,7 +46,7 @@
 	uniform = /obj/item/clothing/under/tajaran/psis
 	head = /obj/item/clothing/head/tajaran/psis
 	back = /obj/item/storage/backpack/satchel
-	shoes = /obj/item/clothing/shoes/tajara/combat
+	shoes = /obj/item/clothing/shoes/combat
 	belt = /obj/item/storage/belt/military
 	accessory = /obj/item/clothing/accessory/hadii_pin
 	belt_contents = list(

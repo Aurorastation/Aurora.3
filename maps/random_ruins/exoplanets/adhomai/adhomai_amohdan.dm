@@ -35,7 +35,7 @@
 	uniform = /obj/item/clothing/under/pants/tajaran
 	head = /obj/item/clothing/head/helmet/amohda
 	suit = /obj/item/clothing/suit/armor/amohda
-	shoes = /obj/item/clothing/shoes/tajara/combat
+	shoes = /obj/item/clothing/shoes/combat
 	belt = /obj/item/material/sword/amohdan_sword
 	accessory = /obj/item/clothing/accessory/storage/bayonet
 	l_ear = null

@@ -6,7 +6,7 @@
 	set desc = "Style your hair."
 	set category = "IC"
 
-	if(use_check_and_message())
+	if(incapacitated())
 		return
 
 	if(h_style)
@@ -54,7 +54,7 @@
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
-mob/living/carbon/human/proc/change_monitor()
+/mob/living/carbon/human/proc/change_monitor()
 	set name = "Change IPC Screen"
 	set desc = "Change the display on your screen."
 	set category = "Abilities"
@@ -239,14 +239,16 @@ mob/living/carbon/human/proc/change_monitor()
 
 
 // Simple mobs cannot use Skrellepathy
-/mob/proc/can_commune()
+/mob/proc/has_psionics()
 	return FALSE
 
-/mob/living/carbon/human/can_commune()
+/mob/living/carbon/human/has_psionics()
+	if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
+		return FALSE
 	if(psi)
 		return TRUE
 	else
-		return species ? species.can_commune() : FALSE
+		return species ? species.has_psionics() : FALSE
 
 /mob/living/carbon/human/proc/commune()
 	set category = "Abilities"
@@ -322,14 +324,14 @@ mob/living/carbon/human/proc/change_monitor()
 			to_chat(M,"<span class='notice'>[src] telepathically says to [target]:</span> [text]")
 
 	var/mob/living/carbon/human/H = target
-	if (target.can_commune())
+	if (target.has_psionics())
 		to_chat(H,"<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]")
 	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 		to_chat(H,"<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]")
 	else
 		to_chat(H,"<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
 		if(istype(H))
-			if (target.can_commune())
+			if (target.has_psionics())
 				return
 			if(prob(10) && !(H.species.flags & NO_BLOOD))
 				to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
@@ -640,6 +642,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	for(var/obj/machinery/light/L in range(7))
 		L.broken()
+		CHECK_TICK
 
 /mob/living/carbon/human/proc/create_darkness()
 	set category = "Abilities"
@@ -1262,7 +1265,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(!istype(M))
 		to_chat(usr, SPAN_WARNING("You aren't allowed to rename \the [src]."))
 		return
-	 
+
 	if(usr == src)
 		to_chat(usr, SPAN_WARNING("You're a simple creature, you can't rename yourself!"))
 		return

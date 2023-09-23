@@ -30,7 +30,7 @@
 	starting_maxhealth = maxhealth
 
 /obj/structure/barricade/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum efficiency."))
 	if(is_wired)
 		to_chat(user, SPAN_INFO("There is a length of wire strewn across the top of this barricade."))
@@ -54,7 +54,7 @@
 		switch(dir)
 			if(SOUTH)
 				layer = ABOVE_MOB_LAYER
-			else if(NORTH)
+			if(NORTH)
 				layer = initial(layer) - 0.01
 			else
 				layer = initial(layer)

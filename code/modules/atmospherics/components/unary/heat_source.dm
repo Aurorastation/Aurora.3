@@ -94,47 +94,48 @@
 /obj/machinery/atmospherics/unary/heater/attack_hand(mob/user as mob)
 	ui_interact(user)
 
-/obj/machinery/atmospherics/unary/heater/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+/obj/machinery/atmospherics/unary/heater/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "machinery-atmospherics-freezer", 440, 300, "Gas Heating System")
-		ui.auto_update_content = TRUE
+		ui = new(user, src, "Freezer", "Gas Heating System", 440, 300)
+		ui.open()
 
-	ui.open()
+/obj/machinery/atmospherics/unary/heater/ui_data(mob/user)
+	var/list/data = list()
 
-/obj/machinery/atmospherics/unary/heater/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = list()
-
-	data["on"] = use_power ? 1 : 0
+	data["on"] = !!use_power
 	data["gasPressure"] = round(air_contents.return_pressure())
 	data["gasTemperature"] = round(air_contents.temperature)
 	data["minGasTemperature"] = 0
-	data["maxGasTemperature"] = round(max_temperature)
+	data["maxGasTemperature"] = round(T20C + 600)
 	data["targetGasTemperature"] = round(set_temperature)
 	data["powerSetting"] = power_setting
 
-	data["gasTemperatureBadTop"] = (T20C+40)
+	data["gasTemperatureBadTop"] = (T20C + 40)
 	data["gasTemperatureBadBottom"] = null
 	data["gasTemperatureAvgTop"] = null
 	data["gasTemperatureAvgBottom"] = null
 
 	return data
 
-/obj/machinery/atmospherics/unary/heater/Topic(href, href_list)
-	if(..())
-		return 1
-	if(href_list["toggleStatus"])
-		update_use_power(!use_power)
-		update_icon()
-	if(href_list["temp"])
-		var/amount = text2num(href_list["temp"])
-		if(amount > 0)
-			set_temperature = min(set_temperature + amount, max_temperature)
-		else
-			set_temperature = max(set_temperature + amount, 0)
-	if(href_list["setPower"]) //setting power to 0 is redundant anyways
-		var/new_setting = between(0, text2num(href_list["setPower"]), 100)
-		set_power_level(new_setting)
+/obj/machinery/atmospherics/unary/heater/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return TRUE
+
+	switch(action)
+		if("power")
+			update_use_power(use_power ? POWER_USE_OFF : POWER_USE_ACTIVE)
+			update_icon()
+			. = TRUE
+		if("temp")
+			var/amount = text2num(params["temp"])
+			set_temperature = between(0, amount, 1000)
+			. = TRUE
+		if("setPower") //setting power to 0 is redundant anyways
+			var/new_setting = between(0, text2num(params["setPower"]), 100)
+			set_power_level(new_setting)
+			. = TRUE
 
 	add_fingerprint(usr)
 
@@ -169,6 +170,6 @@
 	return ..()
 
 /obj/machinery/atmospherics/unary/heater/examine(mob/user)
-	..(user)
+	. = ..()
 	if(panel_open)
 		to_chat(user, "The maintenance hatch is open.")

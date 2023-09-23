@@ -164,11 +164,11 @@
 	if(istype(W, /obj/item/cell))
 		if(cover_open)
 			if(cell)
-				to_chat(user, SPAN_WARNING("There is a [cell] already installed here."))
+				to_chat(user, SPAN_WARNING("There is \a [cell] already installed here."))
 			else
 				user.drop_from_inventory(W,src)
 				cell = W
-				to_chat(user, SPAN_NOTICE("You insert the [cell]."))
+				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
 		update_icon()
 		return
 
@@ -210,8 +210,10 @@
 		M.update_inv_back()
 		M.update_inv_s_store()
 
-/obj/item/device/suit_cooling_unit/examine(mob/user)
-	if(!..(user, 1))
+/obj/item/device/suit_cooling_unit/examine(mob/user, distance)
+	. = ..()
+
+	if(!distance <= 1)
 		return
 
 	if(on)
@@ -228,7 +230,7 @@
 
 	if(cover_open)
 		if(cell)
-			to_chat(user, SPAN_NOTICE("The panel is open, exposing the [cell]."))
+			to_chat(user, SPAN_NOTICE("The panel is open, exposing \the [cell]."))
 		else
 			to_chat(user, SPAN_NOTICE("The panel is open."))
 

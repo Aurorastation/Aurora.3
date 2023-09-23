@@ -32,7 +32,7 @@
 			copied.vars[variable] = src.vars[variable]
 	return copied
 
-/datum/record/proc/Listify(var/deep = 1, var/list/excluded = list(), var/list/to_update) // Mostyl to support old things or to use with serialization
+/datum/record/proc/Listify(var/deep = 1, var/list/excluded = list(), var/list/to_update) // Mostly to support old things or to use with serialization
 	var/list/record
 	if(!to_update)
 		. = record = list()
@@ -74,7 +74,7 @@
 					record[variable] = src.vars[variable]
 
 
-/datum/record/proc/Printify(var/list/excluded = list()) // Mostyl to support old things or to use with serialization
+/datum/record/proc/Printify(var/list/excluded = list()) // Mostly to support old things or to use with serialization
 	. = ""
 	var/tmp_ex = excluded
 	excluded = list()
@@ -169,7 +169,7 @@
 
 /datum/record/general/locked/New(var/mob/living/carbon/human/H)
 	..()
-	// Only init things that aqre needed
+	// Only init things that are needed
 	if(H)
 		nid = md5("[H.real_name][H.mind.assigned_role]")
 		enzymes = H.dna.SE
@@ -235,3 +235,14 @@ var/warrant_uid = 0
 	var/antigen
 	var/spread_type = "Unknown"
 	cmp_field = "name"
+	
+//Manifest record
+/datum/record/shuttle_manifest
+	name = "Unknown"
+	var/shuttle = "Unknown"
+	cmp_field = "name"
+	
+var/shuttle_uid = 0
+/datum/record/shuttle_manifest/New()
+	..()
+	id = shuttle_uid++

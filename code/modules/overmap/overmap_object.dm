@@ -3,6 +3,7 @@
 	icon = 'icons/obj/overmap/overmap_effects.dmi'
 	icon_state = "object"
 	color = "#fffffe"
+	mouse_opacity = MOUSE_OPACITY_ICON
 
 //RP fluff details to appear on scan readouts for any object we want to include these details with
 	var/scanimage = "no_data.png"
@@ -14,6 +15,8 @@
 
 	var/generic_object = TRUE //Used to give basic scan descriptions of every generic overmap object that excludes noteworthy locations, ships and exoplanets
 	var/static_vessel = FALSE //Used to expand scan details for visible space stations
+
+	layer = OVERMAP_SECTOR_LAYER
 
 	var/list/map_z = list()
 

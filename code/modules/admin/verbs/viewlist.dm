@@ -1,36 +1,43 @@
 /client/proc/view_extended_list(var/list/L)
-    if(!check_rights(R_VAREDIT|R_DEV))	return
+	if(!check_rights(R_VAREDIT|R_DEV))	return
 
-    if(istype(L))
-        new /datum/vueui_module/list_viewer(L, usr)
+	if(istype(L))
+		new /datum/tgui_module/list_viewer(L, usr)
 
-/datum/vueui_module/list_viewer
-    var/list/viewed_list
+/datum/tgui_module/list_viewer
+	var/list/viewed_list
 
-/datum/vueui_module/list_viewer/New(var/list/L, mob/user)
-    if(istype(L))
-        viewed_list = L
-    ui_interact(user)
+/datum/tgui_module/list_viewer/New(var/list/L, mob/user)
+	if(istype(L))
+		viewed_list = L
+	ui_interact(user)
 
-/datum/vueui_module/list_viewer/ui_interact(mob/user)
-    if(!check_rights(R_VAREDIT|R_DEV|R_MOD)) return
+/datum/tgui_module/list_viewer/ui_interact(mob/user, var/datum/tgui/ui)
+	if(!check_rights(R_VAREDIT|R_DEV|R_MOD))
+		return
 
-    var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-    if(!ui)
-        ui = new(user, src, "admin-extended-list", 800, 600, "Extended List Viewer", state = interactive_state)
-        ui.header = "minimal"
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "ListViewer", "Extended List Viewer", 800, 600)
+		ui.open()
 
-    ui.open()
+/datum/tgui_module/list_viewer/ui_data(mob/user)
+	var/list/data = list()
 
-/datum/vueui_module/list_viewer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-    if (!data)
-        . = data = list()
+	if(!user.client.holder)
+		return
 
-    if(!user.client.holder)
-        return
+	if(!check_rights(R_VAREDIT|R_DEV, FALSE, user))
+		return
 
-    if(!check_rights(R_VAREDIT|R_DEV, FALSE, user)) return
+	data["listvar"] = list()
 
-    data["listvar"] = viewed_list
+	var/index = 1
+	for(var/k in viewed_list)
+		if(!isnull(viewed_list[k]))
+			data["listvar"] += list(list("key" = k, "value" = viewed_list[k]))
+		else
+			data["listvar"] += list(list("key" = index, "value" = k))
+			index++
 
-    return data
+	return data

@@ -64,7 +64,7 @@ var/list/department_radio_keys = list(
 
 
 var/list/channel_to_radio_key = new
-proc/get_radio_key_from_channel(var/channel)
+/proc/get_radio_key_from_channel(var/channel)
 	var/key = channel_to_radio_key[channel]
 	if(!key)
 		for(var/radio_key in department_radio_keys)
@@ -196,7 +196,7 @@ proc/get_radio_key_from_channel(var/channel)
 	var/regex/emote = regex("^(\[\\*^\])\[^*\]+$")
 
 	if(emote.Find(message))
-		if(emote.group[1] == "*") return emote(copytext(message, 2))
+		if(emote.group[1] == "*") return client_emote(copytext(message, 2))
 		if(emote.group[1] == "^") return custom_emote(VISIBLE_MESSAGE, copytext(message,2))
 
 	//parse the radio code and consume it
@@ -285,7 +285,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	//speaking into radios
 	if(length(used_radios))
-		italics = 1
+		italics = TRUE
 		message_range = 1
 		if(speaking)
 			message_range = speaking.get_talkinto_msg_range(message)
@@ -312,7 +312,7 @@ proc/get_radio_key_from_channel(var/channel)
 				message_range = 1
 
 			if (pressure < ONE_ATMOSPHERE*0.4) //sound distortion pressure, to help clue people in that the air is thin, even if it isn't a vacuum yet
-				italics = 1
+				italics = TRUE
 				sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
 		listening = get_hearers_in_view(message_range, src)
@@ -320,6 +320,8 @@ proc/get_radio_key_from_channel(var/channel)
 	if(client)
 		for (var/mob/player_mob in player_list)
 			if(!player_mob || player_mob.stat != DEAD || (player_mob in listening))
+				continue
+			if(player_mob.client?.prefs.toggles & CHAT_GHOSTRADIO && length(used_radios)) //If they are talking into a radio and we hear all radio messages, don't duplicate for observers
 				continue
 			if(player_mob.client?.prefs.toggles & CHAT_GHOSTEARS)
 				listening |= player_mob
@@ -339,6 +341,7 @@ proc/get_radio_key_from_channel(var/channel)
 	var/image/speech_bubble
 	if(speech_bubble_state)
 		speech_bubble = image('icons/mob/talk.dmi', src, speech_bubble_state)
+		adjust_typing_indicator_offsets(speech_bubble)
 		speech_bubble.layer = layer
 		speech_bubble.plane = plane
 

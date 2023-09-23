@@ -64,6 +64,12 @@
 			to_chat(usr, SPAN_NOTICE("You try to insert \the [O], but \the [src] buzzes. There is already a [O] inside!"))
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
 			return TRUE
+
+		if(O.name != "Scan ([victim])")
+			to_chat(usr, SPAN_NOTICE("This scan is of a different patient! Please insert the scan of the correct patient."))
+			playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
+			return TRUE
+
 		user.drop_from_inventory(O, src)
 		input_scan = O
 		input_scan.color = "#272727"
@@ -115,9 +121,9 @@
 	op_win.set_content(dat)
 	op_win.open()
 
-/obj/machinery/computer/operating/examine(mob/user)
-	..()
-	if(get_dist(src, user) <= 2)
+/obj/machinery/computer/operating/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 2)
 		if(src.table && (src.table.check_victim()))
 			src.victim = src.table.victim
 

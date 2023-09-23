@@ -15,8 +15,9 @@
 /datum/controller/subsystem/sunlight/New()
 	NEW_SS_GLOBAL(SSsunlight)
 
-/datum/controller/subsystem/sunlight/stat_entry()
-	..("A:[config.sun_accuracy] LP:[light_points.len] Z:[config.sun_target_z]")
+/datum/controller/subsystem/sunlight/stat_entry(msg)
+	msg = "A:[config.sun_accuracy] LP:[light_points.len] Z:[config.sun_target_z]"
+	return ..()
 
 /datum/controller/subsystem/sunlight/Initialize()
 
@@ -25,7 +26,7 @@
 		presets += new thing
 
 	if (config.fastboot)
-		log_debug("sunlight: fastboot detected, skipping setup.")
+		LOG_DEBUG("sunlight: fastboot detected, skipping setup.")
 		..()
 		return
 
@@ -38,7 +39,7 @@
 
 		CHECK_TICK
 
-	log_debug("sunlight: [light_points.len] sun emitters.")
+	LOG_DEBUG("sunlight: [light_points.len] sun emitters.")
 	..()
 
 /datum/controller/subsystem/sunlight/proc/set_overall_light(...)
@@ -50,7 +51,7 @@
 		CHECK_TICK
 
 /datum/controller/subsystem/sunlight/proc/apply_sun_state(datum/sun_state/S)
-	log_debug("sunlight: Applying preset [S].")
+	LOG_DEBUG("sunlight: Applying preset [S].")
 	set_overall_light(config.sun_accuracy * 1.2, 1, S.color)
 
 /atom/movable/sunobj

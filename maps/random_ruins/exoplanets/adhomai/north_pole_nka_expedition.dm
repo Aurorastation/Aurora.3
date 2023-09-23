@@ -35,7 +35,7 @@
 	uniform = /obj/item/clothing/under/tajaran/archeologist
 	suit = /obj/item/clothing/suit/storage/tajaran/archeologist
 	head = /obj/item/clothing/head/tajaran/archeologist
-	shoes = /obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+	shoes = /obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	back = /obj/item/storage/backpack/satchel/leather
 	belt = /obj/item/melee/whip
 	accessory = /obj/item/clothing/accessory/holster/waist/brown
@@ -75,7 +75,7 @@
 	uniform = /obj/item/clothing/under/tajaran/nka_uniform/sailor
 	head = /obj/item/clothing/head/tajaran/nka_cap/sailor
 	back = /obj/item/storage/backpack/rucksack/tan
-	shoes = /obj/item/clothing/shoes/tajara/combat
+	shoes = /obj/item/clothing/shoes/combat
 	belt = /obj/item/storage/belt/military
 	l_ear = null
 

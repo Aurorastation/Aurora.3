@@ -1,22 +1,29 @@
 //Weapons and items used exclusively by the Vaurcae, typically only for event shenanigans, and possibly random finds in the future. All items here should have
 //"Vaurca" in the item path at some point, so they can be easily spawned in-game.
 
-/obj/item/clothing/mask/breath/vaurca
+/obj/item/clothing/mask/gas/vaurca
 	desc = "A Vaurcae mandible garment with an attached gas filter and air-tube."
 	name = "mandible garment"
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_garment"
 	item_state = "m_garment"
+	w_class = ITEMSIZE_SMALL
+	flags_inv = null
+	body_parts_covered = null
+	filtered_gases = list(GAS_NITROGEN, GAS_N2O, GAS_CHLORINE, GAS_ALIEN)
 	contained_sprite = 1
 
-/obj/item/clothing/mask/breath/vaurca/adjust_mask(mob/user)
+/obj/item/clothing/mask/gas/vaurca/adjust_mask(mob/user)
 	to_chat(user, "This mask is too tight to adjust.")
 	return
 
-/obj/item/clothing/mask/breath/vaurca/filter
+/obj/item/clothing/mask/gas/vaurca/filter
 	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
 	name = "filter port"
 	icon_state = "filterport"
+	w_class = ITEMSIZE_SMALL
+	flags_inv = null
+	body_parts_covered = null
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_BULWARK)
 	item_state = 0
 
@@ -256,12 +263,32 @@
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 
-	species_restricted = list(BODYTYPE_VAURCA,BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BULWARK)
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi'
+		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi',
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
 	)
 
 	action_button_name = "Toggle the magclaws"
+
+/obj/item/clothing/shoes/magboots/vaurca/aug
+	name = "integrated mag-claws"
+	desc = "A magnetic-grip system similar to a set of magboots integrated into a Vaurca's leg chitin."
+	magpulse = 1
+	slowdown = 3
+	action_button_name = null
+	item_flags = THICKMATERIAL|AIRTIGHT|INJECTIONPORT|NOSLIP
+	canremove = FALSE
+
+/obj/item/clothing/shoes/magboots/vaurca/aug/throw_at()
+	usr.drop_from_inventory(src)
+
+/obj/item/clothing/shoes/magboots/vaurca/aug/dropped()
+	. = ..()
+	qdel(src)
+
+/obj/item/clothing/shoes/magboots/vaurca/aug/negates_gravity()
+	return TRUE
 
 /obj/item/clothing/suit/space/void/scout
 	name = "scout armor"
@@ -337,7 +364,7 @@
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
 
-/obj/item/clothing/mask/gas/vaurca
+/obj/item/clothing/mask/gas/vaurca/tactical
 	name = "tactical garment"
 	desc = "A tactical mandible garment with state of the art air filtration."
 	item_flags = BLOCK_GAS_SMOKE_EFFECT | AIRTIGHT | FLEXIBLEMATERIAL | THICKMATERIAL

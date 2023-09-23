@@ -6,7 +6,7 @@
 	icon = 'icons/effects/map_effects.dmi'
 	var/window_path = /obj/structure/window/basic
 	var/frame_path = /obj/structure/window_frame
-	var/grille_path = /obj/structure/grille
+	var/grille_path = /obj/structure/grille/over
 	var/firedoor_path = /obj/machinery/door/firedoor
 	var/single_window = FALSE // For full window panes and full windows.
 	var/spawn_frame = FALSE // For full windows.

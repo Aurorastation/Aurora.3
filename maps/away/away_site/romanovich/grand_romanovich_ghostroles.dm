@@ -21,7 +21,7 @@
 	name = "Grand Romanovich Host"
 
 	uniform = /obj/item/clothing/under/tajaran/fancy
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	back = /obj/item/storage/backpack/satchel/leather
 
@@ -56,7 +56,7 @@
 
 	uniform = /obj/item/clothing/under/tajaran
 
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 	back = /obj/item/storage/backpack/satchel/leather
 
 	id = /obj/item/card/id/away_site
@@ -93,7 +93,7 @@
 
 	head = /obj/item/clothing/head/fedora/grey
 
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 	back = /obj/item/storage/backpack/satchel/leather
 
 	id = /obj/item/card/id/away_site

@@ -18,12 +18,12 @@
 // Generic check for an area.
 //
 
-datum/unit_test/zas_area_test
+/datum/unit_test/zas_area_test
 	name = "ZAS: Area Test Template"
 	var/area_path = null                    // Put the area you are testing here.
 	var/expectation = UT_NORMAL             // See defines above.
 
-datum/unit_test/zas_area_test/start_test()
+/datum/unit_test/zas_area_test/start_test()
 	var/list/test = test_air_in_area(area_path, expectation)
 
 	if(isnull(test))
@@ -40,7 +40,7 @@ datum/unit_test/zas_area_test/start_test()
 //
 //	The primary helper proc.
 //
-proc/test_air_in_area(var/test_area, var/expectation = UT_NORMAL)
+/proc/test_air_in_area(var/test_area, var/expectation = UT_NORMAL)
 	var/test_result = list("result" = FAILURE, "msg"    = "")
 
 	var/area/A = locate(test_area)
@@ -104,21 +104,21 @@ proc/test_air_in_area(var/test_area, var/expectation = UT_NORMAL)
 
 // ==================================================================================================
 
-datum/unit_test/zas_area_test/supply_centcomm
+/datum/unit_test/zas_area_test/supply_centcomm
 	name = "ZAS: Supply Shuttle (CentComm)"
 	area_path = /area/supply/dock
 
-datum/unit_test/zas_area_test/ai_chamber
+/datum/unit_test/zas_area_test/ai_chamber
 	name = "ZAS: AI Chamber"
 	area_path = /area/turret_protected/ai
 	expectation = UT_NORMAL_COOL
 
-datum/unit_test/zas_area_test/xenobio
+/datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"
 	area_path = /area/rnd/xenobiology
 
 /*
-datum/unit_test/zas_area_test/mining_area
+/datum/unit_test/zas_area_test/mining_area
 	name = "ZAS: Mining Area (Vacuum)"
 	area_path = /area/mine/explored
 	expectation = UT_VACUUM
@@ -217,7 +217,7 @@ datum/unit_test/zas_area_test/mining_area
 			var/zone/A = U.A
 			var/offending_turfs = "Problem turfs: \n"
 			for(var/turf/simulated/S in A.contents)
-				if(S.oxygen || S.nitrogen)
+				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
 					offending_turfs += "[S] ([S.x], [S.y], [S.z])\t"
 
 			fail_message += "[offending_turfs]"
@@ -243,7 +243,7 @@ datum/unit_test/zas_area_test/mining_area
 
 			var/offending_turfs = "Problem turfs: "
 			for(var/turf/simulated/S in problem.contents)
-				if(S.oxygen || S.nitrogen)
+				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
 					offending_turfs += "[S] ([S.x], [S.y], [S.z])\t"
 
 			fail_message += "[offending_turfs]"

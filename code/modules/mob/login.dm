@@ -6,7 +6,7 @@
 	log_access("Login: [key_name(src)] from [lastKnownIP ? lastKnownIP : "localhost"]-[computer_id] || BYOND v[client.byond_version]",ckey=key_name(src))
 	if(config.guests_allowed) // shut up if guests allowed for testing
 		return
-	if(config.log_access)
+	if(config.logsettings["log_access"])
 		for(var/mob/M in player_list)
 			if(M == src)	continue
 			if( M.key && (M.key != key) )
@@ -55,6 +55,7 @@
  */
 /mob/proc/LateLogin()
 	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
 
 	player_list |= src
 	update_Login_details()
@@ -85,9 +86,9 @@
 
 	//set macro to normal incase it was overriden (like cyborg currently does)
 	if(client.prefs.toggles_secondary & HOTKEY_DEFAULT)
-		winset(src, null, "mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.background-color=#D3B5B5")
+		winset(src, null, "mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true")
 	else
-		winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5")
+		winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true")
 	MOB_STOP_THINKING(src)
 
 	clear_important_client_contents(client)
@@ -102,4 +103,7 @@
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
 
-	client.chatOutput.start()
+	if(client)
+		client.update_skybox(TRUE)
+
+	addtimer(CALLBACK(client, TYPE_PROC_REF(/client, check_panel_loaded)), 30 SECONDS)

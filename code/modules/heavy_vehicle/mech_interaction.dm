@@ -38,7 +38,7 @@
 
 	var/modifiers = params2list(params)
 	if(modifiers["shift"])
-		A.examine(user)
+		examinate(user, A)
 		return
 
 	if(modifiers["alt"])
@@ -475,7 +475,7 @@
 					thing.forceMove(body)
 					body.cell = thing
 					to_chat(user, "<span class='notice'>You install \the [body.cell] into \the [src].</span>")
-					playsound(user.loc, 'sound/items/screwdriver.ogg', 50, 1)
+					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 					visible_message("<span class='notice'>\The [user] installs \the [body.cell] into \the [src].</span>")
 				return
 			else if(istype(thing, /obj/item/device/robotanalyzer))
@@ -520,9 +520,9 @@
 			return h
 	return 0
 
-/var/global/datum/topic_state/default/mech_state = new()
+/var/global/datum/ui_state/default/mech_state = new()
 
-/datum/topic_state/default/mech/can_use_topic(var/mob/living/heavy_vehicle/src_object, var/mob/user)
+/datum/ui_state/default/mech/can_use_topic(var/mob/living/heavy_vehicle/src_object, var/mob/user)
 	if(istype(src_object))
 		if(user in src_object.pilots)
 			return ..()

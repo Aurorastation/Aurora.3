@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/shotgun/pump/rifle
 	name = "bolt action rifle"
-	desc = "A cheap ballistic rifle often found in the hands of Tajaran conscripts. Uses 7.62mm rounds."
+	desc = "A cheap ballistic rifle, often found in the hands of Tajaran conscripts."
 	icon = 'icons/obj/guns/moistnugget.dmi'
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
@@ -13,6 +13,7 @@
 
 	rack_sound = 'sound/weapons/riflebolt.ogg'
 	rack_verb = "pull back the bolt on"
+	cycle_anim = FALSE
 
 	can_bayonet = TRUE
 	knife_x_offset = 23
@@ -21,18 +22,18 @@
 	sawnoff_workmsg = "shorten the barrel and stock"
 
 /obj/item/gun/projectile/shotgun/pump/rifle/blank
-	desc = "A replica of a traditional adhomian bolt action rifle. It has the seal of the Grand Romanovich Casino on its stock. Uses 7.62mm rounds."
+	desc = "A replica of a traditional Adhomian bolt action rifle. It has the seal of the Grand Romanovich Casino on its stock."
 	ammo_type = /obj/item/ammo_casing/a762/blank
 
 /obj/item/gun/projectile/shotgun/pump/rifle/scope
 	name = "sniper bolt action rifle"
-	desc = "A cheap ballistic rifle often found in the hands of Tajaran conscripts. This one has a telescopic sight attached to it. Uses 7.62mm rounds."
+	desc = "A cheap ballistic rifle, often found in the hands of Tajaran conscripts. This one has a telescopic sight attached to it."
 	icon = 'icons/obj/guns/bolt_scope.dmi'
 
 /obj/item/gun/projectile/shotgun/pump/rifle/scope/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(wielded)
 		toggle_scope(2.0, usr)
@@ -54,12 +55,12 @@
 		bayonet = null
 		update_icon()
 	name = "sawn-off bolt action rifle"
-	desc = "A shortened bolt action rifle, not really acurate. Uses 7.62mm rounds."
+	desc = "A shortened bolt action rifle, not really acurate."
 	to_chat(user, "<span class='warning'>You shorten the barrel and stock of the rifle!</span>")
 
 /obj/item/gun/projectile/shotgun/pump/rifle/obrez
 	name = "sawn-off bolt action rifle"
-	desc = "A shortened bolt action rifle, not really accurate. Uses 7.62mm rounds."
+	desc = "A shortened bolt action rifle, not really accurate."
 	icon = 'icons/obj/guns/obrez.dmi'
 	icon_state = "obrez"
 	item_state = "obrez"
@@ -128,7 +129,7 @@
 
 /obj/item/gun/projectile/contender
 	name = "pocket rifle"
-	desc = "A perfect, pristine replica of an ancient one-shot hand-cannon. This one has been modified to work almost like a bolt-action. Uses 5.56mm rounds."
+	desc = "A perfect, pristine replica of an ancient one-shot hand-cannon. This one has been modified to work almost like a bolt-action."
 	icon = 'icons/obj/guns/pockrifle.dmi'
 	icon_state = "pockrifle"
 	item_state = "pockrifle"
@@ -203,7 +204,7 @@
 	slot_flags = SLOT_BACK
 	load_method = SINGLE_CASING|SPEEDLOADER
 	handle_casings = HOLD_CASINGS
-	caliber = "vintage"
+	caliber = "30-06 govt"
 	ammo_type = /obj/item/ammo_casing/vintage
 	magazine_type = /obj/item/ammo_magazine/boltaction/vintage
 	can_bayonet = TRUE
@@ -319,10 +320,10 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 
-	fire_delay = 25
+	fire_delay = ROF_UNWIELDY
 	accuracy = -1
 
-	fire_delay_wielded = 10
+	fire_delay_wielded = ROF_HEAVY
 	accuracy_wielded = 2
 
 	is_wieldable = TRUE
@@ -337,7 +338,7 @@
 	icon = 'icons/obj/guns/gauss_thumper.dmi'
 	icon_state = "gauss_thumper"
 	fire_sound = /singleton/sound_category/gauss_fire_sound
-	fire_delay = 30
+	fire_delay = ROF_UNWIELDY
 	charge_meter = 0
 	max_shots = 3
 	charge_cost = 500
@@ -360,7 +361,7 @@
 	handle_casings = HOLD_CASINGS
 	max_shells = 1
 
-	fire_delay_wielded = 20
+	fire_delay_wielded = ROF_INTERMEDIATE
 	accuracy_wielded = 1
 
 /obj/item/gun/projectile/gauss/carbine/update_icon()
@@ -375,3 +376,24 @@
 		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
 		return 0
 	return ..()
+
+/obj/item/gun/projectile/shotgun/pump/lever_action
+	name = "lever action rifle"
+	desc = "A lever action rifle with a side-loading port, these are still popular with frontiersmen for hunting and self-defense purposes."
+	icon = 'icons/obj/guns/leveraction.dmi'
+	icon_state = "leveraction"
+	item_state = "leveraction"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
+	caliber = "45-70 govt"
+	ammo_type = /obj/item/ammo_casing/govt
+	max_shells = 4
+	load_method = SINGLE_CASING
+	handle_casings = HOLD_CASINGS
+
+	cycle_anim = TRUE
+
+	rack_sound = 'sound/weapons/reloads/lever_action_cock1.ogg'
+	rack_verb = "work the lever on"
+	can_bayonet = FALSE
+	can_sawoff = FALSE

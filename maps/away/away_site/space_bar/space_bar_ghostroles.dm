@@ -21,7 +21,7 @@
 	uniform = /obj/item/clothing/under/rank/bartender/idris
 	head = /obj/item/clothing/head/flatcap/bartender/idris
 	suit = /obj/item/clothing/suit/storage/bartender/idris
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/sneakers/brown
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
@@ -42,7 +42,7 @@
 /datum/outfit/admin/space_bar_bartender/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
@@ -76,7 +76,7 @@
 	uniform = /obj/item/clothing/under/rank/chef/idris
 	suit = /obj/item/clothing/suit/chef_jacket/idris
 	head = /obj/item/clothing/head/chefhat/idris
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/sneakers/brown
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/workboots/toeless,
@@ -97,7 +97,7 @@
 /datum/outfit/admin/space_bar_chef/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
@@ -135,11 +135,11 @@
 
 /datum/outfit/admin/random/space_bar_patron/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H.shoes) //If they didn't get shoes, it's because they can't fit in them. Find something that works.
-		var/obj/item/clothing/shoes/S = pick(/obj/item/clothing/shoes/sandal, /obj/item/clothing/shoes/footwraps, /obj/item/clothing/shoes/workboots/toeless, /obj/item/clothing/shoes/jackboots/toeless)
+		var/obj/item/clothing/shoes/S = pick(/obj/item/clothing/shoes/sandals, /obj/item/clothing/shoes/footwraps, /obj/item/clothing/shoes/workboots/toeless, /obj/item/clothing/shoes/jackboots/toeless)
 		H.equip_to_slot_or_del(new S, slot_shoes)
 
 /datum/outfit/admin/random/space_bar_patron/vaurca
-	mask = /obj/item/clothing/mask/breath/vaurca/filter
+	mask = /obj/item/clothing/mask/gas/vaurca/filter
 	r_pocket = /obj/item/reagent_containers/inhaler/phoron_special
 
 /datum/outfit/admin/random/space_bar_patron/vaurca/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -147,6 +147,17 @@
 	var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 	H.internal = preserve
 	H.internals.icon_state = "internal1"
+	var/surname = splittext(H.name, " ")
+	switch(surname)
+		if("K'lax")
+			var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
+			var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+			A.replaced(H, affected)
+		if("C'thur")
+			var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/cthur(H)
+			var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+			A.replaced(H, affected)
+	H.update_body()
 
 /datum/outfit/admin/random/space_bar_patron/offworlder
 	r_pocket = /obj/item/storage/pill_bottle/rmt

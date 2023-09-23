@@ -71,11 +71,11 @@ Class Procs:
 /connection_edge/proc/add_connection(connection/c)
 	coefficient++
 	if(c.direct()) direct++
-//	log_debug("Connection added: [type] Coefficient: [coefficient]")
+//	LOG_DEBUG("Connection added: [type] Coefficient: [coefficient]")
 
 
 /connection_edge/proc/remove_connection(connection/c)
-//	log_debug("Connection removed: [type] Coefficient: [coefficient-1]")
+//	LOG_DEBUG("Connection removed: [type] Coefficient: [coefficient-1]")
 
 	coefficient--
 	if(coefficient <= 0)
@@ -86,7 +86,7 @@ Class Procs:
 
 /connection_edge/proc/erase()
 	SSair.remove_edge(src)
-//	log_debug("[type] Erased.")
+//	LOG_DEBUG("[type] Erased.")
 
 /connection_edge/proc/tick()
 
@@ -138,7 +138,7 @@ Class Procs:
 	LAZYADD(A.edges, src)
 	LAZYADD(B.edges, src)
 	//id = edge_id(A,B)
-//	log_debug("New edge between [A] and [B]")
+//	LOG_DEBUG("New edge between [A] and [B]")
 
 
 /connection_edge/zone/add_connection(connection/c)
@@ -211,7 +211,7 @@ Class Procs:
 	if(B)
 		air = B.return_air()
 	//id = 52*A.id
-//	log_debug("New edge from [A] to [B].")
+//	LOG_DEBUG("New edge from [A] to [B].")
 
 
 /connection_edge/unsimulated/add_connection(connection/c)
@@ -257,7 +257,7 @@ Class Procs:
 	if(!A.air.compare(air, vacuum_exception = 1))
 		SSair.mark_edge_active(src)
 
-proc/ShareHeat(datum/gas_mixture/A, datum/gas_mixture/B, connecting_tiles)
+/proc/ShareHeat(datum/gas_mixture/A, datum/gas_mixture/B, connecting_tiles)
 	//This implements a simplistic version of the Stefan-Boltzmann law.
 	var/energy_delta = ((A.temperature - B.temperature) ** 4) * STEFAN_BOLTZMANN_CONSTANT * connecting_tiles * 2.5
 	var/maximum_energy_delta = max(0, min(A.temperature * A.heat_capacity() * A.group_multiplier, B.temperature * B.heat_capacity() * B.group_multiplier))

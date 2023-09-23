@@ -4,10 +4,7 @@
 /obj/item/material/knife
 	name = "kitchen knife"
 	icon = 'icons/obj/kitchen.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
-		)
+	contained_sprite = TRUE
 	icon_state = "knife"
 	desc = "A general purpose Chef's Knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
 	flags = CONDUCT

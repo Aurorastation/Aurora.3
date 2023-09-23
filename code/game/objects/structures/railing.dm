@@ -1,7 +1,7 @@
 /obj/structure/railing
 	name = "railing"
 	desc = "A simple bar railing designed to protect against careless trespass."
-	icon = 'icons/obj/railing.dmi'
+	icon = 'icons/obj/structure/blocker/railing_basic.dmi'
 	icon_state = "railing0-1"
 	density = TRUE
 	throwpass = TRUE
@@ -72,7 +72,15 @@
 	return ..()
 
 /obj/structure/railing/examine(mob/user)
-	..()
+	. = ..()
+	if(health < maxhealth)
+		switch(health / maxhealth)
+			if(0.0 to 0.5)
+				to_chat(user, SPAN_WARNING("It looks severely damaged!"))
+			if(0.25 to 0.5)
+				to_chat(user, SPAN_WARNING("It looks damaged!"))
+			if(0.5 to 1.0)
+				to_chat(user, SPAN_NOTICE("It has a few scrapes and dents."))
 	to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is <b>[density ? "closed" : "open"]</b> to passage.")))
 	to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is <b>[anchored ? "" : "not"] screwed</b> to the floor.")))
 
@@ -86,17 +94,6 @@
 	if(get_dir(loc, target) == dir)
 		return !density
 	return TRUE
-
-/obj/structure/railing/examine(mob/user)
-	..()
-	if(health < maxhealth)
-		switch(health / maxhealth)
-			if(0.0 to 0.5)
-				to_chat(user, SPAN_WARNING("It looks severely damaged!"))
-			if(0.25 to 0.5)
-				to_chat(user, SPAN_WARNING("It looks damaged!"))
-			if(0.5 to 1.0)
-				to_chat(user, SPAN_NOTICE("It has a few scrapes and dents."))
 
 /obj/structure/railing/proc/take_damage(amount)
 	health -= amount
@@ -144,6 +141,10 @@
 /obj/structure/railing/update_icon(var/update_neighbors = TRUE)
 	NeighborsCheck(update_neighbors)
 	overlays.Cut()
+	if(dir == SOUTH)
+		layer = ABOVE_MOB_LAYER
+	else
+		layer = initial(layer)
 	if(!neighbor_status || !anchored)
 		icon_state = "railing0-[density]"
 	else

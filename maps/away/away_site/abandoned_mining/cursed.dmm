@@ -1,4 +1,18 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/yellow,
+/area/cursed/storage)
+"aab" = (
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/yellow,
+/area/cursed/storage)
 "afk" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -120,8 +134,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/structure/cable{
@@ -318,8 +331,7 @@
 /obj/machinery/light/colored/red{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -370,7 +382,9 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "bQC" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -383,9 +397,7 @@
 "bQS" = (
 /obj/structure/table/rack,
 /obj/item/bodybag/cryobag,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/item/reagent_containers/glass/beaker/cryoxadone,
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
@@ -431,8 +443,7 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/medical)
 "cjQ" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -457,7 +468,9 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "cmr" = (
-/obj/machinery/door/airlock/security,
+/obj/machinery/door/airlock/security{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "crq" = (
@@ -551,7 +564,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "cXE" = (
-/obj/structure/bed/stool/chair/sofa/corner,
+/obj/structure/bed/stool/chair/sofa/corner/concave,
 /turf/simulated/floor/carpet,
 /area/cursed/living_area)
 "dcH" = (
@@ -568,8 +581,7 @@
 /turf/simulated/wall/r_wall,
 /area/cursed/hangar)
 "dhA" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -638,7 +650,9 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "dEv" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
@@ -646,9 +660,7 @@
 /turf/simulated/wall,
 /area/space)
 "dHO" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
@@ -666,11 +678,7 @@
 /area/cursed/living_area)
 "dLX" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/power/apc/low{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/low/west,
 /obj/machinery/light_switch{
 	pixel_x = -35
 	},
@@ -884,9 +892,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -914,7 +920,9 @@
 /turf/simulated/floor/airless,
 /area/cursed/bridge)
 "fuu" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
@@ -1035,7 +1043,9 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "fWE" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -1118,9 +1128,7 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "gIW" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
 	dir = 1
@@ -1298,7 +1306,9 @@
 /turf/simulated/floor,
 /area/cursed/storage)
 "hON" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/engineering)
@@ -1313,7 +1323,9 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "hRl" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/door/blast/regular/open{
 	name = "Hangar Blast Door";
 	id = "cursedlockdown"
@@ -1336,8 +1348,7 @@
 /turf/simulated/wall,
 /area/cursed/engineering)
 "iee" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -1512,7 +1523,9 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "jqt" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
@@ -1610,9 +1623,7 @@
 /obj/structure/sign/poster{
 	pixel_y = 31
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
 	dir = 1
@@ -1651,11 +1662,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/low/north,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -1731,7 +1738,9 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/storage)
 "kGw" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 4;
@@ -1785,7 +1794,9 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "kPZ" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -1820,11 +1831,7 @@
 /turf/simulated/floor/wood,
 /area/cursed/hangar)
 "loq" = (
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/low/north,
 /obj/machinery/light_switch{
 	pixel_y = 34
 	},
@@ -1917,8 +1924,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -1944,7 +1950,9 @@
 /turf/simulated/wall,
 /area/cursed/hangar)
 "lLh" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/bridge)
@@ -1979,11 +1987,7 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "lQd" = (
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/low/north,
 /obj/machinery/light_switch{
 	pixel_y = 34
 	},
@@ -2063,8 +2067,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /turf/simulated/floor,
@@ -2188,11 +2191,7 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "mWr" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/west,
 /obj/machinery/light_switch{
 	pixel_x = -34
 	},
@@ -2211,7 +2210,9 @@
 /turf/simulated/wall,
 /area/cursed/eva_storage)
 "mYB" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/living_area)
@@ -2402,7 +2403,9 @@
 /obj/machinery/door/blast/shutters{
 	id = "cursedshutters"
 	},
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/hangar)
@@ -2431,7 +2434,9 @@
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "oAe" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	d1 = 4;
@@ -2441,8 +2446,7 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "oDz" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -2495,7 +2499,9 @@
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "oRK" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor,
 /area/cursed/living_area)
@@ -2521,9 +2527,7 @@
 /area/cursed/hangar)
 "oVA" = (
 /obj/item/trash/broken_electronics,
-/obj/structure/fireaxecabinet{
-	pixel_y = 32
-	},
+/obj/structure/fireaxecabinet/north,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "oVJ" = (
@@ -2548,7 +2552,8 @@
 /area/cursed/engineering)
 "phX" = (
 /obj/machinery/door/airlock/highsecurity{
-	bolt_cut_state = 1
+	bolt_cut_state = 1;
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
@@ -2579,9 +2584,7 @@
 /area/cursed/medical)
 "poY" = (
 /obj/structure/bed/padded,
-/obj/structure/sign/flag/dpra/right{
-	pixel_y = 28
-	},
+/obj/structure/sign/flag/dpra/large/north,
 /mob/living/simple_animal/rat/irish,
 /obj/item/bedsheet/grey,
 /turf/simulated/floor/wood,
@@ -2610,9 +2613,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/supply{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
+/obj/machinery/alarm/north,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2675,11 +2676,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
-/obj/machinery/power/apc/low{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/low/north,
 /obj/machinery/light_switch{
 	pixel_y = 34
 	},
@@ -2809,10 +2806,7 @@
 /turf/simulated/floor,
 /area/cursed/medical)
 "qiJ" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
@@ -2934,7 +2928,9 @@
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "qKC" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
@@ -2964,8 +2960,7 @@
 /turf/simulated/wall,
 /area/cursed/mineral_processing)
 "qPP" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -2979,8 +2974,7 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "qUl" = (
-/obj/machinery/alarm{
-	dir = 8;
+/obj/machinery/alarm/east{
 	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
@@ -3240,11 +3234,7 @@
 "sjW" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/power/apc/low{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
+/obj/machinery/power/apc/low/west,
 /obj/machinery/light_switch{
 	pixel_x = -35
 	},
@@ -3291,10 +3281,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor,
 /area/cursed/eva_storage)
 "swq" = (
@@ -3392,7 +3379,9 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/space)
 "tcu" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -3451,7 +3440,9 @@
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/hangar)
 "tDC" = (
-/obj/machinery/door/airlock/medical,
+/obj/machinery/door/airlock/medical{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -3490,14 +3481,16 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "tRM" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/bridge)
 "tTd" = (
 /obj/item/toy/figure/clown{
-	desc = "A \"Space Life\" brand clown action figure. This one has its face carved to look more personable."
+	desc = "A 'Space Life' brand clown action figure. This one has its face carved to look more personable."
 	},
 /turf/simulated/floor/airless,
 /area/cursed/bridge)
@@ -3559,7 +3552,9 @@
 /turf/simulated/floor,
 /area/cursed/mineral_processing)
 "ujv" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1
+	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/cursed/living_area)
@@ -3633,9 +3628,6 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine)
 "uGE" = (
-/obj/structure/sign/flag/dpra/left{
-	pixel_y = 28
-	},
 /obj/structure/closet,
 /obj/item/clothing/head/beret/tajaran/dpra,
 /obj/item/clothing/head/beret/tajaran/dpra,
@@ -3782,15 +3774,13 @@
 /turf/simulated/wall,
 /area/cursed/bridge)
 "vAa" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28
-	},
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/white,
 /area/cursed/living_area)
 "vFJ" = (
 /obj/machinery/door/airlock/highsecurity{
-	bolt_cut_state = 1
+	bolt_cut_state = 1;
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/yellow,
@@ -3821,10 +3811,7 @@
 /turf/simulated/floor/wood,
 /area/cursed/living_area)
 "vLT" = (
-/obj/machinery/power/apc/low{
-	dir = 4;
-	pixel_x = 25
-	},
+/obj/machinery/power/apc/low/east,
 /obj/machinery/light_switch{
 	pixel_x = 35
 	},
@@ -3934,8 +3921,7 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "wzV" = (
-/obj/machinery/alarm{
-	dir = 4;
+/obj/machinery/alarm/west{
 	pixel_x = -28
 	},
 /obj/machinery/light{
@@ -3967,10 +3953,7 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "xbd" = (
-/obj/machinery/power/apc/hyper{
-	dir = 4;
-	pixel_x = 25
-	},
+/obj/machinery/power/apc/hyper/east,
 /obj/machinery/light_switch{
 	pixel_x = 35
 	},
@@ -4118,7 +4101,9 @@
 /turf/simulated/floor,
 /area/cursed/hangar)
 "yaP" = (
-/obj/machinery/door/airlock/glass_mining,
+/obj/machinery/door/airlock/glass_mining{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 8
 	},
@@ -36903,7 +36888,7 @@ feJ
 rgB
 lyG
 fuu
-jqt
+aaa
 lyG
 enS
 fNj
@@ -37155,7 +37140,7 @@ npR
 xHS
 lyG
 lyG
-jqt
+aab
 lyG
 lyG
 lyG

@@ -27,13 +27,13 @@
 /datum/event/rogue_maint_drones/proc/get_infestation_turfs()
 	var/area/location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area, /proc/is_maint_area))
 	if(!location)
-		log_debug("Drone infestation failed to find a viable area. Aborting.")
+		LOG_DEBUG("Drone infestation failed to find a viable area. Aborting.")
 		kill()
 		return
 
 	var/list/dron_turfs = get_area_turfs(location, list(/proc/not_turf_contains_dense_objects))
 	if(!dron_turfs.len)
-		log_debug("Drone infestation failed to find viable turfs in \the [location].")
+		LOG_DEBUG("Drone infestation failed to find viable turfs in \the [location].")
 		kill()
 		return
 	return dron_turfs

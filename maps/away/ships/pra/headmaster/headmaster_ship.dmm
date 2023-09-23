@@ -1,8 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(209)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -109,7 +107,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/effect/floor_decal/corner/paleblue/full,
+/obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -126,7 +124,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -243,7 +241,8 @@
 "aF" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Gun Deck";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -295,9 +294,6 @@
 	},
 /area/headmaster_ship/engine)
 "aM" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = -32
-	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -379,9 +375,6 @@
 /area/headmaster_ship/gun_deck)
 "aZ" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
@@ -437,7 +430,7 @@
 /area/headmaster_ship/medbay)
 "bh" = (
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -565,7 +558,7 @@
 /area/headmaster_ship/hangar)
 "bK" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/cosmonaut/commissar,
 /obj/item/clothing/head/tajaran/cosmonaut_commissar,
 /obj/item/clothing/accessory/holster/hip,
@@ -607,9 +600,7 @@
 	},
 /area/headmaster_ship/gun_deck)
 "bQ" = (
-/obj/machinery/power/apc/high{
-	dir = 8;
-	pixel_x = -24;
+/obj/machinery/power/apc/high/west{
 	req_access = list(209)
 	},
 /obj/structure/cable/green{
@@ -795,9 +786,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/white{
@@ -941,9 +930,7 @@
 /area/headmaster_ship/hangar)
 "cN" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
@@ -1232,9 +1219,8 @@
 	},
 /area/headmaster_ship/engineering)
 "dz" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1244,7 +1230,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "headmaster_shuttle_out"
+	id_tag = "headmaster_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -1340,7 +1327,8 @@
 "dQ" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Commissar's Quarters"
+	name = "Commissar's Quarters";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1448,7 +1436,8 @@
 "ej" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Captain's Quarters"
+	name = "Captain's Quarters";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1470,7 +1459,8 @@
 "em" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1519,10 +1509,7 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/east{
 	req_access = list(209)
 	},
 /obj/structure/cable/green{
@@ -1534,11 +1521,10 @@
 	},
 /area/headmaster_ship/engineering)
 "ex" = (
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1560,7 +1546,7 @@
 /area/headmaster_ship/engine)
 "eB" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/combat,
+/obj/item/clothing/shoes/combat,
 /obj/item/clothing/under/tajaran/cosmonaut,
 /obj/item/storage/backpack/satchel/leather,
 /obj/item/device/radio/headset/ship,
@@ -1831,7 +1817,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1924,7 +1910,7 @@
 	},
 /area/headmaster_ship/captain_quarters)
 "fU" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1943,7 +1929,7 @@
 /area/headmaster_ship/barracks)
 "fZ" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/combat,
+/obj/item/clothing/shoes/combat,
 /obj/item/clothing/under/tajaran/cosmonaut,
 /obj/item/storage/backpack/satchel/leather,
 /obj/item/device/radio/headset/ship,
@@ -1979,7 +1965,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Mess Hall"
+	name = "Mess Hall";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2184,7 +2171,8 @@
 "gU" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
-	name = "Bridge"
+	name = "Bridge";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2232,7 +2220,8 @@
 "he" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Hangar"
+	name = "Hangar";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2357,7 +2346,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2440,10 +2429,7 @@
 	dir = 4
 	},
 /obj/structure/closet/emcloset,
-/obj/machinery/power/apc/high{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24;
+/obj/machinery/power/apc/high/north{
 	req_access = list(209)
 	},
 /obj/structure/cable/green{
@@ -2462,14 +2448,11 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(209)
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2478,7 +2461,8 @@
 "hZ" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Barracks"
+	name = "Barracks";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2539,9 +2523,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(209)
 	},
 /obj/structure/cable/green,
@@ -2638,9 +2620,7 @@
 	},
 /area/headmaster_ship/engine)
 "il" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = -32
-	},
+/obj/structure/sign/flag/pra/large/south,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -2689,7 +2669,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = -32
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2742,11 +2722,10 @@
 	},
 /area/headmaster_ship/mess_hall)
 "iF" = (
-/obj/structure/extinguisher_cabinet{
-	layer = 3.3;
-	pixel_x = 26
+/obj/structure/extinguisher_cabinet/east{
+	layer = 3.3
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2775,10 +2754,8 @@
 /obj/item/paper_bin,
 /obj/item/pen/fountain,
 /obj/machinery/light,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 1;
-	pixel_y = -32
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2850,7 +2827,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Restroom"
+	name = "Restroom";
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2879,9 +2857,8 @@
 	},
 /obj/item/storage/firstaid/o2,
 /obj/item/storage/firstaid/regular,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2902,7 +2879,8 @@
 "ji" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "EVA Storage"
+	name = "EVA Storage";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2928,7 +2906,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2944,10 +2922,7 @@
 	},
 /area/headmaster_ship/engine)
 "jm" = (
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/high/east{
 	req_access = list(209)
 	},
 /obj/structure/cable/green{
@@ -3068,10 +3043,8 @@
 	name = "surgical sink";
 	pixel_x = 20
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -3157,7 +3130,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3253,10 +3226,8 @@
 /area/headmaster_ship/mess_hall)
 "kj" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -3351,7 +3322,8 @@
 "kD" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
-	name = "Hangar"
+	name = "Hangar";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark{
@@ -3390,9 +3362,8 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3511,7 +3482,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3562,9 +3533,8 @@
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3638,7 +3608,7 @@
 	},
 /area/headmaster_ship/engine)
 "lE" = (
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3787,10 +3757,8 @@
 "mc" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 4;
-	pixel_x = -32
+/obj/machinery/alarm/cold/west{
+	req_one_access = list(209)
 	},
 /obj/item/pen/fountain,
 /turf/simulated/floor/wood{
@@ -3798,9 +3766,8 @@
 	},
 /area/headmaster_ship/commissar_quarters)
 "mf" = (
-/obj/structure/extinguisher_cabinet{
-	layer = 3.3;
-	pixel_x = 26
+/obj/structure/extinguisher_cabinet/east{
+	layer = 3.3
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -3837,7 +3804,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3908,9 +3875,6 @@
 	},
 /area/headmaster_ship/hangar)
 "mE" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -3963,7 +3927,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "headmaster_shuttle_out"
+	id_tag = "headmaster_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -4138,7 +4103,7 @@
 /area/headmaster_ship/mess_hall)
 "nE" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/cosmonaut/captain,
 /obj/item/clothing/head/tajaran/orbital_captain,
 /obj/item/clothing/accessory/holster/hip,
@@ -4214,7 +4179,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4303,10 +4268,7 @@
 	},
 /area/shuttle/headmaster_shuttle)
 "pF" = (
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "north bump";
-	pixel_x = 24;
+/obj/machinery/power/apc/high/east{
 	req_access = list(209)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4431,7 +4393,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4510,10 +4472,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 8;
-	pixel_x = 32
+/obj/machinery/alarm/cold/east{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4597,7 +4557,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4610,7 +4570,8 @@
 "tH" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4649,7 +4610,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4657,9 +4618,7 @@
 	},
 /area/headmaster_ship/armory)
 "uh" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
@@ -4785,7 +4744,7 @@
 	pixel_y = 32
 	},
 /obj/structure/filingcabinet/chestdrawer,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4822,9 +4781,7 @@
 	dir = 4;
 	status = 2
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(209)
 	},
 /obj/structure/closet/firecloset/full,
@@ -4862,7 +4819,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
@@ -5034,9 +4991,6 @@
 	},
 /area/headmaster_ship/mess_hall)
 "AY" = (
-/obj/structure/sign/flag/pra/right{
-	pixel_y = 32
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -5083,9 +5037,8 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -5132,7 +5085,8 @@
 "CS" = (
 /obj/machinery/door/airlock/glass_medical{
 	req_access = list(209);
-	name = "Medbay"
+	name = "Medbay";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5312,10 +5266,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 4;
-	pixel_x = -32
+/obj/machinery/alarm/cold/west{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -5345,9 +5297,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/machinery/power/apc/high{
-	name = "south bump";
-	pixel_y = -24;
+/obj/machinery/power/apc/high/south{
 	req_access = list(209)
 	},
 /obj/structure/cable/green,
@@ -5378,7 +5328,7 @@
 	},
 /area/headmaster_ship/gun_deck)
 "Gr" = (
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -5421,9 +5371,8 @@
 "GV" = (
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -5522,7 +5471,7 @@
 	},
 /area/headmaster_ship/engine)
 "IO" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
@@ -5588,7 +5537,8 @@
 "Ka" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(209);
-	name = "Engines"
+	name = "Engines";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -5844,7 +5794,8 @@
 "No" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled{
@@ -5929,7 +5880,8 @@
 "Oa" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(209);
-	name = "Airlock Access"
+	name = "Airlock Access";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -5988,8 +5940,8 @@
 	pixel_x = 3;
 	pixel_y = -11
 	},
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
@@ -6028,9 +5980,7 @@
 	},
 /area/headmaster_ship)
 "Pb" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -6055,7 +6005,8 @@
 "PJ" = (
 /obj/machinery/door/airlock/engineering{
 	req_access = list(209);
-	name = "Engineering"
+	name = "Engineering";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6118,9 +6069,8 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6131,9 +6081,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/high{
-	dir = 8;
-	pixel_x = -24;
+/obj/machinery/power/apc/high/west{
 	req_access = list(209)
 	},
 /turf/simulated/floor/carpet/art{
@@ -6213,9 +6161,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -6235,16 +6181,14 @@
 /area/headmaster_ship/commissar_quarters)
 "Si" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/structure/extinguisher_cabinet{
-	layer = 3.3;
-	pixel_x = 26
+/obj/structure/extinguisher_cabinet/east{
+	layer = 3.3
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	pixel_y = 32
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
 	},
-/obj/effect/floor_decal/corner/paleblue/full{
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
@@ -6357,9 +6301,7 @@
 	},
 /area/headmaster_ship/engine)
 "TP" = (
-/obj/structure/sign/flag/pra/left{
-	pixel_y = 32
-	},
+/obj/structure/sign/flag/pra/large/north,
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -6562,7 +6504,8 @@
 "Wr" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_access = list(209)
+	req_access = list(209);
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6623,10 +6566,8 @@
 "XG" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
-/obj/machinery/alarm/cold{
-	req_one_access = list(209);
-	dir = 4;
-	pixel_x = -32
+/obj/machinery/alarm/cold/west{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
@@ -6700,7 +6641,7 @@
 /area/headmaster_ship/engineering)
 "YX" = (
 /obj/structure/bed/stool/bar/padded/red,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{

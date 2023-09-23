@@ -1,8 +1,3 @@
-#define RADIATION_DECAY_RATE 1
-#define RADIATION_LOWER_LIMIT 0.15
-#define RADIATION_MATERIAL_RESISTANCE_DIVISOR 2
-#define RADIATION_RESISTANCE_MULTIPLIER 1.25
-
 var/datum/controller/subsystem/radiation/SSradiation
 
 /datum/controller/subsystem/radiation

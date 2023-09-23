@@ -92,9 +92,9 @@
 	return
 
 
-/obj/item/device/assembly/examine(mob/user)
+/obj/item/device/assembly/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(. && (in_range(src, user) || loc == user))
+	if(distance <= 1 || loc == user)
 		if(secured)
 			to_chat(user, "\The [src] is ready!")
 		else
@@ -110,3 +110,9 @@
 
 /obj/item/device/assembly/interact(mob/user)
 	return
+
+/obj/item/device/assembly/ui_host(mob/user)
+	. = ..()
+	// Sets the UI host to the transfer valve if its mounted on a transfer_valve
+	if(istype(loc,/obj/item/device/transfer_valve))
+		return loc
