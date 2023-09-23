@@ -33,7 +33,7 @@
 	invisibility = 0
 
 /obj/effect/map_effect/particle_emitter/Initialize(mapload, ...)
-	..()
+	. = ..()
 	particles = new particle_type
 	icon = null
 
