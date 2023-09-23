@@ -6,8 +6,11 @@
 		/singleton/origin_item/origin/mouv,
 		/singleton/origin_item/origin/vytel,
 		/singleton/origin_item/origin/xetl,
+		/singleton/origin_item/origin/zino,
 		/singleton/origin_item/origin/klatxatl
 	)
+	origin_traits = list(TRAIT_ORIGIN_HAS_CTHUR_IMPLANT, TRAIT_ORIGIN_HAS_PSIAUG)
+	origin_traits_descriptions = list("have a Nral'Malic language processor", "have a psionic receiver")
 
 /singleton/origin_item/origin/cthur
 	name = "C'thur Brood"
@@ -36,6 +39,15 @@
 	possible_accents = list(ACCENT_CTHUR, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_ERIDANI, CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_NONE)
+
+/singleton/origin_item/origin/zino
+	name = "Zino"
+	desc = "A group of Klat'xatl who were abandoned in the Eridani Corporate Federation by Queen Xetl after attempting to hold negotiations with Einstein Engines. Though they are not dregs, they are familiar with dregs and their lifestyle."
+	possible_accents = list(ACCENT_CTHUR, ACCENT_TTS)
+	possible_citizenships = list(CITIZENSHIP_NONE)
+	possible_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_OTHER, RELIGION_NONE)
+	origin_traits = list(TRAIT_ORIGIN_HAS_ZINO_IMPLANT)
+	origin_traits_descriptions = list("have a Freespeak language processor")
 
 /singleton/origin_item/origin/klatxatl
 	name = "Klatxatl"

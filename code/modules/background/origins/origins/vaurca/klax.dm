@@ -10,6 +10,8 @@
 		/singleton/origin_item/origin/mikuetz,
 		/singleton/origin_item/origin/queenless_klax
 	)
+	origin_traits = list(TRAIT_ORIGIN_HAS_KLAX_IMPLANT)
+	origin_traits_descriptions = list("have a Sinta'Unathi language processor")
 
 /singleton/origin_item/origin/zkaii
 	name = "Zkaii Brood"
@@ -52,6 +54,8 @@
 	possible_accents = list(ACCENT_KLAX, ACCENT_TTS)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI)
 	possible_religions = list(RELIGION_PILOTDREAM, RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_OTHER, RELIGION_NONE)
+	origin_traits = list(TRAIT_ORIGIN_HAS_MIKUETZ_IMPLANT)
+	origin_traits_descriptions = list("have a Sinta'Azaziba language processor")
 
 /singleton/origin_item/origin/queenless_klax
 	name = "Queenless"
