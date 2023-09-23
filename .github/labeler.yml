@@ -11,22 +11,22 @@ Database:
 '🗺️ Mapping - Away Ship/Away Site':
 - maps/away/*
 
-'🗺️Mapping - Dungeon':
+'🗺️ Mapping - Dungeon':
 - maps/dungeon_spawns/*
 
-'🗺️Mapping - Event':
+'🗺️ Mapping - Event':
 - maps/event/*
 
-'🗺️Mapping - Random Ruins':
+'🗺️ Mapping - Random Ruins':
 - maps/random_ruins/*
 
-'🗺️Mapping - Runtime':
+'🗺️ Mapping - Runtime':
 - maps/runtime/*
 
-'🗺️Mapping - Horizon':
+'🗺️ Mapping - Horizon':
 - maps/sccv_horizon/*
 
-'🗺️Mapping - Templates':
+'🗺️ Mapping - Templates':
 - maps/templates/*
 
 Sounds:

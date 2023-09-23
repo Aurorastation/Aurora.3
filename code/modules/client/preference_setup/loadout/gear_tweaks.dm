@@ -294,7 +294,7 @@ var/datum/gear_tweak/custom_desc/gear_tweak_free_desc = new()
 	return sanitize(input(user, "Choose the item's description. Leave it blank to use the default description.", "Item Description", metadata) as message|null, extra = 0)
 
 /datum/gear_tweak/custom_desc/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
-	if (!metadata && istype(I,/obj/item/clothing/accessory/badge))
+	if (!metadata && istype(I, /obj/item/clothing/accessory/badge))
 		var/obj/item/clothing/accessory/badge/B = I
 		B.stored_name = H.real_name
 		return I.desc += "\nThe name [H.real_name] is written on it."
