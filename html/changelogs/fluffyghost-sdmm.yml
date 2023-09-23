@@ -1,0 +1,46 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.
+author: FluffyGhost
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - backend: "Updated .editorconfig to apply consistent indentations and end of lines, aligned with TG."
+  - backend: "Updated .gitattributes to apply consistent file mode and end of lines, aligned with TG."
+  - backend: "Updated .gitignore to be more in line with TG, excluded some additional paths that are generated during compilation or in general are not part of the codebase."
+  - backend: "Updated SpacemanDMM.toml to catch more bad code practices, per https://github.com/SpaceManiac/SpacemanDMM/blob/master/CONFIGURING.md."
+  - backend: "Applied tabulation and end of line across the codebase."
+  - refactor: "Refactored some overrides that were found to be defined before the procs themselves."
