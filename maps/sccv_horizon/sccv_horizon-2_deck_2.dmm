@@ -201,11 +201,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics)
 "acM" = (
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 5
+/obj/effect/floor_decal/corner/dark_green/diagonal,
+/turf/simulated/floor/tiled/dark{
+	broken = 2
 	},
-/turf/simulated/floor/plating,
-/area/hallway/medical)
+/area/security/checkpoint2)
 "adv" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4198,7 +4198,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled{
+	broken = 2
+	},
 /area/operations/lobby)
 "bQT" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -5222,16 +5224,10 @@
 	pixel_x = -1;
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/plating,
 /area/hallway/medical)
 "ctg" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5905,7 +5901,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "cOp" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -6531,7 +6527,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "dgw" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -8351,7 +8347,9 @@
 /obj/structure/sign/vacuum{
 	pixel_y = -32
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark{
+	broken = 2
+	},
 /area/security/checkpoint2)
 "ebT" = (
 /obj/machinery/door/airlock/glass_security{
@@ -9208,6 +9206,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
+/obj/structure/foamedmetal,
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "eyI" = (
@@ -10398,9 +10397,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/full{
-	decals = "broken1"
-	},
+/turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
 "fdZ" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -11581,7 +11578,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark{
+	broken = 2
+	},
 /area/security/checkpoint2)
 "fGT" = (
 /obj/structure/cable/green{
@@ -12489,9 +12488,7 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
-	decals = "broken2"
-	},
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "gbw" = (
 /obj/structure/disposalpipe/segment,
@@ -14481,9 +14478,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white{
-	decals = "broken3"
-	},
+/turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "gPM" = (
 /obj/structure/cable/green{
@@ -15552,7 +15547,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/plating,
 /area/hallway/medical)
 "hrC" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -19845,14 +19840,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/hallway/engineering)
-"jsF" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
-/turf/simulated/floor/tiled{
-	broken = 3
-	},
-/area/operations/lobby)
 "jsI" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
@@ -21599,9 +21586,7 @@
 /area/horizon/bar/backroom)
 "kkb" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled{
-	decals = "broken2"
-	},
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "kkq" = (
 /obj/machinery/turretid/lethal{
@@ -22552,14 +22537,6 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/far)
-"kOa" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 1
-	},
-/turf/simulated/floor/tiled{
-	decals = "broken2"
-	},
-/area/hallway/primary/central_two)
 "kOt" = (
 /obj/machinery/power/breakerbox{
 	RCon_tag = "Supermatter Grid Bypass"
@@ -23329,12 +23306,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/operations/qm)
-"lgr" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/full{
-	decals = "broken1"
-	},
-/area/hallway/primary/central_two)
 "lgB" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -23403,7 +23374,9 @@
 /obj/machinery/computer/guestpass{
 	pixel_y = -32
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	broken = 3
+	},
 /area/operations/lobby)
 "ljk" = (
 /obj/machinery/light{
@@ -24251,7 +24224,9 @@
 	},
 /obj/machinery/power/apc/south,
 /obj/structure/cable/green,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	broken = 2
+	},
 /area/operations/lobby)
 "lGm" = (
 /obj/structure/platform,
@@ -24412,9 +24387,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/full{
-	decals = "broken1"
-	},
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "lKH" = (
 /obj/structure/cable/green{
@@ -24518,7 +24491,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark{
+	broken = 2
+	},
 /area/security/checkpoint2)
 "lMD" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -24561,9 +24536,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white{
-	decals = "broken3"
-	},
+/turf/simulated/floor/plating,
 /area/medical/gen_treatment)
 "lNJ" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -25573,10 +25546,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
 "mms" = (
-/turf/simulated/floor/tiled{
-	broken = 3
-	},
-/area/operations/lobby)
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship,
+/turf/simulated/floor/plating,
+/area/chapel/office)
 "mmS" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/maintenance/wing/port)
@@ -28159,9 +28133,7 @@
 	c_tag = "Second Deck - Operations Hallway";
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
-	broken = 3
-	},
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "nsx" = (
 /obj/structure/girder,
@@ -29672,9 +29644,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/full{
-	decals = "broken1"
-	},
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "oia" = (
 /obj/machinery/light{
@@ -30725,7 +30695,9 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark{
+	broken = 2
+	},
 /area/security/checkpoint2)
 "oGy" = (
 /obj/effect/floor_decal/corner_wide/yellow,
@@ -31243,8 +31215,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
 "oWC" = (
-/obj/structure/table/wood,
-/obj/machinery/light,
+/obj/structure/foamedmetal,
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "oWQ" = (
@@ -31749,9 +31720,7 @@
 /area/rnd/research)
 "pih" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled{
-	decals = "broken2"
-	},
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "pin" = (
 /obj/item/device/radio/intercom/north,
@@ -33728,7 +33697,7 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/junction/yjunction,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/plating,
 /area/hallway/medical)
 "qhA" = (
 /obj/structure/cable/green{
@@ -34400,10 +34369,21 @@
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "qzf" = (
-/turf/simulated/floor/tiled/white{
-	decals = "broken3"
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
-/area/hallway/medical)
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/turf/simulated/floor/tiled,
+/area/operations/lobby)
 "qzF" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
@@ -34570,7 +34550,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "qDh" = (
 /turf/simulated/wall/r_wall,
@@ -34969,7 +34949,9 @@
 	dir = 6
 	},
 /obj/machinery/newscaster/east,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	broken = 2
+	},
 /area/storage/primary)
 "qNX" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -36402,10 +36384,13 @@
 /turf/simulated/open/airless,
 /area/horizon/exterior)
 "rwO" = (
-/turf/simulated/floor/tiled{
-	decals = "broken2"
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
 	},
-/area/hallway/primary/central_two)
+/turf/simulated/floor/tiled/dark{
+	broken = 2
+	},
+/area/security/checkpoint2)
 "rwU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -37254,11 +37239,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
-"rRY" = (
-/turf/simulated/floor/tiled/white{
-	decals = "broken3"
-	},
-/area/medical/gen_treatment)
 "rSv" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -38143,6 +38123,7 @@
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-33"
 	},
+/obj/structure/foamedmetal,
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "spM" = (
@@ -38558,7 +38539,7 @@
 "sBL" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "sCe" = (
 /obj/random/junk,
@@ -39084,7 +39065,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	broken = 2
+	},
 /area/operations/lobby)
 "sRm" = (
 /obj/structure/cable/green{
@@ -39690,12 +39673,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_a)
-"tgv" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/operations/lobby)
 "tgT" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -41541,7 +41518,9 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled{
+	broken = 3
+	},
 /area/operations/lobby)
 "ucq" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -43858,7 +43837,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "veu" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -44261,6 +44240,9 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room)
+"vte" = (
+/turf/simulated/floor/tiled,
+/area/operations/lobby)
 "vtf" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -45055,9 +45037,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/wood,
 /area/chapel/main)
-"vKF" = (
-/turf/simulated/floor/carpet,
-/area/chapel/office)
 "vKH" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
@@ -45734,6 +45713,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee,
+/obj/structure/foamedmetal,
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "vYK" = (
@@ -46902,7 +46882,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/plating,
 /area/hallway/medical)
 "wxt" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -47363,7 +47343,9 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark{
+	broken = 2
+	},
 /area/security/checkpoint2)
 "wJh" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -49397,7 +49379,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/plating,
 /area/medical/gen_treatment)
 "xEp" = (
 /obj/effect/floor_decal/spline/plain{
@@ -49571,7 +49553,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "xIH" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -50168,9 +50150,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/turf/simulated/floor/tiled{
-	broken = 3
-	},
+/turf/simulated/floor/tiled,
 /area/operations/lobby)
 "xWA" = (
 /obj/structure/table/wood,
@@ -62607,7 +62587,7 @@ fkZ
 lgm
 qqs
 rew
-vua
+bQO
 ggy
 liv
 fzh
@@ -64223,9 +64203,9 @@ nju
 ksC
 dsa
 cBt
-mms
+vte
 bDc
-tgv
+ldT
 jWV
 chj
 ijD
@@ -64425,8 +64405,8 @@ rZh
 gvG
 rZh
 rZh
-bQO
-bDc
+vua
+qzf
 nsn
 jWV
 bCv
@@ -64827,15 +64807,15 @@ wLc
 kkb
 kkb
 usk
-mms
+vte
 xVV
 noS
-mms
-jsF
+vte
+ldT
 uzU
 frL
 fGJ
-rWW
+rwO
 rWW
 saJ
 dVt
@@ -65419,7 +65399,7 @@ dKR
 dKR
 nIi
 csx
-xur
+byT
 jmE
 aUz
 xur
@@ -65444,7 +65424,7 @@ jNk
 rCH
 pkH
 pkH
-pkH
+acM
 aQb
 udR
 udR
@@ -65620,7 +65600,7 @@ vQV
 hAu
 vBn
 wXA
-jWj
+xur
 xva
 hrf
 gPG
@@ -65631,8 +65611,8 @@ vOZ
 iWt
 kFZ
 cOn
-kOa
-rwO
+lZX
+gOH
 gOH
 ohQ
 uGv
@@ -65834,8 +65814,8 @@ exx
 nkd
 xIo
 pih
-lgr
-lgr
+pih
+pih
 lKD
 ljF
 jNk
@@ -66254,7 +66234,7 @@ qSO
 mOS
 kOW
 eyu
-lCF
+mms
 xVu
 qgN
 qgN
@@ -66456,7 +66436,7 @@ roV
 jEL
 jEL
 oWC
-lCF
+mms
 xVu
 qgN
 qgN
@@ -66657,7 +66637,7 @@ lHB
 nue
 off
 bCD
-vKF
+oWC
 xQk
 xVu
 qgN
@@ -66832,7 +66812,7 @@ mij
 ugE
 piK
 wyb
-acM
+jWj
 byT
 ktM
 qKK
@@ -67034,8 +67014,8 @@ hQa
 fai
 iAC
 wyb
-acM
-qzf
+byT
+byT
 ijN
 cZj
 nvq
@@ -67236,8 +67216,8 @@ odZ
 abd
 sQv
 wyb
-acM
 byT
+xur
 iFD
 yct
 nvq
@@ -67441,7 +67421,7 @@ dIZ
 lgC
 sBL
 wcK
-nIi
+xur
 seZ
 seZ
 seZ
@@ -67841,7 +67821,7 @@ sog
 sog
 laF
 lNb
-rRY
+iYE
 xqE
 ond
 lau
