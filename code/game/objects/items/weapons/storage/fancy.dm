@@ -329,9 +329,6 @@
 	if(!opened)
 		to_chat(user, SPAN_NOTICE("\The [src] is closed."))
 		return
-	if(!use_check(M))
-		to_chat(usr, SPAN_WARNING("[M.name] is in no condition to handle items!"))
-		return
 	if(target_zone == BP_MOUTH && contents.len > 0)
 		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(M)
 		if(!istype(W) || M.wear_mask)
@@ -340,6 +337,9 @@
 				to_chat(M, SPAN_NOTICE("\The [M.wear_mask] is in the way."))
 			return
 		if(M != user)
+			if(use_check(M))
+				to_chat(user, SPAN_WARNING("[M.name] is in no condition to handle items!"))
+				return
 			var/response = ""
 			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."))
 			response = alert(M, "\The [user] offers you \a [W.name]. Do you accept?", "Smokable offer", "Accept", "Decline")
