@@ -1,18 +1,40 @@
+/**
+ * Displays information about the currently active tweak.
+ * For example: a color tweak might show the user the currently selected color
+ */
 /datum/gear_tweak/proc/get_contents(var/metadata)
 	return
 
+/**
+ * Queries the user for additional information about the tweak.
+ * For example: A color tweak might display a color selection menu to the user
+ */
 /datum/gear_tweak/proc/get_metadata(var/user, var/metadata, var/title, var/gear_path)
 	return
 
+/**
+ * Returns a sensible default value for the tweak that is used when the tweak is newly applied.
+ * For example: A alpha tweak might return 255
+ */
 /datum/gear_tweak/proc/get_default()
 	return
 
+/**
+ * Returns a random (valid) value for the tweak.
+ * For example: A alpha tweak might return something between 0 and 255
+ */
 /datum/gear_tweak/proc/get_random()
 	return get_default()
 
-/datum/gear_tweak/proc/tweak_gear_data(var/metadata, var/datum/gear_data)
+/**
+ * Tweaks the gear data (parameter) based on the metadata (parameter)
+ */
+/datum/gear_tweak/proc/tweak_gear_data(var/metadata, var/datum/gear_data/gear_data)
 	return
 
+/**
+ * Applies the tweak to the item
+ */
 /datum/gear_tweak/proc/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
 	return
 
@@ -272,8 +294,8 @@ var/datum/gear_tweak/custom_desc/gear_tweak_free_desc = new()
 	return sanitize(input(user, "Choose the item's description. Leave it blank to use the default description.", "Item Description", metadata) as message|null, extra = 0)
 
 /datum/gear_tweak/custom_desc/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
-	if (!metadata && ("stored_name" in I.vars))
-		I.vars["stored_name"] = H.real_name
+	if (!metadata && istype(I,/obj/item/clothing/accessory/badge))
+		I.stored_name = H.real_name
 		return I.desc += "\nThe name [H.real_name] is written on it."
 	if (!metadata)
 		return I.desc
