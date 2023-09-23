@@ -1,6 +1,6 @@
 // DM Environment file for aurorastation.dme.
 // All manual changes should be made outside the BEGIN_ and END_ blocks.
- // New source code should be placed in .dm files: choose File/New --> Code File.
+// New source code should be placed in .dm files: choose File/New --> Code File.
 // BEGIN_INTERNALS
 // END_INTERNALS
 // BEGIN_FILE_DIR
@@ -930,6 +930,8 @@
 #include "code\game\objects\effects\decals\misc.dm"
 #include "code\game\objects\effects\decals\remains.dm"
 #include "code\game\objects\effects\decals\snow.dm"
+#include "code\game\objects\effects\decals\urban.dm"
+#include "code\game\objects\effects\decals\wall.dm"
 #include "code\game\objects\effects\decals\warning_stripes.dm"
 #include "code\game\objects\effects\decals\Cleanable\aliens.dm"
 #include "code\game\objects\effects\decals\Cleanable\fuel.dm"
@@ -1190,6 +1192,7 @@
 #include "code\game\objects\structures\barsign.dm"
 #include "code\game\objects\structures\bedsheet_bin.dm"
 #include "code\game\objects\structures\bonfire.dm"
+#include "code\game\objects\structures\coastal.dm"
 #include "code\game\objects\structures\coatrack.dm"
 #include "code\game\objects\structures\crystals.dm"
 #include "code\game\objects\structures\curtains.dm"
@@ -1225,6 +1228,7 @@
 #include "code\game\objects\structures\tranqcabinet.dm"
 #include "code\game\objects\structures\trash_pile.dm"
 #include "code\game\objects\structures\under_wardrobe.dm"
+#include "code\game\objects\structures\urban.dm"
 #include "code\game\objects\structures\warp_drive.dm"
 #include "code\game\objects\structures\watercloset.dm"
 #include "code\game\objects\structures\weapon_rack.dm"
@@ -1284,6 +1288,7 @@
 #include "code\game\turfs\flooring\flooring.dm"
 #include "code\game\turfs\flooring\flooring_decals.dm"
 #include "code\game\turfs\flooring\flooring_premade.dm"
+#include "code\game\turfs\flooring\urban.dm"
 #include "code\game\turfs\initialization\dirty.dm"
 #include "code\game\turfs\initialization\init.dm"
 #include "code\game\turfs\initialization\maintenance.dm"
@@ -2195,6 +2200,7 @@
 #include "code\modules\maps\planet_types\lava.dm"
 #include "code\modules\maps\planet_types\snow.dm"
 #include "code\modules\maps\planet_types\lore\burzsia.dm"
+#include "code\modules\maps\planet_types\lore\konyang.dm"
 #include "code\modules\maps\planet_types\lore\srandmarr.dm"
 #include "code\modules\martial_arts\gunkata.dm"
 #include "code\modules\martial_arts\martial.dm"
@@ -2758,6 +2764,7 @@
 #include "code\modules\overmap\exoplanets\decor\flora\generic_flora.dm"
 #include "code\modules\overmap\exoplanets\decor\flora\grove.dm"
 #include "code\modules\overmap\exoplanets\decor\flora\jungle.dm"
+#include "code\modules\overmap\exoplanets\decor\flora\konyang.dm"
 #include "code\modules\overmap\exoplanets\decor\flora\marsh.dm"
 #include "code\modules\overmap\exoplanets\decor\flora\potted.dm"
 #include "code\modules\overmap\exoplanets\decor\flora\snow.dm"
@@ -2769,6 +2776,7 @@
 #include "code\modules\overmap\exoplanets\decor\turfs\crystal.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\grass.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\ice.dm"
+#include "code\modules\overmap\exoplanets\decor\turfs\konyang.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\mineral.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\sand.dm"
 #include "code\modules\overmap\exoplanets\decor\turfs\snow.dm"
@@ -3438,6 +3446,8 @@
 #include "maps\away\away_site\crashed_elyran_tanker\crashed_elyran_tanker.dm"
 #include "maps\away\away_site\first_aurora\first_aurora.dm"
 #include "maps\away\away_site\hivebot_hub\hivebot_hub.dm"
+#include "maps\away\away_site\konyang\point_verdant\point_verdant.dm"
+#include "maps\away\away_site\konyang\point_verdant\point_verdant_areas.dm"
 #include "maps\away\away_site\magshield\magshield.dm"
 #include "maps\away\away_site\magshield\magshield_areas.dm"
 #include "maps\away\away_site\overgrown_mining_station\overgrown_mining_station.dm"
@@ -3593,6 +3603,7 @@
 #include "maps\random_ruins\exoplanets\crashed_pod\crashed_pod.dm"
 #include "maps\random_ruins\exoplanets\desert\desert.dm"
 #include "maps\random_ruins\exoplanets\grove\grove.dm"
+#include "maps\random_ruins\exoplanets\konyang\landing_zone.dm"
 #include "maps\random_ruins\exoplanets\lava\lava.dm"
 #include "maps\random_ruins\exoplanets\raskara\pra_exploration_drone.dm"
 #include "maps\random_ruins\exoplanets\raskara\raskara_okon.dm"

@@ -119,6 +119,19 @@
 	..()
 	name = "[initial(name)] ([x],[y])"
 
+//Subtypes for exclusively Horizon shuttles
+/obj/effect/shuttle_landmark/automatic/intrepid/sector_set(var/obj/effect/overmap/visitable/O)
+	..()
+	name = "SCCV Intrepid Landing Beacon ([x],[y])"
+
+/obj/effect/shuttle_landmark/automatic/spark/sector_set(var/obj/effect/overmap/visitable/O)
+	..()
+	name = "SCCV Spark Landing Beacon ([x],[y])"
+
+/obj/effect/shuttle_landmark/automatic/canary/sector_set(var/obj/effect/overmap/visitable/O)
+	..()
+	name = "SCCV Canary Landing Beacon ([x],[y])"
+
 //Subtype that calls explosion on init to clear space for shuttles
 /obj/effect/shuttle_landmark/automatic/clearing
 	dir = NORTH // compatible with Horizon's shuttles
