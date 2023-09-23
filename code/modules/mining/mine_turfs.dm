@@ -1,12 +1,17 @@
 /**********************Mineral deposits**************************/
 /turf/unsimulated/mineral
 	name = "impassable rock"
-	icon = 'icons/turf/walls.dmi'
-	icon_state = "rock-dark"
+	icon = 'icons/turf/smooth/rock_dense.dmi'
+	icon_state = "wall"
 	blocks_air = TRUE
 	density = TRUE
 	gender = PLURAL
 	opacity = TRUE
+	smooth = SMOOTH_TRUE
+	color = "#6e632f"
+
+/turf/unsimulated/mineral/konyang
+	color = "#514e5c"
 
 // This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
 var/list/mineral_can_smooth_with = list(

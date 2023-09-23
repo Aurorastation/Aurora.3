@@ -1495,6 +1495,8 @@
 	if(client)
 		client.init_verbs()
 
+	update_emotes()
+
 	if(species)
 		return TRUE
 	else

@@ -140,6 +140,9 @@
 	if(istype(W))
 		W.hitby(AM)
 
+/obj/structure/window_frame/wood
+	color = "#8f5847"
+
 /obj/structure/window_frame/unanchored // Used during in-game construction.
 	should_check_mapload = FALSE // No glass.
 	anchored = FALSE
