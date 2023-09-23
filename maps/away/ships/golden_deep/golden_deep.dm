@@ -3,13 +3,11 @@
 	id = "golden_deep"
 	description = "A mercantile transport vessel, registered to the Golden Deep."
 	suffixes = list("ships/golden_deep/golden_deep_merchant.dmm")
-	//ship_cost = 1
-	//spawn_weight = 1
+	ship_cost = 1
+	spawn_weight = 1
 
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/golden_deep)
-	//sectors = list(SECTOR_WEEPING_STARS, SECTOR_CORP_ZONE, SECTOR_TAU_CETI) //add konyang whenever :)
-	sectors = list(ALL_POSSIBLE_SECTORS)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	sectors = list(SECTOR_HANEUNIM, ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS)
 
 /singleton/submap_archetype/golden_deep
 	map = "Golden Deep Merchant Vessel"
@@ -17,7 +15,7 @@
 
 /obj/effect/overmap/visitable/ship/golden_deep
 	name = "Golden Deep Merchant Ship"
-	desc = ""
+	desc = "The Anchurus-class mercantile vessel is a common sight in the possession of Golden Deep traders - a high-speed vessel, designed in the shipyards of Midaion by the brightest minds of the Grand Camarilla Estriconian. They are frequently plated in gold and other rare metals, in order to easily distinguish them as Golden Deep property."
 	class = "GDMV" //Golden Deep Mercantile Vessel
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
@@ -75,7 +73,7 @@
 //Shuttle
 /obj/effect/overmap/visitable/ship/landable/golden_deep_shuttle
 	name = "Golden Deep Shuttle"
-	desc = ""
+	desc = "The Lityerses-class transport shuttle is a design only seen in the possession of the synthetic merchants of the Golden Deep - designed in the shipyards of Midaion, and frequently used by the Deep's members for matters of interstellar shipping and sales."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	color = "#efd10fe4"
