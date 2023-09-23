@@ -21,5 +21,5 @@ export NODE_VERSION_PRECISE=14.16.1
 echo "NODE_VERSION_PRECISE=$NODE_VERSION_PRECISE" >> "$GITHUB_ENV"
 
 # Python version for mapmerge and other tools
-export PYTHON_VERSION=3.9
+export PYTHON_VERSION=3.9.0
 echo "PYTHON_VERSION=$PYTHON_VERSION" >> "$GITHUB_ENV"
