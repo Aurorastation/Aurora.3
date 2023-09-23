@@ -79,8 +79,8 @@
 			scanned_id = null
 			get_user_id(user)
 		else
-			var/turf/id_turf = get_turf(ID)
-			if(!id_turf.Adjacent(loc))
+			var/turf/id_turf = get_turf(user)
+			if(id_turf && !id_turf.Adjacent(loc))
 				scanned_id = null
 				get_user_id(user)
 	interact(user)

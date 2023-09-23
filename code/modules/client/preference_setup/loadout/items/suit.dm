@@ -184,12 +184,12 @@
 /datum/gear/suit/suitjacket
 	display_name = "suit jacket"
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/suit/blazer
 	display_name = "blazer selection"
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/suit/blazer/New()
 	..()
@@ -291,6 +291,13 @@
 	dominiacape["dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao
 	dominiacape["white dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/white
 	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
+
+/datum/gear/suit/dominia_medical_cape
+	display_name = "tribunalist medical cape"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/hospital
+	flags = GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/dominia
 	display_name = "dominia coat and jacket selection"

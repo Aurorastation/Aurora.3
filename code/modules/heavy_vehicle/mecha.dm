@@ -177,7 +177,7 @@
 		var/mob/M = locate(href_list["examine"])
 		if(!M)
 			return
-		usr.examinate(M, 1)
+		examinate(usr, M)
 
 /mob/living/heavy_vehicle/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
 	..()
@@ -230,7 +230,7 @@
 	update_icon()
 
 	add_language(LANGUAGE_TCB)
-	set_default_language(all_languages[LANGUAGE_TCB])
+	default_language = all_languages[LANGUAGE_TCB]
 
 	. = INITIALIZE_HINT_LATELOAD
 

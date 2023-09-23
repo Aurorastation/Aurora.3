@@ -100,8 +100,9 @@
 	else
 		to_chat(user, "\The [src] is full.")
 
-/obj/structure/closet/examine(mob/user)
-	if(!src.opened && (..(user, 1) || isobserver(user)))
+/obj/structure/closet/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1 && !src.opened)
 		var/content_size = 0
 		for(var/obj/item/I in contents)
 			if(!I.anchored)
@@ -111,7 +112,7 @@
 	if(!src.opened && isobserver(user))
 		to_chat(user, "It contains: [counting_english_list(contents)]")
 
-	if(src.opened && linked_teleporter && (Adjacent(user) || isobserver(user)))
+	if(src.opened && linked_teleporter && is_adjacent)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("There appears to be a device attached to the interior backplate of \the [src]...")))
 
 /obj/structure/closet/proc/stored_weight()

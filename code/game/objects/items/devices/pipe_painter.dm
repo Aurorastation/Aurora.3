@@ -32,5 +32,5 @@
 	mode = input("Which colour do you want to use?", "Pipe painter", mode) in modes
 
 /obj/item/device/pipe_painter/examine(var/mob/user)
-	..(user)
+	. = ..()
 	to_chat(user, "It is in [mode] mode.")

@@ -186,6 +186,46 @@
 	allowed_roles = list("Shaft Miner", "Xenoarchaeologist")
 	cost = 2
 
+/datum/gear/accessory/polo
+	display_name = "polo shirts selection"
+	description = "A selection of polo shirts."
+	path = /obj/item/clothing/accessory/polo
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/polo/New()
+	..()
+	var/list/polo = list()
+
+	polo["blue polo shirt"] = /obj/item/clothing/accessory/polo/polo_blue
+	polo["blue polo shirt (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_blue_fem
+	polo["red polo shirt"] = /obj/item/clothing/accessory/polo/polo_red
+	polo["red polo shirt (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_red_fem
+	polo["tan polo shirt"] = /obj/item/clothing/accessory/polo/polo_grayyellow
+	polo["tan polo shirt (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_grayyellow_fem
+	polo["polo shirt, green strip"] = /obj/item/clothing/accessory/polo/polo_greenstrip
+	polo["polo shirt, green strip (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_greenstrip_fem
+	polo["polo shirt, blue strip"] = /obj/item/clothing/accessory/polo/polo_bluestrip
+	polo["polo shirt, blue strip (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_bluestrip_fem
+	polo["polo shirt, red strip"] = /obj/item/clothing/accessory/polo/polo_redstrip
+	polo["polo shirt, red strip (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_redstrip_fem
+
+	gear_tweaks += new /datum/gear_tweak/path(polo)
+
+/datum/gear/accessory/polo_colorable
+	display_name = "polo shirts selection (colorable)"
+	description = "A selection of colorable polo shirts."
+	path = /obj/item/clothing/accessory/polo
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/polo_colorable/New()
+	..()
+	var/list/polo_colorable = list()
+
+	polo_colorable["polo shirt"] = /obj/item/clothing/accessory/polo
+	polo_colorable["polo shirt (waist fitted)"] = /obj/item/clothing/accessory/polo/polo_fem
+
+	gear_tweaks += new /datum/gear_tweak/path(polo_colorable)
+
 /datum/gear/accessory/sweater
 	display_name = "sweater selection"
 	path = /obj/item/clothing/accessory/sweater
@@ -435,7 +475,7 @@
 /datum/gear/accessory/passcard
 	display_name = "human passcard selection"
 	path = /obj/item/clothing/accessory/badge/passcard
-	cost = 0
+	cost = 1
 
 /datum/gear/accessory/passcard/New()
 	..()
@@ -464,12 +504,12 @@
 	display_name = "republic of biesel work visa"
 	description = "A work visa issued to those who work in the Republic of Biesel, but who do not have a Biesellite citizenship."
 	path = /obj/item/clothing/accessory/badge/passcard/workvisa
-	cost = 0
+	cost = 1
 
 /datum/gear/accessory/passport
 	display_name = "human passport selection"
 	path = /obj/item/clothing/accessory/badge/passport
-	cost = 0
+	cost = 1
 
 /datum/gear/accessory/passport/New()
 	..()
@@ -532,7 +572,7 @@
 	display_name = "generic flagpatch selection"
 	path = /obj/item/clothing/accessory/flagpatch/rectangular
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-	cost = 0
+	cost = 1
 
 /datum/gear/accessory/flagpatch/New()
 	..()
@@ -546,7 +586,7 @@
 /datum/gear/accessory/flagpatch_national
 	display_name = "flagpatch selection"
 	path = /obj/item/clothing/accessory/flagpatch/biesel
-	cost = 0
+	cost = 1
 
 /datum/gear/accessory/flagpatch_national/New()
 	..()

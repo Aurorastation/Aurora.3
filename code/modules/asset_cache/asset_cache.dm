@@ -660,7 +660,7 @@ var/list/asset_datums = list()
 /datum/asset/spritesheet/chem_master
 	name = "chemmaster"
 	cross_round_cachable = FALSE
-	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4", "bottle-5", "bottle-6")
+	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4")
 	var/max_pill_sprite = 20
 
 /datum/asset/spritesheet/chem_master/register()
@@ -668,7 +668,7 @@ var/list/asset_datums = list()
 		Insert("pill[i]", 'icons/obj/chemical.dmi', "pill[i]")
 
 	for (var/sprite in bottle_sprites)
-		Insert(sprite, icon('icons/obj/chemical.dmi', sprite))
+		Insert(sprite, icon('icons/obj/item/reagent_containers/glass.dmi', sprite))
 	return ..()
 
 /datum/asset/spritesheet/accents

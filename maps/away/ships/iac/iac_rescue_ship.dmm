@@ -1821,11 +1821,11 @@
 /obj/item/clothing/head/beret/iac,
 /obj/item/clothing/head/beret/iac,
 /obj/item/clothing/head/beret/iac,
-/obj/item/clothing/shoes/iac,
-/obj/item/clothing/shoes/iac,
-/obj/item/clothing/shoes/iac,
-/obj/item/clothing/shoes/iac,
-/obj/item/clothing/shoes/iac,
+/obj/item/clothing/shoes/sneakers/medsci/pmc,
+/obj/item/clothing/shoes/sneakers/medsci/pmc,
+/obj/item/clothing/shoes/sneakers/medsci/pmc,
+/obj/item/clothing/shoes/sneakers/medsci/pmc,
+/obj/item/clothing/shoes/sneakers/medsci/pmc,
 /obj/item/clothing/suit/storage/toggle/labcoat/iac,
 /obj/item/clothing/suit/storage/toggle/labcoat/iac,
 /obj/item/clothing/suit/storage/toggle/labcoat/iac,
@@ -2365,7 +2365,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/glass{
 	pixel_x = 5
 	},
-/obj/item/reagent_containers/food/drinks/pitcher{
+/obj/item/reagent_containers/glass/beaker/pitcher{
 	pixel_x = -5;
 	reagents_to_add = list(/singleton/reagent/drink/coffee=30)
 	},

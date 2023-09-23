@@ -39,8 +39,9 @@
 	add_overlay("cell-o2")
 	add_overlay("[icon_state]-o[charge_level]")
 
-/obj/machinery/cell_charger/examine(mob/user)
-	if(!..(user, 5))
+/obj/machinery/cell_charger/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 5)
 		return
 
 	if(charging)

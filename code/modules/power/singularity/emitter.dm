@@ -35,8 +35,8 @@
 
 	var/datum/effect_system/sparks/spark_system
 
-/obj/machinery/power/emitter/examine(mob/user)
-	..()
+/obj/machinery/power/emitter/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	switch(state)
 		if(EMITTER_LOOSE)
 			to_chat(user, SPAN_NOTICE("\The [src] isn't attached to anything and is not ready to fire."))
@@ -44,7 +44,7 @@
 			to_chat(user, SPAN_NOTICE("\The [src] is bolted to the floor, but not yet ready to fire."))
 		if(EMITTER_WELDED)
 			to_chat(user, SPAN_WARNING("\The [src] is bolted and welded to the floor, and ready to fire."))
-	if(Adjacent(user))
+	if(is_adjacent)
 		to_chat(user, SPAN_NOTICE("The shot counter display reads: [shot_counter]"))
 
 /obj/machinery/power/emitter/Destroy()

@@ -75,6 +75,10 @@
 			var/mob/M = A
 			if(M.key && !M.client)
 				continue
+		if(isliving(A))
+			var/mob/living/M = A
+			if(M.paralysis)
+				continue
 		if(!isturf(A.loc))
 			A = A.loc
 		var/datum/callback/cb = null
@@ -151,7 +155,9 @@
 	return
 
 /mob/living/simple_animal/hostile/proc/see_target()
-	return check_los(src, target_mob)
+	var/los = null
+	SPATIAL_CHECK_LOS(los, src, target_mob, world.view)
+	return los
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
@@ -214,6 +220,8 @@
 	var/atom/target
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
+		if(L.paralysis)
+			return
 		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags, damage_type))
 		target = L
 	else if(istype(target_mob, /obj/machinery/bot))
@@ -234,7 +242,7 @@
 	if(target)
 		face_atom(target)
 		if(!ranged && smart_melee)
-			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 0.6 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 1.2 SECONDS)
 		return target
 
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)

@@ -21,8 +21,9 @@
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
 		desc_info = ""
 
-/obj/structure/reagent_dispensers/examine(mob/user)
-	if(!..(user, 2))
+/obj/structure/reagent_dispensers/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	to_chat(user,"<span class='notice'>It contains [reagents.total_volume] units of reagents.</span>")
 
@@ -127,8 +128,9 @@
 	var/obj/item/device/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
 
-/obj/structure/reagent_dispensers/fueltank/examine(mob/user)
-	if(!..(user, 2))
+/obj/structure/reagent_dispensers/fueltank/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	if (is_leaking)
 		to_chat(user, "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>")

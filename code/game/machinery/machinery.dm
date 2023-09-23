@@ -84,7 +84,7 @@ Class Procs:
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
 	w_class = ITEMSIZE_IMMENSE
-	layer = OBJ_LAYER - 0.01
+	layer = OBJ_LAYER - 0.1
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	var/stat = 0
@@ -164,9 +164,9 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/examine(mob/user)
+/obj/machinery/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(signaler && Adjacent(user))
+	if(signaler && is_adjacent)
 		to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
 
 // /obj/machinery/proc/process_all()

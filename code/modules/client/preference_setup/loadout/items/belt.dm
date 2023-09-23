@@ -28,7 +28,7 @@
 /datum/gear/belt/toolbelt_alt
 	display_name = "tool-belt, alt"
 	description = "An alternative look to a standard toolbelt."
-	cost = 0
+	cost = 1
 	path = /obj/item/storage/belt/utility/alt
 	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Machinist", "Research Director")
 	flags = null
