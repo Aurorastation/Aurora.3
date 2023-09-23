@@ -29,6 +29,9 @@ Database:
 '🗺️Mapping - Templates':
 - maps/templates/*
 
+Sounds:
+- sound/*
+
 TGUI:
 - tgui/*
 
@@ -37,6 +40,9 @@ Tools:
 - .github/*
 
 # File Type Rules
+Javascript:
+- '*.js'
+
 Python:
 - '*.py'
 

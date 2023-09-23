@@ -295,7 +295,8 @@ var/datum/gear_tweak/custom_desc/gear_tweak_free_desc = new()
 
 /datum/gear_tweak/custom_desc/tweak_item(var/obj/item/I, var/metadata, var/mob/living/carbon/human/H)
 	if (!metadata && istype(I,/obj/item/clothing/accessory/badge))
-		I.stored_name = H.real_name
+		var/obj/item/clothing/accessory/badge/B = I
+		B.stored_name = H.real_name
 		return I.desc += "\nThe name [H.real_name] is written on it."
 	if (!metadata)
 		return I.desc
