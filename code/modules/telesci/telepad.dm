@@ -122,7 +122,7 @@
 	var/teleporting = 0
 
 /obj/item/rcs/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "There are [rcharges] charge\s left.")
 
 /obj/item/rcs/process()

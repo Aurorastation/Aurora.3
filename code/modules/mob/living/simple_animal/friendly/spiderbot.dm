@@ -312,7 +312,7 @@
 	return 0
 
 /mob/living/simple_animal/spiderbot/examine(mob/user)
-	..(user)
+	. = ..()
 	if(src.held_item)
 		to_chat(user, "It is carrying [icon2html(src.held_item, user)] \a [src.held_item].")
 

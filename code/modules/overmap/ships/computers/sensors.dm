@@ -11,7 +11,7 @@
 	var/contact_details = null
 	var/contact_name = null
 
-	var/working_sound = 'sound/machines/sensors/ping.ogg'
+	var/working_sound = 'sound/machines/sensors/sensorloop.ogg'
 	var/datum/sound_token/sound_token
 	var/sound_id
 
@@ -21,6 +21,7 @@
 /obj/machinery/computer/ship/sensors/cockpit
 	density = 0
 	icon = 'icons/obj/cockpit_console.dmi'
+	working_sound = 'sound/machines/sensors/ping.ogg'
 	icon_state = "left_wide"
 	icon_screen = "sensors"
 	icon_keyboard = null

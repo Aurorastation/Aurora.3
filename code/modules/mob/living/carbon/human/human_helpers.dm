@@ -47,7 +47,7 @@
 		return
 	..()
 
-/mob/living/carbon/human/proc/update_equipment_vision()
+/mob/living/carbon/human/proc/update_equipment_vision(var/machine_grants_equipment_vision = FALSE)
 	flash_protection = 0
 	equipment_tint_total = 0
 	equipment_see_invis	= 0
@@ -62,7 +62,7 @@
 	else
 		binoc_check = TRUE
 
-	if(((!client || client.eye == src || client.eye == loc || client.eye == z_eye) && binoc_check) || HAS_TRAIT(src, TRAIT_COMPUTER_VIEW)) // !client is so the unit tests function
+	if(((!client || client.eye == src || client.eye == loc || client.eye == z_eye) && binoc_check) || machine_grants_equipment_vision || HAS_TRAIT(src, TRAIT_COMPUTER_VIEW)) // !client is so the unit tests function
 		if(istype(src.head, /obj/item/clothing/head))
 			add_clothing_protection(head)
 		if(istype(src.glasses, /obj/item/clothing/glasses))
@@ -408,6 +408,13 @@
 		return species.floating_chat_x_offset
 	return species.icon_x_offset
 
+/mob/living/carbon/human/get_floating_chat_y_offset()
+	if(!species)
+		return ..()
+	if(!isnull(species.floating_chat_y_offset))
+		return species.floating_chat_y_offset
+	return species.icon_y_offset
+
 /mob/living/carbon/human/get_stutter_verbs()
 	return species.stutter_verbs
 
@@ -428,3 +435,7 @@
 	if(length(G.tail_storage.contents))
 		return G.tail_storage.contents[1]
 	return null
+
+/mob/living/carbon/human/adjust_typing_indicator_offsets(var/atom/movable/typing_indicator/indicator)
+	indicator.pixel_x = species.typing_indicator_x_offset
+	indicator.pixel_y = species.typing_indicator_y_offset

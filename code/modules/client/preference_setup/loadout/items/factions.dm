@@ -56,7 +56,7 @@
 	display_name = "idris custodial jumpsuit, alternative"
 	path = /obj/item/clothing/under/rank/janitor/idris/alt
 	slot = slot_w_uniform
-	cost = 0
+	cost = 1
 	faction = "Idris Incorporated"
 	allowed_roles = list("Janitor")
 
@@ -440,6 +440,23 @@
 	epmc_uniform_fr_med["Ve'katak Phalanx first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/vekatak_phalanx
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_fr_med)
 
+/datum/gear/faction/wildlands_flagpatches
+	display_name = "wildlands flagpatch selection"
+	description = "A selection of flagpatches from the now defunct groups of the Human Wildlands."
+	path = /obj/item/clothing/accessory/flagpatch/fsf
+	slot = slot_tie
+	faction = "Private Military Contracting Group"
+	flags = null
+
+/datum/gear/faction/wildlands_flagpatches/New()
+	..()
+	var/list/wildlands_flag_patches = list()
+	wildlands_flag_patches["flagpatch, free solarian fleets"] = /obj/item/clothing/accessory/flagpatch/fsf
+	wildlands_flag_patches["flagpatch, middle ring shield pact"] = /obj/item/clothing/accessory/flagpatch/pact
+	wildlands_flag_patches["flagpatch, solarian provisional government"] = /obj/item/clothing/accessory/flagpatch/spg
+	wildlands_flag_patches["flagpatch, southern solarian military district"] = /obj/item/clothing/accessory/flagpatch/ssmd
+	gear_tweaks += new /datum/gear_tweak/path(wildlands_flag_patches)
+
 //Zeng-Hu
 /datum/gear/faction/zenghu_beret
 	display_name = "zeng-hu headwear selection"
@@ -578,7 +595,7 @@
 	display_name = "nanotrasen custodial jumpsuit, alternative"
 	path = /obj/item/clothing/under/rank/janitor/alt
 	slot = slot_w_uniform
-	cost = 0
+	cost = 1
 	faction = "NanoTrasen"
 	allowed_roles = list("Janitor")
 

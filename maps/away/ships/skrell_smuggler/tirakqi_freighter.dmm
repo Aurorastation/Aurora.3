@@ -1,4 +1,31 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/skrell{
+	name = "Living Quarters";
+	req_access = "208";
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"aab" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/skrell{
+	name = "Living Quarters";
+	req_access = "208";
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
+"aac" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/skrell{
+	name = "Hangar";
+	req_access = "208";
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/tirakqi_freighter)
 "aaI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -45,7 +72,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell{
 	name = "Engineering";
-	req_access = "208"
+	req_access = "208";
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
@@ -61,7 +89,8 @@
 "azW" = (
 /obj/machinery/door/airlock/skrell{
 	name = "Maintenance";
-	req_access = "208"
+	req_access = "208";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -138,7 +167,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "tirakqi_shuttle_out"
+	id_tag = "tirakqi_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -162,7 +192,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell{
 	name = "Living Quarters";
-	req_access = "208"
+	req_access = "208";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
@@ -176,7 +207,8 @@
 "cqy" = (
 /obj/machinery/door/airlock/skrell{
 	name = "Hangar";
-	req_access = "208"
+	req_access = "208";
+	dir = 1
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -382,7 +414,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell{
 	name = "Medbay";
-	req_access = "208"
+	req_access = "208";
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
@@ -513,9 +546,9 @@
 /obj/machinery/light/skrell,
 /obj/structure/closet/skrell,
 /obj/item/clothing/under/syndicate,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/under/syndicate,
 /obj/item/clothing/under/syndicate,
 /obj/item/clothing/ears/skrell/chain/bluejewels,
@@ -573,9 +606,9 @@
 "fTp" = (
 /obj/structure/closet/skrell,
 /obj/item/clothing/under/syndicate,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
-/obj/item/clothing/shoes/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
+/obj/item/clothing/shoes/sneakers/brown,
 /obj/item/clothing/under/syndicate,
 /obj/item/clothing/under/syndicate,
 /obj/item/clothing/ears/skrell/chain,
@@ -629,7 +662,8 @@
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/skrell{
 	name = "Maintenance";
-	req_access = "208"
+	req_access = "208";
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -655,8 +689,8 @@
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	req_access = "208"
 	},
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/storage/box/produce{
 	layer = 2.99;
 	pixel_x = 3;
@@ -841,7 +875,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell{
 	name = "Bridge";
-	req_access = "208"
+	req_access = "208";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
@@ -930,7 +965,8 @@
 "ifl" = (
 /obj/machinery/door/airlock/skrell{
 	name = "Bridge";
-	req_access = "208"
+	req_access = "208";
+	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
@@ -1333,7 +1369,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "tirakqi_shuttle_out"
+	id_tag = "tirakqi_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/tirakqi_shuttle)
@@ -1388,7 +1425,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell{
 	name = "Mess Hall";
-	req_access = "208"
+	req_access = "208";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
@@ -1936,9 +1974,7 @@
 /turf/unsimulated/wall/fakepdoor,
 /area/ship/tirakqi_freighter)
 "uWn" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -2033,7 +2069,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/skrell{
 	name = "Hangar";
-	req_access = "208"
+	req_access = "208";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/tirakqi_freighter)
@@ -35920,7 +35957,7 @@ bYX
 wji
 pPl
 wji
-bQs
+aaa
 wji
 pPl
 wji
@@ -36177,7 +36214,7 @@ ett
 xsx
 gWl
 gYh
-bQs
+aab
 orH
 bzd
 bzd
@@ -36445,7 +36482,7 @@ bYX
 bYX
 bYX
 pPl
-vUm
+aac
 wji
 ufb
 rhz

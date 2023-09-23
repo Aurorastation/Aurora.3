@@ -96,3 +96,11 @@
 	desc_extended = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Republic of Biesel. Due to the mix of both pro-Fed and anti-Fed Skrell in the Republic, this cape usually does not warrant strong emotions until the wearer's political leanings are known."
 	item_state = "biescape"
 	icon_state = "biescape"
+
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/ouerea
+	name = "\improper Ouerea cape"
+	desc = "A cape that has the Ouerean Confederation flag on the back."
+	desc_extended = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Unathi colony of Ouerea. Due to the multi-species culture of Ouerea, this cape can sometimes be seen worn by Humans or Unathi - though it largely remains a Skrell fashion statement. Due to the lack of formal \
+	relations between the Izweski Hegemony and Nralakk Federation, and the relative isolation of Ouerean Skrell, Federation-sympathetic Skrell would likely not have a strong opinion on this cape."
+	item_state = "ouecape"
+	icon_state = "ouecape"

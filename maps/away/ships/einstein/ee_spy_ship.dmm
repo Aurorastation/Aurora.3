@@ -1,4 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Maintenance";
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/ee_spy_ship)
 "aab" = (
 /obj/machinery/computer/shuttle_control/explore/ee_shuttle{
 	dir = 4;
@@ -13,7 +20,8 @@
 /area/ship/ee_spy_ship)
 "aaJ" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
@@ -48,7 +56,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ee_spy_ship_out"
+	id_tag = "ee_spy_ship_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, airlock"
@@ -64,7 +73,7 @@
 "aEq" = (
 /obj/structure/table/rack,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
@@ -115,7 +124,7 @@
 /area/ship/ee_spy_ship)
 "aMB" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/papershredder,
 /turf/simulated/floor/carpet/rubber,
@@ -140,7 +149,8 @@
 /area/ship/ee_spy_ship)
 "aSm" = (
 /obj/machinery/door/airlock/silver{
-	name = "Toilet"
+	name = "Toilet";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
@@ -188,7 +198,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ee_spy_ship_in"
+	id_tag = "ee_spy_ship_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -240,7 +251,7 @@
 /area/ship/ee_spy_ship)
 "dfe" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
@@ -262,13 +273,14 @@
 /area/ship/ee_spy_ship)
 "dTw" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Hangar"
+	name = "Hangar";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "eiL" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/fire,
@@ -308,7 +320,7 @@
 "exg" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp,
@@ -350,7 +362,7 @@
 "eYX" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
@@ -402,7 +414,7 @@
 /area/ship/ee_spy_ship)
 "fNZ" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/yellow,
@@ -410,22 +422,21 @@
 "fQq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Head";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
 "fRD" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 25
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "fVv" = (
 /obj/structure/closet{
 	name = "disguise equipment"
 	},
-/obj/item/clothing/shoes/black,
-/obj/item/clothing/shoes/black,
+/obj/item/clothing/shoes/sneakers/black,
+/obj/item/clothing/shoes/sneakers/black,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/head/beret/corporate/zeng,
@@ -446,7 +457,8 @@
 "fZq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Horizon Refuse Sorting";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
@@ -454,9 +466,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(205)
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
-	},
+/obj/structure/extinguisher_cabinet/north,
 /obj/item/gun/energy/pistol,
 /obj/item/gun/energy/pistol,
 /obj/item/gun/energy/pistol,
@@ -501,7 +511,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ee_shuttle_out"
+	id_tag = "ee_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/ee_shuttle)
@@ -513,7 +524,8 @@
 /area/ship/ee_spy_ship)
 "hiw" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Maintenance"
+	name = "Maintenance";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -527,9 +539,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
 "hBs" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -551,7 +561,8 @@
 "hZq" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Dock";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 4
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
@@ -621,9 +632,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "kaR" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "kfX" = (
@@ -645,7 +654,8 @@
 "krH" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Research Officer's Quarters";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
@@ -655,7 +665,7 @@
 "kzm" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -686,7 +696,8 @@
 "lhC" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Operations";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
@@ -726,7 +737,7 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -748,8 +759,8 @@
 /area/ship/ee_spy_ship)
 "mET" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -759,7 +770,7 @@
 "mJE" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
@@ -779,7 +790,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ee_spy_ship_out"
+	id_tag = "ee_spy_ship_out";
+	dir = 4
 	},
 /obj/effect/shuttle_landmark/ee_spy_ship/nav2,
 /turf/simulated/floor,
@@ -822,7 +834,7 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
@@ -867,7 +879,7 @@
 "oNi" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
@@ -884,7 +896,7 @@
 "pwR" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24
@@ -929,7 +941,7 @@
 /area/shuttle/ee_shuttle)
 "pJZ" = (
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
@@ -942,7 +954,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ee_spy_ship_in"
+	id_tag = "ee_spy_ship_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/ee_spy_ship)
@@ -1030,7 +1043,8 @@
 "sGi" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Cockpit";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
@@ -1042,7 +1056,7 @@
 "tpL" = (
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
@@ -1051,7 +1065,7 @@
 	req_access = list(205)
 	},
 /obj/item/gun/projectile/pistol,
-/obj/item/silencer,
+/obj/item/suppressor,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /turf/simulated/floor/tiled/dark,
@@ -1155,7 +1169,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "ee_shuttle_out"
+	id_tag = "ee_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -1190,7 +1205,7 @@
 "vTv" = (
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
@@ -1210,7 +1225,8 @@
 "wji" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Crew Quarters";
-	req_access = list(205)
+	req_access = list(205);
+	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
@@ -33499,7 +33515,7 @@ xRX
 cnH
 gxW
 mkb
-hiw
+aaa
 xQS
 xQS
 xQS

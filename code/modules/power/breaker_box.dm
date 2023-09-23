@@ -41,7 +41,7 @@
 	set_state(1)
 
 /obj/machinery/power/breakerbox/examine(mob/user)
-	..()
+	. = ..()
 	if(on)
 		to_chat(user, SPAN_GOOD("It seems to be online."))
 	else

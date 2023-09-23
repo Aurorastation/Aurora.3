@@ -48,6 +48,7 @@
 "azD" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/corner/beige/diagonal,
+/obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay)
 "aHN" = (
@@ -91,12 +92,14 @@
 /obj/effect/floor_decal/corner/white/full{
 	dir = 1
 	},
-/obj/structure/sign/poster{
-	pixel_y = 32
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window/holowindoor{
+	dir = 8
 	},
+/obj/structure/window,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "bnb" = (
@@ -167,6 +170,7 @@
 /obj/structure/table/standard,
 /obj/item/device/personal_shield,
 /obj/item/screwdriver,
+/obj/machinery/alarm/west,
 /turf/simulated/floor/carpet/green,
 /area/sensor_relay)
 "dka" = (
@@ -199,11 +203,10 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "dVS" = (
-/obj/machinery/atmospherics/pipe/tank/oxygen{
-	dir = 1;
-	name = "Oxygen Tank"
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 1
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay)
 "dZi" = (
@@ -225,7 +228,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay)
 "eaR" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
@@ -278,7 +281,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass{
-	name = "Relay Maintenance"
+	name = "Relay Maintenance";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
@@ -290,14 +294,12 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "ffB" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "fkj" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "fmv" = (
@@ -328,7 +330,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/sensor_relay)
 "fKO" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
@@ -357,30 +359,25 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
+/obj/machinery/power/apc/north,
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/structure/fireaxecabinet{
-	pixel_x = 32
-	},
+/obj/structure/fireaxecabinet/east,
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay)
 "gct" = (
 /obj/machinery/door/airlock/glass{
-	name = "Kitchen"
+	name = "Kitchen";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "gfu" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "gvO" = (
@@ -427,10 +424,9 @@
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay)
 "gOE" = (
-/obj/effect/floor_decal/corner/white{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "gQd" = (
@@ -440,18 +436,20 @@
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay)
 "hmT" = (
-/obj/machinery/door/airlock/glass{
-	name = "Bathroom"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/generic{
+	dir = 1;
+	name = "Washroom"
+	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "hqS" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 1
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 1;
+	target_pressure = 250
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay)
 "hww" = (
@@ -479,6 +477,9 @@
 	},
 /obj/effect/floor_decal/corner/white{
 	dir = 5
+	},
+/obj/structure/sign/poster{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
@@ -509,7 +510,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "iOF" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -559,6 +560,11 @@
 	dir = 6
 	},
 /turf/simulated/floor/carpet/green,
+/area/sensor_relay)
+"jHW" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
 /area/sensor_relay)
 "jLD" = (
 /obj/structure/table/wood,
@@ -694,12 +700,17 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "mhu" = (
-/obj/effect/floor_decal/corner/white{
+/obj/effect/floor_decal/corner/white/full{
+	dir = 8
+	},
+/obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window/holowindoor{
+	dir = 4
 	},
+/obj/structure/window,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "mkw" = (
@@ -741,7 +752,8 @@
 /area/sensor_relay)
 "mGU" = (
 /obj/machinery/door/airlock/glass{
-	name = "Hydroponics"
+	name = "Hydroponics";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -763,18 +775,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay)
 "mSG" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "njP" = (
-/obj/effect/floor_decal/corner/white{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled,
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/alarm/north,
+/turf/simulated/floor/carpet/rubber,
 /area/sensor_relay)
 "nla" = (
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -793,8 +803,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
@@ -828,7 +838,8 @@
 /area/sensor_relay)
 "ocb" = (
 /obj/machinery/door/airlock{
-	name = "Bedroom"
+	name = "Bedroom";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -963,9 +974,6 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "qtq" = (
@@ -992,7 +1000,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "qMQ" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/closet/crate/hydroponics,
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/material/hatchet,
@@ -1183,7 +1191,7 @@
 /area/space)
 "sPC" = (
 /obj/machinery/light,
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/seed_storage/garden,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
@@ -1198,7 +1206,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "sWu" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/table/wood,
 /obj/random/seed,
 /obj/random/seed,
@@ -1207,7 +1215,7 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "sYe" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/vending/hydronutrients,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
@@ -1216,7 +1224,7 @@
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay)
 "tay" = (
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
@@ -1259,6 +1267,7 @@
 /obj/machinery/vending/engivend{
 	req_access = null
 	},
+/obj/machinery/light,
 /turf/simulated/floor/carpet/rubber,
 /area/sensor_relay)
 "uga" = (
@@ -1271,6 +1280,7 @@
 	pixel_y = 3
 	},
 /obj/item/stack/material/wood/full,
+/obj/machinery/alarm/north,
 /turf/simulated/floor/carpet/rubber,
 /area/sensor_relay)
 "upo" = (
@@ -1289,9 +1299,6 @@
 	dir = 1
 	},
 /obj/machinery/alarm/north,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "vfC" = (
@@ -1399,6 +1406,7 @@
 /obj/item/mop,
 /obj/item/reagent_containers/glass/bucket,
 /obj/structure/table/standard,
+/obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay)
 "xfV" = (
@@ -1428,7 +1436,8 @@
 /area/sensor_relay)
 "xrA" = (
 /obj/machinery/door/airlock/glass{
-	name = "Workshop"
+	name = "Workshop";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -31155,7 +31164,7 @@ cJC
 teH
 kiB
 vEp
-nJA
+pJZ
 lRQ
 oMD
 jHm
@@ -31412,7 +31421,7 @@ qtq
 qVo
 gIH
 jfI
-nJA
+pJZ
 rpa
 apZ
 xkZ
@@ -32431,7 +32440,7 @@ rhw
 rhw
 rhw
 pJZ
-oeJ
+mhu
 rng
 rng
 rvy
@@ -32688,7 +32697,7 @@ rhw
 rhw
 rhw
 nJA
-qyb
+lSy
 jcy
 oPQ
 xfV
@@ -32945,7 +32954,7 @@ pJZ
 pJZ
 pJZ
 gDR
-qyb
+lSy
 eFt
 pJZ
 pJZ
@@ -33202,7 +33211,7 @@ pJZ
 uaE
 uaE
 pJZ
-qyb
+lSy
 vhY
 pJZ
 uaE
@@ -33219,7 +33228,7 @@ nJA
 qyb
 xVh
 nJA
-mBC
+gOE
 mBC
 vfC
 pJZ
@@ -33476,8 +33485,8 @@ asw
 qyb
 sda
 pJZ
-nJA
-nJA
+pJZ
+pJZ
 pJZ
 pJZ
 srM
@@ -33732,7 +33741,7 @@ aaM
 nJA
 qyb
 xVh
-nJA
+pJZ
 wYM
 pat
 wTl
@@ -33989,11 +33998,11 @@ aaM
 nJA
 qyb
 xVh
-nJA
+pJZ
 kBU
 vDk
 mFk
-nJA
+pJZ
 srM
 rhw
 xRX
@@ -34250,7 +34259,7 @@ hmT
 gQd
 vFI
 coj
-nJA
+pJZ
 srM
 rhw
 xRX
@@ -34488,9 +34497,9 @@ rhw
 rhw
 pJZ
 bfB
-njP
-njP
-mhu
+xfV
+xfV
+yed
 bEJ
 pJZ
 nJA
@@ -34503,11 +34512,11 @@ nJA
 pJZ
 hFM
 xVh
-nJA
+pJZ
 enS
 rtv
-enS
-nJA
+jHW
+pJZ
 srM
 rhw
 xRX
@@ -34764,7 +34773,7 @@ pJZ
 rAZ
 enS
 hKg
-nJA
+pJZ
 srM
 rhw
 xRX
@@ -35005,8 +35014,8 @@ sCG
 sCG
 pJZ
 uGn
-njP
-gOE
+xfV
+xfV
 nuz
 gvO
 rmU
@@ -35275,8 +35284,8 @@ nJA
 nJA
 pJZ
 pJZ
-nJA
-nJA
+pJZ
+pJZ
 pJZ
 pJZ
 srM
@@ -35524,8 +35533,8 @@ upo
 eSV
 mQQ
 azD
-nJA
-nla
+pJZ
+njP
 gfu
 iOF
 tay
@@ -35781,7 +35790,7 @@ fsC
 nED
 hqS
 dVS
-nJA
+pJZ
 nla
 ffB
 fKO

@@ -37,8 +37,9 @@
 
 /mob/living/carbon/Destroy()
 	QDEL_NULL(touching)
-	bloodstr = null
+	QDEL_NULL(bloodstr)
 	QDEL_NULL(dna)
+	QDEL_NULL(breathing)
 	for(var/guts in internal_organs)
 		qdel(guts)
 	return ..()

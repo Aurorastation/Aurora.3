@@ -2,7 +2,8 @@
 "aaa" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Thruster Bay/Backup Controls";
-	req_access = list(207)
+	req_access = list(207);
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -24,10 +25,26 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
+/area/ship/elyran_strike_craft)
+"aad" = (
+/obj/machinery/door/airlock{
+	name = "Crew Quarters";
+	req_access = list(207);
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/ship/elyran_strike_craft)
+"aae" = (
+/obj/machinery/door/airlock/command{
+	name = "Briefing";
+	req_access = list(207);
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "aap" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -57,8 +74,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
@@ -68,8 +85,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -157,7 +174,8 @@
 "axB" = (
 /obj/machinery/door/airlock/command{
 	name = "Briefing";
-	req_access = list(207)
+	req_access = list(207);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -198,8 +216,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
@@ -216,7 +234,8 @@
 /area/ship/elyran_strike_craft)
 "aGn" = (
 /obj/machinery/door/airlock{
-	name = "Head"
+	name = "Head";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
@@ -227,8 +246,8 @@
 /obj/structure/table/steel,
 /obj/item/trash/liquidfood,
 /obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -239,8 +258,8 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -267,7 +286,8 @@
 "aNf" = (
 /obj/machinery/door/airlock{
 	name = "Crew Quarters";
-	req_access = list(207)
+	req_access = list(207);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -329,7 +349,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "freight_shuttle_out"
+	id_tag = "freight_shuttle_out";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/elyran_shuttle)
@@ -465,8 +486,8 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -477,7 +498,8 @@
 "cQc" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Thruster Bay";
-	req_access = list(207)
+	req_access = list(207);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -498,7 +520,8 @@
 "dex" = (
 /obj/machinery/door/airlock{
 	name = "Hangar Bay";
-	req_access = list(207)
+	req_access = list(207);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -524,8 +547,8 @@
 /obj/item/melee/telebaton,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/gun/projectile/colt/super,
@@ -593,8 +616,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
@@ -623,7 +646,8 @@
 "evN" = (
 /obj/structure/plasticflaps/airtight,
 /obj/machinery/door/airlock/hatch{
-	name = "Telecomms"
+	name = "Telecomms";
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -694,8 +718,8 @@
 /obj/structure/bed/stool/chair/sofa/right/black,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -727,8 +751,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -807,7 +831,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "elyran_ship_in"
+	id_tag = "elyran_ship_in";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor,
@@ -821,8 +846,8 @@
 	},
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -835,8 +860,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -869,15 +894,11 @@
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "grH" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
 "gxW" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
@@ -971,8 +992,8 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -1004,7 +1025,9 @@
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "iMy" = (
-/obj/machinery/door/airlock/glass_medical,
+/obj/machinery/door/airlock/glass_medical{
+	dir = 1
+	},
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32
 	},
@@ -1015,8 +1038,8 @@
 /obj/item/bedsheet/black,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /obj/effect/ghostspawpoint{
 	identifier = "elyran_naval_infantry_officer";
@@ -1187,8 +1210,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/ship/elyran_strike_craft)
@@ -1201,8 +1224,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -1222,8 +1245,8 @@
 /obj/item/melee/telebaton,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /obj/item/storage/box/zipties,
 /obj/item/storage/box/flashbangs,
@@ -1235,8 +1258,8 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -1271,8 +1294,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/ship/elyran_strike_craft)
@@ -1313,8 +1336,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
@@ -1323,8 +1346,8 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -1343,7 +1366,9 @@
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "moG" = (
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
 "mAv" = (
@@ -1447,8 +1472,8 @@
 /obj/item/towel,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
@@ -1456,7 +1481,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "elyran_ship_out"
+	id_tag = "elyran_ship_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, airlock"
@@ -1516,8 +1542,8 @@
 /obj/item/pen/multi,
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -1531,8 +1557,8 @@
 /obj/effect/floor_decal/corner/beige/full,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -1558,8 +1584,8 @@
 "pvZ" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -1683,8 +1709,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
@@ -1697,8 +1723,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -1796,8 +1822,8 @@
 	pixel_y = -32
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -1864,14 +1890,16 @@
 /area/shuttle/elyran_shuttle)
 "sbC" = (
 /obj/machinery/door/airlock/service{
-	name = "Broom Closet"
+	name = "Broom Closet";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "seV" = (
 /obj/machinery/door/airlock/security{
 	name = "Ready Room";
-	req_access = list(207)
+	req_access = list(207);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -1931,8 +1959,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -1959,8 +1987,8 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -2015,7 +2043,8 @@
 "tWS" = (
 /obj/machinery/door/airlock/security{
 	name = "Fire Control";
-	req_access = list(207)
+	req_access = list(207);
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/holofloor/tiled/dark,
@@ -2058,9 +2087,7 @@
 /turf/space/transit/north,
 /area/space)
 "uHF" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = -32
-	},
+/obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "uNI" = (
@@ -2088,8 +2115,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -2100,8 +2127,8 @@
 /obj/item/soap/brown_soap,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
@@ -2109,7 +2136,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "freight_shuttle_out"
+	id_tag = "freight_shuttle_out";
+	dir = 4
 	},
 /obj/effect/landmark/entry_point/east{
 	name = "port, crew compartment"
@@ -2138,9 +2166,7 @@
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_strike_craft)
 "vNs" = (
@@ -2164,7 +2190,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "elyran_ship_out"
+	id_tag = "elyran_ship_out";
+	dir = 4
 	},
 /obj/effect/shuttle_landmark/elyran_strike_craft/nav2,
 /turf/simulated/floor,
@@ -2188,8 +2215,8 @@
 /obj/item/stack/material/steel/full,
 /obj/item/melee/telebaton,
 /obj/machinery/light{
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /obj/item/clothing/gloves/yellow,
 /obj/item/storage/toolbox/electrical,
@@ -2225,9 +2252,7 @@
 	},
 /obj/structure/table/steel,
 /obj/item/clothing/ears/earmuffs,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -25
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/ship/elyran_strike_craft)
 "wqn" = (
@@ -2247,14 +2272,16 @@
 "wvR" = (
 /obj/machinery/door/airlock{
 	name = "Bridge";
-	req_access = list(207)
+	req_access = list(207);
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
 "wGT" = (
 /obj/machinery/door/airlock/command{
 	name = "Ensign's Quarters";
-	req_access = list(207)
+	req_access = list(207);
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -2282,8 +2309,8 @@
 	},
 /obj/machinery/light{
 	dir = 8;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -2300,8 +2327,8 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/light{
 	dir = 1;
-	icon_state = "tube1";
-	inserted_light = /obj/item/light/tube/colored/blue
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/elyran_strike_craft)
@@ -2368,7 +2395,8 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "elyran_ship_in"
+	id_tag = "elyran_ship_in";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/elyran_strike_craft)
@@ -35443,7 +35471,7 @@ lxP
 fVl
 atj
 pvZ
-aNf
+aad
 hmO
 atj
 xkT
@@ -39305,7 +39333,7 @@ lxP
 jdi
 iWb
 pvZ
-axB
+aae
 qfs
 atj
 seV

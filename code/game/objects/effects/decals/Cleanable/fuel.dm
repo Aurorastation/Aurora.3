@@ -119,6 +119,7 @@
 	var/amount = 1
 
 /obj/effect/decal/cleanable/foam/Initialize(mapload, amt = 1, nologs = 0)
+	SHOULD_CALL_PARENT(FALSE)
 	src.amount = amt
 
 	var/has_spread = 0

@@ -302,64 +302,6 @@
 	name = "Shirt, EPMC Feminine"
 	icon_state = "shirt_epmc_fem"
 
-/datum/category_item/underwear/undershirt/polo
-	name = "Polo"
-	icon_state = "polo"
-	has_color = TRUE
-
-/datum/category_item/underwear/undershirt/polo_fem
-	name = "Polo, Feminine"
-	icon_state = "polo_fem"
-	has_color = TRUE
-
-/datum/category_item/underwear/undershirt/polo_blue
-	name = "Polo, Blue"
-	icon_state = "polo_blue"
-
-/datum/category_item/underwear/undershirt/polo_blue_fem
-	name = "Polo, Blue Feminine"
-	icon_state = "polo_blue_fem"
-
-/datum/category_item/underwear/undershirt/polo_red
-	name = "Polo, Red"
-	icon_state = "polo_red"
-
-/datum/category_item/underwear/undershirt/polo_red_fem
-	name = "Polo, Red Feminine"
-	icon_state = "polo_red_fem"
-
-/datum/category_item/underwear/undershirt/polo_grayyellow
-	name = "Polo, Gray Yellow"
-	icon_state = "polo_grayyellow"
-
-/datum/category_item/underwear/undershirt/polo_grayyellow_fem
-	name = "Polo, Gray Yellow Feminine"
-	icon_state = "polo_grayyellow_fem"
-
-/datum/category_item/underwear/undershirt/polo_greenstrip
-	name = "Polo, Green Strip"
-	icon_state = "polo_corp"
-
-/datum/category_item/underwear/undershirt/polo_greenstrip_fem
-	name = "Polo, Green Strip Feminine"
-	icon_state = "polo_corp_fem"
-
-/datum/category_item/underwear/undershirt/polo_bluestrip
-	name = "Polo, Blue Strip"
-	icon_state = "polo_dais"
-
-/datum/category_item/underwear/undershirt/polo_bluestrip_fem
-	name = "Polo, Blue Strip Feminine"
-	icon_state = "polo_dais_fem"
-
-/datum/category_item/underwear/undershirt/polo_redstrip
-	name = "Polo, Red Strip"
-	icon_state = "polo_nt"
-
-/datum/category_item/underwear/undershirt/polo_redstrip_fem
-	name = "Polo, Red Strip Feminine"
-	icon_state = "polo_nt_fem"
-
 /datum/category_item/underwear/undershirt/bowlinga
 	name = "Bowling Shirt, Aqua"
 	icon_state = "bowlinga"

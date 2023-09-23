@@ -201,6 +201,8 @@
 			L.broken()
 		else
 			L.flicker()
+		CHECK_TICK
+
 	last_special = world.time + 30
 
 /mob/living/simple_animal/rat/king/verb/devourdead(mob/target as mob in oview())

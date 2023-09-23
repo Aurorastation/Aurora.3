@@ -72,8 +72,9 @@
 	failmsg = "The [name]'s refill light blinks red."
 	..()
 
-/obj/item/device/lightreplacer/examine(mob/user)
-	if(..(user, 2))
+/obj/item/device/lightreplacer/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 2)
 		to_chat(user, "It has [uses] lights remaining.")
 		if (store_broken)
 			to_chat(user, "It is storing [stored()]/[max_stored] broken lights.")
