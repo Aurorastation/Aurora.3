@@ -167,6 +167,15 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"cN" = (
+/obj/structure/ledge/roof{
+	dir = 4
+	},
+/obj/structure/ledge/roof/corner{
+	dir = 1
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "cW" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -470,6 +479,15 @@
 "gs" = (
 /obj/effect/decal/exterior_stairs/center,
 /turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"gC" = (
+/obj/structure/ledge/roof{
+	dir = 4
+	},
+/obj/structure/ledge/roof{
+	dir = 8
+	},
+/turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "gH" = (
 /turf/simulated/floor/lino,
@@ -2603,6 +2621,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
+"Vc" = (
+/obj/structure/ledge/roof{
+	dir = 4
+	},
+/obj/structure/ledge/roof/corner{
+	dir = 4
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "Ve" = (
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -25125,10 +25152,10 @@ Cw
 Cw
 vj
 OY
-Ey
-Ey
-Ey
-Ey
+BN
+jf
+jf
+yV
 Ey
 Ey
 Ey
@@ -25383,9 +25410,9 @@ Cw
 vj
 OY
 Ey
-Ey
-Ey
-Ey
+Cw
+Cw
+OY
 Ey
 Ey
 Ey
@@ -25639,10 +25666,10 @@ Cw
 Cw
 vj
 ST
-jf
-jf
-jf
-jf
+Vc
+gC
+gC
+cN
 jf
 jf
 jf
