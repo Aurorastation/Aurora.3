@@ -63,7 +63,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ENABLE: EDITORCONFIG
           EXCLUDED_DIRECTORIES: tools/bootstrap/.cache/
-          FILTER_REGEX_INCLUDE: (.*\.dm$|.*\.dme$|.*\.yml$)
+          FILTER_REGEX_INCLUDE: (.*\.dm$|.*\.dme$|.*\.yml$|.*\.sql$)
 
       # Upload MegaLinter artifacts
       - name: Upload Megalinter Artifacts
