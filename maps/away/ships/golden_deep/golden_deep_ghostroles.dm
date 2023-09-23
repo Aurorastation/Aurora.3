@@ -36,6 +36,7 @@
 	back = /obj/item/storage/backpack/satchel
 	r_pocket = /obj/item/storage/wallet/random
 	uniform = /obj/item/clothing/under/gearharness
+	accessory = /obj/item/clothing/accessory/storage/webbing
 
 /datum/outfit/admin/golden_deep/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
@@ -61,6 +62,7 @@
 	shoes = /obj/item/clothing/shoes/laceup/
 	wrist = /obj/item/clothing/wrists/goldbracer
 	accessory = /obj/item/clothing/accessory/necklace/chain
+	head = /obj/item/clothing/head/crest
 
 /datum/outfit/admin/golden_deep/get_id_access()
 	return list(access_golden_deep, access_external_airlocks)
