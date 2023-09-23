@@ -103,4 +103,7 @@
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
 
+	if(client)
+		client.update_skybox(TRUE)
+
 	addtimer(CALLBACK(client, TYPE_PROC_REF(/client, check_panel_loaded)), 30 SECONDS)

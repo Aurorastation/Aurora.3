@@ -46,6 +46,10 @@
 /area/exoplanet/grass/grove
 	base_turf = /turf/simulated/floor/exoplanet/grass/grove
 
+/area/exoplanet/grass/konyang
+	name = "Konyang Wilderness"
+	base_turf = /turf/simulated/floor/exoplanet/konyang
+
 /area/exoplanet/lava
 	name = "\improper Planetary surface"
 	ambience = AMBIENCE_LAVA

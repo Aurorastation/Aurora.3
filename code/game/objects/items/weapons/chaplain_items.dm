@@ -17,7 +17,14 @@
 	throwforce = 10
 	w_class = ITEMSIZE_SMALL
 	var/cooldown = 0 // floor tap cooldown
-	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod/, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame, "Tribunal Rod" = /obj/item/nullrod/dominia, "Tajaran charm" = /obj/item/nullrod/charm)
+	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame, "Tribunal Rod" = /obj/item/nullrod/dominia, "Tajaran charm" = /obj/item/nullrod/charm,
+									"Mata'ke Sword" = /obj/item/nullrod/matake, "Rredouane Sword" = /obj/item/nullrod/rredouane, "Shumaila Hammer" = /obj/item/nullrod/shumaila, "Zhukamir Ladle" = /obj/item/nullrod/zhukamir, "Azubarre Torch" = /obj/item/nullrod/azubarre)
+
+/obj/item/nullrod/obsidianshards
+	name = "obsidian shards"
+	desc = "A loose pile of obsidian shards, waiting to be assembled into a religious focus."
+	icon_state = "nullshards"
+	item_state = "nullshards"
 
 /obj/item/nullrod/dominia
 	name = "tribunalist purification rod"
@@ -67,11 +74,70 @@
 /obj/item/nullrod/charm/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
 
-/obj/item/nullrod/obsidianshards
-	name = "obsidian shards"
-	desc = "A loose pile of obsidian shards, waiting to be assembled into a religious focus."
-	icon_state = "nullshards"
-	item_state = "nullshards"
+/obj/item/nullrod/matake
+	name = "\improper Mata'ke spear"
+	desc = "A ceremonial spear crafted after the image of Mata'ke's holy weapon."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "matake_spear"
+	item_state = "matake_spear"
+	contained_sprite = TRUE
+	slot_flags = SLOT_BELT | SLOT_BACK
+	w_class = ITEMSIZE_LARGE
+
+/obj/item/nullrod/rredouane
+	name = "\improper Rredouane sword"
+	desc = "A ceremonial sword crafted after the image of Rredouane's holy sword."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "rredouane_sword"
+	item_state = "rredouane_sword"
+	contained_sprite = TRUE
+
+/obj/item/nullrod/shumaila
+	name = "\improper Shumaila hammer"
+	desc = "A ceremonial hammer carried by the priesthood of Shumaila."
+	icon_state = "shumaila_hammer"
+	item_state = "shumaila_hammer"
+	contained_sprite = TRUE
+
+/obj/item/nullrod/zhukamir
+	name = "\improper Zhukamir ladle"
+	desc = "A golden ladle used by Zhukamir's most faithful worshippers."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "zhukamir_ladle"
+	item_state = "zhukamir_ladle"
+
+/obj/item/nullrod/azubarre
+	name = "\improper Azubarre torch"
+	desc = "A ceremonial torch used by Azubarre's priesthood in their rituals."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "azubarre_torch"
+	item_state = "azubarre_torch"
+	contained_sprite = TRUE
+	var/lit = FALSE
+
+/obj/item/nullrod/azubarre/attack_self(mob/user)
+	lit= !lit
+	if(lit)
+		to_chat(user, SPAN_NOTICE("You light \the [src]!"))
+	else
+		to_chat(user, SPAN_NOTICE("You extinguish \the [src]!"))
+
+	update_icon()
+	user.update_inv_l_hand(FALSE)
+	user.update_inv_r_hand()
+
+/obj/item/nullrod/azubarre/update_icon()
+	if(lit)
+		icon_state = "azubarre_torch-on"
+		item_state = "azubarre_torch-on"
+		set_light(3, 1, LIGHT_COLOR_FIRE)
+	else
+		icon_state = "azubarre_torch-empty"
+		icon_state = "azubarre_torch-empty"
+		set_light(0)
+
+/obj/item/nullrod/azubarre/isFlameSource()
+	return lit
 
 /obj/item/nullrod/verb/change(mob/user)
 	set name = "Reassemble Null Item"
@@ -259,3 +325,68 @@
 	else
 		icon_state = "assunzionesheath_empty"
 
+/obj/item/storage/altar
+	name = "altar"
+	desc = "A small portable altar."
+	icon = 'icons/obj/cult.dmi'
+	icon_state = "talismanaltar"
+	can_hold = list(/obj/item/nullrod)
+	storage_slots = 1
+	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
+
+/obj/item/storage/altar/attack_hand(mob/user)
+	if(!isturf(loc))
+		..()
+	if(use_check_and_message(user))
+		return FALSE
+	else
+		open(user)
+
+/obj/item/storage/altar/MouseDrop(mob/user as mob)
+	if(use_check_and_message(user))
+		return
+	if(ishuman(user))
+		forceMove(get_turf(usr))
+		usr.put_in_hands(src)
+
+/obj/item/storage/altar/kraszar
+	name = "\improper Kraszar altar"
+	desc = "An altar with a book honoring Kraszar, the Ma'ta'ke deity of joy, stories, and language."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "kraszar_bookstand"
+	can_hold = list(/obj/item/storage/bible)
+	drop_sound = 'sound/items/drop/wooden.ogg'
+	pickup_sound = 'sound/items/pickup/wooden.ogg'
+
+/obj/item/storage/altar/rredouane
+	name = "\improper Rredouane altar"
+	desc = "An altar honoring Rredouane, the Ma'ta'ke deity of valor, triumph, and victory. It has a slot for a ceremonial sword."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "rredouane_altar_e"
+	can_hold = list(/obj/item/nullrod/rredouane)
+
+/obj/item/storage/altar/rredouane/update_icon()
+	if(contents.len)
+		icon_state = "rredouane_altar_s"
+	else
+		icon_state = "rredouane_altar_e"
+
+/obj/item/storage/altar/dharmela
+	name = "\improper Dharmela altar"
+	desc = "An anvil-altar honoring Dharmela, the Ma'ta'ke deity of forges, anvils, and craftsmanship."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "dharmela_anvil"
+	can_hold = list(/obj/item/nullrod/shumaila)
+
+/obj/item/storage/altar/minharzzka
+	name = "\improper Minharzzka altar"
+	desc = "An small altar honoring Minharzzka, the Ma'ta'ke deity of waters and sailors."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "minharzzka_altar"
+
+/obj/item/storage/altar/marryam
+	name = "\improper Marryam altar"
+	desc = "A poppyvase used as an altar to honor Marryam, the Ma'ta'ke deity of settlements, sleep, and parenthood."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "marryam_poppyvase"
