@@ -8,8 +8,9 @@
 /datum/gear/shoes/tajara/boots/New()
 	..()
 	var/list/boots = list()
-	boots["jackboots, short"] = /obj/item/clothing/shoes/jackboots/tajara
+	boots["jackboots"] = /obj/item/clothing/shoes/jackboots/tajara
 	boots["jackboots, cavalry"] = /obj/item/clothing/shoes/jackboots/tajara/cavalry
+	boots["jackboots, riding"] = /obj/item/clothing/shoes/jackboots/tajara/riding
 	boots["workboots"] = /obj/item/clothing/shoes/workboots/tajara
 	boots["brown workboots"] = /obj/item/clothing/shoes/workboots/tajara/brown
 	boots["grey workboots"] = /obj/item/clothing/shoes/workboots/tajara/grey
@@ -620,15 +621,15 @@
 	banner["Azubarre Banner"] = /obj/item/flag/azubarre
 	gear_tweaks += new /datum/gear_tweak/path(banner)
 
-/datum/gear/accessory/tajara_god_altars
-	display_name = "ma'ta'ke deity altars"
-	description = "A selection of small altars used to worship the Ma'ta'ke gods."
+/datum/gear/tajara_god_altars
+	display_name = "matakae deity altars"
+	description = "A selection of small altars used to worship the matake gods."
 	path = /obj/item/storage/altar/kraszar
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/accessory/tajara_god_altars/New()
+/datum/gear/tajara_god_altars/New()
 	..()
 	var/list/altar = list()
 	altar["Kraszar altar"] = /obj/item/storage/altar/kraszar

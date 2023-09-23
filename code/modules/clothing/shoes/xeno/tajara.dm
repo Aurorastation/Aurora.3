@@ -20,39 +20,39 @@
 /obj/item/clothing/shoes/flats/tajara
 	desc = "A pair of black women's flats. Refitted for Tajara."
 	name = "black dress flats"
-	icon_state = "flats_black"
-	item_state = "flats_black"
+	icon_state = "blackdf"
+	item_state = "blackdf"
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/shoes/flats/tajara/red
 	desc = "A pair of red women's flats. Refitted for Tajara."
 	name = "red dress flats"
-	icon_state = "flats_red"
-	item_state = "flats_red"
+	icon_state = "reddf"
+	item_state = "reddf"
 
 /obj/item/clothing/shoes/flats/tajara/blue
 	desc = "A pair of blue women's flats. Refitted for Tajara."
 	name = "blue dress flats"
-	icon_state = "flats_blue"
-	item_state = "flats_blue"
+	icon_state = "bluedf"
+	item_state = "bluedf"
 
 /obj/item/clothing/shoes/flats/tajara/green
 	desc = "A pair of green women's flats. Refitted for Tajara."
 	name = "green dress flats"
-	icon_state = "flats_green"
-	item_state = "flats_green"
+	icon_state = "greendf"
+	item_state = "greendf"
 
 /obj/item/clothing/shoes/flats/tajara/purple
 	desc = "A pair of purple  women's flats. Refitted for Tajara."
 	name = "purple dress flats"
-	icon_state = "flats_purple"
-	item_state = "flats_purple"
+	icon_state = "purpledf"
+	item_state = "purpledf"
 
 /obj/item/clothing/shoes/flats/tajara/white
 	desc = "A pair of white women's flats. Refitted for Tajara."
 	name = "white dress flats"
-	icon_state = "flats_white"
-	item_state = "flats_white"
+	icon_state = "whitedf"
+	item_state = "whitedf"
 
 // these look completely different and should be called something else
 
@@ -79,9 +79,10 @@
 
 // Jackboots
 
-/obj/item/clothing/shoes/tajara/jackboots // Because yes, Tajara don't leave their toes out all the time.
-	name = "black boots"
+/obj/item/clothing/shoes/jackboots/tajara // Because yes, Tajara don't leave their toes out all the time.
+	name = "jackboots"
 	desc = "Tall synthleather boots with an artificial shine. Fitted for Tajara."
+	icon_supported_species_tags = list("taj")
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/shoes/jackboots/tajara/cavalry
@@ -89,6 +90,12 @@
 	desc = "Calf-length cavalry synthleather boots, Fitted for Tajara."
 	icon_state = "cavalryboots"
 	item_state = "cavalryboots"
+
+/obj/item/clothing/shoes/jackboots/tajara/riding
+	name = "riding jackboots"
+	desc = "Knee-high riding synthleather boots with an artificial shine. Fitted for Tajara"
+	icon_state = "ridingboots"
+	item_state = "ridingboots"
 
 /obj/item/clothing/shoes/workboots/tajara
 	name = "workboots"
@@ -126,6 +133,7 @@
 	desc = "A pair of Tajaran boots designed for the rough terrain of Adhomai."
 	icon_state = "adhomian_boots"
 	item_state = "adhomian_boots"
+	icon_supported_species_tags = null
 	contained_sprite = TRUE
 
 /obj/item/clothing/shoes/tajara/fancy
@@ -167,6 +175,8 @@
 /obj/item/clothing/shoes/heels/tajara/red
 	name = "red high-heeled adhomian shoes"
 	desc = "A pair of red heels adapted specifically for tajara anatomy, in the latest style."
+	icon_state = "heels_red"
+	item_state = "heels_red"
 
 /obj/item/clothing/shoes/sneakers/black/tajara
 	name = "black saddle shoes"
