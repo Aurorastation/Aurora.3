@@ -589,8 +589,8 @@ var/list/diona_banned_languages = list(
 	var/atom/last_location = null
 	var/last_lightlevel = 0
 
-	var/regening_organ = FALSE // Tracking whether or not an organ is currently
-                               // being regenreated.
+	///Boolean, tracking whether or not an organ is currently being regenreated.
+	var/regening_organ = FALSE
 
 	var/restrictedlight_factor = 0.8 //A value between 0 and 1 that determines how much we nerf the strength of certain worn lights
 		//1 means flashlights work normally., 0 means they do nothing
