@@ -1,0 +1,3416 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/flora/tree/konyang/fall,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"af" = (
+/obj/random/dirt_75,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"ak" = (
+/obj/structure/flora/pottedplant/bamboo,
+/turf/simulated/floor/wood,
+/area/space)
+"au" = (
+/obj/random/junk{
+	pixel_x = -8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"aH" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"aN" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/material/kitchen/utensil/fork/chopsticks,
+/obj/item/material/kitchen/utensil/fork/chopsticks,
+/obj/item/material/kitchen/utensil/fork/chopsticks,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"aP" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"aV" = (
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 1
+	},
+/obj/structure/closet/crate/bin,
+/obj/item/trash/gum,
+/obj/item/trash/kokobar,
+/obj/item/trash/mollusc_shell/clam,
+/obj/item/trash/ramen,
+/obj/item/trash/ramen,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"be" = (
+/obj/structure/flora/pottedplant/smelly,
+/turf/simulated/floor/wood,
+/area/space)
+"bi" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"bn" = (
+/obj/structure/closet/crate/bin,
+/obj/item/trash/chips,
+/obj/item/trash/gum,
+/obj/item/trash/ramen,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"bs" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"bE" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/wood,
+/area/space)
+"bI" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/flora/pottedplant/woodyshrubdying,
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"bU" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"bV" = (
+/obj/structure/window/urban{
+	dir = 8
+	},
+/obj/structure/table/rack/clothing{
+	layer = 3.1
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat/konyang{
+	pixel_y = 9
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat/konyang{
+	pixel_y = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"cd" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = 1
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"dc" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"de" = (
+/obj/structure/table/rack/clothing{
+	dir = 4;
+	layer = 3.1
+	},
+/obj/item/clothing/under/konyang,
+/obj/item/clothing/under/konyang{
+	pixel_x = -3
+	},
+/obj/item/clothing/under/konyang/pink{
+	pixel_x = 4
+	},
+/obj/item/clothing/under/konyang/blue,
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"dn" = (
+/obj/structure/bed/stool/bar/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"dq" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/space)
+"dN" = (
+/obj/structure/sink{
+	pixel_y = 28
+	},
+/obj/structure/toilet{
+	dir = 4;
+	pixel_x = -6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ec" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"ef" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep,
+/obj/structure/table/rack/cafe_table,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
+	pixel_x = -5;
+	pixel_y = -1
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"eq" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"eN" = (
+/obj/structure/table/rack,
+/obj/item/toy/comic/inspector{
+	pixel_y = -5
+	},
+/obj/item/toy/comic/inspector{
+	pixel_y = -5
+	},
+/obj/item/toy/comic/inspector{
+	pixel_y = -5
+	},
+/obj/item/newspaper{
+	pixel_y = -3
+	},
+/obj/item/newspaper{
+	pixel_y = -3
+	},
+/obj/item/newspaper{
+	pixel_y = -3
+	},
+/obj/item/toy/comic/inspector{
+	pixel_y = -5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"fa" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/trash_pile,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk,
+/area/space)
+"fm" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk,
+/area/space)
+"fD" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep,
+/obj/structure/light_pole/konyang/left,
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"fF" = (
+/turf/simulated/floor/sidewalk,
+/area/space)
+"fI" = (
+/obj/random/dirt_75,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"fK" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"fN" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"fU" = (
+/obj/structure/flora/ausbushes/brflowers,
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"gk" = (
+/obj/structure/closet/crate/trashcart,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/obj/random/junk{
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/obj/random/junk{
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/obj/random/junk{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/random/junk{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/turf/simulated/floor/sidewalk,
+/area/space)
+"gl" = (
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset{
+	pixel_y = 11
+	},
+/obj/item/pen/black{
+	pixel_y = -2;
+	pixel_x = -6
+	},
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"gv" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"gH" = (
+/obj/random/dirt_75,
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"gT" = (
+/obj/structure/table/wood,
+/obj/item/newspaper,
+/obj/structure/sink/kitchen{
+	pixel_y = 26
+	},
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"gZ" = (
+/obj/structure/table/wood,
+/obj/item/lipstick/teal{
+	pixel_x = -6
+	},
+/obj/item/pen/black{
+	pixel_y = -2;
+	pixel_x = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"hQ" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"hT" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"ii" = (
+/obj/structure/bed/stool/padded/brown{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"iG" = (
+/obj/structure/light_pole/r,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"iI" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk,
+/area/space)
+"iP" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"iT" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"je" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"jE" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"kB" = (
+/obj/machinery/shower{
+	pixel_y = 18
+	},
+/obj/random/soap,
+/obj/item/mop,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"kW" = (
+/obj/structure/table/glass,
+/turf/simulated/floor/carpet/darkblue,
+/area/space)
+"kX" = (
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 8
+	},
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"lf" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/knife{
+	layer = 2.99;
+	pixel_x = -4
+	},
+/obj/item/material/kitchen/rollingpin,
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -12;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ll" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk,
+/area/space)
+"lR" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"lZ" = (
+/obj/structure/flora/rock/konyang,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"md" = (
+/obj/structure/table/wood,
+/obj/structure/cash_register{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_y = 7;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_y = 7;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_y = 7;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_y = -3;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_y = -3;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_y = -3;
+	pixel_x = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"mD" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"mG" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/paper_scanner{
+	pixel_x = 4;
+	pixel_y = 0
+	},
+/obj/item/toy/desk/fan{
+	pixel_y = 7;
+	pixel_x = -4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"mT" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 2
+	},
+/obj/structure/flora/pottedplant/orchid,
+/turf/simulated/floor/wood,
+/area/space)
+"nf" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/lino,
+/area/space)
+"nu" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/obj/structure/closet/crate/bin/urban/dumpster,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = 1;
+	pixel_y = -5
+	},
+/turf/simulated/floor/sidewalk,
+/area/space)
+"nw" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/trash/cigbutt/roll{
+	pixel_y = -11;
+	pixel_x = -4
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"nx" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"nB" = (
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 9
+	},
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"nC" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/toy/plushie/ipc{
+	pixel_y = 17;
+	pixel_x = -14
+	},
+/obj/item/flag/konyang{
+	pixel_x = -7
+	},
+/obj/item/toy/plushie/squid{
+	pixel_y = 4;
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_x = -2;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_x = -2;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_x = -2;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_x = -2;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_x = -2;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_x = -2;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_x = -2;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_x = -2;
+	pixel_y = 14
+	},
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"oe" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"of" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"oF" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"oI" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/obj/structure/flora/rock/konyang,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"oM" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"pn" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk,
+/area/space)
+"pD" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/cooking_container/board,
+/obj/item/material/hatchet/butch,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"pE" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"pU" = (
+/obj/effect/decal/road_marking/no_pass,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete/square,
+/area/space)
+"pX" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"qL" = (
+/obj/structure/closet/cabinet,
+/obj/item/storage/overloader/classic,
+/obj/item/ipc_overloader/rainbow{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/item/ipc_overloader/tranquil{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"qP" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"qU" = (
+/obj/structure/window/urban{
+	dir = 8;
+	layer = 3.3
+	},
+/obj/item/clothing/under/konyangdress{
+	pixel_y = 8
+	},
+/obj/item/clothing/under/konyangdress,
+/obj/structure/table/rack/clothing{
+	layer = 3.1
+	},
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"rl" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"rF" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/turf/simulated/floor/wood,
+/area/space)
+"rS" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/bed/stool/bamboo,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"rW" = (
+/obj/structure/bed/stool/bar/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"sc" = (
+/obj/item/beach_ball/holoball{
+	pixel_x = -16
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"sf" = (
+/obj/machinery/door/urban,
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"sg" = (
+/obj/structure/light_pole/r,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"sn" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/closet/crate/hydroponics,
+/obj/item/material/minihoe,
+/obj/item/material/hatchet,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/mossseed,
+/obj/item/seeds/teaseed,
+/obj/item/seeds/teaseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"sq" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"sA" = (
+/obj/structure/closet/crate/bin,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/random/junk{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/random/junk{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/random/junk{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/turf/simulated/floor/sidewalk,
+/area/space)
+"tD" = (
+/obj/item/bedsheet/orange,
+/obj/structure/bed/padded,
+/turf/simulated/floor/wood,
+/area/space)
+"ux" = (
+/obj/structure/flora/pottedplant/woodyshrubbloom,
+/turf/simulated/floor/wood,
+/area/space)
+"uz" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"uB" = (
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"uN" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/obj/structure/closet/crate/trashcart,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/obj/random/junk{
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/obj/random/junk{
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/obj/random/junk{
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/obj/random/junk{
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/obj/random/junk{
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/obj/item/trash/ricetub,
+/turf/simulated/floor/sidewalk,
+/area/space)
+"uR" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"vD" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep,
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"vF" = (
+/obj/structure/flora/tree/konyang/spring,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"vS" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/trash/cigbutt,
+/turf/simulated/floor/sidewalk,
+/area/space)
+"vZ" = (
+/obj/structure/flora/ausbushes/palebush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"wc" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/item/reagent_containers/glass/bucket,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"wo" = (
+/obj/structure/closet/crate/bin/urban,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = 3;
+	pixel_y = -4
+	},
+/obj/random/junk{
+	pixel_x = 3;
+	pixel_y = -4
+	},
+/obj/random/junk{
+	pixel_x = 3;
+	pixel_y = -4
+	},
+/turf/simulated/floor/sidewalk,
+/area/space)
+"wt" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"wB" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"xg" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"xR" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_y = 18;
+	pixel_x = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"xU" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk,
+/area/space)
+"xY" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/bush/konyang_reeds,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"ys" = (
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"yA" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/structure/sink{
+	pixel_y = 28
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"yF" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"yI" = (
+/obj/structure/flora/bush/mushroom,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"yR" = (
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 10
+	},
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"yZ" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"zi" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/bed/stool/bamboo{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"zj" = (
+/obj/effect/decal/road_marking/no_pass,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"zw" = (
+/obj/random/dirt_75,
+/obj/effect/decal/exterior_stairs/half/center{
+	layer = 3
+	},
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"zx" = (
+/obj/random/junk{
+	pixel_x = 1
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Ac" = (
+/obj/structure/table/rack/cafe_table,
+/obj/item/material/kitchen/utensil/fork/chopsticks,
+/turf/simulated/floor/wood,
+/area/space)
+"Ag" = (
+/obj/effect/floor_decal/spline/plain/full,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Al" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"At" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = -6
+	},
+/turf/simulated/floor/sidewalk,
+/area/space)
+"AM" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/railing/fence,
+/obj/structure/flora/bush/jungle,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"AX" = (
+/obj/item/trash/ramen,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Bb" = (
+/turf/simulated/wall/wood,
+/area/space)
+"BG" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"BJ" = (
+/obj/structure/flora/rock/konyang/water,
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/space)
+"BR" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete/square,
+/area/space)
+"BU" = (
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"BZ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/space)
+"Cg" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"CJ" = (
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"CO" = (
+/obj/structure/bed/padded{
+	pixel_y = 4
+	},
+/obj/item/bedsheet/black{
+	pixel_y = 4
+	},
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Dg" = (
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"Dp" = (
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/wood,
+/area/space)
+"DA" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"DG" = (
+/obj/structure/bed/padded{
+	pixel_y = -2
+	},
+/obj/item/bedsheet/black{
+	pixel_y = -2
+	},
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"DZ" = (
+/obj/structure/coatrack{
+	pixel_x = 10;
+	pixel_y = 25
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"Eb" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Ef" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/structure/table/rack/cafe_table,
+/obj/item/reagent_containers/food/drinks/greentea{
+	pixel_x = 7
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Ej" = (
+/obj/structure/sink/kitchen{
+	pixel_y = 26
+	},
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"Ew" = (
+/turf/simulated/floor/tiled/white,
+/area/space)
+"EP" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"EQ" = (
+/obj/effect/decal/exterior_stairs/half/center{
+	layer = 3
+	},
+/obj/machinery/door/urban,
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"Fj" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Fo" = (
+/obj/structure/bed/stool/padded/brown{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Gn" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/glass/beaker/teapot{
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
+	pixel_x = -8;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
+	pixel_x = 6;
+	pixel_y = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Gx" = (
+/obj/structure/flora/pottedplant/drooping,
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"Hg" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Hw" = (
+/obj/structure/window/urban{
+	dir = 8;
+	layer = 3.3
+	},
+/obj/structure/table/rack/clothing{
+	layer = 3.1
+	},
+/obj/item/clothing/under/konyangdresstraditional/red,
+/obj/item/clothing/under/konyangdresstraditional/national/vest,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"Hz" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 8
+	},
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"HB" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"IK" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Jh" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"JJ" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 2;
+	pixel_y = -5
+	},
+/obj/item/wrench,
+/turf/simulated/floor/lino,
+/area/space)
+"JS" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Kk" = (
+/obj/effect/decal/exterior_stairs/half/center{
+	layer = 3
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Kt" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 8
+	},
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/wood,
+/area/space)
+"Kv" = (
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"KF" = (
+/obj/structure/bed/stool/padded/purple{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/space)
+"KN" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"KO" = (
+/obj/effect/map_effect/window_spawner/full/wood,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"KX" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/kitchen/utensil/fork/chopsticks,
+/obj/item/material/kitchen/utensil/fork/chopsticks,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"Le" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Lg" = (
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"Li" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Lt" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 8
+	},
+/obj/structure/flora/pottedplant/fern,
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"LL" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"LN" = (
+/obj/structure/closet/crate/bin,
+/obj/item/trash/proteinbar,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"LV" = (
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"LY" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Mb" = (
+/obj/structure/television,
+/turf/simulated/floor/wood,
+/area/space)
+"Me" = (
+/obj/structure/curtain/open/shower,
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Mj" = (
+/obj/structure/table/wood,
+/obj/machinery/recharger{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"Mw" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Mx" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/obj/structure/trash_pile,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk,
+/area/space)
+"Nc" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/wood,
+/area/space)
+"Nf" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/space)
+"NF" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"NJ" = (
+/obj/structure/bed/stool/padded/purple{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/space)
+"NZ" = (
+/obj/structure/sink/kitchen{
+	dir = 8;
+	pixel_x = 21
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Oj" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"Ow" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"OB" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"ON" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 8
+	},
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"PB" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"PC" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"PQ" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Ql" = (
+/obj/effect/decal/exterior_stairs/half/center{
+	layer = 3
+	},
+/obj/machinery/door/urban,
+/turf/simulated/floor/wood,
+/area/space)
+"Qm" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"QD" = (
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/wood,
+/area/space)
+"Rh" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/dry_ramen{
+	pixel_y = 8;
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/food/drinks/dry_ramen{
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/drinks/dry_ramen{
+	pixel_y = 1;
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/dry_ramen{
+	pixel_y = 0;
+	pixel_x = -7
+	},
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"RA" = (
+/obj/random/dirt_75,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk,
+/area/space)
+"RW" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Sb" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/snacks/seaweed{
+	pixel_y = 9;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/snacks/seaweed{
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/snacks/seaweed{
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/snacks/seaweed{
+	pixel_y = 9;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/dry_ramen{
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/dry_ramen{
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/dry_ramen{
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/peach_soda,
+/obj/item/reagent_containers/food/drinks/cans/peach_soda,
+/obj/item/reagent_containers/food/drinks/cans/peach_soda,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/peach_soda,
+/obj/item/reagent_containers/food/drinks/dry_ramen{
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"Sn" = (
+/obj/effect/decal/exterior_stairs/half/center{
+	layer = 3
+	},
+/obj/machinery/door/urban,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"Ss" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Sz" = (
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"SA" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk,
+/area/space)
+"SD" = (
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"SY" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/lino/diamond,
+/area/space)
+"Tf" = (
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Th" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -7;
+	pixel_y = 12
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/random/medical{
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/wood,
+/area/space)
+"Tl" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Tu" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"TB" = (
+/obj/structure/flora/pottedplant/woodyshrub,
+/turf/simulated/floor/wood,
+/area/space)
+"TF" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"TG" = (
+/obj/structure/closet/crate/bin,
+/obj/item/trash/cigbutt/roll,
+/obj/item/trash/tastybread,
+/obj/item/trash/ramen,
+/obj/item/trash/ramen,
+/turf/simulated/floor/wood,
+/area/space)
+"TH" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"TL" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"TW" = (
+/obj/structure/bed/padded,
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 4
+	},
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"Ui" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/detail,
+/area/space)
+"Ut" = (
+/obj/structure/light_pole,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"UB" = (
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Vc" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"VC" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"VR" = (
+/turf/simulated/floor/wood,
+/area/space)
+"VV" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"WB" = (
+/obj/effect/decal/road_marking/no_pass,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"WE" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete/square,
+/area/space)
+"Xc" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 10
+	},
+/obj/item/pen/black{
+	pixel_y = 13
+	},
+/obj/item/device/flashlight/lamp/box{
+	pixel_y = 1;
+	pixel_x = -5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Xi" = (
+/obj/structure/flora/rock/konyang,
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Xv" = (
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"XI" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"XK" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"XS" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"YH" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"YI" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"ZJ" = (
+/obj/structure/flora/rock/konyang,
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+
+(1,1,1) = {"
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+yI
+SD
+SD
+BU
+SD
+SD
+SD
+vZ
+SD
+SD
+SD
+SD
+SD
+Cg
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+je
+SD
+SD
+BU
+SD
+SD
+SD
+"}
+(2,1,1) = {"
+SD
+ys
+ys
+SD
+BU
+SD
+SD
+vF
+SD
+SD
+SD
+NF
+NF
+NF
+SD
+SD
+SD
+SD
+vF
+SD
+Tu
+Cg
+SD
+SD
+NF
+Li
+SD
+SD
+NF
+SD
+SD
+SD
+SD
+SD
+NF
+vF
+SD
+SD
+SD
+NF
+"}
+(3,1,1) = {"
+SD
+Vc
+ys
+Cg
+SD
+SD
+SD
+SD
+SD
+PB
+SD
+SD
+SD
+SD
+NF
+SD
+Li
+SD
+SD
+SD
+BR
+Cg
+SD
+SD
+NF
+NF
+SD
+SD
+NF
+SD
+SD
+SD
+SD
+NF
+SD
+SD
+SD
+SD
+SD
+SD
+"}
+(4,1,1) = {"
+SD
+SD
+SD
+Cg
+Cg
+SD
+SD
+NF
+SD
+NF
+Li
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+ys
+BR
+Cg
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+Li
+SD
+NF
+SD
+SD
+SD
+SD
+vF
+"}
+(5,1,1) = {"
+SD
+NF
+SD
+SD
+Cg
+Tl
+SD
+NF
+SD
+SD
+pE
+SD
+SD
+SD
+NF
+SD
+SD
+SD
+ys
+ys
+YI
+Cg
+ys
+SD
+ys
+SD
+vF
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+NF
+SD
+SD
+NF
+SD
+SD
+"}
+(6,1,1) = {"
+SD
+NF
+SD
+SD
+ys
+ys
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+aa
+SD
+SD
+ys
+ys
+ys
+SD
+YI
+RW
+ys
+Tl
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+NF
+SD
+SD
+SD
+Li
+SD
+"}
+(7,1,1) = {"
+SD
+SD
+NF
+SD
+SD
+ys
+JS
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+ys
+ys
+ys
+KN
+SD
+SD
+YI
+Cg
+ys
+SD
+SD
+SD
+hQ
+rl
+rl
+pX
+rl
+xg
+xg
+yF
+SD
+SD
+SD
+SD
+SD
+SD
+"}
+(8,1,1) = {"
+SD
+SD
+NF
+NF
+SD
+UB
+ys
+ys
+SD
+SD
+SD
+SD
+Cg
+Cg
+ys
+Tl
+SD
+SD
+SD
+vF
+YI
+BR
+Cg
+SD
+SD
+Ut
+LY
+Cg
+ys
+ys
+ys
+ys
+qP
+oM
+SD
+NF
+SD
+sq
+SD
+SD
+"}
+(9,1,1) = {"
+SD
+SD
+SD
+Li
+SD
+SD
+SD
+ys
+ys
+Cg
+Cg
+Cg
+Cg
+SD
+SD
+ys
+ys
+SD
+PB
+SD
+YI
+YI
+Cg
+SD
+ys
+ys
+Tf
+Cg
+ys
+Ag
+ys
+sc
+YH
+nx
+SD
+NF
+SD
+SD
+SD
+SD
+"}
+(10,1,1) = {"
+SD
+vF
+SD
+SD
+SD
+NF
+NF
+NF
+SD
+Tl
+ys
+SD
+BU
+SD
+SD
+SD
+ys
+ys
+SD
+Cg
+YI
+mD
+Cg
+SD
+UB
+eq
+XI
+Cg
+Cg
+ys
+ys
+ys
+of
+oI
+SD
+NF
+NF
+SD
+NF
+NF
+"}
+(11,1,1) = {"
+SD
+SD
+SD
+SD
+SD
+NF
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+je
+SD
+SD
+SD
+Cg
+Cg
+Cg
+YI
+mD
+Qm
+PB
+ys
+ys
+Cg
+Cg
+Cg
+Cg
+ys
+UB
+ys
+nx
+SD
+NF
+SD
+SD
+NF
+NF
+"}
+(12,1,1) = {"
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+Tl
+SD
+SD
+PB
+SD
+SD
+SD
+Li
+SD
+SD
+aV
+aH
+PC
+zj
+mD
+pn
+Bb
+Bb
+Bb
+SD
+Cg
+Tl
+SD
+SD
+SD
+SD
+nx
+UB
+SD
+SD
+SD
+SD
+SD
+"}
+(13,1,1) = {"
+Li
+SD
+SD
+SD
+SD
+SD
+wB
+ys
+au
+SD
+SD
+SD
+Bb
+Bb
+bV
+qU
+Hw
+Bb
+Bb
+pn
+BR
+mD
+pn
+Bb
+dN
+Bb
+KO
+KO
+KO
+Bb
+Bb
+Bb
+Tl
+nx
+ys
+SD
+SD
+SD
+SD
+SD
+"}
+(14,1,1) = {"
+SD
+PB
+SD
+uz
+Tl
+ys
+ys
+ys
+Tl
+SD
+SD
+SD
+Bb
+de
+OB
+Gx
+Lg
+eN
+Bb
+pn
+pU
+mD
+aH
+Bb
+Hz
+Bb
+ux
+Nc
+Th
+Lg
+NJ
+Bb
+SD
+oM
+JS
+SD
+SD
+SD
+SD
+SD
+"}
+(15,1,1) = {"
+SD
+SD
+SD
+fa
+At
+fm
+Cg
+ys
+JS
+SD
+SD
+SD
+KO
+Sb
+Lg
+BZ
+VR
+VR
+sf
+pn
+WE
+YI
+PC
+Bb
+Ej
+VR
+VR
+VR
+Mb
+Lg
+kW
+KO
+NF
+SD
+Eb
+SD
+SD
+SD
+ys
+SD
+"}
+(16,1,1) = {"
+SD
+SD
+ys
+nu
+vS
+gk
+Cg
+ys
+ys
+SD
+SD
+sq
+KO
+nC
+DZ
+BZ
+BZ
+dn
+KO
+pn
+WB
+YI
+aH
+Ql
+Lg
+VR
+VR
+VR
+VR
+Lg
+KF
+KO
+SD
+SD
+PB
+SD
+SD
+ys
+UB
+SD
+"}
+(17,1,1) = {"
+NF
+SD
+Bb
+wo
+nw
+sA
+lZ
+Cg
+ys
+Xi
+SD
+SD
+Bb
+xR
+mG
+Xc
+VR
+Ac
+KO
+pn
+mD
+YI
+aH
+KO
+Lg
+Lg
+LN
+Bb
+Bb
+ON
+Bb
+Bb
+SD
+NF
+Li
+SD
+SD
+Tl
+ys
+SD
+"}
+(18,1,1) = {"
+NF
+Tl
+ys
+uN
+xU
+VV
+ll
+ll
+ll
+pn
+RA
+af
+Bb
+md
+gH
+VR
+VR
+rW
+KO
+pn
+WB
+YI
+aH
+KO
+uB
+Oj
+KX
+Bb
+Sz
+Dg
+Lt
+Bb
+SD
+SD
+SD
+SD
+au
+ys
+SD
+SD
+"}
+(19,1,1) = {"
+ys
+ys
+ys
+Mx
+cd
+iI
+ec
+Cg
+Cg
+VC
+Cg
+aH
+Bb
+Bb
+Bb
+KO
+KO
+KO
+Bb
+aH
+mD
+YI
+pn
+Bb
+KO
+KO
+KO
+Bb
+gl
+LL
+TW
+Bb
+RW
+SD
+SD
+wB
+Cg
+ys
+NF
+SD
+"}
+(20,1,1) = {"
+SD
+SD
+UB
+ys
+ys
+ys
+Jh
+Cg
+xY
+BJ
+fI
+pn
+PB
+NF
+Ss
+rS
+Ef
+zi
+bI
+aH
+WB
+mD
+pn
+SD
+SD
+SD
+PB
+Bb
+Bb
+KO
+Bb
+Bb
+Cg
+ys
+Cg
+Cg
+Cg
+ys
+NF
+SD
+"}
+(21,1,1) = {"
+SD
+SD
+SD
+ys
+Tl
+ys
+Jh
+VC
+dq
+dq
+NF
+pn
+NF
+SD
+AM
+Al
+uR
+Al
+yZ
+aH
+BR
+mD
+pn
+pn
+pn
+Ui
+Kk
+SD
+SD
+SD
+IK
+fI
+Cg
+ys
+ys
+RW
+Cg
+ys
+NF
+SD
+"}
+(22,1,1) = {"
+SD
+SD
+SD
+SD
+SD
+ys
+wt
+UB
+BJ
+SD
+aa
+PC
+aH
+aH
+aH
+pn
+Ui
+pn
+aH
+aH
+WE
+mD
+mD
+BR
+WE
+pn
+zw
+Cg
+Cg
+UB
+ys
+ys
+ys
+ys
+ys
+Cg
+UB
+NF
+SD
+PB
+"}
+(23,1,1) = {"
+SD
+SD
+SD
+SD
+NF
+ys
+wt
+JS
+NF
+SD
+SD
+NF
+SD
+PB
+SD
+SD
+aH
+nB
+yR
+aH
+WE
+WE
+WE
+mD
+WE
+pn
+Bb
+Bb
+Bb
+Bb
+ys
+ys
+ys
+Tl
+ys
+ys
+ys
+SD
+SD
+SD
+"}
+(24,1,1) = {"
+SD
+SD
+vF
+SD
+NF
+ys
+oF
+ys
+oe
+SD
+PB
+SD
+SD
+SD
+KN
+SD
+pn
+fU
+Fj
+pn
+pn
+pn
+PC
+YI
+mD
+aH
+Bb
+nf
+JJ
+KO
+ys
+ys
+ys
+ys
+ys
+ys
+ys
+SD
+SD
+SD
+"}
+(25,1,1) = {"
+SD
+SD
+SD
+SD
+NF
+UB
+SA
+pn
+Ui
+SD
+SD
+SD
+Bb
+KO
+KO
+KO
+kX
+Bb
+Bb
+Bb
+SD
+iG
+pn
+YI
+mD
+aH
+EQ
+Dg
+Mj
+KO
+RW
+Cg
+ys
+ys
+wB
+ys
+Tl
+SD
+SD
+NF
+"}
+(26,1,1) = {"
+SD
+SD
+PB
+SD
+SD
+SD
+DA
+PB
+aH
+SD
+bs
+fD
+KO
+CJ
+lf
+aN
+VR
+TB
+ii
+Bb
+SD
+iP
+pn
+YI
+mD
+aH
+Bb
+qL
+Ow
+Bb
+RW
+Cg
+Cg
+RW
+ys
+SD
+SD
+SD
+NF
+NF
+"}
+(27,1,1) = {"
+SD
+NF
+SD
+SD
+Li
+NF
+DA
+SD
+aH
+NF
+bs
+ef
+KO
+pD
+Ew
+Ew
+VR
+VR
+Gn
+Bb
+Bb
+Bb
+aH
+BR
+YI
+aH
+Bb
+Bb
+Bb
+Bb
+Bb
+Bb
+ys
+ys
+SD
+SD
+SD
+SD
+SD
+SD
+"}
+(28,1,1) = {"
+SD
+NF
+SD
+SD
+SD
+NF
+DA
+SD
+pn
+SD
+bs
+vD
+KO
+LV
+Ew
+Ew
+VR
+VR
+Fo
+Bb
+yA
+Bb
+aH
+BR
+YI
+aH
+Bb
+gT
+be
+VR
+gZ
+KO
+ys
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+"}
+(29,1,1) = {"
+SD
+NF
+NF
+SD
+SD
+NF
+dc
+SD
+pn
+SD
+Bb
+Bb
+Bb
+Xv
+NZ
+Le
+QD
+VR
+VR
+bE
+fN
+Bb
+Cg
+mD
+BR
+aH
+Ql
+VR
+VR
+VR
+Nf
+KO
+SD
+SD
+SD
+NF
+NF
+SD
+SD
+SD
+"}
+(30,1,1) = {"
+SD
+NF
+SD
+SD
+ys
+ys
+DA
+SD
+fF
+SD
+Bb
+Me
+Bb
+Bb
+Bb
+Bb
+Bb
+XS
+Bb
+Bb
+kB
+Bb
+RW
+mD
+YI
+aH
+Bb
+Rh
+VR
+VR
+TG
+KO
+SD
+vF
+PB
+SD
+NF
+SD
+SD
+SD
+"}
+(31,1,1) = {"
+SD
+SD
+SD
+SD
+SD
+ys
+ys
+ys
+Kv
+Kv
+Sn
+Lg
+Lg
+SY
+Bb
+Kt
+VR
+VR
+hT
+Bb
+Bb
+Bb
+Cg
+mD
+YI
+Cg
+Bb
+Bb
+XS
+Bb
+Bb
+Bb
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+"}
+(32,1,1) = {"
+SD
+SD
+Li
+SD
+SD
+SD
+DA
+SD
+SD
+SD
+KO
+SY
+Lg
+bn
+Bb
+Mw
+VR
+hT
+Mw
+KO
+EP
+NF
+Cg
+mD
+YI
+RW
+Bb
+Dp
+VR
+VR
+Bb
+SD
+NF
+NF
+SD
+SD
+SD
+SD
+SD
+SD
+"}
+(33,1,1) = {"
+SD
+vF
+SD
+Hg
+SD
+SD
+DA
+SD
+vF
+NF
+KO
+ak
+VR
+VR
+Bb
+CO
+mT
+Mw
+DG
+KO
+NF
+ys
+ys
+YI
+BR
+Cg
+KO
+VR
+VR
+VR
+Bb
+SD
+NF
+NF
+SD
+SD
+SD
+Li
+SD
+SD
+"}
+(34,1,1) = {"
+SD
+SD
+BU
+SD
+SD
+NF
+NF
+NF
+SD
+NF
+Bb
+Dp
+VR
+tD
+Bb
+Bb
+Bb
+Bb
+Bb
+Bb
+bU
+aP
+ys
+BR
+YI
+ys
+KO
+Nf
+VR
+rF
+Bb
+SD
+SD
+SD
+PB
+SD
+SD
+NF
+SD
+SD
+"}
+(35,1,1) = {"
+SD
+SD
+SD
+PB
+SD
+SD
+SD
+sg
+SD
+NF
+Bb
+Bb
+KO
+Bb
+Bb
+iT
+HB
+sn
+TH
+gv
+SD
+ys
+Tl
+mD
+YI
+Tl
+Bb
+KO
+KO
+Bb
+Bb
+SD
+NF
+SD
+SD
+aa
+NF
+NF
+SD
+SD
+"}
+(36,1,1) = {"
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+ZJ
+ys
+NF
+SD
+ys
+ys
+UB
+SD
+wc
+bi
+SD
+lR
+Ss
+NF
+Tl
+Cg
+Cg
+YI
+ys
+NF
+SD
+SD
+SD
+SD
+SD
+NF
+SD
+SD
+SD
+SD
+SD
+fK
+SD
+"}
+(37,1,1) = {"
+SD
+NF
+NF
+SD
+SD
+SD
+SD
+Ss
+zx
+wB
+SD
+SD
+Tl
+ys
+PB
+SD
+bi
+SD
+bi
+Ss
+NF
+SD
+SD
+Cg
+BR
+Cg
+SD
+SD
+SD
+vF
+SD
+SD
+NF
+SD
+SD
+NF
+SD
+SD
+SD
+SD
+"}
+(38,1,1) = {"
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+jE
+TL
+PQ
+SD
+SD
+ys
+ys
+SD
+XK
+XK
+XK
+BG
+SD
+Li
+SD
+ys
+BR
+NF
+PB
+SD
+SD
+SD
+SD
+SD
+Li
+SD
+SD
+NF
+SD
+NF
+NF
+SD
+"}
+(39,1,1) = {"
+SD
+SD
+SD
+SD
+vF
+SD
+NF
+Li
+SD
+NF
+NF
+SD
+SD
+SD
+ys
+Tl
+SD
+SD
+NF
+SD
+SD
+vF
+SD
+SD
+TF
+NF
+NF
+NF
+Li
+SD
+SD
+SD
+SD
+SD
+PB
+SD
+BU
+SD
+NF
+AX
+"}
+(40,1,1) = {"
+SD
+SD
+SD
+SD
+SD
+SD
+NF
+NF
+SD
+SD
+SD
+BU
+SD
+SD
+SD
+NF
+NF
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+SD
+NF
+SD
+"}
