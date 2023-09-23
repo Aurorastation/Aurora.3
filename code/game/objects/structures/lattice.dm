@@ -187,36 +187,36 @@
 	color = COLOR_DARK_GUNMETAL
 
 /obj/structure/lattice/catwalk/indoor/urban
-    name = "grate"
-    desc = "A metal grate."
-    icon = 'icons/obj/structure/over_turf.dmi'
-    icon_state = "city_grate"
-    return_amount = 1
-    smooth = null
+	name = "grate"
+	desc = "A metal grate."
+	icon = 'icons/obj/structure/over_turf.dmi'
+	icon_state = "city_grate"
+	return_amount = 1
+	smooth = null
 
 /obj/structure/lattice/catwalk/indoor/tatami
-    name = "tatami spread"
-    desc = "A straw mat rug of some sort, frequently referred to as a tatami."
-    icon = 'icons/obj/structure/over_turf.dmi'
-    icon_state = "tatami"
-    return_amount = null
-    smooth = null
-    footstep_sound = /singleton/sound_category/carpet_footstep
+	name = "tatami spread"
+	desc = "A straw mat rug of some sort, frequently referred to as a tatami."
+	icon = 'icons/obj/structure/over_turf.dmi'
+	icon_state = "tatami"
+	return_amount = null
+	smooth = null
+	footstep_sound = /singleton/sound_category/carpet_footstep
 
 /obj/structure/lattice/catwalk/indoor/planks
-    name = "flooring plank"
-    desc = "A ricket assortment of planks meant to be stood upon."
-    icon = 'icons/obj/structure/urban/wood.dmi'
-    icon_state = "plank"
-    return_amount = null
-    smooth = null
-    footstep_sound = /singleton/sound_category/wood_footstep
+	name = "flooring plank"
+	desc = "A ricket assortment of planks meant to be stood upon."
+	icon = 'icons/obj/structure/urban/wood.dmi'
+	icon_state = "plank"
+	return_amount = null
+	smooth = null
+	footstep_sound = /singleton/sound_category/wood_footstep
 
 /obj/structure/lattice/catwalk/indoor/planks/opaque
-    icon_state = "plank_dark"
+	icon_state = "plank_dark"
 
 /obj/structure/lattice/catwalk/indoor/planks/stairs
-    icon_state = "plank_stairs"
+	icon_state = "plank_stairs"
 
 /obj/structure/lattice/catwalk/indoor/planks/deep
-    icon_state = "plank_deep"
+	icon_state = "plank_deep"
