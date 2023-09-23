@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Box, Divider, ProgressBar, Section } from '../components';
+import { Box, Divider, NoticeBox, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 export type ArmorValuesData = {
@@ -13,11 +13,11 @@ export const ArmorValues = (props, context) => {
     <Window resizable>
       <Window.Content scrollable>
         <Section>
-          <Box>
-            THE STATISTICS BELOW IS OUT OF CHARACTER INFO, YOU CAN USE THIS TO
-            REFERENCE ARMOR VALUES, BUT DO NOT STATE THE PERCENTAGES IN
-            CHARACTER
-          </Box>
+          <NoticeBox>
+            The statistics below are out of character info, you can use this to
+            reference armor values, but do not state the percentages in
+            character
+          </NoticeBox>
           <Divider />
           {Object.keys(data.armor_values).map((line) =>
             line ? (
