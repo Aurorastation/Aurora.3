@@ -29,8 +29,13 @@
 	item_state = "box"
 	contained_sprite = TRUE
 	var/illustration = "writing"
-	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
-	var/trash = null // if set, can be crushed into a trash item when empty
+
+	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
+	var/foldable = /obj/item/stack/material/cardboard
+
+	///Boolean, if set, can be crushed into a trash item when empty
+	var/trash = null
+
 	var/maxHealth = 20	//health is already defined
 	use_sound = 'sound/items/storage/box.ogg'
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
@@ -195,10 +200,10 @@
 	illustration = "latex"
 	max_storage_space = 14
 	starts_with = list(/obj/item/clothing/gloves/latex = 2,
-					   /obj/item/clothing/gloves/latex/nitrile = 2,
-					   /obj/item/clothing/gloves/latex/nitrile/unathi = 1,
-					   /obj/item/clothing/gloves/latex/nitrile/tajara = 1,
-					   /obj/item/clothing/gloves/latex/nitrile/vaurca = 1)
+						/obj/item/clothing/gloves/latex/nitrile = 2,
+						/obj/item/clothing/gloves/latex/nitrile/unathi = 1,
+						/obj/item/clothing/gloves/latex/nitrile/tajara = 1,
+						/obj/item/clothing/gloves/latex/nitrile/vaurca = 1)
 /obj/item/storage/box/masks
 	name = "box of surgical masks"
 	desc = "This box contains masks of surgicality."
