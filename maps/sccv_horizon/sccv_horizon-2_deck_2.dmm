@@ -4818,6 +4818,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/item/warhead/longbow,
+/obj/item/warhead/longbow,
+/obj/item/warhead/longbow,
+/obj/item/warhead/longbow,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "ciP" = (
@@ -24218,6 +24222,18 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "lMi" = (
@@ -26356,6 +26372,9 @@
 	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
 	pixel_x = -32
 	},
+/obj/item/warhead/longbow/ap,
+/obj/item/warhead/longbow/ap,
+/obj/item/warhead/longbow/ap,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "mLN" = (
@@ -27643,6 +27662,13 @@
 	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
 	pixel_x = -32
 	},
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "nlT" = (
@@ -37650,6 +37676,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/item/warhead/longbow/bunker,
+/obj/item/warhead/longbow/bunker,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/secure_ammunition_storage)
 "smh" = (

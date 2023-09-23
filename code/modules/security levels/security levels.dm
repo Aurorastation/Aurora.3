@@ -1,4 +1,4 @@
-/var/security_level = 0
+/var/security_level = 2
 //0 = code green
 //1 = code yellow
 //2 = code blue

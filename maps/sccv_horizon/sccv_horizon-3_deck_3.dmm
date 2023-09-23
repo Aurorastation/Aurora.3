@@ -5833,6 +5833,16 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/ship_ammunition/longbow,
+/obj/item/ship_ammunition/longbow,
+/obj/item/ship_ammunition/longbow,
+/obj/item/ship_ammunition/longbow,
+/obj/item/ship_ammunition/longbow,
+/obj/item/ship_ammunition/longbow,
+/obj/item/ship_ammunition/longbow,
+/obj/item/ship_ammunition/longbow,
+/obj/item/ship_ammunition/longbow,
+/obj/item/ship_ammunition/longbow,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
 "eJV" = (
@@ -19821,6 +19831,16 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/primer/high,
+/obj/item/primer/high,
+/obj/item/primer/high,
+/obj/item/primer,
+/obj/item/primer,
+/obj/item/primer,
+/obj/item/primer,
+/obj/item/primer,
+/obj/item/primer,
+/obj/item/primer,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
 "pke" = (
