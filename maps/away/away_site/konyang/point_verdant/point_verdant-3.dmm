@@ -496,10 +496,6 @@
 "hw" = (
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
-"hF" = (
-/obj/effect/overmap/visitable/sector/point_verdant,
-/turf/simulated/open,
-/area/point_verdant/outdoors)
 "hL" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -549,10 +545,6 @@
 /obj/item/device/paicard,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
-"iy" = (
-/obj/effect/shuttle_landmark/automatic/intrepid,
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
 "iC" = (
 /obj/effect/decal/exterior_stairs/left,
 /obj/effect/decal/exterior_stairs/center,
@@ -2145,8 +2137,8 @@
 /turf/simulated/floor/beach/water/pool,
 /area/point_verdant/outdoors)
 "MM" = (
-/obj/effect/shuttle_landmark/automatic/spark,
-/turf/simulated/floor/asphalt,
+/obj/effect/overmap/visitable/sector/point_verdant,
+/turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "MN" = (
 /obj/effect/decal/curb,
@@ -35449,7 +35441,7 @@ Cw
 Cw
 Cw
 Cw
-hF
+Cw
 nf
 DP
 kF
@@ -35974,7 +35966,7 @@ Cw
 nf
 DC
 DC
-DC
+MM
 DC
 DC
 gs
@@ -35995,7 +35987,7 @@ DD
 DD
 DD
 DD
-iy
+DD
 DD
 DD
 DD
@@ -44195,7 +44187,7 @@ DC
 oa
 bE
 DD
-MM
+DD
 DD
 DD
 DD
@@ -44735,7 +44727,7 @@ DD
 DD
 DD
 DD
-NQ
+DD
 DD
 DD
 DD
