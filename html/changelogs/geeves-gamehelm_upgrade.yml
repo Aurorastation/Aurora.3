@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "It should now be a bit more obvious when people are playing with their InUs Game-Helm."
