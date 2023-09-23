@@ -9640,24 +9640,60 @@
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 8
 	},
-/obj/structure/table/reinforced/steel,
-/obj/random/finances{
-	pixel_y = -10
+/obj/structure/closet/crate{
+	storage_capacity = 100;
+	name = "Industrial Crate"
 	},
-/obj/random/finances{
-	pixel_y = -5
-	},
-/obj/random/finances,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/southleft{
-	name = "Storage";
-	req_access = list(20)
-	},
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/secure)
 "eIU" = (
@@ -40858,13 +40894,55 @@
 /turf/simulated/floor/reinforced,
 /area/horizon/zta)
 "tFL" = (
-/obj/effect/floor_decal/corner_wide/blue{
-	dir = 5
+/obj/effect/floor_decal/corner_wide/blue/full{
+	dir = 1
 	},
-/obj/structure/safe/station{
-	name = "Secure Safe"
+/obj/structure/closet/crate{
+	storage_capacity = 100;
+	name = "Industrial Crate"
 	},
-/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/secure)
 "tFP" = (
@@ -43482,19 +43560,53 @@
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 1
 	},
-/obj/structure/table/reinforced/steel,
-/obj/random/vault_weapon,
-/obj/item/storage/box/syndie_kit/random_weapon,
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/structure/closet/crate{
+	storage_capacity = 100;
+	name = "Industrial Crate"
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/southright{
-	name = "Storage";
-	req_access = list(20)
-	},
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/secure)
 "uOB" = (
