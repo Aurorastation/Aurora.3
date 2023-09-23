@@ -18,6 +18,9 @@
 /datum/nano_module/proc/check_eye(var/mob/user)
 	return -1
 
+/datum/nano_module/proc/grants_equipment_vision(var/mob/user)
+	return FALSE
+
 /datum/nano_module/proc/check_access(var/mob/user, var/access)
 	if(!access)
 		return 1

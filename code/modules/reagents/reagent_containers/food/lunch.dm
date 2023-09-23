@@ -109,7 +109,7 @@ var/list/lunchables_vaurca_snack_ = list(
 
 var/list/lunchables_utensil_ = list(
 	/obj/item/material/kitchen/utensil/fork/chopsticks,
-	/obj/item/material/kitchen/utensil/fork/chopsticks/cheap,
+	/obj/item/material/kitchen/utensil/fork/chopsticks/bamboo,
 	/obj/item/material/kitchen/utensil/fork/plastic,
 	/obj/item/material/kitchen/utensil/spoon/plastic,
 	/obj/item/material/kitchen/utensil/knife/plastic

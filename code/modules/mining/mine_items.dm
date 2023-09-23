@@ -843,7 +843,7 @@
 		update_icon()
 
 /obj/item/lazarus_injector/examine(mob/user)
-	..()
+	. = ..()
 	if(!loaded)
 		to_chat(user, SPAN_INFO("\The [src] is empty."))
 	if(malfunctioning || emagged)
@@ -869,7 +869,7 @@
 	..()
 
 /obj/item/card/mining_point_card/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, SPAN_NOTICE("There's [points] point\s on the card."))
 
 /**********************"Fultons"**********************/

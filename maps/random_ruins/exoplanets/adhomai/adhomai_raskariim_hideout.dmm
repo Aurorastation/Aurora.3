@@ -372,11 +372,11 @@
 	pixel_x = -5;
 	pixel_y = 13
 	},
-/obj/item/clothing/shoes/tajara/winter{
+/obj/item/clothing/shoes/winter/tajara{
 	pixel_x = -11;
 	pixel_y = -7
 	},
-/obj/item/clothing/shoes/tajara/winter{
+/obj/item/clothing/shoes/winter/tajara{
 	pixel_x = 7;
 	pixel_y = -7
 	},

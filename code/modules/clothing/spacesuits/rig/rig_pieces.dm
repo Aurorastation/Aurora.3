@@ -40,7 +40,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	heat_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	flags_inv =          HIDEJUMPSUIT|HIDETAIL
+	flags_inv =          HIDETAIL
 	item_flags =         THICKMATERIAL|AIRTIGHT|INJECTIONPORT
 	slowdown = 0
 	//will reach 10 breach damage after 25 laser carbine blasts, 3 revolver hits, or ~1 PTR hit. Completely immune to smg or sts hits.
@@ -51,19 +51,6 @@
 	icon = 'icons/obj/clothing/suits.dmi'
 
 	supporting_limbs = list()
-
-/obj/item/clothing/suit/space/rig/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/obj/item/clothing/w_uniform = H.w_uniform
-	var/image/uniform = null
-
-	if(w_uniform)
-		uniform = w_uniform.return_own_image()
-	var/image/I = ..()
-	if(uniform)
-		uniform.add_overlay(I)
-		return uniform
-	else
-		return I
 
 //TODO: move this to modules
 /obj/item/clothing/head/helmet/space/rig/proc/prevent_track()
@@ -104,7 +91,6 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	heat_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	flags_inv =          HIDEJUMPSUIT
 	item_flags =         THICKMATERIAL|INJECTIONPORT
 
 /obj/item/clothing/shoes/lightrig

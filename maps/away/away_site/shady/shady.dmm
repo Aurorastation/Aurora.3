@@ -1032,7 +1032,7 @@
 	pixel_y = 2;
 	pixel_x = 5
 	},
-/obj/item/clothing/shoes/brown{
+/obj/item/clothing/shoes/sneakers/brown{
 	pixel_y = -10;
 	pixel_x = 5
 	},

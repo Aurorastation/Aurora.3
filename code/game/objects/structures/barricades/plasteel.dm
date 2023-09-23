@@ -43,7 +43,7 @@
 		return 0
 
 /obj/structure/barricade/plasteel/examine(mob/user)
-	..()
+	. = ..()
 
 	switch(build_state)
 		if(BARRICADE_BSTATE_SECURED)

@@ -55,11 +55,12 @@
 	var/colour_blend = TRUE
 	var/icon_colour                                      // Colour applied to products of this material.
 	var/wall_colour                                      // Colour applied to walls specifically.
-	var/icon_base = "metal"                              // Wall and table base icon tag. See header.
+	var/icon_base = "solid"                              // Wall and table base icon tag. See header.
 	var/door_icon_base = "metal"                         // Door base icon tag. See header.
 	var/icon_reinf = "reinf_metal"                       // Overlay used
 	var/list/stack_origin_tech = list(TECH_MATERIAL = 1) // Research level for stacks.
 	var/icon/wall_icon
+	var/icon/table_icon = 'icons/obj/structure/tables/greyscale_table.dmi'
 	var/icon/multipart_reinf_icon
 
 	// Attributes
@@ -377,6 +378,7 @@
 /material/stone/marble
 	name = MATERIAL_MARBLE
 	icon_colour = "#b4b1a6"
+	table_icon = 'icons/obj/structure/tables/marble_table.dmi'
 	weight = 26
 	hardness = 70
 	integrity = 201 //hack to stop kitchen benches being flippable, todo: refactor into weight system
@@ -400,8 +402,8 @@
 	integrity = 150
 	conductivity = 11
 	protectiveness = 10 // 33%
-	icon_base = "solid"
 	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
+	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
 	icon_reinf = "reinf_over"
 	icon_colour = COLOR_GRAY40
 	wall_colour = COLOR_GRAY20
@@ -415,6 +417,7 @@
 	icon_colour = null
 	stack_type = null
 	wall_icon = 'icons/turf/smooth/diona_wall.dmi'
+	table_icon = 'icons/obj/structure/tables/diona_table.dmi'
 	icon_base = "biomass"
 	colour_blend = FALSE
 	integrity = 100
@@ -442,7 +445,7 @@
 	integrity = 400
 	melting_point = 6000
 	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
-	icon_base = "solid"
+	table_icon = 'icons/obj/structure/tables/reinforced_table.dmi'
 	icon_reinf = "reinf_over"
 	icon_colour = "#545c68"
 	wall_colour = COLOR_GRAY20
@@ -474,6 +477,7 @@
 /material/glass
 	name = MATERIAL_GLASS
 	stack_type = /obj/item/stack/material/glass
+	table_icon = 'icons/obj/structure/tables/glass_table.dmi'
 	flags = MATERIAL_BRITTLE
 	icon_colour = null
 	opacity = 0.3
@@ -590,6 +594,7 @@
 	name = MATERIAL_GLASS_REINFORCED
 	display_name = "reinforced glass"
 	stack_type = /obj/item/stack/material/glass/reinforced
+	table_icon = 'icons/obj/structure/tables/rglass_table.dmi'
 	flags = MATERIAL_BRITTLE
 	icon_colour = "#00E1FF"
 	opacity = 0.3
@@ -635,7 +640,6 @@
 	name = MATERIAL_PLASTIC
 	stack_type = /obj/item/stack/material/plastic
 	flags = MATERIAL_BRITTLE
-	icon_base = "solid"
 	icon_reinf = "reinf_over"
 	icon_colour = "#CCCCCC"
 	hardness = 10
@@ -721,6 +725,7 @@
 	integrity = 50
 	icon_base = "wood"
 	wall_icon = 'icons/turf/smooth/composite_wood.dmi'
+	table_icon = 'icons/obj/structure/tables/wood_table.dmi'
 	explosion_resistance = 2
 	shard_type = SHARD_SPLINTER
 	shard_can_repair = 0 // you can't weld splinters back into planks
@@ -786,7 +791,6 @@
 	stack_type = /obj/item/stack/material/wood/log
 	icon_colour = "#824B28"
 	integrity = 50
-	icon_base = "solid"
 	explosion_resistance = 4
 	hardness = 30
 	weight = 30 //Logs are heavier then normal pieces of wood
@@ -802,7 +806,6 @@
 	stack_type = /obj/item/stack/material/wood/branch
 	icon_colour = "#824B28"
 	integrity = 10
-	icon_base = "solid"
 	explosion_resistance = 0
 	hardness = 0.1
 	weight = 7
@@ -835,7 +838,6 @@
 	stack_type = /obj/item/stack/material/cardboard
 	flags = MATERIAL_BRITTLE
 	integrity = 10
-	icon_base = "solid"
 	icon_reinf = "reinf_over"
 	icon_colour = "#AAAAAA"
 	hardness = 1
@@ -1066,6 +1068,7 @@
 
 /material/shuttle/skrell
 	name = MATERIAL_SHUTTLE_SKRELL
+	table_icon = 'icons/obj/structure/tables/skrell_table.dmi'
 	display_name = "superadvanced alloy"
 	colour_blend = FALSE
 	icon_colour = null
@@ -1074,7 +1077,6 @@
 /material/graphite
 	name = MATERIAL_GRAPHITE
 	stack_type = /obj/item/stack/material/graphite
-	icon_base = "solid"
 	icon_colour = "#666666"
 	shard_type = SHARD_STONE_PIECE
 	weight = 20

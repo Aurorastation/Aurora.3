@@ -360,19 +360,11 @@
 	mob_win.open()
 
 //mob verbs are faster than object verbs. See http://www.byond.com/forum/?post=1326139&page=2#comment8198716 for why this isn't atom/verb/examine()
-/mob/verb/examinate(atom/A as mob|obj|turf in view())
+/mob/verb/ExaminateVerb(atom/A as mob|obj|turf in view())
 	set name = "Examine"
 	set category = "IC"
 
-	if(!A)
-		return
-
-	if((is_blind() || usr.stat) && !isobserver(src))
-		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
-		return 1
-
-	face_atom(A)
-	A.examine(src)
+	examinate(usr, A)
 
 /mob/proc/can_examine()
 	if(client?.eye == src)
@@ -654,9 +646,8 @@
 		src << browse(null, t1)
 
 	if(href_list["flavor_more"])
-		var/datum/browser/flavor_win = new(usr, name, capitalize_first_letters(name), 500, 250)
-		flavor_win.set_content(replacetext(flavor_text, "\n", "<BR>"))
-		flavor_win.open()
+		var/datum/tgui_module/flavor_text/FT = new /datum/tgui_module/flavor_text(usr, capitalize_first_letters(name), flavor_text)
+		FT.ui_interact(usr)
 
 	if(href_list["accent_tag"])
 		var/datum/accent/accent = SSrecords.accents[href_list["accent_tag"]]
@@ -873,7 +864,7 @@
 		else
 			lying = MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
 			lying_is_intentional = FALSE
-			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT)
+			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 
 	if(lying)
 		density = 0

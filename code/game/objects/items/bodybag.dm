@@ -234,10 +234,10 @@
 		return airtank
 	..()
 
-/obj/structure/closet/body_bag/cryobag/examine(mob/user)
+/obj/structure/closet/body_bag/cryobag/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	to_chat(user,"The stasis meter shows '[stasis_power]x'.")
-	if(Adjacent(user) && length(contents)) //The bag's rather thick and opaque from a distance.
+	if(is_adjacent && length(contents)) //The bag's rather thick and opaque from a distance.
 		to_chat(user, "<span class='info'>You peer into \the [src].</span>")
 		for(var/mob/living/L in contents)
 			L.examine(arglist(args))

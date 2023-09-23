@@ -53,10 +53,10 @@
 			return
 	return ..()
 
-/obj/item/ship_ammunition/examine(mob/user, distance)
+/obj/item/ship_ammunition/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	if(written_message)
-		if(get_dist(user, src) > 3)
+		if(distance > 3)
 			to_chat(user, "It has something written on it, but you'd need to get closer to tell what the writing says.")
 		else
 			to_chat(user, "It has a message written on the casing: <span class='notice'><i>[written_message]</i></span>")

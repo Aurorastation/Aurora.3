@@ -11,6 +11,7 @@
 	var/flag_path
 	var/flag_size = FALSE // true if big flag
 	var/obj/structure/sign/flag/flag_structure
+	var/stand_icon = "banner_stand"
 
 // Flag on Wall
 /obj/structure/sign/flag
@@ -29,6 +30,7 @@
 	var/icon/banner_icon
 	var/icon/rolled_outline
 	var/unmovable = FALSE
+	var/stand_icon = "banner_stand"
 
 /obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy, var/icon_file, var/item_flag_path)
 	. = ..()
@@ -97,7 +99,7 @@
 			if(istype(A, /obj/structure/window))
 				icon = flag_icon
 				return
-		banner_icon = new('icons/obj/structure/flags.dmi', "banner_stand")
+		banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)
 		flag_icon.Blend(banner_icon, ICON_UNDERLAY)
 		verbs += /obj/structure/sign/flag/proc/toggle
 		icon = flag_icon
@@ -182,7 +184,7 @@
 /obj/structure/sign/flag/attack_hand(mob/user)
 	switch(user.a_intent)
 		if(I_HELP)
-			user.examinate(src)
+			examinate(user, src)
 		if(I_DISARM)
 			user.visible_message(SPAN_NOTICE("\The [user] begins to carefully fold up \the [src]."), SPAN_NOTICE("You begin to carefully fold up \the [src]."))
 			if(do_after(user, 50))
@@ -254,7 +256,7 @@
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag")
 
 	flag_icon.Blend(shading_icon, ICON_MULTIPLY)
-	banner_icon = new('icons/obj/structure/flags.dmi', "banner_stand")
+	banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)
 	flag_icon.Blend(banner_icon, ICON_UNDERLAY)
 	icon = flag_icon
 
@@ -2278,3 +2280,156 @@
 
 /obj/structure/sign/flag/imperial_frontier/large/west/New()
 	..(loc, WEST)
+
+
+//tajaran gods
+
+/obj/item/flag/srendarr
+	name = "\improper S'rendarr Banner"
+	desc = "A banner with the symbol of S'rendarr, the Adhomian god of life, fertility, sunlight, youthful energy, and everything associated with the time of summer and daylight."
+	flag_path = "srendarr"
+	flag_structure = /obj/structure/sign/flag/srendarr
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/srendarr
+	name = "\improper S'rendarr Banner"
+	desc = "A banner with the symbol of S'rendarr, the Adhomian god of life, fertility, sunlight, youthful energy, and everything associated with the time of summer and daylight."
+	icon_state = "srendarr"
+	flag_path = "srendarr"
+	flag_item = /obj/item/flag/srendarr
+	stand_icon = "wood_stand"
+
+/obj/item/flag/messa
+	name = "\improper Messa Banner"
+	desc = "A banner with the symbol of Messa, the Adhomian god of life, fertility, sunlight, youthful energy, and everything associated with the time of summer and daylight."
+	flag_path = "messa"
+	flag_structure = /obj/structure/sign/flag/messa
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/messa
+	name = "\improper Messa Banner"
+	desc = "A banner with the symbol of Messa, the Adhomian goddess of inevitability, old age, and winter, but also of guidance, wisdom, protection, and patience."
+	icon_state = "messa"
+	flag_path = "messa"
+	flag_item = /obj/item/flag/messa
+	stand_icon = "wood_stand"
+
+/obj/item/flag/matake
+	name = "\improper Mata'ke Banner"
+	desc = "A banner with the symbol of Mata'ke, the spearhead. Mata'ke is the Ma'ta'ke deity of snow, judgment, practicality, order, and strength."
+	flag_path = "matake"
+	flag_structure = /obj/structure/sign/flag/matake
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/matake
+	name = "\improper Mata'ke Banner"
+	desc = "A banner with the symbol of Mata'ke, the spearhead. Mata'ke is the Ma'ta'ke deity of snow, judgment, practicality, order, and strength."
+	icon_state = "matake"
+	flag_path = "matake"
+	flag_item = /obj/item/flag/matake
+	stand_icon = "wood_stand"
+
+/obj/item/flag/marryam
+	name = "\improper Marryam Banner"
+	desc = "A banner with the symbol of Marryam, the poppy. Marryam is the Ma'ta'ke deity of settlements, sleep, and parenthood."
+	flag_path = "marryam"
+	flag_structure = /obj/structure/sign/flag/marryam
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/marryam
+	name = "\improper Marryam Banner"
+	desc = "A banner with the symbol of Marryam, the poppy. Marryam is the Ma'ta'ke deity of settlements, sleep, and parenthood."
+	icon_state = "marryam"
+	flag_path = "marryam"
+	flag_item = /obj/item/flag/marryam
+	stand_icon = "wood_stand"
+
+/obj/item/flag/rredouane
+	name = "\improper Rredouane Banner"
+	desc = "A banner with the symbol of Rredouane, the dice and blade. Rredouane is the Ma'ta'ke deity of valor, triumph, and victory."
+	flag_path = "rredouane"
+	flag_structure = /obj/structure/sign/flag/rredouane
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/rredouane
+	name = "\improper Rredouane Banner"
+	desc = "A banner with the symbol of Rredouane, the dice and blade. Rredouane is the Ma'ta'ke deity of valor, triumph, and victory."
+	icon_state = "rredouane"
+	flag_path = "rredouane"
+	flag_item = /obj/item/flag/rredouane
+	stand_icon = "wood_stand"
+
+/obj/item/flag/shumaila
+	name = "\improper Shumaila Banner"
+	desc = "A banner with the symbol of Shumaila, the bulwark. Shumaila is the Ma'ta'ke deity of fortification, chastity, and architecture."
+	flag_path = "shumaila"
+	flag_structure = /obj/structure/sign/flag/shumaila
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/shumaila
+	name = "\improper Shumaila Banner"
+	desc = "A banner with the symbol of Shumaila, the bulwark. Shumaila is the Ma'ta'ke deity of fortification, chastity, and architecture."
+	icon_state = "shumaila"
+	flag_path = "shumaila"
+	flag_item = /obj/item/flag/shumaila
+	stand_icon = "wood_stand"
+
+/obj/item/flag/kraszar
+	name = "\improper Kraszar Banner"
+	desc = "A banner with the symbol of Hraszar, the scroll of ages. Kraszar is the Ma'ta'ke deity of joy, stories, and language."
+	flag_path = "kraszar"
+	flag_structure = /obj/structure/sign/flag/kraszar
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/kraszar
+	name = "\improper Kraszar Banner"
+	desc = "A banner with the symbol of Hraszar, the scroll of ages. Kraszar is the Ma'ta'ke deity of joy, stories, and language."
+	icon_state = "kraszar"
+	flag_path = "kraszar"
+	flag_item = /obj/item/flag/kraszar
+	stand_icon = "wood_stand"
+
+/obj/item/flag/dhrarmela
+	name = "\improper Dhrarmela Banner"
+	desc = "A banner with the symbol of Dhrarmela, the divinity anvil. Dhrarmela is the Ma'ta'ke deity of forges, anvils, and craftsmanship."
+	flag_path = "dhrarmela"
+	flag_structure = /obj/structure/sign/flag/dhrarmela
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/dhrarmela
+	name = "\improper Dhrarmela Banner"
+	desc = "A banner with the symbol of Dhrarmela, the divinity anvil. Dhrarmela is the Ma'ta'ke deity of forges, anvils, and craftsmanship."
+	icon_state = "dhrarmela"
+	flag_path = "dhrarmela"
+	flag_item = /obj/item/flag/dhrarmela
+	stand_icon = "wood_stand"
+
+/obj/item/flag/azubarre
+	name = "\improper Azubarre Banner"
+	desc = "A banner with the symbol of Azubarre, the torch of passion. Kraszar is the Ma'ta'ke deity of love, fertility, and marriage."
+	flag_path = "azubarre"
+	flag_structure = /obj/structure/sign/flag/azubarre
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/azubarre
+	name = "\improper Azubarre Banner"
+	desc = "A banner with the symbol of Azubarre, the torch of passion. Kraszar is the Ma'ta'ke deity of love, fertility, and marriage."
+	icon_state = "azubarre"
+	flag_path = "azubarre"
+	flag_item = /obj/item/flag/azubarre
+	stand_icon = "wood_stand"
+
+/obj/item/flag/raskara
+	name = "\improper Raskara Banner"
+	desc = "A banner with the symbol of Raskara, the Moon."
+	flag_path = "raskara"
+	flag_structure = /obj/structure/sign/flag/raskara
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/raskara
+	name = "\improper Raskara Banner"
+	desc = "A banner with the symbol of Raskara, the Moon."
+	icon_state = "raskara"
+	flag_path = "raskara"
+	flag_item = /obj/item/flag/raskara
+	stand_icon = "wood_stand"

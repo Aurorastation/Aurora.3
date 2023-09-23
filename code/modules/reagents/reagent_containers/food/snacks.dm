@@ -142,8 +142,9 @@
 
 	return 1
 
-/obj/item/reagent_containers/food/snacks/examine(mob/user)
-	if(!..(user, 1))
+/obj/item/reagent_containers/food/snacks/examine(mob/user, distance)
+	. = ..()
+	if(distance > 1)
 		return
 	if (coating)
 		var/singleton/reagent/coating_reagent = GET_SINGLETON(coating)
@@ -3849,7 +3850,7 @@
 	set category = "Object"
 	set src in usr
 
-	var/obj/item/material/kitchen/utensil/fork/chopsticks/cheap/S = new()
+	var/obj/item/material/kitchen/utensil/fork/chopsticks/bamboo/S = new()
 
 	if(use_check_and_message(usr))
 		return

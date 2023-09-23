@@ -29,8 +29,8 @@
 	new /obj/item/clothing/under/rank/bartender(src)
 	new /obj/item/clothing/accessory/wcoat(src)
 	new /obj/item/clothing/accessory/wcoat(src)
-	new /obj/item/clothing/shoes/black(src)
-	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)
 
 /*
  * Chef
@@ -68,5 +68,5 @@
 	new /obj/item/clothing/under/lawyer/red(src)
 	new /obj/item/clothing/under/lawyer/purple(src)
 	new /obj/item/clothing/suit/storage/lawyer/purpjacket(src)
-	new /obj/item/clothing/shoes/brown(src)
-	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/shoes/sneakers/brown(src)
+	new /obj/item/clothing/shoes/sneakers/black(src)

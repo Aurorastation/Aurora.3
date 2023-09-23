@@ -69,7 +69,7 @@
 	new /obj/item/clothing/suit/storage/toggle/labcoat/idris(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/zeng(src)
 	new /obj/item/clothing/head/headmirror
-	new /obj/item/clothing/shoes/medical(src)
+	new /obj/item/clothing/shoes/sneakers/medsci(src)
 	new /obj/item/device/radio/headset/headset_med(src)
 	new /obj/item/device/radio/headset/headset_med/alt(src)
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
@@ -122,7 +122,7 @@
 	else
 		new /obj/item/storage/backpack/satchel/med(src)
 	new /obj/item/storage/backpack/duffel/med(src)
-	new /obj/item/clothing/shoes/medical(src)
+	new /obj/item/clothing/shoes/sneakers/medsci(src)
 	new /obj/item/clothing/under/rank/chief_medical_officer(src)
 	new /obj/item/clothing/gloves/latex/nitrile(src)
 	new /obj/item/device/radio/headset/heads/cmo(src)
@@ -158,7 +158,7 @@
 	new /obj/item/clothing/under/rank/chief_medical_officer(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
-	new /obj/item/clothing/shoes/brown	(src)
+	new /obj/item/clothing/shoes/sneakers/brown	(src)
 	new /obj/item/device/radio/headset/heads/cmo(src)
 
 /obj/structure/closet/secure_closet/animal
