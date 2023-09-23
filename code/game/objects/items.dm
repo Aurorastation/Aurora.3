@@ -551,6 +551,11 @@
 	else
 		remove_item_verbs(user)
 
+	//Ěent for observable
+	mob_equipped_event.raise_event(user, src, slot)
+	item_equipped_event.raise_event(src, user, slot)
+	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
+
 //sometimes we only want to grant the item's action if it's equipped in a specific slot.
 /obj/item/proc/item_action_slot_check(mob/user, slot)
 	return TRUE
