@@ -2026,9 +2026,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/medical_chest_rig/fluff/pleig_rig
-	name = "\improper Raqa'Nuul medical rig"
-	desc = "This blue chestpiece, stylized after a traditional paramedic's chest rig, contains the iconography of the Federation Resistance cell known as Raqa'Nuul or the Cybers, with \
-	the flag of the Free Traverse on the back and loose wiring on the front. It is most suited to the form of a worker or warrior Vaurca."
+	name = "\improper Lyukal medical rig"
+	desc = "This blue chestpiece, stylized after a traditional paramedic's chest rig, contains the iconography of the Federation Resistance, also known as the Lyukal, with \
+	the flag of the Free Traverse on the back. It is most suited to the form of a worker or warrior Vaurca."
 	icon = 'icons/obj/custom_items/pleig_rig.dmi'
 	icon_override = 'icons/obj/custom_items/pleig_rig.dmi'
 	icon_state = "pleig_rig"
