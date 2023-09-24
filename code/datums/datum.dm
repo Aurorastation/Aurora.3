@@ -4,11 +4,11 @@
 	var/tmp/isprocessing = 0
 
 	/**
-	  * Tick count time when this object was destroyed.
-	  *
-	  * If this is non zero then the object has been garbage collected and is awaiting either
-	  * a hard del by the GC subsystme, or to be autocollected (if it has no references)
-	*/
+	 * Tick count time when this object was destroyed.
+	 *
+	 * If this is non zero then the object has been garbage collected and is awaiting either
+	 * a hard del by the GC subsystme, or to be autocollected (if it has no references)
+	 */
 	var/tmp/gcDestroyed
 
 	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
