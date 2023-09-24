@@ -24,11 +24,11 @@ export const ShuttleControlConsoleLift = (props, context) => {
         <Section title="Lift Status">
           <LabeledList>
             <LabeledList.Item label="Status">
-              {data.shuttle_state == 'idle' ? (
+              {data.shuttle_state === 'idle' ? (
                 <Box>Idle</Box>
-              ) : data.shuttle_state == 'warmup' ? (
+              ) : data.shuttle_state === 'warmup' ? (
                 <Box>Spinning up</Box>
-              ) : data.shuttle_state == 'in_transit' ? (
+              ) : data.shuttle_state === 'in_transit' ? (
                 <Box>Moving</Box>
               ) : (
                 <Box>Error</Box>
