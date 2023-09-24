@@ -1,7 +1,12 @@
 /obj/item/implant/uplink
 	name = "uplink"
 	desc = "Summon things."
+	icon_state = "implant_uplink"
+	implant_icon = "uplink"
+	implant_color = "#ffd4a3"
 	var/activation_emote = "chuckle"
+	default_action_type = null
+	hidden = TRUE
 
 /obj/item/implant/uplink/New()
 	activation_emote = pick("blink", "blink_r", "eyebrow", "chuckle", "twitch", "frown", "nod", "blush", "giggle", "grin", "groan", "shrug", "smile", "pale", "sniff", "whimper", "wink")
@@ -23,3 +28,7 @@
 	if(hidden_uplink && usr == source) // Let's not have another people activate our uplink
 		hidden_uplink.check_trigger(source, emote, activation_emote)
 	return
+
+/obj/item/implanter/uplink
+	name = "implanter (U)"
+	imp = /obj/item/implant/uplink

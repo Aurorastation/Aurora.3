@@ -530,7 +530,7 @@
 	name = "death alarm kit"
 	desc = "Box of stuff used to implant death alarms."
 	illustration = "implant"
-	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6)
+	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6, /obj/item/implantpad = 1)
 
 /obj/item/storage/box/condimentbottles
 	name = "box of condiment bottles"
@@ -1221,3 +1221,4 @@
 /obj/item/storage/box/produce/fill()
 	. = ..()
 	make_exact_fit()
+
