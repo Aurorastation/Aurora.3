@@ -43,7 +43,7 @@
 		return
 	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
-		tag.serial_number = uppertext(dd_limittext(md5(new_machine.real_name), 12))
+		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_PRIVATE
 		tag.citizenship_info = CITIZENSHIP_NONE
 
@@ -72,6 +72,6 @@
 		return
 	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
-		tag.serial_number = uppertext(dd_limittext(md5(new_machine.real_name), 12))
+		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_SELF
 		tag.citizenship_info = CITIZENSHIP_GOLDEN
