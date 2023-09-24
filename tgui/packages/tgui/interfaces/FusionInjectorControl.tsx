@@ -1,4 +1,5 @@
 import { BooleanLike } from '../../common/react';
+import { capitalize } from '../../common/string';
 import { useBackend } from '../backend';
 import { Box, Button, LabeledList, NoticeBox, ProgressBar, Section, Slider } from '../components';
 import { Window } from '../layouts';
@@ -76,7 +77,7 @@ export const FusionInjectorControl = (props, context) => {
                     />
                   </LabeledList.Item>
                   <LabeledList.Item label="Fuel Material">
-                    {injector.fueltype}
+                    {capitalize(injector.fueltype)}
                   </LabeledList.Item>
                   <LabeledList.Item label="Fuel">
                     {injector.depletion < 0 ? (

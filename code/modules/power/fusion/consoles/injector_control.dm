@@ -30,7 +30,7 @@
 			var/new_injection_clamped = clamp(params["global_rate"], 1, 100) / 100
 			for(var/obj/machinery/fusion_fuel_injector/F in fuel_injectors)
 				F.injection_rate = new_injection_clamped
-			global_rate = new_injection_clamped
+			global_rate = new_injection_clamped * 100
 			return TRUE
 
 		if("toggle_injecting")

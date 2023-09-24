@@ -52,7 +52,12 @@ export const FusionCoreControl = (props, context) => {
                     content="Initiate Fusion"
                     color="green"
                     icon="star"
-                    onClick={() => act('toggle_active', { machine: core.ref })}
+                    onClick={() =>
+                      act('toggle_active', {
+                        toggle_active: 1,
+                        machine: core.ref,
+                      })
+                    }
                     disabled={core.field}
                   />
                 )
