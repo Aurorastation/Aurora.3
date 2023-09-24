@@ -24,7 +24,7 @@
 	uniform = /obj/item/clothing/under/unathi
 	suit = /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz
 	belt = /obj/item/melee/energy/sword/pirate
-	shoes = /obj/item/clothing/shoes/caligae/armor
+	shoes = /obj/item/clothing/shoes/sandals/caligae
 	id = /obj/item/card/id
 	back = /obj/item/storage/backpack/satchel
 	l_ear = /obj/item/device/radio/headset/ship
