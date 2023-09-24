@@ -274,16 +274,22 @@
 	. = ..()
 
 /obj/structure/ship_weapon_dummy/examine(mob/user)
-	connected.examine(user)
+	if(connected)
+		return connected.examine(user)
+	else
+		return TRUE
 
 /obj/structure/ship_weapon_dummy/attack_hand(mob/user)
-	connected.attack_hand(user)
+	if(connected)
+		connected.attack_hand(user)
 
 /obj/structure/ship_weapon_dummy/attackby(obj/item/W, mob/user)
-	connected.attackby(W, user)
+	if(connected)
+		connected.attackby(W, user)
 
 /obj/structure/ship_weapon_dummy/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
-	connected.hitby(AM)
+	if(connected)
+		connected.hitby(AM)
 	if(ismob(AM))
 		if(isliving(AM))
 			var/mob/living/M = AM

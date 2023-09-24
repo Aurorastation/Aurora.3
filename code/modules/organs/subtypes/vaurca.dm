@@ -165,7 +165,7 @@
 
 /obj/item/organ/internal/vaurca/preserve/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(distance <= 0)
+	if(is_adjacent)
 		var/celsius_temperature = air_contents.temperature - T0C
 		var/descriptive
 		switch(celsius_temperature)

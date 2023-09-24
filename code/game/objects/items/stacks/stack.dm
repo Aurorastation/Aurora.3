@@ -69,7 +69,7 @@
 
 /obj/item/stack/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(distance <= 1)
+	if(is_adjacent)
 		if(!iscoil())
 			if(!uses_charge)
 				to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s in the stack.")

@@ -94,12 +94,12 @@
 
 
 /obj/item/paper_bin/examine(mob/user, distance, is_adjacent)
-	if(distance <= 1)
+	. = ..()
+	if(is_adjacent)
 		if(amount)
 			to_chat(user, "<span class='notice'>There " + (amount > 1 ? "are [amount] papers" : "is one paper") + " in the bin.</span>")
 		else
 			to_chat(user, "<span class='notice'>There are no papers in the bin.</span>")
-	return
 
 
 /obj/item/paper_bin/update_icon()

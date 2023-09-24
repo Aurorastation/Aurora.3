@@ -1398,40 +1398,6 @@
 	var/obj/screen/zone_sel/selector = mob.zone_sel
 	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))
 
-/mob/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
-	..()
-	if(assemble_height_string(user))
-		to_chat(user, SPAN_NOTICE(assemble_height_string(user)))
-
-//Height String for examine - Runs on the mob being examined.
-/mob/proc/assemble_height_string(mob/examiner)
-	var/height_string = null
-	var/height_descriptor
-	if(height == HEIGHT_NOT_USED)
-		return height_string
-
-	if(examiner.height == HEIGHT_NOT_USED)
-		return height_string
-
-	switch(height - examiner.height)
-		if(-999 to -100)
-			height_descriptor = "absolutely tiny compared to"
-		if(-99 to -50)
-			height_descriptor = "much smaller than"
-		if(-49 to -11)
-			height_descriptor = "shorter than"
-		if(-10 to 10)
-			height_descriptor = "about the same height as"
-		if(11 to 50)
-			height_descriptor = "taller than"
-		if(51 to 100)
-			height_descriptor = "much larger than"
-		else
-			height_descriptor = "to tower over"
-	if(height_string)
-		return height_string + " [get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
-	return "[get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
-
 /mob/proc/get_speech_bubble_state_modifier()
 	return "normal"
 

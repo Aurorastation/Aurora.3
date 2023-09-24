@@ -102,9 +102,8 @@
 /mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent)
 	if(morphed)
 		. = form.examine(user)
-		if(distance > 2)
-			return
-		to_chat(user, SPAN_WARNING("It doesn't look quite right..."))
+		if(distance <= 2)
+			to_chat(user, SPAN_WARNING("It doesn't look quite right..."))
 	else
 		return ..()
 
