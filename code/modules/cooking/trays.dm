@@ -1,9 +1,9 @@
 /*
- * Trays - Nanako, ported by Jade
- */
- //Use tray on an item to load it.
- //To unload, place on a table, then rightclic > Unload tray. Alternatively, alt+click on the tray to unload it
- //Tray will spill if thrown, dropped on the floor, or used to hit someone with. Spilling scatters contents
+* Trays - Nanako, ported by Jade
+*/
+//Use tray on an item to load it.
+//To unload, place on a table, then rightclic > Unload tray. Alternatively, alt+click on the tray to unload it
+//Tray will spill if thrown, dropped on the floor, or used to hit someone with. Spilling scatters contents
 
 /obj/item/tray
 	name = "tray"
