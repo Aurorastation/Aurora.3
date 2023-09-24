@@ -42,7 +42,7 @@ export const MiningVendor = (props, context) => {
             <Table.Row header>
               <Table.Cell>Name</Table.Cell>
               <Table.Cell>Cost</Table.Cell>
-              <Table.Cell>Num. Available</Table.Cell>
+              <Table.Cell>Stock</Table.Cell>
               <Table.Cell>Action</Table.Cell>
             </Table.Row>
             {data.prizeList.map((prize) => (
