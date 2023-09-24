@@ -125,6 +125,16 @@
 	desc = "Used to keep food nice and warm in the past, now it is all dirty, and doesn't look like it'll ever run again."
 	use_power = 0
 
+/obj/machinery/smartfridge/foodheater/buffet
+	name = "buffet trays"
+	icon = 'icons/obj/structure/urban/restaurant.dmi'
+	icon_state = "buffet"
+	icon_off = "buffet"
+
+/obj/machinery/smartfridge/foodheater/buffet/Initialize()
+	. = ..()
+	icon_on = "buffet[rand(1, 4)]"
+
 /obj/machinery/smartfridge/seeds
 	name = "\improper MegaSeed Storage"
 	desc = "When you need seeds fast!"
