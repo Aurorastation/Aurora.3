@@ -693,3 +693,54 @@
 /obj/item/pizzabox/pepperoni
 	pizza_type = /obj/item/reagent_containers/food/snacks/sliceable/pizza/pepperoni
 	boxtag = "Pepperoni Power"
+
+/obj/item/storage/box/fancy/chips
+	name = "\improper Getmore salted chip multipack"
+	desc = "A six-pack bag of Getmore salted potato chips!"
+	icon = 'icons/obj/storage/fancy/multichips.dmi'
+	icon_state = "multichips"
+	icon_type = "chip packet"
+	storage_type = "bag"
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	closable = FALSE
+	icon_overlays = FALSE
+	storage_slots = 6
+	w_class = ITEMSIZE_NORMAL
+	can_hold = list(/obj/item/reagent_containers/food/snacks/chips)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/chips = 6)
+
+/obj/item/storage/box/fancy/chips/cucumber
+	name = "\improper Getmore cucumber chip multipack"
+	desc = "A six-pack bag of Getmore cucumber potato chips!"
+	icon_state = "multichipscucumber"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/chips/cucumber = 6)
+
+/obj/item/storage/box/fancy/chips/chicken
+	name = "\improper Getmore chicken chip multipack"
+	desc = "A six-pack bag of Getmore chicken potato chips!"
+	icon_state = "multichipschicken"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/chips/chicken = 6)
+
+/obj/item/storage/box/fancy/chips/dirtberry
+	name = "\improper Getmore dirtberry chip multipack"
+	desc = "A six-pack bag of Getmore dirtberry potato chips!"
+	icon_state = "multichipsdirtberry"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/chips/dirtberry = 6)
+
+/obj/item/storage/box/fancy/chips/phoron
+	name = "\improper Getmore phoron chip multipack"
+	desc = "A six-pack bag of Getmore 'phoron' potato chips!"
+	icon_state = "multichipsphoron"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/chips/phoron = 6)
+
+/obj/item/storage/box/fancy/chips/variety
+	name = "\improper Getmore chips variety pack"
+	desc = "A Getmore variety pack, containing bags of salted, cucumber, and chicken chips!"
+	icon_state = "multichipsvariety"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/chips = 2,
+		/obj/item/reagent_containers/food/snacks/chips/cucumber = 2,
+		/obj/item/reagent_containers/food/snacks/chips/chicken = 2
+	)
