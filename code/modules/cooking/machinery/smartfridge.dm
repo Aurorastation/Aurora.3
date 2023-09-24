@@ -28,10 +28,8 @@
 	var/cooling_temperature = T0C + 5 //Best temp for soda.
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
 
-	// what icon overlay to use to show its contents
+	// what icon overlay to use to show its contents - set to NULL if no contents.
 	var/contents_path = "-plant"
-	/// If the machine shows an approximate number of its contents on its sprite
-	var/visible_contents = TRUE
 
 	component_types = list(
 		/obj/item/circuitboard/smartfridge,
@@ -125,23 +123,13 @@
 	desc = "Used to keep food nice and warm in the past, now it is all dirty, and doesn't look like it'll ever run again."
 	use_power = 0
 
-/obj/machinery/smartfridge/foodheater/buffet
-	name = "buffet trays"
-	icon = 'icons/obj/structure/urban/restaurant.dmi'
-	icon_state = "buffet"
-	icon_off = "buffet"
-
-/obj/machinery/smartfridge/foodheater/buffet/Initialize()
-	. = ..()
-	icon_on = "buffet[rand(1, 4)]"
-
 /obj/machinery/smartfridge/seeds
 	name = "\improper MegaSeed Storage"
 	desc = "When you need seeds fast!"
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "nutrimat"
 	opacity = TRUE
-	visible_contents = FALSE
+	contents_path = null
 	accepted_items = list(/obj/item/seeds)
 
 /obj/machinery/smartfridge/secure/extract
@@ -207,7 +195,7 @@
 	icon_state = "drying_rack"
 	opacity = TRUE
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
-	visible_contents = FALSE
+	contents_path = null
 
 /obj/machinery/smartfridge/drying_rack/accept_check(var/obj/item/O)
 	if(!..())
@@ -283,7 +271,7 @@
 	if(panel_open)
 		add_overlay("[initial(icon_state)]-panel")
 	var/list/shown_contents = contents - component_parts
-	if(visible_contents && shown_contents.len > 0)
+	if(contents_path && shown_contents.len > 0)
 		var/contents_icon_state
 		switch(shown_contents.len)
 			if(1 to 25)
@@ -501,3 +489,21 @@
 			to_chat(usr, SPAN_WARNING("Access denied."))
 			return FALSE
 	return ..()
+
+// Konyang
+
+/obj/machinery/smartfridge/foodheater/buffet
+	name = "buffet trays"
+	icon = 'icons/obj/structure/urban/restaurant.dmi'
+	icon_state = "buffet"
+	contents_path = null
+
+/obj/machinery/smartfridge/foodheater/buffet/Initialize()
+	. = ..()
+	contents_path = "[rand(1, 4)]" // overriding the update icon anyway, so this var is free.
+
+/obj/machinery/smartfridge/foodheater/buffet/update_icon()
+	if(stat & (BROKEN|NOPOWER))
+		icon_state = "[initial(icon_state)]"
+	else
+		icon_state = "[initial(icon_state)]-[contents_path]"
