@@ -2781,7 +2781,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/coc_survey_ship/bridge)
 "zg" = (
 /obj/structure/closet/cabinet,
@@ -3202,11 +3202,14 @@
 /turf/simulated/floor,
 /area/coc_survey_ship/hangar)
 "Cx" = (
+/obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/grauwolf{
+	pixel_x = -32;
+	pixel_y = -192;
 	weapon_id = "Survey Ship Flak Cannon"
 	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/reinforced,
+/area/coc_survey_ship/grauwolf)
 "CA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -4766,7 +4769,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/airless,
 /area/coc_survey_ship/bridge)
 "Pk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10141,7 +10144,7 @@ Yw
 VX
 VX
 PG
-Cx
+PG
 PG
 PG
 PG
@@ -10237,7 +10240,7 @@ sK
 gm
 wT
 bD
-Jt
+Cx
 Yw
 Yw
 VX
@@ -10443,7 +10446,7 @@ kj
 QJ
 Hx
 QJ
-xC
+YA
 nX
 PG
 PG
