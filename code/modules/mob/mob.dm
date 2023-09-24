@@ -1363,29 +1363,29 @@
 	toggle_zone_sel(list(BP_R_ARM,BP_R_HAND))
 
 /client/verb/body_l_arm()
- 	set name = "body-l-arm"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_L_ARM,BP_L_HAND))
+	set name = "body-l-arm"
+	set hidden = 1
+	toggle_zone_sel(list(BP_L_ARM,BP_L_HAND))
 
 /client/verb/body_chest()
- 	set name = "body-chest"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_CHEST))
+	set name = "body-chest"
+	set hidden = 1
+	toggle_zone_sel(list(BP_CHEST))
 
 /client/verb/body_groin()
- 	set name = "body-groin"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_GROIN))
+	set name = "body-groin"
+	set hidden = 1
+	toggle_zone_sel(list(BP_GROIN))
 
 /client/verb/body_r_leg()
- 	set name = "body-r-leg"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_R_LEG,BP_R_FOOT))
+	set name = "body-r-leg"
+	set hidden = 1
+	toggle_zone_sel(list(BP_R_LEG,BP_R_FOOT))
 
 /client/verb/body_l_leg()
- 	set name = "body-l-leg"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
+	set name = "body-l-leg"
+	set hidden = 1
+	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
 
 /client/verb/cycle_target_zone()
 	set name = "cycle-zone"

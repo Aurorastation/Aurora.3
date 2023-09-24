@@ -12,10 +12,10 @@
 	var/light_firing_sound = 'sound/effects/explosionfar.ogg' //The sound played when you're a few walls away. Kind of loud.
 	var/projectile_type = /obj/item/projectile/ship_ammo
 	var/special_firing_mechanism = FALSE //If set to TRUE, the gun won't show up on normal controls.
-	var/charging_sound //The sound played when the gun is charging up.
+	var/charging_sound					 //The sound played when the gun is charging up.
 	var/caliber = SHIP_CALIBER_NONE
-	var/use_ammunition = TRUE //If we use physical ammo or not. Note that the creation of ammunition in pre_fire() is still REQUIRED!
-							  //This just skips the initial check for ammunition.
+	var/use_ammunition = TRUE	//If we use physical ammo or not. Note that the creation of ammunition in pre_fire() is still REQUIRED!
+								//This just skips the initial check for ammunition.
 	var/list/obj/item/ship_ammunition/ammunition = list()
 	var/ammo_per_shot = 1
 	var/max_ammo = 1
