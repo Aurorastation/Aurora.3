@@ -96,6 +96,30 @@
 	reagents.add_reagent(/singleton/reagent/hyperzine, 1.5)
 	reagents.add_reagent(/singleton/reagent/synaptizine, 1.25)
 
+/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki
+	name = "teriyaki Donk-pocket"
+	desc = "The cold, reheatable food of choice for the seasoned salaryman."
+	filling_color = "#8e4619"
+	reagent_data = list(/singleton/reagent/nutriment = list("sweet and savory" = 1, "dough" = 2))
+
+/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki/warm
+	name = "cooked teriyaki Donk-pocket"
+	desc = "The cooked, reheatable food of choice for the seasoned salaryman."
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 1, /singleton/reagent/tricordrazine = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("warm sweet and savory" = 1, "dough" = 2))
+
+/obj/item/reagent_containers/food/snacks/donkpocket/takoyaki
+	name = "takoyaki Donk-pocket"
+	desc = "The cold, reheatable food of choice for the seasoned salaryman."
+	filling_color = "#8e4619"
+	reagent_data = list(/singleton/reagent/nutriment = list("takoyaki" = 1, "dough" = 2))
+
+/obj/item/reagent_containers/food/snacks/donkpocket/takoyaki/warm
+	name = "cooked takoyaki Donk-pocket"
+	desc = "The cooked, reheatable food of choice for the seasoned salaryman."
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 1, /singleton/reagent/tricordrazine = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("warm takoyaki" = 1, "dough" = 2))
+
 /obj/item/reagent_containers/food/snacks/spacylibertyduff
 	name = "spacy liberty duff"
 	desc = "Jello gelatin, from Alfred Hubbard's cookbook."

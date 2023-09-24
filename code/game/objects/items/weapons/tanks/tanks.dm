@@ -266,8 +266,8 @@
 		qdel(src)
 
 	else if(pressure > TANK_RUPTURE_PRESSURE)
-		#ifdef FIREDBG
-		LOG_DEBUG("<span class='warning'>[x],[y] tank is rupturing: [pressure] kPa, integrity [integrity]</span>")
+		#ifdef ZASDBG
+		log_subsystem_zas("[x],[y] tank is rupturing: [pressure] kPa, integrity [integrity]")
 		#endif
 
 		if(integrity <= 0)
@@ -281,8 +281,8 @@
 			integrity--
 
 	else if(pressure > TANK_LEAK_PRESSURE)
-		#ifdef FIREDBG
-		LOG_DEBUG("<span class='warning'>[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]</span>")
+		#ifdef ZASDBG
+		log_subsystem_zas("[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]")
 		#endif
 
 		if(integrity <= 0)

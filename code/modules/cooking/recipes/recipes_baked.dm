@@ -56,3 +56,13 @@
 		/obj/item/reagent_containers/food/snacks/donkpocket
 	)
 	result = /obj/item/reagent_containers/food/snacks/donkpocket/warm
+
+/singleton/recipe/donkteriyaki //heated donk, in lieu of a microwave
+	appliance = OVEN
+	items = list(/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki)
+	result = /obj/item/reagent_containers/food/snacks/donkpocket/teriyaki/warm
+
+/singleton/recipe/donktakoyaki //heated donk, in lieu of a microwave
+	appliance = OVEN
+	items = list(/obj/item/reagent_containers/food/snacks/donkpocket/takoyaki)
+	result = /obj/item/reagent_containers/food/snacks/donkpocket/takoyaki/warm
