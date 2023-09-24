@@ -324,7 +324,7 @@
 	description = "A rune inscribed mirror or piece of glass placed behind the eyes. Believed to \
 	be the 'Window to the Soul' and house the concentrated spirit of an individual."
 	path = /obj/item/organ/internal/anchor
-	cost = 0
+	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"

@@ -128,6 +128,7 @@
 	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
 	icon_state = "combat"
 	item_state = "combat"
+	contained_sprite = TRUE
 	force = 5
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,

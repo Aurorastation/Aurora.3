@@ -160,6 +160,16 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/donkpocket/warm
 
+/singleton/recipe/gwokteriyaki //heated donk, in lieu of a microwave
+	appliance = OVEN
+	items = list(/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki)
+	result = /obj/item/reagent_containers/food/snacks/donkpocket/teriyaki/warm
+
+/singleton/recipe/gwoktakoyaki //heated donk, in lieu of a microwave
+	appliance = OVEN
+	items = list(/obj/item/reagent_containers/food/snacks/donkpocket/takoyaki)
+	result = /obj/item/reagent_containers/food/snacks/donkpocket/takoyaki/warm
+
 /singleton/recipe/rofflewaffles
 	appliance = OVEN
 	reagents = list(/singleton/reagent/psilocybin = 5, /singleton/reagent/sugar = 10)

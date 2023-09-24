@@ -567,6 +567,8 @@ var/list/asset_datums = list()
 		"raskara.png" = 'html/images/scans/exoplanets/raskara.png',
 		"comet.png" = 'html/images/scans/exoplanets/comet.png',
 		"asteroid.png" = 'html/images/scans/exoplanets/asteroid.png',
+		"konyang.png" = 'html/images/scans/exoplanets/konyang.png',
+		"konyang_point_verdant.png" = 'html/images/scans/exoplanets/konyang_point_verdant.png',
 		//end scan images
 		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
 		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',
@@ -668,7 +670,7 @@ var/list/asset_datums = list()
 		Insert("pill[i]", 'icons/obj/chemical.dmi', "pill[i]")
 
 	for (var/sprite in bottle_sprites)
-		Insert(sprite, icon('icons/obj/chemical.dmi', sprite))
+		Insert(sprite, icon('icons/obj/item/reagent_containers/glass.dmi', sprite))
 	return ..()
 
 /datum/asset/spritesheet/accents
