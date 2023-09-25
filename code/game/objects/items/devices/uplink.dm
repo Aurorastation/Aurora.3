@@ -51,13 +51,13 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 // HIDDEN UPLINK - Can be stored in anything but the host item has to have a trigger for it.
 /* How to create an uplink in 3 easy steps!
 
- 1. All obj/item 's have a hidden_uplink var. By default it's null. Give the item one with "new(src)", it must be in it's contents. Feel free to add "uses".
+	1. All obj/item 's have a hidden_uplink var. By default it's null. Give the item one with "new(src)", it must be in it's contents. Feel free to add "uses".
 
- 2. Code in the triggers. Use check_trigger for this, I recommend closing the item's menu with "user << browse(null, "window=windowname") if it returns true.)
- The var/value is the value that will be compared with the var/target. If they are equal it will activate the menu.
+	2. Code in the triggers. Use check_trigger for this, I recommend closing the item's menu with "user << browse(null, "window=windowname") if it returns true.)
+	The var/value is the value that will be compared with the var/target. If they are equal it will activate the menu.
 
- 3. If you want the menu to stay until the users locks his uplink, add an active_uplink_check(mob/user as mob) in your interact/attack_hand proc.
- Then check if it's true, if true return. This will stop the normal menu appearing and will instead show the uplink menu.
+	3. If you want the menu to stay until the users locks his uplink, add an active_uplink_check(mob/user as mob) in your interact/attack_hand proc.
+	Then check if it's true, if true return. This will stop the normal menu appearing and will instead show the uplink menu.
 */
 
 /obj/item/device/uplink/hidden
@@ -198,8 +198,8 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		for(var/datum/record/general/locked/L in SSrecords.records_locked)
 			if(L.id == exploit_id)
 				nanoui_data["exploit"] = list() // Setting this to equal L.fields passes it's variables that are lists as reference instead of value.
-								 // We trade off being able to automatically add shit for more control over what gets passed to json
-								 // and if it's sanitized for html.
+								// We trade off being able to automatically add shit for more control over what gets passed to json
+								// and if it's sanitized for html.
 				nanoui_data["exploit"]["nanoui_exploit_record"] = html_encode(L.exploit_record) // Change stuff into html
 				nanoui_data["exploit"]["nanoui_exploit_record"] = replacetext(nanoui_data["exploit"]["nanoui_exploit_record"], "\n", "<br>") // change line breaks into <br>
 				nanoui_data["exploit"]["name"] = html_encode(L.name)
@@ -419,7 +419,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	icon_state = "radio"
 	flags = CONDUCT
 	w_class = ITEMSIZE_SMALL
-	 // Amount of starting telecrystals. Defaults to default amount if not set.
+	// Amount of starting telecrystals. Defaults to default amount if not set.
 	var/starting_telecrystals
 	/// Amount of starting bluecrystals, used to buy support/medical/gimmick items. Defaults to default amount if not set.
 	var/starting_bluecrystals
