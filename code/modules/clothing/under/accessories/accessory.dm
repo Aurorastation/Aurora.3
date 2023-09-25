@@ -127,12 +127,15 @@
 			else
 				overlay_state = initial(overlay_state)
 				flipped = 0
-		to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
+		flip_message(user)
 		update_clothing_icon()
 		inv_overlay = null
 		accessory_mob_overlay = null
 		return
 	..()
+
+/obj/item/clothing/accessory/proc/flip_message(mob/user)
+	to_chat(user, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
 
 /obj/item/clothing/accessory/red
 	name = "red tie"
