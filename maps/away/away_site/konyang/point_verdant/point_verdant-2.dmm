@@ -111,14 +111,6 @@
 /obj/structure/table/rack/retail_shelf,
 /obj/item/stack/medical/ointment/full{
 	pixel_x = -4;
-	pixel_y = 8
-	},
-/obj/item/stack/medical/ointment/full{
-	pixel_x = 8;
-	pixel_y = 8
-	},
-/obj/item/stack/medical/ointment/full{
-	pixel_x = -4;
 	pixel_y = -6
 	},
 /obj/item/stack/medical/ointment/full{
@@ -127,11 +119,11 @@
 	},
 /obj/item/stack/medical/ointment/full{
 	pixel_x = -4;
-	pixel_y = 8
+	pixel_y = 4
 	},
 /obj/item/stack/medical/ointment/full{
 	pixel_x = 8;
-	pixel_y = 8
+	pixel_y = 4
 	},
 /obj/item/stack/medical/ointment/full{
 	pixel_x = -4;
@@ -144,6 +136,22 @@
 /obj/item/stack/medical/ointment/full{
 	pixel_x = 8;
 	pixel_y = -6
+	},
+/obj/item/stack/medical/ointment/full{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/stack/medical/ointment/full{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/stack/medical/ointment/full{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/item/stack/medical/ointment/full{
+	pixel_x = 8;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -2787,9 +2795,15 @@
 /area/point_verdant/interior/tailor)
 "ly" = (
 /obj/structure/table/standard,
-/obj/item/device/healthanalyzer,
-/obj/item/device/healthanalyzer,
-/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer{
+	pixel_y = 5
+	},
+/obj/item/device/healthanalyzer{
+	pixel_y = -1
+	},
+/obj/item/device/healthanalyzer{
+	pixel_y = -8
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "lA" = (
@@ -3042,13 +3056,13 @@
 	pixel_y = 9
 	},
 /obj/item/stack/medical/advanced/bruise_pack/full{
-	pixel_y = -5
-	},
-/obj/item/stack/medical/advanced/bruise_pack/full{
-	pixel_y = -5
-	},
-/obj/item/stack/medical/advanced/bruise_pack/full{
 	pixel_y = 9
+	},
+/obj/item/stack/medical/advanced/bruise_pack/full{
+	pixel_y = -5
+	},
+/obj/item/stack/medical/advanced/bruise_pack/full{
+	pixel_y = -5
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -3371,21 +3385,29 @@
 "of" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/glass/bottle/coughsyrup{
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = 3
 	},
-/obj/item/reagent_containers/glass/bottle/coughsyrup,
 /obj/item/reagent_containers/glass/bottle/coughsyrup{
-	pixel_x = 8
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/glass/bottle/coughsyrup{
+	pixel_x = 8;
+	pixel_y = 3
 	},
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/item/reagent_containers/glass/bottle/coughsyrup{
-	pixel_x = -8
+	pixel_x = -8;
+	pixel_y = -5
 	},
-/obj/item/reagent_containers/glass/bottle/coughsyrup,
 /obj/item/reagent_containers/glass/bottle/coughsyrup{
-	pixel_x = 8
+	pixel_y = -5
+	},
+/obj/item/reagent_containers/glass/bottle/coughsyrup{
+	pixel_x = 8;
+	pixel_y = -5
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -3683,10 +3705,20 @@
 "pa" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/storage/box/gloves{
-	pixel_y = -4
+	pixel_y = -4;
+	pixel_x = -4
 	},
 /obj/item/storage/box/gloves{
-	pixel_y = 7
+	pixel_y = 7;
+	pixel_x = -4
+	},
+/obj/item/storage/pill_bottle/cetahydramine{
+	pixel_x = 9;
+	pixel_y = 8
+	},
+/obj/item/storage/pill_bottle/cetahydramine{
+	pixel_x = 9;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -4760,7 +4792,7 @@
 	pixel_y = -2
 	},
 /obj/item/stack/medical/bruise_pack/full{
-	pixel_y = -2
+	pixel_y = 5
 	},
 /obj/item/stack/medical/bruise_pack/full{
 	pixel_y = 12
@@ -4830,20 +4862,22 @@
 	pixel_x = 8;
 	pixel_y = 0
 	},
-/obj/item/storage/pill_bottle/steramycin{
-	pixel_x = -8;
-	pixel_y = 0
-	},
 /obj/item/reagent_containers/glass/bottle/thetamycin,
 /obj/item/storage/pill_bottle/steramycin{
-	pixel_x = -8;
+	pixel_x = -9;
 	pixel_y = 0
 	},
 /obj/item/storage/pill_bottle/steramycin{
 	pixel_x = 8;
 	pixel_y = 0
 	},
-/obj/item/reagent_containers/glass/bottle/thetamycin,
+/obj/item/reagent_containers/glass/bottle/thetamycin{
+	pixel_y = -6
+	},
+/obj/item/storage/pill_bottle/steramycin{
+	pixel_x = -9;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "tA" = (
@@ -6815,26 +6849,42 @@
 "AZ" = (
 /obj/structure/table/standard,
 /obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 2;
-	pixel_x = -9
+	pixel_y = 9;
+	pixel_x = 5
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 9;
+	pixel_x = -5
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 9;
+	pixel_x = -5
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 2
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 2
 	},
 /obj/item/storage/pill_bottle/inaprovaline{
 	pixel_x = 9;
 	pixel_y = 2
 	},
 /obj/item/storage/pill_bottle/inaprovaline{
+	pixel_x = 9;
 	pixel_y = 2
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 9;
+	pixel_x = -15
 	},
 /obj/item/storage/pill_bottle/inaprovaline{
 	pixel_y = 2;
 	pixel_x = -9
 	},
 /obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 2
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = 9;
-	pixel_y = 2
+	pixel_y = 2;
+	pixel_x = -9
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -8057,34 +8107,49 @@
 "Gi" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = 4
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = -8
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = -8
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = -8
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = -8
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = -8
+	pixel_x = 6;
+	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = 4
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_x = -7;
+	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = 4
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_x = 6;
+	pixel_y = 0
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_x = 6;
+	pixel_y = 0
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_x = 6;
+	pixel_y = 0
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = 4
+	pixel_x = -7
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = 4
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
+	pixel_x = -7
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -9018,25 +9083,38 @@
 /area/point_verdant/outdoors)
 "JS" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/reagent_containers/syringe/antibiotic{
-	pixel_y = 8;
-	pixel_x = -7
+/obj/item/storage/pill_bottle/corophenidate{
+	pixel_x = -9;
+	pixel_y = 8
 	},
-/obj/item/reagent_containers/syringe/antibiotic{
-	pixel_y = -6;
-	pixel_x = -7
+/obj/item/storage/pill_bottle/emoxanyl{
+	pixel_y = 8
 	},
-/obj/item/reagent_containers/syringe/antibiotic{
+/obj/item/storage/pill_bottle/minaphobin{
+	pixel_x = 9;
+	pixel_y = 8
+	},
+/obj/item/storage/pill_bottle/nerospectan{
 	pixel_y = 1;
-	pixel_x = -7
+	pixel_x = 9
 	},
-/obj/item/defibrillator/loaded{
-	pixel_x = 6;
-	pixel_y = -5
+/obj/item/storage/pill_bottle/neurapan{
+	pixel_x = -9;
+	pixel_y = 1
 	},
-/obj/item/auto_cpr{
-	pixel_x = 6;
-	pixel_y = 10
+/obj/item/storage/pill_bottle/neurostabin{
+	pixel_x = -9;
+	pixel_y = -6
+	},
+/obj/item/storage/pill_bottle/orastabin{
+	pixel_y = -6;
+	pixel_x = 9
+	},
+/obj/item/storage/pill_bottle/parvosil{
+	pixel_y = 1
+	},
+/obj/item/storage/pill_bottle/dexalin_plus{
+	pixel_y = -6
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -10195,18 +10273,26 @@
 "OK" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/glass/bottle/perconol{
-	pixel_x = -9
-	},
-/obj/item/reagent_containers/glass/bottle/perconol,
-/obj/item/reagent_containers/glass/bottle/perconol{
-	pixel_x = 8
+	pixel_x = -9;
+	pixel_y = 3
 	},
 /obj/item/reagent_containers/glass/bottle/perconol{
-	pixel_x = -9
+	pixel_y = 3
 	},
-/obj/item/reagent_containers/glass/bottle/perconol,
 /obj/item/reagent_containers/glass/bottle/perconol{
-	pixel_x = 8
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/glass/bottle/perconol{
+	pixel_x = -9;
+	pixel_y = -5
+	},
+/obj/item/reagent_containers/glass/bottle/perconol{
+	pixel_y = -5
+	},
+/obj/item/reagent_containers/glass/bottle/perconol{
+	pixel_x = 8;
+	pixel_y = -5
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -10467,6 +10553,10 @@
 	dir = 8
 	},
 /obj/item/paper_scanner,
+/obj/item/storage/pill_bottle/corophenidate{
+	pixel_x = 11;
+	pixel_y = 12
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "PQ" = (

@@ -1038,6 +1038,7 @@
 /obj/random/medical,
 /obj/random/medical,
 /obj/random/medical,
+/obj/random/medical,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
 "lc" = (
@@ -1130,6 +1131,14 @@
 /obj/item/pen{
 	pixel_x = -7;
 	pixel_y = 3
+	},
+/obj/item/reagent_containers/inhaler/hyperzine{
+	pixel_x = 11;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine{
+	pixel_x = 12;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -1403,6 +1412,10 @@
 	},
 /obj/machinery/light/colored/decayed{
 	dir = 8
+	},
+/obj/item/storage/box/inhalers_auto{
+	pixel_x = 5;
+	pixel_y = -14
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
@@ -2437,22 +2450,11 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
 "zn" = (
-/obj/structure/closet/crate,
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
 /obj/random/dirt_75,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "zo" = (
 /obj/structure/ledge/quarter{
@@ -2510,9 +2512,44 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/decrepit)
 "zT" = (
-/obj/structure/table/standard,
-/obj/item/device/healthanalyzer,
 /obj/random/dirt_75,
+/obj/structure/table/rack/retail_shelf,
+/obj/item/storage/pill_bottle/minaphobin{
+	pixel_x = 9;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/syringe/antibiotic{
+	pixel_y = -6;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/syringe/antibiotic{
+	pixel_y = 1;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/syringe/antibiotic{
+	pixel_y = 8;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/syringe/antibiotic{
+	pixel_y = 8;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/syringe/antibiotic{
+	pixel_y = 1;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/syringe/antibiotic{
+	pixel_y = -6;
+	pixel_x = -7
+	},
+/obj/item/auto_cpr{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/item/defibrillator/loaded{
+	pixel_x = 6;
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Aa" = (
@@ -2823,6 +2860,7 @@
 /obj/item/device/hand_labeler{
 	pixel_y = 10
 	},
+/obj/item/pen/reagent/hyperzine,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "CB" = (
@@ -3039,6 +3077,7 @@
 "EB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/random/medical,
 /obj/item/stack/rods,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
@@ -3135,6 +3174,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Gv" = (
@@ -4816,6 +4856,7 @@
 "WZ" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/random/dirt_75,
+/obj/item/stack/rods,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
 "Xe" = (
@@ -24214,7 +24255,7 @@ rf
 eV
 RI
 PC
-zn
+eV
 eV
 eV
 lm
@@ -27040,7 +27081,7 @@ gu
 Vs
 eV
 zT
-gX
+zn
 pa
 BS
 ju
