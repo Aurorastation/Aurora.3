@@ -20,7 +20,7 @@
 	melee_damage = 30
 	action_delay = 5
 	max_damage = 130
-	power_use = 5000
+	power_use = 2500
 	has_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 
 /obj/item/mech_component/propulsion/combat
@@ -31,7 +31,7 @@
 	move_delay = 3
 	turn_delay = 3
 	max_damage = 100
-	power_use = 5000
+	power_use = 2500
 	trample_damage = 35
 
 /obj/item/mech_component/sensors/combat
@@ -58,7 +58,7 @@
 	desc = "A lightweight composite frame keeps the armor of this chassis respectable, but the interior spacious."
 	icon_state = "combat_body"
 	max_damage = 200
-	power_use = 2500
+	power_use = 250
 	transparent_cabin =  TRUE
 
 /obj/item/mech_component/chassis/combat/prebuild()

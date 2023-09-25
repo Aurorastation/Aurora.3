@@ -19,7 +19,7 @@
 	melee_damage = 15
 	action_delay = 5
 	max_damage = 100
-	power_use = 5000
+	power_use = 2500
 	has_hardpoints = list(HARDPOINT_RIGHT_HAND, HARDPOINT_LEFT_HAND)
 
 /obj/item/mech_component/propulsion/pra_egg
@@ -30,7 +30,7 @@
 	move_delay = 3
 	turn_delay = 3
 	max_damage = 100
-	power_use = 5000
+	power_use = 2500
 	trample_damage = 15
 
 /obj/item/mech_component/sensors/pra_egg
@@ -57,7 +57,7 @@
 	desc = "A lightweight composite frame keeps the armor of this chassis respectable, but the interior spacious."
 	icon_state = "egg_body"
 	max_damage = 150
-	power_use = 2500
+	power_use = 250
 
 /obj/item/mech_component/chassis/pra_egg/prebuild()
 	. = ..()
@@ -92,7 +92,7 @@
 	desc = "A armored composite frame keeps the armor of this chassis respectable, but the interior spacious."
 	icon_state = "strong_egg_body"
 	max_damage = 150
-	power_use = 2500
+	power_use = 250
 
 /obj/item/mech_component/chassis/pra_egg/armored/prebuild()
 	. = ..()
