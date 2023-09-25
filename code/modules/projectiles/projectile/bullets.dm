@@ -129,7 +129,7 @@
 	armor_penetration = 0
 
 /obj/item/projectile/bullet/pistol/medium/ap
-	armor_penetration = 35
+	armor_penetration = 15
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/pistol/strong
