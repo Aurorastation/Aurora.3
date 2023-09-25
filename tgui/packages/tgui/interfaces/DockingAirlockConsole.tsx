@@ -92,7 +92,7 @@ export const DockingAirlockConsole = (props, context) => {
               color={
                 data.airlock_disabled || data.processing
                   ? null
-                  : data.interior_status.state == 'open'
+                  : data.interior_status.state === 'open'
                     ? 'red'
                     : 'yellow'
               }
@@ -105,7 +105,7 @@ export const DockingAirlockConsole = (props, context) => {
               color={
                 data.airlock_disabled || data.processing
                   ? null
-                  : data.exterior_status.state == 'open'
+                  : data.exterior_status.state === 'open'
                     ? 'red'
                     : 'yellow'
               }

@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, ProgressBar, Section } from '../components';
+import { Box, Button, LabeledList, Section } from '../components';
 import { Window } from '../layouts';
 
 export type SimpleDockingConsoleData = {
