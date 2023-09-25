@@ -6846,48 +6846,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
-"AZ" = (
-/obj/structure/table/standard,
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 9;
-	pixel_x = 5
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 9;
-	pixel_x = -5
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 9;
-	pixel_x = -5
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 2
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 2
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = 9;
-	pixel_y = 2
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_x = 9;
-	pixel_y = 2
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 9;
-	pixel_x = -15
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 2;
-	pixel_x = -9
-	},
-/obj/item/storage/pill_bottle/inaprovaline{
-	pixel_y = 2;
-	pixel_x = -9
-	},
-/turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/pharmacy)
 "Ba" = (
 /obj/structure/flora/pottedplant/aquatic,
 /turf/simulated/floor/lino,
@@ -7891,8 +7849,44 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "Fp" = (
-/obj/machinery/light{
-	dir = 4
+/obj/structure/table/standard,
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 9;
+	pixel_x = 5
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 9;
+	pixel_x = -5
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 9;
+	pixel_x = -5
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 2
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 2
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_x = 9;
+	pixel_y = 2
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_x = 9;
+	pixel_y = 2
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 9;
+	pixel_x = -15
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 2;
+	pixel_x = -9
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 2;
+	pixel_x = -9
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -33006,8 +33000,8 @@ Ir
 vK
 mG
 WW
-nr
 Fm
+nr
 aw
 Fm
 WW
@@ -33263,7 +33257,7 @@ Ir
 Vp
 to
 se
-AZ
+Fm
 Fp
 pa
 Fm
