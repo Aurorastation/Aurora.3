@@ -677,7 +677,18 @@
 	else
 		return FALSE //Keys only
 
+/obj/machinery/door/urban/glass_sliding
+	name = "sliding glass door"
+	desc = "An electronic sliding glass door, often seen in cities."
+	icon_state = "glass_sliding_closed"
+	base_icon = "glass_sliding"
+	autoclose = TRUE
+	support_ids = TRUE
+	glass = TRUE
 
+/obj/machinery/door/urban/glass_sliding/double
+	icon_state = "double_glass_sliding_closed"
+	base_icon = "double_glass_sliding"
 
 /**
  * # Door keys
