@@ -129,7 +129,7 @@
 			if(0)
 				processing_type = "Idle"
 			if(1)
-				processing_type = "Smelting"
+				processing_type = "Smelt"
 			if(2)
 				processing_type = "Compress"
 			if(3)
