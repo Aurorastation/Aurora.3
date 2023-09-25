@@ -7,6 +7,14 @@
 /turf/simulated/floor/exoplanet/water/update_dirt()
 	return	// Water doesn't become dirty
 
+/turf/simulated/floor/exoplanet/water/konyang
+	name = "deep glistening water"
+	desc = "Water, dense with algae and lustrous greenery. It maintains an almost glowing sea-blue sheen nonetheless."
+	icon_state = "unsmooth"
+	base_icon_state = "unsmooth"
+	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_deep_water.dmi'
+	smooth = SMOOTH_TRUE
+
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
 	icon = 'icons/misc/beach.dmi'
@@ -21,3 +29,25 @@
 		user.visible_message("<span class='notice'>[user] fills \the [RG] from \the [src].</span>","<span class='notice'>You fill \the [RG] from \the [src].</span>")
 	else
 		return ..()
+
+/turf/simulated/floor/exoplanet/water/shallow/konyang
+	name = "shallow glistening water"
+	desc = "Water, dense with algae and lustrous greenery. It maintains an almost glowing sea-blue sheen nonetheless."
+	icon_state = "unsmooth"
+	base_icon_state = "unsmooth"
+	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_smooth_water.dmi'
+	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	canSmoothWith = list(/turf/simulated/floor/exoplanet/water/shallow/konyang, /turf/simulated/floor/exoplanet/water/konyang, /turf/simulated/floor/exoplanet/water/shallow/konyang/beach)
+
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth
+	smooth = SMOOTH_FALSE
+
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach
+	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_beach.dmi'
+	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	canSmoothWith = list(/turf/simulated/floor/exoplanet/water/shallow/konyang, /turf/simulated/floor/exoplanet/water/konyang, /turf/simulated/floor/exoplanet/water/shallow/konyang/beach)
+
+/turf/simulated/floor/exoplanet/water/shallow/sewage//What horror.
+	name = "putrid sewage"
+	desc = "This is utterly vile."
+	color = "#9ea844"//Ew

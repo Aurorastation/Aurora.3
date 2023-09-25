@@ -19,6 +19,12 @@
 	items = list(/obj/item/reagent_containers/food/snacks/friedkois)
 	result = /obj/item/reagent_containers/food/snacks/koissteak
 
+/singleton/recipe/koisdonut
+	appliance = FRYER
+	items = list(/obj/item/reagent_containers/food/snacks/friedkois)
+	result = /obj/item/reagent_containers/food/snacks/donut/kois
+	result_quantity = 2
+
 /singleton/recipe/koismuffin
 	appliance = OVEN
 	items = list(/obj/item/reagent_containers/food/snacks/soup/kois)
@@ -30,9 +36,3 @@
 				/obj/item/reagent_containers/food/snacks/friedkois
 	)
 	result = /obj/item/reagent_containers/food/snacks/koisburger
-
-/singleton/recipe/koisdonut
-	appliance = FRYER
-	items = list(/obj/item/reagent_containers/food/snacks/friedkois)
-	result = /obj/item/reagent_containers/food/snacks/donut/kois
-	result_quantity = 2

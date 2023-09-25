@@ -96,6 +96,7 @@
 			if(ECONOMICALLY_UNDERPAID)		econ_status = 0.75
 			if(ECONOMICALLY_POOR)			econ_status = 0.50
 			if(ECONOMICALLY_DESTITUTE)		econ_status = 0.25
+			if(ECONOMICALLY_RUINED)			econ_status = 0.01
 
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)

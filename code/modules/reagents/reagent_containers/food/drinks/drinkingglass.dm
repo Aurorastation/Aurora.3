@@ -5,10 +5,6 @@
 	desc = "Your standard drinking glass."
 	desc_info = "To toast with someone, aim for the right or left hand and click them on help intent with the glass in hand. They must be holding a glass in the targeted hand."
 	icon_state = "glass_empty"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi',
-		)
 	item_state = "glass_empty"
 	amount_per_transfer_from_this = 5
 	volume = 30

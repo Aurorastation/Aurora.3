@@ -1,7 +1,7 @@
 /obj/item/cell
 	name = "power cell"
 	desc = "A rechargable electrochemical power cell."
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/machinery/cell_charger.dmi'
 	icon_state = "cell"
 	item_state = "cell"
 	origin_tech = list(TECH_POWER = 1)
