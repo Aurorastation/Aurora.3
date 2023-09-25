@@ -46,7 +46,6 @@
 /area/golden_deep/secure)
 "aR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "aT" = (
@@ -220,10 +219,10 @@
 /area/golden_deep/warehouse)
 "cM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/east{
 	req_one_access = list(217)
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "cN" = (
@@ -271,7 +270,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
@@ -521,6 +519,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "gN" = (
@@ -543,6 +542,7 @@
 	dir = 4;
 	name = "Propulsion"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "gP" = (
@@ -566,7 +566,6 @@
 /area/golden_deep/dock)
 "hh" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "hk" = (
@@ -743,11 +742,6 @@
 	},
 /turf/simulated/wall/gold_reinforced,
 /area/golden_deep/starboardprop)
-"jq" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/golden_deep/warehouse)
 "js" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -803,7 +797,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "kb" = (
@@ -825,11 +818,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "kt" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "kA" = (
@@ -955,8 +946,8 @@
 /area/golden_deep/engineering)
 "lx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "lA" = (
@@ -975,7 +966,6 @@
 	dir = 6;
 	pixel_y = 0
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "lS" = (
@@ -1061,6 +1051,7 @@
 /area/golden_deep/captain)
 "mu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "mv" = (
@@ -1354,7 +1345,6 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/engineering)
 "pt" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1362,13 +1352,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "pu" = (
 /turf/template_noop,
 /area/space)
 "pw" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/eva)
 "pA" = (
@@ -1387,7 +1377,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "pD" = (
@@ -1532,10 +1521,10 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/storage)
 "rr" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/east{
 	req_one_access = list(217)
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/storage)
 "rs" = (
@@ -1801,6 +1790,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "vw" = (
@@ -1964,7 +1954,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/gold{
@@ -1972,6 +1961,7 @@
 	dir = 1;
 	name = "Warehouse"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/office)
 "wU" = (
@@ -2020,9 +2010,6 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled,
 /area/golden_deep/custodial)
-"xg" = (
-/turf/simulated/floor/plating,
-/area/golden_deep/warehouse)
 "xp" = (
 /turf/simulated/floor/tiled,
 /area/golden_deep/secure)
@@ -2139,11 +2126,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/power/apc/east{
 	req_access = list(217)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/storage)
 "yG" = (
@@ -2176,7 +2163,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -2187,6 +2173,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "yV" = (
@@ -2211,7 +2198,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "zy" = (
@@ -2401,7 +2387,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "BF" = (
@@ -2659,7 +2644,6 @@
 /area/golden_deep/hangar)
 "EI" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/blue,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "ER" = (
@@ -2744,7 +2728,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "FV" = (
@@ -2823,8 +2806,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "GK" = (
@@ -2891,7 +2874,6 @@
 	dir = 8
 	},
 /obj/machinery/meter,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "Hv" = (
@@ -2926,10 +2908,6 @@
 	},
 /turf/simulated/floor/gold,
 /area/golden_deep/bridge)
-"HP" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/golden_deep/starboardprop)
 "HQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -2956,10 +2934,10 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/engineering)
 "Ij" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "Im" = (
@@ -3052,10 +3030,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/north{
 	req_one_access = list(217)
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "JY" = (
@@ -3110,7 +3088,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "Kw" = (
@@ -3203,6 +3180,7 @@
 	dir = 4;
 	name = "Engineering"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/engineering)
 "LG" = (
@@ -3297,10 +3275,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "MW" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/storage)
 "Ni" = (
@@ -3396,7 +3374,6 @@
 /area/golden_deep/atmos)
 "OC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "OD" = (
@@ -3529,7 +3506,6 @@
 /turf/simulated/floor/gold,
 /area/golden_deep)
 "Rc" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -3542,6 +3518,7 @@
 	dir = 6;
 	pixel_y = 0
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/storage)
 "Rf" = (
@@ -3746,7 +3723,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/eva)
 "TJ" = (
@@ -3798,7 +3774,6 @@
 /obj/item/tank/phoron/shuttle,
 /obj/item/tank/phoron/shuttle,
 /obj/item/tank/phoron/shuttle,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/eva)
 "Uo" = (
@@ -3809,7 +3784,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/eva)
 "Uu" = (
@@ -3845,7 +3819,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/eva)
 "UZ" = (
@@ -3872,8 +3845,8 @@
 /area/golden_deep/storage)
 "VC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "VD" = (
@@ -3974,7 +3947,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
 "WA" = (
@@ -3982,7 +3954,6 @@
 /obj/machinery/power/apc/east{
 	req_access = list(217)
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/eva)
 "WJ" = (
@@ -3993,7 +3964,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/computer/general_air_control/large_tank_control{
 	frequency = 0451;
 	input_tag = "co2_in";
@@ -4131,7 +4101,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "XS" = (
@@ -4150,7 +4119,6 @@
 /area/golden_deep/custodial)
 "Yo" = (
 /obj/machinery/portable_atmospherics/canister/phoron_scarce,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/eva)
 "Yq" = (
@@ -4160,11 +4128,11 @@
 /turf/simulated/floor/gold,
 /area/golden_deep/engineering)
 "Yu" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "Yv" = (
@@ -11622,7 +11590,7 @@ GZ
 YS
 Nz
 uR
-HP
+Qx
 TK
 sg
 Xk
@@ -11784,7 +11752,7 @@ Qx
 nb
 Qx
 Qx
-HP
+Qx
 xB
 xB
 TK
@@ -11946,7 +11914,7 @@ GZ
 Qm
 uR
 uR
-HP
+Qx
 sg
 TK
 xB
@@ -12108,7 +12076,7 @@ Qx
 nb
 Qx
 Qx
-HP
+Qx
 We
 TK
 We
@@ -12270,15 +12238,15 @@ GZ
 Qm
 Qx
 Qx
-HP
-HP
-HP
-HP
-HP
-HP
-HP
-HP
-HP
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
+Qx
 Sy
 Sy
 pu
@@ -12435,7 +12403,7 @@ Qx
 Qx
 Qx
 Qx
-HP
+Qx
 Qx
 Qx
 Qx
@@ -12597,7 +12565,7 @@ Qx
 Qx
 Qx
 Qx
-HP
+Qx
 Qx
 Qx
 Qx
@@ -16016,7 +15984,7 @@ bi
 UK
 vi
 xz
-jq
+ER
 gb
 jY
 ER
@@ -18293,7 +18261,7 @@ ek
 mf
 ek
 ek
-xg
+ek
 ek
 ek
 ek
