@@ -3786,10 +3786,6 @@
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
 /area/shuttle/coc_survey_shuttle)
-"GT" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/wall/shuttle/dark/cardinal/khaki,
-/area/shuttle/coc_survey_shuttle)
 "GY" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -10632,11 +10628,11 @@ ZM
 Ss
 dT
 ul
-GT
+ul
 uU
 KL
 no
-GT
+ul
 ul
 dT
 Jg
