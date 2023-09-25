@@ -197,10 +197,10 @@ var/global/list/minevendor_list = list( //keep in order of price
 			return
 		var/obj/dispensed_equipment
 		switch(choice)
-			if("Enhanced Power Converter")
-				dispensed_equipment = new /obj/item/custom_ka_upgrade/barrels/barrel02(src)
-			if("Hand-held Drill")
-				dispensed_equipment = new /obj/item/pickaxe/drill/weak(src)
+			if("Kinetic Accelerator Kit")
+				dispensed_equipment = new /obj/item/storage/toolbox/ka(src)
+			if("Industrial Drilling Kit")
+				dispensed_equipment = new /obj/item/storage/toolbox/drill(src)
 			if("Autonomous Mining Drone")
 				dispensed_equipment = new /mob/living/silicon/robot/drone/mining(get_turf(user))
 		if(dispensed_equipment)
