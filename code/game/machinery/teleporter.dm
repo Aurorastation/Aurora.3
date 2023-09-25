@@ -18,6 +18,7 @@
 
 	var/max_teleport_range = 4 //max overmap teleport distance
 	var/calibration = 0 // a percentage chance for teleporting into space instead of your target. 0 is perfectly calibrated, 100 is totally uncalibrated
+	var/calibration_increase = 5
 	var/engaged = FALSE
 	var/ignore_distance = FALSE // For antag teleporters.
 
@@ -43,6 +44,7 @@
 /obj/machinery/teleport/pad/proc/teleport(atom/movable/M as mob|obj)
 	if(!locked_obj)
 		audible_message(SPAN_WARNING("Failure: Cannot authenticate locked on coordinates. Please reinstate coordinate matrix."))
+		return
 	var/obj/teleport_obj = locked_obj.resolve()
 	if(!teleport_obj)
 		locked_obj = null
@@ -52,7 +54,7 @@
 	else
 		do_teleport(M, teleport_obj) //dead-on precision
 	if(ishuman(M))
-		calibration = min(calibration + 5, 100)
+		calibration = min(calibration + calibration_increase, 100)
 
 /obj/machinery/teleport/pad/update_icon()
 	cut_overlays()
@@ -118,6 +120,34 @@
 /obj/machinery/teleport/pad/proc/recalibrate()
 	calibration = 0
 	audible_message(SPAN_NOTICE("Calibration complete."))
+
+/obj/machinery/teleport/pad/is_safe_to_teleport_on()
+	return TRUE
+
+/obj/machinery/teleport/pad/two_way
+	name = "two-way teleporter pad"
+	max_teleport_range = 7
+	calibration_increase = 0
+	var/teleporter_id
+	var/target_id
+
+/obj/machinery/teleport/pad/two_way/Initialize()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/teleport/pad/two_way/LateInitialize()
+	for(var/obj/machinery/teleport/pad/two_way/potential_target in SSmachinery.machinery)
+		if(potential_target.target_id == teleporter_id)
+			locked_obj = WEAKREF(potential_target)
+			locked_obj_name = potential_target.name
+			engage()
+			break
+
+/obj/machinery/teleport/pad/two_way/default_deconstruction_crowbar(mob/user, obj/item/C)
+	return
+
+/obj/machinery/teleport/pad/two_way/default_deconstruction_screwdriver(mob/user, obj/item/S)
+	return
 
 /obj/machinery/teleport/pad/ninja
 	ignore_distance = TRUE

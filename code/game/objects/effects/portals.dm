@@ -90,6 +90,9 @@
 		HT.remove_portal(src)
 	return ..()
 
+/obj/effect/portal/is_safe_to_teleport_on()
+	return TRUE
+
 /obj/effect/portal/spawner
 	name = "portal"
 	desc = "A bluespace tear in space, reaching directly to another point within this region. This one looks like a one-way portal to here, don't come too close."

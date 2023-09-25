@@ -165,14 +165,9 @@
 
 		else
 			for(var/atom/movable/A in destturf)
-				if(A != teleatom && A.density && A.anchored  && !istype(A, /obj/effect/portal))
-					if(A.flags & ON_BORDER)
-						if(prob(10))
-							impediment = A
-							break
-					else
-						impediment = A
-						break
+				if(!A.is_safe_to_teleport_on(teleatom))
+					impediment = A
+					break
 
 		if(impediment)
 			var/turf/newdest

@@ -14375,6 +14375,20 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
+"klM" = (
+/obj/machinery/teleport/pad/two_way{
+	target_id = "spark_teleporter";
+	teleporter_id = "refinery_teleporter"
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/southleft{
+	name = "Two-Way Teleporter Access";
+	req_access = list(48)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/outpost/mining_main/refinery)
 "klR" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -15291,6 +15305,10 @@
 	},
 /obj/machinery/door/window/northleft,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/bed/handrail{
+	dir = 4;
+	pixel_x = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/mining)
 "kOp" = (
@@ -25830,6 +25848,10 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/machinery/teleport/pad/two_way{
+	target_id = "refinery_teleporter";
+	teleporter_id = "spark_teleporter"
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/mining)
 "soD" = (
@@ -31239,6 +31261,10 @@
 	},
 /obj/machinery/door/window/northright,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/bed/handrail{
+	dir = 8;
+	pixel_x = -4
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/mining)
 "vZT" = (
@@ -49651,7 +49677,7 @@ vqU
 oDv
 tIS
 wkD
-gKG
+klM
 qOf
 mTJ
 rPo

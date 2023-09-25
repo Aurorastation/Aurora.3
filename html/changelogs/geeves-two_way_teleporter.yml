@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a two-way teleporter to the Spark and the Horizon refinery, it has a seven tile overmap range."
+  - tweak: "Teleporting onto a tile with windows/railings no longer cause you to explode."

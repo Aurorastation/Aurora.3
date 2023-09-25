@@ -607,3 +607,8 @@
 
 /atom/movable/proc/show_message(msg, type, alt, alt_type) //Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 	return
+
+/atom/movable/proc/is_safe_to_teleport_on(var/atom/teleporter_atom)
+	if(!anchored || !density || HAS_FLAG(flags, ON_BORDER) || teleporter_atom == src)
+		return TRUE
+	return FALSE
