@@ -127,13 +127,13 @@
 		var/processing_type = ""
 		switch(machine.ores_processing[ore])
 			if(0)
-				processing_type = "Not Processing"
+				processing_type = "Idle"
 			if(1)
 				processing_type = "Smelting"
 			if(2)
-				processing_type = "Compressing"
+				processing_type = "Compress"
 			if(3)
-				processing_type = "Alloying"
+				processing_type = "Alloy"
 		ore_list += list(list("name" = capitalize_first_letters(O.display_name), "processing" = processing_type, "stored" = machine.ores_stored[ore], "ore" = ore))
 	data["oreList"] = ore_list
 	return data

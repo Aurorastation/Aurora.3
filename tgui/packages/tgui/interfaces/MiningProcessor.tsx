@@ -58,7 +58,7 @@ export const MiningProcessor = (props, context) => {
             <Table.Row header>
               <Table.Cell>Name</Table.Cell>
               <Table.Cell>Stored</Table.Cell>
-              <Table.Cell>Processing</Table.Cell>
+              <Table.Cell>Setting</Table.Cell>
             </Table.Row>
             {data.oreList.map((ore) => (
               <Table.Row key={ore.name}>
