@@ -197,20 +197,20 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 
 		for(var/datum/record/general/locked/L in SSrecords.records_locked)
 			if(L.id == exploit_id)
-				nanoui_data["exploit"] = list()  // Setting this to equal L.fields passes it's variables that are lists as reference instead of value.
+				nanoui_data["exploit"] = list() // Setting this to equal L.fields passes it's variables that are lists as reference instead of value.
 								 // We trade off being able to automatically add shit for more control over what gets passed to json
 								 // and if it's sanitized for html.
 				nanoui_data["exploit"]["nanoui_exploit_record"] = html_encode(L.exploit_record) // Change stuff into html
 				nanoui_data["exploit"]["nanoui_exploit_record"] = replacetext(nanoui_data["exploit"]["nanoui_exploit_record"], "\n", "<br>") // change line breaks into <br>
-				nanoui_data["exploit"]["name"] =  html_encode(L.name)
-				nanoui_data["exploit"]["sex"] =  html_encode(L.sex)
-				nanoui_data["exploit"]["age"] =  html_encode(L.age)
-				nanoui_data["exploit"]["species"] =  html_encode(L.species)
-				nanoui_data["exploit"]["rank"] =  html_encode(L.rank)
-				nanoui_data["exploit"]["citizenship"] =  html_encode(L.citizenship)
-				nanoui_data["exploit"]["employer"] =  html_encode(L.employer)
-				nanoui_data["exploit"]["religion"] =  html_encode(L.religion)
-				nanoui_data["exploit"]["fingerprint"] =  html_encode(L.fingerprint)
+				nanoui_data["exploit"]["name"] = html_encode(L.name)
+				nanoui_data["exploit"]["sex"] = html_encode(L.sex)
+				nanoui_data["exploit"]["age"] = html_encode(L.age)
+				nanoui_data["exploit"]["species"] = html_encode(L.species)
+				nanoui_data["exploit"]["rank"] = html_encode(L.rank)
+				nanoui_data["exploit"]["citizenship"] = html_encode(L.citizenship)
+				nanoui_data["exploit"]["employer"] = html_encode(L.employer)
+				nanoui_data["exploit"]["religion"] = html_encode(L.religion)
+				nanoui_data["exploit"]["fingerprint"] = html_encode(L.fingerprint)
 
 				nanoui_data["exploit_exists"] = 1
 				break
