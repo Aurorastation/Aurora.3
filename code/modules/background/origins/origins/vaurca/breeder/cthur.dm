@@ -6,6 +6,8 @@
 		/singleton/origin_item/origin/mouv_b,
 		/singleton/origin_item/origin/vytel_b
 	)
+	origin_traits_descriptions = list("have a Nral'Malic language processor", "have a psionic receiver")
+	origin_augs = list(/obj/item/organ/internal/augment/language/cthur, /obj/item/organ/internal/augment/psi)
 
 /singleton/origin_item/origin/cthur_b
 	name = "C'thur Brood"

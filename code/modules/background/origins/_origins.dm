@@ -6,6 +6,7 @@
 	/// Format for the following list: "Characters from this origin: [list entry], [list entry]."
 	/// One list item per trait.
 	var/list/origin_traits_descriptions = list()
+	var/list/origin_augs = list() //For origins that will spawn with augments. Currently used for the C'thur and K'lax origins and cultures.
 
 /singleton/origin_item/culture
 	name = "generic culture"
@@ -20,3 +21,10 @@
 /singleton/origin_item/proc/on_apply(var/mob/living/carbon/human/H)
 	for(var/trait in origin_traits)
 		ADD_TRAIT(H, trait, CULTURE_TRAIT)
+
+/singleton/origin_item/proc/add_augs(var/mob/living/carbon/human/H)
+	for(var/augment in origin_augs)
+		var/obj/item/organ/A = new augment(H)
+		var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+		A.replaced(H, affected)
+		H.update_body()

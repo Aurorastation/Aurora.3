@@ -144,6 +144,7 @@
 					var/singleton/origin_item/culture/new_culture = culture_map[new_culture_id]
 					owner.culture = new_culture
 					owner.culture.on_apply(owner)
+					owner.culture.add_augs(owner)
 					if(!(owner.origin in new_culture.possible_origins))
 						owner.origin = GET_SINGLETON(pick(new_culture.possible_origins))
 					clear_and_generate_data()
@@ -155,6 +156,7 @@
 					var/singleton/origin_item/origin/new_origin = origin_map[new_origin_id]
 					owner.origin = new_origin
 					owner.origin.on_apply(owner)
+					owner.origin.add_augs(owner)
 					if(!(owner.accent in new_origin.possible_accents))
 						owner.accent = new_origin.possible_accents[1]
 					if(!(owner.religion in new_origin.possible_religions))

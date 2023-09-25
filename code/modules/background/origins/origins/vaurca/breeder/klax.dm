@@ -7,6 +7,8 @@
 		/singleton/origin_item/origin/vedhra_b,
 		/singleton/origin_item/origin/tupii_b
 	)
+	origin_traits_descriptions = list("have a Sinta'Unathi language processor")
+	origin_augs = list(/obj/item/organ/internal/augment/language/klax)
 
 /singleton/origin_item/origin/zkaii_b
 	name = "Zkaii Brood"
