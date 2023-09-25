@@ -268,7 +268,7 @@
 	interface_name = "thermal drill"
 	interface_desc = "A potent drill that can pierce rock walls over long distances."
 
-	gun_type = /obj/item/gun/energy/vaurca/mountedthermaldrill
+	gun_type = /obj/item/gun/energy/vaurca/thermaldrill/mounted
 
 	category = MODULE_UTILITY
 
