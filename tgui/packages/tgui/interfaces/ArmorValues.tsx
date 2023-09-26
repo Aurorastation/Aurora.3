@@ -1,5 +1,6 @@
 import { useBackend } from '../backend';
 import { Box, Divider, NoticeBox, ProgressBar, Section } from '../components';
+import { capitalize } from '../../common/string';
 import { Window } from '../layouts';
 
 export type ArmorValuesData = {
@@ -22,7 +23,7 @@ export const ArmorValues = (props, context) => {
           {Object.keys(data.armor_values).map((line) =>
             line ? (
               <Box>
-                <Box pb={1}>{line.toUpperCase()}</Box>
+                <Box pb={1}>{capitalize(line)}</Box>
                 <ProgressBar
                   ranges={{
                     good: [50, 100],
