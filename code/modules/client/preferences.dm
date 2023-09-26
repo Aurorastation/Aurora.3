@@ -453,9 +453,7 @@ var/list/preferences_datums = list()
 	character.origin = GET_SINGLETON(text2path(origin))
 	character.culture = GET_SINGLETON(text2path(culture))
 	character.origin.on_apply(character)
-	character.origin.add_augs(character)
 	character.culture.on_apply(character)
-	character.culture.add_augs(character)
 
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)

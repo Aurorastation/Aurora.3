@@ -22,7 +22,6 @@
 	for(var/trait in origin_traits)
 		ADD_TRAIT(H, trait, CULTURE_TRAIT)
 
-/singleton/origin_item/proc/add_augs(var/mob/living/carbon/human/H)
 	for(var/augment in origin_augs)
 		var/obj/item/organ/A = new augment(H)
 		var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
