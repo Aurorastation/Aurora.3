@@ -685,8 +685,9 @@
 	autoclose = TRUE
 	support_ids = TRUE
 	glass = TRUE
+	opacity = 0 //otherwise it is opaque until opened/closed for the first time.
 
-/obj/machinery/door/urban/glass_sliding/double
+/obj/machinery/door/urban/glass_sliding/double //use north state for left side and south state for right side
 	icon_state = "double_glass_sliding_closed"
 	base_icon = "double_glass_sliding"
 
