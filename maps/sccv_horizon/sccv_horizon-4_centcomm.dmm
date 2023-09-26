@@ -78,7 +78,9 @@
 /turf/template_noop,
 /area/template_noop)
 "aal" = (
-/obj/effect/shuttle_landmark/burglar_ship/interim,
+/obj/effect/shuttle_landmark/burglar_ship/interim{
+	dir = 4
+	},
 /turf/space/transit/north,
 /area/template_noop)
 "aam" = (
@@ -25042,7 +25044,6 @@
 /area/shuttle/burglar)
 "bhR" = (
 /obj/machinery/light/small/emergency,
-/obj/effect/shuttle_landmark/burglar_ship/start,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/burglar)
 "bhT" = (
@@ -25053,7 +25054,6 @@
 	},
 /obj/machinery/door/airlock/hatch{
 	frequency = 1337;
-	icon_state = "door_locked";
 	id_tag = "burglar_shuttle_hatch";
 	locked = 1;
 	req_access = list(150);
@@ -28085,13 +28085,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
-"boQ" = (
-/obj/effect/shuttle_landmark/merc_ship/interim{
-	dir = 4
-	},
-/obj/effect/step_trigger/thrower/shuttle/east,
-/turf/space/transit/north,
-/area/template_noop)
 "boR" = (
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -35930,6 +35923,15 @@
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"bLU" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/burglar_ship/start{
+	dir = 4
+	},
+/turf/unsimulated/floor/plating,
+/area/antag/burglar)
 "bLV" = (
 /obj/effect/shuttle_landmark/skipjack_ship/interim,
 /turf/space/transit/north,
@@ -36141,6 +36143,13 @@
 /obj/structure/sign/christmas/snowman,
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
+"bMT" = (
+/obj/effect/shuttle_landmark/merc_ship/interim{
+	dir = 4
+	},
+/obj/effect/step_trigger/thrower/shuttle/east,
+/turf/space/transit/north,
+/area/template_noop)
 "bMU" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -45236,7 +45245,7 @@ aac
 aac
 aac
 aac
-aal
+aac
 aac
 aac
 aac
@@ -46008,7 +46017,7 @@ aac
 aac
 aac
 aac
-aac
+aal
 aac
 aac
 aac
@@ -55751,7 +55760,7 @@ aac
 aab
 bLJ
 bLJ
-boQ
+bMT
 bLJ
 aab
 aab
@@ -98019,7 +98028,7 @@ bcc
 bcc
 bgs
 bcc
-bcc
+bLU
 bcc
 bcc
 bcc

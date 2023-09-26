@@ -27252,7 +27252,9 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "vbi" = (
-/obj/effect/shuttle_landmark/burglar_ship/third_deck,
+/obj/effect/shuttle_landmark/merc_ship/third_deck{
+	dir = 4
+	},
 /turf/template_noop,
 /area/template_noop)
 "vbE" = (
@@ -31300,7 +31302,7 @@
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
 "yja" = (
-/obj/effect/shuttle_landmark/merc_ship/third_deck{
+/obj/effect/shuttle_landmark/burglar_ship/third_deck{
 	dir = 4
 	},
 /turf/template_noop,
@@ -34098,7 +34100,7 @@ dSF
 dSF
 dSF
 dSF
-vbi
+dSF
 dSF
 dSF
 dSF
@@ -35304,7 +35306,7 @@ dSF
 dSF
 dSF
 dSF
-dSF
+yja
 dSF
 dSF
 dSF
@@ -41734,7 +41736,7 @@ dSF
 dSF
 dSF
 dSF
-yja
+vbi
 dSF
 dSF
 dSF

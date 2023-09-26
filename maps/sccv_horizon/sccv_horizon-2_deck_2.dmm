@@ -41891,9 +41891,11 @@
 /turf/simulated/wall,
 /area/horizon/kitchen)
 "upQ" = (
-/obj/effect/shuttle_landmark/burglar_ship/second_deck,
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/shuttle_landmark/burglar_ship/second_deck{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/wing/starboard/far)
 "upS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -54308,7 +54310,7 @@ qgN
 qgN
 qgN
 qgN
-upQ
+qgN
 qgN
 qgN
 qgN
@@ -54914,7 +54916,7 @@ kDC
 wmi
 kDC
 kDC
-kDC
+upQ
 kDC
 kDC
 kDC
