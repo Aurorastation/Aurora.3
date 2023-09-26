@@ -168,13 +168,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "cN" = (
-/obj/structure/ledge/roof{
-	dir = 4
-	},
-/obj/structure/ledge/roof/corner{
-	dir = 1
-	},
-/turf/simulated/floor/roofing_tiles,
+/turf/simulated/wall,
 /area/point_verdant/outdoors)
 "cW" = (
 /obj/machinery/light/small{
@@ -313,6 +307,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"fj" = (
+/turf/simulated/floor/tiled,
 /area/point_verdant/outdoors)
 "fm" = (
 /obj/structure/rod_railing{
@@ -481,13 +478,8 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "gC" = (
-/obj/structure/ledge/roof{
-	dir = 4
-	},
-/obj/structure/ledge/roof{
-	dir = 8
-	},
-/turf/simulated/floor/roofing_tiles,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/tiled,
 /area/point_verdant/outdoors)
 "gH" = (
 /turf/simulated/floor/lino,
@@ -633,6 +625,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
+"jZ" = (
+/obj/structure/closet/crate/tool,
+/turf/simulated/floor/tiled,
 /area/point_verdant/outdoors)
 "ka" = (
 /obj/effect/decal/road_marking/no_pass{
@@ -1165,6 +1161,12 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"uX" = (
+/obj/structure/rod_railing{
+	dir = 6
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "vf" = (
 /obj/structure/ledge/quarter/corner{
 	dir = 1
@@ -1359,6 +1361,10 @@
 "xZ" = (
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/laundromat)
+"yb" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/tiled,
+/area/point_verdant/outdoors)
 "yc" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -1373,6 +1379,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"yz" = (
+/obj/structure/closet/crate/weld,
+/turf/simulated/floor/tiled,
 /area/point_verdant/outdoors)
 "yO" = (
 /obj/item/modular_computer/laptop/preset/civilian,
@@ -1550,6 +1560,11 @@
 	},
 /turf/simulated/open,
 /area/point_verdant/outdoors)
+"Bo" = (
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/tiled,
+/area/point_verdant/outdoors)
 "Bt" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -1626,6 +1641,10 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/interior/arcade)
+"Do" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled,
+/area/point_verdant/outdoors)
 "Du" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/wood,
@@ -1635,6 +1654,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"Dz" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled,
 /area/point_verdant/outdoors)
 "DB" = (
 /obj/structure/rod_railing{
@@ -1832,6 +1855,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior)
+"GR" = (
+/obj/structure/rod_railing{
+	dir = 10
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "GV" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/curb/corner{
@@ -1844,6 +1873,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
+"Hb" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled,
 /area/point_verdant/outdoors)
 "Hd" = (
 /obj/structure/ledge/quarter{
@@ -2132,6 +2165,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/point_verdant/outdoors)
+"LT" = (
+/obj/structure/table/rack/retail_shelf,
+/turf/simulated/floor/tiled,
+/area/point_verdant/outdoors)
 "Ma" = (
 /obj/structure/road_barrier/bot_end,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
@@ -2192,6 +2229,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
+"MZ" = (
+/obj/structure/closet,
+/turf/simulated/floor/tiled,
 /area/point_verdant/outdoors)
 "Ni" = (
 /obj/effect/decal/road_marking/center{
@@ -2622,19 +2663,20 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "Vc" = (
-/obj/structure/ledge/roof{
-	dir = 4
-	},
-/obj/structure/ledge/roof/corner{
-	dir = 4
-	},
-/turf/simulated/floor/roofing_tiles,
+/obj/machinery/mecha_part_fabricator,
+/turf/simulated/floor/tiled,
 /area/point_verdant/outdoors)
 "Ve" = (
 /obj/effect/decal/road_marking{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"Vp" = (
+/obj/structure/rod_railing{
+	dir = 8
+	},
+/turf/simulated/open,
 /area/point_verdant/outdoors)
 "Vt" = (
 /obj/effect/decal/road_marking{
@@ -2852,6 +2894,11 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"Yl" = (
+/obj/machinery/door/urban,
+/obj/effect/decal/exterior_stairs/half,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "Ym" = (
 /obj/structure/ledge{
 	dir = 4
@@ -2956,6 +3003,12 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"ZV" = (
+/obj/structure/rod_railing{
+	dir = 10
+	},
+/turf/simulated/open,
+/area/point_verdant/outdoors)
 
 (1,1,1) = {"
 ER
@@ -24380,17 +24433,17 @@ Cw
 Cw
 Cw
 vj
-OI
-wJ
-wJ
-wJ
-wJ
-wJ
-JQ
-Ey
-Ey
-Ey
-Ey
+cN
+cN
+gC
+gC
+cN
+cN
+cN
+cN
+cN
+cN
+cN
 Ey
 Ey
 mB
@@ -24637,18 +24690,18 @@ Cw
 Cw
 Cw
 vj
-OY
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
+cN
+Vc
+Vc
+Do
+Bo
+cN
+LT
+Hb
+LT
+Dz
+cN
+GR
 Ey
 mB
 Ml
@@ -24894,18 +24947,18 @@ Cw
 Cw
 Cw
 vj
-OY
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
+gC
+fj
+fj
+fj
+Do
+cN
+LT
+fj
+LT
+fj
+Yl
+DD
 Ey
 mB
 Ml
@@ -25151,18 +25204,18 @@ Cw
 Cw
 Cw
 vj
-OY
-BN
-jf
-jf
-yV
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
+gC
+fj
+fj
+fj
+fj
+yb
+fj
+fj
+fj
+fj
+cN
+uX
 Ey
 mB
 Ml
@@ -25408,17 +25461,17 @@ Cw
 Cw
 Cw
 vj
-OY
-Ey
-Cw
-Cw
-OY
-Ey
-Ey
-Ey
-Ey
-Ey
-Ey
+cN
+fj
+Vp
+ZV
+MZ
+cN
+jZ
+yz
+Hb
+Dz
+cN
 Ey
 Ey
 mB
@@ -25665,17 +25718,17 @@ Cw
 Cw
 Cw
 vj
-ST
-Vc
+cN
+cN
 gC
 gC
 cN
-jf
-jf
-jf
-jf
-jf
-jf
+cN
+cN
+gC
+gC
+cN
+cN
 jf
 jf
 aW

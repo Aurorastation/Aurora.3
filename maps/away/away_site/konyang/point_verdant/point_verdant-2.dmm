@@ -9444,6 +9444,12 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
+"Nm" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/robotics)
 "No" = (
 /obj/structure/table/stone/marble,
 /obj/structure/window/reinforced{
@@ -9575,10 +9581,14 @@
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior/police)
 "NO" = (
-/obj/machinery/mecha_part_fabricator,
 /obj/machinery/light{
 	dir = 1;
 	pixel_y = 24
+	},
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 4;
+	pixel_x = 2
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
@@ -11188,7 +11198,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Vg" = (
-/obj/machinery/mecha_part_fabricator,
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "Vi" = (
@@ -33975,9 +33985,9 @@ iL
 Fq
 BT
 gK
-Uy
-gR
-gR
+Vg
+Vg
+Vg
 Ty
 gK
 tS
@@ -34233,7 +34243,7 @@ Fq
 BT
 gK
 NO
-gR
+Nm
 gR
 gR
 ye
@@ -34489,7 +34499,7 @@ iL
 Fq
 BT
 gK
-Vg
+Uy
 gR
 gR
 gR
