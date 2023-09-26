@@ -16,7 +16,7 @@ export const ArmorValues = (props, context) => {
           <NoticeBox>
             The statistics below are out of character info, you can use this to
             reference armor values, but do not state the percentages in
-            character
+            character.
           </NoticeBox>
           <Divider />
           {Object.keys(data.armor_values).map((line) =>
