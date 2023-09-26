@@ -507,6 +507,14 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
+"gV" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant/outdoors)
 "hd" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -928,6 +936,15 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"kV" = (
+/obj/structure/ledge,
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant/outdoors)
 "lc" = (
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -2042,10 +2059,11 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
 "xd" = (
-/obj/structure/utility_pole/street/on{
-	dir = 8
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1
 	},
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
 "xg" = (
 /obj/structure/light_pole/r,
@@ -3101,6 +3119,13 @@
 "Kl" = (
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
+"Km" = (
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_y = 6;
+	pixel_x = 12
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "Kp" = (
 /turf/simulated/wall/wood,
 /area/point_verdant/interior/hotel)
@@ -3490,6 +3515,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
+"Pa" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant/outdoors)
 "Pc" = (
 /obj/machinery/door/urban{
 	dir = 4
@@ -4076,6 +4109,14 @@
 	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/decrepit)
+"VF" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant/outdoors)
 "VR" = (
 /obj/structure/shipping_container{
 	icon_state = "blue3"
@@ -4333,6 +4374,13 @@
 	},
 /obj/effect/decal/road_marking/no_pass,
 /turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"Yh" = (
+/obj/structure/dock_structure,
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "Yn" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
@@ -42582,12 +42630,12 @@ xz
 xz
 xz
 xz
-OG
-OG
-OG
-OG
-OG
-OG
+xz
+xz
+xz
+xz
+xz
+gV
 OG
 OG
 OG
@@ -42597,12 +42645,12 @@ yv
 zy
 OG
 OG
-OG
-OG
-OG
-OG
-OG
-OG
+VF
+xz
+xz
+xz
+xz
+xz
 xz
 xz
 xz
@@ -42844,7 +42892,7 @@ OG
 OG
 OG
 OG
-OG
+xd
 OG
 OG
 OG
@@ -42854,11 +42902,11 @@ yv
 zy
 OG
 OG
-hN
-hN
-hN
-hN
-hN
+Pa
+OG
+OG
+OG
+OG
 OG
 OG
 OG
@@ -43101,7 +43149,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 OG
@@ -43110,14 +43158,14 @@ yv
 eB
 zy
 OG
+OG
+Pa
+OG
+OG
 hN
 hN
 hN
-hN
-hN
-hN
-hN
-hN
+OG
 hN
 hN
 hN
@@ -43358,7 +43406,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -43366,9 +43414,9 @@ yv
 yv
 yv
 zy
+OG
 hN
-hN
-hN
+aW
 hN
 hN
 hN
@@ -43615,7 +43663,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -43625,7 +43673,7 @@ yv
 zy
 hN
 hN
-hN
+aW
 hN
 hN
 hN
@@ -43872,17 +43920,17 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
 yv
 yv
 yv
-RK
+zy
 hN
 hN
-hN
+aW
 hN
 hN
 hN
@@ -44129,7 +44177,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -44139,7 +44187,7 @@ yv
 RK
 hN
 hN
-hN
+aW
 hN
 hN
 hN
@@ -44386,7 +44434,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -44396,7 +44444,7 @@ eB
 RK
 hN
 hN
-hN
+aW
 hN
 hN
 hN
@@ -44643,7 +44691,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -44653,7 +44701,7 @@ yv
 RK
 hN
 hN
-hN
+aW
 hN
 hN
 hN
@@ -44900,7 +44948,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -44910,7 +44958,7 @@ yv
 RK
 hN
 hN
-hN
+aW
 hN
 hN
 hN
@@ -45157,7 +45205,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -45167,7 +45215,7 @@ yv
 RK
 hN
 hN
-hN
+aW
 hN
 hN
 hN
@@ -45414,17 +45462,17 @@ hN
 hN
 hN
 hN
+ih
 hN
 hN
 hN
-hN
-yv
+Km
 yv
 yv
 RK
 hN
 hN
-hN
+aW
 hN
 hN
 hN
@@ -45671,7 +45719,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -45681,7 +45729,7 @@ eB
 RK
 hN
 hN
-hN
+aW
 hN
 hN
 hN
@@ -45938,7 +45986,7 @@ yv
 RK
 hN
 hN
-hN
+aW
 hN
 hN
 hN
@@ -46189,13 +46237,13 @@ AQ
 AQ
 AQ
 Pz
-xd
+yv
 yv
 yv
 RK
 hN
 hN
-hN
+aW
 hN
 hN
 hN
@@ -46446,13 +46494,13 @@ hN
 hN
 hN
 hN
-hN
-tI
+Yh
+yv
 eB
 RK
 hN
 hN
-hN
+aW
 hN
 hN
 hN
@@ -48794,7 +48842,7 @@ hN
 hN
 hN
 hN
-hN
+Rf
 Rf
 Rf
 Rf
@@ -49051,7 +49099,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -49308,7 +49356,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -49565,7 +49613,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 OG
@@ -50336,7 +50384,7 @@ hN
 hN
 hN
 hN
-OG
+xd
 OG
 aZ
 tI
@@ -50593,7 +50641,7 @@ hN
 hN
 hN
 hN
-OG
+xd
 OG
 aZ
 yv
@@ -50850,7 +50898,7 @@ hN
 hN
 hN
 hN
-OG
+xd
 OG
 aZ
 yv
@@ -51107,7 +51155,7 @@ hN
 hN
 hN
 OG
-OG
+xd
 OG
 aZ
 yv
@@ -51364,7 +51412,7 @@ hN
 hN
 hN
 OG
-OG
+xd
 OG
 aZ
 yv
@@ -51621,7 +51669,7 @@ hN
 hN
 hN
 hN
-OG
+xd
 OG
 aZ
 yv
@@ -51878,7 +51926,7 @@ hN
 hN
 hN
 hN
-OG
+xd
 OG
 aZ
 yv
@@ -52135,7 +52183,7 @@ hN
 hN
 hN
 hN
-OG
+xd
 OG
 aZ
 yv
@@ -52392,7 +52440,7 @@ hN
 hN
 hN
 OG
-OG
+xd
 OG
 aZ
 yv
@@ -52649,7 +52697,7 @@ hN
 hN
 hN
 OG
-OG
+xd
 OG
 aZ
 yv
@@ -52906,7 +52954,7 @@ hN
 hN
 hN
 OG
-OG
+xd
 OG
 aZ
 yv
@@ -53163,7 +53211,7 @@ hN
 hN
 hN
 OG
-OG
+xd
 OG
 aZ
 yv
@@ -53420,7 +53468,7 @@ hN
 hN
 hN
 hN
-OG
+xd
 OG
 aZ
 yv
@@ -53677,7 +53725,7 @@ hN
 hN
 hN
 hN
-OG
+xd
 OG
 aZ
 yv
@@ -53934,7 +53982,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 OG
 aZ
 yv
@@ -54191,7 +54239,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 aZ
 tI
@@ -54448,7 +54496,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -54705,7 +54753,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -54962,7 +55010,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -55219,7 +55267,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -55476,7 +55524,7 @@ hN
 hN
 hN
 hN
-hN
+ih
 hN
 hN
 hN
@@ -55732,17 +55780,17 @@ hN
 hN
 hN
 hN
+hN
 qk
-qk
-hN
-hN
-hN
-hN
-hN
-hN
-OG
-OG
-kw
+rX
+rX
+rX
+rX
+rX
+rX
+xz
+xz
+kV
 tI
 yv
 tI
@@ -55991,8 +56039,8 @@ hN
 hN
 hN
 hN
-qk
-qk
+hN
+hN
 hN
 hN
 hN
