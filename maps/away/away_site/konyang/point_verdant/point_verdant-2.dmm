@@ -398,6 +398,7 @@
 	tiles = 1;
 	dir = 10
 	},
+/obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "bC" = (
@@ -1187,14 +1188,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
-"eI" = (
-/obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
-	tiles = 1;
-	dir = 6
-	},
-/turf/simulated/floor/exoplanet/water/konyang,
-/area/point_verdant/water)
 "eK" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/cleanable/blood/oil,
@@ -2109,6 +2102,11 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/interior/shallow)
+"ip" = (
+/obj/structure/chainlink_fence,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/outdoors)
 "ir" = (
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
@@ -4032,6 +4030,14 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"pK" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/point_verdant/water)
 "pN" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled,
@@ -4874,14 +4880,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
-"sZ" = (
-/obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
-	tiles = 1;
-	dir = 10
-	},
-/turf/simulated/floor/exoplanet/water/konyang,
-/area/point_verdant/water)
 "ta" = (
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang/wilting,
@@ -9459,6 +9457,7 @@
 /area/point_verdant/outdoors)
 "JQ" = (
 /obj/random/dirt_75,
+/obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "JT" = (
@@ -11094,6 +11093,14 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/robotics)
+"Qp" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/point_verdant/water)
 "Qq" = (
 /obj/structure/ledge{
 	dir = 4
@@ -11528,6 +11535,18 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Se" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/outdoors)
 "Sf" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
@@ -11688,6 +11707,13 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
+"SV" = (
+/obj/structure/konyang_cliff{
+	icon_state = "cliff-top1"
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/outdoors)
 "SW" = (
 /obj/item/modular_computer/console{
 	dir = 4
@@ -12429,6 +12455,7 @@
 /obj/structure/road_barrier/bot_end{
 	dir = 1
 	},
+/obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "VQ" = (
@@ -12465,6 +12492,7 @@
 /obj/structure/konyang_cliff{
 	icon_state = "topcorner_west"
 	},
+/obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "VV" = (
@@ -22023,7 +22051,7 @@ ss
 ss
 Ez
 KU
-eI
+Qp
 ss
 ss
 ss
@@ -22798,9 +22826,9 @@ zb
 MA
 MA
 wL
-Al
-Al
-Al
+Oq
+Oq
+Oq
 Al
 Al
 Al
@@ -23055,7 +23083,7 @@ zb
 MA
 MA
 wL
-Al
+Oq
 VU
 ln
 ln
@@ -23312,7 +23340,7 @@ zb
 MA
 MA
 wL
-Al
+Oq
 Fs
 cf
 cf
@@ -23565,11 +23593,11 @@ MA
 MA
 MA
 az
-sZ
+pK
 zb
 MA
 wL
-Al
+Oq
 Fs
 cf
 oP
@@ -23826,7 +23854,7 @@ az
 zb
 MA
 wL
-Al
+Oq
 Fs
 cf
 oP
@@ -24079,7 +24107,7 @@ MA
 MA
 MA
 az
-eI
+Qp
 zb
 MA
 wL
@@ -24335,8 +24363,8 @@ FK
 MA
 MA
 MA
-eI
-eI
+Qp
+Qp
 MA
 MA
 wL
@@ -25112,7 +25140,7 @@ MA
 MA
 wL
 Al
-Fs
+SV
 cf
 oP
 oP
@@ -25362,14 +25390,14 @@ dE
 yG
 MA
 az
-eI
-eI
+Qp
+Qp
 MA
 MA
 MA
 wL
 Al
-Fs
+SV
 cf
 ci
 ci
@@ -26139,7 +26167,7 @@ MA
 MA
 MA
 wL
-Al
+Oq
 Fs
 cf
 ci
@@ -26396,7 +26424,7 @@ MA
 MA
 MA
 wL
-Al
+Oq
 Fs
 cf
 ci
@@ -26906,11 +26934,11 @@ az
 az
 Hv
 wL
+Oq
+Oq
+Oq
 Al
-Al
-Al
-Al
-Al
+Oq
 Fs
 cf
 ci
@@ -27164,10 +27192,10 @@ az
 Hv
 wL
 Al
-Al
-Al
-Al
-Al
+Fr
+Oq
+Oq
+Oq
 Fs
 cf
 ci
@@ -27425,7 +27453,7 @@ Al
 xu
 xu
 Al
-Fs
+SV
 cf
 ci
 rB
@@ -27677,12 +27705,12 @@ az
 MA
 Hv
 wL
-Al
+Oq
 xu
 xu
 xu
 xu
-Fs
+SV
 cf
 ci
 rB
@@ -27934,7 +27962,7 @@ MA
 MA
 Hv
 wL
-Al
+Oq
 xu
 xu
 xu
@@ -28191,7 +28219,7 @@ MA
 MA
 Hv
 wL
-Al
+Oq
 xu
 xu
 xu
@@ -28448,11 +28476,11 @@ MA
 MA
 Hv
 wL
-Al
+Oq
 xu
 xu
-Al
-Al
+Oq
+BP
 Fs
 cf
 ci
@@ -28705,11 +28733,11 @@ MA
 MA
 Hv
 wL
-Al
+Oq
 xu
-Al
-Al
-Al
+Oq
+Oq
+Oq
 Fs
 cf
 cf
@@ -28962,11 +28990,11 @@ MA
 Ez
 Ez
 wL
-Al
+Oq
 gF
-Al
-Al
-Al
+Oq
+Oq
+Oq
 Br
 LQ
 LQ
@@ -30760,17 +30788,17 @@ qc
 Al
 Al
 Al
-Al
+BP
 Al
 qK
+Oq
 Al
 Al
 Al
 Al
 Al
-Al
-Al
-Al
+Oq
+Oq
 Dv
 fm
 MA
@@ -31015,19 +31043,19 @@ nH
 Ir
 Up
 Al
-Al
-Al
-Al
+Oq
+Oq
+Oq
 Al
 xu
 Al
 Al
 Al
+Oq
 Al
 Al
 Al
-Al
-Al
+Oq
 ur
 Dz
 MA
@@ -31274,17 +31302,17 @@ Ka
 FD
 FD
 bB
-Al
-Al
+Oq
+Oq
 xu
 Al
 Al
+BP
+Oq
+Oq
+Oq
 Al
-Al
-Al
-Al
-Al
-Al
+Oq
 ur
 Dz
 MA
@@ -31531,16 +31559,16 @@ Hc
 Hc
 Hc
 Up
-Al
-Al
+Oq
+Oq
 xu
 xu
 Al
 Al
 Al
+Oq
 Al
-Al
-Al
+Oq
 Al
 ur
 fm
@@ -31796,7 +31824,7 @@ Al
 Al
 Al
 Al
-Al
+Fr
 Al
 Al
 ur
@@ -32047,7 +32075,7 @@ Ir
 Up
 Al
 Al
-Al
+Fr
 xu
 xu
 Al
@@ -32310,7 +32338,7 @@ xu
 Al
 Al
 Al
-Al
+BP
 Al
 Al
 ur
@@ -32558,8 +32586,8 @@ Ds
 cY
 cY
 Ir
-Up
-Al
+Se
+Oq
 Al
 Al
 Al
@@ -32815,8 +32843,8 @@ Ds
 Ds
 Ds
 Ir
-Up
-Al
+Se
+Oq
 Al
 Al
 Al
@@ -33331,14 +33359,14 @@ cY
 Ir
 Up
 Al
-Al
+kN
 Al
 Al
 xu
 xu
 Al
-Al
-Al
+Oq
+vh
 Al
 Al
 ur
@@ -33588,15 +33616,15 @@ cY
 Ir
 Up
 Al
-Al
+Oq
 Al
 Al
 xu
 Al
 Al
-Al
-Al
-Al
+Oq
+Oq
+Oq
 Al
 ur
 Dz
@@ -33845,7 +33873,7 @@ cY
 Ir
 Up
 ny
-Al
+Oq
 Al
 Al
 xu
@@ -33853,8 +33881,8 @@ Al
 Al
 Al
 Al
-Al
-Al
+kN
+Oq
 ur
 fm
 MA
@@ -34102,16 +34130,16 @@ lI
 Ir
 Up
 OK
-Al
-Al
+Oq
+Oq
 Al
 xu
 xu
 Al
 Al
 Al
-Al
-Al
+Oq
+Oq
 ur
 Dz
 MA
@@ -34360,14 +34388,14 @@ yE
 yE
 OK
 ny
-Al
-Al
+Oq
+Oq
 Al
 xu
 Al
 Al
 Al
-Al
+Oq
 Al
 ur
 Dz
@@ -34618,13 +34646,13 @@ uM
 nN
 nN
 ny
-Al
+Oq
 Al
 xu
 xu
 Al
-Al
-Al
+Oq
+Oq
 Al
 Dv
 fm
@@ -34875,12 +34903,12 @@ uM
 nN
 OK
 ny
-ny
+hd
 Al
 Al
 xu
 Al
-Al
+Oq
 Al
 Al
 ur
@@ -35388,7 +35416,7 @@ ir
 uM
 OK
 ny
-Al
+Oq
 ny
 Al
 xu
@@ -35644,7 +35672,7 @@ Je
 ir
 uM
 JQ
-ny
+hd
 Al
 Al
 Al
@@ -35900,17 +35928,17 @@ FP
 FP
 bc
 uM
+Oq
 Al
 Al
 Al
-Al
-Al
+BP
 Al
 od
 Al
 Al
-Al
-bX
+Oq
+ip
 ur
 Dz
 MA
@@ -36157,8 +36185,8 @@ qx
 qx
 qx
 uM
-Al
-Al
+Oq
+Oq
 Al
 Al
 Al
@@ -36166,7 +36194,7 @@ Al
 od
 Al
 Al
-Al
+Oq
 VP
 TF
 qe
@@ -38216,8 +38244,8 @@ go
 KC
 ce
 Ir
-Al
-Al
+Oq
+Oq
 Al
 Al
 od
@@ -38473,9 +38501,9 @@ uf
 iL
 Fq
 Ir
+Oq
 Al
-Al
-Al
+Oq
 Al
 od
 Al
@@ -38730,10 +38758,10 @@ uf
 iL
 Fq
 Ir
+Oq
 Al
-Al
-Al
-Al
+Oq
+Oq
 xu
 Al
 Al
@@ -38989,11 +39017,11 @@ Fq
 Ir
 Al
 Al
-Al
-Al
+BP
+Oq
 xu
-Al
-Al
+Oq
+Oq
 bX
 ur
 Dz
@@ -39247,10 +39275,10 @@ Ir
 Al
 Al
 Al
-Al
+Oq
 xu
 Al
-Al
+Oq
 bX
 ur
 Dz
@@ -39504,10 +39532,10 @@ Ir
 Al
 Al
 Al
-Al
+Oq
 xu
 Al
-Al
+Oq
 bX
 ur
 Dz
@@ -39763,8 +39791,8 @@ Al
 Al
 xu
 xu
-Al
-Al
+Oq
+Oq
 bX
 ur
 fm
@@ -40015,7 +40043,7 @@ uf
 iL
 WV
 Ir
-Al
+Oq
 Al
 Al
 xu
@@ -40272,7 +40300,7 @@ uf
 iL
 Fq
 Ir
-Al
+Oq
 Al
 Al
 xu
@@ -40529,13 +40557,13 @@ uf
 iL
 Fq
 Ir
-Al
+Oq
 Al
 Al
 xu
 xu
 Al
-Al
+BP
 bX
 ur
 Dz
@@ -40786,7 +40814,7 @@ Hz
 iL
 Fq
 Ir
-Al
+Oq
 Al
 Al
 Al
@@ -41043,7 +41071,7 @@ Hz
 iL
 Fq
 Ir
-Al
+Oq
 Al
 Al
 xu
@@ -41558,8 +41586,8 @@ iL
 Fq
 Ir
 Al
-Al
-Al
+Oq
+Oq
 xu
 Al
 Al
@@ -41815,8 +41843,8 @@ iL
 Fq
 Ir
 Al
-Al
-Al
+Oq
+zF
 xu
 xu
 Al
@@ -42072,8 +42100,8 @@ iL
 WV
 Ir
 Al
-Al
-Al
+Oq
+Oq
 Al
 xu
 Al
@@ -42329,12 +42357,12 @@ iL
 Fq
 Ir
 Al
-Al
-Al
+Oq
+Oq
 Al
 xu
 Al
-Al
+Oq
 bX
 ur
 Dz
@@ -42590,8 +42618,8 @@ Al
 Al
 xu
 xu
-Al
-Al
+Oq
+Oq
 bX
 ur
 Dz
@@ -42842,13 +42870,13 @@ Hz
 iL
 Fq
 Ir
-Al
+Oq
 Al
 Al
 xu
-Al
-Al
-Al
+Oq
+Oq
+Oq
 bX
 ur
 Dz
@@ -43103,9 +43131,9 @@ Al
 Al
 Al
 xu
-Al
-Al
-Al
+Oq
+Oq
+Oq
 bX
 ur
 fm
@@ -43356,12 +43384,12 @@ Hz
 iL
 Fq
 Ir
-Al
-Al
+Oq
+Oq
 Al
 xu
 xu
-Al
+Oq
 Al
 bX
 ur
@@ -43613,8 +43641,8 @@ Hz
 iL
 Fq
 Ir
-Al
-Al
+oH
+Oq
 Al
 Al
 xu
@@ -43870,8 +43898,8 @@ iL
 iL
 Fq
 Ir
-Al
-Al
+Oq
+Oq
 Al
 Al
 xu
@@ -44127,8 +44155,8 @@ Hz
 iL
 WV
 Ir
-Al
-Al
+Oq
+Oq
 Al
 xu
 xu
@@ -44384,8 +44412,8 @@ Hz
 iL
 Fq
 Ir
-Al
-Al
+Oq
+Oq
 Al
 xu
 Al
@@ -44641,8 +44669,8 @@ iL
 iL
 Fq
 Ir
-Al
-Al
+Oq
+Oq
 Al
 xu
 xu
@@ -44898,8 +44926,8 @@ Hz
 iL
 Fq
 Ir
-Al
-Al
+Oq
+Oq
 Al
 Al
 xu
@@ -45155,13 +45183,13 @@ Hz
 iL
 Fq
 Ir
-Al
-Al
+Oq
+Oq
 Al
 Al
 xu
 xu
-Al
+Oq
 bX
 ur
 Dz
@@ -45418,8 +45446,8 @@ Al
 Al
 Al
 xu
-Al
-bX
+Oq
+ip
 ur
 Dz
 MA
@@ -45669,14 +45697,14 @@ Xy
 iL
 Fq
 Ir
-Al
+Oq
 Al
 Al
 Al
 xu
 xu
-Al
-bX
+Oq
+ip
 ur
 Dz
 MA
@@ -45933,7 +45961,7 @@ xu
 xu
 Al
 Al
-bX
+ip
 ur
 Dz
 MA
@@ -46190,7 +46218,7 @@ xu
 Al
 Al
 Al
-bX
+ip
 ur
 Dz
 MA
@@ -46440,14 +46468,14 @@ Xy
 iL
 Fq
 Ir
-Al
-Al
-Al
+Oq
+Oq
+Oq
 xu
 xu
+Oq
 Al
-Al
-bX
+ip
 ur
 Dz
 MA
@@ -46697,12 +46725,12 @@ Xy
 iL
 Fq
 Ir
-Al
-Al
-Al
+Oq
+Oq
+Oq
 Al
 xu
-Al
+Oq
 Al
 bX
 ur
@@ -46954,13 +46982,13 @@ iL
 iL
 Fq
 Ir
-Al
-Al
-Al
+Oq
+oH
+Oq
 Al
 xu
-Al
-Al
+Oq
+Oq
 bX
 ur
 Dz
@@ -47211,13 +47239,13 @@ Xy
 iL
 Fq
 Ir
-Al
-Al
+Oq
+Oq
 Al
 Al
 xu
 Al
-Al
+Oq
 bX
 ur
 Dz
@@ -47468,13 +47496,13 @@ Xy
 iL
 Fq
 Ir
-Al
-Al
+Oq
+Oq
 Al
 Al
 xu
 Al
-Al
+Oq
 bX
 ur
 Dz
@@ -47725,13 +47753,13 @@ Xy
 iL
 Fq
 Ir
-Al
-Al
+Oq
+oH
 Al
 Al
 xu
 Al
-Al
+Fr
 bX
 ur
 Dz
@@ -48245,7 +48273,7 @@ Al
 Al
 od
 Al
-Al
+Oq
 bX
 ur
 Dz
@@ -48499,10 +48527,10 @@ Ir
 Al
 Al
 Al
-Al
+Oq
 od
-Al
-Al
+Oq
+Oq
 bX
 ur
 Dz
@@ -48753,10 +48781,10 @@ Xy
 iL
 Fq
 QH
-Al
-Al
-Al
-Al
+Oq
+Oq
+Oq
+Oq
 od
 Al
 Al
