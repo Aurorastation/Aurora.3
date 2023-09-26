@@ -9234,7 +9234,9 @@
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "hll" = (
-/obj/effect/shuttle_landmark/skipjack_ship/third_deck,
+/obj/effect/shuttle_landmark/skipjack_ship/third_deck{
+	dir = 1
+	},
 /turf/template_noop,
 /area/template_noop)
 "hlt" = (
@@ -64961,7 +64963,7 @@ dSF
 dSF
 dSF
 dSF
-hll
+dSF
 dSF
 dSF
 dSF
@@ -65361,7 +65363,7 @@ dSF
 dSF
 dSF
 dSF
-dSF
+hll
 dSF
 dSF
 dSF

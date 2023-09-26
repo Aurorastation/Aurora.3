@@ -11919,7 +11919,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "itT" = (
-/obj/effect/shuttle_landmark/skipjack_ship/first_deck,
+/obj/effect/shuttle_landmark/skipjack_ship/first_deck{
+	dir = 1
+	},
 /turf/template_noop,
 /area/template_noop)
 "iuk" = (
@@ -51941,7 +51943,7 @@ eSV
 eSV
 eSV
 eSV
-itT
+eSV
 eSV
 eSV
 eSV
@@ -52346,7 +52348,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+itT
 eSV
 eSV
 eSV

@@ -4735,7 +4735,10 @@
 	locked = 1;
 	name = "hideout airlock";
 	req_access = list(110);
-	dir = 4
+	dir = 1
+	},
+/obj/effect/shuttle_landmark/skipjack_ship/start{
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
@@ -4773,24 +4776,6 @@
 /obj/structure/computerframe,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
-"akw" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1332;
-	icon_state = "door_locked";
-	id_tag = "pirate_hideout_door";
-	locked = 1;
-	name = "hideout airlock";
-	req_access = list(110);
-	dir = 4
-	},
-/obj/machinery/conveyor{
-	id = "hideout_shipping"
-	},
-/turf/unsimulated/floor/plating,
-/area/antag/raider)
 "akx" = (
 /obj/machinery/light{
 	dir = 4;
@@ -31374,11 +31359,10 @@
 "bvn" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1332;
-	icon_state = "door_locked";
 	id_tag = "raider_northeast_lock";
 	locked = 1;
 	req_access = list(150);
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -31926,7 +31910,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/shuttle_landmark/skipjack_ship/start,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "bxO" = (
@@ -31939,7 +31922,6 @@
 "bxU" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1332;
-	icon_state = "door_locked";
 	id_tag = "raider_southeast_lock";
 	locked = 1;
 	req_access = list(150);
@@ -35843,14 +35825,6 @@
 "bLz" = (
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
-"bLB" = (
-/obj/effect/step_trigger/thrower/shuttle/northwest,
-/turf/space/transit/north,
-/area/template_noop)
-"bLC" = (
-/obj/effect/step_trigger/thrower/shuttle/northeast,
-/turf/space/transit/north,
-/area/template_noop)
 "bLI" = (
 /obj/effect/step_trigger/thrower/shuttle/west,
 /turf/space/transit/north,
@@ -35933,7 +35907,10 @@
 /turf/unsimulated/floor/plating,
 /area/antag/burglar)
 "bLV" = (
-/obj/effect/shuttle_landmark/skipjack_ship/interim,
+/obj/effect/shuttle_landmark/skipjack_ship/interim{
+	dir = 1
+	},
+/obj/effect/step_trigger/thrower/shuttle/east,
 /turf/space/transit/north,
 /area/template_noop)
 "bLW" = (
@@ -36305,14 +36282,6 @@
 /obj/structure/bed/stool/padded/green,
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
-"bNs" = (
-/obj/effect/step_trigger/thrower/shuttle/southwest,
-/turf/space/transit/north,
-/area/template_noop)
-"bNt" = (
-/obj/effect/step_trigger/thrower/shuttle/southeast,
-/turf/space/transit/north,
-/area/template_noop)
 "bNu" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -59861,22 +59830,22 @@ aac
 aac
 aac
 aac
-bLI
-bLI
-bLI
-bLI
-bLI
-bLI
-bLI
-bLI
-bLI
-bLI
-bLI
-bLI
-bLI
-bLI
-bLI
-bLI
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aac
@@ -60116,25 +60085,25 @@ aac
 aac
 aac
 aac
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aac
-bLB
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-bNs
 aac
 aac
 aac
@@ -60373,7 +60342,7 @@ aac
 aac
 aac
 aac
-bLB
+aab
 aac
 aac
 aac
@@ -60390,9 +60359,9 @@ aac
 aac
 aac
 aac
+aab
 aac
 aac
-aad
 aac
 aac
 aac
@@ -60629,7 +60598,8 @@ aac
 aac
 aac
 aac
-bLy
+aac
+aab
 aac
 aac
 aac
@@ -60646,10 +60616,9 @@ aac
 aac
 aac
 aac
+aab
 aac
 aac
-aac
-aad
 aac
 aac
 aac
@@ -60886,7 +60855,8 @@ aac
 aac
 aac
 aac
-bLy
+aac
+aab
 aac
 aac
 aac
@@ -60903,10 +60873,9 @@ aac
 aac
 aac
 aac
+aab
 aac
 aac
-aac
-aad
 aac
 aac
 aac
@@ -61143,7 +61112,8 @@ aac
 aac
 aac
 aac
-bLy
+aac
+aab
 aac
 aac
 aac
@@ -61160,10 +61130,9 @@ aac
 aac
 aac
 aac
+aab
 aac
 aac
-aac
-aad
 aac
 aac
 aac
@@ -61401,7 +61370,7 @@ aac
 aac
 aac
 aac
-bLC
+aab
 aac
 aac
 aac
@@ -61418,9 +61387,9 @@ aac
 aac
 aac
 aac
+aab
 aac
 aac
-aad
 aac
 aac
 aac
@@ -61658,16 +61627,14 @@ aac
 aac
 aac
 aac
-aac
-bLC
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aac
 aac
 aac
@@ -61677,7 +61644,9 @@ aac
 aac
 aac
 aac
-aad
+aab
+aac
+aac
 aac
 aac
 aac
@@ -61915,15 +61884,13 @@ aac
 aac
 aac
 aac
-aac
-bLy
-bLy
-bLy
-bLy
-aac
-aac
-aac
-aac
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aac
 aac
 aac
@@ -61934,7 +61901,9 @@ aac
 aac
 aac
 aac
-aad
+aab
+aac
+aac
 aac
 aac
 aac
@@ -62172,7 +62141,9 @@ aac
 aac
 aac
 aac
-bLB
+bLI
+bLI
+bLI
 aac
 aac
 aac
@@ -62184,13 +62155,11 @@ aac
 aac
 aac
 aac
-aac
-aac
-aac
-aac
-aac
-aac
-aad
+aab
+aab
+aab
+aab
+aab
 aac
 aac
 aac
@@ -62428,7 +62397,8 @@ aac
 aac
 aac
 aac
-bLy
+aac
+bLI
 aac
 aac
 aac
@@ -62446,8 +62416,7 @@ aac
 aac
 aac
 aac
-aac
-aad
+aab
 aac
 aac
 aac
@@ -62685,13 +62654,8 @@ aac
 aac
 aac
 aac
-bLy
 aac
-aac
-aac
-aac
-bLV
-aac
+bLI
 aac
 aac
 aac
@@ -62705,7 +62669,12 @@ aac
 aac
 aac
 aac
-aad
+aac
+aac
+aac
+aac
+aab
+aac
 aac
 aac
 aac
@@ -62942,7 +62911,8 @@ aac
 aac
 aac
 aac
-bLy
+aac
+bLJ
 aac
 aac
 aac
@@ -62960,9 +62930,8 @@ aac
 aac
 aac
 aac
+aab
 aac
-aac
-aad
 aac
 aac
 aac
@@ -63199,7 +63168,8 @@ aac
 aac
 aac
 aac
-bLy
+aac
+bLJ
 aac
 aac
 aac
@@ -63217,8 +63187,7 @@ aac
 aac
 aac
 aac
-aac
-aad
+aab
 aac
 aac
 aac
@@ -63457,7 +63426,9 @@ aac
 aac
 aac
 aac
-bLC
+bLJ
+bLJ
+bLJ
 aac
 aac
 aac
@@ -63469,13 +63440,11 @@ aac
 aac
 aac
 aac
-aac
-aac
-aac
-aac
-aac
-aac
-aad
+aab
+aab
+aab
+aab
+aab
 aac
 aac
 aac
@@ -63714,15 +63683,13 @@ aac
 aac
 aac
 aac
-aac
-bLy
-bLy
-bLy
-bLy
-aac
-aac
-aac
-aac
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aac
 aac
 aac
@@ -63733,7 +63700,9 @@ aac
 aac
 aac
 aac
-aad
+aab
+aac
+aac
 aac
 aac
 aac
@@ -63971,16 +63940,14 @@ aac
 aac
 aac
 aac
-aac
-bLB
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aac
 aac
 aac
@@ -63990,7 +63957,9 @@ aac
 aac
 aac
 aac
-aad
+aab
+aac
+aac
 aac
 aac
 aac
@@ -64228,7 +64197,7 @@ aac
 aac
 aac
 aac
-bLB
+bLJ
 aac
 aac
 aac
@@ -64245,9 +64214,9 @@ aac
 aac
 aac
 aac
+aab
 aac
 aac
-aad
 aac
 aac
 aac
@@ -64484,7 +64453,8 @@ aac
 aac
 aac
 aac
-bLy
+aac
+bLJ
 aac
 aac
 aac
@@ -64501,10 +64471,9 @@ aac
 aac
 aac
 aac
+aab
 aac
 aac
-aac
-aad
 aac
 aac
 aac
@@ -64741,7 +64710,8 @@ aac
 aac
 aac
 aac
-bLy
+aac
+bLV
 aac
 aac
 aac
@@ -64758,10 +64728,9 @@ aac
 aac
 aac
 aac
+aab
 aac
 aac
-aac
-aad
 aac
 aac
 aac
@@ -64998,7 +64967,8 @@ aac
 aac
 aac
 aac
-bLy
+aac
+bLJ
 aac
 aac
 aac
@@ -65015,10 +64985,9 @@ aac
 aac
 aac
 aac
+aab
 aac
 aac
-aac
-aad
 aac
 aac
 aac
@@ -65256,7 +65225,7 @@ aac
 aac
 aac
 aac
-bLC
+bLJ
 aac
 aac
 aac
@@ -65273,9 +65242,9 @@ aac
 aac
 aac
 aac
+aab
 aac
 aac
-aad
 aac
 aac
 aac
@@ -65513,26 +65482,26 @@ aac
 aac
 aac
 aac
+bLJ
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aac
-bLC
 aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-bNt
-aad
 aac
 aac
 aac
@@ -65772,23 +65741,23 @@ aac
 aac
 aac
 aac
-bLJ
-bLJ
-bLJ
-bLJ
-bLJ
-bLJ
-bLJ
-bLJ
-bLJ
-bLJ
-bLJ
-bLJ
-bLJ
-bLJ
-bLJ
-bLJ
-aad
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
+aac
 aac
 aac
 aac
@@ -103185,7 +103154,7 @@ brO
 bsE
 bto
 bto
-akw
+bsE
 axm
 bwe
 bxf

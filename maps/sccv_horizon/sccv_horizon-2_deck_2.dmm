@@ -49736,7 +49736,9 @@
 /turf/simulated/floor/tiled/full,
 /area/rnd/hallway)
 "xWc" = (
-/obj/effect/shuttle_landmark/skipjack_ship/second_deck,
+/obj/effect/shuttle_landmark/skipjack_ship/second_deck{
+	dir = 1
+	},
 /turf/template_noop,
 /area/template_noop)
 "xWr" = (
@@ -55272,7 +55274,7 @@ qgN
 qgN
 qgN
 qgN
-xWc
+qgN
 qgN
 qgN
 qgN
@@ -56079,7 +56081,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+xWc
 qgN
 qgN
 qgN
