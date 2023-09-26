@@ -610,12 +610,18 @@
 
 //TODO: Fix Topic vulnerabilities for malfunction and AI override.
 /obj/item/rig/Topic(href,href_list)
-    if(href_list["examine_fluff"])
-        examine_fluff(usr)
-    if(ismob(href))
-        do_rig_thing(href, href_list)
-        return
-    do_rig_thing(usr, href_list)
+	if(href_list["examine_armor"])
+		var/list/armor_details = list()
+		for(var/armor_type in armor)
+			armor_details[armor_type] = armor[armor_type]
+		var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(usr, capitalize_first_letters(name), armor_details)
+		AV.ui_interact(usr)
+	if(href_list["examine_fluff"])
+		examine_fluff(usr)
+	if(ismob(href))
+		do_rig_thing(href, href_list)
+		return
+	do_rig_thing(usr, href_list)
 
 /obj/item/rig/proc/do_rig_thing(mob/user, var/list/href_list)
 	if(!check_suit_access(user))
