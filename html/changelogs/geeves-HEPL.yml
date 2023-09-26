@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "The help emote that gives a list of emotes now displays emotes that play a sound in blue."
