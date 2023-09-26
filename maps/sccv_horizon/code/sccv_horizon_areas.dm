@@ -13,8 +13,8 @@
 /area/engineering/aft_airlock
 	name = "Engineering - Aft Service Airlock"
 
-/area/engineering/engine_room/tesla
-	name = "Engineering - Tesla Engine"
+/area/engineering/engine_room/rust
+	name = "Engineering - R-UST Engine"
 
 /area/engineering/smes
 	name = "Engineering - SM SMES"
@@ -22,11 +22,11 @@
 	sound_env = SMALL_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
 
-/area/engineering/smes/tesla
-	name = "Engineering - Tesla SMES"
+/area/engineering/smes/rust
+	name = "Engineering - R-UST SMES"
 
-/area/engineering/engine_monitoring/tesla
-	name = "Engineering - Tesla Engine Monitoring"
+/area/engineering/engine_monitoring/rust
+	name = "Engineering - R-UST Engine Monitoring"
 
 /area/engineering/atmos/air
 	name = "Engineering - Air Mixing"
@@ -40,8 +40,8 @@
 	ambience = AMBIENCE_ENGINEERING
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
-/area/hallway/engineering/tesla
-	name = "Engineering - Tesla Hallway"
+/area/hallway/engineering/rust
+	name = "Engineering - R-UST Hallway"
 
 //Medical
 
