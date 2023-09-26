@@ -21009,7 +21009,9 @@
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "oSD" = (
-/obj/effect/shuttle_landmark/merc_ship/first_deck,
+/obj/effect/shuttle_landmark/merc_ship/first_deck{
+	dir = 4
+	},
 /turf/template_noop,
 /area/template_noop)
 "oTA" = (
@@ -66054,7 +66056,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+oSD
 eSV
 eSV
 eSV
@@ -66460,7 +66462,7 @@ eSV
 eSV
 eSV
 eSV
-oSD
+eSV
 eSV
 eSV
 eSV
