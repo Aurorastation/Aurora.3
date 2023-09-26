@@ -81,6 +81,16 @@
 /obj/effect/shuttle_landmark/burglar_ship/interim{
 	dir = 4
 	},
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "escapeshuttle_leave";
+	teleport_x = 25;
+	teleport_x_offset = 245;
+	teleport_y = 25;
+	teleport_y_offset = 245;
+	teleport_z = 6;
+	teleport_z_offset = 6
+	},
 /turf/space/transit/north,
 /area/template_noop)
 "aam" = (
@@ -35825,6 +35835,13 @@
 "bLz" = (
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
+"bLB" = (
+/obj/effect/shuttle_landmark/skipjack_ship/interim{
+	dir = 1
+	},
+/obj/effect/step_trigger/thrower/shuttle/east,
+/turf/space/transit/north,
+/area/template_noop)
 "bLI" = (
 /obj/effect/step_trigger/thrower/shuttle/west,
 /turf/space/transit/north,
@@ -35906,13 +35923,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/antag/burglar)
-"bLV" = (
-/obj/effect/shuttle_landmark/skipjack_ship/interim{
-	dir = 1
-	},
-/obj/effect/step_trigger/thrower/shuttle/east,
-/turf/space/transit/north,
-/area/template_noop)
 "bLW" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -44439,15 +44449,15 @@ aac
 aac
 aac
 aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aac
 aac
 aac
@@ -44694,6 +44704,9 @@ aac
 aab
 aac
 aac
+aab
+aab
+aab
 aac
 aac
 aac
@@ -44701,10 +44714,7 @@ aac
 aac
 aac
 aac
-aac
-aac
-aac
-aac
+aab
 aac
 aac
 aac
@@ -44951,6 +44961,7 @@ aac
 aab
 aac
 aac
+aab
 aac
 aac
 aac
@@ -44960,8 +44971,7 @@ aac
 aac
 aac
 aac
-aac
-aac
+aab
 aac
 aac
 aac
@@ -45208,6 +45218,7 @@ aac
 aab
 aac
 aac
+aab
 aac
 aac
 aac
@@ -45217,8 +45228,7 @@ aac
 aac
 aac
 aac
-aac
-aac
+aab
 aac
 aac
 aac
@@ -45465,6 +45475,7 @@ aac
 aab
 aac
 aac
+aab
 aac
 aac
 aac
@@ -45474,8 +45485,7 @@ aac
 aac
 aac
 aac
-aac
-aac
+aab
 aac
 aac
 aac
@@ -45722,6 +45732,9 @@ aac
 aab
 aac
 aac
+aab
+aab
+aab
 aac
 aac
 aac
@@ -45729,10 +45742,7 @@ aac
 aac
 aac
 aac
-aac
-aac
-aac
-aac
+aab
 aac
 aac
 aac
@@ -45981,15 +45991,15 @@ aac
 aac
 aac
 aac
-aac
-aac
-aac
-aac
-aac
+aab
+aab
+aab
+aab
+aab
 aal
-aac
-aac
-aac
+aab
+aab
+aab
 aac
 aac
 aac
@@ -64711,7 +64721,7 @@ aac
 aac
 aac
 aac
-bLV
+bLB
 aac
 aac
 aac
