@@ -9,6 +9,13 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior)
+"ac" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior/police)
 "ad" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -487,6 +494,9 @@
 "ca" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "ce" = (
@@ -598,6 +608,9 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
+"cB" = (
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior/police)
 "cC" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -656,6 +669,16 @@
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/water)
+"cR" = (
+/obj/machinery/light{
+	dir = 2;
+	pixel_y = -2
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "cS" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/curb/corner{
@@ -1335,6 +1358,7 @@
 	dir = 2;
 	pixel_y = -2
 	},
+/obj/structure/flora/pottedplant/bamboo,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "gc" = (
@@ -1598,6 +1622,9 @@
 "hb" = (
 /obj/item/modular_computer/console{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
@@ -3144,6 +3171,9 @@
 	dir = 1;
 	pixel_y = 24
 	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "nK" = (
@@ -3232,6 +3262,13 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/red,
 /area/point_verdant/interior/hotel)
+"oo" = (
+/obj/structure/sign/urban/restroom{
+	pixel_x = 22;
+	pixel_y = -15
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "oq" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -4047,6 +4084,12 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
+"rs" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior/police)
 "rt" = (
 /obj/effect/decal/road_marking/crosswalk{
 	dir = 1
@@ -4227,6 +4270,9 @@
 /area/point_verdant/interior/restaurant)
 "sf" = (
 /obj/machinery/photocopier,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "sg" = (
@@ -6323,6 +6369,9 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 2
 	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "Al" = (
@@ -7127,6 +7176,9 @@
 	dir = 1;
 	pixel_y = 26
 	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "Du" = (
@@ -7391,6 +7443,16 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"EF" = (
+/obj/structure/table/standard,
+/obj/item/towel/random{
+	pixel_y = 4
+	},
+/obj/item/towel{
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior/police)
 "EH" = (
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/konyang/pink,
@@ -7674,6 +7736,12 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
+"FY" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "Ga" = (
 /obj/structure/ledge{
 	dir = 4
@@ -7790,6 +7858,9 @@
 /area/point_verdant/outdoors)
 "Gu" = (
 /obj/structure/flora/pottedplant/woodyshrubdying,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "Gv" = (
@@ -8478,6 +8549,11 @@
 /obj/machinery/door/blast/shutters,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/robotics)
+"Jh" = (
+/obj/effect/decal/exterior_stairs/half/center,
+/obj/machinery/door/urban,
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior/police)
 "Jj" = (
 /obj/machinery/vending/cigarette{
 	pixel_y = 24;
@@ -9514,8 +9590,10 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
 "NA" = (
-/obj/machinery/door/airlock/multi_tile/glass,
-/turf/simulated/floor/tiled,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/police)
 "ND" = (
 /obj/structure/table/rack/retail_shelf,
@@ -10632,6 +10710,9 @@
 "SW" = (
 /obj/item/modular_computer/console{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
@@ -12004,6 +12085,12 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"YR" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "YS" = (
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
@@ -24999,13 +25086,13 @@ MA
 wL
 UK
 UK
+TG
+TG
 UK
 UK
 UK
-UK
-UK
-UK
-UK
+TG
+TG
 UK
 UK
 UK
@@ -25511,7 +25598,7 @@ MA
 az
 az
 wL
-UK
+TG
 Yf
 TT
 Lx
@@ -25768,7 +25855,7 @@ MA
 MA
 Mw
 wL
-UK
+TG
 Du
 Or
 Yf
@@ -26025,7 +26112,7 @@ wK
 MA
 MA
 wL
-UK
+TG
 Yf
 Or
 Lx
@@ -26035,10 +26122,10 @@ Ys
 Ys
 Ys
 Ys
+UK
+EF
 NA
-Ys
-Px
-Px
+rs
 UK
 Iw
 Ir
@@ -26291,11 +26378,11 @@ Ma
 Ys
 Ys
 Ys
-Ys
-Ys
-Ys
-Px
-Px
+oo
+Jh
+cB
+cB
+ac
 UK
 Ll
 Ir
@@ -27313,7 +27400,7 @@ wL
 TG
 Gu
 Ys
-Ys
+YR
 vH
 Yf
 Yf
@@ -28082,9 +28169,9 @@ wK
 wK
 wL
 UK
+FY
 Ys
-Ys
-gb
+cR
 UK
 Tm
 Yf
@@ -28339,7 +28426,7 @@ vg
 qz
 iK
 UK
-Ys
+FY
 Ys
 Ys
 ri

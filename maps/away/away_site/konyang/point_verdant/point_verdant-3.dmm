@@ -349,6 +349,12 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/tailor)
+"ft" = (
+/obj/structure/rod_railing{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/outdoors)
 "fx" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -794,9 +800,7 @@
 /turf/simulated/open,
 /area/point_verdant/outdoors)
 "nh" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 4
-	},
+/obj/machinery/door/urban,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "nk" = (
@@ -819,17 +823,8 @@
 /turf/unsimulated/mineral/konyang,
 /area/point_verdant/interior)
 "nC" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(150)
-	},
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/turf/simulated/floor/tiled/dark,
-/area/point_verdant/interior)
+/turf/simulated/floor/tiled,
+/area/point_verdant/outdoors)
 "nI" = (
 /obj/structure/ledge/quarter/corner{
 	dir = 4
@@ -1057,6 +1052,17 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"tq" = (
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1
+	},
+/obj/effect/decal/curb{
+	dir = 1;
+	layer = 2.02
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "tr" = (
 /obj/effect/decal/curb/corner,
 /turf/simulated/floor/asphalt,
@@ -1124,9 +1130,7 @@
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "tV" = (
-/obj/machinery/door/urban{
-	dir = 4
-	},
+/obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "tY" = (
@@ -1755,12 +1759,12 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
 "FI" = (
-/obj/structure/table/wood,
-/obj/machinery/door/window/southleft{
-	dir = 4
+/obj/structure/ledge/roof,
+/obj/structure/rod_railing{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/outdoors)
 "FM" = (
 /turf/simulated/open,
 /area/point_verdant/interior/laundromat)
@@ -2269,6 +2273,11 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"Of" = (
+/obj/structure/ledge/roof,
+/obj/structure/rod_railing,
+/turf/simulated/floor/tiled,
+/area/point_verdant/outdoors)
 "OE" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -2412,9 +2421,12 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "QI" = (
-/obj/structure/closet/secure_closet,
-/turf/simulated/floor/tiled/dark,
-/area/point_verdant/interior)
+/obj/structure/ledge/roof,
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "QK" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/rod_railing{
@@ -15662,18 +15674,18 @@ Cw
 Cw
 Gg
 Gg
+tV
 Gg
 Gg
 Gg
+tV
+tV
+tV
 Gg
 Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
-Gg
+tV
+tV
+tV
 Gg
 Gg
 Ml
@@ -15918,9 +15930,9 @@ Cw
 Cw
 Cw
 Gg
-nC
-Fv
-Fv
+eV
+eV
+eV
 Gg
 Fv
 Fv
@@ -16174,8 +16186,8 @@ Cw
 Cw
 Cw
 Cw
-Gg
-nC
+tV
+eV
 eV
 eV
 Gg
@@ -16431,10 +16443,10 @@ Cw
 Cw
 Cw
 Cw
-Gg
-Gg
-FI
 tV
+eV
+eV
+eV
 Gg
 Fv
 eV
@@ -16688,8 +16700,8 @@ Cw
 Cw
 Cw
 Cw
-Gg
-QI
+tV
+eV
 eV
 eV
 nh
@@ -16946,10 +16958,10 @@ Cw
 Cw
 Cw
 Gg
-QI
 eV
 eV
 eV
+Gg
 eV
 eV
 eV
@@ -17204,7 +17216,7 @@ Cw
 Cw
 Gg
 Gg
-Gg
+tV
 Gg
 Gg
 Gg
@@ -17213,9 +17225,9 @@ NO
 Gg
 Gg
 Gg
-Gg
-Gg
-Gg
+tV
+tV
+tV
 Gg
 Gg
 Ml
@@ -17464,10 +17476,10 @@ Ey
 Ey
 Ey
 Ey
-Ey
-Ey
-Ey
-mB
+tq
+nC
+nC
+Of
 Ml
 Cw
 Cw
@@ -17721,10 +17733,10 @@ Uj
 Uj
 Uj
 jF
-Ey
-Ey
-Ey
-mB
+tq
+nC
+nC
+Of
 Ml
 Cw
 Cw
@@ -17978,10 +17990,10 @@ DB
 DB
 GF
 MN
-Ey
-Ey
-Ey
-mB
+tq
+ft
+ft
+FI
 Ml
 Cw
 Cw
@@ -18235,10 +18247,10 @@ DD
 Xn
 DD
 MN
-Ey
-Ey
-Ey
-mB
+GN
+se
+se
+QI
 Ml
 Cw
 Cw
