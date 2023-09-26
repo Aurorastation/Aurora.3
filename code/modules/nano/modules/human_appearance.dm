@@ -144,7 +144,6 @@
 					var/singleton/origin_item/culture/new_culture = culture_map[new_culture_id]
 					owner.culture = new_culture
 					owner.culture.on_apply(owner)
-					owner.culture.add_augs(owner)
 					if(!(owner.origin in new_culture.possible_origins))
 						owner.origin = GET_SINGLETON(pick(new_culture.possible_origins))
 					clear_and_generate_data()
