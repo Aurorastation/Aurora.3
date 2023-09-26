@@ -364,6 +364,14 @@
 "ex" = (
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
+"eD" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/effect/decal/exterior_stairs/half{
+	dir = 1;
+	layer = 2.9
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/point_verdant/outdoors)
 "eN" = (
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/bar)
@@ -501,6 +509,13 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
+"gT" = (
+/obj/structure/stairs/urban{
+	dir = 8;
+	icon_state = "stairs-right"
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "hd" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -891,6 +906,16 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/bar)
+"kG" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/effect/decal/exterior_stairs/half{
+	layer = 2.8
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/point_verdant/outdoors)
 "kH" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -1095,6 +1120,16 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/interior/tunnels)
+"ng" = (
+/obj/structure/dam{
+	icon_state = "dam2";
+	opacity = 1
+	},
+/obj/structure/ledge{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant/outdoors)
 "nh" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -1121,6 +1156,10 @@
 /obj/structure/structural_support/side,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior)
+"nq" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/point_verdant/outdoors)
 "nt" = (
 /obj/effect/decal/curb,
 /obj/structure/shipping_container{
@@ -1253,6 +1292,10 @@
 /obj/item/storage/bag/trash,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/bar)
+"oT" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/point_verdant/outdoors)
 "oV" = (
 /obj/structure/barricade/wooden{
 	dir = 8
@@ -1774,6 +1817,12 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/bar)
+"uK" = (
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "uL" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -2412,6 +2461,12 @@
 /obj/item/stack/rods,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"BS" = (
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "BV" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/reagent_containers/food/drinks/shaker{
@@ -2675,6 +2730,14 @@
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Fj" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/effect/decal/exterior_stairs/half{
+	dir = 1;
+	layer = 2.9
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/point_verdant/outdoors)
 "Fp" = (
 /obj/structure/ledge/quarter{
 	dir = 4
@@ -2710,6 +2773,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"FY" = (
+/obj/structure/dock_structure{
+	pixel_y = -16
+	},
+/turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "Gv" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/brown{
@@ -2750,15 +2819,8 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
 "GQ" = (
-/obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
-	tiles = 1;
-	dir = 6
-	},
-/obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
-	tiles = 1;
-	dir = 6
+/obj/structure/ledge{
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/outdoors)
@@ -3576,6 +3638,10 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
+/obj/effect/decal/exterior_stairs/half{
+	dir = 1;
+	layer = 2.9
+	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
 "QA" = (
@@ -4144,6 +4210,13 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/tunnels)
+"Xd" = (
+/obj/structure/stairs/urban{
+	dir = 8;
+	icon_state = "stairs-left"
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "Xe" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
@@ -4211,6 +4284,12 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
+"XR" = (
+/obj/structure/dam{
+	opacity = 1
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/outdoors)
 "XT" = (
 /obj/effect/decal/road_marking/no_park,
 /obj/effect/decal/curb{
@@ -41484,8 +41563,8 @@ IJ
 vR
 uU
 uU
-uU
-uU
+Xd
+gT
 rf
 rf
 rf
@@ -41741,8 +41820,8 @@ Iv
 AI
 aZ
 aZ
-aZ
-aZ
+yv
+yv
 Pf
 rf
 rf
@@ -41998,10 +42077,10 @@ Uy
 SV
 aZ
 aZ
-aZ
-aZ
-FR
-hG
+yv
+yv
+XR
+ng
 uU
 uU
 uU
@@ -42255,10 +42334,10 @@ OG
 OG
 OG
 OG
-OG
-OG
-OG
-OG
+yv
+yv
+uK
+zy
 OG
 OG
 OG
@@ -42503,27 +42582,27 @@ xz
 xz
 xz
 xz
-rX
-rX
-rX
-rX
-rX
-xz
-xz
-xz
-xz
-rX
-rX
-rX
-xz
-xz
-xz
-xz
-xz
-rX
-rX
-rX
-rX
+OG
+OG
+OG
+OG
+OG
+OG
+OG
+OG
+OG
+yv
+yv
+yv
+zy
+OG
+OG
+OG
+OG
+OG
+OG
+OG
+OG
 xz
 xz
 xz
@@ -42759,31 +42838,31 @@ hN
 hN
 hN
 hN
+OG
+OG
+OG
+OG
+OG
+OG
+OG
+OG
+OG
+OG
+yv
+yv
+yv
+zy
+OG
+OG
 hN
 hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
+OG
+OG
+OG
+OG
 hN
 hN
 hN
@@ -43025,12 +43104,12 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
-hN
-hN
+OG
+tI
+yv
+FY
+zy
+OG
 hN
 hN
 hN
@@ -43283,10 +43362,10 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
+yv
+yv
+yv
+zy
 hN
 hN
 hN
@@ -43540,10 +43619,10 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
+yv
+yv
+yv
+zy
 hN
 hN
 hN
@@ -43797,10 +43876,10 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
+yv
+yv
+yv
+GQ
 hN
 hN
 hN
@@ -44054,10 +44133,10 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
+yv
+yv
+yv
+GQ
 hN
 hN
 hN
@@ -44311,10 +44390,10 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
+tI
+yv
+FY
+GQ
 hN
 hN
 hN
@@ -44568,10 +44647,10 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
+yv
+yv
+yv
+GQ
 hN
 hN
 hN
@@ -44825,10 +44904,10 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
+yv
+yv
+yv
+GQ
 hN
 hN
 hN
@@ -45082,10 +45161,10 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
+yv
+yv
+yv
+GQ
 hN
 hN
 hN
@@ -45339,10 +45418,10 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
+yv
+yv
+yv
+GQ
 hN
 hN
 hN
@@ -45596,10 +45675,10 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
+tI
+yv
+FY
+GQ
 hN
 hN
 hN
@@ -45849,14 +45928,14 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
+nq
+nq
+nq
+eD
+yv
+yv
+yv
+GQ
 hN
 hN
 hN
@@ -46106,14 +46185,14 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
-hN
+nq
+nq
+nq
+eD
+BS
+yv
+yv
+GQ
 hN
 hN
 hN
@@ -46368,9 +46447,9 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
+tI
+FY
+GQ
 hN
 hN
 hN
@@ -46625,12 +46704,12 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
-hN
-hN
+yv
+yv
+kG
+nq
+nq
+nq
 hN
 hN
 hN
@@ -46882,12 +46961,12 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
-hN
-hN
-hN
+yv
+yv
+kG
+nq
+nq
+nq
 hN
 hN
 hN
@@ -47139,9 +47218,9 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
+tI
+FY
+GQ
 hN
 hN
 hN
@@ -47396,9 +47475,9 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
+yv
+yv
+GQ
 hN
 hN
 hN
@@ -47653,9 +47732,9 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
+yv
+yv
+GQ
 hN
 hN
 hN
@@ -47910,9 +47989,9 @@ hN
 hN
 hN
 hN
-hN
-hN
-hN
+tI
+FY
+GQ
 hN
 hN
 hN
@@ -48713,9 +48792,9 @@ hN
 hN
 hN
 hN
-Rf
-Rf
-Rf
+hN
+hN
+hN
 Rf
 Rf
 Rf
@@ -48968,8 +49047,8 @@ hN
 hN
 hN
 hN
-Rf
-GQ
+hN
+hN
 hN
 hN
 hN
@@ -49223,9 +49302,9 @@ hN
 hN
 hN
 hN
-ih
-Rf
-Rf
+hN
+hN
+hN
 hN
 hN
 hN
@@ -49480,7 +49559,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -49737,22 +49816,22 @@ hN
 hN
 hN
 hN
-ih
 hN
 hN
 hN
 hN
 hN
 hN
-hN
-aZ
-aZ
+nq
+nq
 lV
 lV
 lV
 lV
 lV
 lV
+lV
+Fj
 QV
 QV
 yv
@@ -49994,16 +50073,16 @@ hN
 hN
 hN
 hN
-ih
 hN
 hN
 hN
 hN
 hN
 hN
-OG
-aZ
-aZ
+nq
+oT
+lV
+lV
 EY
 lV
 lV
@@ -50251,7 +50330,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -50260,13 +50339,13 @@ hN
 OG
 OG
 aZ
+tI
 yv
-zq
-lt
-lt
-lt
-lt
-ef
+yv
+yv
+yv
+yv
+yv
 QV
 QV
 yv
@@ -50508,7 +50587,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -50518,12 +50597,12 @@ OG
 OG
 aZ
 yv
-eR
-Rv
-Rv
-Rv
-bm
-AS
+zq
+lt
+lt
+lt
+lt
+ef
 QV
 QV
 yv
@@ -50765,7 +50844,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -50775,12 +50854,12 @@ OG
 OG
 aZ
 yv
-jN
+eR
+Rv
+Rv
+Rv
 bm
-Rv
-Rv
-iQ
-mn
+AS
 QV
 QV
 yv
@@ -51022,7 +51101,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -51032,11 +51111,11 @@ OG
 OG
 aZ
 yv
-By
+jN
+bm
 Rv
 Rv
-Rv
-No
+iQ
 mn
 QV
 QV
@@ -51279,7 +51358,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -51289,11 +51368,11 @@ OG
 OG
 aZ
 yv
-wX
+By
 Rv
 Rv
 Rv
-cg
+No
 mn
 QV
 QV
@@ -51536,7 +51615,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -51546,11 +51625,11 @@ OG
 OG
 aZ
 yv
-HN
+wX
 Rv
 Rv
 Rv
-RV
+cg
 mn
 QV
 QV
@@ -51793,7 +51872,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -51803,11 +51882,11 @@ OG
 OG
 aZ
 yv
-jN
-bm
+HN
 Rv
 Rv
-tl
+Rv
+RV
 mn
 QV
 QV
@@ -52050,7 +52129,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -52060,12 +52139,12 @@ OG
 OG
 aZ
 yv
-IK
-tO
-Rv
-Rv
+jN
 bm
-FS
+Rv
+Rv
+tl
+mn
 QV
 QV
 yv
@@ -52307,7 +52386,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -52318,11 +52397,11 @@ OG
 aZ
 yv
 IK
-hQ
+tO
 Rv
 Rv
-Rv
-mn
+bm
+FS
 QV
 QV
 QV
@@ -52564,7 +52643,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -52575,7 +52654,7 @@ OG
 aZ
 yv
 IK
-Bs
+hQ
 Rv
 Rv
 Rv
@@ -52821,7 +52900,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -52831,8 +52910,8 @@ OG
 OG
 aZ
 yv
-jN
-bm
+IK
+Bs
 Rv
 Rv
 Rv
@@ -53078,7 +53157,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -53088,8 +53167,8 @@ OG
 OG
 aZ
 yv
-IK
-Rv
+jN
+bm
 Rv
 Rv
 Rv
@@ -53335,7 +53414,7 @@ hN
 hN
 hN
 hN
-ih
+hN
 hN
 hN
 hN
@@ -53592,7 +53671,7 @@ hN
 hN
 hN
 hN
-qk
+hN
 hN
 hN
 hN
@@ -53602,12 +53681,12 @@ OG
 OG
 aZ
 yv
-CL
-bv
-bv
-bv
-bv
-Wf
+IK
+Rv
+Rv
+Rv
+Rv
+mn
 yv
 yv
 yv
@@ -53849,7 +53928,7 @@ hN
 hN
 hN
 hN
-qk
+hN
 hN
 hN
 hN
@@ -53859,12 +53938,12 @@ hN
 OG
 aZ
 yv
-yv
-yv
-yv
-yv
-yv
-yv
+CL
+bv
+bv
+bv
+bv
+Wf
 yv
 yv
 yv
@@ -54106,7 +54185,7 @@ hN
 hN
 hN
 hN
-qk
+hN
 hN
 hN
 hN
@@ -54115,13 +54194,13 @@ hN
 hN
 hN
 aZ
-aZ
-aZ
-aZ
-aZ
-aZ
-aZ
-kw
+tI
+yv
+yv
+yv
+yv
+yv
+yv
 tI
 yv
 yv
@@ -54363,7 +54442,7 @@ hN
 hN
 hN
 hN
-qk
+hN
 hN
 hN
 hN
@@ -54620,7 +54699,7 @@ hN
 hN
 hN
 hN
-qk
+hN
 hN
 hN
 hN
@@ -54878,7 +54957,7 @@ hN
 hN
 hN
 hN
-qk
+hN
 hN
 hN
 hN
@@ -55136,7 +55215,7 @@ hN
 hN
 hN
 hN
-qk
+hN
 hN
 hN
 hN
@@ -55394,8 +55473,8 @@ hN
 hN
 hN
 hN
-qk
-qk
+hN
+hN
 hN
 hN
 hN
