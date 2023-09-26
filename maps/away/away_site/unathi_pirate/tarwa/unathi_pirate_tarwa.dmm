@@ -941,8 +941,8 @@
 /obj/structure/closet/crate/rad{
 	name = "radioactive material crate"
 	},
-/obj/item/stack/material/tritium/full,
-/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/fifty,
 /obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)

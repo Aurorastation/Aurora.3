@@ -1443,7 +1443,7 @@
 /area/ship/mystery_ship/crew_seating)
 "Sq" = (
 /obj/structure/closet/crate/rad,
-/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/fifty,
 /turf/simulated/floor/tiled/dark,
 /area/ship/mystery_ship/power)
 "SP" = (

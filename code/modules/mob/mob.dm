@@ -646,9 +646,8 @@
 		src << browse(null, t1)
 
 	if(href_list["flavor_more"])
-		var/datum/browser/flavor_win = new(usr, name, capitalize_first_letters(name), 500, 250)
-		flavor_win.set_content(replacetext(flavor_text, "\n", "<BR>"))
-		flavor_win.open()
+		var/datum/tgui_module/flavor_text/FT = new /datum/tgui_module/flavor_text(usr, capitalize_first_letters(name), flavor_text)
+		FT.ui_interact(usr)
 
 	if(href_list["accent_tag"])
 		var/datum/accent/accent = SSrecords.accents[href_list["accent_tag"]]

@@ -238,7 +238,12 @@
 	default_type = MATERIAL_TRITIUM
 	apply_colour = TRUE
 
-/obj/item/stack/material/tritium/full/Initialize()
+/obj/item/stack/material/tritium/ten/Initialize()
+	. = ..()
+	amount = 10
+	update_icon()
+
+/obj/item/stack/material/tritium/fifty/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()
@@ -559,3 +564,12 @@
 	. = ..()
 	amount = max_amount
 	update_icon()
+
+// Fusion fuel.
+/obj/item/stack/material/deuterium
+	name = "deuterium"
+	icon_state = "puck"
+	default_type = MATERIAL_DEUTERIUM
+
+/obj/item/stack/material/deuterium/fifty
+	amount = 50

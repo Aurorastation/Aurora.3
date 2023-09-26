@@ -51,7 +51,7 @@
 	var/hatch_open_sound = 'sound/machines/hatch_open.ogg'
 	var/hatch_close_sound = 'sound/machines/hatch_close.ogg'
 
-	// Integer. Used for intercepting clicks on our turf. Set 0 to disable click interception. Passed directly to `/datum/extension/turf_hand`.
+	// Integer. Used for intercepting clicks on our turf. Set 0 to disable click interception. Passed directly to `/datum/component/turf_hand`.
 	var/turf_hand_priority = 3
 
 	// turf animation

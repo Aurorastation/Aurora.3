@@ -3886,9 +3886,9 @@
 /area/database_freighter/engine)
 "Jv" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/stack/material/tritium/full,
-/obj/item/stack/material/tritium/full,
-/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/fifty,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
