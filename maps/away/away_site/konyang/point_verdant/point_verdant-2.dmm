@@ -1187,6 +1187,14 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
+"eI" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/point_verdant/water)
 "eK" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/cleanable/blood/oil,
@@ -4866,6 +4874,14 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"sZ" = (
+/obj/effect/step_trigger/thrower{
+	icon_state = "dir_arrow";
+	tiles = 1;
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/point_verdant/water)
 "ta" = (
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/konyang/wilting,
@@ -22007,9 +22023,9 @@ ss
 ss
 Ez
 KU
-KU
+eI
 ss
-Ez
+ss
 ss
 ss
 ss
@@ -22262,11 +22278,11 @@ ls
 FK
 MA
 MA
-Hv
-az
-az
 MA
-Hv
+az
+zb
+MA
+MA
 MA
 MA
 MA
@@ -22519,11 +22535,11 @@ ls
 FK
 MA
 MA
-Hv
-az
-az
 MA
-Hv
+az
+zb
+MA
+MA
 PG
 YW
 YW
@@ -22776,11 +22792,11 @@ ls
 FK
 MA
 MA
-Hv
 MA
-az
 MA
-Hv
+zb
+MA
+MA
 wL
 Al
 Al
@@ -23033,11 +23049,11 @@ ls
 FK
 MA
 MA
-Hv
 MA
-az
 MA
-Hv
+zb
+MA
+MA
 wL
 Al
 VU
@@ -23290,11 +23306,11 @@ ls
 FK
 MA
 MA
-Hv
 MA
-az
 MA
-Hv
+zb
+MA
+MA
 wL
 Al
 Fs
@@ -23547,11 +23563,11 @@ ls
 FK
 MA
 MA
-Hv
+MA
 az
-az
-az
-Hv
+sZ
+zb
+MA
 wL
 Al
 Fs
@@ -23804,11 +23820,11 @@ dE
 yG
 MA
 MA
-Hv
+MA
 az
 az
-az
-Hv
+zb
+MA
 wL
 Al
 Fs
@@ -24061,11 +24077,11 @@ ls
 FK
 MA
 MA
-Hv
+MA
 az
-az
-az
-Hv
+eI
+zb
+MA
 wL
 Al
 Fs
@@ -24318,11 +24334,11 @@ ls
 FK
 MA
 MA
-Hv
-az
-az
 MA
-Hv
+eI
+eI
+MA
+MA
 wL
 Al
 Fs
@@ -24575,11 +24591,11 @@ ls
 FK
 MA
 MA
-zb
 az
+zb
 MA
 MA
-Hv
+MA
 wL
 Al
 Fs
@@ -24832,11 +24848,11 @@ ls
 FK
 MA
 MA
-zb
 az
+zb
 MA
 MA
-Hv
+MA
 wL
 Al
 Fs
@@ -25089,11 +25105,11 @@ ls
 FK
 MA
 MA
-zb
 az
+zb
 MA
 MA
-Hv
+MA
 wL
 Al
 Fs
@@ -25346,11 +25362,11 @@ dE
 yG
 MA
 az
-zb
-az
+eI
+eI
 MA
 MA
-Hv
+MA
 wL
 Al
 Fs
@@ -25607,7 +25623,7 @@ zb
 MA
 MA
 MA
-Hv
+MA
 wL
 Al
 Fs
@@ -25864,7 +25880,7 @@ zb
 MA
 MA
 MA
-Hv
+MA
 wL
 Al
 Fs
@@ -26117,11 +26133,11 @@ az
 zb
 az
 az
-Ez
-Ez
-Ez
-Ez
-Ez
+Hv
+MA
+MA
+MA
+MA
 wL
 Al
 Fs
