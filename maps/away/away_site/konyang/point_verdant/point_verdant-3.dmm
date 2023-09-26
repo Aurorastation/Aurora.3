@@ -129,6 +129,20 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"cd" = (
+/obj/structure/table/rack,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/item/stack/nanopaste{
+	pixel_x = -7
+	},
+/obj/item/stack/nanopaste{
+	pixel_x = 2
+	},
+/obj/random/tool,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/robotics)
 "cl" = (
 /obj/structure/table/wood,
 /obj/item/tape_roll,
@@ -1332,6 +1346,10 @@
 	pixel_x = -4;
 	pixel_y = -10
 	},
+/obj/item/stack/nanopaste{
+	pixel_x = 8;
+	pixel_y = -14
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "wt" = (
@@ -1720,10 +1738,10 @@
 /area/point_verdant/outdoors)
 "Bo" = (
 /obj/structure/table/steel,
-/obj/item/storage/toolbox/mechanical,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "Bt" = (
@@ -1804,11 +1822,15 @@
 /area/point_verdant/interior/arcade)
 "Do" = (
 /obj/structure/table/steel,
+/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/item/clothing/gloves/yellow{
-	pixel_x = -2;
+	pixel_x = -5;
 	pixel_y = 4
 	},
-/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/toy/plushie/ipc{
+	pixel_x = 5;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "Du" = (
@@ -24425,7 +24447,7 @@ eJ
 Yl
 Ew
 yW
-Lu
+cd
 Yl
 Ey
 Ey

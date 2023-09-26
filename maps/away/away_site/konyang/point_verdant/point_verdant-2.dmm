@@ -7291,6 +7291,10 @@
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
+/obj/item/stack/nanopaste{
+	pixel_x = 6;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "DK" = (
