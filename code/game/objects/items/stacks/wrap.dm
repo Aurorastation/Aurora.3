@@ -101,6 +101,7 @@
 	icon_state = "deliveryPaper"
 	desc = "A roll of paper used to enclose an object for delivery."
 	desc_info = "To package wrap the object for delivery, use the package wrapper on the object."
+	singular_name = "length"
 	w_class = ITEMSIZE_NORMAL
 	amount = 30
 	var/wrapping_tag = "Sorting Office"
@@ -198,10 +199,6 @@
 		qdel(src)
 		return
 	return
-
-/obj/item/stack/packageWrap/examine(mob/user, distance, is_adjacent)
-	if(distance <= 1)
-		to_chat(user, "There [amount == 1 ? "is" : "are"] about [amount] units of package wrap left!")
 
 /obj/item/c_tube
 	name = "cardboard tube"

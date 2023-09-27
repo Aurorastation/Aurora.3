@@ -136,7 +136,7 @@
 
 /mob/living/heavy_vehicle/examine(var/mob/user)
 	if(!user || !user.client)
-		return
+		return TRUE
 	to_chat(user, "That's \a <b>[src]</b>.")
 	to_chat(user, desc)
 	if(LAZYLEN(pilots) && (!hatch_closed || body.pilot_coverage < 100 || body.transparent_cabin))

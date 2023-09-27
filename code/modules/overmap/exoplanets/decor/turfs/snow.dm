@@ -5,7 +5,7 @@
 	dirt_color = "#e3e7e8"
 	layer = LOWER_ON_TURF_LAYER
 	footstep_sound = /singleton/sound_category/snow_footstep
-	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	canSmoothWith = list(
 		/turf/simulated/floor/exoplanet/snow,
@@ -18,8 +18,8 @@
 	pixel_x = -4
 	pixel_y = -4
 	icon_state = pick("snow[rand(1,2)]","snow0","snow0")
-	queue_smooth_neighbors(src)
-	queue_smooth(src)
+	SSicon_smooth.add_to_queue_neighbors(src)
+	SSicon_smooth.add_to_queue(src)
 
 /turf/simulated/floor/exoplanet/snow/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	melt()
