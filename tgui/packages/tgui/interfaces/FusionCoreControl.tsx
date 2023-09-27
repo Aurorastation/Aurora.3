@@ -1,5 +1,7 @@
+import { round } from '../../common/math';
 import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
+import { capitalize } from '../../common/string';
+import { useBackend, useSharedState } from '../backend';
 import { Box, Button, Dimmer, Divider, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
@@ -29,6 +31,11 @@ type Reactant = {
 
 export const FusionCoreControl = (props, context) => {
   const { act, data } = useBackend<FusionCoreData>(context);
+  const [override, setOverride] = useSharedState<boolean>(
+    context,
+    'override',
+    false
+  );
 
   return (
     <Window resizable theme={data.manufacturer}>
@@ -45,7 +52,7 @@ export const FusionCoreControl = (props, context) => {
                     color="red"
                     icon="radiation"
                     onClick={() => act('toggle_active', { machine: core.ref })}
-                    disabled={!core.field || !core.shutdown_safe}
+                    disabled={!core.field || (!core.shutdown_safe && !override)}
                   />
                 ) : (
                   <Button
@@ -65,7 +72,13 @@ export const FusionCoreControl = (props, context) => {
               {!core.shutdown_safe ? (
                 <NoticeBox>
                   Fusion core shutdown locked for safety reasons.{' '}
-                  <Button content="Override" color="red" icon="radiation" />
+                  <Button
+                    content="Override"
+                    color="red"
+                    icon="radiation"
+                    disabled={override}
+                    onClick={() => setOverride(!override)}
+                  />
                 </NoticeBox>
               ) : (
                 ''
@@ -133,7 +146,8 @@ export const FusionCoreControl = (props, context) => {
                   core.reactants.map((reactant) => (
                     <Section key={reactant.name}>
                       <Dimmer>
-                        {reactant.name}: {reactant.amount}
+                        {capitalize(reactant.name)} (
+                        {round(reactant.amount, 0.1)} cubic units)
                       </Dimmer>
                     </Section>
                   ))
