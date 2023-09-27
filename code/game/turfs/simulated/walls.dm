@@ -3,8 +3,8 @@
 	desc = "A huge chunk of metal used to seperate rooms."
 	desc_info = "You can deconstruct this by welding it, and then wrenching the girder.<br>\
 	You can build a wall by using metal sheets and making a girder, then adding more material."
-	icon = 'icons/turf/smooth/composite_solid_color.dmi'
-	icon_state = "map_dark"
+	icon = 'icons/turf/smooth/wall_preview.dmi'
+	icon_state = "wall"
 	opacity = TRUE
 	density = TRUE
 	blocks_air = TRUE
