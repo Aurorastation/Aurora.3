@@ -174,7 +174,7 @@
 	display_name = "language processor"
 	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective Hives."
 	path = /obj/item/organ/internal/augment/language/klax
-	cost = 0
+	cost = 1
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_NO_SELECTION
@@ -274,7 +274,7 @@
 	sort_category = "Xenowear - Vaurca"
 	allowed_roles = list("Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
 	flags = GEAR_NO_SELECTION
-  
+
 /datum/gear/augment/vaurcamag
 	display_name = "vaurca integrated mag-claws"
 	description = "An integrated magnetic grip system, designed for Vaurcae without easy access to magboots."

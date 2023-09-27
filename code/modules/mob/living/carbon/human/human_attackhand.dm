@@ -209,7 +209,7 @@
 					If aiming for chest:
 						27.3% chance you hit your target organ
 						70.5% chance you hit a random other organ
-						 2.2% chance you miss
+						2.2% chance you miss
 
 					If aiming for something else:
 						23.2% chance you hit your target organ
@@ -217,7 +217,7 @@
 						15.0% chance you miss
 
 					Note: We don't use get_zone_with_miss_chance() here since the chances
-						  were made for projectiles.
+						were made for projectiles.
 					TODO: proc for melee combat miss chances depending on organ?
 				*/
 				if(prob(80))
@@ -267,6 +267,11 @@
 			if(H.is_berserk())
 				real_damage *= 1.5 // Nightshade increases damage by 50%
 				rand_damage *= 1.5
+			var/obj/item/organ/internal/parasite/blackkois/P = H.internal_organs_by_name["blackkois"]
+			if(istype(P))
+				if(P.stage >= 5)
+					real_damage *= 1.5 // Final stage black k'ois mycosis increases damage by 50%
+					rand_damage *= 1.5
 
 			real_damage = max(1, real_damage)
 

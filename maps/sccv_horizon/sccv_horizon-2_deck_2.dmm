@@ -2357,6 +2357,9 @@
 	pixel_x = -32;
 	req_access = list(13)
 	},
+/obj/effect/shuttle_landmark/merchant/dock{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
 "aZA" = (
@@ -61847,7 +61850,7 @@ qgN
 qgN
 qgN
 qgN
-xnZ
+qgN
 qgN
 qgN
 qgN
@@ -63460,7 +63463,7 @@ kAJ
 eYD
 wFj
 udR
-udR
+wFj
 qgN
 qgN
 qgN
@@ -63862,9 +63865,9 @@ jWV
 jWV
 haK
 aQb
+wFj
 udR
-udR
-udR
+wFj
 qgN
 qgN
 qgN
@@ -65680,9 +65683,9 @@ pkH
 pkH
 pkH
 aQb
+wFj
 udR
-udR
-udR
+wFj
 qgN
 qgN
 qgN
@@ -66086,7 +66089,7 @@ jWV
 jWV
 wFj
 udR
-udR
+wFj
 qgN
 qgN
 qgN

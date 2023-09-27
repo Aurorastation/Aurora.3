@@ -43,7 +43,7 @@
 /obj/item/storage/box/pineapple
 	name = "can of pineapple rings"
 	desc = "An aluminium can with fresh pineapple slices."
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/storage/misc.dmi'
 	icon_state = "pineapple_rings"
 	use_sound = 'sound/items/pickup/soda.ogg'
 	drop_sound = 'sound/items/drop/soda.ogg'

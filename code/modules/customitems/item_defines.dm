@@ -23,7 +23,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if (!implant_type)
 		return
 	imp = new implant_type(src)
-	update()
+	update_icon()
 
 	return
 

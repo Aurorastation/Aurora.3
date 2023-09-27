@@ -333,8 +333,18 @@
 	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
 	//things outside its range ~Nanako
 
+	. = ..(user, distance, "", "It is a [size] item.")
+	if(length(armor))
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>")))
 
-	return ..(user, distance, "", "It is a [size] item.")
+/obj/item/Topic(href, href_list)
+	if(href_list["examine_armor"])
+		var/list/armor_details = list()
+		for(var/armor_type in armor)
+			armor_details[armor_type] = armor[armor_type]
+		var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(usr, capitalize_first_letters(name), armor_details)
+		AV.ui_interact(usr)
+	return ..()
 
 /obj/item/attack_hand(mob/user)
 	if(!user)
@@ -550,6 +560,11 @@
 			LAZYDISTINCTADD(user.item_verbs["[v]"], src)
 	else
 		remove_item_verbs(user)
+
+	//Ěent for observable
+	mob_equipped_event.raise_event(user, src, slot)
+	item_equipped_event.raise_event(src, user, slot)
+	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 //sometimes we only want to grant the item's action if it's equipped in a specific slot.
 /obj/item/proc/item_action_slot_check(mob/user, slot)

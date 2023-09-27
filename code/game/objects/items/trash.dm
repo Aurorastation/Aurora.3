@@ -5,10 +5,8 @@
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
 	w_class = ITEMSIZE_TINY
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
-		)
+	contained_sprite = TRUE
+	item_state = "candy"
 	desc = "General waste material, refuse or litter. Dispose responsibly."
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
@@ -39,6 +37,7 @@
 /obj/item/trash/chips
 	name = "chips"
 	icon_state = "chips"
+	item_state = "chips"
 
 /obj/item/trash/popcorn
 	name = "popcorn"
@@ -87,7 +86,7 @@
 
 /obj/item/trash/candle
 	name = "candle"
-	icon = 'icons/obj/candle.dmi'
+	icon = 'icons/obj/storage/fancy/candle.dmi'
 	icon_state = "candle4"
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
@@ -103,6 +102,7 @@
 /obj/item/trash/meatsnack
 	name = "mo'gunz meat pie"
 	icon_state = "meatsnack-used"
+	item_state = "chips"
 
 /obj/item/trash/maps
 	name = "maps salty ham"
@@ -182,7 +182,7 @@
 
 /obj/item/trash/stew
 	name = "empty pot"
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "stew_empty"
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
@@ -234,6 +234,7 @@
 /obj/item/trash/vkrexitaffy
 	name = "V'krexi Snax"
 	icon_state = "vkrexitaffy"
+	item_state = "vkrexi"
 
 /obj/item/trash/broken_electronics
 	name = "broken electronics"

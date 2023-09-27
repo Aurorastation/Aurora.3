@@ -186,3 +186,24 @@
 	'sound/effects/wind/wind_4_2.ogg',\
 	'sound/effects/wind/wind_5_1.ogg'\
 	)
+
+#define AMBIENCE_KONYANG_RAIN list(\
+	'sound/ambience/konyang/konyang-rain.ogg'\
+	)
+
+#define AMBIENCE_KONYANG_RAIN_INDOORS list(\
+	'sound/ambience/konyang/konyang-rain-indoors.ogg'\
+	)
+
+#define AMBIENCE_KONYANG_RAIN_MUFFLED list(\
+	'sound/ambience/konyang/konyang-rain-indoors-deep.ogg'\
+	)
+
+#define AMBIENCE_KONYANG_TRAFFIC list(\
+	'sound/ambience/konyang/konyang-traffic.ogg',\
+	'sound/ambience/konyang/konyang-traffic-001.ogg'\
+	)
+
+#define AMBIENCE_KONYANG_WATER list(\
+	'sound/ambience/konyang/konyang-water.ogg'\
+	)

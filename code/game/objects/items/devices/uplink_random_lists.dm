@@ -70,7 +70,7 @@ var/datum/uplink_random_selection/default_uplink_selection = new/datum/uplink_ra
 	items += new/datum/uplink_random_item(/datum/uplink_item/item/tools/ai_module, 25, 0)
 
 	items += new/datum/uplink_random_item(/datum/uplink_item/item/implants/imp_freedom)
-	items += new/datum/uplink_random_item(/datum/uplink_item/item/implants/imp_compress)
+	items += new/datum/uplink_random_item(/datum/uplink_item/item/implants/imp_emp)
 	items += new/datum/uplink_random_item(/datum/uplink_item/item/implants/imp_explosive)
 
 	items += new/datum/uplink_random_item(/datum/uplink_item/item/medical/sinpockets, reselect_propbability = 20)

@@ -25,6 +25,72 @@ env:
   PYTHON_VERSION: ""
 
 jobs:
+
+  code-compliance:
+    if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
+    runs-on: ubuntu-22.04
+    name: Code Compliance
+
+    concurrency:
+      group: code-compliance-${{ github.head_ref || github.run_id }}
+      cancel-in-progress: true
+
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    env:
+      APPLY_FIXES: EDITORCONFIG
+      APPLY_FIXES_EVENT: all
+      APPLY_FIXES_MODE: commit
+
+    steps:
+      # Clone Repo
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # We use megalinter for this because it's fairly well updated and used
+      # https://megalinter.io/latest/
+      - name: Check EditorConfig Compliance
+        id: ml
+        uses: oxsecurity/megalinter/flavors/python@v7.3.0
+        # Env config options outlined in https://megalinter.io/configuration/
+        env:
+          PRINT_ALPACA: false
+          VALIDATE_ALL_CODEBASE: false
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENABLE: EDITORCONFIG
+          EXCLUDED_DIRECTORIES: tools/bootstrap/.cache/
+          FILTER_REGEX_INCLUDE: (.*\.dm$|.*\.dme$|.*\.yml$|.*\.sql$)
+
+      # Upload MegaLinter artifacts
+      - name: Upload Megalinter Artifacts
+        if: ${{ success() }} || ${{ failure() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: MegaLinter reports
+          path: |
+            megalinter-reports
+            mega-linter.log
+
+      # Push new commit if applicable (for now works only on PR from same repository, not from forks)
+      - name: Prepare commit
+        if: steps.ml.outputs.has_updated_sources == 1 && (env.APPLY_FIXES_EVENT == 'all' || env.APPLY_FIXES_EVENT == github.event_name) && env.APPLY_FIXES_MODE == 'commit' && github.ref != 'refs/heads/main' && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository) && !contains(github.event.head_commit.message, 'skip fix')
+        run: sudo chown -Rc $UID .git/
+
+      - name: Commit and push applied linter fixes
+        if: steps.ml.outputs.has_updated_sources == 1 && (env.APPLY_FIXES_EVENT == 'all' || env.APPLY_FIXES_EVENT == github.event_name) && env.APPLY_FIXES_MODE == 'commit' && github.ref != 'refs/heads/main' && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository) && !contains(github.event.head_commit.message, 'skip fix')
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
+          commit_message: "[MegaLinter] Apply linters fixes"
+          commit_user_name: megalinter-bot
+          commit_user_email: megalinter@megalinter.io
+
+
+
   lint:
     if: ${{ !(contains(github.event.head_commit.message, '[ci skip]')) }}
     runs-on: ubuntu-22.04

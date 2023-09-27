@@ -2,7 +2,7 @@
 	name = "heavy-duty cell charger"
 	desc = "A much more powerful version of the standard recharger that is specifically designed to charge power cells."
 	desc_info = "This can be moved by using a wrench. You will need to wrench it again when and where you want to use it. Requires electricity to function."
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/machinery/cell_charger.dmi'
 	icon_state = "ccharger"
 	anchored = TRUE
 	idle_power_usage = 5
@@ -42,7 +42,7 @@
 /obj/machinery/cell_charger/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	if(distance > 5)
-		return
+		return TRUE
 
 	if(charging)
 		to_chat(user, "There's \a [charging.name] in the charger. Current charge: [charging.percent()]%.")

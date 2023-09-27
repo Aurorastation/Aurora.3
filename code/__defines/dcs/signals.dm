@@ -55,6 +55,7 @@
 #define COMSIG_MOB_EXAMINATE "mob_examinate"
 #define COMSIG_MOB_FACEDIR "mob_facedir"
 #define COMSIG_MOB_POINT "mob_point"
+#define COMSIG_MOB_ZONE_SEL_CHANGE "mob_zone_sel_change"
 ///from base of /mob/Login(): ()
 #define COMSIG_MOB_LOGIN "mob_login"
 ///from base of /mob/Logout(): ()
