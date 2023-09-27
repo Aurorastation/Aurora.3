@@ -50,37 +50,29 @@ export const ShuttleControlConsoleMultiAntag = (props, context) => {
           <Box>
             <LabeledList>
               <LabeledList.Item label="Drive">
-                {data.shuttle_state === 'idle' ? (
-                  <Box>Idle</Box>
-                ) : data.shuttle_state === 'warmup' ? (
-                  <Box>Spinning up</Box>
-                ) : data.shuttle_state === 'in_transit' ? (
-                  <Box>Engaged</Box>
-                ) : (
-                  <Box>Error</Box>
-                )}
+                {data.shuttle_state === 'idle'
+                  ? 'Idle'
+                  : data.shuttle_state === 'warmup'
+                    ? 'Spinning up'
+                    : data.shuttle_state === 'in_transit'
+                      ? 'Engaged'
+                      : 'Error'}
               </LabeledList.Item>
               {data.has_docking ? (
                 <LabeledList.Item label="Docking Status">
-                  {data.docking_status === 'docked' ? (
-                    <Box>Docked</Box>
-                  ) : data.docking_status === 'docking' ? (
-                    data.docking_override ? (
-                      <Box>Docking-Manual</Box>
-                    ) : (
-                      <Box>Docking</Box>
-                    )
-                  ) : data.docking_status === 'undocking' ? (
-                    data.docking_override ? (
-                      <Box>Undocking-Manual</Box>
-                    ) : (
-                      <Box>Undocking</Box>
-                    )
-                  ) : data.docking_status === 'undocked' ? (
-                    <Box>Undocked</Box>
-                  ) : (
-                    <Box>Error</Box>
-                  )}
+                  {data.docking_status === 'docked'
+                    ? 'Docked'
+                    : data.docking_status === 'docking'
+                      ? data.docking_override
+                        ? 'Docking-Manual'
+                        : 'Docking'
+                      : data.docking_status === 'undocking'
+                        ? data.docking_override
+                          ? 'Undocking-Manual'
+                          : 'Undocking'
+                        : data.docking_status === 'undocked'
+                          ? 'Undocked'
+                          : 'Error'}
                 </LabeledList.Item>
               ) : null}
             </LabeledList>
