@@ -2359,6 +2359,9 @@
 /obj/item/ore/coal,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
+"Ae" = (
+/turf/simulated/wall,
+/area/point_verdant/interior)
 "Ag" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
@@ -14098,7 +14101,7 @@ lf
 CK
 Ly
 lC
-rf
+Ae
 rf
 rf
 rf
@@ -14355,7 +14358,7 @@ lC
 lC
 lC
 lC
-rf
+Ae
 rf
 rf
 rf
@@ -14612,7 +14615,7 @@ fl
 sQ
 Ly
 lC
-rf
+Ae
 rf
 rf
 rf
@@ -14869,7 +14872,7 @@ lf
 lf
 nP
 lC
-rf
+Ae
 rf
 rf
 rf
@@ -15126,7 +15129,7 @@ wr
 lf
 lf
 lC
-rf
+Ae
 rf
 rf
 rf
