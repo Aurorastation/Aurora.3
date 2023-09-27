@@ -936,6 +936,7 @@
 #include "code\game\objects\effects\decals\wall.dm"
 #include "code\game\objects\effects\decals\warning_stripes.dm"
 #include "code\game\objects\effects\decals\Cleanable\aliens.dm"
+#include "code\game\objects\effects\decals\Cleanable\floor_damage.dm"
 #include "code\game\objects\effects\decals\Cleanable\fuel.dm"
 #include "code\game\objects\effects\decals\Cleanable\humans.dm"
 #include "code\game\objects\effects\decals\Cleanable\misc.dm"
