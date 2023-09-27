@@ -47,3 +47,6 @@ changes:
   - tweak: "Zombies now have a limited stamina."
   - balance: "Normal zombies no longer see through walls; only the hunter does."
   - backend: "Some dmdoc and spacemandmm constrains added."
+  - bugfix: "Fixed some issues with mechs on destruction, that were runtiming"
+  - refactor: "Small refactor of unarmed attacks, now zombies can attack and destroy mechs"
+  - balance: "Normal zombies are now weaker and die a little more easily."

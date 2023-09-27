@@ -192,7 +192,7 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/zombie)
 	)
 
-	total_health = 100
+	total_health = 80
 
 	slowdown = 2
 
@@ -329,7 +329,7 @@
 	icobase = 'icons/mob/human_races/zombie/r_zombie_bull.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie_bull.dmi'
 
-	total_health = 200
+	total_health = 300
 
 	allowed_eat_types = TYPE_ORGANIC | TYPE_HUMANOID | TYPE_SYNTHETIC | TYPE_WEIRD
 	gluttonous = GLUT_ANYTHING
@@ -391,7 +391,7 @@
 	deform = 'icons/mob/human_races/zombie/r_zombie_rhino.dmi'
 	slowdown = 2
 
-	total_health = 90
+	total_health = 120
 
 	stamina = 50
 	sprint_speed_factor = 0.7
