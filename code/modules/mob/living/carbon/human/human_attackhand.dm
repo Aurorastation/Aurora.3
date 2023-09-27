@@ -209,7 +209,7 @@
 					If aiming for chest:
 						27.3% chance you hit your target organ
 						70.5% chance you hit a random other organ
-						 2.2% chance you miss
+						2.2% chance you miss
 
 					If aiming for something else:
 						23.2% chance you hit your target organ
