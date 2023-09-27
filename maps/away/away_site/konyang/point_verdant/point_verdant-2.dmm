@@ -569,6 +569,12 @@
 "ct" = (
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/robotics)
+"cw" = (
+/obj/structure/bed/stool/chair{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/police)
 "cx" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/road_marking{
@@ -4422,6 +4428,10 @@
 /obj/structure/light_pole/konyang,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
+"sS" = (
+/obj/structure/bed/stool/chair,
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/police)
 "sT" = (
 /obj/structure/ledge/quarter/corner{
 	dir = 8
@@ -9596,6 +9606,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
+"NB" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "ND" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/machinery/light{
@@ -10596,10 +10613,7 @@
 /area/point_verdant/outdoors)
 "Sh" = (
 /obj/structure/table/wood,
-/obj/effect/floor_decal/corner/blue/full{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/police)
 "Sj" = (
 /obj/effect/decal/curb{
@@ -11560,6 +11574,9 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior)
+"Ws" = (
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/police)
 "Wx" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
 /turf/simulated/floor/exoplanet/konyang/pink,
@@ -25366,7 +25383,7 @@ Yf
 Yf
 be
 Sh
-UN
+cw
 UN
 Ys
 ZM
@@ -25622,8 +25639,8 @@ TT
 Lx
 Yf
 be
-kh
-Ys
+sS
+Ws
 Ys
 Ys
 Ys
@@ -26136,7 +26153,7 @@ Or
 Lx
 Yf
 be
-NA
+NB
 Ys
 Ys
 FZ

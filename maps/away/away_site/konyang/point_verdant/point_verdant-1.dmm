@@ -202,12 +202,13 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "cq" = (
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
-	pixel_x = -2;
-	pixel_y = 7
+/obj/effect/decal/curb{
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/automobile/random{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
 /area/point_verdant/interior/police)
 "cs" = (
 /obj/machinery/light/small{
@@ -446,7 +447,7 @@
 	pixel_x = -10;
 	pixel_y = 24
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "fo" = (
 /obj/structure/stairs/urban{
@@ -774,9 +775,8 @@
 /area/point_verdant/interior)
 "iX" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
-	pixel_x = -2;
-	pixel_y = 7
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 14
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/police)
@@ -912,6 +912,7 @@
 	name = "imposing rod railing";
 	layer = 9.1
 	},
+/obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "kk" = (
@@ -1131,6 +1132,13 @@
 "my" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/interior/tunnels)
+"mB" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "mG" = (
 /obj/machinery/light/colored/decayed{
 	dir = 8;
@@ -1757,10 +1765,7 @@
 /area/point_verdant/interior/bar)
 "ti" = (
 /obj/structure/bed/stool/chair,
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "tl" = (
 /obj/structure/shipping_container{
@@ -2214,6 +2219,13 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"xW" = (
+/obj/structure/bed/stool/chair,
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "ya" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -2493,10 +2505,8 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/bar)
 "Bk" = (
-/obj/machinery/papershredder{
-	pixel_x = -6
-	},
-/turf/simulated/floor/tiled,
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "Bq" = (
 /obj/effect/decal/road_marking{
@@ -2627,8 +2637,8 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
 "CD" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
-	dir = 4
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
@@ -2774,7 +2784,8 @@
 /area/point_verdant/interior)
 "DW" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/corner/blue/diagonal,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "DZ" = (
 /obj/effect/decal/road_marking/incline/center{
@@ -2859,6 +2870,10 @@
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Fn" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "Fp" = (
 /obj/structure/ledge/quarter{
 	dir = 4
@@ -3157,10 +3172,14 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/interior/tunnels)
 "IZ" = (
-/obj/machinery/door/airlock/glass{
-	dir = 2
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 10;
+	pixel_y = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/papershredder{
+	pixel_x = -6
+	},
+/turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "Ja" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3364,10 +3383,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/police)
 "LE" = (
 /obj/effect/floor_decal/industrial/warning/dust,
@@ -3501,15 +3517,8 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/bar)
 "Ni" = (
-/obj/machinery/papershredder{
-	pixel_x = -6
-	},
-/obj/structure/filingcabinet/filingcabinet{
-	pixel_x = 10;
-	pixel_y = 1
-	},
-/obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled,
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/police)
 "Nk" = (
 /obj/structure/bonfire,
@@ -3586,8 +3595,12 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "Oa" = (
-/obj/structure/bed/stool/chair/office/light,
-/turf/simulated/floor/tiled,
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp{
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/police)
 "Od" = (
 /obj/structure/ledge/quarter,
@@ -3601,10 +3614,7 @@
 /area/point_verdant/interior/bar)
 "Oq" = (
 /obj/structure/flora/pottedplant/woodyshrub,
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "Os" = (
 /obj/structure/table/reinforced/wood,
@@ -3885,6 +3895,12 @@
 "QV" = (
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
+"QW" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/point_verdant/interior/police)
 "Rb" = (
 /obj/structure/shipping_container{
 	icon_state = "blue2"
@@ -4239,6 +4255,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
+"Vn" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/automobile/police,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior/police)
 "Vq" = (
 /obj/structure/closet/crate/bin/urban/dumpster,
 /obj/effect/decal/cleanable/cobweb,
@@ -4634,11 +4657,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
 "ZA" = (
-/obj/structure/table/wood,
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/police)
 "ZC" = (
 /obj/random/pizzabox,
@@ -13554,14 +13573,14 @@ rf
 Ir
 sQ
 Ly
-Bk
+Zd
 xa
-lC
+fR
 AN
 NR
-lC
+fR
 Se
-AN
+lf
 lf
 Zd
 lC
@@ -13811,14 +13830,14 @@ rf
 Ir
 CK
 nP
-NR
+lf
 NR
 ai
 AN
 NR
 ai
 NR
-NR
+lf
 SG
 Ly
 lC
@@ -14068,14 +14087,14 @@ rf
 Ir
 Ig
 lf
-AN
+lf
 eJ
-lC
+fR
 vU
 NR
-lC
+fR
 FG
-AN
+lf
 CK
 Ly
 lC
@@ -14587,7 +14606,7 @@ NW
 lC
 vU
 NR
-lC
+fR
 Dn
 fl
 sQ
@@ -14846,7 +14865,7 @@ AN
 NR
 ai
 NR
-NR
+lf
 lf
 nP
 lC
@@ -15088,22 +15107,22 @@ DQ
 dq
 DQ
 Ks
-JI
-JI
-JI
-Ir
-Ir
-Ir
+AV
+rf
+rf
+rf
+rf
 Ir
 Lj
+AN
 AN
 xa
 lC
 AN
 NR
-lC
+fR
 nT
-eJ
+wr
 lf
 lf
 lC
@@ -15345,14 +15364,14 @@ DQ
 dq
 DQ
 pT
-JI
-JI
-JI
-Ir
-cQ
-wE
+AV
+rf
+rf
+rf
+rf
 Ir
 fw
+AN
 AN
 lC
 lC
@@ -15602,28 +15621,28 @@ DQ
 dq
 DQ
 Ks
-JI
-JI
-JI
-Ir
-AN
-AN
+AV
+rf
+rf
+rf
+rf
 Ir
 fw
 AN
+AN
 lC
 ti
-AN
+lf
 NR
-cq
+ZA
 ZA
 lC
 uX
 fs
 QE
-fs
+cq
 QE
-fs
+Vn
 kJ
 lC
 rf
@@ -15863,17 +15882,17 @@ Ir
 Ir
 Ir
 Ir
-vo
-AN
+Ir
+Ir
 Ir
 Ir
 Ir
 lC
 ti
-AN
+lf
 NR
 Oa
-ZA
+QW
 lC
 JF
 wD
@@ -16120,16 +16139,16 @@ Ir
 cQ
 wE
 Ir
-fR
-ou
-Ir
-cQ
+xW
 wE
+CD
+wE
+mB
 Ir
 Oq
-AN
+lf
 NR
-AN
+Ni
 LC
 lC
 JF
@@ -16376,15 +16395,15 @@ Ks
 Ir
 AN
 AN
-fR
-NR
-CD
-fR
+Ir
+Se
+AN
+AN
 AN
 AN
 Ir
 ti
-AN
+lf
 NR
 AN
 AN
@@ -16631,17 +16650,17 @@ dq
 DQ
 pT
 Ir
-vo
-AN
-IZ
-NR
-CD
-IZ
 AN
 vo
 Ir
-ti
+Se
 AN
+eJ
+eJ
+eJ
+Ir
+ti
+lf
 NR
 AN
 Xi
@@ -16888,16 +16907,16 @@ dq
 DQ
 Ks
 Ir
+ou
+fR
+Ir
+fR
+ou
 fR
 fR
 Ir
-NR
-CD
 Ir
-fR
-fR
-Ir
-NR
+Bk
 NR
 NR
 NR
@@ -17145,12 +17164,12 @@ dq
 DQ
 Ks
 Ir
-NW
+AN
 TN
 lO
-DW
-CD
+NW
 AN
+NR
 AN
 AN
 Ir
@@ -17402,12 +17421,12 @@ dq
 DQ
 Ks
 Ir
-Ni
+YZ
 YZ
 Jp
 DW
-CD
-AN
+YZ
+NR
 AN
 AN
 ai
@@ -17659,7 +17678,7 @@ dq
 DQ
 Ks
 Ir
-kE
+IZ
 NR
 NR
 NR
@@ -17916,7 +17935,7 @@ dq
 DQ
 pT
 Ir
-AN
+Fn
 AN
 AN
 AN

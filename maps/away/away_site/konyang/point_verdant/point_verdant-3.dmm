@@ -161,6 +161,12 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/arcade)
+"cE" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "cH" = (
 /obj/effect/decal/curb{
 	dir = 9
@@ -353,6 +359,9 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
+/obj/structure/bed/stool/chair/plastic{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/outdoors)
 "fx" = (
@@ -386,6 +395,14 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"fE" = (
+/obj/structure/table/wood,
+/obj/item/paper_scanner{
+	pixel_x = -6
+	},
+/obj/item/paper_bin,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "fF" = (
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
@@ -1000,7 +1017,7 @@
 /obj/item/storage/slide_projector{
 	pixel_x = -5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "rx" = (
 /obj/effect/decal/road_marking,
@@ -1019,7 +1036,7 @@
 /area/point_verdant/interior)
 "rX" = (
 /obj/structure/rod_railing,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "se" = (
 /obj/effect/decal/curb{
@@ -1076,6 +1093,9 @@
 	},
 /turf/simulated/open,
 /area/point_verdant/outdoors)
+"ty" = (
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior)
 "tA" = (
 /obj/structure/table/wood,
 /obj/item/folder/red,
@@ -1204,7 +1224,7 @@
 	layer = 9.1;
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "vz" = (
 /obj/structure/rod_railing{
@@ -1491,6 +1511,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"AT" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "AV" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -1525,10 +1549,8 @@
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "Be" = (
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior)
 "Bg" = (
 /obj/effect/decal/curb/corner{
@@ -1731,9 +1753,9 @@
 /area/point_verdant/interior)
 "Fn" = (
 /obj/structure/bed/stool/chair{
-	dir = 4
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "Fs" = (
 /obj/structure/table/wood,
@@ -1794,6 +1816,17 @@
 "Gg" = (
 /turf/simulated/wall/wood,
 /area/point_verdant/interior)
+"Gm" = (
+/obj/structure/rod_railing{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/item/material/ashtray/bronze{
+	pixel_y = -3;
+	pixel_x = -4
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/outdoors)
 "Gs" = (
 /obj/effect/decal/road_marking/no_pass{
 	dir = 1
@@ -1968,6 +2001,10 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"Ip" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior)
 "IF" = (
 /obj/effect/decal/road_marking/reflector{
 	dir = 8
@@ -1992,6 +2029,16 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/arcade)
+"Ja" = (
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 10;
+	pixel_y = 1
+	},
+/obj/machinery/papershredder{
+	pixel_x = -6
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "Jb" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -2005,12 +2052,10 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "Ji" = (
-/obj/structure/table/wood,
-/obj/item/paper_scanner{
-	pixel_x = -6
+/obj/structure/bed/stool/chair{
+	dir = 4
 	},
-/obj/item/paper_bin,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "Jt" = (
 /obj/effect/decal/curb{
@@ -2032,10 +2077,12 @@
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "JD" = (
-/obj/structure/bed/stool/chair{
-	dir = 8
+/obj/structure/table/wood,
+/obj/item/storage/box/fancy/cigarettes/rugged{
+	pixel_x = 4;
+	pixel_y = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "JE" = (
 /obj/machinery/light/small{
@@ -2088,6 +2135,10 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"Le" = (
+/obj/structure/bed/stool/chair/office/light,
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior)
 "Lh" = (
 /obj/machinery/photocopier,
 /turf/simulated/floor/wood,
@@ -2347,7 +2398,7 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "PD" = (
 /obj/structure/table/rack/retail_shelf,
@@ -2505,9 +2556,9 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "SI" = (
-/obj/structure/table/wood,
+/obj/structure/bed/stool/chair/plastic,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/outdoors)
 "SK" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -2620,6 +2671,12 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"UF" = (
+/obj/structure/bed/stool/chair{
+	dir = 2
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "UV" = (
 /obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
@@ -2864,6 +2921,10 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"Yi" = (
+/obj/structure/flora/pottedplant/bamboo,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior)
 "Ym" = (
 /obj/structure/ledge{
 	dir = 4
@@ -15933,12 +15994,12 @@ Gg
 eV
 eV
 eV
-Gg
-Fv
-Fv
+tV
+AT
+eV
 PB
-Fn
-Fn
+eV
+eV
 rX
 qY
 qY
@@ -16190,13 +16251,13 @@ tV
 eV
 eV
 eV
-Gg
-Fv
-eV
-ru
+tV
+Yi
+lp
 Ji
-SI
-Be
+Ji
+Ji
+lp
 vv
 vv
 vv
@@ -16447,17 +16508,17 @@ tV
 eV
 eV
 eV
-Gg
-Fv
+tV
 eV
+UF
+ru
+fE
 JD
-JD
-JD
-Fv
-Fv
-Fv
-Fv
+cE
 eV
+ty
+ty
+Be
 Gg
 Ml
 Cw
@@ -16706,15 +16767,15 @@ eV
 eV
 nh
 eV
+lp
+Fn
+Fn
+Fn
+lp
 eV
-eV
-eV
-eV
-eV
-eV
-eV
-eV
-eV
+ty
+Le
+Be
 Gg
 Ml
 Cw
@@ -16962,16 +17023,16 @@ eV
 eV
 eV
 Gg
+Ja
 eV
 eV
 eV
 eV
 eV
-Fv
-Fv
-Fv
-Fv
-Fv
+eV
+Ip
+Be
+Be
 Gg
 Ml
 Cw
@@ -17734,7 +17795,7 @@ Uj
 Uj
 jF
 tq
-nC
+SI
 nC
 Of
 Ml
@@ -17991,7 +18052,7 @@ DB
 GF
 MN
 tq
-ft
+Gm
 ft
 FI
 Ml
