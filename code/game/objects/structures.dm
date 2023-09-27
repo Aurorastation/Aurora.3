@@ -137,7 +137,7 @@
 	user.visible_message(SPAN_WARNING("[user] starts [flags & ON_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
 
-	if(!do_after(user,50))
+	if(!do_after(user, 5 SECONDS, src, DO_DEFAULT | DO_USER_UNIQUE_ACT))
 		LAZYREMOVE(climbers, user)
 		return
 
