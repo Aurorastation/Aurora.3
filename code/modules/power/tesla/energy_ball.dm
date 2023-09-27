@@ -70,7 +70,7 @@
 		..()
 
 /obj/singularity/energy_ball/examine(mob/user)
-	..()
+	. = ..()
 	if(orbiting_balls.len)
 		to_chat(user, "There are [orbiting_balls.len] energy balls orbiting \the [src].")
 

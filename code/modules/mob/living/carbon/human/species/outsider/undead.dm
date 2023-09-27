@@ -135,8 +135,6 @@
 	hud_type = /datum/hud_data/construct
 
 /datum/species/apparition/handle_death(var/mob/living/carbon/human/H)
-	set waitfor = 0
-	sleep(1)
 	new /obj/effect/decal/cleanable/ash(H.loc)
 	qdel(H)
 

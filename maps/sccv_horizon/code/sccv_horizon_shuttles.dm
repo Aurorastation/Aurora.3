@@ -243,4 +243,5 @@
 	name = "First Deck Supply Shuttle Hangar Bay"
 	landmark_tag = "nav_cargo_shuttle_dock"
 	docking_controller = "cargo_shuttle_dock"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_turf = /turf/simulated/floor/plating
+	base_area = /area/hangar/operations

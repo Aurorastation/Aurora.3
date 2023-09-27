@@ -90,6 +90,10 @@ Class Procs:
 	var/active_zones = 0
 	var/next_id = 1
 
+	#ifdef ZASDBG
+	var/updated = 0
+	#endif
+
 /datum/controller/subsystem/air/proc/reboot()
 	set waitfor = FALSE
 

@@ -15,7 +15,7 @@
 	return
 
 /obj/item/circuitboard/unary_atmos/examine()
-	..()
+	. = ..()
 	to_chat(usr, "The jumper is connecting the [dir2text(machine_dir)] pins.")
 
 /obj/item/circuitboard/unary_atmos/construct(var/obj/machinery/atmospherics/unary/U)

@@ -474,9 +474,9 @@
 	playsound(usr, 'sound/machines/click.ogg', 50)
 	update_icon()
 
-/obj/item/auto_cpr/examine(mob/user)
-	..(user)
-	if(!user.Adjacent(src))
+/obj/item/auto_cpr/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(!is_adjacent)
 		return
 	to_chat(user, SPAN_NOTICE("\The [src]'s [EPP] is currently [epp_mode ? "on" : "off"], while the Auto CPR is [cpr_mode ? "on" : "off"]."))
 	if(battery)

@@ -18,7 +18,7 @@
 		return temp_access
 
 /obj/item/card/id/guest/examine(mob/user)
-	..(user)
+	. = ..()
 	if(world.time > expiration_time)
 		to_chat(usr, "This pass expired at: [worldtime2text(expiration_time)].")
 	else

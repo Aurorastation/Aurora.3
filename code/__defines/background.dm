@@ -181,6 +181,7 @@
 #define ACCENT_WAVESONG "Wavesong"
 #define ACCENT_SUNKENSONG "Sunkensong"
 #define ACCENT_STARSONG "Starsong"
+#define ACCENT_XRIMSONG "Xrimsong"
 
 
 #define ACCENT_TTS "Text-to-Speech"

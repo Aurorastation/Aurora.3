@@ -440,12 +440,12 @@ var/list/world_api_rate_limit = list()
 		return FALSE
 
 	if (!con)
-		log_world("ERROR: No DBConnection object passed to establish_db_connection() proc.")
+		log_sql("ERROR: No DBConnection object passed to establish_db_connection() proc.")
 		return FALSE
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)
 		if(world.timeofday < con.last_fail + 100) // 10 seconds
-			log_world("ERROR: DB connection cutoff exceeded for a database object in establish_db_connection().")
+			log_sql("ERROR: DB connection cutoff exceeded for a database object in establish_db_connection().")
 			return FALSE
 
 		con.failed_connections = 0

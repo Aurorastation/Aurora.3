@@ -80,7 +80,7 @@
 				LAZYADD(src.other_DNA, M.dna.unique_enzymes)
 				src.other_DNA_type = "saliva"
 
-			while (do_after(user, 25, 5, 1))
+			while (do_after(user, 25, 5))
 				var/blood_taken = 0
 				blood_taken = min(5, REAGENT_VOLUME(reagents, /singleton/reagent/blood)/4)
 
@@ -155,8 +155,9 @@
 		attached_mob = null
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/reagent_containers/blood/examine(mob/user, distance = 2)
-	if (..() && vampire_marks)
+/obj/item/reagent_containers/blood/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if (distance <= 2 && vampire_marks)
 		to_chat(user, SPAN_WARNING("There are teeth marks on it."))
 	return
 

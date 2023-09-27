@@ -57,6 +57,8 @@
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if (initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 
@@ -73,8 +75,8 @@
 	else
 		luminosity = 1
 
-	if (smooth)
-		queue_smooth(src)
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue(src)
 
 	if (light_range && light_power)
 		update_light()
@@ -316,6 +318,9 @@ var/const/enterloopsanity = 100
 	return can_have_cabling()
 
 /turf/attackby(obj/item/C, mob/user)
+	if(istype(C, /obj/item/grab))
+		var/obj/item/grab/grab = C
+		step(grab.affecting, get_dir(grab.affecting, src))
 	if (can_lay_cable() && C.iscoil())
 		var/obj/item/stack/cable_coil/coil = C
 		coil.turf_place(src, user)

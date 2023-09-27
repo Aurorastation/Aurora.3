@@ -154,9 +154,9 @@
 		return //no eating the limb until everything's been removed
 	return ..()
 
-/obj/item/organ/external/examine()
-	..()
-	if(in_range(usr, src) || istype(usr, /mob/abstract/observer))
+/obj/item/organ/external/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		for(var/obj/item/I in contents)
 			if(istype(I, /obj/item/organ))
 				continue

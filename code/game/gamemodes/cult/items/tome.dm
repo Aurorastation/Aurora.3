@@ -94,13 +94,13 @@
 				playsound(scribe, 'sound/weapons/bladeslice.ogg', 50, FALSE)
 				scribe.drip(4)
 
-				if(do_after(scribe, 50))
+				if(do_after(scribe, 5 SECONDS))
 					create_rune(scribe, chosen_rune)
 	else
 		to_chat(user, SPAN_CULT("The book seems full of illegible scribbles."))
 
 /obj/item/book/tome/examine(mob/user)
-	..(user)
+	. = ..()
 	if(!iscultist(user) || !isobserver(user))
 		to_chat(user, "An old, dusty tome with frayed edges and a sinister looking cover.")
 	else

@@ -23,7 +23,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if (!implant_type)
 		return
 	imp = new implant_type(src)
-	update()
+	update_icon()
 
 	return
 
@@ -162,8 +162,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = "corvo_cigarette"
 		item_state = "corvo_cigarette"
 
-/obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user)
-	if(..(user, 1))
+/obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, "It is [active ? "on" : "off"].")
 
 
@@ -473,8 +474,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_NORMAL
 	var/has_spear = TRUE
 
-/obj/item/fluff/tokash_spear/examine(mob/user)
-	if(..(user, 1) && has_spear)
+/obj/item/fluff/tokash_spear/examine(mob/user, distance, is_adjacent)
+	if(distance <= 1 && has_spear)
 		to_chat(user, "It currently holds an old looking spearhead.")
 
 /obj/item/fluff/tokash_spear/update_icon()
@@ -1640,7 +1641,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	return ..()
 
 /obj/item/fluff/nasira_burner/examine(mob/user)
-	..(user)
+	. = ..()
 	if(lit)
 		to_chat(user, "\The [src] is currently lit.")
 
@@ -1853,8 +1854,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	add_overlay("card_spin_fx")
 	addtimer(CALLBACK(src, PROC_REF(finish_selection), usr), 3 SECONDS)
 
-/obj/item/fluff/ielia_tarot/examine(mob/user)
-	if(..(user, 1))
+/obj/item/fluff/ielia_tarot/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		if(first_card && second_card && third_card)
 			to_chat(user, "The following constellations are displayed on the starfinder: [first_card], [second_card], and [third_card].")
 

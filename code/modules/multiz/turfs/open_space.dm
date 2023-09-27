@@ -146,7 +146,7 @@
 /turf/simulated/open/chasm
 	icon = 'icons/turf/smooth/chasms_seethrough.dmi'
 	icon_state = "debug"
-	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_flags = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
 	z_flags = ZM_MIMIC_BELOW
 	name = "hole"
@@ -207,8 +207,9 @@
 	for(var/obj/O in src)
 		O.hide(0)
 
-/turf/simulated/open/examine(mob/user, distance, infix, suffix)
-	if(..(user, 2))
+/turf/simulated/open/examine(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 2)
 		var/depth = 1
 		for(var/T = GetBelow(src); isopenspace(T); T = GetBelow(T))
 			depth += 1

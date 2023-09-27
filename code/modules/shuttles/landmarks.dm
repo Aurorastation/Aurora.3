@@ -1,12 +1,15 @@
 //making this separate from /obj/effect/landmark until that mess can be dealt with
 /obj/effect/shuttle_landmark
 	name = "Nav Point"
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "energynet"
+	icon = 'icons/effects/map_effects_96x96.dmi'
+	icon_state = "shuttle_landmark"
 	anchored = TRUE
 	unacidable = TRUE
 	simulated = 0
 	invisibility = 101
+	layer = ABOVE_ALL_MOB_LAYER
+	pixel_x = -32
+	pixel_y = -32
 
 	var/landmark_tag
 	//ID of the controller on the dock side
@@ -116,12 +119,31 @@
 	..()
 	name = "[initial(name)] ([x],[y])"
 
+//Subtypes for exclusively Horizon shuttles
+/obj/effect/shuttle_landmark/automatic/intrepid/sector_set(var/obj/effect/overmap/visitable/O)
+	..()
+	name = "SCCV Intrepid Landing Beacon ([x],[y])"
+
+/obj/effect/shuttle_landmark/automatic/spark/sector_set(var/obj/effect/overmap/visitable/O)
+	..()
+	name = "SCCV Spark Landing Beacon ([x],[y])"
+
+/obj/effect/shuttle_landmark/automatic/canary/sector_set(var/obj/effect/overmap/visitable/O)
+	..()
+	name = "SCCV Canary Landing Beacon ([x],[y])"
+
 //Subtype that calls explosion on init to clear space for shuttles
 /obj/effect/shuttle_landmark/automatic/clearing
+	dir = NORTH // compatible with Horizon's shuttles
 	var/radius = LANDING_ZONE_RADIUS
 
 /obj/effect/shuttle_landmark/automatic/clearing/LateInitialize()
-	for(var/turf/T in RANGE_TURFS(LANDING_ZONE_RADIUS, src))
+	// with directional shuttle landmarks, the landmark is at the airlock of the shuttle,
+	// so the shuttle extends south from this automatic landmark,
+	// and and so we explode around not this landmark,
+	// but instead around where the center of shuttle could be
+	var/turf/C = locate(src.x, src.y - LANDING_ZONE_RADIUS, src.z)
+	for(var/turf/T in RANGE_TURFS(LANDING_ZONE_RADIUS, C))
 		if(T.density)
 			T.ChangeTurf(get_base_turf_by_area(T))
 		for(var/obj/structure/S in T)

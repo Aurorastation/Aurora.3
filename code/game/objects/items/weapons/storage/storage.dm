@@ -14,7 +14,6 @@
 
 /obj/item/storage
 	name = "storage"
-	icon = 'icons/obj/storage.dmi'
 	w_class = ITEMSIZE_NORMAL
 	var/list/can_hold  //List of objects which this item can store (if set, it can't store anything else)
 	var/can_hold_strict = FALSE // if strict, the exact path has to be matched
@@ -42,6 +41,7 @@
 	var/use_sound = /singleton/sound_category/rustle_sound	//sound played when used. null for no sound.
 	var/list/starts_with // for pre-filled items
 	var/empty_delay = 0 SECOND // time it takes to empty bag. this is multiplies by number of objects stored
+	var/animated = TRUE 	///Boolean, whether or not we should have the squish animation when inserting and removing objects
 
 /obj/item/storage/Destroy()
 	close_all()
@@ -154,6 +154,8 @@
 /obj/item/storage/proc/open(mob/user as mob)
 	if (use_sound)
 		playsound(src.loc, src.use_sound, 50, 0, -5)
+	if(animated)
+		animate_parent()
 
 	orient2hud(user)
 	if (user.s_active)
@@ -412,6 +414,8 @@
 	W.on_enter_storage(src)
 	if(use_sound)
 		playsound(src.loc, src.use_sound, 50, 0, -5)
+	if(animated)
+		animate_parent()
 	if(user)
 		W.dropped(user)
 		if(!istype(W, /obj/item/forensics))
@@ -419,13 +423,12 @@
 
 		if(!prevent_warning)
 			for(var/mob/M in viewers(user, null))
-				if (M == usr)
-					to_chat(usr, "<span class='notice'>You put \the [W] into [src].</span>")
+				if(M == usr)
+					continue
 				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
-					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
+					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
 				else if (W && W.w_class >= ITEMSIZE_NORMAL) //Otherwise they can only see large or normal items from a distance...
-					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
-
+					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
 		orient2hud(user)
 		if(user.s_active)
 			user.s_active.show_to(user)
@@ -457,6 +460,9 @@
 /obj/item/storage/proc/remove_from_storage(obj/item/W, atom/new_location)
 	if(!istype(W))
 		return FALSE
+
+	if(animated)
+		animate_parent()
 
 	if(istype(src, /obj/item/storage/box/fancy))
 		var/obj/item/storage/box/fancy/F = src
@@ -631,7 +637,7 @@
 	if(empty_delay)
 		usr.visible_message("\The [usr] starts to empty the contents of \the [src]...", SPAN_NOTICE("You start emptying the contents of \the [src]..."))
 
-	if(!do_after(usr, contents.len * empty_delay, act_target=usr))
+	if(!do_after(usr, contents.len * empty_delay))
 		return
 
 	var/turf/T = get_turf(src)
@@ -744,6 +750,11 @@
 // putting a sticker on something puts it in its contents, storage items use their contents to store their items
 /obj/item/storage/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	return FALSE
+
+/obj/item/storage/proc/animate_parent()
+	var/matrix/M = src.transform
+	animate(src, time = 1.5, loop = 0, transform = src.transform.Scale(1.07, 0.9))
+	animate(time = 2, transform = M)
 
 //Returns the storage depth of an atom. This is the number of storage items the atom is contained in before reaching toplevel (the area).
 //Returns -1 if the atom was not found on container.

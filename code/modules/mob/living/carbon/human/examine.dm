@@ -32,7 +32,7 @@
 			else
 				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
 
-/mob/living/carbon/human/examine(mob/user)
+/mob/living/carbon/human/examine(mob/user, distance, is_adjacent)
 	var/skipbody = get_covered_body_parts()
 	var/skipbody_thick = get_covered_body_parts(TRUE)
 	var/skipitems = get_covered_clothes()
@@ -241,10 +241,6 @@
 	if(is_berserk())
 		msg += "<span class='warning'><B>[get_pronoun("He")] [get_pronoun("has")] engorged veins, which appear a vibrant red!</B></span>\n"
 
-	var/distance = get_dist(user,src)
-	if(istype(user, /mob/abstract/observer) || user.stat == DEAD) // ghosts can see anything
-		distance = 1
-
 	if((src.stat || (status_flags & FAKEDEATH)) && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
 		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")]n't responding to anything around [get_pronoun("him")] and seems to be unconscious.</span>\n"
 		if(distance <= 3 && ((stat == DEAD || is_asystole() || src.losebreath) || (status_flags & FAKEDEATH)))
@@ -412,6 +408,8 @@
 	if(Adjacent(user))
 		INVOKE_ASYNC(src, PROC_REF(examine_pulse), user)
 
+	return TRUE
+
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
 /proc/hasHUD(mob/M, hudtype)
 	if(ishuman(M))
@@ -457,7 +455,7 @@
 	var/output_text = color_map[supplied_color] || "fluid"
 	return output_text
 
-/mob/living/carbon/human/assemble_height_string(mob/examiner)
+/mob/living/carbon/human/proc/assemble_height_string(mob/examiner)
 	var/height_string = ""
 	var/height_descriptor
 	if(height == HEIGHT_NOT_USED)

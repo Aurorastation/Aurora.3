@@ -22,7 +22,7 @@
 	name = "Orion Express Courier"
 
 	uniform = /obj/item/clothing/under/rank/hangar_technician/orion/ship
-	shoes = /obj/item/clothing/shoes/brown
+	shoes = /obj/item/clothing/shoes/sneakers/brown
 	back = /obj/item/storage/backpack/satchel/leather
 
 	id = /obj/item/card/id/orion_ship
@@ -47,6 +47,17 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
+		var/surname = splittext(H.name, " ")
+		switch(surname)
+			if("K'lax")
+				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
+				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+				A.replaced(H, affected)
+			if("C'thur")
+				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/cthur(H)
+				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+				A.replaced(H, affected)
+		H.update_body()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 

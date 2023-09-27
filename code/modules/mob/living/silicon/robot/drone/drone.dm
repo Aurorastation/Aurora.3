@@ -91,7 +91,7 @@
 
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
-	set_default_language(all_languages[LANGUAGE_LOCAL_DRONE])
+	default_language = all_languages[LANGUAGE_LOCAL_DRONE]
 
 /mob/living/silicon/robot/drone/Destroy()
 	if(master_matrix)
@@ -577,7 +577,7 @@
 	gib()
 
 /mob/living/silicon/robot/drone/examine(mob/user)
-	..()
+	. = ..()
 
 /mob/living/silicon/robot/drone/self_diagnosis()
 	if(!is_component_functioning("diagnosis unit"))
