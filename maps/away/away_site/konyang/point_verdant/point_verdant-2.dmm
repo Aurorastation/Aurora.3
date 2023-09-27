@@ -490,6 +490,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/item/pen/black,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "ce" = (
@@ -2630,6 +2631,11 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"lh" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/blast/shutters,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/police)
 "li" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -3204,6 +3210,10 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
+	},
+/obj/item/folder/blue{
+	pixel_x = 16;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
@@ -10069,6 +10079,13 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Pn" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "Pq" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -12289,6 +12306,13 @@
 /obj/machinery/door/urban,
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/tailor)
+"Zu" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/blast/shutters{
+	dir = 4
+	},
+/turf/simulated/wall,
+/area/point_verdant/interior/police)
 "Zv" = (
 /obj/structure/road_barrier{
 	dir = 4
@@ -27496,7 +27520,7 @@ vH
 Yf
 Yf
 tO
-UK
+lh
 jG
 iz
 xA
@@ -28260,7 +28284,7 @@ wK
 wK
 wL
 TG
-NA
+Pn
 Ys
 gb
 UK
@@ -28775,11 +28799,11 @@ ZS
 ZS
 UK
 UK
+Zu
 UK
 UK
 UK
-UK
-UK
+Zu
 UK
 UK
 BT
