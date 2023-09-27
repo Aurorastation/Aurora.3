@@ -736,9 +736,16 @@
 		if (e.implants.len)
 			var/unk = 0
 			var/list/organic = list()
-			for(var/atom/movable/I in e.implants)
-				if(is_type_in_list(I, known_implants))
-					wounds += "\a [I.name] implanted:"
+			var/imp
+			for(var/I in e.implants)
+				if(istype(I, /obj/item/implant))
+					var/obj/item/implant/A = I
+					if (A.hidden)
+						return
+					else if(A.known)
+						imp += "[I] implanted:"
+					else
+						unk += 1
 				else if(istype(I, /obj/effect/spider))
 					organic += I
 				else

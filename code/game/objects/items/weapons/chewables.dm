@@ -203,29 +203,6 @@
 /obj/item/clothing/mask/chewable/candy/gum/gumball/medical
 	reagents_to_add = list(/singleton/reagent/tricordrazine = 5)
 
-
-/obj/item/storage/box/fancy/gum
-	name = "\improper Chewy Fruit flavored gum"
-	desc = "A small pack of chewing gum in various flavors."
-	icon = 'icons/obj/food.dmi'
-	icon_state = "gum_pack"
-	item_state = "candy"
-	icon_type = "gum stick"
-	storage_type = "packaging"
-	slot_flags = SLOT_EARS
-	w_class = ITEMSIZE_TINY
-	starts_with = list(/obj/item/clothing/mask/chewable/candy/gum = 5)
-	can_hold = list(/obj/item/clothing/mask/chewable/candy/gum, /obj/item/trash/spitgum)
-	max_storage_space = 5
-
-	use_sound = 'sound/items/storage/wrapper.ogg'
-	drop_sound = 'sound/items/drop/wrapper.ogg'
-	pickup_sound = 'sound/items/pickup/wrapper.ogg'
-
-	trash = /obj/item/trash/gum
-	closable = FALSE
-	icon_overlays = FALSE
-
 /obj/item/clothing/mask/chewable/candy/lolli
 	name = "lollipop"
 	desc = "A simple artificially flavored sphere of sugar on a handle, colloquially known as a sucker. Allegedly one is born every minute."
