@@ -1981,13 +1981,13 @@
 	reset_view(target)
 
 /mob/living/carbon/human/proc/can_hivenet()
-	var/obj/item/organ/internal/vaurca/neuralsocket/S = src.organs_by_name[BP_NEURAL_SOCKET]
+	var/obj/item/organ/internal/vaurca/neuralsocket/S = src.internal_organs_by_name[BP_NEURAL_SOCKET]
 	if(src.stat != CONSCIOUS)
 		to_chat(src, SPAN_WARNING("You are incapable of that in your current state!"))
 		return FALSE
 	if(!istype(S))
 		to_chat(src, SPAN_WARNING("You require a functional neural socket to do this!"))
-		return
+		return FALSE
 	if(S.last_action > world.time)
 		to_chat(src, SPAN_WARNING("You must wait before attempting another Hivenet action!"))
 		return FALSE
