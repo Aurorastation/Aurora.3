@@ -149,7 +149,7 @@
 					alpha = 200
 
 	if (last_range != use_range || last_power != use_power || color != light_color)
-		set_light(min(use_power, 1), use_range / 6, use_range) //cap first arg at 1 to avoid breaking lighting stuff.
+		set_light(use_range / 6, use_power ? 6 : 0, light_color)
 		last_range = use_range
 		last_power = use_power
 		//Temperature based color

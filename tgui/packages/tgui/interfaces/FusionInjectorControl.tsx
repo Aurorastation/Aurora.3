@@ -54,7 +54,19 @@ export const FusionInjectorControl = (props, context) => {
             </Section>
 
             {data.injectors.map((injector) => (
-              <Section title={'Injector ' + injector.id} key={injector.id}>
+              <Section
+                title={'Injector ' + injector.id}
+                key={injector.id}
+                buttons={
+                  <Button
+                    content={injector.injecting ? 'Injecting' : 'Not Injecting'}
+                    color={injector.injecting ? 'good' : 'bad'}
+                    icon="compress-arrows-alt"
+                    onClick={() =>
+                      act('toggle_injecting', { machine: injector.ref })
+                    }
+                  />
+                }>
                 <LabeledList>
                   <LabeledList.Item label="Status">
                     <Box as="span" color={injector.injecting ? 'good' : 'bad'}>

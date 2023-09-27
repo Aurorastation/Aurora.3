@@ -61,7 +61,6 @@ export const FusionCoreControl = (props, context) => {
                     icon="star"
                     onClick={() =>
                       act('toggle_active', {
-                        toggle_active: 1,
                         machine: core.ref,
                       })
                     }
@@ -102,7 +101,7 @@ export const FusionCoreControl = (props, context) => {
                     maxValue={100}
                     stepPixelSize={15}
                     onDrag={(e, value) =>
-                      act('set_strength', {
+                      act('strength', {
                         strength: value,
                         machine: core.ref,
                       })
@@ -137,7 +136,7 @@ export const FusionCoreControl = (props, context) => {
                       Core offline.
                     </Box>
                   ) : (
-                    core.temperature + 'K'
+                    round(core.temperature, 0.1) + ' kelvin'
                   )}
                 </LabeledList.Item>
               </LabeledList>

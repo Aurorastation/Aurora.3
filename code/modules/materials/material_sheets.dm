@@ -582,6 +582,7 @@
 	max_amount = 5
 	default_type = MATERIAL_SUPERMATTER
 	color = COLOR_YELLOW
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/supermatter/full/Initialize()
 	. = ..()
