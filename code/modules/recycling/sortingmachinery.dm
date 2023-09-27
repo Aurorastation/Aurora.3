@@ -110,12 +110,12 @@
 		add_overlay(I)
 
 /obj/structure/bigDelivery/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	if(distance <= 4)
 		if(sortTag)
 			to_chat(user, "<span class='notice'>It is labeled \"[sortTag]\"</span>")
 		if(examtext)
 			to_chat(user, "<span class='notice'>It has a note attached which reads, \"[examtext]\"</span>")
-	return
 
 /obj/item/smallDelivery
 	desc = "A small wrapped package."
@@ -230,12 +230,12 @@
 		add_overlay(I)
 
 /obj/item/smallDelivery/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	if(distance <= 4)
 		if(sortTag)
 			to_chat(user, "<span class='notice'>It is labeled \"[sortTag]\"</span>")
 		if(examtext)
 			to_chat(user, "<span class='notice'>It has a note attached which reads, \"[examtext]\"</span>")
-	return
 
 /obj/structure/bigDelivery/Destroy()
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
