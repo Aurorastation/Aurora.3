@@ -75,8 +75,8 @@
 	else
 		luminosity = 1
 
-	if (smooth)
-		queue_smooth(src)
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue(src)
 
 	if (light_range && light_power)
 		update_light()
