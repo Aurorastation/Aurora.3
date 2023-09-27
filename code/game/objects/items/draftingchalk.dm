@@ -6,12 +6,12 @@
 	color = "#FFFFFF"
 	layer = 2.1
 	anchored = TRUE
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 
 /obj/effect/decal/cleanable/draftingchalk/Initialize(mapload)
 	. = ..()
 	if (mapload)
-		queue_smooth(src)
+		SSicon_smooth.add_to_queue(src)
 	else
 		smooth_icon(src)
 		for (var/obj/effect/decal/cleanable/draftingchalk/C in orange(1, src))
