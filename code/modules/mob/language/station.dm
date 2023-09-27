@@ -264,7 +264,7 @@
 					to_chat(player, encrypted_msg)
 					continue
 				var/obj/item/organ/internal/vaurca/neuralsocket/listener_socket = listener_human.internal_organs_by_name[BP_NEURAL_SOCKET]
-				if(!listener_socket || listener_socket.decryption_key != speaker_encryption_ke)
+				if(!listener_socket || listener_socket.decryption_key != speaker_encryption_key)
 					to_chat(player, encrypted_msg)
 					continue
 			to_chat(player, msg)
