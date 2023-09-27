@@ -1398,7 +1398,7 @@
 	set desc = "Prevent a Vaurca of your own Hive from speaking or hearing the Hivenet. Use this ability again to unban them. Mouv Ta may attempt to use this on Vaurca of another Hive, though this may have severe diplomatic consequences!"
 	set category = "Hivenet"
 
-	var/list/available_vaurca
+	var/list/available_vaurca = list()
 	var/list/fullname = splittext(src.name, " ")
 	var/surname = fullname[2]
 	var/obj/item/organ/internal/vaurca/neuralsocket/host = src.internal_organs_by_name[BP_NEURAL_SOCKET]
@@ -1487,7 +1487,7 @@
 	set desc = "Permanently sever a Vaurca of your own Hive from the Hivenet, destroying their neural socket. Mouv Ta may attempt to use this on Vaurca of another Hive, though this may have severe diplomatic consequences!"
 	set category = "Hivenet"
 
-	var/list/available_vaurca
+	var/list/available_vaurca = list()
 	var/list/fullname = splittext(src.name, " ")
 	var/surname = fullname[2]
 	var/obj/item/organ/internal/vaurca/neuralsocket/host = src.internal_organs_by_name[BP_NEURAL_SOCKET]
@@ -1557,7 +1557,7 @@
 	set desc = "Prevent a Vaurca of your own Hive from speaking on the Hivenet, though they can still hear it. Use this ability again to unmute them. Mouv Ta may attempt to use this on Vaurca of another Hive, though this may have severe diplomatic consequences!"
 	set category = "Hivenet"
 
-	var/list/available_vaurca
+	var/list/available_vaurca = list()
 	var/list/fullname = splittext(src.name, " ")
 	var/surname = fullname[2]
 	var/obj/item/organ/internal/vaurca/neuralsocket/host = src.internal_organs_by_name[BP_NEURAL_SOCKET]
@@ -1695,7 +1695,7 @@
 	set desc = "Attempt to look through the eyes of another Vaurca as if they were a camera. Vaurcae of your own Hive have no choice unless they have countermeasures, whereas Vaurca of other Hives can choose to allow you access. A Mouv Ta may attempt to force this, but it would be a serious diplomatic breach."
 	set category = "Hivenet"
 
-	var/list/available_vaurca
+	var/list/available_vaurca = list()
 	var/list/fullname = splittext(src.name, " ")
 	var/surname = fullname[2]
 	var/obj/item/organ/internal/vaurca/neuralsocket/host = src.internal_organs_by_name[BP_NEURAL_SOCKET]
@@ -1762,7 +1762,7 @@
 	set desc = "Shock a member of your own Hive with a functioning Neural Socket. Deals pain and brain damage. Rare to need to use, most Ta would only do so in the event of a malfunctioning Vaurca or Viax. A Mouv Ta may attempt this against other Hive members, though to do so would be an extreme diplomatic breach."
 	set category = "Hivenet"
 
-	var/list/available_vaurca
+	var/list/available_vaurca = list()
 	var/list/fullname = splittext(src.name, " ")
 	var/surname = fullname[2]
 	var/obj/item/organ/internal/vaurca/neuralsocket/host = src.internal_organs_by_name[BP_NEURAL_SOCKET]
@@ -1820,7 +1820,7 @@
 	set desc = "Share your Hivenet defenses with up to three other Vaurcae. Mouv Ta can share with up to five."
 	set category = "Hivenet"
 
-	var/list/available_vaurca
+	var/list/available_vaurca = list()
 	var/max = 3
 	var/obj/item/organ/internal/vaurca/neuralsocket/admin/host = src.internal_organs_by_name[BP_NEURAL_SOCKET]
 	if(!src.can_hivenet())
@@ -1869,7 +1869,7 @@
 	set desc = "Temporarily sever a Vaurca's connection to the Hivenet, preventing them from speaking. Failure will reveal your location to them!"
 	set category = "Hivenet"
 
-	var/list/available_vaurca
+	var/list/available_vaurca = list()
 	var/obj/item/organ/internal/vaurca/neuralsocket/host = src.internal_organs_by_name[BP_NEURAL_SOCKET]
 	if(!src.can_hivenet())
 		return
@@ -1896,7 +1896,7 @@
 	set desc = "Attempt to breach a Vaurca's defenses and deliver a painful neural shock. This has a 30% chance of success, and failure will reveal your location."
 	set category = "Hivenet"
 
-	var/list/available_vaurca
+	var/list/available_vaurca = list()
 	var/obj/item/organ/internal/vaurca/neuralsocket/host = src.internal_organs_by_name[BP_NEURAL_SOCKET]
 	if(!src.can_hivenet())
 		return
@@ -1933,9 +1933,10 @@
 	set desc = "Hijack the eyes of another Vaurca, to use them as a camera. This only has a 30% chance of success, and failure will reveal your location. Use this verb again to cancel."
 	set category = "Hivenet"
 
-	var/list/available_vaurca
+	var/list/available_vaurca = list()
+
 	var/obj/item/organ/internal/vaurca/neuralsocket/host = src.internal_organs_by_name[BP_NEURAL_SOCKET]
-	if(!src.can_hivenet())
+	if(!can_hivenet())
 		return
 	if(stat != CONSCIOUS)
 		remoteview_target = null
