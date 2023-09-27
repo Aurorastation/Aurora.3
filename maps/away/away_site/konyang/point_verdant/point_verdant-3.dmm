@@ -2348,6 +2348,13 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"OO" = (
+/obj/effect/decal/curb{
+	dir = 1;
+	layer = 2.02
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/point_verdant/outdoors)
 "OY" = (
 /obj/structure/ledge/roof{
 	dir = 1
@@ -17537,7 +17544,7 @@ Ey
 Ey
 Ey
 Ey
-tq
+OO
 nC
 nC
 Of

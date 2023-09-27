@@ -1992,6 +1992,7 @@
 /obj/structure/toilet{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/police)
 "iD" = (
@@ -2109,6 +2110,8 @@
 /area/point_verdant/outdoors)
 "iZ" = (
 /obj/structure/trash_pile,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior/police)
 "jb" = (
@@ -2216,6 +2219,10 @@
 	},
 /turf/simulated/floor/sidewalk/detail,
 /area/point_verdant/outdoors)
+"jG" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk,
+/area/point_verdant/outdoors)
 "jI" = (
 /obj/effect/decal/road_marking/crosswalk{
 	dir = 1
@@ -2239,6 +2246,11 @@
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
+"jM" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/outdoors)
 "jN" = (
 /turf/simulated/wall/wood,
 /area/point_verdant/interior/spaceport)
@@ -4717,6 +4729,10 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior)
+"tO" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/lino,
+/area/point_verdant/interior/police)
 "tQ" = (
 /obj/machinery/photocopier,
 /turf/simulated/floor/wood,
@@ -6397,6 +6413,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/police)
 "Aq" = (
@@ -6617,6 +6634,7 @@
 /area/point_verdant/interior)
 "Bf" = (
 /obj/structure/flora/pottedplant/dead,
+/obj/random/dirt_75,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/police)
 "Bh" = (
@@ -6983,6 +7001,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "CB" = (
@@ -7649,6 +7668,7 @@
 	dir = 4;
 	pixel_x = 12
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/police)
 "FE" = (
@@ -7995,6 +8015,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"GS" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/freezer,
+/area/point_verdant/interior/police)
 "GT" = (
 /obj/structure/konyang_cliff{
 	icon_state = "innercorner6"
@@ -8407,7 +8431,15 @@
 "Iw" = (
 /obj/structure/closet/crate/bin/urban/dumpster,
 /obj/effect/decal/cleanable/cobweb,
+/obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/interior/police)
+"Ix" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/lino,
 /area/point_verdant/interior/police)
 "Iy" = (
 /obj/machinery/light/small{
@@ -9080,6 +9112,7 @@
 "Ll" = (
 /obj/structure/closet/crate/bin/urban,
 /obj/effect/decal/cleanable/blood/splatter,
+/obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior/police)
 "Lo" = (
@@ -9087,6 +9120,12 @@
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
+"Ls" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/outdoors)
 "Lt" = (
 /obj/structure/rod_railing,
 /turf/simulated/open,
@@ -9813,6 +9852,11 @@
 /obj/structure/automobile_filler,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Ow" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/interior/police)
 "Ox" = (
 /obj/structure/rod_railing{
 	dir = 4
@@ -10605,6 +10649,14 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Se" = (
+/obj/structure/table/wood,
+/obj/item/device/taperecorder{
+	pixel_x = 3;
+	pixel_y = 2
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior/police)
 "Sf" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff-east"
@@ -12005,6 +12057,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
+"Yo" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "Ys" = (
 /turf/simulated/floor/tiled,
@@ -25391,8 +25447,8 @@ Ys
 Ys
 Bu
 UK
-jB
-Ir
+Ow
+Ls
 NN
 pB
 Px
@@ -25649,7 +25705,7 @@ NG
 NG
 UK
 iZ
-Ir
+Ls
 UK
 nA
 Px
@@ -25906,7 +25962,7 @@ UK
 UK
 UK
 UK
-Ir
+Yo
 UK
 pB
 Px
@@ -26149,7 +26205,7 @@ MA
 wL
 TG
 Yf
-Or
+Se
 Lx
 Yf
 be
@@ -26163,7 +26219,7 @@ hP
 iC
 UK
 Iw
-Ir
+jM
 UK
 BL
 Pj
@@ -26416,11 +26472,11 @@ Ys
 Tq
 gp
 EQ
-EQ
+GS
 FD
 UK
 Ll
-Ir
+jM
 UK
 jB
 HY
@@ -26677,7 +26733,7 @@ UK
 UK
 UK
 UK
-Ir
+Yo
 UK
 UK
 xi
@@ -26927,14 +26983,14 @@ Ip
 Yf
 Yf
 UK
+jG
+jG
 BT
 BT
 BT
 BT
 BT
-BT
-BT
-BT
+jG
 BT
 BT
 ve
@@ -27184,7 +27240,7 @@ Yf
 Yf
 Yf
 kD
-BT
+jG
 nq
 GE
 GE
@@ -27439,9 +27495,9 @@ FZ
 vH
 Yf
 Yf
-Yf
+tO
 UK
-BT
+jG
 iz
 xA
 Vj
@@ -27696,7 +27752,7 @@ Ak
 vH
 Yf
 Yf
-Yf
+tO
 Uf
 BT
 iz
@@ -27952,8 +28008,8 @@ Ys
 hb
 wd
 Yf
-Yf
-Lx
+tO
+Ix
 UK
 BT
 iz
@@ -28203,14 +28259,14 @@ IA
 wK
 wK
 wL
-UK
+TG
 NA
 Ys
 gb
 UK
 Tm
-Yf
-Lx
+tO
+Ix
 UK
 Ti
 iz
