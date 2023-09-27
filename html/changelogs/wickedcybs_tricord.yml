@@ -1,0 +1,6 @@
+author: WickedCybs
+
+delete-after: True
+
+changes:
+  - tweak: "Reverted the tricord recipe back to tricord being created if dylo and inaprov mix."
