@@ -7,7 +7,7 @@
 		if(stored_charge >= cell_increase)
 			to_chat(user, SPAN_WARNING("The pump on \the [src] refuses to move."))
 		else
-			if(!pump_delay || do_after(user, pump_delay, use_user_turf = -1))
+			if(!pump_delay || do_after(user, pump_delay))
 				if(last_pump < world.time)
 					if(isturf(src.loc))
 						to_chat(user, SPAN_NOTICE("You pump \the [src]."))

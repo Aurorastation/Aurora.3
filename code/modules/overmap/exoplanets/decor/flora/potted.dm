@@ -35,7 +35,7 @@
 		return //no hiding mobs in there
 	user.visible_message("[user] begins digging around inside of \the [src].", "You begin digging around in \the [src], trying to hide \the [W].")
 	playsound(loc, 'sound/effects/plantshake.ogg', 50, 1)
-	if(do_after(user, 20, act_target = src))
+	if(do_after(user, 20, src))
 		if(!stored_item)
 			if(W.w_class <= ITEMSIZE_NORMAL)
 				user.drop_from_inventory(W,src)
@@ -53,7 +53,7 @@
 /obj/structure/flora/pottedplant/attack_hand(mob/user)
 	user.visible_message("[user] begins digging around inside of \the [src].", "You begin digging around in \the [src], searching it.")
 	playsound(loc, 'sound/effects/plantshake.ogg', 50, 1)
-	if(do_after(user, 40, act_target = src))
+	if(do_after(user, 40, src))
 		if(!stored_item)
 			to_chat(user,"<span class='notice'>There is nothing hidden in [src].</span>")
 		else

@@ -73,11 +73,12 @@
 		return TRUE
 	return ..()
 
-/obj/item/holomenu/examine(mob/user, distance)
-	if(anchored && length(menu_text))
+/obj/item/holomenu/examine(mob/user, distance, is_adjacent)
+	if(anchored && length(menu_text) && is_adjacent)
 		interact(user)
-		return
-	return ..()
+		return TRUE
+	else
+		. = ..()
 
 /obj/item/holomenu/attack_hand(mob/user)
 	if(anchored)

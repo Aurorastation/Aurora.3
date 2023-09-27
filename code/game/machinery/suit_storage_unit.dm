@@ -447,7 +447,7 @@
 		to_chat(usr, "<span class='warning'>It's too cluttered inside for you to fit in!</span>")
 		return
 	usr.visible_message("<span class='notice'>[usr] starts squeezing into [src]!</span>", "<span class='notice'>You start squeezing into [src]!</span>", range = 3)
-	if(do_after(usr, 10))
+	if(do_after(usr, 1 SECOND, src, DO_UNIQUE))
 		usr.stop_pulling()
 		usr.client.perspective = EYE_PERSPECTIVE
 		usr.client.eye = src
@@ -488,7 +488,7 @@
 			to_chat(user, "<span class='warning'>The unit's storage area is too cluttered.</span>")
 			return TRUE
 		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
-		if(do_after(user, 20))
+		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 			if(!G || !G.affecting) return TRUE //derpcheck
 			var/mob/M = G.affecting
 			if (M.client)

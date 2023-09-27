@@ -92,7 +92,7 @@
 		msg += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
 	msg += "</span><span class='info'>*---------*</span>"
 	to_chat(user, msg)
-	return
+	return TRUE
 
 /obj/item/device/mmi/digital/posibrain/ready_for_use(var/mob/user)
 	if(!brainmob)

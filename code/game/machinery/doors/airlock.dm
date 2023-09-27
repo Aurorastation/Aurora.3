@@ -1364,7 +1364,7 @@ About the new airlock wires panel:
 
 				H.visible_message("<b>[H]</b> begins to pry open \the [src]!", SPAN_NOTICE("You begin to pry open \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
 
-				if(!do_after(H, 120, 1, act_target = src))
+				if(!do_after(H, 12 SECONDS, src, DO_UNIQUE))
 					return
 
 				var/check = src.open(1)
@@ -1459,19 +1459,19 @@ About the new airlock wires panel:
 
 	cut_delay *= 0.25
 
-	if(do_after(user, cut_delay, src))
+	if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 		to_chat(user, SPAN_NOTICE("You're a quarter way through."))
 		playsound(src, cut_sound, 100, 1)
 
-		if(do_after(user, cut_delay, src))
+		if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 			to_chat(user, SPAN_NOTICE("You're halfway through."))
 			playsound(src, cut_sound, 100, 1)
 
-			if(do_after(user, cut_delay, src))
+			if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 				to_chat(user, SPAN_NOTICE("You're three quarters through."))
 				playsound(src, cut_sound, 100, 1)
 
-				if(do_after(user, cut_delay, src))
+				if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 					playsound(src, cut_sound, 100, 1)
 
 					if(initial_state != bolt_cut_state)
@@ -1769,7 +1769,7 @@ About the new airlock wires panel:
 				SPAN_WARNING("You start cutting the airlock control panel..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), C)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting the control pannel of the airlock with the [C]."),\
 					SPAN_WARNING("You finish cutting the airlock control panel."),\
@@ -1787,7 +1787,7 @@ About the new airlock wires panel:
 				SPAN_WARNING("You start cutting below the airlock..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), C)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting below the airlock with the [C]."),\
 					SPAN_NOTICE("You finish cutting below the airlock."),\
@@ -1803,7 +1803,7 @@ About the new airlock wires panel:
 				SPAN_WARNING("You start cutting between the airlock..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), C)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting between the airlock."),\
 					SPAN_WARNING("You finish cutting between the airlock."),\
