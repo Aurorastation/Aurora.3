@@ -525,4 +525,4 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define TRANSFER_CREW "crew transfer"
 
 /// Gyrotron power usage modifier.
-#define GYRO_POWER 1500
+#define GYRO_POWER 25000

@@ -578,7 +578,7 @@
 
 /obj/item/stack/material/supermatter
 	name = "stable supermatter cluster"
-	icon_state = "sheet-greatergem"
+	icon_state = "sheet-supermatter"
 	max_amount = 5
 	default_type = MATERIAL_SUPERMATTER
 	color = COLOR_YELLOW
