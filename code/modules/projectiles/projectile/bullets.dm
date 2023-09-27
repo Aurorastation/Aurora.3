@@ -121,14 +121,15 @@
 /* short-casing projectiles, like the kind used in pistols or SMGs */
 
 /obj/item/projectile/bullet/pistol
-	damage = 25
-	armor_penetration = 10
+	damage = 20
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/pistol/medium
 	damage = 30
+	armor_penetration = 0
 
 /obj/item/projectile/bullet/pistol/medium/ap
-	armor_penetration = 35
+	armor_penetration = 15
 	penetrating = FALSE
 
 /obj/item/projectile/bullet/pistol/strong
