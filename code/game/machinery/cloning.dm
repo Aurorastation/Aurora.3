@@ -376,23 +376,6 @@
 	else if (mess)
 		icon_state = "pod_g"
 
-//Health Tracker Implant
-
-/obj/item/implant/health
-	name = "health implant"
-	var/healthstring = ""
-
-/obj/item/implant/health/proc/sensehealth()
-	if(!implanted)
-		return "ERROR"
-	else
-		if(isliving(implanted))
-			var/mob/living/L = implanted
-			healthstring = "[round(L.getOxyLoss())] - [round(L.getFireLoss())] - [round(L.getToxLoss())] - [round(L.getBruteLoss())]"
-		if(!healthstring)
-			healthstring = "ERROR"
-		return healthstring
-
 //Disk stuff.
 //The return of data disks?? Just for transferring between genetics machine/cloning machine.
 //TO-DO: Make the genetics machine accept them.
@@ -451,7 +434,6 @@
 /obj/item/disk/data/examine(mob/user)
 	. = ..()
 	to_chat(user, text("The write-protect tab is set to [read_only ? "protected" : "unprotected"]."))
-	return
 
 /*
  *	Diskette Box

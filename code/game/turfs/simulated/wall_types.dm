@@ -29,7 +29,7 @@
 	desc = "Hideous images dance beneath the surface."
 	icon = 'icons/turf/smooth/cult_wall.dmi'
 	canSmoothWith = null
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	smoothing_hints = SMOOTHHINT_TARGETS_NOT_UNIQUE | SMOOTHHINT_ONLY_MATCH_TURF
 	icon_state = "cult"
 	appearance_flags = NO_CLIENT_COLOR

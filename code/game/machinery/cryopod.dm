@@ -476,7 +476,7 @@ var/global/list/frozen_crew = list()
 		return
 
 	user.visible_message(SPAN_NOTICE("\The [user] starts [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), SPAN_NOTICE("You start [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), range = 3)
-	if(do_after(user, 20))
+	if(do_after(user, 2 SECOND, M, DO_UNIQUE))
 		if(!M)
 			return TRUE
 

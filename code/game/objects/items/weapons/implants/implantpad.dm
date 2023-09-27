@@ -1,7 +1,7 @@
 /obj/item/implantpad
 	name = "implantpad"
 	desc = "A device used to modify implants."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/item/implants.dmi'
 	icon_state = "implantpad-0"
 	item_state = "electronic"
 	throw_speed = 1
@@ -12,16 +12,23 @@
 	var/listening = TRUE
 
 /obj/item/implantpad/update_icon()
+	cut_overlays()
 	icon_state = "implantpad-[case ? "1" : "0"]"
+	if(case.imp)
+		var/obj/item/implant/caseimplant = case.imp
+		var/implant_overlay_icon_state = "implantstorage_[caseimplant.implant_icon]"
+		var/mutable_appearance/implant_case_implant_overlay = mutable_appearance(icon, implant_overlay_icon_state)
+		add_overlay(implant_case_implant_overlay)
+
 
 /obj/item/implantpad/attack_hand(mob/user)
-	if(src.case && (user.l_hand == src || user.r_hand == src))
+	if(case && (user.l_hand == src || user.r_hand == src))
 		user.put_in_active_hand(case)
 
-		src.case.add_fingerprint(user)
-		src.case = null
+		case.add_fingerprint(user)
+		case = null
 
-		src.add_fingerprint(user)
+		add_fingerprint(user)
 		update_icon()
 		return
 	return ..()
@@ -30,28 +37,17 @@
 	if(istype(C, /obj/item/implantcase))
 		if(!case)
 			user.drop_from_inventory(C,src)
-			src.case = C
+			case = C
 			update_icon()
 		else
-			to_chat(user, SPAN_WARNING("\The [src] already has an implant case inside it!"))
-		return
+			to_chat(user, SPAN_WARNING("\The [src] already has an implant case attached to it!"))
 	..()
 
 /obj/item/implantpad/attack_self(mob/user)
-	user.set_machine(src)
-	var/dat = "<B>Implant Mini-Computer:</B><HR>"
-	if (src.case)
-		if(src.case.imp)
-			if(istype(src.case.imp, /obj/item/implant))
-				dat += src.case.imp.get_data()
-		else
-			dat += "The implant casing is empty."
+	if(case.imp)
+		case.imp.interact(user)
 	else
-		dat += "Please insert an implant casing!"
-
-	var/datum/browser/implantpad_win = new(user, "implantpad", capitalize_first_letters(name))
-	implantpad_win.set_content(dat)
-	implantpad_win.open()
+		to_chat(user, SPAN_WARNING("There's no implant loaded in \the [src]!"))
 
 /obj/item/implantpad/Topic(href, href_list)
 	..()

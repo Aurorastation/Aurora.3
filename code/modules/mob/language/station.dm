@@ -236,6 +236,7 @@
 		speaker_mask = speaker.real_name
 
 	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message), speaker_mask)]</span></i>"
+	var/encrypted_msg =  "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message("!a surge of encrypted data", get_spoken_verb(message), speaker_mask)]</span></i>"
 
 	if(isvaurca(speaker))
 		speaker.custom_emote(VISIBLE_MESSAGE, "[pick("twitches their antennae", "twitches their antennae rhythmically")].")
@@ -247,8 +248,22 @@
 		return
 
 	for(var/mob/player in player_list)
-		if(istype(player,/mob/abstract/observer) || ((src in player.languages && !within_jamming_range(player)) || check_special_condition(player)))
+		if(istype(player,/mob/abstract/observer) || player == speaker)
 			to_chat(player, msg)
+		else if((src in player.languages && !within_jamming_range(player)) || check_special_condition(player))
+			var/mob/living/carbon/human/H = player
+			var/mob/living/carbon/human/M = speaker
+			if(!istype(M) || !istype(H))
+				return
+			var/obj/item/organ/internal/vaurca/neuralsocket/speakersocket = M.internal_organs_by_name[BP_NEURAL_SOCKET]
+			var/obj/item/organ/internal/vaurca/neuralsocket/listenersocket = H.internal_organs_by_name[BP_NEURAL_SOCKET]
+			if(!speakersocket.encryption_key)
+				to_chat(player, msg)
+			else
+				if(listenersocket.decryption_key && listenersocket.decryption_key == speakersocket.encryption_key)
+					to_chat(player, msg)
+				else
+					to_chat(player, encrypted_msg)
 
 /datum/language/bug/format_message(message, verb, speaker_mask)
 	var/message_color = colour
@@ -277,7 +292,7 @@
 		return 0
 	if(within_jamming_range(other))
 		return 0
-	if(M.internal_organs_by_name[BP_NEURAL_SOCKET])
+	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (all_languages[LANGUAGE_VAURCA] in M.languages))
 		return 1
 	if(M.internal_organs_by_name["blackkois"])
 		return 1
@@ -295,6 +310,15 @@
 			return 1
 
 	return 0
+
+/datum/language/bug/check_speech_restrict(var/mob/speaker)
+	var/mob/living/carbon/human/H = speaker
+	var/obj/item/organ/internal/vaurca/neuralsocket/S = H.internal_organs_by_name[BP_NEURAL_SOCKET]
+	if(S.muted || S.disrupted)
+		to_chat(speaker, SPAN_WARNING("You have been muted over the Hivenet!"))
+		return FALSE
+	else
+		return TRUE
 
 /datum/language/human
 	name = LANGUAGE_SOL_COMMON
