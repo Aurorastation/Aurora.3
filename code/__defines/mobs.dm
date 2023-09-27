@@ -130,6 +130,7 @@
 #define BP_PHORON_RESERVOIR "phoron reservoir"
 #define BP_VAURCA_LIVER "mechanical liver"
 #define BP_VAURCA_KIDNEYS "mechanical kidneys"
+#define BP_HIVENET_SHIELD "hivenet electronic defense suite"
 
 //Aut'akh organs
 #define BP_ANCHOR   "anchor"
