@@ -247,22 +247,26 @@
 		to_chat(speaker, msg)
 		return
 
+	var/speaker_encryption_key
+	var/mob/living/carbon/human/speaker_human = speaker
+	if(istype(speaker_human))
+		var/obj/item/organ/internal/vaurca/neuralsocket/speaker_socket = speaker_human.internal_organs_by_name[BP_NEURAL_SOCKET]
+		if(speaker_socket?.encryption_key)
+			speaker_encryption_key = speaker_socket.encryption_key
+
 	for(var/mob/player in player_list)
 		if(istype(player, /mob/abstract/observer) || player == speaker)
 			to_chat(player, msg)
 		else if(!within_jamming_range(player) && check_special_condition(player))
-			var/mob/living/carbon/human/speaker_human = speaker
-			if(istype(speaker_human))
-				var/obj/item/organ/internal/vaurca/neuralsocket/speaker_socket = speaker_human.internal_organs_by_name[BP_NEURAL_SOCKET]
-				if(speaker_socket?.encryption_key)
-					var/mob/living/carbon/human/listener_human = player
-					if(!istype(listener_human))
-						to_chat(player, encrypted_msg)
-						continue
-					var/obj/item/organ/internal/vaurca/neuralsocket/listener_socket = listener_human.internal_organs_by_name[BP_NEURAL_SOCKET]
-					if(!listener_socket || listener_socket.decryption_key != speakersocket.encryption_key)
-						to_chat(player, encrypted_msg)
-						continue
+			if(speaker_encryption_key)
+				var/mob/living/carbon/human/listener_human = player
+				if(!istype(listener_human))
+					to_chat(player, encrypted_msg)
+					continue
+				var/obj/item/organ/internal/vaurca/neuralsocket/listener_socket = listener_human.internal_organs_by_name[BP_NEURAL_SOCKET]
+				if(!listener_socket || listener_socket.decryption_key != speaker_encryption_ke)
+					to_chat(player, encrypted_msg)
+					continue
 			to_chat(player, msg)
 
 /datum/language/bug/format_message(message, verb, speaker_mask)
