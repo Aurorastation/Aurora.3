@@ -91,7 +91,7 @@
 	set name = ".Say"
 	set hidden = TRUE
 	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","say (text)") as text|null
+	var/message = tgui_input_text(src, "Enter a Say message." ,"Say")
 	SStyping.set_indicator_state(client, FALSE)
 	if (message)
 		say_verb(message)
@@ -100,7 +100,7 @@
 	set name = ".Me"
 	set hidden = TRUE
 	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","me (text)") as text|null
+	var/message = tgui_input_text(src, "Enter a Me message.", "Me")
 	SStyping.set_indicator_state(client, FALSE)
 	if (message)
 		me_verb(message)
@@ -109,7 +109,7 @@
 	set name = ".Whisper"
 	set hidden = TRUE
 	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","me (text)") as text|null
+	var/message = tgui_input_text(src, "Enter a Whisper message.", "Whisper")
 	SStyping.set_indicator_state(client, FALSE)
 	if (message)
 		whisper(message)

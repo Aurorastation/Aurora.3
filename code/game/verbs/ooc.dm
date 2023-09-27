@@ -1,5 +1,5 @@
 
-/client/verb/ooc(msg as text)
+/client/verb/ooc()
 	set name = "OOC"
 	set category = "OOC"
 
@@ -7,13 +7,16 @@
 		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
 		return
 
-	if(!mob)	return
+	if(!mob)
+		return
+
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use OOC.")
 		return
 
-	msg = sanitize(msg)
-	if(!msg)	return
+	var/msg = tgui_input_text(src, "Enter an OOC message.", "OOC")
+	if(!msg)
+		return
 
 	if(!(prefs.toggles & CHAT_OOC))
 		to_chat(src, "<span class='warning'>You have OOC muted.</span>")
@@ -62,7 +65,7 @@
 			else
 				to_chat(target, "<span class='ooc'><span class='[ooc_style]'>" + create_text_tag("OOC", target) + " <EM>[display_name]:</EM> <span class='message linkify'>[msg]</span></span></span>")
 
-/client/verb/looc(msg as text)
+/client/verb/looc()
 	set name = "LOOC"
 	set desc = "Local OOC, seen only by those in view."
 	set category = "OOC"
@@ -78,7 +81,7 @@
 		to_chat(src, "Guests may not use OOC.")
 		return
 
-	msg = sanitize(msg)
+	var/msg = tgui_input_text(src, "Enter an LOOC message.", "OOC")
 	msg = process_chat_markup(msg, list("*"))
 	if(!msg)
 		return

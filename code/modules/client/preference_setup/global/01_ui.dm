@@ -87,6 +87,9 @@
 	dat += "<b>Tooltip Style:</b> <a href='?src=\ref[src];select_tooltip_style=1'><b>[pref.tooltip_style]</b></a><br>"
 	dat += "<b>TGUI Fancy:</b> <a href='?src=\ref[src];select_tguif=1'><b>[pref.tgui_fancy ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>TGUI Lock:</b> <a href='?src=\ref[src];select_tguil=1'><b>[pref.tgui_lock ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>TGUI Inputs:</b> <a href='?src=\ref[src];tgui_inputs=1'><b>[pref.tgui_inputs ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>TGUI Input Large Buttons:</b> <a href='?src=\ref[src];tgui_inputs_large=1'><b>[pref.tgui_inputs_large_buttons ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>TGUI Input Swapped Buttons:</b> <a href='?src=\ref[src];tgui_inputs_swapped=1'><b>[pref.tgui_inputs_swapped_buttons ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>FPS:</b> <a href='?src=\ref[src];select_fps=1'><b>[pref.clientfps]</b></a> - <a href='?src=\ref[src];reset=fps'>reset</a><br>"
 	if(can_select_ooc_color(user))
 		dat += "<b>OOC Color:</b> "
@@ -122,6 +125,18 @@
 
 	else if(href_list["select_tguil"])
 		pref.tgui_lock = !pref.tgui_lock
+		return TOPIC_REFRESH
+
+	else if(href_list["tgui_inputs"])
+		pref.tgui_inputs = !pref.tgui_inputs
+		return TOPIC_REFRESH
+
+	else if(href_list["tgui_inputs_large"])
+		pref.tgui_inputs_large_buttons = !pref.tgui_inputs_large_buttons
+		return TOPIC_REFRESH
+
+	else if(href_list["tgui_inputs_swapped"])
+		pref.tgui_inputs_swapped_buttons = !pref.tgui_inputs_swapped_buttons
 		return TOPIC_REFRESH
 
 	else if(href_list["select_ooc_color"])
