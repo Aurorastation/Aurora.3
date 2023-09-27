@@ -897,8 +897,8 @@
 /obj/structure/closet/crate/rad{
 	name = "radioactive material crate"
 	},
-/obj/item/stack/material/tritium/fifty,
-/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "lG" = (

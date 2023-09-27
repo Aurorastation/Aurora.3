@@ -1868,9 +1868,9 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/item/stack/material/tritium/fifty,
-/obj/item/stack/material/tritium/fifty,
-/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
 /obj/structure/closet/walllocker{
 	name = "tritium locker";
 	pixel_y = 32

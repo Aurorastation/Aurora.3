@@ -2969,9 +2969,9 @@
 /area/nka_merchant/mess)
 "mK" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/stack/material/tritium/fifty,
-/obj/item/stack/material/tritium/fifty,
-/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

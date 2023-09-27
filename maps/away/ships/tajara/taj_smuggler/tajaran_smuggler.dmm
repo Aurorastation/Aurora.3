@@ -428,9 +428,9 @@
 /area/tajaran_smuggler/hangar)
 "bAY" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/stack/material/tritium/fifty,
-/obj/item/stack/material/tritium/fifty,
-/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
 /turf/simulated/floor{
 	temperature = 278.15
 	},

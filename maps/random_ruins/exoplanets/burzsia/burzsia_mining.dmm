@@ -1237,9 +1237,9 @@
 /area/burzsia_mining/dormitories)
 "Hv" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/stack/material/tritium/fifty,
-/obj/item/stack/material/tritium/fifty,
-/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},

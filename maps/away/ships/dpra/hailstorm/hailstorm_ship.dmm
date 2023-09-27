@@ -2235,9 +2235,9 @@
 /area/shuttle/hailstorm_shuttle)
 "tw" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/stack/material/tritium/fifty,
-/obj/item/stack/material/tritium/fifty,
-/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},

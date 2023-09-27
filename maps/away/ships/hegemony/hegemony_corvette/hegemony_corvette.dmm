@@ -631,9 +631,9 @@
 /obj/structure/closet/crate{
 	name = "!!! TRITIUM CONTAINER !!!"
 	},
-/obj/item/stack/material/tritium/fifty,
-/obj/item/stack/material/tritium/fifty,
-/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
 /obj/effect/decal/cleanable/greenglow,
 /turf/simulated/floor,
 /area/hegemony_ship/engineering)

@@ -243,7 +243,7 @@
 	amount = 10
 	update_icon()
 
-/obj/item/stack/material/tritium/fifty/Initialize()
+/obj/item/stack/material/tritium/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()
@@ -571,5 +571,19 @@
 	icon_state = "puck"
 	default_type = MATERIAL_DEUTERIUM
 
-/obj/item/stack/material/deuterium/fifty
-	amount = 50
+/obj/item/stack/material/deuterium/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+/obj/item/stack/material/supermatter
+	name = "stable supermatter cluster"
+	icon_state = "sheet-greatergem"
+	max_amount = 5
+	default_type = MATERIAL_SUPERMATTER
+	color = COLOR_YELLOW
+
+/obj/item/stack/material/supermatter/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()

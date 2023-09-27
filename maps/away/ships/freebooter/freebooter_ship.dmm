@@ -4627,7 +4627,7 @@
 	name = "tritium locker";
 	pixel_y = 32
 	},
-/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/tritium/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster2)
 "lqN" = (
