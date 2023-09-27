@@ -3522,6 +3522,7 @@
 #include "maps\away\away_site\unathi_pirate\tarwa\unathi_pirate_tarwa_areas.dm"
 #include "maps\away\away_site\unathi_pirate\tarwa\unathi_pirate_tarwa_ghostroles.dm"
 #include "maps\away\away_site\wrecked_nt_ship\wrecked_nt_ship.dm"
+#include "maps\away\away_site\xanu_beach\xanu_beach.dm"
 #include "maps\away\ships\casino\casino.dm"
 #include "maps\away\ships\casino\casino_areas.dm"
 #include "maps\away\ships\coc\coc_ranger\coc_ship.dm"

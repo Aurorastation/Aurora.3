@@ -1,0 +1,12210 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"af" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/bottle/syrup/caramel{
+	pixel_x = -15;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/chocolate{
+	pixel_x = -7;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/vanilla{
+	pixel_x = 9;
+	pixel_y = 4
+	},
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_x = -16;
+	pixel_y = 16
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"ar" = (
+/obj/effect/floor_decal/spline/plain/red,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"aw" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/vending/dinnerware,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"ay" = (
+/obj/item/clothing/head/collectable/petehat,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"aY" = (
+/obj/structure/bed/stool/chair/padded/red{
+	dir = 4
+	},
+/obj/effect/landmark/force_spawnpoint,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"bd" = (
+/obj/structure/flora/ausbushes/reedbush,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/xanu_beach)
+"bs" = (
+/obj/machinery/vending/cola,
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"bu" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"bx" = (
+/obj/structure/flora/pottedplant/woodyshrubbloom,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"bT" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"bU" = (
+/obj/structure/closet/secure_closet/custodial,
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"ch" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"co" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/obj/structure/curtain/open/shower,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"cr" = (
+/obj/machinery/vending/boozeomat,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"cs" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/extinguisher_cabinet/west,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"cv" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"cA" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"cV" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"do" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/closet/crate/freezer{
+	name = "k'ois freezer (VAURCA ONLY!)"
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/item/reagent_containers/food/snacks/soup/kois,
+/obj/item/reagent_containers/food/snacks/soup/kois,
+/obj/item/reagent_containers/food/snacks/soup/kois,
+/obj/item/reagent_containers/food/snacks/koisburger,
+/obj/item/reagent_containers/food/snacks/koisburger,
+/obj/item/reagent_containers/food/snacks/koisburger,
+/obj/item/reagent_containers/food/snacks/koisjelly,
+/obj/item/reagent_containers/food/snacks/koisjelly,
+/obj/item/reagent_containers/food/snacks/koisjelly,
+/obj/item/reagent_containers/food/snacks/koiskebab3,
+/obj/item/reagent_containers/food/snacks/koiskebab3,
+/obj/item/reagent_containers/food/snacks/koiskebab3,
+/obj/item/reagent_containers/food/snacks/koiswaffles,
+/obj/item/reagent_containers/food/snacks/koiswaffles,
+/obj/item/reagent_containers/food/snacks/koiswaffles,
+/obj/item/reagent_containers/food/snacks/koissteak,
+/obj/item/reagent_containers/food/snacks/koissteak,
+/obj/item/reagent_containers/food/snacks/koissteak,
+/obj/item/reagent_containers/food/snacks/donut/kois,
+/obj/item/reagent_containers/food/snacks/donut/kois,
+/obj/item/reagent_containers/food/snacks/donut/kois,
+/obj/machinery/door/window/northleft{
+	dir = 2;
+	req_access = list(11)
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"dp" = (
+/obj/structure/extinguisher_cabinet/north,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"dt" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"dx" = (
+/obj/structure/flora/ausbushes/grassybush,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"dS" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -9;
+	pixel_y = 16
+	},
+/obj/item/flame/candle{
+	pixel_x = -1;
+	pixel_y = 20
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"ec" = (
+/turf/simulated/wall/ebonywood,
+/turf/simulated/wall/ebonywood,
+/area/exoplanet/xanu_beach)
+"ed" = (
+/obj/machinery/vending/cigarette,
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"ee" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/appliance/cooker/grill,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"eu" = (
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"ev" = (
+/obj/machinery/light_construct/floor{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"eB" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"eM" = (
+/turf/unsimulated/beach/coastline{
+	dir = 8;
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "beach"
+	},
+/area/exoplanet/xanu_beach)
+"eN" = (
+/turf/unsimulated/beach/coastline{
+	dir = 1;
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "beachcorner"
+	},
+/area/exoplanet/xanu_beach)
+"fe" = (
+/obj/structure/bed/stool/chair/padded/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"fw" = (
+/obj/machinery/light_construct/floor{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"fK" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"fX" = (
+/obj/structure/flora/ausbushes/fernybush,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"fY" = (
+/obj/structure/sink{
+	pixel_y = 16
+	},
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"gk" = (
+/obj/structure/sink{
+	dir = 1;
+	pixel_x = 8;
+	pixel_y = 26
+	},
+/obj/structure/janitorialcart{
+	dir = 4
+	},
+/obj/item/reagent_containers/glass/bucket,
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"gK" = (
+/obj/structure/bed/stool/chair/padded/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"gP" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/xanu_beach)
+"gW" = (
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"hl" = (
+/obj/item/beach_ball{
+	pixel_x = -14
+	},
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"hn" = (
+/obj/item/towel_flat,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"hu" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"hB" = (
+/obj/structure/bed/stool/padded/blue,
+/obj/machinery/light,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"hD" = (
+/turf/unsimulated/beach/coastline{
+	dir = 5;
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "beach"
+	},
+/area/exoplanet/xanu_beach)
+"ik" = (
+/obj/effect/decal/cleanable/flour,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"il" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"in" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"iJ" = (
+/obj/structure/bed/stool/chair/plastic{
+	dir = 8
+	},
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"iS" = (
+/obj/structure/bed/stool/chair/plastic{
+	dir = 1
+	},
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"jw" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/art,
+/area/exoplanet/xanu_beach)
+"jB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"jC" = (
+/obj/structure/bed/stool/chair/padded/yellow,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"jE" = (
+/obj/machinery/shower{
+	pixel_y = 20
+	},
+/obj/structure/curtain/open/shower,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"jH" = (
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Bar - Backroom";
+	req_access = list(25)
+	},
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"ke" = (
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Bar - Backroom";
+	req_access = list(25)
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"kj" = (
+/obj/structure/table/stone/marble{
+	pixel_x = -16;
+	pixel_y = 18
+	},
+/obj/item/storage/box/fancy/fluff/sentiment_bouquet,
+/obj/item/clothing/head/pin/flower/violet{
+	pixel_x = -13;
+	pixel_y = 13
+	},
+/obj/item/flag/sancolette{
+	pixel_x = -9;
+	pixel_y = 19
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"kk" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/crabmeat,
+/obj/item/reagent_containers/food/snacks/crabmeat,
+/obj/item/reagent_containers/food/snacks/crabmeat,
+/obj/item/reagent_containers/food/snacks/crabmeat,
+/obj/item/reagent_containers/food/snacks/crabmeat,
+/obj/item/reagent_containers/food/snacks/crabmeat,
+/obj/item/reagent_containers/food/snacks/crabmeat,
+/obj/item/reagent_containers/food/snacks/crabmeat,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"kn" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/item/material/knife{
+	layer = 2.99;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/cooking_container/board/bowl,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"kq" = (
+/obj/structure/flora/ausbushes/reedbush,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"kA" = (
+/turf/unsimulated/wall/other,
+/area/exoplanet/xanu_beach)
+"kO" = (
+/obj/structure/table/steel,
+/obj/item/storage/box/lights/mixed,
+/obj/item/reagent_containers/glass/rag/advanced,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"kP" = (
+/obj/structure/platform/dark{
+	dir = 4
+	},
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"kW" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"ld" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/stone/marble,
+/obj/machinery/reagentgrinder,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"lC" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/flora/pottedplant/orchid,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"lK" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"lP" = (
+/obj/structure/window{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/personal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"ma" = (
+/obj/structure/bed/stool/chair/padded/red{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"mc" = (
+/obj/structure/platform_deco{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/xanu_beach)
+"mg" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"mh" = (
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"mE" = (
+/obj/structure/flora/pottedplant/woodyshrubbloom,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"mK" = (
+/obj/structure/platform_stairs,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"no" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/obj/structure/extinguisher_cabinet/south,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"nx" = (
+/turf/unsimulated/beach/coastline{
+	dir = 1;
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "beach"
+	},
+/area/exoplanet/xanu_beach)
+"nC" = (
+/obj/structure{
+	anchored = 1;
+	density = 1;
+	desc = "A huge lamp post.";
+	icon = 'icons/effects/32x96.dmi';
+	icon_state = "lamp_on";
+	layer = 9;
+	name = "tall lamp post";
+	opacity = 1
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"nO" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/effect/decal/cleanable/flour,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"nU" = (
+/obj/item/towel_flat{
+	color = "#ff0000"
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"og" = (
+/obj/structure/platform{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/xanu_beach)
+"ou" = (
+/obj/item/material/stool/chair/folding,
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"ov" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"oB" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"oF" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"oI" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "shell3";
+	name = "shell";
+	pixel_x = 4;
+	pixel_y = -16
+	},
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"oQ" = (
+/obj/structure/table/stone/marble,
+/obj/item/flame/candle{
+	pixel_y = 16
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"oT" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "shell2";
+	name = "shell";
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"pA" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence,
+/obj/structure/flora/pottedplant/orchid,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"pN" = (
+/obj/structure/bed/stool/chair/padded/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"pR" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/platform{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"qk" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/stone/marble,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"qr" = (
+/turf/simulated/floor/tiled/ramp{
+	dir = 4
+	},
+/area/exoplanet/xanu_beach)
+"qs" = (
+/obj/structure/bed/stool/chair/wood/wings{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"qx" = (
+/obj/machinery/smartfridge/drinks,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"qz" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"qN" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"qR" = (
+/obj/structure/bed/stool/chair/folding,
+/obj/structure/extinguisher_cabinet/west,
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"rl" = (
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"rQ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/space,
+/area/exoplanet/xanu_beach)
+"rU" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -9;
+	pixel_y = 16
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"sh" = (
+/obj/item/trash/cigbutt/roll,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"ss" = (
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 8
+	},
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"sA" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"sG" = (
+/obj/structure/closet/crate/trashcart,
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"sL" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"sP" = (
+/obj/structure/table/rack,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"sR" = (
+/obj/structure/platform_deco{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/xanu_beach)
+"ta" = (
+/obj/structure/table/stone/marble,
+/obj/item/rfd/service,
+/obj/item/rfd/service,
+/obj/item/rfd/service,
+/obj/item/rfd/service,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"td" = (
+/obj/structure/bed/stool/chair/wood/wings{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"tf" = (
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt{
+	pixel_x = -13;
+	pixel_y = -11
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"tq" = (
+/obj/structure/flora/pottedplant/rosebush,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"tv" = (
+/obj/machinery/door/window/northleft{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"tB" = (
+/obj/machinery/door/airlock{
+	dir = 4;
+	name = "Deck 2 Central Washroom"
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"tC" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"tE" = (
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"tQ" = (
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"tR" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/structure/platform{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"ub" = (
+/obj/effect/overmap/visitable/xanu_beach,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"ui" = (
+/obj/structure/flora/pottedplant/applebush,
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"uo" = (
+/obj/structure/bed/stool/bar/padded/red,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"uv" = (
+/obj/structure/bed/stool,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"uZ" = (
+/obj/structure/table/wood,
+/obj/machinery/light/small{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"vg" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"vm" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/obj/structure/bed/stool/chair/padded/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"vx" = (
+/turf/simulated/floor/tiled/ramp{
+	dir = 8
+	},
+/area/exoplanet/xanu_beach)
+"vX" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"wf" = (
+/obj/structure/bed/stool/chair/padded/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"wt" = (
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 8
+	},
+/obj/item/beach_ball{
+	pixel_x = -14
+	},
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"wE" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/padded/yellow,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"wF" = (
+/obj/structure/platform{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/xanu_beach)
+"wJ" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"wL" = (
+/obj/structure/bed/stool/chair/plastic,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"wM" = (
+/obj/structure/bed/stool/chair/padded/red{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"wS" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/structure/platform{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"wT" = (
+/obj/structure/closet/statue{
+	desc = "A granite statue of an androgynous figure holding aloft a sword with one hand. The other flies a flag with the peacock feather of Xanu Prime carved on to it. The expression on the figure's chiseled face is stern but serene. At the base of the statue is a plaque with an enscryption; TO ALL THOSE WHO HAVE FOUGHT IN THE SERVICE OF FREEDOM.";
+	pixel_x = -16
+	},
+/obj/item/clothing/head/pin/flower{
+	pixel_x = -5;
+	pixel_y = -6
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"xj" = (
+/obj/structure/platform_deco{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/xanu_beach)
+"xv" = (
+/obj/structure/railing/fence,
+/obj/structure/bed/stool/chair/wood/wings{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"xx" = (
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/xanu_beach)
+"xA" = (
+/turf/simulated/floor/exoplanet/water/shallow,
+/turf/unsimulated/beach/coastline{
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "beach"
+	},
+/area/exoplanet/xanu_beach)
+"xH" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/extinguisher_cabinet/north,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"xI" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"xS" = (
+/obj/structure/bed/stool/chair/padded/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"xY" = (
+/turf/simulated/wall/concrete,
+/area/exoplanet/xanu_beach)
+"yh" = (
+/obj/item/trash/cigbutt/roll{
+	pixel_x = -14;
+	pixel_y = -15
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"ym" = (
+/obj/structure/table/wood,
+/obj/item/banhammer,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"yp" = (
+/turf/unsimulated/beach/coastline{
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "beachcorner"
+	},
+/area/exoplanet/xanu_beach)
+"yq" = (
+/obj/item/clothing/head/sunflower_crown{
+	pixel_x = 10;
+	pixel_y = 13
+	},
+/obj/effect/decal/cleanable/blood/writing{
+	basecolor = "#28A18E";
+	desc = "This is spray painted graffiti that says FREE MICTLAN 2465.";
+	dir = 5;
+	dryname = "graffiti"
+	},
+/obj/item/toy/plushie/pennyplush{
+	desc = "It's a plush of the beloved company mascot cat, Penny! This plush is dirty and weather-worn.";
+	pixel_x = 10;
+	pixel_y = 17
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"zC" = (
+/obj/structure/bed/stool/padded/blue,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"zI" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"Aa" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"Aq" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"At" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"Av" = (
+/obj/structure/platform/dark{
+	dir = 8
+	},
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"AB" = (
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"AQ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/art,
+/area/exoplanet/xanu_beach)
+"AU" = (
+/turf/unsimulated/beach/coastline{
+	dir = 9;
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "beach"
+	},
+/area/exoplanet/xanu_beach)
+"AX" = (
+/obj/machinery/door/airlock{
+	dir = 1;
+	id_tag = "central_stall_1";
+	name = "Stall 1"
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"Ba" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/appliance/cooker/fryer,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"Bs" = (
+/obj/machinery/light/small{
+	pixel_y = -21
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"BF" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1;
+	name = "Kitchen"
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"BO" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/appliance/mixer/candy{
+	pixel_y = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"Ch" = (
+/turf/unsimulated/beach/coastline{
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "beach"
+	},
+/area/exoplanet/xanu_beach)
+"Cl" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_x = -6;
+	pixel_y = 20
+	},
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_x = 9;
+	pixel_y = 20
+	},
+/obj/item/rfd/service,
+/obj/item/rfd/service,
+/obj/item/rfd/service,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"Cn" = (
+/obj/structure/curtain/open/privacy,
+/obj/structure/bed/stool/padded/blue,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"CK" = (
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/platform{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"CR" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/closet/chefcloset,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"CZ" = (
+/obj/structure/table/wood,
+/obj/item/flame/candle{
+	pixel_x = -9;
+	pixel_y = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Dj" = (
+/obj/machinery/light/small{
+	pixel_y = -21
+	},
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"Dl" = (
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/flame/lighter,
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"DL" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"DO" = (
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"DR" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/carpet/art,
+/area/exoplanet/xanu_beach)
+"Ef" = (
+/obj/structure/bed/stool/padded/blue,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"Ex" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"EC" = (
+/obj/structure/bonfire/light_up,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"EL" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/structure/platform{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"EN" = (
+/obj/structure/table/stone/marble,
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = -4;
+	pixel_y = -2
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"EU" = (
+/obj/structure/bed/stool/chair/wood/wings{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"EZ" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/railing/fence,
+/obj/structure/flora/pottedplant/orchid,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Fa" = (
+/turf/simulated/floor/plating,
+/area/exoplanet/xanu_beach)
+"Fi" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	pixel_x = -1;
+	pixel_y = 16
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Fp" = (
+/obj/structure/closet/crate/trashcart,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"Ft" = (
+/obj/structure/bed/stool/bamboo,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Fw" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -6;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 4;
+	pixel_y = 16
+	},
+/obj/item/flame/candle{
+	pixel_y = 16
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Fz" = (
+/obj/structure/platform_stairs/south_north_solo,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/platform/dark{
+	dir = 4
+	},
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"FD" = (
+/obj/effect/floor_decal/spline/plain/red,
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 8
+	},
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"FH" = (
+/obj/structure/platform_deco,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/xanu_beach)
+"FZ" = (
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"Gm" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"Go" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"GJ" = (
+/obj/machinery/light,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"GX" = (
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Hd" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/padded/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Hi" = (
+/obj/machinery/vending/snack,
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"Hj" = (
+/obj/structure/railing/fence,
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -6;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 4;
+	pixel_y = 16
+	},
+/obj/item/flame/candle{
+	pixel_y = 16
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Hk" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Ho" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Hy" = (
+/obj/structure/platform_stairs/south_north_solo,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/platform/dark{
+	dir = 8
+	},
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"HA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"HP" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/reagentgrinder,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"HQ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"HU" = (
+/obj/structure/platform,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"HZ" = (
+/obj/machinery/light/small{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"Ic" = (
+/obj/machinery/door/window/northleft{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Ir" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"IP" = (
+/obj/structure/closet/athletic_mixed,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"IU" = (
+/obj/item/storage/box/fancy/fluff/sentiment_bouquet,
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"Jl" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Jp" = (
+/obj/structure/platform_deco/dark{
+	dir = 4
+	},
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"Jw" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/structure/table/wood,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/item/clothing/suit/storage/hazardvest/white{
+	desc = "A high-visibility vest coated with a water-repellent material. ";
+	name = "lifeguard vest"
+	},
+/obj/item/toy/bosunwhistle{
+	desc = "This is how you get Wendy's whistle wet.";
+	name = "lifeguard whistle"
+	},
+/turf/simulated/floor/tiled/white,
+/area/exoplanet/xanu_beach)
+"Jy" = (
+/obj/structure/toilet{
+	dir = 1;
+	pixel_y = -1
+	},
+/obj/machinery/light/small{
+	pixel_y = -21
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"Jz" = (
+/obj/structure/table/steel,
+/obj/item/material/ashtray,
+/obj/machinery/light/small{
+	pixel_y = -21
+	},
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"JD" = (
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/platform{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"JF" = (
+/obj/structure/platform_deco/dark{
+	dir = 8
+	},
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"JJ" = (
+/turf/unsimulated/beach/coastline{
+	dir = 10;
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "beach"
+	},
+/area/exoplanet/xanu_beach)
+"JK" = (
+/mob/living/simple_animal/crab,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"JV" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"KH" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"KL" = (
+/obj/structure/table/rack,
+/obj/item/haircomb/random,
+/obj/item/haircomb/random,
+/obj/item/haircomb/random,
+/obj/item/haircomb/random,
+/obj/item/haircomb/random,
+/obj/item/haircomb/random,
+/obj/item/haircomb/random,
+/obj/item/haircomb/random,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"KO" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/appliance/cooker/oven,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"Ll" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/art,
+/area/exoplanet/xanu_beach)
+"Lr" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"LT" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 10;
+	pixel_y = 16
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"MT" = (
+/obj/structure/flora/pottedplant/rosebush,
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"MX" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"Nt" = (
+/turf/unsimulated/beach/coastline{
+	dir = 4;
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "beach"
+	},
+/area/exoplanet/xanu_beach)
+"Nz" = (
+/obj/machinery/cryopod/living_quarters,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"NJ" = (
+/obj/structure/closet/hazmat/custodial,
+/turf/simulated/floor/lino,
+/area/exoplanet/xanu_beach)
+"NK" = (
+/obj/structure/table/stone/marble,
+/obj/item/paper_bin{
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/obj/item/pen{
+	pixel_x = -7;
+	pixel_y = 9
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"NO" = (
+/obj/effect/shuttle_landmark/xanu_beach_intrepid,
+/turf/simulated/floor/plating,
+/area/exoplanet/xanu_beach)
+"NZ" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Ow" = (
+/obj/structure/table/rack,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"OB" = (
+/obj/structure/bed/stool/chair/padded/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"OI" = (
+/obj/structure/flora/ausbushes/reedbush,
+/turf/unsimulated/beach/coastline{
+	dir = 10;
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "beach"
+	},
+/area/exoplanet/xanu_beach)
+"OJ" = (
+/obj/structure/table/wood,
+/obj/item/inflatable_duck,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"ON" = (
+/obj/structure/flora/log_bench,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"Pe" = (
+/obj/structure/bed/stool/chair/padded/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Pf" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/flora/pottedplant/orchid,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"PJ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"PL" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_x = -8;
+	pixel_y = 16
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"PR" = (
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Qp" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	id_tag = "dinerbolt";
+	name = "Kitchen"
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"Qr" = (
+/obj/structure/simple_door,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"QD" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"QF" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"QL" = (
+/obj/machinery/light/small{
+	dir = 8;
+	pixel_x = -11
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"QO" = (
+/obj/item/trash/cigbutt{
+	pixel_x = -13;
+	pixel_y = -11
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"Rn" = (
+/turf/simulated/wall/ebonywood,
+/area/exoplanet/xanu_beach)
+"Rz" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/office/bridge{
+	desc = "A seat for a lifeguard.";
+	name = "lifeguard chair"
+	},
+/turf/simulated/floor/tiled/white,
+/area/exoplanet/xanu_beach)
+"RA" = (
+/obj/structure/table/wood,
+/obj/item/flame/candle{
+	pixel_y = 7
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"RI" = (
+/obj/structure/bed/stool/chair/padded/yellow,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"RJ" = (
+/turf/simulated/wall/bamboowood,
+/area/exoplanet/xanu_beach)
+"RO" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/appliance/cooker/stove,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"Se" = (
+/obj/structure/bed/stool/chair/wood/wings,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Si" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"Sv" = (
+/obj/structure/table/wood,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"Ta" = (
+/obj/structure/railing/fence,
+/obj/structure/bed/stool/chair/wood/wings{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Tc" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Tv" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"TE" = (
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"TH" = (
+/obj/structure/bed/stool/chair/plastic{
+	dir = 4
+	},
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"TU" = (
+/turf/simulated/floor/foamedmetal,
+/area/exoplanet/xanu_beach)
+"TW" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/platform{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Up" = (
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/red,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"Uq" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/white,
+/area/exoplanet/xanu_beach)
+"Uw" = (
+/obj/structure/bed/stool/chair/padded/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"UJ" = (
+/turf/simulated/floor/beach/sand,
+/area/exoplanet/xanu_beach)
+"UL" = (
+/obj/structure/sink{
+	pixel_y = 28
+	},
+/obj/structure/mirror{
+	pixel_y = 36
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"UO" = (
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"US" = (
+/obj/structure/platform/dark,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"UV" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/cooking_container/board/bowl,
+/obj/item/material/knife{
+	layer = 2.99;
+	pixel_x = -9
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"Vd" = (
+/obj/structure/flora/tree/jungle/small,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"Vs" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/platform{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Vt" = (
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 8
+	},
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+"Vy" = (
+/turf/unsimulated/beach/coastline{
+	dir = 6;
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "beach"
+	},
+/area/exoplanet/xanu_beach)
+"VB" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/sprinkles{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/condiment/shaker/sprinkles{
+	pixel_x = -3
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 11
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"VD" = (
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"VP" = (
+/obj/structure/flora/tree/jungle,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"VQ" = (
+/obj/structure/bed/stool/bamboo,
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"VT" = (
+/obj/structure/bed/stool/chair/padded/yellow,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Wo" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/carpet/art,
+/area/exoplanet/xanu_beach)
+"WB" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	id_tag = "dinerbolt";
+	name = "Kitchen"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/art,
+/area/exoplanet/xanu_beach)
+"WE" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/art,
+/area/exoplanet/xanu_beach)
+"WI" = (
+/obj/structure/bed/stool/chair/padded/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Xe" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -6;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 4;
+	pixel_y = 16
+	},
+/obj/item/flame/candle{
+	pixel_y = 16
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 9
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Xn" = (
+/obj/structure/table/rack,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"XC" = (
+/obj/structure/table/stone/marble,
+/obj/item/device/hand_labeler,
+/obj/item/stack/packageWrap,
+/obj/item/stack/material/cardboard{
+	amount = 10;
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/stack/material/cardboard{
+	amount = 10;
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/device/destTagger,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"XJ" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"XP" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"XR" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"XT" = (
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_x = 10
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"XV" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/grass,
+/area/exoplanet/xanu_beach)
+"Yl" = (
+/obj/structure/bed/stool/chair/padded/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"Yo" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/concrete,
+/area/exoplanet/xanu_beach)
+"YA" = (
+/obj/structure/flora/ausbushes/reedbush,
+/turf/unsimulated/beach/coastline{
+	icon = 'icons/misc/beach.dmi';
+	icon_state = "beach"
+	},
+/area/exoplanet/xanu_beach)
+"YF" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	id_tag = "dinerbolt";
+	name = "Kitchen"
+	},
+/turf/simulated/floor/wood,
+/area/exoplanet/xanu_beach)
+"YJ" = (
+/turf/simulated/floor/tiled/ramp,
+/area/exoplanet/xanu_beach)
+"Zt" = (
+/obj/structure/platform,
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/exoplanet/xanu_beach)
+"Zx" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/table/rack,
+/obj/random/soap,
+/obj/random/soap,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"ZG" = (
+/turf/simulated/floor/exoplanet/desert/rough,
+/area/exoplanet/xanu_beach)
+"ZT" = (
+/obj/structure/closet/secure_closet/personal,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/exoplanet/xanu_beach)
+"ZX" = (
+/obj/structure/simple_door/wood,
+/turf/unsimulated/beach/sand{
+	icon_state = "desert"
+	},
+/area/exoplanet/xanu_beach)
+
+(1,1,1) = {"
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+"}
+(2,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+YA
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(3,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+tE
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+tE
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+oF
+FZ
+vg
+FZ
+FZ
+FZ
+TE
+JV
+TE
+TE
+JV
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(4,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(5,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+fX
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(6,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+oF
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+YA
+xx
+xx
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(7,1,1) = {"
+kA
+tE
+tE
+tE
+nC
+dx
+FZ
+FZ
+FZ
+VP
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+oF
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+xA
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(8,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+eN
+eM
+OI
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(9,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+bd
+xx
+xx
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(10,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+YA
+xx
+xx
+xx
+xx
+xx
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(11,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+XV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+tE
+ZG
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+ZG
+tE
+tE
+ZG
+tE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(12,1,1) = {"
+kA
+tE
+tE
+tE
+tE
+tE
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+NO
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+ZG
+tE
+tE
+tE
+tE
+tE
+ZG
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(13,1,1) = {"
+RJ
+RJ
+RJ
+RJ
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+tE
+tE
+tE
+ZG
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+ZG
+tE
+tE
+tE
+tE
+ZG
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(14,1,1) = {"
+RJ
+ev
+VD
+tq
+RJ
+MT
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+JV
+TE
+TE
+TE
+TE
+TE
+TE
+TH
+TE
+hl
+TE
+TE
+TE
+eN
+eM
+OI
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(15,1,1) = {"
+RJ
+VD
+VD
+VD
+RJ
+tE
+tE
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+eN
+eM
+JJ
+xx
+xx
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(16,1,1) = {"
+RJ
+VD
+VD
+PR
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+XV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+ON
+TE
+EC
+TE
+ON
+TE
+TE
+TE
+TE
+TE
+TE
+eN
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(17,1,1) = {"
+RJ
+VD
+VD
+wM
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+XV
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+FZ
+FZ
+FZ
+cV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+ON
+TE
+TE
+TE
+TE
+TE
+TE
+oT
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(18,1,1) = {"
+RJ
+VD
+VD
+KH
+RJ
+tE
+tE
+FZ
+cV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+XV
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+fX
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+iJ
+TE
+TE
+TE
+TE
+oT
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(19,1,1) = {"
+RJ
+VD
+VD
+ma
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+JV
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+JK
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(20,1,1) = {"
+RJ
+PJ
+VD
+VD
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oB
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+Fa
+jB
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(21,1,1) = {"
+RJ
+VD
+VD
+VD
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+yp
+Vy
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(22,1,1) = {"
+RJ
+VD
+VD
+wM
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+cV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+ZG
+tE
+ZG
+FZ
+ZG
+ZG
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+yp
+Vy
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(23,1,1) = {"
+RJ
+VD
+VD
+KH
+RJ
+tE
+tE
+FZ
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+fX
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+tE
+tE
+tE
+ZG
+ZG
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Vd
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+fX
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+FH
+wF
+wF
+wF
+wF
+wF
+wF
+wF
+xj
+xx
+xx
+xx
+kA
+"}
+(24,1,1) = {"
+RJ
+VD
+VD
+ma
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+ZG
+ZG
+FZ
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oF
+FZ
+FZ
+FZ
+fX
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+JV
+TE
+TE
+TE
+JV
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+yp
+Nt
+Nt
+Vy
+xx
+xx
+gP
+VD
+ik
+VD
+cA
+cA
+VD
+Lr
+Zt
+xx
+xx
+xx
+kA
+"}
+(25,1,1) = {"
+RJ
+VD
+VD
+PR
+RJ
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+FZ
+FZ
+UJ
+UJ
+FZ
+ZG
+FZ
+ZG
+FZ
+ZG
+FZ
+FZ
+ZG
+FZ
+FZ
+ZG
+ZG
+FZ
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+oF
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+gP
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+Zt
+xx
+xx
+xx
+kA
+"}
+(26,1,1) = {"
+RJ
+VD
+VD
+VD
+RJ
+ui
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+UJ
+FZ
+ZG
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+FZ
+FZ
+ZG
+FZ
+ZG
+FZ
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oF
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+cV
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+gP
+wJ
+VD
+VD
+uv
+VD
+yh
+Lr
+Zt
+xx
+xx
+xx
+kA
+"}
+(27,1,1) = {"
+RJ
+DR
+WE
+WE
+WB
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+UJ
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+ZG
+ZG
+ZG
+FZ
+FZ
+ZG
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oF
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+oT
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+gP
+wJ
+VD
+nU
+VD
+VD
+VD
+Lr
+Zt
+xx
+xx
+xx
+kA
+"}
+(28,1,1) = {"
+RJ
+Ll
+jw
+jw
+jw
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+UJ
+UJ
+UJ
+FZ
+ZG
+FZ
+ZG
+FZ
+FZ
+FZ
+ZG
+ZG
+ZG
+FZ
+ZG
+FZ
+Go
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oF
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+TE
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+gP
+wJ
+VD
+VD
+VD
+VD
+VD
+Lr
+Zt
+xx
+xx
+xx
+kA
+"}
+(29,1,1) = {"
+RJ
+VD
+VD
+VD
+RJ
+ui
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+UJ
+FZ
+UJ
+UJ
+UJ
+UJ
+UJ
+UJ
+FZ
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+gP
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+Zt
+xx
+xx
+xx
+kA
+"}
+(30,1,1) = {"
+RJ
+VD
+VD
+PR
+RJ
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+UJ
+tE
+tE
+UJ
+UJ
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+ZG
+ZG
+ZG
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+xY
+xY
+xY
+xY
+xY
+xY
+xY
+xY
+xY
+xY
+xY
+TE
+FZ
+FZ
+FZ
+TE
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+gP
+VD
+VD
+sh
+VD
+VD
+uv
+VD
+Zt
+xx
+xx
+xx
+kA
+"}
+(31,1,1) = {"
+RJ
+Nz
+VD
+aY
+RJ
+ed
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+ZG
+FZ
+ZG
+ZG
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+xY
+xY
+xY
+xY
+xY
+QL
+IP
+IP
+IP
+IP
+IP
+IP
+IP
+IP
+QL
+xY
+TE
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+Uq
+HU
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+gP
+wJ
+VD
+VD
+VD
+VD
+VD
+VD
+Zt
+xx
+xx
+xx
+kA
+"}
+(32,1,1) = {"
+RJ
+Nz
+VD
+KH
+RJ
+bs
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Vd
+xY
+jE
+mh
+mh
+co
+xY
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+xY
+TE
+TE
+TE
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+Rz
+mK
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+gP
+wJ
+nU
+VD
+VD
+VD
+VD
+VD
+Zt
+xx
+xx
+xx
+kA
+"}
+(33,1,1) = {"
+RJ
+Nz
+VD
+ma
+RJ
+Hi
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+FZ
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+xY
+sA
+Bs
+xY
+xY
+Ef
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+Ef
+xY
+TE
+FZ
+FZ
+TE
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+Jw
+HU
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+gP
+VD
+VD
+VD
+NZ
+NZ
+VD
+VD
+Zt
+xx
+xx
+xx
+kA
+"}
+(34,1,1) = {"
+RJ
+VD
+VD
+VD
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Vd
+FZ
+FZ
+FZ
+ZG
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+jE
+mh
+mh
+co
+xY
+Ef
+mh
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+mh
+Ef
+xY
+OJ
+TE
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+mc
+og
+og
+og
+og
+og
+og
+og
+sR
+xx
+xx
+xx
+kA
+"}
+(35,1,1) = {"
+RJ
+PJ
+VD
+VD
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+XV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+xY
+xY
+sA
+Bs
+xY
+xY
+zC
+mh
+lP
+lP
+lP
+lP
+lP
+lP
+mh
+hB
+xY
+OJ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(36,1,1) = {"
+RJ
+VD
+VD
+wM
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+jE
+mh
+mh
+co
+xY
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+xY
+ym
+FZ
+FZ
+FZ
+vg
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(37,1,1) = {"
+RJ
+VD
+VD
+KH
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+xY
+sA
+Bs
+xY
+xY
+Ef
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+Ef
+xY
+Sv
+FZ
+TE
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(38,1,1) = {"
+RJ
+VD
+VD
+ma
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+jE
+mh
+mh
+co
+xY
+Ef
+mh
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+mh
+Ef
+xY
+TE
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(39,1,1) = {"
+RJ
+VD
+VD
+PR
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+xY
+Qr
+Qr
+xY
+xY
+Ef
+mh
+lP
+lP
+lP
+lP
+lP
+lP
+mh
+Ef
+xY
+TE
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+JV
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(40,1,1) = {"
+RJ
+VD
+VD
+VD
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+VP
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Vd
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+mh
+mh
+mh
+GJ
+xY
+ov
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+GJ
+xY
+xY
+FZ
+TE
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(41,1,1) = {"
+RJ
+fw
+VD
+tq
+RJ
+MT
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+Ow
+mh
+mh
+mh
+xY
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+ZX
+ZG
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+eN
+JJ
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(42,1,1) = {"
+RJ
+RJ
+RJ
+RJ
+RJ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+Xn
+mh
+mh
+mh
+Qr
+mh
+mh
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+mh
+mh
+mh
+ZX
+FZ
+ZG
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+eN
+eM
+eM
+JJ
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(43,1,1) = {"
+kA
+tE
+tE
+tE
+tE
+tE
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+VQ
+Yo
+Yo
+VQ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+cV
+FZ
+FZ
+xY
+KL
+mh
+mh
+mh
+xY
+mh
+mh
+lP
+lP
+lP
+lP
+lP
+lP
+mh
+mh
+mh
+ZX
+ZG
+ZG
+ZG
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+yp
+Vy
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(44,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VQ
+Yo
+Yo
+VQ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+ZG
+FZ
+ZG
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+mh
+mh
+mh
+GJ
+xY
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+xY
+xY
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+oT
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(45,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+cV
+FZ
+FZ
+FZ
+VQ
+Yo
+Yo
+VQ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+Qr
+Qr
+xY
+xY
+xY
+Ef
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+Ef
+xY
+TE
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(46,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VQ
+Yo
+Yo
+VQ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VP
+FZ
+ub
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+ov
+mh
+AX
+Jy
+xY
+Ef
+mh
+ZT
+ZT
+ZT
+ZT
+ZT
+ZT
+mh
+Ef
+xY
+TE
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(47,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+tE
+tE
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+fY
+mh
+xY
+xY
+xY
+zC
+mh
+lP
+lP
+lP
+lP
+lP
+lP
+mh
+hB
+xY
+TE
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(48,1,1) = {"
+kA
+tE
+tE
+tE
+nC
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+cV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+fY
+mh
+AX
+Jy
+xY
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+mh
+xY
+TE
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+oI
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(49,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VP
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+fY
+mh
+xY
+xY
+xY
+mh
+XT
+mh
+mh
+mh
+mh
+XT
+mh
+mh
+mh
+xY
+TE
+FZ
+TE
+FZ
+TE
+oI
+TE
+ar
+ss
+ss
+ss
+ss
+ss
+ss
+Up
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(50,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+VQ
+Yo
+Yo
+VQ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VP
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+fY
+mh
+AX
+Jy
+xY
+xY
+xY
+xY
+Qr
+Qr
+xY
+xY
+xY
+xY
+xY
+xY
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(51,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VQ
+Yo
+Yo
+VQ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+fY
+mh
+xY
+xY
+xY
+At
+mh
+mh
+mh
+mh
+At
+xY
+FZ
+FZ
+TE
+TE
+TE
+FZ
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(52,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VQ
+Yo
+Yo
+VQ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+ov
+mh
+AX
+Jy
+xY
+Cn
+mh
+mh
+mh
+mh
+Cn
+xY
+JV
+TE
+TE
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(53,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VQ
+Yo
+Yo
+VQ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+VQ
+Yo
+Yo
+VQ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+xY
+xY
+xY
+xY
+xY
+Cn
+mh
+mh
+mh
+mh
+Cn
+xY
+FZ
+FZ
+TE
+FZ
+TE
+vg
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(54,1,1) = {"
+kA
+tE
+tE
+tE
+nC
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VQ
+Yo
+Yo
+VQ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+xY
+sP
+Cn
+Cn
+Cn
+Cn
+sP
+xY
+JV
+TE
+TE
+TE
+TE
+FZ
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(55,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VQ
+Yo
+Yo
+VQ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+xY
+xY
+xY
+xY
+xY
+xY
+xY
+xY
+FZ
+FZ
+TE
+TE
+FZ
+FZ
+TE
+FZ
+TE
+TE
+TE
+ar
+Vt
+Vt
+Vt
+wt
+Vt
+Vt
+FD
+TE
+TE
+TE
+TE
+TE
+eN
+eM
+JJ
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(56,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VQ
+Yo
+Yo
+VQ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Go
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Vd
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(57,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+cV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(58,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VP
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(59,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+VP
+vg
+FZ
+FZ
+FZ
+cV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VP
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+oT
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(60,1,1) = {"
+kA
+tE
+tE
+tE
+nC
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+cV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+ar
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(61,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+ss
+ss
+ss
+ss
+ss
+ss
+ss
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(62,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(63,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+oI
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(64,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+JV
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(65,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Vd
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(66,1,1) = {"
+kA
+tE
+tE
+tE
+nC
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Rn
+Rn
+jC
+uZ
+gK
+Rn
+jC
+QD
+gK
+Rn
+jC
+QD
+gK
+Rn
+jC
+QD
+gK
+Rn
+Rn
+Rn
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Uq
+HU
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(67,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+cV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VP
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Rn
+TU
+Rn
+VT
+RA
+xS
+Rn
+VT
+RA
+fe
+Rn
+VT
+RA
+pN
+Rn
+VT
+RA
+pN
+Rn
+TU
+Rn
+Rn
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TH
+TE
+TE
+TE
+TE
+Rz
+YJ
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(68,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+Rn
+Rn
+TU
+TU
+Rn
+VT
+dt
+xS
+Rn
+VT
+dt
+fe
+Rn
+VT
+dt
+pN
+Rn
+VT
+dt
+pN
+Rn
+TU
+TU
+Rn
+Rn
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+oI
+TE
+TE
+TE
+TE
+TE
+TE
+Jw
+HU
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(69,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+VP
+FZ
+tE
+tE
+tE
+tE
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+TU
+TU
+TU
+Rn
+AB
+eu
+UO
+Rn
+AB
+eu
+eu
+Rn
+AB
+eu
+GX
+Rn
+AB
+eu
+GX
+Rn
+TU
+TU
+TU
+Rn
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+wL
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(70,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+xx
+tE
+tE
+xx
+tE
+oF
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+il
+VD
+in
+cv
+VD
+VD
+in
+cv
+ch
+VD
+in
+cv
+VD
+VD
+Ho
+Rn
+Rn
+Rn
+Rn
+Rn
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+EC
+TE
+iS
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(71,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+IU
+yq
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+wf
+WI
+WI
+tQ
+lK
+Tc
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+Jl
+lK
+lK
+lK
+mE
+Rn
+Av
+Av
+Av
+Av
+Av
+JF
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(72,1,1) = {"
+kA
+tE
+tE
+tE
+nC
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+wT
+kj
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Xe
+KH
+KH
+eu
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+DL
+Rn
+lC
+cA
+cA
+cA
+EZ
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Gm
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+iJ
+TE
+hn
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(73,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+xx
+tE
+tE
+xx
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Yl
+OB
+OB
+eu
+vX
+VD
+Uw
+Uw
+Uw
+Uw
+Uw
+Uw
+VD
+VD
+VD
+Uw
+Uw
+Uw
+Uw
+Uw
+Uw
+VD
+VD
+Ho
+Rn
+VD
+VD
+qs
+VD
+Lr
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(74,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+tE
+tE
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Rn
+Rn
+Rn
+Rn
+kW
+RI
+KH
+KH
+KH
+LT
+KH
+KH
+fe
+VD
+RI
+KH
+KH
+KH
+LT
+KH
+KH
+fe
+VD
+Ho
+rQ
+VD
+Se
+Fw
+EU
+Lr
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+JV
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+JV
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(75,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+FZ
+oF
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+wf
+WI
+WI
+tQ
+ch
+RI
+KH
+KH
+CZ
+rU
+KH
+KH
+fe
+VD
+RI
+KH
+KH
+CZ
+rU
+KH
+KH
+fe
+VD
+Ho
+rQ
+VD
+VD
+td
+VD
+Lr
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(76,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+FZ
+FZ
+FZ
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Xe
+KH
+KH
+eu
+VD
+VD
+OB
+OB
+OB
+OB
+OB
+OB
+VD
+VD
+VD
+OB
+OB
+OB
+OB
+OB
+OB
+VD
+VD
+Ho
+rQ
+VD
+VD
+VD
+VD
+Lr
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(77,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Yl
+Pe
+Pe
+eu
+vX
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+DL
+Rn
+qs
+VD
+VD
+VD
+Ta
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+vx
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(78,1,1) = {"
+kA
+tE
+tE
+tE
+nC
+dx
+FZ
+FZ
+FZ
+XV
+FZ
+FZ
+FZ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Rn
+Rn
+Rn
+Rn
+kW
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+HA
+Rn
+Fw
+VD
+VD
+VD
+Hj
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+JV
+TE
+TE
+TE
+TE
+fK
+tR
+JD
+pR
+JD
+JD
+JD
+JD
+JD
+wS
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(79,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Hk
+lK
+lK
+lK
+ch
+VD
+RI
+KH
+fe
+VD
+RI
+KH
+fe
+VD
+RI
+KH
+fe
+VD
+RI
+KH
+fe
+VD
+VD
+DL
+Rn
+td
+VD
+VD
+VD
+xv
+US
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+fK
+uo
+eB
+Ic
+oQ
+eB
+eB
+oQ
+eB
+rl
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(80,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tE
+tE
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+fX
+FZ
+FZ
+rQ
+bx
+VD
+VD
+VD
+VD
+VD
+RI
+RA
+fe
+VD
+RI
+RA
+fe
+VD
+RI
+RA
+fe
+VD
+RI
+RA
+fe
+VD
+VD
+no
+Rn
+VD
+VD
+VD
+VD
+Lr
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+fK
+uo
+eB
+VD
+VD
+VD
+VD
+VD
+eB
+rl
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+AU
+eM
+eM
+JJ
+kA
+"}
+(81,1,1) = {"
+kA
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+YF
+WE
+WE
+AQ
+VD
+VD
+VD
+RI
+dt
+fe
+VD
+RI
+dt
+fe
+VD
+RI
+dt
+fe
+VD
+RI
+XJ
+fe
+VD
+DR
+WE
+Qp
+VD
+VD
+VD
+VD
+VD
+Fz
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+fK
+uo
+oQ
+VD
+VD
+VD
+VD
+VD
+eB
+rl
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+nx
+TE
+JK
+Ch
+kA
+"}
+(82,1,1) = {"
+kA
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+tE
+VD
+jw
+jw
+Wo
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+Ll
+jw
+tE
+VD
+VD
+VD
+VD
+VD
+Hy
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+JV
+TE
+TE
+TE
+TE
+TE
+fK
+uo
+eB
+VD
+VD
+qx
+VD
+VD
+oQ
+rl
+HU
+TE
+oT
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+nx
+ay
+oT
+Ch
+kA
+"}
+(83,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+rQ
+bx
+VD
+VD
+NK
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+Ho
+Rn
+VD
+VD
+VD
+VD
+Lr
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+fK
+uo
+eB
+VD
+VD
+cr
+Ft
+VD
+eB
+rl
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+hD
+Nt
+Nt
+Vy
+kA
+"}
+(84,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+xH
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+Ho
+Rn
+qs
+VD
+VD
+VD
+Ta
+US
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+fK
+uo
+eB
+VD
+VD
+cr
+VD
+VD
+eB
+rl
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(85,1,1) = {"
+kA
+tE
+tE
+tE
+nC
+dx
+FZ
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+HQ
+XR
+qN
+qN
+qN
+qz
+qN
+qN
+qN
+qN
+qN
+qN
+qN
+XR
+vX
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+VD
+HA
+Rn
+Fw
+VD
+VD
+VD
+Hj
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+fK
+uo
+eB
+VD
+Ft
+ta
+VD
+VD
+eB
+rl
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(86,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Rn
+Rn
+ke
+Rn
+Rn
+Rn
+Rn
+Cl
+QF
+QF
+QF
+Rn
+Rn
+Rn
+HQ
+qN
+qN
+qN
+qN
+qz
+vX
+VD
+VD
+Ho
+Rn
+td
+VD
+VD
+VD
+xv
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+JV
+TE
+TE
+TE
+fK
+uo
+oQ
+VD
+VD
+Fi
+VD
+VD
+oQ
+rl
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(87,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+FZ
+Rn
+qR
+gW
+gW
+Dj
+Rn
+kn
+cs
+xI
+xI
+xI
+xI
+Tv
+VB
+Rn
+Rn
+tB
+Rn
+Rn
+Rn
+Rn
+Aq
+eu
+eu
+tC
+rQ
+VD
+VD
+VD
+VD
+Lr
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+TE
+TE
+TE
+TE
+TE
+TE
+fK
+uo
+eB
+VD
+VD
+PL
+Ft
+VD
+eB
+rl
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(88,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+oF
+FZ
+VP
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+ou
+gW
+gW
+Ir
+Rn
+qk
+xI
+xI
+xI
+xI
+xI
+xI
+qk
+ec
+Zx
+mh
+mh
+AX
+Jy
+Rn
+wE
+KH
+LT
+vm
+rQ
+VD
+VD
+qs
+VD
+Lr
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+oT
+TE
+TE
+fK
+uo
+eB
+VD
+VD
+af
+VD
+VD
+eB
+rl
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(89,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+XV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Dl
+gW
+gW
+MX
+Rn
+UV
+xI
+xI
+xI
+xI
+xI
+xI
+qk
+Rn
+UL
+mh
+mh
+Rn
+Rn
+Rn
+wE
+KH
+dS
+vm
+rQ
+VD
+Se
+Fw
+EU
+Lr
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+fK
+uo
+eB
+VD
+VD
+VD
+VD
+VD
+eB
+rl
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(90,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+XV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+kO
+gW
+gW
+gW
+Rn
+aw
+xI
+xI
+xI
+xI
+xI
+xI
+mg
+Rn
+UL
+mh
+mh
+AX
+Jy
+Rn
+wE
+KH
+KH
+vm
+Rn
+VD
+VD
+td
+VD
+Lr
+US
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+JV
+TE
+TE
+TE
+TE
+TE
+fK
+uo
+oQ
+VD
+VD
+VD
+VD
+VD
+oQ
+rl
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(91,1,1) = {"
+kA
+tE
+tE
+tE
+nC
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+NJ
+gW
+gW
+gW
+BF
+xI
+xI
+qk
+RO
+Ba
+ee
+xI
+xI
+Rn
+UL
+mh
+mh
+Rn
+Rn
+Rn
+bT
+Hd
+Hd
+XP
+Rn
+Pf
+NZ
+NZ
+NZ
+pA
+US
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+fK
+uo
+eB
+tv
+eB
+oQ
+eB
+eB
+eB
+rl
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(92,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+bU
+MX
+gW
+gW
+Rn
+aw
+xI
+qk
+RO
+Ba
+KO
+xI
+CR
+Rn
+UL
+mh
+mh
+AX
+Jy
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+kP
+kP
+kP
+kP
+kP
+Jp
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+fK
+EL
+CK
+Vs
+CK
+CK
+CK
+CK
+CK
+TW
+HU
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(93,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+gk
+gW
+gW
+Ir
+Rn
+do
+xI
+xI
+xI
+xI
+bu
+xI
+CR
+Rn
+UL
+mh
+mh
+Rn
+Rn
+Rn
+TU
+TU
+TU
+TU
+Rn
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+JV
+TE
+TE
+TE
+TE
+TE
+TE
+qr
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+YA
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(94,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+fX
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Vd
+FZ
+FZ
+FZ
+Rn
+Rn
+sG
+gW
+Jz
+Rn
+sL
+xI
+xI
+xI
+xI
+xI
+xI
+CR
+ec
+UL
+mh
+mh
+AX
+Jy
+Rn
+TU
+TU
+TU
+Rn
+Rn
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+bd
+xx
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(95,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+XV
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+Rn
+Rn
+gW
+gW
+Rn
+kk
+Aa
+xI
+xI
+xI
+xI
+xI
+xI
+Rn
+UL
+mh
+mh
+Rn
+Rn
+Rn
+TU
+TU
+Rn
+Rn
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+vg
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+bd
+xx
+xx
+xx
+xx
+kA
+"}
+(96,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oF
+FZ
+FZ
+FZ
+FZ
+FZ
+dx
+FZ
+FZ
+FZ
+FZ
+Rn
+Rn
+jH
+Rn
+Ex
+nO
+EN
+XC
+BO
+BO
+HP
+ld
+Rn
+dp
+mh
+mh
+AX
+Jy
+Rn
+Rn
+Rn
+Rn
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+bd
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+kA
+"}
+(97,1,1) = {"
+kA
+tE
+tE
+tE
+nC
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+oF
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+QO
+HZ
+tE
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+Rn
+FZ
+FZ
+FZ
+FZ
+DO
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+JV
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+JK
+TE
+TE
+Ch
+bd
+xx
+xx
+bd
+xx
+bd
+xx
+xx
+bd
+xx
+xx
+xx
+kA
+"}
+(98,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+VP
+FZ
+FZ
+FZ
+FZ
+FZ
+oF
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+tf
+tE
+tE
+Fp
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+fX
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+oT
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+kq
+Ch
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+xx
+bd
+xx
+kA
+"}
+(99,1,1) = {"
+kA
+tE
+tE
+tE
+hu
+dx
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+FZ
+TE
+TE
+JV
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+JV
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+TE
+Ch
+xx
+xx
+xx
+bd
+xx
+xx
+xx
+bd
+xx
+xx
+xx
+xx
+kA
+"}
+(100,1,1) = {"
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+kA
+"}
