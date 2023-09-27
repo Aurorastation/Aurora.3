@@ -217,7 +217,7 @@
 						15.0% chance you miss
 
 					Note: We don't use get_zone_with_miss_chance() here since the chances
-						  were made for projectiles.
+						were made for projectiles.
 					TODO: proc for melee combat miss chances depending on organ?
 				*/
 				if(prob(80))
