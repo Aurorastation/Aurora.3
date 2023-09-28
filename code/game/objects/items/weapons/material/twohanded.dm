@@ -515,7 +515,7 @@
 				PowerUp(user)
 			else
 				playsound(loc, 'sound/weapons/saw/chainsawpull.ogg', 50, 0, 15)
-				if(!do_after(user, 2 SECONDS, act_target = user))
+				if(!do_after(user, 2 SECONDS))
 					break
 
 /obj/item/material/twohanded/chainsaw/pre_attack(var/mob/living/target, var/mob/living/user)

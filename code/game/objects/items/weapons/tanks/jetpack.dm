@@ -189,7 +189,7 @@
 
 /obj/item/tank/jetpack/rig/examine()
 	to_chat(usr, "It's a jetpack. If you can see this, report it on the bug tracker.")
-	return 0
+	return TRUE
 
 /obj/item/tank/jetpack/rig/allow_thrust(num, mob/living/user as mob)
 
