@@ -12379,10 +12379,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/engineering/engine_monitoring/rust)
 "fWw" = (
-/obj/machinery/power/breakerbox{
-	RCon_tag = "Tesla Grid Bypass"
-	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/power/breakerbox/activated{
+	RCon_tag = "R-UST Grid Bypass"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/smes/rust)
 "fWG" = (
@@ -12508,10 +12508,10 @@
 	dir = 1;
 	id = "r-ust_electrical_maintenance";
 	name = "Door Bolt Control";
+	pixel_x = -28;
 	pixel_y = 32;
 	req_one_access = list(11,24);
-	specialfunctions = 4;
-	pixel_x = -28
+	specialfunctions = 4
 	},
 /obj/structure/cable/yellow,
 /obj/machinery/power/sensor{
@@ -14761,9 +14761,9 @@
 "gVl" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
-	name = "R-UST Monitoring Blast Doors";
+	dir = 4;
 	id = "r-ust_monitoring_blast";
-	dir = 4
+	name = "R-UST Monitoring Blast Doors"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
@@ -22350,8 +22350,8 @@
 /area/horizon/security/brig)
 "kGH" = (
 /obj/machinery/fusion_fuel_injector/mapped{
-	initial_id_tag = horizon_fusion;
-	dir = 8
+	dir = 8;
+	initial_id_tag = horizon_fusion
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/yellow{
@@ -23819,9 +23819,9 @@
 	layer = 8
 	},
 /obj/machinery/door/blast/regular/open{
+	dir = 4;
 	id = "r_ust_core_blast";
-	name = "R-UST Reactor Blast Doors";
-	dir = 4
+	name = "R-UST Reactor Blast Doors"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
@@ -27001,29 +27001,29 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4;
 	frequency = 1379;
 	id_tag = "r-ust_airlock_exterior";
 	locked = 1;
 	name = "R-UST Reactor Airlock Exterior";
-	req_one_access = list(11,24);
-	dir = 4
+	req_one_access = list(11,24)
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
+	dir = 8;
 	frequency = 1379;
 	master_tag = "r-ust_airlock_control";
 	name = "R-UST Reactor Airlock Access";
-	req_one_access = list(11,24);
-	dir = 8;
-	pixel_y = 23
+	pixel_y = 23;
+	req_one_access = list(11,24)
 	},
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
+	dir = 8;
 	id_tag = "r-ust_airlock_control";
 	name = "R-UST Reactor Airlock Access Console";
+	pixel_y = 38;
 	tag_exterior_door = "r-ust_airlock_exterior";
-	tag_interior_door = "r-ust_airlock_interior";
-	dir = 8;
-	pixel_y = 38
+	tag_interior_door = "r-ust_airlock_interior"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
@@ -35483,9 +35483,9 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
-	pixel_y = 28;
+	id = "r-ust_vent";
 	name = "R-UST Core Vent";
-	id = "r-ust_vent"
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
@@ -35512,17 +35512,17 @@
 /obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
-	pixel_x = -6;
-	pixel_y = 7;
+	id = "r_ust_core_blast";
 	name = "R-UST Reactor Core Blast Doors";
-	id = "r_ust_core_blast"
+	pixel_x = -6;
+	pixel_y = 7
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
-	pixel_x = 6;
-	pixel_y = 7;
 	id = "r-ust_monitoring_blast";
-	name = "R-UST Reactor Monitoring Blast Doors"
+	name = "R-UST Reactor Monitoring Blast Doors";
+	pixel_x = 6;
+	pixel_y = 7
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -35660,10 +35660,10 @@
 "rbr" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
-	req_one_access = list(11,24);
-	name = "R-UST Reactor Core Access";
+	icon_state = "door_locked";
 	locked = 1;
-	icon_state = "door_locked"
+	name = "R-UST Reactor Core Access";
+	req_one_access = list(11,24)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -38180,8 +38180,8 @@
 /area/hallway/primary/central_two)
 "soK" = (
 /obj/machinery/power/fusion_core{
-	initial_id_tag = horizon_fusion;
-	anchored = 1
+	anchored = 1;
+	initial_id_tag = horizon_fusion
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/cable/yellow{
@@ -46127,8 +46127,8 @@
 /area/crew_quarters/heads/hor)
 "wcc" = (
 /obj/machinery/fusion_fuel_injector/mapped{
-	initial_id_tag = horizon_fusion;
-	dir = 8
+	dir = 8;
+	initial_id_tag = horizon_fusion
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/carpet/rubber,
@@ -47048,9 +47048,9 @@
 "wvY" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/door/blast/regular/open{
+	dir = 4;
 	id = "r_ust_core_blast";
-	name = "R-UST Reactor Blast Doors";
-	dir = 4
+	name = "R-UST Reactor Blast Doors"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
@@ -48999,10 +48999,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/rust)
-"xnZ" = (
-/obj/effect/shuttle_landmark/merchant/dock,
-/turf/template_noop,
-/area/template_noop)
 "xoj" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
