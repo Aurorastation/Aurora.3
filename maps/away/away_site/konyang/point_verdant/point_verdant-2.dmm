@@ -8098,6 +8098,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/water)
+"Cr" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/unsimulated/mineral/konyang,
+/area/point_verdant/interior)
 "Cs" = (
 /obj/structure/table/steel,
 /obj/machinery/door/window/desk/eastleft,
@@ -12229,9 +12235,9 @@
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
 	tiles = 1;
-	dir = 5
+	dir = 1
 	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/water)
 "Rb" = (
 /obj/machinery/door/window/southright,
@@ -18057,12 +18063,12 @@ cf
 cf
 cf
 cf
-cf
+Cr
 LN
 iL
 BH
 iL
-Fq
+Qs
 cf
 cf
 cf
@@ -18314,12 +18320,12 @@ cf
 cf
 cf
 cf
-cf
+Cr
 LN
 iL
 BH
 iL
-Fq
+Qs
 cf
 cf
 cf
@@ -18571,12 +18577,12 @@ cf
 cf
 cf
 cf
-cf
+Cr
 LN
 iL
 BH
 iL
-Fq
+Qs
 cf
 cf
 cf
@@ -18828,12 +18834,12 @@ cf
 cf
 cf
 cf
-cf
+Cr
 LN
 iL
 BH
 iL
-Fq
+Qs
 cf
 cf
 cf
@@ -19085,12 +19091,12 @@ cf
 cf
 cf
 cf
-cf
+Cr
 LN
 iL
 BH
 iL
-Fq
+Qs
 cf
 cf
 cf
@@ -20623,8 +20629,8 @@ az
 az
 az
 az
-Ar
-Ar
+az
+pL
 Ar
 Ms
 bm
@@ -20877,11 +20883,11 @@ MA
 MA
 az
 az
-az
-az
-az
-az
-az
+pL
+Ar
+Ar
+Ar
+pL
 MA
 MA
 CU
@@ -21133,8 +21139,8 @@ MA
 MA
 MA
 MA
-MA
-MA
+zQ
+zQ
 MA
 MA
 MA
@@ -21382,15 +21388,15 @@ MA
 MA
 MA
 MA
-MA
-MA
-MA
-MA
-MA
-MA
-MA
-MA
-MA
+Ms
+Ms
+Ms
+Ms
+Ms
+Ms
+Ms
+Ms
+zQ
 MA
 MA
 MA
@@ -23470,7 +23476,7 @@ Dv
 fm
 MA
 MA
-QY
+Gn
 az
 az
 MA
@@ -23727,7 +23733,7 @@ Dv
 fm
 MA
 MA
-az
+QY
 az
 az
 MA
@@ -23984,7 +23990,7 @@ gC
 sY
 MA
 MA
-az
+QY
 az
 az
 az
@@ -24241,7 +24247,7 @@ MA
 MA
 MA
 MA
-az
+QY
 az
 az
 az
@@ -24498,7 +24504,7 @@ MA
 MA
 MA
 MA
-az
+QY
 az
 az
 az
