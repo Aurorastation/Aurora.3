@@ -436,6 +436,6 @@
 		return G.tail_storage.contents[1]
 	return null
 
-/mob/living/carbon/human/adjust_typing_indicator_offsets(var/atom/movable/typing_indicator/indicator)
+/mob/living/carbon/human/adjust_typing_indicator_offsets(var/mutable_appearance/indicator)
 	indicator.pixel_x = species.typing_indicator_x_offset
 	indicator.pixel_y = species.typing_indicator_y_offset

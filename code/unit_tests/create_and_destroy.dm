@@ -22,7 +22,6 @@
 	var/list/ignore = list(
 		//Never meant to be created, errors out the ass for mobcode reasons
 		/mob/living/carbon,
-		/atom/movable/typing_indicator,
 		//Internal organs
 		/obj/item/organ/external,
 		// Requires an organ to init, so would not work here without snowflake code

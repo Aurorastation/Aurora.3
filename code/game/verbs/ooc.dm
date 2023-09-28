@@ -1,5 +1,9 @@
+/client/verb/ooc_verb(msg as text)
+	set name = ".OOC"
+	set hidden = TRUE
+	winset(src, null, "command=[src.tgui_say_create_open_command(OOC_CHANNEL)]")
 
-/client/verb/ooc()
+/client/verb/ooc(msg as text)
 	set name = "OOC"
 	set category = "OOC"
 
@@ -12,10 +16,6 @@
 
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use OOC.")
-		return
-
-	var/msg = tgui_input_text(src, "Enter an OOC message.", "OOC")
-	if(!msg)
 		return
 
 	if(!(prefs.toggles & CHAT_OOC))
