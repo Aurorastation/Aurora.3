@@ -542,23 +542,23 @@
 
 // A late init operation called in SSshuttle for ship computers and holopads, used to attach the thing to the right ship.
 /obj/item/modular_computer/proc/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
-    SHOULD_CALL_PARENT(TRUE)
-    if(!istype(sector))
-        return FALSE
-    if(sector.check_ownership(src))
-        linked = sector
-        return TRUE
-    return FALSE
+	SHOULD_CALL_PARENT(TRUE)
+	if(!istype(sector))
+		return FALSE
+	if(sector.check_ownership(src))
+		linked = sector
+		return TRUE
+	return FALSE
 
 /obj/item/modular_computer/proc/sync_linked()
-    var/obj/effect/overmap/visitable/sector = map_sectors["[z]"]
-    if(!sector)
-        return
-    return attempt_hook_up_recursive(sector)
+	var/obj/effect/overmap/visitable/sector = map_sectors["[z]"]
+	if(!sector)
+		return
+	return attempt_hook_up_recursive(sector)
 
 /obj/item/modular_computer/proc/attempt_hook_up_recursive(var/obj/effect/overmap/visitable/sector)
-    if(attempt_hook_up(sector))
-        return sector
-    for(var/obj/effect/overmap/visitable/candidate in sector)
-        if((. = .(candidate)))
-            return
+	if(attempt_hook_up(sector))
+		return sector
+	for(var/obj/effect/overmap/visitable/candidate in sector)
+		if((. = .(candidate)))
+			return

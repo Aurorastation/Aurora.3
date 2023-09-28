@@ -460,9 +460,9 @@ var/const/NO_EMAG_ACT = -50
 	pickup_sound = /singleton/sound_category/generic_pickup_sound
 
 /obj/item/card/id/ccia/id_flash(var/mob/user)
-    var/add_text = "Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
-    var/blind_add_text = "Done with prejudice and professionalism, you mean business."
-    return ..(user, add_text, blind_add_text)
+	var/add_text = "Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
+	var/blind_add_text = "Done with prejudice and professionalism, you mean business."
+	return ..(user, add_text, blind_add_text)
 
 /obj/item/card/id/ccia/fib
 	name = "\improper Federal Investigations Bureau identification card"
