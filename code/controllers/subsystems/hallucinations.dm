@@ -1,4 +1,4 @@
-SUBSYSTEM_DEF(hallucinations)()
+SUBSYSTEM_DEF(hallucinations)
 	name = "Hallucinations"
 	flags = SS_NO_FIRE
 

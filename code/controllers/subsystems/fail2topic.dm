@@ -1,4 +1,4 @@
-SUBSYSTEM_DEF(/fail2topic)
+SUBSYSTEM_DEF(fail2topic)
 	name = "Fail2Topic"
 	init_order = SS_INIT_MISC_FIRST
 	flags = SS_BACKGROUND

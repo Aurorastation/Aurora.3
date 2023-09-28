@@ -1,4 +1,4 @@
-SUBSYSTEM_DEF(mapping)()
+SUBSYSTEM_DEF(mapping)
 	name = "Mapping"
 	init_order = SS_INIT_AWAY_MAPS
 	flags = SS_NO_FIRE

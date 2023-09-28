@@ -1,6 +1,5 @@
 //Used to process objects. Fires once every two seconds.
-
-PROCESSING_SUBSYSTEM_DEF(processing)
+SUBSYSTEM_DEF(processing)
 	name = "Processing"
 	priority = SS_PRIORITY_PROCESSING
 	flags = SS_BACKGROUND|SS_POST_FIRE_TIMING|SS_NO_INIT

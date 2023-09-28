@@ -363,7 +363,7 @@ SUBSYSTEM_DEF(battle_monsters)
 
 /datum/controller/subsystem/battle_monsters/proc/FormatMonsterText(var/text,var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum, var/include_description = TRUE)
 
-	var/list/generated_stats = SSbattlemonsters.GenerateMonsterStats(prefix_datum,root_datum,suffix_datum)
+	var/list/generated_stats = SSbattle_monsters.GenerateMonsterStats(prefix_datum,root_datum,suffix_datum)
 
 	if(!generated_stats || generated_stats.len == 0)
 		return "Something went wrong... go bother the monsterous devs about it."
@@ -405,7 +405,7 @@ SUBSYSTEM_DEF(battle_monsters)
 	return text
 
 /datum/controller/subsystem/battle_monsters/proc/FormatSpellText(var/text,var/datum/battle_monsters/spell_datum,var/include_description = TRUE)
-	var/list/generated_stats = SSbattlemonsters.GenerateSpellStats(spell_datum)
+	var/list/generated_stats = SSbattle_monsters.GenerateSpellStats(spell_datum)
 
 	if(!generated_stats || generated_stats.len == 0)
 		return "Something went wrong... go bother the wizardly devs about it."
