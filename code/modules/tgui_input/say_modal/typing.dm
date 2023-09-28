@@ -31,6 +31,8 @@
 /datum/tgui_say/proc/start_thinking()
 	if(!window_open || !(client.prefs.toggles & SHOW_TYPING))
 		return FALSE
+	if(!client.mob.typing_indicator)
+		client.mob.typing_indicator = new(null, client.mob)
 	client.mob.thinking_IC = TRUE
 	client.mob.create_thinking_indicator()
 
@@ -63,25 +65,24 @@
 
 /// Overrides for overlay creation
 /mob/living/create_thinking_indicator()
-	if(active_thinking_indicator || active_typing_indicator || !thinking_IC || stat != CONSCIOUS || !(client.prefs.toggles & SHOW_TYPING))
+	if((typing_indicator.invisibility != INVISIBILITY_MAXIMUM) || !thinking_IC || stat != CONSCIOUS || !(client.prefs.toggles & SHOW_TYPING))
 		return FALSE
-	active_typing_indicator.show_typing_indicator()
+	typing_indicator.show_typing_indicator()
 
 /mob/living/remove_thinking_indicator()
-	if(!active_thinking_indicator)
+	if(!typing_indicator)
 		return FALSE
-	active_typing_indicator.hide_typing_indicator()
+	typing_indicator.hide_typing_indicator()
 
-/mob/living/create_typing_indicator()
-	if(active_typing_indicator || active_thinking_indicator || !thinking_IC || stat != CONSCIOUS || !(client.prefs.toggles & SHOW_TYPING))
+/*/mob/living/create_typing_indicator()
+	if((typing_indicator.invisibility != INVISIBILITY_MAXIMUM) || !thinking_IC || stat != CONSCIOUS || !(client.prefs.toggles & SHOW_TYPING))
 		return FALSE
-	active_typing_indicator.show_typing_indicator()
-	add_overlay(active_typing_indicator)
+	typing_indicator.show_typing_indicator()
 
 /mob/living/remove_typing_indicator()
-	if(!active_typing_indicator)
+	if(!typing_indicator)
 		return FALSE
-	active_typing_indicator.hide_typing_indicator()
+	typing_indicator.hide_typing_indicator()*/
 
 /mob/living/remove_all_indicators()
 	thinking_IC = FALSE

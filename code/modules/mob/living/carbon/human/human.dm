@@ -1483,7 +1483,7 @@
 
 	speech_bubble_type = species.possible_speech_bubble_types[1]
 	if(typing_indicator)
-			adjust_typing_indicator_offsets(typing_indicator)
+		adjust_typing_indicator_offsets(typing_indicator)
 
 	fill_out_culture_data()
 
