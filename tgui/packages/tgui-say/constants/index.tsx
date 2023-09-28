@@ -22,6 +22,10 @@ export enum LINE_LENGTHS {
  * label - string. button label.
  */
 export const RADIO_PREFIXES = {
+  ';': {
+    id: 'radio',
+    label: 'Com',
+  },
   ':a ': {
     id: 'hive',
     label: 'Hive',
@@ -54,20 +58,40 @@ export const RADIO_PREFIXES = {
     id: 'security',
     label: 'Sec',
   },
-  ':t ': {
+  ':x ': {
     id: 'syndicate',
     label: 'Syndi',
   },
+  ':b': {
+    id: 'syndicate',
+    label: 'Burg',
+  },
+  ':q ': {
+    id: 'syndicate',
+    label: 'Ninja',
+  },
+  ':t': {
+    id: 'syndicate',
+    label: 'Merc',
+  },
+  ':q': {
+    id: 'syndicate',
+    label: 'Pen',
+  },
+  ':y ': {
+    id: 'hail',
+    label: 'Hail',
+  },
+  ':z ': {
+    id: 'ent',
+    label: 'Ent',
+  },
   ':u ': {
     id: 'supply',
-    label: 'Supp',
+    label: 'Ops',
   },
   ':v ': {
     id: 'service',
     label: 'Svc',
-  },
-  ':y ': {
-    id: 'centcom',
-    label: 'CCom',
   },
 } as const;

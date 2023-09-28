@@ -1,4 +1,4 @@
-/client/verb/ooc_verb(msg as text)
+/client/verb/ooc_verb()
 	set name = ".OOC"
 	set hidden = TRUE
 	winset(src, null, "command=[src.tgui_say_create_open_command(OOC_CHANNEL)]")
