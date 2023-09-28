@@ -29,6 +29,26 @@ var/list/localhost_addresses = list(
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
+	// asset_cache
+	var/asset_cache_job
+	if(href_list["asset_cache_confirm_arrival"])
+		//to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
+		//because we skip the limiter, we have to make sure this is a valid arrival and not somebody tricking us
+		//	into letting append to a list without limit.
+		asset_cache_job = asset_cache_confirm_arrival(href_list["asset_cache_confirm_arrival"])
+		if(!asset_cache_job)
+			return
+
+	//byond bug ID:2256651
+	if (asset_cache_job && (asset_cache_job in completed_asset_jobs))
+		to_chat(src, SPAN_DANGER("An error has been detected in how your client is receiving resources. Attempting to correct.... (If you keep seeing these messages you might want to close byond and reconnect)"))
+		src << browse("...", "window=asset_cache_browser")
+		return
+
+	if (href_list["asset_cache_preload_data"])
+		asset_cache_preload_data(href_list["asset_cache_preload_data"])
+		return
+
 	if(!authed)
 		if(href_list["authaction"] in list("guest", "forums")) // Protection
 			..()
@@ -38,15 +58,10 @@ var/list/localhost_addresses = list(
 	if(tgui_Topic(href_list))
 		return
 
-	// asset_cache
-	if(href_list["asset_cache_confirm_arrival"])
-		//to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
-		var/job = text2num(href_list["asset_cache_confirm_arrival"])
-		//because we skip the limiter, we have to make sure this is a valid arrival and not somebody tricking us
-		//	into letting append to a list without limit.
-		if (job && job <= last_asset_job && !(job in completed_asset_jobs))
-			completed_asset_jobs += job
-			return
+	if(href_list["reload_tguipanel"])
+		nuke_chat()
+	if(href_list["reload_statbrowser"])
+		stat_panel.reinitialize()
 
 	if (href_list["EMERG"] && href_list["EMERG"] == "action")
 		if (!info_sent)
@@ -57,7 +72,7 @@ var/list/localhost_addresses = list(
 
 	//search the href for script injection
 	if( findtext(href,"<script",1,0) )
-		log_error("Attempted use of scripts within a topic call, by [src]")
+		log_world("ERROR: Attempted use of scripts within a topic call, by [src]")
 		message_admins("Attempted use of scripts within a topic call, by [src]")
 		//del(usr)
 		return
@@ -96,8 +111,8 @@ var/list/localhost_addresses = list(
 		return
 
 	//Logs all hrefs
-	if(config && config.log_hrefs && href_logfile)
-		href_logfile << "<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>"
+	if(config && config.logsettings["log_hrefs"] && href_logfile)
+		WRITE_LOG(config.logfiles["world_href_log"], "<small>[time2text(world.timeofday,"hh:mm")] [src] (usr:[usr])</small> || [hsrc ? "[hsrc] " : ""][href]<br>")
 
 	switch(href_list["_src_"])
 		if("holder")	hsrc = holder
@@ -250,7 +265,12 @@ var/list/localhost_addresses = list(
 		show_browser(src, data, "window=jobban_reason;size=400x300")
 		return
 
-	..()	//redirect to hsrc.()
+	if (hsrc)
+		var/datum/real_src = hsrc
+		if(QDELETED(real_src))
+			return
+
+	..()	//redirect to hsrc.Topic()
 
 /proc/client_by_ckey(ckey)
 	return directory[ckey]
@@ -261,12 +281,12 @@ var/list/localhost_addresses = list(
 
 	if (config.macro_trigger && (REALTIMEOFDAY - last_message_time) < config.macro_trigger)
 		spam_alert = min(spam_alert + 1, 4)
-		log_debug("SPAM_PROTECT: [src] tripped macro-trigger. Now at alert [spam_alert].")
+		LOG_DEBUG("SPAM_PROTECT: [src] tripped macro-trigger. Now at alert [spam_alert].")
 
 		if (spam_alert > 3 && !(prefs.muted & mute_type))
 			cmd_admin_mute(src.mob, mute_type, 1)
 			to_chat(src, "<span class='danger'>You have tripped the macro-trigger. An auto-mute was applied.</span>")
-			log_debug("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
+			LOG_DEBUG("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
 			return TRUE
 
 	else
@@ -280,17 +300,17 @@ var/list/localhost_addresses = list(
 
 	if (last_message == message)
 		last_message_count++
-		log_debug("SPAM_PROTECT: [src] tripped duplicate message filter. Last message count: [last_message_count]. Message: [message]")
+		LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter. Last message count: [last_message_count]. Message: [message]")
 
 		if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
 			to_chat(src, "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>")
 			cmd_admin_mute(mob, mute_type, 1)
-			log_debug("SPAM_PROTECT: [src] tripped duplicate message filter, now muted.")
+			LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter, now muted.")
 			last_message_count = 0
 			return TRUE
 		else if(last_message_count >= SPAM_TRIGGER_WARNING)
 			to_chat(src, "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>")
-			log_debug("SPAM_PROTECT: [src] tripped duplicate message filter, now warned.")
+			LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter, now warned.")
 			return FALSE
 	else
 		last_message_count = 0
@@ -357,13 +377,11 @@ var/list/localhost_addresses = list(
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
 			del(src)
 			return 0
-
-	// Instantiate tgui panel
-	tgui_panel = new(src, "browseroutput")
 	// Instantiate stat panel
 	stat_panel = new(src, "statbrowser")
-
 	stat_panel.subscribe(src, PROC_REF(on_stat_panel_message))
+	// Instantiate tgui panel
+	tgui_panel = new(src, "browseroutput")
 
 	if(IsGuestKey(key) && config.external_auth)
 		src.authed = FALSE
@@ -379,16 +397,20 @@ var/list/localhost_addresses = list(
 		src.InitPrefs()
 		mob.LateLogin()
 
+	/// This spawn is the only thing keeping the stat panels and chat working. By removing this spawn, there will be black screens when loading the game.
+	/// It seems to be affected by the order of statpanel init: if it happens before send_resources(), then the statpanels won't load, but the game won't
+	/// blackscreen.
+	spawn(0)
+		// Initialize stat panel
+		stat_panel.initialize(
+			inline_html = file("html/statbrowser.html"),
+			inline_js = file("html/statbrowser.js"),
+			inline_css = file("html/statbrowser.css"),
+		)
+		addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
 
+	// Initialize tgui panel
 	tgui_panel.initialize()
-
-	// Initialize stat panel
-	stat_panel.initialize(
-		inline_html = file("html/statbrowser.html"),
-		inline_js = file("html/statbrowser.js"),
-		inline_css = file("html/statbrowser.css"),
-	)
-
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
@@ -462,12 +484,7 @@ var/list/localhost_addresses = list(
 		add_admin_verbs()
 
 	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
-	// (but turn them off first, since sometimes BYOND doesn't turn them on properly otherwise)
-	spawn(5) // And wait a half-second, since it sounds like you can do this too fast.
-		if(src)
-			winset(src, null, "command=\".configure graphics-hwmode off\"")
-			sleep(2) // wait a bit more, possibly fixes hardware mode not re-activating right
-			winset(src, null, "command=\".configure graphics-hwmode on\"")
+	winset(src, null, "command=\".configure graphics-hwmode on\"")
 
 	send_resources()
 
@@ -749,7 +766,7 @@ var/list/localhost_addresses = list(
 			linkURL += new_attributes
 
 		else
-			log_debug("Unrecognized process_webint_link() call used. Route sent: '[route]'.")
+			LOG_DEBUG("Unrecognized process_webint_link() call used. Route sent: '[route]'.")
 			return
 
 	send_link(src, linkURL)
@@ -774,7 +791,7 @@ var/list/localhost_addresses = list(
 /client/proc/findJoinDate()
 	var/list/http = world.Export("http://byond.com/members/[ckey]?format=text")
 	if(!http)
-		log_debug("ACCESS CONTROL: Failed to connect to byond age check for [ckey]")
+		LOG_DEBUG("ACCESS CONTROL: Failed to connect to byond age check for [ckey]")
 		return
 	var/F = file2text(http["CONTENT"])
 	if(F)

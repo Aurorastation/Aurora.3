@@ -9,6 +9,7 @@
 
 	var/list/warrants
 	var/list/viruses
+	var/list/shuttle_manifests
 
 	var/list/excluded_fields
 	var/list/localized_fields
@@ -34,6 +35,7 @@
 	records_locked = list()
 	warrants = list()
 	viruses = list()
+	shuttle_manifests = list()
 	excluded_fields = list()
 	localized_fields = list()
 	manifest = list()
@@ -106,6 +108,8 @@
 			warrants += record
 		if(/datum/record/virus)
 			viruses += record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests += record
 
 /datum/controller/subsystem/records/proc/update_record(var/datum/record/record)
 	switch(record.type)
@@ -118,6 +122,8 @@
 			warrants |= record
 		if(/datum/record/virus)
 			viruses |= record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests |= record
 	onModify(record)
 
 /datum/controller/subsystem/records/proc/remove_record(var/datum/record/record)
@@ -131,6 +137,8 @@
 			warrants -= record
 		if(/datum/record/virus)
 			viruses *= record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests -= record
 	onDelete(record)
 	qdel(record)
 
@@ -209,7 +217,7 @@
 /datum/controller/subsystem/records/proc/open_manifest_tgui(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "CrewManifest")
+		ui = new(user, src, "CrewManifest", "Crew Manifest")
 		ui.open()
 
 /datum/controller/subsystem/records/proc/get_manifest_text()
@@ -228,7 +236,7 @@
 	if(manifest.len)
 		return manifest
 	if(!SSjobs)
-		log_error("SSjobs not available, cannot build manifest")
+		log_world("ERROR: SSjobs not available, cannot build manifest")
 		return
 	manifest = DEPARTMENTS_LIST_INIT
 	for(var/datum/record/general/t in records)

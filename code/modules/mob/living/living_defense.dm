@@ -18,6 +18,10 @@
 	var/natural_armor = GetComponent(/datum/component/armor)
 	if(natural_armor)
 		. += natural_armor
+	if(psi)
+		var/armor = psi.GetComponent(/datum/component/armor/psionic)
+		if(armor)
+			. += armor
 
 /mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone, var/used_weapon = null)
 
@@ -105,7 +109,7 @@
 		apply_effect(agony_amount / 10, STUTTER)
 		apply_effect(agony_amount / 10, EYE_BLUR)
 
-/mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/tesla_shock = 0, var/ground_zero)
+/mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	return 0 //only carbon liveforms have this proc
 
 /mob/living/emp_act(severity)
@@ -247,7 +251,7 @@
 
 // End BS12 momentum-transfer code.
 
-/mob/living/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags)
+/mob/living/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags, var/damage_type = DAMAGE_BRUTE)
 	if(!damage)
 		return
 
@@ -257,7 +261,7 @@
 		src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
 	user.do_attack_animation(src)
 
-	apply_damage(damage, DAMAGE_BRUTE, user.zone_sel?.selecting, armor_pen = armor_penetration, damage_flags = attack_flags)
+	apply_damage(damage, damage_type, user.zone_sel?.selecting, armor_pen = armor_penetration, damage_flags = attack_flags)
 	updatehealth()
 
 	return TRUE
@@ -354,10 +358,18 @@
 	for(var/datum/action/A in actions)
 		if(A.CheckRemoval(src))
 			A.Remove(src)
+
 	for(var/obj/item/I in src)
 		if(I.action_button_name)
+
+			//If the item_action object does not exist, try to create it
 			if(!I.action)
-				I.action = new I.default_action_type
+				//Try to use the default action type, if there is none, skip this implant
+				if(I.default_action_type)
+					I.action = new I.default_action_type
+				else
+					continue
+
 			I.action.name = I.action_button_name
 			I.action.SetTarget(I)
 			I.action.Grant(src)
@@ -389,6 +401,9 @@
 
 	var/button_number = 0
 	for(var/datum/action/A in actions)
+		if(QDELETED(A))
+			continue
+
 		button_number++
 		if(A.button == null)
 			var/obj/screen/movable/action_button/N = new(hud_used)

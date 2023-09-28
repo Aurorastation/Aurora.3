@@ -264,7 +264,7 @@
 
 /atom/proc/ShiftClick(var/mob/user)
 	if(user.can_examine())
-		user.examinate(src)
+		examinate(user, src)
 
 /*
 	Ctrl click

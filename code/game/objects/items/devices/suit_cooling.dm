@@ -210,8 +210,10 @@
 		M.update_inv_back()
 		M.update_inv_s_store()
 
-/obj/item/device/suit_cooling_unit/examine(mob/user)
-	if(!..(user, 1))
+/obj/item/device/suit_cooling_unit/examine(mob/user, distance)
+	. = ..()
+
+	if(!distance <= 1)
 		return
 
 	if(on)

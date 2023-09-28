@@ -1,7 +1,7 @@
 /obj/structure/firedoor_assembly
 	name = "emergency shutter assembly"
 	desc = "An emergency shutter assembly."
-	icon = 'icons/obj/doors/DoorHazard.dmi'
+	icon = 'icons/obj/doors/basic/single/emergency/firedoor.dmi'
 	icon_state = "door_construction"
 	anchored = 0
 	opacity = 0
@@ -22,7 +22,7 @@
 			to_chat(user, "<span class='warning'>You need one length of coil to wire \the [src].</span>")
 			return TRUE
 		user.visible_message("[user] wires \the [src].", "You start to wire \the [src].")
-		if(do_after(user, 40) && !wired && anchored)
+		if(do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT) && !wired && anchored)
 			if (cable.use(1))
 				wired = 1
 				to_chat(user, "<span class='notice'>You wire \the [src].</span>")

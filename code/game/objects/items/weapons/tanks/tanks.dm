@@ -47,9 +47,9 @@
 
 	return ..()
 
-/obj/item/tank/examine(mob/user)
-	. = ..(user, 0)
-	if(.)
+/obj/item/tank/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 0)
 		var/celsius_temperature = air_contents.temperature - T0C
 		var/descriptive
 		switch(celsius_temperature)
@@ -266,8 +266,8 @@
 		qdel(src)
 
 	else if(pressure > TANK_RUPTURE_PRESSURE)
-		#ifdef FIREDBG
-		log_debug("<span class='warning'>[x],[y] tank is rupturing: [pressure] kPa, integrity [integrity]</span>")
+		#ifdef ZASDBG
+		log_subsystem_zas("[x],[y] tank is rupturing: [pressure] kPa, integrity [integrity]")
 		#endif
 
 		if(integrity <= 0)
@@ -281,8 +281,8 @@
 			integrity--
 
 	else if(pressure > TANK_LEAK_PRESSURE)
-		#ifdef FIREDBG
-		log_debug("<span class='warning'>[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]</span>")
+		#ifdef ZASDBG
+		log_subsystem_zas("[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]")
 		#endif
 
 		if(integrity <= 0)

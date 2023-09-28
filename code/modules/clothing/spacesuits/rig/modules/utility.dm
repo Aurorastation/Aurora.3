@@ -449,6 +449,10 @@
 
 	category = MODULE_GENERAL
 
+/obj/item/rig_module/maneuvering_jets/Destroy()
+	QDEL_NULL(jets)
+	. = ..()
+
 /obj/item/rig_module/maneuvering_jets/engage(atom/target, mob/user)
 	if(!..())
 		return FALSE
@@ -721,7 +725,7 @@
 		// a ledge. Regular actuators make you have to climb the rest of the way.
 		if (!combatType)
 			H.visible_message(SPAN_NOTICE("\The [H] starts pulling [H.get_pronoun("himself")] up onto the [valid_climbable]."), SPAN_NOTICE("You start pulling yourself up onto \the [valid_climbable]."))
-			if (!do_after(H, 4 SECONDS, use_user_turf = TRUE))
+			if (!do_after(H, 4 SECONDS))
 				H.visible_message(SPAN_WARNING("\The [H] is interrupted and falls!"), SPAN_DANGER("You are interrupted and fall back down!"))
 
 				// Climbers will auto-fall if they exit the turf. This is for in case

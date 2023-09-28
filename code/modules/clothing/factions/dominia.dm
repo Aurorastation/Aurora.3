@@ -56,6 +56,12 @@
 	item_state = "dominian_capew"
 	cape_backing_state = "capew_backing"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/zavod
+	name = "zavodskoi dominian cape"
+	icon_state = "dominian_capez"
+	item_state = "dominian_capez"
+	cape_backing_state = "capez_backing"
+
 /obj/item/clothing/accessory/poncho/dominia_cape/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
@@ -81,6 +87,12 @@
 	item_state = "strelitz_capew"
 	cape_backing_state = "capew_backing"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/strelitz/zavod
+	name = "zavodskoi house strelitz cape"
+	icon_state = "strelitz_capez"
+	item_state = "strelitz_capez"
+	cape_backing_state = "capez_backing"
+
 /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad
 	name = "house volvalaad cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Volvalaad."
@@ -92,6 +104,12 @@
 	icon_state = "volvalaad_capew"
 	item_state = "volvalaad_capew"
 	cape_backing_state = "capew_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/volvalaad/zavod
+	name = "zavodskoi house volvalaad cape"
+	icon_state = "volvalaad_capez"
+	item_state = "volvalaad_capez"
+	cape_backing_state = "capez_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz
 	name = "house kazhkz cape"
@@ -105,6 +123,12 @@
 	item_state = "kazhkz_capew"
 	cape_backing_state = "capew_backing"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/kazhkz/zavod
+	name = "zavodskoi house kazhkz cape"
+	icon_state = "kazhkz_capez"
+	item_state = "kazhkz_capez"
+	cape_backing_state = "capez_backing"
+
 /obj/item/clothing/accessory/poncho/dominia_cape/caladius
 	name = "house caladius cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Caladius."
@@ -116,6 +140,12 @@
 	icon_state = "caladius_capew"
 	item_state = "caladius_capew"
 	cape_backing_state = "capew_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/caladius/zavod
+	name = "zavodskoi house caladius cape"
+	icon_state = "caladius_capez"
+	item_state = "caladius_capez"
+	cape_backing_state = "capez_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/zhao
 	name = "house zhao cape"
@@ -129,12 +159,26 @@
 	item_state = "zhao_capew"
 	cape_backing_state = "capew_backing"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/zhao/zavod
+	name = "zavodskoi house zhao cape"
+	icon_state = "zhao_capez"
+	item_state = "zhao_capez"
+	cape_backing_state = "capez_backing"
+
+
 /obj/item/clothing/accessory/poncho/dominia_cape/mantle
 	name = "dominian military cape"
 	desc = "Commonly worn by enlisted soldiers of the Imperial military, this is - despite its name - part of a tent. It is generally used to protect oneself from rain or other forms of inclement weather."
 	desc_extended = "Imperial Army half-tents have, since prior to the War of Moroz, been designed to be worn as protection against the elements. Many armsmen carry on this trend in order to maintain their Imperial Army roots, and some go as far to drape these half-tents over their voidsuits."
 	icon_state = "armsman_mantle"
 	item_state = "armsman_mantle"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/hospital
+	name = "tribunalist medical cape"
+	desc = "A white-and-green cape in the style of the Dominian clergy. Worn by those medical workers affiliated with the Moroz Holy Tribunal."
+	cape_backing_state = ""
+	icon_state = "dominian_cape_hospital"
+	item_state = "dominian_cape_hospital"
 
 /obj/item/clothing/suit/storage/dominia
 	name = "dominian great coat"
@@ -618,6 +662,37 @@
 	item_state = "dominia_amulet"
 	icon_state = "dominia_amulet"
 	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/dominia/lyodii
+	name = "lyodic tribunal necklace"
+	desc = "An amulet depicting the three animal aspects of Lyodic Tribunalism upon a bone plate. \
+			A prominent symbol of the Lyodic take on the religion, worn by both its shamans and followers."
+	desc_extended = ""
+	icon = 'icons/clothing/accessories/lyodii_amulet.dmi'
+	icon_state = "lyodii_amulet"
+	item_state = "lyodii_amulet"
+
+/obj/item/clothing/accessory/dominia/tic
+	name = "tribunal investigator card"
+	desc = "A gold-gilded card given to those who are active investigators within the Tribunal Investigations Constabulary, otherwise known as TIC. \
+			In essence the religion police of the Tribunal, these investigators are found through the entirety of the Empire of Dominia."
+	icon = 'icons/clothing/accessories/tic_cards.dmi'
+	icon_state = "tic_card"
+	item_state = "tic_card"
+
+/obj/item/clothing/accessory/dominia/tic/retired
+	name = "retired tribunal investigator card"
+	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
+			This card holds a sleek grey coloration strip, denoting the owner as having been a standard investigator."
+	icon_state = "tic_card_ret"
+	item_state = "tic_card_ret"
+
+/obj/item/clothing/accessory/dominia/tic/retired/caladius
+	name = "retired tribunal investigator card"
+	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
+			This card holds a color strip of House Caladius, denoting the owner as a priest of the Tribunal."
+	icon_state = "tic_card_ret_alt"
+	item_state = "tic_card_ret_alt"
 
 /obj/item/clothing/head/ushanka/dominia
 	name = "fisanduhian ushanka"

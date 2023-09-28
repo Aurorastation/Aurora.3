@@ -23,7 +23,7 @@
 				return
 			to_chat(user, "<span class='notice'>You unscrew and remove the [flooring.descriptor].</span>")
 			make_plating(1)
-			playsound(src, 'sound/items/Screwdriver.ogg', 80, 1)
+			playsound(src, C.usesound, 80, 1)
 			return
 		else if(C.iswrench() && (flooring.flags & TURF_REMOVE_WRENCH))
 			to_chat(user, "<span class='notice'>You unwrench and remove the [flooring.descriptor].</span>")
@@ -33,7 +33,7 @@
 		else if(istype(C, /obj/item/shovel) && (flooring.flags & TURF_REMOVE_SHOVEL))
 			to_chat(user, "<span class='notice'>You shovel off the [flooring.descriptor].</span>")
 			make_plating(1)
-			playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
+			playsound(src, C.usesound, 80, 1)
 			return
 		else if(C.iswelder() && (flooring.flags & TURF_REMOVE_WELDER))
 			var/obj/item/weldingtool/WT = C
@@ -78,7 +78,7 @@
 				to_chat(user, "<span class='warning'>You require at least [use_flooring.build_cost] [S.name] to complete the [use_flooring.descriptor].</span>")
 				return
 			// Stay still and focus...
-			if(use_flooring.build_time && !do_after(user, use_flooring.build_time))
+			if(use_flooring.build_time && !do_after(user, use_flooring.build_time, flooring, DO_REPAIR_CONSTRUCT))
 				return
 			if(flooring || !S || !user || !use_flooring)
 				return
@@ -130,6 +130,12 @@
 							visible_message("<span class='warning'>[user] has melted the plating's reinforcements! It should be possible to pry it off.</span>")
 							playsound(src, 'sound/items/Welder.ogg', 80, 1)
 					return
+
+	if(istype(C,/obj/item/floor_frame))
+		var/obj/item/floor_frame/F = C
+		F.try_build(src, user)
+		return
+
 	return ..()
 
 /turf/simulated/floor/proc/welder_melt()

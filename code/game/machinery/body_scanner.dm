@@ -51,6 +51,8 @@
 	// So the GC can qdel this.
 	if (connected)
 		connected.connected = null
+		connected = null
+	occupant = null
 	return ..()
 
 /obj/machinery/bodyscanner/update_icon()
@@ -87,6 +89,10 @@
 	go_out()
 	add_fingerprint(usr)
 	return
+
+/obj/machinery/bodyscanner/AltClick()
+	if(use_check_and_message(usr))
+		eject()
 
 /obj/machinery/bodyscanner/verb/move_inside()
 	set src in oview(1)
@@ -258,6 +264,7 @@
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
 		connected.connected = null
+		connected = null
 	return ..()
 
 /obj/machinery/body_scanconsole/power_change()
@@ -272,7 +279,7 @@
 		if(!console_overlay)
 			console_overlay = make_screen_overlay(icon, "body_scannerconsole-screen")
 		add_overlay(console_overlay)
-		set_light(1.4, 1, COLOR_RED)
+		set_light(1.4, 1, COLOR_PURPLE)
 
 /obj/machinery/body_scanconsole/proc/get_collapsed_lung_desc()
 	if (!connected || !connected.occupant)
@@ -430,7 +437,7 @@
 		data["toxLoss"] = get_severity(occupant.getToxLoss(), TRUE)
 
 		data["paralysis"] = occupant.paralysis
-		data["bodytemp"] = occupant.bodytemperature
+		data["bodytemp"] = round(occupant.bodytemperature - T0C)
 		data["inaprovaline_amount"] = REAGENT_VOLUME(R, /singleton/reagent/inaprovaline)
 		data["soporific_amount"] = REAGENT_VOLUME(R, /singleton/reagent/soporific)
 		data["bicaridine_amount"] = REAGENT_VOLUME(R, /singleton/reagent/bicaridine)
@@ -525,7 +532,7 @@
 				else
 					unk += 1
 			if (unk)
-				wounds += "has an abnormal mass present"
+				wounds += "has unknown objects present"
 			var/friends = length(organic)
 			if(friends)
 				wounds += friends > 1 ? "multiple abnormal organic bodies present" : "abnormal organic body present"
@@ -675,7 +682,7 @@
 	dat += text("[]\tRadiation Level %: []</font><br>", ("<font color='[occ["rads"] < 10  ? "blue" : "red"]'>"), occ["rads"])
 	dat += text("Genetic Tissue Damage: []<br>", occ["cloneloss"])
 	dat += text("Paralysis Summary %: [] ([] seconds left!)<br>", occ["paralysis"], round(occ["paralysis"] / 4))
-	dat += text("Body Temperature: [occ["bodytemp"]-T0C]&deg;C ([occ["bodytemp"]*1.8-459.67]&deg;F)<br><HR>")
+	dat += text("Body Temperature: [occ["bodytemp"]]&deg;C<br><HR>")
 
 	if(occ["borer_present"])
 		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
@@ -701,9 +708,9 @@
 		dat += "<tr>"
 
 		if(e.status & ORGAN_ARTERY_CUT)
-			wounds += "arterial bleeding"
+			wounds += "severed [e.artery_name]"
 		if(e.tendon_status() & TENDON_CUT)
-			wounds += "severed tendon"
+			wounds += "severed [e.tendon.name]"
 		if(istype(e, /obj/item/organ/external/chest) && occ["lung_ruptured"])
 			wounds += "lung ruptured"
 		if(e.status & ORGAN_SPLINTED)
@@ -727,22 +734,27 @@
 			wounds += infection
 
 		if (e.implants.len)
-			var/unknown_body = 0
+			var/unk = 0
 			var/list/organic = list()
 			var/imp
 			for(var/I in e.implants)
-				if(is_type_in_list(I,known_implants))
-					imp += "[I] implanted:"
+				if(istype(I, /obj/item/implant))
+					var/obj/item/implant/A = I
+					if (A.hidden)
+						return
+					else if(A.known)
+						imp += "[I] implanted:"
+					else
+						unk += 1
 				else if(istype(I, /obj/effect/spider))
 					organic += I
 				else
-					unknown_body++
-			if(unknown_body)
-				imp += "Unknown body present:"
+					unk += 1
+			if(unk)
+				wounds += "has unknown objects present:"
 			var/friends = length(organic)
 			if(friends)
-				imp += friends > 1 ? "multiple abnormal organic bodies present" : "abnormal organic body present"
-				wounds += imp
+				wounds += friends > 1 ? "multiple abnormal organic bodies present" : "abnormal organic body present"
 		if(!length(wounds))
 			wounds += "none"
 		if(!e.is_stump())
@@ -761,7 +773,7 @@
 
 		var/infection = get_infection_level(i.germ_level)
 		if(infection == "")
-			infection = "No Infection."
+			infection = "No infection."
 		else
 			infection = "[infection] infection."
 		if(i.rejecting)

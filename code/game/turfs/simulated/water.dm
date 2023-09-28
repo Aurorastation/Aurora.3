@@ -7,10 +7,6 @@
 /turf/simulated/floor/beach/sand
 	name = "sand"
 
-/turf/simulated/floor/beach/sand/alt
-	icon = 'icons/turf/total_floors.dmi'
-	icon_state = "sand_alt"
-
 /turf/simulated/floor/beach/sand/desert
 	icon_state = "desert"
 
@@ -97,7 +93,7 @@
 	return return_air() // Otherwise their head is above the water, so get the air from the atmosphere instead.
 
 /turf/simulated/floor/beach/water/Entered(atom/movable/AM, atom/oldloc)
-	if(!SSATOMS_IS_PROBABLY_DONE)
+	if(!(SSATOMS_IS_PROBABLY_DONE))
 		return
 	reagents.add_reagent(/singleton/reagent/water, 2)
 	clean(src)

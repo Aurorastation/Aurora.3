@@ -25,7 +25,7 @@
 		"<span class='warning'>[user] begins deploying \the [src].</span>",
 		"<span class='notice'>You begin deplyoing \the [src].</span>"
 	)
-	if (!do_after(user, 0.45 SECONDS, act_target = src))
+	if (!do_after(user, 0.45 SECONDS))
 		return
 	user.visible_message(
 		"<span class='warning'>[user] deployed \the [src].</span>" ,
@@ -83,7 +83,7 @@
 
 // Examine to see tank pressure
 /obj/structure/closet/airbubble/examine(mob/user)
-	..()
+	. = ..()
 	if(!isnull(internal_tank))
 		to_chat(user, "<span class='notice'>\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.</span>")
 	else
@@ -135,8 +135,8 @@
 	qdel(internal_tank)
 	if(parts)
 		new parts(loc)
-	if (smooth)
-		queue_smooth_neighbors(src)
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue_neighbors(src)
 	return ..()
 
 /obj/structure/closet/airbubble/toggle(mob/user as mob)
@@ -197,7 +197,7 @@
 		"<span class='warning'>[usr] begins folding up the [src.name].</span>",
 		"<span class='notice'>You begin folding up the [src.name].</span>"
 		)
-		if (!do_after(usr, 0.45 SECONDS, act_target = src))
+		if (!do_after(usr, 0.45 SECONDS))
 			return
 		usr.visible_message(
 		"<span class='warning'>[usr] folds up the [src.name].</span>" ,
@@ -268,7 +268,7 @@
 	var/time = 360 * breakout_time * 2
 	breakout = TRUE
 
-	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, PROC_REF(breakout_callback), escapee)))
+	if (!do_after(escapee, time, src, extra_checks = CALLBACK(src, PROC_REF(breakout_callback), escapee)))
 		breakout = FALSE
 		return
 
@@ -312,7 +312,7 @@
 		"<span class='warning'>[usr] is setting [src] internals.</span>",
 		"<span class='notice'>You are settting [src] internals.</span>"
 		)
-		if (!do_after(usr, 2 SECONDS, act_target = src))
+		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		"<span class='warning'>[usr] has set [src] internals.</span>" ,
@@ -345,7 +345,7 @@
 		"<span class='warning'>[usr] is removing [internal_tank] from [src].</span>",
 		"<span class='notice'>You are removing [internal_tank] from [src].</span>"
 		)
-		if (!do_after(usr, 2 SECONDS, act_target = src))
+		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		"<span class='warning'>[usr] has removed [internal_tank] from [src].</span>",
@@ -378,7 +378,7 @@
 		"<span class='warning'>[usr] is removing [cell] from [src].</span>",
 		"<span class='notice'>You are removing [cell] from [src].</span>"
 		)
-		if (!do_after(usr, 2 SECONDS, act_target = src))
+		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		"<span class='warning'>[usr] has removed [cell] from [src].</span>",
@@ -399,7 +399,7 @@
 			"<span class='warning'>[user] is attaching [W] to [src].</span>",
 			"<span class='notice'>You are attaching [W] to [src].</span>"
 			)
-			if (!do_after(user, 2 SECONDS, act_target = src))
+			if (!do_after(user, 2 SECONDS, src))
 				return
 			user.visible_message(
 			"<span class='warning'>[user] has attached [W] to [src].</span>",
@@ -430,7 +430,7 @@
 		"<span class='notice'>You begin putting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/weapons/cablecuff.ogg', 50, 1)
-		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
+		if (!do_after(user, 3 SECONDS, src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
 			return TRUE
 		zipped = !zipped
 		update_icon()
@@ -452,7 +452,7 @@
 		"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
-		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
+		if (!do_after(user, 3 SECONDS, src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
 			return TRUE
 		zipped = !zipped
 		update_icon()
@@ -472,7 +472,7 @@
 		"<span class='warning'>[user] is attaching [W] to [src].</span>",
 		"<span class='notice'>You are attaching [W] to [src].</span>"
 		)
-		if (!do_after(user, 2 SECONDS, act_target = src))
+		if (!do_after(user, 2 SECONDS, src))
 			return TRUE
 		user.visible_message(
 		"<span class='warning'>[user] has attached [W] to [src].</span>",
@@ -485,8 +485,8 @@
 	else
 		return attack_hand(user)
 
-/obj/structure/closet/airbubble/store_mobs(var/stored_units)
-	contains_body = ..()
+/obj/structure/closet/airbubble/store_mobs(var/stored_units, var/mob_limit)
+	contains_body = ..(stored_units, mob_limit = TRUE)
 	return contains_body
 
 /obj/structure/closet/airbubble/update_icon()

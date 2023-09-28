@@ -9,6 +9,9 @@
 
 	var/flags = 0			//see master_controller.dm in __defines. Most flags must be set on world start to take full effect. (You can also restart the mc to force them to process again)
 
+	/// Which stage does this subsystem init at. Earlier stages can fire while later stages init.
+	var/init_stage = INITSTAGE_MAIN
+
 	/// Levels of the game that the SS can fire. See __defines/subsystem_priority.dm
 	var/runlevels = RUNLEVELS_DEFAULT
 
@@ -176,8 +179,13 @@
 	init_time = time
 	var/msg = "Initialized [name] subsystem within [time] second\s!"
 	admin_notice(SPAN_DANGER(msg), R_DEBUG)
+
+	// Do not print to world.log if we're running the unit tests
+	#if !defined(UNIT_TEST)
 	world.log <<  "SS Init: [msg]"
-	log_ss_init(msg)
+	#endif
+
+	log_subsystem_init(msg)
 	return time
 
 //hook for printing stats to the "MC" statuspanel for admins to see performance and related stats etc.

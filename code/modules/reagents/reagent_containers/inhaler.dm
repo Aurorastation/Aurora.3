@@ -3,13 +3,10 @@
 /obj/item/reagent_containers/inhaler
 	name = "autoinhaler"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
+	contained_sprite = TRUE
 	icon_state = "autoinhaler"
 	item_state = "autoinhaler"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi'
-		)
 	center_of_mass = list("x" = 16,"y" = 11)
 	unacidable = 1
 	amount_per_transfer_from_this = 5
@@ -79,7 +76,7 @@
 		user.visible_message("<span class='notice'>\The [user] injects themselves with \the [src]</span>","<span class='notice'>You stick the \the [src] in your mouth and press the injection button.</span>")
 	else
 		user.visible_message("<span class='warning'>\The [user] attempts to administer \the [src] to \the [H]...</span>","<span class='notice'>You attempt to administer \the [src] to \the [H]...</span>")
-		if (!do_after(user, 1 SECONDS, act_target = H))
+		if (!do_after(user, 1 SECONDS, H))
 			to_chat(user,"<span class='notice'>You and the target need to be standing still in order to inject \the [src].</span>")
 			return
 
@@ -150,7 +147,7 @@
 	update_held_icon()
 
 /obj/item/reagent_containers/inhaler/examine(mob/user)
-	..(user)
+	. = ..()
 	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
 	else

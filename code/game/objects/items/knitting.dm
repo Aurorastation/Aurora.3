@@ -39,8 +39,9 @@
 		QDEL_NULL(ball)
 	return ..()
 
-/obj/item/knittingneedles/examine(mob/user)
-	if(..(user, 1))
+/obj/item/knittingneedles/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
 		if(ball)
 			to_chat(user, "There is \the [ball] between the needles.")
 
@@ -100,7 +101,7 @@
 	working = TRUE
 	update_icon()
 
-	if(!do_after(user,2 MINUTES))
+	if(!do_after(user, 2 MINUTES, src, DO_UNIQUE))
 		to_chat(user, SPAN_WARNING("Your concentration is broken!"))
 		working = FALSE
 		update_icon()

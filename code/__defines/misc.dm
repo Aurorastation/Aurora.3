@@ -314,8 +314,8 @@
 // This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
 #define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref || (D:weakref = new/datum/weakref(D))) : null)
 
-#define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
-#define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+#define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+#define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 
 // Maploader bounds indices
 #define MAP_MINX 1
@@ -379,7 +379,7 @@
 #define GFI_ROTATION_OVERDIR 2 //Layers will have overidden direction
 
 // The pixel_(x|y) offset that will be used by default by wall items, such as APCs or Fire Alarms.
-#define DEFAULT_WALL_OFFSET 28
+#define DEFAULT_WALL_OFFSET 22 // Don't touch this unless you're going to work with walls in a major way.
 
 // Defines for translating a dir into pixelshifts for wall items
 #define DIR2PIXEL_X(dir) ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)))
@@ -518,3 +518,8 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define PANEL_DISPLAY_STATUS "status"
 /// The name shown in the stat panel.
 #define PANEL_DISPLAY_NAME "name"
+
+//Transfer Types
+#define TRANSFER_EMERGENCY "emergency transfer"
+#define TRANSFER_JUMP "bluespace jump"
+#define TRANSFER_CREW "crew transfer"

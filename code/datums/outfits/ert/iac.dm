@@ -6,7 +6,7 @@
 	head = /obj/item/clothing/head/softcap/iac
 	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
-	shoes = /obj/item/clothing/shoes/iac
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/pmc
 	gloves = /obj/item/clothing/gloves/white
 	belt = /obj/item/storage/belt/medical
 	back = /obj/item/storage/backpack/satchel/med

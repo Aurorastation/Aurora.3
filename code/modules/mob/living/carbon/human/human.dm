@@ -159,7 +159,7 @@
 	if(species?.gluttonous & GLUT_MESSY)
 		if(ismob(victim))
 			var/mob/M = victim
-			if(ishuman(victim))
+			if(ishuman(victim) && !islesserform(M))
 				to_chat(src, SPAN_WARNING("You can't devour humanoids!"))
 				return FALSE
 			for(var/obj/item/grab/G in M.grabbed_by)
@@ -768,19 +768,19 @@
 		var/obj/item/I = locate(href_list["lookitem"])
 		if(!I)
 			return
-		src.examinate(I)
+		examinate(src, I)
 
 	if (href_list["lookitem_desc_only"])
 		var/obj/item/I = locate(href_list["lookitem_desc_only"])
 		if(!I)
 			return
-		usr.examinate(I, 1)
+		examinate(usr, I)
 
 	if (href_list["lookmob"])
 		var/mob/M = locate(href_list["lookmob"])
 		if(!M)
 			return
-		src.examinate(M)
+		examinate(src, M)
 
 	if (href_list["flavor_change"])
 		if(src != usr)
@@ -856,14 +856,19 @@
 	if(is_berserk())
 		if(!silent)
 			to_chat(src, SPAN_WARNING("You are in no state to use that!"))
-		return 0
+		return FALSE
 
 	if(!species.has_fine_manipulation)
 		if(!silent)
 			to_chat(src, SPAN_WARNING("You don't have the dexterity to use that!"))
-		return 0
+		return FALSE
 
-	return 1
+	if(lobotomized)
+		if(!silent)
+			to_chat(src, SPAN_WARNING("You are in no state to use that!"))
+		return FALSE
+
+	return TRUE
 
 /mob/living/carbon/human/abiotic(var/full_body = 0)
 	if(full_body && ((src.l_hand && !( src.l_hand.abstract )) || (src.r_hand && !( src.r_hand.abstract )) || (src.back || src.wear_mask || src.head || src.shoes || src.w_uniform || src.wear_suit || src.glasses || src.l_ear || src.r_ear || src.gloves)))
@@ -1477,6 +1482,8 @@
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
 	speech_bubble_type = species.possible_speech_bubble_types[1]
+	if(typing_indicator)
+		adjust_typing_indicator_offsets(typing_indicator)
 
 	fill_out_culture_data()
 
@@ -1485,10 +1492,20 @@
 
 	species.set_default_tail(src)
 
+	if(species.psi_deaf || HAS_FLAG(species.flags, IS_MECHANICAL) || HAS_FLAG(species.flags, NO_SCAN))
+		ADD_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
+	else if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
+		REMOVE_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
+
+	if(client)
+		client.init_verbs()
+
+	update_emotes()
+
 	if(species)
-		return 1
+		return TRUE
 	else
-		return 0
+		return FALSE
 
 
 /mob/living/carbon/human/proc/fill_out_culture_data()
@@ -2019,30 +2036,6 @@
 				var/scale = min(1, round(damage / 50, 0.2))
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
-
-/mob/living/carbon/human/apply_radiation_effects()
-	. = ..()
-	if(. == TRUE)
-		if(src.is_diona())
-			var/damage = rand(15, 30)
-			src.adjustToxLoss(-damage)
-			if(prob(5))
-				damage = rand(20, 60)
-				src.adjustToxLoss(-damage)
-			to_chat(src, SPAN_NOTICE("You can feel flow of energy which makes you regenerate."))
-
-		if(species.radiation_mod <= 0)
-			return
-
-		apply_damage((rand(15,30)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-		if(prob(4))
-			apply_damage((rand(20,60)), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-			if (prob(75))
-				randmutb(src) // Applies bad mutation
-				domutcheck(src,null,MUTCHK_FORCED)
-			else
-				randmutg(src) // Applies good mutation
-				domutcheck(src,null,MUTCHK_FORCED)
 
 /mob/living/carbon/human/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	var/used_accent = accent //starts with the mob's default accent

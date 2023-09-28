@@ -289,7 +289,8 @@
 /area/pra_mining_camp)
 "yD" = (
 /obj/machinery/door/airlock{
-	name = "Mining Smelter"
+	name = "Mining Smelter";
+	dir = 1
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15
@@ -557,7 +558,8 @@
 /area/pra_mining_camp)
 "Qx" = (
 /obj/machinery/door/airlock{
-	name = "Equipment Storage"
+	name = "Equipment Storage";
+	dir = 1
 	},
 /turf/simulated/floor/concrete{
 	temperature = 268.15

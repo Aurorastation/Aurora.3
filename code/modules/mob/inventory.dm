@@ -51,7 +51,7 @@
 // Used in job equipping so shit doesn't pile up at the start loc.
 /mob/living/carbon/human/proc/equip_or_collect(var/obj/item/W, var/slot)
 	if(!istype(W))
-		log_debug("MobEquip: Error when equipping [W] for [src] in [slot]")
+		LOG_DEBUG("MobEquip: Error when equipping [W] for [src] in [slot]")
 		return
 	if(W.mob_can_equip(src, slot, TRUE, TRUE))
 		//Mob can equip.  Equip it.
@@ -180,12 +180,11 @@ var/list/slot_equipment_priority = list( \
 // If canremove or other conditions need to be checked then use unEquip instead.
 /mob/proc/drop_from_inventory(var/obj/item/W, var/atom/target)
 	if(W)
-		if(!target)
-			target = loc
 		remove_from_mob(W)
 		if(!(W && W.loc))
 			return TRUE
-		W.forceMove(target)
+		if(target)
+			W.forceMove(target)
 		W.do_drop_animation(src)
 		update_icon()
 		return TRUE
@@ -370,7 +369,7 @@ var/list/slot_equipment_priority = list( \
 			qdel(G)
 		else
 			return FALSE
-	
+
 	else if(istype(item, /obj/item))
 		var/obj/item/I = item
 		itemsize = I.w_class
@@ -414,8 +413,9 @@ var/list/slot_equipment_priority = list( \
 				return TRUE //Something is stopping us. Takes off throw mode.
 
 		if(unEquip(I))
-			make_item_drop_sound(I)
-			I.forceMove(T)
+			if(!QDELETED(I))
+				make_item_drop_sound(I)
+				I.forceMove(T)
 			return TRUE
 
 	if(!unEquip(item) && !ismob(item)) //ismob override is here for grab throwing mobs

@@ -89,6 +89,7 @@
 	model_text = "Mining"
 	req_access = list(access_mining)
 	departments = list("Mining")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 
 /obj/machinery/suit_cycler/security
 	name = "security suit cycler"
@@ -138,7 +139,7 @@
 	model_text = "Research"
 	req_access = list(access_research)
 	departments = list("Research")
-	species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
+	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/freelancer
@@ -172,7 +173,7 @@
 		return
 
 	user.visible_message("<b>\The [M]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."), range = 3)
-	if(do_after(user, 20, TRUE, src))
+	if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
@@ -232,7 +233,7 @@
 			return
 
 		user.visible_message("<b>\The [user]</b> starts putting \the [G.affecting] into \the [src]...", SPAN_NOTICE("You start putting \the [G.affecting] into \the [src]..."), range = 3)
-		if(do_after(user, 20, TRUE, src))
+		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 			if(!G || !G.affecting)
 				return
 			var/mob/M = G.affecting

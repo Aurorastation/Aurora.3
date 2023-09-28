@@ -236,13 +236,13 @@ var/datum/controller/subsystem/ticker/SSticker
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
 				var/area/playerArea = get_area(playerTurf)
-				if(evacuation_controller.round_over() && evacuation_controller.emergency_evacuation)
+				if(evacuation_controller.round_over() && evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 					if(isStationLevel(playerTurf.z) && is_station_area(playerArea))
 						to_chat(Player, SPAN_GOOD(SPAN_BOLD("You managed to survive the events on [station_name()] as [Player.real_name].")))
 					else
 						to_chat(Player, SPAN_NOTICE(SPAN_BOLD("You managed to survive, but were marooned as [Player.real_name]...")))
 				else if(isStationLevel(playerTurf.z) && is_station_area(playerArea))
-					to_chat(Player, SPAN_GOOD(SPAN_BOLD("You successfully underwent the bluespace jump after the events on [station_name()] as [Player.real_name].")))
+					to_chat(Player, SPAN_GOOD(SPAN_BOLD("You successfully underwent the crew transfer after the events on [station_name()] as [Player.real_name].")))
 				else if(issilicon(Player))
 					to_chat(Player, SPAN_GOOD(SPAN_BOLD("You remain operational after the events on [station_name()] as [Player.real_name].")))
 				else
@@ -421,7 +421,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if (is_revote)
 		pregame_timeleft = LOBBY_TIME
-		log_debug("SSticker: lobby reset due to game setup failure, using pregame time [LOBBY_TIME]s.")
+		LOG_DEBUG("SSticker: lobby reset due to game setup failure, using pregame time [LOBBY_TIME]s.")
 	else
 		var/mc_init_time = round(Master.initialization_time_taken, 1)
 		var/dynamic_time = LOBBY_TIME - mc_init_time
@@ -430,10 +430,10 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		if (dynamic_time <= config.vote_autogamemode_timeleft)
 			pregame_timeleft = config.vote_autogamemode_timeleft + 10
-			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [config.vote_autogamemode_timeleft]s, clamping.")
+			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [config.vote_autogamemode_timeleft]s, clamping.")
 		else
 			pregame_timeleft = dynamic_time
-			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was greater than configured autogamemode time, not clamping.")
+			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was greater than configured autogamemode time, not clamping.")
 
 		setup_player_ready_list()
 
@@ -463,6 +463,15 @@ var/datum/controller/subsystem/ticker/SSticker
 			+ SPAN_INFO("Actual availability may vary.") \
 			+ "<br>" \
 		)
+
+	var/datum/space_sector/current_sector = SSatlas.current_sector
+	var/html = SPAN_NOTICE("Current sector: [current_sector].") + {"\
+		<span> \
+			<a href='?src=\ref[src];current_sector_show_sites_id=1'>Click here</a> \
+			to see every possible site/ship that can potentially spawn here.\
+		</span>\
+	"}
+	to_world(html)
 
 	callHook("pregame_start")
 
@@ -569,11 +578,11 @@ var/datum/controller/subsystem/ticker/SSticker
 	callHook("roundstart")
 	INVOKE_ASYNC(src, PROC_REF(roundstart))
 
-	log_debug("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
+	LOG_DEBUG("SSticker: Running [LAZYLEN(roundstart_callbacks)] round-start callbacks.")
 	run_callback_list(roundstart_callbacks)
 	roundstart_callbacks = null
 
-	log_debug("SSticker: Round-start setup took [(REALTIMEOFDAY - starttime)/10] seconds.")
+	LOG_DEBUG("SSticker: Round-start setup took [(REALTIMEOFDAY - starttime)/10] seconds.")
 
 	return SETUP_OK
 
@@ -745,6 +754,33 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	LAZYADD(roundstart_callbacks, callback)
 
+/datum/controller/subsystem/ticker/Topic(href, href_list)
+	if(href_list["current_sector_show_sites_id"])
+		var/datum/space_sector/current_sector = SSatlas.current_sector
+		var/list/sites = SSatlas.current_sector.possible_sites_in_sector()
+		var/list/site_names = list()
+		var/list/ship_names = list()
+		for(var/datum/map_template/ruin/site in sites)
+			if(site.ship_cost)
+				ship_names += site.name
+			else
+				site_names += site.name
+
+		var/datum/browser/sites_win = new(
+			usr,
+			"Sector: " + current_sector.name,
+			"Sector: " + current_sector.name,
+			500, 500,
+		)
+		var/html = "<h1>Ships and sites that spawn in this sector:</h1>"
+		html += "<h3>Ships:</h3>"
+		html += english_list(ship_names)
+		html += "<h3>Sites:</h3>"
+		html += english_list(site_names)
+		sites_win.set_content(html)
+		sites_win.open()
+		return TRUE
+	. = ..()
 
 #undef SETUP_OK
 #undef SETUP_REVOTE

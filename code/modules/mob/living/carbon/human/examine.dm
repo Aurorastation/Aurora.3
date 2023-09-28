@@ -1,6 +1,3 @@
-#define SEC_HUDTYPE "security"
-#define MED_HUDTYPE "medical"
-
 /mob/living/carbon/human/proc/get_covered_body_parts(var/thick)
 	var/skipbody = 0
 	for(var/obj/item/clothing/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
@@ -35,7 +32,7 @@
 			else
 				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
 
-/mob/living/carbon/human/examine(mob/user)
+/mob/living/carbon/human/examine(mob/user, distance, is_adjacent)
 	var/skipbody = get_covered_body_parts()
 	var/skipbody_thick = get_covered_body_parts(TRUE)
 	var/skipitems = get_covered_clothes()
@@ -226,7 +223,7 @@
 		msg += "[get_pronoun("He")] [get_pronoun("is")] small halfling!\n"
 	//height
 	if(height)
-		msg += "[SPAN_NOTICE("[assembleHeightString(user)]")]\n"
+		msg += "[SPAN_NOTICE("[assemble_height_string(user)]")]\n"
 
 	//buckled_to
 	if(buckled_to)
@@ -243,10 +240,6 @@
 	//Red Nightshade
 	if(is_berserk())
 		msg += "<span class='warning'><B>[get_pronoun("He")] [get_pronoun("has")] engorged veins, which appear a vibrant red!</B></span>\n"
-
-	var/distance = get_dist(user,src)
-	if(istype(user, /mob/abstract/observer) || user.stat == DEAD) // ghosts can see anything
-		distance = 1
 
 	if((src.stat || (status_flags & FAKEDEATH)) && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
 		msg += "<span class='warning'>[get_pronoun("He")] [get_pronoun("is")]n't responding to anything around [get_pronoun("him")] and seems to be unconscious.</span>\n"
@@ -415,6 +408,8 @@
 	if(Adjacent(user))
 		INVOKE_ASYNC(src, PROC_REF(examine_pulse), user)
 
+	return TRUE
+
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
 /proc/hasHUD(mob/M, hudtype)
 	if(ishuman(M))
@@ -460,60 +455,60 @@
 	var/output_text = color_map[supplied_color] || "fluid"
 	return output_text
 
-/mob/living/carbon/human/assembleHeightString(mob/examiner)
-	var/heightString = ""
-	var/descriptor
+/mob/living/carbon/human/proc/assemble_height_string(mob/examiner)
+	var/height_string = ""
+	var/height_descriptor
 	if(height == HEIGHT_NOT_USED)
-		return heightString
+		return height_string
 
 	// Compare to Species Average
 	if(species.species_height != HEIGHT_NOT_USED)
 		switch(height - species.species_height)
 			if(-999 to -100)
-				descriptor = "miniscule"
+				height_descriptor = "miniscule"
 			if(-99 to -50)
-				descriptor = "tiny"
+				height_descriptor = "tiny"
 			if(-49 to -11)
-				descriptor = "small"
+				height_descriptor = "small"
 			if(-10 to 10)
-				descriptor = "about average height"
+				height_descriptor = "about average height"
 			if(11 to 50)
-				descriptor = "tall"
+				height_descriptor = "tall"
 			if(51 to 100)
-				descriptor = "huge"
+				height_descriptor = "huge"
 			else
-				descriptor = "gargantuan"
-		heightString += "[get_pronoun("He")] look[get_pronoun("end")] [descriptor]"
+				height_descriptor = "gargantuan"
+		height_string += "[get_pronoun("He")] look[get_pronoun("end")] [height_descriptor]"
 		if(!species.hide_name)
-			heightString += " for a [species.name]"
-
+			height_string += " for a [species.name]"
+		height_string += "." // Punctuation.
 
 	if(examiner.height == HEIGHT_NOT_USED)
-		return heightString
+		return height_string
 
 	switch(height - examiner.height)
 		if(-999 to -100)
-			descriptor = "absolutely tiny compared to"
+			height_descriptor = "absolutely tiny compared to"
 		if(-99 to -51)
-			descriptor = "much smaller than"
+			height_descriptor = "much smaller than"
 		if(-50 to -21)
-			descriptor = "significantly shorter than"
+			height_descriptor = "significantly shorter than"
 		if(-20 to -11)
-			descriptor = "shorter than"
+			height_descriptor = "shorter than"
 		if(-10 to -6)
-			descriptor = "slightly shorter than"
+			height_descriptor = "slightly shorter than"
 		if(-5 to 5)
-			descriptor = "around the same height as"
+			height_descriptor = "around the same height as"
 		if(6 to 10)
-			descriptor = "slightly taller than"
+			height_descriptor = "slightly taller than"
 		if(11 to 20)
-			descriptor = "taller than"
+			height_descriptor = "taller than"
 		if(21 to 50)
-			descriptor = "significantly taller than"
+			height_descriptor = "significantly taller than"
 		if(51 to 100)
-			descriptor = "much larger than"
+			height_descriptor = "much larger than"
 		else
-			descriptor = "to tower over"
-	if(heightString)
-		return heightString += ", and [get_pronoun("he")] seem[get_pronoun("end")] [descriptor] you."
-	return "[get_pronoun("He")] seem[get_pronoun("end")] [descriptor] you."
+			height_descriptor = "to tower over"
+	if(height_string)
+		return height_string += " [get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
+	return "[get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."

@@ -29,8 +29,13 @@
 	item_state = "box"
 	contained_sprite = TRUE
 	var/illustration = "writing"
-	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
-	var/trash = null // if set, can be crushed into a trash item when empty
+
+	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
+	var/foldable = /obj/item/stack/material/cardboard
+
+	///Boolean, if set, can be crushed into a trash item when empty
+	var/trash = null
+
 	var/maxHealth = 20	//health is already defined
 	use_sound = 'sound/items/storage/box.ogg'
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
@@ -86,7 +91,7 @@
 	..()
 
 /obj/item/storage/box/examine(var/mob/user)
-	..()
+	. = ..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
 			to_chat(user, SPAN_WARNING("It is slightly torn."))
@@ -195,10 +200,10 @@
 	illustration = "latex"
 	max_storage_space = 14
 	starts_with = list(/obj/item/clothing/gloves/latex = 2,
-					   /obj/item/clothing/gloves/latex/nitrile = 2,
-					   /obj/item/clothing/gloves/latex/nitrile/unathi = 1,
-					   /obj/item/clothing/gloves/latex/nitrile/tajara = 1,
-					   /obj/item/clothing/gloves/latex/nitrile/vaurca = 1)
+						/obj/item/clothing/gloves/latex/nitrile = 2,
+						/obj/item/clothing/gloves/latex/nitrile/unathi = 1,
+						/obj/item/clothing/gloves/latex/nitrile/tajara = 1,
+						/obj/item/clothing/gloves/latex/nitrile/vaurca = 1)
 /obj/item/storage/box/masks
 	name = "box of surgical masks"
 	desc = "This box contains masks of surgicality."
@@ -364,6 +369,16 @@
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/c10mm = 10)
 
+/obj/item/storage/box/governmentammo
+	name = "box of .45-70 Govt. rounds"
+	desc = "It has a picture of a rifle shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "ammobox"
+	item_state = "ammobox"
+	illustration = null
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
+	starts_with = list(/obj/item/ammo_casing/govt = 8)
+
 /obj/item/storage/box/flashbangs
 	name = "box of flashbangs"
 	desc = "A box containing 7 antipersonnel flashbang grenades.<br> WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use."
@@ -515,7 +530,7 @@
 	name = "death alarm kit"
 	desc = "Box of stuff used to implant death alarms."
 	illustration = "implant"
-	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6)
+	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6, /obj/item/implantpad = 1)
 
 /obj/item/storage/box/condimentbottles
 	name = "box of condiment bottles"
@@ -546,6 +561,17 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
 	desc_antag = "Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes."
 
+/obj/item/storage/box/donkpockets/gwok
+	name = "box of teriyaki Gwok-pockets"
+	icon_state = "gwokpocketbox"
+	item_state = "redbox"
+	illustration = null
+	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki = 6)
+
+/obj/item/storage/box/donkpockets/gwok/takoyaki
+	name = "box of takoyaki Gwok-pockets"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/takoyaki = 6)
+
 /obj/item/storage/box/janitorgloves
 	name = "janitorial gloves box"
 	desc = "A box full of janitorial gloves of all shapes and sizes."
@@ -563,7 +589,6 @@
 /obj/item/storage/box/monkeycubes
 	name = "monkey cube box"
 	desc = "Drymate brand monkey cubes. Just add water!"
-	icon = 'icons/obj/food.dmi'
 	icon_state = "monkeycubebox"
 	can_hold = list(/obj/item/reagent_containers/food/snacks/monkeycube)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped = 5)
@@ -736,11 +761,6 @@
 /obj/item/storage/box/freezer
 	name = "portable freezer"
 	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
-	icon = 'icons/obj/storage.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
 	max_w_class = ITEMSIZE_NORMAL
@@ -752,7 +772,7 @@
 	name = "organ cooler"
 	desc = "A sealed, cooled container to keep organs from decaying."
 	icon_state = "organcooler"
-	item_state = "advfirstaid"
+	item_state = "redbox"
 	max_w_class = ITEMSIZE_NORMAL
 	foldable = FALSE
 	w_class = ITEMSIZE_LARGE
@@ -1178,3 +1198,27 @@
 	starts_with = list(
 		/obj/item/cell/high = 3
 	)
+
+/obj/item/storage/box/condiment
+	name = "condiment box"
+	desc = "A large box of condiments, syrups, flavorings."
+	icon_state = "largebox"
+	illustration = "condiment"
+	starts_with = list(
+		/obj/item/reagent_containers/food/condiment/enzyme = 1,
+		/obj/item/reagent_containers/food/condiment/shaker/peppermill = 2,
+		/obj/item/reagent_containers/food/condiment/shaker/salt = 2,
+		/obj/item/reagent_containers/food/condiment/shaker/spacespice = 2,
+		/obj/item/reagent_containers/food/condiment/shaker/sprinkles = 1,
+		/obj/item/reagent_containers/food/condiment/sugar = 1,
+		/obj/item/reagent_containers/food/condiment/shaker/pumpkinspice = 1,
+		/obj/item/reagent_containers/glass/bottle/syrup/chocolate = 1,
+		/obj/item/reagent_containers/glass/bottle/syrup/pumpkin = 1,
+		/obj/item/reagent_containers/glass/bottle/syrup/vanilla = 1,
+		/obj/item/reagent_containers/glass/bottle/syrup/caramel = 1,
+	)
+
+/obj/item/storage/box/produce/fill()
+	. = ..()
+	make_exact_fit()
+

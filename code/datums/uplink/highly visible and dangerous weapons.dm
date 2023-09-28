@@ -25,15 +25,22 @@
 	telecrystal_cost = 4
 	path = /obj/item/melee/energy/sword
 
-/datum/uplink_item/item/visible_weapons/g9mm
-	name = "Silenced 9mm"
-	telecrystal_cost = 2
-	path = /obj/item/storage/box/syndie_kit/g9mm
-
 /datum/uplink_item/item/visible_weapons/hammer
 	name = "Kneebreaker Hammer"
 	telecrystal_cost = 3
 	path = /obj/item/melee/hammer
+
+/datum/uplink_item/item/visible_weapons/suppressor
+	name = "Suppressor"
+	desc = "A suppressor that can be attached to most pistol-caliber weaponry. Will prevent sound from passing through walls."
+	telecrystal_cost = 1
+	bluecrystal_cost = 1
+	path = /obj/item/suppressor
+
+/datum/uplink_item/item/visible_weapons/g9mm
+	name = "9mm Pistol"
+	telecrystal_cost = 1
+	path = /obj/item/gun/projectile/pistol
 
 /datum/uplink_item/item/visible_weapons/revolver
 	name = "Revolver"
@@ -140,6 +147,12 @@
 	name = "Vintage .45 Pistol"
 	telecrystal_cost = 2
 	path = /obj/item/gun/projectile/colt
+
+/datum/uplink_item/item/visible_weapons/suppressed_pistol
+	name = "Suppressed .45 Pistol"
+	desc = "A .45 pistol that comes with a suppressor integrated into the barrel. The suppressor cannot be removed."
+	telecrystal_cost = 2
+	path = /obj/item/gun/projectile/silenced
 
 /datum/uplink_item/item/visible_weapons/custom_ka
 	name = "Kinetic Laser Assembly"
@@ -251,3 +264,8 @@
 	name = ".50 Pistol"
 	telecrystal_cost = 5
 	path = /obj/item/gun/projectile/deagle/adhomai
+
+/datum/uplink_item/item/visible_weapons/psionic_jumpstarter
+	name = "Psionic Jumpstarter"
+	telecrystal_cost = 19
+	path = /obj/item/psionic_jumpstarter

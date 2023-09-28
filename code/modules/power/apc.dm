@@ -68,38 +68,182 @@
 // may be opened to change power cell
 // three different channels (lighting/equipment/environ) - may each be set to on, off, or auto
 
+/obj/machinery/power/apc/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/critical
 	is_critical = TRUE
+
+/obj/machinery/power/apc/critical/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/critical/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/critical/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/critical/south
+	dir = SOUTH
+	pixel_y = 0
 
 /obj/machinery/power/apc/low
 	cell_type = /obj/item/cell
 
+/obj/machinery/power/apc/low/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/low/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/low/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/low/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/high
 	cell_type = /obj/item/cell/high
+
+/obj/machinery/power/apc/high/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/high/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/high/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/high/south
+	dir = SOUTH
+	pixel_y = 0
 
 /obj/machinery/power/apc/isolation
 	cell_type = /obj/item/cell
 	req_access = null
 	req_one_access = list(access_engine_equip,access_research,access_xenobiology)
 
+/obj/machinery/power/apc/isolation/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/isolation/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/isolation/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/isolation/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/vault
 	cell_type = /obj/item/cell
 	req_access = list(access_captain)
+
+/obj/machinery/power/apc/vault/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/vault/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/vault/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/vault/south
+	dir = SOUTH
+	pixel_y = 0
 
 /obj/machinery/power/apc/intrepid
 	cell_type = /obj/item/cell/high
 	req_access = null
 	req_one_access = list(access_intrepid,access_engine_equip)
 
+/obj/machinery/power/apc/intrepid/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/intrepid/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/intrepid/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/intrepid/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/canary
 	cell_type = /obj/item/cell/high
 	req_access = null
 	req_one_access = list(access_intrepid,access_engine_equip)
 
+/obj/machinery/power/apc/canary/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/canary/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/canary/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/canary/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/mining_shuttle
 	cell_type = /obj/item/cell/high
 	req_access = null
 	req_one_access = list(access_mining,access_engine_equip)
+
+/obj/machinery/power/apc/mining_shuttle/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/mining_shuttle/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/mining_shuttle/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/mining_shuttle/south
+	dir = SOUTH
+	pixel_y = 0
 
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
@@ -111,17 +255,98 @@
 	coverlocked = FALSE
 	start_charge = 100
 
+/obj/machinery/power/apc/canary/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/canary/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/canary/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/canary/south
+	dir = SOUTH
+	pixel_y = 0
+
+
 /obj/machinery/power/apc/super
 	cell_type = /obj/item/cell/super
+
+/obj/machinery/power/apc/super/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/super/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/super/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/super/south
+	dir = SOUTH
+	pixel_y = 0
 
 /obj/machinery/power/apc/super/critical
 	is_critical = TRUE
 
+/obj/machinery/power/apc/super/critical/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/super/critical/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/super/critical/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/super/critical/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/hyper
 	cell_type = /obj/item/cell/hyper
 
+/obj/machinery/power/apc/hyper/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/hyper/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/hyper/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/hyper/south
+	dir = SOUTH
+	pixel_y = 0
+
 /obj/machinery/power/apc/empty
 	start_charge = 0
+
+/obj/machinery/power/apc/empty/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/machinery/power/apc/empty/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/machinery/power/apc/empty/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/machinery/power/apc/empty/south
+	dir = SOUTH
+	pixel_y = 0
 
 /obj/machinery/power/apc
 	name = "area power controller"
@@ -134,6 +359,7 @@
 	desc_antag = "This can be emagged to unlock it.  It will cause the APC to have a blue error screen. \
 	Wires can be pulsed remotely with a signaler attached to it.  A powersink will also drain any APCs connected to the same wire the powersink is on."
 
+	icon = 'icons/obj/machinery/power/apc.dmi'
 	icon_state = "apc0"
 	anchored = TRUE
 	use_power = POWER_USE_OFF
@@ -220,7 +446,7 @@
 		return FALSE
 
 	if(surge && !emagged)
-		flick("apc-spark", src)
+		flick_overlay("apc-spark", src)
 		emagged = TRUE
 		locked = FALSE
 		update_icon()
@@ -235,14 +461,9 @@
 	. = ..(mapload)
 	wires = new(src)
 
-	// offset 28 pixels in direction of dir
 	// this allows the APC to be embedded in a wall, yet still inside an area
 	if (building)
 		set_dir(ndir)
-
-	pixel_x = DIR2PIXEL_X(dir)
-	pixel_y = DIR2PIXEL_Y(dir)
-
 	if (!building)
 		init(mapload)
 	else
@@ -253,6 +474,13 @@
 		name = "[area.name] APC"
 		stat |= MAINT
 		update_icon()
+
+	if(!mapload)
+		set_pixel_offsets()
+
+/obj/machinery/power/apc/set_pixel_offsets()
+	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 12 : -(12)))
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 22 : -(0)) : 0)
 
 /obj/machinery/power/apc/Destroy()
 	update()
@@ -307,8 +535,9 @@
 	if (!mapload)
 		addtimer(CALLBACK(src, PROC_REF(update)), 5, TIMER_UNIQUE)
 
-/obj/machinery/power/apc/examine(mob/user)
-	if(..(user, 1))
+/obj/machinery/power/apc/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		if(stat & BROKEN)
 			to_chat(user, "Looks broken.")
 			return
@@ -348,28 +577,28 @@
 		status_overlays_lighting.len = 4
 		status_overlays_environ.len = 4
 
-		status_overlays_lock[1] = make_screen_overlay(icon, "apcox-0") // none
-		status_overlays_lock[2] = make_screen_overlay(icon, "apcox-1") // coverlocked/locked
-		status_overlays_lock[3] = make_screen_overlay(icon, "apcox-2") // coverlocked + locked
+		status_overlays_lock[1] = make_screen_overlay(icon, "apc-cover-0") // none
+		status_overlays_lock[2] = make_screen_overlay(icon, "apc-cover-1") // coverlocked/locked
+		status_overlays_lock[3] = make_screen_overlay(icon, "apc-cover-2") // coverlocked + locked
 
-		status_overlays_charging[1] = make_screen_overlay(icon, "apco3-0")
-		status_overlays_charging[2] = make_screen_overlay(icon, "apco3-1")
-		status_overlays_charging[3] = make_screen_overlay(icon, "apco3-2")
+		status_overlays_charging[1] = make_screen_overlay(icon, "apc-charge-0")
+		status_overlays_charging[2] = make_screen_overlay(icon, "apc-charge-1")
+		status_overlays_charging[3] = make_screen_overlay(icon, "apc-charge-2")
 
-		status_overlays_equipment[1] = make_screen_overlay(icon, "apco0-0")
-		status_overlays_equipment[2] = make_screen_overlay(icon, "apco0-1")
-		status_overlays_equipment[3] = make_screen_overlay(icon, "apco0-2")
-		status_overlays_equipment[4] = make_screen_overlay(icon, "apco0-3")
+		status_overlays_equipment[1] = make_screen_overlay(icon, "apcoequip-0")
+		status_overlays_equipment[2] = make_screen_overlay(icon, "apcoequip-1")
+		status_overlays_equipment[3] = make_screen_overlay(icon, "apcoequip-2")
+		status_overlays_equipment[4] = make_screen_overlay(icon, "apcoequip-3")
 
-		status_overlays_lighting[1] = make_screen_overlay(icon, "apco1-0")
-		status_overlays_lighting[2] = make_screen_overlay(icon, "apco1-1")
-		status_overlays_lighting[3] = make_screen_overlay(icon, "apco1-2")
-		status_overlays_lighting[4] = make_screen_overlay(icon, "apco1-3")
+		status_overlays_lighting[1] = make_screen_overlay(icon, "apcolight-0")
+		status_overlays_lighting[2] = make_screen_overlay(icon, "apcolight-1")
+		status_overlays_lighting[3] = make_screen_overlay(icon, "apcolight-2")
+		status_overlays_lighting[4] = make_screen_overlay(icon, "apcolight-3")
 
-		status_overlays_environ[1] = make_screen_overlay(icon, "apco2-0")
-		status_overlays_environ[2] = make_screen_overlay(icon, "apco2-1")
-		status_overlays_environ[3] = make_screen_overlay(icon, "apco2-2")
-		status_overlays_environ[4] = make_screen_overlay(icon, "apco2-3")
+		status_overlays_environ[1] = make_screen_overlay(icon, "apcoenv-0")
+		status_overlays_environ[2] = make_screen_overlay(icon, "apcoenv-1")
+		status_overlays_environ[3] = make_screen_overlay(icon, "apcoenv-2")
+		status_overlays_environ[4] = make_screen_overlay(icon, "apcoenv-3")
 
 	var/update = check_updates() 		//returns 0 if no need to update icons.
 						// 1 if we need to update the icon_state
@@ -816,7 +1045,7 @@
 		else if(stat & (BROKEN|MAINT))
 			to_chat(user, "Nothing happens.")
 		else
-			flick("apc-spark", src)
+			flick_overlay("apc-spark", src)
 			if(do_after(user, 6))
 				if(prob(50))
 					emagged = TRUE
@@ -925,7 +1154,8 @@
 	var/list/data = list()
 	var/isAdmin = isobserver(user) && check_rights(R_ADMIN, FALSE, user)
 	data["locked"] = (locked && !emagged)
-	data["power_cell_status"] = cell?.percent()
+	data["power_cell_inserted"] = cell != null
+	data["power_cell_charge"] = cell?.percent()
 	data["fail_time"] = failure_timer * 2
 	data["silicon_user"] = isAdmin || issilicon(user)
 	data["total_load"] = round(lastused_total)
@@ -1162,7 +1392,7 @@
 		main_status = 2
 
 	if(debug)
-		log_debug("Status: [main_status] - Excess: [excess] - Last Equip: [lastused_equip] - Last Light: [lastused_light] - Longterm: [longtermpower]")
+		LOG_DEBUG("Status: [main_status] - Excess: [excess] - Last Equip: [lastused_equip] - Last Light: [lastused_light] - Longterm: [longtermpower]")
 
 	if(cell && !shorted)
 		update_time()
@@ -1365,7 +1595,7 @@
 			if (prob(chance))
 				L.stat &= ~POWEROFF
 				L.broken()
-				stoplag(1)
+				CHECK_TICK
 
 /obj/machinery/power/apc/proc/flicker_all()
 	var/offset = 0

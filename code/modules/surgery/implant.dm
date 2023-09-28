@@ -47,8 +47,8 @@
 	/obj/item/stack/rods = 50
 	)
 
-	min_duration = 60
-	max_duration = 80
+	min_duration = 50
+	max_duration = 70
 
 /singleton/surgery_step/cavity/make_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -80,8 +80,8 @@
 	/obj/item/weldingtool = 25
 	)
 
-	min_duration = 60
-	max_duration = 80
+	min_duration = 50
+	max_duration = 70
 
 /singleton/surgery_step/cavity/close_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -107,8 +107,8 @@
 	priority = 0
 	allowed_tools = list(/obj/item = 100)
 
-	min_duration = 80
-	max_duration = 100
+	min_duration = 60
+	max_duration = 80
 
 /singleton/surgery_step/cavity/place_item/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -162,8 +162,8 @@
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
 
-	min_duration = 80
-	max_duration = 100
+	min_duration = 60
+	max_duration = 80
 
 /singleton/surgery_step/cavity/implant_removal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -192,7 +192,7 @@
 
 		if(istype(obj,/obj/item/implant))
 			var/obj/item/implant/imp = obj
-			if(imp.islegal())
+			if(imp.isLegal())
 				find_prob += 60
 			else
 				find_prob += 40

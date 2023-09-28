@@ -11,6 +11,7 @@
 	var/flag_path
 	var/flag_size = FALSE // true if big flag
 	var/obj/structure/sign/flag/flag_structure
+	var/stand_icon = "banner_stand"
 
 // Flag on Wall
 /obj/structure/sign/flag
@@ -29,6 +30,7 @@
 	var/icon/banner_icon
 	var/icon/rolled_outline
 	var/unmovable = FALSE
+	var/stand_icon = "banner_stand"
 
 /obj/structure/sign/flag/New(loc, var/newdir, var/linked_flag_path, var/deploy, var/icon_file, var/item_flag_path)
 	. = ..()
@@ -97,7 +99,7 @@
 			if(istype(A, /obj/structure/window))
 				icon = flag_icon
 				return
-		banner_icon = new('icons/obj/structure/flags.dmi', "banner_stand")
+		banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)
 		flag_icon.Blend(banner_icon, ICON_UNDERLAY)
 		verbs += /obj/structure/sign/flag/proc/toggle
 		icon = flag_icon
@@ -182,7 +184,7 @@
 /obj/structure/sign/flag/attack_hand(mob/user)
 	switch(user.a_intent)
 		if(I_HELP)
-			user.examinate(src)
+			examinate(user, src)
 		if(I_DISARM)
 			user.visible_message(SPAN_NOTICE("\The [user] begins to carefully fold up \the [src]."), SPAN_NOTICE("You begin to carefully fold up \the [src]."))
 			if(do_after(user, 50))
@@ -196,7 +198,7 @@
 				if(!Adjacent(user)) // Cannot bring up dialogue and walk away.
 					return FALSE
 				user.visible_message(SPAN_WARNING("\The [user] starts to grab hold of \the [src] with destructive intent!"), SPAN_WARNING("You grab hold of \the [src] with destructive intent!"),)
-				if(!do_after(user, 5 SECONDS, act_target = src))
+				if(!do_after(user, 5 SECONDS, src))
 					return FALSE
 				user.visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!"), SPAN_WARNING("You \the [src] in a single, decisive motion!"))
 				playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
@@ -224,7 +226,7 @@
 	..()
 	if(W.isFlameSource())
 		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
-		if(!do_after(user, 2 SECONDS, act_target = src))
+		if(!do_after(user, 2 SECONDS, src))
 			return FALSE
 		visible_message(SPAN_WARNING("\The [user] burns \the [src] down!"))
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 100, 1)
@@ -254,7 +256,7 @@
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag")
 
 	flag_icon.Blend(shading_icon, ICON_MULTIPLY)
-	banner_icon = new('icons/obj/structure/flags.dmi', "banner_stand")
+	banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)
 	flag_icon.Blend(banner_icon, ICON_UNDERLAY)
 	icon = flag_icon
 
@@ -283,6 +285,21 @@
 	flag_path = "sol"
 	flag_item = /obj/item/flag/sol
 
+/obj/item/flag/sol/old
+	name = "old Sol Alliance flag"
+	desc = "The flag of the pre-Interstellar War Solarian Alliance, once flown from Earth to the human frontier."
+	desc_extended = "The flag of the pre-Interstellar War Alliance of Sovereign Solarian Nations, the single largest state in the Spur's history. The three stars represented the Northern, Central, and Southern Solarian Frontiers."
+	flag_path = "sol_old"
+	flag_structure = /obj/structure/sign/flag/sol/old
+
+/obj/structure/sign/flag/sol/old
+	name = "old Sol Alliance flag"
+	desc = "The flag of the pre-Interstellar War Solarian Alliance, once flown from Earth to the human frontier."
+	desc_extended = "The flag of the pre-Interstellar War Alliance of Sovereign Solarian Nations, the single largest state in the Spur's history. The three stars represented the Northern, Central, and Southern Solarian Frontiers."
+	icon_state = "sol_old"
+	flag_path = "sol_old"
+	flag_item = /obj/item/flag/sol/old
+
 /obj/item/flag/sol/l
 	name = "large Sol Alliance flag"
 	flag_size = TRUE
@@ -304,6 +321,29 @@
 	..(loc, EAST)
 
 /obj/structure/sign/flag/sol/large/west/New()
+	..(loc, WEST)
+
+/obj/item/flag/sol/old/l
+	name = "large old Sol Alliance flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/sol/old/large
+
+/obj/structure/sign/flag/sol/old/large
+	icon_state = "sol_old_l"
+	flag_path = "sol_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/sol/old/l
+
+/obj/structure/sign/flag/sol/old/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/sol/old/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/sol/old/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/sol/old/large/west/New()
 	..(loc, WEST)
 
 // Dominia
@@ -418,6 +458,78 @@
 	..(loc, EAST)
 
 /obj/structure/sign/flag/hegemony/large/west/New()
+	..(loc, WEST)
+
+/obj/item/flag/ouerea
+	name = "\improper Ouerea flag"
+	desc = "The modern day flag of Ouerea. Due to the incorporation of red stripes to symbolize the blood of the nobility spilled in the rebellion, this is not the current official flag of the planet."
+	flag_path = "ouerea"
+	flag_structure = /obj/structure/sign/flag/ouerea
+
+/obj/structure/sign/flag/ouerea
+	name = "\improper Ouerea flag"
+	desc = "The modern day flag of Ouerea. Due to the incorporation of red stripes to symbolize the blood of the nobility spilled in the rebellion, this is not the current official flag of the planet."
+	icon_state = "ouerea"
+	flag_path = "ouerea"
+	flag_item = /obj/item/flag/ouerea
+
+/obj/item/flag/ouerea/l
+	name = "large Ouerea flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ouerea/large
+
+/obj/structure/sign/flag/ouerea/large
+	icon_state = "ouerea_l"
+	flag_path = "ouerea"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ouerea/l
+
+/obj/structure/sign/flag/ouerea/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/ouerea/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/ouerea/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/ouerea/large/west/New()
+	..(loc, WEST)
+
+/obj/item/flag/ouerea/old
+	name = "old Ouerea flag"
+	desc = "The old flag of Ouerea, dating back to its days as a joint mandate between the Nralakk Federation and, to a lesser extent, the Solarian Alliance. Due to controversy over the current flag, it remains the official flag of Ouerea."
+	flag_path = "ouerea_old"
+	flag_structure = /obj/structure/sign/flag/ouerea/old
+
+/obj/structure/sign/flag/ouerea/old
+	name = "old Ouerea flag"
+	desc = "The old flag of Ouerea, dating back to its days as a joint mandate between the Nralakk Federation and, to a lesser extent, the Solarian Alliance. Due to controversy over the current flag, it remains the official flag of Ouerea."
+	icon_state = "ouerea_old"
+	flag_path = "ouerea_old"
+	flag_item = /obj/item/flag/ouerea/old
+
+/obj/item/flag/ouerea/old/l
+	name = "large old Ouerea flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ouerea/old/large
+
+/obj/structure/sign/flag/ouerea/old/large
+	icon_state = "ouerea_old_l"
+	flag_path = "ouerea_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ouerea/old/l
+
+/obj/structure/sign/flag/ouerea/old/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/ouerea/old/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/ouerea/old/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/ouerea/old/large/west/New()
 	..(loc, WEST)
 
 // Nralakk
@@ -870,6 +982,61 @@
 /obj/structure/sign/flag/nka/large/west/New()
 	..(loc, WEST)
 
+// FTC
+
+/obj/item/flag/ftc
+	name = "\improper Free Tajaran Council flag"
+	desc = "The red and black flag of the Free Tajaran Council, the largest tajaran community in Himeo."
+	flag_path = "ftc"
+	desc_extended = "The Free Tajaran Council began as a rebel faction in the Duchy of Shungsta during the First Revolution. Born among oppressed peasants and factory workers, \
+	the movement advocated for the total abolishment of the existing governments in favor of local democratic councils. The Free Council became a serious contender for power in Northern Ras'nrr after Volin Kar'etrink - a young Hharar worker known to be a firebrand - was elected its leader. \
+	Due to its innate hostility to all other Adhomian Civil War factions, the Free Tajaran Council was unable to secure any significant territory outside of Northern Ras'nrr. The Council's forces were quickly defeated by the Hadiist forces when they invaded the region in 2427. \
+	Assisted off-world by the intervention of NanoTrasen, the surviving tajara travelled through Coalition of Colonies territory until reaching Himeo. Posing as refugees from the ongoing civil war, they were granted asylum and a degree of autonomy. \
+	Through the cooperation with Himeo, the Free Council prospered and grew in numbers. Despite all the prosperity however, Volin Kar'etrink is very old; little time is left for him in this world. \
+	The Free Tajaran Council now stands at a crossroads: a choice must be made concerning their future. In their struggle to influence the tajara, the nations on Adhomai have taken notice of the sizable community in Himeo. \
+	The Council is now a battleground for another proxy war between the Adhomian nations, who each sponsor different opposing factions within the community to gain their eventual support."
+	flag_structure = /obj/structure/sign/flag/ftc
+
+/obj/structure/sign/flag/ftc
+	name = "\improper Free Tajaran Council flag"
+	desc = "The red and black flag of the Free Tajaran Council, the largest tajaran community in Himeo."
+	desc_extended = "The Free Tajaran Council began as a rebel faction in the Duchy of Shungsta during the First Revolution. Born among oppressed peasants and factory workers, \
+	the movement advocated for the total abolishment of the existing governments in favor of local democratic councils. The Free Council became a serious contender for power in Northern Ras'nrr after Volin Kar'etrink - a young Hharar worker known to be a firebrand - was elected its leader. \
+	Due to its innate hostility to all other Adhomian Civil War factions, the Free Tajaran Council was unable to secure any significant territory outside of Northern Ras'nrr. The Council's forces were quickly defeated by the Hadiist forces when they invaded the region in 2427. \
+	Assisted off-world by the intervention of NanoTrasen, the surviving tajara travelled through Coalition of Colonies territory until reaching Himeo. Posing as refugees from the ongoing civil war, they were granted asylum and a degree of autonomy. \
+	Through the cooperation with Himeo, the Free Council prospered and grew in numbers. Despite all the prosperity however, Volin Kar'etrink is very old; little time is left for him in this world. \
+	The Free Tajaran Council now stands at a crossroads: a choice must be made concerning their future. In their struggle to influence the tajara, the nations on Adhomai have taken notice of the sizable community in Himeo. \
+	The Council is now a battleground for another proxy war between the Adhomian nations, who each sponsor different opposing factions within the community to gain their eventual support."
+	flag_path = "ftc"
+	icon_state = "ftc"
+	flag_item = /obj/item/flag/ftc
+
+/obj/structure/sign/flag/ftc/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/ftc/l
+	name = "large Free Tajaran Council flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ftc/large
+
+/obj/structure/sign/flag/ftc/large
+	icon_state = "ftc_l"
+	flag_path = "ftc"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ftc/l
+
+/obj/structure/sign/flag/ftc/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/ftc/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/ftc/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/ftc/large/west/New()
+	..(loc, WEST)
+
 // Hephaestus
 
 /obj/item/flag/heph
@@ -1124,18 +1291,33 @@
 
 /obj/item/flag/kazhkz
 	name = "\improper House Kazhkz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
-	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the great houses of the \
+	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
 	flag_structure = /obj/structure/sign/flag/kazhkz
 
 /obj/structure/sign/flag/kazhkz
 	name = "\improper House Kazhkz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz, one of the great houses of the \
-	Empire of Dominia. They are known for their conservative nature and aversion to augmentation."
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the great houses of the \
+	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
 	icon_state = "kazkhz"
 	flag_item = /obj/item/flag/kazhkz
+
+/obj/item/flag/hansan
+	name = "\improper House Han'san standard"
+	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the \
+	great House Kazhkz-Han'san. They are known for their conservative and militant nature."
+	flag_path = "hansan"
+	flag_structure = /obj/structure/sign/flag/hansan
+
+/obj/structure/sign/flag/hansan
+	name = "\improper House Han'san standard"
+	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the \
+	great House Kazhkz-Han'san. They are known for their conservative and militant nature."
+	flag_path = "hansan"
+	icon_state = "hansan"
+	flag_item = /obj/item/flag/hansan
 
 /obj/item/flag/caladius
 	name = "\improper House Caladius standard"
@@ -1570,7 +1752,7 @@
 	unmovable = TRUE
 
 /obj/item/flag/himeo/l
-	name = "large Private Military Contracting Group flag"
+	name = "large United Syndicates of Himeo flag"
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/himeo/large
 
@@ -1611,7 +1793,7 @@
 	unmovable = TRUE
 
 /obj/item/flag/assunzione/l
-	name = "large Private Military Contracting Group flag"
+	name = "large Republic of Assunzione flag"
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/assunzione/large
 
@@ -1729,6 +1911,45 @@
 /obj/structure/sign/flag/sancolette/large/west/New()
 	..(loc, WEST)
 
+/obj/item/flag/sancolette/old
+	name = "old Sovereign Solarian Republic of San Colette flag"
+	desc = "The flag of the Sovereign Solarian Republic of San Colette, before its re-integration with the Solarian Alliance through the Northern Solarian Reconstruction Mandate. Still common throughout the spur, as volunteers in the war for the Middle Ring Shield Pact often collected them as memorabilia."
+	flag_path = "sancolette_old"
+	flag_structure = /obj/structure/sign/flag/sancolette/old
+
+/obj/structure/sign/flag/sancolette/old
+	name = "old Sovereign Solarian Republic of San Colette flag"
+	desc = "The flag of the Sovereign Solarian Republic of San Colette, before its re-integration with the Solarian Alliance through the Northern Solarian Reconstruction Mandate. Still common throughout the spur, as volunteers in the war for the Middle Ring Shield Pact often collected them as memorabilia."
+	flag_path = "sancolette_old"
+	icon_state = "sancolette_old"
+	flag_item = /obj/item/flag/sancolette/old
+
+/obj/structure/sign/flag/sancolette/old/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/sancolette/old/l
+	name = "large old Sovereign Solarian Republic of San Colette flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/sancolette/old/large
+
+/obj/structure/sign/flag/sancolette/old/large
+	icon_state = "sancolette_old_l"
+	flag_path = "sancolette_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/sancolette/old/l
+
+/obj/structure/sign/flag/sancolette/old/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/sancolette/old/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/sancolette/old/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/sancolette/old/large/west/New()
+	..(loc, WEST)
+
 // Mictlan
 
 /obj/item/flag/mictlan
@@ -1811,7 +2032,7 @@
 
 /obj/structure/sign/flag/nhp/large/west/New()
 	..(loc, WEST)
-	
+
 // Silversun
 
 /obj/item/flag/silversun
@@ -1975,3 +2196,240 @@
 
 /obj/structure/sign/flag/cthur/large/west/New()
 	..(loc, WEST)
+
+// Orion Express
+
+/obj/item/flag/orion_express
+	name = "\improper Orion Express flag"
+	desc = "The flag of Orion Express."
+	flag_path = "orion"
+	flag_structure = /obj/structure/sign/flag/orion_express
+
+/obj/structure/sign/flag/orion_express
+	name = "\improper Orion Express flag"
+	desc = "The flag of Orion Express."
+	flag_path = "orion"
+	icon_state = "orion"
+	flag_item = /obj/item/flag/orion_express
+
+/obj/structure/sign/flag/orion_express/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/orion_express/l
+	name = "large Orion Express flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/orion_express/large
+
+/obj/structure/sign/flag/orion_express/large
+	icon_state = "orion_l"
+	flag_path = "orion"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/orion_express/l
+
+/obj/structure/sign/flag/orion_express/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/orion_express/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/orion_express/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/orion_express/large/west/New()
+	..(loc, WEST)
+
+// Imperial Frontier
+
+/obj/item/flag/imperial_frontier
+	name = "\improper Imperial Frontier flag"
+	desc = "The multi-colored flag of the Dominian Empire's frontier regions known as the Imperial Frontier. This flag is a common sight on worlds such as Sun Reach."
+	desc_extended = "The four colors of this flag are symbolic of the most important actors of the Imperial Frontier. Dark red represents the Imperial Army under House Strelitz, purple represents the missionary (and financial) work of House Caladius, red represents the Empire, and white represents the Imperial Fleet under House Zhao."
+	flag_path = "imperial_frontier"
+	flag_structure = /obj/structure/sign/flag/imperial_frontier
+
+/obj/structure/sign/flag/imperial_frontier
+	name = "\improper Imperial Frontier flag"
+	desc = "The multi-colored flag of the Dominian Empire's frontier regions known as the Imperial Frontier. This flag is a common sight on worlds such as Sun Reach."
+	desc_extended = "The four colors of this flag are symbolic of the most important actors of the Imperial Frontier. Dark red represents the Imperial Army under House Strelitz, purple represents the missionary (and financial) work of House Caladius, red represents the Empire, and white represents the Imperial Fleet under House Zhao."
+	flag_path = "imperial_frontier"
+	icon_state = "imperial_frontier"
+	flag_item = /obj/item/flag/imperial_frontier
+
+/obj/structure/sign/flag/imperial_frontier/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/imperial_frontier/l
+	name = "large Imperial Frontier flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/imperial_frontier/large
+
+/obj/structure/sign/flag/imperial_frontier/large
+	icon_state = "imperial_frontier_l"
+	flag_path = "imperial_frontier"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/imperial_frontier/l
+
+/obj/structure/sign/flag/imperial_frontier/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/imperial_frontier/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/imperial_frontier/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/imperial_frontier/large/west/New()
+	..(loc, WEST)
+
+
+//tajaran gods
+
+/obj/item/flag/srendarr
+	name = "\improper S'rendarr Banner"
+	desc = "A banner with the symbol of S'rendarr, the Adhomian god of life, fertility, sunlight, youthful energy, and everything associated with the time of summer and daylight."
+	flag_path = "srendarr"
+	flag_structure = /obj/structure/sign/flag/srendarr
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/srendarr
+	name = "\improper S'rendarr Banner"
+	desc = "A banner with the symbol of S'rendarr, the Adhomian god of life, fertility, sunlight, youthful energy, and everything associated with the time of summer and daylight."
+	icon_state = "srendarr"
+	flag_path = "srendarr"
+	flag_item = /obj/item/flag/srendarr
+	stand_icon = "wood_stand"
+
+/obj/item/flag/messa
+	name = "\improper Messa Banner"
+	desc = "A banner with the symbol of Messa, the Adhomian god of life, fertility, sunlight, youthful energy, and everything associated with the time of summer and daylight."
+	flag_path = "messa"
+	flag_structure = /obj/structure/sign/flag/messa
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/messa
+	name = "\improper Messa Banner"
+	desc = "A banner with the symbol of Messa, the Adhomian goddess of inevitability, old age, and winter, but also of guidance, wisdom, protection, and patience."
+	icon_state = "messa"
+	flag_path = "messa"
+	flag_item = /obj/item/flag/messa
+	stand_icon = "wood_stand"
+
+/obj/item/flag/matake
+	name = "\improper Mata'ke Banner"
+	desc = "A banner with the symbol of Mata'ke, the spearhead. Mata'ke is the Ma'ta'ke deity of snow, judgment, practicality, order, and strength."
+	flag_path = "matake"
+	flag_structure = /obj/structure/sign/flag/matake
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/matake
+	name = "\improper Mata'ke Banner"
+	desc = "A banner with the symbol of Mata'ke, the spearhead. Mata'ke is the Ma'ta'ke deity of snow, judgment, practicality, order, and strength."
+	icon_state = "matake"
+	flag_path = "matake"
+	flag_item = /obj/item/flag/matake
+	stand_icon = "wood_stand"
+
+/obj/item/flag/marryam
+	name = "\improper Marryam Banner"
+	desc = "A banner with the symbol of Marryam, the poppy. Marryam is the Ma'ta'ke deity of settlements, sleep, and parenthood."
+	flag_path = "marryam"
+	flag_structure = /obj/structure/sign/flag/marryam
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/marryam
+	name = "\improper Marryam Banner"
+	desc = "A banner with the symbol of Marryam, the poppy. Marryam is the Ma'ta'ke deity of settlements, sleep, and parenthood."
+	icon_state = "marryam"
+	flag_path = "marryam"
+	flag_item = /obj/item/flag/marryam
+	stand_icon = "wood_stand"
+
+/obj/item/flag/rredouane
+	name = "\improper Rredouane Banner"
+	desc = "A banner with the symbol of Rredouane, the dice and blade. Rredouane is the Ma'ta'ke deity of valor, triumph, and victory."
+	flag_path = "rredouane"
+	flag_structure = /obj/structure/sign/flag/rredouane
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/rredouane
+	name = "\improper Rredouane Banner"
+	desc = "A banner with the symbol of Rredouane, the dice and blade. Rredouane is the Ma'ta'ke deity of valor, triumph, and victory."
+	icon_state = "rredouane"
+	flag_path = "rredouane"
+	flag_item = /obj/item/flag/rredouane
+	stand_icon = "wood_stand"
+
+/obj/item/flag/shumaila
+	name = "\improper Shumaila Banner"
+	desc = "A banner with the symbol of Shumaila, the bulwark. Shumaila is the Ma'ta'ke deity of fortification, chastity, and architecture."
+	flag_path = "shumaila"
+	flag_structure = /obj/structure/sign/flag/shumaila
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/shumaila
+	name = "\improper Shumaila Banner"
+	desc = "A banner with the symbol of Shumaila, the bulwark. Shumaila is the Ma'ta'ke deity of fortification, chastity, and architecture."
+	icon_state = "shumaila"
+	flag_path = "shumaila"
+	flag_item = /obj/item/flag/shumaila
+	stand_icon = "wood_stand"
+
+/obj/item/flag/kraszar
+	name = "\improper Kraszar Banner"
+	desc = "A banner with the symbol of Hraszar, the scroll of ages. Kraszar is the Ma'ta'ke deity of joy, stories, and language."
+	flag_path = "kraszar"
+	flag_structure = /obj/structure/sign/flag/kraszar
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/kraszar
+	name = "\improper Kraszar Banner"
+	desc = "A banner with the symbol of Hraszar, the scroll of ages. Kraszar is the Ma'ta'ke deity of joy, stories, and language."
+	icon_state = "kraszar"
+	flag_path = "kraszar"
+	flag_item = /obj/item/flag/kraszar
+	stand_icon = "wood_stand"
+
+/obj/item/flag/dhrarmela
+	name = "\improper Dhrarmela Banner"
+	desc = "A banner with the symbol of Dhrarmela, the divinity anvil. Dhrarmela is the Ma'ta'ke deity of forges, anvils, and craftsmanship."
+	flag_path = "dhrarmela"
+	flag_structure = /obj/structure/sign/flag/dhrarmela
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/dhrarmela
+	name = "\improper Dhrarmela Banner"
+	desc = "A banner with the symbol of Dhrarmela, the divinity anvil. Dhrarmela is the Ma'ta'ke deity of forges, anvils, and craftsmanship."
+	icon_state = "dhrarmela"
+	flag_path = "dhrarmela"
+	flag_item = /obj/item/flag/dhrarmela
+	stand_icon = "wood_stand"
+
+/obj/item/flag/azubarre
+	name = "\improper Azubarre Banner"
+	desc = "A banner with the symbol of Azubarre, the torch of passion. Kraszar is the Ma'ta'ke deity of love, fertility, and marriage."
+	flag_path = "azubarre"
+	flag_structure = /obj/structure/sign/flag/azubarre
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/azubarre
+	name = "\improper Azubarre Banner"
+	desc = "A banner with the symbol of Azubarre, the torch of passion. Kraszar is the Ma'ta'ke deity of love, fertility, and marriage."
+	icon_state = "azubarre"
+	flag_path = "azubarre"
+	flag_item = /obj/item/flag/azubarre
+	stand_icon = "wood_stand"
+
+/obj/item/flag/raskara
+	name = "\improper Raskara Banner"
+	desc = "A banner with the symbol of Raskara, the Moon."
+	flag_path = "raskara"
+	flag_structure = /obj/structure/sign/flag/raskara
+	stand_icon = "wood_stand"
+
+/obj/structure/sign/flag/raskara
+	name = "\improper Raskara Banner"
+	desc = "A banner with the symbol of Raskara, the Moon."
+	icon_state = "raskara"
+	flag_path = "raskara"
+	flag_item = /obj/item/flag/raskara
+	stand_icon = "wood_stand"

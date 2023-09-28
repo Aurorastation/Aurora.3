@@ -31,6 +31,8 @@
 	remove_verb(src, /mob/proc/changeling_transform)
 	ADD_VERB_IN(src, 10, /mob/proc/changeling_transform)
 
+	client.init_verbs()
+
 	changeling_update_languages(changeling.absorbed_languages)
 
 	feedback_add_details("changeling_powers", "TR")
@@ -264,9 +266,9 @@
 	C.SetStunned(0)
 	C.SetWeakened(0)
 	C.lying = FALSE
-	C.reagents.add_reagent(/singleton/reagent/hyperzine, 10) //Certainly this can't be abused. - Geeves
-	C.reagents.add_reagent(/singleton/reagent/oxycomorphine, 10)
-	C.reagents.add_reagent(/singleton/reagent/synaptizine, 5) //To counter oxycomorphine's side-effects.
+	C.reagents.add_reagent(/singleton/reagent/hyperzine, 9)
+	C.reagents.add_reagent(/singleton/reagent/mortaphenyl, 6)
+	C.reagents.add_reagent(/singleton/reagent/synaptizine, 3) // To counter mortaphenyl's side effects.
 	C.update_canmove()
 
 	remove_verb(src, /mob/proc/changeling_unstun)
@@ -474,7 +476,7 @@
 
 	M.visible_message("<span class='danger'>[M] writhes and contorts, their body expanding to inhuman proportions!</span>", \
 						"<span class='danger'>We begin our transformation to our true form!</span>")
-	if(!do_after(src,60))
+	if(!do_after(src, 6 SECONDS, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT))
 		M.visible_message("<span class='danger'>[M]'s transformation abruptly reverts itself!</span>", \
 							"<span class='danger'>Our transformation has been interrupted!</span>")
 		return FALSE
@@ -564,6 +566,7 @@
 
 	for(var/obj/machinery/light/L in view(7))
 		L.broken()
+		CHECK_TICK
 
 	playsound(src.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
 

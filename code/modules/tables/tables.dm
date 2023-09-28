@@ -1,6 +1,6 @@
 /obj/structure/table
 	name = "table frame"
-	icon = 'icons/obj/tables.dmi'
+	icon = 'icons/obj/structure/tables/table.dmi'
 	icon_state = "frame"
 	desc = "It's a table, for putting things on. Or standing on, if you really want to."
 	density = 1
@@ -52,6 +52,13 @@
 			visible_message(SPAN_WARNING("\The [src] breaks down!"), intent_message = THUNK_SOUND)
 		return break_to_parts() // if we break and form shards, return them to the caller to do !FUN! things with
 
+/obj/structure/table/attack_generic(var/mob/user, var/damage, var/attack_message = "attacks", var/wallbreaker)
+	if(!damage || !wallbreaker)
+		return
+	user.do_attack_animation(src)
+	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
+	take_damage(damage)
+	return TRUE
 
 /obj/structure/table/ex_act(severity)
 	switch(severity)
@@ -205,7 +212,8 @@
 
 /obj/structure/table/proc/update_desc()
 	if(material)
-		name = "[material.display_name] table"
+		if(material_alteration & MATERIAL_ALTERATION_NAME)
+			name = "[material.display_name] table"
 	else
 		name = "table frame"
 
@@ -225,7 +233,7 @@
 	if(manipulating) return M
 	manipulating = 1
 	to_chat(user, "<span class='notice'>You begin [verb]ing \the [src] with [M.display_name].</span>")
-	if(!do_after(user, 20) || !S.use(1))
+	if(!do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) || !S.use(1))
 		manipulating = 0
 		return null
 	user.visible_message("<span class='notice'>\The [user] [verb]es \the [src] with [M.display_name].</span>", "<span class='notice'>You finish [verb]ing \the [src].</span>")
@@ -244,7 +252,7 @@
 	                              "<span class='notice'>You begin removing the [type_holding] holding \the [src]'s [M.display_name] [what] in place.</span>")
 	if(sound)
 		playsound(src.loc, sound, 50, 1)
-	if(!do_after(user, 40))
+	if(!do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
 		manipulating = 0
 		return M
 	user.visible_message("<span class='notice'>\The [user] removes the [M.display_name] [what] from \the [src].</span>",
@@ -314,25 +322,22 @@
 
 		var/image/I
 
-		// Base frame shape. Mostly done for glass/diamond tables, where this is visible.
-		for(var/i = 1 to 4)
-			I = image(icon, dir = 1<<(i-1), icon_state = connections[i])
-			add_overlay(I)
-
-		// Standard table image
+		// Standard table image.
 		if(material)
 			for(var/i = 1 to 4)
 				I = image(icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
-				if(material.icon_colour) I.color = material.icon_colour
-				I.alpha = 255 * material.opacity
+				if(material_alteration & MATERIAL_ALTERATION_COLOR) I.color = material.icon_colour
+				add_overlay(I)
+		else
+			for(var/i = 1 to 4)
+				I = image(icon, dir = 1<<(i-1), icon_state = connections[i])
 				add_overlay(I)
 
-		// Reinforcements
+		// Reinforcements.
 		if(reinforced)
 			for(var/i = 1 to 4)
 				I = image(icon, "[reinforced.icon_reinf]_[connections[i]]", dir = 1<<(i-1))
 				I.color = reinforced.icon_colour
-				I.alpha = 255 * reinforced.opacity
 				add_overlay(I)
 
 		if(carpeted)
@@ -360,16 +365,15 @@
 		if(material)
 			var/image/I = image(icon, "[material.icon_base]_flip[type]")
 			I.color = material.icon_colour
-			I.alpha = 255 * material.opacity
 			add_overlay(I)
-			name = "[material.display_name] table"
+			if(material_alteration & MATERIAL_ALTERATION_NAME)
+				name = "[material.display_name] table"
 		else
 			name = "table frame"
 
 		if(reinforced)
 			var/image/I = image(icon, "[reinforced.icon_reinf]_flip[type]")
 			I.color = reinforced.icon_colour
-			I.alpha = 255 * reinforced.opacity
 			add_overlay(I)
 
 		if(carpeted)

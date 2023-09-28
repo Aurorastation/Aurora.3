@@ -100,8 +100,9 @@
 	else
 		to_chat(user, "\The [src] is full.")
 
-/obj/structure/closet/examine(mob/user)
-	if(!src.opened && (..(user, 1) || isobserver(user)))
+/obj/structure/closet/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1 && !src.opened)
 		var/content_size = 0
 		for(var/obj/item/I in contents)
 			if(!I.anchored)
@@ -111,7 +112,7 @@
 	if(!src.opened && isobserver(user))
 		to_chat(user, "It contains: [counting_english_list(contents)]")
 
-	if(src.opened && linked_teleporter && (Adjacent(user) || isobserver(user)))
+	if(src.opened && linked_teleporter && is_adjacent)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("There appears to be a device attached to the interior backplate of \the [src]...")))
 
 /obj/structure/closet/proc/stored_weight()
@@ -228,7 +229,7 @@
 			added_units += item_size
 	return added_units
 
-/obj/structure/closet/proc/store_mobs(var/stored_units)
+/obj/structure/closet/proc/store_mobs(var/stored_units, var/mob_limit)
 	var/added_units = 0
 	for(var/mob/living/M in loc)
 		if(M.buckled_to || M.pinned.len)
@@ -242,6 +243,8 @@
 			M.client.eye = src
 		M.forceMove(src)
 		added_units += M.mob_size
+		if(mob_limit) //We only want to store one valid mob
+			break
 	return added_units
 
 /obj/structure/closet/proc/store_structure(var/stored_units)
@@ -308,7 +311,7 @@
 			return
 		var/obj/item/closet_teleporter/CT = W
 		user.visible_message(SPAN_NOTICE("\The [user] starts attaching \the [CT] to \the [src]..."), SPAN_NOTICE("You begin attaching \the [CT] to \the [src]..."), range = 3)
-		if(do_after(user, 30, TRUE, src))
+		if(do_after(user, 30, src, DO_REPAIR_CONSTRUCT))
 			user.visible_message(SPAN_NOTICE("\The [user] attaches \the [CT] to \the [src]."), SPAN_NOTICE("You attach \the [CT] to \the [src]."), range = 3)
 			linked_teleporter = CT
 			CT.attached_closet = src
@@ -322,7 +325,7 @@
 		if(W.isscrewdriver()) // Moved here so you can only detach linked teleporters when the door is open. So you can like unscrew and bolt the locker normally in most circumstances.
 			if(linked_teleporter)
 				user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
-				if(do_after(user, 30, TRUE, src))
+				if(do_after(user, 30, src, DO_REPAIR_CONSTRUCT))
 					user.visible_message(SPAN_NOTICE("\The [user] detaches \the [linked_teleporter] from \the [src]."), SPAN_NOTICE("You detach \the [linked_teleporter] from \the [src]."), range = 3)
 					linked_teleporter.attached_closet = null
 					user.put_in_hands(linked_teleporter)
@@ -337,7 +340,7 @@
 					"You hear a welding torch on metal."
 				)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
-				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, PROC_REF(is_open))))
+				if (!do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT))
 					return
 				if(!WT.use(0,user))
 					to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
@@ -408,14 +411,14 @@
 		if(screwed)
 			to_chat(user,  SPAN_NOTICE("You start to unscrew \the [src] from the floor..."))
 			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 10/W.toolspeed SECONDS, act_target = src))
+			if (do_after(user, 10/W.toolspeed SECONDS, src, DO_REPAIR_CONSTRUCT))
 				to_chat(user,  SPAN_NOTICE("You unscrew the locker!"))
 				playsound(loc, W.usesound, 50, 1)
 				screwed = FALSE
 		else if(!screwed && wrenched)
 			to_chat(user,  SPAN_NOTICE("You start to screw the \the [src] to the floor..."))
 			playsound(src, 'sound/items/Welder.ogg', 80, 1)
-			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+			if (do_after(user, 15/W.toolspeed SECONDS, src, DO_REPAIR_CONSTRUCT))
 				to_chat(user,  SPAN_NOTICE("You screw \the [src]!"))
 				playsound(loc, W.usesound, 50, 1)
 				screwed = TRUE
@@ -423,7 +426,7 @@
 		if(wrenched && !screwed)
 			to_chat(user,  SPAN_NOTICE("You start to unfasten the bolts holding \the [src] in place..."))
 			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+			if (do_after(user, 15/W.toolspeed SECONDS, src, DO_REPAIR_CONSTRUCT))
 				to_chat(user,  SPAN_NOTICE("You unfasten \the [src]'s bolts!"))
 				playsound(loc, W.usesound, 50, 1)
 				wrenched = FALSE
@@ -431,7 +434,7 @@
 		else if(!wrenched)
 			to_chat(user,  SPAN_NOTICE("You start to fasten the bolts holding the locker in place..."))
 			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+			if (do_after(user, 15/W.toolspeed SECONDS, src, DO_REPAIR_CONSTRUCT))
 				to_chat(user,  SPAN_NOTICE("You fasten the \the [src]'s bolts!"))
 				playsound(loc, W.usesound, 50, 1)
 				wrenched = TRUE
@@ -455,7 +458,7 @@
 				SPAN_WARNING("You start cutting the [src]..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), W)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, user, DO_REPAIR_CONSTRUCT))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting open \the [src] with the [W]."),\
 					SPAN_WARNING("You finish cutting open the [src]."),\
@@ -534,7 +537,7 @@
 	if(!usr.canmove || usr.stat || usr.restrained())
 		return
 
-	if(ishuman(usr))
+	if(ishuman(usr) || (issilicon(usr) && Adjacent(usr)))
 		add_fingerprint(usr)
 		toggle(usr)
 	else
@@ -653,14 +656,13 @@
 			var/obj/O = A
 			O.hear_talk(M, text, verb, speaking)
 
-/obj/structure/closet/attack_generic(var/mob/user, var/damage, var/attack_message = "destroys", var/wallbreaker)
+/obj/structure/closet/attack_generic(var/mob/user, var/damage, var/attack_message = "attacks", var/wallbreaker)
 	if(!damage || !wallbreaker)
 		return
 	user.do_attack_animation(src)
-	visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"))
-	dump_contents()
-	QDEL_IN(src, 1)
-	return 1
+	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
+	damage(damage)
+	return TRUE
 
 /obj/structure/closet/proc/req_breakout()
 	if(!opened) //Door's open... wait, why are you in it's contents then?
@@ -706,7 +708,7 @@
 		if (bar)
 			bar.update(i)
 
-		if(!do_after(escapee, 50, display_progress = FALSE)) //5 seconds
+		if(!do_after(escapee, 50, do_flags = DO_DEFAULT & ~DO_SHOW_PROGRESS)) //5 seconds
 			breakout = 0
 			qdel(bar)
 			return

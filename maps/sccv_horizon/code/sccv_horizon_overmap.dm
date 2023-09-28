@@ -26,29 +26,48 @@
 	)
 
 	initial_generic_waypoints = list(
-	"nav_hangar_horizon_1",
-	"nav_hangar_horizon_2",
-	"nav_dock_horizon_1",
-	"nav_dock_horizon_2",
-	"nav_dock_horizon_3",
-	"nav_dock_horizon_4",
-	"deck_one_fore_of_horizon",
-	"deck_one_starboard_side",
-	"deck_one_port_side",
-	"deck_one_aft_of_horizon",
-	"deck_one_near_starboard_propulsion",
-	"deck_one_near_port_propulsion",
-	"deck_two_fore_of_horizon",
-	"deck_two_starboard_fore",
-	"deck_two_port_fore",
-	"deck_two_aft_of_horizon",
-	"deck_two_port_aft",
-	"deck_two_starboard_aft",
-	"deck_three_fore_of_horizon",
-	"deck_three_fore_starboard_of_horizon",
-	"deck_three_port_fore_of_horizon",
-	"deck_three_aft_of_horizon",
-	"deck_three_port_aft_of_horizon"
+		"nav_hangar_horizon_1",
+		"nav_hangar_horizon_2",
+		"nav_dock_horizon_1",
+		"nav_dock_horizon_2",
+		"nav_dock_horizon_3",
+		"nav_dock_horizon_4",
+		"deck_one_fore_of_horizon",
+		"deck_one_starboard_side",
+		"deck_one_port_side",
+		"deck_one_aft_of_horizon",
+		"deck_one_near_starboard_propulsion",
+		"deck_one_near_port_propulsion",
+		"deck_two_fore_of_horizon",
+		"deck_two_starboard_fore",
+		"deck_two_port_fore",
+		"deck_two_aft_of_horizon",
+		"deck_two_port_aft",
+		"deck_two_starboard_aft",
+		"deck_three_fore_of_horizon",
+		"deck_three_fore_starboard_of_horizon",
+		"deck_three_port_fore_of_horizon",
+		"deck_three_aft_of_horizon",
+		"deck_three_port_aft_of_horizon"
+	)
+
+	tracked_dock_tags = list(
+		"nav_hangar_mining",
+		"nav_hangar_intrepid",
+		"nav_hangar_canary",
+		"nav_cargo_shuttle_dock",
+		"nav_hangar_horizon_1",
+		"nav_burglar_hangar",
+		"nav_hangar_horizon_2",
+		"nav_distress_blue",
+		"nav_merchant_dock",
+		"nav_ccia_dock",
+		"nav_merc_dock",
+		"nav_dock_horizon_1",
+		"nav_dock_horizon_2",
+		"nav_dock_horizon_3",
+		"nav_dock_horizon_4",
+		"nav_ert_dock"
 	)
 
 /obj/effect/overmap/visitable/ship/sccv_horizon/get_skybox_representation()
@@ -61,8 +80,7 @@
 	name = "Intrepid"
 	class = "SCCV"
 	designation = "Intrepid"
-	desc = "A standard-sized exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid, which actually uses \
-			a specially modified Pathfinder-class chassis fitted with a 40mm Francisca rotary gun."
+	desc = "A standard-sized exploration shuttle manufactured by Hephaestus, the Pathfinder-class is commonly used by the corporations of the SCC. Featuring well-rounded facilities and equipment, the Pathfinder is excellent, albeit pricey, platform. This one's transponder identifies it as the SCCV Intrepid."
 	shuttle = "Intrepid"
 	icon_state = "intrepid"
 	moving_state = "intrepid_moving"
@@ -75,7 +93,6 @@
 	scanimage = "intrepid.png"
 	designer = "Hephaestus Industries"
 	volume = "21 meters length, 16 meters beam/width, 6 meters vertical height"
-	weapons = "Extruding fore-mounted low-caliber ballistic rotary armament"
 	sizeclass = "Pathfinder Exploration Shuttle"
 	shiptype = "Field expeditions and private research uses"
 
@@ -126,6 +143,12 @@
 	name = "\improper Spark control console"
 	shuttle_tag = "Spark"
 	req_access = list(access_mining)
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "right"
+	icon_screen = "blue"
+	icon_keyboard = null
+	circuit = null
 
 /obj/effect/overmap/visitable/ship/landable/canary
 	name = "Canary"
@@ -139,6 +162,7 @@
 	scanimage = "canary.png"
 	designer = "Hephaestus Industries, NanoTrasen"
 	volume = "14 meters length, 7 meters beam/width, 5 meters vertical height"
+	weapons = "Extruding fore-mounted low-caliber ballistic rotary armament"
 	sizeclass = "Jester-type Scout Skiff"
 	shiptype = "Exploratory survey and scouting, high-speed target interception"
 	max_speed = 2/(1 SECONDS)
@@ -165,40 +189,40 @@
 	circuit = null
 
 /obj/effect/shuttle_landmark/horizon/nav1
-	name = "Port Hangar Bay 1"
+	name = "First Deck Port Hangar Bay 1a"
 	landmark_tag = "nav_hangar_horizon_1"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/hangar/auxiliary
 
 /obj/effect/shuttle_landmark/horizon/nav2
-	name = "Port Hangar Bay 2"
+	name = "First Deck Port Hangar Bay 2a"
 	landmark_tag = "nav_hangar_horizon_2"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/hangar/auxiliary
 
 //external landmarks for overmap ships
 /obj/effect/shuttle_landmark/horizon/dock1
-	name = "Starboard Primary Docking Arm"
+	name = "Third Deck Starboard Dock 2"
 	landmark_tag = "nav_dock_horizon_1"
 	docking_controller = "dock_horizon_1_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/horizon/dock2 //shares a spot with the TCFL ERT shuttle, but having multiple use cases is fine, ERTs are adminspawned only as well
-	name = "Port Primary Docking Arm"
+/obj/effect/shuttle_landmark/horizon/dock2
+	name = "Third Deck Port Dock 1"
 	landmark_tag = "nav_dock_horizon_2"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/horizon/dock3
-	name = "Starboard Primary Docking Arm-Fore"
+	name = "Third Deck Starboard Dock 3"
 	landmark_tag = "nav_dock_horizon_3"
 	docking_controller = "dock_horizon_3_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/horizon/dock4
-	name = "Port Primary Docking Arm-Fore"
+	name = "Third Deck Port Dock 2"
 	landmark_tag = "nav_dock_horizon_4"
 	docking_controller = "dock_horizon_4_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless

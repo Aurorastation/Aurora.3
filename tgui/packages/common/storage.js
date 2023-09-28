@@ -151,7 +151,7 @@ class IndexedDbBackend {
 }
 
 // Namespace for keys in storage, so we do not share storage with other servers.
-var namespace = "AURORASTATION_"
+let namespace = 'AURORASTATION_';
 
 /**
  * Web Storage Proxy object, which selects the best backend available

@@ -62,8 +62,8 @@ var/global/universe_has_ended = 0
 
 	new /obj/singularity/narsie/large/exit(pick(endgame_exits))
 	var/time = rand(30, 60)
-	log_debug("universal_state/cascade: Announcing to world in [time] seconds.")
-	log_debug("universal_state/cascade: Ending universe in [(time SECONDS + 5 MINUTES)/10] seconds.")
+	LOG_DEBUG("universal_state/cascade: Announcing to world in [time] seconds.")
+	LOG_DEBUG("universal_state/cascade: Ending universe in [(time SECONDS + 5 MINUTES)/10] seconds.")
 	addtimer(CALLBACK(src, PROC_REF(announce_to_world)), time SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(end_universe)), time SECONDS + 5 MINUTES)
 

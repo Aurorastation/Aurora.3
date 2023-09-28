@@ -11,7 +11,7 @@
 	var/contact_details = null
 	var/contact_name = null
 
-	var/working_sound = 'sound/machines/sensors/ping.ogg'
+	var/working_sound = 'sound/machines/sensors/sensorloop.ogg'
 	var/datum/sound_token/sound_token
 	var/sound_id
 
@@ -21,6 +21,7 @@
 /obj/machinery/computer/ship/sensors/cockpit
 	density = 0
 	icon = 'icons/obj/cockpit_console.dmi'
+	working_sound = 'sound/machines/sensors/ping.ogg'
 	icon_state = "left_wide"
 	icon_screen = "sensors"
 	icon_keyboard = null
@@ -68,15 +69,34 @@
 	else if(sound_token)
 		QDEL_NULL(sound_token)
 
-/obj/machinery/computer/ship/sensors/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if(!linked)
-		display_reconnect_dialog(user, "sensors")
-		return
+/obj/machinery/computer/ship/sensors/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Sensors", capitalize_first_letters(name))
+		ui.open()
 
-	var/data[0]
+/obj/machinery/computer/ship/sensors/ui_data(mob/user)
+
+	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
+
+	var/data = list()
 
 	data["viewing"] = viewing_overmap(user)
 	data["muted"] = muted
+
+	data["grid_x"] = linked.x
+	data["grid_y"] = linked.y
+	data["direction"] = dir2angle(linked.dir)
+	var/linked_x = linked.x
+	var/linked_y = linked.y
+	var/obj/effect/overmap/visitable/ship/linked_ship = linked
+	if(istype(linked_ship))
+		linked_x += linked_ship.position[1] / 2.0
+		linked_y += linked_ship.position[2] / 2.0
+		data["is_ship"] = TRUE
+	data["x"] = linked_x
+	data["y"] = linked_y
+
 	if(sensors)
 		data["on"] = sensors.use_power
 		data["range"] = sensors.range
@@ -126,17 +146,41 @@
 		for(var/obj/effect/overmap/visitable/identified_contact in contact_datums)
 			potential_contacts |= identified_contact
 
-		for(var/obj/effect/overmap/O in potential_contacts)
-			if(linked == O)
+		for(var/obj/effect/overmap/contact in potential_contacts)
+			if(linked == contact)
 				continue
-			if(!O.scannable)
+			if(!contact.scannable)
 				continue
-			var/bearing = round(90 - Atan2(O.x - linked.x, O.y - linked.y),5)
+
+			var/obj/effect/overmap/visitable/ship/landable/contact_landable = contact
+			var/landed = (istype(contact_landable) && contact_landable.status == SHIP_STATUS_LANDED)
+
+			var/contact_x = contact.x
+			var/contact_y = contact.y
+
+			var/obj/effect/overmap/visitable/ship/contact_ship = contact
+			if(istype(contact_ship))
+				contact_x += contact_ship.position[1] / 2.0
+				contact_y += contact_ship.position[2] / 2.0
+
+			var/bearing = round(BEARING_RELATIVE(linked_x, linked_y, contact_x, contact_y),5)
 			if(bearing < 0)
 				bearing += 360
-			contacts.Add(list(list("name"=O.name, "ref"="\ref[O]", "bearing"=bearing, "can_datalink"=(!(O in connected.datalinked)))))
-		if(length(contacts))
-			data["contacts"] = contacts
+
+			var/distance = DIST_BETWEEN_TWO_POINTS(linked_x, linked_y, contact_x, contact_y)
+
+			contacts.Add(list(list(
+				"name"=contact.name,
+				"ref"="\ref[contact]",
+				"bearing"=bearing,
+				"can_datalink"=(!(contact in connected.datalinked)),
+				"distance"=distance,
+				"landed"=landed,
+				"x"=contact_x,
+				"y"=contact_y
+			)))
+
+		data["contacts"] = contacts
 
 		// Add datalink requests
 		if(length(connected.datalink_requests))
@@ -174,58 +218,53 @@
 	else
 		data["id_status"] = "NOBEACON" //Should not really happen.
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "shipsensors.tmpl", "[linked.get_real_name()] Sensors Control", 600, 530, src)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
-/obj/machinery/computer/ship/sensors/Topic(href, href_list)
+/obj/machinery/computer/ship/sensors/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if (..())
-		return TOPIC_HANDLED
+		return TRUE
 
 	if (!linked)
-		return TOPIC_NOACTION
+		return FALSE
 
-	if (href_list["viewing"])
+	if (action == "viewing")
 		if(usr)
 			viewing_overmap(usr) ? unlook(usr) : look(usr)
-		return TOPIC_REFRESH
+		return TRUE
 
-	if (href_list["link"])
+	if (action == "link")
 		find_sensors_and_iff()
-		return TOPIC_REFRESH
+		return TRUE
 
 	if(sensors)
-		if (href_list["range"])
+		if (action == "range")
 			var/nrange = input("Set new sensors range", "Sensor range", sensors.range) as num|null
 			if(!CanInteract(usr, default_state))
-				return TOPIC_NOACTION
+				return FALSE
 			if (nrange)
 				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
-			return TOPIC_REFRESH
-		if(href_list["range_choice"])
-			var/nrange = text2num(href_list["range_choice"])
+			return TRUE
+		if(action == "range_choice")
+			var/nrange = text2num(params["range_choice"])
 			if(!CanInteract(usr, default_state))
-				return TOPIC_NOACTION
+				return FALSE
 			if(nrange)
 				sensors.set_desired_range(Clamp(nrange, 1, sensors.max_range))
-			return TOPIC_REFRESH
-		if (href_list["toggle"])
+			return TRUE
+		if (action == "toggle")
 			sensors.toggle()
-			return TOPIC_REFRESH
+			return TRUE
 
-		if(href_list["deep_scan_toggle"])
+		if(action == "deep_scan_toggle")
 			sensors.deep_scan_toggled = !sensors.deep_scan_toggled
-			return TOPIC_REFRESH
+			return TRUE
 
 	if(identification)
-		if(href_list["toggle_id"])
+		if(action == "toggle_id")
 			identification.toggle()
-			return TOPIC_REFRESH
+			return TRUE
 
-		if(href_list["change_ship_class"])
+		if(action == "change_ship_class")
 			if(!identification.use_power)
 				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
 				return
@@ -239,9 +278,9 @@
 			linked.set_new_class(new_class)
 			playsound(src, 'sound/machines/twobeep.ogg', 50)
 			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship class registered.\"</i>"))
-			return TOPIC_REFRESH
+			return TRUE
 
-		if(href_list["change_ship_name"])
+		if(action == "change_ship_name")
 			if(!identification.use_power)
 				to_chat(usr, SPAN_WARNING("You cannot do this while the IFF is off!"))
 				return
@@ -255,20 +294,20 @@
 			linked.set_new_designation(new_name)
 			playsound(src, 'sound/machines/twobeep.ogg', 50)
 			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship designation registered.\"</i>"))
-			return TOPIC_REFRESH
+			return TRUE
 
-	if (href_list["scan-action"])
-		switch(href_list["scan-action"])
+	if (action == "scan_action")
+		switch(params["scan_action"])
 			if("clear")
 				contact_details = null
 			if("print")
 				if(contact_details)
 					playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
 					new/obj/item/paper/(get_turf(src), contact_details, "paper (Sensor Scan - [contact_name])")
-		return TOPIC_HANDLED
+		return TRUE
 
-	if (href_list["scan"])
-		var/obj/effect/overmap/O = locate(href_list["scan"])
+	if (action == "scan")
+		var/obj/effect/overmap/O = locate(params["scan"])
 		if(istype(O) && !QDELETED(O))
 			if((O in view(7,linked))|| (O in contact_datums))
 				playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
@@ -278,37 +317,37 @@
 				to_chat(usr, SPAN_NOTICE("Successfully scanned [O]."))
 				contact_name = O.name
 				contact_details = O.get_scan_data(usr)
-		return TOPIC_HANDLED
+		return TRUE
 
-	if (href_list["request_datalink"])
-		var/obj/effect/overmap/visitable/O = locate(href_list["request_datalink"])
+	if (action == "request_datalink")
+		var/obj/effect/overmap/visitable/O = locate(params["request_datalink"])
 		if(istype(O) && !QDELETED(O))
 			if((O in view(7,linked)) || (O in contact_datums))
 
 				for(var/obj/machinery/computer/ship/sensors/sensor_console in O.consoles)
 					sensor_console.connected.datalink_requests |= src.connected
-		return TOPIC_HANDLED
+		return TRUE
 
-	if (href_list["accept_datalink_requests"])
-		var/obj/effect/overmap/visitable/O = locate(href_list["accept_datalink_requests"])
+	if (action == "accept_datalink_requests")
+		var/obj/effect/overmap/visitable/O = locate(params["accept_datalink_requests"])
 		for(var/obj/machinery/computer/ship/sensors/sensor_console in src.connected.consoles)
 			sensor_console.datalink_add_ship_datalink(O)
 			break
 		src.connected.datalink_requests -= O	// Remove the request
-		return TOPIC_HANDLED
+		return TRUE
 
-	if (href_list["decline_datalink_requests"])
-		var/obj/effect/overmap/visitable/O = locate(href_list["decline_datalink_requests"])
+	if (action == "decline_datalink_requests")
+		var/obj/effect/overmap/visitable/O = locate(params["decline_datalink_requests"])
 		src.connected.datalink_requests -= O	// Remove the request
 
-	if (href_list["remove_datalink"])
-		var/obj/effect/overmap/visitable/O = locate(href_list["remove_datalink"])
+	if (action == "remove_datalink")
+		var/obj/effect/overmap/visitable/O = locate(params["remove_datalink"])
 		for(var/obj/machinery/computer/ship/sensors/rescinder_sensor_console in src.connected.consoles)	// Get sensor console from the rescinder
 			rescinder_sensor_console.datalink_remove_ship_datalink(O, TRUE)
-			return TOPIC_HANDLED
+			return TRUE
 
-	if (href_list["play_message"])
-		var/caller = href_list["play_message"]
+	if (action == "play_message")
+		var/caller = params["play_message"]
 		var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[caller]
 		var/mob/living/carbon/human/sender = beacon.user
 		var/user_name = beacon.user_name
@@ -316,15 +355,15 @@
 		visible_message(SPAN_NOTICE("\The [src] beeps a few times as it replays the distress message."))
 		playsound(src, 'sound/machines/compbeep5.ogg')
 		visible_message(SPAN_ITALIC("[accent_icon] <b>[user_name]</b> explains, \"[beacon.distress_message]\""))
-		return TOPIC_HANDLED
+		return TRUE
 
-	if(href_list["inbound_fire"])
-		var/direction = href_list["inbound_fire"]
+	if(action == "inbound_fire")
+		var/direction = params["inbound_fire"]
 		if(direction != "clear")
-			security_announcement.Announce("Enemy fire inbound, enemy fire inbound! [direction]!", "Brace for shock!", sound('sound/mecha/internaldmgalarm.ogg', volume = 90), 0)
+			security_announcement.Announce("Enemy fire inbound, enemy fire inbound! [sanitizeSafe(direction)]!", "Brace for shock!", sound('sound/mecha/internaldmgalarm.ogg', volume = 90), 0)
 		else
 			security_announcement.Announce("No fire is incoming at the current moment, resume damage control.", "Space clear!", sound('sound/misc/announcements/security_level_old.ogg'), 0)
-		return TOPIC_HANDLED
+		return TRUE
 
 /obj/machinery/shipsensors
 	name = "sensors suite"

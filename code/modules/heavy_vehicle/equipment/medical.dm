@@ -37,12 +37,27 @@
 
 /obj/item/mecha_equipment/sleeper/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
-	if(.)
-		if(ishuman(target) && !sleeper.occupant)
-			visible_message("<span class='notice'>\The [src] begins loading \the [target] into \the [src].</span>")
-			sleeper.go_in(target, user)
-		else
-			to_chat(user, "<span class='warning'>You cannot load that in!</span>")
+	if(!.)
+		return
+
+	//Check it's a person and typecast if so
+	if(!ishuman(target))
+		return
+	var/mob/living/carbon/human/person_to_load = target
+
+	//Check that the person is not buckled
+	if(person_to_load.buckled_to)
+		to_chat(SPAN_WARNING("You must unbuckle [person_to_load] before loading!"))
+		return
+
+	//Check that the sleeper isn't already occupied
+	if(sleeper.occupant)
+		to_chat(user, SPAN_WARNING("The sleeper is already occupied!"))
+		return
+
+	//All good, load the person
+	visible_message("<span class='notice'>\The [src] begins loading \the [target] into \the [src].</span>")
+	sleeper.go_in(person_to_load, user)
 
 /obj/item/mecha_equipment/sleeper/get_hardpoint_maptext()
 	if(sleeper && sleeper.occupant)
@@ -267,11 +282,15 @@
 /obj/item/device/healthanalyzer/mech //Used to set up the full body scan feature
 	var/obj/machinery/body_scanconsole/internal_bodyscanner = null
 	var/fullScan = FALSE //Toggle whether to do full or basic scan
-	
+
 /obj/item/device/healthanalyzer/mech/Initialize()
 	. = ..()
 	internal_bodyscanner = new /obj/machinery/body_scanconsole(src)
 	internal_bodyscanner.use_power = FALSE
+
+/obj/item/device/healthanalyzer/mech/Destroy()
+	QDEL_NULL(internal_bodyscanner)
+	. = ..()
 
 /obj/item/mecha_equipment/mounted_system/medanalyzer/CtrlClick(mob/user)
 	var/obj/item/device/healthanalyzer/mech/HA = holding
@@ -289,7 +308,7 @@
 			health_scan_mob(M, pilot, TRUE, TRUE, sound_scan = sound_scan)
 	else
 		user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
-		if(do_after(user, 7 SECONDS, TRUE))
+		if(do_after(user, 7 SECONDS))
 			print_scan(M, user)
 			add_fingerprint(user)
 

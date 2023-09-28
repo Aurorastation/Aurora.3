@@ -176,8 +176,8 @@
 		system_error("Resource field depleted.")
 		update_icon()
 
-/obj/machinery/mining/drill/examine(mob/user)
-	..(user)
+/obj/machinery/mining/drill/examine(mob/user, distance, is_adjacent)
+	. = ..()
 	if(need_player_check)
 		to_chat(user, SPAN_WARNING("The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"]."))
 	else
@@ -185,7 +185,7 @@
 	if(panel_open)
 		to_chat(user, "The power cell is [cell ? "installed" : "missing"].")
 	to_chat(user, "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%.")
-	if(user.Adjacent(src))
+	if(is_adjacent)
 		if(attached_satchel)
 			to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it.")))
 		if(current_error)
@@ -584,3 +584,7 @@
 	connected.supports -= src
 	connected.check_supports()
 	connected = null
+
+#undef DRILL_LIGHT_IDLE
+#undef DRILL_LIGHT_WARNING
+#undef DRILL_LIGHT_ACTIVE

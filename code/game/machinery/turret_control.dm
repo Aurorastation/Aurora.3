@@ -132,7 +132,7 @@
 /obj/machinery/turretid/ui_data(mob/user)
 	var/list/data = list()
 	data["turrets"] = list()
-	data["locked"] = locked
+	data["locked"] = isAI(user) ? FALSE : locked
 	data["enabled"] = enabled
 	data["is_lethal"] = TRUE
 	data["lethal"] = lethal

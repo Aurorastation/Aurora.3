@@ -26,8 +26,8 @@
 	/obj/item/stack/medical/bruise_pack = 20
 	)
 
-	min_duration = 70
-	max_duration = 90
+	min_duration = 50
+	max_duration = 70
 
 /singleton/surgery_step/internal/fix_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -36,8 +36,10 @@
 	var/is_organ_damaged = FALSE
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I.is_damaged())
+			if(BP_IS_ROBOTIC(I))
+				to_chat(user, SPAN_NOTICE("You notice that \the [I] in [user]'s [affected.name] is a mechanical organ, and is also damaged."))
+				continue
 			is_organ_damaged = TRUE
-			break
 	return is_organ_damaged
 
 /singleton/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -56,8 +58,6 @@
 			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 			"You start treating damage to [target]'s [I.name] with [tool_name]." )
 	target.custom_pain("The pain in your [affected.name] is living hell!",100, affecting = affected)
-
-	..()
 
 /singleton/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/tool_name = "\the [tool]"
@@ -113,8 +113,8 @@
 	SCREWDRIVER = 70
 	)
 
-	min_duration = 70
-	max_duration = 90
+	min_duration = 50
+	max_duration = 70
 
 /singleton/surgery_step/internal/fix_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -123,9 +123,11 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/is_organ_damaged = 0
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I.is_damaged() && I.robotic >= 2)
+		if(I.is_damaged())
+			if(!BP_IS_ROBOTIC(I))
+				to_chat(user, SPAN_NOTICE("You notice that \the [I] in [user]'s [affected.name] is a biological organ, and is also damaged."))
+				continue
 			is_organ_damaged = TRUE
-			break
 	return is_organ_damaged && IS_ORGAN_FULLY_OPEN
 
 /singleton/surgery_step/internal/fix_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -173,7 +175,6 @@
 		if(I)
 			I.take_damage(rand(3,5),0)
 
-
 /singleton/surgery_step/internal/detach_organ
 	name = "Separate Organ"
 	priority = 1
@@ -183,8 +184,8 @@
 	/obj/item/material/shard = 50
 	)
 
-	min_duration = 90
-	max_duration = 110
+	min_duration = 70
+	max_duration = 90
 
 /singleton/surgery_step/internal/detach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -246,8 +247,8 @@
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
 
-	min_duration = 60
-	max_duration = 80
+	min_duration = 40
+	max_duration = 60
 
 /singleton/surgery_step/internal/remove_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -305,8 +306,8 @@
 	/obj/item/organ = 100
 	)
 
-	min_duration = 60
-	max_duration = 80
+	min_duration = 40
+	max_duration = 60
 
 /singleton/surgery_step/internal/replace_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -410,8 +411,8 @@
 	/obj/item/stack/cable_coil = 75
 	)
 
-	min_duration = 100
-	max_duration = 120
+	min_duration = 80
+	max_duration = 100
 
 /singleton/surgery_step/internal/attach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -464,8 +465,8 @@
 	/obj/item/pickaxe/ = 5
 	)
 
-	min_duration = 100
-	max_duration = 120
+	min_duration = 80
+	max_duration = 100
 
 /singleton/surgery_step/internal/prepare/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())

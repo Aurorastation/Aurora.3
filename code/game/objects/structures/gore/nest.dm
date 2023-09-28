@@ -13,8 +13,9 @@
 	. = ..()
 	health = maxHealth
 
-/obj/structure/bed/nest/examine(mob/user)
-	if(..(user, 2))
+/obj/structure/bed/nest/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 2)
 		var/health_div = health / maxHealth
 		if(health_div >= 0.9)
 			to_chat(user, SPAN_NOTICE("\The [src] appears completely intact."))
@@ -40,7 +41,7 @@
 				return
 			M.last_special = world.time
 			M.visible_message(SPAN_WARNING("[M] starts struggling to break free of the sticky flesh..."), SPAN_WARNING("You struggle to break free from the gelatinous flesh..."), SPAN_WARNING("You hear squelching..."))
-			if(do_after(M, NEST_RESIST_TIME, TRUE))
+			if(do_after(M, NEST_RESIST_TIME))
 				unbuckle_buckled_mob(M)
 
 /obj/structure/bed/nest/proc/unbuckle_buckled_mob(var/mob/buck)
@@ -64,3 +65,5 @@
 		var/final_message = replacetext(destroy_message, "THE STRUCTURE", "\The [src]")
 		visible_message(SPAN_WARNING(final_message))
 		qdel(src)
+
+#undef NEST_RESIST_TIME

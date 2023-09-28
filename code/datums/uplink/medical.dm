@@ -40,6 +40,12 @@
 	path = /obj/item/storage/belt/medical/first_responder/combat/full
 	desc = "A fully loaded medical belt even Zeng-Hu's top First Responders would be dying to wear. It contains liquid medicines and a hypospray. Combat hypo sold separately."
 
+/datum/uplink_item/item/medical/defib
+	name = "Combat Defibrillator"
+	bluecrystal_cost = 2
+	path = /obj/item/shockpaddles/standalone/traitor
+	desc = "A pair of fully autonomous shockpaddles powered by a miniaturised reactor. These can penetrate through armour, unlike commercial paddles."
+
 /datum/uplink_item/item/medical/stimulants
 	name = "Box of Combat Stimulants"
 	bluecrystal_cost = 4
@@ -70,6 +76,7 @@
 /datum/uplink_item/item/medical/firstaid
 	name = "Standard First-Aid Kit (Free)"
 	telecrystal_cost = 0
+	bluecrystal_cost = 0
 	item_limit = 1
 	path = /obj/item/storage/firstaid/regular
 	desc = "You can claim this first-aid kit only once."

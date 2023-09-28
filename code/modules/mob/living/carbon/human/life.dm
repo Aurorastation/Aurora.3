@@ -227,10 +227,10 @@
 			var/damage = 0
 			total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 			if(prob(25))
-				damage = 1
+				damage = 2
 
 			if (total_radiation > 50)
-				damage = 1
+				damage = 3
 				total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
 					src.apply_radiation(-5 * RADIATION_SPEED_COEFFICIENT)
@@ -247,9 +247,10 @@
 
 			if (total_radiation > 75)
 				src.apply_radiation(-1 * RADIATION_SPEED_COEFFICIENT)
-				damage = 3
+				damage = 7
 				if(prob(5))
-					take_overall_damage(0, 5 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
+					take_overall_damage(0, 10 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
+					to_chat(src, "<span class='warning'>You feel a burning sensation!</span>")
 				if(prob(1))
 					to_chat(src, "<span class='warning'>You feel strange!</span>")
 					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
@@ -847,6 +848,7 @@
 // corresponds with the status overlay in hud_status.dmi
 #define DRUNK_STRING "drunk"
 #define BLEEDING_STRING "bleeding"
+#define POSING_STRING "posing"
 
 /mob/living/carbon/human/handle_regular_hud_updates()
 	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
@@ -1104,6 +1106,14 @@
 				qdel(status_overlays[BLEEDING_STRING])
 				status_overlays -= BLEEDING_STRING
 
+			var/has_posing_status = LAZYISIN(status_overlays, POSING_STRING)
+			if(pose)
+				if(!has_posing_status)
+					add_status_to_hud(POSING_STRING, SPAN_NOTICE("You are posing. Your current pose is \"[pose]\""))
+			else if(has_posing_status)
+				qdel(status_overlays[POSING_STRING])
+				status_overlays -= POSING_STRING
+
 			UNSETEMPTY(status_overlays)
 		else
 			for(var/status in status_overlays)
@@ -1113,6 +1123,7 @@
 
 #undef DRUNK_STRING
 #undef BLEEDING_STRING
+#undef POSING_STRING
 
 /mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
 	var/obj/screen/status/new_status = new /obj/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
@@ -1336,8 +1347,8 @@
 		hud_list[WANTED_HUD] = holder
 
 	if (  BITTEST(hud_updateflag, IMPLOYAL_HUD) \
-	   || BITTEST(hud_updateflag,  IMPCHEM_HUD) \
-	   || BITTEST(hud_updateflag, IMPTRACK_HUD))
+		|| BITTEST(hud_updateflag,  IMPCHEM_HUD) \
+		|| BITTEST(hud_updateflag, IMPTRACK_HUD))
 
 		var/image/holder1 = hud_list[IMPTRACK_HUD]
 		var/image/holder2 = hud_list[IMPLOYAL_HUD]
@@ -1350,7 +1361,7 @@
 			if(I.implanted)
 				if(istype(I,/obj/item/implant/tracking))
 					holder1.icon_state = "hud_imp_tracking"
-				if(istype(I,/obj/item/implant/mindshield))
+				if(istype(I,/obj/item/implant/mindshield) && !istype(I,/obj/item/implant/mindshield/loyalty))
 					holder2.icon_state = "hud_imp_loyal"
 				if(istype(I,/obj/item/implant/chem))
 					holder3.icon_state = "hud_imp_chem"
@@ -1387,12 +1398,14 @@
 /mob/living/carbon/human/handle_vision()
 	if(client)
 		client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
+	var/machine_has_equipment_vision = FALSE
 	if(machine)
 		var/viewflags = machine.check_eye(src)
 		if(viewflags < 0)
 			reset_view(null, 0)
 		else if(viewflags)
 			set_sight(sight, viewflags)
+		machine_has_equipment_vision = machine.grants_equipment_vision(src)
 	else if(eyeobj)
 		if(eyeobj.owner != src)
 			reset_view(null)
@@ -1400,14 +1413,14 @@
 		var/isRemoteObserve = 0
 		if(z_eye && client?.eye == z_eye && !is_physically_disabled())
 			isRemoteObserve = 1
-		if(HAS_FLAG(mutations, mRemote) && remoteview_target)
+		if(remoteview_target)
 			if(remoteview_target.stat==CONSCIOUS)
 				isRemoteObserve = 1
 		if(!isRemoteObserve && client && !client.adminobs)
 			remoteview_target = null
 			reset_view(null, 0)
 
-	update_equipment_vision()
+	update_equipment_vision(machine_has_equipment_vision)
 	species.handle_vision(src)
 
 /mob/living/carbon/human/handle_hearing()

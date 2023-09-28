@@ -1,11 +1,6 @@
 name: "Build TGUI"
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
-    paths:
-      - 'tgui/**'
 
 jobs:
   update-tgui:
@@ -15,7 +10,7 @@ jobs:
     - name: Install Node
       uses: actions/setup-node@v3
       with:
-        node-version: 14 
+        node-version: 14
 
     - name: Checkout Repository
       uses: actions/checkout@v3
@@ -33,10 +28,9 @@ jobs:
 
     - name: Update TGUI
       run: |
-        chmod +x tools/bootstrap/node
-        tools/bootstrap/node tools/build/build.js tgui 
+        tools/bootstrap/node tools/build/build.js tgui
 
-    - name: Commit
+    - name: Commit TGUI
       run: |
         git pull origin master
         git config --local user.email "action@github.com"

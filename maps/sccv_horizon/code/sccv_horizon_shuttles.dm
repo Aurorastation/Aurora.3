@@ -1,7 +1,7 @@
 //-// Burglar Shuttle //-//
 
 /datum/shuttle/autodock/multi/antag/burglar_ship
-	name = "Burglar Pod"
+	name = "Water Bear"
 	current_location = "nav_burglar_start"
 	landmark_transition = "nav_burglar_interim"
 	dock_target = "burglar_shuttle"
@@ -32,14 +32,15 @@
 	base_turf = /turf/space/transit/north
 
 /obj/effect/shuttle_landmark/burglar_ship/hangar
-	name = "Port Hangar"
+	name = "First Deck Port Hangar Bay 1b"
 	landmark_tag = "nav_burglar_hangar"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/burglar_ship/second_deck
 	name = "Second Deck"
 	landmark_tag = "nav_burglar_second_deck"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_turf = /turf/space
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/burglar_ship/third_deck
 	name = "Third Deck"
@@ -99,7 +100,7 @@
 //-// Mercenary Shuttle //-//
 
 /datum/shuttle/autodock/multi/antag/merc_ship
-	name = "Mercenary Shuttle"
+	name = "ICV Raskolnikov"
 	current_location = "nav_merc_start"
 	landmark_transition = "nav_merc_interim"
 	dock_target = "merc_shuttle"
@@ -124,18 +125,20 @@
 	landmark_tag = "nav_merc_start"
 	docking_controller = "merc_base"
 	base_turf = /turf/space/dynamic
-	base_area = /area/template_noop
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/merc_ship/interim
 	name = "In Transit"
 	landmark_tag = "nav_merc_interim"
 	base_turf = /turf/space/transit/north
+	base_area = /area/template_noop
 
 /obj/effect/shuttle_landmark/merc_ship/dock
-	name = "Third Deck Dock"
+	name = "Third Deck Starboard Dock 1"
 	landmark_tag = "nav_merc_dock"
 	docking_controller = "nuke_shuttle_dock_airlock"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/merc_ship/third_deck
 	name = "Third Deck Outside"
@@ -165,7 +168,7 @@
 	logging_home_tag = "nav_hangar_intrepid"
 
 /obj/effect/shuttle_landmark/intrepid/hangar
-	name = "Intrepid Hangar"
+	name = "First Deck Intrepid Hangar Bay"
 	landmark_tag = "nav_hangar_intrepid"
 	docking_controller = "intrepid_dock"
 	base_area = /area/hangar/intrepid
@@ -189,7 +192,7 @@
 	logging_home_tag = "nav_hangar_canary"
 
 /obj/effect/shuttle_landmark/canary/hangar
-	name = "Canary Hangar"
+	name = "First Deck Canary Hangar Bay"
 	landmark_tag = "nav_hangar_canary"
 	docking_controller = "canary_dock"
 	base_area = /area/hangar/canary
@@ -213,7 +216,7 @@
 	logging_home_tag = "nav_hangar_mining"
 
 /obj/effect/shuttle_landmark/mining/hangar
-	name = "Mining Shuttle Hangar"
+	name = "First Deck Spark Hangar Bay"
 	landmark_tag = "nav_hangar_mining"
 	docking_controller = "mining_shuttle_dock"
 	base_turf = /turf/simulated/floor/airless
@@ -226,7 +229,7 @@
 
 // Cargo Shuttle
 /datum/shuttle/autodock/ferry/supply/horizon
-	name = "Horizon Cargo Shuttle"
+	name = "OX Supply Shuttle"
 	location = 1
 	shuttle_area = /area/supply/dock
 	dock_target = "cargo_shuttle"
@@ -240,7 +243,8 @@
 	base_area = /area/centcom
 
 /obj/effect/shuttle_landmark/supply/horizon/dock
-	name = "Horizon Cargo Shuttle Dock"
+	name = "First Deck Supply Shuttle Hangar Bay"
 	landmark_tag = "nav_cargo_shuttle_dock"
 	docking_controller = "cargo_shuttle_dock"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_turf = /turf/simulated/floor/plating
+	base_area = /area/hangar/operations

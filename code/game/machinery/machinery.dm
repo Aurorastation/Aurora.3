@@ -84,7 +84,7 @@ Class Procs:
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
 	w_class = ITEMSIZE_IMMENSE
-	layer = OBJ_LAYER - 0.01
+	layer = OBJ_LAYER - 0.1
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	var/stat = 0
@@ -164,23 +164,23 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/examine(mob/user)
+/obj/machinery/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(signaler && Adjacent(user))
+	if(signaler && is_adjacent)
 		to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
 
-/obj/machinery/proc/process_all()
-	/* Uncomment this if/when you need component processing
-	if(processing_flags & MACHINERY_PROCESS_COMPONENTS)
-		for(var/thing in processing_parts)
-			var/obj/item/stock_parts/part = thing
-			if(part.machine_process(src) == PROCESS_KILL)
-				part.stop_processing() */
+// /obj/machinery/proc/process_all()
+// 	/* Uncomment this if/when you need component processing
+// 	if(processing_flags & MACHINERY_PROCESS_COMPONENTS)
+// 		for(var/thing in processing_parts)
+// 			var/obj/item/stock_parts/part = thing
+// 			if(part.machine_process(src) == PROCESS_KILL)
+// 				part.stop_processing() */
 
-	if((processing_flags & MACHINERY_PROCESS_SELF))
-		. = process()
-		if(. == PROCESS_KILL)
-			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+// 	if((processing_flags & MACHINERY_PROCESS_SELF))
+// 		. = process()
+// 		if(. == PROCESS_KILL)
+// 			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 /obj/machinery/process()
 	return PROCESS_KILL
@@ -318,7 +318,7 @@ Class Procs:
 	if(!detach_turf)
 		detach_turf = get_turf(src)
 	if(!detach_turf)
-		log_debug("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
+		LOG_DEBUG("[src] tried to drop a signaler, but it had no turf ([src.x]-[src.y]-[src.z])")
 		return
 
 	var/obj/item/device/assembly/signaler/S = signaler
@@ -535,7 +535,7 @@ Class Procs:
 		if((. = .(candidate)))
 			return
 
-/obj/machinery/proc/on_user_login(mob/M)
+/obj/proc/on_user_login(mob/M)
 	return
 
 /obj/machinery/proc/set_emergency_state(var/new_security_level)

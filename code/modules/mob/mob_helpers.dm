@@ -739,6 +739,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	return 1
 
 /mob/living/carbon/human/proc/delayed_vomit()
+	if(QDELETED(src))
+		return
+
 	if(!check_has_mouth())
 		return
 	if(stat == DEAD)
@@ -753,9 +756,10 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 		spawn(150)	//15 seconds until second warning
 			to_chat(src, "<span class='warning'>You feel like you are about to throw up!</span>")
 			spawn(100)	//and you have 10 more for mad dash to the bucket
-				empty_stomach()
-				spawn(350)	//wait 35 seconds before next volley
-					lastpuke = 0
+				if(!QDELETED(src))
+					empty_stomach()
+					spawn(350)	//wait 35 seconds before next volley
+						lastpuke = 0
 
 /obj/proc/get_equip_slot()
 	//This function is called by an object which is somewhere on a humanoid mob
@@ -1210,18 +1214,14 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 				return {"<a href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'>([a.text_tag])</a>"}
 			else
 				var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/chat)
-				return S.icon_tag("accent-[a.tag_icon]")
+				var/final_icon = "accent-[a.tag_icon]"
+				return {"<span onclick="window.location.href='byond://?src=\ref[src];accent_tag=[url_encode(a)]'">[S.icon_tag(final_icon)]</span>"}
 
 /mob/assign_player(var/mob/user)
 	ckey = user.ckey
 	resting = FALSE // ghosting sets resting to true
+	client.init_verbs()
 	return src
-
-/mob/proc/get_standard_pixel_x()
-	return initial(pixel_x)
-
-/mob/proc/get_standard_pixel_y()
-	return initial(pixel_y)
 
 /mob/proc/remove_nearsighted()
 	disabilities &= ~NEARSIGHTED
@@ -1249,8 +1249,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 /mob/proc/in_neck_grab()
 	for(var/thing in grabbed_by)
 		var/obj/item/grab/G = thing
-		if(G.state >= GRAB_NECK)
-			return TRUE
+		if(istype(G))
+			if(G.state >= GRAB_NECK)
+				return TRUE
 	return FALSE
 
 /mob/get_cell()
@@ -1297,6 +1298,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 
 /mob/proc/get_talk_bubble()
 	return 'icons/mob/talk.dmi'
+
+/mob/proc/adjust_typing_indicator_offsets(var/atom/movable/typing_indicator/indicator)
+	return
 
 /datum/proc/get_client()
 	return null

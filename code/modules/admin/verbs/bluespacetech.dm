@@ -57,7 +57,7 @@
 	bst.equip_to_slot_or_del(new /obj/item/device/radio/headset/ert/bst(bst), slot_l_ear)
 	bst.equip_to_slot_or_del(new /obj/item/storage/backpack/holding/bst(bst), slot_back)
 	bst.equip_to_slot_or_del(new /obj/item/storage/box/survival(bst.back), slot_in_backpack)
-	bst.equip_to_slot_or_del(new /obj/item/clothing/shoes/black/bst(bst), slot_shoes)
+	bst.equip_to_slot_or_del(new /obj/item/clothing/shoes/sneakers/black/bst(bst), slot_shoes)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/officer/bst(bst), slot_head)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/bst(bst), slot_glasses)
 	bst.equip_to_slot_or_del(new /obj/item/storage/belt/utility/very_full(bst), slot_belt)
@@ -122,7 +122,9 @@
 
 	bst.client.init_verbs()
 
-	log_debug("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
+	bst.client.init_verbs()
+
+	LOG_DEBUG("Bluespace Tech Spawned: X:[bst.x] Y:[bst.y] Z:[bst.z] User:[src]")
 
 	feedback_add_details("admin_verb","BST")
 
@@ -457,14 +459,14 @@
 		..()
 
 //Shoes
-/obj/item/clothing/shoes/black/bst
+/obj/item/clothing/shoes/sneakers/black/bst
 	name = "bluespace technician's shoes"
 	desc = "A pair of black shoes with extra grip. The letters 'BST' are stamped on the side."
 	icon_state = "black"
 	item_flags = NOSLIP
 	canremove = 0
 
-/obj/item/clothing/shoes/black/bst/attack_hand()
+/obj/item/clothing/shoes/sneakers/black/bst/attack_hand()
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))

@@ -1,6 +1,3 @@
-#define SOLAR_MAX_DIST 40
-#define SOLARGENRATE 1500
-
 /obj/machinery/power/solar
 	name = "solar panel"
 	desc = "A solar electrical generator."
@@ -272,7 +269,7 @@
 /obj/machinery/power/solar_control
 	name = "solar panel control"
 	desc = "A controller for solar panel arrays."
-	icon = 'icons/obj/modular_console.dmi'
+	icon = 'icons/obj/machinery/modular_console.dmi'
 	icon_state = "computer"
 	light_color = LIGHT_COLOR_YELLOW
 	anchored = 1
@@ -385,7 +382,7 @@
 /obj/machinery/power/solar_control/attackby(var/obj/I, user as mob)
 	if(I.isscrewdriver())
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-		if(do_after(user, 20))
+		if(do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			if (src.stat & BROKEN)
 				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )

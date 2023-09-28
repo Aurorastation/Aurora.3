@@ -31,6 +31,8 @@
 
 #define NEW_SS_GLOBAL(varname) if(varname != src){if(istype(varname)){Recover();qdel(varname);}varname = src;}
 
+#define MC_LOOP_RTN_NEWSTAGES 1
+#define MC_LOOP_RTN_GRACEFUL_EXIT 2
 
 //SubSystem flags (Please design any new flags so that the default is off, to make adding flags to subsystems easier)
 
@@ -80,6 +82,11 @@
 #define SS_PAUSED 3		//paused by mc_tick_check
 #define SS_SLEEPING 4	//fire() slept.
 #define SS_PAUSING 5 	//in the middle of pausing
+
+// Subsystem init stages
+#define INITSTAGE_EARLY 1 //! Early init stuff that doesn't need to wait for mapload
+#define INITSTAGE_MAIN 2 //! Main init stage
+#define INITSTAGE_MAX 2 //! Highest initstage.
 
 // Subsystem init-states, used for the initialization MC panel.
 #define SS_INITSTATE_NONE 0

@@ -477,6 +477,13 @@ default behaviour is:
 	bodytemperature = T20C
 	sdisabilities = 0
 	disabilities = 0
+	hallucination = 0
+	silent = 0
+	dizziness = 0
+	drowsiness = 0
+	stuttering = 0
+	confused = 0
+	jitteriness = 0
 
 	// fix blindness and deafness
 	blinded = 0
@@ -761,10 +768,11 @@ default behaviour is:
 		if(prob(resist_chance))
 			visible_message(resist_msg)
 			qdel(G)
+			break
 
 	if(resisting)
 		visible_message(SPAN_WARNING("[src] resists!"))
-		setClickCooldown(25)
+		setClickCooldown(2.5 SECONDS)
 
 /mob/living/verb/lay_down()
 	set name = "Rest"
@@ -987,16 +995,6 @@ default behaviour is:
 	LAZYREMOVE(auras, aura)
 	update_icon()
 	return TRUE
-
-/mob/living/proc/apply_radiation_effects()
-	var/area/A = get_area(src)
-	if(!A)
-		return FALSE
-	if(isNotStationLevel(A.z))
-		return FALSE
-	if(A.flags & RAD_SHIELDED)
-		return FALSE
-	. = TRUE
 
 /mob/living/proc/needs_wheelchair()
 	return FALSE

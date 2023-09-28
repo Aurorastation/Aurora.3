@@ -199,7 +199,7 @@
 	if(prob(climb_chance))
 		will_succeed = TRUE
 
-	if(do_after(src, climb_speed, extra_checks  = CALLBACK(src, PROC_REF(climb_check), will_succeed, climb_chance, climb_speed, direction, destination)))
+	if(do_after(src, climb_speed))
 		if(will_succeed)
 			visible_message(SPAN_NOTICE("\The [src] climbs [(direction == UP) ? "upwards" : "downwards"]."),
 				SPAN_NOTICE("You climb [(direction == UP) ? "upwards" : "downwards"]."))
@@ -809,7 +809,10 @@
 	qdel(src)
 
 /atom/movable/z_observer/z_down/follow()
-	forceMove(get_step(tile_shifted ? src : owner, DOWN))
+	var/turf/down_step = get_step(tile_shifted ? src : owner, DOWN)
+	/// If we move down more than 1 step, don't move down again.
+	if((GET_Z(owner) - down_step.z) < 2)
+		forceMove(down_step)
 	var/turf/T = get_turf(tile_shifted ? get_step(owner, owner.dir) : owner)
 	if(T && TURF_IS_MIMICING(T))
 		return

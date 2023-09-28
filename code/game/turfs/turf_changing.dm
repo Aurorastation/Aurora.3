@@ -19,9 +19,9 @@
 		above.update_mimic()
 
 	if(queue_neighbors)
-		queue_smooth_neighbors(src)
-	else if(smooth && !(smooth & SMOOTH_QUEUED)) // we check here because proc overhead
-		queue_smooth(src)
+		SSicon_smooth.add_to_queue_neighbors(src)
+	else if(smoothing_flags && !(smoothing_flags & SMOOTH_QUEUED)) // we check here because proc overhead
+		SSicon_smooth.add_to_queue(src)
 
 	if (current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
@@ -120,6 +120,9 @@
 	W.post_change(!mapload)
 
 	. = W
+
+	for(var/turf/T in RANGE_TURFS(1, src))
+		T.update_icon()
 
 /turf/proc/transport_properties_from(turf/other)
 	if(!istype(other, src.type))

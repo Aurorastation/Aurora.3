@@ -6,7 +6,7 @@
 	log_access("Login: [key_name(src)] from [lastKnownIP ? lastKnownIP : "localhost"]-[computer_id] || BYOND v[client.byond_version]",ckey=key_name(src))
 	if(config.guests_allowed) // shut up if guests allowed for testing
 		return
-	if(config.log_access)
+	if(config.logsettings["log_access"])
 		for(var/mob/M in player_list)
 			if(M == src)	continue
 			if( M.key && (M.key != key) )
@@ -102,5 +102,8 @@
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
+
+	if(client)
+		client.update_skybox(TRUE)
 
 	addtimer(CALLBACK(client, TYPE_PROC_REF(/client, check_panel_loaded)), 30 SECONDS)

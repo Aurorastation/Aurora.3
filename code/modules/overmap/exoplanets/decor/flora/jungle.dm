@@ -1,23 +1,24 @@
-/obj/effect/floor_decal/junglegrass
+/obj/structure/flora/grass/junglegrass
 	name = "jungle grass"
 	icon = 'icons/obj/flora/jungleflora.dmi'
 	icon_state = "grassb"
+	density = FALSE
 
-/obj/effect/floor_decal/junglegrass/random/Initialize(mapload, newdir, newcolour, bypass, set_icon_state)
+/obj/structure/flora/grass/junglegrass/random/Initialize(mapload, newdir, newcolour, bypass, set_icon_state)
 	icon_state = "grassb[rand(1,5)]"
 	. = ..()
 
-/obj/effect/floor_decal/junglegrass/dense
+/obj/structure/flora/grass/junglegrass/dense
 	icon_state = "grassa"
 
-/obj/effect/floor_decal/junglegrass/dense/random/Initialize(mapload, newdir, newcolour, bypass, set_icon_state)
+/obj/structure/flora/grass/junglegrass/dense/random/Initialize(mapload, newdir, newcolour, bypass, set_icon_state)
 	icon_state = "grassa[rand(1,5)]"
 	. = ..()
 
-/obj/effect/floor_decal/junglegrass/rocky
+/obj/structure/flora/grass/junglegrass/rocky
 	icon_state = "rock"
 
-/obj/effect/floor_decal/junglegrass/rocky/random/Initialize(mapload, newdir, newcolour, bypass, set_icon_state)
+/obj/structure/flora/grass/junglegrass/rocky/random/Initialize(mapload, newdir, newcolour, bypass, set_icon_state)
 	icon_state = "rock[rand(1,5)]"
 	. = ..()
 
