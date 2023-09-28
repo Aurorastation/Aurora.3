@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/ghostroles/SSghostroles
-
-/datum/controller/subsystem/ghostroles
+SUBSYSTEM_DEF(ghostroles)
 	name = "Ghost Roles"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_GHOSTROLES
@@ -18,9 +16,6 @@
 /datum/controller/subsystem/ghostroles/Recover()
 	src.spawnpoints = SSghostroles.spawnpoints
 	src.spawners = SSghostroles.spawners
-
-/datum/controller/subsystem/ghostroles/New()
-	NEW_SS_GLOBAL(SSghostroles)
 
 /datum/controller/subsystem/ghostroles/Initialize(start_timeofday)
 	. = ..()

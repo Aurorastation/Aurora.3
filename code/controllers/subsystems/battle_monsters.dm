@@ -4,9 +4,7 @@
 #define BATTLE_MONSTERS_GEN_TRAP 4
 #define BATTLE_MONSTERS_GEN_SPELL 5
 
-var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
-
-/datum/controller/subsystem/battle_monsters
+SUBSYSTEM_DEF(battle_monsters)
 	name = "Battle Monsters"
 	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE
@@ -24,10 +22,6 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	var/list/traps_rng
 	var/list/spells_rng
-
-
-/datum/controller/subsystem/battle_monsters/New()
-	NEW_SS_GLOBAL(SSbattlemonsters)
 
 /datum/controller/subsystem/battle_monsters/Initialize()
 	GenerateDatum(BATTLE_MONSTERS_GEN_PREFIX)

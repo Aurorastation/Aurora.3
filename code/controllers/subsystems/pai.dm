@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/pai/SSpai
-
-/datum/controller/subsystem/pai
+SUBSYSTEM_DEF(pai)
 	name = "pAI"
 	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE
@@ -15,8 +13,7 @@
 
 	var/askDelay = 1 MINUTE
 
-/datum/controller/subsystem/pai/New()
-	NEW_SS_GLOBAL(SSpai)
+/datum/controller/subsystem/pai/PreInit()
 	LAZYINITLIST(pai_software_by_key)
 	LAZYINITLIST(default_pai_software)
 

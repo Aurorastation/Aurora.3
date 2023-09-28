@@ -1,6 +1,4 @@
-/var/global/datum/controller/subsystem/virtualreality/SSvirtualreality
-
-/datum/controller/subsystem/virtualreality
+SUBSYSTEM_DEF(virtualreality)
 	name = "Virtual Reality"
 	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE
@@ -16,9 +14,6 @@
 	// STATIONBOUND BODIES
 	var/list/boundnetworks = list(REMOTE_AI_ROBOT)
 	var/list/list/bounded = list()
-
-/datum/controller/subsystem/virtualreality/New()
-	NEW_SS_GLOBAL(SSvirtualreality)
 
 /datum/controller/subsystem/virtualreality/Initialize()
 	for(var/network in mechnetworks)

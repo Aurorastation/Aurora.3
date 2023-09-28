@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/fail2topic/SSfail2topic
-
-/datum/controller/subsystem/fail2topic
+SUBSYSTEM_DEF(/fail2topic)
 	name = "Fail2Topic"
 	init_order = SS_INIT_MISC_FIRST
 	flags = SS_BACKGROUND
@@ -13,9 +11,6 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	var/rate_limit
 	var/max_fails
 	var/enabled = FALSE
-
-/datum/controller/subsystem/fail2topic/New()
-	NEW_SS_GLOBAL(SSfail2topic)
 
 /datum/controller/subsystem/fail2topic/Initialize(timeofday)
 	rate_limit = config.fail2topic_rate_limit

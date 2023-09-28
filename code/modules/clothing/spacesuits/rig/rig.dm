@@ -124,7 +124,7 @@
 
 	spark_system = bind_spark(src, 5)
 
-	START_PROCESSING(SSmob, src)
+	START_PROCESSING(SSmobs, src)
 
 	last_remote_message = world.time
 
@@ -186,7 +186,7 @@
 /obj/item/rig/Destroy()
 	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
 		qdel(piece)
-	STOP_PROCESSING(SSmob, src)
+	STOP_PROCESSING(SSmobs, src)
 	qdel(wires)
 	wires = null
 	qdel(spark_system)

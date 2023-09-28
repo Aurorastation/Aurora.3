@@ -213,16 +213,16 @@ var/list/world_api_rate_limit = list()
 			if (0)
 				hard_reset = TRUE
 			else
-				if (SSpersist_config.rounds_since_hard_restart >= config.rounds_until_hard_restart)
+				if (SSpersistent_configuration.rounds_since_hard_restart >= config.rounds_until_hard_restart)
 					hard_reset = TRUE
-					SSpersist_config.rounds_since_hard_restart = 0
+					SSpersistent_configuration.rounds_since_hard_restart = 0
 				else
 					hard_reset = FALSE
-					SSpersist_config.rounds_since_hard_restart++
+					SSpersistent_configuration.rounds_since_hard_restart++
 	else if (!world.TgsAvailable() && hard_reset)
 		hard_reset = FALSE
 
-	SSpersist_config.save_to_file("data/persistent_config.json")
+	SSpersistent_configuration.save_to_file("data/persistent_config.json")
 	Master.Shutdown()
 
 	for(var/thing in clients)

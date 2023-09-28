@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/hallucinations/SShallucinations
-
-/datum/controller/subsystem/hallucinations
+SUBSYSTEM_DEF(hallucinations)()
 	name = "Hallucinations"
 	flags = SS_NO_FIRE
 
@@ -13,9 +11,6 @@
 			"www.wetskrell.nt", "You are our lucky grand prize winner!",  "Matriarch Drone", "Ginny", "Human Resources",
 			"what have you DONE?", "Miranda Trasen", "Central Command", "AI", "maintenance drone", "Unknown", "I don't want to die")
 	var/list/all_hallucinations = list()
-
-/datum/controller/subsystem/hallucinations/New()
-	NEW_SS_GLOBAL(SShallucinations)
 
 /datum/controller/subsystem/hallucinations/Initialize()
 	. = ..()

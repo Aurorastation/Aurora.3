@@ -1,11 +1,9 @@
-/var/datum/controller/subsystem/jobs/SSjobs
-
 #define BE_ASSISTANT 0
 #define RETURN_TO_LOBBY 1
 
 #define Debug(text) if (Debug2) {job_debug += text}
 
-/datum/controller/subsystem/jobs
+SUBSYSTEM_DEF(jobs)
 	// Subsystem stuff.
 	name = "Jobs"
 	flags = SS_NO_FIRE
@@ -25,9 +23,6 @@
 
 	var/safe_to_sanitize = FALSE
 	var/list/deferred_preference_sanitizations = list()
-
-/datum/controller/subsystem/jobs/New()
-	NEW_SS_GLOBAL(SSjobs)
 
 /datum/controller/subsystem/jobs/Initialize()
 	..()

@@ -96,16 +96,11 @@ On the map:
 1455 for AI access
 */
 
-var/datum/controller/subsystem/radio/SSradio
-
-/datum/controller/subsystem/radio
+SUBSYSTEM_DEF(radio)
 	name = "Radio"
 	flags = SS_NO_FIRE | SS_NO_INIT
 
 	var/list/datum/radio_frequency/frequencies = list()
-
-/datum/controller/subsystem/radio/New()
-	NEW_SS_GLOBAL(SSradio)
 
 /datum/controller/subsystem/radio/stat_entry(msg)
 	msg = "F:[frequencies.len]"

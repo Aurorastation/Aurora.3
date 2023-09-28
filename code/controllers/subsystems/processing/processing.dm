@@ -1,7 +1,6 @@
 //Used to process objects. Fires once every two seconds.
 
-var/datum/controller/subsystem/processing/SSprocessing
-/datum/controller/subsystem/processing
+PROCESSING_SUBSYSTEM_DEF(processing)
 	name = "Processing"
 	priority = SS_PRIORITY_PROCESSING
 	flags = SS_BACKGROUND|SS_POST_FIRE_TIMING|SS_NO_INIT
@@ -9,9 +8,6 @@ var/datum/controller/subsystem/processing/SSprocessing
 	var/stat_tag = "P" //Used for logging
 	var/list/processing = list()
 	var/list/currentrun = list()
-
-/datum/controller/subsystem/processing/New()
-	NEW_SS_GLOBAL(SSprocessing)
 
 /datum/controller/subsystem/processing/stat_entry(msg)
 	msg = "[stat_tag]:[processing.len]"
