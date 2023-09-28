@@ -1,6 +1,3 @@
-#define BE_ASSISTANT 0
-#define RETURN_TO_LOBBY 1
-
 #define Debug(text) if (Debug2) {job_debug += text}
 
 SUBSYSTEM_DEF(jobs)
@@ -887,4 +884,3 @@ SUBSYSTEM_DEF(jobs)
 				H.equip_or_collect(new U.suit(H), H.back)
 				spawned_suit = TRUE
 #undef Debug
-#undef BE_ASSISTANT
