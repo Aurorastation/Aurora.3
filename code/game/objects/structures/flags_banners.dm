@@ -1431,13 +1431,13 @@
 
 /obj/item/flag/biesel/antique
 	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
-	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publically display it in Tau Ceti space, primarily due to its rarity."
+	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publicly display it in Tau Ceti space, primarily due to its rarity."
 	flag_path = "biesel_antique"
 	flag_structure = /obj/structure/sign/flag/biesel/antique
 
 /obj/structure/sign/flag/biesel/antique
 	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
-	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publically display it in Tau Ceti space, primarily due to its rarity."
+	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publicly display it in Tau Ceti space, primarily due to its rarity."
 	flag_path = "biesel_antique"
 	icon_state = "biesel_antique"
 	flag_item = /obj/item/flag/biesel/antique
