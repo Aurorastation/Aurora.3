@@ -112,7 +112,7 @@
 
 /obj/item/clothing/head/helmet/hos/skrell
 	name = "head of security skrellmet"
-	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers, thisone seems to be built for use by a Skrell."
+	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers, this one seems to be built for use by a Skrell."
 	icon_state = "helm_skrell_commander"
 	item_state = "helm_skrell_commander"
 
