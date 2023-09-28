@@ -43,20 +43,20 @@
 #define SOUND_ADMINHELP 0x1
 #define SOUND_MIDI      0x2
 // 0x4 is free.
-#define SOUND_LOBBY     0x8
-#define CHAT_OOC        0x10
-#define CHAT_DEAD       0x20
-#define CHAT_GHOSTEARS  0x40
-#define CHAT_GHOSTSIGHT 0x80
-#define CHAT_PRAYER     0x100
-#define CHAT_RADIO      0x200
-#define CHAT_ATTACKLOGS 0x400
-#define CHAT_DEBUGLOGS  0x800
-#define CHAT_LOOC       0x1000
-#define CHAT_GHOSTRADIO 0x2000
-#define SHOW_TYPING     0x4000
-#define CHAT_NOICONS    0x8000
-#define CHAT_GHOSTLOOC	0x10000
+#define SOUND_LOBBY				0x8
+#define CHAT_OOC				0x10
+#define CHAT_DEAD				0x20
+#define CHAT_GHOSTEARS			0x40
+#define CHAT_GHOSTSIGHT			0x80
+#define CHAT_PRAYER				0x100
+#define CHAT_RADIO				0x200
+#define CHAT_ATTACKLOGS			0x400
+#define CHAT_DEBUGLOGS			0x800
+#define CHAT_LOOC				0x1000
+#define CHAT_GHOSTRADIO			0x2000
+#define HIDE_TYPING_INDICATOR	0x4000
+#define CHAT_NOICONS			0x8000
+#define CHAT_GHOSTLOOC			0x10000
 
 // 0x1 is free.
 // 0x2 is free.

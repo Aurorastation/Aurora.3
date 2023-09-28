@@ -1019,4 +1019,4 @@ default behaviour is:
 	return FALSE
 
 /mob/living/get_speech_bubble_state_modifier()
-	return isSynthetic() ? "synth" : ..()
+	return isSynthetic() ? "robot" : ..()

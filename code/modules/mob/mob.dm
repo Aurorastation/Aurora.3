@@ -106,9 +106,9 @@
 	set name = "Show/Hide Typing Indicator"
 	set category = "Preferences"
 	set desc = "Toggles showing an indicator when you are typing emote or say message."
-	prefs.toggles ^= SHOW_TYPING
+	prefs.toggles ^= HIDE_TYPING_INDICATOR
 	prefs.save_preferences()
-	to_chat(src, "You will [(prefs.toggles & SHOW_TYPING) ? "no longer" : "now"] display a typing indicator.")
+	to_chat(src, "You will [(prefs.toggles & HIDE_TYPING_INDICATOR) ? "no longer" : "now"] display a typing indicator.")
 	feedback_add_details("admin_verb","TID") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /mob/proc/set_stat(var/new_stat)

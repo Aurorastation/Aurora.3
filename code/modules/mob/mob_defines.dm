@@ -246,9 +246,6 @@
 	var/authed = TRUE
 	var/player_age = "Requires database"
 
-	/// Whether this mob is currently typing, if piloted by a player.
-	var/is_typing
-
 	///the icon currently used for the typing indicator's bubble
 	var/atom/movable/typing_indicator/typing_indicator
 	/// User is thinking in character. Used to revert to thinking state after stop_typing

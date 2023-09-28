@@ -984,4 +984,4 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	return ..()
 
 /mob/abstract/observer/get_speech_bubble_state_modifier()
-	return "ghost"
+	return "alien"

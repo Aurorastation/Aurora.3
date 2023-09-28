@@ -294,7 +294,7 @@
 	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
 	/// These are the prefixes of the icon states in talk.dmi.
-	var/list/possible_speech_bubble_types = list("normal")
+	var/list/possible_speech_bubble_types = list("default")
 
 	var/use_alt_hair_layer = FALSE
 

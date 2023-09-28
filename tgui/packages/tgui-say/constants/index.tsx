@@ -22,13 +22,9 @@ export enum LINE_LENGTHS {
  * label - string. button label.
  */
 export const RADIO_PREFIXES = {
-  ';': {
+  '; ': {
     id: 'radio',
     label: 'Com',
-  },
-  ':a ': {
-    id: 'hive',
-    label: 'Hive',
   },
   ':b ': {
     id: 'binary',
