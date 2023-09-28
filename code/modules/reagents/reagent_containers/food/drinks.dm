@@ -15,6 +15,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	icon = 'icons/obj/drinks.dmi'
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
+	contained_sprite = TRUE
 	icon_state = null
 	flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5

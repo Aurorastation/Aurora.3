@@ -444,7 +444,7 @@
 	stack_type = /obj/item/stack/material/plasteel
 	integrity = 400
 	melting_point = 6000
-	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
+	wall_icon = 'icons/turf/smooth/composite_reinf.dmi'
 	table_icon = 'icons/obj/structure/tables/reinforced_table.dmi'
 	icon_reinf = "reinf_over"
 	icon_colour = "#545c68"

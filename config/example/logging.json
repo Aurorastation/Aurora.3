@@ -40,5 +40,7 @@
   "log_modules_sectors":1,
   "world_modules_ruins_log":1,
   "log_gelf_enabled":0,
-  "log_gelf_addr":"127.0.0.1:12345"
+  "log_gelf_addr":"127.0.0.1:12345",
+  "log_subsystems_zas":0,
+  "log_subsystems_zas_debug":0
 }

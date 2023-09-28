@@ -16,17 +16,17 @@
 			for(var/obj/item/organ/external/O in H.organs)
 				if(O.status & ORGAN_ARTERY_CUT)
 					to_chat(H, SPAN_WARNING("Severed artery found in [O.name], repairing..."))
-					if(do_after(user, 20))
+					if(do_after(user, 2 SECONDS, do_flags = DO_USER_UNIQUE_ACT | DO_FAIL_FEEDBACK | DO_SHOW_PROGRESS))
 						O.status &= ~ORGAN_ARTERY_CUT
 				if(O.tendon_status() & TENDON_CUT)
 					to_chat(H, SPAN_WARNING("Severed tendon found in [O.name], repairing..."))
 					if(!O.tendon.can_recover())
 						to_chat(H, SPAN_WARNING("The tissue surrounding the tendon in [O.name] is still too damaged."))
-					else if(do_after(user, 20))
+					else if(do_after(user, 2 SECONDS, do_flags = DO_USER_UNIQUE_ACT | DO_FAIL_FEEDBACK | DO_SHOW_PROGRESS))
 						O.tendon.rejuvenate()
 				if(O.status & ORGAN_BROKEN)
 					to_chat(H, SPAN_WARNING("Broken bone found in [O.name], repairing..."))
-					if(do_after(user, 20))
+					if(do_after(user, 2 SECONDS, do_flags = DO_USER_UNIQUE_ACT | DO_FAIL_FEEDBACK | DO_SHOW_PROGRESS))
 						O.status &= ~ORGAN_BROKEN
 				O.update_damages()
 		else

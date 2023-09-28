@@ -406,7 +406,7 @@ Contains:
 				to_chat(user, SPAN_DANGER("You can't apply a splint to the arm you're using!"))
 				return
 			user.visible_message(SPAN_DANGER("[user] starts to apply \the [src] to their [limb]."), SPAN_DANGER("You start to apply \the [src] to your [limb]."), SPAN_DANGER("You hear something being wrapped."))
-		if(do_after(user, 50))
+		if(do_after(user, 5 SECONDS, M))
 			if (M != user)
 				user.visible_message(SPAN_DANGER("[user] finishes applying \the [src] to [M]'s [limb]."), SPAN_DANGER("You finish applying \the [src] to [M]'s [limb]."), SPAN_DANGER("You hear something being wrapped."))
 			else

@@ -152,7 +152,7 @@
 			SPAN_NOTICE("\The [usr] begins searching through \the [src]..."),\
 			SPAN_NOTICE("You begin searching through your deck...")\
 		)
-		if(!do_after(user, 5 + stored_card_names.len, act_target = src))
+		if(!do_after(user, 5 + stored_card_names.len, src))
 			user.visible_message(\
 				SPAN_NOTICE("\The [usr] stops and thinks better of it."),\
 				SPAN_NOTICE("You stop and think better of it.")\

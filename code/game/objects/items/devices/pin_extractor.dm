@@ -37,7 +37,7 @@
 			if(G.pin)
 				to_chat(user, "<span class ='notice'>You begin removing [G.name]'s [G.pin.name] using \the [src.name], it will take 15 seconds.</span>")
 
-				if(!do_after(user, 15 SECONDS, act_target = target))
+				if(!do_after(user, 15 SECONDS, target, DO_UNIQUE))
 					return
 
 				to_chat(user, "<span class ='notice'>You remove [G.name]'s [G.pin.name].</span>")

@@ -64,7 +64,7 @@
 		return
 	if(user != victim && !use_check_and_message(user)) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
 		user.visible_message(SPAN_WARNING("\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor."))
-		if(!do_after(user, 30, src))
+		if(!do_after(user, 3 SECONDS, src, DO_UNIQUE))
 			return
 		if(!victim)
 			to_chat(user, SPAN_WARNING("There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
