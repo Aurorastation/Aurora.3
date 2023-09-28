@@ -915,6 +915,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior)
+"iB" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/door/window/southright{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/interior)
 "iC" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -1853,8 +1865,12 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/tunnels)
 "pW" = (
-/obj/structure/dock_structure/rail,
-/turf/simulated/floor/asphalt,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/smoothtrack.dmi';
+	icon_state = "track12";
+	name = "tram track"
+	},
+/turf/unsimulated/floor/plating,
 /area/point_verdant/interior)
 "pY" = (
 /obj/machinery/door/urban,
@@ -2745,6 +2761,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/machinery/door/window/southleft{
+	dir = 1
+	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior)
 "ya" = (
@@ -2790,6 +2809,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/pharmacy)
+"yP" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/door/window/southleft{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/interior)
 "yW" = (
 /obj/structure/rod_railing{
 	dir = 8
@@ -4256,6 +4285,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/window/reinforced/crescent{
+	dir = 1
+	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior)
 "MK" = (
@@ -4353,6 +4385,29 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"Nz" = (
+/obj/effect/decal/fake_object{
+	color = "#ff0000";
+	dir = 4;
+	icon = 'icons/atmos/pipes.dmi';
+	icon_state = "intact-scrubbers";
+	name = "pipe"
+	},
+/obj/effect/decal/fake_object{
+	color = "#0000ff";
+	dir = 4;
+	icon = 'icons/atmos/pipes.dmi';
+	icon_state = "intact-supply";
+	name = "pipe"
+	},
+/obj/effect/decal/fake_object{
+	color = "#ff0000";
+	icon = 'icons/obj/power_cond_white.dmi';
+	icon_state = "4-8";
+	name = "cable"
+	},
+/turf/unsimulated/floor/plating,
+/area/point_verdant/interior)
 "NA" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -4639,6 +4694,9 @@
 "PI" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/door/window/southright{
 	dir = 1
 	},
 /turf/simulated/floor/sidewalk/blocks,
@@ -5378,6 +5436,9 @@
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior/tunnels)
+"WM" = (
+/turf/unsimulated/floor/plating,
+/area/point_verdant/interior)
 "WN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/roller,
@@ -21692,16 +21753,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -21949,16 +22010,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -22206,16 +22267,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -22463,16 +22524,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -22720,16 +22781,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -22977,16 +23038,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -23234,16 +23295,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -23491,16 +23552,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 tH
 tH
 tH
@@ -23748,16 +23809,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 MI
 rS
 nd
@@ -24005,16 +24066,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 MI
 rS
 My
@@ -24262,11 +24323,11 @@ rf
 tH
 tH
 tH
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 hV
 hV
@@ -24519,11 +24580,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 CT
 Ph
@@ -24776,17 +24837,17 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 vX
 xy
 Ph
 xy
 vX
-PI
+yP
 rS
 nd
 tH
@@ -25033,11 +25094,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 xy
 xy
 Ph
@@ -25290,11 +25351,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 CT
 Ph
@@ -25547,11 +25608,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 CT
 Ph
@@ -25804,11 +25865,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 CT
 Ph
@@ -26061,11 +26122,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 vX
 xy
 Ph
@@ -26318,17 +26379,17 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 xy
 xy
 Ph
 xy
 xy
-xZ
+iB
 rS
 cx
 tH
@@ -26575,11 +26636,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 CT
 Ph
@@ -26832,11 +26893,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 hV
 hV
@@ -27089,16 +27150,16 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-xy
-tt
+Nz
 pW
+WM
 MI
 rS
 cx
@@ -27346,11 +27407,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 hV
 hV
@@ -27603,11 +27664,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 CT
 Ph
@@ -27860,17 +27921,17 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 vX
 xy
 Ph
 xy
 vX
-PI
+yP
 rS
 cx
 Eg
@@ -28117,11 +28178,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 xy
 xy
 Ph
@@ -28374,11 +28435,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 TU
 ci
@@ -28631,11 +28692,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 TU
 ci
@@ -28888,11 +28949,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 TU
 ci
@@ -29145,11 +29206,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 vX
 xy
 Ph
@@ -29402,17 +29463,17 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 xy
 xy
 Ph
 xy
 xy
-xZ
+iB
 rS
 My
 tH
@@ -29659,11 +29720,11 @@ rf
 cx
 rS
 rS
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 CT
 Ph
@@ -29916,11 +29977,11 @@ rf
 tH
 tH
 tH
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 hV
 hV
 hV
@@ -30173,16 +30234,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 MI
 rS
 nd
@@ -30430,16 +30491,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 tH
 tH
 tH
@@ -30687,16 +30748,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -30944,16 +31005,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -31201,16 +31262,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -31458,16 +31519,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -31715,16 +31776,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -31972,16 +32033,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -32229,16 +32290,16 @@ rf
 rf
 rf
 rf
-tt
+WM
 pW
-tt
-tt
+Nz
 pW
-tt
+WM
+WM
 pW
-tt
-tt
+Nz
 pW
+WM
 rf
 rf
 rf
@@ -32486,16 +32547,16 @@ rf
 rf
 rf
 rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
-rf
+WM
+pW
+Nz
+pW
+WM
+WM
+pW
+Nz
+pW
+WM
 rf
 rf
 rf
