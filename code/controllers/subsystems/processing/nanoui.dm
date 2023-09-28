@@ -13,17 +13,17 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
 /datum/controller/subsystem/processing/nanoui/New()
 	NEW_SS_GLOBAL(SSnanoui)
 
- /**
-  * Get an open /nanoui ui for the current user, src_object and ui_key and try to update it with data
-  *
-  * * user - /mob The mob who opened/owns the ui
-  * * src_object - /obj|/mob The obj or mob which the ui belongs to
-  * * ui_key - A string key used for the ui
-  * * data - List, the data to be passed to the ui, if it exists
-  * * force_open - Boolean, the ui is being forced to (re)open, so close ui if it exists (instead of updating)
-  *
-  * Returns the `/nanoui` found ui, for null if none exists
-  */
+/**
+ * Get an open /nanoui ui for the current user, src_object and ui_key and try to update it with data
+ *
+ * * user - /mob The mob who opened/owns the ui
+ * * src_object - /obj|/mob The obj or mob which the ui belongs to
+ * * ui_key - A string key used for the ui
+ * * data - List, the data to be passed to the ui, if it exists
+ * * force_open - Boolean, the ui is being forced to (re)open, so close ui if it exists (instead of updating)
+ *
+ * Returns the `/nanoui` found ui, for null if none exists
+ */
 /datum/controller/subsystem/processing/nanoui/proc/try_update_ui(mob/user, src_object, ui_key, datum/nanoui/ui, data, force_open = FALSE)
 	if (!ui) // no ui has been passed, so we'll search for one
 		ui = get_open_ui(user, src_object, ui_key)
