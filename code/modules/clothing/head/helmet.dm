@@ -109,6 +109,12 @@
 	icon_state = "helm_sec_commander"
 	item_state = "helm_sec_commander"
 
+/obj/item/clothing/head/helmet/hos/skrell
+	name = "head of security skrellmet"
+	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers, thisone seems to be built for use by a Skrell."
+	icon_state = "helm_skrell_commander"
+	item_state = "helm_skrell_commander"
+
 /obj/item/clothing/head/helmet/hos/dermal
 	name = "dermal armor patch"
 	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."

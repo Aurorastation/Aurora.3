@@ -101,7 +101,7 @@
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-	
+
 /datum/gear/head/skrell/skrell_bandana
 	display_name = "skrell bandana"
 	path = /obj/item/clothing/head/skrell/skrell_bandana
@@ -234,6 +234,13 @@
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	allowed_roles = list("Head of Security", "Warden", "Security Officer", "Investigator", "Executive Officer", "Captain")
+
+/datum/gear/head/skrell_helmet/hos
+	display_name = "Head of Security Skrellmet"
+	path = /obj/item/clothing/head/helmet/hos/skrell
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	allowed_roles = list("Head of Security")
 
 /*
 	Skrellian Social Score
