@@ -99,10 +99,10 @@ SUBSYSTEM_DEF(ghostroles)
 			return get_turf(P)
 
 /datum/controller/subsystem/ghostroles/ui_state(mob/user)
-    return always_state
+	return always_state
 
 /datum/controller/subsystem/ghostroles/ui_status(mob/user, datum/ui_state/state)
-    return UI_INTERACTIVE
+	return UI_INTERACTIVE
 
 /datum/controller/subsystem/ghostroles/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
