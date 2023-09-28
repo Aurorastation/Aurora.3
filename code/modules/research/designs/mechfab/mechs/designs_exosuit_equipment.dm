@@ -78,6 +78,12 @@
 	build_path = /obj/item/mecha_equipment/mounted_system/combat/grenadeflash
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GOLD = 3000, MATERIAL_SILVER = 3000)
 
+/datum/design/item/mechfab/exosuit_equipment/stinger
+	name = "Mounted Stinger Launcher"
+	req_tech = list(TECH_COMBAT = 3)
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/grenadestinger
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GOLD = 3000, MATERIAL_SILVER = 3000)
+
 /datum/design/item/mechfab/exosuit_equipment/cleaner
 	name = "Mounted Cleaner Grenade Launcher"
 	req_tech = list(TECH_MATERIAL = 2)

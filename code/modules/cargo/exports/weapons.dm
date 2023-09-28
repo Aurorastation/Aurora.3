@@ -30,6 +30,11 @@
 	unit_name = "flashbang grenade"
 	export_types = list(/obj/item/grenade/flashbang)
 
+/datum/export/weapon/stinger
+	cost = 5
+	unit_name = "stinger grenade"
+	export_types = list(/obj/item/grenade/stinger)
+
 /datum/export/weapon/teargas
 	cost = 5
 	unit_name = "tear gas grenade"
