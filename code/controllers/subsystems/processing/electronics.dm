@@ -6,7 +6,7 @@
 /datum/controller/subsystem/processing/electronics
 	name = "Electronics"
 	wait = 2 SECONDS
-	priority = SS_PRIORITY_ELECTRONICS
+	priority = FIRE_PRIORITY_ELECTRONICS
 	flags = SS_KEEP_TIMING
 	init_order = SS_INIT_MISC_FIRST
 

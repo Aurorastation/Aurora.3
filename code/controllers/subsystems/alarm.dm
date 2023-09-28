@@ -9,7 +9,7 @@ var/datum/controller/subsystem/alarm/SSalarm
 /datum/controller/subsystem/alarm
 	name = "Alarms"
 	init_order = SS_INIT_MISC_FIRST
-	priority = SS_PRIORITY_ALARMS
+	priority = FIRE_PRIORITY_ALARMS
 	runlevels = RUNLEVELS_PLAYING
 
 	var/list/datum/alarm/all_handlers

@@ -4,7 +4,7 @@
 	name = "Z-Copy"
 	wait = 1
 	init_order = SS_INIT_ZCOPY
-	priority = SS_PRIORITY_ZCOPY
+	priority = FIRE_PRIORITY_ZCOPY
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
 	var/list/queued_turfs = list()

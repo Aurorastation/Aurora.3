@@ -16,7 +16,7 @@ var/datum/controller/subsystem/processing/tgui/SStgui
 	name = "tgui"
 	wait = 9
 	flags = SS_NO_INIT
-	priority = SS_PRIORITY_NANOUI
+	priority = FIRE_PRIORITY_TGUI
 	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
 
 	/// A list of UIs scheduled to process

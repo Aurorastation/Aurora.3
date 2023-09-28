@@ -2,25 +2,40 @@
 	var/tmp/list/_active_timers
 	var/tmp/datum/weakref/weakref
 	var/tmp/isprocessing = 0
-	var/tmp/gcDestroyed //Time when this object was destroyed.
+
+	/**
+	 * Tick count time when this object was destroyed.
+	 *
+	 * If this is non zero then the object has been garbage collected and is awaiting either
+	 * a hard del by the GC subsystme, or to be autocollected (if it has no references)
+	 */
+	var/tmp/gc_destroyed
 
 	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
 	var/list/status_traits
+
 	/// Components attached to this datum
 	/// Lazy associated list in the structure of `type:component/list of components`
 	var/list/datum_components
+
 	/// Any datum registered to receive signals from this datum is in this list
 	/// Lazy associated list in the structure of `signal:registree/list of registrees`
 	var/list/comp_lookup
+
 	/// Lazy associated list in the structure of `signals:proctype` that are run when the datum receives that signal
 	var/list/list/datum/callback/signal_procs
+
 	/// Is this datum capable of sending signals?
 	/// Set to true when a signal has been registered
 	var/signal_enabled = FALSE
+
 	/// A cached version of our \ref
 	/// The brunt of \ref costs are in creating entries in the string tree (a tree of immutable strings)
 	/// This avoids doing that more then once per datum by ensuring ref strings always have a reference to them after they're first pulled
 	var/cached_ref
+
+	/// Datum level flags
+	var/datum_flags = NONE
 
 // Default implementation of clean-up code.
 // This should be overridden to remove all references pointing to the object being destroyed.

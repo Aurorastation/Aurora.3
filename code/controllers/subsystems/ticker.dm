@@ -10,7 +10,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	// -- Subsystem stuff --
 	name = "Ticker"
 
-	priority = SS_PRIORITY_TICKER
+	priority = FIRE_PRIORITY_TICKER
 	flags = SS_NO_TICK_CHECK
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	init_order = SS_INIT_LOBBY

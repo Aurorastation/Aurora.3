@@ -5,7 +5,7 @@ var/datum/controller/subsystem/processing/calamity/SScalamity
 /datum/controller/subsystem/processing/calamity
 	name = "Calamity"
 	flags = SS_NO_INIT | SS_POST_FIRE_TIMING
-	priority = SS_PRIORITY_CALAMITY
+	priority = FIRE_PRIORITY_CALAMITY
 
 	var/list/singularities = list()
 

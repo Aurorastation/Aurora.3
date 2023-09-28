@@ -5,7 +5,7 @@ var/datum/controller/subsystem/vote/SSvote
 	wait = 1 SECOND
 	flags = SS_KEEP_TIMING | SS_NO_TICK_CHECK
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
-	priority = SS_PRIORITY_VOTE
+	priority = FIRE_PRIORITY_VOTE
 
 	var/next_transfer_time
 

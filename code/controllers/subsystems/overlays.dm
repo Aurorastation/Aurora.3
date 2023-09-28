@@ -5,7 +5,7 @@ var/datum/controller/subsystem/overlays/SSoverlays
 	flags = SS_TICKER
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	wait = 1
-	priority = SS_PRIORITY_OVERLAY
+	priority = FIRE_PRIORITY_OVERLAYS
 	init_order = SS_INIT_OVERLAY
 
 	var/list/processing = list()

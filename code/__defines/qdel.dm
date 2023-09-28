@@ -26,14 +26,14 @@
 #define GC_CHECK_QUEUE (5 MINUTES)
 #define GC_DEL_QUEUE (10 SECONDS)
 
-//defines for the gcDestroyed var
+//defines for the gc_destroyed var
 #define GC_QUEUED_FOR_QUEUING -1
 #define GC_QUEUED_FOR_HARD_DEL -2
 #define GC_CURRENTLY_BEING_QDELETED -3
 
-#define QDELING(X) (X.gcDestroyed)
-#define QDELETED(X) (!X || X.gcDestroyed)
-#define QDESTROYING(X) (!X || X.gcDestroyed == GC_CURRENTLY_BEING_QDELETED)
+#define QDELING(X) (X.gc_destroyed)
+#define QDELETED(X) (!X || X.gc_destroyed)
+#define QDESTROYING(X) (!X || X.gc_destroyed == GC_CURRENTLY_BEING_QDELETED)
 
 #define QDEL_IN(item, time) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), item), time, TIMER_STOPPABLE)
 #define QDEL_IN_CLIENT_TIME(item, time) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel), item), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)

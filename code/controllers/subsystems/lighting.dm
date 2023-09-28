@@ -8,7 +8,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	wait = LIGHTING_INTERVAL
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
-	priority = SS_PRIORITY_LIGHTING
+	priority = FIRE_PRIORITY_LIGHTING
 	init_order = SS_INIT_LIGHTING
 
 	var/total_lighting_overlays = 0

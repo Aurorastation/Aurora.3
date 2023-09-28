@@ -37,7 +37,7 @@ if(Datum.isprocessing) {\
 
 /datum/controller/subsystem/machinery
 	name = "Machinery"
-	priority = SS_PRIORITY_MACHINERY
+	priority = FIRE_PRIORITY_MACHINERY
 	init_order = SS_INIT_MACHINERY
 	flags = SS_POST_FIRE_TIMING
 

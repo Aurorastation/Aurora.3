@@ -3,7 +3,7 @@
 /datum/controller/subsystem/mob_ai
 	name = "Mobs - AI"
 	flags = SS_NO_INIT
-	priority = SS_PRIORITY_MOB
+	priority = FIRE_PRIORITY_MOBS
 	runlevels = RUNLEVELS_PLAYING
 
 	var/list/processing = list()

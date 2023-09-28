@@ -5,7 +5,7 @@
 	flags = 0	// Override parent's flags.
 	wait = 75
 	init_order = SS_INIT_SEEDS
-	priority = SS_PRIORITY_PLANTS
+	priority = FIRE_PRIORITY_PLANTS
 	runlevels = RUNLEVELS_PLAYING
 
 	var/list/product_descs = list()         // Stores generated fruit descs.

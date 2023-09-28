@@ -2,7 +2,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 /datum/controller/subsystem/chemistry
 	name = "Chemistry"
-	priority = SS_PRIORITY_CHEMISTRY
+	priority = FIRE_PRIORITY_CHEMISTRY
 	init_order = SS_INIT_MISC_FIRST
 	runlevels = RUNLEVELS_PLAYING
 	init_stage = INITSTAGE_EARLY

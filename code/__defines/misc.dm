@@ -312,7 +312,7 @@
 #define SOFTREF(A) ref(A)
 
 // This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
-#define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref || (D:weakref = new/datum/weakref(D))) : null)
+#define WEAKREF(D) (istype(D, /datum) && !D:gc_destroyed ? (D:weakref || (D:weakref = new/datum/weakref(D))) : null)
 
 #define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 #define ADD_VERB_IN_IF(the_atom,time,verb,callback) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb, callback), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)

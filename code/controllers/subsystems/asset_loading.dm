@@ -5,7 +5,7 @@ var/datum/controller/subsystem/asset_loading/SSasset_loading
 
 /datum/controller/subsystem/asset_loading
 	name = "Asset Loading"
-	priority = SS_PRIORITY_ASSET
+	priority = FIRE_PRIORITY_ASSET
 	flags = SS_NO_INIT
 	runlevels = RUNLEVEL_LOBBY|RUNLEVELS_DEFAULT
 	var/list/datum/asset/generate_queue = list()

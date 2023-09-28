@@ -38,42 +38,42 @@
 //  be allocated twice the amount of runtime as normal, and 25 would get half the amount.
 
 // SS_TICKER
-#define SS_PRIORITY_OVERLAY   100	// Applies overlays. May cause overlay pop-in if it gets behind.
-//#define SS_PRIORITY_DEFAULT  50	// This is defined somewhere else.
-#define SS_PRIORITY_TIMER      20	// Timed event scheduling. This is important.
-#define SS_PRIORITY_PROFILE    15
-#define SS_PRIORITY_OVERMAP    12   // Handles overmap processing. Keeps things smooth during highpop, ideally.
-#define SS_PRIORITY_SMOOTHING  10	// Smooth turf generation.
-#define SS_PRIORITY_ORBIT       5	// Orbit datum updates.
-#define SS_PRIORITY_ICON_UPDATE 5	// Queued icon updates. Mostly used by APCs and tables.
-#define SS_PRIORITY_PROJECTILES 5	// Projectile processing!
+#define FIRE_PRIORITY_ORBIT       5	// Orbit datum updates.
+#define FIRE_PRIORITY_ICON_UPDATE 5	// Queued icon updates. Mostly used by APCs and tables.
+#define FIRE_PRIORITY_PROJECTILES 5	// Projectile processing!
+#define FIRE_PRIORITY_SMOOTHING  10	// Smooth turf generation.
+#define FIRE_PRIORITY_OVERMAP    12   // Handles overmap processing. Keeps things smooth during highpop, ideally.
+#define FIRE_PRIORITY_PROFILE    15
+#define FIRE_PRIORITY_OVERLAYS   100	// Applies overlays. May cause overlay pop-in if it gets behind.
+#define FIRE_PRIORITY_TIMER 700
 
 // Normal
-#define SS_PRIORITY_TICKER     100	// Gameticker.
+#define FIRE_PRIORITY_TGUI 110
+#define FIRE_PRIORITY_TICKER     200	// Gameticker.
 //#define SS_PRIORITY_DEFAULT   50	// This is defined somewhere else.
-#define SS_PRIORITY_MOB         40	// Mob Life().
-#define SS_PRIORITY_ASSET		40  // Asset loading subsystem - not to be confused with SSassets.
-#define SS_PRIORITY_AIR         40	// ZAS processing.
-#define SS_PRIORITY_CHAT        30  // Chat
-#define SS_PRIORITY_STATPANELS  25  // Statpanels.
-#define SS_PRIORITY_LIGHTING    25	// Queued lighting engine updates.
-#define SS_PRIORITY_MACHINERY   25	// Machinery + powernet ticks.
-#define SS_PRIORITY_NANOUI      25	// UI updates.
-#define SS_PRIORITY_VOTE        20
-#define SS_PRIORITY_ELECTRONICS 20	// Integrated Electronics processing.
-#define SS_PRIORITY_CALAMITY    20	// Singularity, Tesla, Nar'sie, blob, etc.
-#define SS_PRIORITY_EVENT       20
-#define SS_PRIORITY_DISEASE     20	// Disease ticks.
-#define SS_PRIORITY_RADIATION   20  // Radiation processing and cache updates.
-#define SS_PRIORITY_ALARMS      20
-#define SS_PRIORITY_PLANTS      20	// Spreading plant effects.
-#define SS_PRIORITY_EFFECTS     20	// New-style effects manager. Timing of effects may be off if this gets too far behind.
-#define SS_PRIORITY_CHEMISTRY   10	// Multi-tick chemical reactions.
-#define SS_PRIORITY_SHUTTLE     10	// Shuttle movement.
-#define SS_PRIORITY_AIRFLOW     10	// Handles object movement due to ZAS airflow.
-#define SS_PRIORITY_PING        10
-#define SS_PRIORITY_ZCOPY       10	// Z-mimic icon generation/updates.
-#define SS_PRIORITY_ARRIVALS    10	// Centcomm arrivals shuttle auto-launch. Usually asleep.
+#define FIRE_PRIORITY_MOBS         40	// Mob Life().
+#define FIRE_PRIORITY_ASSET		40  // Asset loading subsystem - not to be confused with SSassets.
+#define FIRE_PRIORITY_AIR         40	// ZAS processing.
+#define FIRE_PRIORITY_CHAT        30  // Chat
+#define FIRE_PRIORITY_STATPANELS  25  // Statpanels.
+#define FIRE_PRIORITY_LIGHTING    25	// Queued lighting engine updates.
+#define FIRE_PRIORITY_MACHINERY   25	// Machinery + powernet ticks.
+#define FIRE_PRIORITY_NANOUI      25	// UI updates.
+#define FIRE_PRIORITY_VOTE        20
+#define FIRE_PRIORITY_ELECTRONICS 20	// Integrated Electronics processing.
+#define FIRE_PRIORITY_CALAMITY    20	// Singularity, Tesla, Nar'sie, blob, etc.
+#define FIRE_PRIORITY_EVENT       20
+#define FIRE_PRIORITY_DISEASE     20	// Disease ticks.
+#define FIRE_PRIORITY_RADIATION   20  // Radiation processing and cache updates.
+#define FIRE_PRIORITY_ALARMS      20
+#define FIRE_PRIORITY_PLANTS      20	// Spreading plant effects.
+#define FIRE_PRIORITY_EFFECTS     20	// New-style effects manager. Timing of effects may be off if this gets too far behind.
+#define FIRE_PRIORITY_CHEMISTRY   10	// Multi-tick chemical reactions.
+#define FIRE_PRIORITY_SHUTTLE     10	// Shuttle movement.
+#define FIRE_PRIORITY_AIRFLOW     10	// Handles object movement due to ZAS airflow.
+#define FIRE_PRIORITY_PING        10
+#define FIRE_PRIORITY_ZCOPY       10	// Z-mimic icon generation/updates.
+#define FIRE_PRIORITY_ARRIVALS    10	// Centcomm arrivals shuttle auto-launch. Usually asleep.
 
 
 // SS_BACKGROUND

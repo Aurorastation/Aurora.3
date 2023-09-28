@@ -4,7 +4,7 @@ var/datum/controller/subsystem/profiler/SSprofiler
 /datum/controller/subsystem/profiler
 	name = "Profiler"
 	wait = 1
-	priority = SS_PRIORITY_PROFILE
+	priority = FIRE_PRIORITY_PROFILE
 
 	flags = SS_TICKER
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY

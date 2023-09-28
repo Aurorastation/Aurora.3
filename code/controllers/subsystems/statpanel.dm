@@ -4,7 +4,7 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 	name = "Stat Panels"
 	wait = 4
 	init_order = SS_INIT_MISC_FIRST
-	priority = SS_PRIORITY_STATPANELS
+	priority = FIRE_PRIORITY_STATPANELS
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 	init_stage = INITSTAGE_EARLY
 

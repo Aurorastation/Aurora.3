@@ -22,7 +22,7 @@ var/datum/controller/subsystem/timer/SStimer
 	name = "Timer"
 	wait = 1 // SS_TICKER subsystem, so wait is in ticks
 	init_order = SS_INIT_MISC
-	priority = SS_PRIORITY_TIMER
+	priority = FIRE_PRIORITY_TIMER
 	//runlevels = RUNLEVELS_PLAYING
 
 	flags = SS_TICKER|SS_NO_INIT
@@ -607,7 +607,7 @@ var/datum/controller/subsystem/timer/SStimer
 	// Generate hash if relevant for timed events with the TIMER_UNIQUE flag
 	var/hash
 	if (flags & TIMER_UNIQUE)
-		var/list/hashlist = list(callback.object, "([text_ref(callback.object)])", callback.delegate, flags & TIMER_CLIENT_TIME)
+		var/list/hashlist = list(callback.object, "([REF(callback.object)])", callback.delegate, flags & TIMER_CLIENT_TIME)
 		if(!(flags & TIMER_NO_HASH_WAIT))
 			hashlist += wait
 		hashlist += callback.arguments

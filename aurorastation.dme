@@ -146,6 +146,7 @@
 #include "code\_helpers\names.dm"
 #include "code\_helpers\overlay.dm"
 #include "code\_helpers\overmap.dm"
+#include "code\_helpers\ref.dm"
 #include "code\_helpers\sanitize_values.dm"
 #include "code\_helpers\smart_token_bucket.dm"
 #include "code\_helpers\spatial_info.dm"

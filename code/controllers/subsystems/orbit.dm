@@ -2,7 +2,7 @@ var/datum/controller/subsystem/orbit/SSorbit
 
 /datum/controller/subsystem/orbit
 	name = "Orbits"
-	priority = SS_PRIORITY_ORBIT
+	priority = FIRE_PRIORITY_ORBIT
 	wait = 2
 	flags = SS_NO_INIT|SS_TICKER
 	runlevels = RUNLEVELS_PLAYING

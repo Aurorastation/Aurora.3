@@ -11,7 +11,7 @@ var/datum/controller/subsystem/chat/SSchat
 	name = "Chat"
 	flags = SS_TICKER
 	wait = 1
-	priority = SS_PRIORITY_CHAT
+	priority = FIRE_PRIORITY_CHAT
 	init_order = SS_INIT_CHAT
 
 	var/list/payload_by_client = list()

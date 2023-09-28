@@ -14,7 +14,7 @@
 	name = "Airflow"
 	wait = 1
 	flags = SS_NO_INIT
-	priority = SS_PRIORITY_AIRFLOW
+	priority = FIRE_PRIORITY_AIRFLOW
 
 /datum/controller/subsystem/processing/airflow/New()
 	NEW_SS_GLOBAL(SSairflow)

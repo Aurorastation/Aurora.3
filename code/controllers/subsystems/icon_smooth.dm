@@ -4,7 +4,7 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 	name = "Icon Smoothing"
 	init_order = SS_INIT_SMOOTHING
 	wait = 1
-	priority = SS_PRIORITY_SMOOTHING
+	priority = FIRE_PRIORITY_SMOOTHING
 	flags = SS_TICKER
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
