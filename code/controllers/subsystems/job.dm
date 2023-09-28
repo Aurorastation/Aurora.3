@@ -887,3 +887,4 @@ SUBSYSTEM_DEF(jobs)
 				H.equip_or_collect(new U.suit(H), H.back)
 				spawned_suit = TRUE
 #undef Debug
+#undef BE_ASSISTANT
