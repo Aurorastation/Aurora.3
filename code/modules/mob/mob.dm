@@ -1379,7 +1379,7 @@
 	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))
 
 /mob/proc/get_speech_bubble_state_modifier()
-	return "normal"
+	return "default"
 
 /// Adds this list to the output to the stat browser
 /mob/proc/get_status_tab_items()
