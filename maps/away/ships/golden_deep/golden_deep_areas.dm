@@ -48,8 +48,11 @@
 	icon_state = "captain"
 
 /area/golden_deep/dock
-	name = "Golden Deep Merchant Ship - Docking Port"
+	name = "Golden Deep Merchant Ship - Trading Area"
 	icon_state = "exit"
+
+/area/golden_deep/dock/aux
+	name = "Golden Deep Merchant Ship - Auxiliary Docking Port"
 
 /area/golden_deep/storage
 	name = "Golden Deep Merchant Ship - Crew Storage"

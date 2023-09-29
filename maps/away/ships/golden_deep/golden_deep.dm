@@ -39,7 +39,9 @@
 		"gd_nav2",
 		"gd_nav3",
 		"gd_nav4",
-		"gd_dock"
+		"gd_dock",
+		"gd_dock2",
+		"gd_dock3",
 	)
 
 /obj/effect/overmap/visitable/ship/golden_deep/New()
@@ -67,8 +69,16 @@
 	landmark_tag = "gd_nav4"
 
 /obj/effect/shuttle_landmark/golden_deep/dock
-	name = "Golden Deep Mercantile Vessel, Docking Port"
+	name = "Golden Deep Mercantile Vessel, Main Docking Port"
 	landmark_tag = "gd_dock"
+
+/obj/effect/shuttle_landmark/golden_deep/dock2
+	name = "Golden Deep Mercantile Vessel, Auxiliary Docking Port"
+	landmark_tag = "gd_dock2"
+
+/obj/effect/shuttle_landmark/golden_deep/dock3
+	name = "Golden Deep Mercantile Vessel, Docking Port"
+	landmark_tag = "gd_dock3"
 
 //Shuttle
 /obj/effect/overmap/visitable/ship/landable/golden_deep_shuttle
