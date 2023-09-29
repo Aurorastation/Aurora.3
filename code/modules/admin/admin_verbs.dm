@@ -694,7 +694,7 @@ var/list/admin_verbs_cciaa = list(
 
 	var/turf/epicenter = mob.loc
 	var/list/choices = list("Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb")
-	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", choices)
+	var/choice = tgui_input_list(usr, "What size explosion would you like to produce?", "Drop Bomb", choices)
 	switch(choice)
 		if(null)
 			return 0
@@ -881,9 +881,11 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Sets the station security level"
 	set category = "Admin"
 
-	if(!check_rights(R_ADMIN))	return
-	var/sec_level = tgui_alert(usr, "It's currently code [get_security_level()].", "Select Security Level", list("green", "blue", "red", "yellow", "delta") - get_security_level())
-	if(tgui_alert(usr, "Switch from code [get_security_level()] to code [sec_level]?", "Security Level", list("Yes","No")) == "Yes")
+	if(!check_rights(R_ADMIN))
+		return
+	var/sec_level = tgui_input_list(usr, "It's currently code [get_security_level()].", "Select Security Level", list("green", "blue", "red", "yellow", "delta") - get_security_level())
+	var/msg = tgui_alert(usr, "Switch from code [get_security_level()] to code [sec_level]?", "Security Level", list("Yes","No"))
+	if(msg == "Yes")
 		set_security_level(sec_level)
 		log_admin("[key_name(usr)] changed the security level to code [sec_level].",admin_key=key_name(usr))
 

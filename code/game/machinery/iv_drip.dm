@@ -669,7 +669,7 @@
 	if(use_check_and_message(usr))
 		return
 	set_rate:
-		var/amount = tgui_input_number(usr, "Set the IV drip's transfer rate.", "IV Drip", transfer_amount, transfer_limit, 0.001)
+		var/amount = tgui_input_number(usr, "Set the IV drip's transfer rate.", "IV Drip", transfer_amount, transfer_limit, 0.001, round_value = FALSE)
 		if(!amount)
 			return
 		if ((0.001 > amount || amount > transfer_limit) && amount != 0)
