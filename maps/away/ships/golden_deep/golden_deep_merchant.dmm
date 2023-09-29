@@ -428,7 +428,7 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/eva)
 "fb" = (
-/obj/effect/shuttle_landmark/golden_deep/dock3,
+/obj/effect/shuttle_landmark/golden_deep/dock2,
 /turf/simulated/floor/plating,
 /area/golden_deep/hangar)
 "fc" = (
@@ -1035,7 +1035,7 @@
 /turf/simulated/floor/gold,
 /area/golden_deep/dock/aux)
 "li" = (
-/obj/effect/shuttle_landmark/golden_deep/dock2{
+/obj/effect/shuttle_landmark/golden_deep/dock3{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1861,7 +1861,7 @@
 	dir = 5;
 	icon_state = "intact"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/gold,
 /area/golden_deep/hangar)
 "tO" = (
 /obj/structure/cable/green{
@@ -1886,7 +1886,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/gold,
 /area/golden_deep/hangar)
 "tZ" = (
 /turf/simulated/wall/gold_reinforced,
@@ -2239,6 +2239,9 @@
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
+"xE" = (
+/turf/simulated/floor/gold,
+/area/golden_deep/hangar)
 "xK" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/iff_beacon/name_change,
@@ -3708,6 +3711,14 @@
 	},
 /turf/simulated/floor/gold,
 /area/golden_deep/bridge)
+"NS" = (
+/obj/machinery/door/airlock/gold{
+	dir = 1;
+	name = "Docking Bay";
+	req_access = list(217)
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/hangar)
 "Oh" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -3982,6 +3993,12 @@
 /obj/machinery/light/broken,
 /turf/simulated/floor/tiled,
 /area/golden_deep/engineering)
+"RZ" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/hangar)
 "Sg" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/machinery/recharge_station,
@@ -4685,7 +4702,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/gold,
 /area/golden_deep/hangar)
 "ZJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
@@ -18504,10 +18521,10 @@ pu
 pu
 pu
 pZ
-aH
-aH
-aH
-aH
+pZ
+pZ
+pZ
+pZ
 aH
 aH
 aH
@@ -18668,8 +18685,8 @@ pu
 pZ
 iT
 tH
-aH
-aH
+xE
+pZ
 aH
 aH
 aH
@@ -18830,8 +18847,8 @@ pZ
 pZ
 en
 ZB
-aH
-aH
+xE
+pZ
 aH
 aH
 aH
@@ -18992,8 +19009,8 @@ aH
 aH
 aH
 tU
-aH
-aH
+xE
+NS
 aH
 aH
 aH
@@ -19153,9 +19170,9 @@ aH
 qP
 aH
 aH
-aH
-aH
-aH
+xE
+xE
+pZ
 aH
 aH
 aH
@@ -19315,9 +19332,9 @@ pZ
 pZ
 pZ
 pZ
-aH
-qP
-aH
+xE
+RZ
+pZ
 aH
 qP
 aH
