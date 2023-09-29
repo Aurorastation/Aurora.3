@@ -65,7 +65,7 @@
 	origin_traits_descriptions = list("have a small resistance to radiation", "are more sensitive to bright lights")
 
 /singleton/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/human/H)
-  H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
+	H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/gadpathur_exile
 	name = "Gadpathurian Exile"
@@ -77,7 +77,7 @@
 	origin_traits_descriptions = list("have a small resistance to radiation", "are more sensitive to bright lights")
 
 /singleton/origin_item/origin/gadpathur_exile/on_apply(var/mob/living/carbon/human/H)
-  H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
+	H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/assunzione
 	name = "Republic of Assunzione"

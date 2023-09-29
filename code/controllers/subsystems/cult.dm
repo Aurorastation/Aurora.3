@@ -31,7 +31,7 @@
 		if(R.max_number_allowed)
 			tome_data += "This rune has a special limit of <b><i>[R.max_number_allowed]</b></i> runes.<br><hr>"
 			limited_runes[R.type] = R.max_number_allowed //The runes created will tick the counter down to zero.
-		tome_data += "</div>"			
+		tome_data += "</div>"
 
 /datum/controller/subsystem/cult/proc/add_rune(var/datum/rune/R)
 	if(check_rune_limit(R))
@@ -46,9 +46,9 @@
 		if(current_runes > 0)
 			limited_runes[rune_type]--
 			return FALSE
-		else			
+		else
 			return TRUE
-	else	
+	else
 		return ((length(rune_list) + rune_boost + length(cult.current_antagonists)) >= rune_limit)
 
 /datum/controller/subsystem/cult/proc/remove_rune(var/datum/rune/R)

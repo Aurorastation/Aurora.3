@@ -25,10 +25,10 @@
 	default_pai_software = SSpai.default_pai_software
 
 /datum/controller/subsystem/pai/ui_state(mob/user)
-    return always_state
+	return always_state
 
 /datum/controller/subsystem/pai/ui_status(mob/user, datum/ui_state/state)
-    return UI_INTERACTIVE
+	return UI_INTERACTIVE
 
 
 /datum/controller/subsystem/pai/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)

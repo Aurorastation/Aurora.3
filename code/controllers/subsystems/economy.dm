@@ -40,7 +40,8 @@ var/datum/controller/subsystem/economy/SSeconomy
 /**
  * Account Creation
  */
- //Create the station Account
+
+///Create the station Account
 /datum/controller/subsystem/economy/proc/create_station_account()
 	if(station_account)
 		return FALSE

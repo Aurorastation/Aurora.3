@@ -14,5 +14,5 @@
 	return
 
 /area/map_template/crashed_pod
-    name = "Crashed Pod"
-    icon_state = "blue"
+	name = "Crashed Pod"
+	icon_state = "blue"

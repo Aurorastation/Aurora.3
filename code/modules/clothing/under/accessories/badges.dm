@@ -277,11 +277,11 @@
 	badge_string = null
 
 /obj/item/clothing/accessory/badge/trinary
-    name = "trinary perfection brooch"
-    desc = "A metal brooch worn by those who serve or follow the beliefs of the Trinary Perfection. It resembles a gear with a triangle inside."
-    icon_state = "trinary_badge"
-    overlay_state = "trinary_badge"
-    badge_string = null
+	name = "trinary perfection brooch"
+	desc = "A metal brooch worn by those who serve or follow the beliefs of the Trinary Perfection. It resembles a gear with a triangle inside."
+	icon_state = "trinary_badge"
+	overlay_state = "trinary_badge"
+	badge_string = null
 
 // passcards
 
@@ -308,7 +308,7 @@
 	name = "synthetic residence card"
 	desc = "A passcard issued to free IPCs within the Republic of Biesel, providing resident status and allowing the owning of property, among other things."
 	desc_extended = "Working alongside IPC tags within the Republic of Biesel, the synthetic residence card has a small RFID chip embedded in it which allows governmental authorities to confirm whether or not an IPC \
-    is free and taking residency within the system. They were recently introduced in order to provide streamlined documentation for IPCs that have attained freedom but are not citizens."
+	is free and taking residency within the system. They were recently introduced in order to provide streamlined documentation for IPCs that have attained freedom but are not citizens."
 	icon_state = "passcard_ceti_m"
 	item_state = "passcard_ceti_m"
 
