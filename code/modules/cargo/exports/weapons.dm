@@ -52,4 +52,4 @@
 	unit_name = "pair"
 	message = "of handcuffs"
 	export_types = list(/obj/item/handcuffs)
-	
+
