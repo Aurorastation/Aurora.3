@@ -119,13 +119,14 @@
 					return
 
 /obj/item/projectile/bullet/rubberball
-	name = "rubber balls"
+	name = "rubber ball"
 	icon_state = "pellets"
 	damage = 2
 	agony = 45
 	embed = FALSE
 	var/balls = 4
-	var/range_step = 2		//projectile will lose a fragment each time it travels this distance. Can be a non-integer.
+	///projectile will lose a fragment each time it travels this distance. Can be a non-integer.
+	var/range_step = 2
 	var/base_spread = 90
 	var/spread_step = 10
 
@@ -134,7 +135,8 @@
 	return max(balls - ball_loss, 1)
 
 /obj/item/projectile/bullet/rubberball/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier)
-	if (balls < 0) return 1
+	if (balls < 0) 
+		return TRUE
 
 	var/total_balls = get_balls(distance)
 	var/spread = max(base_spread - (spread_step*distance), 0)
@@ -150,13 +152,14 @@
 
 		var/old_zone = def_zone
 		def_zone = ran_zone(def_zone, spread)
-		if (..()) hits++
+		if (..()) 
+			hits++
 		def_zone = old_zone
 
 	balls -= hits
 	if (hits >= total_balls || balls <= 0)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/item/projectile/bullet/rubberball/Move()
 	. = ..()
