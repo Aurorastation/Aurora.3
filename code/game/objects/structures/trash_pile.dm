@@ -32,7 +32,7 @@
 	if(!Adjacent(user) || use_check_and_message(user))
 		return
 	user.visible_message("<b>[user]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."))
-	if(do_after(user, 3 SECONDS))
+	if(do_after(user, 3 SECONDS, src, DO_UNIQUE))
 		user.visible_message("<b>[user]</b> climbs into \the [src], disappearing from sight.", SPAN_NOTICE("You climb into \the [src], finally finding a good spot to hide."))
 		user.forceMove(src)
 		hider = user
@@ -54,7 +54,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.a_intent == I_HURT)
 			H.visible_message("<b>[user]</b> starts taking \the [src] apart...", SPAN_NOTICE("You start taking \the [src] apart..."))
-			if(do_after(user, 2 MINUTES))
+			if(do_after(user, 2 MINUTES, src, DO_UNIQUE))
 				H.visible_message("<b>[user]</b> takes \the [src] apart.", SPAN_NOTICE("You takes \the [src] apart."))
 				for(var/i = 1 to 5)
 					var/obj/item/I = give_item()
@@ -66,7 +66,7 @@
 		if(hider)
 			to_chat(hider, SPAN_WARNING("[user] is searching the trash pile you're in!"))
 		//Do the searching
-		if(do_after(user, rand(4 SECONDS, 6 SECONDS)))
+		if(do_after(user, rand(4 SECONDS, 6 SECONDS), src, DO_UNIQUE))
 			var/unique_string = "[user.ckey]-[user.real_name]"
 			//If there was a hider, chance to reveal them
 			if(eject_hider(50, user))

@@ -5,7 +5,7 @@ MRE Stuff
 /obj/item/storage/box/fancy/mre
 	name = "\improper MRE, menu 1"
 	desc = "A vacuum-sealed bag containing a day's worth of nutrients for an adult in strenuous situations. There is no visible expiration date on the package."
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/storage/fancy/mre.dmi'
 	icon_state = "mre"
 	storage_slots = 7
 	opened = FALSE
@@ -178,7 +178,7 @@ MRE Stuff
 /obj/item/storage/box/fancy/mrebag
 	name = "main course"
 	desc = "A vacuum-sealed bag containing a MRE's main course. Self-heats when opened."
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/storage/fancy/mre.dmi'
 	icon_state = "pouch_medium"
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'

@@ -319,6 +319,8 @@
 			var/mob/living/carbon/human/A = affecting
 			if (!(A.species.flags & NO_BREATHE))
 				A.losebreath += 4
+				var/obj/item/organ/external/O = A.get_organ(BP_HEAD)
+				O.add_autopsy_data("Strangling")
 		affecting.set_dir(WEST)
 	else if(state == GRAB_KILL)
 		hud.icon_state = "kill"

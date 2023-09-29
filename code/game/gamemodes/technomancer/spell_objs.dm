@@ -44,7 +44,7 @@
 	var/psi_cost = 0				// Psi complexus cost to use this spell.
 
 /obj/item/spell/examine(mob/user, distance) // Nothing on examine.
-	return
+	return TRUE
 
 // Proc: on_use_cast()
 // Parameters: 1 (user - the technomancer casting the spell)
