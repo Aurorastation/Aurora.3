@@ -81,8 +81,8 @@ var/list/escape_pods_by_name = list()
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/pod_program = pod.arming_controller
 	if(pod_program)
 		if(pod_program.emagged)
-			return
 			to_chat(user, SPAN_WARNING("The pod has already been emagged!"))
+			return
 		to_chat(user, SPAN_NOTICE("You emag \the [src], arming the escape pod!"))
 		pod_program.emagged = TRUE
 		if(!pod_program.armed)
