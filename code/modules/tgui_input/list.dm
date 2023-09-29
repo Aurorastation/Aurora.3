@@ -109,8 +109,8 @@
 	var/list/data = list()
 	data["init_value"] = default || items[1]
 	data["items"] = items
-	data["large_buttons"] = user.client.prefs.tgui_inputs_large_buttons
-	data["swapped_buttons"] = user.client.prefs.tgui_inputs_swapped_buttons
+	data["large_buttons"] = user.client.prefs.tgui_buttons_large
+	data["swapped_buttons"] = user.client.prefs.tgui_inputs_swapped
 	data["message"] = message
 	data["title"] = title
 	return data

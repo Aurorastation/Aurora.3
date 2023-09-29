@@ -61,7 +61,7 @@
 	if(stat != CONSCIOUS || !client?.tgui_say?.window_open)
 		return FALSE
 	client.tgui_say.force_say()
-	//SEND_SIGNAL(src, COMSIG_HUMAN_FORCESAY) todomatt
+	SEND_SIGNAL(src, COMSIG_HUMAN_FORCESAY)
 
 /**
  * Handles text entry and forced speech.

@@ -110,8 +110,8 @@
 
 /datum/tgui_input_text/ui_static_data(mob/user)
 	var/list/data = list()
-	data["large_buttons"] = user.client.prefs.tgui_inputs_large_buttons
-	data["swapped_buttons"] = user.client.prefs.tgui_inputs_swapped_buttons
+	data["large_buttons"] = user.client.prefs.tgui_buttons_large
+	data["swapped_buttons"] = user.client.prefs.tgui_inputs_swapped
 	data["max_length"] = max_length
 	data["message"] = message
 	data["multiline"] = multiline

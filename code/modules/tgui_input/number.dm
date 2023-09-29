@@ -113,8 +113,8 @@
 /datum/tgui_input_number/ui_static_data(mob/user)
 	var/list/data = list()
 	data["init_value"] = default // Default is a reserved keyword
-	data["large_buttons"] = user.client.prefs.tgui_inputs_large_buttons
-	data["swapped_buttons"] = user.client.prefs.tgui_inputs_swapped_buttons
+	data["large_buttons"] = user.client.prefs.tgui_buttons_large
+	data["swapped_buttons"] = user.client.prefs.tgui_inputs_swapped
 	data["max_value"] = max_value
 	data["message"] = message
 	data["min_value"] = min_value

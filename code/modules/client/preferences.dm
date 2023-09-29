@@ -29,8 +29,8 @@ var/list/preferences_datums = list()
 	var/tgui_fancy = TRUE
 	var/tgui_lock = FALSE
 	var/tgui_inputs = TRUE
-	var/tgui_inputs_large_buttons = FALSE
-	var/tgui_inputs_swapped_buttons = FALSE
+	var/tgui_buttons_large = FALSE
+	var/tgui_inputs_swapped = FALSE
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
