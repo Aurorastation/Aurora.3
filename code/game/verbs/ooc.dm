@@ -83,7 +83,7 @@
 		to_chat(src, "Guests may not use OOC.")
 		return
 
-	var/msg = sanitize(tgui_input_text(src, "Enter an LOOC message.", "OOC"))
+	var/msg = sanitize(input(src, "Enter an LOOC message.", "OOC"))
 	msg = process_chat_markup(msg, list("*"))
 	if(!msg)
 		return
