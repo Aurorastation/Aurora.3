@@ -176,8 +176,18 @@
 	read_authorization(W)
 	..()
 
-/obj/machinery/computer/shuttle_control/emergency/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/data[0]
+/obj/machinery/computer/shuttle_control/emergency/ui_interact(mob/user, datum/tgui/ui)
+	var/datum/shuttle/autodock/ferry/emergency/shuttle = SSshuttle.shuttles[shuttle_tag]
+	if(!istype(shuttle))
+		to_chat(user, SPAN_WARNING("Unable to establish link with the shuttle."))
+		return
+
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "EscapeShuttleControlConsole", "Escape Shuttle Control", ui_x=470, ui_y=420)
+		ui.open()
+
+/obj/machinery/computer/shuttle_control/emergency/ui_data(mob/user)
 	var/datum/shuttle/autodock/ferry/emergency/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if (!istype(shuttle))
 		return
@@ -221,7 +231,7 @@
 
 	var/has_auth = has_authorization()
 
-	data = list(
+	return list(
 		"shuttle_status" = shuttle_status,
 		"shuttle_state" = shuttle_state,
 		"has_docking" = shuttle.active_docking_controller? 1 : 0,
@@ -231,27 +241,19 @@
 		"can_cancel" = shuttle.can_cancel(src),
 		"can_force" = shuttle.can_force(src),
 		"auth_list" = auth_list,
-		"has_auth" = has_auth,
-		"user" = debug? user : null
+		"has_auth" = has_auth
 	)
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+/obj/machinery/computer/shuttle_control/emergency/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
 
-	if (!ui)
-		ui = new(user, src, ui_key, "escape_shuttle_control_console.tmpl", "Shuttle Control", 470, 420)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
-
-/obj/machinery/computer/shuttle_control/emergency/Topic(href, href_list)
-	if(..())
-		return 1
-
-	if(href_list["removeid"])
-		var/dna_hash = href_list["removeid"]
+	if(action == "removeid")
+		var/dna_hash = params["removeid"]
 		authorized -= dna_hash
 
-	if(!emagged && href_list["scanid"])
+	if(!emagged && action == "scanid")
 		//They selected an empty entry. Try to scan their id.
 		if (ishuman(usr))
 			var/mob/living/carbon/human/H = usr
