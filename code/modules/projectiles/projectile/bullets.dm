@@ -124,13 +124,13 @@
 	damage = 2
 	agony = 45
 	embed = FALSE
-	var/balls = 4			
+	var/balls = 4
 	var/range_step = 2		//projectile will lose a fragment each time it travels this distance. Can be a non-integer.
-	var/base_spread = 90	
-	var/spread_step = 10	
+	var/base_spread = 90
+	var/spread_step = 10
 
 /obj/item/projectile/bullet/rubberball/proc/get_balls(var/distance)
-	var/ball_loss = round((distance - 1)/range_step) 
+	var/ball_loss = round((distance - 1)/range_step)
 	return max(balls - ball_loss, 1)
 
 /obj/item/projectile/bullet/rubberball/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier)

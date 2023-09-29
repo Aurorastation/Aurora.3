@@ -148,3 +148,4 @@
 /datum/design/item/mechfab/exosuit_equipment/phazon/AssembleDesignDesc()
 	. = ..()
 	desc += " It needs an anomaly core to function, however."
+	
