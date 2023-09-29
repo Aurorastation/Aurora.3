@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Emagging an escape pod's controller or berth controller will now arm it and allow the pod to be ejected regardless of evacuation status."
-  - bugfix: "Fixed button presses in the escape pod controller not doing anything."
