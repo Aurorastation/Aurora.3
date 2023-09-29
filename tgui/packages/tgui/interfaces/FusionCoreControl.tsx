@@ -43,7 +43,7 @@ export const FusionCoreControl = (props, context) => {
         {data.cores && data.cores.length ? (
           data.cores.map((core) => (
             <Section
-              title={'Fusion Core ' + core.id}
+              title={'INDRA Core ' + core.id}
               key={core.id}
               buttons={
                 core.field ? (

@@ -979,20 +979,20 @@
 	frequency = 1379;
 	id_tag = "r-ust_airlock_interior";
 	locked = 1;
-	name = "R-UST Reactor Airlock Interior";
+	name = "INDRA Reactor Airlock Interior";
 	req_one_access = list(11,24)
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
 	master_tag = "r-ust_airlock_control";
-	name = "R-UST Reactor Airlock Access";
+	name = "INDRA Reactor Airlock Access";
 	pixel_x = 23;
 	req_one_access = list(11,24)
 	},
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
 	id_tag = "r-ust_airlock_control";
-	name = "R-UST Reactor Airlock Access Console";
+	name = "INDRA Reactor Airlock Access Console";
 	pixel_x = 38;
 	tag_exterior_door = "r-ust_airlock_exterior";
 	tag_interior_door = "r-ust_airlock_interior"
@@ -1376,7 +1376,7 @@
 /area/operations/lobby)
 "aCL" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "R-UST - Containment";
+	RCon_tag = "INDRA - Containment";
 	charge = 2000000;
 	input_attempt = 1;
 	input_level = 150000;
@@ -1882,7 +1882,7 @@
 "aQc" = (
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 1;
-	name = "R-UST Reactor";
+	name = "INDRA Reactor";
 	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
@@ -2548,7 +2548,7 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/door/blast/regular/open{
 	id = "r_ust_core_blast";
-	name = "R-UST Reactor Blast Doors"
+	name = "INDRA Reactor Blast Doors"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
@@ -3345,7 +3345,7 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/door/blast/regular/open{
 	id = "r_ust_core_blast";
-	name = "R-UST Reactor Blast Doors"
+	name = "INDRA Reactor Blast Doors"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
@@ -5796,7 +5796,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "R-UST - Grid";
+	RCon_tag = "INDRA - Grid";
 	charge = 10000000;
 	cur_coils = 4;
 	input_attempt = 1;
@@ -6955,7 +6955,7 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/door/blast/regular/open{
 	id = "r_ust_core_blast";
-	name = "R-UST Reactor Blast Doors"
+	name = "INDRA Reactor Blast Doors"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
@@ -9045,7 +9045,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	name = "R-UST Reactor";
+	name = "INDRA Reactor";
 	req_access = list(11)
 	},
 /obj/machinery/door/firedoor,
@@ -10613,7 +10613,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "r-ust_vent";
-	name = "R-UST Reactor Vent"
+	name = "INDRA Reactor Vent"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -12381,7 +12381,7 @@
 "fWw" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/power/breakerbox/activated{
-	RCon_tag = "R-UST Grid Bypass"
+	RCon_tag = "INDRA Grid Bypass"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/smes/rust)
@@ -12515,8 +12515,8 @@
 	},
 /obj/structure/cable/yellow,
 /obj/machinery/power/sensor{
-	name = "Powernet Sensor - R-UST Reactor Output";
-	name_tag = "R-UST Reactor Output"
+	name = "Powernet Sensor - INDRA Reactor Output";
+	name_tag = "INDRA Reactor Output"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/smes/rust)
@@ -13771,7 +13771,7 @@
 /area/engineering/atmos/storage)
 "gAs" = (
 /obj/machinery/camera/network/reactor{
-	c_tag = "Engineering - R-UST Monitoring Room";
+	c_tag = "Engineering - INDRA Monitoring Room";
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain,
@@ -14763,7 +14763,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "r-ust_monitoring_blast";
-	name = "R-UST Monitoring Blast Doors"
+	name = "INDRA Monitoring Blast Doors"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
@@ -15485,7 +15485,7 @@
 /area/horizon/security/investigations_hallway)
 "hpw" = (
 /obj/machinery/camera/network/reactor{
-	c_tag = "Engineering - R-UST SMES Room 1";
+	c_tag = "Engineering - INDRA SMES Room 1";
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -15740,7 +15740,7 @@
 /area/crew_quarters/heads/hor)
 "hvf" = (
 /obj/machinery/camera/network/reactor{
-	c_tag = "Engineering - R-UST Room 3"
+	c_tag = "Engineering - INDRA Room 3"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
@@ -16022,7 +16022,7 @@
 /area/maintenance/wing/port)
 "hCe" = (
 /obj/machinery/camera/network/reactor{
-	c_tag = "Engineering - R-UST Room 4";
+	c_tag = "Engineering - INDRA Room 4";
 	dir = 1
 	},
 /obj/structure/cable/yellow{
@@ -21179,7 +21179,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	dir = 1;
-	name = "R-UST Reactor Maintenance";
+	name = "INDRA Reactor Maintenance";
 	req_access = list(11)
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -23722,7 +23722,7 @@
 "lqM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/camera/network/reactor{
-	c_tag = "Engineering - R-UST Room External Airlock";
+	c_tag = "Engineering - INDRA Room External Airlock";
 	dir = 4
 	},
 /obj/structure/sign/vacuum{
@@ -23821,7 +23821,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "r_ust_core_blast";
-	name = "R-UST Reactor Blast Doors"
+	name = "INDRA Reactor Blast Doors"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
@@ -24245,7 +24245,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	name = "R-UST Reactor Monitoring Room";
+	name = "INDRA Reactor Monitoring Room";
 	req_access = list(11)
 	},
 /obj/structure/cable{
@@ -27005,7 +27005,7 @@
 	frequency = 1379;
 	id_tag = "r-ust_airlock_exterior";
 	locked = 1;
-	name = "R-UST Reactor Airlock Exterior";
+	name = "INDRA Reactor Airlock Exterior";
 	req_one_access = list(11,24)
 	},
 /obj/machinery/access_button{
@@ -27013,14 +27013,14 @@
 	dir = 8;
 	frequency = 1379;
 	master_tag = "r-ust_airlock_control";
-	name = "R-UST Reactor Airlock Access";
+	name = "INDRA Reactor Airlock Access";
 	pixel_y = 23;
 	req_one_access = list(11,24)
 	},
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
 	dir = 8;
 	id_tag = "r-ust_airlock_control";
-	name = "R-UST Reactor Airlock Access Console";
+	name = "INDRA Reactor Airlock Access Console";
 	pixel_y = 38;
 	tag_exterior_door = "r-ust_airlock_exterior";
 	tag_interior_door = "r-ust_airlock_interior"
@@ -28358,7 +28358,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "r-ust_vent";
-	name = "R-UST Reactor Vent"
+	name = "INDRA Reactor Vent"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room/rust)
@@ -31600,7 +31600,7 @@
 	dir = 1;
 	id_tag = "r-ust_electrical_maintenance";
 	locked = 1;
-	name = "R-UST Reactor SMES";
+	name = "INDRA Reactor SMES";
 	req_one_access = list(11,24)
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -32304,7 +32304,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/camera/network/reactor{
-	c_tag = "Engineering - R-UST SMES Room 2"
+	c_tag = "Engineering - INDRA SMES Room 2"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -33133,7 +33133,7 @@
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "r-ust_north";
-	name = "R-UST Reactor Storage Shutters";
+	name = "INDRA Reactor Storage Shutters";
 	pixel_x = 24;
 	pixel_y = 7
 	},
@@ -35232,8 +35232,8 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/sensor{
-	name = "Powernet Sensor - R-UST Reactor Containment";
-	name_tag = "R-UST Reactor Containment"
+	name = "Powernet Sensor - INDRA Reactor Containment";
+	name_tag = "INDRA Reactor Containment"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_room/rust)
@@ -35484,7 +35484,7 @@
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
 	id = "r-ust_vent";
-	name = "R-UST Core Vent";
+	name = "INDRA Core Vent";
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -35513,14 +35513,14 @@
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
 	id = "r_ust_core_blast";
-	name = "R-UST Reactor Core Blast Doors";
+	name = "INDRA Reactor Core Blast Doors";
 	pixel_x = -6;
 	pixel_y = 7
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
 	id = "r-ust_monitoring_blast";
-	name = "R-UST Reactor Monitoring Blast Doors";
+	name = "INDRA Reactor Monitoring Blast Doors";
 	pixel_x = 6;
 	pixel_y = 7
 	},
@@ -35662,7 +35662,7 @@
 /obj/machinery/door/airlock/hatch{
 	icon_state = "door_locked";
 	locked = 1;
-	name = "R-UST Reactor Core Access";
+	name = "INDRA Reactor Core Access";
 	req_one_access = list(11,24)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -37951,7 +37951,7 @@
 /area/maintenance/wing/starboard/far)
 "shR" = (
 /obj/machinery/camera/network/reactor{
-	c_tag = "Engineering - R-UST Room 2"
+	c_tag = "Engineering - INDRA Room 2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
@@ -40399,7 +40399,7 @@
 "tzc" = (
 /obj/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	name = "R-UST Reactor Bay";
+	name = "INDRA Reactor Bay";
 	req_access = list(11)
 	},
 /obj/machinery/door/firedoor{
@@ -41199,7 +41199,7 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "r-ust_vent";
-	name = "R-UST Reactor Vent"
+	name = "INDRA Reactor Vent"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room/rust)
@@ -41561,7 +41561,7 @@
 /area/horizon/security/brig)
 "tZr" = (
 /obj/machinery/camera/network/reactor{
-	c_tag = "Engineering - R-UST Room 1";
+	c_tag = "Engineering - INDRA Room 1";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -45653,7 +45653,7 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/door/blast/regular/open{
 	id = "r_ust_core_blast";
-	name = "R-UST Reactor Blast Doors"
+	name = "INDRA Reactor Blast Doors"
 	},
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -46757,7 +46757,7 @@
 	dir = 9
 	},
 /obj/machinery/camera/network/reactor{
-	c_tag = "Engineering - R-UST Reactor Core"
+	c_tag = "Engineering - INDRA Reactor Core"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room/rust)
@@ -47050,7 +47050,7 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "r_ust_core_blast";
-	name = "R-UST Reactor Blast Doors"
+	name = "INDRA Reactor Blast Doors"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
@@ -48633,7 +48633,7 @@
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "r-ust_north";
-	name = "R-UST Reactor Fore Storage Shutters"
+	name = "INDRA Reactor Fore Storage Shutters"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
@@ -50315,7 +50315,7 @@
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "r-ust_north";
-	name = "R-UST Reactor Fore Storage Shutters"
+	name = "INDRA Reactor Fore Storage Shutters"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,

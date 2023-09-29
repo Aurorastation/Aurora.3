@@ -1,5 +1,5 @@
 /obj/machinery/computer/fusion/core_control
-	name = "\improper R-UST Mk. 8 core control"
+	name = "\improper INDRA fusion core control"
 	ui_template = "FusionCoreControl"
 
 /obj/machinery/computer/fusion/core_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)

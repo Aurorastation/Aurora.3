@@ -14,7 +14,7 @@
 	name = "Engineering - Aft Service Airlock"
 
 /area/engineering/engine_room/rust
-	name = "Engineering - R-UST Engine"
+	name = "Engineering - INDRA Engine"
 
 /area/engineering/smes
 	name = "Engineering - SM SMES"
@@ -23,10 +23,10 @@
 	ambience = AMBIENCE_SINGULARITY
 
 /area/engineering/smes/rust
-	name = "Engineering - R-UST SMES"
+	name = "Engineering - INDRA SMES"
 
 /area/engineering/engine_monitoring/rust
-	name = "Engineering - R-UST Engine Monitoring"
+	name = "Engineering - INDRA Engine Monitoring"
 
 /area/engineering/atmos/air
 	name = "Engineering - Air Mixing"
@@ -41,7 +41,7 @@
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/hallway/engineering/rust
-	name = "Engineering - R-UST Hallway"
+	name = "Engineering - INDRA Hallway"
 
 //Medical
 
