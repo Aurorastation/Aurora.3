@@ -428,7 +428,7 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/eva)
 "fb" = (
-/obj/effect/shuttle_landmark/golden_deep/dock2,
+/obj/effect/shuttle_landmark/golden_deep/dock3,
 /turf/simulated/floor/plating,
 /area/golden_deep/hangar)
 "fc" = (
