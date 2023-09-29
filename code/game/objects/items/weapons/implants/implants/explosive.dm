@@ -69,23 +69,23 @@
 	if(href_list["code"])
 		var/adj = text2num(href_list["code"])
 		if(!adj)
-			code = input("Set radio activation code","Radio activation") as num
+			code = tgui_input_number(usr, "Set radio activation code.", "Radio Activation")
 		else
 			code += adj
 		code = clamp(code,1,100)
 		interact(usr)
 	if(href_list["mode"])
-		var/mod = input("Set explosion mode", "Explosion mode") as null|anything in possible_explosions
+		var/mod = tgui_input_list(usr, "Set explosion mode.", "Explosion Mode", possible_explosions)
 		if(mod)
 			elevel = mod
 		interact(usr)
 	if(href_list["msg"])
-		var/msg = input("Set tampering message, or leave blank for no broadcasting.", "Anti-tampering", warning_message) as text|null
+		var/msg = tgui_input_text(usr, "Set tampering message, or leave blank for no broadcasting.", "Anti-Tampering", warning_message)
 		if(msg)
 			warning_message = msg
 		interact(usr)
 	if(href_list["phrase"])
-		var/talk = input("Set activation phrase", "Audio activation", phrase) as text|null
+		var/talk = tgui_input_text(usr, "Set activation phrase", "Audio Activation", phrase)
 		if(talk)
 			phrase = sanitizePhrase(talk)
 		interact(usr)

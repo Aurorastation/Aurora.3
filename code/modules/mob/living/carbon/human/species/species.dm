@@ -238,7 +238,7 @@
 	var/max_hydration_factor = 1	//Multiplier on maximum thirst
 	var/hydration_loss_factor = 1	//Multiplier on passive thirst losses
 
-	                            // Determines the organs that the species spawns with and
+								// Determines the organs that the species spawns with and
 	var/list/has_organ = list(	// which required-organ checks are conducted.
 		BP_HEART =    /obj/item/organ/internal/heart,
 		BP_LUNGS =    /obj/item/organ/internal/lungs,

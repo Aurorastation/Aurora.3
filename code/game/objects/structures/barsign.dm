@@ -27,23 +27,23 @@
 	return sign_choices
 
 /obj/structure/sign/double/barsign/proc/set_sign()
-    var/list/sign_choices = get_sign_choices()
+	var/list/sign_choices = get_sign_choices()
 
-    var/list/sign_index = list()
-    for(var/sign in sign_choices)
-        var/singleton/sign/double/B = GET_SINGLETON(sign)
-        sign_index["[B.name]"] = B
+	var/list/sign_index = list()
+	for(var/sign in sign_choices)
+		var/singleton/sign/double/B = GET_SINGLETON(sign)
+		sign_index["[B.name]"] = B
 
-    var/sign_choice = tgui_input_list(usr, "What should the sign be changed to?", "Bar Sign", sign_index)
-    if(!sign_choice)
-        return
-    var/singleton/sign/double/signselect = sign_index[sign_choice]
+	var/sign_choice = tgui_input_list(usr, "What should the sign be changed to?", "Bar Sign", sign_index)
+	if(!sign_choice)
+		return
+	var/singleton/sign/double/signselect = sign_index[sign_choice]
 
-    name = signselect.name
-    desc = signselect.desc
-    desc_extended = signselect.desc_extended
-    icon_state = signselect.icon_state
-    update_icon()
+	name = signselect.name
+	desc = signselect.desc
+	desc_extended = signselect.desc_extended
+	icon_state = signselect.icon_state
+	update_icon()
 
 /obj/structure/sign/double/barsign/kitchensign
 	icon = 'icons/obj/kitchensigns.dmi'

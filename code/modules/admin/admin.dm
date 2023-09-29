@@ -696,7 +696,7 @@ var/global/enabled_spooking = 0
 	if (!check_rights(R_ADMIN))
 		return
 
-	var/message = tgui_input_text("Global message to send:", "Admin Announce", multiline = TRUE)
+	var/message = tgui_input_text(usr, "Enter a global message to send.", "Admin Announce", multiline = TRUE)
 	if(message)
 		if(!check_rights(R_SERVER, 0))
 			message = sanitize(message, 500, extra = 0)
@@ -1286,7 +1286,7 @@ var/global/enabled_spooking = 0
 		to_chat(usr, "Mode has not started.")
 		return
 
-	var/antag_type = input("Choose a template.","Force Latespawn") as null|anything in all_antag_types
+	var/antag_type = tgui_input_list(usr, "Choose a template.", "Force Latespawn", all_antag_types)
 	if(!antag_type || !all_antag_types[antag_type])
 		to_chat(usr, "Aborting.")
 		return

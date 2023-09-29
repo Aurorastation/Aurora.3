@@ -5,7 +5,7 @@
 	var/list/mobs_to_convert = list()
 	for(var/mob/A in orange(world.view, src))
 		mobs_to_convert += A
-	var/mob/living/carbon/human/M = input(usr, "Choose someone to convert.", "Invite to the Revolutionaries", mobs_to_convert)
+	var/mob/living/carbon/human/M = tgui_input_list(usr, "Choose someone to convert.", "Invite to the Revolutionaries", mobs_to_convert)
 	if(!M)
 		return
 	if(!M.mind)
@@ -60,7 +60,7 @@
 	var/list/mobs_to_convert = list()
 	for(var/mob/A in orange(world.view, src))
 		mobs_to_convert += A
-	var/mob/living/carbon/human/M = input(usr, "Choose someone to convert.", "Invite to the Loyalists", mobs_to_convert)
+	var/mob/living/carbon/human/M = tgui_input_list(usr, "Choose someone to convert.", "Invite to the Loyalists", mobs_to_convert)
 	if(!M)
 		return
 	if(!M.mind)

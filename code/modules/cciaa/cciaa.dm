@@ -23,12 +23,12 @@
 		return
 
 	//todo: sanitize
-	var/input = input(usr, "Please enter a message to reply to via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "") as message|null
+	var/input = tgui_input_text(usr, "Please enter a message to reply to via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "", multiline = TRUE)
 	if (!input)
 		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
 
-	var/customname = input(usr, "Pick a title for the report", "Title") as text|null
+	var/customname = tgui_input_text(usr, "Pick a title for the report.", "Title")
 	if (!customname)
 		to_chat(usr, "<span class='warning'>Cancelled.</span>")
 		return
