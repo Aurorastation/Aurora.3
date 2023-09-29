@@ -52,7 +52,7 @@ var/list/list/connected_z_cache = list()
 /proc/AreConnectedZLevels(var/zA, var/zB)
 	if (zA == zB)
 		return TRUE
-	
+
 	if(zA == 0 || zB == 0)
 		return FALSE
 

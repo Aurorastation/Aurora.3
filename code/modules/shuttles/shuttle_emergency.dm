@@ -14,7 +14,7 @@
 
 /datum/shuttle/autodock/ferry/emergency/arrived()
 	. = ..()
-	
+
 	if(!emergency_controller.has_evacuated())
 		emergency_controller.finish_preparing_evac()
 
@@ -62,7 +62,7 @@
 
 		// If the emergency shuttle is waiting to leave the station and the world time exceeded the force time
 		if(evacuation_controller.is_prepared() && (world.time > emergency_controller.force_time))
-			return 0 
+			return 0
 
 	return ..()
 

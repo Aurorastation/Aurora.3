@@ -28,7 +28,8 @@
 			Reference to frequency object. Use it if you need to send and do not need to listen.
 
 	radio_frequency is a global object maintaining list of devices that listening specific frequency.
-  procs:
+
+	procs:
 
 	post_signal(obj/source as obj|null, datum/signal/signal, var/filter as text|null = null, var/range as num|null = null)
 		Sends signal to all devices that wants such signal.

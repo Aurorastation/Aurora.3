@@ -17,9 +17,9 @@
 	density = 1
 	anchored = 1
 	var/static/list/accepted_items = list(
-		/obj/item/paper, 
-		/obj/item/folder, 
-		/obj/item/photo, 
+		/obj/item/paper,
+		/obj/item/folder,
+		/obj/item/photo,
 		/obj/item/paper_bundle,
 		/obj/item/sample,
 		/obj/item/book,

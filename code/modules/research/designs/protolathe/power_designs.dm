@@ -42,7 +42,7 @@
 	req_tech = list(TECH_POWER = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 70, MATERIAL_GLASS = 5)
 	build_path = /obj/item/cell/device
-	
+
 /datum/design/item/powercell/device/high
 	name = "Advanced Device"
 	req_tech = list(TECH_POWER = 2)
