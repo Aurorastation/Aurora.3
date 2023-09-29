@@ -184,7 +184,6 @@
 	name = "chewing gum"
 	desc = "A chewy wad of fine synthetic rubber and artificial flavoring."
 	icon_state = "gum"
-	item_state = "gum"
 	wrapped = TRUE
 
 /obj/item/clothing/mask/chewable/candy/gum/Initialize()

@@ -79,7 +79,7 @@
 		new /obj/item/stack/cable_coil(src,30,color)
 
 /obj/item/storage/toolbox/drill
-	name = "drilling kit"
+	name = "industrial drilling kit"
 	desc = "A kit supplied to drill technicians, containing the tools required to set up a basic asteroid drilling operation."
 	icon_state = "miningbox"
 	item_state = "miningbox"
