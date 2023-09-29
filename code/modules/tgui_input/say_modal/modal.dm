@@ -24,7 +24,7 @@
 	/// The user who opened the window
 	var/client/client
 	/// Injury phrases to blurt out
-	var/list/hurt_phrases = list("Ugh!")
+	var/list/hurt_phrases = list("-")
 	/// Max message length
 	var/max_length = MAX_MESSAGE_LEN
 	/// The modal window

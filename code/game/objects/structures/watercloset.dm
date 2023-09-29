@@ -476,7 +476,7 @@
 
 				RG.reagents.add_reagent(/singleton/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
 				user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].",
-									 SPAN_NOTICE("You fill \a [RG] using \the [src]."))
+									SPAN_NOTICE("You fill \a [RG] using \the [src]."))
 				playsound(loc, 'sound/effects/sink.ogg', 75, 1)
 			if ("Empty")
 				if(!RG.reagents.total_volume)
@@ -501,7 +501,7 @@
 				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
 				S.reagents.add_reagent(/singleton/reagent/water, trans)
 				user.visible_message(SPAN_NOTICE("[usr] uses \the [S] to draw water from \the [src]."),
-									 SPAN_NOTICE("You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
+									SPAN_NOTICE("You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 			if(1) // inject
 				if(!S.reagents.total_volume)
 					to_chat(usr, SPAN_WARNING("\The [S] is already empty."))
@@ -510,7 +510,7 @@
 				var/trans = min(S.amount_per_transfer_from_this, S.reagents.total_volume)
 				S.reagents.remove_any(trans)
 				user.visible_message(SPAN_NOTICE("[usr] empties \the [S] into \the [src]."),
-									 SPAN_NOTICE("You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
+									SPAN_NOTICE("You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 		return
 
 	else if (istype(O, /obj/item/melee/baton))

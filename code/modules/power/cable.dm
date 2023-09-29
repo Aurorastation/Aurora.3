@@ -1077,10 +1077,10 @@ By design, d1 is the smallest direction and d2 is the highest
 		var/mob/living/M = buckled
 		if(M != user)
 			user.visible_message(SPAN_NOTICE("[user] begins to untie the noose over [M]'s neck..."),\
-								 SPAN_NOTICE("You begin to untie the noose over [M]'s neck..."))
+								SPAN_NOTICE("You begin to untie the noose over [M]'s neck..."))
 			if(do_mob(user, M, 100))
 				user.visible_message(SPAN_NOTICE("[user] unties the noose over [M]'s neck!"),\
-									 SPAN_NOTICE("You untie the noose over [M]'s neck!"))
+									SPAN_NOTICE("You untie the noose over [M]'s neck!"))
 			else
 				return
 		else

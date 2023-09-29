@@ -531,7 +531,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 			valid_gradients[gradstyle] = hair_gradient_styles_list[gradstyle]
 
-		var/new_g_style = input(user, "Choose a color pattern for your hair.", "Character Preference", valid_gradients, pref.g_style)
+		var/new_g_style = tgui_input_list(user, "Choose a color pattern for your hair.", "Character Preference", valid_gradients, pref.g_style)
 		if(new_g_style && CanUseTopic(user))
 			pref.g_style = new_g_style
 			return TOPIC_REFRESH_UPDATE_PREVIEW

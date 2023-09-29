@@ -13,7 +13,7 @@ B [1]-\|++|/
 C [4]-/|++|
 D [1]/  ||
 		||
-	 Activator
+	Activator
 
 
 
