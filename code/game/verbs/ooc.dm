@@ -22,6 +22,8 @@
 		to_chat(src, "<span class='warning'>You have OOC muted.</span>")
 		return
 
+	msg = sanitize(msg)
+
 	if(!holder)
 		if(!config.ooc_allowed)
 			to_chat(src, "<span class='danger'>OOC is globally muted.</span>")
@@ -81,7 +83,7 @@
 		to_chat(src, "Guests may not use OOC.")
 		return
 
-	var/msg = tgui_input_text(src, "Enter an LOOC message.", "OOC")
+	var/msg = sanitize(tgui_input_text(src, "Enter an LOOC message.", "OOC"))
 	msg = process_chat_markup(msg, list("*"))
 	if(!msg)
 		return
