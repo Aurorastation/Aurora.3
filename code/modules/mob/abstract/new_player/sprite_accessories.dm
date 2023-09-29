@@ -4874,6 +4874,7 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Mecha Eye (Blue, Right)"
 	icon_state = "mecha_eye_b_r"
 	body_parts = list(BP_HEAD)
+	do_colouration = FALSE
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b/mecha_eye_b_l
 	name = "Mecha Eye (Blue, Left)"
@@ -4894,6 +4895,32 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b/mecha_eye_y_r
 	name = "Mecha Eye (Yellow, Right)"
 	icon_state = "mecha_eye_y_r"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b_l
+	name = "Mecha Eye (Blue, Right, Large)"
+	icon_state = "mecha_eye_b_r_l"
+	body_parts = list(BP_HEAD)
+	do_colouration = FALSE
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b_l/mecha_eye_b_r_l
+	name = "Mecha Eye (Blue, Left, Large)"
+	icon_state = "mecha_eye_b_l_l"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b_l/mecha_eye_r_l_l
+	name = "Mecha Eye (Red, Left, Large)"
+	icon_state = "mecha_eye_r_l_l"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b_l/mecha_eye_r_r_l
+	name = "Mecha Eye (Red, Right, Large)"
+	icon_state = "mecha_eye_r_r_l"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b_l/mecha_eye_y_l_l
+	name = "Mecha Eye (Yellow, Left, Large)"
+	icon_state = "mecha_eye_y_l_l"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b_l/mecha_eye_y_r_l
+	name = "Mecha Eye (Yellow, Right, Large)"
+	icon_state = "mecha_eye_y_r_l"
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b/mandible
 	name = "Mecha Mandibles"
