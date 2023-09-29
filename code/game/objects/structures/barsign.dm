@@ -34,7 +34,7 @@
         var/singleton/sign/double/B = GET_SINGLETON(sign)
         sign_index["[B.name]"] = B
 
-    var/sign_choice = input("What should the sign be changed to?") as null|anything in sign_index
+    var/sign_choice = tgui_input_list(usr, "What should the sign be changed to?", "Bar Sign", sign_index)
     if(!sign_choice)
         return
     var/singleton/sign/double/signselect = sign_index[sign_choice]

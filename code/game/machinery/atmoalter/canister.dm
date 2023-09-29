@@ -418,7 +418,7 @@ update_flag
 					"\[Hydrogen\]" = "purple",
 					"\[CAUTION\]" = "yellow"
 				)
-				var/label = input("Choose canister label", "Gas canister") as null|anything in colors
+				var/label = tgui_input_list(usr, "Choose canister label.", "Gas Canister", colors)
 				if (label)
 					src.canister_color = colors[label]
 					src.icon_state = colors[label]

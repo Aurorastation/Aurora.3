@@ -341,7 +341,7 @@
 	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level == SEC_LEVEL_DELTA || crisis == TRUE)
 		to_chat(src, SPAN_WARNING("Crisis mode active. Combat module available."))
 		modules += "Combat"
-	mod_type = input("Please, select a module!", "Robot", null, null) as null|anything in modules
+	mod_type = tgui_input_list("Please, select a module!", "Robot", modules)
 
 	if(module)
 		selecting_module = FALSE
@@ -499,7 +499,7 @@
 		if(C.installed)
 			installed_components += V
 
-	var/toggle = input(src, "Which component do you want to toggle?", "Toggle Component") as null|anything in installed_components
+	var/toggle = tgui_input_list(src, "Which component do you want to toggle?", "Toggle Component", installed_components)
 	if(!toggle)
 		return
 
@@ -696,7 +696,7 @@
 						if(C.installed == TRUE || C.installed == -1)
 							removable_components += V
 
-					var/remove = input(user, "Which component do you want to pry out?", "Remove Component") as null|anything in removable_components
+					var/remove = tgui_input_list(user, "Which component do you want to pry out?", "Remove Component", removable_components)
 					if(!remove)
 						return
 					var/datum/robot_component/C = components[remove]

@@ -121,7 +121,7 @@ var/datum/antagonist/cultist/cult
 		targets |= target
 	targets -= usr
 
-	var/mob/living/carbon/target = input(usr,"Who do you believe may be a worthy offering?") as null|anything in targets
+	var/mob/living/carbon/target = tgui_input_list(usr,"Who do you believe may be a worthy offering?", "Cult", targets)
 	if(!istype(target))
 		return
 

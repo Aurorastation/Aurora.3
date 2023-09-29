@@ -182,7 +182,7 @@
 				scanned_id = WEAKREF(I)
 
 	if(href_list["toggle_smelting"])
-		var/choice = input("What setting do you wish to use for processing [href_list["toggle_smelting"]]?") as null|anything in list("Smelting","Compressing","Alloying","Nothing")
+		var/choice = tgui_input_list(usr, "What setting do you wish to use for processing [href_list["toggle_smelting"]]?", "Processing", list("Smelting","Compressing","Alloying","Nothing"))
 		if(!choice)
 			return
 

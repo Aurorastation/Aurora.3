@@ -696,7 +696,7 @@ var/global/enabled_spooking = 0
 	if (!check_rights(R_ADMIN))
 		return
 
-	var/message = input("Global message to send:", "Admin Announce", null, null) as message
+	var/message = tgui_input_text("Global message to send:", "Admin Announce", multiline = TRUE)
 	if(message)
 		if(!check_rights(R_SERVER, 0))
 			message = sanitize(message, 500, extra = 0)
@@ -1349,16 +1349,16 @@ var/global/enabled_spooking = 0
 /datum/admins/proc/ccannoucment()
 	set category = "Special Verbs"
 	set name = "Custom sound Command Announcment"
-	set desc = "Emulate announcement that looks and sounds like the real one"
+	set desc = "Emulate announcement that looks and sounds like the real one."
 	if(!check_rights(R_FUN))
 		return
 
-	var/title = input("Announcement TITLE:", "CAnnounce", null, null) as text
+	var/title = tgui_input_text(usr, "Input the announcement's title.", "Custom Announcement")
 	if(!title)
 		return
 	if(!check_rights(R_SERVER,0))
 		title = sanitize(title, 255, extra = 0)
-	var/message = input("Announcement content:", "CAnnounce", null, null) as message
+	var/message = tgui_input_text("Input the announcement's content.", "CAnnounce", multiline = TRUE)
 	if(!message)
 		return
 	if(!check_rights(R_SERVER,0))
@@ -1370,7 +1370,7 @@ var/global/enabled_spooking = 0
 	sounds += "--LOCAL--"
 	sounds += sounds_cache
 
-	var/melody = input("Select a sound from the server to play", "Server sound list", "--CANCEL--") in sounds
+	var/melody = tgui_input_list(usr, "Select a sound from the server to play.", "Sound Selection", sounds)
 
 	if(melody == "--CANCEL--")
 		return

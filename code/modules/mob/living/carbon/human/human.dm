@@ -568,7 +568,7 @@
 			if(perpname)
 				var/datum/record/general/R = SSrecords.find_record("name", perpname)
 				if(istype(R) && istype(R.security))
-					var/setcriminal = input(usr, "Specify a new criminal status for this person.", "Security HUD", ) in list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released", "Cancel")
+					var/setcriminal = tgui_input_list(usr, "Specify a new criminal status for this person.", "Security HUD", list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released", "Cancel"))
 					if(hasHUD(usr, "security"))
 						if(setcriminal != "Cancel")
 							R.security.criminal = setcriminal

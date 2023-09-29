@@ -43,7 +43,7 @@
 	for(var/thing in H.organs)
 		var/obj/item/organ/external/O = thing
 		available_organs[capitalize_first_letters(O.name)] = O
-	var/choice = input(usr, "Select an external organ to extract any embedded or implanted item from.", "Organ Selection") as null|anything in available_organs
+	var/choice = tgui_input_list(usr, "Select an external organ to extract any embedded or implanted item from.", "Organ Selection", available_organs)
 	if(!choice)
 		return
 

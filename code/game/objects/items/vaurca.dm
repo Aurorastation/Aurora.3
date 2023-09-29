@@ -13,7 +13,7 @@
 	working = !working
 
 	if(working)
-		var/choice = input("You change the projector's holographic viewfinder to display:","Change the projector's viewfinder.") as null|anything in worlds_selection
+		var/choice = tgui_input_list(user, "You change the projector's holographic viewfinder to display:", "Change the projector's viewfinder.", worlds_selection)
 		apply_world(choice)
 		first_message = TRUE
 		START_PROCESSING(SSprocessing, src)
@@ -82,27 +82,27 @@
 			"In the distance of the cityscape towers a set of sublime sculptures, accented by light from beneath the clouds.",
 			"Orchestral music resonates from within an auditorium, the melody carried through the heavens.",
 			"An enchanting smell of cedar, cherry and morning freshness penetrates through the air.",
-			"A vibrant burst of color permeates through the sky, basking the air in pleasing rainbow luminescence for a moment.", 
+			"A vibrant burst of color permeates through the sky, basking the air in pleasing rainbow luminescence for a moment.",
 			"In the center of a green park Vaurca workers paint not on canvas but in the air, seemingly looking at the landscape for inspiration."
 		)
 		if("Athvur's Garden of Splendour")
 			light_color = "#3adf3a"
-			possible_messages = list( 
+			possible_messages = list(
 			"A tranquil garden landscape stretches out to the horizon, its peaceful scenery embellished with flowers of every variety.",
 			"Harmonious music accents an indescribable aroma of flowers.",
 			"In the distance of the garden, beyond the soothing plants, workers move through an ornate gazebo.",
 			"A fountain sits nestled within a thicket clearing, producing a golden substance from which gathered workers drink.",
-			"A herd of majestic creatures, each as tall as two people, graze on a patch of grass and lie curled up against each other's silky fur.", 
+			"A herd of majestic creatures, each as tall as two people, graze on a patch of grass and lie curled up against each other's silky fur.",
 			"Lilac-breasted birds dart between the tree-line and sing a soothing melody which seems to carry with it a smell of vanilla."
 		)
 		if("Athvur's Museum of Fine Art")
 			light_color = "#e7f0ec"
-			possible_messages = list( 
+			possible_messages = list(
 			"A massive display is decorated with examples of seemingly delicately crafted Zo'rane artwork.",
-			"Workers mull about the museum, seemingly taking in the atmosphere brought forth by the displays.", 
-			"An exhibit showcases reportedly hand-painted landscapes that have won awards.", 
-			"A melodic harmony is carried from a distant display marked with 'Music' only perceptible due to the quiet atmosphere of the surrounding exhibition.", 
-			"Sculptures of notable Zo'rane historical figures dominate their respective corners, carved from a variety of rare materials.", 
+			"Workers mull about the museum, seemingly taking in the atmosphere brought forth by the displays.",
+			"An exhibit showcases reportedly hand-painted landscapes that have won awards.",
+			"A melodic harmony is carried from a distant display marked with 'Music' only perceptible due to the quiet atmosphere of the surrounding exhibition.",
+			"Sculptures of notable Zo'rane historical figures dominate their respective corners, carved from a variety of rare materials.",
 			"Groups of workers move around, seemingly taking a guided tour through the museum, watching each art piece explained to them attentively."
 		)
 

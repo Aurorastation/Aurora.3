@@ -18,7 +18,7 @@
 /obj/item/mecha_equipment/clamp/attack_hand(mob/user)
 	if(owner && LAZYISIN(owner.pilots, user))
 		if(!owner.hatch_closed && length(carrying))
-			var/obj/chosen_obj = input(user, "Choose an object to grab.", "Clamp Claw") as null|anything in carrying
+			var/obj/chosen_obj = tgui_input_list(user, "Choose an object to grab.", "Clamp Claw", carrying)
 			if(!chosen_obj)
 				return
 			if(user.put_in_active_hand(chosen_obj))
@@ -140,7 +140,7 @@
 		return
 	var/obj/chosen_obj = carrying[1]
 	if(choose_object)
-		chosen_obj = input(user, "Choose an object to set down.", "Clamp Claw") as null|anything in carrying
+		chosen_obj = tgui_input_list(user, "Choose an object to set down.", "Clamp Claw", carrying)
 	if(!chosen_obj)
 		return
 	owner.visible_message(SPAN_NOTICE("\The [owner] unloads \the [chosen_obj]."))

@@ -226,7 +226,7 @@
 	return
 
 /mob/living/silicon/proc/toggle_sensor_mode()
-	var/sensor_type = input(src, "Please select sensor type.", "Sensor Integration") in list("Security", "Medical", "Disable")
+	var/sensor_type = tgui_input_list(src, "Please select sensor type.", "Sensor Integration", list("Security", "Medical", "Disable"))
 	switch(sensor_type)
 		if("Security")
 			sensor_mode = SEC_HUD

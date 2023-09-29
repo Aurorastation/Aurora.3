@@ -143,7 +143,7 @@
 		S = possible_surgeries[1]
 	else if(LAZYLEN(possible_surgeries) >= 1)
 		if(user.client) // In case of future autodocs.
-			S = input(user, "Which surgery would you like to perform?", "Surgery") as null|anything in possible_surgeries
+			S = tgui_input_list(user, "Which surgery would you like to perform?", "Surgery", possible_surgeries)
 
 	// We didn't find a surgery, or decided not to perform one.
 	if(!istype(S))
@@ -175,9 +175,9 @@
 		return TRUE
 	return TRUE
 
-/datum/surgery_status/
-	var/eyes	=	0
-	var/face	=	0
+/datum/surgery_status
+	var/eyes = 0
+	var/face = 0
 	var/head_reattach = 0
 	var/current_organ = "organ"
 	var/list/in_progress = list()

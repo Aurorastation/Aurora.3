@@ -383,7 +383,7 @@ var/list/ai_verbs_default = list(
 		return
 
 	if (!custom_sprite)
-		var/new_sprite = input("Select an icon!", "AI", selected_sprite) as null|anything in ai_icons
+		var/new_sprite = tgui_input_list("Select an icon!", "AI", ai_icons, selected_sprite)
 		if(new_sprite) selected_sprite = new_sprite
 	update_icon()
 
@@ -416,7 +416,7 @@ var/list/ai_verbs_default = list(
 	if(message_cooldown)
 		to_chat(src, "Please allow one minute to pass between announcements.")
 		return
-	var/input = input(usr, "Please write a message to announce to the station crew.", "A.I. Announcement") as null|message
+	var/input = tgui_input_text(usr, "Please write a message to announce to the station crew.", "A.I. Announcement")
 	if(!input)
 		return
 
@@ -646,7 +646,7 @@ var/list/ai_verbs_default = list(
 			if(H.near_camera())
 				selectable_humans[H.name] = H
 		if(length(selectable_humans))
-			var/chosen_human = input(usr, "Select the humanoid whose form you wish to emulate.", "Hologram Select") as null|anything in selectable_humans
+			var/chosen_human = tgui_input_list(usr, "Select the humanoid whose form you wish to emulate.", "Hologram Select", selectable_humans)
 			if(!chosen_human)
 				return
 			var/mob/living/carbon/human/H = selectable_humans[chosen_human]
@@ -654,7 +654,7 @@ var/list/ai_verbs_default = list(
 		else
 			to_chat(usr, SPAN_WARNING("There are no humanoids within camera view to base your hologram on."))
 	else
-		input = input("Please select a hologram:") as null|anything in list("default", "floating face", "carp", "loadout character", "custom")
+		input = tgui_input_list(usr, "Please select a hologram.", "Hologram", list("default", "floating face", "carp", "loadout character", "custom"))
 		if(input)
 			switch(input)
 				if("custom")

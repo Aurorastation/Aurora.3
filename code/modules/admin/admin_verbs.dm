@@ -846,7 +846,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(!check_rights(R_FUN)) return
 
-	var/mob/living/carbon/human/H = input("Select mob.", "Change Mob Appearance - Admin") as null|anything in human_mob_list
+	var/mob/living/carbon/human/H = tgui_input_list(usr, "Select mob.", "Change Mob Appearance - Self", human_mob_list)
 	if(!H) return
 
 	log_and_message_admins("is altering the appearance of [H].")
@@ -860,7 +860,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(!check_rights(R_FUN)) return
 
-	var/mob/living/carbon/human/H = input("Select mob.", "Change Mob Appearance - Self") as null|anything in human_mob_list
+	var/mob/living/carbon/human/H = tgui_input_list(usr, "Select mob.", "Change Mob Appearance - Self", human_mob_list)
 	if(!H) return
 
 	if(!H.client)
@@ -882,8 +882,8 @@ var/list/admin_verbs_cciaa = list(
 	set category = "Admin"
 
 	if(!check_rights(R_ADMIN))	return
-	var sec_level = input(usr, "It's currently code [get_security_level()].", "Select Security Level")  as null|anything in (list("green","blue","red", "yellow", "delta")-get_security_level())
-	if(alert("Switch from code [get_security_level()] to code [sec_level]?","Change security level?","Yes","No") == "Yes")
+	var/sec_level = tgui_alert(usr, "It's currently code [get_security_level()].", "Select Security Level", list("green", "blue", "red", "yellow", "delta") - get_security_level())
+	if(tgui_alert(usr, "Switch from code [get_security_level()] to code [sec_level]?", "Security Level", list("Yes","No")) == "Yes")
 		set_security_level(sec_level)
 		log_admin("[key_name(usr)] changed the security level to code [sec_level].",admin_key=key_name(usr))
 
