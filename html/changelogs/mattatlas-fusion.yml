@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "The Tesla has been replaced with a fusion reactor that works just like the R-UST from Baystation. Use the fuel processor to make fuel rods out of materials, insert them in the fuel injectors, inject the fuel, enable the gyrotron, and go! Obviously, a proper setup is more complex... make sure to take a look at the wiki!"
+  - rscadd: "The Tesla has been replaced with a fusion reactor (called the INDRA) that works just like the R-UST from Baystation. Use the fuel processor to make fuel rods out of materials, insert them in the fuel injectors, inject the fuel, enable the gyrotron, and go! Obviously, a proper setup is more complex... make sure to take a look at the wiki!"
