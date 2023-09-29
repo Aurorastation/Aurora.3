@@ -6,14 +6,16 @@
 	var/material_name
 	var/percent_depleted = 1
 	var/list/rod_quantities = list()
-	var/fuel_type = "composite"
+	var/fuel_type
 	var/fuel_colour
 	var/radioactivity = 0
 	var/initial_amount
 
 /obj/item/fuel_assembly/New(newloc, _material, _colour)
-	fuel_type = _material
-	fuel_colour = _colour
+	if(_material)
+		fuel_type = _material
+	if(_colour)
+		fuel_colour = _colour
 	..(newloc)
 
 /obj/item/fuel_assembly/Initialize()
