@@ -214,7 +214,7 @@
 		memory = new_memo
 
 	else if (href_list["amb_edit"])
-		var/new_ambition = input("Enter a new ambition", "Memory",html_decode(src.ambitions)) as null|message
+		var/new_ambition = tgui_input_text("Enter a new ambition", "Memory", html_decode(ambitions))
 		if(isnull(new_ambition))
 			return
 		src.ambitions = sanitize(new_ambition)
@@ -441,7 +441,8 @@
 		current.set_psi_rank(text2num(href_list["set_psi_rank"]))
 		return
 	else if(href_list["set_psi_rank_limitless"])
-		var/sure = input(usr, "Limitless is INTENTIONALLY STUPIDLY OVERPOWERED! YOU SHOULD NOT BE USING THIS WITHOUT KNOWING EXACTLY WHAT YOU'RE DOING!", "Don't Get A Staff Complaint") as anything in list("I know what I'm doing!", "I fear no man. But that thing... it scares me!")
+		var/sure = tgui_input_list(usr, "Limitless is INTENTIONALLY STUPIDLY OVERPOWERED! YOU SHOULD NOT BE USING THIS WITHOUT KNOWING EXACTLY WHAT YOU'RE DOING!", \
+					 "Don't Get A Staff Complaint", list("I know what I'm doing!", "I fear no man. But that thing... it scares me!"))
 		if(sure == "I know what I'm doing!")
 			current.set_psi_rank(PSI_RANK_LIMITLESS)
 		return

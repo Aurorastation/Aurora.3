@@ -162,10 +162,10 @@
 		if("Location")
 			mode = 1
 
-			var/locationx = input(usr, "Please input the x coordinate to search for.", "Location?" , "") as num
+			var/locationx = tgui_input_number(usr, "Please input the x coordinate to search for.", "Pinpointer")
 			if(!locationx || !(usr in view(1,src)))
 				return
-			var/locationy = input(usr, "Please input the y coordinate to search for.", "Location?" , "") as num
+			var/locationy = tgui_input_number(usr, "Please input the y coordinate to search for.", "Pinpointer?")
 			if(!locationy || !(usr in view(1,src)))
 				return
 
@@ -188,7 +188,7 @@
 				if("Item")
 					var/datum/objective/steal/itemlist
 					itemlist = itemlist // To supress a 'variable defined but not used' error.
-					var/targetitem = input("Select item to search for.", "Item Mode Select","") as null|anything in itemlist.possible_items
+					var/targetitem = tgui_input_list(usr, "Select the item to search for.", "Pinpointer", itemlist.possible_items)
 					if(!targetitem)
 						return
 					target=locate(itemlist.possible_items[targetitem])
@@ -197,7 +197,7 @@
 						return
 					to_chat(usr, "You set the pinpointer to locate [targetitem]")
 				if("DNA")
-					var/DNAstring = input("Input DNA string to search for." , "Please Enter String." , "")
+					var/DNAstring = tgui_input_text(usr, "Input the DNA string to search.", "Pinpointer")
 					if(!DNAstring)
 						return
 					for(var/mob/living/carbon/M in mob_list)

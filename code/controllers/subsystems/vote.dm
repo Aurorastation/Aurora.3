@@ -281,8 +281,10 @@ var/datum/controller/subsystem/vote/SSvote
 						AddChoice(antag.role_text)
 				AddChoice("None")
 			if("custom")
-				question = input(usr,"What is the vote for?") as text|null
-				if(!question)	return 0
+				question = tgui_input_text(usr, "What is the vote for?")
+				if(!question)
+					return FALSE
+
 				for(var/i=1,i<=10,i++)
 					var/option = capitalize(sanitize(input(usr,"Please enter an option or hit cancel to finish") as text|null))
 					if(!option || mode || !usr.client)	break

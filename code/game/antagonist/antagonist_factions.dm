@@ -2,7 +2,10 @@
 	set name = "Invite to the Revolutionaries"
 	set category = "IC"
 
-	var/mob/living/carbon/human/M = input(usr, "Choose someone to convert.", "Invite to the Revolutionaries") as null|mob in orange(world.view, src)
+	var/list/mobs_to_convert = list()
+	for(var/mob/A in orange(world.view, src))
+		mobs_to_convert += A
+	var/mob/living/carbon/human/M = input(usr, "Choose someone to convert.", "Invite to the Revolutionaries", mobs_to_convert)
 	if(!M)
 		return
 	if(!M.mind)
@@ -54,7 +57,10 @@
 	set name = "Invite to the Loyalists"
 	set category = "IC"
 
-	var/mob/living/carbon/human/M = input(usr, "Choose someone to convert.", "Invite to the Loyalists") as null|mob in orange(world.view, src)
+	var/list/mobs_to_convert = list()
+	for(var/mob/A in orange(world.view, src))
+		mobs_to_convert += A
+	var/mob/living/carbon/human/M = input(usr, "Choose someone to convert.", "Invite to the Loyalists", mobs_to_convert)
 	if(!M)
 		return
 	if(!M.mind)
