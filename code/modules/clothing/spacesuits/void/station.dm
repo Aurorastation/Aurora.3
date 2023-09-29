@@ -250,6 +250,10 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
+	item_state_slots = list(
+			slot_l_hand_str = "research_helm",
+			slot_r_hand_str = "research_helm"
+	)
 
 /obj/item/clothing/suit/space/void/sci
 	name = "research voidsuit"
@@ -263,4 +267,8 @@
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
+	)
+	item_state_slots = list(
+			slot_l_hand_str = "sci_hardsuit",
+			slot_r_hand_str = "sci_hardsuit"
 	)
