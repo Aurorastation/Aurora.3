@@ -122,7 +122,7 @@
 		return TOPIC_REFRESH
 
 	if(href_list["rename"])
-		var/new_name = input(usr, "Select new name for this ship.", "Rename this ship", shuttle.name)
+		var/new_name = tgui_input_text(usr, "Select new name for this ship.", "Rename Ship", shuttle.name, MAX_NAME_LEN)
 		if(new_name)
 			shuttle.name = new_name
 		return TOPIC_REFRESH

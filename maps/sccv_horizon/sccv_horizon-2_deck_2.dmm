@@ -26309,7 +26309,9 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
 "mLd" = (
-/obj/effect/shuttle_landmark/merc_ship/second_deck,
+/obj/effect/shuttle_landmark/merc_ship/second_deck{
+	dir = 4
+	},
 /turf/template_noop,
 /area/template_noop)
 "mLn" = (
@@ -41889,9 +41891,11 @@
 /turf/simulated/wall,
 /area/horizon/kitchen)
 "upQ" = (
-/obj/effect/shuttle_landmark/burglar_ship/second_deck,
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/shuttle_landmark/burglar_ship/second_deck{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/wing/starboard/far)
 "upS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -49732,7 +49736,9 @@
 /turf/simulated/floor/tiled/full,
 /area/rnd/hallway)
 "xWc" = (
-/obj/effect/shuttle_landmark/skipjack_ship/second_deck,
+/obj/effect/shuttle_landmark/skipjack_ship/second_deck{
+	dir = 1
+	},
 /turf/template_noop,
 /area/template_noop)
 "xWr" = (
@@ -54306,7 +54312,7 @@ qgN
 qgN
 qgN
 qgN
-upQ
+qgN
 qgN
 qgN
 qgN
@@ -54912,7 +54918,7 @@ kDC
 wmi
 kDC
 kDC
-kDC
+upQ
 kDC
 kDC
 kDC
@@ -55268,7 +55274,7 @@ qgN
 qgN
 qgN
 qgN
-xWc
+qgN
 qgN
 qgN
 qgN
@@ -56075,7 +56081,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+xWc
 qgN
 qgN
 qgN
@@ -70396,7 +70402,7 @@ qgN
 qgN
 qgN
 qgN
-mLd
+qgN
 qgN
 qgN
 qgN
@@ -75244,7 +75250,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+mLd
 qgN
 qgN
 qgN
