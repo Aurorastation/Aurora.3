@@ -13,7 +13,7 @@
 	///Used to scale icons up or down vertically in update_transform().
 	var/icon_scale_y = 1
 
- 	///Used to rotate icons in update_transform()
+	///Used to rotate icons in update_transform()
 	var/icon_rotation = 0
 
 	var/move_speed = 10
@@ -193,9 +193,9 @@
 		minor_dist = dist_x
 
 	while(src && target && src.throwing && istype(src.loc, /turf) \
-		  && ((abs(target.x - src.x)+abs(target.y - src.y) > 0 && dist_travelled < range) \
-		  	   || (a && a.has_gravity == 0) \
-			   || istype(src.loc, /turf/space)))
+			&& ((abs(target.x - src.x)+abs(target.y - src.y) > 0 && dist_travelled < range) \
+				|| (a && a.has_gravity == 0) \
+				|| istype(src.loc, /turf/space)))
 		// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 		var/atom/step
 		if(error >= 0)

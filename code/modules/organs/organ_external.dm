@@ -987,7 +987,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			M.Turn(rand(180))
 			src.transform = M
 			if(!clean)
-				 //Throw limb around.
+				//Throw limb around.
 				if(src && isturf(loc))
 					INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src,pick(alldirs)), rand(1,3), 4)
 				dir = 2

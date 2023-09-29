@@ -131,13 +131,13 @@
 	return
 
 /**
-  * Call this when your initializations are complete and your game is ready to play before any player interactions happen.
-  *
-  * This may use [/world/var/sleep_offline] to make this happen so ensure no changes are made to it while this call is running.
-  * Afterwards, consider explicitly setting it to what you want to avoid this BYOND bug: http://www.byond.com/forum/post/2575184
-  * Before this point, note that any static files or directories may be in use by another server. Your code should account for this.
-  * This function should not be called before ..() in [/world/proc/New].
-  */
+ * Call this when your initializations are complete and your game is ready to play before any player interactions happen.
+ *
+ * This may use [/world/var/sleep_offline] to make this happen so ensure no changes are made to it while this call is running.
+ * Afterwards, consider explicitly setting it to what you want to avoid this BYOND bug: http://www.byond.com/forum/post/2575184
+ * Before this point, note that any static files or directories may be in use by another server. Your code should account for this.
+ * This function should not be called before ..() in [/world/proc/New].
+ */
 /world/proc/TgsInitializationComplete()
 	return
 
@@ -145,8 +145,8 @@
 #define TGS_TOPIC var/tgs_topic_return = TgsTopic(args[1]); if(tgs_topic_return) return tgs_topic_return
 
 /**
-  * Call this at the beginning of [world/proc/Reboot].
-  */
+ * Call this at the beginning of [world/proc/Reboot].
+ */
 /world/proc/TgsReboot()
 	return
 

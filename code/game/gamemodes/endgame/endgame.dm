@@ -14,7 +14,7 @@
 	var/name = "Normal"
 	var/desc = "Nothing seems awry."
 
- 	// Sets world.turf, replaces all turfs of type /turf/space.
+	// Sets world.turf, replaces all turfs of type /turf/space.
 	var/space_type         = /turf/space
 
 	// Replaces all turfs of type /turf/space/transit/bluespace

@@ -6,17 +6,17 @@ Overview:
 
 Class Variables:
 	use_power (num)
-	  current state of auto power use.
-	  Possible Values:
-		 0 -- no auto power use
-		 1 -- machine is using power at its idle power level
-		 2 -- machine is using power at its active power level
+		current state of auto power use.
+		Possible Values:
+			0 -- no auto power use
+			1 -- machine is using power at its idle power level
+			2 -- machine is using power at its active power level
 
 	active_power_usage (num)
-	  Value for the amount of power to use when in active power mode
+		Value for the amount of power to use when in active power mode
 
 	idle_power_usage (num)
-	  Value for the amount of power to use when in idle power mode
+		Value for the amount of power to use when in idle power mode
 
 	power_channel (num)
 		What channel to draw from when drawing power for power mode

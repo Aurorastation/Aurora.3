@@ -1,4 +1,4 @@
- // This file contains all Nano procs/definitions for external classes/objects
+// This file contains all Nano procs/definitions for external classes/objects
 
 /**
  * Called when a Nano UI window is closed
