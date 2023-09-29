@@ -53,7 +53,6 @@
 					P.attack_mob(M, 0, 100)
 
 /obj/item/grenade/stinger/prime()
-	set waitfor = 0
 	..()
 
 	INVOKE_ASYNC(src, PROC_REF(sting), src, num_fragments, num_fragments, explosion_size, explosion_size+1, fragment_damage, damage_step, TRUE)
