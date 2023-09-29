@@ -51,7 +51,7 @@
 
 	var/list/data = list()
 	data["ore_names"] = ore_names
-	data["search_ores"] = search_ores 
+	data["search_ores"] = search_ores
 	data["enabled"] = active
 	return data
 
