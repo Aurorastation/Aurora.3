@@ -135,7 +135,7 @@
 	return max(balls - ball_loss, 1)
 
 /obj/item/projectile/bullet/rubberball/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier)
-	if (balls < 0) 
+	if (balls < 0)
 		return TRUE
 
 	var/total_balls = get_balls(distance)
@@ -152,7 +152,7 @@
 
 		var/old_zone = def_zone
 		def_zone = ran_zone(def_zone, spread)
-		if (..()) 
+		if (..())
 			hits++
 		def_zone = old_zone
 
