@@ -550,6 +550,7 @@
 	color = 0
 	drift = generator("circle", 0.2, NORMAL_RAND)
 
+#undef FUSION_ENERGY_PER_K
 #undef FUSION_INSTABILITY_DIVISOR
 #undef FUSION_RUPTURE_THRESHOLD
 #undef FUSION_REACTANT_CAP
