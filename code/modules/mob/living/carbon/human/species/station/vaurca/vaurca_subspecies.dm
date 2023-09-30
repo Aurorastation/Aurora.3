@@ -120,7 +120,8 @@
 		/mob/living/carbon/human/proc/hivemute,
 		/mob/living/carbon/human/proc/hiveban,
 		/mob/living/carbon/human/proc/hivevoid,
-		/mob/living/carbon/human/proc/hivenet_transmit
+		/mob/living/carbon/human/proc/hivenet_transmit,
+		/mob/living/carbon/human/proc/hivenet_manifest
 	)
 
 	default_h_style = "Bald"
@@ -209,7 +210,8 @@
 		/mob/living/carbon/human/proc/devour_head,
 		/mob/living/carbon/human/proc/formic_spray,
 		/mob/living/carbon/human/proc/trample,
-		/mob/living/carbon/human/proc/hivenet_recieve
+		/mob/living/carbon/human/proc/hivenet_recieve,
+		/mob/living/carbon/human/proc/hivenet_manifest
 		)
 
 	has_organ = list(

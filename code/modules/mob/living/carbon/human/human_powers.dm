@@ -2090,3 +2090,15 @@
 		infest.replaced(H, affected)
 
 		msg_admin_attack("[key_name_admin(src)] infected [key_name_admin(H)] with black k'ois! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
+
+/mob/living/carbon/human/proc/hivenet_manifest()
+	set name = "Hivenet Manifest"
+	set desc = "Get a list of all vaurca currently on the Hivenet."
+	set category = "Hivenet"
+
+	var/list/all_vaurca = list()
+	for(var/mob/living/carbon/human/vaurca in human_mob_list)
+		if(!vaurca.stat && isvaurca(vaurca) && vaurca.internal_organs_by_name[BP_NEURAL_SOCKET])
+			all_vaurca += vaurca
+	var/datum/tgui_module/hivenet_manifest/HM = new /datum/tgui_module/hivenet_manifest(usr, all_vaurca)
+	HM.ui_interact(usr)
