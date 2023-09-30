@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Lowered the exosuit clamp's melee damage, but also reduced the miss chance."
