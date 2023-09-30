@@ -68,7 +68,6 @@ var/global/list/minevendor_list = list( //keep in order of price
 	icon_state = "mining"
 	density = TRUE
 	anchored = TRUE
-	var/datum/weakref/scanned_id
 
 /datum/data/mining_equipment
 	var/equipment_name = "generic"
@@ -105,29 +104,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 /obj/machinery/mineral/equipment_vendor/attack_hand(mob/user)
 	if(..())
 		return
-	if(!scanned_id)
-		get_user_id(user)
-	else
-		var/obj/item/card/id/ID = scanned_id.resolve()
-		if(!ID)
-			scanned_id = null
-			get_user_id(user)
-		else
-			var/turf/id_turf = get_turf(ID)
-			if(!id_turf.Adjacent(loc))
-				scanned_id = null
-				get_user_id(user)
 	ui_interact(user)
-
-/obj/machinery/mineral/equipment_vendor/proc/get_user_id(var/mob/user)
-	if(isDrone(user))
-		var/mob/living/silicon/robot/drone/D = user
-		if(D.standard_drone)
-			return
-	if(!scanned_id)
-		var/obj/item/card/id/ID = user.GetIdCard()
-		if(ID)
-			scanned_id = WEAKREF(ID)
 
 /obj/machinery/mineral/equipment_vendor/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -138,7 +115,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 
 /obj/machinery/mineral/equipment_vendor/ui_data(mob/user)
 	var/list/data = list()
-	var/obj/item/card/id/ID = scanned_id?.resolve()
+	var/obj/item/card/id/ID = user.GetIdCard()
 	if(ID)
 		data["hasId"] = TRUE
 		data["miningPoints"] = ID.mining_points ? ID.mining_points : 0
@@ -155,15 +132,8 @@ var/global/list/minevendor_list = list( //keep in order of price
 	if(.)
 		return
 
-	if(action == "choice")
-		if(params["choice"] == "scan")
-			var/obj/item/card/id/I = usr.get_active_hand()
-			if(istype(I))
-				scanned_id = WEAKREF(I)
-		return TRUE
-
 	if(action == "purchase")
-		var/obj/item/card/id/ID = scanned_id.resolve()
+		var/obj/item/card/id/ID = usr.GetIdCard()
 		if(ID)
 			var/datum/data/mining_equipment/prize = locate(params["purchase"])
 			if(!prize || !(prize in minevendor_list))
