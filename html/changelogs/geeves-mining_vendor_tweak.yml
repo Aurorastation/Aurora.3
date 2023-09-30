@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "The mining vendor Purchase button now has a tooltip describing what the item does, captured from the item's actual description."
+  - tweak: "The mining vendor's item list now has the same names as the actual spawned items."
