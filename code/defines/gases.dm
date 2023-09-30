@@ -4,7 +4,7 @@
 	specific_heat = 20	// J/(mol*K)
 	molar_mass = 0.032	// kg/mol
 
-	flags = XGM_GAS_OXIDIZER
+	flags = XGM_GAS_OXIDIZER | XGM_GAS_FUSION_FUEL
 
 /singleton/xgm_gas/nitrogen
 	id = GAS_NITROGEN

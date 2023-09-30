@@ -113,6 +113,16 @@
 	. = ..()
 	air_contents.adjust_gas(GAS_HELIUM, MolesForPressure())
 
+/obj/machinery/portable_atmospherics/canister/boron
+	name = "\improper Boron \[Bo\]"
+	icon_state = "green"
+	canister_color = "green"
+	can_label = 0
+
+/obj/machinery/portable_atmospherics/canister/boron/Initialize()
+	. = ..()
+	air_contents.adjust_gas(GAS_BORON, MolesForPressure())
+
 /obj/machinery/portable_atmospherics/canister/air
 	name = "Canister \[Air\]"
 	icon_state = "grey"
