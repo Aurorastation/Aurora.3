@@ -88,9 +88,9 @@ export const DockingAirlockConsole = (props, context) => {
             <Button
               content="Force Exterior Door"
               icon="circle-exclamation"
-              disabled={data.airlock_disabled || data.processing}
+              disabled={data.airlock_disabled}
               color={
-                data.airlock_disabled || data.processing
+                data.airlock_disabled
                   ? null
                   : data.interior_status.state === 'open'
                     ? 'red'
@@ -101,9 +101,9 @@ export const DockingAirlockConsole = (props, context) => {
             <Button
               content="Force Interior Door"
               icon="circle-exclamation"
-              disabled={data.airlock_disabled || data.processing}
+              disabled={data.airlock_disabled}
               color={
-                data.airlock_disabled || data.processing
+                data.airlock_disabled
                   ? null
                   : data.exterior_status.state === 'open'
                     ? 'red'
@@ -116,8 +116,8 @@ export const DockingAirlockConsole = (props, context) => {
             <Button
               content="Abort"
               icon="ban"
-              disabled={data.airlock_disabled || data.processing}
-              color={data.airlock_disabled || data.processing ? null : 'red'}
+              disabled={data.airlock_disabled || !data.processing}
+              color={data.airlock_disabled || !data.processing ? null : 'red'}
               onClick={() => act('command', { command: 'abort' })}
             />
           </Box>
