@@ -13,7 +13,7 @@
 
 /obj/machinery/computer/shuttle_control/multi/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/multi/shuttle, var/action, var/list/params)
 	if(action == "pick")
-		var/dest_key = input(user, "Choose shuttle destination", "Shuttle Destination") as null|anything in shuttle.get_destinations()
+		var/dest_key = tgui_input_list(user, "Choose shuttle destination.", "Shuttle Destination", shuttle.get_destinations())
 		if(dest_key && (!use_check(usr) || (isobserver(usr) && check_rights(R_ADMIN, FALSE))))
 			shuttle.set_destination(dest_key, usr)
 		return TRUE
@@ -48,6 +48,6 @@
 		else if(our_shuttle.next_location == our_shuttle.home_waypoint)
 			if(our_shuttle.return_warning_cooldown < world.time)
 				our_shuttle.return_warning_cooldown = world.time + 60 SECONDS
-				alert(user, "If you return to base, you won't be able to return to [current_map.station_short]. Launch again if you're sure about this.","Shuttle Control","Acknowledged.")
+				tgui_alert(user, "If you return to base, you won't be able to return to [current_map.station_short]. Launch again if you're sure about this.", "Shuttle Control" list("Acknowledged."))
 				return FALSE
 	return ..()
