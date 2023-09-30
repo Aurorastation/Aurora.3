@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "You can now move and pump a kinetic accelerator at the same time."
+  - tweak: "Reduced the click cooldown after pumping a kinetic accelerator."
