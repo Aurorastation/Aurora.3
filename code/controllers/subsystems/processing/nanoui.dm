@@ -4,7 +4,7 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
 	// Subsystem stuff.
 	name = "NanoUI"
 	flags = SS_NO_INIT
-	priority = FIRE_PRIORITY_NANOUI
+	priority = SS_PRIORITY_NANOUI
 	stat_tag = "A"
 
 	// NanoUI stuff.
