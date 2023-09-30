@@ -149,7 +149,7 @@
 	update_icon()
 
 /obj/item/ore_detector/proc/clear_images()
-	var/mob/M = our_user.resolve()
+	var/mob/M = our_user?.resolve()
 	if(M?.client)
 		M.client.images -= ore_pings
 	ore_pings.Cut()
