@@ -187,17 +187,16 @@ var/global/list/minevendor_list = list( //keep in order of price
 
 /obj/machinery/mineral/equipment_vendor/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/coin/mining))
-		var/choice = input(user, "Which special equipment would you like to dispense from \the [src]?", capitalize_first_letters(name)) as null|anything in list("Enhanced Power Converter", "Hand-held Drill", "Autonomous Mining Drone")
+		var/list/equipment_choices = list(
+			"Kinetic Accelerator Kit" = /obj/item/storage/toolbox/ka,
+			"Industrial Drilling Kit" = /obj/item/storage/toolbox/drill,
+			"Autonomous Mining Drone" = /mob/living/silicon/robot/drone/mining
+		)
+		var/choice = input(user, "Which special equipment would you like to dispense from \the [src]?", capitalize_first_letters(name)) as null|anything in equipment_choices
 		if(!choice || QDELETED(I) || !Adjacent(user))
 			return
-		var/obj/dispensed_equipment
-		switch(choice)
-			if("Kinetic Accelerator Kit")
-				dispensed_equipment = new /obj/item/storage/toolbox/ka(src)
-			if("Industrial Drilling Kit")
-				dispensed_equipment = new /obj/item/storage/toolbox/drill(src)
-			if("Autonomous Mining Drone")
-				dispensed_equipment = new /mob/living/silicon/robot/drone/mining(get_turf(user))
+		var/equipment_path = equipment_choices[choice]
+		var/obj/dispensed_equipment = new equipment_path(get_turf(src))
 		if(dispensed_equipment)
 			to_chat(user, SPAN_NOTICE("\The [src] accepts your coin and dispenses \a [dispensed_equipment]."))
 			qdel(I)
