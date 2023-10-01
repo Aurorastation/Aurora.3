@@ -55,8 +55,7 @@ var/datum/controller/subsystem/timer/SStimer
 	/// How many times bucket was reset
 	var/bucket_reset_count = 0
 
-/datum/controller/subsystem/timer/New()
-	NEW_SS_GLOBAL(SStimer)
+/datum/controller/subsystem/timer/PreInit()
 	bucket_list.len = BUCKET_LEN
 	head_offset = world.time
 	bucket_resolution = world.tick_lag

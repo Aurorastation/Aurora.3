@@ -1,7 +1,5 @@
 #define DEFAULT_MAX_RUNES   40
-/var/datum/controller/subsystem/cult/SScult
-
-/datum/controller/subsystem/cult
+SUBSYSTEM_DEF(cult)
 	name = "Cult"
 	flags = SS_NO_FIRE
 
@@ -15,9 +13,6 @@
 	var/rune_limit          = DEFAULT_MAX_RUNES //in the SS so admins can easily modify it if needed
 	var/rune_boost          = 0
 	var/tome_data           = ""
-
-/datum/controller/subsystem/cult/New()
-	NEW_SS_GLOBAL(SScult)
 
 /datum/controller/subsystem/cult/Initialize()
 	. = ..()

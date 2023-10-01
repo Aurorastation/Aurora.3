@@ -1,13 +1,11 @@
 #define SUBSYSTEM_INIT_SOURCE "subsystem init"
 
-var/datum/controller/subsystem/atoms/SSatoms
-
 #define BAD_INIT_QDEL_BEFORE 1
 #define BAD_INIT_DIDNT_INIT 2
 #define BAD_INIT_SLEPT 4
 #define BAD_INIT_NO_HINT 8
 
-/datum/controller/subsystem/atoms
+SUBSYSTEM_DEF(atoms)
 	name = "Atoms"
 	init_order = SS_INIT_ATOMS
 	flags = SS_NO_FIRE
@@ -27,9 +25,6 @@ var/datum/controller/subsystem/atoms/SSatoms
 	var/list/late_qdel
 
 	var/list/BadInitializeCalls = list()
-
-/datum/controller/subsystem/atoms/New()
-	NEW_SS_GLOBAL(SSatoms)
 
 /datum/controller/subsystem/atoms/Initialize(timeofday)
 	initialized = INITIALIZATION_INNEW_MAPLOAD

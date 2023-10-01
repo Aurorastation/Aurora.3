@@ -94,3 +94,26 @@
 #define SS_INITSTATE_DONE 2
 
 #define SS_PRIORITY_DEFAULT 25
+
+#define SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/##X);\
+/datum/controller/subsystem/##X/New(){\
+	NEW_SS_GLOBAL(SS##X);\
+	PreInit();\
+}\
+/datum/controller/subsystem/##X
+
+#define PROCESSING_SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/processing/##X);\
+/datum/controller/subsystem/processing/##X/New(){\
+	NEW_SS_GLOBAL(SS##X);\
+	PreInit();\
+}\
+/datum/controller/subsystem/processing/##X/fire() {..() /*just so it shows up on the profiler*/} \
+/datum/controller/subsystem/processing/##X
+
+#define MOB_AI_SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/mob_ai/##X);\
+/datum/controller/subsystem/mob_ai/##X/New(){\
+	NEW_SS_GLOBAL(SS##X);\
+	PreInit();\
+}\
+/datum/controller/subsystem/mob_ai/##X/fire() {..() /*just so it shows up on the profiler*/} \
+/datum/controller/subsystem/mob_ai/##X

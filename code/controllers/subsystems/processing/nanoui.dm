@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/processing/nanoui/SSnanoui
-
-/datum/controller/subsystem/processing/nanoui
+PROCESSING_SUBSYSTEM_DEF(nanoui)
 	// Subsystem stuff.
 	name = "NanoUI"
 	flags = SS_NO_INIT
