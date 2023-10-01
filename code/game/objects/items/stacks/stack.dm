@@ -159,7 +159,7 @@
 
 	to_chat(user, SPAN_NOTICE("Building [recipe.title]..."))
 	if (recipe.time)
-		if (!do_after(user, recipe.time))
+		if (!do_after(user, recipe.time, do_flags = DO_REPAIR_CONSTRUCT))
 			return
 
 	if (use(required))

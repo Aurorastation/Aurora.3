@@ -68,11 +68,11 @@
 				if(open && !swirlie)
 					user.visible_message(SPAN_DANGER("[user] starts to give [GM.name] a swirlie!"), SPAN_NOTICE("You start to give [GM.name] a swirlie!"))
 					swirlie = GM
-					if(do_after(user, 30, 5, 0))
+					if(do_after(user, 30, GM, do_flags = DO_UNIQUE))
 						user.visible_message(SPAN_DANGER("[user] gives [GM.name] a swirlie!"), SPAN_NOTICE("You give [GM.name] a swirlie!"), "You hear a toilet flushing.")
 						if(!GM.internal)
 							GM.adjustOxyLoss(5)
-						SSfeedback.IncrementSimpleStat("swirlies")
+						SSstatistics.IncrementSimpleStat("swirlies")
 					swirlie = null
 				else
 					user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))

@@ -479,7 +479,7 @@
 	animate(src, pixel_y = starting_pixel_y + 4, time = 2)
 	animate(src, pixel_y = starting_pixel_y, time = 2)
 
-	if(!do_after(H, 8, FALSE)) //Chest compressions are fast, need to wait for the loading bar to do mouth to mouth
+	if(!do_after(H, 8, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT)) //Chest compressions are fast, need to wait for the loading bar to do mouth to mouth
 		to_chat(H, SPAN_NOTICE("You stop performing [cpr_mode] on \the [src]."))
 		cpr = FALSE //If it cancelled, cancel it. Simple.
 
@@ -635,7 +635,7 @@
 		organ.applied_pressure = user
 
 		//apply pressure as long as they stay still and keep grabbing
-		do_after(user, INFINITY, TRUE, display_progress = FALSE)
+		do_after(user, INFINITY, do_flags = (DO_DEFAULT & ~DO_SHOW_PROGRESS) | DO_USER_UNIQUE_ACT)
 
 		organ.applied_pressure = null
 

@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/typing/SStyping
-
-/datum/controller/subsystem/typing
+SUBSYSTEM_DEF(typing)
 	name = "Typing"
 	flags = SS_BACKGROUND
 	wait = 0.5 SECONDS
@@ -37,7 +35,6 @@ var/datum/controller/subsystem/typing/SStyping
 	*/
 
 /datum/controller/subsystem/typing/Initialize(start_timeofday)
-	NEW_SS_GLOBAL(SStyping)
 	match_verbs = regex("^(Me|Say|Whisper) +\"?\\w+")
 	. = ..()
 

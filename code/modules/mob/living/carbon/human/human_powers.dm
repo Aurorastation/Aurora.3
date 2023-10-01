@@ -1411,13 +1411,14 @@
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
-				available_vaurca += player
+				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to ban.", "Hivenet Ban") as null|anything in available_vaurca
 	if(!target || !isvaurca(target))
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
 	var/list/target_fullname = splittext(target.name, " ")
 	var/target_surname = target_fullname[2]
+	to_chat(src, target.real_name)
 	if(!(all_languages[LANGUAGE_VAURCA] in target.languages) && S.banned)
 		target.add_language(LANGUAGE_VAURCA)
 		S.banned = FALSE
@@ -1500,7 +1501,7 @@
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
-				available_vaurca += player
+				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to void.", "Hivenet Void") as null|anything in available_vaurca
 	if(!target || !isvaurca(target))
 		return
@@ -1571,7 +1572,7 @@
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
-				available_vaurca += player
+				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to mute.", "Hivenet Mute") as null|anything in available_vaurca
 	if(!target || !isvaurca(target))
 		return
@@ -1715,7 +1716,7 @@
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			if(player.stat != CONSCIOUS)
 				continue
-			available_vaurca += player
+			LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to observe.", "Hivenet Remote Observation") as null|anything in available_vaurca
 	if(!target || !isvaurca(target))
 		remoteview_target = null
@@ -1753,9 +1754,9 @@
 						remoteview_target = null
 						reset_view(0)
 						return
-		to_chat(src, SPAN_NOTICE("Your request to access [target]'s senses has been denied."))
-		remoteview_target = null
-		reset_view(0)
+			to_chat(src, SPAN_NOTICE("Your request to access [target]'s senses has been denied."))
+			remoteview_target = null
+			reset_view(0)
 
 /mob/living/carbon/human/proc/hivenet_neuralshock()
 	set name = "Neural Shock"
@@ -1775,7 +1776,7 @@
 			var/list/player_fullname = splittext(player.name, " ")
 			var/player_surname = player_fullname[2]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
-				available_vaurca += player
+				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to shock.", "Neural Shock") as null|anything in available_vaurca
 	if(!target || !isvaurca(target))
 		return
@@ -1845,11 +1846,11 @@
 		return
 	for(var/mob/living/carbon/human/player in (human_mob_list - src))
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
-			available_vaurca += player
+			LAZYADD(available_vaurca, player)
 	if(!length(available_vaurca))
 		to_chat(src, SPAN_NOTICE("There are no unshielded Vaurcae within range!"))
 		return
-	available_vaurca += "Finished"
+	LAZYADD(available_vaurca, "Finished")
 	for(var/i = 0 to max)
 		var/mob/living/carbon/human/H = input(src, "Select a Vaurca to extend your defenses to.","Hivenet Defensive Lattice", null) as anything in available_vaurca
 		if(!istype(H))
@@ -1877,8 +1878,8 @@
 		if(player.stat == DEAD)
 			continue
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
-			available_vaurca += player
-	available_vaurca += "Cancel"
+			LAZYADD(available_vaurca, player)
+	LAZYADD(available_vaurca, "Cancel")
 	var/mob/living/carbon/human/target = input(src, "Select a target to disrupt", "Disrupt Hivenet User", null) as anything in available_vaurca
 	if(!istype(target))
 		return
@@ -1904,7 +1905,7 @@
 		if(player.stat == DEAD)
 			continue
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
-			available_vaurca += player
+			LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = input(src, "Select a target to shock", "Neural Shock User", null) as anything in available_vaurca
 	if(!istype(target))
 		to_chat(src, SPAN_WARNING("Invalid target!"))
@@ -1949,7 +1950,7 @@
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			if(player.stat != CONSCIOUS)
 				continue
-			available_vaurca += player
+			LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to observe.", "Hivenet Sensory Hijack") as null|anything in available_vaurca
 	if(!target || !isvaurca(target))
 		remoteview_target = null
@@ -1981,13 +1982,13 @@
 	reset_view(target)
 
 /mob/living/carbon/human/proc/can_hivenet()
-	var/obj/item/organ/internal/vaurca/neuralsocket/S = src.organs_by_name[BP_NEURAL_SOCKET]
+	var/obj/item/organ/internal/vaurca/neuralsocket/S = src.internal_organs_by_name[BP_NEURAL_SOCKET]
 	if(src.stat != CONSCIOUS)
 		to_chat(src, SPAN_WARNING("You are incapable of that in your current state!"))
 		return FALSE
 	if(!istype(S))
 		to_chat(src, SPAN_WARNING("You require a functional neural socket to do this!"))
-		return
+		return FALSE
 	if(S.last_action > world.time)
 		to_chat(src, SPAN_WARNING("You must wait before attempting another Hivenet action!"))
 		return FALSE

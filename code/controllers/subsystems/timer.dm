@@ -16,9 +16,7 @@
   * lists. The object at a given index in bucket_list is a /datum/timedevent, the head of a circular list, which has prev
   * and next references for the respective elements in that bucket's circular list.
   */
-var/datum/controller/subsystem/timer/SStimer
-
-/datum/controller/subsystem/timer
+SUBSYSTEM_DEF(timer)
 	name = "Timer"
 	wait = 1 //SS_TICKER subsystem, so wait is in ticks
 	priority = SS_PRIORITY_TIMER
@@ -55,8 +53,7 @@ var/datum/controller/subsystem/timer/SStimer
 	/// How many times bucket was reset
 	var/bucket_reset_count = 0
 
-/datum/controller/subsystem/timer/New()
-	NEW_SS_GLOBAL(SStimer)
+/datum/controller/subsystem/timer/PreInit()
 	bucket_list.len = BUCKET_LEN
 	head_offset = world.time
 	bucket_resolution = world.tick_lag

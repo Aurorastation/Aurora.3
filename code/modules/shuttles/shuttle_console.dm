@@ -7,7 +7,7 @@
 	var/shuttle_tag      // Used to coordinate data in shuttle controller.
 	var/hacked = FALSE   // Has been emagged, no access restrictions.
 
-	var/ui_template = "shuttle_control_console.tmpl"
+	var/ui_template = "ShuttleControlConsole"
 	var/list/linked_helmets = list()
 	var/can_rename_ship = FALSE
 
@@ -52,26 +52,6 @@
 	if(check_rights(R_ADMIN, 0, user))
 		ui_interact(user)
 
-/obj/machinery/computer/shuttle_control/proc/get_ui_data(var/datum/shuttle/autodock/shuttle)
-	var/shuttle_state
-	switch(shuttle.moving_status)
-		if(SHUTTLE_IDLE) shuttle_state = "idle"
-		if(SHUTTLE_WARMUP) shuttle_state = "warmup"
-		if(SHUTTLE_INTRANSIT) shuttle_state = "in_transit"
-
-	return list(
-		"shuttle_status" = get_shuttle_status(shuttle),
-		"shuttle_state" = shuttle_state,
-		"has_docking" = shuttle.active_docking_controller? 1 : 0,
-		"docking_status" = shuttle.active_docking_controller? shuttle.active_docking_controller.get_docking_status() : null,
-		"docking_override" = shuttle.active_docking_controller? shuttle.active_docking_controller.override_enabled : null,
-		"can_launch" = shuttle.can_launch(),
-		"can_cancel" = shuttle.can_cancel(),
-		"can_force" = shuttle.can_force(),
-		"can_rename_ship" = can_rename_ship,
-		"ship_name" = shuttle.name,
-	)
-
 /obj/machinery/computer/shuttle_control/proc/get_shuttle_status(var/datum/shuttle/autodock/shuttle)
 	switch(shuttle.process_state)
 		if(IDLE_STATE)
@@ -101,50 +81,71 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/computer/shuttle_control/proc/handle_topic_href(var/datum/shuttle/autodock/shuttle, var/list/href_list, var/user)
-	if(!istype(shuttle))
-		return TOPIC_NOACTION
-
-	if(href_list["move"])
-		if(can_move(shuttle, user))
-			shuttle.launch(src)
-			return TOPIC_REFRESH
-		return TOPIC_HANDLED
-
-	if(href_list["force"])
-		if(can_move(shuttle, user))
-			shuttle.force_launch(src)
-			return TOPIC_REFRESH
-		return TOPIC_HANDLED
-
-	if(href_list["cancel"])
-		shuttle.cancel_launch(src)
-		return TOPIC_REFRESH
-
-	if(href_list["rename"])
-		var/new_name = input(usr, "Select new name for this ship.", "Rename this ship", shuttle.name)
-		if(new_name)
-			shuttle.name = new_name
-		return TOPIC_REFRESH
-
-/obj/machinery/computer/shuttle_control/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/shuttle_control/ui_interact(mob/user, datum/tgui/ui)
 	var/datum/shuttle/autodock/shuttle = SSshuttle.shuttles[shuttle_tag]
-	if (!istype(shuttle))
-		to_chat(user,"<span class='warning'>Unable to establish link with the shuttle.</span>")
+	if(!istype(shuttle))
+		to_chat(user, SPAN_WARNING("Unable to establish link with the shuttle."))
 		return
 
-	var/list/data = get_ui_data(shuttle)
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, ui_key, ui_template, "[shuttle_tag] Shuttle Control", 470, 450)
-		ui.set_initial_data(data)
+		ui = new(user, src, ui_template, "[shuttle_tag] Shuttle Control", ui_x=470, ui_y=450)
 		ui.open()
-		ui.set_auto_update(1)
 
-/obj/machinery/computer/shuttle_control/Topic(href, href_list)
-	..()
-	handle_topic_href(SSshuttle.shuttles[shuttle_tag], href_list, usr)
+/obj/machinery/computer/shuttle_control/ui_data(mob/user)
+	var/datum/shuttle/autodock/shuttle = SSshuttle.shuttles[shuttle_tag]
+
+	var/shuttle_state
+	switch(shuttle.moving_status)
+		if(SHUTTLE_IDLE) shuttle_state = "idle"
+		if(SHUTTLE_WARMUP) shuttle_state = "warmup"
+		if(SHUTTLE_INTRANSIT) shuttle_state = "in_transit"
+
+	return list(
+		"shuttle_status" = get_shuttle_status(shuttle),
+		"shuttle_state" = shuttle_state,
+		"has_docking" = shuttle.active_docking_controller? 1 : 0,
+		"docking_status" = shuttle.active_docking_controller? shuttle.active_docking_controller.get_docking_status() : null,
+		"docking_override" = shuttle.active_docking_controller? shuttle.active_docking_controller.override_enabled : null,
+		"can_launch" = shuttle.can_launch(),
+		"can_cancel" = shuttle.can_cancel(),
+		"can_force" = shuttle.can_force(),
+		"can_rename_ship" = can_rename_ship,
+		"ship_name" = shuttle.name,
+	)
+
+/obj/machinery/computer/shuttle_control/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+
+	return handle_topic_href(usr, SSshuttle.shuttles[shuttle_tag], action, params)
+
+/obj/machinery/computer/shuttle_control/proc/handle_topic_href(var/mob/user, var/datum/shuttle/autodock/shuttle, var/action, var/list/params)
+	if(!istype(shuttle))
+		return FALSE
+
+	if(action == "move")
+		if(can_move(shuttle, user))
+			shuttle.launch(src)
+			return TRUE
+		return FALSE
+
+	if(action == "force")
+		if(can_move(shuttle, user))
+			shuttle.force_launch(src)
+			return TRUE
+		return FALSE
+
+	if(action == "cancel")
+		shuttle.cancel_launch(src)
+		return TRUE
+
+	if(action == "rename")
+		var/new_name = input(user, "Select new name for this ship.", "Rename this ship", shuttle.name)
+		if(new_name)
+			shuttle.name = new_name
+		return TRUE
 
 /obj/machinery/computer/shuttle_control/proc/update_helmets(var/datum/shuttle/autodock/shuttle)
 	var/shuttle_status = get_shuttle_status(shuttle)

@@ -75,8 +75,8 @@
 	else
 		luminosity = 1
 
-	if (smooth)
-		queue_smooth(src)
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue(src)
 
 	if (light_range && light_power)
 		update_light()
@@ -114,7 +114,7 @@
 	cleanup_roof()
 
 	if (ao_queued)
-		SSocclusion.queue -= src
+		SSao.queue -= src
 		ao_queued = 0
 
 	if (z_flags & ZM_MIMIC_BELOW)

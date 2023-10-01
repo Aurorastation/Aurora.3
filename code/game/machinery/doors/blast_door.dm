@@ -135,7 +135,7 @@
 			to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
 			return TRUE
 		to_chat(usr, "<span class='notice'>You begin repairing [src]...</span>")
-		if(do_after(usr, 30))
+		if(do_after(usr, 3 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			if(P.use(amt))
 				to_chat(usr, "<span class='notice'>You have repaired \The [src]</span>")
 				src.repair()
