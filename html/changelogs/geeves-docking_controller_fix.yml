@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed airlock/docking controllers not having the correct Force and Abort processing states."
