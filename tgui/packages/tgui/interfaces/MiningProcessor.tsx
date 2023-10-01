@@ -45,11 +45,6 @@ export const MiningProcessor = (props, context) => {
           ) : (
             <Box>
               <Box>No ID detected.</Box>
-              <Button
-                content="Scan ID"
-                icon="plus"
-                onClick={() => act('choice', { choice: 'scan' })}
-              />
             </Box>
           )}
         </Section>

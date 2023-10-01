@@ -1754,9 +1754,9 @@
 						remoteview_target = null
 						reset_view(0)
 						return
-		to_chat(src, SPAN_NOTICE("Your request to access [target]'s senses has been denied."))
-		remoteview_target = null
-		reset_view(0)
+			to_chat(src, SPAN_NOTICE("Your request to access [target]'s senses has been denied."))
+			remoteview_target = null
+			reset_view(0)
 
 /mob/living/carbon/human/proc/hivenet_neuralshock()
 	set name = "Neural Shock"

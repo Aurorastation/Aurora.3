@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/processing/nanoui/SSnanoui
-
-/datum/controller/subsystem/processing/nanoui
+PROCESSING_SUBSYSTEM_DEF(nanoui)
 	// Subsystem stuff.
 	name = "NanoUI"
 	flags = SS_NO_INIT
@@ -9,9 +7,6 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
 
 	// NanoUI stuff.
 	var/list/open_uis = list()
-
-/datum/controller/subsystem/processing/nanoui/New()
-	NEW_SS_GLOBAL(SSnanoui)
 
  /**
   * Get an open /nanoui ui for the current user, src_object and ui_key and try to update it with data

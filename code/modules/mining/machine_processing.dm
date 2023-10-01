@@ -17,7 +17,6 @@
 	var/obj/machinery/mineral/processing_unit/machine
 	var/show_all_ores = TRUE
 	var/points = 0
-	var/datum/weakref/scanned_id
 
 	var/list/ore/input_mats = list()
 	var/list/material/output_mats = list()
@@ -71,31 +70,9 @@
 
 /obj/machinery/mineral/processing_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
-	if(!scanned_id)
-		get_user_id(user)
-	else
-		var/obj/item/card/id/ID = scanned_id.resolve()
-		if(!ID)
-			scanned_id = null
-			get_user_id(user)
-		else
-			var/turf/id_turf = get_turf(user)
-			if(id_turf && !id_turf.Adjacent(loc))
-				scanned_id = null
-				get_user_id(user)
 	if(!setup_machine(user))
 		return
 	ui_interact(user)
-
-/obj/machinery/mineral/processing_unit_console/proc/get_user_id(var/mob/user)
-	if(isDrone(user))
-		var/mob/living/silicon/robot/drone/D = user
-		if(D.standard_drone)
-			return
-	if(!scanned_id)
-		var/obj/item/card/id/ID = user.GetIdCard()
-		if(ID)
-			scanned_id = WEAKREF(ID)
 
 /obj/machinery/mineral/processing_unit_console/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -106,7 +83,7 @@
 
 /obj/machinery/mineral/processing_unit_console/ui_data(mob/user)
 	var/list/data = list()
-	var/obj/item/card/id/ID = scanned_id?.resolve()
+	var/obj/item/card/id/ID = user.GetIdCard()
 	if(ID)
 		data["hasId"] = TRUE
 		data["miningPoints"] = ID.mining_points ? ID.mining_points : 0
@@ -143,7 +120,7 @@
 		return TRUE
 
 	if(action == "choice")
-		var/obj/item/card/id/ID = scanned_id.resolve()
+		var/obj/item/card/id/ID = usr.GetIdCard()
 		if(ID)
 			if(params["choice"] == "claim")
 				if(access_mining_station in ID.access)
@@ -161,10 +138,6 @@
 					print_report(usr)
 				else
 					to_chat(usr, SPAN_WARNING("Required access not found."))
-		else if(params["choice"] == "scan")
-			var/obj/item/card/id/I = usr.get_active_hand()
-			if(istype(I))
-				scanned_id = WEAKREF(I)
 		return TRUE
 
 	if(action == "toggle_smelting")
@@ -200,9 +173,9 @@
 		return TRUE
 
 /obj/machinery/mineral/processing_unit_console/proc/print_report(var/mob/living/user)
-	var/obj/item/card/id/ID = scanned_id.resolve()
+	var/obj/item/card/id/ID = user.GetIdCard()
 	if(!ID)
-		to_chat(user, SPAN_WARNING("No ID inserted. Cannot digitally sign."))
+		to_chat(user, SPAN_WARNING("No ID detected. Cannot digitally sign."))
 		return
 	if(!input_mats.len && !output_mats.len && !alloy_mats)
 		to_chat(user, SPAN_WARNING("There is no data to print."))

@@ -665,7 +665,7 @@ var/list/ai_verbs_default = list(
 					else
 						to_chat(src, SPAN_WARNING("You do not have a custom sprite!"))
 				if("loadout character")
-					var/mob/living/carbon/human/H = SSmob.get_mannequin(usr.client.ckey)
+					var/mob/living/carbon/human/H = SSmobs.get_mannequin(usr.client.ckey)
 					holo_icon.appearance = H.appearance
 				else
 					set_hologram_unique(icon('icons/mob/AI.dmi', input))

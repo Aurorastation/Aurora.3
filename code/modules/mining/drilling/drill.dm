@@ -23,17 +23,17 @@
 	var/list/resource_field = list()
 
 	var/ore_types = list(
-		MATERIAL_IRON = /obj/item/ore/iron,
-		MATERIAL_URANIUM = /obj/item/ore/uranium,
-		MATERIAL_GOLD = /obj/item/ore/gold,
-		MATERIAL_SILVER = /obj/item/ore/silver,
-		MATERIAL_DIAMOND = /obj/item/ore/diamond,
-		MATERIAL_PHORON = /obj/item/ore/phoron,
-		MATERIAL_OSMIUM = /obj/item/ore/osmium,
-		"hydrogen" = /obj/item/ore/hydrogen,
-		"silicates" = /obj/item/ore/glass,
-		"carbonaceous rock" = /obj/item/ore/coal
-		)
+		ORE_URANIUM = /obj/item/ore/uranium,
+		ORE_IRON = /obj/item/ore/iron,
+		ORE_COAL = /obj/item/ore/coal,
+		ORE_SAND = /obj/item/ore/glass,
+		ORE_PHORON = /obj/item/ore/phoron,
+		ORE_SILVER = /obj/item/ore/silver,
+		ORE_GOLD = /obj/item/ore/gold,
+		ORE_DIAMOND = /obj/item/ore/diamond,
+		ORE_PLATINUM = /obj/item/ore/osmium,
+		ORE_HYDROGEN = /obj/item/ore/hydrogen
+	)
 
 	//Upgrades
 	var/harvest_speed

@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/distress/SSdistress
-
-/datum/controller/subsystem/distress
+SUBSYSTEM_DEF(distress)
 	name = "Distress"
 	flags = SS_NO_FIRE
 
@@ -18,9 +16,8 @@
 /datum/controller/subsystem/distress/Recover()
 	send_emergency_team = SSdistress.send_emergency_team
 
-/datum/controller/subsystem/distress/New()
-	NEW_SS_GLOBAL(SSdistress)
-	feedback_set("responseteam_count",0)
+/datum/controller/subsystem/distress/PreInit()
+	feedback_set("responseteam_count", 0)
 
 /datum/controller/subsystem/distress/Initialize(start_timeofday)
 	. = ..()

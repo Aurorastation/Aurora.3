@@ -72,7 +72,7 @@
 						user.visible_message(SPAN_DANGER("[user] gives [GM.name] a swirlie!"), SPAN_NOTICE("You give [GM.name] a swirlie!"), "You hear a toilet flushing.")
 						if(!GM.internal)
 							GM.adjustOxyLoss(5)
-						SSfeedback.IncrementSimpleStat("swirlies")
+						SSstatistics.IncrementSimpleStat("swirlies")
 					swirlie = null
 				else
 					user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))
