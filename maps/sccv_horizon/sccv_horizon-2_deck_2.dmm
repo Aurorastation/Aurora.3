@@ -16920,7 +16920,7 @@
 /area/horizon/bar)
 "iaQ" = (
 /obj/machinery/computer/fusion/core_control{
-	initial_id_tag = horizon_fusion
+	initial_id_tag = "horizon_fusion"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
@@ -22351,7 +22351,7 @@
 "kGH" = (
 /obj/machinery/fusion_fuel_injector/mapped{
 	dir = 8;
-	initial_id_tag = horizon_fusion
+	initial_id_tag = "horizon_fusion"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/yellow{
@@ -24149,7 +24149,7 @@
 /area/rnd/xenobiology/xenoflora)
 "lDz" = (
 /obj/machinery/kinetic_harvester{
-	initial_id_tag = horizon_fusion
+	initial_id_tag = "horizon_fusion"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -31560,7 +31560,7 @@
 "pbK" = (
 /obj/machinery/power/emitter/gyrotron/anchored{
 	dir = 1;
-	initial_id_tag = horizon_fusion;
+	initial_id_tag = "horizon_fusion";
 	state = 2
 	},
 /obj/structure/cable/orange{
@@ -32570,7 +32570,7 @@
 /area/turret_protected/ai_upload_foyer)
 "pEA" = (
 /obj/machinery/computer/fusion/gyrotron{
-	initial_id_tag = horizon_fusion
+	initial_id_tag = "horizon_fusion"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
@@ -38181,7 +38181,7 @@
 "soK" = (
 /obj/machinery/power/fusion_core{
 	anchored = 1;
-	initial_id_tag = horizon_fusion
+	initial_id_tag = "horizon_fusion"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/cable/yellow{
@@ -38450,7 +38450,7 @@
 /area/maintenance/wing/starboard)
 "swe" = (
 /obj/machinery/computer/fusion/fuel_control{
-	initial_id_tag = horizon_fusion
+	initial_id_tag = "horizon_fusion"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
@@ -39931,7 +39931,7 @@
 "tjz" = (
 /obj/machinery/fusion_fuel_injector/mapped{
 	dir = 4;
-	initial_id_tag = horizon_fusion
+	initial_id_tag = "horizon_fusion"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/carpet/rubber,
@@ -46128,7 +46128,7 @@
 "wcc" = (
 /obj/machinery/fusion_fuel_injector/mapped{
 	dir = 8;
-	initial_id_tag = horizon_fusion
+	initial_id_tag = "horizon_fusion"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/carpet/rubber,
