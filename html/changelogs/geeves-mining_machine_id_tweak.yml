@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Mining machines now correctly give or subtract the points from the user's ID."
