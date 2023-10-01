@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed industrial drills not picking up sand, coal, or platinum."
