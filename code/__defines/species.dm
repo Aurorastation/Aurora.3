@@ -19,6 +19,7 @@
 #define SPECIES_VAURCA_BREEDER		"Vaurca Breeder"
 #define SPECIES_VAURCA_WARFORM		"Vaurca Warform"
 #define SPECIES_VAURCA_BULWARK		"Vaurca Bulwark"
+#define SPECIES_VAURCA_ATTENDANT	"Vaurca Attendant"
 
 #define SPECIES_IPC					"Baseline Frame"
 #define SPECIES_IPC_SHELL			"Shell Frame"
@@ -87,6 +88,7 @@
 #define BODYTYPE_VAURCA_BREEDER		"Vaurca Breeder"
 #define BODYTYPE_VAURCA_BULWARK		"Vaurca Bulwark"
 #define BODYTYPE_VAURCA_WARFORM		"Vaurca Warform"
+#define BODYTYPE_VAURCA_ATTENDANT	"Vaurca Attendant"
 
 #define BODYTYPE_IPC				"Machine"
 #define BODYTYPE_IPC_INDUSTRIAL		"Heavy Machine"
