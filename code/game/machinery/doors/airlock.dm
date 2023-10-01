@@ -1273,7 +1273,7 @@ About the new airlock wires panel:
 	else if(activate && density)
 		open()
 		if (isAI(usr))
-			SSfeedback.IncrementSimpleStat("AI_DOOR")
+			SSstatistics.IncrementSimpleStat("AI_DOOR")
 	else if(!activate && !density)
 		close()
 
@@ -1578,7 +1578,7 @@ About the new airlock wires panel:
 			else if(activate && density)
 				open()
 				if (isAI(usr))
-					SSfeedback.IncrementSimpleStat("AI_DOOR")
+					SSstatistics.IncrementSimpleStat("AI_DOOR")
 			else if(!activate && !density)
 				close()
 		if("safeties")
