@@ -1,4 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ad" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/tunnels)
 "af" = (
 /obj/structure/mopbucket,
 /obj/item/mop,
@@ -586,7 +593,42 @@
 /area/point_verdant/interior/pharmacy)
 "fD" = (
 /obj/structure/table/rack/retail_shelf,
-/turf/simulated/floor/sidewalk/flat,
+/obj/item/reagent_containers/food/drinks/bottle/makgeolli,
+/obj/item/reagent_containers/food/drinks/bottle/makgeolli{
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/makgeolli{
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/makgeolli{
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/makgeolli{
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/makgeolli{
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/makgeolli,
+/obj/item/reagent_containers/food/drinks/bottle/makgeolli,
+/obj/item/reagent_containers/food/drinks/bottle/makgeolli,
+/obj/item/reagent_containers/food/drinks/bottle/makgeolli,
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_x = 8
+	},
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "fJ" = (
 /obj/structure/table/standard,
@@ -760,6 +802,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
+"hx" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/food/drinks/bottle/hooch{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/random/junk,
+/obj/random/junk,
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/tunnels)
 "hy" = (
 /obj/structure/stairs_lower/stairs_upper{
 	dir = 4;
@@ -1017,6 +1070,54 @@
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
+"jC" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/bottle/soju,
+/obj/item/reagent_containers/food/drinks/bottle/soju/shochu{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju/shochu{
+	pixel_x = 8;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju/shochu{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju/shochu{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju/shochu{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju/shochu{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju/shochu{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju,
+/obj/item/reagent_containers/food/drinks/bottle/soju,
+/obj/item/reagent_containers/food/drinks/bottle/soju,
+/obj/item/reagent_containers/food/drinks/bottle/soju/shochu{
+	pixel_x = 8;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju/shochu{
+	pixel_x = 8;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju/shochu{
+	pixel_x = 8;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/tunnels)
 "jE" = (
 /obj/machinery/door/urban,
 /obj/effect/decal/exterior_stairs/half{
@@ -1056,7 +1157,9 @@
 "jM" = (
 /obj/structure/reagent_dispensers/keg/mead,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "jN" = (
 /obj/effect/decal/road_marking/no_pass{
@@ -1151,6 +1254,10 @@
 "ks" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/tunnels)
+"kv" = (
+/obj/effect/decal/cleanable/floor_damage/wood_broken5,
+/turf/simulated/floor/wood,
 /area/point_verdant/interior/tunnels)
 "kw" = (
 /obj/structure/ledge,
@@ -1771,6 +1878,28 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"pu" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_y = 14;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_x = 1
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/tunnels)
 "px" = (
 /obj/random/junk,
 /obj/random/dirt_75,
@@ -1943,6 +2072,10 @@
 /obj/structure/stairs/east,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
+"qK" = (
+/obj/effect/decal/cleanable/floor_damage/wood_broken7,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/tunnels)
 "qN" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff2-bottom";
@@ -2006,6 +2139,24 @@
 "rf" = (
 /turf/unsimulated/mineral/konyang,
 /area/point_verdant/interior)
+"rh" = (
+/obj/item/reagent_containers/food/drinks/bottle{
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle{
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle{
+	pixel_y = 0;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle{
+	pixel_y = 0;
+	pixel_x = -10
+	},
+/obj/structure/table/rack/retail_shelf,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/tunnels)
 "ri" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -2055,6 +2206,75 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/tunnels)
+"rQ" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_x = -8;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_x = -8;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_x = -8;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_x = -8;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_x = -8;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sake{
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju{
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/food/drinks/bottle/soju{
+	pixel_x = 8
+	},
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "rS" = (
 /turf/simulated/floor/sidewalk/blocks,
@@ -2151,6 +2371,15 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/flora/rock/konyang/small,
+/obj/structure/closet/crate/trashcart,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/interior/tunnels)
 "sA" = (
@@ -2171,6 +2400,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"sK" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/tunnels)
 "sP" = (
 /obj/structure/utility_pole/street/on{
 	dir = 8;
@@ -2178,6 +2411,11 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"sT" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/tunnels)
 "sV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -2365,6 +2603,7 @@
 /area/point_verdant/interior/bar)
 "uG" = (
 /obj/structure/reagent_dispensers/watertank,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tunnels)
 "uK" = (
@@ -2511,7 +2750,7 @@
 /obj/structure/reagent_dispensers/keg/mead,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "vW" = (
 /obj/structure/stairs/urban/road_ramp/left{
@@ -2728,6 +2967,11 @@
 "xA" = (
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tunnels)
+"xC" = (
+/obj/structure/reagent_dispensers/keg/mead,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/tunnels)
 "xG" = (
 /obj/item/stack/rods,
 /obj/random/dirt_75,
@@ -2755,6 +2999,35 @@
 	layer = 9.1
 	},
 /turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/tunnels)
+"yd" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_y = 16;
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_y = 16;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_x = 9
+	},
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "yr" = (
 /obj/structure/ladder/up,
@@ -2794,7 +3067,7 @@
 /area/point_verdant/interior/pharmacy)
 "yS" = (
 /obj/structure/reagent_dispensers/keg/mead,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/tunnels)
 "yW" = (
 /obj/structure/rod_railing{
@@ -3311,6 +3584,11 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior)
+"CX" = (
+/obj/structure/reagent_dispensers/keg/mead,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/tunnels)
 "Db" = (
 /obj/structure/shipping_container,
 /turf/simulated/floor/asphalt,
@@ -3520,6 +3798,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
+"Fo" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/tunnels)
 "Fp" = (
 /obj/structure/ledge/quarter{
 	dir = 4
@@ -3561,6 +3844,35 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/interior/tunnels)
+"FQ" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_y = 16;
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_y = 16;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice{
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/tunnels)
 "FR" = (
 /obj/structure/dam{
 	opacity = 1
@@ -3588,7 +3900,7 @@
 /area/point_verdant/outdoors)
 "Go" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "Gt" = (
 /obj/random/dirt_75,
@@ -3666,6 +3978,39 @@
 /obj/item/reagent_containers/chem_disp_cartridge/lithium,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
+"Hb" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 16;
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 0;
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 0;
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 16;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 16
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/tunnels)
 "Hc" = (
 /obj/structure/sink{
 	pixel_y = 29;
@@ -3673,6 +4018,14 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/decrepit)
+"Hf" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/mopbucket,
+/obj/item/mop,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/tunnels)
 "Hm" = (
 /obj/structure/ledge/quarter{
 	dir = 1
@@ -4020,7 +4373,11 @@
 "KJ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood,
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = 10;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "KK" = (
 /obj/structure/stairs/urban/road_ramp{
@@ -4393,6 +4750,51 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
+"NV" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/flask/barflask{
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/obj/item/material/knife/butterfly{
+	pixel_x = 3;
+	pixel_y = -1
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/tunnels)
+"NY" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 16;
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 16;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 0;
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 0;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma{
+	pixel_y = 0;
+	pixel_x = 9
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/tunnels)
 "Oc" = (
 /obj/structure/rod_railing{
 	dir = 4
@@ -4466,6 +4868,12 @@
 "OG" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"OI" = (
+/obj/structure/reagent_dispensers/keg/mead,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/tunnels)
 "OJ" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -4862,6 +5270,8 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/trash_pile,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
 "RJ" = (
@@ -4971,6 +5381,35 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/decrepit)
+"SF" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_x = -9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_x = 9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_x = 9
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/tunnels)
 "SG" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
@@ -5077,6 +5516,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
+"TO" = (
+/obj/structure/reagent_dispensers/keg/mead,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/tunnels)
 "TQ" = (
 /obj/structure/ledge/corner,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
@@ -5173,6 +5618,15 @@
 /obj/structure/beach_umbrella,
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
 /area/point_verdant/outdoors)
+"UH" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce{
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/tunnels)
 "UI" = (
 /obj/item/stack/rods,
 /obj/machinery/light/small/emergency{
@@ -5236,6 +5690,10 @@
 	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/decrepit)
+"VJ" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/wall,
+/area/point_verdant/interior/tunnels)
 "VK" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/random/junk,
@@ -5424,6 +5882,11 @@
 "Xd" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/item/broken_bottle{
+	pixel_x = -8;
+	pixel_y = 2
+	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
 "Xe" = (
@@ -5476,6 +5939,35 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/decrepit)
+"Xy" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_x = -9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_x = 9;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor,
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor{
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/tunnels)
 "XA" = (
 /obj/machinery/door/urban,
 /obj/effect/decal/exterior_stairs/half,
@@ -30261,20 +30753,20 @@ bk
 Ac
 rf
 LB
-fD
-WO
-WO
+rQ
+Wl
+Wl
 XA
 xA
-xA
-xA
-xA
+sK
+NV
+pu
 LB
 LB
 LB
 LB
 LB
-AV
+LB
 AV
 AV
 aA
@@ -30519,19 +31011,19 @@ bk
 rf
 LB
 fD
-WO
-WO
+Wl
+UH
 LB
 Sk
 xA
 xA
-xA
+qK
 yS
 yS
-jM
-vU
+CX
+OI
+rh
 LB
-AV
 AV
 AD
 Vm
@@ -30775,20 +31267,20 @@ sZ
 bk
 rf
 LB
-fD
-WO
-WO
+jC
+Wl
+UH
 Kx
 Wl
 LB
+kv
 xA
-xA
-Go
+Fo
 Go
 Go
 KJ
+rh
 LB
-AV
 AV
 WO
 Vm
@@ -31032,20 +31524,20 @@ sZ
 bk
 rf
 LB
-LB
-LB
-LB
+NY
+Go
+FQ
 LB
 si
 LB
 uG
+TO
 jM
-jM
-KJ
-jM
+ad
+xC
 vU
+rh
 LB
-AV
 AV
 WO
 oP
@@ -31287,22 +31779,22 @@ lz
 oh
 sZ
 bk
-do
-MO
-Az
-MO
-MO
+rf
+LB
+yd
+sT
+Xy
 LB
 LB
 LB
 LB
 LB
+VJ
 LB
 LB
 LB
 LB
 LB
-AV
 AV
 WO
 Hq
@@ -31545,11 +32037,11 @@ iw
 sZ
 bk
 rf
-AV
-AV
-AV
-jJ
-MO
+LB
+SF
+Hf
+Hb
+LB
 AV
 LB
 Sm
@@ -31802,14 +32294,14 @@ QG
 sZ
 bk
 rf
-AV
-AV
-MO
-MO
-MO
+LB
+LB
+LB
+LB
+LB
 AV
 LB
-Xd
+hx
 gn
 sz
 LB
@@ -32058,12 +32550,12 @@ dm
 of
 sZ
 bk
-rf
+do
+MO
+Az
 MO
 MO
-MO
-MO
-MO
+jJ
 AV
 LB
 LB
@@ -32319,8 +32811,8 @@ rf
 MO
 AV
 AV
-GN
 Uk
+MO
 Eh
 aQ
 aQ
@@ -32576,8 +33068,8 @@ rf
 MO
 AV
 AV
-AV
-AV
+GN
+MO
 MO
 AV
 AV
@@ -33087,7 +33579,7 @@ rf
 rf
 rf
 rf
-MO
+AV
 AV
 AV
 AV
