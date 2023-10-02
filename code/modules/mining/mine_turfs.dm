@@ -915,4 +915,5 @@ var/list/asteroid_floor_smooth = list(
 
 /turf/simulated/mineral/Destroy()
 	clear_ore_effects()
+	SSicon_smooth.add_to_queue_neighbors(src)
 	. = ..()
