@@ -22,6 +22,7 @@
 		/datum/species/unathi,
 		/datum/species/bug = TRUE,
 		/datum/species/bug/type_b = TRUE,
+		/datum/species/bug/type_bb = TRUE,
 		/datum/species/bug/type_e = TRUE,
 		/datum/species/tajaran,
 		/datum/species/diona
@@ -32,6 +33,7 @@
 		"Corporate Liaison" = list(
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_ATTENDANT,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
 		)

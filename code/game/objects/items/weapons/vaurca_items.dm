@@ -24,7 +24,7 @@
 	w_class = ITEMSIZE_SMALL
 	flags_inv = null
 	body_parts_covered = null
-	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_BULWARK)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_BULWARK, BODYTYPE_VAURCA_ATTENDANT)
 	item_state = 0
 
 /obj/item/clothing/head/shaper

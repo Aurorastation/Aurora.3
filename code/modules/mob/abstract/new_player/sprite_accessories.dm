@@ -3733,6 +3733,83 @@ Follow by example and make good judgement based on length which list to include 
 	chatname = "antennae"
 	length = 2
 
+//Attendant antennae
+/datum/sprite_accessory/hair/vaurca_classic/bb
+	species_allowed = list(/datum/species/bug/type_bb)
+	y_offset = 1
+
+/datum/sprite_accessory/hair/vaurca_classic/bb/vaurca_braided
+	name = "Braided Antennae"
+	icon_state = "vaurca_braided"
+	chatname = "antennae"
+	length = 3
+
+/datum/sprite_accessory/hair/vaurca_classic/bb/vaurca_catfish
+	name = "Catfish Antennae"
+	icon_state = "vaurca_catfish"
+	chatname = "antennae"
+	length = 2
+
+/datum/sprite_accessory/hair/vaurca_classic/bb/vaurca_dipole
+	name = "Dipole Antennae"
+	icon_state = "vaurca_dipole"
+	chatname = "antennae"
+	length = 2
+
+/datum/sprite_accessory/hair/vaurca_classic/bb/vaurca_droop
+	name = "Droopy Antennae"
+	icon_state = "vaurca_droop"
+	chatname = "antennae"
+	length = 2
+
+/datum/sprite_accessory/hair/vaurca_classic/bb/vaurca_fla
+	name = "Floor Length Antennae"
+	icon_state = "vaurca_fla"
+	chatname = "long antennae"
+	length = 4
+
+/datum/sprite_accessory/hair/vaurca_classic/bb/vaurca_formic
+	name = "Formic Antennae"
+	icon_state = "vaurca_formic"
+	chatname = "antennae"
+	length = 2
+
+/datum/sprite_accessory/hair/vaurca_classic/bb/vaurca_damaged_left
+	name = "Injured Antenna, Left"
+	icon_state = "vaurca_inj_left"
+	chatname = "antenna"
+	length = 1
+
+/datum/sprite_accessory/hair/vaurca_classic/bb/vaurca_damaged_right
+	name = "Injured Antenna, Right"
+	icon_state = "vaurca_inj_right"
+	chatname = "antenna"
+	length = 1
+
+/datum/sprite_accessory/hair/vaurca_classic/bb/vaurca_knight
+	name = "Knight Antennae"
+	icon_state = "vaurca_knight"
+	chatname = "antennae"
+	length = 2
+
+/datum/sprite_accessory/hair/vaurca_classic/bb/vaurca_mid
+	name = "Mid Length Antennae"
+	icon_state = "vaurca_mid"
+	chatname = "antennae"
+	length = 2
+
+/datum/sprite_accessory/hair/vaurca_classic/bb/vaurca_parabolic
+	name = "Parabolic Antennae"
+	icon_state = "vaurca_parabolic"
+	chatname = "antennae"
+	length = 2
+
+/datum/sprite_accessory/hair/vaurca_classic/bb/vaurca_zappy
+	name = "Zappy Antennae"
+	icon_state = "vaurca_zappy"
+	chatname = "antennae"
+	length = 2
+
 //Bulwark antennae
 /datum/sprite_accessory/hair/bulwark_classic
 	icon = 'icons/mob/human_face/bulwark_hair.dmi'
@@ -4504,6 +4581,48 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "vaurca_acanthognathus"
 
 /datum/sprite_accessory/facial_hair/clicky/myrmoteras
+	name = "Myrmoteras Mandibles"
+	icon_state = "vaurca_myrmoteras"
+
+//Vaurca Attendant mandibles
+/datum/sprite_accessory/facial_hair/clicky/bb
+	icon_state = "vaurca_clicky"
+	species_allowed = list(/datum/species/bug/type_bb)
+	y_offset = 3
+
+/datum/sprite_accessory/facial_hair/clicky/bb/clacky
+	name = "Clacky Mandibles"
+	icon_state = "vaurca_clacky"
+
+/datum/sprite_accessory/facial_hair/clicky/bb/bulldog
+	name = "Bulldog Mandibles"
+	icon_state = "vaurca_bulldog"
+
+/datum/sprite_accessory/facial_hair/clicky/bb/mantis
+	name = "Mantis Mandibles"
+	icon_state = "vaurca_mantis"
+
+/datum/sprite_accessory/facial_hair/clicky/bb/stag
+	name = "Stag Mandibles"
+	icon_state = "vaurca_stag"
+
+/datum/sprite_accessory/facial_hair/clicky/bb/ectatomma
+	name = "Ectatomma Mandibles"
+	icon_state = "vaurca_ectatomma"
+
+/datum/sprite_accessory/facial_hair/clicky/bb/horridus
+	name = "Horridus Mandibles"
+	icon_state = "vaurca_horridus"
+
+/datum/sprite_accessory/facial_hair/clicky/bb/tusk
+	name = "Tusk Mandibles"
+	icon_state = "vaurca_tusks"
+
+/datum/sprite_accessory/facial_hair/clicky/bb/acanthognathus
+	name = "Acanthognathus Mandibles"
+	icon_state = "vaurca_acanthognathus"
+
+/datum/sprite_accessory/facial_hair/clicky/bb/myrmoteras
 	name = "Myrmoteras Mandibles"
 	icon_state = "vaurca_myrmoteras"
 

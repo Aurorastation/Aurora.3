@@ -46,7 +46,7 @@
 		/datum/unarmed_attack/bite/warrior
 	)
 
-/datum/species/bug/type_b/type_bb
+/datum/species/bug/type_bb
 	name = SPECIES_VAURCA_ATTENDANT
 	short_name = "vaa"
 	name_plural = "Type BB"
@@ -59,30 +59,43 @@
 	deform = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
 	slowdown = -0.8 //Copied from Zeng-Hu Mobility Frame slowdown
 
-	//Damage mods needed
+	brute_mod = 0.8
+	oxy_mod = 1
+	radiation_mod = 0.5
+	standing_jump_range = 4
+	bleed_mod = 1.5
+	burn_mod = 1.0
+	grab_mod = 1.25
+	resist_mod = 2.5 //Copied from Vaurca Warrior, minus the increased jump range (4 from 3), until new mods are specified
 
-	mob_size = 8 //Even lighter than Myrmidons, to allow for speed
+	mob_size = 8 //Even lighter than Myrmidons, in alignment with their increased speed
+	taste_sensitivity = TASTE_DULL
 	blurb = "Type BB Warriors or \"Attendants\" are digitigrade bipeds, built to be agile and quick. They are primarily made to be scouts or serve in support positions and they \
 	excel at guerilla tactics. They can possess the same roles as regular warriors, but their speed-built forms are not as hardy. They are commonly attributed to the role of combat \
 	medics, providing medical assistance on the field, or removal of the neural socket if the individual cannot be saved." //Copied from the wiki
 
+	heat_level_1 = 360 //Default 360
+	heat_level_2 = 400 //Default 400
+	heat_level_3 = 800 //Default 1000
+
 	stamina = 100
 
-	//Other variables should default to Vaurca Warrior numbers unless specified otherwise later on
+	eyes = "attendant_eyes"
 
-/datum/species/bug/type_b/type_bb/New()
+/datum/species/bug/type_bb/New()
 	..()
 	equip_adjust = list(
-		slot_head_str    = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 1), "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_glasses_str = list("[NORTH]" = list("x" = 0, "y" = 1), "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 1), "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_l_hand_str  = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 1), "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_r_hand_str  = list("[NORTH]" = list("x" = 0, "y" = 1), "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_l_ear_str   = list("[NORTH]" = list("x" = 0, "y" = 1), "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_r_ear_str   = list("[NORTH]" = list("x" = 0, "y" = 1), "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_belt_str    = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_wear_id_str = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_wrists_str  = list("[NORTH]" = list("x" = 0, "y" = 1), "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_shoes_str   = list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0))
+		slot_head_str      = list("[NORTH]" = list("x" = 0, "y" = 4),  "[EAST]" = list("x" = 0, "y" = 4),  "[SOUTH]" = list("x" = 0, "y" = 4), "[WEST]" = list("x" = 0, "y" = 4)),
+		slot_glasses_str   = list("[NORTH]" = list("x" = 0, "y" = 4), "[EAST]" = list("x" = 0, "y" = 4),  "[SOUTH]" = list("x" = 0, "y" = 4), "[WEST]" = list("x" = 0, "y" = 4)),
+		slot_l_hand_str    = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 1), "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_r_hand_str    = list("[NORTH]" = list("x" = 0, "y" = 1), "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_l_ear_str     = list("[NORTH]" = list("x" = 0, "y" = 1), "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_r_ear_str     = list("[NORTH]" = list("x" = 0, "y" = 1), "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_belt_str      = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_wear_id_str   = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_wrists_str    = list("[NORTH]" = list("x" = 0, "y" = 1), "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_shoes_str     = list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_back_str      = list("[NORTH]" = list("x" = 0, "y" = 3),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 3),  "[WEST]" = list("x" = 0, "y" = 0))
 	)
 
 /datum/species/bug/type_c
@@ -131,7 +144,6 @@
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
 	canvas_icon = 'icons/mob/base_48.dmi'
-
 
 	stamina = 175
 	sprint_speed_factor = 1
