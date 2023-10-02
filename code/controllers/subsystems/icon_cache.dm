@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/icon_cache/SSicon_cache
-
-/datum/controller/subsystem/icon_cache
+SUBSYSTEM_DEF(icon_cache)
 	name = "Icon Cache"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_MISC_FIRST
@@ -70,9 +68,6 @@
 	var/list/crayon_cache = list()
 
 	var/list/istate_cache = list()
-
-/datum/controller/subsystem/icon_cache/New()
-	NEW_SS_GLOBAL(SSicon_cache)
 
 /datum/controller/subsystem/icon_cache/Initialize()
 	build_dust_cache()
