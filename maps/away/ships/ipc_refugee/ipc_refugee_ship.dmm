@@ -5131,11 +5131,12 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small/built{
-	dir = 8
-	},
 /obj/machinery/computer/cryopod{
 	pixel_y = -32
+	},
+/obj/machinery/light_construct/small{
+	dir = 8;
+	pixel_x = -12
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ipc_refugee/crew)
