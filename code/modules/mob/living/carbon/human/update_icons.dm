@@ -450,6 +450,8 @@ There are several things that need to be remembered:
 		if(hair_is_visible)
 			var/icon/grad_s = null
 			var/datum/sprite_accessory/hair_style = hair_styles_list[h_style]
+			hair_style.x_offset = pixel_x
+			hair_style.y_offset = pixel_y
 			if(hair_style && (species.type in hair_style.species_allowed))
 				var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = hair_style.icon_state)
 				if(hair_style.do_colouration)

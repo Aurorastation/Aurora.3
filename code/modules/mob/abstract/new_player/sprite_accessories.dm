@@ -39,6 +39,8 @@
 	//This is to provide safe names to use for hair/sprite to text. See Skrell tentacles for example
 	var/chatname = null
 
+	var/x_offset = 0
+	var/y_offset = 0
 
 /*
 ////////////////////////////
