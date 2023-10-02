@@ -1856,7 +1856,6 @@
 /turf/simulated/floor/plating,
 /area/coalition_base/engineering)
 "LP" = (
-/obj/machinery/power/apc/south,
 /obj/structure/cable/green{
 	icon_state = "1-2";
 	dir = 8
