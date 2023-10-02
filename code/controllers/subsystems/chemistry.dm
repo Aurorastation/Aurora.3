@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/chemistry/SSchemistry
-
-/datum/controller/subsystem/chemistry
+SUBSYSTEM_DEF(chemistry)
 	name = "Chemistry"
 	priority = FIRE_PRIORITY_CHEMISTRY
 	init_order = SS_INIT_MISC_FIRST
@@ -81,9 +79,6 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 /datum/controller/subsystem/chemistry/stat_entry(msg)
 	msg = "AH:[active_holders.len]"
 	return ..()
-
-/datum/controller/subsystem/chemistry/New()
-	NEW_SS_GLOBAL(SSchemistry)
 
 /datum/controller/subsystem/chemistry/Initialize()
 	initialize_chemical_reactions()

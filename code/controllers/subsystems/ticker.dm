@@ -311,7 +311,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	for(var/i in total_antagonists)
 		log_game("[i]s[total_antagonists[i]].")
 
-	SSfeedback.print_round_end_message()
+	SSstatistics.print_round_end_message()
 
 	return 1
 

@@ -1,13 +1,8 @@
-var/datum/controller/subsystem/listener/SSlistener
-
-/datum/controller/subsystem/listener
+SUBSYSTEM_DEF(listener)
 	name = "Global Listener"
 	flags = SS_NO_INIT | SS_NO_FIRE
 
 	var/list/listeners = list()
-
-/datum/controller/subsystem/listener/New()
-	NEW_SS_GLOBAL(SSlistener)
 
 /datum/controller/subsystem/listener/Recover()
 	listeners = SSlistener.listeners

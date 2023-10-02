@@ -1,4 +1,4 @@
-/datum/controller/subsystem/ping
+SUBSYSTEM_DEF(ping)
 	name = "Ping"
 	priority = FIRE_PRIORITY_PING
 	init_order = SS_INIT_PING

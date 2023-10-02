@@ -29,11 +29,6 @@ export const MiningVendor = (props, context) => {
           ) : (
             <Box>
               <Box>No ID detected.</Box>
-              <Button
-                content="Scan ID"
-                icon="plus"
-                onClick={() => act('choice', { choice: 'scan' })}
-              />
             </Box>
           )}
         </Section>

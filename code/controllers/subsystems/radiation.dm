@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/radiation/SSradiation
-
-/datum/controller/subsystem/radiation
+SUBSYSTEM_DEF(radiation)
 	name = "Radiation"
 	wait = 2 SECONDS
 	priority = FIRE_PRIORITY_RADIATION
@@ -13,9 +11,6 @@ var/datum/controller/subsystem/radiation/SSradiation
 	var/list/current_sources   = list()
 	var/list/current_res_cache = list()
 	var/list/listeners         = list()
-
-/datum/controller/subsystem/radiation/New()
-	NEW_SS_GLOBAL(SSradiation)
 
 /datum/controller/subsystem/radiation/fire(resumed = FALSE)
 	if (!resumed)

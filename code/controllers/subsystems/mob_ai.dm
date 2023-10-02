@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/mob_ai/SSmob_ai
-
-/datum/controller/subsystem/mob_ai
+SUBSYSTEM_DEF(mob_ai)
 	name = "Mobs - AI"
 	flags = SS_NO_INIT
 	priority = FIRE_PRIORITY_MOBS
@@ -9,9 +7,6 @@
 	var/list/processing = list()
 	var/list/currentrun = list()
 	var/list/slept = list()
-
-/datum/controller/subsystem/mob_ai/New()
-	NEW_SS_GLOBAL(SSmob_ai)
 
 /datum/controller/subsystem/mob_ai/stat_entry(msg)
 	msg = "P:[processing.len]"

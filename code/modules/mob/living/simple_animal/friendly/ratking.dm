@@ -8,7 +8,7 @@
 
 
 /proc/announceToRodents(var/message)
-	for(var/R in SSmob.all_rats)
+	for(var/R in SSmobs.all_rats)
 		to_chat(R, message)
 
 /mob/living/simple_animal/rat/king

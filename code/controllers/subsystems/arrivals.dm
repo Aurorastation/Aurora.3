@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/arrivals/SSarrivals
-
-/datum/controller/subsystem/arrivals
+SUBSYSTEM_DEF(arrivals)
 	name = "Arrivals"
 	flags = SS_NO_INIT | SS_BACKGROUND
 	priority = FIRE_PRIORITY_ARRIVALS
@@ -12,9 +10,6 @@
 	var/failreturnnumber = 0 // the number of times the shuttle failed to leave the station
 	var/list/current_mobs = list()
 	var/shuttle_launch_countdown = 30 SECONDS
-
-/datum/controller/subsystem/arrivals/New()
-	NEW_SS_GLOBAL(SSarrivals)
 
 /datum/controller/subsystem/arrivals/fire()
 	post_signal("arrivals")

@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/shuttle/SSshuttle
-
-/datum/controller/subsystem/shuttle
+SUBSYSTEM_DEF(shuttle)
 	name = "Shuttle"
 	wait = 2 SECONDS
 	priority = FIRE_PRIORITY_SHUTTLE
@@ -27,9 +25,6 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 	var/block_queue = TRUE
 
 	var/tmp/list/working_shuttles
-
-/datum/controller/subsystem/shuttle/New()
-	NEW_SS_GLOBAL(SSshuttle)
 
 /datum/controller/subsystem/shuttle/Initialize()
 	last_landmark_registration_time = world.time

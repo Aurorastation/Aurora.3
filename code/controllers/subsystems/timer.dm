@@ -8,17 +8,15 @@
 #define TIMER_ID_MAX (2**24)
 
 /**
- * # Timer Subsystem
- *
- * Handles creation, callbacks, and destruction of timed events.
- *
- * It is important to understand the buckets used in the timer subsystem are just a series of circular doubly-linked
- * lists. The object at a given index in bucket_list is a /datum/timedevent, the head of a circular list, which has prev
- * and next references for the respective elements in that bucket's circular list.
- */
-var/datum/controller/subsystem/timer/SStimer
-
-/datum/controller/subsystem/timer
+  * # Timer Subsystem
+  *
+  * Handles creation, callbacks, and destruction of timed events.
+  *
+  * It is important to understand the buckets used in the timer subsystem are just a series of circular doubly-linked
+  * lists. The object at a given index in bucket_list is a /datum/timedevent, the head of a circular list, which has prev
+  * and next references for the respective elements in that bucket's circular list.
+  */
+SUBSYSTEM_DEF(timer)
 	name = "Timer"
 	wait = 1 // SS_TICKER subsystem, so wait is in ticks
 	init_order = SS_INIT_MISC
@@ -56,8 +54,7 @@ var/datum/controller/subsystem/timer/SStimer
 	/// How many times bucket was reset
 	var/bucket_reset_count = 0
 
-/datum/controller/subsystem/timer/New()
-	NEW_SS_GLOBAL(SStimer)
+/datum/controller/subsystem/timer/PreInit()
 	bucket_list.len = BUCKET_LEN
 	head_offset = world.time
 	bucket_resolution = world.tick_lag

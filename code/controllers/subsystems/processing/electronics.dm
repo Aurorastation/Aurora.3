@@ -1,9 +1,7 @@
 #define IC_SPAWN_DEFAULT  1 // If the circuit comes in the default circuit box and able to be printed in the IC printer.
 #define IC_SPAWN_RESEARCH 2 // If the circuit design will be available in the IC printer after upgrading it.
 
-/var/datum/controller/subsystem/processing/electronics/SSelectronics
-
-/datum/controller/subsystem/processing/electronics
+PROCESSING_SUBSYSTEM_DEF(electronics)
 	name = "Electronics"
 	wait = 2 SECONDS
 	priority = FIRE_PRIORITY_ELECTRONICS
@@ -15,9 +13,6 @@
 	var/list/printer_recipe_list_basic = list()
 	var/list/printer_recipe_list_upgraded = list()
 	var/list/found_categories = list()
-
-/datum/controller/subsystem/processing/electronics/New()
-	NEW_SS_GLOBAL(SSelectronics)
 
 /datum/controller/subsystem/processing/electronics/Initialize(timeofday)
 	init_subtypes(/obj/item/integrated_circuit, all_integrated_circuits)

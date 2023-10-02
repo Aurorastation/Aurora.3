@@ -10,9 +10,7 @@
  *
  */
 
-var/datum/controller/subsystem/processing/tgui/SStgui
-
-/datum/controller/subsystem/processing/tgui
+PROCESSING_SUBSYSTEM_DEF(tgui)
 	name = "tgui"
 	wait = 9
 	flags = SS_NO_INIT

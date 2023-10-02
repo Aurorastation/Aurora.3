@@ -1,7 +1,4 @@
-var/datum/controller/subsystem/events/SSevents
-
-/datum/controller/subsystem/events
-	// Subsystem stuff.
+SUBSYSTEM_DEF(events)
 	name = "Events"
 	priority = FIRE_PRIORITY_EVENT
 
@@ -27,9 +24,6 @@ var/datum/controller/subsystem/events/SSevents
 	var/datum/event_meta/new_event = new
 
 	var/initialized = FALSE
-
-/datum/controller/subsystem/events/New()
-	NEW_SS_GLOBAL(SSevents)
 
 /datum/controller/subsystem/events/Initialize()
 	allEvents = subtypesof(/datum/event)
