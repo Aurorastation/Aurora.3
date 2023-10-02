@@ -8,8 +8,7 @@
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_wrists.dmi'
 		)
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/wrist.dmi',
-		BODYTYPE_VAURCA_ATTENDANT = 'icons/mob/species/attendant/wrist.dmi'
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/wrist.dmi'
 	)
 	slot_flags = SLOT_WRISTS
 	drop_sound = 'sound/items/drop/accessory.ogg'
