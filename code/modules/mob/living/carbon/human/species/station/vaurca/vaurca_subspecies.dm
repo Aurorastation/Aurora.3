@@ -81,6 +81,7 @@
 	stamina = 100
 
 	eyes = "attendant_eyes"
+	canvas_icon = 'icons/mob/base_32x48.dmi'
 
 /datum/species/bug/type_bb/New()
 	..()
@@ -95,7 +96,8 @@
 		slot_wear_id_str   = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
 		slot_wrists_str    = list("[NORTH]" = list("x" = 0, "y" = 1), "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
 		slot_shoes_str     = list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_back_str      = list("[NORTH]" = list("x" = 0, "y" = 3),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 3),  "[WEST]" = list("x" = 0, "y" = 0))
+		slot_back_str      = list("[NORTH]" = list("x" = 0, "y" = 3),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 3),  "[WEST]" = list("x" = 0, "y" = 0)),
+		slot_wear_suit_str = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 1),  "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 1))
 	)
 
 /datum/species/bug/type_c
