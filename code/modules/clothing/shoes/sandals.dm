@@ -49,6 +49,9 @@
 	siemens_coefficient = 0.75
 	body_parts_covered = FEET|LEGS
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_ATTENDANT = 'icons/mob/species/attendant/shoes.dmi'
+	)
 	icon_supported_species_tags = list("taj", "una")
 	color = COLOR_CHESTNUT
 

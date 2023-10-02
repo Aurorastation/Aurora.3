@@ -86,7 +86,7 @@
 /datum/species/bug/type_bb/New()
 	..()
 	equip_adjust = list(
-		slot_head_str      = list("[NORTH]" = list("x" = 0, "y" = 4),  "[EAST]" = list("x" = 0, "y" = 4),  "[SOUTH]" = list("x" = 0, "y" = 4), "[WEST]" = list("x" = 0, "y" = 4)),
+		slot_head_str      = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 1),  "[SOUTH]" = list("x" = 0, "y" = 1), "[WEST]" = list("x" = 0, "y" = 1)),
 		slot_glasses_str   = list("[NORTH]" = list("x" = 0, "y" = 4), "[EAST]" = list("x" = 0, "y" = 4),  "[SOUTH]" = list("x" = 0, "y" = 4), "[WEST]" = list("x" = 0, "y" = 4)),
 		slot_l_hand_str    = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 1), "[WEST]" = list("x" = 0, "y" = 0)),
 		slot_r_hand_str    = list("[NORTH]" = list("x" = 0, "y" = 1), "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),

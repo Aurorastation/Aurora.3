@@ -12,7 +12,8 @@
 		)
 
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi' //depreceated, only used for bulwarks due to their size
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi', //depreceated, only used for bulwarks due to their size
+		BODYTYPE_VAURCA_ATTENDANT = 'icons/mob/species/attendant/shoes.dmi'
 	)
 
 

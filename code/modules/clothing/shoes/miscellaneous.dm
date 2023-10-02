@@ -29,7 +29,8 @@
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	move_trail = null
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi' //depreceated, only used for bulwarks due to their size
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi',
+		BODYTYPE_VAURCA_ATTENDANT = 'icons/mob/species/attendant/shoes.dmi'
 	)
 
 
@@ -72,7 +73,8 @@
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi' //depreceated, only used for bulwarks due to their size
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi',
+		BODYTYPE_VAURCA_ATTENDANT = 'icons/mob/species/attendant/shoes.dmi'
 	)
 
 
