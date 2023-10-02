@@ -903,7 +903,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "mv" = (
-/obj/structure/flora/pottedplant/woodyshrubbloom,
+/obj/structure/flora/pottedplant/bamboo,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
 "mB" = (
@@ -18000,7 +18000,7 @@ Ng
 BP
 VC
 dN
-eV
+OA
 if
 Wl
 eV

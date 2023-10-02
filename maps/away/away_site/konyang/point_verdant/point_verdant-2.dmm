@@ -1408,6 +1408,13 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/offices)
+"eJ" = (
+/obj/structure/flora/pottedplant/bamboo,
+/obj/effect/floor_decal/corner_wide/grey/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "eK" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/cleanable/blood/oil,
@@ -3143,6 +3150,14 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/water)
+"kL" = (
+/obj/structure/table/standard,
+/obj/item/storage/toolbox/lunchbox/cat/filled{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "kM" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -3699,6 +3714,14 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
+"mB" = (
+/obj/structure/table/wood,
+/obj/item/storage/toolbox/lunchbox/heart/filled{
+	pixel_y = 3;
+	pixel_x = 3
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/offices)
 "mC" = (
 /obj/effect/decal/road_marking/no_park,
 /obj/effect/decal/curb{
@@ -4737,6 +4760,9 @@
 "qh" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	dir = 6
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/shallow)
@@ -5985,6 +6011,9 @@
 "up" = (
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 1
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/shallow)
@@ -7582,6 +7611,14 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/shallow)
+"zf" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/offices)
 "zg" = (
 /obj/structure/ledge{
 	dir = 4
@@ -9089,6 +9126,15 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
+"Ed" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 6
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "Ee" = (
 /obj/structure/curtain/black,
 /turf/simulated/floor/wood,
@@ -9482,6 +9528,12 @@
 /obj/structure/rope_post,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"FA" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "FC" = (
 /obj/structure/rod_railing,
 /obj/structure/rod_railing{
@@ -10768,6 +10820,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
+"JU" = (
+/obj/structure/table/standard,
+/obj/item/material/ashtray/bronze{
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "JV" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -12254,6 +12313,12 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/tailor)
+"Pe" = (
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "Pf" = (
 /obj/structure/ledge/quarter{
 	dir = 8
@@ -13765,6 +13830,16 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/point_verdant/interior/robotics)
+"Uy" = (
+/obj/machinery/door/urban,
+/obj/effect/floor_decal/corner_wide/grey{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/black{
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "Uz" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
@@ -13783,6 +13858,12 @@
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/point_verdant/water)
+"UD" = (
+/obj/effect/floor_decal/corner_wide/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "UE" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/road_marking/thin{
@@ -14989,6 +15070,9 @@
 /area/point_verdant/water)
 "Yv" = (
 /obj/effect/floor_decal/corner_wide/mauve/full{
+	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -26312,10 +26396,10 @@ rB
 rc
 rB
 rB
-rB
-rB
-rB
-rB
+BV
+BV
+BV
+Pe
 rB
 rB
 dZ
@@ -26572,7 +26656,7 @@ rB
 RQ
 RQ
 RQ
-rB
+FA
 rB
 rB
 Mh
@@ -26829,7 +26913,7 @@ rB
 Wz
 pd
 Ea
-rB
+FA
 rB
 rB
 ci
@@ -27086,11 +27170,11 @@ rB
 Wz
 nT
 UX
-bO
-rB
-rB
-oY
-rB
+eJ
+BV
+BV
+Uy
+UD
 rB
 oY
 rB
@@ -27338,8 +27422,8 @@ se
 ci
 oP
 ci
-rB
-rB
+Ed
+Ed
 ci
 ci
 ci
@@ -28611,7 +28695,7 @@ Al
 Fs
 JO
 Jp
-RQ
+mB
 nS
 JO
 rB
@@ -29153,7 +29237,7 @@ rB
 dC
 Ci
 ob
-dZ
+JU
 Xi
 jE
 HQ
@@ -30178,7 +30262,7 @@ ci
 dZ
 gV
 xp
-dZ
+kL
 Bg
 xp
 mh
@@ -30416,7 +30500,7 @@ JO
 va
 Vl
 JO
-RQ
+zf
 Dc
 Dc
 ci
