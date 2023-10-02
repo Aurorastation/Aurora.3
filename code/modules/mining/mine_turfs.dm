@@ -26,7 +26,7 @@ var/list/mineral_can_smooth_with = list(
 	icon_state = "rock"
 	desc = "It's a greyish rock. Exciting."
 	gender = PLURAL
-	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
+	var/icon/actual_icon = 'icons/turf/smooth/rock_dense.dmi'
 	layer = ON_TURF_LAYER
 
 	// canSmoothWith is set in Initialize().
@@ -84,8 +84,8 @@ var/list/mineral_can_smooth_with = list(
 
 	if(smoothing_flags)
 		canSmoothWith = mineral_can_smooth_with
-		pixel_x = -4
-		pixel_y = -4
+		// pixel_x = -4
+		// pixel_y = -4
 
 	rock_health = rand(10,20)
 
@@ -130,6 +130,7 @@ var/list/mineral_can_smooth_with = list(
 		if(1.0)
 			mined_ore = 2 //some of the stuff gets blown up
 			GetDrilled()
+	update_icon()
 
 /turf/simulated/mineral/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj, /obj/item/projectile/beam/plasmacutter))
@@ -172,7 +173,7 @@ var/list/mineral_can_smooth_with = list(
 	icon_state = "rock"
 	desc = "It's a greyish rock. Exciting."
 	opacity = TRUE
-	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
+	var/icon/actual_icon = 'icons/turf/smooth/rock_dense.dmi'
 	layer = 2.01
 	var/list/asteroid_can_smooth_with = list(
 		/turf/unsimulated/mineral,
@@ -204,8 +205,8 @@ var/list/mineral_can_smooth_with = list(
 
 	if(smoothing_flags)
 		canSmoothWith = asteroid_can_smooth_with
-		pixel_x = -4
-		pixel_y = -4
+		// pixel_x = -4
+		// pixel_y = -4
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -232,7 +233,7 @@ var/list/mineral_can_smooth_with = list(
 	clear_ore_effects()
 	if(!mineral)
 		name = "\improper Rock"
-		icon_state = "rock"
+		// icon_state = "rock"
 		return
 	name = "\improper [mineral.display_name] deposit"
 	new /obj/effect/mineral(src, mineral)
