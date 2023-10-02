@@ -2565,9 +2565,9 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
 "js" = (
-/obj/structure/reagent_dispensers/keg/mead,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/reagent_dispensers/keg/sake,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "jt" = (
@@ -3285,7 +3285,7 @@
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/tailor)
 "ly" = (
-/obj/structure/reagent_dispensers/keg/mead,
+/obj/structure/reagent_dispensers/keg/sake,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "lA" = (
@@ -3361,10 +3361,10 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "lS" = (
-/obj/structure/reagent_dispensers/keg/mead,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/reagent_dispensers/keg/sake,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "lT" = (
@@ -8540,7 +8540,7 @@
 	name = "imposing rod railing";
 	layer = 9.1
 	},
-/obj/structure/reagent_dispensers/keg/mead,
+/obj/structure/reagent_dispensers/keg/sake,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "Dd" = (
@@ -10083,6 +10083,16 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"Ih" = (
+/obj/structure/rod_railing,
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_x = 7;
+	density = 0;
+	anchored = 0;
+	pixel_y = 0
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior)
 "Ii" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /obj/structure/rope_post,
@@ -11810,6 +11820,7 @@
 "Ot" = (
 /obj/structure/table/wood,
 /obj/machinery/door/window/eastleft,
+/obj/item/reagent_containers/food/snacks/ricetub,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior)
 "Ov" = (
@@ -41554,7 +41565,7 @@ xb
 gy
 yj
 yj
-Wh
+Ih
 nj
 Jg
 Oy

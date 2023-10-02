@@ -398,6 +398,17 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"dB" = (
+/obj/item/reagent_containers/food/drinks/bottle{
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle{
+	pixel_y = 0;
+	pixel_x = -10
+	},
+/obj/structure/table/rack/retail_shelf,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/tunnels)
 "dD" = (
 /obj/item/stack/material/wood,
 /turf/simulated/floor/lino,
@@ -1155,10 +1166,10 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/hotel)
 "jM" = (
-/obj/structure/reagent_dispensers/keg/mead,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/structure/reagent_dispensers/keg/sake,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "jN" = (
@@ -1257,6 +1268,7 @@
 /area/point_verdant/interior/tunnels)
 "kv" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken5,
+/obj/structure/reagent_dispensers/keg/beerkeg/rice,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tunnels)
 "kw" = (
@@ -2144,9 +2156,6 @@
 	pixel_y = 0
 	},
 /obj/item/reagent_containers/food/drinks/bottle{
-	pixel_y = 0
-	},
-/obj/item/reagent_containers/food/drinks/bottle{
 	pixel_y = 0;
 	pixel_x = 10
 	},
@@ -2402,6 +2411,7 @@
 /area/point_verdant/outdoors)
 "sK" = (
 /obj/structure/table/rack,
+/obj/item/toy/comic/stormman,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tunnels)
 "sP" = (
@@ -2747,9 +2757,9 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
 "vU" = (
-/obj/structure/reagent_dispensers/keg/mead,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/reagent_dispensers/keg/sake,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "vW" = (
@@ -2968,8 +2978,8 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tunnels)
 "xC" = (
-/obj/structure/reagent_dispensers/keg/mead,
 /obj/random/dirt_75,
+/obj/structure/reagent_dispensers/keg/sake,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/tunnels)
 "xG" = (
@@ -3066,7 +3076,7 @@
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/pharmacy)
 "yS" = (
-/obj/structure/reagent_dispensers/keg/mead,
+/obj/structure/reagent_dispensers/keg/sake,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/tunnels)
 "yW" = (
@@ -3585,8 +3595,15 @@
 /turf/simulated/floor/lino,
 /area/point_verdant/interior)
 "CX" = (
-/obj/structure/reagent_dispensers/keg/mead,
 /obj/random/dirt_75,
+/obj/item/storage/bag/trash{
+	pixel_x = -7;
+	pixel_y = 3
+	},
+/obj/random/gloves{
+	pixel_x = 9;
+	pixel_y = -7
+	},
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/tunnels)
 "Db" = (
@@ -4869,9 +4886,9 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
 "OI" = (
-/obj/structure/reagent_dispensers/keg/mead,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/reagent_dispensers/keg/sake,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/tunnels)
 "OJ" = (
@@ -5517,9 +5534,9 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
 "TO" = (
-/obj/structure/reagent_dispensers/keg/mead,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/structure/reagent_dispensers/keg/sake,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tunnels)
 "TQ" = (
@@ -31279,7 +31296,7 @@ Fo
 Go
 Go
 KJ
-rh
+dB
 LB
 AV
 WO

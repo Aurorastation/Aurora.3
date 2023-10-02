@@ -353,6 +353,9 @@
 	desc = "A beer keg"
 	reagents_to_add = list(/singleton/reagent/alcohol/beer = 1000)
 
+/obj/structure/reagent_dispensers/keg/beerkeg/rice
+	reagents_to_add = list(/singleton/reagent/alcohol/rice_beer = 1000)
+
 /obj/structure/reagent_dispensers/keg/xuizikeg
 	name = "xuizi juice keg"
 	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
@@ -364,6 +367,12 @@
 	desc = "A wooden mead barrel."
 	icon_state = "woodkeg"
 	reagents_to_add = list(/singleton/reagent/alcohol/messa_mead = 1000)
+
+/obj/structure/reagent_dispensers/keg/sake
+	name = "sake barrel"
+	desc = "A wooden sake barrel."
+	icon_state = "woodkeg"
+	reagents_to_add = list(/singleton/reagent/alcohol/sake = 1000)
 
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil
