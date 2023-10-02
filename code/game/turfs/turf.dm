@@ -114,7 +114,7 @@
 	cleanup_roof()
 
 	if (ao_queued)
-		SSocclusion.queue -= src
+		SSao.queue -= src
 		ao_queued = 0
 
 	if (z_flags & ZM_MIMIC_BELOW)
