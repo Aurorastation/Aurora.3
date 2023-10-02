@@ -3307,6 +3307,13 @@
 /obj/effect/decal/road_marking/turn_right,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior)
+"mh" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/outdoors)
 "mk" = (
 /obj/effect/decal/exterior_stairs/right{
 	dir = 4
@@ -4125,6 +4132,10 @@
 /obj/effect/decal/cleanable/generic/beet_tree_petals,
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/point_verdant/outdoors)
+"pg" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/point_verdant/interior/shallow)
 "ph" = (
 /obj/structure/konyang_cliff{
 	layer = 2.1
@@ -4566,6 +4577,12 @@
 /obj/structure/flora/tree/konyang/blossom,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
+"qP" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/point_verdant/interior/shallow)
 "qQ" = (
 /obj/structure/closet/crate/bin/urban/dumpster,
 /turf/simulated/floor/sidewalk/flat,
@@ -7571,6 +7588,13 @@
 /obj/effect/decal/exterior_stairs/center,
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/outdoors)
+"AN" = (
+/obj/structure/flora/rock/konyang,
+/obj/structure/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/outdoors)
 "AO" = (
 /obj/structure/table/stone/marble,
 /obj/item/tray{
@@ -8579,6 +8603,12 @@
 	},
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/hotel)
+"Ew" = (
+/obj/structure/closet/crate/bin/urban/compact{
+	pixel_y = 24
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/interior/shallow)
 "Ey" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff1-bottom";
@@ -11068,6 +11098,11 @@
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
+"NI" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/point_verdant/interior/shallow)
 "NJ" = (
 /obj/structure/road_barrier/bot_in{
 	dir = 8
@@ -12148,6 +12183,12 @@
 /obj/structure/road_barrier/bot_end,
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
+"RW" = (
+/obj/structure/ledge{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/konyang/no_edge,
+/area/point_verdant/outdoors)
 "RX" = (
 /obj/structure/flora/rock/konyang,
 /obj/effect/decal/curb{
@@ -12277,6 +12318,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/outdoors)
+"Sz" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "SB" = (
 /obj/structure/table/rack,
@@ -13166,6 +13213,16 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Wc" = (
+/obj/structure/rod_railing{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/classic/on{
+	pixel_x = -7;
+	pixel_y = 12
+	},
+/turf/simulated/floor/concrete,
+/area/point_verdant/interior/shallow)
 "Wd" = (
 /obj/structure/cash_register{
 	dir = 8;
@@ -44311,10 +44368,10 @@ vJ
 vJ
 vJ
 vJ
+Ew
 su
 su
-su
-Vz
+sD
 Hy
 qs
 Al
@@ -44572,16 +44629,16 @@ su
 su
 su
 Vz
-Hy
-Al
-Al
-Al
-Al
-BP
-Al
-qs
-Al
-Al
+RW
+Sz
+Sz
+Sz
+Sz
+mh
+Sz
+AN
+Sz
+Sz
 Oq
 Al
 Al
@@ -44828,17 +44885,17 @@ vJ
 su
 su
 su
-sD
-Hy
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
-Al
+su
+Nl
+Wc
+Nl
+Nl
+Nl
+ZI
+ZI
+ZI
+ZI
+vJ
 Al
 Al
 Al
@@ -45082,19 +45139,19 @@ vJ
 vJ
 vJ
 vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
+su
+su
+su
+su
+su
+su
+su
+pg
+pg
+nR
+nR
+nR
+ZI
 vJ
 Al
 Al
@@ -45339,19 +45396,19 @@ vJ
 vJ
 vJ
 vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
+su
+su
+su
+su
+pg
+pg
+pg
+NI
+pg
+nR
+nR
+nR
+ZI
 vJ
 Al
 Al
@@ -45596,19 +45653,19 @@ vJ
 vJ
 vJ
 vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
-vJ
+su
+su
+su
+su
+pg
+pg
+NI
+qP
+pg
+ZI
+ZI
+ZI
+ZI
 vJ
 Al
 Al
@@ -45853,8 +45910,8 @@ vJ
 vJ
 vJ
 vJ
-vJ
-vJ
+QA
+QA
 vJ
 vJ
 vJ
@@ -46110,8 +46167,8 @@ vJ
 vJ
 vJ
 vJ
-vJ
-vJ
+kt
+kt
 vJ
 vJ
 vJ
@@ -46367,8 +46424,8 @@ vJ
 vJ
 vJ
 vJ
-vJ
-vJ
+Bz
+Bz
 vJ
 vJ
 vJ
@@ -46624,8 +46681,8 @@ vJ
 vJ
 vJ
 vJ
-vJ
-vJ
+QA
+QA
 vJ
 vJ
 vJ
@@ -46881,8 +46938,8 @@ vJ
 vJ
 vJ
 vJ
-vJ
-vJ
+kt
+kt
 vJ
 vJ
 vJ
@@ -47138,8 +47195,8 @@ vJ
 vJ
 vJ
 vJ
-vJ
-vJ
+Bz
+Bz
 vJ
 vJ
 vJ
@@ -47393,10 +47450,10 @@ vJ
 vJ
 vJ
 vJ
-vJ
-vJ
-vJ
-vJ
+su
+su
+su
+su
 vJ
 vJ
 vJ
@@ -47650,10 +47707,10 @@ vJ
 vJ
 vJ
 vJ
-vJ
-vJ
-vJ
-vJ
+su
+su
+cj
+jc
 vJ
 vJ
 vJ
@@ -47907,10 +47964,10 @@ vJ
 vJ
 vJ
 vJ
-vJ
-vJ
-vJ
-vJ
+fB
+fB
+gh
+fs
 vJ
 vJ
 vJ
