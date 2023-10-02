@@ -16,9 +16,7 @@
  * lists. The object at a given index in bucket_list is a /datum/timedevent, the head of a circular list, which has prev
  * and next references for the respective elements in that bucket's circular list.
  */
-var/datum/controller/subsystem/timer/SStimer
-
-/datum/controller/subsystem/timer
+SUBSYSTEM_DEF(timer)
 	name = "Timer"
 	wait = 1 //SS_TICKER subsystem, so wait is in ticks
 	priority = SS_PRIORITY_TIMER
