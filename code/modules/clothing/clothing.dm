@@ -984,8 +984,7 @@
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_suit.dmi'
 		)
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/suit.dmi',
-		BODYTYPE_VAURCA_ATTENDANT = 'icons/mob/species/attendant/suit.dmi'
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/suit.dmi'
 	)
 	name = "suit"
 	species_sprite_adaption_type = WORN_SUIT
