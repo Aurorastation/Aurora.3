@@ -38,6 +38,19 @@
 	gun.use_external_power = FALSE
 	gun.recharge_time = src.charge_rate
 
+/obj/item/device/self_charge_module/proc/gun_remove(mob/living/user)
+	gun.charge_module = null
+	gun = null
+	src.forceMove(get_turf(user))
+	user.put_in_hands(src)
+	gun.self_recharge = FALSE
+	return
+
+/obj/item/device/self_charge_module/Destroy()
+	if(gun)
+		gun.charge_module = null
+	return . = ..()
+
 /obj/item/device/self_charge_module/standard
 	name = "advanced weapon recharging module"
 	desc = "A small device attached to the power cell of an energy weapon, designed to allow it to continue operation when away from a convenient recharger. This one is the current standard in the field, frequently used by the Orion Spur's military forces."

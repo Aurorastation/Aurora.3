@@ -94,10 +94,7 @@
 	. = ..()
 	if(charge_module && I.iswirecutter())
 		to_chat(user, SPAN_NOTICE("You snip the wires connecting [charge_module] to \the [src]'s battery'."))
-		charge_module.forceMove(get_turf(src))
-		user.put_in_hands(charge_module)
-		charge_module = null
-		self_recharge = FALSE
+		charge_module.gun_remove()
 		return TRUE
 
 /obj/item/gun/energy/proc/try_recharge()
