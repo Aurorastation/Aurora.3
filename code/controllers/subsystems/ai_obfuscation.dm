@@ -1,13 +1,8 @@
-var/global/datum/controller/subsystem/ai_obfuscation/SSai_obfuscation
-
-/datum/controller/subsystem/ai_obfuscation
+SUBSYSTEM_DEF(ai_obfuscation)
 	name = "AI Obfuscation"
 	flags = SS_NO_FIRE
 
 	var/list/image/obfuscation_images = list()
-
-/datum/controller/subsystem/ai_obfuscation/New()
-	NEW_SS_GLOBAL(SSai_obfuscation)
 
 /datum/controller/subsystem/ai_obfuscation/proc/add_obfuscation_image(var/image/added_image)
 	if(!istype(added_image))

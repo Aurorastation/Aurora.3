@@ -174,9 +174,9 @@
 	if(!resources)
 		resources = list()
 	if(prob(5))
-		resources[MATERIAL_URANIUM] = rand(1,3)
+		resources[ORE_URANIUM] = rand(1,3)
 	if(prob(2))
-		resources[MATERIAL_DIAMOND] = 1
+		resources[ORE_DIAMOND] = 1
 
 /turf/simulated/floor/exoplanet/grass/grove
 	icon_state = "grove_grass1"

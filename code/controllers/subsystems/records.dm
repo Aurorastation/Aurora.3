@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/records/SSrecords
-
-/datum/controller/subsystem/records
+SUBSYSTEM_DEF(records)
 	name = "Records"
 	flags = SS_NO_FIRE
 
@@ -30,7 +28,7 @@
 	InitializeReligions()
 	InitializeAccents()
 
-/datum/controller/subsystem/records/New()
+/datum/controller/subsystem/records/PreInit()
 	records = list()
 	records_locked = list()
 	warrants = list()
@@ -39,7 +37,6 @@
 	excluded_fields = list()
 	localized_fields = list()
 	manifest = list()
-	NEW_SS_GLOBAL(SSrecords)
 	var/datum/D = new()
 	for(var/v in D.vars)
 		excluded_fields[v] = v

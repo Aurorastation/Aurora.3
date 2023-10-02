@@ -11919,7 +11919,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "itT" = (
-/obj/effect/shuttle_landmark/skipjack_ship/first_deck,
+/obj/effect/shuttle_landmark/skipjack_ship/first_deck{
+	dir = 1
+	},
 /turf/template_noop,
 /area/template_noop)
 "iuk" = (
@@ -15810,9 +15812,11 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "lnk" = (
-/obj/effect/shuttle_landmark/burglar_ship/hangar,
-/turf/simulated/floor/plating,
-/area/hangar/auxiliary)
+/obj/effect/shuttle_landmark/merc_ship/first_deck{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
 "lnt" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -21009,9 +21013,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "oSD" = (
-/obj/effect/shuttle_landmark/merc_ship/first_deck,
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/shuttle_landmark/burglar_ship/hangar{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hangar/auxiliary)
 "oTA" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 1
@@ -51937,7 +51943,7 @@ eSV
 eSV
 eSV
 eSV
-itT
+eSV
 eSV
 eSV
 eSV
@@ -52342,7 +52348,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+itT
 eSV
 eSV
 eSV
@@ -62458,7 +62464,7 @@ bJa
 pMP
 bJa
 bJa
-lnk
+bJa
 bJa
 bJa
 bJa
@@ -62863,7 +62869,7 @@ bJa
 bJa
 bJa
 bJa
-bJa
+oSD
 bJa
 bJa
 bJa
@@ -66054,7 +66060,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+lnk
 eSV
 eSV
 eSV
@@ -66460,7 +66466,7 @@ eSV
 eSV
 eSV
 eSV
-oSD
+eSV
 eSV
 eSV
 eSV

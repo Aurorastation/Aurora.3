@@ -642,7 +642,7 @@
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
 	// Stats.
-	SSfeedback.IncrementSimpleStat("openturf_human_falls")
+	SSstatistics.IncrementSimpleStat("openturf_human_falls")
 	addtimer(CALLBACK(src, PROC_REF(post_fall_death_check)), 2 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 	return TRUE
@@ -653,7 +653,7 @@
 
 /mob/living/carbon/human/proc/post_fall_death_check()
 	if (stat == DEAD)
-		SSfeedback.IncrementSimpleStat("openturf_human_deaths")
+		SSstatistics.IncrementSimpleStat("openturf_human_deaths")
 
 /obj/vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	. = ..()
