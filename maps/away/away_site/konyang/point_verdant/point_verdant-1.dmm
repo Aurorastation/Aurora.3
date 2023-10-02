@@ -398,17 +398,6 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
-"dB" = (
-/obj/item/reagent_containers/food/drinks/bottle{
-	pixel_y = 0
-	},
-/obj/item/reagent_containers/food/drinks/bottle{
-	pixel_y = 0;
-	pixel_x = -10
-	},
-/obj/structure/table/rack/retail_shelf,
-/turf/simulated/floor/tiled/full,
-/area/point_verdant/interior/tunnels)
 "dD" = (
 /obj/item/stack/material/wood,
 /turf/simulated/floor/lino,
@@ -5650,6 +5639,17 @@
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/tunnels)
+"UL" = (
+/obj/item/reagent_containers/food/drinks/bottle{
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/bottle{
+	pixel_y = 0;
+	pixel_x = -10
+	},
+/obj/structure/table/rack/retail_shelf,
+/turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/tunnels)
 "UO" = (
 /obj/effect/decal/curb,
@@ -31296,7 +31296,7 @@ Fo
 Go
 Go
 KJ
-dB
+UL
 LB
 AV
 WO
