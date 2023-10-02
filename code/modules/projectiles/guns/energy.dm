@@ -87,7 +87,7 @@
 /obj/item/gun/energy/Destroy()
 	QDEL_NULL(power_supply)
 	if(istype(charge_module))
-		qdel(charge_module)
+		QDEL_NULL(charge_module)
 	return ..()
 
 /obj/item/gun/energy/attackby(obj/item/I, mob/user)
