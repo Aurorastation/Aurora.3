@@ -1,7 +1,7 @@
 /datum/map_template/ruin/exoplanet/coalition_base
     name = "Abandoned Coalition Relay"
     id = "coalition_base"
-    description = "hehehe cock base"
+    description = "An abandoned Coalition base."
 
     sectors = list(ALL_COALITION_SECTORS)
     suffixes = list("asteroid/coalition_base/coalition_base.dmm")
