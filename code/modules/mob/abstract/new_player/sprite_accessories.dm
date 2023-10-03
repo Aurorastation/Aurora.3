@@ -5795,7 +5795,7 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Tattoo (Koi, L. Arm)"
 	body_parts = list(BP_L_ARM)
 
-/datum/sprite_accessory/marking/tat_koiright_arm
+/datum/sprite_accessory/marking/tat_koi/right_arm
 	name = "Tattoo (Koi, R. Arm)"
 	body_parts = list(BP_R_ARM)
 

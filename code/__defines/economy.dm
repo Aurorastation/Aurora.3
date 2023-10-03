@@ -1,4 +1,3 @@
-
 #define RIOTS 1
 #define WILD_ANIMAL_ATTACK 2
 #define INDUSTRIAL_ACCIDENT 3

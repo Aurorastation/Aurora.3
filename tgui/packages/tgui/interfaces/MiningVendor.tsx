@@ -4,6 +4,7 @@ import { Window } from '../layouts';
 
 export type PrizeListData = {
   name: string;
+  desc: string;
   cost: number;
   stock: number;
   ref: string;
@@ -29,11 +30,6 @@ export const MiningVendor = (props, context) => {
           ) : (
             <Box>
               <Box>No ID detected.</Box>
-              <Button
-                content="Scan ID"
-                icon="plus"
-                onClick={() => act('choice', { choice: 'scan' })}
-              />
             </Box>
           )}
         </Section>
@@ -57,6 +53,7 @@ export const MiningVendor = (props, context) => {
                 <Table.Cell>
                   <Button
                     content="Purchase"
+                    tooltip={prize.desc}
                     disabled={prize.stock === 0}
                     onClick={() => act('purchase', { purchase: prize.ref })}
                   />

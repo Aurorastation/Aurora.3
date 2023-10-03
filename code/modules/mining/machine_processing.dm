@@ -15,9 +15,8 @@
 	active_power_usage = 50
 
 	var/obj/machinery/mineral/processing_unit/machine
-	var/show_all_ores = FALSE
+	var/show_all_ores = TRUE
 	var/points = 0
-	var/datum/weakref/scanned_id
 
 	var/list/ore/input_mats = list()
 	var/list/material/output_mats = list()
@@ -71,95 +70,59 @@
 
 /obj/machinery/mineral/processing_unit_console/attack_hand(mob/user)
 	add_fingerprint(user)
-	if(!scanned_id)
-		get_user_id(user)
-	else
-		var/obj/item/card/id/ID = scanned_id.resolve()
-		if(!ID)
-			scanned_id = null
-			get_user_id(user)
-		else
-			var/turf/id_turf = get_turf(user)
-			if(id_turf && !id_turf.Adjacent(loc))
-				scanned_id = null
-				get_user_id(user)
-	interact(user)
-
-/obj/machinery/mineral/processing_unit_console/proc/get_user_id(var/mob/user)
-	if(isDrone(user))
-		var/mob/living/silicon/robot/drone/D = user
-		if(D.standard_drone)
-			return
-	if(!scanned_id)
-		var/obj/item/card/id/ID = user.GetIdCard()
-		if(ID)
-			scanned_id = WEAKREF(ID)
-
-/obj/machinery/mineral/processing_unit_console/interact(mob/user)
-	if(..())
-		return
-
 	if(!setup_machine(user))
 		return
+	ui_interact(user)
 
-	user.set_machine(src)
+/obj/machinery/mineral/processing_unit_console/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "MiningProcessor", "Ore Redemption Console", ui_x=500, ui_y=575)
+		ui.autoupdate = FALSE
+		ui.open()
 
-	var/dat = "<h1>Ore processor console</h1>"
-
-	dat += "Current unclaimed points: [points]<br>"
-
-	var/obj/item/card/id/ID = scanned_id.resolve()
+/obj/machinery/mineral/processing_unit_console/ui_data(mob/user)
+	var/list/data = list()
+	var/obj/item/card/id/ID = user.GetIdCard()
 	if(ID)
-		dat += "You have [ID.mining_points] mining points collected. <A href='?src=\ref[src];choice=eject'>Eject ID.</A><br>"
-		dat += "<A href='?src=\ref[src];choice=claim'>Claim points.</A><br>"
-		dat += "<A href='?src=\ref[src];choice=print_report'>Print yield declaration.</A><br>"
+		data["hasId"] = TRUE
+		data["miningPoints"] = ID.mining_points ? ID.mining_points : 0
 	else
-		dat += "No ID inserted.  <A href='?src=\ref[src];choice=insert'>Insert ID.</A><br>"
+		data["hasId"] = FALSE
 
-	dat += "<hr><table>"
+	data["enabled"] = machine.active
+	data["points"] = points
+	data["showAllOres"] = show_all_ores
 
+	var/list/ore_list = list()
 	for(var/ore in machine.ores_processing)
-
 		if(!machine.ores_stored[ore] && !show_all_ores)
 			continue
 		var/ore/O = ore_data[ore]
 		if(!O)
 			continue
-		dat += "<tr><td width = 40><b>[capitalize(O.display_name)]</b></td><td width = 30>[machine.ores_stored[ore]]</td><td width = 100>"
-		if(machine.ores_processing[ore])
-			switch(machine.ores_processing[ore])
-				if(0)
-					dat += "<span class='warning'>not processing</span>"
-				if(1)
-					dat += "<font color='orange'>smelting</font>"
-				if(2)
-					dat += "<span class='notice'>compressing</span>"
-				if(3)
-					dat += "<font color='gray'>alloying</font>"
-		else
-			dat += "<span class='warning'>not processing</span>"
-		dat += ".</td><td width = 30><a href='?src=\ref[src];toggle_smelting=[ore]'>\[change\]</a></td></tr>"
+		var/processing_type = ""
+		switch(machine.ores_processing[ore])
+			if(0)
+				processing_type = "Idle"
+			if(1)
+				processing_type = "Smelt"
+			if(2)
+				processing_type = "Compress"
+			if(3)
+				processing_type = "Alloy"
+		ore_list += list(list("name" = capitalize_first_letters(O.display_name), "processing" = processing_type, "stored" = machine.ores_stored[ore], "ore" = ore))
+	data["oreList"] = ore_list
+	return data
 
-	dat += "</table><hr>"
-	dat += "Currently displaying [show_all_ores ? "all ore types" : "only available ore types"]. <A href='?src=\ref[src];toggle_ores=1'>\[[show_all_ores ? "show less" : "show more"]\]</a></br>"
-	dat += "The ore processor is currently <A href='?src=\ref[src];toggle_power=1'>[(machine.active ? "<font color='green'>processing</font>" : "<font color='red'>disabled</font>")]</a>."
-
-	var/datum/browser/processor_win = new(user, "processor_console", capitalize_first_letters(name))
-	processor_win.set_content(dat)
-	processor_win.open()
-
-/obj/machinery/mineral/processing_unit_console/Topic(href, href_list)
+/obj/machinery/mineral/processing_unit_console/ui_act(action, params)
 	if(..())
 		return TRUE
-	usr.set_machine(src)
-	src.add_fingerprint(usr)
 
-	if(href_list["choice"])
-		var/obj/item/card/id/ID = scanned_id.resolve()
+	if(action == "choice")
+		var/obj/item/card/id/ID = usr.GetIdCard()
 		if(ID)
-			if(href_list["choice"] == "eject")
-				scanned_id = null
-			if(href_list["choice"] == "claim")
+			if(params["choice"] == "claim")
 				if(access_mining_station in ID.access)
 					if(points >= 0)
 						ID.mining_points += points
@@ -170,21 +133,19 @@
 						to_chat(usr, SPAN_WARNING("[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared."))
 				else
 					to_chat(usr, SPAN_WARNING("Required access not found."))
-			if(href_list["choice"] == "print_report")
+			if(params["choice"] == "print_report")
 				if(access_mining_station in ID.access)
 					print_report(usr)
 				else
 					to_chat(usr, SPAN_WARNING("Required access not found."))
+		return TRUE
 
-		else if(href_list["choice"] == "insert")
-			var/obj/item/card/id/I = usr.get_active_hand()
-			if(istype(I))
-				scanned_id = WEAKREF(I)
+	if(action == "toggle_smelting")
+		var/ore_name = params["toggle_smelting"]
 
-	if(href_list["toggle_smelting"])
-		var/choice = input("What setting do you wish to use for processing [href_list["toggle_smelting"]]?") as null|anything in list("Smelting","Compressing","Alloying","Nothing")
+		var/choice = input("What setting do you wish to use for processing [ore_name]?") as null|anything in list("Smelting", "Compressing", "Alloying", "Nothing")
 		if(!choice)
-			return
+			return TRUE
 
 		switch(choice)
 			if("Nothing")
@@ -196,26 +157,25 @@
 			if("Alloying")
 				choice = 3
 
-		machine.ores_processing[href_list["toggle_smelting"]] = choice
+		machine.ores_processing[ore_name] = choice
+		return TRUE
 
-	if(href_list["toggle_power"])
-
+	if(action == "toggle_power")
 		machine.active = !machine.active
 		if(machine.active)
 			machine.icon_state = "furnace"
 		else
 			machine.icon_state = "furnace-off"
+		return TRUE
 
-	if(href_list["toggle_ores"])
+	if(action == "toggle_ores")
 		show_all_ores = !show_all_ores
-
-	src.updateUsrDialog()
-	return
+		return TRUE
 
 /obj/machinery/mineral/processing_unit_console/proc/print_report(var/mob/living/user)
-	var/obj/item/card/id/ID = scanned_id.resolve()
+	var/obj/item/card/id/ID = user.GetIdCard()
 	if(!ID)
-		to_chat(user, SPAN_WARNING("No ID inserted. Cannot digitally sign."))
+		to_chat(user, SPAN_WARNING("No ID detected. Cannot digitally sign."))
 		return
 	if(!input_mats.len && !output_mats.len && !alloy_mats)
 		to_chat(user, SPAN_WARNING("There is no data to print."))

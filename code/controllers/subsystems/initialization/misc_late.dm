@@ -1,6 +1,6 @@
 // This subsystem loads later in the init process. Not last, but after most major things are done.
 
-/datum/controller/subsystem/misc_late
+SUBSYSTEM_DEF(misc_late)
 	name = "Late Miscellaneous Init"
 	init_order = SS_INIT_MISC
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
