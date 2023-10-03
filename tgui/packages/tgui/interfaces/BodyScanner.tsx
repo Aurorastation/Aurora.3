@@ -21,6 +21,7 @@ export type ScannerData = {
   blood_pressure_level: number;
   blood_volume: number;
   blood_o2: number;
+  blood_type: string;
   rads: number;
 
   cloneLoss: string;
@@ -51,6 +52,7 @@ type Organ = {
   burn_damage: string;
   brute_damage: string;
   wounds: string;
+  infection: string;
 };
 
 type InternalOrgan = {
@@ -58,6 +60,7 @@ type InternalOrgan = {
   location: string;
   damage: string;
   wounds: string;
+  infection: string;
 };
 
 export const BodyScanner = (props, context) => {
@@ -76,17 +79,25 @@ export const InvalidWindow = (props, context) => {
   const { act, data } = useBackend<ScannerData>(context);
 
   return (
-    <BlockQuote>
-      {data.nocons
-        ? 'No scanner bed detected.'
-        : !data.occupied
-          ? 'No occupant detected.'
-          : data.ipc
-            ? 'An object in the scanner bed is interfering with the sensor array.'
-            : data.noscan
-              ? 'No diagnostics profile installed for this species.'
-              : 'Unknown error.'}
-    </BlockQuote>
+    <Table>
+      <Table.Row>
+        <Table.Cell>
+          <Section>
+            <BlockQuote>
+              {data.nocons
+                ? 'No scanner bed detected.'
+                : !data.occupied
+                  ? 'No occupant detected.'
+                  : data.ipc
+                    ? 'An object in the scanner bed is interfering with the sensor array.'
+                    : data.noscan
+                      ? 'No diagnostics profile installed for this species.'
+                      : 'Unknown error.'}
+            </BlockQuote>
+          </Section>
+        </Table.Cell>
+      </Table.Row>
+    </Table>
   );
 };
 
@@ -97,50 +108,54 @@ export const ScannerWindow = (props, context) => {
     <Table>
       <Table.Row>
         <Table.Cell>
-          <Section fill={false} title="Patient Status" scrollable>
-            <LabeledList>
-              <LabeledList.Item label="Name">{data.name}</LabeledList.Item>
-              <LabeledList.Item
-                label="Status"
-                color={consciousnessLabel(data.stat)}>
-                {consciousnessText(data.stat)}
-              </LabeledList.Item>
-              <LabeledList.Item label="Species">
-                {data.species}
-              </LabeledList.Item>
-              <LabeledList.Item
-                label="Pulse"
-                color={progressClass(data.brain_activity)}>
-                {data.pulse}
-              </LabeledList.Item>
-              <LabeledList.Item
-                label="Brain Activity"
-                color={progressClass(data.brain_activity)}>
-                {brainText(data.brain_activity)}
-              </LabeledList.Item>
-              {data.stat < 2 ? <TraumaInfo /> : ''}
-            </LabeledList>
-            <LabeledList>
-              <LabeledList.Divider size={1} />
-              <LabeledList.Item label="Radiation Level">
-                {Math.round(data.rads)} Gy
-              </LabeledList.Item>
-              <LabeledList.Item label="Genetic Damage">
-                {data.cloneLoss}
-              </LabeledList.Item>
-              <LabeledList.Item label="Est. Paralysis Level">
-                {data.paralysis
-                  ? Math.round(data.paralysis / 4) + ' Seconds Left'
-                  : 'No paralysis detected.'}
-              </LabeledList.Item>
-              <LabeledList.Item label="Body Temperature">
-                {data.bodytemp}°C
-              </LabeledList.Item>
-            </LabeledList>
+          <Section
+            fill={false}
+            title="Patient Status"
+            buttons={
+              <>
+                <Button
+                  content="Print"
+                  icon="print"
+                  onClick={() => act('print')}
+                />
+                <Button
+                  content="Eject"
+                  color="red"
+                  icon="arrow-right-from-bracket"
+                  onClick={() => act('eject')}
+                />
+              </>
+            }>
+            <Section>
+              <LabeledList>
+                <LabeledList.Item label="Name">{data.name}</LabeledList.Item>
+                <LabeledList.Item label="Species">
+                  {data.species}
+                </LabeledList.Item>
+                <LabeledList.Item
+                  label="Status"
+                  color={consciousnessLabel(data.stat)}>
+                  {consciousnessText(data.stat)}
+                </LabeledList.Item>
+                <LabeledList.Item
+                  label="Brain Activity"
+                  color={progressClass(data.brain_activity)}>
+                  {brainText(data.brain_activity)}
+                </LabeledList.Item>
+                <LabeledList.Item
+                  label="Pulse"
+                  color={progressClass(data.brain_activity)}>
+                  {data.pulse}
+                </LabeledList.Item>
+                <LabeledList.Item label="Body Temperature">
+                  {data.bodytemp}°C
+                </LabeledList.Item>
+              </LabeledList>
+            </Section>
             <Section title="Blood Status" fill:true>
               <LabeledList>
                 <LabeledList.Item
-                  label="BP"
+                  label="Blood Pressure"
                   color={getPressureClass(data.blood_pressure_level)}>
                   {data.blood_pressure}
                 </LabeledList.Item>
@@ -153,6 +168,9 @@ export const ScannerWindow = (props, context) => {
                   label="Blood Volume"
                   color={progressClass(data.brain_activity)}>
                   {Math.round(data.blood_volume)}%
+                </LabeledList.Item>
+                <LabeledList.Item label="Blood Type">
+                  {data.blood_type}
                 </LabeledList.Item>
                 {data.inaprovaline_amount ? (
                   <LabeledList.Item label="Inaprovaline">
@@ -205,53 +223,69 @@ export const ScannerWindow = (props, context) => {
                 )}
               </LabeledList>
             </Section>
-          </Section>
-        </Table.Cell>
-        <Table.Cell nowrap>
-          <Section
-            title="Organ Status"
-            scrollable
-            buttons={
-              <>
-                <Button
-                  content="Print Report"
-                  icon="calendar"
-                  onClick={() => act('print')}
-                />
-                <Button
-                  content="Eject Occupant"
-                  color="red"
-                  icon="person-booth"
-                  onClick={() => act('eject')}
-                />
-              </>
-            }>
-            <LabeledList>
-              {data.missing_organs === 'Nothing' ? (
-                <BlockQuote>No organs missing.</BlockQuote>
-              ) : (
-                <MissingOrgans />
-              )}
-            </LabeledList>
-            <Section title="Internal Organ Status">
-              {data.has_internal_injuries ? (
-                <OrganWindow />
-              ) : (
-                <BlockQuote color="good">
-                  No internal injuries detected.
-                </BlockQuote>
-              )}
+            <Section title="Symptom Status" fill:true>
+              <LabeledList>
+                <LabeledList.Item label="Radiation Level">
+                  {Math.round(data.rads)} Gy
+                </LabeledList.Item>
+                <LabeledList.Item label="Genetic Damage">
+                  {data.cloneLoss}
+                </LabeledList.Item>
+                <LabeledList.Item label="Est. Paralysis Level">
+                  {data.paralysis
+                    ? Math.round(data.paralysis / 4) + ' Seconds Left'
+                    : 'None'}
+                </LabeledList.Item>
+              </LabeledList>
             </Section>
-            <Section title="External Organ Status">
-              {data.has_external_injuries ? (
-                <ExternalOrganWindow />
-              ) : (
-                <BlockQuote color="good">
-                  No external injuries detected.
-                </BlockQuote>
-              )}
+            <Section title="Damage Status" fill:true>
+              <LabeledList>
+                <LabeledList.Item
+                  label="Brute Trauma"
+                  color={damageLabel(data.bruteLoss)}>
+                  {data.bruteLoss}
+                </LabeledList.Item>
+                <LabeledList.Item
+                  label="Burn Severity"
+                  color={damageLabel(data.fireLoss)}>
+                  {data.fireLoss}
+                </LabeledList.Item>
+                <LabeledList.Item
+                  label="Oxygen Deprivation"
+                  color={damageLabel(data.oxyLoss)}>
+                  {data.oxyLoss}
+                </LabeledList.Item>
+                <LabeledList.Item
+                  label="Toxin Exposure"
+                  color={damageLabel(data.toxLoss)}>
+                  {data.toxLoss}
+                </LabeledList.Item>
+              </LabeledList>
             </Section>
           </Section>
+          <Section title="Body Status">
+            {data.has_external_injuries ? (
+              <ExternalOrganWindow />
+            ) : (
+              <BlockQuote color="green">
+                No external injuries detected.
+              </BlockQuote>
+            )}
+          </Section>
+          <Section title="Internal Organ Status">
+            {data.has_internal_injuries ? (
+              <OrganWindow />
+            ) : (
+              <BlockQuote color="green">
+                No internal injuries detected.
+              </BlockQuote>
+            )}
+          </Section>
+          <LabeledList>
+            <Section>
+              {data.missing_organs === 'Nothing' ? '' : <MissingOrgans />}
+            </Section>
+          </LabeledList>
         </Table.Cell>
       </Table.Row>
     </Table>
@@ -265,18 +299,20 @@ export const OrganWindow = (props, context) => {
     <Table>
       <Table.Row color="blue">
         <Table.Cell>Name</Table.Cell>
-        <Table.Cell>Trauma</Table.Cell>
-        <Table.Cell>Wounds</Table.Cell>
         <Table.Cell>Location</Table.Cell>
+        <Table.Cell>Damage</Table.Cell>
+        <Table.Cell>Complications</Table.Cell>
+        <Table.Cell>Immune Status</Table.Cell>
       </Table.Row>
       {data.organs.sort().map((organ) => (
         <Table.Row key={organ.name}>
           <Table.Cell>{organ.name}</Table.Cell>
+          <Table.Cell>{organ.location}</Table.Cell>
           <Table.Cell color={damageLabel(organ.damage)}>
             {organ.damage}
           </Table.Cell>
           <Table.Cell>{organ.wounds}</Table.Cell>
-          <Table.Cell>{organ.location}</Table.Cell>
+          <Table.Cell>{organ.infection}</Table.Cell>
         </Table.Row>
       ))}
     </Table>
@@ -290,9 +326,10 @@ export const ExternalOrganWindow = (props, context) => {
     <Table>
       <Table.Row color="blue">
         <Table.Cell>Name</Table.Cell>
-        <Table.Cell>Brute</Table.Cell>
-        <Table.Cell>Burn</Table.Cell>
-        <Table.Cell>Wounds</Table.Cell>
+        <Table.Cell>Brute Trauma</Table.Cell>
+        <Table.Cell>Burn Severity</Table.Cell>
+        <Table.Cell>Complications</Table.Cell>
+        <Table.Cell>Immune Status</Table.Cell>
       </Table.Row>
       {data.bodyparts.sort().map((organ) => (
         <Table.Row key={organ.name}>
@@ -304,6 +341,7 @@ export const ExternalOrganWindow = (props, context) => {
             {organ.burn_damage}
           </Table.Cell>
           <Table.Cell>{organ.wounds}</Table.Cell>
+          <Table.Cell>{organ.infection}</Table.Cell>
         </Table.Row>
       ))}
     </Table>
@@ -320,33 +358,6 @@ export const MissingOrgans = (props, context) => {
         {data.missing_organs}
       </Box>
     </BlockQuote>
-  );
-};
-
-export const TraumaInfo = (props, context) => {
-  const { act, data } = useBackend<ScannerData>(context);
-
-  return (
-    <>
-      <LabeledList.Item
-        label="Physical Trauma"
-        color={damageLabel(data.bruteLoss)}>
-        {data.bruteLoss}
-      </LabeledList.Item>
-      <LabeledList.Item
-        label="Oxygen Deprivation"
-        color={damageLabel(data.oxyLoss)}>
-        {data.oxyLoss}
-      </LabeledList.Item>
-      <LabeledList.Item label="Organ Failure" color={damageLabel(data.toxLoss)}>
-        {data.toxLoss}
-      </LabeledList.Item>
-      <LabeledList.Item
-        label="Burn Severity"
-        color={damageLabel(data.fireLoss)}>
-        {data.fireLoss}
-      </LabeledList.Item>
-    </>
   );
 };
 

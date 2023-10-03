@@ -21,25 +21,20 @@ BREATH ANALYZER
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	var/mode = 1
-	var/last_scan = 0
 	var/sound_scan = FALSE
 
 /obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
-	sound_scan = FALSE
-	if(last_scan <= world.time - 20) //Spam limiter.
-		last_scan = world.time
-		sound_scan = TRUE
+	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
+	user.do_attack_animation(src)
 	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
-	health_scan_mob(M, user, mode, sound_scan = sound_scan)
+	health_scan_mob(M, user, mode, sound_scan = TRUE)
 	add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
-	sound_scan = FALSE
-	if(last_scan <= world.time - 20) //Spam limiter.
-		last_scan = world.time
-		sound_scan = TRUE
+	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
+	user.do_attack_animation(src)
 	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
-	health_scan_mob(user, user, mode, sound_scan = sound_scan)
+	health_scan_mob(user, user, mode, sound_scan = TRUE)
 	add_fingerprint(user)
 
 /proc/get_wound_severity(var/damage_ratio, var/uppercase = FALSE) //Used for ratios.
@@ -93,8 +88,8 @@ BREATH ANALYZER
 				playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
 			return
 
-		if(!usr.IsAdvancedToolUser())
-			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		if(!user.IsAdvancedToolUser())
+			to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
 			return
 
 		user.visible_message("<b>[user]</b> runs a scanner over [M].","<span class='notice'>You run the scanner over [M].</span>")
@@ -131,6 +126,9 @@ BREATH ANALYZER
 
 	. += "[b]Scan results for \the [H]:[endb]"
 
+	if(H.stat == DEAD || H.status_flags & FAKEDEATH)
+		dat += "<span class='scan_warning'>[b]Time of Death:[endb] [worldtime2text(H.timeofdeath)]</span>"
+
 	// Brain activity.
 	var/brain_status = H.get_brain_status()
 	dat += "Brain activity: [brain_status]"
@@ -152,9 +150,6 @@ BREATH ANALYZER
 				else
 					playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25)
 
-	if(H.stat == DEAD || H.status_flags & FAKEDEATH)
-		dat += "<span class='scan_warning'>[b]Time of Death:[endb] [worldtime2text(H.timeofdeath)]</span>"
-
 	// Pulse rate.
 	var/pulse_result = "normal"
 	if(H.should_have_organ(BP_HEART))
@@ -162,44 +157,44 @@ BREATH ANALYZER
 			pulse_result = "<span class='danger'>0</span>"
 		else
 			pulse_result = H.get_pulse(GETPULSE_TOOL)
-		pulse_result = "<span class='scan_green'>[pulse_result]</span>"
+		pulse_result = "<span class='scan_green'>[pulse_result] bpm</span>"
 		if(H.pulse() == PULSE_NONE)
-			pulse_result = "<span class='scan_danger'>[pulse_result]</span>"
+			pulse_result = "<span class='scan_danger'>[pulse_result] bpm</span>"
 		else if(H.pulse() < PULSE_NORM)
-			pulse_result = "<span class='scan_notice'>[pulse_result]</span>"
+			pulse_result = "<span class='scan_notice'>[pulse_result] bpm</span>"
 		else if(H.pulse() > PULSE_NORM)
-			pulse_result = "<span class='scan_warning'>[pulse_result]</span>"
+			pulse_result = "<span class='scan_warning'>[pulse_result] bpm</span>"
 	else
 		pulse_result = "<span class='scan_danger'>0</span>"
-	dat += "Pulse rate: [pulse_result] bpm"
+	dat += "Pulse rate: [pulse_result]"
 
 	// Blood pressure and blood type. Based on the idea of a normal blood pressure being 120 over 80.
 	if(H.should_have_organ(BP_HEART))
 		if(H.get_blood_volume() <= 70)
 			dat += "<span class='scan_danger'>Severe blood loss detected.</span>"
-		var/oxygenation_string = "<span class='scan_green'>[H.get_blood_oxygenation()]% blood oxygenation</span>"
-		dat += "Blood type: <span class ='scan_green'>[H.dna.b_type]</span>"
+		var/oxygenation_string = "<span class='scan_green'>[H.get_blood_oxygenation()]%</span>"
 		switch(H.get_blood_oxygenation())
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
-				oxygenation_string = "<span class='scan_notice'>[oxygenation_string]</span>"
+				oxygenation_string = "<span class='scan_notice'>[oxygenation_string]%</span>"
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_OKAY)
-				oxygenation_string = "<span class='scan_warning'>[oxygenation_string]</span>"
+				oxygenation_string = "<span class='scan_warning'>[oxygenation_string]%</span>"
 			if(-(INFINITY) to BLOOD_VOLUME_SURVIVE)
-				oxygenation_string = "<span class='scan_danger'>[oxygenation_string]</span>"
+				oxygenation_string = "<span class='scan_danger'>[oxygenation_string]%</span>"
 		if(H.status_flags & FAKEDEATH)
-			oxygenation_string = "<span class='scan_danger'>0% blood oxygenation</span>"
+			oxygenation_string = "<span class='scan_danger'>[rand(0,10)]%</span>"
 
 		var/blood_pressure_string
 		switch(H.get_blood_pressure_alert())
 			if(1)
-				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
+				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]%</span>"
 			if(2)
-				blood_pressure_string = "<span class='scan_green'>[H.get_blood_pressure()]</span>"
+				blood_pressure_string = "<span class='scan_green'>[H.get_blood_pressure()]%</span>"
 			if(3)
-				blood_pressure_string = "<span class='scan_warning'>[H.get_blood_pressure()]</span>"
+				blood_pressure_string = "<span class='scan_warning'>[H.get_blood_pressure()]%</span>"
 			if(4)
-				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
-		dat += "Blood pressure: [blood_pressure_string] ([oxygenation_string])"
+				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]%</span>"
+		dat += "Blood pressure: [blood_pressure_string]"
+		dat += "Blood oxygenation: [oxygenation_string]"
 	else
 		dat += "Blood pressure: N/A"
 
@@ -213,9 +208,9 @@ BREATH ANALYZER
 
 	// Traumatic shock.
 	if(H.is_asystole() || (H.status_flags & FAKEDEATH))
-		dat += "<span class='scan_danger'>Patient is suffering from cardiovascular shock. Administer CPR immediately.</span>"
+		dat += "<span class='scan_danger'>Cardiovascular shock detected. Administer CPR immediately.</span>"
 	else if(H.shock_stage > 80)
-		dat += "<span class='scan_warning'>Patient is at serious risk of going into shock. Pain relief recommended.</span>"
+		dat += "<span class='scan_warning'>Imminent cardiovascular shock. Pain relief recommended.</span>"
 
 	if(H.getOxyLoss() > 50)
 		dat += "<span class='scan_blue'>[b]Severe oxygen deprivation detected.[endb]</span>"
@@ -225,18 +220,6 @@ BREATH ANALYZER
 		dat += "<span class='scan_orange'>[b]Severe burn damage detected.[endb]</span>"
 	if(H.getBruteLoss() > 50)
 		dat += "<span class='scan_red'>[b]Severe anatomical damage detected.[endb]</span>"
-
-	var/rad_result = "Radiation: "
-	switch(H.total_radiation)
-		if(RADS_NONE)
-			rad_result += span("scan_green", "No radiation detected.")
-		if(RADS_LOW to RADS_MED)
-			rad_result += span("scan_orange", "Low levels of radiation poisoning detected.")
-		if(RADS_MED to RADS_HIGH)
-			rad_result += span("scan_orange", "Severe levels of radiation poisoning detected!")
-		if(RADS_HIGH to INFINITY)
-			rad_result += span("scan_red", "[b]Extreme levels of radiation poisoning detected![endb]")
-	dat += rad_result
 
 	if(show_limb_damage)
 		var/list/damaged = H.get_damaged_organs(1,1)
@@ -347,9 +330,10 @@ BREATH ANALYZER
 	. = jointext(.,"<br>")
 	. = jointext(list(header,.),null)
 
-	to_chat(user, "<hr>")
-	to_chat(user, .)
-	to_chat(user, "<hr>")
+	if(user)
+		to_chat(user, "<hr>")
+		to_chat(user, .)
+		to_chat(user, "<hr>")
 
 /obj/item/device/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"
@@ -684,7 +668,7 @@ BREATH ANALYZER
 
 
 /obj/item/device/advanced_healthanalyzer
-	name = "zeng-hu body analyzer"
+	name = "advanced health analyzer"
 	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
 	icon_state = "zh-analyzer"
 	item_state = "zh-analyzer"
@@ -709,6 +693,8 @@ BREATH ANALYZER
 /obj/item/device/advanced_healthanalyzer/attack(mob/living/M, mob/living/user)
 	if(!internal_bodyscanner)
 		return
+	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
+	user.do_attack_animation(src)
 	user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
 	if(do_after(user, 7 SECONDS, TRUE))
 		print_scan(M, user)
