@@ -303,7 +303,7 @@
 
 
 /obj/item/modular_computer/proc/run_program(prog, mob/user, var/forced=FALSE)
-	if(QDELING(src))
+	if(QDELETED(src))
 		return
 
 	var/datum/computer_file/program/P = null
@@ -419,12 +419,19 @@
 
 
 /obj/item/modular_computer/proc/enable_service(service, mob/user, var/datum/computer_file/program/S = null)
+	if(QDELETED(src))
+		return
+
 	. = FALSE
 	if(!S)
 		S = hard_drive?.find_file_by_name(service)
 
 	if(!istype(S)) // Program not found or it's not executable program.
 		to_chat(user, SPAN_WARNING("\The [src] displays, \"I/O ERROR - Unable to enable [service]\""))
+		return
+
+	//We found the program, but it's being deleted
+	if(QDELETED(S))
 		return
 
 	S.computer = src

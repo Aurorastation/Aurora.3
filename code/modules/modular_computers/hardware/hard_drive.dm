@@ -142,9 +142,15 @@
 		return null
 	if(!stored_files)
 		return null
+
 	for(var/datum/computer_file/F in stored_files)
+
+		if(QDELETED(F))
+			continue
+
 		if(F.filename == filename)
 			return F
+
 	return null
 
 /obj/item/computer_hardware/hard_drive/Destroy()
