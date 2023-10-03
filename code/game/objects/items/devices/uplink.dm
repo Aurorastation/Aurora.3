@@ -120,11 +120,6 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 /obj/item/device/uplink/hidden/interact(mob/user)
 	ui_interact(user, null)
 
-// /obj/item/device/uplink/hidden/CanUseTopic()
-// 	if(!active)
-// 		return STATUS_CLOSE
-// 	return ..()
-
 /obj/item/device/uplink/hidden/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return 1
@@ -143,9 +138,9 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 			exploit_id = params["id"]
 		if(params["category"])
 			category = locate(params["category"]) in uplink.categories
-	// if(action == ["contract_interact"])
-	// 	var/list/params = list("location" = "contract_details", "contract" = params["contract_interact"])
-	// 	usr.client.process_webint_link("interface/login/sso_server", list2params(params))
+	if(action == "contract_interact")
+		var/list/params_webint = list("location" = "contract_details", "contract" = params["contract_interact"])
+		usr.client.process_webint_link("interface/login/sso_server", list2params(params_webint))
 	if(action == "contract_page")
 		nanoui_data["contracts_current_page"] = text2num(params["contract_page"])
 	if(action == "contract_view")
