@@ -20,21 +20,30 @@ BREATH ANALYZER
 	throw_range = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
+	var/last_scan = 0
 	var/mode = 1
 	var/sound_scan = FALSE
 
 /obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
+	sound_scan = FALSE
+	if(last_scan <= world.time - 20) //Spam limiter.
+		last_scan = world.time
+		sound_scan = TRUE
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
 	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
-	health_scan_mob(M, user, mode, sound_scan = TRUE)
+	health_scan_mob(M, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
+	sound_scan = FALSE
+	if(last_scan <= world.time - 20) //Spam limiter.
+		last_scan = world.time
+		sound_scan = TRUE
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
 	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
-	health_scan_mob(user, user, mode, sound_scan = TRUE)
+	health_scan_mob(user, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
 
 /proc/get_wound_severity(var/damage_ratio, var/uppercase = FALSE) //Used for ratios.

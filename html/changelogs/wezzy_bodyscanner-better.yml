@@ -42,3 +42,4 @@ changes:
   - rscadd: "Updates the Operating console to TGUI."
   - rscadd: "Improves Bodyscanner UI and printed scans to look nicer and be more accurate."
   - rscadd: "Printing stuff should now put the printed paper in your hands."
+  - rscadd: "Tweaked handheld health analyzers. Renamed the Zeng-hu health analyzer to the advanced health analyzer."
