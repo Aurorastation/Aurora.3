@@ -2312,12 +2312,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship)
-"HQ" = (
-/obj/structure/closet/walllocker/medical{
-	name = "Blood Locker"
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/tarwa_ship/medical)
 "HR" = (
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(210);
@@ -3551,6 +3545,16 @@
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
+"YI" = (
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/structure/closet/walllocker/medical{
+	name = "Blood Locker";
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/tarwa_ship/medical)
 "YL" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -17147,8 +17151,8 @@ Dw
 wj
 MG
 Cm
-HQ
-yx
+NU
+YI
 aH
 uX
 ce
