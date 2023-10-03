@@ -83,7 +83,7 @@ export const Uplink = (props, context) => {
               ['arrow-left', 'Return', () => act('return')],
               ['close', 'Close', () => act('lock')],
             ].map(([icon, text, action]: [string, string, any]) => (
-              <LabeledList.Item>
+              <LabeledList.Item key={text}>
                 <Button
                   content={text}
                   icon={icon}
@@ -121,7 +121,7 @@ const ItemCategoriesSection = function (act: any, data: UplinkData) {
     <Section title="Gear categories">
       <LabeledList>
         {data.categories?.map((category) => (
-          <LabeledList.Item>
+          <LabeledList.Item key={category.name}>
             <Button
               content={category.name}
               color={'purple'}
@@ -184,7 +184,8 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
           color={'purple'}
           onClick={() => {
             setSortDesc(!sortDesc);
-          }}></Button>
+          }}
+        />
       </Box>
       <Table>
         {data.items?.map((item: ItemData) => (
@@ -276,7 +277,7 @@ const ExploitRecordSection = function (act: any, data: UplinkData) {
           <LabeledList.Item label="Fingerprint">
             {exploit.fingerprint}
           </LabeledList.Item>
-          <LabeledList.Item label="Acquired Information"></LabeledList.Item>
+          <LabeledList.Item label="Acquired Information" />
         </LabeledList>
         {exploit.nanoui_exploit_record
           ? exploit.nanoui_exploit_record
@@ -316,7 +317,7 @@ const ContractsSection = function (act: any, data: UplinkData) {
               </Table.Cell>
             </Table.Row>
             {data.contracts.map((contract: ContractData) => (
-              <Table.Row>
+              <Table.Row key={contract.id}>
                 <Table.Cell>{contract.id}</Table.Cell>
                 <Table.Cell>{contract.contractee}</Table.Cell>
                 <Table.Cell>{contract.title}</Table.Cell>
@@ -333,6 +334,7 @@ const ContractsSection = function (act: any, data: UplinkData) {
           <Box>
             {data.contracts_pages.map((page_n: Number) => (
               <Button
+                key={page_n}
                 content={page_n}
                 color={'purple'}
                 onClick={() => act('contract_page', { contract_page: page_n })}
