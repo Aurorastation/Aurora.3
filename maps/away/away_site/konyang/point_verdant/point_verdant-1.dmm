@@ -2301,6 +2301,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/police)
+"rj" = (
+/obj/random/dirt_75,
+/obj/item/clothing/head/cone{
+	pixel_x = -6;
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "rl" = (
 /obj/structure/dam{
 	icon_state = "dam5";
@@ -4106,6 +4114,14 @@
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Fw" = (
+/obj/random/dirt_75,
+/obj/item/clothing/head/cone{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior/police)
 "Fz" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -4169,6 +4185,13 @@
 "FZ" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
+"Ga" = (
+/obj/item/clothing/head/cone{
+	pixel_x = 7;
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "Gg" = (
 /obj/structure/table/glass,
@@ -16063,7 +16086,7 @@ pN
 LV
 lC
 jY
-bj
+rj
 xd
 bj
 SJ
@@ -17093,7 +17116,7 @@ Lz
 Lz
 Lz
 Lz
-Lz
+Ga
 bC
 lC
 rf
@@ -18377,7 +18400,7 @@ Ox
 Ox
 wD
 wD
-Ox
+Fw
 hr
 lC
 AV
