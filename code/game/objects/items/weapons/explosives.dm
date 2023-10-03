@@ -51,7 +51,7 @@
 		return
 	to_chat(user, SPAN_NOTICE("Planting explosives..."))
 
-	if(do_after(user, 50, TRUE, target))
+	if(do_after(user, 5 SECONDS, target, DO_UNIQUE))
 		user.do_attack_animation(target)
 		deploy_c4(target, user)
 

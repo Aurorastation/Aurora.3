@@ -58,8 +58,8 @@
 
 /obj/item/clothing/examine(mob/user)
 	if(IC)
-		IC.examine(user)
-	..()
+		examinate(user, IC)
+	. = ..()
 
 /obj/item/clothing/attackby(obj/item/I, mob/user)
 	if(IC)

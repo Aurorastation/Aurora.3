@@ -296,7 +296,7 @@
 							src.help_up_offer = 0
 					else
 						M.visible_message(SPAN_WARNING("[M] grabs onto [src], trying to pull themselves up."), \
-										  SPAN_WARNING("You grab onto [src], trying to pull yourself up."))
+										SPAN_WARNING("You grab onto [src], trying to pull yourself up."))
 						if(M.fire_stacks >= (src.fire_stacks + 3))
 							src.adjust_fire_stacks(1)
 							M.adjust_fire_stacks(-1)
@@ -359,7 +359,7 @@
 		legcuffed = null
 		update_inv_legcuffed()
 	else
-	 ..()
+		..()
 
 	return
 
@@ -435,6 +435,8 @@
 	if (HAS_FLAG(mutations, HULK))
 		return FALSE
 	if (analgesic > 100)
+		return FALSE
+	if(pain_immune)
 		return FALSE
 
 	return TRUE

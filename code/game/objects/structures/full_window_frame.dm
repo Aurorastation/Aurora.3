@@ -9,7 +9,7 @@
 	anchored = TRUE
 	density = TRUE
 	climbable = TRUE
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	breakable = TRUE
 	can_be_unanchored = TRUE
 	canSmoothWith = list(
@@ -153,7 +153,7 @@
 /obj/structure/window_frame/shuttle
 	icon = 'icons/obj/smooth/window/full_window_frame_color.dmi'
 	color = null
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle,
 		/turf/simulated/wall/shuttle/cardinal,

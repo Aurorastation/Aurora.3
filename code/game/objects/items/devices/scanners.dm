@@ -605,8 +605,7 @@ BREATH ANALYZER
 		LAZYADD(src.other_DNA, H.dna.unique_enzymes)
 		src.other_DNA_type = "saliva"
 
-	if (!do_after(user, 2 SECONDS, act_target = H))
-		to_chat(user,"<span class='notice'>You and the target need to be standing still in order to take a breath sample.</span>")
+	if (!do_after(user, 2 SECONDS, H, DO_UNIQUE & ~DO_BOTH_CAN_TURN))
 		return
 
 	user.visible_message("<span class='notice'>[user] takes a breath sample from [H].</span>","<span class='notice'>\The [src] clicks as it finishes reading [H]'s breath sample.</span>")
@@ -696,7 +695,7 @@ BREATH ANALYZER
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
 	user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
-	if(do_after(user, 7 SECONDS, TRUE))
+	if(do_after(user, 7 SECONDS, M, DO_UNIQUE))
 		print_scan(M, user)
 		add_fingerprint(user)
 
