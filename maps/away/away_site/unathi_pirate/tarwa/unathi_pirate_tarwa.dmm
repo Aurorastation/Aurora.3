@@ -1660,6 +1660,9 @@
 	pixel_x = 6;
 	pixel_y = -1
 	},
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "zl" = (
@@ -2309,6 +2312,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship)
+"HQ" = (
+/obj/structure/closet/walllocker/medical{
+	name = "Blood Locker"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/tarwa_ship/medical)
 "HR" = (
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(210);
@@ -17138,7 +17147,7 @@ Dw
 wj
 MG
 Cm
-NU
+HQ
 yx
 aH
 uX
