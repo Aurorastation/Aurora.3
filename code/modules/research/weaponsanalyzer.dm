@@ -18,7 +18,7 @@
 		)
 
 /obj/machinery/weapons_analyzer/examine(mob/user)
-	..()
+	. = ..()
 	var/name_of_thing = ""
 	if(item)
 		name_of_thing = item.name

@@ -103,6 +103,9 @@
 
 	affected.open = ORGAN_ENCASED_RETRACTED
 
+	for(var/obj/item/implant/I in affected.implants)
+		I.exposed()
+
 /singleton/surgery_step/open_encased/retract/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
 		return

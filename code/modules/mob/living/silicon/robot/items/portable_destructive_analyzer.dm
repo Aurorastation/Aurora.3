@@ -16,9 +16,9 @@
 	. = ..()
 	files = new /datum/research/techonly(src) //Setup the research data holder.
 
-/obj/item/portable_destructive_analyzer/examine(mob/user, distance)
+/obj/item/portable_destructive_analyzer/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(loaded_item && Adjacent(user))
+	if(loaded_item && is_adjacent)
 		to_chat(user, SPAN_NOTICE("It is holding \a [loaded_item]."))
 
 /obj/item/portable_destructive_analyzer/attack_self(mob/user)

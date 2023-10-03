@@ -29,6 +29,25 @@
 /obj/structure/table/rack/no_cargo
 	no_cargo = TRUE
 
+/obj/structure/table/rack/clothing
+	name = "clothing rack"
+	desc = "A mighty rack, suitable for grabbing and pushing. It's quite mobile."
+	icon = 'icons/obj/structure/urban/tailoring.dmi'
+	icon_state = "clothes_rack"
+
+/obj/structure/table/rack/retail_shelf
+	name = "retail shelves"
+	desc = "A large, assorted shelf with many platforms for setting things upon."
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
+	icon_state = "shelf"
+
+/obj/structure/table/rack/cafe_table
+	name = "round cafe table"
+	desc = "A wood table with soft, rounded edges."
+	icon = 'icons/obj/structure/urban/restaurant.dmi'
+	icon_state = "cafe"
+	table_mat = MATERIAL_WOOD
+
 /obj/structure/table/rack/holorack/dismantle(obj/item/wrench/W, mob/user)
 	to_chat(user, SPAN_WARNING("You cannot dismantle \the [src]."))
 	return

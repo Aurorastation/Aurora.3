@@ -173,6 +173,13 @@
 	icon_state = "armsman_mantle"
 	item_state = "armsman_mantle"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/hospital
+	name = "tribunalist medical cape"
+	desc = "A white-and-green cape in the style of the Dominian clergy. Worn by those medical workers affiliated with the Moroz Holy Tribunal."
+	cape_backing_state = ""
+	icon_state = "dominian_cape_hospital"
+	item_state = "dominian_cape_hospital"
+
 /obj/item/clothing/suit/storage/dominia
 	name = "dominian great coat"
 	desc = "This is a great coat in the style of Dominian nobility. It's the latest fashion across Dominian space."
@@ -655,6 +662,37 @@
 	item_state = "dominia_amulet"
 	icon_state = "dominia_amulet"
 	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/dominia/lyodii
+	name = "lyodic tribunal necklace"
+	desc = "An amulet depicting the three animal aspects of Lyodic Tribunalism upon a bone plate. \
+			A prominent symbol of the Lyodic take on the religion, worn by both its shamans and followers."
+	desc_extended = ""
+	icon = 'icons/clothing/accessories/lyodii_amulet.dmi'
+	icon_state = "lyodii_amulet"
+	item_state = "lyodii_amulet"
+
+/obj/item/clothing/accessory/dominia/tic
+	name = "tribunal investigator card"
+	desc = "A gold-gilded card given to those who are active investigators within the Tribunal Investigations Constabulary, otherwise known as TIC. \
+			In essence the religion police of the Tribunal, these investigators are found through the entirety of the Empire of Dominia."
+	icon = 'icons/clothing/accessories/tic_cards.dmi'
+	icon_state = "tic_card"
+	item_state = "tic_card"
+
+/obj/item/clothing/accessory/dominia/tic/retired
+	name = "retired tribunal investigator card"
+	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
+			This card holds a sleek grey coloration strip, denoting the owner as having been a standard investigator."
+	icon_state = "tic_card_ret"
+	item_state = "tic_card_ret"
+
+/obj/item/clothing/accessory/dominia/tic/retired/caladius
+	name = "retired tribunal investigator card"
+	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
+			This card holds a color strip of House Caladius, denoting the owner as a priest of the Tribunal."
+	icon_state = "tic_card_ret_alt"
+	item_state = "tic_card_ret_alt"
 
 /obj/item/clothing/head/ushanka/dominia
 	name = "fisanduhian ushanka"

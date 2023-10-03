@@ -52,19 +52,6 @@
 
 	supporting_limbs = list()
 
-/obj/item/clothing/suit/space/rig/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/obj/item/clothing/w_uniform = H.w_uniform
-	var/image/uniform = null
-
-	if(w_uniform)
-		uniform = w_uniform.return_own_image()
-	var/image/I = ..()
-	if(uniform)
-		uniform.add_overlay(I)
-		return uniform
-	else
-		return I
-
 //TODO: move this to modules
 /obj/item/clothing/head/helmet/space/rig/proc/prevent_track()
 	return 0

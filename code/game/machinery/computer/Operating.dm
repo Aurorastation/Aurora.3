@@ -121,9 +121,9 @@
 	op_win.set_content(dat)
 	op_win.open()
 
-/obj/machinery/computer/operating/examine(mob/user)
-	..()
-	if(get_dist(src, user) <= 2)
+/obj/machinery/computer/operating/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 2)
 		if(src.table && (src.table.check_victim()))
 			src.victim = src.table.victim
 

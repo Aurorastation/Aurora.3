@@ -191,6 +191,18 @@
 		reset_current()
 	return viewflag
 
+/datum/computer_file/program/camera_monitor/grants_equipment_vision(mob/user)
+	var/obj/item/modular_computer/MC = user.machine
+	if(istype(MC) && ui_host() == MC)
+		if(!MC.working || user.blinded || user.stat)
+			return FALSE
+	if(!current_camera)
+		return FALSE
+	var/viewflag = current_camera.check_eye(user)
+	if (viewflag < 0) //camera doesn't work
+		return FALSE
+	return TRUE
+
 
 // ERT Variant of the program
 /datum/computer_file/program/camera_monitor/ert

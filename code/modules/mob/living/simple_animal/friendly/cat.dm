@@ -290,7 +290,7 @@
 	holder_type = /obj/item/holder/cat/black
 
 /mob/living/simple_animal/cat/fluff/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "Oh no, [name] is dead! What kind of monster would do this?")
 
@@ -306,7 +306,7 @@
 	holder_type = /obj/item/holder/cat/kitten
 
 /mob/living/simple_animal/cat/kitten/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "It's a dead kitten! What kind of monster would do this?")
 
@@ -353,6 +353,6 @@
 	holder_type = /obj/item/holder/cat/crusher
 
 /mob/living/simple_animal/cat/crusher/examine(mob/user)
-	..()
+	. = ..()
 	if(stat == DEAD)
 		to_chat(user, "Crusher's dead. How could this have happened? She counted on you!")

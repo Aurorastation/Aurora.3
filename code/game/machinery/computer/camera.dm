@@ -35,6 +35,16 @@
 		reset_current()
 	return viewflag
 
+/obj/machinery/computer/security/grants_equipment_vision(var/mob/user as mob)
+	if(user.stat || user.blinded || inoperable())
+		return FALSE
+	if(!current_camera)
+		return FALSE
+	var/viewflag = current_camera.check_eye(user)
+	if (viewflag < 0) //camera doesn't work
+		return FALSE
+	return TRUE
+
 /obj/machinery/computer/security/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	if(..())
 		return

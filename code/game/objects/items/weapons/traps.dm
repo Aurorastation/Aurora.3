@@ -179,7 +179,7 @@
 	icon_state = "[icon_base][deployed]"
 
 /obj/item/trap/animal/examine(mob/user)
-	..()
+	. = ..()
 	if(captured)
 		var/datum/L = captured.resolve()
 		if (L)
@@ -249,7 +249,7 @@
 	var/time = 360 * time_to_escape * 2
 	breakout = TRUE
 
-	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, PROC_REF(breakout_callback), escapee)))
+	if (!do_after(escapee, time, src))
 		breakout = FALSE
 		return
 
@@ -446,7 +446,7 @@
 		user.visible_message("<span class='notice'>[user] attempts to pass through \the [src] without triggering it.</span>",
 							"<span class='notice'>You attempt to pass through \the [src] without triggering it. </span>"
 		)
-		if(do_after(user, 2 SECONDS, act_target = src))
+		if(do_after(user, 2 SECONDS, src))
 			if(prob(pct))
 				user.forceMove(loc)
 				user.visible_message("<span class='notice'>[user] passes through \the [src] without triggering it.</span>",
@@ -626,7 +626,7 @@
 
 			to_chat(user, "<span class='notice'>You are trying to add metal bars to \the [src].</span>")
 
-			if (!do_after(user, 2 SECONDS, act_target = src))
+			if (!do_after(user, 2 SECONDS, src))
 				return
 
 			to_chat(user, "<span class='notice'>You add metal bars to \the [src].</span>")

@@ -38,7 +38,7 @@
 
 	var/modifiers = params2list(params)
 	if(modifiers["shift"])
-		A.examine(user)
+		examinate(user, A)
 		return
 
 	if(modifiers["alt"])
@@ -364,7 +364,7 @@
 					to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
 					return
 				user.visible_message(SPAN_NOTICE("\The [user] begins installing \the [thing] into \the [src]..."), SPAN_NOTICE("You begin installing the [thing] into \the [src]..."))
-				if(do_after(user, 30, TRUE, src))
+				if(do_after(user, 30, src))
 					if(length(pilots))
 						to_chat(user, SPAN_WARNING("You can't apply this upgrade while \the [src] has occupants!"))
 						return
@@ -404,7 +404,7 @@
 					to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
 					return
 				user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start disassembling \the [src]..."))
-				if(do_after(user, 30, TRUE, src))
+				if(do_after(user, 30, src))
 					if(!remote && length(pilots))
 						to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
 						return

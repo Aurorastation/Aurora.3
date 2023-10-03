@@ -36,7 +36,7 @@
 /obj/random/firstaid
 	name = "random first aid kit"
 	desc = "This is a random first aid kit."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/firstaid.dmi'
 	icon_state = "firstaid"
 	problist = list(
 		/obj/item/storage/firstaid/regular = 4,

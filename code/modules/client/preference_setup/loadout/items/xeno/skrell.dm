@@ -199,7 +199,7 @@
 	sort_category = "Xenowear - Skrell"
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	flags = GEAR_NO_SELECTION
-	cost = 0
+	cost = 1
 
 /datum/gear/accessory/skrell_residency
 	display_name = "starlight residency card"
@@ -207,7 +207,7 @@
 	sort_category = "Xenowear - Skrell"
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	flags = GEAR_NO_SELECTION
-	cost = 0
+	cost = 1
 
 /datum/gear/accessory/skrell_passport/New()
 	. = ..()
@@ -408,7 +408,7 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
-	cost = 0
+	cost = 1
 
 /datum/gear/ears/skrell/tailband/New()
 	..()
@@ -434,5 +434,6 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 	nationcapes["Sol Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/sol
 	nationcapes["Coalition Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/coc
 	nationcapes["Biesel Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel
+	nationcapes["Ouerea Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/ouerea
 	gear_tweaks += new /datum/gear_tweak/path(nationcapes)
 

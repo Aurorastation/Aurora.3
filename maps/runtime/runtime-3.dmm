@@ -1,10 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/obj/machinery/door/airlock/generic/maintenance{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/construction/qmaint)
 "ab" = (
 /obj/machinery/door/airlock/external/blue{
 	dir = 1
@@ -44,12 +38,6 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/construction/solars)
-"ah" = (
-/obj/machinery/door/airlock/external/merc{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/antag/mercenary)
 "aj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -137,12 +125,6 @@
 	},
 /turf/simulated/floor,
 /area/construction/hallway)
-"bY" = (
-/obj/machinery/door/airlock/external/red{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/antag/mercenary)
 "cC" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -175,12 +157,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/hallway)
-"dT" = (
-/obj/machinery/door/airlock/external/khaki{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/antag/mercenary)
 "dX" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -925,9 +901,6 @@
 "tZ" = (
 /turf/simulated/wall,
 /area/construction/hallway)
-"uj" = (
-/turf/simulated/floor,
-/area/template_noop)
 "um" = (
 /turf/simulated/floor/wood/birch,
 /area/construction/solars)
@@ -956,12 +929,6 @@
 	},
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
-"wo" = (
-/obj/machinery/door/airlock/external/blue{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/antag/mercenary)
 "wq" = (
 /obj/machinery/light{
 	dir = 1
@@ -1266,12 +1233,6 @@
 "Ci" = (
 /turf/simulated/wall,
 /area/construction/supplyshuttle)
-"Cj" = (
-/obj/machinery/door/airlock/external/purple{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/antag/mercenary)
 "Cr" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood/birch,
@@ -8905,7 +8866,7 @@ Pz
 Pz
 Pz
 Bc
-uj
+Bc
 nA
 pM
 nA
@@ -9162,7 +9123,7 @@ Bc
 Bc
 Bc
 Bc
-uj
+Bc
 nA
 pM
 nA
@@ -24813,7 +24774,7 @@ WY
 nW
 KW
 ye
-aa
+pI
 pz
 pz
 pz
@@ -31232,7 +31193,7 @@ pz
 pz
 pz
 pz
-wo
+ab
 Vu
 lB
 za
@@ -32774,7 +32735,7 @@ pz
 pz
 pz
 pz
-Cj
+ac
 Vu
 lB
 bb
@@ -34316,7 +34277,7 @@ pz
 pz
 pz
 pz
-dT
+ae
 Vu
 lB
 Dt
@@ -35858,7 +35819,7 @@ Uv
 pz
 pz
 pz
-bY
+af
 Vu
 lB
 ol
@@ -37407,7 +37368,7 @@ DE
 ek
 Bd
 Bd
-ah
+KZ
 Bd
 Bd
 Bd

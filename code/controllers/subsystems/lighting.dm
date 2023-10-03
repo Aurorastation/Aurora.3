@@ -1,9 +1,7 @@
-var/datum/controller/subsystem/lighting/SSlighting
-
 /var/lighting_profiling = FALSE
 /var/lighting_overlays_initialized = FALSE
 
-/datum/controller/subsystem/lighting
+SUBSYSTEM_DEF(lighting)
 	name = "Lighting"
 	wait = LIGHTING_INTERVAL
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
@@ -33,9 +31,6 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/force_queued = TRUE
 	var/force_override = FALSE	// For admins.
 #endif
-
-/datum/controller/subsystem/lighting/New()
-	NEW_SS_GLOBAL(SSlighting)
 
 /datum/controller/subsystem/lighting/stat_entry(msg)
 	var/list/out = list(
@@ -131,6 +126,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	while (lq_idex <= curr_lights.len)
 		var/datum/light_source/L = curr_lights[lq_idex++]
+		if(QDELETED(L))
+			continue
 
 		if (L.needs_update != LIGHTING_NO_UPDATE)
 			total_ss_updates += 1
@@ -154,6 +151,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	while (cq_idex <= curr_corners.len)
 		var/datum/lighting_corner/C = curr_corners[cq_idex++]
+		if(QDELETED(C))
+			continue
 
 		if (C.needs_update)
 			C.update_overlays()

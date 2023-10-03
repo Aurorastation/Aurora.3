@@ -96,8 +96,9 @@
 		else
 			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
 
-/obj/item/clothing/head/helmet/space/examine(var/mob/user)
-	if(..(user, 1) && camera)
+/obj/item/clothing/head/helmet/space/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if((distance <= 1) && camera)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>.")))
 		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
 

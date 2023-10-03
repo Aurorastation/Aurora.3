@@ -656,7 +656,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		slot_flags = SLOT_BELT
 
 /obj/item/stack/cable_coil/examine(mob/user)
-	..()
+	. = ..()
 	if(!uses_charge)
 		to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
 	else
@@ -1127,7 +1127,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			SPAN_WARNING("[M] ties \the [src] over their neck!"),\
 			SPAN_WARNING("You tie \the [src] over your neck!"))
 		playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
-		SSfeedback.IncrementSimpleStat("hangings")
+		SSstatistics.IncrementSimpleStat("hangings")
 		return TRUE
 	else
 		M.visible_message(\
@@ -1140,7 +1140,7 @@ By design, d1 is the smallest direction and d2 is the highest
 					SPAN_DANGER("[user] ties \the [src] over [M]'s neck!"),\
 					SPAN_DANGER("[user] ties \the [src] over your neck!"))
 				playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
-				SSfeedback.IncrementSimpleStat("hangings")
+				SSstatistics.IncrementSimpleStat("hangings")
 				return TRUE
 			else
 				user.visible_message(\

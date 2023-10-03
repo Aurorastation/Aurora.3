@@ -9,26 +9,68 @@
 	set category = "IC"
 	set desc = "Type in an emote message that will be received by mobs that can hear you."
 
-	custom_emote(m_type = AUDIBLE_MESSAGE)
+	custom_emote(m_type = AUDIBLE_MESSAGE, message = sanitize(input(src,"Choose an emote to display.") as text|null))
 
 /mob/verb/custom_visible_emote()
 	set name = "Visible Emote"
 	set category = "IC"
 	set desc = "Type in an emote message that will be received by mobs that can see you."
 
-	custom_emote(m_type = VISIBLE_MESSAGE)
+	custom_emote(m_type = VISIBLE_MESSAGE, message = sanitize(input(src,"Choose an emote to display.") as text|null))
 
 /mob/proc/emote(var/act, var/m_type, var/message)
 	// s-s-snowflake
 	if((src.stat == DEAD || src.status_flags & FAKEDEATH) && act != "deathgasp")
 		return
+
+	var/splitpoint = findtext(act, " ")
+	if(splitpoint > 0)
+		var/tempstr = act
+		act = copytext(tempstr,1,splitpoint)
+		message = copytext(tempstr,splitpoint+1,0)
+
+	var/singleton/emote/use_emote = usable_emotes[act]
+	if(!use_emote)
+		to_chat(src, SPAN_WARNING("Unknown emote '[act]'. Type <b>say *help</b> for a list of usable emotes."))
+		return
+
+	if(m_type && m_type != use_emote.message_type)
+		return
+
+	if(!use_emote.can_do_emote(src))
+		return
+
+	if(use_emote.message_type == AUDIBLE_MESSAGE && is_muzzled())
+		audible_message("<b>\The [src]</b> makes a muffled sound.")
+		return
+	else
+		use_emote.do_emote(src, message)
+
+	for (var/obj/item/implant/I in src)
+		if (I.implanted)
+			I.trigger(act, src)
+
+
+/mob/proc/client_emote(var/act, var/m_type, var/message)
+	if((src.stat == DEAD || src.status_flags & FAKEDEATH) && act != "deathgasp")
+		return
+
 	if(usr == src) //client-called emote
 		if (client && (client.prefs.muted & MUTE_IC))
 			to_chat(src, "<span class='warning'>You cannot send IC messages (muted).</span>")
 			return
 
 		if(act == "help")
-			to_chat(src,"<b>Usable emotes:</b> [english_list(usable_emotes)]")
+			var/list/help_text = list()
+			for(var/emote_key in usable_emotes)
+				var/emote_text = emote_key
+				var/singleton/emote/emote = usable_emotes[emote_key]
+				if(istype(emote, /singleton/emote/audible))
+					var/singleton/emote/audible/audible_emote = emote
+					if(audible_emote.emote_sound)
+						emote_text = SPAN_NOTICE(emote_key)
+				help_text += emote_text
+			to_chat(src,"<b>Usable emotes:</b> [english_list(help_text)]")
 			return
 
 		if(!can_emote(m_type))
@@ -49,33 +91,7 @@
 				else
 					m_type = AUDIBLE_MESSAGE
 			return custom_emote(m_type, message)
-
-	var/splitpoint = findtext(act, " ")
-	if(splitpoint > 0)
-		var/tempstr = act
-		act = copytext(tempstr,1,splitpoint)
-		message = copytext(tempstr,splitpoint+1,0)
-
-	var/singleton/emote/use_emote = usable_emotes[act]
-	if(!use_emote)
-		to_chat(src, "<span class='warning'>Unknown emote '[act]'. Type <b>say *help</b> for a list of usable emotes.</span>")
-		return
-
-	if(m_type && m_type != use_emote.message_type)
-		return
-
-	if(!use_emote.can_do_emote(src))
-		return
-
-	if(use_emote.message_type == AUDIBLE_MESSAGE && is_muzzled())
-		audible_message("<b>\The [src]</b> makes a muffled sound.")
-		return
-	else
-		use_emote.do_emote(src, message)
-
-	for (var/obj/item/implant/I in src)
-		if (I.implanted)
-			I.trigger(act, src)
+	return emote(act)
 
 /mob/proc/format_emote(var/emoter = null, var/message = null)
 	var/pretext
@@ -138,16 +154,10 @@
 		to_chat(src, "You are unable to emote.")
 		return
 
-	var/input
 	if(!message)
-		input = sanitize(input(src,"Choose an emote to display.") as text|null)
-	else
-		input = message
-
-	if(input)
-		message = format_emote(src, input)
-	else
 		return
+
+	message = format_emote(src, message)
 
 	if (message)
 		log_emote("[name]/[key] : [message]")

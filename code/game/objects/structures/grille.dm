@@ -19,7 +19,7 @@
 	name = "over-frame grille"
 	icon = 'icons/obj/smooth/window/grille_over.dmi'
 	layer = BELOW_OBJ_LAYER
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/turf/simulated/wall,
 		/turf/simulated/wall/r_wall,
@@ -158,7 +158,7 @@
 			playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "fastens" : "unfastens"] the grille.</span>", \
-								 "<span class='notice'>You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor.</span>")
+								"<span class='notice'>You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor.</span>")
 		return
 	else if(istype(W,/obj/item/stack/rods) && destroyed == 1)
 		if(!shock(user, 90))
@@ -169,7 +169,7 @@
 			icon_state = "grille"
 			ROD.use(1)
 			user.visible_message("<span class='notice'>[user] repairs the grille.</span>", \
-								 "<span class='notice'>You have repaired the grille.</span>")
+								"<span class='notice'>You have repaired the grille.</span>")
 			return
 
 //window placing begin //TODO CONVERT PROPERLY TO MATERIAL DATUM
