@@ -182,6 +182,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
+"bH" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/police)
 "bM" = (
 /turf/simulated/wall/wood,
 /area/point_verdant/interior)
@@ -1671,6 +1677,8 @@
 "nd" = (
 /obj/structure/mopbucket,
 /obj/item/mop,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "ng" = (
@@ -1914,6 +1922,9 @@
 	pixel_x = -1;
 	pixel_y = -1
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "oF" = (
@@ -3880,6 +3891,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
+"Dn" = (
+/obj/machinery/papershredder{
+	pixel_x = -6
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/police)
 "Do" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -4173,6 +4192,9 @@
 /area/point_verdant/outdoors)
 "Gm" = (
 /obj/machinery/washing_machine,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "Go" = (
@@ -5707,6 +5729,7 @@
 	pixel_x = 2;
 	pixel_y = 2
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "SJ" = (
@@ -6509,6 +6532,9 @@
 	pixel_x = -2;
 	pixel_y = 3
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "Ze" = (
@@ -6633,6 +6659,7 @@
 /area/point_verdant/interior/bar)
 "ZS" = (
 /obj/structure/bed/stool/chair/office/light,
+/obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
 "ZU" = (
@@ -15004,8 +15031,8 @@ ky
 fR
 FZ
 Xl
-Xl
-BX
+ru
+Dn
 lC
 QO
 SP
@@ -17565,8 +17592,8 @@ rf
 rf
 lC
 Gm
-AN
-AN
+bH
+Zx
 ai
 ru
 Xl
