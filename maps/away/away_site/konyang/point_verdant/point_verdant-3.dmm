@@ -2488,12 +2488,6 @@
 "Kc" = (
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/interior)
-"Ke" = (
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior)
 "Kj" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -16454,7 +16448,7 @@ hw
 hw
 if
 Lf
-eV
+Zq
 eV
 IP
 nX
@@ -16711,7 +16705,7 @@ TE
 hw
 if
 Ay
-eV
+Zq
 eV
 lK
 lx
@@ -16968,7 +16962,7 @@ sh
 hw
 bf
 eV
-eV
+Zq
 eV
 bf
 lp
@@ -17225,7 +17219,7 @@ sh
 hw
 bf
 eV
-eV
+Zq
 eV
 bf
 bf
@@ -17482,14 +17476,14 @@ Ue
 hw
 if
 bH
-eV
+Zq
 eV
 Pg
 Pg
 xY
 bf
 HE
-Ke
+lz
 kX
 lp
 lp
@@ -17746,7 +17740,7 @@ mv
 OA
 if
 eV
-eV
+Zq
 kX
 lp
 lp
@@ -18003,7 +17997,7 @@ dN
 OA
 if
 Wl
-eV
+Zq
 kX
 lp
 lp
@@ -18260,8 +18254,8 @@ Zq
 OA
 if
 IC
-eV
-eV
+Zq
+Zq
 lp
 lp
 if

@@ -232,6 +232,13 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"bT" = (
+/obj/item/device/vending_refill/coffee{
+	pixel_y = -15;
+	pixel_x = 2
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "bV" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 4
@@ -1531,6 +1538,16 @@
 /obj/random/junk,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
+"mu" = (
+/obj/effect/floor_decal/corner_wide/black{
+	dir = 5
+	},
+/obj/item/storage/box/lights{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/offices)
 "mx" = (
 /obj/structure/dam{
 	icon_state = "dam2";
@@ -2569,7 +2586,7 @@
 /area/point_verdant/interior/bar)
 "us" = (
 /obj/structure/extinguisher_cabinet/south,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/offices)
 "uu" = (
 /obj/item/material/shard,
@@ -4025,7 +4042,7 @@
 	pixel_x = 8;
 	pixel_y = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/offices)
 "HD" = (
 /obj/machinery/light/colored/decayed{
@@ -4079,6 +4096,9 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"HX" = (
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/offices)
 "HZ" = (
 /obj/item/stack/material/wood/branch,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -4403,6 +4423,10 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/decrepit)
+"KI" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/offices)
 "KK" = (
 /obj/structure/stairs/urban/road_ramp{
 	dir = 8
@@ -12711,7 +12735,7 @@ Kd
 rf
 Zy
 Ck
-iJ
+HX
 Zy
 Zy
 Zy
@@ -12968,7 +12992,7 @@ pp
 cM
 Zd
 iJ
-iJ
+HX
 Zy
 Gi
 Jp
@@ -13225,7 +13249,7 @@ yP
 cM
 Ur
 iJ
-iJ
+HX
 Zy
 Jp
 KB
@@ -14508,7 +14532,7 @@ Lu
 kT
 Zy
 Zy
-iJ
+HX
 iJ
 Kc
 Zy
@@ -14761,17 +14785,17 @@ rf
 rf
 rb
 Zy
-Ck
+mu
 iJ
 iJ
 Bg
-iJ
+HX
 iJ
 Kc
 Zy
 Hy
-iJ
-iJ
+HX
+HX
 us
 Zy
 rf
@@ -15022,7 +15046,7 @@ ye
 iJ
 jp
 Zy
-iJ
+HX
 iJ
 Kc
 Zy
@@ -15276,7 +15300,7 @@ rf
 rb
 Zy
 PS
-iJ
+bT
 Ip
 Zy
 Zy
@@ -15540,10 +15564,10 @@ Zy
 Ck
 iJ
 Bg
-iJ
-iJ
-iJ
-wm
+HX
+HX
+HX
+KI
 Zy
 rf
 rf
@@ -15795,7 +15819,7 @@ CG
 zV
 Zy
 Ck
-iJ
+HX
 Zy
 iZ
 iJ
@@ -16052,7 +16076,7 @@ xZ
 Vr
 Tm
 iJ
-iJ
+HX
 Zy
 iZ
 iJ
@@ -16309,7 +16333,7 @@ Bu
 Vr
 Zy
 Ck
-iJ
+HX
 Zy
 Zy
 Zy
