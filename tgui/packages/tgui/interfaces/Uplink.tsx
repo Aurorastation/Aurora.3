@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, NumberInput, Section, LabeledList, Table } from '../components';
+import { Box, Button, Section, LabeledList, Table } from '../components';
 import { Window } from '../layouts';
 
 export type UplinkData = {
@@ -105,12 +105,12 @@ export const Uplink = (props, context) => {
             </Table.Row>
           </Table>
         </Section>
-        {data.menu == 0 ? ItemCategoriesSection(act, data) : ''}
-        {data.menu == 1 ? ItemSection(context, act, data) : ''}
-        {data.menu == 2 ? ExploitSection(act, data) : ''}
-        {data.menu == 21 ? ExploitRecordSection(act, data) : ''}
-        {data.menu == 3 ? ContractsSection(act, data) : ''}
-        {data.menu == 31 ? ContractDetailsSection(act, data) : ''}
+        {data.menu === 0 ? ItemCategoriesSection(act, data) : ''}
+        {data.menu === 1 ? ItemSection(context, act, data) : ''}
+        {data.menu === 2 ? ExploitSection(act, data) : ''}
+        {data.menu === 21 ? ExploitRecordSection(act, data) : ''}
+        {data.menu === 3 ? ContractsSection(act, data) : ''}
+        {data.menu === 31 ? ContractDetailsSection(act, data) : ''}
       </Window.Content>
     </Window>
   );
