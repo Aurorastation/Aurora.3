@@ -57,16 +57,19 @@
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
-	slowdown = -0.8 //Copied from Zeng-Hu Mobility Frame slowdown
 
-	brute_mod = 0.8
+	slowdown = -0.8
+	brute_mod = 1.5
 	oxy_mod = 1
 	radiation_mod = 0.5
-	standing_jump_range = 4
 	bleed_mod = 1.5
-	burn_mod = 1.0
-	grab_mod = 1.25
-	resist_mod = 2.5 //Copied from Vaurca Warrior, minus the increased jump range (4 from 3), until new mods are specified
+	burn_mod = 1.2
+	sprint_speed_factor = 0.6
+	sprint_cost_factor = 2
+	move_charge_factor = 2
+	grab_mod = 1.1
+	resist_mod = 4
+	standing_jump_range = 3
 
 	mob_size = 8 //Even lighter than Myrmidons, in alignment with their increased speed
 	taste_sensitivity = TASTE_DULL
@@ -95,7 +98,6 @@
 		slot_belt_str      = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
 		slot_wear_id_str   = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
 		slot_wrists_str    = list("[NORTH]" = list("x" = 0, "y" = 1), "[EAST]" = list("x" = 0, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
-		slot_shoes_str     = list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 0)),
 		slot_back_str      = list("[NORTH]" = list("x" = 0, "y" = 3),  "[EAST]" = list("x" = 0, "y" = 0),  "[SOUTH]" = list("x" = 0, "y" = 3),  "[WEST]" = list("x" = 0, "y" = 0)),
 		slot_wear_suit_str = list("[NORTH]" = list("x" = 0, "y" = 1),  "[EAST]" = list("x" = 0, "y" = 1),  "[SOUTH]" = list("x" = 0, "y" = 1),  "[WEST]" = list("x" = 0, "y" = 1))
 	)
