@@ -23,11 +23,14 @@
 
 		//Remove global HUDs, as they are shared and must not be deleted
 		client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science)
+
 		for(var/atom/movable/AM in client.screen)
 			qdel(AM)
 		client.screen = null
+
 	if (mind)
 		mind.handle_mob_deletion(src)
+
 	QDEL_NULL_LIST(viruses)
 	QDEL_NULL_LIST(client_colors)
 	item_verbs = null

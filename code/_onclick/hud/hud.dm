@@ -23,7 +23,7 @@ var/list/global_huds
 	return QDEL_HINT_LETMELIVE
 
 /datum/global_hud/proc/setup_overlay(var/icon_state, var/color)
-	var/obj/screen/screen = new /obj/screen()
+	var/obj/screen/screen = new /obj/screen(globalscreen = TRUE)
 	screen.alpha = 25 // Adjust this if you want goggle overlays to be thinner or thicker.
 	screen.screen_loc = "SOUTHWEST to NORTHEAST" // Will tile up to the whole screen, scaling beyond 15x15 if needed.
 	screen.icon = 'icons/obj/hud_tiled.dmi'
@@ -36,7 +36,7 @@ var/list/global_huds
 
 /datum/global_hud/New()
 	//420erryday psychedellic colours screen overlay for when you are high
-	druggy = new /obj/screen()
+	druggy = new /obj/screen(globalscreen = TRUE)
 	druggy.screen_loc = ui_entire_screen
 	druggy.icon_state = "druggy"
 	druggy.layer = 17
@@ -45,14 +45,14 @@ var/list/global_huds
 	druggy.blend_mode = BLEND_MULTIPLY
 
 	//that white blurry effect you get when you eyes are damaged
-	blurry = new /obj/screen()
+	blurry = new /obj/screen(globalscreen = TRUE)
 	blurry.screen_loc = ui_entire_screen
 	blurry.icon_state = "blurry"
 	blurry.layer = 17
 	blurry.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	blurry.alpha = 100
 
-	vr_control = new /obj/screen()
+	vr_control = new /obj/screen(globalscreen = TRUE)
 	vr_control.icon = 'icons/mob/screen/full.dmi'
 	vr_control.icon_state = "vr_control"
 	vr_control.screen_loc = "1,1"
@@ -70,7 +70,7 @@ var/list/global_huds
 	// Why do they work this way? I don't know really, that is how /vg/ designed them, but since they DO
 	// work this way, we can take advantage of their immutability by making them part of
 	// the global_hud (something we have and /vg/ doesn't) instead of an instance per mob.
-	holomap = new /obj/screen()
+	holomap = new /obj/screen(globalscreen = TRUE)
 	holomap.name = "holomap"
 	holomap.icon = null
 	holomap.screen_loc = ui_holomap
@@ -79,7 +79,7 @@ var/list/global_huds
 	var/obj/screen/O
 	var/i
 	//that nasty looking dither you  get when you're short-sighted
-	vimpaired = newlist(/obj/screen,/obj/screen,/obj/screen,/obj/screen)
+	vimpaired = list(new /obj/screen(globalscreen = TRUE), new /obj/screen(globalscreen = TRUE), new /obj/screen(globalscreen = TRUE), new /obj/screen(globalscreen = TRUE))
 	O = vimpaired[1]
 	O.screen_loc = "1,1 to 5,15"
 	O = vimpaired[2]
@@ -90,7 +90,8 @@ var/list/global_huds
 	O.screen_loc = "11,1 to 15,15"
 
 	//welding mask overlay black/dither
-	darkMask = newlist(/obj/screen, /obj/screen, /obj/screen, /obj/screen, /obj/screen, /obj/screen, /obj/screen, /obj/screen)
+	darkMask = list(new /obj/screen(globalscreen = TRUE), new /obj/screen(globalscreen = TRUE), new /obj/screen(globalscreen = TRUE), new /obj/screen(globalscreen = TRUE),
+					new /obj/screen(globalscreen = TRUE), new /obj/screen(globalscreen = TRUE), new /obj/screen(globalscreen = TRUE), new /obj/screen(globalscreen = TRUE))
 	O = darkMask[1]
 	O.screen_loc = "WEST+2,SOUTH+2 to WEST+4,NORTH-2"
 	O = darkMask[2]
@@ -340,8 +341,11 @@ var/list/global_huds
 	mymob.instantiate_hud(src, ui_style, ui_color, ui_alpha)
 
 /datum/hud/proc/remove()
-	if(!ismob(mymob)) return 0
-	if(!mymob.client) return 0
+	if(!ismob(mymob))
+		return FALSE
+
+	if(!mymob.client)
+		return FALSE
 
 	mymob.remove_hud(src)
 

@@ -11,16 +11,26 @@
 	icon = 'icons/mob/screen/generic.dmi'
 	layer = SCREEN_LAYER
 	unacidable = 1
-	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
-	var/datum/hud/hud = null // A reference to the owner HUD, if any.
+
+	///A reference to the object in the slot. Grabs or items, generally.
+	var/obj/master = null
+
+	///A reference to the owner HUD, if any.
+	var/datum/hud/hud = null
+
 	appearance_flags = NO_CLIENT_COLOR
+
+	///If the screen is global, aka there's only one instance for every client
+	var/globalscreen = FALSE
+
+/obj/screen/New(loc, globalscreen = FALSE, ...)
+	. = ..()
+	src.globalscreen = globalscreen
 
 /obj/screen/Destroy(force = FALSE)
 
-	//I have put this here because the interrelations between screens, mobs, RIG, glasses and other shit makes it impossible to be
-	//reasonably certain that nothing will try to destroy a global_hud screen
-	if(src in list(global_hud.blurry, global_hud.druggy, global_hud.vimpaired, global_hud.darkMask, global_hud.nvg, global_hud.thermal, global_hud.meson, global_hud.science))
-		stack_trace("Someone tried to delete a global_hud!")
+	//Prevent the deletion of global screens (generally shared HUDs, like NVG)
+	if(src.globalscreen)
 		return QDEL_HINT_LETMELIVE
 
 	master = null
