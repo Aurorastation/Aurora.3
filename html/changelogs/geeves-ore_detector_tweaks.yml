@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added drillable ores to the ore detector list."
-  - tweak: "Tweaked the opacity and offset of ore detector pings."
