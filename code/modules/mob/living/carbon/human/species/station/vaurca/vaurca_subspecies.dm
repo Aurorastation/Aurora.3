@@ -66,7 +66,6 @@
 	burn_mod = 1.2
 	sprint_speed_factor = 0.6
 	sprint_cost_factor = 2
-	move_charge_factor = 2
 	grab_mod = 1.1
 	resist_mod = 4
 	standing_jump_range = 3
