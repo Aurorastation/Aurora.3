@@ -55,9 +55,10 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Industrial Drill Head",		/obj/machinery/mining/drill,								-1,					1000,	1),
 	new /datum/data/mining_equipment("Super Resonator",				/obj/item/resonator/upgraded,								10,					1250),
 	new /datum/data/mining_equipment("Diamond Pickaxe",				/obj/item/pickaxe/diamond,									10,					1500),
+	new /datum/data/mining_equipment("Thermal Drill",				/obj/item/gun/energy/vaurca/thermaldrill,					5,					1750),
 	new /datum/data/mining_equipment("Orbital Minecart Dropper",	/obj/item/device/orbital_dropper/minecart,					5,					2000),
 	new /datum/data/mining_equipment("Orbital Drill Dropper",		/obj/item/device/orbital_dropper/drill,						10,					3250),
-	new /datum/data/mining_equipment("Thermal Drill",				/obj/item/gun/energy/vaurca/thermaldrill,					5,					3750)
+	new /datum/data/mining_equipment("Orbital Mecha Dropper",		/obj/item/device/orbital_dropper/mecha/miner,				2,					3500)
 	)
 
 /obj/machinery/mineral/equipment_vendor
@@ -67,7 +68,6 @@ var/global/list/minevendor_list = list( //keep in order of price
 	icon_state = "mining"
 	density = TRUE
 	anchored = TRUE
-	var/datum/weakref/scanned_id
 
 /datum/data/mining_equipment
 	var/equipment_name = "generic"
@@ -104,70 +104,38 @@ var/global/list/minevendor_list = list( //keep in order of price
 /obj/machinery/mineral/equipment_vendor/attack_hand(mob/user)
 	if(..())
 		return
-	if(!scanned_id)
-		get_user_id(user)
-	else
-		var/obj/item/card/id/ID = scanned_id.resolve()
-		if(!ID)
-			scanned_id = null
-			get_user_id(user)
-		else
-			var/turf/id_turf = get_turf(ID)
-			if(!id_turf.Adjacent(loc))
-				scanned_id = null
-				get_user_id(user)
-	interact(user)
+	ui_interact(user)
 
-/obj/machinery/mineral/equipment_vendor/proc/get_user_id(var/mob/user)
-	if(isDrone(user))
-		var/mob/living/silicon/robot/drone/D = user
-		if(D.standard_drone)
-			return
-	if(!scanned_id)
-		var/obj/item/card/id/ID = user.GetIdCard()
-		if(ID)
-			scanned_id = WEAKREF(ID)
+/obj/machinery/mineral/equipment_vendor/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "MiningVendor", "Mining Equipment Vendor", ui_x=500, ui_y=500)
+		ui.autoupdate = FALSE
+		ui.open()
 
-/obj/machinery/mineral/equipment_vendor/interact(mob/user)
-	var/dat
-	dat +="<div class='statusDisplay'>"
-	var/obj/item/card/id/ID = scanned_id?.resolve()
+/obj/machinery/mineral/equipment_vendor/ui_data(mob/user)
+	var/list/data = list()
+	var/obj/item/card/id/ID = user.GetIdCard()
 	if(ID)
-		dat += "You have [ID.mining_points ? ID.mining_points : 0] mining points collected. <A href='?src=\ref[src];choice=eject'>Eject ID.</A><br>"
+		data["hasId"] = TRUE
+		data["miningPoints"] = ID.mining_points ? ID.mining_points : 0
 	else
-		dat += "No ID inserted.  <A href='?src=\ref[src];choice=insert'>Insert ID.</A><br>"
-	dat += "</div>"
-	dat += "<br><b>Equipment point cost list:</b><BR><table border='0' width='300'>"
-	for(var/datum/data/mining_equipment/prize in minevendor_list)
-		if(prize.amount > 0)
-			dat += "<tr><td>[prize.equipment_name]</td><td>[prize.cost]</td><td><A href='?src=\ref[src];purchase=\ref[prize]'>Purchase</A> ([prize.amount])</td></tr>"
-		else if(prize.amount == -1)
-			dat += "<tr><td>[prize.equipment_name]</td><td>[prize.cost]</td><td><A href='?src=\ref[src];purchase=\ref[prize]'>Purchase</A> (No limit.)</td></tr>"
-		else
-			dat += "<tr><td>[prize.equipment_name]</td><td>(Out of stock!)</td></tr>"
-	dat += "</table>"
+		data["hasId"] = FALSE
+	var/list/prize_list = list()
+	for(var/datum/data/mining_equipment/prize as anything in minevendor_list)
+		prize_list += list(list("name" = prize.equipment_name, "cost" = prize.cost, "stock" = prize.amount, "ref" = "\ref[prize]"))
+	data["prizeList"] = prize_list
+	return data
 
-	var/datum/browser/popup = new(user, "miningvendor", "Mining Equipment Vendor", 400, 350)
-	popup.set_content(dat)
-	popup.open()
-	return
-
-/obj/machinery/mineral/equipment_vendor/Topic(href, href_list)
-	if(..())
+/obj/machinery/mineral/equipment_vendor/ui_act(action, params)
+	. = ..()
+	if(.)
 		return
-	if(href_list["choice"])
-		var/obj/item/card/id/ID = scanned_id.resolve()
+
+	if(action == "purchase")
+		var/obj/item/card/id/ID = usr.GetIdCard()
 		if(ID)
-			if(href_list["choice"] == "eject")
-				scanned_id = null
-		else if(href_list["choice"] == "insert")
-			var/obj/item/card/id/I = usr.get_active_hand()
-			if(istype(I))
-				scanned_id = WEAKREF(I)
-	if(href_list["purchase"])
-		var/obj/item/card/id/ID = scanned_id.resolve()
-		if(ID)
-			var/datum/data/mining_equipment/prize = locate(href_list["purchase"])
+			var/datum/data/mining_equipment/prize = locate(params["purchase"])
 			if(!prize || !(prize in minevendor_list))
 				return
 			if(prize.amount <= 0 && prize.amount != -1)
@@ -185,23 +153,20 @@ var/global/list/minevendor_list = list( //keep in order of price
 						prize.amount--
 					new prize.equipment_path(get_turf(src))
 					intent_message(MACHINE_SOUND)
-
-	updateUsrDialog()
-	return
+		return TRUE
 
 /obj/machinery/mineral/equipment_vendor/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/coin/mining))
-		var/choice = input(user, "Which special equipment would you like to dispense from \the [src]?", capitalize_first_letters(name)) as null|anything in list("Enhanced Power Converter", "Hand-held Drill", "Autonomous Mining Drone")
+		var/list/equipment_choices = list(
+			"Kinetic Accelerator Kit" = /obj/item/storage/toolbox/ka,
+			"Industrial Drilling Kit" = /obj/item/storage/toolbox/drill,
+			"Autonomous Mining Drone" = /mob/living/silicon/robot/drone/mining
+		)
+		var/choice = input(user, "Which special equipment would you like to dispense from \the [src]?", capitalize_first_letters(name)) as null|anything in equipment_choices
 		if(!choice || QDELETED(I) || !Adjacent(user))
 			return
-		var/obj/dispensed_equipment
-		switch(choice)
-			if("Enhanced Power Converter")
-				dispensed_equipment = new /obj/item/custom_ka_upgrade/barrels/barrel02(src)
-			if("Hand-held Drill")
-				dispensed_equipment = new /obj/item/pickaxe/drill/weak(src)
-			if("Autonomous Mining Drone")
-				dispensed_equipment = new /mob/living/silicon/robot/drone/mining(get_turf(user))
+		var/equipment_path = equipment_choices[choice]
+		var/obj/dispensed_equipment = new equipment_path(get_turf(src))
 		if(dispensed_equipment)
 			to_chat(user, SPAN_NOTICE("\The [src] accepts your coin and dispenses \a [dispensed_equipment]."))
 			qdel(I)

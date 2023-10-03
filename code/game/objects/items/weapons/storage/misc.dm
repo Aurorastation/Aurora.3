@@ -27,6 +27,7 @@
 	name = "card box"
 	desc = "A small leather case to show how classy you are compared to everyone else."
 	icon_state = "card_holder_empty"
+	icon = 'icons/obj/storage/misc.dmi'
 	can_hold = list(/obj/item/deck, /obj/item/battle_monsters/deck, /obj/item/hand, /obj/item/pack/, /obj/item/card) //sneaky folks can hide ID and other cards
 	storage_slots = 1 //can hold one deck
 	use_sound = 'sound/items/drop/shoes.ogg'
@@ -42,7 +43,7 @@
 /obj/item/storage/box/pineapple
 	name = "can of pineapple rings"
 	desc = "An aluminium can with fresh pineapple slices."
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/storage/misc.dmi'
 	icon_state = "pineapple_rings"
 	use_sound = 'sound/items/pickup/soda.ogg'
 	drop_sound = 'sound/items/drop/soda.ogg'

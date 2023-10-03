@@ -10,7 +10,10 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling
 	var/allowduringlesserform = FALSE
-	var/genomecost = 69420 // Cost for the changeling to evolve this power.
+	/// How many absorbed DNAs we must have before buying this power.
+	var/required_dna = 0
+	/// Cost for the changeling to evolve this power.
+	var/genomecost = 69420
 
 /datum/power/changeling/respec
 	name = "Re-adapt"
@@ -273,6 +276,7 @@ var/list/datum/power/changeling/powerinstances = list()
 	desc = "We tear apart our human disguise, revealing our true and ultimate form."
 	helptext = "We will assume our ultimate form. This is irreversible. While we are in this state, we are extremely powerful."
 	genomecost = 10
+	required_dna = 3
 	verbpath = /mob/proc/horror_form
 
 // Modularchangling, totally stolen from the new player panel.  YAYY
@@ -556,11 +560,17 @@ var/list/datum/power/changeling/powerinstances = list()
 	if(power == null)
 		to_chat(M.current, SPAN_WARNING("This is awkward. Changeling power purchase failed, please report this bug to a coder!"))
 		return
+
 	if(power in purchasedpowers)
 		to_chat(M.current, SPAN_WARNING("We have already evolved this ability!"))
 		return
+
 	if(geneticpoints < power.genomecost)
 		to_chat(M.current, SPAN_WARNING("We lack the genome to evolve this. Re-evolve yourself to reset your genome points."))
+		return
+
+	if(length(absorbed_dna) < power.required_dna)
+		to_chat(M.current, SPAN_WARNING("Our DNA structure is not complex enough to evolve this. We need at least [(power.required_dna - length(absorbed_dna))] more assimilated DNA structures to buy it."))
 		return
 
 	geneticpoints -= power.genomecost

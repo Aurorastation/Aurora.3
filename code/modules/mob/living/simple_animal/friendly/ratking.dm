@@ -8,7 +8,7 @@
 
 
 /proc/announceToRodents(var/message)
-	for(var/R in SSmob.all_rats)
+	for(var/R in SSmobs.all_rats)
 		to_chat(R, message)
 
 /mob/living/simple_animal/rat/king
@@ -201,6 +201,8 @@
 			L.broken()
 		else
 			L.flicker()
+		CHECK_TICK
+
 	last_special = world.time + 30
 
 /mob/living/simple_animal/rat/king/verb/devourdead(mob/target as mob in oview())

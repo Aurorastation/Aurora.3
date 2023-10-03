@@ -476,7 +476,7 @@
 
 	M.visible_message("<span class='danger'>[M] writhes and contorts, their body expanding to inhuman proportions!</span>", \
 						"<span class='danger'>We begin our transformation to our true form!</span>")
-	if(!do_after(src,60))
+	if(!do_after(src, 6 SECONDS, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT))
 		M.visible_message("<span class='danger'>[M]'s transformation abruptly reverts itself!</span>", \
 							"<span class='danger'>Our transformation has been interrupted!</span>")
 		return FALSE
@@ -566,6 +566,7 @@
 
 	for(var/obj/machinery/light/L in view(7))
 		L.broken()
+		CHECK_TICK
 
 	playsound(src.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
 

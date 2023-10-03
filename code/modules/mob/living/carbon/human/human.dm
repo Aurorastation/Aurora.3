@@ -866,14 +866,19 @@
 	if(is_berserk())
 		if(!silent)
 			to_chat(src, SPAN_WARNING("You are in no state to use that!"))
-		return 0
+		return FALSE
 
 	if(!species.has_fine_manipulation)
 		if(!silent)
 			to_chat(src, SPAN_WARNING("You don't have the dexterity to use that!"))
-		return 0
+		return FALSE
 
-	return 1
+	if(lobotomized)
+		if(!silent)
+			to_chat(src, SPAN_WARNING("You are in no state to use that!"))
+		return FALSE
+
+	return TRUE
 
 /mob/living/carbon/human/abiotic(var/full_body = 0)
 	if(full_body && ((src.l_hand && !( src.l_hand.abstract )) || (src.r_hand && !( src.r_hand.abstract )) || (src.back || src.wear_mask || src.head || src.shoes || src.w_uniform || src.wear_suit || src.glasses || src.l_ear || src.r_ear || src.gloves)))
@@ -1487,6 +1492,8 @@
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
 	speech_bubble_type = species.possible_speech_bubble_types[1]
+	if(typing_indicator)
+		adjust_typing_indicator_offsets(typing_indicator)
 
 	fill_out_culture_data()
 
@@ -1502,6 +1509,8 @@
 
 	if(client)
 		client.init_verbs()
+
+	update_emotes()
 
 	if(species)
 		return TRUE

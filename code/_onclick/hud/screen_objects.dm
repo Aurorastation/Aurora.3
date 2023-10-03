@@ -274,6 +274,7 @@
 	if(choice != selecting)
 		selecting = choice
 		update_icon()
+		SEND_SIGNAL(user, COMSIG_MOB_ZONE_SEL_CHANGE, user)
 
 /obj/screen/zone_sel/update_icon()
 	cut_overlays()
@@ -457,7 +458,8 @@
 
 	if (user.max_stamina == -1 || user.stamina == user.max_stamina)
 		if (user.stamina_bar)
-			QDEL_NULL(user.stamina_bar)
+			user.stamina_bar.endProgress()
+			user.stamina_bar = null
 	else
 		if (!user.stamina_bar)
 			user.stamina_bar = new(user, user.max_stamina, src)

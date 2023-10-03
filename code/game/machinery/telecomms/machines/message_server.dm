@@ -226,7 +226,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 	idle_power_usage = 10
 	active_power_usage = 100
 
-	// Note: actual logging has been moved to SSfeedback.
+	// Note: actual logging has been moved to SSstatistics.
 
 	//Only one can exist in the world!
 /obj/machinery/blackbox_recorder/Initialize()

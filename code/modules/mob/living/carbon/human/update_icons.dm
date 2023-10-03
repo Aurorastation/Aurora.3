@@ -142,7 +142,7 @@ There are several things that need to be remembered:
 			var/matrix/M = matrix()
 
 			switch(src.dir)
-				if(NORTH,EAST)
+				if(SOUTH,EAST)
 					M.Turn(90)
 				else
 					M.Turn(-90)
@@ -1183,7 +1183,7 @@ There are several things that need to be remembered:
 			else
 				mob_icon = l_hand.icon
 			l_hand.auto_adapt_species(src)
-			mob_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_tag)][l_hand.item_state][WORN_LHAND]"
+			mob_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_in_hand ? l_hand.icon_species_tag : null)][l_hand.item_state][WORN_LHAND]"
 		else
 			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
 				mob_state = l_hand.item_state_slots[slot_l_hand_str]
@@ -1219,7 +1219,7 @@ There are several things that need to be remembered:
 			else
 				mob_icon = r_hand.icon
 			r_hand.auto_adapt_species(src)
-			mob_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_tag)][r_hand.item_state][WORN_RHAND]"
+			mob_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_in_hand ? r_hand.icon_species_tag : null)][r_hand.item_state][WORN_RHAND]"
 		else
 			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
 				mob_state = r_hand.item_state_slots[slot_r_hand_str]

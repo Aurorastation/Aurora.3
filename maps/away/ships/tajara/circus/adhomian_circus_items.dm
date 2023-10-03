@@ -24,7 +24,7 @@
 	item_state = "ringmastercoat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/tajara/jackboots/ringmaster
+/obj/item/clothing/shoes/jackboots/tajara/ringmaster
 	name = "ringmaster boots"
 	desc = "Comfortable and fancy boots meant for a Tajara."
 	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'

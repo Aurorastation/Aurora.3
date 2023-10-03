@@ -45,7 +45,7 @@
 
 /obj/item/battle_monsters/deck/proc/take_specific_card(var/mob/user, var/card_id)
 	if(card_id in stored_card_names)
-		var/obj/item/battle_monsters/card/new_card = SSbattlemonsters.CreateCard(card_id,src.loc)
+		var/obj/item/battle_monsters/card/new_card = SSbattle_monsters.CreateCard(card_id,src.loc)
 
 		if(!user.get_active_hand())
 			user.put_in_active_hand(new_card)
@@ -152,7 +152,7 @@
 			SPAN_NOTICE("\The [usr] begins searching through \the [src]..."),\
 			SPAN_NOTICE("You begin searching through your deck...")\
 		)
-		if(!do_after(user, 5 + stored_card_names.len, act_target = src))
+		if(!do_after(user, 5 + stored_card_names.len, src))
 			user.visible_message(\
 				SPAN_NOTICE("\The [usr] stops and thinks better of it."),\
 				SPAN_NOTICE("You stop and think better of it.")\
@@ -167,14 +167,14 @@
 		var/list/splitstring = dd_text2List(cardname,",")
 		var/formatted_data
 		if(splitstring[1] == "spell_type")
-			formatted_data = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetSpellFormatting(),SSbattlemonsters.FindMatchingSpell(splitstring[2]))
+			formatted_data = SSbattle_monsters.FormatSpellText(SSbattle_monsters.GetSpellFormatting(),SSbattle_monsters.FindMatchingSpell(splitstring[2]))
 		else if(splitstring[1] == "trap_type")
-			formatted_data = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetTrapFormatting(),SSbattlemonsters.FindMatchingTrap(splitstring[2]))
+			formatted_data = SSbattle_monsters.FormatSpellText(SSbattle_monsters.GetTrapFormatting(),SSbattle_monsters.FindMatchingTrap(splitstring[2]))
 		else
-			var/datum/battle_monsters/element/prefix_datum = SSbattlemonsters.FindMatchingPrefix(splitstring[1])
-			var/datum/battle_monsters/monster/root_datum = SSbattlemonsters.FindMatchingRoot(splitstring[2])
-			var/datum/battle_monsters/title/suffix_datum = SSbattlemonsters.FindMatchingSuffix(splitstring[3])
-			formatted_data = SSbattlemonsters.FormatMonsterText(SSbattlemonsters.GetMonsterFormatting(),prefix_datum,root_datum,suffix_datum)
+			var/datum/battle_monsters/element/prefix_datum = SSbattle_monsters.FindMatchingPrefix(splitstring[1])
+			var/datum/battle_monsters/monster/root_datum = SSbattle_monsters.FindMatchingRoot(splitstring[2])
+			var/datum/battle_monsters/title/suffix_datum = SSbattle_monsters.FindMatchingSuffix(splitstring[3])
+			formatted_data = SSbattle_monsters.FormatMonsterText(SSbattle_monsters.GetMonsterFormatting(),prefix_datum,root_datum,suffix_datum)
 
 		browse_data = "[formatted_data]<br><a href='?src=\ref[src];selection=[cardname]'>Draw Card</a><br><hr>[browse_data]"
 

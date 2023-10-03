@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/typing/SStyping
-
-/datum/controller/subsystem/typing
+SUBSYSTEM_DEF(typing)
 	name = "Typing"
 	flags = SS_BACKGROUND
 	wait = 0.5 SECONDS
@@ -37,7 +35,6 @@ var/datum/controller/subsystem/typing/SStyping
 	*/
 
 /datum/controller/subsystem/typing/Initialize(start_timeofday)
-	NEW_SS_GLOBAL(SStyping)
 	match_verbs = regex("^(Me|Say|Whisper) +\"?\\w+")
 	. = ..()
 
@@ -156,6 +153,9 @@ Updated 09/10/2022 to include chatbar using Spookerton's SStyping system from Po
 	if(!ismovable(master))
 		stack_trace("Typing indicator initialized with [isnull(master) ? "null" : master] as master.")
 		return INITIALIZE_HINT_QDEL
+	if(ismob(master))
+		var/mob/mob = master
+		mob.adjust_typing_indicator_offsets(src)
 
 /atom/movable/typing_indicator/Destroy()
 	if(master)

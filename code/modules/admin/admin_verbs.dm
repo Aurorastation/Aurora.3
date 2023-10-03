@@ -1258,7 +1258,7 @@ var/list/admin_verbs_cciaa = list(
 		return
 
 	var/mission_name = input("Enter Mission Name or press cancel to Reset","Mission Name") as null|text
-	SSpersist_config.forced_awaymission = mission_name
+	SSpersistent_configuration.forced_awaymission = mission_name
 
 	if(!mission_name)
 		log_and_message_admins("reset the forced away mission.")

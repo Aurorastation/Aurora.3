@@ -570,7 +570,7 @@
 	var/used_energy = 100
 	to_chat(user, "Fabricating machine...")
 	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
-	if(do_after(user, 30 SECONDS, act_target = src))
+	if(do_after(user, 30 SECONDS, src, DO_UNIQUE))
 		var/obj/product = new /obj/machinery/transformer
 		malftransformermade = 1
 		product.forceMove(get_turf(A))

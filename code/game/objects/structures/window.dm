@@ -57,7 +57,7 @@
 			to_chat(user, SPAN_NOTICE("There is a thick layer of silicate covering it."))
 
 /obj/structure/window/proc/update_nearby_icons()
-	queue_smooth_neighbors(src)
+	SSicon_smooth.add_to_queue_neighbors(src)
 
 /obj/structure/window/update_icon()
 	if(!full)
@@ -65,7 +65,7 @@
 			layer = ABOVE_MOB_LAYER
 		else
 			layer = WINDOW_PANE_LAYER
-	queue_smooth(src)
+	SSicon_smooth.add_to_queue(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
 	var/initialhealth = health
@@ -544,7 +544,7 @@
 	reinf = TRUE
 	basestate = "w"
 	dir = 5
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	can_be_unanchored = TRUE
 	layer = 2.99
 
@@ -563,7 +563,7 @@
 	icon = 'icons/obj/smooth/skrell_window_purple.dmi'
 	health = 500
 	maxhealth = 500
-	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
+	smoothing_flags = SMOOTH_MORE | SMOOTH_DIAGONAL
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/skrell,
 		/obj/structure/window/shuttle/skrell
@@ -577,7 +577,7 @@
 	health = 500
 	maxhealth = 500
 	alpha = 255
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/window/shuttle/scc_space_ship,
 		/turf/simulated/wall/shuttle/scc_space_ship
@@ -591,7 +591,7 @@
 
 
 /obj/structure/window/shuttle/scc_space_ship/cardinal
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 
 /obj/structure/window/shuttle/scc_space_ship/cardinal_smooth(adjacencies, var/list/dir_mods)
 	dir_mods = handle_blending(adjacencies, dir_mods)
@@ -623,7 +623,7 @@
 	full = TRUE
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/turf/simulated/wall,
 		/turf/simulated/wall/r_wall,
@@ -775,17 +775,17 @@
 	glasstype = /obj/item/stack/material/glass/reinforced
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 
 /obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
 	dir_mods = handle_blending(adjacencies, dir_mods)
 	return ..(adjacencies, dir_mods)
 
 /obj/structure/window_frame/proc/update_nearby_icons()
-	queue_smooth_neighbors(src)
+	SSicon_smooth.add_to_queue_neighbors(src)
 
 /obj/structure/window_frame/update_icon()
-	queue_smooth(src)
+	SSicon_smooth.add_to_queue(src)
 
 // Indestructible Reinforced Window
 /obj/structure/window/full/reinforced/indestructible/attack_hand()

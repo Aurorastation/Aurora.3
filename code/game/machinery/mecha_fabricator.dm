@@ -208,7 +208,7 @@
 			return
 
 		user.visible_message(SPAN_WARNING("[user] starts feeding [target]'s hair into \the [src]!"), SPAN_WARNING("You start feeding [target]'s hair into \the [src]!"))
-		if(!do_after(usr, 50))
+		if(!do_after(user, 5 SECONDS, target, DO_UNIQUE))
 			return
 		if(target_loc != target.loc)
 			return
@@ -220,7 +220,7 @@
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 		else
 			return
-		if(!do_after(usr, 35))
+		if(!do_after(user, 3.5 SECONDS, target, DO_UNIQUE))
 			return
 		if(target_loc != target.loc)
 			return

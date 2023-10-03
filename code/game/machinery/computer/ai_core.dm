@@ -75,7 +75,7 @@
 					return TRUE
 				to_chat(user, "<span class='notice'>You start to add cables to the frame.</span>")
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
-				if (do_after(user, 20) && state == 2)
+				if (do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && state == 2)
 					if (C.use(5))
 						state = 3
 						icon_state = "3"
@@ -101,7 +101,7 @@
 					return
 				to_chat(user, "<span class='notice'>You start to put in the glass panel.</span>")
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
-				if (do_after(user, 20) && state == 3)
+				if (do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && state == 3)
 					if(RG.use(2))
 						to_chat(user, "<span class='notice'>You put in the glass panel.</span>")
 						state = 4

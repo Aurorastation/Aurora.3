@@ -29,8 +29,13 @@
 	item_state = "box"
 	contained_sprite = TRUE
 	var/illustration = "writing"
-	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
-	var/trash = null // if set, can be crushed into a trash item when empty
+
+	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
+	var/foldable = /obj/item/stack/material/cardboard
+
+	///Boolean, if set, can be crushed into a trash item when empty
+	var/trash = null
+
 	var/maxHealth = 20	//health is already defined
 	use_sound = 'sound/items/storage/box.ogg'
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
@@ -195,10 +200,10 @@
 	illustration = "latex"
 	max_storage_space = 14
 	starts_with = list(/obj/item/clothing/gloves/latex = 2,
-					   /obj/item/clothing/gloves/latex/nitrile = 2,
-					   /obj/item/clothing/gloves/latex/nitrile/unathi = 1,
-					   /obj/item/clothing/gloves/latex/nitrile/tajara = 1,
-					   /obj/item/clothing/gloves/latex/nitrile/vaurca = 1)
+						/obj/item/clothing/gloves/latex/nitrile = 2,
+						/obj/item/clothing/gloves/latex/nitrile/unathi = 1,
+						/obj/item/clothing/gloves/latex/nitrile/tajara = 1,
+						/obj/item/clothing/gloves/latex/nitrile/vaurca = 1)
 /obj/item/storage/box/masks
 	name = "box of surgical masks"
 	desc = "This box contains masks of surgicality."
@@ -525,7 +530,7 @@
 	name = "death alarm kit"
 	desc = "Box of stuff used to implant death alarms."
 	illustration = "implant"
-	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6)
+	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6, /obj/item/implantpad = 1)
 
 /obj/item/storage/box/condimentbottles
 	name = "box of condiment bottles"
@@ -556,6 +561,17 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
 	desc_antag = "Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes."
 
+/obj/item/storage/box/donkpockets/gwok
+	name = "box of teriyaki Gwok-pockets"
+	icon_state = "gwokpocketbox"
+	item_state = "redbox"
+	illustration = null
+	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki = 6)
+
+/obj/item/storage/box/donkpockets/gwok/takoyaki
+	name = "box of takoyaki Gwok-pockets"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/takoyaki = 6)
+
 /obj/item/storage/box/janitorgloves
 	name = "janitorial gloves box"
 	desc = "A box full of janitorial gloves of all shapes and sizes."
@@ -573,7 +589,6 @@
 /obj/item/storage/box/monkeycubes
 	name = "monkey cube box"
 	desc = "Drymate brand monkey cubes. Just add water!"
-	icon = 'icons/obj/food.dmi'
 	icon_state = "monkeycubebox"
 	can_hold = list(/obj/item/reagent_containers/food/snacks/monkeycube)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped = 5)
@@ -746,7 +761,6 @@
 /obj/item/storage/box/freezer
 	name = "portable freezer"
 	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
-	icon = 'icons/obj/storage.dmi'
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
 	max_w_class = ITEMSIZE_NORMAL
@@ -758,7 +772,7 @@
 	name = "organ cooler"
 	desc = "A sealed, cooled container to keep organs from decaying."
 	icon_state = "organcooler"
-	item_state = "advfirstaid"
+	item_state = "redbox"
 	max_w_class = ITEMSIZE_NORMAL
 	foldable = FALSE
 	w_class = ITEMSIZE_LARGE
@@ -1207,3 +1221,4 @@
 /obj/item/storage/box/produce/fill()
 	. = ..()
 	make_exact_fit()
+

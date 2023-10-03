@@ -536,7 +536,7 @@
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_SMALL
 	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM, BODYTYPE_TESLA_BODY)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
@@ -827,11 +827,6 @@
 //Shoes
 /obj/item/clothing/shoes
 	name = "shoes"
-	icon = 'icons/obj/clothing/shoes.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_shoes.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_shoes.dmi'
-		)
 	desc = "Comfortable-looking shoes."
 	species_sprite_adaption_type = WORN_SHOES
 	gender = PLURAL //Carn: for grammarically correct text-parsing
@@ -863,7 +858,7 @@
 	set category = "Object"
 	set src in usr
 
-	if(usr.stat || usr.restrained() || usr.incapacitated())
+	if(use_check_and_message(usr))
 		return
 
 	holding.forceMove(get_turf(usr))
@@ -998,7 +993,7 @@
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = ITEMSIZE_NORMAL
-	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM, BODYTYPE_TESLA_BODY)
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
 
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
 

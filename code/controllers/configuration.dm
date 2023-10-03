@@ -62,6 +62,8 @@ var/list/gamemode_cache = list()
 	"log_subsystems_fail2topic" = TRUE, // Fail2Topic
 	"log_subsystems_mapfinalization" = TRUE, // Map Finalization
 	"log_subsystems_tgui" = TRUE, // TGUI
+	"log_subsystems_zas" = FALSE, // ZAS
+	"log_subsystems_zas_debug" = FALSE, // ZAS debug
 
 	//// MODULES ////
 
@@ -114,6 +116,8 @@ var/list/gamemode_cache = list()
 	"world_subsystems_fail2topic_log" = "subsystems/fail2topic.log",
 	"world_subsystems_mapfinalization_log" = "subsystems/mapfinalization.log",
 	"world_subsystems_tgui" = "subsystems/tgui.log",
+	"world_subsystems_zas" = "subsystems/zas.log",
+	"world_subsystems_zas_debug" = "subsystems/zas.log",
 
 	//// MODULES ////
 

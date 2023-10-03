@@ -4,7 +4,7 @@ if [ -z ${GITHUB_ENV+x} ]; then GITHUB_ENV=/dev/null; fi
 
 export BYOND_MAJOR=515
 echo "BYOND_MAJOR=$BYOND_MAJOR" >> "$GITHUB_ENV"
-export BYOND_MINOR=1613
+export BYOND_MINOR=1614
 echo "BYOND_MINOR=$BYOND_MINOR" >> "$GITHUB_ENV"
 
 export RUST_G_VERSION=v1.2.0+a5
@@ -21,5 +21,5 @@ export NODE_VERSION_PRECISE=14.16.1
 echo "NODE_VERSION_PRECISE=$NODE_VERSION_PRECISE" >> "$GITHUB_ENV"
 
 # Python version for mapmerge and other tools
-export PYTHON_VERSION=3.9
+export PYTHON_VERSION=3.9.18
 echo "PYTHON_VERSION=$PYTHON_VERSION" >> "$GITHUB_ENV"
