@@ -761,7 +761,7 @@
 	name = "Nralakk Division Zeng-Hu cloak"
 	desc = "This cloak is given to Zeng-Hu employees who have assisted or worked in collaboration with the Nralakk Federation."
 	desc_extended = "A cloak given to senior level doctors and researchers for Zeng-Hu who has \
-	in the past been given the privilege of working within or in collaboration with the Nralakk Federation\
+	in the past been given the privilege of working within or in collaboration with the Nralakk Federation \
 	as a show of goodwill between the corporation and federation."
 	icon = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
 	icon_override = 'icons/obj/item/clothing/accessory/zh_cape.dmi'
