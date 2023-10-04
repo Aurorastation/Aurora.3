@@ -69,7 +69,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "acw" = (
 /obj/structure/stairs/south,
@@ -87,7 +87,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "adj" = (
 /obj/machinery/vending/vendors,
@@ -1726,7 +1726,7 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "bqi" = (
 /obj/structure/cable{
@@ -2032,7 +2032,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "bAq" = (
 /obj/structure/cable/green{
@@ -2383,7 +2383,7 @@
 	dir = 1;
 	req_access = list(73)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/hangar/control)
 "bIt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2439,7 +2439,7 @@
 	pixel_y = 10;
 	req_access = list(63)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "bKA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -3021,9 +3021,6 @@
 	},
 /turf/space/dynamic,
 /area/horizon/exterior)
-"ckr" = (
-/turf/simulated/floor/plating,
-/area/security/checkpoint)
 "ckB" = (
 /turf/simulated/floor/reinforced/phoron,
 /area/engineering/atmos)
@@ -3168,19 +3165,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/rnd/test_range)
-"cpe" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/hangar/auxiliary)
 "cpf" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled,
@@ -3314,21 +3298,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
-"ctw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "cty" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/corner/brown{
@@ -3668,7 +3637,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "cCg" = (
 /obj/structure/table/rack,
@@ -4192,10 +4161,7 @@
 /area/hangar/auxiliary)
 "cVj" = (
 /obj/machinery/recharge_station,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "cVZ" = (
 /obj/machinery/hologram/holopad/long_range,
@@ -4285,12 +4251,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hangar/canary)
-"cYa" = (
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/medical/emergency_storage)
 "cYs" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -4974,16 +4934,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"dAM" = (
-/obj/machinery/door/blast/regular/open{
-	id = "hangarlockdown";
-	name = "Hangar Lockdown"
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "dAU" = (
 /obj/structure/tank_wall{
 	icon_state = "m-3"
@@ -5054,7 +5004,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "dDM" = (
 /obj/structure/tank_wall/hydrogen{
@@ -6657,9 +6607,6 @@
 "eIS" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/custodial)
-"eJj" = (
-/turf/simulated/floor/plating,
-/area/maintenance/substation/security)
 "eJG" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -6727,7 +6674,7 @@
 	c_tag = "First Deck - Hangar 1";
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "eKr" = (
 /obj/structure/cable{
@@ -7106,10 +7053,7 @@
 	dir = 10
 	},
 /obj/machinery/alarm/east,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "eYb" = (
 /obj/structure/cable{
@@ -7452,18 +7396,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
-"fiK" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/black{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/hangar/canary)
 "fiL" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -7653,7 +7585,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/effect/floor_decal/corner/dark_green/full,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "foN" = (
 /obj/structure/tank_wall/hydrogen{
@@ -7982,15 +7914,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
-"fCm" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/hangar/canary)
 "fCv" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -8687,15 +8610,8 @@
 	dir = 5
 	},
 /obj/structure/table/wood,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hangar/intrepid)
-"fWQ" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/maintenance/wing/port/deck1)
 "fWU" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -8713,9 +8629,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
-"fXf" = (
-/turf/simulated/floor/plating,
-/area/horizon/hydroponics/lower)
 "fXy" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/effect/floor_decal/spline/plain{
@@ -9082,12 +8995,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"gjV" = (
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/hangar/auxiliary)
 "gkr" = (
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
@@ -9120,9 +9027,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
-"glP" = (
-/turf/simulated/floor/plating,
-/area/teleporter)
 "gmo" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "1,20"
@@ -9320,10 +9224,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/maintenance/operations)
 "gtS" = (
 /obj/structure/disposalpipe/segment{
@@ -9464,7 +9365,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "gyg" = (
 /obj/structure/cable/green{
@@ -11897,13 +11798,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
-"ioW" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/operations/loading)
 "ipg" = (
 /obj/structure/tank_wall/hydrogen{
 	icon_state = "h15"
@@ -12393,10 +12287,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/maintenance/operations)
 "iJJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -13664,7 +13555,7 @@
 	pixel_x = 6;
 	pixel_y = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "jDs" = (
 /obj/item/device/radio/intercom/south,
@@ -15010,17 +14901,6 @@
 	icon_state = "7,8"
 	},
 /area/shuttle/mining)
-"kCs" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 6
-	},
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "kCA" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -15270,10 +15150,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "kJG" = (
 /obj/machinery/light/small/emergency{
@@ -15802,10 +15679,7 @@
 	name = "Medical Lockdown Shutters";
 	opacity = 0
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled/full,
 /area/medical/emergency_storage)
 "lgf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -15877,10 +15751,7 @@
 /area/maintenance/engineering)
 "ljs" = (
 /obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "ljM" = (
 /obj/structure/cable{
@@ -16322,10 +16193,7 @@
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "7,2"
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/canary)
 "lBp" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green,
@@ -16446,14 +16314,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hydroponics/lower)
-"lGi" = (
-/obj/machinery/door/blast/regular/open{
-	id = "hangarlockdown";
-	name = "Hangar Lockdown"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/plating,
-/area/hangar/control)
 "lGH" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -16782,7 +16642,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "lQQ" = (
 /obj/structure/cable/green{
@@ -17144,10 +17004,7 @@
 	dir = 1;
 	name = "Fuel Tank to Thrusters"
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/reinforced,
 /area/shuttle/canary)
 "maM" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
@@ -17746,17 +17603,8 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
-"muG" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
 "mvO" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "7,20"
@@ -18317,10 +18165,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/medical/emergency_storage)
 "mSd" = (
 /obj/structure/table/steel,
@@ -18541,7 +18386,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "mXG" = (
 /obj/structure/cable/green{
@@ -20057,10 +19902,7 @@
 	dir = 1;
 	req_one_access = list(26,29,31,48,67)
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled/full,
 /area/operations/loading)
 "nYA" = (
 /obj/structure/window/shuttle/scc_space_ship,
@@ -20224,7 +20066,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "ocJ" = (
 /obj/machinery/firealarm/north,
@@ -20547,10 +20389,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/east,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "osc" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide/scc_shuttle{
@@ -20690,10 +20529,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/maintenance/operations)
 "oxp" = (
 /obj/machinery/suspension_gen,
@@ -21336,19 +21172,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"paf" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/maintenance/operations)
 "pau" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 8
@@ -21583,10 +21406,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "pgW" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -21725,7 +21545,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "pkE" = (
 /obj/structure/cable/green{
@@ -22473,10 +22293,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "pMz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -23577,10 +23394,7 @@
 "qzb" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "qzl" = (
 /obj/structure/cable/green{
@@ -23963,7 +23777,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "qOO" = (
 /obj/effect/landmark/entry_point/aft{
@@ -25746,9 +25560,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"rZW" = (
-/turf/simulated/floor/plating,
-/area/hangar/control)
 "sad" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -26266,12 +26077,6 @@
 	temperature = 278.15
 	},
 /area/medical/morgue/lower)
-"svq" = (
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/rnd/isolation_c)
 "svH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -26647,10 +26452,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/maintenance/operations)
 "sLn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -26795,12 +26597,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"sPY" = (
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/maintenance/wing/starboard/deck1)
 "sQO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/shuttle_part/scc/scout{
@@ -26893,12 +26689,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod2)
-"sSH" = (
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/engineering/gravity_gen)
 "sSK" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1380;
@@ -29317,7 +29107,7 @@
 	c_tag = "First Deck - Hangar 2";
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "uAi" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -29337,7 +29127,7 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "uAS" = (
 /obj/machinery/suit_storage_unit/standard_unit,
@@ -30086,7 +29876,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/low/north,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "vat" = (
 /obj/structure/cable{
@@ -30468,20 +30258,6 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
-"vng" = (
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "shutters_hangarseccpexternal";
-	name = "Security Checkpoint External Shutter"
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "hangarlockdown";
-	name = "Hangar Lockdown"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/plating,
-/area/storage/eva)
 "vnJ" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/warning{
@@ -31187,15 +30963,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
-"vPP" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/hangar/auxiliary)
 "vQs" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -32181,7 +31948,7 @@
 "wxC" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/bed/stool/chair/office/dark,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "wxE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -33897,12 +33664,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
-"xBa" = (
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/rnd/xenoarch_atrium)
 "xBf" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -34322,7 +34083,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "xOs" = (
 /obj/structure/railing/mapped{
@@ -34356,17 +34117,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "xPc" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/alarm/north,
 /obj/structure/closet/crate/bin,
 /obj/random/loot,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "xPm" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -34493,9 +34251,8 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
+/turf/simulated/floor/tiled/ramp/bottom{
+	dir = 4
 	},
 /area/maintenance/engineering)
 "xUM" = (
@@ -34893,10 +34650,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
-"yiI" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor/plating,
-/area/assembly/chargebay)
 "yiT" = (
 /obj/machinery/mineral/stacking_unit_console{
 	id = "stacking_w";
@@ -34904,12 +34657,6 @@
 	},
 /turf/simulated/wall,
 /area/outpost/mining_main/refinery)
-"yjq" = (
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 278.15
-	},
-/area/engineering/drone_fabrication)
 "ykn" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "7,4";
@@ -47466,8 +47213,8 @@ mov
 fPG
 fPG
 fPG
-paf
-paf
+fPG
+fPG
 iwV
 sLl
 iJt
@@ -47667,8 +47414,8 @@ qzl
 rnw
 nlH
 nlH
-cYa
-cYa
+nlH
+nlH
 nlH
 qkh
 eKJ
@@ -47677,7 +47424,7 @@ qkh
 qkh
 feY
 gvZ
-ioW
+qMM
 qMM
 gvZ
 sgp
@@ -48272,7 +48019,7 @@ ech
 sMm
 lIg
 lIg
-rPO
+lIg
 lIg
 lIg
 lIg
@@ -48676,7 +48423,7 @@ hTk
 wVV
 ePk
 gtE
-rPO
+lIg
 ncC
 rPO
 hQO
@@ -48878,7 +48625,7 @@ xur
 bcG
 wVV
 wZi
-sPY
+wVV
 lIg
 rPO
 rPO
@@ -49687,7 +49434,7 @@ nIw
 kqk
 gBw
 idS
-yjq
+jdP
 bwp
 nNE
 mTZ
@@ -50291,8 +50038,8 @@ xYW
 xYW
 xYW
 xYW
-sSH
-sSH
+xYW
+xYW
 xYW
 xYW
 xYW
@@ -53760,7 +53507,7 @@ jak
 dmS
 dmS
 dmS
-glP
+dmS
 dmS
 dmS
 dmS
@@ -53968,7 +53715,7 @@ hts
 vsW
 dvT
 lmf
-eKr
+oPL
 gpw
 fUS
 aHY
@@ -54171,9 +53918,9 @@ jDq
 ous
 vFu
 fWx
-eKr
+oPL
 rLm
-muG
+mKo
 aHY
 pvn
 iRC
@@ -54372,11 +54119,11 @@ afl
 vrm
 qOx
 gye
-yiI
+vFu
 voa
 oPL
 rLm
-muG
+mKo
 aHY
 pvn
 iRC
@@ -54579,7 +54326,7 @@ dvT
 gkE
 gSt
 rLm
-muG
+mKo
 aHY
 dJm
 iRC
@@ -55187,7 +54934,7 @@ fmV
 qwK
 jpK
 jnS
-ctw
+mey
 hYy
 apf
 aaa
@@ -55795,7 +55542,7 @@ oBL
 hdi
 hdi
 iJM
-ckr
+hdi
 crb
 qkk
 rPN
@@ -56810,7 +56557,7 @@ hdi
 tSX
 hdi
 vEd
-ckr
+hdi
 aKo
 wif
 hdi
@@ -57013,7 +56760,7 @@ veU
 hJx
 xdE
 xdE
-vng
+buI
 mXG
 rbx
 wuD
@@ -57228,9 +56975,9 @@ hYy
 hYy
 hYy
 hYy
-iRC
-iRC
-iRC
+hYy
+hYy
+hYy
 hYy
 hYy
 wPD
@@ -57431,7 +57178,7 @@ qCA
 fQJ
 lKY
 kEW
-kCs
+kEW
 kEW
 xOb
 xiq
@@ -57625,19 +57372,19 @@ wRE
 wRE
 wRE
 vCG
-nww
-nww
-nww
-nww
-dAM
+fQC
+fQC
+fQC
+fQC
+qGG
 kuQ
 aWP
 aWP
-lGi
 vht
 vht
-rZW
-rZW
+vht
+aWP
+aWP
 bCi
 bCi
 bCi
@@ -57645,7 +57392,7 @@ bCi
 bCi
 ocT
 bCi
-fXf
+nRy
 nRy
 nRy
 nRy
@@ -57840,7 +57587,7 @@ oCU
 wjp
 wjp
 nmF
-rZW
+aWP
 byS
 kuH
 yff
@@ -58037,7 +57784,7 @@ erd
 fQC
 xgP
 cBF
-rZW
+aWP
 vai
 tKi
 tKi
@@ -58247,8 +57994,8 @@ eev
 eev
 fZX
 aWP
-eJj
-eJj
+htq
+htq
 pNv
 htq
 cnV
@@ -58453,7 +58200,7 @@ aWP
 vyD
 pkG
 oFA
-eJj
+htq
 wng
 lPF
 awr
@@ -61297,7 +61044,7 @@ ekm
 fPd
 mOv
 mOv
-fiK
+mOv
 xjq
 xjq
 vdb
@@ -61500,7 +61247,7 @@ cMM
 lfj
 sJN
 sJN
-fCm
+sJN
 pkE
 sJN
 sKc
@@ -62109,7 +61856,7 @@ bJa
 bJa
 bJa
 bJa
-gjV
+bJa
 bJa
 bJa
 bJa
@@ -62312,7 +62059,7 @@ bJa
 bJa
 bJa
 bJa
-gjV
+bJa
 bJa
 bJa
 bJa
@@ -62716,7 +62463,7 @@ bJa
 bJa
 pMP
 bJa
-gjV
+bJa
 bJa
 bJa
 bJa
@@ -62897,7 +62644,7 @@ jrJ
 jrJ
 opY
 pyh
-xBa
+jrJ
 jrJ
 hfA
 kLo
@@ -63322,8 +63069,8 @@ tGr
 tGr
 tGr
 tGr
-vPP
-vPP
+tGr
+tGr
 tGr
 tGr
 tGr
@@ -63712,7 +63459,7 @@ xtK
 guN
 guN
 eHq
-xBa
+xtK
 uWn
 uWn
 qcr
@@ -63928,7 +63675,7 @@ kDE
 mSQ
 qQS
 mtp
-cpe
+qQS
 cPT
 uZm
 mFu
@@ -64122,7 +63869,7 @@ jPp
 iTD
 iTD
 koi
-svq
+jPp
 xlS
 lPW
 leL
@@ -64130,7 +63877,7 @@ lPW
 lPW
 lPW
 hkW
-gjV
+lPW
 lPW
 lPW
 lPW
@@ -64325,11 +64072,11 @@ jPp
 rBj
 iTD
 kTW
-svq
-fWQ
+jPp
+suT
 pLU
 mDd
-gjV
+lPW
 rAb
 rmB
 kYO
