@@ -1,13 +1,8 @@
-var/datum/controller/subsystem/processing/obj_tab_items/SSobj_tab_items
-
-/datum/controller/subsystem/processing/obj_tab_items
+PROCESSING_SUBSYSTEM_DEF(obj_tab_items)
 	name = "Obj Tab Items"
 	flags = SS_NO_INIT
 	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
 	wait = 0.1 SECONDS
-
-/datum/controller/subsystem/processing/obj_tab_items/New()
-	NEW_SS_GLOBAL(SSobj_tab_items)
 
 // I know this is mostly copypasta, but I want to change the processing logic
 // Sorry bestie :(
