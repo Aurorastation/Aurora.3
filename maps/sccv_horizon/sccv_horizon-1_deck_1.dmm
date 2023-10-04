@@ -1391,7 +1391,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/firealarm/south,
+/obj/machinery/newscaster/south,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "baq" = (
@@ -8009,6 +8009,15 @@
 	},
 /obj/structure/bed/handrail{
 	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 8;
+	frequency = 1386;
+	id_tag = "canary";
+	name = "port docking controller";
+	pixel_x = 22;
+	pixel_y = 12;
+	tag_door = "canary_out"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
@@ -17545,7 +17554,6 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/hangar/starboard)
 "msF" = (
-/obj/machinery/newscaster/south,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
@@ -17555,6 +17563,7 @@
 /obj/effect/landmark{
 	name = "JoinLate"
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "msG" = (
@@ -18494,19 +18503,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
 "nax" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	dir = 8;
-	frequency = 1386;
-	id_tag = "canary";
-	name = "port docking controller";
-	pixel_x = 22;
-	pixel_y = 12;
-	tag_door = "canary_out"
-	},
-/obj/item/device/gps/stationary/sccv_canary{
-	pixel_x = 23;
-	pixel_y = -9
-	},
 /obj/machinery/light/colored/blue{
 	dir = 4
 	},
@@ -25785,6 +25781,7 @@
 	dir = 5
 	},
 /obj/effect/overmap/visitable/ship/landable/canary,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "sll" = (
@@ -26810,7 +26807,14 @@
 	dir = 1
 	},
 /obj/item/storage/bag/inflatable,
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	dir = 2;
+	pixel_x = 0
+	},
+/obj/item/device/gps/stationary/sccv_canary{
+	pixel_x = 23;
+	pixel_y = -9
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "sWq" = (
