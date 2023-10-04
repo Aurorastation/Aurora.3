@@ -1416,13 +1416,28 @@
 			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
-	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to ban.", "Hivenet Ban") as null|anything in available_vaurca
-	if(!target || !isvaurca(target))
+	var/mob/living/carbon/human/target = input(src, "Select a target to ban.", "Hivenet Ban") as null|anything in available_vaurca
+	if(!target)
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
 	var/list/target_fullname = splittext(target.name, " ")
 	var/target_surname = target_fullname[2]
-	to_chat(src, target.real_name)
+	if(istype(V))
+		if(!(all_languages[LANGUAGE_VAURCA] in target.languages) && V.banned)
+			target.add_language(LANGUAGE_VAURCA)
+			V.banned = FALSE
+			to_chat(src, SPAN_NOTICE("You extend your will, restoring [target]'s connection to the Hivenet. Hopefully they will be better-behaved in future."))
+			to_chat(target, SPAN_NOTICE("You feel your implant reactivate, as your limited connection to the Hivenet is restored."))
+			return
+		else if((all_languages[LANGUAGE_VAURCA] in target.languages) && !V.banned)
+			to_chat(src, SPAN_NOTICE("You extend your will, severing [target]'s connection to the Hivenet. Perhaps now they will learn their lesson."))
+			to_chat(target, SPAN_WARNING("You feel your implant's connection to the Hivenet shut off, as [src]'s will severs it."))
+			target.remove_language(LANGUAGE_VAURCA)
+			V.banned = TRUE
+			host.last_action = world.time + 1 MINUTES
+			return
+
 	if(!(all_languages[LANGUAGE_VAURCA] in target.languages) && S.banned)
 		target.add_language(LANGUAGE_VAURCA)
 		S.banned = FALSE
@@ -2115,3 +2130,42 @@
 		infest.replaced(H, affected)
 
 		msg_admin_attack("[key_name_admin(src)] infected [key_name_admin(H)] with black k'ois! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
+
+/mob/living/carbon/human/proc/phalanx_transmit()
+	set name = "Phalanx Hivenet Transmission"
+	set desc = "Make a preset transmission over the Hivenet."
+	set category = "Hivenet"
+
+	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/current_area = get_area(src)
+	var/list/messages = list(
+		"I remain operational.",
+		"Message recieved.",
+		"Order complete.",
+		"Cannot complete order.",
+		"I am on standby.",
+		"Minor damage registered.",
+		"Damage registered",
+		"Critical damage registered",
+		"Assistance required at [current_area].",
+		"Hostiles sighted at [current_area].",
+		"[current_area] is clear of threats."
+	)
+	if(src.stat != CONSCIOUS)
+		to_chat(src, SPAN_WARNING("You are in no state to do that!"))
+		return
+
+	if(!(all_languages[LANGUAGE_VAURCA] in src.languages) || !(istype(V)))
+		to_chat(src, SPAN_WARNING("You are not connected to the Hivenet!"))
+		return
+
+	if(within_jamming_range(src))
+		to_chat(src, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing!"))
+		return
+
+	var/message = input("What message do you wish to transmit?","Choose a message") as null|anything in messages
+	if(!message)
+		return
+	V.transmitting = TRUE
+	say(",9[message]")
+	V.transmitting = FALSE

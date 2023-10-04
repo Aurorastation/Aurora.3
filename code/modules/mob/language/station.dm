@@ -264,7 +264,11 @@
 					to_chat(player, encrypted_msg)
 					continue
 				var/obj/item/organ/internal/vaurca/neuralsocket/listener_socket = listener_human.internal_organs_by_name[BP_NEURAL_SOCKET]
+				var/obj/item/organ/internal/augment/language/vekatak/receiver = listener_human.internal_organs_by_name[BP_AUG_LANGUAGE]
 				if(!listener_socket || listener_socket.decryption_key != speaker_encryption_key)
+					to_chat(player, encrypted_msg)
+					continue
+				if (!receiver || receiver.decryption_key != speaker_encryption_key)
 					to_chat(player, encrypted_msg)
 					continue
 			to_chat(player, msg)
@@ -298,6 +302,10 @@
 		return 0
 	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (all_languages[LANGUAGE_VAURCA] in M.languages))
 		return 1
+	if(M.internal_organs_by_name[BP_AUG_LANGUAGE])
+		var/obj/item/organ/internal/augment/language/vekatak/V = M.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(istype(V) && (all_languages[LANGUAGE_VAURCA] in M.languages))
+			return 1
 	if(M.internal_organs_by_name["blackkois"])
 		return 1
 
@@ -319,12 +327,19 @@
 	var/mob/living/carbon/human/H = speaker
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = H.internal_organs_by_name[BP_NEURAL_SOCKET]
 	var/obj/item/organ/internal/augment/language/vekatak/V = H.internal_organs_by_name[BP_AUG_LANGUAGE]
-	if(S.muted || S.disrupted)
-		to_chat(speaker, SPAN_WARNING("You have been muted over the Hivenet!"))
-		return FALSE
-	if(istype(V) && !isvaurca(H))
-		to_chat(speaker, SPAN_WARNING("Your implant cannot transmit over the Hivenet!"))
-		return FALSE
+
+	if(istype(S))
+		if(S.muted || S.disrupted)
+			to_chat(speaker, SPAN_WARNING("You have been muted over the Hivenet!"))
+			return FALSE
+		else
+			return TRUE
+	if(istype(V))
+		if(!V.transmitting)
+			to_chat(speaker, SPAN_WARNING("Your implant cannot transmit over the Hivenet!"))
+			return FALSE
+		else
+			return TRUE
 	else
 		return TRUE
 

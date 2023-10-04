@@ -479,10 +479,11 @@
 
 /obj/item/organ/internal/augment/language/vekatak
 	name = "Ve'katak Phalanx Hivenet reciever"
-	augment_languages = list(LANGUAGE_BUG)
-	granted_verbs = list(/mob/living/carbon/human/proc/hivenet_recieve)
+	augment_languages = list(LANGUAGE_VAURCA)
+	granted_verbs = list(/mob/living/carbon/human/proc/hivenet_recieve, /mob/living/carbon/human/proc/phalanx_transmit)
 	var/decryption_key
 	var/banned = FALSE
+	var/transmitting = FALSE
 
 /obj/item/organ/internal/augment/language/vekatak/emp_act()
 	. = ..()
