@@ -48,10 +48,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/corner,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/atmos/storage)
 "aax" = (
@@ -2608,13 +2608,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
-"biI" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor/tiled,
-/area/engineering/atmos/storage)
 "biZ" = (
 /obj/structure/bed/stool/chair/sofa/right/red{
 	dir = 4
@@ -3192,10 +3185,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "bwU" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "bxp" = (
@@ -3983,11 +3976,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bPf" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -13515,7 +13508,7 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -14650,11 +14643,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "hax" = (
-/obj/machinery/light/spot{
-	dir = 8
-	},
 /obj/structure/sign/electricshock/tesla{
 	pixel_x = -32
+	},
+/obj/machinery/light/floor{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
@@ -17280,7 +17273,7 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
@@ -32763,7 +32756,7 @@
 /obj/structure/cable/orange{
 	icon_state = "2-4"
 	},
-/obj/machinery/light/spot{
+/obj/machinery/light/floor{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -34787,15 +34780,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
-"qRh" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos/storage)
 "qRE" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 1
@@ -35348,9 +35332,6 @@
 /obj/structure/cable/orange{
 	icon_state = "1-2"
 	},
-/obj/machinery/light/spot{
-	dir = 4
-	},
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "tesla_south";
@@ -35367,6 +35348,9 @@
 	},
 /obj/structure/sign/electricshock/tesla{
 	pixel_x = 42
+	},
+/obj/machinery/light/floor{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/tesla)
@@ -35610,7 +35594,7 @@
 /obj/structure/cable/orange{
 	icon_state = "2-8"
 	},
-/obj/machinery/light/spot{
+/obj/machinery/light/floor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -49777,10 +49761,10 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/atmos/storage)
 "xWV" = (
@@ -71446,8 +71430,8 @@ ulg
 vCQ
 fnn
 aFm
-biI
-qRh
+bwU
+bPf
 jkb
 puO
 rNE
