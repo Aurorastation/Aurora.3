@@ -3153,7 +3153,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "coB" = (
@@ -4944,6 +4943,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
+"dAX" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "dAZ" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -13754,6 +13759,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
+"jIp" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "jID" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
@@ -21786,6 +21797,18 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
+"psv" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "psB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -29529,6 +29552,14 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
+"uQO" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "uQU" = (
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = 32
@@ -57971,7 +58002,7 @@ uVL
 oVe
 njH
 boY
-lUr
+jIp
 uFv
 vVI
 lUr
@@ -58173,8 +58204,8 @@ twQ
 fnL
 lBp
 bxw
-bxw
-bxw
+uQO
+psv
 coo
 bxw
 bxw
@@ -58377,7 +58408,7 @@ uVL
 doR
 gBo
 aom
-lUr
+dAX
 bZp
 nfE
 axK
