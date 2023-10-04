@@ -888,3 +888,23 @@
 	icon_state = "sfa_suit"
 	item_state = "sfa_suit"
 	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/void/coalition/gadpathur
+	name = "coalition vulture-GP voidsuit helmet"
+	desc = "A helmet resembling an avian. This one has been modified for usage with Gadpathur's navy."
+	icon = 'icons/clothing/rig/gadpathurian_suit.dmi'
+	icon_state = "gadpathur_vulture_helm"
+	item_state = "gadpathur_vulture_helm"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+
+	brightness_on = 6
+
+/obj/item/clothing/suit/space/void/coalition/gadpathur
+	name = "coalition vulture-GP voidsuit"
+	desc = "An iconic voidsuit of Xanan make, designed after the Interstellar War. This one has been modified for usage with Gadpathur's navy."
+	icon = 'icons/clothing/rig/gadpathurian_suit.dmi'
+	icon_state = "gadpathur_vulture"
+	item_state = "gadpathur_vulture"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_SKRELL)
