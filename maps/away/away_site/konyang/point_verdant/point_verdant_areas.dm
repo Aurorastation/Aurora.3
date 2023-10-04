@@ -48,6 +48,7 @@
 
 /area/point_verdant/interior/police
 	name = "Point Verdant - Police Department"
+	icon_state = "security"
 
 /area/point_verdant/interior/bar
 	name = "Point Verdant - Bar"
