@@ -283,26 +283,6 @@
 		add_overlay(console_overlay)
 		set_light(1.4, 1, COLOR_PURPLE)
 
-/obj/machinery/body_scanconsole/proc/get_collapsed_lung_desc()
-	if (!connected || !connected.occupant)
-		return
-	if (connected.occupant.name != connected.last_occupant_name || !collapse_desc)
-		var/ldesc = pick("collapsing", "collapsed", "pneumothorax detected")
-		collapse_desc = ldesc
-		connected.last_occupant_name = connected.occupant.name
-
-	return collapse_desc
-
-/obj/machinery/body_scanconsole/proc/get_broken_lung_desc()
-	if (!connected || !connected.occupant)
-		return
-	if (connected.occupant.name != connected.last_occupant_name || !broken_desc)
-		var/ldesc = pick("rupturing", "ruptured", "extensive damage detected")
-		broken_desc = ldesc
-		connected.last_occupant_name = connected.occupant.name
-
-	return broken_desc
-
 /obj/machinery/body_scanconsole/Initialize()
 	. = ..()
 	for(var/obj/machinery/bodyscanner/C in orange(1,src))
@@ -472,8 +452,10 @@
 		data["organs"] = get_internal_wound_data(occupant)
 		data["has_internal_injuries"] = has_internal_injuries
 		data["has_external_injuries"] = has_external_injuries
-		var/list/missing = get_missing_organs(occupant)
-		data["missing_organs"] = missing
+		var/list/missing_limbs = get_missing_limbs(occupant)
+		data["missing_limbs"] = missing_limbs
+		var/list/missing_organs = get_missing_organs(occupant)
+		data["missing_organs"] = missing_organs
 	return data
 
 /obj/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
@@ -505,6 +487,17 @@
 		if (!locate(species_organs[organ_name]) in H.internal_organs)
 			missingOrgans += organ_name
 	return capitalize(english_list(missingOrgans))
+
+/obj/machinery/body_scanconsole/proc/get_missing_limbs(var/mob/living/carbon/human/H)
+	var/list/missingLimbs = list()
+	var/list/species_limbs = H.species.has_limbs
+	for(var/limb_tag in species_limbs)
+		var/obj/item/organ/external/E = H.get_organ(limb_tag)
+		if(!locate(E) in H.organs)
+			var/list/organ_data = species_limbs[limb_tag]
+			var/organ_descriptor = organ_data["descriptor"]
+			missingLimbs += organ_descriptor
+	return capitalize(english_list(missingLimbs))
 
 /obj/machinery/body_scanconsole/proc/get_external_wound_data(var/mob/living/carbon/human/H)
 	// Limbs.
@@ -542,7 +535,7 @@
 			if (level && level != "")
 				infection += "[level]"
 		if (O.rejecting)
-			infection += "Rejection"
+			infection += "rejection"
 
 		if (O.implants.len)
 			var/unk = 0
@@ -582,30 +575,30 @@
 			if(H.status_flags & FAKEDEATH)
 				internal_damage = "Severe" // fake some brain damage
 				if(!(O.status & ORGAN_DEAD)) // to prevent this wound from appearing twice
-					wounds += "Necrosis; Dead."
+					wounds += "necrotic; dead"
 			if(H.has_brain_worms())
-				wounds += "Abnormal growth."
+				wounds += "abnormal growth"
 		data["damage"] = internal_damage
+		if(O.is_broken())
+			wounds += "broken"
+		else if(O.is_bruised())
+			wounds += "bruised"
 		if(istype(O, /obj/item/organ/internal/lungs))
 			var/obj/item/organ/internal/lungs/L = O
-			if(L.is_broken())
-				wounds += get_broken_lung_desc()
-			else if(L.is_bruised())
-				wounds += get_collapsed_lung_desc()
 			if(L.rescued)
-				wounds += "Punctured"
+				wounds += "punctured"
 
 		if(O.status & ORGAN_DEAD)
 			if(O.can_recover())
-				wounds += "Necrosis; Debridable"
+				wounds += "necrotic; debridable"
 			else
-				wounds += "Necrosis; Dead"
+				wounds += "necrotic; dead"
 
 		if(istype(O, H.species.vision_organ))
 			if(H.sdisabilities & BLIND)
-				wounds += "Cataracts"
+				wounds += "has cataracts"
 			else if(H.disabilities & NEARSIGHTED)
-				wounds += "Retina misalignment"
+				wounds += "has misaligned retinas"
 
 		var/list/infection  = list()
 		if(O.germ_level)
@@ -614,13 +607,16 @@
 				infection += "[level]"
 
 		if(O.rejecting)
-			wounds += "Rejection."
+			infection += "rejection"
 
 		if(O.get_scarring_level() > 0.01)
 			wounds += "[O.get_scarring_results()]"
 
-		if(length(wounds) || internal_damage != "None")
+		if(length(wounds) || internal_damage != "None" || length(infection))
 			has_internal_injuries = TRUE
+
+		if(!length(infection))
+			infection += "healthy"
 
 		data["wounds"] = capitalize(english_list(wounds, "None"))
 		data["infection"] = capitalize(english_list(infection, "None"))
@@ -693,6 +689,11 @@
 
 	var/datum/reagents/R = H.bloodstr
 
+	connected.has_internal_injuries = FALSE
+	connected.has_external_injuries = FALSE
+	var/list/bodyparts = connected.get_external_wound_data(H)
+	var/list/organs = connected.get_internal_wound_data(H)
+
 	var/list/occupant_data = list(
 		"stationtime" = worldtime2text(),
 		"stat" = displayed_stat,
@@ -723,12 +724,12 @@
 		"dermaline_amount" = REAGENT_VOLUME(R, /singleton/reagent/dermaline),
 		"thetamycin_amount" = REAGENT_VOLUME(R, /singleton/reagent/thetamycin),
 		"other_amount" = R.total_volume - (REAGENT_VOLUME(R, /singleton/reagent/inaprovaline) + REAGENT_VOLUME(R, /singleton/reagent/soporific) + REAGENT_VOLUME(R, /singleton/reagent/bicaridine) + REAGENT_VOLUME(R, /singleton/reagent/dexalin) + REAGENT_VOLUME(R, /singleton/reagent/dermaline) + REAGENT_VOLUME(R, /singleton/reagent/thetamycin)),
-		"disabilities" = H.sdisabilities,
-		"lung_ruptured" = H.is_lung_ruptured(),
-		"lung_rescued" = H.is_lung_rescued(),
-		"external_organs" = H.organs.Copy(),
-		"internal_organs" = H.internal_organs.Copy(),
-		"species_organs" = H.species.has_organ //Just pass a reference for this, it shouldn't ever be modified outside of the datum.
+		"bodyparts" = bodyparts,
+		"organs" = organs,
+		"has_internal_injuries" = connected.has_internal_injuries,
+		"has_external_injuries" = connected.has_external_injuries,
+		"missing_limbs" = connected.get_missing_limbs(H),
+		"missing_organs" = connected.get_missing_organs(H)
 		)
 	return occupant_data
 
@@ -783,153 +784,52 @@
 
 	dat += "<br><b>Body Status</b><HR>"
 
-	var/external_injuries_table = FALSE
-	for(var/obj/item/organ/external/e in occ["external_organs"])
-		var/list/wounds = list()
-
-		if(e.status & ORGAN_ARTERY_CUT)
-			wounds += "severed [e.artery_name]"
-		if(e.tendon_status() & TENDON_CUT)
-			wounds += "severed [e.tendon.name]"
-		if(e.status & ORGAN_SPLINTED)
-			wounds += "splinted"
-		if(ORGAN_IS_DISLOCATED(e))
-			wounds += "dislocated"
-		if(e.status & ORGAN_BLEEDING)
-			wounds += "bleeding"
-		if(e.status & ORGAN_BROKEN)
-			wounds += "[e.broken_description]"
-		if(e.status & ORGAN_ROBOT)
-			wounds += "prosthetic"
-		if(e.open)
-			wounds += "open"
-
-		var/infection = get_infection_level(e.germ_level)
-		if(infection)
-			infection = "[infection]."
-		if(e.rejecting)
-			infection += "Rejection"
-		if(!length(infection))
-			infection = "Healthy"
-
-		if (e.implants.len)
-			var/unk = 0
-			var/list/organic = list()
-			var/imp
-			for(var/I in e.implants)
-				if(is_type_in_list(I, known_implants))
-					imp += "[I] implanted:"
-				else if(istype(I, /obj/effect/spider))
-					organic += I
-				else
-					unk += 1
-			if(unk)
-				wounds += "unknown objects present:"
-			var/friends = length(organic)
-			if(friends)
-				wounds += friends > 1 ? "multiple abnormal organic bodies" : "abnormal organic body"
-
-		if(length(wounds) || infection != "Healthy" || e.is_stump())
-			has_external_injuries = TRUE
-			if(!external_injuries_table)
-				external_injuries_table = TRUE
-				dat += "<table border='1'>"
-				dat += "<tr>"
-				dat += "<th>Name</th>"
-				dat += "<th>Brute Trauma</th>"
-				dat += "<th>Burn Severity</th>"
-				dat += "<th>Complications</th>"
-				dat += "<th>Immune Status</th>"
-				dat += "</tr>"
-
-		if(has_external_injuries)
-			if(!length(wounds))
-				wounds += "None"
+	if(occ["has_external_injuries"])
+		dat += "<table border='1'>"
+		dat += "<tr>"
+		dat += "<th>Name</th>"
+		dat += "<th>Brute</th>"
+		dat += "<th>Burn</th>"
+		dat += "<th>Complications</th>"
+		dat += "<th>Immune</th>"
+		dat += "</tr>"
+		for(var/list/data in occ["bodyparts"]) // cant believe this shit worked HOLY FUCK
 
 			dat += "<tr>"
-			if(!e.is_stump())
-				dat += "<td>[capitalize(e.name)]</td><td>[get_severity(e.brute_dam, TRUE)]</td><td>[get_severity(e.burn_dam, TRUE)]</td><td>[capitalize(english_list(wounds))]</td><td>[infection]</td>"
-			else
-				dat += "<td>[capitalize(e.name)]</td><td>-</td><td>-</td><td>Not [e.is_stump() ? "found" : "attached completely"]</td>"
+			dat += "<td>[data["name"]]</td><td>[data["brute_damage"]]</td><td>[data["burn_damage"]]</td><td>[data["wounds"]]</td><td>[data["infection"]]</td>"
 			dat += "</tr>"
 
 	if(!has_external_injuries)
-		dat += "No external injuries detected."
+		dat += "No external injuries detected.<br>"
 	else
 		dat += "</table>"
+
+	if(occ["missing_limbs"] != "Nothing")
+		dat += text("<span class='warning'>Missing limbs : [occ["missing_limbs"]]</span><BR>")
 
 	dat += "<br><b>Internal Organ Status<HR></b>"
 
-	var/internal_injuries_table = FALSE
-	for(var/obj/item/organ/internal/i in occ["internal_organs"])
-		var/list/wounds = list()
-
-		if(i.robotic == ROBOTIC_ASSISTED)
-			wounds +=  "Assisted."
-		if(i.robotic == ROBOTIC_MECHANICAL)
-			wounds +=  "Mechanical."
-
-		var/infection = get_infection_level(i.germ_level)
-		if(infection)
-			infection = "[infection]."
-		if(i.rejecting)
-			infection += "Rejection."
-		if(!length(infection))
-			infection = "Healthy"
-
-		if(i.get_scarring_level() > 0.01)
-			wounds +=  " [i.get_scarring_results()]."
-		if(i.status & ORGAN_DEAD)
-			if(i.can_recover())
-				wounds +=  "Necrotic; Debridable."
-			else
-				wounds +=  "Necrotic; Dead."
-
-		if(istype(i, /obj/item/organ/internal/lungs))
-			if(occ["lung_ruptured"])
-				wounds += "Ruptured."
-			if(occ["lung_rescued"])
-				wounds += "Punctured."
-
-		if(istype(i, /obj/item/organ/internal/brain))
-			if(occ["borer_present"])
-				dat += "Abnormal growth."
-
-		if(istype(i, /obj/item/organ/internal/eyes))
-			if(occ["sdisabilities"] & BLIND)
-				dat += text("Cataracts.")
-			if(occ["sdisabilities"] & NEARSIGHTED)
-				dat += text("Retinal misalignment.")
-
-		if(length(wounds) || infection != "Healthy")
-			has_internal_injuries = TRUE
-			if(!internal_injuries_table)
-				internal_injuries_table = TRUE
-				dat += "<table border='1'>"
-				dat += "<tr>"
-				dat += "<th>Name</th>"
-				dat += "<th>Damage</th>"
-				dat += "<th>Complications</th>"
-				dat += "<th>Immune Status</th>"
-				dat += "</tr>"
-
-		if(has_internal_injuries)
-			if(!length(wounds))
-				wounds += "None"
+	if(occ["has_internal_injuries"])
+		dat += "<table border='1'>"
+		dat += "<tr>"
+		dat += "<th>Name</th>"
+		dat += "<th>Damage</th>"
+		dat += "<th>Complications</th>"
+		dat += "<th>Immune</th>"
+		dat += "</tr>"
+		for(var/list/data in occ["organs"]) // cant believe this shit worked HOLY FUCK
 
 			dat += "<tr>"
-			dat += "<td>[capitalize(i.name)]</td>+<td>[get_internal_damage(i)]</td><td>[capitalize(english_list(wounds))]</td><td>[infection]</td>"
+			dat += "<td>[data["name"]]</td><td>[data["damage"]]</td><td>[data["wounds"]]</td><td>[data["infection"]]</td>"
 			dat += "</tr>"
 
 	if(!has_internal_injuries)
-		dat += "No internal injuries detected."
+		dat += "No internal injuries detected.<br>"
 	else
 		dat += "</table>"
 
-	var/list/species_organs = occ["species_organs"]
-	for(var/organ_name in species_organs)
-		if(!locate(species_organs[organ_name]) in occ["internal_organs"])
-			dat += text("<span class='warning'>No [organ_name] detected.</span><BR>")
+	if(occ["missing_organs"] != "Nothing")
+		dat += text("<span class='warning'>Missing organs : [occ["missing_organs"]]</span><BR>")
 
 	dat += "</font></font>"
 

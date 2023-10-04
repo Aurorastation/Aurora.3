@@ -44,6 +44,7 @@ export type ScannerData = {
   organs: InternalOrgan[];
   has_internal_injuries: BooleanLike;
   has_external_injuries: BooleanLike;
+  missing_limbs: string;
   missing_organs: string;
 };
 
@@ -272,6 +273,11 @@ export const ScannerWindow = (props, context) => {
               </BlockQuote>
             )}
           </Section>
+          <LabeledList>
+            <Section>
+              {data.missing_limbs === 'Nothing' ? '' : <MissingLimbs />}
+            </Section>
+          </LabeledList>
           <Section title="Internal Organ Status">
             {data.has_internal_injuries ? (
               <OrganWindow />
@@ -299,15 +305,13 @@ export const OrganWindow = (props, context) => {
     <Table>
       <Table.Row color="blue">
         <Table.Cell>Name</Table.Cell>
-        <Table.Cell>Location</Table.Cell>
         <Table.Cell>Damage</Table.Cell>
         <Table.Cell>Complications</Table.Cell>
-        <Table.Cell>Immune Status</Table.Cell>
+        <Table.Cell>Immune</Table.Cell>
       </Table.Row>
       {data.organs.sort().map((organ) => (
         <Table.Row key={organ.name}>
           <Table.Cell>{organ.name}</Table.Cell>
-          <Table.Cell>{organ.location}</Table.Cell>
           <Table.Cell color={damageLabel(organ.damage)}>
             {organ.damage}
           </Table.Cell>
@@ -326,10 +330,10 @@ export const ExternalOrganWindow = (props, context) => {
     <Table>
       <Table.Row color="blue">
         <Table.Cell>Name</Table.Cell>
-        <Table.Cell>Brute Trauma</Table.Cell>
-        <Table.Cell>Burn Severity</Table.Cell>
+        <Table.Cell>Brute</Table.Cell>
+        <Table.Cell>Burn</Table.Cell>
         <Table.Cell>Complications</Table.Cell>
-        <Table.Cell>Immune Status</Table.Cell>
+        <Table.Cell>Immune</Table.Cell>
       </Table.Row>
       {data.bodyparts.sort().map((organ) => (
         <Table.Row key={organ.name}>
@@ -356,6 +360,19 @@ export const MissingOrgans = (props, context) => {
       Missing organs:{' '}
       <Box as="span" color="red">
         {data.missing_organs}
+      </Box>
+    </BlockQuote>
+  );
+};
+
+export const MissingLimbs = (props, context) => {
+  const { act, data } = useBackend<ScannerData>(context);
+
+  return (
+    <BlockQuote>
+      Missing limbs:{' '}
+      <Box as="span" color="red">
+        {data.missing_limbs}
       </Box>
     </BlockQuote>
   );
