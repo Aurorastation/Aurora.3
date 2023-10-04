@@ -1412,6 +1412,10 @@
 			var/player_surname = player_fullname[2]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+			if(istype(V))
+				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to ban.", "Hivenet Ban") as null|anything in available_vaurca
 	if(!target || !isvaurca(target))
 		return
@@ -1646,14 +1650,34 @@
 	set category = "Hivenet"
 
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = src.internal_organs_by_name[BP_NEURAL_SOCKET]
-	if(!src.can_hivenet())
+	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE]
+	if(src.stat != CONSCIOUS)
+		to_chat(src, SPAN_WARNING("You must be conscious to use this ability!"))
 		return
-	if(S.decryption_key)
-		S.decryption_key = null
-		to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been reset."))
+
+	if(!(all_languages[LANGUAGE_VAURCA] in src.languages))
+		to_chat(src, SPAN_DANGER("Your mind is dark, unable to communicate with the Hive."))
 		return
-	S.decryption_key = input(src, "Enter a new decryption key for Hivenet messages.", "Hivenet Decryption") as text
-	to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been set to [S.decryption_key]."))
+
+	if(!istype(S) && !istype(V))
+		to_chat(src, SPAN_WARNING("You do not have a functional connection to the Hivenet!"))
+		return
+
+	if(istype(S))
+		if(S.decryption_key)
+			S.decryption_key = null
+			to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been reset."))
+			return
+		S.decryption_key = input(src, "Enter a new decryption key for Hivenet messages.", "Hivenet Decryption") as text
+		to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been set to [S.decryption_key]."))
+
+	else if(istype(V))
+		if(V.decryption_key)
+			V.decryption_key = null
+			to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been reset."))
+			return
+		V.decryption_key = input(src, "Enter a new decryption key for Hivenet messages.", "Hivenet Decryption") as text
+		to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been set to [V.decryption_key]."))
 
 /mob/living/carbon/human/proc/hivenet_encrypt()
 	set name = "Set Hivenet Encryption"
