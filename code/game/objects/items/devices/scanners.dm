@@ -677,29 +677,29 @@ BREATH ANALYZER
 
 /obj/item/device/advanced_healthanalyzer
 	name = "advanced health analyzer"
-	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
-	icon_state = "zh-analyzer"
-	item_state = "zh-analyzer"
+	desc = "An expensive and varied-use health analyzer of Zeng-Hu design that prints full-body scans after a short scanning delay."
+	icon_state = "adv-analyzer"
+	item_state = "adv-analyzer"
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
-	var/obj/machinery/body_scanconsole/internal_bodyscanner = null //this is used to print the date and to deal with extra
+	var/obj/machinery/body_scanconsole/connected = null //this is used to print the date and to deal with extra
 
 /obj/item/device/advanced_healthanalyzer/Initialize()
 	. = ..()
-	if(!internal_bodyscanner)
+	if(!connected)
 		var/obj/machinery/body_scanconsole/S = new (src)
 		S.forceMove(src)
 		S.update_use_power(POWER_USE_OFF)
-		internal_bodyscanner = S
+		connected = S
 
 /obj/item/device/advanced_healthanalyzer/Destroy()
-	if(internal_bodyscanner)
-		QDEL_NULL(internal_bodyscanner)
+	if(connected)
+		QDEL_NULL(connected)
 	return ..()
 
 /obj/item/device/advanced_healthanalyzer/attack(mob/living/M, mob/living/user)
-	if(!internal_bodyscanner)
+	if(!connected)
 		return
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(src)
@@ -711,22 +711,63 @@ BREATH ANALYZER
 /obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
 	var/obj/item/paper/medscan/R = new(user.loc)
 	R.color = "#eeffe8"
-	R.set_content_unsafe("Scan ([M.name])", internal_bodyscanner.format_occupant_data(get_medical_data(M)))
+	R.set_content_unsafe("Scan ([M.name])", connected.format_occupant_data(get_occupant_data(M)))
 
-	if(ishuman(user) && !(user.l_hand && user.r_hand))
-		user.put_in_hands(R)
-	user.visible_message("\The [src] spits out a piece of paper.")
+	connected.print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = user)
 
-/obj/item/device/advanced_healthanalyzer/proc/get_medical_data(var/mob/living/carbon/human/H)
+/obj/item/device/advanced_healthanalyzer/proc/get_occupant_data(var/mob/living/carbon/human/H)
 	if (!ishuman(H))
 		return
 
-	var/list/medical_data = list(
+	var/displayed_stat = H.stat
+	var/blood_oxygenation = H.get_blood_oxygenation()
+	if(H.status_flags & FAKEDEATH)
+		displayed_stat = DEAD
+		blood_oxygenation = min(blood_oxygenation, BLOOD_VOLUME_SURVIVE)
+	switch(displayed_stat)
+		if(CONSCIOUS)
+			displayed_stat = "Conscious"
+		if(UNCONSCIOUS)
+			displayed_stat = "Unconscious"
+		if(DEAD)
+			displayed_stat = "DEAD"
+
+	var/pulse_result
+	if(H.should_have_organ(BP_HEART))
+		var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
+		if(!heart)
+			pulse_result = 0
+		else if(BP_IS_ROBOTIC(heart))
+			pulse_result = -2
+		else if(H.status_flags & FAKEDEATH)
+			pulse_result = 0
+		else
+			pulse_result = H.get_pulse(GETPULSE_TOOL)
+	else
+		pulse_result = -1
+
+	if(pulse_result == ">250")
+		pulse_result = -3
+
+	var/datum/reagents/R = H.bloodstr
+
+	connected.has_internal_injuries = FALSE
+	connected.has_external_injuries = FALSE
+	var/list/bodyparts = connected.get_external_wound_data(H)
+	var/list/organs = connected.get_internal_wound_data(H)
+
+	var/list/occupant_data = list(
 		"stationtime" = worldtime2text(),
+		"stat" = displayed_stat,
+		"name" = H.name,
+		"species" = H.get_species(),
+
 		"brain_activity" = H.get_brain_status(),
+		"pulse" = text2num(pulse_result),
 		"blood_volume" = H.get_blood_volume(),
 		"blood_oxygenation" = H.get_blood_oxygenation(),
 		"blood_pressure" = H.get_blood_pressure(),
+		"blood_type" = H.dna.b_type,
 
 		"bruteloss" = get_severity(H.getBruteLoss(), TRUE),
 		"fireloss" = get_severity(H.getFireLoss(), TRUE),
@@ -738,18 +779,18 @@ BREATH ANALYZER
 		"paralysis" = H.paralysis,
 		"bodytemp" = H.bodytemperature,
 		"borer_present" = H.has_brain_worms(),
-		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/inaprovaline),
-		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dexalin),
-		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/soporific),
-		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/bicaridine),
-		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dermaline),
-		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/thetamycin),
-		"blood_amount" = REAGENT_VOLUME(H.vessel, /singleton/reagent/blood),
-		"disabilities" = H.sdisabilities,
-		"lung_ruptured" = H.is_lung_ruptured(),
-		"lung_rescued" = H.is_lung_rescued(),
-		"external_organs" = H.organs.Copy(),
-		"internal_organs" = H.internal_organs.Copy(),
-		"species_organs" = H.species.has_organ
+		"inaprovaline_amount" = REAGENT_VOLUME(R, /singleton/reagent/inaprovaline),
+		"dexalin_amount" = REAGENT_VOLUME(R, /singleton/reagent/dexalin),
+		"soporific_amount" = REAGENT_VOLUME(R, /singleton/reagent/soporific),
+		"bicaridine_amount" = REAGENT_VOLUME(R, /singleton/reagent/bicaridine),
+		"dermaline_amount" = REAGENT_VOLUME(R, /singleton/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(R, /singleton/reagent/thetamycin),
+		"other_amount" = R.total_volume - (REAGENT_VOLUME(R, /singleton/reagent/inaprovaline) + REAGENT_VOLUME(R, /singleton/reagent/soporific) + REAGENT_VOLUME(R, /singleton/reagent/bicaridine) + REAGENT_VOLUME(R, /singleton/reagent/dexalin) + REAGENT_VOLUME(R, /singleton/reagent/dermaline) + REAGENT_VOLUME(R, /singleton/reagent/thetamycin)),
+		"bodyparts" = bodyparts,
+		"organs" = organs,
+		"has_internal_injuries" = connected.has_internal_injuries,
+		"has_external_injuries" = connected.has_external_injuries,
+		"missing_limbs" = connected.get_missing_limbs(H),
+		"missing_organs" = connected.get_missing_organs(H)
 		)
-	return medical_data
+	return occupant_data
