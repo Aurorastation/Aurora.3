@@ -496,11 +496,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
-	req_access = null
-	},
+/obj/machinery/power/apc/high/north,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
 "fB" = (
@@ -1039,11 +1035,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
-	req_access = null
-	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "kN" = (
@@ -1115,15 +1107,11 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner_wide/paleblue,
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
-	req_access = null
-	},
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
 "le" = (
@@ -1309,7 +1297,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/low/east,
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
 "mv" = (
@@ -1403,11 +1391,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
-	req_access = null
-	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/reinforced,
 /area/coc_survey_ship/blaster)
 "no" = (
@@ -1706,11 +1690,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
-	req_access = null
-	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/carpet/rubber,
 /area/coc_survey_ship/engineering)
 "qe" = (
@@ -1875,15 +1855,11 @@
 /area/coc_survey_ship/atmos)
 "rq" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -12;
-	req_access = null
-	},
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/machinery/power/apc/west,
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/mess_hall)
 "rt" = (
@@ -2003,7 +1979,7 @@
 /area/coc_survey_ship/grauwolf)
 "sH" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/low/east,
+/obj/machinery/power/apc/east,
 /turf/simulated/floor,
 /area/coc_survey_ship/grauwolf)
 "sK" = (
@@ -2836,14 +2812,10 @@
 /area/coc_survey_ship/mess_hall)
 "zo" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -12;
-	req_access = null
-	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/machinery/power/apc/west,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/medical)
 "zr" = (
@@ -2929,7 +2901,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/low/south,
+/obj/machinery/power/apc/south,
 /turf/simulated/floor,
 /area/coc_survey_ship/starboard_propulsion)
 "Ai" = (
@@ -3023,11 +2995,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 8;
-	pixel_x = -12;
-	req_access = null
-	},
+/obj/machinery/power/apc/west,
 /turf/simulated/floor/carpet/lightblue,
 /area/coc_survey_ship/captain)
 "Bm" = (
@@ -3356,11 +3324,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
-	req_access = null
-	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
 "Dz" = (
@@ -3416,7 +3380,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/low/east,
+/obj/machinery/power/apc/east,
 /turf/simulated/floor,
 /area/coc_survey_ship/port_propulsion)
 "DT" = (
@@ -4015,9 +3979,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east{
-	req_access = null
-	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/anomaly)
 "IR" = (
@@ -4371,11 +4333,11 @@
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/coc_survey_ship/starboard_propulsion)
 "LG" = (
-/obj/machinery/power/apc,
 /obj/structure/cable{
-	dir = 8;
+	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/cargo)
 "LL" = (
@@ -4523,11 +4485,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
-	req_access = null
-	},
+/obj/machinery/power/apc/high/north,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "MY" = (
@@ -4979,7 +4937,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/low/east,
+/obj/machinery/power/apc/east,
 /turf/simulated/floor,
 /area/coc_survey_ship/hangar)
 "RH" = (
@@ -5297,11 +5255,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
-	req_access = null
-	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/kitchen)
 "Ul" = (
@@ -5948,17 +5902,13 @@
 "Zc" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/power/apc{
-	dir = 1;
-	pixel_y = 24;
-	req_access = null
-	},
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/cryo)
 "Zd" = (
