@@ -9346,7 +9346,9 @@
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "eAX" = (
-/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
+	},
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
@@ -11296,10 +11298,12 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "fwE" = (
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/camera/network/service{
 	c_tag = "Second Deck - Public Garden"
+	},
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
 	},
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
@@ -14065,10 +14069,12 @@
 /turf/simulated/floor/grass,
 /area/rnd/hallway)
 "gFc" = (
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
 	},
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
@@ -26216,9 +26222,11 @@
 /turf/simulated/open,
 /area/operations/office)
 "mBk" = (
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/light,
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
+	},
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
 "mBB" = (
@@ -36685,11 +36693,13 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "rAn" = (
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/firealarm/west,
 /obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
+	},
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
 	},
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
@@ -38602,7 +38612,9 @@
 /turf/simulated/wall,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "sBy" = (
-/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
+	},
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/item/device/radio/intercom/west,
 /turf/simulated/floor/grass,
@@ -48929,6 +48941,13 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/lounge/bar)
+"xmt" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
+	},
+/turf/simulated/floor/grass,
+/area/horizon/hydroponics/garden)
 "xmw" = (
 /obj/machinery/alarm/east,
 /obj/effect/floor_decal/corner/dark_green/full{
@@ -72144,7 +72163,7 @@ mHh
 slm
 uZs
 vCa
-eAX
+xmt
 wCt
 buG
 eAX
@@ -72346,10 +72365,10 @@ hTT
 slm
 sOu
 vCa
-eAX
+xmt
 bCV
 jRO
-eAX
+xmt
 hPC
 oTR
 giw
@@ -72753,7 +72772,7 @@ xOo
 fwE
 bTM
 hTt
-eAX
+xmt
 dvw
 mjl
 mXh

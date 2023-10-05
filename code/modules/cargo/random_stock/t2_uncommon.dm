@@ -48,6 +48,9 @@ STOCK_ITEM_UNCOMMON(implants, 1)
 STOCK_ITEM_UNCOMMON(flashbang, 0.75)
 	new /obj/item/storage/box/flashbangs(L)
 
+STOCK_ITEM_UNCOMMON(stinger, 0.75)
+	new /obj/item/storage/box/stingers(L)
+
 STOCK_ITEM_UNCOMMON(arrest, 1)
 	if(prob(60))
 		new /obj/item/storage/box/handcuffs(L)

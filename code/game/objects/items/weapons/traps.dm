@@ -382,7 +382,7 @@
 			to_chat(user, SPAN_WARNING("\The [WT] is off!"))
 			return
 		user.visible_message("<span class='notice'>[user] is trying to slice \the [src] open!</span>",
-							 "<span class='notice'>You are trying to slice \the [src] open!</span>")
+								"<span class='notice'>You are trying to slice \the [src] open!</span>")
 
 		if(WT.use_tool(src, user, 60, volume = 50))
 			if(WT.use(2, user))
@@ -401,14 +401,14 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
-							 "<span class='notice'>You are trying to [anchored ? "un" : "" ]secure \the [src]!</span>")
+								"<span class='notice'>You are trying to [anchored ? "un" : "" ]secure \the [src]!</span>")
 		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
 
 		if(W.use_tool(src, user, 30, volume = 50))
 			density = !density
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
-								"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
+									"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
 	else
 		..()
 
@@ -572,7 +572,7 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] begins [anchored ? "un" : "" ]securing \the [src]!</span>",
-							  "<span class='notice'>You begin [anchored ? "un" : "" ]securing \the [src]!</span>")
+								"<span class='notice'>You begin [anchored ? "un" : "" ]securing \the [src]!</span>")
 
 		if(W.use_tool(src, user, 30, volume = 50))
 			anchored = !anchored

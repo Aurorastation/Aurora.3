@@ -240,7 +240,7 @@
 	icon = 'icons/obj/spaceship/cockpit_chair.dmi'
 
 /obj/structure/bed/stool/chair/cockpit/CanPass(atom/movable/mover, turf/target, height, air_group)
-    return TRUE
+	return TRUE
 
 /obj/structure/bed/stool/chair/cockpit/update_icon()
 	..()

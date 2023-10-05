@@ -857,15 +857,15 @@
 	return
 
 /datum/chemical_reaction/uraniumsolidification
-    name = "Uranium"
-    id = "soliduranium"
-    result = null
-    required_reagents = list(/singleton/reagent/potassium = 5, /singleton/reagent/frostoil = 5, /singleton/reagent/uranium = 20)
-    result_amount = 1
+	name = "Uranium"
+	id = "soliduranium"
+	result = null
+	required_reagents = list(/singleton/reagent/potassium = 5, /singleton/reagent/frostoil = 5, /singleton/reagent/uranium = 20)
+	result_amount = 1
 
 /datum/chemical_reaction/uraniumsolidification/on_reaction(var/datum/reagents/holder, var/created_volume)
-    new /obj/item/stack/material/uranium(get_turf(holder.my_atom), created_volume)
-    return
+	new /obj/item/stack/material/uranium(get_turf(holder.my_atom), created_volume)
+	return
 
 /* Grenade reactions */
 
@@ -2403,11 +2403,11 @@
 	result_amount = 2
 
 /datum/chemical_reaction/drink/ration_coffee
-    name = "Ration Coffee"
-    id = "ration_coffee"
-    result = /singleton/reagent/drink/coffee/ration
-    required_reagents = list(/singleton/reagent/drink/coffee = 2, /singleton/reagent/water = 1)
-    result_amount = 3
+	name = "Ration Coffee"
+	id = "ration_coffee"
+	result = /singleton/reagent/drink/coffee/ration
+	required_reagents = list(/singleton/reagent/drink/coffee = 2, /singleton/reagent/water = 1)
+	result_amount = 3
 
 /datum/chemical_reaction/drink/soy_latte
 	name = "Soy Latte"
