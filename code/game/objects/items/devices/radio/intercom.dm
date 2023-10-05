@@ -420,7 +420,7 @@ pixel_x = 8;
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/device/radio/intercom/locked
-    var/locked_frequency
+	var/locked_frequency
 
 /obj/item/device/radio/intercom/locked/north
 	PRESET_NORTH

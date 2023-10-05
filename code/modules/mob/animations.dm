@@ -48,7 +48,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 /mob/proc/make_jittery(var/amount)
 	return
 
-/mob/living/carbon/human/make_jittery(amount)	
+/mob/living/carbon/human/make_jittery(amount)
 	jitteriness = min(1000, jitteriness + amount)	// store what will be new value
 													// clamped to max 1000
 	if(jitteriness > 100 && !is_jittery && stat != DEAD && !(status_flags & FAKEDEATH))

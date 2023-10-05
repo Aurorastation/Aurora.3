@@ -89,7 +89,6 @@
  *
  * * allow_numbers - allows numbers and common special characters - used for silicon/other weird things names
  */
-
 /proc/sanitizeName(input, max_length = MAX_NAME_LEN, allow_numbers = TRUE)
 	if(!input)
 		return //Rejects the input if it is null
