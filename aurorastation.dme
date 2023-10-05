@@ -11,6 +11,7 @@
 // END_PREFERENCES
 // BEGIN_INCLUDE
 #include "code\__linters.dm"
+#include "code\_compile_options.dm"
 #include "code\global.dm"
 #include "code\hub.dm"
 #include "code\names.dm"
@@ -20,7 +21,6 @@
 #include "code\__defines\_click.dm"
 #include "code\__defines\_common.dm"
 #include "code\__defines\_compile_helpers.dm"
-#include "code\__defines\_compile_options.dm"
 #include "code\__defines\_layers.dm"
 #include "code\__defines\_macros.dm"
 #include "code\__defines\_unit_tests.dm"
