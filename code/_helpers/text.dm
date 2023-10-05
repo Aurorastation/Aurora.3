@@ -85,11 +85,10 @@
 #define SYMBOLS_DETECTED_NEW_WORD 5 // symbols that we will interpret as the start of a new word
 
 /**
-  * Filters out undesirable characters from names.
-  *
-  * * allow_numbers - allows numbers and common special characters - used for silicon/other weird things names
-  */
-
+ * Filters out undesirable characters from names.
+ *
+ * * allow_numbers - allows numbers and common special characters - used for silicon/other weird things names
+ */
 /proc/sanitizeName(input, max_length = MAX_NAME_LEN, allow_numbers = TRUE)
 	if(!input)
 		return //Rejects the input if it is null

@@ -112,10 +112,10 @@
 	sound_env = LARGE_SOFTFLOOR
 
 /area/library
- 	name = "Library"
- 	icon_state = "library"
- 	sound_env = LARGE_SOFTFLOOR
- 	station_area = 1
+	name = "Library"
+	icon_state = "library"
+	sound_env = LARGE_SOFTFLOOR
+	station_area = 1
 
 /area/chapel
 	station_area = 1

@@ -32,7 +32,7 @@
 	//Only give an ion law/mess with spam filters if it's the station ship that passed through the storm
 	if(station_level)
 		give_ion_law()
-	
+
 		for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
 			MS.spamfilter.Cut()
 			var/filter_num = rand(1, MS.spamfilter_limit)

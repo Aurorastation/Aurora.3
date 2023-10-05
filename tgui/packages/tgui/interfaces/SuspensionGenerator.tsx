@@ -32,7 +32,7 @@ export const SuspensionGenerator = (props, context) => {
                   disabled={!data.anchored}
                   icon={data.active ? 'times' : 'power-off'}
                   color={data.active ? 'good' : 'bad'}
-                  tooltip="Cannot be enabled while anchored."
+                  tooltip="Cannot be enabled while unanchored."
                   onClick={() => act('togglefield')}
                 />
               }>

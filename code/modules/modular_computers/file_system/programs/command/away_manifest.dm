@@ -14,7 +14,7 @@
 
 /datum/computer_file/program/away_manifest/ui_data(mob/user)
 	var/list/data = list()
-	
+
 	if(active_record)
 		data["active_record"] = list(
 			"name" = active_record.name,
@@ -32,29 +32,29 @@
 		data["shuttle_manifest"] = allshuttles
 		data["active_record"] = null
 	return data
-	
+
 /datum/computer_file/program/away_manifest/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
-		
+
 	switch(action)
 		if("am_menu")
 			. = TRUE
 			active_record = null
 			SStgui.update_uis(computer)
-		
+
 		if("editentry")
 			for(var/datum/record/shuttle_manifest/m in SSrecords.shuttle_manifests)
 				if(m.id == text2num(params["editentry"]))
 					active_record = m
 					break
-		
+
 		if("back")
 			. = TRUE
 			active_record = null
 			SStgui.update_uis(computer)
-			
+
 	//Check ID for command/mining/research access to edit
 	if(!istype(usr))
 		return
@@ -62,7 +62,7 @@
 	if(!istype(I) || !I.registered_name || issilicon(usr) || (!(access_heads in I.access) && !(access_research in I.access) && !(access_mining in I.access)))
 		to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return
-			
+
 	switch(action)
 		if("addentry")
 			. = TRUE
@@ -71,19 +71,19 @@
 				m.name = "Unknown"
 				m.shuttle = "Unknown"
 				active_record = m
-			
+
 		if("saveentry")
 			. = TRUE
 			SSrecords.update_record(active_record)
 			active_record = null
 			SStgui.update_uis(computer)
-		
+
 		if("deleteentry")
 			. = TRUE
 			SSrecords.remove_record(active_record)
 			active_record = null
 			SStgui.update_uis(computer)
-				
+
 		if("editentryname")
 			. = TRUE
 			var/names = list()
@@ -94,7 +94,7 @@
 				if(!newname)
 					return
 				active_record.name = newname
-					
+
 		if("editentrynamecustom")
 			. = TRUE
 			var/newname = sanitize(input("Please enter name.") as null|text)
@@ -109,4 +109,3 @@
 				if(!newshuttle)
 					return
 				active_record.shuttle = newshuttle
-				

@@ -71,8 +71,8 @@
 	)
 
 /obj/effect/overmap/visitable/ship/diona_rokz_ship/New()
-    designation = "[pick("Boulder", "Stonecarp", "Gibber")]"
-    ..()
+	designation = "[pick("Boulder", "Stonecarp", "Gibber")]"
+	..()
 
 /obj/effect/overmap/visitable/ship/diona_rokz_ship/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "diona")
