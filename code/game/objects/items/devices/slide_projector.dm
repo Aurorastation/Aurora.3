@@ -71,7 +71,7 @@
 	moved_event.unregister(src, src, PROC_REF(check_projections))
 	set_light(0)
 	update_icon()
-	
+
 /obj/item/storage/slide_projector/proc/project_at(turf/target)
 	stop_projecting()
 	if(!current_slide)
@@ -96,7 +96,7 @@
 		data += "<a href='?src=\ref[src];stop_projector=1'>Disable Projector</a>"
 	else
 		data += "Projector Inactive"
-	
+
 	var/table = list("<table><tr><th>#</th><th>SLIDE</th><th>SHOW</th></tr>")
 	var/i = 1
 	for(var/obj/item/I in contents)
@@ -131,7 +131,7 @@
 			return TRUE
 		set_slide(contents[index])
 		. = FALSE
-	
+
 	interact(usr)
 
 /obj/effect/projection

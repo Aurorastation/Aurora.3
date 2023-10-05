@@ -12,8 +12,10 @@
 	var/destroyed_stack_amount //to specify a non-zero amount of stack to drop when destroyed
 	var/health = 100 //Pretty tough. Changes sprites at 300 and 150
 	var/maxhealth = 100 //Basic code functions
-	 /// Used for calculating some stuff related to maxhealth as it constantly changes due to e.g. barbed wire. set to 100 to avoid possible divisions by zero
+
+	///Used for calculating some stuff related to maxhealth as it constantly changes due to e.g. barbed wire. set to 100 to avoid possible divisions by zero
 	var/starting_maxhealth = 100
+
 	var/force_level_absorption = 5 //How much force an item needs to even damage it at all.
 	var/barricade_hitsound
 	var/barricade_type = "barricade" //"metal", "plasteel", etc.

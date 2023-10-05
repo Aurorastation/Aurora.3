@@ -20,7 +20,7 @@
 	desc = "A set of mesh weave robes worn almost exclusively by priests of the Blood Eternal faith."
 	icon_state = "blood_robe"
 	item_state = "blood_robe"
-	
+
 /obj/item/clothing/suit/diona/carp
 	name = "carp hide poncho"
 	desc = "A poncho made up of carp hide."

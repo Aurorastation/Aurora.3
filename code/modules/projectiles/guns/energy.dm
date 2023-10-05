@@ -59,7 +59,7 @@
 		to_chat(M, SPAN_DANGER("[src] locks up!"))
 		playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
 	var/initial_charge = power_supply.charge
-	power_supply.charge = 0	
+	power_supply.charge = 0
 	sleep(severity * 20)
 	power_supply.give(initial_charge)
 	update_maptext()
@@ -160,7 +160,7 @@
 		else
 			icon_state = "[initial(icon_state)][icon_state_ratio]"
 			item_state = "[initial(item_state)][item_state_ratio]"
-			
+
 	..()
 
 /obj/item/gun/energy/handle_post_fire()

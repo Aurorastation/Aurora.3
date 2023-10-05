@@ -19,28 +19,28 @@
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_ANCIENTSONG, ACCENT_IRONSONG, ACCENT_WAVESONG, ACCENT_SUNKENSONG, ACCENT_STARSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_MADA, RELIGION_GLEANERS, RELIGION_OTHER, RELIGION_NONE)
-	
+
 /singleton/origin_item/origin/united
 	name = "United"
 	desc = "Widely considered the capital of the CT-EUM, the city-state of United is the newest independent nation, formed alongside the formation of the CT-EUM, to act as a neutral meeting place for the Council of Delegates, and to represent the central governing body, as well as acting as a mediator between the two other city-states should a conflict arise. United is the second most-visited city on EUM after Nral'Daaq, and has influence from both off-world and the other city-states in its structure, and operation."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_ANCIENTSONG, ACCENT_IRONSONG, ACCENT_WAVESONG, ACCENT_SUNKENSONG, ACCENT_STARSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_MADA, RELIGION_GLEANERS, RELIGION_OTHER, RELIGION_NONE)
-	
+
 /singleton/origin_item/origin/gleaners
 	name = "Gleaners Of Bliss"
 	desc = "The Gleaners of Bliss is a large, religious city-state that is known for its imperialistic attitude. The Gleaners emphasize harmony and equality, but are not above making sure that it aligns to their specific ideals, however. The Gleaners are among the oldest of the city-states and were one of the first to put forth the idea of the CT-EUM on first contact. Before, and during, its inception, the Gleaners have expanded their influence on numerous other city-states, both in and out of the CT-EUM. Now, the Gleaners are the most outspoken proponents of expanding the CT-EUM offworld. Their emphasis on equality and harmony however, are criticized because of this, and the Gleaners are often seen as a very hypocritical city-state."
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_ANCIENTSONG, ACCENT_IRONSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_GLEANERS, RELIGION_OTHER, RELIGION_NONE)
-	
+
 /singleton/origin_item/origin/nraldaaq
 	name = "Nral'Daaq"
 	desc = "Playing host to the vast majority of the planet's non-dionae population, Nral'Daaq is a city-state under the CT-EUM that is known for being the planet's hub of off-world trading, as well as for its quite diverse majority-skrell population, with both Pro-Federation and Anti-Federation Skrell calling the city home. Due to the city's border with the sea, Nral'Daaq is also a quite popular trading spot for the Ekane, with the vast majority of their goods ending up in the city to be later resold off-world. "
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_ANCIENTSONG, ACCENT_IRONSONG, ACCENT_WAVESONG, ACCENT_SUNKENSONG, ACCENT_STARSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_MADA, RELIGION_GLEANERS, RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_SUURKA, RELIGION_KIRGUL, RELIGION_OTHER, RELIGION_NONE)
-	
+
 /singleton/origin_item/origin/mada
 	name = "Mada"
 	desc = "Primarily located in the great forests of the Mede Region on EUM, The Mada are a semi-independent nation under the CT-EUM known for their isolationist beliefs and their religious worship of nature, with a focus on plant life in particular. Rather than all be situated in one singular city, the Mada are fairly spread out in the region, inhabiting a myriad of small settlements. The Capital, Elder Mada, is the largest settlement under the Mada, but not by a large margin."
@@ -54,7 +54,7 @@
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_ANCIENTSONG, ACCENT_IRONSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_OTHER, RELIGION_NONE)
-	
+
 /singleton/origin_item/origin/eumstation
 	name = "Celestial Station"
 	desc = "The first and largest space-bound outpost established by the CT-EUM government, Celestial Station is notable as a major trading hub for EUM's nations, often being used as a large marketplace for potential sellers and buyers from both EUM and elsewhere to do business, as well as a hub for mining operations undertaken on nearby asteroids. While nominally under the direct control of the CT-EUM federal government, Celestial Station has as of late begun to make efforts to gain independence away from the Federal government's direct control as a colony, instead attempting to become a semi-independent city-state under the CT-EUM government much like the other city-states under it. "
@@ -62,7 +62,7 @@
 	possible_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG, ACCENT_ANCIENTSONG, ACCENT_IRONSONG, ACCENT_WAVESONG, ACCENT_SUNKENSONG, ACCENT_STARSONG)
 	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_MADA, RELIGION_GLEANERS, RELIGION_OTHER, RELIGION_NONE)
-	
+
 /singleton/origin_item/origin/eumminor
 	name = "Minor City State"
 	desc = "From a minor city-state under the CT-EUM. "
