@@ -146,7 +146,7 @@ export const ScannerWindow = (props, context) => {
                 <LabeledList.Item
                   label="Pulse"
                   color={progressClass(data.brain_activity)}>
-                  {data.pulse}
+                  {data.pulse} BPM
                 </LabeledList.Item>
                 <LabeledList.Item label="Body Temperature">
                   {data.bodytemp}°C

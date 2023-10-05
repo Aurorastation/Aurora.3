@@ -742,7 +742,7 @@
 	dat += text("Name: 					[]<br>", occ["name"])
 	dat += text("Status: 				[]<br>", occ["stat"])
 	dat += text("Species: 				[]<br>", occ["species"])
-	dat += text("Pulse: 				[]<br>", occ["pulse"])
+	dat += text("Pulse: 				[] BPM<br>", occ["pulse"])
 	dat += text("Brain Activity:		[]<br>", occ["brain_activity"])
 	dat += text("Body Temperature: 		[]&deg;C ", (occ["bodytemp"] - T0C))
 	dat += text("([]&deg;F)<br>",  (occ["bodytemp"]*1.8-459.67))
