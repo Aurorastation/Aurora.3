@@ -40,4 +40,5 @@ delete-after: True
 changes:
   - maptweak: "Fixed the layering of the bushes in the public garden so they're not on top of the soil plots."
   - maptweak: "Moved the fire alarm in the cryo/lift room so it's not hidden by a disposals outlet."
-  - maptweak: "Put a long-range holopad in the Canary, and moved the static GPS so it's visible."  
+  - maptweak: "Put a long-range holopad in the Canary, and moved the static GPS so it's visible."
+  - maptweak: "Made improvements to Xenoarchaeology's atmospheric equipment. Gave Xenoarch access to their own Air Alarms in the Isolation Chambers and Exotic Energy Harvesting. Fixed the areas, their floor signs, valves, and added a scrubber to each Isolation room too."  
