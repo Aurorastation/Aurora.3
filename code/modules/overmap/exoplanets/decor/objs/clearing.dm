@@ -6,7 +6,7 @@
 	blend_mode = BLEND_MULTIPLY
 	density = FALSE
 	anchored = TRUE
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/clearing,
 		/obj/structure/lattice/catwalk,

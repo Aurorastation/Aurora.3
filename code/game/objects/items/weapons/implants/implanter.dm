@@ -1,32 +1,35 @@
 /obj/item/implanter
 	name = "implanter"
-	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
+	icon = 'icons/obj/item/implants.dmi'
 	contained_sprite = TRUE
-	icon_state = "implanter0"
-	item_state = "syringe_0"
+	icon_state = "implanter-0"
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 320, MATERIAL_GLASS = 800)
 	var/obj/item/implant/imp = null
 
-/obj/item/implanter/attack_self(var/mob/user)
-	if(!imp)
-		return ..()
-	imp.forceMove(get_turf(src))
-	user.put_in_hands(imp)
-	to_chat(user, "<span class='notice'>You remove \the [imp] from \the [src].</span>")
-	name = "implanter"
-	imp = null
-	update()
-	return
+/obj/item/implanter/New()
+	if(ispath(imp))
+		imp = new imp(src)
+	..()
+	update_icon()
 
-/obj/item/implanter/proc/update()
+/obj/item/implanter/update_icon()
+	cut_overlays()
+	icon_state = "implanter-[imp ? "1" : "0"]"
 	if (imp)
-		icon_state = "implanter1"
+		var/mutable_appearance/overlay_implant_icon = mutable_appearance(icon, "implanter-overlay")
+		overlay_implant_icon.color = imp.implant_color
+		add_overlay(overlay_implant_icon)
+
+/obj/item/implanter/attackby(obj/item/I, mob/user)
+	if(!imp && istype(I, /obj/item/implant) && user.unEquip(I,src))
+		to_chat(usr, SPAN_NOTICE("You slide \the [I] into \the [src]."))
+		imp = I
+		update_icon()
 	else
-		icon_state = "implanter0"
-	return
+		..()
 
 /obj/item/implanter/attack(mob/living/carbon/human/M, mob/user, var/target_zone)
 	if(!istype(M))
@@ -35,15 +38,15 @@
 	var/obj/item/organ/external/affected = M.get_organ(target_zone)
 
 	if(user && imp && affected)
-		M.visible_message("<span class='warning'>[user] is attempting to implant [M] in \the [affected.name].</span>")
+		M.visible_message(SPAN_WARNING("[user] is attempting to implant [M] in \the [affected.name]."))
 
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		user.do_attack_animation(M)
 
 		var/turf/T1 = get_turf(M)
-		if (T1 && ((M == user) || do_after(user, 50)))
+		if (T1 && ((M == user) || do_after(user, 5 SECONDS)))
 			if(user && M && (get_turf(M) == T1) && src && imp)
-				M.visible_message("<span class='warning'>[M] has been implanted by [user] in the [affected.name].</span>")
+				M.visible_message(SPAN_WARNING("[M] has been implanted by [user] in the [affected.name]."))
 
 				admin_attack_log(user, M, "Implanted using \the [name] ([imp.name])", "Implanted with \the [name] ([imp.name])", "used an implanter, [name] ([imp.name]), on")
 
@@ -54,99 +57,10 @@
 					affected.implants += imp
 					imp.part = affected
 					BITSET(M.hud_updateflag, IMPLOYAL_HUD)
-					if(istype(imp, /obj/item/implanter/loyalty))
-						to_chat(M, "<span class ='notice'You feel a sudden surge of loyalty to [current_map.company_name]!</span>")
 
 				imp = null
-				update()
+				update_icon()
 
-	return
-
-/obj/item/implanter/loyalty
-	name = "implanter-loyalty"
-
-/obj/item/implanter/loyalty/New()
-	imp = new /obj/item/implant/mindshield(src)
-	..()
-	update()
-	return
-
-/obj/item/implanter/explosive
-	name = "implanter (E)"
-
-/obj/item/implanter/explosive/New()
-	imp = new /obj/item/implant/explosive(src)
-	..()
-	update()
-	return
-
-/obj/item/implanter/adrenalin
-	name = "implanter-adrenalin"
-
-/obj/item/implanter/adrenalin/New()
-	imp = new /obj/item/implant/adrenalin(src)
-	..()
-	update()
-	return
-
-/obj/item/implanter/compressed
-	name = "implanter (C)"
-
-/obj/item/implanter/compressed/New()
-	imp = new /obj/item/implant/compressed( src )
-	..()
-	update()
-	return
-
-/obj/item/implanter/compressed/attack(mob/M as mob, mob/user as mob)
-	var/obj/item/implant/compressed/c = imp
-	if (!c)	return
-	if (c.scanned == null)
-		to_chat(user, "Please scan an object with the implanter first.")
-		return
-	..()
-
-/obj/item/implanter/compressed/afterattack(atom/A, mob/user as mob, proximity)
-	if(!proximity)
-		return
-	if(istype(A,/obj/item) && imp)
-		var/obj/item/implant/compressed/c = imp
-		if(istype(A,/obj/item/implant/compressed))
-			to_chat(user, SPAN_NOTICE("The implant is loaded into the implanter."))
-			return
-		if (c.scanned)
-			to_chat(user, SPAN_WARNING("Something is already scanned inside the implant!"))
-			return
-		c.scanned = A
-		if(istype(A.loc,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = A.loc
-			H.remove_from_mob(A)
-		else if(istype(A.loc,/obj/item/storage))
-			var/obj/item/storage/S = A.loc
-			S.remove_from_storage(A)
-		A.loc.contents.Remove(A)
-		update()
-
-/obj/item/implanter/freedom/Initialize()
-	imp = new /obj/item/implant/freedom( src )
-	. = ..()
-	update()
-
-/obj/item/implanter/uplink
-	name = "implanter (U)"
-
-/obj/item/implanter/uplink/Initialize()
-	imp = new /obj/item/implant/uplink( src )
-	. = ..()
-	update()
-
-/obj/item/implanter/anti_augment
-	name = "implanter-augmentation disrupter"
-
-/obj/item/implanter/anti_augment/New()
-	imp = new /obj/item/implant/anti_augment(src)
-	..()
-	update()
 	return
 
 /obj/item/implanter/ipc_tag
@@ -157,9 +71,9 @@
 /obj/item/implanter/ipc_tag/Initialize()
 	. = ..()
 	ipc_tag = new /obj/item/organ/internal/ipc_tag(src)
-	update()
+	update_icon()
 
-/obj/item/implanter/ipc_tag/update()
+/obj/item/implanter/ipc_tag/update_icon()
 	if(ipc_tag)
 		icon_state = "cimplanter1"
 	else
@@ -195,7 +109,7 @@
 		ipc_tag.serial_number = uppertext(dd_limittext(md5(M.real_name), 12))
 	ipc_tag = null
 
-	update()
+	update_icon()
 
 /obj/item/implanter/ipc_tag/attackby(obj/item/I, mob/user)
 	if(I.isscrewdriver())
@@ -206,7 +120,7 @@
 		ipc_tag.forceMove(get_turf(user))
 		user.put_in_hands(ipc_tag)
 		ipc_tag = null
-		update()
+		update_icon()
 		return
 	if(istype(I, /obj/item/organ/internal/ipc_tag))
 		if(ipc_tag)
@@ -214,6 +128,6 @@
 			return
 		ipc_tag = I
 		user.drop_from_inventory(I, src)
-		update()
+		update_icon()
 		return
 	..()

@@ -78,7 +78,7 @@
 		return
 
 	user.visible_message("<b>[user]</b> starts making a scan of \the [target]...", SPAN_NOTICE("You start making a scan of \the [target]..."), range = 3)
-	if(do_after(user, 30 * length(pages_to_scan), TRUE, target))
+	if(do_after(user, 30 * length(pages_to_scan), target))
 		if(!drive)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a drive installed."))
 			return

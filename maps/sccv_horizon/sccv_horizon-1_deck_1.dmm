@@ -680,8 +680,11 @@
 	name = "Exotic Energies Harvesting";
 	req_access = list(65)
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "aDm" = (
 /obj/structure/sink/kitchen{
 	dir = 8;
@@ -772,18 +775,13 @@
 /turf/simulated/floor/plating/cooled,
 /area/turret_protected/ai)
 "aFN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Exotic Energies Harvesting";
 	dir = 4
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "aFV" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/external{
@@ -1282,7 +1280,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "aXe" = (
 /obj/structure/tank_wall{
 	icon_state = "m-4"
@@ -1391,7 +1389,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/firealarm/south,
+/obj/machinery/newscaster/south,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "baq" = (
@@ -1991,8 +1989,19 @@
 	name = "Safety Blast Door"
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/alarm/south{
+	alarm_id = 1501;
+	breach_detection = 0;
+	name = "Isolation A";
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11);
+	layer = 4;
+	pixel_x = -24;
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_a)
 "byb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
@@ -2640,8 +2649,9 @@
 "bRr" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "bRU" = (
 /obj/machinery/light{
 	dir = 1
@@ -3769,7 +3779,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "cJx" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "6,8"
@@ -3814,10 +3824,6 @@
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 8
 	},
-/obj/machinery/atmospherics/valve/digital/open{
-	dir = 4;
-	req_access = list(65)
-	},
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 6
 	},
@@ -3853,6 +3859,10 @@
 	pixel_y = -25;
 	req_access = list(65);
 	specialfunctions = 4
+	},
+/obj/machinery/atmospherics/valve/digital/open{
+	dir = 4;
+	name = "Isolation A"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -4215,6 +4225,9 @@
 	icon_state = "2-8"
 	},
 /obj/structure/platform_deco,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "cWX" = (
@@ -4320,6 +4333,18 @@
 	icon_state = "6,6"
 	},
 /area/shuttle/canary)
+"dbq" = (
+/obj/effect/floor_decal/corner_wide/purple{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/purple{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "dbS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5409,7 +5434,7 @@
 "dRh" = (
 /obj/structure/anomaly_container,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "dRx" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "17,22"
@@ -6347,10 +6372,12 @@
 	pixel_x = 2;
 	pixel_y = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/power/apc/west,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "ezW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -6533,7 +6560,7 @@
 	name = "Safety Blast Door"
 	},
 /turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_b)
 "eHJ" = (
 /obj/machinery/drone_fabricator,
 /turf/simulated/floor/greengrid/nitrogen,
@@ -7035,6 +7062,9 @@
 	dir = 5
 	},
 /obj/machinery/power/apc/low/south,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_a)
 "eXb" = (
@@ -7640,7 +7670,11 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/valve/digital/open{
-	req_access = list(65)
+	dir = 1;
+	name = "Exotic Energy Harvesting"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -7699,15 +7733,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/structure/anomaly_container,
 /turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "fsS" = (
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "7,6"
@@ -7747,7 +7775,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "fvn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -8010,6 +8038,15 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 8;
+	frequency = 1386;
+	id_tag = "canary";
+	name = "port docking controller";
+	pixel_x = 22;
+	pixel_y = 12;
+	tag_door = "canary_out"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "fFj" = (
@@ -8065,9 +8102,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_b)
 "fIg" = (
@@ -8911,8 +8946,24 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "ggQ" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/rnd/xenoarch_atrium)
+/obj/machinery/door/blast/regular/open{
+	id = "iso_b";
+	name = "Safety Blast Door"
+	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/alarm/south{
+	alarm_id = 1502;
+	breach_detection = 0;
+	name = "Isolation B";
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11);
+	pixel_x = -24;
+	dir = 4;
+	layer = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/rnd/isolation_b)
 "ggS" = (
 /obj/machinery/firealarm/west,
 /obj/structure/closet/emcloset,
@@ -9190,8 +9241,11 @@
 	name = "Artifact Storage";
 	req_access = list(65)
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "gsd" = (
 /obj/machinery/light{
 	dir = 4
@@ -9278,7 +9332,7 @@
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_b)
 "gvd" = (
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/plating,
@@ -9840,8 +9894,16 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/alarm/east{
+	name = "Exotic Energy Harvesting";
+	alarm_id = 1501;
+	breach_detection = 0;
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
+	},
 /turf/simulated/floor/reinforced,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "gRa" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -9905,7 +9967,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/sign/c,
+/obj/effect/floor_decal/sign/a,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "gTl" = (
@@ -9927,7 +9989,7 @@
 "gTq" = (
 /obj/machinery/artifact_scanpad,
 /turf/simulated/floor/bluegrid,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "gTx" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -10629,6 +10691,12 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "hqH" = (
@@ -10816,7 +10884,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "hzv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10951,8 +11019,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "hDd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -11919,7 +11990,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "itT" = (
-/obj/effect/shuttle_landmark/skipjack_ship/first_deck,
+/obj/effect/shuttle_landmark/skipjack_ship/first_deck{
+	dir = 1
+	},
 /turf/template_noop,
 /area/template_noop)
 "iuk" = (
@@ -12310,6 +12383,12 @@
 /obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
+"iJV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_atrium)
 "iKo" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -12328,10 +12407,6 @@
 "iKD" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 8
-	},
-/obj/machinery/atmospherics/valve/digital/open{
-	dir = 4;
-	req_access = list(65)
 	},
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 6
@@ -12366,6 +12441,10 @@
 	pixel_y = -25;
 	req_access = list(65);
 	specialfunctions = 4
+	},
+/obj/machinery/atmospherics/valve/digital/open{
+	dir = 4;
+	name = "Isolation B"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -12495,6 +12574,12 @@
 "iPz" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
@@ -12709,6 +12794,14 @@
 /obj/effect/floor_decal/corner/brown,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
+"iXt" = (
+/obj/machinery/door/blast/regular/open{
+	id = "iso_c";
+	name = "Safety Blast Door"
+	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/rnd/isolation_a)
 "iXY" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/engineering)
@@ -14161,11 +14254,21 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "kcb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/alarm/south{
+	alarm_id = 1501;
+	breach_detection = 0;
+	name = "Exotic Energy Harvesting";
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11);
+	layer = 4;
+	dir = 1;
+	pixel_y = -19;
+	pixel_x = -2
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "kcg" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -14343,6 +14446,12 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "kka" = (
@@ -14465,14 +14574,21 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Isolation A";
 	dir = 1
 	},
-/obj/machinery/alarm/south,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/alarm/south{
+	alarm_id = 1503;
+	breach_detection = 0;
+	name = "Isolation C";
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_c)
 "kop" = (
@@ -15423,6 +15539,9 @@
 	dir = 5
 	},
 /obj/machinery/power/apc/low/south,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_c)
 "kVe" = (
@@ -15810,9 +15929,11 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "lnk" = (
-/obj/effect/shuttle_landmark/burglar_ship/hangar,
-/turf/simulated/floor/plating,
-/area/hangar/auxiliary)
+/obj/effect/shuttle_landmark/merc_ship/first_deck{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
 "lnt" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -16264,8 +16385,9 @@
 /area/engineering/atmos)
 "lEN" = (
 /obj/structure/table/reinforced/steel,
+/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "lEQ" = (
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/full,
@@ -16315,7 +16437,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "lIg" = (
 /turf/simulated/wall,
 /area/medical/morgue/lower)
@@ -17249,6 +17371,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/canary)
+"mjd" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "mjG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -17541,7 +17669,6 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/hangar/starboard)
 "msF" = (
-/obj/machinery/newscaster/south,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
@@ -17551,6 +17678,7 @@
 /obj/effect/landmark{
 	name = "JoinLate"
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "msG" = (
@@ -18490,19 +18618,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
 "nax" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	dir = 8;
-	frequency = 1386;
-	id_tag = "canary";
-	name = "port docking controller";
-	pixel_x = 22;
-	pixel_y = 12;
-	tag_door = "canary_out"
-	},
-/obj/item/device/gps/stationary/sccv_canary{
-	pixel_x = 23;
-	pixel_y = -9
-	},
 /obj/machinery/light/colored/blue{
 	dir = 4
 	},
@@ -19021,6 +19136,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"nsS" = (
+/obj/structure/closet/secure_closet/xenoarchaeologist{
+	req_access = null;
+	req_one_access = list(7,47)
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_atrium)
 "ntf" = (
 /obj/structure/tank_wall/nitrous_oxide{
 	density = 0;
@@ -20529,6 +20654,7 @@
 /area/maintenance/operations)
 "oxp" = (
 /obj/machinery/suspension_gen,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "oxP" = (
@@ -20843,6 +20969,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/operations/loading)
+"oJe" = (
+/turf/simulated/wall/r_wall,
+/area/outpost/research/anomaly_storage)
 "oJu" = (
 /turf/simulated/wall/shuttle/unique/scc/mining{
 	icon_state = "1,5"
@@ -21009,9 +21138,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "oSD" = (
-/obj/effect/shuttle_landmark/merc_ship/first_deck,
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/shuttle_landmark/burglar_ship/hangar{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hangar/auxiliary)
 "oTA" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 1
@@ -21570,14 +21701,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "plp" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
 	frequency = 1380;
@@ -21821,7 +21947,7 @@
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 8
 	},
-/obj/effect/floor_decal/sign/a,
+/obj/effect/floor_decal/sign/c,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "pwQ" = (
@@ -21892,10 +22018,6 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod2)
 "pyQ" = (
-/obj/machinery/atmospherics/valve/digital/open{
-	dir = 4;
-	req_access = list(65)
-	},
 /obj/effect/floor_decal/corner_wide/purple/full{
 	dir = 4
 	},
@@ -21925,6 +22047,10 @@
 	pixel_y = -22;
 	req_access = list(65);
 	specialfunctions = 4
+	},
+/obj/machinery/atmospherics/valve/digital/open{
+	dir = 4;
+	name = "Isolation C"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -22008,8 +22134,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "pEi" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -22098,6 +22227,7 @@
 /area/operations/storage)
 "pGy" = (
 /obj/structure/anomaly_container,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_a)
 "pGC" = (
@@ -22215,9 +22345,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_c)
 "pKI" = (
@@ -22227,14 +22355,21 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Isolation C";
 	dir = 1
 	},
-/obj/machinery/alarm/south,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/alarm/south{
+	alarm_id = 1501;
+	breach_detection = 0;
+	name = "Isolation A";
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_a)
 "pLc" = (
@@ -22742,8 +22877,11 @@
 /area/maintenance/research_port)
 "qbK" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "qbZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -22779,7 +22917,7 @@
 	name = "Safety Blast Door"
 	},
 /turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_c)
 "qdm" = (
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 4
@@ -22800,6 +22938,10 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"qeq" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/reinforced,
+/area/rnd/isolation_b)
 "qew" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -22827,12 +22969,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/landmark{
 	name = "borerstart"
 	},
 /turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "qeO" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/structure/ladder/up{
@@ -23027,6 +23168,9 @@
 	dir = 5
 	},
 /obj/machinery/power/apc/low/south,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_b)
 "qmE" = (
@@ -23095,14 +23239,21 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Isolation B";
 	dir = 1
 	},
-/obj/machinery/alarm/south,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/alarm/south{
+	alarm_id = 1502;
+	breach_detection = 0;
+	name = "Isolation B";
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_b)
 "qpe" = (
@@ -23881,6 +24032,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"qRi" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/reinforced,
+/area/rnd/isolation_c)
 "qSi" = (
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
@@ -25660,15 +25815,8 @@
 /turf/space/dynamic,
 /area/horizon/exterior)
 "sfh" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/obj/structure/anomaly_container,
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
+/turf/simulated/wall/r_wall,
+/area/outpost/research/anomaly_harvest)
 "sfj" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -25779,6 +25927,7 @@
 	dir = 5
 	},
 /obj/effect/overmap/visitable/ship/landable/canary,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "sll" = (
@@ -26804,7 +26953,14 @@
 	dir = 1
 	},
 /obj/item/storage/bag/inflatable,
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	dir = 2;
+	pixel_x = 0
+	},
+/obj/item/device/gps/stationary/sccv_canary{
+	pixel_x = 23;
+	pixel_y = -9
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "sWq" = (
@@ -28267,10 +28423,8 @@
 	pixel_x = -5;
 	pixel_y = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "tXo" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -28912,8 +29066,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "usu" = (
@@ -29718,8 +29870,19 @@
 	name = "Safety Blast Door"
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/alarm/south{
+	alarm_id = 1503;
+	breach_detection = 0;
+	name = "Isolation C";
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11);
+	dir = 4;
+	pixel_x = -24;
+	layer = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_c)
 "uWy" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -30004,6 +30167,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
+"veJ" = (
+/obj/machinery/door/blast/regular/open{
+	id = "iso_a";
+	name = "Safety Blast Door"
+	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/rnd/isolation_c)
 "veU" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -30064,11 +30235,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "vgS" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "vgU" = (
 /obj/machinery/disposal/deliveryChute{
 	dir = 4
@@ -30298,6 +30472,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "vpa" = (
@@ -30526,6 +30703,10 @@
 	icon_state = "7,25"
 	},
 /area/shuttle/intrepid/engine_compartment)
+"vwT" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/reinforced,
+/area/rnd/isolation_a)
 "vxw" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -31288,8 +31469,12 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/machinery/power/apc/north,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "wce" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
@@ -32165,7 +32350,7 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/bluegrid,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_harvest)
 "wIO" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -32432,6 +32617,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint)
+"wSl" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/reinforced,
+/area/rnd/isolation_c)
 "wSr" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
@@ -32493,14 +32682,18 @@
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -32567,7 +32760,7 @@
 /obj/structure/anomaly_container,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "wWY" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -34016,7 +34209,7 @@
 	name = "Safety Blast Door"
 	},
 /turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
+/area/rnd/isolation_a)
 "xNb" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -34103,7 +34296,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "xOV" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -34301,6 +34494,7 @@
 /area/horizon/custodial)
 "xVn" = (
 /obj/structure/anomaly_container,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_b)
 "xVt" = (
@@ -34373,9 +34567,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_a)
 "xXt" = (
@@ -51937,7 +52129,7 @@ eSV
 eSV
 eSV
 eSV
-itT
+eSV
 eSV
 eSV
 eSV
@@ -52342,7 +52534,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+itT
 eSV
 eSV
 eSV
@@ -60602,7 +60794,7 @@ hWY
 idq
 xtK
 oxp
-jrJ
+iJV
 cLC
 xtK
 eWA
@@ -60806,7 +60998,7 @@ jqc
 rlW
 kHg
 kjH
-pEF
+nsS
 xtK
 eWA
 bpb
@@ -61205,10 +61397,10 @@ bBL
 vCC
 pdC
 vcF
-xtK
-xtK
-xtK
-xtK
+sfh
+sfh
+sfh
+sfh
 xtK
 xtK
 hqE
@@ -61408,7 +61600,7 @@ rUd
 nCI
 pdC
 mhf
-xtK
+sfh
 aFN
 ezF
 tWy
@@ -61611,7 +61803,7 @@ thF
 bVh
 pdC
 haI
-xtK
+sfh
 plc
 vgS
 qbK
@@ -61814,10 +62006,10 @@ oFy
 boN
 pdC
 nVO
-xtK
+sfh
 fsy
 qeG
-sfh
+fsy
 xtK
 dwY
 gWC
@@ -62017,7 +62209,7 @@ rso
 fYt
 pdC
 tFd
-xtK
+sfh
 gTq
 lGH
 gTq
@@ -62220,7 +62412,7 @@ rMf
 oFy
 pdC
 moP
-xtK
+sfh
 wIM
 gQj
 wIM
@@ -62423,10 +62615,10 @@ xgc
 eTx
 pdC
 vnJ
-xtK
-xtK
-xtK
-xtK
+sfh
+sfh
+sfh
+sfh
 xtK
 nQn
 tzi
@@ -62458,7 +62650,7 @@ bJa
 pMP
 bJa
 bJa
-lnk
+bJa
 bJa
 bJa
 bJa
@@ -62863,7 +63055,7 @@ bJa
 bJa
 bJa
 bJa
-bJa
+oSD
 bJa
 bJa
 bJa
@@ -63435,9 +63627,9 @@ eSV
 eSV
 eSV
 eSV
-ggQ
-xtK
-xtK
+rsL
+lCv
+lCv
 xtK
 xtK
 xtK
@@ -63446,15 +63638,15 @@ xtK
 qWB
 lbr
 xtK
-bxK
+iXt
 bxK
 xMv
 xtK
 guN
-guN
+ggQ
 eHq
 xtK
-uWn
+veJ
 uWn
 qcr
 xtK
@@ -63638,9 +63830,9 @@ eSV
 eSV
 eSV
 eSV
-ggQ
-ggQ
-xtK
+rsL
+rsL
+oJe
 wWV
 cIY
 bRr
@@ -63658,7 +63850,7 @@ xVn
 fHA
 jPp
 rBp
-iTD
+wSl
 pJx
 jPp
 vUe
@@ -63843,13 +64035,13 @@ eSV
 eSV
 eSV
 hob
-xtK
+oJe
 wbX
 hCV
-jrJ
+mjd
 pEb
 gsc
-qWB
+dbq
 voZ
 xtK
 sdV
@@ -64046,7 +64238,7 @@ eSV
 eSV
 eSV
 hob
-xtK
+oJe
 dRh
 dRh
 lEN
@@ -64056,15 +64248,15 @@ aKn
 jlo
 xtK
 vJy
-wvx
+vwT
 eWN
 tXB
 fgW
-pid
+qeq
 qmn
 jPp
 rBj
-iTD
+qRi
 kTW
 jPp
 suT
@@ -66054,7 +66246,7 @@ eSV
 eSV
 eSV
 eSV
-eSV
+lnk
 eSV
 eSV
 eSV
@@ -66460,7 +66652,7 @@ eSV
 eSV
 eSV
 eSV
-oSD
+eSV
 eSV
 eSV
 eSV

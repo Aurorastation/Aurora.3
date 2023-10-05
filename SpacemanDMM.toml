@@ -46,3 +46,7 @@ override_precedes_definition = "error"
 
 [display]
 error_level = "hint"
+
+[map_renderer.render_passes]
+hide-space = false
+icon-smoothing = false

@@ -9149,7 +9149,9 @@
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "eAX" = (
-/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
+	},
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
@@ -11037,10 +11039,12 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "fwE" = (
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/camera/network/service{
 	c_tag = "Second Deck - Public Garden"
+	},
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
 	},
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
@@ -13824,10 +13828,12 @@
 /turf/simulated/floor/grass,
 /area/rnd/hallway)
 "gFc" = (
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
 	},
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
@@ -25903,9 +25909,11 @@
 /turf/simulated/open,
 /area/operations/office)
 "mBk" = (
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/light,
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
+	},
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
 "mBB" = (
@@ -26309,7 +26317,9 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
 "mLd" = (
-/obj/effect/shuttle_landmark/merc_ship/second_deck,
+/obj/effect/shuttle_landmark/merc_ship/second_deck{
+	dir = 4
+	},
 /turf/template_noop,
 /area/template_noop)
 "mLn" = (
@@ -36233,11 +36243,13 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload)
 "rAn" = (
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/firealarm/west,
 /obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
+	},
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
 	},
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
@@ -38164,7 +38176,9 @@
 /turf/simulated/wall,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "sBy" = (
-/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
+	},
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/item/device/radio/intercom/west,
 /turf/simulated/floor/grass,
@@ -41889,9 +41903,11 @@
 /turf/simulated/wall,
 /area/horizon/kitchen)
 "upQ" = (
-/obj/effect/shuttle_landmark/burglar_ship/second_deck,
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/shuttle_landmark/burglar_ship/second_deck{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/maintenance/wing/starboard/far)
 "upS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -48306,6 +48322,13 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/lounge/bar)
+"xmt" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/flora/ausbushes/sparsegrass{
+	layer = 2
+	},
+/turf/simulated/floor/grass,
+/area/horizon/hydroponics/garden)
 "xmw" = (
 /obj/machinery/alarm/east,
 /obj/effect/floor_decal/corner/dark_green/full{
@@ -49732,7 +49755,9 @@
 /turf/simulated/floor/tiled/full,
 /area/rnd/hallway)
 "xWc" = (
-/obj/effect/shuttle_landmark/skipjack_ship/second_deck,
+/obj/effect/shuttle_landmark/skipjack_ship/second_deck{
+	dir = 1
+	},
 /turf/template_noop,
 /area/template_noop)
 "xWr" = (
@@ -54306,7 +54331,7 @@ qgN
 qgN
 qgN
 qgN
-upQ
+qgN
 qgN
 qgN
 qgN
@@ -54912,7 +54937,7 @@ kDC
 wmi
 kDC
 kDC
-kDC
+upQ
 kDC
 kDC
 kDC
@@ -55268,7 +55293,7 @@ qgN
 qgN
 qgN
 qgN
-xWc
+qgN
 qgN
 qgN
 qgN
@@ -56075,7 +56100,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+xWc
 qgN
 qgN
 qgN
@@ -70396,7 +70421,7 @@ qgN
 qgN
 qgN
 qgN
-mLd
+qgN
 qgN
 qgN
 qgN
@@ -71484,7 +71509,7 @@ mHh
 slm
 uZs
 vCa
-eAX
+xmt
 wCt
 buG
 eAX
@@ -71686,10 +71711,10 @@ hTT
 slm
 sOu
 vCa
-eAX
+xmt
 bCV
 jRO
-eAX
+xmt
 hPC
 oTR
 giw
@@ -72093,7 +72118,7 @@ xOo
 fwE
 bTM
 hTt
-eAX
+xmt
 dvw
 mjl
 mXh
@@ -75244,7 +75269,7 @@ qgN
 qgN
 qgN
 qgN
-qgN
+mLd
 qgN
 qgN
 qgN

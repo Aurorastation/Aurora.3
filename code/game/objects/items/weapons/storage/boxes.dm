@@ -387,6 +387,14 @@
 	illustration = "flashbang"
 	starts_with = list(/obj/item/grenade/flashbang = 7)
 
+/obj/item/storage/box/stingers
+	name = "box of stinger grenades"
+	desc = "A box containing 7 antipersonnel stinger grenades. <br> WARNING: These devices are extremely dangerous and can cause injury."
+	icon_state = "secbox"
+	item_state = "secbox"
+	illustration = "stinger"
+	starts_with = list(/obj/item/grenade/stinger = 7)
+
 /obj/item/storage/box/firingpins
 	name = "box of firing pins"
 	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons."
@@ -530,7 +538,7 @@
 	name = "death alarm kit"
 	desc = "Box of stuff used to implant death alarms."
 	illustration = "implant"
-	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6)
+	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6, /obj/item/implantpad = 1)
 
 /obj/item/storage/box/condimentbottles
 	name = "box of condiment bottles"
@@ -589,7 +597,6 @@
 /obj/item/storage/box/monkeycubes
 	name = "monkey cube box"
 	desc = "Drymate brand monkey cubes. Just add water!"
-	icon = 'icons/obj/food.dmi'
 	icon_state = "monkeycubebox"
 	can_hold = list(/obj/item/reagent_containers/food/snacks/monkeycube)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped = 5)
@@ -1222,3 +1229,4 @@
 /obj/item/storage/box/produce/fill()
 	. = ..()
 	make_exact_fit()
+

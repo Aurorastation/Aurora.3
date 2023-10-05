@@ -66,6 +66,7 @@
 #define LANGUAGE_REVENANT "Revenant"
 #define LANGUAGE_REVENANT_RIFTSPEAK "Riftspeak"
 #define LANGUAGE_TERMINATOR "Hephaestus Darkcomms"	// HKs.
+#define LANGUAGE_LIIDRA "Lii'draic Hivemind" //Lii'dra
 
 // Lesser-form Languages
 #define LANGUAGE_GIBBERING "Gibbering"			// alberyk
