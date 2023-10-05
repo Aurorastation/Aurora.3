@@ -680,6 +680,9 @@
 	name = "Exotic Energies Harvesting";
 	req_access = list(65)
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_harvest)
 "aDm" = (
@@ -776,6 +779,7 @@
 	c_tag = "Research - Exotic Energies Harvesting";
 	dir = 4
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_harvest)
 "aFV" = (
@@ -2645,6 +2649,7 @@
 "bRr" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "bRU" = (
@@ -4220,6 +4225,9 @@
 	icon_state = "2-8"
 	},
 /obj/structure/platform_deco,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "cWX" = (
@@ -4325,6 +4333,18 @@
 	icon_state = "6,6"
 	},
 /area/shuttle/canary)
+"dbq" = (
+/obj/effect/floor_decal/corner_wide/purple{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/purple{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "dbS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6352,6 +6372,10 @@
 	pixel_x = 2;
 	pixel_y = 4
 	},
+/obj/machinery/power/apc/west,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_harvest)
 "ezW" = (
@@ -7648,6 +7672,9 @@
 /obj/machinery/atmospherics/valve/digital/open{
 	dir = 1;
 	name = "Exotic Energy Harvesting"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -9214,6 +9241,9 @@
 	name = "Artifact Storage";
 	req_access = list(65)
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "gsd" = (
@@ -9863,6 +9893,14 @@
 "gQj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/machinery/alarm/east{
+	name = "Exotic Energy Harvesting";
+	alarm_id = 1501;
+	breach_detection = 0;
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
 	},
 /turf/simulated/floor/reinforced,
 /area/outpost/research/anomaly_harvest)
@@ -10980,6 +11018,9 @@
 "hCV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
@@ -14217,7 +14258,7 @@
 /obj/machinery/alarm/south{
 	alarm_id = 1501;
 	breach_detection = 0;
-	name = "Isolation A";
+	name = "Exotic Energy Harvesting";
 	rcon_setting = 3;
 	report_danger_level = 0;
 	req_one_access = list(7,47,24,11);
@@ -16344,6 +16385,7 @@
 /area/engineering/atmos)
 "lEN" = (
 /obj/structure/table/reinforced/steel,
+/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "lEQ" = (
@@ -17330,6 +17372,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/canary)
 "mjd" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "mjG" = (
@@ -19091,6 +19136,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"nsS" = (
+/obj/structure/closet/secure_closet/xenoarchaeologist{
+	req_access = null;
+	req_one_access = list(7,47)
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_atrium)
 "ntf" = (
 /obj/structure/tank_wall/nitrous_oxide{
 	density = 0;
@@ -20599,7 +20654,7 @@
 /area/maintenance/operations)
 "oxp" = (
 /obj/machinery/suspension_gen,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "oxP" = (
@@ -22079,6 +22134,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "pEi" = (
@@ -22819,6 +22877,9 @@
 /area/maintenance/research_port)
 "qbK" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_harvest)
 "qbZ" = (
@@ -30177,6 +30238,9 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_harvest)
 "vgU" = (
@@ -30408,6 +30472,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "vpa" = (
@@ -31401,6 +31468,10 @@
 "wbX" = (
 /obj/machinery/light/small{
 	dir = 1
+	},
+/obj/machinery/power/apc/north,
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
@@ -60927,7 +60998,7 @@ jqc
 rlW
 kHg
 kjH
-pEF
+nsS
 xtK
 eWA
 bpb
@@ -63970,7 +64041,7 @@ hCV
 mjd
 pEb
 gsc
-qWB
+dbq
 voZ
 xtK
 sdV
