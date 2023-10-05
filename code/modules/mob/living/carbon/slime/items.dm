@@ -129,6 +129,7 @@
 	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "bottle-1"
 	item_state = "bottle"
+	contained_sprite = TRUE
 
 /obj/item/docility_serum/Initialize() // Better than hardsprited in stuff.
 	. = ..()
@@ -174,6 +175,7 @@
 	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "bottle-2"
 	item_state = "bottle"
+	contained_sprite = TRUE
 
 /obj/item/advanced_docility_serum/Initialize() // Better than hardsprited in stuff.
 	. = ..()
@@ -219,6 +221,7 @@
 	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "bottle-3"
 	item_state = "bottle"
+	contained_sprite = TRUE
 
 /obj/item/slimesteroid/Initialize() // Better than hardsprited in stuff.
 	SHOULD_CALL_PARENT(FALSE)
@@ -254,6 +257,7 @@
 	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "bottle-4"
 	item_state = "bottle"
+	contained_sprite = TRUE
 
 /obj/item/extract_enhancer/Initialize() // Better than hardsprited in stuff.
 	SHOULD_CALL_PARENT(FALSE)
