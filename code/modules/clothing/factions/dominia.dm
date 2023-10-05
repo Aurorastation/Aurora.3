@@ -602,7 +602,7 @@
 	name = "dominian consular officer's dress cap"
 	desc = "A quite fashionable cap issued to the members of His Majesty's Diplomatic Service."
 	desc_extended = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs many \
-    commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
+	commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
 	icon = 'icons/clothing/head/dominia_consular_cap.dmi'
 	icon_state = "dominia_consular_cap"
 	item_state = "dominia_consular_cap"

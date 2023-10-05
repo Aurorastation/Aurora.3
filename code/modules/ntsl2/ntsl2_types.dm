@@ -70,7 +70,7 @@
 		)
 	), RUSTG_HTTP_METHOD_POST, callback = callback)
 	/* [
-  {
+	{
 	"content": "AAAAA",
 	"freq": "1459",
 	"source": "Telecomms Broadcaster",
@@ -79,7 +79,7 @@
 	"verb": "says",
 	"language": "Ceti Basic",
 	"reference": null
-  }
+	}
 ]*/
 
 /datum/ntsl2_program/tcomm/proc/retrieve_messages(callback = null)

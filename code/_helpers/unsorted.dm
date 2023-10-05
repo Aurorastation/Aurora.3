@@ -263,7 +263,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 #undef LOCATE_COORDS
 
-//Returns whether or not a player is a guest using their ckey as an input
+///Returns whether or not a player is a guest using their ckey as an input
 /proc/IsGuestKey(key)
 	if (findtext(key, "Guest-", 1, 7) != 1) //was findtextEx
 		return 0
@@ -279,7 +279,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			return 0
 	return 1
 
-//Ensure the frequency is within bounds of what it should be sending/recieving at
+///Ensure the frequency is within bounds of what it should be sending/recieving at
 /proc/sanitize_frequency(var/f, var/low = PUBLIC_LOW_FREQ, var/high = PUBLIC_HIGH_FREQ)
 	f = round(f)
 	f = max(low, f)
@@ -288,15 +288,15 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		f += 1
 	return f
 
-//Turns 1479 into 147.9
+///Turns 1479 into 147.9
 /proc/format_frequency(var/f)
 	return "[round(f / 10)].[f % 10]"
 
-//Picks a string of symbols to display as the law number for hacked or ion laws
+///Picks a string of symbols to display as the law number for hacked or ion laws
 /proc/ionnum()
 	return "[pick("1","2","3","4","5","6","7","8","9","0")][pick("!","@","#","$","%","^","&","*")][pick("!","@","#","$","%","^","&","*")][pick("!","@","#","$","%","^","&","*")]"
 
-//When an AI is activated, it can choose from a list of non-slaved borgs to have as a slave.
+///When an AI is activated, it can choose from a list of non-slaved borgs to have as a slave.
 /proc/freeborg()
 	var/select = null
 	var/list/borgs = list()
@@ -310,7 +310,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		select = input("Unshackled borg signals detected:", "Borg selection", null, null) as null|anything in borgs
 		return borgs[select]
 
-//When a borg is activated, it can choose which AI it wants to be slaved to
+///When a borg is activated, it can choose which AI it wants to be slaved to
 /proc/active_ais()
 	. = list()
 	for(var/mob/living/silicon/ai/A in living_mob_list)
@@ -321,7 +321,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		. += A
 	return .
 
-//Find an active ai with the least borgs. VERBOSE PROCNAME HUH!
+///Find an active ai with the least borgs. VERBOSE PROCNAME HUH!
 /proc/select_active_ai_with_fewest_borgs()
 	var/mob/living/silicon/ai/selected
 	var/list/active = active_ais()
@@ -366,7 +366,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	new_list += Dead_list
 	return new_list
 
-//Returns a list of all mobs with their name
+///Returns a list of all mobs with their name
 /proc/getmobs()
 
 	var/list/mobs = sortmobs()
@@ -392,7 +392,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	return creatures
 
-//Orders mobs by type then by name
+///Orders mobs by type then by name
 /proc/sortmobs()
 	var/list/moblist = list()
 	var/list/sortmob = sortAtom(mob_list)
@@ -424,15 +424,17 @@ Turf and target are seperate in case you want to teleport some distance from a t
 //		mob_list.Add(M)
 	return moblist
 
-//Forces a variable to be posative
+///Forces a variable to be posative
 /proc/modulus(var/M)
 	if(M >= 0)
 		return M
 	if(M < 0)
 		return -M
 
-// returns the turf located at the map edge in the specified direction relative to A
-// used for mass driver
+/**
+ * Returns the turf located at the map edge in the specified direction relative to A
+ * used for mass driver
+ */
 /proc/get_edge_target_turf(var/atom/A, var/direction)
 
 	var/turf/target = locate(A.x, A.y, A.z)
@@ -453,10 +455,12 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	return target
 
-// returns turf relative to A in given direction at set range
-// result is bounded to map size
-// note range is non-pythagorean
-// used for disposal system
+/**
+ * returns turf relative to A in given direction at set range
+ * result is bounded to map size
+ * note range is non-pythagorean
+ * used for disposal system
+ */
 /proc/get_ranged_target_turf(var/atom/A, var/direction, var/range)
 
 	var/x = A.x
@@ -480,25 +484,25 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/y = min(world.maxy, max(1, A.y + dy))
 	return locate(x,y,A.z)
 
-//Makes sure MIDDLE is between LOW and HIGH. If not, it adjusts it. Returns the adjusted value.
+///Makes sure MIDDLE is between LOW and HIGH. If not, it adjusts it. Returns the adjusted value.
 /proc/between(var/low, var/middle, var/high)
 	return max(min(middle, high), low)
 
-//returns random gauss number
+///Returns random gauss number
 /proc/GaussRand(var/sigma)
-  var/x,y,rsq
-  do
-    x=2*rand()-1
-    y=2*rand()-1
-    rsq=x*x+y*y
-  while(rsq>1 || !rsq)
-  return sigma*y*sqrt(-2*log(rsq)/rsq)
+	var/x,y,rsq
+	do
+		x=2*rand()-1
+		y=2*rand()-1
+		rsq=x*x+y*y
+	while(rsq>1 || !rsq)
+	return sigma*y*sqrt(-2*log(rsq)/rsq)
 
-//returns random gauss number, rounded to 'roundto'
+///Returns random gauss number, rounded to 'roundto'
 /proc/GaussRandRound(var/sigma,var/roundto)
 	return round(GaussRand(sigma),roundto)
 
-//Step-towards method of determining whether one atom can see another. Similar to viewers()
+///Step-towards method of determining whether one atom can see another. Similar to viewers()
 /proc/can_see(var/atom/source, var/atom/target, var/length=5) // I couldn't be arsed to do actual raycasting :I This is horribly inaccurate.
 	var/turf/current = get_turf(source)
 	var/turf/target_turf = get_turf(target)
