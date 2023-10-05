@@ -56,6 +56,10 @@
 			break
 
 /mob/living/heavy_vehicle/proc/zoneToComponent(var/zone)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+	RETURN_TYPE(/obj/item/mech_component)
+
 	switch(zone)
 		if(BP_EYES, BP_HEAD)
 			return head

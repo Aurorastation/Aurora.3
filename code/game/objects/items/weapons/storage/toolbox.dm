@@ -101,8 +101,7 @@
 	starts_with = list(
 		/obj/item/crowbar = 1,
 		/obj/item/wrench = 1,
-		/obj/item/custom_ka_upgrade/upgrade_chips/damage = 1,
-		/obj/item/custom_ka_upgrade/cells/cell02 = 1
+		/obj/item/custom_ka_upgrade/barrels/barrel02 = 1
 	)
 
 /obj/item/storage/toolbox/syndicate
