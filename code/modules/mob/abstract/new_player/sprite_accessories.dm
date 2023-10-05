@@ -2236,12 +2236,6 @@ Follow by example and make good judgement based on length which list to include 
 	length = 5
 	chatname = "horns"
 
-/datum/sprite_accessory/hair/una_aquaticfrill/una_elvis
-	name = "Elvis Sideburns"
-	icon_state = "unathi_elvis"
-	length = 0
-	chatname = "sideburns"
-
 /datum/sprite_accessory/hair/una_aquaticfrill/una_hornadorns
 	name = "Unathi Horn Adorns"
 	icon_state = "unathi_hornadorns"
@@ -2277,12 +2271,6 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_lowerhorn"
 	length = 5
 	chatname = "horns"
-
-/datum/sprite_accessory/hair/una_aquaticfrill/una_mohawk
-	name = "Unathi Mohawk"
-	icon_state = "unathi_mohawk"
-	length = 5
-	chatname = "mohawk"
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_ramhornshort
 	name = "Unathi Short Ram Horns"
@@ -2499,6 +2487,50 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "styrahornbusted"
 	length = 2
 	chatname = "horn stub"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/mohawk
+	name = "Unathi Mohawk Fin"
+	icon_state = "fin_hawk"
+	length = 0
+	chatname = "fin"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/big
+	name = "Unathi Big Frills"
+	icon_state = "big_frills"
+	length = 0
+	chatname = "frills"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/quintuple
+	name = "Unathi Quintuple Horns"
+	icon_state = "quintuple_horns"
+	length = 5
+	chatname = "horns"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/curved
+	name = "Unathi Curved-Up Horns"
+	icon_state = "curved_up"
+	length = 5
+	chatname = "horns"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/curved/down
+	name = "Unathi Curved-Down Horns"
+	icon_state = "curved_down"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/samurai
+	name = "Unathi Samurai Horns"
+	icon_state = "samurai"
+	length = 5
+	chatname = "horns"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/headspikes
+	name = "Unathi Head Spikes"
+	icon_state = "head_spikes"
+	length = 5
+	chatname = "spiked horns"
+
+/datum/sprite_accessory/hair/una_aquaticfrill/headspikes/overgrown
+	name = "Unathi Overgrown Head Spikes"
+	icon_state = "overgrown_head_spikes"
 
 //skrell tentacles
 
@@ -3904,22 +3936,6 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Unathi Big Horns"
 	icon_state = "facial_bighorn"
 
-/datum/sprite_accessory/facial_hair/una_aquaticfrill/una_bob
-	name = "Bob"
-	icon_state = "facial_bob"
-
-/datum/sprite_accessory/facial_hair/una_aquaticfrill/una_bobcurl
-	name = "Bobcurl"
-	icon_state = "facial_bobcurl"
-
-/datum/sprite_accessory/facial_hair/una_aquaticfrill/una_buzzcut
-	name = "Buzzcut"
-	icon_state = "facial_buzzcut"
-
-/datum/sprite_accessory/facial_hair/una_aquaticfrill/una_buzzcut2
-	name = "Buzzcut 2"
-	icon_state = "facial_buzzcut2"
-
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_chinhorn
 	name = "Unathi Chin Horn"
 	icon_state = "facial_chinhorns"
@@ -3964,10 +3980,6 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Unathi Lower Horns"
 	icon_state = "facial_lowerhorn"
 
-/datum/sprite_accessory/facial_hair/una_aquaticfrill/una_mohawk
-	name = "Unathi Mohawk"
-	icon_state = "facial_mohawk"
-
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_ramhornshort
 	name = "Unathi Short Ram Horns"
 	icon_state = "facial_ramhorn"
@@ -3995,10 +4007,6 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_sidefrills
 	name = "Unathi Side Frills"
 	icon_state = "facial_sidefrills"
-
-/datum/sprite_accessory/facial_hair/una_aquaticfrill/una_spiky
-	name = "Spiky"
-	icon_state = "facial_spiky"
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_horns
 	name = "Unathi Horns"
