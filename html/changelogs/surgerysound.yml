@@ -1,0 +1,6 @@
+author: Pirouette
+
+delete-after: True
+
+changes:
+  - soundadd: "Added sounds for using tools in surgery, ported from /vg/station."

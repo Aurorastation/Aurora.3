@@ -32,6 +32,7 @@
 /singleton/surgery_step/generic/cut_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to cut open [target]'s face and neck with \the [tool].", \
 		"You start to cut open [target]'s face and neck with \the [tool].")
+	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/generic/cut_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -71,6 +72,7 @@
 /singleton/surgery_step/robotics/face/synthskin/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to cut open [target]'s synthskin face and neck with \the [tool].", \
 		"You start to cut open [target]'s synthskin face and neck with \the [tool].")
+	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/robotics/face/synthskin/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

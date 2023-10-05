@@ -10,6 +10,7 @@
 	icon_state = "tube"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	amount = 10
+	surgerysound = 'sound/items/bonegel.ogg'
 
 	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 7000)
 
