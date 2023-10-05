@@ -238,13 +238,6 @@
 /obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled,
 /area/shuttle/einstein_shuttle/main)
-"gO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/shuttle/einstein_shuttle/porteng)
 "hq" = (
 /obj/machinery/light,
 /obj/machinery/alarm/west{
@@ -291,6 +284,11 @@
 /obj/item/clothing/under/konyang/male/shortsleeve,
 /obj/item/clothing/suit/storage/toggle/konyang/dbjacket/blue,
 /obj/item/clothing/shoes/flats,
+/obj/item/spacecash/c1000,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room)
 "iD" = (
@@ -379,10 +377,14 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "lb" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/shuttle/einstein_shuttle/starbeng)
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/fancybrown,
+/area/shuttle/einstein_shuttle/main)
 "lk" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 8
@@ -397,21 +399,16 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
-"lA" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/einstein_shuttle/dock)
 "lH" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "lK" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
@@ -495,6 +492,12 @@
 /obj/item/clothing/shoes/flats,
 /obj/item/clothing/accessory/tie/navy,
 /obj/item/reagent_containers/inhaler/space_drugs,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/item/spacecash/c1000,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/three)
 "nx" = (
@@ -510,6 +513,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "nS" = (
@@ -607,6 +611,9 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/south{
 	req_one_access = null
+	},
+/obj/machinery/suit_cycler/engineering{
+	req_access = list(205)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
@@ -780,24 +787,35 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/three)
 "uq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	id_tag = "einstein_shuttle_pump_out_external";
+	frequency = 1385;
+	layer = 2.8
 	},
-/obj/machinery/vending/engineering{
-	req_access = list(205)
+/obj/machinery/airlock_sensor/airlock_exterior{
+	frequency = 1385;
+	id_tag = "einstein_shuttle_exterior_sensor";
+	pixel_y = 10;
+	pixel_x = 55
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/shuttle/einstein_shuttle/porteng)
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/einstein_shuttle/dock)
 "uO" = (
-/obj/machinery/atmospherics/binary/passive_gate/on{
-	dir = 8
+/obj/structure/closet/crate/rad{
+	name = "fuel storage"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/stack/material/uranium/full,
+/obj/item/stack/material/uranium/full,
+/obj/item/stack/material/uranium/full,
 /turf/simulated/floor/plating,
-/area/shuttle/einstein_shuttle/porteng)
+/area/shuttle/einstein_shuttle/starbeng)
 "vu" = (
-/obj/structure/bed/stool/chair/shuttle,
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
@@ -872,6 +890,10 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/flats,
 /obj/item/reagent_containers/food/drinks/bottle/sake,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/item/spacecash/c1000,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/two)
 "xm" = (
@@ -937,9 +959,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -948,10 +967,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/south{
 	req_one_access = null
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "zd" = (
@@ -991,9 +1011,8 @@
 	dir = 5
 	},
 /obj/machinery/light,
-/obj/machinery/suit_cycler/engineering{
-	req_access = list(205)
-	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "At" = (
@@ -1109,15 +1128,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
-"CC" = (
-/obj/structure/closet/crate/rad{
-	name = "fuel storage"
-	},
-/obj/item/stack/material/tritium/full,
-/obj/item/stack/material/tritium/full,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/plating,
-/area/shuttle/einstein_shuttle/starbeng)
 "CF" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -1170,18 +1180,22 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/machinery/suit_storage_unit/standard_unit,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/table/rack,
+/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "Dt" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
-	dir = 1
+/obj/machinery/computer/cryopod{
+	pixel_x = -28;
+	pixel_y = 7
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/shuttle/einstein_shuttle/starbeng)
+/turf/simulated/floor/carpet/fancybrown,
+/area/shuttle/einstein_shuttle/main)
 "DI" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
@@ -1189,12 +1203,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "DK" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube_empty"
+/obj/machinery/cryopod{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/einstein_shuttle/porteng)
+/turf/simulated/floor/carpet/fancybrown,
+/area/shuttle/einstein_shuttle/main)
 "DP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
@@ -1295,9 +1308,13 @@
 /obj/structure/fuel_port/hydrogen{
 	pixel_x = 32
 	},
-/obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/table/rack,
+/obj/item/clothing/head/helmet/space/void/engineering,
+/obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "FG" = (
@@ -1380,6 +1397,7 @@
 /area/shuttle/einstein_shuttle/porteng)
 "Hp" = (
 /obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "HL" = (
@@ -1461,8 +1479,10 @@
 /area/shuttle/einstein_shuttle/helm)
 "KZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/vending/tool,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/vending/engineering{
+	req_access = list(205)
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "Lh" = (
@@ -1492,10 +1512,12 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/einstein_shuttle/main)
 "Lt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 6
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/power/portgen/basic/advanced,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "LC" = (
@@ -1533,11 +1555,6 @@
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/conference)
-"NP" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/shuttle/einstein_shuttle/porteng)
 "NW" = (
 /turf/template_noop,
 /area/space)
@@ -1547,6 +1564,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "NZ" = (
@@ -1604,9 +1624,8 @@
 /area/shuttle/einstein_shuttle/room)
 "PZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
-	dir = 4
+	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "QI" = (
@@ -1709,29 +1728,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/three)
 "Ty" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	id_tag = "einstein_shuttle_pump_out_external";
-	frequency = 1385;
-	layer = 2.8
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1385;
-	id_tag = "einstein_shuttle_exterior_sensor";
-	pixel_y = 10;
-	pixel_x = 25
-	},
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/bed/handrail{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/einstein_shuttle/dock)
 "TF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "TM" = (
@@ -1834,10 +1839,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/einstein_shuttle/main)
-"Wp" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/plating,
-/area/shuttle/einstein_shuttle/porteng)
 "WA" = (
 /obj/structure/closet/cabinet,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1846,6 +1847,12 @@
 /obj/item/clothing/under/konyangdress,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/flats,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/item/spacecash/c1000,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/four)
 "WR" = (
@@ -1860,17 +1867,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
-"WX" = (
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/machinery/power/portgen/basic,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
-/area/shuttle/einstein_shuttle/starbeng)
 "WY" = (
 /obj/machinery/atmospherics/unary/engine,
+/obj/structure/window/borosilicate/reinforced,
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "Xl" = (
@@ -5722,10 +5721,10 @@ NW
 NW
 NW
 NW
-tP
-tP
-Ke
-tP
+NW
+NW
+NW
+NW
 NW
 NW
 NW
@@ -5824,12 +5823,12 @@ NW
 NW
 NW
 NW
-WY
-QS
-Ag
-tP
-tP
-tP
+NW
+NW
+NW
+NW
+NW
+NW
 NW
 NW
 NW
@@ -5926,14 +5925,14 @@ NW
 NW
 NW
 NW
-WY
-lb
-LE
-CC
-WX
-tP
-tP
-pi
+NW
+NW
+NW
+NW
+NW
+NW
+NW
+NW
 NW
 NW
 NW
@@ -6028,12 +6027,12 @@ NW
 NW
 NW
 NW
-WY
-lb
-LE
-LE
-jC
-lw
+tP
+tP
+Ke
+tP
+tP
+tP
 tP
 pi
 Mx
@@ -6130,12 +6129,12 @@ NW
 NW
 NW
 NW
-WR
-Sa
-LE
-LE
+WY
+QS
+Ag
+uO
 Lt
-Xl
+tP
 tP
 pi
 pi
@@ -6232,12 +6231,12 @@ NW
 NW
 NW
 NW
-WY
-lb
+WR
+Sa
 LE
 LE
-Dt
-Xl
+jC
+lw
 tP
 wc
 Oe
@@ -6334,7 +6333,7 @@ NW
 NW
 NW
 NW
-WY
+tP
 lK
 Jq
 IF
@@ -6639,7 +6638,7 @@ NW
 NW
 NW
 NW
-NW
+uq
 tP
 EV
 Fk
@@ -6754,9 +6753,9 @@ cI
 vI
 wc
 pi
-nS
-jN
-Xy
+lb
+DK
+Dt
 pm
 xm
 gb
@@ -6843,7 +6842,7 @@ NW
 NW
 NW
 NW
-lA
+Ty
 XT
 sV
 FX
@@ -6857,8 +6856,8 @@ LC
 pi
 pi
 vu
-jN
-Xy
+Fs
+Fs
 se
 xm
 Fs
@@ -6944,7 +6943,7 @@ NW
 NW
 FL
 NW
-fW
+NW
 Kx
 Pw
 Ri
@@ -7046,7 +7045,7 @@ NW
 NW
 NW
 NW
-NW
+fW
 FX
 Zx
 QI
@@ -7149,7 +7148,7 @@ NW
 NW
 NW
 NW
-pp
+FX
 on
 on
 on
@@ -7251,7 +7250,7 @@ NW
 NW
 NW
 NW
-NW
+pp
 on
 Vu
 YI
@@ -7458,8 +7457,8 @@ NW
 NW
 Hp
 lH
-Wp
-NP
+iD
+wx
 Zl
 KZ
 qN
@@ -7558,8 +7557,8 @@ NW
 NW
 NW
 NW
-Hp
-lH
+sY
+pB
 iD
 TF
 iD
@@ -7660,12 +7659,12 @@ NW
 NW
 NW
 NW
-Hp
-lH
+on
+pB
 iD
-wx
-iD
-uq
+vw
+kV
+ec
 qN
 mo
 yr
@@ -7762,12 +7761,12 @@ NW
 NW
 NW
 NW
-sY
-pB
+Hp
+lH
 iD
-uO
-iD
-ec
+YJ
+LU
+Wh
 qN
 qN
 qN
@@ -7864,12 +7863,12 @@ NW
 NW
 NW
 NW
-Hp
-lH
-iD
-vw
-kV
-Wh
+on
+on
+RS
+on
+on
+on
 qN
 qN
 Td
@@ -7966,14 +7965,14 @@ NW
 NW
 NW
 NW
-Hp
-lH
-iD
-YJ
-LU
-on
-qN
-qN
+NW
+NW
+NW
+NW
+NW
+NW
+NW
+NW
 NW
 NW
 NW
@@ -8068,12 +8067,12 @@ NW
 NW
 NW
 NW
-Hp
-gO
-DK
-on
-on
-on
+NW
+NW
+NW
+NW
+NW
+NW
 NW
 NW
 NW
@@ -8170,10 +8169,10 @@ NW
 NW
 NW
 NW
-on
-on
-RS
-on
+NW
+NW
+NW
+NW
 NW
 NW
 NW
