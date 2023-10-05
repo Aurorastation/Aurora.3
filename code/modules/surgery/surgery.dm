@@ -66,6 +66,7 @@
 			H.bloody_hands(target,0)
 		if(blood_level > 1)
 			H.bloody_body(target,0)
+	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	return TRUE
 
 // does stuff to end the step, which is normally print a message + do whatever this step changes

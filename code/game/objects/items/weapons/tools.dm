@@ -34,7 +34,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	usesound = 'sound/items/wrench.ogg'
-	surgerysound = 'sound/items/bonesetter.ogg'
+	surgerysound = 'sound/items/surgery/bonesetter.ogg'
 	drop_sound = 'sound/items/drop/wrench.ogg'
 	pickup_sound = 'sound/items/pickup/wrench.ogg'
 
@@ -140,7 +140,7 @@
 	sharp = TRUE
 	edge = TRUE
 	usesound = 'sound/items/Wirecutter.ogg'
-	surgerysound = 'sound/items/hemostat.ogg'
+	surgerysound = 'sound/items/surgery/hemostat.ogg'
 	drop_sound = 'sound/items/drop/wirecutter.ogg'
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
 	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
@@ -223,7 +223,7 @@
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	usesound = 'sound/items/Welder.ogg'
-	surgerysound = 'sound/items/cautery.ogg'
+	surgerysound = 'sound/items/surgery/cautery.ogg'
 
 	attack_verb = list("hit", "bludgeoned", "whacked")
 
@@ -696,7 +696,7 @@
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	usesound = /singleton/sound_category/crowbar_sound
-	surgerysound = 'sound/items/retractor.ogg'
+	surgerysound = 'sound/items/surgery/retractor.ogg'
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")

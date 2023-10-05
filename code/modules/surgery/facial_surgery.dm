@@ -32,7 +32,6 @@
 /singleton/surgery_step/generic/prepare_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to retract [target]'s face with \the [tool].", \
 		"You start to retract [target]'s face with \the [tool].")
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/generic/prepare_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -65,7 +64,6 @@
 /singleton/surgery_step/generic/alter_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> starts to adjust [target]'s face with \the [tool].", \
 		SPAN_NOTICE("You start to alter [target]'s face and neck with \the [tool]."))
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/generic/alter_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -113,7 +111,6 @@
 /singleton/surgery_step/face/cauterize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] is beginning to cauterize the incision on [target]'s face and neck with \the [tool]." , \
 		"You are beginning to cauterize the incision on [target]'s face and neck with \the [tool].")
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/face/cauterize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -157,7 +154,6 @@
 /singleton/surgery_step/robotics/face/synthskinopen/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to cut open [target]'s synthskin face and neck with \the [tool].", \
 		"You start to cut open [target]'s synthskin face and neck with \the [tool].")
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/robotics/face/synthskinopen/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -186,7 +182,6 @@
 /singleton/surgery_step/robotics/face/prepare_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to retract [target]'s synthskin face with \the [tool].", \
 		"You start to retract [target]'s face with \the [tool].")
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/robotics/face/prepare_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -261,7 +256,6 @@
 /singleton/surgery_step/robotics/face/seal_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] is beginning to seal the incision on [target]'s synthskin face and neck with \the [tool]." , \
 		"You are beginning to seal the incision on [target]'s synthskin face and neck with \the [tool].")
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/robotics/face/seal_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

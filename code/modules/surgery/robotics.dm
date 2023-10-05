@@ -51,7 +51,6 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts to unscrew the maintenance hatch on [target]'s [affected.name] with \the [tool].", \
 		SPAN_NOTICE("You start to unscrew the maintenance hatch on [target]'s [affected.name] with \the [tool]."))
-	playsound(target.loc, tool.surgerysound, 15, TRUE)
 	..()
 
 /singleton/surgery_step/robotics/unscrew_hatch/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -94,7 +93,6 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts to screw the maintenance hatch on [target]'s [affected.name] with \the [tool].", \
 		SPAN_NOTICE("You start to screw the maintenance hatch on [target]'s [affected.name] with \the [tool]."))
-	playsound(target.loc, tool.surgerysound, 15, TRUE)
 	..()
 
 /singleton/surgery_step/robotics/screw_hatch/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -132,7 +130,6 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts to pry open the maintenance hatch on [target]'s [affected.name] with \the [tool].",
 		SPAN_NOTICE("You start to pry open the maintenance hatch on [target]'s [affected.name] with \the [tool]."))
-	playsound(target.loc, tool.surgerysound, 15, TRUE)
 	..()
 
 /singleton/surgery_step/robotics/open_hatch/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -212,7 +209,6 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> begins to patch damage to [target]'s [affected.name]'s support structure with \the [tool]." , \
 		SPAN_NOTICE("You begin to patch damage to [target]'s [affected.name]'s support structure with \the [tool]."))
-	playsound(target.loc, tool.surgerysound, 15, TRUE)
 	..()
 
 /singleton/surgery_step/robotics/repair_brute/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -263,7 +259,6 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> begins to splice new cabling into [target]'s [affected.name]." , \
 		SPAN_NOTICE("You begin to splice new cabling into [target]'s [affected.name]."))
-	playsound(target.loc, tool.surgerysound, 15, TRUE)
 	..()
 
 /singleton/surgery_step/robotics/repair_burn/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -314,7 +309,6 @@
 /singleton/surgery_step/robotics/detach_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> starts to decouple [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		SPAN_NOTICE("You start to decouple [target]'s [target.op_stage.current_organ] with \the [tool]." ))
-	playsound(target.loc, tool.surgerysound, 15, TRUE)
 	..()
 
 /singleton/surgery_step/robotics/detach_organ_robotic/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -366,7 +360,6 @@
 /singleton/surgery_step/robotics/attach_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> begins reattaching [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		SPAN_NOTICE("You start reattaching [target]'s [target.op_stage.current_organ] with \the [tool]."))
-	playsound(target.loc, tool.surgerysound, 15, TRUE)
 	..()
 
 /singleton/surgery_step/robotics/attach_organ_robotic/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

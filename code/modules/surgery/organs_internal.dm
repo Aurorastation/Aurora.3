@@ -58,7 +58,7 @@
 			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 			"You start treating damage to [target]'s [I.name] with [tool_name]." )
 	target.custom_pain("The pain in your [affected.name] is living hell!",100, affecting = affected)
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
+	..()
 
 /singleton/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/tool_name = "\the [tool]"
@@ -219,7 +219,6 @@
 	user.visible_message("<b>[user]</b> starts to separate [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		SPAN_NOTICE("You start to separate [target]'s [target.op_stage.current_organ] with \the [tool]." ))
 	target.custom_pain("The pain in your [affected.name] is living hell!", 75)
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/detach_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -275,7 +274,6 @@
 	user.visible_message("[user] starts removing [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		"You start removing [target]'s [target.op_stage.current_organ] with \the [tool].")
 	target.custom_pain("Someone's ripping out your [target.op_stage.current_organ]!", 75)
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/remove_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -440,7 +438,6 @@
 	user.visible_message("[user] begins reattaching [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		"You start reattaching [target]'s [target.op_stage.current_organ] with \the [tool].")
 	target.custom_pain("Someone's digging needles into your [target.op_stage.current_organ]!", 75)
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/attach_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -492,7 +489,6 @@
 	user.visible_message("[user] begins to modify [target]'s [B] to prepare it for Man-Machine-Interface compatibility with \the [tool].", \
 		"You start to modify [target]'s [B] to prepare it for Man-Machine-Interface compatibility with \the [tool].")
 	target.custom_pain("Someone's scraping away at your [B]!", 75)
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/prepare/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

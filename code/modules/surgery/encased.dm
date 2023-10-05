@@ -41,7 +41,6 @@
 	user.visible_message("[user] begins to cut through [target]'s [affected.encased] with \the [tool].", \
 		"You begin to cut through [target]'s [affected.encased] with \the [tool].")
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/open_encased/saw/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -90,7 +89,6 @@
 	var/self_msg = "You start to force open the [affected.encased] in [target]'s [affected.name] with \the [tool]."
 	user.visible_message(msg, self_msg)
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/open_encased/retract/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -203,7 +201,6 @@
 	var/self_msg = "You start applying \the [tool] to [target]'s [affected.encased]."
 	user.visible_message(msg, self_msg)
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/open_encased/mend/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

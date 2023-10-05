@@ -19,7 +19,7 @@
 	drop_sound = 'sound/items/drop/knife.ogg'
 	pickup_sound = 'sound/items/pickup/knife.ogg'
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	surgerysound = 'sound/items/scalpel.ogg'
+	surgerysound = 'sound/items/surgery/scalpel.ogg'
 
 /obj/item/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(active == 1)

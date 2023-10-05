@@ -62,7 +62,6 @@
 		"You start making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool]." )
 	target.custom_pain("The pain in your chest is living hell!",1)
 	affected.cavity = CAVITY_OPEN
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/cavity/make_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -95,7 +94,6 @@
 		"You start mending [target]'s [get_cavity(affected)] cavity wall with \the [tool]." )
 	target.custom_pain("The pain in your chest is living hell!", 75)
 	affected.cavity = CAVITY_CLOSED
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/cavity/close_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -178,7 +176,6 @@
 	user.visible_message("[user] starts poking around inside [target]'s [affected.name] with \the [tool].", \
 		"You start poking around inside [target]'s [affected.name] with \the [tool]." )
 	target.custom_pain("The pain in your [affected.name] is living hell!", 50)
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/cavity/implant_removal/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

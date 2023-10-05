@@ -306,7 +306,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 30
 	burn_rate = 0.006 //Lasts ~166 seconds)
-	surgerysound = 'sound/items/cautery.ogg'
+	surgerysound = 'sound/items/surgery/cautery.ogg'
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
 	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
@@ -687,7 +687,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/deactivation_sound = 'sound/items/cigs_lighters/cheap_off.ogg'
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
-	surgerysound = 'sound/items/cautery.ogg'
+	surgerysound = 'sound/items/surgery/cautery.ogg'
 	var/last_open = 0 //prevent message spamming.
 	var/last_close = 0
 	var/flame_light_range = 1

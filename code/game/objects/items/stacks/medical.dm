@@ -20,7 +20,7 @@ Contains:
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 20
-	surgerysound = 'sound/items/bonegel.ogg'
+	surgerysound = 'sound/items/surgery/bonegel.ogg'
 	var/heal_brute = 0
 	var/heal_burn = 0
 	var/automatic_charge_overlays = FALSE	//Do we handle overlays with base update_icon()? | Stolen from TG egun code

@@ -488,7 +488,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	stacktype = /obj/item/stack/cable_coil
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
-	surgerysound = 'sound/items/fixovein.ogg'
+	surgerysound = 'sound/items/surgery/fixovein.ogg'
 	var/static/list/possible_cable_coil_colours = list(
 		"Yellow" = COLOR_YELLOW,
 		"Green" = COLOR_LIME,

@@ -32,7 +32,6 @@
 	user.visible_message("[user] starts patching the damaged vein in [target]'s [affected.name] with \the [tool]." , \
 		"You start patching the damaged [affected.artery_name] in [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("The pain in your [affected.name] is unbearable!", 100)
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/fix_vein/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -94,7 +93,6 @@
 	user.visible_message("[user] starts cutting away necrotic tissue from [target]'s [organ.name] with \the [tool]." , \
 	"You start cutting away necrotic tissue from [target]'s [organ.name] with \the [tool].[organ.max_damage > 15 ? " Some of it has to be cut away permanently." : ""]")
 	target.custom_pain("The pain in your [affected.name] is unbearable!", 75)
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/fix_dead_tissue/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -210,7 +208,6 @@
 	user.visible_message("[user] starts reattaching the damaged [affected.tendon_name] in [target]'s [affected.name] with \the [tool]." , \
 		"You start reattaching the damaged [affected.tendon_name] in [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("The pain in your [affected.name] is unbearable!", 100)
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/fix_tendon/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -255,7 +252,6 @@
 /singleton/surgery_step/hardsuit/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts cutting through the support systems of [target]'s [target.back] with \the [tool]." , \
 		"You start cutting through the support systems of [target]'s [target.back] with \the [tool].")
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/hardsuit/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -309,7 +305,6 @@
 	user.visible_message(SPAN_DANGER("[user] is beginning to amputate [target]'s [affected.name] with \the [tool].") , \
 		SPAN_DANGER("You begin to cut through [target]'s [affected.amputation_point] with \the [tool]."))
 	target.custom_pain("Your [affected.amputation_point] is being ripped apart!", 75)
-	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	..()
 
 /singleton/surgery_step/amputate/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
