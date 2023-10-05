@@ -128,6 +128,7 @@
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for baby slimes."
 	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "bottle-1"
+	item_state = "bottle"
 
 /obj/item/docility_serum/Initialize() // Better than hardsprited in stuff.
 	. = ..()
@@ -172,6 +173,7 @@
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for adult slimes"
 	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "bottle-2"
+	item_state = "bottle"
 
 /obj/item/advanced_docility_serum/Initialize() // Better than hardsprited in stuff.
 	. = ..()
@@ -216,6 +218,7 @@
 	desc = "A potent chemical mix that will cause a slime to generate more extract."
 	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "bottle-3"
+	item_state = "bottle"
 
 /obj/item/slimesteroid/Initialize() // Better than hardsprited in stuff.
 	SHOULD_CALL_PARENT(FALSE)
@@ -250,6 +253,7 @@
 	desc = "A potent chemical mix that will give a slime extract three uses."
 	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "bottle-4"
+	item_state = "bottle"
 
 /obj/item/extract_enhancer/Initialize() // Better than hardsprited in stuff.
 	SHOULD_CALL_PARENT(FALSE)
