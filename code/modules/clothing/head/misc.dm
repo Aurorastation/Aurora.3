@@ -610,3 +610,70 @@
 	desc = "A green campaign hat issued as part of Solarian Army service uniforms. The NCOs that scream at you more than the normal ones should wear this."
 	icon_state = "army_campaign"
 	item_state = "army_campaign"
+
+//Konyang Armed Forces
+
+/obj/item/clothing/head/konyang/army
+	name = "konyang army field cap"
+	desc = "A cloth field cap issued to Konyang soldiers as part of their field uniform."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "konyang_army_cap"
+	item_state = "konyang_army_cap"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/konyang/army/officer
+	name = "konyang army officer peaked cap"
+	desc = "A green peaked cap issued to officers of the Konyang Army."
+	icon_state = "konyang_army_off_cap"
+	item_state = "konyang_army_off_cap"
+
+/obj/item/clothing/head/konyang/navy
+	name = "konyang navy officer peaked cap"
+	desc = "A white peaked cap issued to officers of the Konyang Navy."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "konyang_navy_cap"
+	item_state = "konyang_navy_cap"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/konyang/space
+	name = "konyang aerospace forces officer peaked cap"
+	desc = "A white peaked cap issued to officers of the Konyang Aerospace Forces."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "konyang_space_cap"
+	item_state = "konyang_space_cap"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/konyang/police
+	name = "konyang national police hat"
+	desc = "A white peaked cap issued to personnel of the Konyang National Police"
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "konyang_police_hat"
+	item_state = "konyang_police_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/konyang
+	name = "konyang army helmet"
+	desc = "A woodland colored helmet made from advanced ceramic."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "helmet_konyang_army"
+	item_state = "helmet_konyang_army"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+	)
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/konyang/navy
+	name = "konyang navy helmet"
+	desc = "A pale blue colored helmet made from advanced ceramic."
+	icon_state = "helmet_konyang_navy"
+	item_state = "helmet_konyang_navy"
+
+/obj/item/clothing/head/helmet/konyang/pilot
+	name = "konyang mechatronic corps helmet"
+	desc = "A white colored helmet made from advanced ceramic."
+	icon_state = "helmet_pilot"
+	item_state = "helmet_pilot"
