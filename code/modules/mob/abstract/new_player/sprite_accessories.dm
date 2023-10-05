@@ -2272,6 +2272,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 5
 	chatname = "horns"
 
+/datum/sprite_accessory/hair/una_aquaticfrill/una_mohawk
+	name = "Unathi Mohawk"
+	icon_state = "unathi_mohawk"
+	length = 5
+	chatname = "mohawk"
+
 /datum/sprite_accessory/hair/una_aquaticfrill/una_ramhornshort
 	name = "Unathi Short Ram Horns"
 	icon_state = "unathi_ramhorn"
@@ -2488,7 +2494,7 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "horn stub"
 
-/datum/sprite_accessory/hair/una_aquaticfrill/mohawk
+/datum/sprite_accessory/hair/una_aquaticfrill/finhawk
 	name = "Unathi Mohawk Fin"
 	icon_state = "fin_hawk"
 	length = 0
@@ -3979,6 +3985,10 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_lowerhorn
 	name = "Unathi Lower Horns"
 	icon_state = "facial_lowerhorn"
+
+/datum/sprite_accessory/facial_hair/una_aquaticfrill/una_mohawk
+	name = "Unathi Mohawk"
+	icon_state = "facial_mohawk"
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_ramhornshort
 	name = "Unathi Short Ram Horns"
