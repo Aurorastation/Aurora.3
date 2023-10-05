@@ -197,7 +197,7 @@
 		/obj/structure/reagent_dispensers/keg/beerkeg/rice = 0.5,
 		/obj/structure/reagent_dispensers/keg/xuizikeg =  0.5,
 		/obj/structure/reagent_dispensers/keg/mead = 0.5,
-		/obj/structure/reagent_dispensers/keg/sake = 0.5,
+		/obj/structure/reagent_dispensers/keg/sake = 0.5
 	)
 
 /obj/random/pizzabox
