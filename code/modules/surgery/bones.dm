@@ -62,7 +62,6 @@
 	user.visible_message("[user] is beginning to set the bone in [target]'s [affected.name] in place with \the [tool]." , \
 		"You are beginning to set the bone in [target]'s [affected.name] in place with \the [tool].")
 	target.custom_pain("The pain in your [affected.name] is going to make you pass out!",1)
-
 	..()
 
 /singleton/surgery_step/set_bone/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
