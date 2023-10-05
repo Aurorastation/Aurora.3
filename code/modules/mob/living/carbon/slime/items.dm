@@ -170,8 +170,8 @@
 /obj/item/advanced_docility_serum
 	name = "advanced docility serum"
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for adult slimes"
-	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
-	icon_state = "bottle-1"
+	icon = 'icons/obj/item/reagent_containers/glass.dmi'
+	icon_state = "bottle-2"
 
 /obj/item/advanced_docility_serum/Initialize() // Better than hardsprited in stuff.
 	. = ..()
@@ -214,8 +214,8 @@
 /obj/item/slimesteroid
 	name = "slime steroid"
 	desc = "A potent chemical mix that will cause a slime to generate more extract."
-	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
-	icon_state = "bottle-1"
+	icon = 'icons/obj/item/reagent_containers/glass.dmi'
+	icon_state = "bottle-3"
 
 /obj/item/slimesteroid/Initialize() // Better than hardsprited in stuff.
 	SHOULD_CALL_PARENT(FALSE)
@@ -248,8 +248,8 @@
 /obj/item/extract_enhancer
 	name = "extract enhancer"
 	desc = "A potent chemical mix that will give a slime extract three uses."
-	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
-	icon_state = "bottle-1"
+	icon = 'icons/obj/item/reagent_containers/glass.dmi'
+	icon_state = "bottle-4"
 
 /obj/item/extract_enhancer/Initialize() // Better than hardsprited in stuff.
 	SHOULD_CALL_PARENT(FALSE)
