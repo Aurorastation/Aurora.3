@@ -131,11 +131,11 @@
 
 	unarmed_types = list(/datum/unarmed_attack/industrial, /datum/unarmed_attack/palm/industrial)
 
-	brute_mod = 0.8
+	brute_mod = 0.85
 	burn_mod = 1.1
 
 	grab_mod = 0.8 // Big, easy to grab onto
-	resist_mod = 10 // Good luck wrestling against this powerhouse.
+	resist_mod = 9 // Good luck wrestling against this powerhouse.
 
 	slowdown = 4
 
@@ -314,9 +314,9 @@
 	unarmed_types = list(/datum/unarmed_attack/industrial/heavy, /datum/unarmed_attack/palm/industrial)
 
 	slowdown = 6
-	brute_mod = 0.7
+	brute_mod = 0.8
 	grab_mod = 0.7 // Bulkier and bigger than the G1
-	resist_mod = 12 // Overall stronger than G1
+	resist_mod = 10 // Overall stronger than G1
 
 	heat_level_1 = 1000
 	heat_level_2 = 2000
