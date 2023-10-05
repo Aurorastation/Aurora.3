@@ -1,7 +1,0 @@
-author: Pirouette
-
-delete-after: True
-
-changes:
-  - bugfix: "Xenobiology serums are no longer invisible."
-  - tweak: "Xenobiology serums now have different sprites."
