@@ -18084,6 +18084,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/machinery/bluespace_beacon,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/canary)
 "mMC" = (
