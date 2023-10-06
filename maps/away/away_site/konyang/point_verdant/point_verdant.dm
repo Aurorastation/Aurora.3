@@ -14,7 +14,7 @@
 /obj/effect/overmap/visitable/sector/point_verdant
 	name = "Konyang - Point Verdant Spaceport"
 	desc = "A landing zone designated by local authorities within an SCC-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
-	icon_state = "object"
+	icon_state = null
 	scanimage = "konyang_point_verdant.png"
 	place_near_main = list(0,0)
 	landing_site = TRUE
