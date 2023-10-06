@@ -69,7 +69,7 @@
 
 		if("open sea")
 			possible_themes = list(/datum/exoplanet_theme/konyang/ocean)
-			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/konyang_naval_landing_zone)
+			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/konyang_naval_landing_zone, /datum/map_template/ruin/exoplanet/konyang_reef)
 			landing_details = " Existing Conglomerate-operated infrastructure allows for unassisted landing. Permissable landing zone is expected to be a surface-bouyant naval shuttle pad."
 
 		if("abandoned infrastructure")
