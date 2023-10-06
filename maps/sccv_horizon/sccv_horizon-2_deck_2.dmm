@@ -7741,7 +7741,7 @@
 "dKB" = (
 /obj/machinery/fusion_fuel_injector/mapped{
 	dir = 4;
-	initial_id_tag = horizon_fusion
+	initial_id_tag = "horizon_fusion"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/yellow{
