@@ -44,7 +44,7 @@
 	ethanol_resistance = 0.8//Gets drunk a little faster
 	rarity_value = 2
 	economic_modifier = 7
-	selectable_pronouns = null
+	selectable_pronouns = list(MALE, FEMALE)
 
 	stamina = 90	// Tajara evolved to maintain a steady pace in the snow, sprinting wastes energy
 	stamina_recovery = 4
@@ -136,3 +136,6 @@
 		return
 	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
 	H.equip_to_slot_or_del(S,slot_shoes)
+
+/datum/species/get_species_record_sex(var/mob/living/carbon/human/H)
+	return H.pronouns

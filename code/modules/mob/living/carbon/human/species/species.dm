@@ -869,3 +869,6 @@
 
 /datum/species/proc/can_use_guns()
 	return TRUE
+
+/datum/species/proc/get_species_record_sex(var/mob/living/carbon/human/H)
+	return H.gender
