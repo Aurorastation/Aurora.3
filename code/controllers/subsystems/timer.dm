@@ -8,14 +8,14 @@
 #define TIMER_ID_MAX (2**24)
 
 /**
-  * # Timer Subsystem
-  *
-  * Handles creation, callbacks, and destruction of timed events.
-  *
-  * It is important to understand the buckets used in the timer subsystem are just a series of circular doubly-linked
-  * lists. The object at a given index in bucket_list is a /datum/timedevent, the head of a circular list, which has prev
-  * and next references for the respective elements in that bucket's circular list.
-  */
+ * # Timer Subsystem
+ *
+ * Handles creation, callbacks, and destruction of timed events.
+ *
+ * It is important to understand the buckets used in the timer subsystem are just a series of circular doubly-linked
+ * lists. The object at a given index in bucket_list is a /datum/timedevent, the head of a circular list, which has prev
+ * and next references for the respective elements in that bucket's circular list.
+ */
 SUBSYSTEM_DEF(timer)
 	name = "Timer"
 	wait = 1 //SS_TICKER subsystem, so wait is in ticks
@@ -228,8 +228,8 @@ SUBSYSTEM_DEF(timer)
 		. += ", NO CALLBACK"
 
 /**
-  * Destroys the existing buckets and creates new buckets from the existing timed events
-  */
+ * Destroys the existing buckets and creates new buckets from the existing timed events
+ */
 /datum/controller/subsystem/timer/proc/reset_buckets()
 	LOG_DEBUG("Timer buckets have been reset, this may cause timers to lag")
 	bucket_reset_count++
@@ -337,14 +337,14 @@ SUBSYSTEM_DEF(timer)
 	bucket_list |= SStimer.bucket_list
 
 /**
-  * # Timed Event
-  *
-  * This is the actual timer, it contains the callback and necessary data to maintain
-  * the timer.
-  *
-  * See the documentation for the timer subsystem for an explanation of the buckets referenced
-  * below in next and prev
-  */
+ * # Timed Event
+ *
+ * This is the actual timer, it contains the callback and necessary data to maintain
+ * the timer.
+ *
+ * See the documentation for the timer subsystem for an explanation of the buckets referenced
+ * below in next and prev
+ */
 /datum/timedevent
 	/// ID used for timers when the TIMER_STOPPABLE flag is present
 	var/id
@@ -439,8 +439,8 @@ SUBSYSTEM_DEF(timer)
 	return QDEL_HINT_IWILLGC
 
 /**
-  * Removes this timed event from any relevant buckets, or the secondary queue
-  */
+ * Removes this timed event from any relevant buckets, or the secondary queue
+ */
 /datum/timedevent/proc/bucketEject()
 	// Store local references for the bucket list and secondary queue
 	// This is faster than referencing them from the datum itself
@@ -477,13 +477,13 @@ SUBSYSTEM_DEF(timer)
 	bucket_joined = FALSE
 
 /**
-  * Attempts to add this timed event to a bucket, will enter the secondary queue
-  * if there are no appropriate buckets at this time.
-  *
-  * Secondary queueing of timed events will occur when the timespan covered by the existing
-  * buckets is exceeded by the time at which this timed event is scheduled to be invoked.
-  * If the timed event is tracking client time, it will be added to a special bucket.
-  */
+ * Attempts to add this timed event to a bucket, will enter the secondary queue
+ * if there are no appropriate buckets at this time.
+ *
+ * Secondary queueing of timed events will occur when the timespan covered by the existing
+ * buckets is exceeded by the time at which this timed event is scheduled to be invoked.
+ * If the timed event is tracking client time, it will be added to a special bucket.
+ */
 /datum/timedevent/proc/bucketJoin()
 	// Generate debug-friendly name for timer
 	var/static/list/bitfield_flags = list("TIMER_UNIQUE", "TIMER_OVERRIDE", "TIMER_CLIENT_TIME", "TIMER_STOPPABLE", "TIMER_NO_HASH_WAIT", "TIMER_LOOP")
@@ -534,8 +534,8 @@ SUBSYSTEM_DEF(timer)
 	bucket_list[bucket_pos] = src
 
 /**
-  * Returns a string of the type of the callback for this timer
-  */
+ * Returns a string of the type of the callback for this timer
+ */
 /datum/timedevent/proc/getcallingtype()
 	. = "ERROR"
 	if (callBack.object == GLOBAL_PROC)

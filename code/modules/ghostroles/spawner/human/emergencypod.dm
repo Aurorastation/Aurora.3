@@ -353,7 +353,7 @@
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
-    	/obj/item/device/camera = 1,
+		/obj/item/device/camera = 1,
 		/obj/item/clothing/suit/storage/toggle/bssb = 1,
 		/obj/item/handcuffs = 1,
 		/obj/item/device/oxycandle = 1,

@@ -12,7 +12,7 @@
  *		Cash Bag
  *		Book Bag (New thing)
  *		Slime Bag (New thing) ~Chaoko99
-  *
+ *
  *	-Sayu
  */
 
