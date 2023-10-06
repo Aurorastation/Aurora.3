@@ -1,0 +1,6982 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ac" = (
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/space)
+"ae" = (
+/obj/structure/ledge{
+	dir = 6
+	},
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"ag" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"ap" = (
+/turf/simulated/floor/asphalt,
+/area/space)
+"at" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
+	pixel_x = 4;
+	pixel_y = 11
+	},
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/o2,
+/obj/item/clothing/glasses/hud/health,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"aB" = (
+/obj/machinery/light_switch{
+	pixel_x = -21;
+	pixel_y = 33;
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/light,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"aD" = (
+/obj/structure/shipping_container{
+	icon_state = "red3"
+	},
+/obj/effect/overlay/container_logo{
+	icon_state = "heph2"
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"aY" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"bg" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"bk" = (
+/obj/machinery/button/remote/blast_door{
+	id = "lz_vehiclebay";
+	name = "Exterior Blast Door";
+	pixel_y = 26;
+	dir = 1
+	},
+/obj/machinery/light_switch{
+	pixel_x = -12;
+	pixel_y = 24;
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"bo" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood,
+/area/space)
+"bq" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/road_sign/yield{
+	name = "cavern warning sign";
+	desc = "A warning sign which declares the area ahead as off-limits. It details it as a dangerous, unregulated cave."
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"bs" = (
+/obj/structure/ledge{
+	dir = 5
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"bx" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/machinery/papershredder,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"by" = (
+/obj/structure/ledge/quarter/corner,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/space)
+"bL" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-15"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"bU" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/tank_wall/air,
+/turf/simulated/floor/plating,
+/area/space)
+"cd" = (
+/obj/effect/shuttle_landmark/automatic/canary,
+/turf/simulated/floor/asphalt,
+/area/space)
+"ct" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"cy" = (
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"cB" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/air{
+	icon_state = "air15"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/blue,
+/turf/simulated/floor/plating,
+/area/space)
+"cG" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/reinforced,
+/area/space)
+"cN" = (
+/obj/structure/ledge/quarter,
+/obj/structure/chainlink_fence,
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"de" = (
+/obj/structure/railing/mapped,
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"dg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"di" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/sugar,
+/obj/item/reagent_containers/food/condiment/sugar,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"dj" = (
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/space)
+"dk" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-16"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"dm" = (
+/obj/structure/closet/crate/bin,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"dn" = (
+/obj/effect/decal/curb{
+	dir = 5
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/asphalt,
+/area/space)
+"do" = (
+/obj/structure/ledge,
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"dz" = (
+/obj/machinery/power/portgen/basic,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"dA" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/light/small,
+/obj/machinery/power/apc/south{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"dG" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/space)
+"dH" = (
+/obj/structure/chainlink_fence,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"dP" = (
+/obj/machinery/meter{
+	name = "Air Reserve"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"dU" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/effect/decal/exterior_stairs/left{
+	dir = 4;
+	layer = 2.01
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"ec" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"ee" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"eg" = (
+/obj/structure/closet/secure_closet/freezer/meat/super_meat,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ep" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ez" = (
+/obj/structure/chainlink_fence,
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"eJ" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"eN" = (
+/obj/item/reagent_containers/glass/bucket,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"eU" = (
+/obj/structure/bed/roller,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"eZ" = (
+/obj/structure/punching_bag,
+/turf/simulated/floor/reinforced,
+/area/space)
+"fa" = (
+/obj/structure/railing/mapped,
+/obj/machinery/computer/ship/sensors{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"fb" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/asphalt,
+/area/space)
+"fc" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"fe" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"fg" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/floor/airless,
+/area/space)
+"fp" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"fr" = (
+/obj/machinery/door/urban,
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"fs" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/structure/road_sign/yield{
+	name = "cavern warning sign";
+	desc = "A warning sign which declares the area ahead as off-limits. It details it as a dangerous, unregulated cave."
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"fu" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/effect/decal/road_marking/reflector,
+/turf/simulated/floor/concrete,
+/area/space)
+"fx" = (
+/obj/effect/decal/road_marking/no_pass,
+/turf/simulated/floor/asphalt,
+/area/space)
+"fA" = (
+/obj/machinery/computer/general_air_control/large_tank_control{
+	name = "LZ Carbon Dioxide Supply Monitor";
+	sensors = list("lz_co2_sensor"="Site Tank");
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"gg" = (
+/obj/structure/ledge{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"go" = (
+/obj/structure/ledge/quarter{
+	dir = 6
+	},
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"gr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-4"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"gD" = (
+/obj/effect/decal/exterior_stairs/half/center{
+	layer = 3
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"gH" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/asphalt,
+/area/space)
+"gI" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/space)
+"gK" = (
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/obj/structure/ledge/quarter{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"gO" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"gV" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"ha" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"hk" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"hs" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -8;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"hw" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"hx" = (
+/obj/structure/table/wood,
+/obj/structure/television{
+	pixel_y = -8
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/space)
+"hB" = (
+/obj/structure/tank_wall/air{
+	density = 0;
+	icon_state = "air11";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
+"hC" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/item/hoist_kit,
+/turf/simulated/floor/reinforced,
+/area/space)
+"hK" = (
+/obj/structure/weightlifter,
+/turf/simulated/floor/reinforced,
+/area/space)
+"hL" = (
+/obj/structure/ledge/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"hP" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/asphalt,
+/area/space)
+"hV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"ia" = (
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"ib" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-10"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"ie" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/computer/arcade,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"ii" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/wood,
+/area/space)
+"iC" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"iK" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-7"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"iX" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"js" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/floor/concrete,
+/area/space)
+"ju" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/effect/decal/road_marking/reflector,
+/turf/simulated/floor/concrete,
+/area/space)
+"jz" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"jG" = (
+/turf/simulated/mineral,
+/area/space)
+"jR" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"jT" = (
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/closet/secure_closet/freezer,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/machinery/power/apc/west{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"jW" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/plating,
+/area/space)
+"jX" = (
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/planks/stairs{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"kb" = (
+/obj/structure/shipping_container{
+	icon_state = "red2"
+	},
+/obj/effect/overlay/container_logo,
+/turf/simulated/floor/asphalt,
+/area/space)
+"kh" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/smes/buildable/horizon_shuttle,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"kl" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-9"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"km" = (
+/obj/structure/ledge/quarter{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/space)
+"ko" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"kp" = (
+/obj/effect/decal/curb{
+	dir = 9
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"ks" = (
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/obj/structure/ledge/quarter{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"kw" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"kH" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"kI" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/meter{
+	name = "Fuel Reserve"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"kQ" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/crate/trashcart,
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"kU" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-3"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"kW" = (
+/obj/effect/floor_decal/corner/white/diagonal,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "lz_air_sensor"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
+"lh" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"lm" = (
+/obj/effect/shuttle_landmark/automatic/spark,
+/turf/simulated/floor/plating,
+/area/space)
+"lr" = (
+/obj/structure/tank_wall/air{
+	density = 0;
+	icon_state = "air12";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
+"lv" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"lH" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/plating,
+/area/space)
+"lI" = (
+/obj/machinery/door/urban,
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "lz_lockdown";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"lR" = (
+/obj/machinery/button/remote/blast_door{
+	id = "lz_gate";
+	name = "Main Gate";
+	pixel_y = -20;
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"lS" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/concrete,
+/area/space)
+"lU" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"ma" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood,
+/area/space)
+"mh" = (
+/obj/machinery/washing_machine,
+/turf/simulated/floor/wood,
+/area/space)
+"mq" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"mv" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/reagent_dispensers/coolanttank,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"mx" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"my" = (
+/obj/machinery/seed_extractor,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"mA" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"mJ" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/reagent_dispensers/water_cooler,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"mM" = (
+/obj/effect/decal/curb,
+/turf/simulated/floor/asphalt,
+/area/space)
+"mO" = (
+/obj/machinery/smartfridge/secure,
+/turf/simulated/wall,
+/area/space)
+"mU" = (
+/obj/structure/ledge,
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"nh" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/space)
+"nm" = (
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 1
+	},
+/obj/machinery/door/urban,
+/obj/machinery/door/blast/regular/open{
+	id = "lz_lockdown";
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"nq" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "lz_lockdown"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"nt" = (
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"nu" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "lz_co2_sensor"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/space)
+"nw" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/crate/plastic,
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"nF" = (
+/obj/structure/railing/mapped,
+/obj/effect/decal/curb{
+	dir = 9
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"nU" = (
+/obj/structure/ledge/quarter,
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"od" = (
+/obj/machinery/mech_recharger/hephaestus,
+/turf/simulated/floor/reinforced,
+/area/space)
+"oj" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"ot" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"oy" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/concrete,
+/area/space)
+"oI" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/structure/ore_box,
+/turf/simulated/floor/asphalt,
+/area/space)
+"oM" = (
+/obj/effect/decal/curb{
+	dir = 6
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"oP" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/space)
+"oQ" = (
+/obj/effect/decal/curb{
+	dir = 1;
+	layer = 2.02
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"oR" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"oX" = (
+/obj/structure/railing/mapped,
+/obj/structure/ledge/quarter{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/space)
+"pc" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"pd" = (
+/obj/structure/bed/stool/chair/sofa/corner/concave/red{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/space)
+"pr" = (
+/obj/effect/decal/road_marking/no_park,
+/obj/machinery/floodlight,
+/turf/simulated/floor/asphalt,
+/area/space)
+"pt" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/effect/decal/exterior_stairs/half/left{
+	layer = 3
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/space)
+"pu" = (
+/obj/effect/decal/exterior_stairs/left{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"pA" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/effect/decal/exterior_stairs/half/right{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"pF" = (
+/obj/machinery/vending/hydronutrients,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"pH" = (
+/obj/structure/sign/emergency/evacuation,
+/turf/simulated/wall,
+/area/space)
+"pM" = (
+/obj/effect/decal/curb{
+	dir = 10
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"pO" = (
+/obj/machinery/light/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"pQ" = (
+/obj/item/hullbeacon/red,
+/obj/effect/decal/road_marking/no_pass{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"qg" = (
+/obj/structure/ledge{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"qm" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"qr" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qv" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining{
+	pixel_x = -7
+	},
+/obj/item/device/gps/mining{
+	pixel_x = 6
+	},
+/obj/structure/table/rack,
+/turf/simulated/floor/asphalt,
+/area/space)
+"qz" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qA" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"qC" = (
+/turf/simulated/wall/r_wall,
+/area/space)
+"qF" = (
+/obj/structure/ledge/quarter,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"qH" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"qL" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/turf/simulated/floor/plating,
+/area/space)
+"qR" = (
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"rd" = (
+/obj/structure/table/rack/clothing{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"rf" = (
+/obj/effect/decal/exterior_stairs/half/right,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"rg" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/portables_connector/aux{
+	layer = 2.8
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"ri" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small,
+/obj/machinery/chem_master,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"rj" = (
+/obj/effect/decal/road_marking/no_park,
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/asphalt,
+/area/space)
+"rp" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"rs" = (
+/turf/simulated/floor/concrete,
+/area/space)
+"rt" = (
+/obj/structure/railing/mapped,
+/obj/structure/bed/stool/chair/office/bridge{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/space)
+"rB" = (
+/obj/structure/table/wood,
+/obj/item/storage/toolbox/emergency,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/item/device/paicard,
+/turf/simulated/floor/wood,
+/area/space)
+"rF" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"rK" = (
+/obj/structure/tank_wall/carbon_dioxide{
+	density = 0;
+	icon_state = "co2-6";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/space)
+"rL" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/machinery/chemical_dispenser,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"rT" = (
+/obj/structure/ledge/quarter{
+	dir = 9
+	},
+/obj/effect/decal/exterior_stairs/half/left{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"rU" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"rW" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	dir = 1;
+	frequency = 1441;
+	id_tag = "lz_air_out"
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
+"sb" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"sh" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"sm" = (
+/obj/effect/decal/exterior_stairs/left{
+	dir = 4;
+	layer = 2.01
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"sp" = (
+/obj/machinery/seed_storage/garden,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"sq" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/obj/structure/utility_pole/street/on,
+/turf/simulated/floor/asphalt,
+/area/space)
+"su" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/plating,
+/area/space)
+"sK" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/obj/structure/bed/stool/chair/office/dark,
+/turf/simulated/floor/wood,
+/area/space)
+"sP" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/air{
+	icon_state = "air16"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"sS" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"tb" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/item/storage/box/produce{
+	pixel_y = -10
+	},
+/obj/item/storage/box/produce{
+	pixel_y = -18
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"tg" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/reinforced,
+/area/space)
+"th" = (
+/obj/structure/ledge/quarter{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/space)
+"ti" = (
+/turf/simulated/floor/carpet/purple,
+/area/space)
+"tl" = (
+/turf/simulated/floor/carpet/magenta,
+/area/space)
+"tp" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "lz_gate";
+	name = "Main Gate";
+	pixel_y = 26
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"tw" = (
+/obj/structure/ledge{
+	dir = 10
+	},
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"tx" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/pen,
+/obj/item/device/binoculars,
+/turf/simulated/floor/wood,
+/area/space)
+"tL" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air7"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"tO" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"tT" = (
+/obj/effect/decal/exterior_stairs/half/right{
+	layer = 3
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"tV" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"ui" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"uk" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"uo" = (
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
+"up" = (
+/obj/structure/table/wood,
+/obj/item/device/radio/phone,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"uC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-8"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"uO" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/structure/closet/walllocker{
+	pixel_x = -27
+	},
+/obj/item/storage/box/toothpaste,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/structure/sink{
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"uP" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"uR" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"uU" = (
+/obj/structure/railing/mapped,
+/obj/structure/ledge/quarter,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/space)
+"vb" = (
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"vn" = (
+/obj/structure/tank_wall/air{
+	density = 0;
+	icon_state = "air5";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
+"vp" = (
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "lz_gate";
+	name = "Main Gate"
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"vr" = (
+/obj/effect/decal/exterior_stairs/right{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"vt" = (
+/obj/effect/decal/road_marking,
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/asphalt,
+/area/space)
+"vv" = (
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/concrete,
+/area/space)
+"vx" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-13"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"vE" = (
+/obj/structure/tank_wall/carbon_dioxide{
+	density = 0;
+	icon_state = "co2-5";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/space)
+"vI" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood,
+/area/space)
+"vV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"wf" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"wh" = (
+/obj/effect/decal/road_marking/turn_left,
+/turf/simulated/floor/concrete,
+/area/space)
+"wl" = (
+/obj/structure/table/wood,
+/obj/item/flame/lighter{
+	pixel_y = 2;
+	pixel_x = -7
+	},
+/obj/item/storage/box/fancy/cigarettes/dromedaryco{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/space)
+"wo" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"wr" = (
+/obj/machinery/light_switch{
+	pixel_x = -12;
+	pixel_y = 24;
+	dir = 1
+	},
+/obj/structure/closet/firecloset/full,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"wu" = (
+/obj/effect/decal/curb{
+	dir = 6
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"ww" = (
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"wz" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/effect/decal/road_marking,
+/turf/simulated/floor/asphalt,
+/area/space)
+"wK" = (
+/obj/machinery/autolathe,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"wL" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/asphalt,
+/area/space)
+"wP" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"wQ" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"xe" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/binary/pump/aux{
+	dir = 4;
+	name = "Air to Connector";
+	layer = 2.8
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"xf" = (
+/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"xi" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/biogenerator{
+	icon_state = "biogen-empty"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"xj" = (
+/obj/structure/table/wood,
+/obj/structure/bedsheetbin,
+/turf/simulated/floor/wood,
+/area/space)
+"xz" = (
+/obj/structure/bed/stool/chair/sofa/left/red,
+/obj/item/device/laser_pointer,
+/turf/simulated/floor/carpet/magenta,
+/area/space)
+"xD" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"xK" = (
+/obj/effect/decal/exterior_stairs/left,
+/turf/simulated/floor/asphalt,
+/area/space)
+"xR" = (
+/obj/machinery/light_switch{
+	pixel_x = -25;
+	pixel_y = 24;
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"yl" = (
+/obj/structure/closet/crate/secure/large,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"yt" = (
+/obj/structure/ledge/corner{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"yE" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"yG" = (
+/obj/machinery/meter{
+	name = "Fuel Reserve"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"yJ" = (
+/obj/effect/decal/curb,
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/asphalt,
+/area/space)
+"yM" = (
+/obj/structure/ledge/quarter{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"yO" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"yS" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"yW" = (
+/obj/effect/decal/road_marking/no_park,
+/turf/simulated/floor/asphalt,
+/area/space)
+"yX" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"zd" = (
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"zj" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/random/booze,
+/obj/random/booze{
+	pixel_x = -11
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/space)
+"zu" = (
+/obj/structure/railing/mapped,
+/obj/structure/ledge/quarter,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"zB" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/reinforced,
+/area/space)
+"zF" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/asphalt,
+/area/space)
+"zH" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"zP" = (
+/obj/item/stack/material/steel/full,
+/obj/item/stack/rods{
+	amount = 50
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/gloves/yellow,
+/obj/item/storage/box/lights/bulbs,
+/obj/item/storage/box/lights,
+/obj/item/device/suit_cooling_unit,
+/turf/simulated/floor/reinforced,
+/area/space)
+"zR" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"Ab" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"Ac" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"Ai" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced,
+/obj/item/device/flashlight/lamp/box{
+	pixel_y = 5
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/space)
+"Ar" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/machinery/reagentgrinder{
+	pixel_x = 1;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Aw" = (
+/obj/structure/bed/stool/chair/sofa/red{
+	dir = 4
+	},
+/obj/item/newspaper{
+	pixel_x = 4
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/space)
+"AC" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/carbon_dioxide{
+	icon_state = "co2-14"
+	},
+/turf/simulated/floor/airless,
+/area/space)
+"AH" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/space)
+"AJ" = (
+/obj/structure/table/rack,
+/obj/item/pickaxe/jackhammer,
+/turf/simulated/floor/asphalt,
+/area/space)
+"AR" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	dir = 5
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"AT" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"AU" = (
+/obj/structure/railing/mapped,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"BA" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"BG" = (
+/obj/structure/table/stone/marble,
+/obj/item/storage/box/drinkingglasses{
+	pixel_y = 6
+	},
+/obj/item/storage/box/kitchen,
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = 17;
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/corner/pink/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"BU" = (
+/obj/structure/bed/stool/chair/sofa/right/red{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/space)
+"BY" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ca" = (
+/obj/structure/ledge,
+/obj/structure/utility_pole/street/on{
+	dir = 1
+	},
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"Ci" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air10"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Cj" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular/open{
+	id = "lz_lockdown"
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"Cl" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "Carbon dioxide to Connector"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Cn" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/space)
+"Co" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/item/device/camera,
+/obj/item/device/camera_film,
+/obj/item/tape_roll{
+	pixel_x = 14
+	},
+/obj/item/folder/blue{
+	pixel_x = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Cw" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"CA" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"CB" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"CG" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"CM" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/power/breakerbox/activated,
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"CR" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"CS" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"CV" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/floor/wood,
+/area/space)
+"Db" = (
+/obj/effect/decal/exterior_stairs/center,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/simulated/floor/plating,
+/area/space)
+"Dc" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"Dh" = (
+/obj/structure/railing/mapped,
+/obj/item/hullbeacon/red,
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/effect/decal/road_marking,
+/turf/simulated/floor/asphalt,
+/area/space)
+"DA" = (
+/obj/structure/tank_wall/air{
+	density = 0;
+	icon_state = "air6";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
+"DF" = (
+/obj/effect/decal/exterior_stairs/center,
+/turf/simulated/floor/asphalt,
+/area/space)
+"DG" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+	frequency = 1441;
+	id_tag = "lz_co2_out";
+	dir = 1
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/space)
+"DV" = (
+/obj/item/pickaxe,
+/obj/structure/table/rack,
+/obj/item/pickaxe,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/turf/simulated/floor/asphalt,
+/area/space)
+"DY" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air3"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Ee" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/space)
+"Eh" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "Carbon dioxide to Connector"
+	},
+/obj/effect/decal/curb,
+/turf/simulated/floor/plating,
+/area/space)
+"Ep" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"Ev" = (
+/obj/structure/ledge{
+	dir = 9
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"EL" = (
+/obj/structure/ledge/quarter{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"EM" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/watertank,
+/obj/structure/table/rack,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"EO" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"EQ" = (
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/mechanical,
+/obj/structure/table/rack,
+/obj/item/wrench,
+/obj/machinery/light/small,
+/obj/item/clothing/gloves/yellow,
+/obj/item/device/analyzer,
+/obj/item/extinguisher,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"EU" = (
+/turf/simulated/floor/reinforced,
+/area/space)
+"Fb" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/structure/sink/kitchen{
+	dir = 4;
+	name = "sink";
+	pixel_x = -20
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Fh" = (
+/obj/structure/ledge/quarter,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Fm" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Fv" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Fx" = (
+/obj/machinery/shipsensors/weak,
+/obj/item/device/gps/stationary{
+	pixel_x = -23;
+	name = "static GPS (Command Center)";
+	gpstag = "SCC-FOB"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/space)
+"Fy" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"FA" = (
+/obj/effect/decal/road_marking,
+/turf/simulated/floor/asphalt,
+/area/space)
+"FE" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/machinery/recharger,
+/obj/structure/table/wood,
+/obj/item/device/flashlight/flare{
+	pixel_x = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"FJ" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"FM" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"Gb" = (
+/obj/effect/decal/road_marking{
+	dir = 1
+	},
+/obj/effect/decal/curb/corner,
+/turf/simulated/floor/asphalt,
+/area/space)
+"Gd" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"Gw" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"GF" = (
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"GK" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/machinery/door/blast/regular/open{
+	id = "lz_lockdown";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"GM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air13"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"GR" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/space)
+"GS" = (
+/obj/structure/sign/emergency/evacuation/stairs,
+/turf/simulated/floor/concrete,
+/area/space)
+"Hg" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"Hi" = (
+/turf/simulated/wall,
+/area/space)
+"Hm" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/space)
+"Hp" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Hu" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"HH" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"HI" = (
+/obj/effect/decal/curb{
+	dir = 5
+	},
+/obj/effect/decal/road_marking/reflector{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"HR" = (
+/obj/machinery/portable_atmospherics/canister,
+/turf/simulated/floor/asphalt,
+/area/space)
+"HV" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 8;
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ib" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"Ii" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Io" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"Iq" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/tank_wall/carbon_dioxide,
+/turf/simulated/floor/airless,
+/area/space)
+"Is" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"IM" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"IR" = (
+/obj/structure/closet/crate/rad/gear,
+/turf/simulated/floor/reinforced,
+/area/space)
+"Jh" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	name = "Carbon dioxide to Connector"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Jj" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"Jr" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/structure/closet/crate/secure/large,
+/obj/item/stack/material/graphite/full,
+/obj/item/stack/material/graphite/full,
+/obj/item/stack/material/graphite/full,
+/obj/item/stack/material/graphite/full,
+/obj/item/stack/material/graphite/full,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"Ju" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/asphalt,
+/area/space)
+"Jy" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/concrete,
+/area/space)
+"JG" = (
+/obj/machinery/meter{
+	name = "Air Reserve"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"JM" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"JS" = (
+/obj/effect/decal/exterior_stairs/half/left{
+	layer = 3
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"JT" = (
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Ke" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/table/wood,
+/obj/machinery/photocopier/faxmachine{
+	department = "Konyang SCC Forward Operating Post - Horizon Crew Alpha LZ"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Kl" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"KO" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/concrete,
+/area/space)
+"Lm" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"Ls" = (
+/obj/structure/closet/crate/miningcart/ore,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/turf/simulated/floor/asphalt,
+/area/space)
+"Lw" = (
+/obj/effect/decal/road_marking/no_park,
+/obj/structure/closet/crate/secure/large,
+/turf/simulated/floor/asphalt,
+/area/space)
+"LH" = (
+/obj/effect/decal/exterior_stairs/center{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"LX" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/asphalt,
+/area/space)
+"LZ" = (
+/obj/effect/decal/exterior_stairs/right{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"Ma" = (
+/obj/machinery/door/urban,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"Mf" = (
+/obj/machinery/light/small,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Ml" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Mv" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/tank_wall/air{
+	icon_state = "air9"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"My" = (
+/obj/effect/decal/exterior_stairs/half/center,
+/turf/simulated/floor/concrete,
+/area/space)
+"Mz" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"MO" = (
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/concrete,
+/area/space)
+"MU" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"Nc" = (
+/obj/effect/decal/curb{
+	dir = 10
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"Nd" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"No" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"Nq" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"Nr" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"Nt" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"NG" = (
+/obj/effect/shuttle_landmark/automatic/intrepid,
+/turf/simulated/floor/asphalt,
+/area/space)
+"NY" = (
+/obj/machinery/meter{
+	name = "Fuel Reserve"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"Od" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Of" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/curtain/open/bed{
+	pixel_x = 32
+	},
+/turf/simulated/floor/carpet/purple,
+/area/space)
+"Om" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced,
+/obj/item/clothing/gloves/janitor,
+/turf/simulated/floor/wood,
+/area/space)
+"Oo" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Ow" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/bed/stool/padded/red,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Oz" = (
+/obj/structure/shipping_container{
+	icon_state = "red1"
+	},
+/obj/effect/overlay/container_logo{
+	icon_state = "heph3";
+	pixel_y = 12;
+	pixel_x = 8
+	},
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"OB" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"OG" = (
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"OI" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"OK" = (
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/obj/machinery/computer/cryopod{
+	pixel_x = 28;
+	pixel_y = 7
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee,
+/turf/simulated/floor/wood,
+/area/space)
+"OP" = (
+/obj/structure/railing/mapped,
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"OR" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Pp" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ps" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/recharger,
+/turf/simulated/floor/wood,
+/area/space)
+"PQ" = (
+/obj/structure/window/reinforced,
+/obj/structure/table/wood,
+/obj/item/stack/material/cardboard{
+	amount = 10;
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/stack/material/cardboard{
+	amount = 10;
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/storage/box/cups,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"PS" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 9
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/asphalt,
+/area/space)
+"Qd" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/concrete,
+/area/space)
+"Qf" = (
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Qj" = (
+/obj/structure/bed/stool/chair/office/dark,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Qp" = (
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/asphalt,
+/area/space)
+"Qu" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Qw" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"Qx" = (
+/obj/effect/decal/exterior_stairs/half/right{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"QO" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"QQ" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/concrete,
+/area/space)
+"Rj" = (
+/obj/structure/crane,
+/turf/simulated/floor/concrete,
+/area/space)
+"Rn" = (
+/obj/structure/road_sign/yield{
+	name = "cavern warning sign";
+	desc = "A warning sign which declares the area ahead as off-limits. It details it as a dangerous, unregulated cave."
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Rq" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/tank_wall/air{
+	icon_state = "air14"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Ru" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"RB" = (
+/obj/effect/floor_decal/big/scc_full,
+/turf/simulated/floor/concrete,
+/area/space)
+"RV" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood,
+/area/space)
+"RX" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"Sa" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/sink/kitchen{
+	name = "sink";
+	pixel_y = 26
+	},
+/obj/structure/closet/crate/hydroponics,
+/obj/item/wrench,
+/obj/item/shovel/spade,
+/obj/item/shovel/spade,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet/machete/steel,
+/obj/item/material/scythe/sickle,
+/obj/item/material/scythe,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Sb" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"Sc" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Sd" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "lz_lockdown";
+	name = "Building Lockdown";
+	pixel_y = 26;
+	pixel_x = 23;
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Se" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Sl" = (
+/turf/simulated/floor/wood,
+/area/space)
+"Sm" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"Sn" = (
+/obj/machinery/door/blast/regular{
+	id = "lz_vehiclebay"
+	},
+/obj/structure/plasticflaps/airtight{
+	layer = 2.5
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
+"Su" = (
+/obj/machinery/light_switch{
+	pixel_x = 23;
+	pixel_y = 24;
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Sw" = (
+/obj/structure/chainlink_fence{
+	layer = 9.1;
+	dir = 1
+	},
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"SA" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"SB" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/photocopier,
+/turf/simulated/floor/wood,
+/area/space)
+"SH" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/asphalt,
+/area/space)
+"SL" = (
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"SM" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"SY" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"SZ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/rack,
+/obj/item/material/hatchet/lumber,
+/obj/item/hammer,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Tv" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 10
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/plating,
+/area/space)
+"TH" = (
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"TL" = (
+/obj/structure/bed/padded,
+/obj/structure/bed/padded/bunk,
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/black,
+/obj/item/bedsheet/blue{
+	pixel_y = 16
+	},
+/turf/simulated/floor/carpet/purple,
+/area/space)
+"TQ" = (
+/obj/structure/table/standard,
+/obj/item/roller,
+/obj/item/roller,
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/inhaler/pneumalin{
+	pixel_y = -13
+	},
+/obj/item/clothing/mask/surgical,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ue" = (
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/space)
+"Uf" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"Uq" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/effect/decal/exterior_stairs/right{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"Ur" = (
+/obj/structure/window/reinforced,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/mop,
+/turf/simulated/floor/wood,
+/area/space)
+"UA" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"UI" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"UQ" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"US" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/computer/general_air_control/large_tank_control{
+	name = "LZ Air Supply Monitor";
+	sensors = list("lz_air_sensor"="Site Tank");
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"UV" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full{
+	pixel_y = 9
+	},
+/obj/item/stack/material/glass/full{
+	pixel_y = 9
+	},
+/obj/item/device/radio{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/item/device/radio{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/item/device/ano_scanner{
+	pixel_x = -5
+	},
+/obj/item/device/measuring_tape,
+/turf/simulated/floor/wood,
+/area/space)
+"UY" = (
+/obj/effect/decal/road_marking,
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"Vd" = (
+/obj/structure/tank_wall/carbon_dioxide{
+	density = 0;
+	icon_state = "co2-12";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/space)
+"Vf" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/structure/road_sign/yield{
+	name = "cavern warning sign";
+	desc = "A warning sign which declares the area ahead as off-limits. It details it as a dangerous, unregulated cave."
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Vh" = (
+/obj/structure/closet/crate/bin/urban/dumpster,
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/space)
+"Vi" = (
+/obj/machinery/door/urban,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"VH" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"VN" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"VS" = (
+/obj/machinery/appliance/cooker/stove,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Wa" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 4
+	},
+/obj/effect/decal/curb,
+/turf/simulated/floor/asphalt,
+/area/space)
+"Wj" = (
+/obj/structure/bookcase/libraryspawn/fiction,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/carpet/magenta,
+/area/space)
+"Wo" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/carpet/purple,
+/area/space)
+"Wp" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"WC" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"WH" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"WP" = (
+/obj/effect/decal/road_marking/turn_right,
+/turf/simulated/floor/concrete,
+/area/space)
+"WT" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"WU" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"WV" = (
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"WZ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/pink/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Xg" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/corner/pink/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Xx" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/concrete,
+/area/space)
+"XG" = (
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"XV" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"XY" = (
+/obj/structure/closet/cabinet,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/flag/scc,
+/obj/item/flag/scc,
+/obj/item/device/taperecorder,
+/turf/simulated/floor/carpet/purple,
+/area/space)
+"XZ" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/space)
+"Yg" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Yh" = (
+/obj/structure/ledge/quarter/corner,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Yi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"Yj" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"Yv" = (
+/obj/effect/decal/exterior_stairs/right,
+/turf/simulated/floor/asphalt,
+/area/space)
+"YC" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"Zh" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/decal/curb,
+/turf/simulated/floor/plating,
+/area/space)
+"Zj" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 1
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"Zp" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"Zu" = (
+/obj/structure/ledge/corner,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Zy" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
+/area/space)
+"ZM" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/effect/decal/exterior_stairs/half/center{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"ZP" = (
+/obj/structure/tank_wall/carbon_dioxide{
+	density = 0;
+	icon_state = "co2-11";
+	layer = 10.1;
+	opacity = 0
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/space)
+"ZR" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+"ZU" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/space)
+
+(1,1,1) = {"
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+"}
+(2,1,1) = {"
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+yt
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+hL
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+"}
+(3,1,1) = {"
+jG
+jG
+jG
+jG
+jG
+JT
+JT
+qF
+wu
+iC
+iC
+iC
+iC
+Ru
+QO
+Ru
+iC
+Ru
+iC
+Ru
+QO
+Ru
+iC
+Ru
+iC
+dn
+ag
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+sS
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+"}
+(4,1,1) = {"
+jG
+jG
+jG
+jG
+jG
+JT
+JT
+qF
+yJ
+ap
+ap
+ap
+UA
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+vt
+hP
+ag
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+jG
+jG
+jG
+jG
+"}
+(5,1,1) = {"
+jG
+jG
+jG
+jG
+jG
+JT
+JT
+qF
+mM
+ap
+ap
+ap
+UA
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+wL
+ag
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+sS
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+jG
+jG
+jG
+jG
+"}
+(6,1,1) = {"
+jG
+jG
+jG
+JT
+JT
+JT
+JT
+qF
+mM
+ap
+vb
+Cw
+sb
+lm
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+FA
+hP
+ag
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+jG
+jG
+jG
+jG
+"}
+(7,1,1) = {"
+jG
+jG
+jG
+jG
+jG
+jG
+JT
+qF
+mM
+Sc
+SM
+ap
+UA
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+wL
+ag
+JT
+JT
+JT
+JT
+sS
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+jG
+jG
+jG
+jG
+"}
+(8,1,1) = {"
+jG
+jG
+jG
+JT
+jG
+JT
+jG
+qF
+mM
+Cl
+SM
+ap
+UA
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+FA
+hP
+ag
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+jG
+jG
+"}
+(9,1,1) = {"
+jG
+jG
+jG
+JT
+JT
+JT
+JT
+qF
+mM
+yG
+SM
+ap
+UA
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+wL
+ag
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+jG
+jG
+"}
+(10,1,1) = {"
+jG
+jG
+JT
+JT
+JT
+JT
+JT
+qF
+yJ
+No
+Sm
+ap
+UA
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+vt
+hP
+ag
+JT
+sS
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+"}
+(11,1,1) = {"
+jG
+jG
+JT
+JT
+JT
+JT
+JT
+qF
+Nc
+Zj
+Ju
+Uq
+dU
+mA
+Uf
+mA
+BA
+mA
+BA
+mA
+Uf
+mA
+BA
+mA
+BA
+PS
+CB
+mx
+mx
+mx
+Se
+FJ
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+"}
+(12,1,1) = {"
+jG
+jG
+JT
+JT
+JT
+JT
+JT
+Zu
+aY
+cN
+ui
+rs
+rs
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+ez
+ag
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+"}
+(13,1,1) = {"
+jG
+jG
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+nU
+uk
+rs
+oM
+oj
+oj
+oj
+HI
+rs
+Rj
+rs
+oM
+oj
+oj
+oj
+HI
+rs
+rs
+rs
+RB
+rs
+MO
+ag
+JT
+Rn
+JT
+JT
+JT
+TH
+JT
+XG
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+"}
+(14,1,1) = {"
+jG
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+nU
+fc
+rs
+mM
+Oz
+gH
+fb
+oQ
+rs
+rs
+rs
+mM
+oI
+oI
+oI
+oQ
+rs
+rs
+rs
+rs
+lR
+Hi
+tp
+JT
+JT
+JT
+JT
+JT
+JT
+sS
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+"}
+(15,1,1) = {"
+Rn
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+nU
+uk
+rs
+mM
+kb
+HR
+LX
+oQ
+rs
+rs
+rs
+mM
+Ls
+DV
+AJ
+oQ
+rs
+rs
+rs
+rs
+rs
+vp
+JS
+rs
+rs
+rs
+rs
+rs
+rs
+rs
+rs
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+jG
+"}
+(16,1,1) = {"
+JT
+mq
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+nU
+ui
+rs
+mM
+aD
+rj
+Lw
+oQ
+rs
+rs
+rs
+mM
+pr
+pr
+yW
+oQ
+rs
+rs
+rs
+rs
+rs
+vp
+gD
+rs
+rs
+rs
+Jy
+rs
+rs
+rs
+rs
+JT
+sS
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+"}
+(17,1,1) = {"
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+nU
+uk
+rs
+mM
+ha
+ha
+ha
+oQ
+rs
+rs
+rs
+mM
+SH
+qv
+ha
+oQ
+rs
+rs
+rs
+rs
+rs
+vp
+tT
+rs
+rs
+rs
+Jy
+rs
+rs
+rs
+rs
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+jG
+"}
+(18,1,1) = {"
+JT
+mq
+JT
+JT
+JT
+JT
+JT
+JT
+JT
+nU
+uk
+rs
+pM
+tO
+tO
+tO
+kp
+rs
+rs
+rs
+pM
+tO
+tO
+tO
+kp
+rs
+rs
+rs
+rs
+rs
+Hi
+yM
+mx
+Vf
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+mx
+FJ
+JT
+JT
+JT
+JT
+"}
+(19,1,1) = {"
+JT
+mq
+JT
+JT
+yW
+VN
+VN
+yW
+JT
+nU
+Qw
+iX
+Xx
+oP
+oP
+oP
+Xx
+Xx
+oP
+Xx
+Xx
+oP
+oP
+oP
+Xx
+Xx
+oy
+oP
+oP
+Xx
+Qd
+lS
+lS
+lS
+XZ
+XZ
+lS
+lS
+lS
+lS
+lS
+XZ
+XZ
+lS
+lS
+pt
+Hm
+Hm
+Kl
+JM
+ag
+JT
+JT
+JT
+JT
+"}
+(20,1,1) = {"
+JT
+mq
+JT
+JT
+yW
+ap
+ap
+yW
+JT
+nU
+fc
+dg
+ju
+ju
+ju
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+ju
+ju
+ju
+rs
+rs
+My
+rs
+vv
+JG
+NY
+ag
+JT
+JT
+JT
+JT
+"}
+(21,1,1) = {"
+JT
+JT
+JT
+JT
+FA
+ap
+ap
+ko
+JT
+nU
+ui
+dH
+Ev
+gg
+gg
+gg
+gg
+qg
+gg
+gg
+gg
+gg
+qg
+gg
+gg
+gg
+gg
+qg
+gg
+gg
+gg
+gg
+gg
+gg
+gg
+qg
+gg
+gg
+gg
+gg
+qg
+gg
+tw
+rs
+rs
+rf
+RX
+rs
+Ii
+VH
+yM
+nt
+mx
+mx
+FJ
+"}
+(22,1,1) = {"
+JT
+mq
+JT
+qR
+UY
+tO
+tO
+Gb
+Fm
+go
+kw
+dP
+xK
+ap
+ap
+Qp
+ap
+wo
+ap
+wo
+ap
+wo
+ap
+wo
+ap
+wo
+ap
+wo
+ap
+wo
+ap
+wo
+ap
+wo
+ap
+wo
+ap
+wo
+ap
+wo
+ap
+ap
+do
+rs
+Gd
+th
+oX
+rs
+fp
+qC
+gr
+uC
+ib
+qC
+ag
+"}
+(23,1,1) = {"
+Rn
+mq
+JT
+pO
+Hi
+Sn
+Sn
+Hi
+Hi
+uP
+xe
+js
+Db
+CG
+zR
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+Qp
+do
+rs
+Gd
+Zy
+uU
+rs
+fp
+Iq
+vE
+dj
+ZP
+AC
+ag
+"}
+(24,1,1) = {"
+JT
+mq
+Hi
+Hi
+Hi
+bk
+EU
+od
+Hi
+rg
+Yi
+wh
+Yv
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+Ca
+rs
+Gd
+Zy
+uU
+rs
+WH
+fg
+DG
+nu
+dj
+bL
+ag
+"}
+(25,1,1) = {"
+JT
+mq
+Hi
+hK
+eZ
+EU
+EU
+EU
+Hi
+ia
+rs
+MO
+sq
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+uU
+rs
+XV
+kU
+rK
+dj
+Vd
+dk
+ag
+"}
+(26,1,1) = {"
+JT
+mq
+Hi
+Jr
+hC
+yS
+uR
+od
+Hi
+UI
+rs
+MO
+xD
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+uU
+rs
+XV
+qC
+iK
+kl
+vx
+qC
+ag
+"}
+(27,1,1) = {"
+JT
+mq
+Hi
+dz
+tg
+EU
+zB
+Hi
+Hi
+CM
+rs
+MO
+xD
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+uU
+rs
+XV
+QQ
+jW
+gK
+aY
+aY
+Hp
+"}
+(28,1,1) = {"
+JT
+mq
+Hi
+zP
+IR
+EU
+Ac
+Hi
+Vh
+hw
+rs
+MO
+xD
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+Ca
+rs
+Gd
+Zy
+uU
+rs
+Fv
+qA
+Yg
+ag
+JT
+JT
+JT
+"}
+(29,1,1) = {"
+JT
+pc
+Hi
+Hi
+Hi
+Qx
+cy
+Hi
+ot
+lv
+rs
+MO
+sq
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+uU
+rs
+XV
+EL
+aY
+Hp
+JT
+JT
+JT
+"}
+(30,1,1) = {"
+JT
+mq
+JT
+Fh
+GK
+zH
+rF
+Hi
+nq
+pH
+rs
+rs
+Yv
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+uU
+rs
+XV
+ag
+JT
+JT
+JT
+JT
+Rn
+"}
+(31,1,1) = {"
+JT
+mq
+JT
+Fh
+GK
+UV
+rp
+HH
+aB
+Hi
+SL
+wh
+Yv
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+NG
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+uU
+rs
+XV
+ag
+JT
+JT
+JT
+JT
+JT
+"}
+(32,1,1) = {"
+Rn
+mq
+JT
+Fh
+GK
+wK
+EO
+Sl
+gI
+GK
+rs
+GS
+Yv
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+uU
+rs
+XV
+ag
+JT
+JT
+JT
+JT
+JT
+"}
+(33,1,1) = {"
+JT
+pc
+Hi
+Hi
+Hi
+Hi
+kH
+bo
+FE
+GK
+rs
+WP
+Yv
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+uU
+rs
+XV
+yM
+mx
+nt
+mx
+mx
+FJ
+"}
+(34,1,1) = {"
+JT
+mq
+Hi
+xf
+mv
+Hi
+kH
+gI
+Hi
+Hi
+SL
+rs
+Yv
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+uU
+rs
+bg
+qC
+vV
+hV
+Ci
+qC
+ag
+"}
+(35,1,1) = {"
+JT
+mq
+Hi
+eN
+hk
+Hi
+ma
+Mf
+Hi
+kQ
+rs
+MO
+sq
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+uU
+rs
+su
+bU
+vn
+uo
+hB
+Rq
+ag
+"}
+(36,1,1) = {"
+JT
+mq
+Hi
+kh
+OI
+Hi
+AH
+Hi
+Hi
+nw
+rs
+MO
+xD
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+mU
+rs
+Gd
+Zy
+uU
+rs
+Tv
+qL
+rW
+kW
+uo
+cB
+ag
+"}
+(37,1,1) = {"
+JT
+mq
+Hi
+yl
+Nq
+Ma
+wQ
+yO
+Hi
+zd
+rs
+MO
+xD
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+uU
+rs
+jW
+DY
+DA
+uo
+lr
+sP
+ag
+"}
+(38,1,1) = {"
+JT
+pc
+Hi
+wr
+EQ
+Hi
+kH
+gI
+nm
+zd
+rs
+MO
+xD
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+uU
+rs
+jW
+qC
+tL
+Mv
+GM
+qC
+ag
+"}
+(39,1,1) = {"
+JT
+mq
+qC
+qC
+qC
+Hi
+kH
+gI
+Hi
+Hi
+SL
+MO
+xD
+ap
+Yj
+fx
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+SM
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+Qp
+do
+rs
+Gd
+Zy
+uU
+rs
+jW
+QQ
+jW
+ks
+Zp
+Zp
+Hp
+"}
+(40,1,1) = {"
+JT
+mq
+qC
+Fx
+qC
+bx
+lU
+sK
+Co
+GK
+rs
+MO
+xD
+ap
+Yj
+Qp
+ap
+WT
+ap
+WT
+ap
+WT
+ap
+WT
+ap
+WT
+ap
+SM
+ap
+WT
+ap
+WT
+ap
+WT
+ap
+WT
+ap
+WT
+ap
+WT
+ap
+ap
+mU
+rs
+Gd
+Zy
+uU
+KO
+CA
+qA
+lH
+Zy
+OG
+OG
+JT
+"}
+(41,1,1) = {"
+Rn
+mq
+qC
+cG
+qC
+SB
+RV
+ii
+Ke
+GK
+rs
+MO
+sq
+ap
+WV
+IM
+IM
+Nr
+CG
+CG
+CG
+CG
+CG
+CG
+CG
+Hg
+Ab
+yX
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+by
+dG
+dG
+dG
+dG
+nh
+OG
+OG
+Rn
+"}
+(42,1,1) = {"
+JT
+mq
+Hi
+tx
+fa
+qm
+Ee
+CS
+eU
+Hi
+SL
+rs
+xK
+ap
+ap
+ap
+ap
+yG
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+Yj
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+do
+rs
+Gd
+Zy
+ac
+ac
+ac
+OG
+OG
+OG
+OG
+OG
+JT
+"}
+(43,1,1) = {"
+JT
+mq
+GK
+Qj
+rt
+jX
+yE
+qr
+Ml
+Hi
+rs
+WP
+DF
+ap
+ap
+ap
+ap
+Jh
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+Yj
+ap
+Qp
+LZ
+sm
+zF
+Sb
+Sb
+Sb
+Sb
+Is
+Sb
+Sb
+Sb
+Sb
+Is
+Sb
+ae
+rs
+Gd
+Zy
+ac
+ac
+ac
+OG
+OG
+OG
+OG
+OG
+jG
+"}
+(44,1,1) = {"
+JT
+mq
+GK
+Sd
+Od
+SY
+Oo
+TQ
+at
+Hi
+rs
+rs
+Yv
+ap
+ap
+ap
+ap
+rU
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+Yj
+ap
+Nd
+rs
+rs
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+Nt
+fu
+fu
+fu
+rs
+Gd
+Zy
+ac
+ac
+ac
+OG
+OG
+OG
+OG
+JT
+jG
+"}
+(45,1,1) = {"
+JT
+mq
+Hi
+fA
+up
+US
+tV
+Hi
+Hi
+Hi
+rs
+MO
+bs
+Sb
+Sb
+Sb
+Sb
+Is
+Sb
+Sb
+Sb
+Sb
+Is
+Sb
+Sb
+gO
+Sb
+eJ
+rs
+rs
+rs
+rs
+rs
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+FM
+Dc
+km
+Cn
+ac
+ac
+OG
+OG
+OG
+OG
+jG
+jG
+"}
+(46,1,1) = {"
+JT
+mq
+Hi
+Hi
+Hi
+GF
+Mz
+vI
+OK
+Hi
+rs
+rs
+fu
+fu
+fu
+qH
+qH
+qH
+qH
+qH
+qH
+qH
+Nt
+Nt
+Nt
+WU
+qH
+qH
+FM
+Jj
+rT
+ZM
+pA
+YC
+OB
+fe
+OB
+YC
+OB
+YC
+ct
+YC
+OB
+YC
+OB
+AR
+Zy
+ac
+ac
+OG
+OG
+JT
+JT
+JT
+jG
+"}
+(47,1,1) = {"
+JT
+mq
+Hi
+uO
+fr
+xR
+wP
+GR
+Hi
+Hi
+Hi
+Hi
+Hi
+Hi
+Hi
+aY
+aY
+aY
+aY
+aY
+aY
+aY
+pu
+LH
+vr
+Lm
+ZR
+ZR
+Ib
+ZU
+Wa
+ap
+pQ
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+Dh
+Zy
+ac
+ac
+OG
+JT
+JT
+JT
+JT
+jG
+"}
+(48,1,1) = {"
+JT
+pc
+Hi
+Qf
+Hi
+ie
+wP
+gI
+pd
+Aw
+BU
+Wj
+tb
+di
+Hi
+Hi
+Hi
+Cj
+Cj
+Cj
+Cj
+Cj
+JT
+JT
+JT
+JT
+JT
+JT
+sh
+AU
+mM
+ap
+UA
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+de
+Zy
+ac
+ac
+OG
+JT
+JT
+JT
+JT
+jG
+"}
+(49,1,1) = {"
+JT
+mq
+Hi
+Hi
+Hi
+Ps
+CV
+gI
+xz
+tl
+tl
+Ai
+Ar
+Fb
+jT
+eg
+Hi
+Sa
+BY
+BY
+Fy
+GK
+JT
+JT
+JT
+JT
+JT
+JT
+sh
+AU
+mM
+ap
+UA
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+wz
+Zy
+ac
+ac
+OG
+OG
+JT
+JT
+JT
+jG
+"}
+(50,1,1) = {"
+JT
+mq
+GK
+xj
+Om
+Ow
+wP
+gI
+hx
+wl
+tl
+zj
+VS
+Pp
+Hu
+OR
+Vi
+Su
+ep
+ep
+jz
+GK
+Wp
+JT
+JT
+JT
+JT
+JT
+sh
+OP
+CR
+Ab
+Ab
+ap
+ap
+ap
+ap
+cd
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+wL
+Zy
+ac
+ac
+OG
+OG
+JT
+JT
+jG
+jG
+"}
+(51,1,1) = {"
+Rn
+mq
+GK
+rd
+Sl
+Gw
+WC
+gV
+jR
+HH
+HH
+ec
+WZ
+WZ
+Xg
+Pp
+Hi
+EM
+SZ
+xi
+dA
+Hi
+ww
+JT
+JT
+JT
+JT
+JT
+wf
+zu
+kI
+ap
+UA
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+wz
+Zy
+ac
+ac
+OG
+JT
+jG
+jG
+jG
+jG
+"}
+(52,1,1) = {"
+JT
+mq
+GK
+mh
+Ur
+Wo
+ti
+XY
+dm
+Qu
+Sl
+Ue
+SA
+Pp
+Pp
+BG
+mO
+qz
+qz
+qz
+qz
+lI
+JT
+JT
+JT
+JT
+JT
+JT
+wf
+zu
+Eh
+ap
+UA
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+de
+Zy
+ac
+ac
+OG
+JT
+jG
+jG
+jG
+jG
+"}
+(53,1,1) = {"
+JT
+mq
+GK
+Cj
+Hi
+TL
+Of
+TL
+Hi
+rB
+mJ
+PQ
+rL
+Pp
+HV
+hs
+Hi
+pF
+sp
+my
+ri
+Hi
+JT
+JT
+JT
+JT
+JT
+JT
+wf
+zu
+Zh
+ap
+pQ
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+Dh
+Zy
+ac
+OG
+OG
+jG
+jG
+jG
+jG
+jG
+"}
+(54,1,1) = {"
+JT
+mq
+JT
+JT
+Hi
+Hi
+Cj
+Hi
+Hi
+Hi
+Cj
+Cj
+Cj
+Cj
+Hi
+Hi
+Hi
+Cj
+Cj
+Cj
+Hi
+Hi
+JT
+JT
+JT
+qR
+JT
+JT
+wf
+zu
+Nc
+ee
+ee
+MU
+ee
+Io
+ee
+MU
+ee
+MU
+UQ
+MU
+ee
+MU
+ee
+nF
+Ep
+OG
+OG
+jG
+jG
+jG
+jG
+jG
+jG
+"}
+(55,1,1) = {"
+JT
+Sw
+fs
+oR
+oR
+oR
+oR
+oR
+AT
+oR
+oR
+fs
+oR
+oR
+AT
+oR
+oR
+oR
+oR
+fs
+oR
+AT
+oR
+oR
+oR
+oR
+oR
+oR
+lh
+Yh
+aY
+aY
+aY
+aY
+aY
+bq
+aY
+aY
+aY
+aY
+aY
+aY
+aY
+aY
+aY
+bq
+Hp
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+jG
+"}
