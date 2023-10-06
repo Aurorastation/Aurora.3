@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - tweak: "Changed the mining orbital droppers to use a shortwave broadcasting system, no longer requiring telecomms to announce the drops."
