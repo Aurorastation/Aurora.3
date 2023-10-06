@@ -43,6 +43,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"av" = (
+/turf/simulated/floor/carpet/aquablue,
+/area/point_verdant/interior/hotel)
 "aw" = (
 /turf/simulated/floor/carpet/magenta,
 /area/point_verdant/interior/restaurant)
@@ -51,6 +54,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
+"aM" = (
+/obj/item/device/flashlight/lamp/box{
+	pixel_y = 3
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/hotel)
 "aS" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -178,6 +188,16 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"bY" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 8
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	pixel_y = 15
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/point_verdant/interior/hotel)
 "ca" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -232,6 +252,19 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"cu" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
+"cy" = (
+/obj/item/device/flashlight/lamp/box{
+	pixel_y = 3
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/magenta,
+/area/point_verdant/interior/hotel)
 "cz" = (
 /obj/effect/decal/curb{
 	dir = 1;
@@ -313,6 +346,12 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"ea" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/purple,
+/area/point_verdant/interior/hotel)
 "eb" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -328,6 +367,29 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/restaurant)
+"eh" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_y = -1;
+	pixel_x = 16
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_x = 9;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_x = -8;
+	pixel_y = -1
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior/hotel)
 "eo" = (
 /obj/structure/table/wood,
 /obj/item/folder/purple,
@@ -353,6 +415,15 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"eD" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "eJ" = (
 /obj/structure/ledge/quarter{
 	dir = 6
@@ -366,6 +437,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"eQ" = (
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 2
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/purple,
+/area/point_verdant/interior/hotel)
 "eR" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
@@ -416,6 +494,16 @@
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
+"fo" = (
+/obj/structure/table/wood,
+/obj/item/newspaper,
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = 4
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/point_verdant/interior/hotel)
 "fr" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -492,6 +580,28 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"fN" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
+"fR" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
+	},
+/obj/structure/curtain/open/shower,
+/obj/structure/toilet{
+	pixel_x = -8
+	},
+/obj/structure/sink/kitchen{
+	name = "sink";
+	dir = 8;
+	pixel_x = 19
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/point_verdant/interior/hotel)
 "fS" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/wood,
@@ -577,6 +687,18 @@
 "gH" = (
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
+"gI" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
+"gM" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/hotel)
 "gQ" = (
 /obj/structure/flora/pottedplant/bamboo,
 /turf/simulated/floor/tiled/full,
@@ -600,6 +722,12 @@
 /obj/machinery/photocopier,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)
+"hr" = (
+/turf/simulated/floor/carpet/darkblue,
+/area/point_verdant/interior/hotel)
+"hs" = (
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/hotel)
 "hw" = (
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
@@ -638,12 +766,32 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"ik" = (
+/obj/effect/map_effect/window_spawner/full/wood,
+/turf/simulated/floor/concrete,
+/area/point_verdant/interior/hotel)
 "ir" = (
 /obj/structure/rod_railing{
 	dir = 6
 	},
 /turf/simulated/open,
 /area/point_verdant/interior)
+"is" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/soap,
+/obj/item/soap,
+/obj/item/storage/box/toothpaste,
+/obj/item/storage/box/toothpaste/green,
+/obj/item/storage/box/toothpaste/red,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/point_verdant/interior/hotel)
 "it" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/stack/material/silver/full{
@@ -690,6 +838,22 @@
 /obj/item/device/paicard,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
+"iz" = (
+/obj/structure/window/urban{
+	dir = 4;
+	layer = 3.3
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	layer = 2.5
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/shallow)
 "iC" = (
 /obj/effect/decal/exterior_stairs/left,
 /obj/effect/decal/exterior_stairs/center,
@@ -699,6 +863,18 @@
 /obj/machinery/door/urban,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"iQ" = (
+/obj/structure/table/wood,
+/obj/item/pen{
+	pixel_x = 6;
+	pixel_y = 0
+	},
+/obj/item/device/flashlight/lamp{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/turf/simulated/floor/carpet/aquablue,
+/area/point_verdant/interior/hotel)
 "jf" = (
 /obj/structure/ledge/roof{
 	dir = 4
@@ -928,6 +1104,10 @@
 /obj/structure/ledge/roof,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"mC" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "mE" = (
 /obj/machinery/light{
 	dir = 4
@@ -1047,6 +1227,13 @@
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/laundromat)
+"ov" = (
+/obj/structure/bed/stool/chair/folding{
+	pixel_y = 0;
+	dir = 8
+	},
+/turf/simulated/floor/lino,
+/area/point_verdant/interior/hotel)
 "oz" = (
 /obj/structure/ledge/quarter{
 	dir = 5
@@ -1055,6 +1242,16 @@
 /obj/structure/ladder,
 /turf/simulated/open,
 /area/point_verdant/outdoors)
+"oE" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 8
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	pixel_y = 15
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/hotel)
 "oG" = (
 /obj/effect/decal/road_marking/reflector{
 	dir = 8
@@ -1067,6 +1264,12 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"oL" = (
+/obj/structure/dressing_divider{
+	icon_state = "divider2"
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/point_verdant/interior/hotel)
 "oW" = (
 /obj/structure/table/rack/clothing{
 	layer = 3.1
@@ -1082,15 +1285,68 @@
 	},
 /turf/simulated/open,
 /area/point_verdant/outdoors)
+"pd" = (
+/obj/item/toy/desk/fan{
+	pixel_y = 3;
+	pixel_x = -5
+	},
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/lava/cyan{
+	pixel_y = 3;
+	pixel_x = 5
+	},
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = 4
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/hotel)
+"pf" = (
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	layer = 2.5
+	},
+/obj/machinery/door/window/eastright{
+	layer = 3.4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/shallow)
 "pl" = (
 /turf/simulated/open,
 /area/point_verdant/interior/special_ops)
+"pr" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/point_verdant/interior/hotel)
 "pt" = (
 /obj/structure/ledge/roof{
 	dir = 8
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/interior)
+"pB" = (
+/obj/machinery/door/window/eastright{
+	layer = 3.4
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	layer = 2.5
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/shallow)
 "pC" = (
 /obj/structure/window/urban/full,
 /obj/structure/window_frame/urban/full,
@@ -1134,6 +1390,23 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"qm" = (
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/obj/item/paper_bin{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/pen,
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/hotel)
 "qq" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -1197,11 +1470,39 @@
 /obj/machinery/door/urban,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"rs" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black,
+/turf/simulated/floor/carpet/magenta,
+/area/point_verdant/interior/hotel)
+"ru" = (
+/obj/structure/window/urban{
+	dir = 8;
+	layer = 3.3
+	},
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	layer = 2.5
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/shallow)
 "rx" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"rA" = (
+/obj/structure/dressing_divider,
+/turf/simulated/floor/carpet/magenta,
+/area/point_verdant/interior/hotel)
+"rE" = (
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/hotel)
 "rR" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -1212,12 +1513,24 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
+"rW" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black,
+/turf/simulated/floor/carpet/aquablue,
+/area/point_verdant/interior/hotel)
 "rY" = (
 /obj/structure/closet/crate/tool,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
+"sb" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8;
+	pixel_y = 0
+	},
+/turf/simulated/floor/carpet/orange,
+/area/point_verdant/interior/hotel)
 "se" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -1228,12 +1541,34 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"sw" = (
+/turf/simulated/floor/lino,
+/area/point_verdant/interior/hotel)
+"sI" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "sL" = (
 /obj/structure/ledge/quarter/corner{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior)
+"sR" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
+	},
+/obj/structure/curtain/open/shower,
+/obj/structure/toilet{
+	pixel_x = -8
+	},
+/obj/structure/sink/kitchen{
+	name = "sink";
+	dir = 8;
+	pixel_x = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior/hotel)
 "sY" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -1251,6 +1586,22 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
+"tj" = (
+/obj/structure/table/standard,
+/obj/item/towel/random{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/item/towel/random{
+	pixel_y = 7;
+	pixel_x = 4
+	},
+/obj/item/towel/random{
+	pixel_y = 12;
+	pixel_x = 4
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/hotel)
 "tk" = (
 /obj/effect/decal/curb{
 	dir = 5
@@ -1261,6 +1612,23 @@
 /obj/effect/decal/curb/corner,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"tv" = (
+/obj/structure/table/wood,
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = 4
+	},
+/obj/item/newspaper{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/device/flashlight/lamp/lava/cyan{
+	pixel_y = 3;
+	pixel_x = 5
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/point_verdant/interior/hotel)
 "tx" = (
 /obj/structure/ledge/quarter{
 	dir = 8
@@ -1342,11 +1710,40 @@
 /obj/structure/rod_railing,
 /turf/simulated/open,
 /area/point_verdant/interior/arcade)
+"ud" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/soap,
+/obj/item/soap,
+/obj/item/storage/box/toothpaste,
+/obj/item/storage/box/toothpaste/green,
+/obj/item/storage/box/toothpaste/red,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/point_verdant/interior/hotel)
 "ug" = (
 /obj/structure/closet/crate/weld,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
+"ul" = (
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	layer = 2.5
+	},
+/obj/machinery/door/window/westright,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/shallow)
 "um" = (
 /obj/structure/parking_meter{
 	dir = 8;
@@ -1369,6 +1766,21 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"uK" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
+	},
+/obj/structure/curtain/open/shower,
+/obj/structure/toilet{
+	pixel_x = -8
+	},
+/obj/structure/sink/kitchen{
+	name = "sink";
+	dir = 8;
+	pixel_x = 19
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/hotel)
 "uT" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -1378,6 +1790,15 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"uV" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "vf" = (
 /obj/structure/ledge/quarter/corner{
 	dir = 1
@@ -1407,6 +1828,18 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"vv" = (
+/obj/structure/table/wood,
+/obj/item/pen{
+	pixel_x = 6;
+	pixel_y = 0
+	},
+/obj/item/device/flashlight/lamp{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/turf/simulated/floor/carpet/orange,
+/area/point_verdant/interior/hotel)
 "vz" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -1415,12 +1848,23 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"vJ" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black,
+/turf/simulated/floor/carpet/darkblue,
+/area/point_verdant/interior/hotel)
 "vL" = (
 /obj/effect/decal/curb{
 	dir = 6
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"vV" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "vX" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -1700,6 +2144,18 @@
 	},
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"zH" = (
+/turf/simulated/floor/carpet/orange,
+/area/point_verdant/interior/hotel)
+"zL" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "zN" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
@@ -1727,12 +2183,24 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/point_verdant/interior)
+"zV" = (
+/turf/simulated/floor/carpet/magenta,
+/area/point_verdant/interior/hotel)
 "Ag" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior)
+"Ah" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "An" = (
 /obj/structure/road_barrier{
 	dir = 8
@@ -1865,6 +2333,21 @@
 /obj/random/tool,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
+"BA" = (
+/obj/structure/window/urban{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	layer = 2.5
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/shallow)
 "BC" = (
 /obj/structure/ledge/roof{
 	dir = 4
@@ -1891,6 +2374,9 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"Cd" = (
+/turf/simulated/floor/carpet/purple,
+/area/point_verdant/interior/hotel)
 "Cf" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/stack/material/steel/full{
@@ -1949,6 +2435,19 @@
 "Cw" = (
 /turf/simulated/open,
 /area/point_verdant/outdoors)
+"CB" = (
+/obj/structure/curtain/open/shower,
+/obj/structure/toilet{
+	pixel_x = -8
+	},
+/obj/structure/sink/kitchen{
+	name = "sink";
+	dir = 8;
+	pixel_x = 19
+	},
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/turf/simulated/floor/carpet/aquablue,
+/area/point_verdant/interior/hotel)
 "CF" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/stack/material/plasteel/full{
@@ -2054,6 +2553,42 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"Do" = (
+/obj/structure/dressing_divider{
+	icon_state = "divider3"
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/hotel)
+"Dp" = (
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/obj/item/paper_bin{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/pen,
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/magenta,
+/area/point_verdant/interior/hotel)
+"Dq" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
+"Dr" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8;
+	pixel_y = 0
+	},
+/turf/simulated/floor/carpet/aquablue,
+/area/point_verdant/interior/hotel)
 "Du" = (
 /obj/machinery/washing_machine,
 /turf/simulated/floor/wood,
@@ -2089,6 +2624,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/point_verdant/outdoors)
+"DR" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "Ea" = (
 /obj/structure/ledge/roof{
 	dir = 6
@@ -2126,6 +2667,15 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/interior/arcade)
+"Ex" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "Ey" = (
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
@@ -2159,6 +2709,12 @@
 /obj/structure/rope_post,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior)
+"Fb" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/point_verdant/interior/hotel)
 "Fs" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
@@ -2218,6 +2774,13 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"Gt" = (
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior/hotel)
+"Gu" = (
+/obj/machinery/washing_machine,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/hotel)
 "Gv" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -2241,6 +2804,23 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"GJ" = (
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/obj/item/paper_bin{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/pen,
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/darkblue,
+/area/point_verdant/interior/hotel)
 "GN" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -2328,6 +2908,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"HH" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "HJ" = (
 /obj/structure/rod_railing{
 	dir = 8
@@ -2393,6 +2982,10 @@
 /obj/item/clothing/under/konyangdresstraditional/green,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"HV" = (
+/obj/structure/dressing_divider,
+/turf/simulated/floor/carpet/purple,
+/area/point_verdant/interior/hotel)
 "HW" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -2423,6 +3016,12 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"IP" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/point_verdant/interior/hotel)
 "IY" = (
 /obj/structure/toilet{
 	pixel_x = -8
@@ -2441,6 +3040,16 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Je" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 8
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	pixel_y = 15
+	},
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior/hotel)
 "Jt" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -2462,6 +3071,19 @@
 	},
 /turf/simulated/open,
 /area/point_verdant/interior)
+"Jz" = (
+/obj/structure/curtain/open/shower,
+/obj/structure/toilet{
+	pixel_x = -8
+	},
+/obj/structure/sink/kitchen{
+	name = "sink";
+	dir = 8;
+	pixel_x = 19
+	},
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/turf/simulated/floor/tiled/white,
+/area/point_verdant/interior/hotel)
 "JB" = (
 /obj/effect/decal/exterior_stairs/half,
 /turf/simulated/floor/roofing_tiles,
@@ -2486,12 +3108,45 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/point_verdant/interior/arcade)
+"JI" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/soap,
+/obj/item/soap,
+/obj/item/storage/box/toothpaste,
+/obj/item/storage/box/toothpaste/green,
+/obj/item/storage/box/toothpaste/red,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/aquablue,
+/area/point_verdant/interior/hotel)
+"JM" = (
+/obj/structure/table/standard,
+/obj/machinery/chemical_dispenser/coffee/full{
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_x = 3;
+	pixel_y = 7
+	},
+/turf/simulated/floor/lino/diamond,
+/area/point_verdant/interior/hotel)
 "JQ" = (
 /obj/structure/ledge/roof/corner{
 	dir = 1
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"JR" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "JS" = (
 /obj/machinery/papershredder{
 	pixel_x = 7
@@ -2574,6 +3229,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/outdoors)
+"KL" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "KU" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
@@ -2607,6 +3269,11 @@
 /obj/effect/decal/road_marking/no_pass,
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"LA" = (
+/obj/item/device/flashlight/lamp,
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/darkblue,
+/area/point_verdant/interior/hotel)
 "LE" = (
 /obj/structure/flora/tree/konyang/fall,
 /obj/structure/rope_post{
@@ -2703,6 +3370,22 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"Ne" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/soap,
+/obj/item/soap,
+/obj/item/storage/box/toothpaste,
+/obj/item/storage/box/toothpaste/green,
+/obj/item/storage/box/toothpaste/red,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/hotel)
 "Ni" = (
 /obj/effect/decal/road_marking/center{
 	dir = 8
@@ -2789,6 +3472,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior)
+"Oh" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black,
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/hotel)
 "Oi" = (
 /obj/structure/flora/pottedplant/woodyshrub,
 /turf/simulated/floor/tiled/full,
@@ -2826,6 +3514,14 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"Pk" = (
+/obj/structure/bedsheetbin{
+	pixel_x = 1;
+	pixel_y = 7
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/hotel)
 "Pl" = (
 /obj/structure/rod_railing{
 	dir = 4
@@ -2893,6 +3589,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
+"PI" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/soap,
+/obj/item/soap,
+/obj/item/storage/box/toothpaste,
+/obj/item/storage/box/toothpaste/green,
+/obj/item/storage/box/toothpaste/red,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/orange,
+/area/point_verdant/interior/hotel)
 "PN" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -2953,6 +3665,12 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"QD" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "QF" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -2979,6 +3697,12 @@
 /obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior)
+"RC" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/point_verdant/interior/hotel)
 "RK" = (
 /obj/structure/closet/crate/bin,
 /obj/item/toy/plushie/fox/pink,
@@ -3002,6 +3726,15 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
+"RZ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "Sb" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 1
@@ -3129,6 +3862,12 @@
 /obj/effect/decal/curb/corner,
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
+"TL" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "TQ" = (
 /obj/structure/ledge/roof{
 	dir = 10
@@ -3138,6 +3877,26 @@
 	},
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
+"TS" = (
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/obj/item/paper_bin{
+	pixel_y = 4;
+	pixel_x = -4
+	},
+/obj/item/pen,
+/obj/structure/table/wood,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/purple,
+/area/point_verdant/interior/hotel)
 "TW" = (
 /obj/structure/table/stone/marble,
 /obj/item/paper_bin{
@@ -3167,6 +3926,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
+"Ui" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black,
+/turf/simulated/floor/carpet/orange,
+/area/point_verdant/interior/hotel)
 "Uj" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -3185,6 +3949,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"UR" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/soap,
+/obj/item/soap,
+/obj/item/storage/box/toothpaste,
+/obj/item/storage/box/toothpaste/green,
+/obj/item/storage/box/toothpaste/red,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/purple,
+/area/point_verdant/interior/hotel)
 "UV" = (
 /obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
@@ -3461,6 +4241,12 @@
 /obj/item/clothing/head/griffin_hat,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
+"XM" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/lightblue,
+/area/point_verdant/interior/hotel)
 "XN" = (
 /obj/structure/ledge/roof,
 /obj/structure/rod_railing{
@@ -3609,6 +4395,16 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
+"ZP" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black,
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = 4
+	},
+/turf/simulated/floor/carpet/purple,
+/area/point_verdant/interior/hotel)
 
 (1,1,1) = {"
 ER
@@ -15575,27 +16371,27 @@ Cw
 Cw
 VS
 VS
+BA
+iz
+pf
 VS
 VS
 VS
+BA
+iz
+pf
 VS
 VS
 VS
+BA
+iz
+pB
 VS
 VS
 VS
-VS
-VS
-VS
-VS
-VS
-VS
-VS
-VS
-VS
-VS
-VS
-VS
+BA
+iz
+pf
 VS
 Cw
 Cw
@@ -15831,28 +16627,28 @@ Cw
 Cw
 Cw
 VS
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
+Je
+rA
+cy
+zV
+Fb
+VS
+oE
+Do
+aM
+hs
+gM
+VS
+bY
+oL
+LA
+hr
+pr
+VS
+Je
+HV
+eQ
+Cd
 VS
 Cw
 Cw
@@ -16088,28 +16884,28 @@ Cw
 Cw
 Cw
 VS
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
+sR
+zV
+zV
+zV
+IP
+VS
+uK
+hs
+hs
+hs
+XM
+VS
+fR
+hr
+hr
+hr
+RC
+VS
+sR
+Cd
+Cd
+ea
 VS
 Cw
 Cw
@@ -16345,28 +17141,28 @@ Cw
 Cw
 Cw
 VS
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
+ud
+rs
+tv
+zV
+Dp
+VS
+Ne
+Oh
+pd
+hs
+qm
+VS
+is
+vJ
+fo
+hr
+GJ
+VS
+UR
+ZP
+Cd
+TS
 VS
 Cw
 Cw
@@ -16602,28 +17398,28 @@ Cw
 Cw
 Cw
 VS
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
+VS
+VS
+VS
+Ah
+VS
+VS
+VS
+VS
+VS
+Ah
+VS
+VS
+VS
+VS
+VS
+Ah
+VS
+VS
+VS
+VS
+Ah
+VS
 VS
 Cw
 Cw
@@ -16859,28 +17655,28 @@ Cw
 Cw
 Cw
 VS
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
+TL
+Dq
+zL
+HH
+zL
+Dq
+Dq
+Dq
+zL
+HH
+zL
+Dq
+Dq
+Dq
+zL
+uV
+zL
+Dq
+Dq
+zL
+uV
+DR
 VS
 Cw
 Cw
@@ -17116,28 +17912,28 @@ Cw
 Cw
 Cw
 VS
+JR
+fN
+cu
+cu
+cu
+fN
+cu
+cu
+cu
+cu
+cu
+gI
+mC
+cu
+gI
 fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
+mC
+cu
+cu
+cu
+fN
+vV
 VS
 Cw
 Cw
@@ -17373,28 +18169,28 @@ Cw
 Cw
 Cw
 VS
-fy
-fy
-fy
-fy
-fy
-fy
-fy
+VS
+eD
 VS
 VS
 VS
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
+eD
+VS
+VS
+VS
+VS
+VS
+Ex
+sI
+VS
+KL
+cu
+vV
+VS
+VS
+VS
+eD
+VS
 VS
 Cw
 Cw
@@ -17630,28 +18426,28 @@ Cw
 Cw
 Cw
 VS
-fy
-fy
-fy
-fy
-fy
-fy
-fy
+Gu
+rE
+VS
+JI
+iQ
+av
+rW
 VS
 vh
 vh
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
+TL
+QD
+sI
+VS
+eh
+Gt
+sw
+VS
+PI
+vv
+zH
+Ui
 VS
 Cw
 Cw
@@ -17887,28 +18683,28 @@ Cw
 Cw
 Cw
 VS
-fy
-fy
-fy
-fy
-fy
-fy
-fy
+Pk
+tj
+VS
+CB
+av
+Dr
+av
 VS
 vh
 vh
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
-fy
+JR
+cu
+RZ
+VS
+JM
+ov
+Gt
+VS
+Jz
+zH
+sb
+zH
 VS
 Cw
 Cw
@@ -18148,24 +18944,24 @@ VS
 VS
 VS
 VS
+ru
+ru
+ul
 VS
 VS
 VS
+ik
+ik
 VS
 VS
+ru
+ru
+ul
 VS
 VS
-VS
-VS
-VS
-VS
-VS
-VS
-VS
-VS
-VS
-VS
-VS
+ru
+ru
+ul
 VS
 Cw
 Cw

@@ -2004,13 +2004,13 @@
 /turf/simulated/wall,
 /area/point_verdant/interior/robotics)
 "gL" = (
-/obj/structure/sign/urban/staff{
-	pixel_y = 35;
-	pixel_x = 17;
-	layer = 9
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
 	},
-/obj/machinery/door/window/northright,
-/turf/simulated/floor/carpet/red,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
 "gM" = (
 /obj/effect/decal/road_marking{
@@ -4362,6 +4362,10 @@
 /area/point_verdant/interior/offices)
 "on" = (
 /obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/coc{
+	pixel_x = 9;
+	pixel_y = 10
+	},
 /turf/simulated/floor/carpet/red,
 /area/point_verdant/interior/hotel)
 "op" = (
@@ -5530,6 +5534,9 @@
 /obj/item/paper_bin{
 	pixel_y = 7
 	},
+/obj/item/pen{
+	pixel_x = -12
+	},
 /turf/simulated/floor/carpet/red,
 /area/point_verdant/interior/hotel)
 "rF" = (
@@ -5655,8 +5662,8 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "rX" = (
-/obj/structure/lattice/catwalk/indoor/planks/stairs{
-	dir = 4
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
 	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
@@ -6740,7 +6747,9 @@
 /area/point_verdant/outdoors)
 "vB" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box,
+/obj/item/device/flashlight/lamp/box{
+	pixel_y = 11
+	},
 /turf/simulated/floor/carpet/red,
 /area/point_verdant/interior/hotel)
 "vC" = (
@@ -11124,6 +11133,9 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
 "IJ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
 "IK" = (
@@ -11231,6 +11243,16 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Jb" = (
+/obj/structure/lattice/catwalk/indoor/planks,
+/obj/machinery/door/window/northright,
+/obj/structure/sign/urban/staff{
+	pixel_y = 35;
+	pixel_x = 25;
+	layer = 9
+	},
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/hotel)
 "Jd" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -16407,7 +16429,14 @@
 /area/point_verdant/interior/offices)
 "ZF" = (
 /obj/structure/table/wood,
-/obj/item/paper_scanner,
+/obj/item/paper_scanner{
+	pixel_y = 18;
+	pixel_x = 5
+	},
+/obj/machinery/ringer_button{
+	pixel_x = 9;
+	pixel_y = 0
+	},
 /turf/simulated/floor/carpet/red,
 /area/point_verdant/interior/hotel)
 "ZH" = (
@@ -28769,8 +28798,8 @@ te
 Aw
 hY
 eE
-gL
-pZ
+eE
+Jb
 pZ
 Aw
 we
@@ -29541,7 +29570,7 @@ Aw
 vB
 ZF
 rD
-rX
+pZ
 Aw
 Aw
 Aw
@@ -30065,8 +30094,8 @@ hJ
 hJ
 hJ
 hJ
+hJ
 kg
-IJ
 Az
 hJ
 hJ
@@ -30322,8 +30351,8 @@ Aw
 Aw
 Aw
 Aw
+Aw
 kV
-IJ
 iD
 Aw
 Aw
@@ -30579,8 +30608,8 @@ YI
 Aw
 gG
 gG
+rX
 ha
-IJ
 iD
 Aw
 bv
@@ -30830,13 +30859,13 @@ CP
 IL
 qd
 BN
-hJ
-pc
+gL
+YE
 YI
 Aw
 gG
 gG
-hJ
+IJ
 hJ
 pc
 Aw
@@ -31086,8 +31115,8 @@ Aw
 Mj
 IL
 Aw
-Aw
-Aw
+qd
+qd
 Aw
 Aw
 Aw
