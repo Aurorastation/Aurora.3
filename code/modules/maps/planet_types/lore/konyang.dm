@@ -63,6 +63,7 @@
 
 		if("subterranean cavities")
 			possible_themes = list(/datum/exoplanet_theme/konyang/underground)
+			lightlevel = 0
 			ruin_type_whitelist = list (null)
 			landing_details = " Existing Conglomerate-operated infrastructure allows for unassisted landing. Permissable landing zone is within subterranean Conglomerate-operated shuttle pad."
 
