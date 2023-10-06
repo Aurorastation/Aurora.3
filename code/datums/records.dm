@@ -148,7 +148,7 @@
 		age = H.age
 		fingerprint = md5(H.dna.uni_identity)
 		sex = H.species.get_species_record_sex(H)
-		species = H.species.get_species(FALSE, TRUE)
+		species = H.get_species(FALSE, TRUE)
 		citizenship = H.citizenship
 		employer = H.employer_faction
 		religion = SSrecords.get_religion_record_name(H.religion)
