@@ -3321,10 +3321,7 @@
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/soap,
-/obj/item/soap,
 /obj/item/storage/box/toothpaste,
-/obj/item/storage/box/toothpaste/green,
-/obj/item/storage/box/toothpaste/red,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -5789,10 +5786,7 @@
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/soap,
-/obj/item/soap,
 /obj/item/storage/box/toothpaste,
-/obj/item/storage/box/toothpaste/green,
-/obj/item/storage/box/toothpaste/red,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -14738,10 +14732,7 @@
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/soap,
-/obj/item/soap,
 /obj/item/storage/box/toothpaste,
-/obj/item/storage/box/toothpaste/green,
-/obj/item/storage/box/toothpaste/red,
 /obj/machinery/light/small{
 	dir = 4
 	},

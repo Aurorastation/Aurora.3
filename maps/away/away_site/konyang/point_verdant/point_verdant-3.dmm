@@ -7,7 +7,7 @@
 /obj/machinery/shower{
 	pixel_y = 15
 	},
-/turf/simulated/floor/carpet/lightblue,
+/turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/hotel)
 "ab" = (
 /obj/structure/table/wood,
@@ -67,16 +67,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
-"aR" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 8
-	},
-/obj/structure/curtain/open/shower,
-/obj/machinery/shower{
-	pixel_y = 15
-	},
-/turf/simulated/floor/carpet/darkblue,
-/area/point_verdant/interior/hotel)
 "aS" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -427,10 +417,7 @@
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/soap,
-/obj/item/soap,
 /obj/item/storage/box/toothpaste,
-/obj/item/storage/box/toothpaste/green,
-/obj/item/storage/box/toothpaste/red,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -1441,10 +1428,7 @@
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/soap,
-/obj/item/soap,
 /obj/item/storage/box/toothpaste,
-/obj/item/storage/box/toothpaste/green,
-/obj/item/storage/box/toothpaste/red,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -1482,10 +1466,7 @@
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/soap,
-/obj/item/soap,
 /obj/item/storage/box/toothpaste,
-/obj/item/storage/box/toothpaste/green,
-/obj/item/storage/box/toothpaste/red,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -2032,10 +2013,7 @@
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/soap,
-/obj/item/soap,
 /obj/item/storage/box/toothpaste,
-/obj/item/storage/box/toothpaste/green,
-/obj/item/storage/box/toothpaste/red,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -2282,10 +2260,7 @@
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/soap,
-/obj/item/soap,
 /obj/item/storage/box/toothpaste,
-/obj/item/storage/box/toothpaste/green,
-/obj/item/storage/box/toothpaste/red,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -2305,7 +2280,7 @@
 	dir = 8;
 	pixel_x = 19
 	},
-/turf/simulated/floor/carpet/lightblue,
+/turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/hotel)
 "Bt" = (
 /obj/machinery/light/small{
@@ -3721,7 +3696,7 @@
 	pixel_x = 19
 	},
 /obj/effect/floor_decal/spline/fancy/wood/full,
-/turf/simulated/floor/carpet/aquablue,
+/turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/hotel)
 "RK" = (
 /obj/structure/closet/crate/bin,
@@ -4010,22 +3985,6 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
-/area/point_verdant/interior/hotel)
-"Va" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 4
-	},
-/obj/structure/curtain/open/shower,
-/obj/structure/toilet{
-	pixel_x = -8
-	},
-/obj/structure/sink/kitchen{
-	name = "sink";
-	dir = 8;
-	pixel_x = 19
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/carpet/darkblue,
 /area/point_verdant/interior/hotel)
 "Ve" = (
 /obj/effect/decal/road_marking{
@@ -16741,7 +16700,7 @@ BG
 TB
 Ej
 VS
-aR
+aa
 ax
 Xm
 Aj
@@ -16998,7 +16957,7 @@ YR
 TB
 XW
 VS
-Va
+xa
 Aj
 gw
 Aj

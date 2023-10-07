@@ -42,6 +42,7 @@
 
 /area/point_verdant/interior/hotel
 	name = "Point Verdant - Hotel"
+	icon_state = "crew_quarters"
 
 /area/point_verdant/interior/arcade
 	name = "Point Verdant - Arcade"

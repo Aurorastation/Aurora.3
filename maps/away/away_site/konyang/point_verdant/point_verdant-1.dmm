@@ -1089,6 +1089,13 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
+"eP" = (
+/obj/random/dirt_75,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/green,
+/area/point_verdant/interior/hotel)
 "eR" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 1
@@ -3557,6 +3564,14 @@
 /obj/random/junk,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/hotel)
+"rb" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/random/plushie,
+/obj/random/hoodie,
+/obj/random/colored_jumpsuit,
+/obj/item/clothing/suit/storage/toggle/konyang/akira,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/point_verdant/interior/hotel)
 "rc" = (
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/sidewalk/flat,
@@ -4281,6 +4296,8 @@
 /area/point_verdant/interior/tunnels)
 "uP" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/flag/sol/old,
+/obj/random/suit,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/hotel)
 "uQ" = (
@@ -4759,6 +4776,12 @@
 /obj/random/dirt_75,
 /turf/unsimulated/floor/plating,
 /area/point_verdant/interior)
+"xf" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/mob/living/simple_animal/rat/gray,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/point_verdant/interior/hotel)
 "xg" = (
 /obj/structure/light_pole/r,
 /turf/simulated/floor/asphalt,
@@ -7222,6 +7245,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"Kg" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/remains/rat{
+	pixel_x = -9;
+	pixel_y = -5
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_x = 12;
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/point_verdant/interior/hotel)
 "Kh" = (
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/interior/tunnels)
@@ -7640,6 +7676,8 @@
 "Mp" = (
 /obj/random/dirt_75,
 /obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/clothing/shoes/konyang,
+/obj/item/clothing/under/konyang/male,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/hotel)
 "Mq" = (
@@ -8535,6 +8573,13 @@
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/decrepit)
+"Re" = (
+/obj/effect/decal/remains/rat{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/point_verdant/interior/hotel)
 "Rf" = (
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
@@ -22749,7 +22794,7 @@ BI
 gK
 Kp
 BI
-ws
+Kg
 Tl
 km
 Kp
@@ -23765,7 +23810,7 @@ ju
 UC
 Kp
 yd
-yd
+eP
 xx
 Kp
 UA
@@ -24550,7 +24595,7 @@ bn
 jo
 Kp
 Si
-ws
+xf
 ag
 jL
 Kp
@@ -24798,7 +24843,7 @@ Kp
 Kp
 xl
 dJ
-jL
+Re
 GG
 Kp
 BY
@@ -25064,7 +25109,7 @@ Kp
 Kp
 Kp
 Bp
-uP
+rb
 AQ
 eU
 Kp
