@@ -120,7 +120,7 @@
 		info = "<b><font size=\"4\">[src] analysis report #[report_num]</font></b><HR>"
 		info += "<b>Scanned item:</b> [bloodsamp.name]<br><br>" + data
 		P.set_content_unsafe(pname, info)
-		print(P)
+		print(P, user = usr)
 		scanning = 0
 		update_icon()
 	return

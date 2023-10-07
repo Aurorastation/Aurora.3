@@ -1116,6 +1116,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/library)
+"axJ" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/white,
+/area/medical/gen_treatment)
 "axL" = (
 /obj/machinery/light/small,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -5625,11 +5633,8 @@
 	layer = 3.01;
 	pixel_y = 6
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/sign/gtr,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/beige/full,
+/turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "cGM" = (
 /obj/structure/cable/green{
@@ -7795,7 +7800,9 @@
 /area/operations/mail_room)
 "dLo" = (
 /obj/machinery/bodyscanner,
-/obj/effect/floor_decal/corner/beige/full,
+/obj/effect/floor_decal/corner/beige{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "dLu" = (
@@ -16618,6 +16625,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/floor_decal/sign/gtr,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "hQE" = (
@@ -17495,6 +17503,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/lobby)
+"imc" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled/white,
+/area/medical/gen_treatment)
 "imp" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -19360,8 +19376,8 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - General Treatment 1"
 	},
-/obj/effect/floor_decal/corner/beige/full{
-	dir = 4
+/obj/effect/floor_decal/corner/beige{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
@@ -25879,6 +25895,14 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
+"mtc" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/tiled/white,
+/area/medical/gen_treatment)
 "mte" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -26531,10 +26555,13 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
 "mIh" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "mIN" = (
 /obj/structure/platform_stairs/full/east_west_cap{
@@ -27481,6 +27508,9 @@
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
@@ -28958,7 +28988,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "nLS" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -34582,6 +34612,12 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
+"qBz" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/wall,
+/area/medical/icu)
 "qBF" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
@@ -40143,6 +40179,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
+"tnR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/gen_treatment)
 "tnX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -40883,6 +40933,9 @@
 "tHA" = (
 /obj/effect/floor_decal/corner/beige/full,
 /obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -44216,6 +44269,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "vmv" = (
@@ -45627,7 +45683,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine                                Core")
+	sensors = list("engine_sensor"="Engine                                                                Core")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
@@ -46295,6 +46351,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
+"weX" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/gen_treatment)
 "weY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -68504,7 +68566,7 @@ uky
 whU
 fyx
 nLS
-whF
+imc
 whF
 vsb
 ryP
@@ -68706,7 +68768,7 @@ xQB
 vTY
 dLo
 cGJ
-pJt
+axJ
 pJt
 hQb
 dVw
@@ -68903,12 +68965,12 @@ aDY
 wia
 wia
 wia
-wia
+qBz
 wia
 wia
 jhL
 mIh
-whF
+mtc
 whF
 vsb
 abD
@@ -69109,8 +69171,8 @@ uhk
 vwc
 nbd
 abA
+weX
 iyl
-xqE
 xqE
 pUI
 bCl
@@ -69313,7 +69375,7 @@ uwi
 yay
 ruS
 rPf
-rPf
+tnR
 rQB
 oBZ
 pMB
