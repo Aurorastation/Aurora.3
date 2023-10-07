@@ -1,4 +1,5 @@
 /atom
+	///Whether /atom/Initialize() has already run for the object
 	var/initialized = FALSE
 	var/update_icon_on_init	// Default to 'no'.
 
@@ -89,5 +90,17 @@
 			var/datum/orbit/O = thing
 			if (O.orbiter)
 				O.orbiter.stop_orbit()
+
+	if(length(overlays))
+		overlays.Cut()
+
+	if(light)
+		QDEL_NULL(light)
+
+	if (length(light_sources))
+		light_sources.Cut()
+
+	if(smoothing_flags & SMOOTH_QUEUED)
+		SSicon_smooth.remove_from_queues(src)
 
 	return ..()

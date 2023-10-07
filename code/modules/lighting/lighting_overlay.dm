@@ -17,7 +17,8 @@
 	transform = matrix(WORLD_ICON_SIZE / 32, 0, (WORLD_ICON_SIZE - 32) / 2, 0, WORLD_ICON_SIZE / 32, (WORLD_ICON_SIZE - 32) / 2)
 	#endif
 
-/atom/movable/lighting_overlay/New()
+/atom/movable/lighting_overlay/Initialize(mapload, ...)
+	. = ..()
 	SSlighting.total_lighting_overlays++
 
 	var/turf/T         = loc // If this runtimes atleast we'll know what's creating overlays in things that aren't turfs.
