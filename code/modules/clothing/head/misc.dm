@@ -651,6 +651,12 @@
 	item_state = "konyang_police_hat"
 	contained_sprite = TRUE
 
+/obj/item/clothing/head/konyang/police/lieutenant
+	name = "konyang national police lieutenant's hat"
+	desc = "A white peaked cap issued to personnel of the Konyang National Police"
+	icon_state = "konyang_police_lieutenant_hat"
+	item_state = "konyang_police_lieutenant_hat"
+
 /obj/item/clothing/head/helmet/konyang
 	name = "konyang army helmet"
 	desc = "A woodland colored helmet made from advanced ceramic."

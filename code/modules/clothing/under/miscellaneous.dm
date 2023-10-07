@@ -681,3 +681,9 @@
 	desc = "A white shirt and blue tie, bearing the insignia of the Konyang National Police on the shoulders."
 	icon_state = "police"
 	item_state = "police"
+
+/obj/item/clothing/under/rank/konyang/police/lieutenant
+	name = "konyang national police lieutenant's uniform"
+	desc = "A white shirt and blue tie, bearing the insignia of the Konyang National Police on the shoulders. This one is emblazoned with red, marking the wearer as a lieutenant."
+	icon_state = "konyang_police_lieutenant"
+	item_state = "konyang_police_lieutenant"
