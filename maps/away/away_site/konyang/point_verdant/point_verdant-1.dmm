@@ -62,8 +62,8 @@
 /area/point_verdant/interior/tunnels)
 "aI" = (
 /obj/structure/trash_pile,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/maint_janitorial)
 "aJ" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/mauve{
@@ -75,15 +75,15 @@
 	pixel_x = 6
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "aL" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/bin/urban,
 /obj/random/junk,
 /obj/random/junk,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/interior/maint_janitorial)
 "aM" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/storage/box/magnetic_locks{
@@ -234,8 +234,8 @@
 /obj/random/junk,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/maint_janitorial)
 "bu" = (
 /obj/structure/closet/crate/bin/urban/compact,
 /turf/simulated/floor/sidewalk/blocks,
@@ -845,7 +845,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "ev" = (
 /obj/item/reagent_containers/food/drinks/bottle{
 	pixel_y = 0
@@ -883,7 +883,7 @@
 	name = "sink"
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "eC" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/extinguisher_cabinet/east,
@@ -1041,7 +1041,7 @@
 	},
 /obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "ft" = (
 /obj/structure/stairs/north,
 /obj/structure/rod_railing{
@@ -1127,6 +1127,9 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/police)
+"fH" = (
+/turf/unsimulated/mineral/konyang,
+/area/point_verdant/interior/maint_janitorial)
 "fI" = (
 /obj/machinery/door/blast/odin{
 	dir = 1
@@ -1603,7 +1606,7 @@
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "ie" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/dirt_75,
@@ -1749,7 +1752,7 @@
 /obj/machinery/door/urban,
 /obj/effect/decal/exterior_stairs/half/center,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "iH" = (
 /obj/structure/sink{
 	dir = 4;
@@ -1803,8 +1806,8 @@
 /obj/random/junk,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/maint_janitorial)
 "iS" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1829,6 +1832,8 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/trashcart,
+/obj/random/junk,
+/obj/random/junk,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior)
 "iY" = (
@@ -1869,7 +1874,7 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "jc" = (
 /obj/structure/rope_post,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -2049,7 +2054,7 @@
 /obj/random/colored_jumpsuit,
 /obj/random/coin,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "jQ" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -2132,7 +2137,7 @@
 /obj/structure/closet/crate/weld,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "kj" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/syringes,
@@ -2177,6 +2182,12 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
+"kv" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/interior/maint_janitorial)
 "kw" = (
 /obj/structure/ledge,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
@@ -2192,7 +2203,7 @@
 "ky" = (
 /obj/machinery/door/urban,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "kA" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -2301,7 +2312,7 @@
 	},
 /obj/item/storage/belt/custodial,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "kT" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical,
@@ -2353,6 +2364,9 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tunnels)
+"ll" = (
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/maint_janitorial)
 "ln" = (
 /obj/structure/ledge/quarter{
 	dir = 1
@@ -2625,6 +2639,18 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
+"mE" = (
+/obj/structure/table/standard,
+/obj/random/smokable{
+	pixel_x = -5;
+	pixel_y = 12
+	},
+/obj/item/material/ashtray/plastic{
+	pixel_x = 6;
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/maint_janitorial)
 "mG" = (
 /obj/machinery/light/colored/decayed{
 	dir = 8;
@@ -3178,7 +3204,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "oV" = (
 /obj/structure/barricade/wooden{
 	dir = 8
@@ -3285,6 +3311,10 @@
 "pr" = (
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/police)
+"pv" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/maint_janitorial)
 "px" = (
 /obj/random/junk,
 /obj/random/dirt_75,
@@ -3392,7 +3422,7 @@
 /obj/random/junk,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "pV" = (
 /obj/structure/table/standard,
 /obj/item/folder/purple,
@@ -3400,7 +3430,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "pY" = (
 /obj/machinery/door/urban,
 /turf/simulated/floor/lino,
@@ -3425,6 +3455,8 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/bin/urban,
+/obj/random/junk,
+/obj/random/junk,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "qj" = (
@@ -3475,6 +3507,9 @@
 /obj/item/ore,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
+"qy" = (
+/turf/simulated/floor/tiled/full,
+/area/point_verdant/interior/maint_janitorial)
 "qA" = (
 /obj/structure/table/steel,
 /obj/item/towel/random{
@@ -3541,7 +3576,7 @@
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "qO" = (
 /obj/structure/table/stone/marble,
 /obj/random/soap{
@@ -3655,7 +3690,7 @@
 /obj/machinery/vending/tool,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "rI" = (
 /obj/machinery/door/blast/shutters{
 	dir = 4
@@ -3669,6 +3704,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
+"rO" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/maint_janitorial)
 "rR" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/bin,
@@ -3903,7 +3942,7 @@
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/galoshes,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "sO" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -4116,7 +4155,7 @@
 	},
 /obj/structure/flora/pottedplant/bamboo,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "tW" = (
 /obj/structure/rod_railing,
 /obj/structure/rod_railing{
@@ -4250,7 +4289,7 @@
 /obj/structure/closet/crate/elec,
 /obj/item/clothing/gloves/yellow/budget,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "uK" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -4818,8 +4857,8 @@
 /obj/random/junk,
 /obj/random/junk,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/maint_janitorial)
 "xG" = (
 /obj/item/stack/rods,
 /obj/random/dirt_75,
@@ -4844,7 +4883,7 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/item/storage/belt/utility/full,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "xK" = (
 /obj/item/reagent_containers/glass/bucket/wood{
 	pixel_y = 14;
@@ -4962,7 +5001,7 @@
 /obj/item/stack/material/wood/full,
 /obj/item/stack/material/wood/full,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "yi" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/decal/curb{
@@ -4970,6 +5009,7 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/closet/crate/bin/urban,
+/obj/random/junk,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior)
 "yj" = (
@@ -5504,7 +5544,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Bg" = (
 /obj/machinery/door/urban,
 /turf/simulated/floor/tiled,
@@ -5527,11 +5567,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Bk" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Bn" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -5637,10 +5677,8 @@
 /area/point_verdant/interior/pharmacy)
 "BC" = (
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/full,
-/area/point_verdant/interior)
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/maint_janitorial)
 "BD" = (
 /obj/machinery/door/window/southleft,
 /obj/effect/floor_decal/industrial/warning,
@@ -5703,7 +5741,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "BT" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -5896,7 +5934,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "CW" = (
 /obj/machinery/washing_machine{
 	name = "dirty laundry machine";
@@ -6026,6 +6064,11 @@
 /obj/item/material/shard,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
+"DB" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/point_verdant/interior/maint_janitorial)
 "DD" = (
 /turf/simulated/wall,
 /area/point_verdant/interior)
@@ -6107,6 +6150,9 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
+"Ee" = (
+/turf/simulated/wall,
+/area/point_verdant/interior/maint_janitorial)
 "Ef" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken7,
 /turf/simulated/floor/wood,
@@ -6411,7 +6457,7 @@
 /obj/structure/closet/crate/bin/urban,
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Gb" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/spray/pepper{
@@ -6518,7 +6564,7 @@
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "GN" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -6545,7 +6591,7 @@
 /obj/random/loot,
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "GV" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/brown{
 	dir = 1
@@ -6966,7 +7012,7 @@
 /obj/random/loot,
 /obj/random/loot,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Jz" = (
 /obj/random/dirt_75,
 /obj/structure/janitorialcart/full{
@@ -6981,7 +7027,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "JC" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/chem_disp_cartridge/ethanol,
@@ -7040,7 +7086,7 @@
 /obj/random/loot,
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "JQ" = (
 /obj/structure/rod_railing,
 /obj/structure/flora/rock/konyang,
@@ -7314,7 +7360,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Ll" = (
 /obj/structure/table/reinforced/wood,
 /obj/structure/television{
@@ -7842,7 +7888,7 @@
 /obj/random/dirt_75,
 /obj/item/pipewrench,
 /turf/simulated/floor/tiled/full,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "NJ" = (
 /obj/effect/decal/road_marking{
 	dir = 8
@@ -7869,7 +7915,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "NN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/colored/decayed{
@@ -8117,7 +8163,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Pc" = (
 /obj/machinery/door/urban{
 	dir = 4
@@ -8191,7 +8237,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Ps" = (
 /obj/effect/decal/curb{
 	dir = 6
@@ -8445,7 +8491,7 @@
 "QE" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "QF" = (
 /obj/effect/step_trigger/thrower{
 	icon_state = "dir_arrow";
@@ -8617,7 +8663,7 @@
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "RC" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -8753,6 +8799,10 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
+"Su" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/maint_janitorial)
 "Sv" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin,
@@ -8801,14 +8851,14 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "SH" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "SI" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/lino,
@@ -8820,7 +8870,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "SN" = (
 /obj/structure/barricade/wooden{
 	dir = 8
@@ -8848,7 +8898,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "SV" = (
 /obj/structure/dam{
 	icon_state = "dam5"
@@ -8907,7 +8957,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Tq" = (
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/bar)
@@ -8993,7 +9043,7 @@
 /obj/random/colored_jumpsuit,
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "TZ" = (
 /obj/structure/boat,
 /obj/effect/step_trigger/thrower{
@@ -9044,7 +9094,7 @@
 	pixel_y = -8
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Uk" = (
 /obj/item/stack/material/wood/branch,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -9059,7 +9109,7 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Uo" = (
 /obj/structure/table/steel,
 /obj/machinery/microscope,
@@ -9219,7 +9269,7 @@
 /obj/item/storage/belt/custodial,
 /obj/item/grenade/chem_grenade/cleaner,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "UN" = (
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_x = -6;
@@ -9410,8 +9460,8 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/maint_janitorial)
 "Ve" = (
 /obj/structure/reagent_dispensers/cookingoil,
 /turf/simulated/floor/lino,
@@ -9468,7 +9518,7 @@
 /obj/structure/mopbucket,
 /obj/item/mop/advanced,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "VA" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -9811,7 +9861,7 @@
 	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "WN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/roller,
@@ -9853,6 +9903,11 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/tunnels)
+"Xd" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/interior/maint_janitorial)
 "Xe" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
@@ -9966,7 +10021,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "XJ" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/storage/box/gloves{
@@ -10097,7 +10152,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Yk" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -10120,8 +10175,8 @@
 /obj/random/dirt_75,
 /obj/random/loot,
 /obj/random/junk,
-/turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/maint_janitorial)
 "Yp" = (
 /obj/item/stack/material/wood/branch,
 /obj/random/dirt_75,
@@ -10241,6 +10296,10 @@
 /obj/machinery/vending/vendors,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"YW" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/blocks,
+/area/point_verdant/interior/maint_janitorial)
 "Za" = (
 /obj/structure/table/standard,
 /obj/item/screwdriver,
@@ -10306,7 +10365,7 @@
 /obj/item/storage/box/lights/mixed,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Zr" = (
 /obj/item/stack/material/wood,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -10318,7 +10377,7 @@
 	},
 /obj/item/storage/belt/fannypack,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "Zv" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -10349,7 +10408,7 @@
 "ZA" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "ZC" = (
 /obj/random/pizzabox,
 /obj/effect/decal/cleanable/dirt,
@@ -10387,7 +10446,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
-/area/point_verdant/interior)
+/area/point_verdant/interior/maint_janitorial)
 "ZM" = (
 /obj/effect/decal/road_marking/incline{
 	pixel_y = 13;
@@ -44778,7 +44837,7 @@ cl
 cl
 cl
 VT
-rf
+Ui
 rf
 AV
 AV
@@ -46320,8 +46379,8 @@ oK
 OF
 CD
 Fk
-rf
-rf
+Ui
+AV
 AV
 AV
 AV
@@ -46568,17 +46627,17 @@ ER
 Fn
 bk
 rf
-rf
-rf
+fH
+fH
 ap
 Yk
 uc
 bk
 Fn
-DD
-DD
-DD
-DD
+Ee
+Ee
+Ee
+Ee
 AV
 AV
 AV
@@ -46825,17 +46884,17 @@ fP
 Zg
 rf
 rf
-DD
-DD
-DD
-DD
+Ee
+Ee
+Ee
+Ee
 bk
 bk
 Zg
-DD
+Ee
 WK
 fs
-DD
+Ee
 AV
 AV
 AV
@@ -47082,21 +47141,21 @@ rf
 rf
 rf
 rf
-DD
+Ee
 eu
-qI
+rO
 ky
 bk
 bk
-rf
-DD
+fH
+Ee
 eB
 Un
-DD
-rf
-rf
-rf
-rf
+Ee
+AV
+AV
+AV
+AV
 AV
 WO
 VX
@@ -47339,21 +47398,21 @@ rf
 rf
 rf
 rf
-DD
+Ee
 Li
-qI
-DD
-DD
-DD
-DD
-DD
+rO
+Ee
+Ee
+Ee
+Ee
+Ee
 Pb
-DD
-DD
-rf
-rf
-rf
-rf
+Ee
+Ee
+AV
+AV
+AV
+AV
 AV
 WO
 VX
@@ -47596,21 +47655,21 @@ rf
 fo
 XY
 YM
-DD
+Ee
 jb
-DV
+ll
 sG
-DV
+ll
 Zt
-DD
+Ee
 RB
-qI
+rO
 kg
-DD
-DD
-DD
-DD
-DD
+Ee
+Ee
+Ee
+Ee
+Ee
 AV
 OL
 VX
@@ -47853,21 +47912,21 @@ rf
 rS
 rS
 YM
-DD
+Ee
 Jz
-DV
-fp
-fp
+ll
+qy
+qy
 UM
-DD
+Ee
 Zk
 NI
 jP
-DD
+Ee
 iR
-fd
-qI
-DD
+Xd
+BC
+Ee
 AV
 ej
 VX
@@ -48110,21 +48169,21 @@ rf
 rS
 rS
 YM
-DD
+Ee
 SH
 ZA
-qI
-qI
+rO
+rO
 kS
-DD
+Ee
 pU
-Qy
+pv
 uI
-DD
+Ee
 Vc
-BC
+kv
 xE
-DD
+Ee
 AV
 wr
 VX
@@ -48367,21 +48426,21 @@ rS
 rS
 rS
 bf
-DD
-DD
-DD
-Qy
-Qy
-DD
-DD
+Ee
+Ee
+Ee
+pv
+pv
+Ee
+Ee
 xJ
-fp
+qy
 Jw
-DD
+Ee
 Yo
-SU
+Xd
 aI
-DD
+Ee
 LB
 cK
 VX
@@ -48626,20 +48685,20 @@ bf
 bf
 bf
 iF
-DV
-qI
-fd
+ll
+rO
+DB
 Tp
-DD
+Ee
 rE
-fp
+qy
 yh
-DD
+Ee
 bt
-Qy
-qI
-ky
-yq
+YW
+BC
+Su
+ej
 ie
 VX
 DQ
@@ -48881,21 +48940,21 @@ Yy
 Yy
 rS
 bf
-DD
-DD
+Ee
+Ee
 QE
-fp
-Qy
+qy
+pv
 Uj
-DD
+Ee
 ic
-fp
+qy
 Vz
-DD
+Ee
 aL
-Qy
-qI
-DD
+YW
+YW
+Ee
 LB
 wr
 VX
@@ -49138,21 +49197,21 @@ Yy
 Yy
 rS
 bf
-DD
+Ee
 Yj
-os
-DV
-qI
+mE
+ll
+rO
 tU
-DD
+Ee
 GM
-fp
-DV
-DD
-qI
-fp
-qI
-DD
+qy
+ll
+Ee
+rO
+qy
+rO
+Ee
 AV
 cK
 VX
@@ -49398,18 +49457,18 @@ bf
 Bk
 aJ
 ZJ
-Qy
+pv
 SU
-fd
+DB
 ky
-qI
-Qy
-DV
+rO
+pv
+ll
 ky
-DV
-fp
+ll
+qy
 JP
-DD
+Ee
 AV
 wr
 VX
@@ -49654,19 +49713,19 @@ Yy
 bf
 Bk
 SG
-Qy
-Qy
-Qy
+pv
+pv
+pv
 SK
-DD
+Ee
 GU
-fd
-qI
-DD
+DB
+rO
+Ee
 FW
 qM
 TX
-DD
+Ee
 AV
 ej
 VX
@@ -49911,19 +49970,19 @@ Yy
 bf
 Bk
 XI
-fp
-fp
+qy
+qy
 BS
 Bi
-DD
-DD
+Ee
+Ee
 NM
-DD
-DD
-DD
+Ee
+Ee
+Ee
 Bk
-DD
-DD
+Ee
+Ee
 AV
 OL
 VX
@@ -50166,13 +50225,13 @@ dP
 rS
 Yy
 bf
-DD
+Ee
 Pq
 CS
 Be
 pV
 oT
-DD
+Ee
 Hu
 Kq
 VZ
@@ -50423,13 +50482,13 @@ rS
 rS
 Yy
 bf
-DD
-DD
+Ee
+Ee
 Bk
 Bk
 Bk
-DD
-DD
+Ee
+Ee
 dp
 gR
 Kx
