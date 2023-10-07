@@ -2419,7 +2419,7 @@
 /datum/chemical_reaction/drink/caffe_misto
 	name = "Caffe Misto"
 	id = "caffe_misto"
-	result = /singleton/reagent/drink/coffee/cafe_misto
+	result = /singleton/reagent/drink/coffee/caffe_misto
 	required_reagents = list(/singleton/reagent/drink/coffee = 1, /singleton/reagent/drink/milk = 1)
 	result_amount = 2
 

@@ -1790,7 +1790,7 @@
 	taste_description = "slightly bitter cream"
 
 	glass_icon_state = "caffe_latte"
-	glass_name = "glass of cafe latte"
+	glass_name = "glass of caffe misto"
 	glass_desc = "A nice, strong and refreshing beverage to enjoy while reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
