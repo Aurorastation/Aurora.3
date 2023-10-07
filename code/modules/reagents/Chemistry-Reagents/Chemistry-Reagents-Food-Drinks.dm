@@ -1794,7 +1794,7 @@
 	glass_desc = "A nice, strong and refreshing beverage to enjoy while reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
-/singleton/reagent/drink/coffee/cafe_misto/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/drink/coffee/caffe_misto/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	..()
 	M.heal_organ_damage(0.1 * removed, 0)
 
