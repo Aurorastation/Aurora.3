@@ -36,6 +36,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
+"ar" = (
+/obj/structure/shipping_container{
+	icon_state = "grey2"
+	},
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/effect/overlay/container_logo/zenghu,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior)
 "at" = (
 /turf/simulated/wall/wood,
 /area/point_verdant/interior/decrepit)
@@ -426,6 +436,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
+"cm" = (
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "co" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/oil,
@@ -1332,6 +1348,16 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/point_verdant/interior/pharmacy)
+"gV" = (
+/obj/structure/shipping_container{
+	icon_state = "green3"
+	},
+/obj/effect/overlay/container_logo{
+	icon_state = "heph3"
+	},
+/obj/effect/decal/road_marking/thin,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "gW" = (
 /obj/structure/ledge{
 	dir = 1
@@ -1412,6 +1438,18 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/konyang,
+/area/point_verdant/outdoors)
+"hn" = (
+/obj/effect/overlay/container_logo/zenghu{
+	icon_state = "zeng2"
+	},
+/obj/effect/overlay/container_logo/zenghu{
+	icon_state = "zeng3"
+	},
+/obj/structure/shipping_container{
+	icon_state = "grey2"
+	},
+/turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "ho" = (
 /obj/structure/flora/rock/konyang/small,
@@ -2625,7 +2663,7 @@
 /area/point_verdant/interior)
 "mw" = (
 /obj/structure/shipping_container{
-	icon_state = "green3"
+	icon_state = "grey3"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -2935,6 +2973,13 @@
 /obj/random/contraband,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
+"od" = (
+/obj/random/dirt_75,
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior)
 "oe" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled,
@@ -4499,6 +4544,16 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"vQ" = (
+/obj/effect/overlay/container_logo/einstein{
+	icon_state = "ee2"
+	},
+/obj/structure/shipping_container{
+	icon_state = "green1"
+	},
+/obj/effect/decal/road_marking/thin,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "vR" = (
 /obj/structure/dam{
 	icon_state = "dam6";
@@ -4624,6 +4679,13 @@
 /obj/structure/largecrate,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
+"wz" = (
+/obj/structure/shipping_container{
+	icon_state = "grey2"
+	},
+/obj/effect/overlay/container_logo/zenghu,
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "wA" = (
 /obj/effect/konyang_waterfall{
 	pixel_y = -16
@@ -5814,6 +5876,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
+"Cn" = (
+/obj/structure/shipping_container{
+	icon_state = "grey1"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/interior)
 "Co" = (
 /obj/machinery/vending/tacticool/ert{
 	density = 0;
@@ -6185,6 +6253,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior)
+"Es" = (
+/obj/structure/shipping_container{
+	icon_state = "grey3"
+	},
+/obj/effect/overlay/container_logo/zenghu{
+	icon_state = "zeng3"
+	},
+/obj/effect/overlay/container_logo/zenghu{
+	icon_state = "zeng2"
+	},
+/turf/simulated/floor/asphalt,
+/area/point_verdant/outdoors)
 "Et" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
@@ -6774,10 +6854,7 @@
 /area/point_verdant/outdoors)
 "Il" = (
 /obj/structure/shipping_container{
-	icon_state = "green1"
-	},
-/obj/effect/overlay/container_logo{
-	icon_state = "heph3"
+	icon_state = "grey1"
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -51509,7 +51586,7 @@ rf
 rS
 Zz
 tt
-tt
+Cn
 tt
 tt
 tt
@@ -51518,7 +51595,7 @@ tt
 gR
 gR
 MM
-gR
+od
 MM
 JY
 gr
@@ -51766,7 +51843,7 @@ rf
 dP
 Zz
 zw
-zw
+ar
 tt
 zw
 zw
@@ -52023,7 +52100,7 @@ QV
 QV
 Wx
 Rv
-Rv
+Es
 Rv
 Rv
 Db
@@ -52032,7 +52109,7 @@ Rv
 hQ
 Fe
 Rv
-Rv
+cm
 eV
 Fp
 UQ
@@ -52546,7 +52623,7 @@ Rv
 eV
 Fe
 Rv
-Rv
+cm
 eV
 Fp
 qf
@@ -53060,7 +53137,7 @@ eV
 ed
 gI
 Rv
-Rv
+cm
 Rv
 Fp
 Ry
@@ -53569,12 +53646,12 @@ Rv
 Ts
 Rv
 Rv
-No
+Il
 Rv
 Rv
-Fe
+vQ
 Rv
-Rv
+cm
 Rv
 Fp
 Af
@@ -53826,10 +53903,10 @@ Rv
 Rv
 Rv
 Rv
+wz
+Rv
+Rv
 cg
-Rv
-Rv
-Rv
 Rv
 Rv
 Rv
@@ -54083,12 +54160,12 @@ Rv
 tO
 Rv
 Rv
-tl
+hn
 Rv
 Rv
-Fe
+gV
 Rv
-Rv
+cm
 Rv
 mn
 Nz
@@ -54340,7 +54417,7 @@ Rv
 hQ
 Rv
 Rv
-Rv
+mw
 Rv
 Rv
 Rv
@@ -54602,7 +54679,7 @@ Rv
 Rv
 Fe
 Rv
-Rv
+cm
 Rv
 mn
 QV
@@ -55116,7 +55193,7 @@ Rv
 Db
 Fe
 Rv
-Rv
+cm
 Rv
 mn
 QV
@@ -55368,7 +55445,7 @@ Rv
 No
 Rv
 Rv
-RV
+wz
 Rv
 be
 Rv
@@ -55625,12 +55702,12 @@ Rv
 cg
 Rv
 Rv
-RV
+hn
 Rv
 Mm
 Fe
 Rv
-Rv
+cm
 Rv
 mn
 QV
@@ -56144,7 +56221,7 @@ Rv
 VR
 Fe
 Rv
-Rv
+cm
 Rv
 mn
 QV
@@ -56658,7 +56735,7 @@ TE
 Lt
 CY
 Rv
-Rv
+cm
 Rv
 mn
 QV
@@ -57172,7 +57249,7 @@ QV
 rx
 Wx
 Rv
-Rv
+cm
 Rv
 mn
 QV
