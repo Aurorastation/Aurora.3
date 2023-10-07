@@ -165,7 +165,7 @@
 	var/nid = ""
 	var/enzymes
 	var/identity
-	var/exploit_record = "No additional information acquired."
+	var/exploit_record
 
 /datum/record/general/locked/New(var/mob/living/carbon/human/H)
 	..()

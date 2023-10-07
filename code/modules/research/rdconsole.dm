@@ -427,7 +427,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				info += GetResearchLevelsInfo()
 
 			PR.set_content_unsafe(pname, info)
-			print(PR)
+			print(PR, user = usr)
 			spawn(10)
 				screen = ((text2num(href_list["print"]) == 2) ? 5.0 : 1.1)
 				updateUsrDialog()

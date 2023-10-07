@@ -1,20 +1,22 @@
-var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
-								   SPECIES_GOLEM_IRON,
-								   SPECIES_GOLEM_BRONZE,
-								   SPECIES_GOLEM_STEEL,
-								   SPECIES_GOLEM_PLASTEEL,
-								   SPECIES_GOLEM_TITANIUM,
-								   SPECIES_GOLEM_CLOTH,
-								   SPECIES_GOLEM_CARDBOARD,
-								   SPECIES_GOLEM_GLASS,
-								   SPECIES_GOLEM_PHORON,
-								   SPECIES_GOLEM_HYDROGEN,
-								   SPECIES_GOLEM_WOOD,
-								   SPECIES_GOLEM_DIAMOND,
-								   SPECIES_GOLEM_SAND,
-								   SPECIES_GOLEM_URANIUM,
-								   SPECIES_GOLEM_MEAT,
-								   SPECIES_GOLEM_ADAMANTINE)
+var/global/list/golem_types = list(
+									SPECIES_GOLEM_COAL,
+									SPECIES_GOLEM_IRON,
+									SPECIES_GOLEM_BRONZE,
+									SPECIES_GOLEM_STEEL,
+									SPECIES_GOLEM_PLASTEEL,
+									SPECIES_GOLEM_TITANIUM,
+									SPECIES_GOLEM_CLOTH,
+									SPECIES_GOLEM_CARDBOARD,
+									SPECIES_GOLEM_GLASS,
+									SPECIES_GOLEM_PHORON,
+									SPECIES_GOLEM_HYDROGEN,
+									SPECIES_GOLEM_WOOD,
+									SPECIES_GOLEM_DIAMOND,
+									SPECIES_GOLEM_SAND,
+									SPECIES_GOLEM_URANIUM,
+									SPECIES_GOLEM_MEAT,
+									SPECIES_GOLEM_ADAMANTINE
+								)
 
 /datum/species/golem
 	name = SPECIES_GOLEM_COAL
@@ -67,9 +69,9 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 		)
 
 	has_limbs = list(
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/unbreakable),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/unbreakable),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/unbreakable),

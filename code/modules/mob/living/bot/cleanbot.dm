@@ -327,7 +327,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		// This just generates the global list if it hasn't been done already, quick process.
 		cleanbot_types = typesof(/obj/effect/decal/cleanable/blood,/obj/effect/decal/cleanable/vomit,\
 						/obj/effect/decal/cleanable/crayon,/obj/effect/decal/cleanable/liquid_fuel,/obj/effect/decal/cleanable/mucus,/obj/effect/decal/cleanable/dirt)
-						 // I honestly forgot you could pass multiple types to typesof() until I accidentally did it here.
+						// I honestly forgot you could pass multiple types to typesof() until I accidentally did it here.
 	target_types = cleanbot_types.Copy()
 	if(!cleans_blood)
 		target_types -= typesof(/obj/effect/decal/cleanable/blood)-typesof(/obj/effect/decal/cleanable/blood/oil)

@@ -1,80 +1,80 @@
 /*
 Overview:
-   Used to create objects that need a per step proc call.  Default definition of 'New()'
-   stores a reference to src machine in global 'machines list'.  Default definition
-   of 'Del' removes reference to src machine in global 'machines list'.
+	Used to create objects that need a per step proc call.  Default definition of 'New()'
+	stores a reference to src machine in global 'machines list'.  Default definition
+	of 'Del' removes reference to src machine in global 'machines list'.
 
 Class Variables:
-   use_power (num)
-      current state of auto power use.
-      Possible Values:
-         0 -- no auto power use
-         1 -- machine is using power at its idle power level
-         2 -- machine is using power at its active power level
+	use_power (num)
+		current state of auto power use.
+		Possible Values:
+			0 -- no auto power use
+			1 -- machine is using power at its idle power level
+			2 -- machine is using power at its active power level
 
-   active_power_usage (num)
-      Value for the amount of power to use when in active power mode
+	active_power_usage (num)
+		Value for the amount of power to use when in active power mode
 
-   idle_power_usage (num)
-      Value for the amount of power to use when in idle power mode
+	idle_power_usage (num)
+		Value for the amount of power to use when in idle power mode
 
-   power_channel (num)
-      What channel to draw from when drawing power for power mode
-      Possible Values:
-         EQUIP:0 -- Equipment Channel
-         LIGHT:2 -- Lighting Channel
-         ENVIRON:3 -- Environment Channel
+	power_channel (num)
+		What channel to draw from when drawing power for power mode
+		Possible Values:
+			EQUIP:0 -- Equipment Channel
+			LIGHT:2 -- Lighting Channel
+			ENVIRON:3 -- Environment Channel
 
-   component_parts (list)
-      A list of component parts of machine used by frame based machines.
+	component_parts (list)
+		A list of component parts of machine used by frame based machines.
 
-   panel_open (num)
-      Whether the panel is open
+	panel_open (num)
+		Whether the panel is open
 
-   uid (num)
-      Unique id of machine across all machines.
+	uid (num)
+		Unique id of machine across all machines.
 
-   gl_uid (global num)
-      Next uid value in sequence
+	gl_uid (global num)
+		Next uid value in sequence
 
-   stat (bitflag)
-      Machine status bit flags.
-      Possible bit flags:
-         BROKEN:1 -- Machine is broken
-         NOPOWER:2 -- No power is being supplied to machine.
-         POWEROFF:4 -- tbd
-         MAINT:8 -- machine is currently under going maintenance.
-         EMPED:16 -- temporary broken by EMP pulse
+	stat (bitflag)
+		Machine status bit flags.
+		Possible bit flags:
+			BROKEN:1 -- Machine is broken
+			NOPOWER:2 -- No power is being supplied to machine.
+			POWEROFF:4 -- tbd
+			MAINT:8 -- machine is currently under going maintenance.
+			EMPED:16 -- temporary broken by EMP pulse
 
 Class Procs:
-   New()                     'game/machinery/machine.dm'
+	New()                     'game/machinery/machine.dm'
 
-   Destroy()                     'game/machinery/machine.dm'
+	Destroy()                     'game/machinery/machine.dm'
 
-   powered(chan = EQUIP)         'modules/power/power_usage.dm'
-      Checks to see if area that contains the object has power available for power
-      channel given in 'chan'.
+	powered(chan = EQUIP)         'modules/power/power_usage.dm'
+		Checks to see if area that contains the object has power available for power
+		channel given in 'chan'.
 
-   use_power_oneoff(amount, chan=EQUIP, autocalled)   'modules/power/power_usage.dm'
-      Deducts 'amount' from the power channel 'chan' of the area that contains the object.
-      This is not a continuous draw, but rather will be cleared after one APC update.
+	use_power_oneoff(amount, chan=EQUIP, autocalled)   'modules/power/power_usage.dm'
+		Deducts 'amount' from the power channel 'chan' of the area that contains the object.
+		This is not a continuous draw, but rather will be cleared after one APC update.
 
-   power_change()               'modules/power/power_usage.dm'
-      Called by the area that contains the object when ever that area under goes a
-      power state change (area runs out of power, or area channel is turned off).
+	power_change()               'modules/power/power_usage.dm'
+		Called by the area that contains the object when ever that area under goes a
+		power state change (area runs out of power, or area channel is turned off).
 
-   RefreshParts()               'game/machinery/machine.dm'
-      Called to refresh the variables in the machine that are contributed to by parts
-      contained in the component_parts list. (example: glass and material amounts for
-      the autolathe)
+	RefreshParts()               'game/machinery/machine.dm'
+		Called to refresh the variables in the machine that are contributed to by parts
+		contained in the component_parts list. (example: glass and material amounts for
+		the autolathe)
 
-      Default definition does nothing.
+		Default definition does nothing.
 
-   assign_uid()               'game/machinery/machine.dm'
-      Called by machine to assign a value to the uid variable.
+	assign_uid()               'game/machinery/machine.dm'
+		Called by machine to assign a value to the uid variable.
 
-   process()                  'game/machinery/machine.dm'
-      Called by the 'master_controller' once per game tick for each machine that is listed in the 'machines' list.
+	process()                  'game/machinery/machine.dm'
+		Called by the 'master_controller' once per game tick for each machine that is listed in the 'machines' list.
 
 
 	Compiled by Aygar
@@ -456,7 +456,7 @@ Class Procs:
 	qdel(src)
 	return 1
 
-/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = 'sound/items/polaroid1.ogg', var/print_delay = 10, var/message)
+/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = /singleton/sound_category/print_sound, var/print_delay = 10, var/message, var/mob/user)
 	if( printing )
 		return 0
 
@@ -469,12 +469,15 @@ Class Procs:
 		message = "\The [src] rattles to life and spits out a paper titled [paper]."
 	visible_message(SPAN_NOTICE(message))
 
-	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper), print_delay)
+	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper, user), print_delay)
 
 	return 1
 
-/obj/machinery/proc/print_move_paper(obj/paper)
-	paper.forceMove(loc)
+/obj/machinery/proc/print_move_paper(obj/paper, mob/user)
+	if(user)
+		user.put_in_hands(paper)
+	else
+		paper.forceMove(loc)
 	printing = FALSE
 
 /obj/machinery/bullet_act(obj/item/projectile/P, def_zone)

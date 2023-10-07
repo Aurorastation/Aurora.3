@@ -118,6 +118,58 @@
 				if(Collide(M)) //Bump will make sure we don't hit a mob multiple times
 					return
 
+/obj/item/projectile/bullet/rubberball
+	name = "rubber ball"
+	icon_state = "pellets"
+	damage = 2
+	agony = 45
+	embed = FALSE
+	var/balls = 4
+	///projectile will lose a fragment each time it travels this distance. Can be a non-integer.
+	var/range_step = 2
+	var/base_spread = 90
+	var/spread_step = 10
+
+/obj/item/projectile/bullet/rubberball/proc/get_balls(var/distance)
+	var/ball_loss = round((distance - 1)/range_step)
+	return max(balls - ball_loss, 1)
+
+/obj/item/projectile/bullet/rubberball/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier)
+	if (balls < 0)
+		return TRUE
+
+	var/total_balls = get_balls(distance)
+	var/spread = max(base_spread - (spread_step*distance), 0)
+
+	var/prone_chance = 0
+	if(!base_spread)
+		prone_chance = max(spread_step*(distance - 2), 0)
+
+	var/hits = 0
+	for (var/i in 1 to total_balls)
+		if(target_mob.lying && target_mob != original && prob(prone_chance))
+			continue
+
+		var/old_zone = def_zone
+		def_zone = ran_zone(def_zone, spread)
+		if (..())
+			hits++
+		def_zone = old_zone
+
+	balls -= hits
+	if (hits >= total_balls || balls <= 0)
+		return TRUE
+	return FALSE
+
+/obj/item/projectile/bullet/rubberball/Move()
+	. = ..()
+
+	if(. && !base_spread && isturf(loc))
+		for(var/mob/living/M in loc)
+			if(M.lying || !M.CanPass(src, loc))
+				if(Collide(M))
+					return
+
 /* short-casing projectiles, like the kind used in pistols or SMGs */
 
 /obj/item/projectile/bullet/pistol

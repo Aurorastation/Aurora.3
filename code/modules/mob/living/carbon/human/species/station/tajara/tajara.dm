@@ -109,14 +109,14 @@
 	zombie_type = SPECIES_ZOMBIE_TAJARA
 
 	has_organ = list(
+		BP_BRAIN =    /obj/item/organ/internal/brain/tajara,
+		BP_EYES =     /obj/item/organ/internal/eyes/night,
 		BP_HEART =    /obj/item/organ/internal/heart/tajara,
 		BP_LUNGS =    /obj/item/organ/internal/lungs/tajara,
 		BP_LIVER =    /obj/item/organ/internal/liver/tajara,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/tajara,
 		BP_STOMACH =  /obj/item/organ/internal/stomach/tajara,
-		BP_BRAIN =    /obj/item/organ/internal/brain/tajara,
-		BP_APPENDIX = /obj/item/organ/internal/appendix/tajara,
-		BP_EYES =     /obj/item/organ/internal/eyes/night
+		BP_APPENDIX = /obj/item/organ/internal/appendix/tajara
 		)
 
 	stomach_capacity = 6

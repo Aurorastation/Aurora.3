@@ -111,4 +111,4 @@
 		icon_state = "coin_[cmineral]_[comment]"
 		playsound(get_turf(src), 'sound/items/coinflip.ogg', 100, 1, -4)
 		user.visible_message(SPAN_NOTICE("\The [user] throws \the [src]. It lands on [comment]!"), \
-							 SPAN_NOTICE("You throw \the [src]. It lands on [comment]!"))
+								SPAN_NOTICE("You throw \the [src]. It lands on [comment]!"))
