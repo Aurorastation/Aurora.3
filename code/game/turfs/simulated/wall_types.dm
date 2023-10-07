@@ -110,6 +110,12 @@
 	. = ..(mapload, MATERIAL_TITANIUM, MATERIAL_TITANIUM)
 	canSmoothWith = list(src.type)
 
+/turf/simulated/wall/gold_reinforced/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_GOLD, MATERIAL_PLASTEEL)
+	canSmoothWith = list(src.type)
+	color = COLOR_GOLD
+
 /turf/simulated/wall/wood
 	icon = 'icons/turf/smooth/wall_preview.dmi'
 	icon_state = "wood"

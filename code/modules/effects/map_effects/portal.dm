@@ -9,27 +9,27 @@ Portals do have some specific requirements when mapping them in;
 	- Each side must face opposite directions, e.g. if side A faces SOUTH, side B must face NORTH.
 	- Each side must have the same orientation, e.g. horizontal on both sides, or vertical on both sides.
 	- Portals can be made to be longer than 1x1 with `/obj/effect/map_effect/portal/line`s,
-	  but both sides must have the same length.
+		but both sides must have the same length.
 	- If portal lines are added, they must form a straight line and be next to a portal master or another portal line.
 	- If portal lines are used, both portal masters should be in the same relative position among the lines.
-	  E.g. both being on the left most side on a horizontal row.
+		E.g. both being on the left most side on a horizontal row.
 Portals also have some limitations to be aware of when mapping. Some of these are not an issue if you're trying to make an 'obvious' portal;
 	- The objects seen through portals are purely visual, which has many implications,
-	  such as simple_animal AIs being blind to mobs on the other side of portals.
+		such as simple_animal AIs being blind to mobs on the other side of portals.
 	- Objects on the other side of a portal can be interacted with if the interaction has no range limitation,
-	  or the distance between the two portal sides happens to be less than the interaction max range. Examine will probably work,
-	  while picking up an item that appears to be next to you will fail.
+		or the distance between the two portal sides happens to be less than the interaction max range. Examine will probably work,
+		while picking up an item that appears to be next to you will fail.
 	- Sounds currently are not carried across portals.
 	- Mismatched lighting between each portal end can make the portal look obvious.
 	- Portals look weird when observing as a ghost, or otherwise when able to see through walls. Meson vision will also spoil the illusion.
 	- Walls that change icons based on neightboring walls can give away that a portal is nearby if both sides don't have a similar transition.
 	- Projectiles that pass through portals will generally work as intended, however aiming and firing upon someone on the other side of a portal
-	  will likely be weird due to the click targeting the real position of the thing clicked instead of the apparent position.
-	  Thrown objects suffer a similar fate.
+		will likely be weird due to the click targeting the real position of the thing clicked instead of the apparent position.
+		Thrown objects suffer a similar fate.
 	- The tiles that are visually shown across a portal are determined based on visibility at the time of portal initialization,
-	  and currently don't update, meaning that opacity changes are not reflected, e.g. a wall is deconstructed, or an airlock is opened.
+		and currently don't update, meaning that opacity changes are not reflected, e.g. a wall is deconstructed, or an airlock is opened.
 	- There is currently a small but somewhat noticable pause in mob movement when moving across a portal,
-	  as a result of the mob's glide animation being inturrupted by a teleport.
+		as a result of the mob's glide animation being inturrupted by a teleport.
 	- Gas is not transferred through portals, and ZAS is oblivious to them.
 A lot of those limitations can potentially be solved with some more work. Otherwise, portals work best in static environments like Points of Interest,
 when portals are shortly lived, or when portals are made to be obvious with special effects.

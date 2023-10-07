@@ -120,7 +120,7 @@
 
 	if(carpeted && W.iscrowbar())
 		user.visible_message("<span class='notice'>\The [user] removes the carpet from \the [src].</span>",
-		                              "<span class='notice'>You remove the carpet from \the [src].</span>")
+								"<span class='notice'>You remove the carpet from \the [src].</span>")
 		new /obj/item/stack/tile/carpet(loc)
 		carpeted = 0
 		queue_icon_update()
@@ -130,7 +130,7 @@
 		var/obj/item/stack/tile/carpet/C = W
 		if(C.use(1))
 			user.visible_message("<span class='notice'>\The [user] adds \the [C] to \the [src].</span>",
-			                              "<span class='notice'>You add \the [C] to \the [src].</span>")
+									"<span class='notice'>You add \the [C] to \the [src].</span>")
 			carpeted = 1
 			queue_icon_update()
 			return 1
@@ -159,7 +159,7 @@
 			if(!W.use_tool(src, user, 20, volume = 50) || !F.use(1, user))
 				return
 			user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>",
-			                              "<span class='notice'>You repair some damage to \the [src].</span>")
+									"<span class='notice'>You repair some damage to \the [src].</span>")
 			health = max(health+(maxhealth/5), maxhealth) // 20% repair per application
 			return 1
 
@@ -249,14 +249,14 @@
 	if(manipulating) return M
 	manipulating = 1
 	user.visible_message("<span class='notice'>\The [user] begins removing the [type_holding] holding \the [src]'s [M.display_name] [what] in place.</span>",
-	                              "<span class='notice'>You begin removing the [type_holding] holding \the [src]'s [M.display_name] [what] in place.</span>")
+							"<span class='notice'>You begin removing the [type_holding] holding \the [src]'s [M.display_name] [what] in place.</span>")
 	if(sound)
 		playsound(src.loc, sound, 50, 1)
 	if(!do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
 		manipulating = 0
 		return M
 	user.visible_message("<span class='notice'>\The [user] removes the [M.display_name] [what] from \the [src].</span>",
-	                              "<span class='notice'>You remove the [M.display_name] [what] from \the [src].</span>")
+							"<span class='notice'>You remove the [M.display_name] [what] from \the [src].</span>")
 	new M.stack_type(src.loc)
 	manipulating = 0
 	return null
@@ -439,10 +439,10 @@
 #define CORNER_CLOCKWISE 4
 
 /*
-  turn() is weird:
-    turn(icon, angle) turns icon by angle degrees clockwise
-    turn(matrix, angle) turns matrix by angle degrees clockwise
-    turn(dir, angle) turns dir by angle degrees counter-clockwise
+turn() is weird:
+	turn(icon, angle) turns icon by angle degrees clockwise
+	turn(matrix, angle) turns matrix by angle degrees clockwise
+	turn(dir, angle) turns dir by angle degrees counter-clockwise
 */
 
 /proc/dirs_to_corner_states(list/dirs)

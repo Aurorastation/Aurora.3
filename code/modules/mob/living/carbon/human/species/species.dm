@@ -159,8 +159,7 @@
 	var/hazard_low_pressure = HAZARD_LOW_PRESSURE     // Dangerously low pressure.
 	var/light_dam                                     // If set, mob will be damaged in light over this value and heal in light below its negative.
 	var/breathing_sound = 'sound/voice/monkey.ogg'    // If set, this mob will have a breathing sound.
-	var/body_temperature = 310.15	                  // Non-IS_SYNTHETIC species will try to stabilize at this temperature.
-	                                                  // (also affects temperature processing)
+	var/body_temperature = 310.15	                  // Non-IS_SYNTHETIC species will try to stabilize at this temperature. (also affects temperature processing)
 
 	var/heat_discomfort_level = 315                   // Aesthetic messages about feeling warm.
 	var/cold_discomfort_level = 285                   // Aesthetic messages about feeling chilly.
@@ -239,7 +238,7 @@
 	var/max_hydration_factor = 1	//Multiplier on maximum thirst
 	var/hydration_loss_factor = 1	//Multiplier on passive thirst losses
 
-	                              // Determines the organs that the species spawns with and
+	///Determines the organs that the species spawns with and
 	var/list/has_organ = list(    // which required-organ checks are conducted.
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes,

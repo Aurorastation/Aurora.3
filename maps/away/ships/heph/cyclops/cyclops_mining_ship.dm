@@ -30,8 +30,8 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	initial_restricted_waypoints = list(
-        "Cyclops Shuttle" = list("nav_hangar_cyclops")
-    )
+		"Cyclops Shuttle" = list("nav_hangar_cyclops")
+	)
 	initial_generic_waypoints = list(
 		"nav_cyclops_1",
 		"nav_cyclops_2",
@@ -41,8 +41,8 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/cyclops_mining/New()
-    designation = "[pick("Archemedes", "Pallas", "Crius", "Pothos", "Nyx")]"
-    ..()
+	designation = "[pick("Archemedes", "Pallas", "Crius", "Pothos", "Nyx")]"
+	..()
 
 /obj/effect/shuttle_landmark/cyclops
 	base_turf = /turf/space/dynamic
@@ -101,6 +101,6 @@
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/cyclops_shuttle/transit
-    name = "In transit"
-    landmark_tag = "nav_transit_cyclops_shuttle"
-    base_turf = /turf/space/transit/north
+	name = "In transit"
+	landmark_tag = "nav_transit_cyclops_shuttle"
+	base_turf = /turf/space/transit/north

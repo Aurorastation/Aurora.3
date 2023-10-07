@@ -119,7 +119,7 @@
 	dat += "<b>Religion:</b> <a href='?src=\ref[src];religion=1'>[pref.religion]</a><br/>"
 	dat += "<b>Accent:</b> <a href='?src=\ref[src];accent=1'>[pref.accent]</a><br/>"
 	. = dat.Join()
-	
+
 /datum/category_item/player_setup_item/origin/OnTopic(href, href_list, user)
 	var/datum/species/S = all_species[pref.species]
 	if(href_list["open_culture_menu"])
