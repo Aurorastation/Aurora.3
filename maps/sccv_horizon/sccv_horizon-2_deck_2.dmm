@@ -1644,6 +1644,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/machinery/light/spot,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aJp" = (
@@ -31854,6 +31855,7 @@
 /obj/structure/cable/orange{
 	icon_state = "1-4"
 	},
+/obj/machinery/light/spot,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "pgM" = (
@@ -32623,9 +32625,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/terminal,
-/obj/machinery/light/spot{
-	dir = 4
-	},
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - SM Reactor Output";
 	name_tag = "SM Reactor Output"
@@ -35604,6 +35603,9 @@
 	is_critical = 1;
 	output_attempt = 1;
 	output_level = 200000
+	},
+/obj/machinery/light/spot{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
@@ -50222,6 +50224,9 @@
 	dir = 1
 	},
 /obj/machinery/meter,
+/obj/machinery/light/spot{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "xQp" = (
@@ -65104,7 +65109,7 @@ kUz
 pDK
 pDK
 pDK
-oZh
+pDK
 xQn
 rgI
 wFX
