@@ -183,6 +183,7 @@
 	info += copied
 	info += "</font>"//</font>
 	pname = copy.name // -- Doohl
+	c.desc = copy.desc
 	if(istype(copy, /obj/item/paper/business_card))
 		c.color = copy.color
 	else
