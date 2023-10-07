@@ -527,3 +527,6 @@ example:
 #define TRANSFER_EMERGENCY "emergency transfer"
 #define TRANSFER_JUMP "bluespace jump"
 #define TRANSFER_CREW "crew transfer"
+
+/// Gyrotron power usage modifier.
+#define GYRO_POWER 25000
