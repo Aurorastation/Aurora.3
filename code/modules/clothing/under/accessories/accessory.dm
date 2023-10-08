@@ -78,7 +78,6 @@
 		accessory_mob_overlay.pixel_x = M.species.accessory_offset_x
 	if(M.species.accessory_offset_y)
 		accessory_mob_overlay.pixel_y = M.species.accessory_offset_y
-	if(M.species.accessory_offset_y)
 
 	return accessory_mob_overlay
 
