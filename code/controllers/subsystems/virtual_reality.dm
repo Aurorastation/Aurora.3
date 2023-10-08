@@ -89,9 +89,6 @@ SUBSYSTEM_DEF(virtualreality)
 		ckey_transfer(old_mob)
 		languages = list(all_languages[LANGUAGE_TCB])
 		internal_id.access = list()
-		if(ismech(loc))
-			var/mob/living/heavy_vehicle/HV = loc
-			HV.access_card.access = list()
 		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 	else
@@ -201,7 +198,6 @@ SUBSYSTEM_DEF(virtualreality)
 	var/mob/living/heavy_vehicle/chosen_mech = mech[choice]
 	var/mob/living/remote_pilot = chosen_mech.pilots[1] // the first pilot
 	mind_transfer(user, remote_pilot)
-	chosen_mech.sync_access()
 
 /datum/controller/subsystem/virtualreality/proc/robot_selection(var/user, var/network)
 	var/list/robot = list()
