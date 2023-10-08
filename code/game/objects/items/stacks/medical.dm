@@ -151,7 +151,7 @@ Contains:
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message(SPAN_NOTICE("\The [user] starts treating [M]'s [affecting.name]."), \
-						             SPAN_NOTICE("You start treating [M]'s [affecting.name]."))
+										SPAN_NOTICE("You start treating [M]'s [affecting.name]."))
 				var/used = 0
 				for (var/datum/wound/W in affecting.wounds)
 					if(W.bandaged)
@@ -163,14 +163,14 @@ Contains:
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
 						user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [M]'s [affecting.name]."), \
-						                              SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name]."))
+															SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name]."))
 						//H.add_side_effect("Itch")
 					else if (W.damage_type == BRUISE)
 						user.visible_message(SPAN_NOTICE("\The [user] places a bruise patch over \a [W.desc] on [M]'s [affecting.name]."), \
-						                              SPAN_NOTICE("You place a bruise patch over \a [W.desc] on [M]'s [affecting.name]."))
+															SPAN_NOTICE("You place a bruise patch over \a [W.desc] on [M]'s [affecting.name]."))
 					else
 						user.visible_message(SPAN_NOTICE("\The [user] places a bandaid over \a [W.desc] on [M]'s [affecting.name]."), \
-						                              SPAN_NOTICE("You place a bandaid over \a [W.desc] on [M]'s [affecting.name]."))
+															SPAN_NOTICE("You place a bandaid over \a [W.desc] on [M]'s [affecting.name]."))
 					W.bandage()
 					playsound(src, apply_sounds, 25)
 					used++
@@ -226,13 +226,13 @@ Contains:
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message(SPAN_NOTICE("\The [user] starts salving wounds on [M]'s [affecting.name]."), \
-						             SPAN_NOTICE("You start salving the wounds on [M]'s [affecting.name]."))
+										SPAN_NOTICE("You start salving the wounds on [M]'s [affecting.name]."))
 				playsound(src, pick(apply_sounds), 25)
 				if(!do_mob(user, M, 10))
 					to_chat(user, SPAN_NOTICE("You must stand still to salve wounds."))
 					return 1
 				user.visible_message(SPAN_NOTICE("[user] salved wounds on [M]'s [affecting.name]."), \
-				                     SPAN_NOTICE("You salved wounds on [M]'s [affecting.name]."))
+										SPAN_NOTICE("You salved wounds on [M]'s [affecting.name]."))
 				use(1)
 				affecting.salve()
 		else
@@ -277,7 +277,7 @@ Contains:
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message(SPAN_NOTICE("\The [user] starts treating [M]'s [affecting.name]."), \
-						             SPAN_NOTICE("You start treating [M]'s [affecting.name]."))
+										SPAN_NOTICE("You start treating [M]'s [affecting.name]."))
 				var/used = 0
 				for (var/datum/wound/W in affecting.wounds)
 					if (W.bandaged && W.disinfected)
@@ -289,14 +289,14 @@ Contains:
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
 						user.visible_message(SPAN_NOTICE("\The [user] cleans \a [W.desc] on [M]'s [affecting.name] and seals the edges with bioglue."), \
-						                     SPAN_NOTICE("You clean and seal \a [W.desc] on [M]'s [affecting.name]."))
+												SPAN_NOTICE("You clean and seal \a [W.desc] on [M]'s [affecting.name]."))
 						//H.add_side_effect("Itch")
 					else if (W.damage_type == BRUISE)
 						user.visible_message(SPAN_NOTICE("\The [user] places a medical patch over \a [W.desc] on [M]'s [affecting.name]."), \
-						                              SPAN_NOTICE("You place a medical patch over \a [W.desc] on [M]'s [affecting.name]."))
+												SPAN_NOTICE("You place a medical patch over \a [W.desc] on [M]'s [affecting.name]."))
 					else
 						user.visible_message(SPAN_NOTICE("\The [user] smears some bioglue over \a [W.desc] on [M]'s [affecting.name]."), \
-						                              SPAN_NOTICE("You smear some bioglue over \a [W.desc] on [M]'s [affecting.name]."))
+												SPAN_NOTICE("You smear some bioglue over \a [W.desc] on [M]'s [affecting.name]."))
 					playsound(src, pick(apply_sounds), 25)
 					W.bandage()
 					W.disinfect()
@@ -349,13 +349,13 @@ Contains:
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message(SPAN_NOTICE("\The [user] starts salving wounds on [M]'s [affecting.name]."), \
-						             SPAN_NOTICE("You start salving the wounds on [M]'s [affecting.name]."))
+										SPAN_NOTICE("You start salving the wounds on [M]'s [affecting.name]."))
 				playsound(src, pick(apply_sounds), 25)
 				if(!do_mob(user, M, 10))
 					to_chat(user, SPAN_NOTICE("You must stand still to salve wounds."))
 					return 1
 				user.visible_message(SPAN_NOTICE("[user] covers wounds on [M]'s [affecting.name] with regenerative membrane."), \
-									 SPAN_NOTICE("You cover wounds on [M]'s [affecting.name] with regenerative membrane."))
+										SPAN_NOTICE("You cover wounds on [M]'s [affecting.name] with regenerative membrane."))
 				affecting.heal_damage(0,heal_burn)
 				use(1)
 				affecting.salve()

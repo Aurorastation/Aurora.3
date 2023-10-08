@@ -6,7 +6,7 @@ SEE_MOBS  // can see all mobs, no matter what
 SEE_OBJS  // can see all objs, no matter what
 SEE_TURFS // can see all turfs (and areas), no matter what
 SEE_PIXELS// if an object is located on an unlit area, but some of its pixels are
-          // in a lit area (via pixel_x,y or smooth movement), can see those pixels
+			// in a lit area (via pixel_x,y or smooth movement), can see those pixels
 BLIND     // can't see anything
 */
 /obj/item/clothing/glasses
@@ -51,7 +51,7 @@ BLIND     // can't see anything
 
 	if(normal_layer == GLASSES_LAYER)
 		normal_layer = GLASSES_LAYER_ALT
-	else 
+	else
 		normal_layer = GLASSES_LAYER
 	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer == 21 ? "under" : "over"] your hair."))
 	update_clothing_icon()
@@ -317,7 +317,7 @@ BLIND     // can't see anything
 	set category = "Object"
 	set name = "Change Glasses Layer"
 	set src in usr
-	
+
 	var/list/options = list("Under Hair" = GLASSES_LAYER, "Over Hair" = GLASSES_LAYER_ALT, "Over Headwear" = GLASSES_LAYER_OVER)
 	var/new_layer = input(usr, "Position Goggles", "Goggle style") as null|anything in options
 	if(new_layer)

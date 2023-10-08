@@ -34,20 +34,20 @@
 	description = "Found exclusively in Dionae hailing from the Unathi-Dominated world of Moghes, Sandsong is a distinct variation of Rootsong notable for having its tempo much more drawn out, with tones of higher pitches especially having a much more exaggerated sound. Dionae speaking with the Sandsong accent will typically hold certain speech patterns held by Unathi such as hissing out their S’s and difficulties pronouncing the letter X. "
 	tag_icon = "dionae_sandsong"
 	text_tag = "SDS"
-	
+
 /datum/accent/wastesong
 	name = ACCENT_WASTESONG
 	description = "Originating from the irradiated Moghes Wastes, Wastesong is an accent spoken by Dionae who found themselves being bathed in the Wasteland’s radiation, making them healthy and much more resilient than some of their other planet-bound brethren, but also giving them a slightly distinct accent notable for having a lower-pitched voice compared to regular Rootsong but also a much faster tempo. Much like Sandsong, Dionae with the Wasteland accent will typically carry similar speech patterns to Unathi such as hissing out their S’s."
 	tag_icon = "dionae_wastesong"
 	text_tag = "WES"
-	
+
 //Skrell influenced Accents
 /datum/accent/wavesong
 	name = ACCENT_WAVESONG
 	description = "A variant of Rootsong originating from Diona born on Skrellian worlds, Wavesong is considered the general accent for Dionae hailing from the Nralakk Federation. While it shares many similarities with Rootsong, Wavesong sets itself apart by having a lower pitch and more drawn-out tempo in comparison. While not considered mandatory, many Dionae living in the Federation will adopt the accent due to it being generally more favored by the Federation, often granting those with the accent a higher social credit score."
 	tag_icon = "dionae_wavesong"
 	text_tag = "WAS"
-	
+
 /datum/accent/sunkensong
 	name = ACCENT_SUNKENSONG
 	description = "Sunkensong is a variant of Voidsong that is common for space-borne Dionae hailing from regions surrounding the Tri-Qyu Nebula. Known for it's lighter pitch and tone, along with it's consistent, even pacing for words, the accent is prevalent amongst Nralakk Federation Diona that originate from wild, voidbound gestalts. Dionae with Sunkensong may attempt to mimic Skrell accents in an attempt to replicate the more popular Starsong, with mixed results."

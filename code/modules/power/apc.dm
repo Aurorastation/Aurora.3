@@ -783,7 +783,7 @@
 				cell.update_icon()
 				cell = null
 				user.visible_message(SPAN_WARNING("[user.name] removes the power cell from [name]!"),\
-									 SPAN_NOTICE("You remove the power cell."))
+										SPAN_NOTICE("You remove the power cell."))
 				//to_chat(user, "You remove the power cell.")
 				charging = CHARGING_OFF
 				update_icon()
@@ -1132,7 +1132,7 @@
 
 			cell = null
 			user.visible_message(SPAN_WARNING("[user.name] removes the power cell from [name]!"),\
-								 SPAN_NOTICE("You remove the power cell."))
+									SPAN_NOTICE("You remove the power cell."))
 			charging = CHARGING_ON
 			update_icon()
 		return

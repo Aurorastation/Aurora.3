@@ -12,6 +12,18 @@
 	var/list/names_to_guns = list()
 	var/list/names_to_entries = list()
 
+/obj/machinery/computer/ship/targeting/terminal
+	name = "targeting systems terminal"
+	desc = "A targeting systems terminal using Zavodskoi software."
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "hostile"
+	icon_keyboard = "red_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
+
 /obj/machinery/computer/ship/targeting/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD

@@ -79,6 +79,7 @@
 #define XGM_GAS_FUEL        1
 #define XGM_GAS_OXIDIZER    2
 #define XGM_GAS_CONTAMINANT 4
+#define XGM_GAS_FUSION_FUEL 8
 
 #define TANK_LEAK_PRESSURE     (30.*ONE_ATMOSPHERE) // Tank starts leaking.
 #define TANK_RUPTURE_PRESSURE  (40.*ONE_ATMOSPHERE) // Tank spills all contents into atmosphere.
@@ -119,6 +120,10 @@
 #define GAS_STEAM				"water"
 #define GAS_SULFUR				"sulfurdioxide"
 #define GAS_CHLORINE			"chlorine"
+#define GAS_HELIUM				"helium"
+#define GAS_DEUTERIUM			"deuterium"
+#define GAS_TRITIUM				"tritium"
+#define GAS_BORON				"boron"
 
 #define	PIPE_COLOR_GREY		"#ffffff"	//yes white is grey
 #define	PIPE_COLOR_RED		"#ff0000"

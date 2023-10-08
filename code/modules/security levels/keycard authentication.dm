@@ -189,7 +189,7 @@
 				if(!linked.levi_safeguard.opened)
 					linked.levi_safeguard.open()
 					command_announcement.Announce("Commencing connection of Leviathan warp field arrays. All personnel are reminded to seek out a fixed object they can \
-												   hold on to in preparation for the firing sequence.", "Leviathan Artillery Control", 'sound/effects/ship_weapons/leviathan_safetyoff.ogg')
+													hold on to in preparation for the firing sequence.", "Leviathan Artillery Control", 'sound/effects/ship_weapons/leviathan_safetyoff.ogg')
 		if("Emergency Evacuation")
 			call_shuttle_proc(user, TRANSFER_EMERGENCY)
 

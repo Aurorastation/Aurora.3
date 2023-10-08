@@ -14,7 +14,7 @@
 	var/icon_state_active = "dispenser_active"
 	/// Set to a list of types to spawn one of each on New().
 	var/list/spawn_cartridges
-	 /// Associative, label -> cartridge.
+	/// Associative, label -> cartridge.
 	var/list/cartridges = list()
 	///Current container.
 	var/obj/item/reagent_containers/container

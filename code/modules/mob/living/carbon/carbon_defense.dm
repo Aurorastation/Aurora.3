@@ -67,7 +67,7 @@
 				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
 		else if(!vr_mob)
 			user.visible_message("<span class='danger'>[user] attacks [src] with [I] waking [get_pronoun("him")] up!</span>", \
-					    "<span class='danger'>You attack [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
+									"<span class='danger'>You attack [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
 		user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [get_pronoun("him")] up!</span>", \
 							"<span class='danger'>You attack [src] with [I], waking [get_pronoun("him")] up!</span>")
