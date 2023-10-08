@@ -133,7 +133,7 @@
 
 
 
-// custom stuff for sovl :]
+// custom stuff for sovl
 
 /obj/structure/closet/crate/trashcart/shark
   name = "DO NOT OPEN!!!"

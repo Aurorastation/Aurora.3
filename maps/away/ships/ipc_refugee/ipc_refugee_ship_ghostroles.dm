@@ -1,8 +1,10 @@
 /datum/ghostspawner/human/refugee_crew
 	short_name = "refugee_crew"
 	name = "Human Refugee"
-	desc = "You are a human from the Wildlands crewing a worn down freighter carrying a number of IPC refugees. The journey so far has been catastrophic at best, but you've been making the best of what you've got. Perhaps you've been angling to sell the IPCs off the entire time under the false pretense of leading them to freedom, or perhaps you're more sympathetic to their strife, truly dedicated to helping synthetics find a life of their own."
+	desc = "You are a human from the Wildlands crewing a heavily run down freighter carrying a number of IPC refugees."
 	tags = list("External")
+
+	welcome_message = "You are a human from the Wildlands crewing a worn down freighter carrying a number of IPC refugees. The journey so far has been catastrophic at best, but you've been making the best of what you've got. Perhaps you've been angling to sell the IPCs off the entire time under the false pretense of leading them to freedom, or perhaps you're more sympathetic to their strife, truly dedicated to helping synthetics find a life of their own."
 
 	spawnpoints = list("refugee_crew")
 	max_count = 2
@@ -24,8 +26,6 @@
 
 	id = /obj/item/card/id/refugee_crew_ship
 
-	//l_ear = /obj/item/device/radio/headset/ship
-
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/device/radio/map_preset = 1,
@@ -43,14 +43,16 @@
 /datum/ghostspawner/human/refugee_crew/ipc
 	short_name = "refugee_crew_ipc"
 	name = "IPC Refugee"
-	desc = "You are an IPC refugee, fleeing from the Wildlands in search of a better life on a journey that has been nothing but perilous at every turn. A number of your synthetic brethren have already perished, but you've come too far to give up on your dreams of freedom now. Do what you must to survive, and maybe you'll reach Konyang or Orepit yet."
+	desc = "You are an IPC refugee, fleeing from the Wildlands onboard a heavily run down freighter in search of a better life."
+
+	welcome_message = "You are an IPC refugee, fleeing from the Wildlands in search of a better life on a journey that has been nothing but perilous at every turn. A number of your synthetic brethren have already perished, but you've come too far to give up on your dreams of freedom now. Do what you must to survive, and maybe you'll reach Konyang or Orepit yet."
 
 	spawnpoints = list("refugee_crew_ipc")
 	max_count = 3
 
 	outfit = /datum/outfit/admin/refugee_crew/ipc
 	possible_species = list(SPECIES_IPC, SPECIES_IPC_SHELL, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP)
-	uses_species_whitelist = FALSE // TRUE FOR FINAL PRODUCT
+	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Freighter Passenger"

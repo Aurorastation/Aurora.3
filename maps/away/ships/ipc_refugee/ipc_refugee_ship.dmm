@@ -97,10 +97,29 @@
 /turf/simulated/floor/tiled/rust,
 /area/ship/ipc_refugee/mainhall)
 "bn" = (
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/light/small/red{
 	dir = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1379;
+	dir = 8;
+	id_tag = "ipc_refugee_port_airlock_pump"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = -25;
+	pixel_x = -6;
+	id_tag = "ipc_refugee_port_airlock";
+	tag_airpump = "ipc_refugee_port_airlock_pump";
+	tag_chamber_sensor = "ipc_refugee_port_airlock_sensor";
+	tag_exterior_door = "ipc_refugee_port_airlock_out";
+	tag_interior_door = "ipc_refugee_port_airlock_in"
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = -25;
+	pixel_x = 6;
+	id_tag = "ipc_refugee_port_airlock_sensor"
+	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "bp" = (
@@ -2502,6 +2521,22 @@
 /area/ship/ipc_refugee/cargopod_b)
 "uk" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_y = -25;
+	frequency = 1379;
+	master_tag = "ipc_refugee_port_airlock";
+	command = "cycle_interior"
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4;
+	frequency = 1379;
+	icon_state = "door_locked";
+	locked = 1;
+	id_tag = "ipc_refugee_port_airlock_in"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_b)
 "ul" = (
@@ -3847,9 +3882,22 @@
 /turf/simulated/floor/airless,
 /area/shuttle/ipc_refugee_shuttle)
 "Ee" = (
-/obj/effect/map_effect/airlock/e_to_w,
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/ipc_refugee/cargopod_a)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/access_button{
+	pixel_y = -25;
+	frequency = 1379;
+	master_tag = "ipc_refugee_port_airlock";
+	command = "cycle_exterior"
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4;
+	frequency = 1379;
+	icon_state = "door_locked";
+	locked = 1;
+	id_tag = "ipc_refugee_port_airlock_out"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/ipc_refugee/cargopod_b)
 "Ei" = (
 /obj/machinery/power/apc/east{
 	req_access = null
@@ -3912,6 +3960,22 @@
 /area/ship/ipc_refugee/cargopod_a)
 "EJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_y = -25;
+	frequency = 1379;
+	master_tag = "ipc_refugee_starboard_airlock";
+	command = "cycle_interior"
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4;
+	frequency = 1379;
+	icon_state = "door_locked";
+	locked = 1;
+	id_tag = "ipc_refugee_starboard_airlock_in"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_a)
 "EK" = (
@@ -4582,9 +4646,22 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/cargopod_a)
 "LD" = (
-/obj/effect/map_effect/airlock/w_to_e,
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/ipc_refugee/cargopod_b)
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/access_button{
+	pixel_y = -25;
+	frequency = 1379;
+	master_tag = "ipc_refugee_starboard_airlock";
+	command = "cycle_exterior"
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4;
+	frequency = 1379;
+	icon_state = "door_locked";
+	locked = 1;
+	id_tag = "ipc_refugee_starboard_airlock_out"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/ipc_refugee/cargopod_a)
 "LE" = (
 /obj/effect/floor_decal/corner_wide/green/full,
 /obj/item/material/shard/shrapnel,
@@ -5342,10 +5419,29 @@
 /turf/simulated/floor/tiled/airless,
 /area/ship/ipc_refugee/forehall)
 "Tb" = (
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/light/small/red{
 	dir = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1379;
+	dir = 4;
+	id_tag = "ipc_refugee_starboard_airlock_pump"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = -25;
+	pixel_x = 6;
+	id_tag = "ipc_refugee_starboard_airlock";
+	tag_airpump = "ipc_refugee_starboard_airlock_pump";
+	tag_chamber_sensor = "ipc_refugee_starboard_airlock_sensor";
+	tag_exterior_door = "ipc_refugee_starboard_airlock_out";
+	tag_interior_door = "ipc_refugee_starboard_airlock_in"
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = -25;
+	pixel_x = -6;
+	id_tag = "ipc_refugee_starboard_airlock_sensor"
+	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_a)
 "Te" = (
@@ -36804,8 +36900,8 @@ Ik
 Ik
 Ik
 Ns
-EJ
-Ee
+LD
+Ns
 Ik
 Ik
 Ik
@@ -43487,7 +43583,7 @@ tk
 LO
 fC
 uk
-LD
+fC
 aD
 XU
 sd
@@ -44000,7 +44096,7 @@ Ik
 Ik
 Ik
 fC
-uk
+Ee
 fC
 Ik
 Ik
