@@ -48,10 +48,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/corner,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/atmos/storage)
 "aax" = (
@@ -2697,7 +2697,7 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "biZ" = (
@@ -3291,13 +3291,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"bwU" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos/storage)
 "bxp" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
@@ -4093,11 +4086,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bPf" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -5607,19 +5600,19 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "cFX" = (
-/obj/structure/cable/orange{
-	icon_state = "1-4"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
 	},
 /obj/structure/cable/orange{
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/orange{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/rust)
 "cGd" = (
@@ -8192,7 +8185,8 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/junction{
-	dir = 1
+	dir = 2;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/rust)
@@ -13776,7 +13770,7 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -17452,6 +17446,20 @@
 /area/maintenance/wing/port/far)
 "ikT" = (
 /obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "r_ust_core_blast";
+	name = "INDRA Reactor Core Blast Doors";
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "r-ust_monitoring_blast";
+	name = "INDRA Reactor Monitoring Blast Doors";
+	pixel_x = 6;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
 "ilm" = (
@@ -17541,7 +17549,7 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
@@ -35245,15 +35253,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
-"qRh" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos/storage)
 "qRE" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 1
@@ -35554,22 +35553,10 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "qXF" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "r_ust_core_blast";
-	name = "INDRA Reactor Core Blast Doors";
-	pixel_x = -6;
-	pixel_y = 7
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "r-ust_monitoring_blast";
-	name = "INDRA Reactor Monitoring Blast Doors";
-	pixel_x = 6;
-	pixel_y = 7
-	},
 /obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -41296,6 +41283,20 @@
 	icon_state = "0-2"
 	},
 /obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "r_ust_core_blast";
+	name = "INDRA Reactor Core Blast Doors";
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "r-ust_monitoring_blast";
+	name = "INDRA Reactor Monitoring Blast Doors";
+	pixel_x = 6;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
 "tPV" = (
@@ -50517,10 +50518,10 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/engineering/atmos/storage)
 "xWV" = (
@@ -71782,7 +71783,7 @@ ulg
 fnn
 tUR
 xrh
-bwU
+biI
 bPf
 jkb
 nlG
@@ -71984,7 +71985,7 @@ wZK
 fnn
 fnn
 wTF
-bwU
+biI
 bPf
 kJZ
 puO
@@ -72187,7 +72188,7 @@ vCQ
 fnn
 aFm
 biI
-qRh
+bPf
 jkb
 puO
 rNE
