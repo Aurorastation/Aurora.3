@@ -1077,10 +1077,10 @@ By design, d1 is the smallest direction and d2 is the highest
 		var/mob/living/M = buckled
 		if(M != user)
 			user.visible_message(SPAN_NOTICE("[user] begins to untie the noose over [M]'s neck..."),\
-								 SPAN_NOTICE("You begin to untie the noose over [M]'s neck..."))
+									SPAN_NOTICE("You begin to untie the noose over [M]'s neck..."))
 			if(do_mob(user, M, 100))
 				user.visible_message(SPAN_NOTICE("[user] unties the noose over [M]'s neck!"),\
-									 SPAN_NOTICE("You untie the noose over [M]'s neck!"))
+										SPAN_NOTICE("You untie the noose over [M]'s neck!"))
 			else
 				return
 		else
@@ -1127,7 +1127,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			SPAN_WARNING("[M] ties \the [src] over their neck!"),\
 			SPAN_WARNING("You tie \the [src] over your neck!"))
 		playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
-		SSfeedback.IncrementSimpleStat("hangings")
+		SSstatistics.IncrementSimpleStat("hangings")
 		return TRUE
 	else
 		M.visible_message(\
@@ -1140,7 +1140,7 @@ By design, d1 is the smallest direction and d2 is the highest
 					SPAN_DANGER("[user] ties \the [src] over [M]'s neck!"),\
 					SPAN_DANGER("[user] ties \the [src] over your neck!"))
 				playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
-				SSfeedback.IncrementSimpleStat("hangings")
+				SSstatistics.IncrementSimpleStat("hangings")
 				return TRUE
 			else
 				user.visible_message(\

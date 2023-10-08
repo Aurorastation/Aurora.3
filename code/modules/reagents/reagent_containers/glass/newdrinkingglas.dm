@@ -129,4 +129,3 @@
 	icon_state = "goblet"
 	icon = 'icons/obj/drink_glasses/goblet.dmi'
 	volume = 25
-	

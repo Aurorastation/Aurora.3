@@ -74,7 +74,7 @@
 		else if(get_dist(src, M) <= watching_range)
 			if(M.stat == DEAD && M.client)
 				observers += M
-			else	
+			else
 				watching += M
 
 	if(length(observers)) //For ghosts who do NOT have ghost ears. They will see the whole message if nearby, no *s or not_heard messages.

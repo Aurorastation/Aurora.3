@@ -253,7 +253,7 @@
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
 			if(organ)
 				user.visible_message(SPAN_NOTICE("[user] places [src] against [M]'s [organ.name] and listens attentively."),
-									"You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
+										"You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
 				return
 	return ..(M,user)
 

@@ -142,7 +142,7 @@ There are several things that need to be remembered:
 			var/matrix/M = matrix()
 
 			switch(src.dir)
-				if(NORTH,EAST)
+				if(SOUTH,EAST)
 					M.Turn(90)
 				else
 					M.Turn(-90)

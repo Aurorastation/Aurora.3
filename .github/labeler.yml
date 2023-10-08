@@ -1,6 +1,6 @@
 # Folder Rules
 'Changelog Required':
-- '!html/changelogs/*.yaml'
+- '!html/changelogs/*.yml'
 
 Database:
 - SQL/*

@@ -5,6 +5,8 @@
 	Slice the cover with a welder, then pry it off with a crowbar.<br>\
 	Use a wrench to loosen the anchor bolts, then cut the supports with a welder.<br>\
 	Pry off the sheath with a crowbar to expose the girder. Examine it to see how to deconstruct it."
+	icon = 'icons/turf/smooth/wall_preview.dmi'
+	icon_state = "r_wall"
 
 /turf/simulated/wall/r_wall/Initialize(mapload)
 	. = ..(mapload, "plasteel","plasteel") //3strong
@@ -29,7 +31,7 @@
 	desc = "Hideous images dance beneath the surface."
 	icon = 'icons/turf/smooth/cult_wall.dmi'
 	canSmoothWith = null
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	smoothing_hints = SMOOTHHINT_TARGETS_NOT_UNIQUE | SMOOTHHINT_ONLY_MATCH_TURF
 	icon_state = "cult"
 	appearance_flags = NO_CLIENT_COLOR
@@ -70,8 +72,8 @@
 	canSmoothWith = list(src.type)
 
 /turf/simulated/wall/sandstone
-	icon = 'icons/turf/smooth/composite_stone.dmi'
-	icon_state = "stone"
+	icon = 'icons/turf/smooth/wall_preview.dmi'
+	icon_state = "sandstone"
 
 /turf/simulated/wall/sandstone/Initialize(mapload)
 	canSmoothWith = list(src.type)
@@ -108,8 +110,14 @@
 	. = ..(mapload, MATERIAL_TITANIUM, MATERIAL_TITANIUM)
 	canSmoothWith = list(src.type)
 
+/turf/simulated/wall/gold_reinforced/Initialize(mapload)
+	canSmoothWith = list(src.type)
+	. = ..(mapload, MATERIAL_GOLD, MATERIAL_PLASTEEL)
+	canSmoothWith = list(src.type)
+	color = COLOR_GOLD
+
 /turf/simulated/wall/wood
-	icon = 'icons/turf/smooth/composite_wood.dmi'
+	icon = 'icons/turf/smooth/wall_preview.dmi'
 	icon_state = "wood"
 
 /turf/simulated/wall/wood/Initialize(mapload)

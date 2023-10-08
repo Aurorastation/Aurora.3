@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/docs/SSdocs
-
-/datum/controller/subsystem/docs
+SUBSYSTEM_DEF(docs)
 	name = "Documents"
 	wait = 30 SECONDS
 	flags = SS_NO_FIRE
@@ -28,9 +26,6 @@ var/datum/controller/subsystem/docs/SSdocs
 		log_subsystem_documents("invalid load option specified in config")
 
 	..()
-
-/datum/controller/subsystem/docs/New()
-	NEW_SS_GLOBAL(SSdocs)
 
 /*
 	Fetching Data

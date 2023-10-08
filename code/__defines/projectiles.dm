@@ -31,6 +31,6 @@
 #define ROF_INTERMEDIATE 4
 #define ROF_RIFLE 5
 #define ROF_HEAVY 8
-#define ROF_SUPERHEAVY 12	
+#define ROF_SUPERHEAVY 12
 #define ROF_UNWIELDY 16
 #define ROF_SPECIAL 40

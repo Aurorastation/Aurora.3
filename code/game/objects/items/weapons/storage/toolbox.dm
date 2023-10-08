@@ -79,7 +79,7 @@
 		new /obj/item/stack/cable_coil(src,30,color)
 
 /obj/item/storage/toolbox/drill
-	name = "drilling kit"
+	name = "industrial drilling kit"
 	desc = "A kit supplied to drill technicians, containing the tools required to set up a basic asteroid drilling operation."
 	icon_state = "miningbox"
 	item_state = "miningbox"
@@ -101,8 +101,7 @@
 	starts_with = list(
 		/obj/item/crowbar = 1,
 		/obj/item/wrench = 1,
-		/obj/item/custom_ka_upgrade/upgrade_chips/damage = 1,
-		/obj/item/custom_ka_upgrade/cells/cell02 = 1
+		/obj/item/custom_ka_upgrade/barrels/barrel02 = 1
 	)
 
 /obj/item/storage/toolbox/syndicate

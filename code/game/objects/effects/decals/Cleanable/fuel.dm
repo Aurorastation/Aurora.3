@@ -1,5 +1,7 @@
 /obj/effect/decal/cleanable/liquid_fuel
 	//Liquid fuel is used for things that used to rely on volatile fuels or phoron being contained to a couple tiles.
+	name = "liquid fuel"
+	desc = "Some kind of sticky, flammable liquid."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "fuel"
 	layer = TURF_LAYER+0.2

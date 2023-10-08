@@ -44,7 +44,7 @@
 /obj/structure/bed/stool/chair/MouseDrop_T(mob/target, mob/user)
 	if(target == user && user.loc != loc && (reverse_dir[dir] & angle2dir(Get_Angle(src, user))))
 		user.visible_message("<b>[user]</b> starts climbing over the back of \the [src]...", SPAN_NOTICE("You start climbing over the back of \the [src]..."))
-		if(do_after(user, 2 SECONDS))
+		if(do_after(user, 2 SECONDS, DO_UNIQUE))
 			user.forceMove(loc)
 		return
 	return ..()
@@ -240,7 +240,7 @@
 	icon = 'icons/obj/spaceship/cockpit_chair.dmi'
 
 /obj/structure/bed/stool/chair/cockpit/CanPass(atom/movable/mover, turf/target, height, air_group)
-    return TRUE
+	return TRUE
 
 /obj/structure/bed/stool/chair/cockpit/update_icon()
 	..()

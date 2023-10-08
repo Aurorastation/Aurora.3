@@ -762,7 +762,8 @@
 	)
 	contraband = list(
 		/obj/item/clothing/glasses/sunglasses = 2,
-		/obj/item/grenade/flashbang = 4
+		/obj/item/grenade/flashbang = 4,
+		/obj/item/grenade/stinger = 4
 	)
 	restock_blocked_items = list(
 		/obj/item/storage/box/fancy/donut,

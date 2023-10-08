@@ -287,7 +287,7 @@
 		var/missing_gas = 0
 		for(var/gas in consume_gasses)
 			if(environment && environment.gas && environment.gas[gas] && \
-			 environment.gas[gas] >= consume_gasses[gas])
+				environment.gas[gas] >= consume_gasses[gas])
 				if(!check_only)
 					environment.adjust_gas(gas,-consume_gasses[gas],1)
 			else

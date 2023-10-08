@@ -404,7 +404,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 			data = html_encode(data)
 			C.set_content("NFC-[id] - [name]", data)
-			print(C)
+			print(C, user = usr)
 
 			paperstock--
 

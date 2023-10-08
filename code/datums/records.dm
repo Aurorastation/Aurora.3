@@ -132,7 +132,7 @@
 /datum/record/general/New(var/mob/living/carbon/human/H, var/nid)
 	..()
 	if (!H)
-		var/mob/living/carbon/human/dummy/mannequin/dummy = SSmob.get_mannequin("New record")
+		var/mob/living/carbon/human/dummy/mannequin/dummy = SSmobs.get_mannequin("New record")
 		photo_front = getFlatIcon(dummy, SOUTH)
 		photo_side = getFlatIcon(dummy, WEST)
 	else
@@ -165,7 +165,7 @@
 	var/nid = ""
 	var/enzymes
 	var/identity
-	var/exploit_record = "No additional information acquired."
+	var/exploit_record
 
 /datum/record/general/locked/New(var/mob/living/carbon/human/H)
 	..()
@@ -235,13 +235,13 @@ var/warrant_uid = 0
 	var/antigen
 	var/spread_type = "Unknown"
 	cmp_field = "name"
-	
+
 //Manifest record
 /datum/record/shuttle_manifest
 	name = "Unknown"
 	var/shuttle = "Unknown"
 	cmp_field = "name"
-	
+
 var/shuttle_uid = 0
 /datum/record/shuttle_manifest/New()
 	..()

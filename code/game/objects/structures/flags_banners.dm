@@ -198,7 +198,7 @@
 				if(!Adjacent(user)) // Cannot bring up dialogue and walk away.
 					return FALSE
 				user.visible_message(SPAN_WARNING("\The [user] starts to grab hold of \the [src] with destructive intent!"), SPAN_WARNING("You grab hold of \the [src] with destructive intent!"),)
-				if(!do_after(user, 5 SECONDS, act_target = src))
+				if(!do_after(user, 5 SECONDS, src))
 					return FALSE
 				user.visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!"), SPAN_WARNING("You \the [src] in a single, decisive motion!"))
 				playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
@@ -226,7 +226,7 @@
 	..()
 	if(W.isFlameSource())
 		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
-		if(!do_after(user, 2 SECONDS, act_target = src))
+		if(!do_after(user, 2 SECONDS, src))
 			return FALSE
 		visible_message(SPAN_WARNING("\The [user] burns \the [src] down!"))
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 100, 1)
@@ -1388,6 +1388,84 @@
 	..(loc, EAST)
 
 /obj/structure/sign/flag/biesel/large/west/New()
+	..(loc, WEST)
+
+/obj/item/flag/biesel/old
+	name = "old Autonomous Solarian Republic of Biesel flag"
+	desc = "The flag used by Biesel and Valkyrie while they were semi-autonomous colonies of the Solarian Alliance, re-instated briefly during the 33rd Fleet's invasion and occupation in 2459. Due to this and the general hatred of the Sol Alliance across Tau Ceti, displaying this flag anywhere in Tau Ceti space would be a bold move, and is illegal as it often carries anti-corporatist and/or treasonous sentiments."
+	flag_path = "biesel_old"
+	flag_structure = /obj/structure/sign/flag/biesel/old
+
+/obj/structure/sign/flag/biesel/old
+	name = "old Autonomous Solarian Republic of Biesel flag"
+	desc = "The flag used by Biesel and Valkyrie while they were semi-autonomous colonies of the Solarian Alliance, re-instated briefly during the 33rd Fleet's invasion and occupation in 2459. Due to this and the general hatred of the Sol Alliance across Tau Ceti, displaying this flag anywhere in Tau Ceti space would be a bold move, and is illegal as it often carries anti-corporatist and/or treasonous sentiments."
+	flag_path = "biesel_old"
+	icon_state = "biesel_old"
+	flag_item = /obj/item/flag/biesel/old
+
+/obj/structure/sign/flag/biesel/old/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/biesel/old/l
+	name = "large old Autonomous Solarian Republic of Biesel flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/biesel/old/large
+
+/obj/structure/sign/flag/biesel/old/large
+	icon_state = "biesel_old_l"
+	flag_path = "biesel_old"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/biesel/old/l
+
+/obj/structure/sign/flag/biesel/old/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/biesel/old/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/biesel/old/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/biesel/old/large/west/New()
+	..(loc, WEST)
+
+/obj/item/flag/biesel/antique
+	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
+	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publicly display it in Tau Ceti space, primarily due to its rarity."
+	flag_path = "biesel_antique"
+	flag_structure = /obj/structure/sign/flag/biesel/antique
+
+/obj/structure/sign/flag/biesel/antique
+	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
+	desc = "The flag used by Biesel and Valkyrie before the Interstellar War, during its initial colonization. This flag still has the old Solarian Alliance canton in the corner. This flag is old enough that it is considered an antique and not illegal to display, but would still be a bad move to publicly display it in Tau Ceti space, primarily due to its rarity."
+	flag_path = "biesel_antique"
+	icon_state = "biesel_antique"
+	flag_item = /obj/item/flag/biesel/antique
+
+/obj/structure/sign/flag/biesel/antique/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/biesel/antique/l
+	name = "large antique Solarian Colonial Mandate of Tau Ceti flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/biesel/antique/large
+
+/obj/structure/sign/flag/biesel/antique/large
+	icon_state = "biesel_antique_l"
+	flag_path = "biesel_antique"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/biesel/antique/l
+
+/obj/structure/sign/flag/biesel/antique/large/north/New()
+	..(loc, NORTH)
+
+/obj/structure/sign/flag/biesel/antique/large/south/New()
+	..(loc, SOUTH)
+
+/obj/structure/sign/flag/biesel/antique/large/east/New()
+	..(loc, EAST)
+
+/obj/structure/sign/flag/biesel/antique/large/west/New()
 	..(loc, WEST)
 
 // SCC

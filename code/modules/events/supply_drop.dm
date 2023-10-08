@@ -17,7 +17,7 @@
 
 	new /obj/structure/closet/crate/loot(spawn_loc, rarity, quantity)
 	log_and_message_admins("Unusual container spawned at (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[spawn_loc.x];Y=[spawn_loc.y];Z=[spawn_loc.z]'>JMP</a>)")
-	
+
 	spark(spawn_loc, 10, alldirs)
 
 /datum/event/supply_drop/announce()

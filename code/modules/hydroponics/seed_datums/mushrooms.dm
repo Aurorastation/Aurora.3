@@ -68,9 +68,7 @@
 	seed_name = "black kois"
 	display_name = "black k'ois spores"
 	mutants = null
-	chems = list(
-				/singleton/reagent/kois/black = list(4),
-				/singleton/reagent/toxin/phoron = list(2))
+	chems = list(/singleton/reagent/kois/black = list(4))
 
 /datum/seed/koisspore/black/setup_traits()
 	..()

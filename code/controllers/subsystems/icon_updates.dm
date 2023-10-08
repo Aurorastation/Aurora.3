@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/icon/SSicon_update
-
-/datum/controller/subsystem/icon
+SUBSYSTEM_DEF(icon_update)
 	name = "Icon Updates"
 	wait = 1	// ticks
 	flags = SS_TICKER
@@ -9,18 +7,18 @@
 
 	var/list/queue = list()
 
-/datum/controller/subsystem/icon/New()
+/datum/controller/subsystem/icon_update/New()
 	NEW_SS_GLOBAL(SSicon_update)
 
-/datum/controller/subsystem/icon/stat_entry(msg)
+/datum/controller/subsystem/icon_update/stat_entry(msg)
 	msg = "QU:[queue.len]"
 	return ..()
 
-/datum/controller/subsystem/icon/Initialize()
+/datum/controller/subsystem/icon_update/Initialize()
 	fire(FALSE, TRUE)
 	..()
 
-/datum/controller/subsystem/icon/fire(resumed = FALSE, no_mc_tick = FALSE)
+/datum/controller/subsystem/icon_update/fire(resumed = FALSE, no_mc_tick = FALSE)
 	var/list/curr = queue
 
 	if (!curr.len)

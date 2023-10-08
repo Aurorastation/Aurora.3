@@ -245,11 +245,11 @@
 	w_class = ITEMSIZE_SMALL
 
 #define DRINK_FLUFF_GETMORE  "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
-							   but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
-							   and fast food restaurants all under the Getmore brand."
+								but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
+								and fast food restaurants all under the Getmore brand."
 
 #define DRINK_FLUFF_ZENGHU    "This drink is made by Zeng-Hu Pharmaceuticals, a trans-stellar medical research and pharmaceutical conglomerate that has heavy ties with Skrell. \
-							   With a big genetics and xenobiology division, it has also revolutionized the production of some old Terran alcohol."
+								With a big genetics and xenobiology division, it has also revolutionized the production of some old Terran alcohol."
 
 #define DRINK_FLUFF_SILVERPORT "This drink is made by Silverport Quality Brand, an Idris subsidiary that focuses on production of expensive, extremely high-quality drinks. \
 								Its facilities can be found on both Silversun and Venus, but the Cytherean part of Venus are its main consumers. \
@@ -329,7 +329,7 @@
 	name = "Nojosuru Aromatic Bitters"
 	desc = "Only the finest and highest quality herbs find their way into our cocktail bitters, both human <i>and</i> skrellian."
 	desc_extended = "This drink is made by Nojosuru Foods, a subsidiary of Zeng-Hu Pharmaceuticals, founded on Earth in 2252. \
-				  They are known for their surprisingly affordable and incredible quality foods, as well as growing many crops used in pharmaceuticals and luxury items."
+						They are known for their surprisingly affordable and incredible quality foods, as well as growing many crops used in pharmaceuticals and luxury items."
 	icon_state = "bitters"
 	center_of_mass = list("x"=16, "y"=9)
 	reagents_to_add = list(/singleton/reagent/alcohol/bitters = 40)
@@ -415,13 +415,13 @@
 /obj/item/reagent_containers/food/drinks/bottle/champagne/open(mob/user, var/sabrage, var/froth_severity)
 	if(!sabrage)
 		user.visible_message(SPAN_DANGER("[user] loosens the cork of [src] causing it to pop out of the bottle with great force."), \
-						 	 SPAN_GOOD("You elegantly loosen the cork of [src] causing it to pop out of the bottle with great force."), \
-						 	 "You can hear a pop.")
+								SPAN_GOOD("You elegantly loosen the cork of [src] causing it to pop out of the bottle with great force."), \
+								"You can hear a pop.")
 	else
 		sabraged = TRUE
 		user.visible_message(SPAN_DANGER("[user] cleanly slices off the cork of [src], causing it to fly off the bottle with great force."), \
-							 SPAN_GOOD("You elegantly slice the cork off of [src], causing it to fly off the bottle with great force."), \
-							 "You can hear a pop.")
+								SPAN_GOOD("You elegantly slice the cork off of [src], causing it to fly off the bottle with great force."), \
+								"You can hear a pop.")
 	playsound(src, 'sound/items/champagne_pop.ogg', 70, TRUE)
 	flags |= OPENCONTAINER
 	update_icon()
