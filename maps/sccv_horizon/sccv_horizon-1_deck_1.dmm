@@ -755,10 +755,8 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "aFx" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_y = 23
-	},
 /obj/structure/bed/stool/chair/shuttle,
+/obj/item/device/radio/intercom/north,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
 "aFA" = (
