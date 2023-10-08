@@ -211,7 +211,7 @@
 				hologram_message = pick("Projected on the ceiling is a vista of the Kervasii World Amusement Park's floating islands.",
 										"You see massive resort buildings looming high over a crystal-clear ocean.",
 										"You hear light chittering as the projector switches to a depiction of a C'thuric research lab.")
-			
+
 
 		if(hologram_message)
 			visible_message("<span class='notice'>[hologram_message]</span>")

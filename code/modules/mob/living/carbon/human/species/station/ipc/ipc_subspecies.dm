@@ -16,8 +16,8 @@
 	blurb = "IPCs with humanlike properties. Their focus is on service, civilian, and medical, but there are no \
 	job restrictions. Created in the late days of 2450, the Shell is a controversial IPC model equipped with a synthskin weave applied over its metal chassis \
 	to create an uncannily close approximation of the organic form. Early models of Shell had the advantage of being able to compose themselves of a wide \
-	 variety of organic parts, but contemporary models have been restricted to a single species for the sake of prosthetic integrity. The additional weight of \
-	 the synthskin on the original Hephaestus frame reduces the efficacy of the unit's already strained coolant systems, and increases charge consumption."
+	variety of organic parts, but contemporary models have been restricted to a single species for the sake of prosthetic integrity. The additional weight of \
+	the synthskin on the original Hephaestus frame reduces the efficacy of the unit's already strained coolant systems, and increases charge consumption."
 
 	num_alternate_languages = 3
 

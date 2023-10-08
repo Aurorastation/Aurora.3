@@ -80,7 +80,7 @@
 	name = CITIZENSHIP_SOL
 	description = "Once considered a juggernaut in terms of cultural and political influence, the Alliance of Sovereign Solarian Nations (ASSN), commonly referred to as the Sol Alliance, has greatly declined in the wake of the phoron crisis and the Solarian collapse of 2462. \
 	Once the spur's largest interstellar power, in recent times the Sol Alliance has retreated to its wealthy so-called Jewel Worlds and inner colonies, with its reach barely extending to a few select middle colonies. \
-    However, it still controls the largest human military in the entire spur, and their cooperation with Einstein Engines and the Nralakk Federation has contributed to it gradually regaining some of its pre-collapse influence and power. \
+	However, it still controls the largest human military in the entire spur, and their cooperation with Einstein Engines and the Nralakk Federation has contributed to it gradually regaining some of its pre-collapse influence and power. \
 	Presently ruled by a military junta that is gradually giving way to civilian control, the Alliance is also generally xenophobic, and most non-humans find themselves discriminated against in Solarian territory. \
 	Though much of its former possessions are now occupied by warlord statelets and other interstellar powers, the Alliance still maintains a revanchist outlook, refusing to relinquish its claims to its lost territories."
 	consular_outfit = /datum/outfit/job/representative/consular/sol

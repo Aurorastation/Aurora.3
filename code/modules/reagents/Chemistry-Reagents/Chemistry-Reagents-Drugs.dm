@@ -448,7 +448,7 @@
 	if(M.chem_doses[type] >= 1)
 		if(prob(3))
 			to_chat(M, SPAN_GOOD(pick("Stress was an inconvenience that you are now free of.", "You lose all sense of connection to the real world.", "Everything is so tranquil.", "You feel totaly detached from reality.", "Your feel disconnected from your body.", "You are aware of nothing but your conscious thoughts.", "You keep falling... and falling... and falling - never stopping.", "Is this what it feels like to be dead?", "Your memories are hazy... all you have ever known is this feeling.", "You're watching yourself from afar - detached from your physical body.")))
-			
+
 /singleton/reagent/joy/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/datum/reagents/holder)
 	M.ear_deaf = 20
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type])

@@ -356,8 +356,8 @@ var/list/ai_verbs_default = list(
 			To use something, simply click on it.</p>\
 		<h2>AI Shell</h2>\
 		<p>As an AI, you have access to an unique, inhabitable AI shell that spawns behind your core.\
-			 This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the station.\
-			 The shell is an extension of you, which means <strong>your laws apply to it aswell.</strong>\
+			This construct can be used in a variety of ways, but its primary function is to be a <strong>role play tool</strong> to give you the ability to have an actual physical presence on the station.\
+			The shell is an extension of you, which means <strong>your laws apply to it aswell.</strong>\
 		</p>\
 		<h2>OOC Notes</h2>\
 		<p>Please remember that as an AI <strong>you can heavily skew the game in your (and thus usually the crew's) favour</strong>. \
