@@ -57,6 +57,7 @@
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcabb.dmi'
+	accessory_offset_y = 1
 
 	slowdown = -0.8
 	brute_mod = 1.5
