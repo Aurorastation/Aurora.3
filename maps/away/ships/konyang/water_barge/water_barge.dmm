@@ -1868,8 +1868,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/hatch{
-	name = "Starboard Docking Bay";
-	dir = s
+	name = "Starboard Docking Bay"
 	},
 /turf/simulated/floor/plating,
 /area/water_barge/dockingport)
