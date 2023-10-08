@@ -24,7 +24,7 @@
 <b>Integrity:</b> Implant will last so long as the nanobots are inside the bloodstream."}
 
 /obj/item/implant/mindshield/implanted(mob/M)
-	to_chat(H, SPAN_GOOD("You feel your mind steel against external suggestion!"))
+	to_chat(M, SPAN_GOOD("You feel your mind steel against external suggestion!"))
 	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		for(var/obj/item/implant/mindshield/loyalty/I in H)
