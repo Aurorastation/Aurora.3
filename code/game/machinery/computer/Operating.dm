@@ -14,6 +14,17 @@
 	var/list/bodyscans = list()
 	var/selected = 0
 
+
+/obj/machinery/computer/operating/terminal
+	name = "patient monitoring terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "med_comp"
+	icon_keyboard = "med_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 /obj/machinery/computer/operating/New()
 	..()
 	for(var/obj/machinery/optable/T in orange(1,src))
