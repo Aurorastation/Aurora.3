@@ -251,3 +251,7 @@
 /datum/computer_file/program/merchant/guild
 	required_access_run = list(access_merchants_guild)
 	required_access_download = list(access_merchants_guild)
+
+/datum/computer_file/program/merchant/golden_deep
+	required_access_run = list(access_golden_deep)
+	required_access_download = list(access_golden_deep)

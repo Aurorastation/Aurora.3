@@ -15,9 +15,7 @@
 		can_fire = TRUE; \
 	}
 
-var/datum/controller/subsystem/icon_smooth/SSicon_smooth
-
-/datum/controller/subsystem/icon_smooth
+SUBSYSTEM_DEF(icon_smooth)
 	name = "Icon Smoothing"
 	init_order = SS_INIT_SMOOTHING
 	wait = 1
@@ -29,9 +27,6 @@ var/datum/controller/subsystem/icon_smooth/SSicon_smooth
 	var/list/typecachecache = list()
 
 	var/explosion_in_progress = FALSE
-
-/datum/controller/subsystem/icon_smooth/New()
-	NEW_SS_GLOBAL(SSicon_smooth)
 
 /datum/controller/subsystem/icon_smooth/Recover()
 	smooth_queue = SSicon_smooth.smooth_queue

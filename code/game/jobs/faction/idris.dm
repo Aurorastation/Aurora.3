@@ -58,7 +58,8 @@
 		"Librarian" = /datum/outfit/job/librarian/idris,
 		"Curator" = /datum/outfit/job/librarian/idris/curator,
 		"Tech Support" = /datum/outfit/job/librarian/idris/tech_support,
-		"Corporate Liaison" = /datum/outfit/job/representative/idris
+		"Corporate Liaison" = /datum/outfit/job/representative/idris,
+		"Off-Duty Crew Member" = /datum/outfit/job/visitor/idris
 	)
 
 /datum/outfit/job/officer/idris
@@ -218,3 +219,13 @@
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/idris = 1
 	)
+
+/datum/outfit/job/visitor/idris
+	name = "Off-Duty Crew Member - Idris"
+
+	id = /obj/item/card/id/idris
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris

@@ -498,7 +498,7 @@
 /obj/item/clothing/accessory/flagpatch/pluto
 	name = "pluto flagpatch"
 	desc = "A flagpatch representing Pluto. As loyalty to the party is very important on the communist planet, \
-    these patches have become a popular way for Plutonians to display their affiliation with their home."
+	these patches have become a popular way for Plutonians to display their affiliation with their home."
 	icon_state = "flagpatch_pluto"
 	item_state = "flagpatch_pluto"
 

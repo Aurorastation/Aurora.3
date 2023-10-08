@@ -342,8 +342,8 @@
 		welded = !welded
 		update_icon()
 		user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
-							 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
-										 "You hear welding.")
+								SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
+								"You hear welding.")
 		return TRUE
 
 	if(istype(W, /obj/item/melee/arm_blade))

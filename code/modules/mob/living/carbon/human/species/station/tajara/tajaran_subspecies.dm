@@ -160,21 +160,21 @@
 	bodyfall_sound = /singleton/sound_category/bodyfall_machine_sound
 
 	has_organ = list(
+		BP_BRAIN =    /obj/item/organ/internal/brain/tajara,
+		BP_EYES =     /obj/item/organ/internal/eyes/night,
 		BP_HEART =    /obj/item/organ/internal/heart/tajara/tesla_body,
 		BP_LUNGS =    /obj/item/organ/internal/lungs/tajara,
 		BP_LIVER =    /obj/item/organ/internal/liver/tajara,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/tajara,
 		BP_STOMACH =  /obj/item/organ/internal/stomach/tajara,
-		BP_BRAIN =    /obj/item/organ/internal/brain/tajara,
 		BP_APPENDIX = /obj/item/organ/internal/appendix/tajara,
-		BP_EYES =     /obj/item/organ/internal/eyes/night,
 		BP_AUG_TESLA = /obj/item/organ/internal/augment/tesla/massive
 		)
 
 	has_limbs = list(
+		BP_HEAD =   list("path" = /obj/item/organ/external/head),
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/tesla_body),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/tesla_body),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/tesla_body),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/tesla_body),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/tesla_body),

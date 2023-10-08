@@ -24,6 +24,16 @@
 	icon_keyboard = null
 	circuit = null
 
+/obj/machinery/computer/ship/helm/terminal
+	name = "helm control terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "helm"
+	icon_keyboard = "security_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 /obj/machinery/computer/ship/helm/Initialize()
 	. = ..()
 	get_known_sectors()
@@ -310,6 +320,16 @@
 	icon_screen = "blue"
 	icon_keyboard = null
 	circuit = null
+
+/obj/machinery/computer/ship/navigation/terminal
+	name = "navigation terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "nav"
+	icon_keyboard = "generic_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!connected)

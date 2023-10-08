@@ -1514,7 +1514,7 @@
 	qdel(src)	// remove the pipe item
 
 	return TRUE
-	 //TODO: DEFERRED
+	//TODO: DEFERRED
 
 // ensure that setterm() is called for a newly connected pipeline
 
