@@ -756,7 +756,7 @@
 /area/hangar/operations)
 "aFx" = (
 /obj/structure/bed/stool/chair/sofa/left/red,
-/obj/item/device/radio/intercom/north,
+/obj/item/device/radio/intercom/expedition/north,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
 "aFA" = (
@@ -862,7 +862,7 @@
 	pixel_x = -7;
 	pixel_y = 3
 	},
-/obj/item/device/radio/intercom/north,
+/obj/item/device/radio/intercom/expedition/north,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
 "aJA" = (
@@ -2403,6 +2403,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/item/device/radio/intercom/expedition/hailing/east,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/crew_compartment)
 "bID" = (
@@ -3192,7 +3193,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/item/device/radio/intercom/south,
+/obj/item/device/radio/intercom/expedition/south,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "cpt" = (
@@ -3547,7 +3548,7 @@
 	pixel_x = -23;
 	req_access = null
 	},
-/obj/item/device/radio/intercom/west{
+/obj/item/device/radio/intercom/expedition/west{
 	pixel_y = -21
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7286,6 +7287,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/device/radio/intercom/expedition/hailing/north{
+	pixel_x = -8;
+	pixel_y = 18
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "fdA" = (
@@ -10198,7 +10203,7 @@
 /area/hangar/auxiliary)
 "hcq" = (
 /obj/structure/bed/stool/chair/office/bridge,
-/obj/item/device/radio/intercom/west{
+/obj/item/device/radio/intercom/expedition/west{
 	pixel_y = 2
 	},
 /obj/machinery/button/remote/blast_door{
@@ -14882,7 +14887,7 @@
 	id = "intrepid_bay_outer";
 	name = "Intrepid Shutter"
 	},
-/obj/item/device/radio/intercom/east,
+/obj/item/device/radio/intercom/expedition/east,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "kyq" = (
@@ -16269,7 +16274,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/device/radio/intercom/east{
+/obj/item/device/radio/intercom/expedition/east{
 	pixel_y = 21
 	},
 /obj/structure/cable/green{
@@ -17474,7 +17479,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
-/obj/item/device/radio/intercom/south,
+/obj/item/device/radio/intercom/expedition/south,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
 "mmh" = (
@@ -33586,7 +33591,7 @@
 	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/device/radio/intercom/east,
+/obj/item/device/radio/intercom/expedition/east,
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cargo_bay)
 "xqv" = (
