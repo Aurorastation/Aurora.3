@@ -674,7 +674,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "aDj" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
@@ -755,8 +755,10 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "aFx" = (
-/obj/structure/bed/stool/chair/sofa/left/red,
-/obj/item/device/radio/intercom/north,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 23
+	},
+/obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
 "aFA" = (
@@ -1264,7 +1266,7 @@
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
 /obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "aWB" = (
 /obj/random/loot,
@@ -4623,28 +4625,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "dnX" = (
-/obj/structure/table/reinforced,
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_x = -8;
-	pixel_y = 9
-	},
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = -8;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/glass/rag{
-	pixel_x = 26;
-	pixel_y = 11
-	},
-/obj/item/reagent_containers/glass/rag{
-	pixel_x = 26;
-	pixel_y = 5
-	},
 /obj/machinery/alarm/north,
-/obj/item/storage/box/snack{
-	pixel_x = 6;
-	pixel_y = 5
-	},
+/obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
 "dob" = (
@@ -6774,7 +6756,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "eNT" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
@@ -7041,14 +7023,8 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/bed/padded/bunk,
-/obj/structure/bed/padded,
-/obj/item/bedsheet/black,
-/obj/item/bedsheet/blue{
-	pixel_y = 16
-	},
-/obj/structure/curtain/open/bed,
 /obj/machinery/firealarm/north,
+/obj/structure/bed/stool/chair/sofa/right/red,
 /turf/simulated/floor/carpet/lightblue,
 /area/shuttle/intrepid/quarters)
 "eWN" = (
@@ -9528,7 +9504,7 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "gBw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10500,7 +10476,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/crew_compartment)
 "hkW" = (
 /obj/machinery/door/airlock/external{
@@ -12917,7 +12893,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "jcT" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -13816,7 +13792,7 @@
 /obj/structure/table/rack,
 /obj/item/hoist_kit,
 /obj/item/device/multitool,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "jHu" = (
 /obj/structure/tank_wall{
@@ -14149,24 +14125,18 @@
 	layer = 2.6;
 	outside_part = 0
 	},
-/obj/structure/table/reinforced,
-/obj/item/material/kitchen/utensil/knife/plastic{
-	pixel_x = 9
-	},
-/obj/item/material/kitchen/utensil/knife/plastic{
-	pixel_x = 7
-	},
-/obj/item/storage/box/drinkingglasses{
-	pixel_y = 6
-	},
-/obj/item/storage/box/drinkingglasses{
-	pixel_y = 6
-	},
-/obj/item/storage/box/kitchen,
-/obj/item/storage/box/kitchen,
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/table/reinforced,
+/obj/item/device/binoculars{
+	pixel_x = 3
+	},
+/obj/item/tank/emergency_oxygen{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/clothing/mask/breath,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
 "jWJ" = (
@@ -15125,10 +15095,10 @@
 	dir = 8
 	},
 /obj/machinery/light_switch{
-	pixel_x = -12;
+	pixel_x = -10;
 	pixel_y = 24
 	},
-/obj/structure/bed/stool/chair/sofa/right/red,
+/obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
 "kEk" = (
@@ -15179,7 +15149,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "kEW" = (
 /obj/structure/cable/green{
@@ -16189,9 +16159,9 @@
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/effect/floor_decal/industrial/outline/medical,
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/regular,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -18104,7 +18074,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "mLw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
@@ -18339,15 +18309,16 @@
 	outside_part = 0
 	},
 /obj/structure/table/wood,
-/obj/item/device/binoculars{
-	pixel_x = 12
-	},
 /obj/machinery/recharger{
-	pixel_x = 1;
+	pixel_x = -8;
 	pixel_y = 6
 	},
 /obj/machinery/light/small{
 	dir = 1
+	},
+/obj/item/folder/blue{
+	pixel_x = 8;
+	pixel_y = 1
 	},
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
@@ -21424,7 +21395,9 @@
 /obj/machinery/camera/network/intrepid{
 	c_tag = "Intrepid - Medbay"
 	},
-/obj/structure/bedsheetbin,
+/obj/structure/bedsheetbin{
+	pixel_y = 7
+	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/intrepid/crew_compartment)
@@ -21835,7 +21808,7 @@
 /area/storage/eva)
 "ppH" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "ppR" = (
 /obj/machinery/light{
@@ -22481,7 +22454,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/cargo_bay)
 "pMA" = (
 /obj/structure/cable/green{
@@ -23201,6 +23174,11 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "sink";
+	pixel_x = 21
+	},
 /turf/simulated/floor/carpet/lightblue,
 /area/shuttle/intrepid/quarters)
 "qmn" = (
@@ -23848,7 +23826,7 @@
 /obj/structure/closet/crate{
 	name = "power generation supplies"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "qIT" = (
 /obj/machinery/vending/coffee,
@@ -24955,7 +24933,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "rwh" = (
 /obj/effect/decal/cleanable/dirt,
@@ -27251,13 +27229,20 @@
 /obj/structure/coatrack{
 	pixel_x = -14
 	},
-/obj/item/tank/emergency_oxygen{
-	pixel_x = 5
-	},
-/obj/item/tank/emergency_oxygen,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/mask/breath,
 /obj/machinery/power/apc/intrepid/north,
+/obj/item/storage/box/snack{
+	pixel_y = -3;
+	pixel_x = 1
+	},
+/obj/item/clothing/suit/storage/hooded/wintercoat/scc,
+/obj/item/tank/emergency_oxygen{
+	pixel_x = -3
+	},
+/obj/item/tank/emergency_oxygen{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/clothing/mask/breath,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
 "tgR" = (
@@ -29880,7 +29865,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/intrepid/quarters)
 "uVL" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -29909,7 +29894,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cargo_bay)
 "uWn" = (
 /obj/machinery/door/blast/regular/open{
@@ -30621,14 +30606,8 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "vrz" = (
-/obj/structure/bed/padded,
-/obj/structure/bed/padded/bunk,
-/obj/item/bedsheet/yellow,
-/obj/item/bedsheet/brown{
-	pixel_y = 16
-	},
-/obj/structure/curtain/open/bed,
-/obj/item/device/radio/intercom/east,
+/obj/structure/bed/stool/chair/sofa/left/red,
+/obj/item/device/radio/intercom/north,
 /turf/simulated/floor/carpet/lightblue,
 /area/shuttle/intrepid/quarters)
 "vrO" = (
@@ -31725,10 +31704,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/structure/sink/kitchen{
-	dir = 8;
-	name = "sink";
-	pixel_x = 21
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
 	},
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
@@ -31908,7 +31885,7 @@
 	child_tags_txt = "intrepid_shuttle_cargo";
 	frequency = 1385;
 	id_tag = "intrepid_shuttle";
-	pixel_x = -9;
+	pixel_x = 13;
 	pixel_y = 23
 	},
 /obj/machinery/camera/network/intrepid{
@@ -34426,16 +34403,9 @@
 	pixel_x = -27
 	},
 /obj/random/soap,
-/obj/random/soap,
-/obj/item/towel,
-/obj/item/towel,
-/obj/item/towel,
 /obj/item/storage/box/toothpaste,
-/obj/item/storage/box/toothpaste,
-/obj/item/reagent_containers/toothbrush,
-/obj/item/reagent_containers/toothbrush,
-/obj/item/reagent_containers/toothbrush/green,
-/obj/item/reagent_containers/toothbrush/red,
+/obj/item/towel,
+/obj/item/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/shuttle/intrepid/crew_compartment)
 "xRN" = (
