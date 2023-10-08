@@ -99,6 +99,8 @@
 
 		//Temporary exclusion while matt fixes it
 		/obj/item/projectile/beam/psi_lightning/wide,
+		/obj/effect/fusion_particle_catcher,
+		/obj/item/fuel_assembly
 
 	)
 

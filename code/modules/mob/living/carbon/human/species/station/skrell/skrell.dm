@@ -46,9 +46,9 @@
 	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
 
 	has_limbs = list(
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/skrell),
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/skrell),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg),
@@ -60,13 +60,13 @@
 		)
 
 	has_organ = list(
+		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
+		BP_EYES =     /obj/item/organ/internal/eyes/skrell,
 		BP_HEART =    /obj/item/organ/internal/heart/skrell,
 		BP_LUNGS =    /obj/item/organ/internal/lungs/skrell,
 		BP_LIVER =    /obj/item/organ/internal/liver/skrell,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell,
-		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
-		BP_STOMACH =  /obj/item/organ/internal/stomach,
-		BP_EYES =     /obj/item/organ/internal/eyes/skrell
+		BP_STOMACH =  /obj/item/organ/internal/stomach
 		)
 
 	pain_messages = list("I can't feel my headtails", "You really need some painkillers", "Stars above, the pain")
