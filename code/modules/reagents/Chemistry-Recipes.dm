@@ -2416,11 +2416,26 @@
 	required_reagents = list(/singleton/reagent/drink/coffee/espresso = 1, /singleton/reagent/drink/milk/soymilk = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/drink/steamed_milk
+	name = "Steamed Milk"
+	id = "steamed_milk"
+	result = /singleton/reagent/drink/milk/steamed_milk
+	required_temperature_min = T0C + 66
+	required_reagents = list(/singleton/reagent/drink/milk = 1)
+	result_amount = 1
+
+/datum/chemical_reaction/drink/flat_white
+	name = "Flat White"
+	id = "flat_white"
+	result = /singleton/reagent/drink/coffee/flat_white
+	required_reagents = list(/singleton/reagent/drink/coffee/espresso = 1, /singleton/reagent/drink/milk = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/drink/caffe_misto
 	name = "Caffe Misto"
 	id = "caffe_misto"
 	result = /singleton/reagent/drink/coffee/caffe_misto
-	required_reagents = list(/singleton/reagent/drink/coffee = 1, /singleton/reagent/drink/milk = 1)
+	required_reagents = list(/singleton/reagent/drink/coffee = 1, /singleton/reagent/drink/milk/steamed_milk = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/drink/freddo_espresso
@@ -2437,29 +2452,22 @@
 	required_reagents = list(/singleton/reagent/drink/coffee/espresso = 1, /singleton/reagent/water = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/drink/flat_white
-	name = "Flat White"
-	id = "flat_white"
-	result = /singleton/reagent/drink/coffee/flat_white
-	required_reagents = list(/singleton/reagent/drink/coffee/latte = 1, /singleton/reagent/drink/milk = 1)
-	result_amount = 2
-
 /datum/chemical_reaction/drink/caffe_latte
 	name = "Caffe Latte"
 	id = "caffe_latte"
-	result = /singleton/reagent/drink/coffee/caffe_latte
-	required_reagents = list(/singleton/reagent/drink/coffee/espresso = 1, /singleton/reagent/drink/milk = 1)
+	result = /singleton/reagent/drink/coffee/latte
+	required_reagents = list(/singleton/reagent/drink/coffee/flat_white = 1, /singleton/reagent/drink/milk/steamed_milk = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/drink/cappuccino
 	name = "Cappuccino"
 	id = "cappuccino"
 	result = /singleton/reagent/drink/coffee/cappuccino
-	required_reagents = list(/singleton/reagent/drink/coffee/macchiato = 1, /singleton/reagent/drink/milk/cream = 1)
+	required_reagents = list(/singleton/reagent/drink/coffee/macchiato = 1, /singleton/reagent/drink/milk/steamed_milk = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/drink/freddo_cappuccino
-	name = "Freddo cappuccino"
+	name = "Freddo Cappuccino"
 	id = "freddo_cappuccino"
 	result = /singleton/reagent/drink/coffee/freddo_cappuccino
 	required_reagents = list(/singleton/reagent/drink/coffee/cappuccino = 1, /singleton/reagent/drink/ice = 1)
@@ -2469,7 +2477,7 @@
 	name = "Macchiato"
 	id = "macchiato"
 	result = /singleton/reagent/drink/coffee/macchiato
-	required_reagents = list(/singleton/reagent/drink/coffee/espresso = 1, /singleton/reagent/drink/coffee/cream = 1)
+	required_reagents = list(/singleton/reagent/drink/coffee/espresso = 1, /singleton/reagent/drink/milk/steamed_milk = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/pumpkinspice
@@ -2491,28 +2499,28 @@
 	name = "Pumpkin Spice Latte"
 	id = "pslatte"
 	result = /singleton/reagent/drink/coffee/latte/pumpkinspice
-	required_reagents = list(/singleton/reagent/drink/coffee/caffe_latte = 4, /singleton/reagent/drink/syrup_pumpkin = 1)
+	required_reagents = list(/singleton/reagent/drink/coffee/latte = 4, /singleton/reagent/drink/syrup_pumpkin = 1)
 	result_amount = 5
 
 /datum/chemical_reaction/drink/caramel_latte
 	name = "Caramel latte"
 	id = "caramellatte"
 	result = /singleton/reagent/drink/coffee/latte/caramel
-	required_reagents = list(/singleton/reagent/drink/coffee/caffe_latte = 4, /singleton/reagent/drink/syrup_caramel = 1)
+	required_reagents = list(/singleton/reagent/drink/coffee/latte = 4, /singleton/reagent/drink/syrup_caramel = 1)
 	result_amount = 5
 
 /datum/chemical_reaction/drink/mocha_latte
 	name = "Mocha latte"
 	id = "mochalatte"
 	result = /singleton/reagent/drink/coffee/latte/mocha
-	required_reagents = list(/singleton/reagent/drink/coffee/caffe_latte = 4, /singleton/reagent/drink/syrup_chocolate = 1)
+	required_reagents = list(/singleton/reagent/drink/coffee/latte = 4, /singleton/reagent/drink/syrup_chocolate = 1)
 	result_amount = 5
 
 /datum/chemical_reaction/drink/vanilla_latte
 	name = "Vanilla latte"
 	id = "vanillalatte"
 	result = /singleton/reagent/drink/coffee/latte/vanilla
-	required_reagents = list(/singleton/reagent/drink/coffee/caffe_latte = 4, /singleton/reagent/drink/syrup_vanilla = 1)
+	required_reagents = list(/singleton/reagent/drink/coffee/latte = 4, /singleton/reagent/drink/syrup_vanilla = 1)
 	result_amount = 5
 
 /datum/chemical_reaction/drink/acidspit
@@ -3644,6 +3652,14 @@
 	result = /singleton/reagent/drink/coffee/espresso
 	required_reagents = list(/singleton/reagent/nutriment/darkcoffeegrounds = 1, /singleton/reagent/water = 5)
 	result_amount = 5
+
+/datum/chemical_reaction/nutriment/darkcoffeegrounds
+	name = "Rich Coffee Grounds"
+	id = "rich_coffee_grounds"
+	result = /singleton/reagent/nutriment/darkcoffeegrounds
+	required_reagents = list(/singleton/reagent/nutriment/coffeegrounds = 1)
+	required_temperature_min = T0C + 210
+	result_amount = 1
 
 /datum/chemical_reaction/caramelisation
 	name = "Caramelised Sugar"

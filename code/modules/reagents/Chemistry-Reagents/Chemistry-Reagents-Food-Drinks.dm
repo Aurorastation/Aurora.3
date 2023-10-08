@@ -1319,6 +1319,17 @@
 		M.heal_organ_damage(0.1 * removed, 0)
 		holder.remove_reagent(/singleton/reagent/capsaicin, 10 * removed)
 
+/singleton/reagent/drink/milk/steamed_milk
+	name = "Steamed Milk"
+	description = "A frothy opaque white liquid made by adding steam to milk."
+	color = "#bebebb"
+	taste_description =  "hot creamy milk"
+
+	glass_icon_state = "glass_white"
+	glass_name = "glass of steamed milk"
+	glass_desc = "Hot and creamy milk. Would go great with coffee!"
+	default_temperature = T0C + 66
+
 /singleton/reagent/drink/milk/cream
 	name = "Cream"
 	description = "The fatty, still liquid part of milk. Why don't you mix this with sum scotch, eh?"
@@ -1831,6 +1842,17 @@
 	glass_desc = "Espresso with ice cubes poured over ice."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
+/singleton/reagent/drink/coffee/flat_white
+	name = "Flat White"
+	description = "A nice, strong, and refreshing beverage to enjoy while reading."
+	color = "#664300" // rgb: 102, 67, 0
+	taste_description = "slightly bitter cream"
+
+	glass_icon_state = "caffe_latte"
+	glass_name = "glass of flat white"
+	glass_desc = "A nice, strong, and refreshing beverage to enjoy while reading."
+	glass_center_of_mass = list("x"=15, "y"=9)
+
 /singleton/reagent/drink/coffee/caffe_americano
 	name = "Caffe Americano"
 	description = "Espresso diluted with hot water."
@@ -1857,7 +1879,7 @@
 	name = "Caffe Latte"
 	description = "A nice, strong, and refreshing beverage to enjoy while reading."
 	color = "#664300" // rgb: 102, 67, 0
-	taste_description = "bitter cream"
+	taste_description = "bitter foamy cream"
 
 	glass_icon_state = "caffe_latte"
 	glass_name = "glass of caffe latte"
