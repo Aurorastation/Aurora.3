@@ -2403,7 +2403,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "bID" = (
 /obj/structure/tank_wall/hydrogen{
@@ -5488,7 +5488,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "dVz" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -5999,7 +5999,7 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/extinguisher_cabinet/east,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "epB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -7227,7 +7227,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "fbJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -13702,7 +13702,7 @@
 /obj/structure/platform_stairs/full/east_west_cap{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "jFa" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -15052,7 +15052,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "kDx" = (
 /obj/structure/shuttle_part/scc/scout{
@@ -16819,7 +16819,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "lRH" = (
 /obj/structure/cable/green{
@@ -28404,7 +28404,7 @@
 	},
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "tVI" = (
 /turf/simulated/wall/shuttle/unique/scc/mining{
@@ -30627,7 +30627,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "vrQ" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
