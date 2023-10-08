@@ -1,9 +1,0 @@
-# Your name.
-author: Pirouette
-
-delete-after: True
-
-changes:
-  - imageadd: "Ported some new Unathi hairstyles from Baystation 12, Polaris, and Vorestation."
-  - imageadd: "Ported damaged and stubby Unathi tails from Polaris."
-  - imagedel: "Removed human hairstyles from Unathi."
