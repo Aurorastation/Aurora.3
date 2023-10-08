@@ -15,7 +15,7 @@
 /obj/effect/overmap/visitable/ship/water_barge
 	name = "Water Barge"
 	class = "PCV" //PACHROM cargo vessel
-	desc = ""
+	desc = "The Shelfer-class cargo transport is a common sight in the shipyards of Konyang - designed by Einstein Engines and frequently used by Konyang corporations for long-distance cargo hauling throughout the Orion Spur."
 	icon_state = "freighter"
 	moving_state = "freighter_moving"
 	designer = "Einstein Engines"
@@ -40,7 +40,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/water_barge/New()
-	designation = "[pick("THERES WATER ON HERE BRO")]"
+	designation = "[pick("Shelfer", "Sapsalgae", "Harmony", "Reciprocity", "Qixi")]"
 	..()
 
 /obj/effect/shuttle_landmark/water_barge
@@ -78,7 +78,7 @@
 	class = "PCV"
 	shuttle = "Water Barge Shuttle"
 	designation = "Aoyama"
-	desc = ""
+	desc = "A small civilian transport shuttle."
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	max_speed = 1/(3 SECONDS)
