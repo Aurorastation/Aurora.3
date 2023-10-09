@@ -207,16 +207,11 @@
 /turf/template_noop,
 /area/template_noop)
 "aB" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/computer/terminal{
+	dir = 8
 	},
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/engineering)
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "aC" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1195,10 +1190,9 @@
 /turf/simulated/wall/r_wall,
 /area/storage/primary)
 "cS" = (
-/obj/machinery/door/airlock/glass{
+/obj/machinery/computer/terminal{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "cT" = (
@@ -1343,11 +1337,9 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "do" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry)
+/obj/machinery/computer/terminal,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "dp" = (
 /obj/structure/window_frame/empty,
 /turf/simulated/floor/tiled/full,
@@ -1445,6 +1437,10 @@
 /obj/item/device/radio/intercom/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"eY" = (
+/obj/machinery/computer/ship/engines/terminal,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "fq" = (
 /obj/machinery/computer/shuttle_control/explore/runtime,
 /turf/simulated/floor/shuttle,
@@ -1572,6 +1568,10 @@
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"sf" = (
+/obj/machinery/computer/ship/sensors/terminal,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "tr" = (
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled,
@@ -1778,6 +1778,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"LF" = (
+/obj/machinery/computer/ship/targeting/terminal,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "PS" = (
 /obj/effect/landmark{
 	name = "Revenant"
@@ -8317,7 +8321,7 @@ ad
 aa
 aa
 ah
-aB
+dl
 ah
 ZE
 ab
@@ -9111,7 +9115,7 @@ da
 tr
 dm
 Sz
-da
+cS
 da
 cP
 ae
@@ -9364,11 +9368,11 @@ dc
 cZ
 da
 cZ
-da
+sf
 da
 Fw
 da
-da
+cS
 da
 cP
 ae
@@ -9621,11 +9625,11 @@ dc
 cZ
 da
 cZ
-da
+LF
 da
 BP
 da
-da
+cS
 da
 cP
 ae
@@ -9878,7 +9882,7 @@ cZ
 dm
 da
 dm
-da
+eY
 Lp
 dm
 eH
@@ -10128,7 +10132,7 @@ bB
 cx
 UW
 bB
-cS
+dn
 da
 cZ
 dc
@@ -10139,7 +10143,7 @@ da
 da
 kP
 da
-da
+do
 da
 cP
 ae
@@ -10396,7 +10400,7 @@ da
 da
 da
 da
-da
+do
 da
 cP
 ae
@@ -10642,7 +10646,7 @@ bB
 Ly
 bB
 bB
-cS
+dn
 da
 da
 cZ
@@ -10651,9 +10655,9 @@ da
 cZ
 da
 da
-dm
 da
 da
+do
 da
 cP
 ae
@@ -10906,9 +10910,9 @@ da
 da
 da
 da
-da
-da
-da
+aB
+aB
+aB
 da
 da
 da
@@ -12694,7 +12698,7 @@ ac
 ac
 ac
 bv
-do
+cv
 bv
 ac
 ac
