@@ -10293,7 +10293,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
 	frequency = 1441;
-	id_tag = "h_out"
+	id_tag = "o2_out"
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
