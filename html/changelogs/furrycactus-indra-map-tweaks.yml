@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - maptweak: "Makes some small tweaks to the map around the INDRA Reactor. Fixes the disposals outlet, moves a table, changes some pipe colours, and fixes the strange issue with dragging things behind the gyrotron."
+  - maptweak: "Makes some small tweaks to the map around the INDRA Reactor. Fixes the disposals outlet, moves a table, changes some pipe colours, fixes the strange issue with dragging things behind the gyrotron, and fixes a broken gas sensor tag inside the fusion chamber."

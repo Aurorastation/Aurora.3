@@ -31712,7 +31712,7 @@
 "pdF" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/air_sensor{
-	id_tag = fusion_sensor
+	id_tag = "fusion_sensor"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced/airless,
