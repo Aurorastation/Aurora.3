@@ -3,6 +3,7 @@
 	desc = "This rune is used to teleport around to other teleport runes of our creation. Use your tome on the rune to configure it."
 	var/network
 	var/last_tp_time = 0
+	rune_flags = HAS_SPECIAL_TALISMAN_ACTION
 
 /datum/rune/teleport/New()
 	..()
@@ -34,13 +35,15 @@
 		return ..()
 
 /datum/rune/teleport/do_talisman_action(mob/living/user, atom/movable/A)
-	teleport(user, A)
-	qdel(A)
+	teleport(user, A, FALSE)
+	var/obj/item/paper/talisman/teleport_talisman = A
+	if(teleport_talisman.uses < 1)
+		qdel(A)
 
 /datum/rune/teleport/do_rune_action(mob/living/user, atom/movable/A)
-	teleport(user, A)
+	teleport(user, A, TRUE)
 
-/datum/rune/teleport/proc/teleport(mob/living/user, atom/movable/A)
+/datum/rune/teleport/proc/teleport(mob/living/user, atom/movable/A, is_rune)
 	var/turf/T = get_turf(user)
 	if(isNotStationLevel(T.z))
 		to_chat(user, SPAN_WARNING("You are too far from the station, Nar'sie is unable to reach you here."))
@@ -50,8 +53,14 @@
 	for(var/datum/rune/teleport/R in SScult.teleport_runes)
 		if(R == src)
 			continue
-		if(R.network != src.network)
+		if(!R.parent) //go away phantom runes
 			continue
+		if(is_rune && R.network != src.network)
+			continue
+		if(!is_rune && istype(A, /obj/item/paper/talisman))
+			var/obj/item/paper/talisman/teleport_talisman = A
+			if(R.network != teleport_talisman.network)
+				continue
 		possible_runes += R
 
 	if(length(possible_runes))
@@ -70,6 +79,10 @@
 		gibs(get_turf(user))
 		valid_rune.last_tp_time = world.time
 		last_tp_time = world.time
-	return fizzle(user, A)
+		if(!is_rune && istype(A, /obj/item/paper/talisman))
+			var/obj/item/paper/talisman/teleport_talisman = A
+			teleport_talisman.uses--
+	else
+		return fizzle(user, A)
 
 
