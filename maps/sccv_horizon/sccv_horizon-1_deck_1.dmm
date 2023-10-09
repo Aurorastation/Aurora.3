@@ -2403,8 +2403,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark,
 /obj/item/device/radio/intercom/expedition/hailing/east,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/crew_compartment)
 "bID" = (
 /obj/structure/tank_wall/hydrogen{
@@ -10177,9 +10177,6 @@
 /area/hangar/auxiliary)
 "hcq" = (
 /obj/structure/bed/stool/chair/office/bridge,
-/obj/item/device/radio/intercom/expedition/west{
-	pixel_y = 2
-	},
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
 	id = "intrepid_outer";
@@ -10196,6 +10193,7 @@
 	specialfunctions = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/item/device/radio/intercom/expedition/hailing/west,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "hcC" = (
@@ -20357,6 +20355,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
+/obj/item/device/radio/intercom/expedition/south,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/intrepid/cockpit)
 "oiS" = (
