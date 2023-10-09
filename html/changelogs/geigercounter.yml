@@ -1,6 +1,0 @@
-author: Pirouette, intercepti0n
-
-delete-after: True
-
-changes:
-  - imageadd: "Ported intercepti0n's geiger counter sprite from tgstation."
