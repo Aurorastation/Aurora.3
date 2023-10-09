@@ -2,7 +2,7 @@
 	name = "drill dropper"
 	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. This drill literally pierces the heavens."
 
-	drop_message = "Stand by for drillfall, ETA ten seconds, clear the targeted area."
+	drop_message = "Stand by for drillfall, ETA ten seconds. Clear the targeted area."
 	drop_message_emagged = "St%n^ b* for dr$llfa#l, ETA t@n s*c%&ds, RUN."
 
 	map = new /datum/map_template/drill
@@ -23,10 +23,10 @@
 
 	drop_amount = 1
 
-	drop_message = "Mech coming in hot!"
-	drop_message_emagged = "Mech comin- SHIT! WHO PAINTED THAT?"
-	announcer_name = "Respawn Mech Industries"
-	announcer_frequency = PUB_FREQ
+	drop_message = "Exosuit inbound, ETA ten seconds. Clear the targeted area."
+	drop_message_emagged = "Exosuit inb#*nd, EE%&EEE#EEE*"
+	announcer_name = "Long Range Package Delivery System"
+	announcer_frequency = SYND_FREQ
 
 	map = new /datum/map_template/mecha
 
@@ -48,16 +48,16 @@
 
 	drop_amount = 1
 
-	drop_message = "The cavalry has arrived!"
-	drop_message_emagged = "The cav-cav-cav-BzzzZZTTT!"
-	announcer_name = "GunCourier Industries Autodrone"
+	drop_message = "Weapons shipment inbound. The cavalry has arrived!"
+	drop_message_emagged = "We#pons shipm*nt inb@&nd. The cav-cav-cav-BzzzZZTTT#*"
+	announcer_name = "Long Range Package Delivery System"
 	announcer_frequency = PUB_FREQ
 
 	map = new /datum/map_template/armory
 
 /obj/item/device/orbital_dropper/armory/syndicate
 	desc_antag = "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on common, unless emagged."
-	announcer_name = "Syndicate Autodrone"
+	announcer_name = "Long Range Package Delivery System"
 	announcer_frequency = SYND_FREQ
 
 /obj/item/device/orbital_dropper/icarus_drones
