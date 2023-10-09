@@ -60,13 +60,13 @@
 	accessory_offset_y = 1
 
 	slowdown = -0.8
-	brute_mod = 1.5
+	brute_mod = 1.3
 	oxy_mod = 1
 	radiation_mod = 0.5
 	bleed_mod = 1.5
 	burn_mod = 1.2
 	sprint_speed_factor = 0.6
-	sprint_cost_factor = 2
+	sprint_cost_factor = 0.40
 	grab_mod = 1.1
 	resist_mod = 4
 	standing_jump_range = 3
