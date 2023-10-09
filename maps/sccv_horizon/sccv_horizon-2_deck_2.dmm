@@ -10410,6 +10410,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "fco" = (
@@ -25776,6 +25777,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "mqq" = (
