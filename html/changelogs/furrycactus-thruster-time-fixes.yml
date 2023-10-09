@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - maptweak: "Made various fixes pertaining to the recent N2O tank change."
+  - maptweak: "Made various fixes pertaining to the recent N2O tank change. Vents should now work properly, more N2O was added to the tank, and the manual valves were replaced with pressure regulators."
