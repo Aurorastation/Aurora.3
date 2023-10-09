@@ -17,7 +17,7 @@
 /datum/rune/teleport/get_cultist_fluff_text()
 	. = ..()
 	if(network)
-		. += " This rune's network tag reads: <span class='cult'><b><i>[network]</i></b></span>."
+		. += " This rune's network tag reads: [SPAN_CULT(network)]."
 
 /datum/rune/teleport/proc/random_network()
 	if(!network) // check if it hasn't been assigned yet
@@ -43,7 +43,7 @@
 /datum/rune/teleport/do_rune_action(mob/living/user, atom/movable/A)
 	teleport(user, A, TRUE)
 
-/datum/rune/teleport/proc/teleport(mob/living/user, atom/movable/A, is_rune)
+/datum/rune/teleport/proc/teleport(mob/living/user, atom/movable/A, is_rune = FALSE)
 	var/turf/T = get_turf(user)
 	if(isNotStationLevel(T.z))
 		to_chat(user, SPAN_WARNING("You are too far from the station, Nar'sie is unable to reach you here."))

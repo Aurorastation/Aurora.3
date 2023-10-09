@@ -20,8 +20,8 @@
 	if(iscultist(user) && rune)
 		var/network_text = ""
 		if(network)
-			network_text = " This spell's network tag reads: <span class='cult'><b><i>[network]</i></b></span>."
-		to_chat(user, "The spell inscription reads: <span class='cult'><b><i>[rune.name]</i></b></span>.[network_text]")
+			network_text = " This spell's network tag reads: [SPAN_CULT(network)]."
+		to_chat(user, "The spell inscription reads: [SPAN_CULT(rune.name)].[network_text]")
 
 /obj/item/paper/talisman/attack_self(mob/living/user)
 	if(iscultist(user))
