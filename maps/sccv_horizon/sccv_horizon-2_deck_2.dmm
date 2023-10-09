@@ -41211,7 +41211,7 @@
 	},
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	id = fusion_injector_air;
+	id = "fusion_injector_air";
 	injecting = 1;
 	use_power = 1
 	},
@@ -43710,13 +43710,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	id = fusion_injector_air;
+	id = "fusion_injector_air";
 	injecting = 1;
 	use_power = 1
 	},
-/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room/rust)
 "uUn" = (
