@@ -7,7 +7,7 @@ FLOOR SAFES
 //SAFES
 /obj/structure/safe
 	name = "safe"
-	desc = "A huge chunk of metal with a dial embedded in it. Fine print on the dial reads \"Scarborough Arms - 2 tumbler safe, guaranteed thermite resistant, explosion resistant, and assistant resistant.\""
+	desc = "A huge chunk of metal with a dial embedded in it. There's some fine print on the dial reading \"Zavodskoi Interstellar - 2 tumbler safe, guaranteed thermite proof, laser proof, and armor piercing warhead proof.\""
 	icon = 'icons/obj/safe.dmi'
 	icon_state = "safe"
 	anchored = 1
