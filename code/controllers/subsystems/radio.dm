@@ -177,7 +177,7 @@ SUBSYSTEM_DEF(radio)
 			return "comradio"
 		if (AI_FREQ)	// AI Private
 			return "airadio"
-		if (SEC_FREQ,SEC_I_FREQ)
+		if (SEC_FREQ,SEC_I_FREQ,INT_FREQ)
 			return "secradio"
 		if (PEN_FREQ)
 			return "penradio"
@@ -197,6 +197,8 @@ SUBSYSTEM_DEF(radio)
 			return "bluespaceradio"
 		if (HAIL_FREQ)
 			return "hailradio"
+		if(EXP_FREQ)
+			return "expradio"
 
 	if(DEPT_FREQS_ASSOC[fstr])
 		return "deptradio"
