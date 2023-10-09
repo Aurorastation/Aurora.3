@@ -458,7 +458,7 @@
 /obj/machinery/computer/sentencing/proc/print_incident_overview(var/text)
 	var/obj/item/paper/P = new /obj/item/paper
 	P.set_content_unsafe("Incident Summary",text)
-	print(P)
+	print(P, user = usr)
 
 /obj/machinery/computer/sentencing/proc/print_incident_report( var/sentence = 1 )
 	var/error = incident.missingSentenceReq()
@@ -473,7 +473,7 @@
 	I.incident = incident
 	I.sentence = sentence
 	I.name = "Encoded Incident Report"
-	print( I )
+	print(I, user = usr)
 
 	return 0
 
