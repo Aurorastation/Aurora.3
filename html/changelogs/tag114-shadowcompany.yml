@@ -1,0 +1,11 @@
+author: Tag114
+
+delete-after: True
+
+changes:
+  - tweak: "Edited several names and descriptions to make minor edits and remove various references to Gorlex Marauders, the Syndicate, and several small companies that don't have any lore."
+  - tweak: "Edited the combination safe's description to no longer describe it as "assistant resistant"."
+  - tweak: "Edited the replica red space-helmet's description to no longer describe it as a replica of a bloodthirsty mercenary's space helmet."
+  - rscdel: "Removed the PCRC (Proxima Centurai Risk Control) armor vests and the sprites associated with them."
+  - tweak: "Edited some of the orbital droppers' radio messages."
+  - backend: "Removed a duplicate path for the entry for first aid kits in the uplink."
