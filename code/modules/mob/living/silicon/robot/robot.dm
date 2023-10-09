@@ -341,7 +341,7 @@
 	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level == SEC_LEVEL_DELTA || crisis == TRUE)
 		to_chat(src, SPAN_WARNING("Crisis mode active. Combat module available."))
 		modules += "Combat"
-	mod_type = tgui_input_list("Please, select a module!", "Robot", modules)
+	mod_type = tgui_input_list(src, "Please, select a module!", "Robot", modules)
 
 	if(module)
 		selecting_module = FALSE
