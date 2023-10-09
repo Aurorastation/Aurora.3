@@ -26,7 +26,7 @@
 	drop_message = "Exosuit inbound, ETA ten seconds. Clear the targeted area."
 	drop_message_emagged = "Exosuit inb#*nd, EE%&EEE#EEE*"
 	announcer_name = "Long Range Package Delivery System"
-	announcer_frequency = SYND_FREQ
+	announcer_frequency = PUB_FREQ
 
 	map = new /datum/map_template/mecha
 
