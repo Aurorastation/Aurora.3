@@ -18,6 +18,9 @@
 /obj/item/paper/talisman/examine(mob/user)
 	. = ..()
 	if(iscultist(user) && rune)
+	var/network_text = ""
+		if(network)
+			network_text = " This spell's network tag reads: <span class='cult'><b><i>[network]</i></b></span>."
 		to_chat(user, "The spell inscription reads: <span class='cult'><b><i>[rune.name]</i></b></span>.")
 
 /obj/item/paper/talisman/attack_self(mob/living/user)

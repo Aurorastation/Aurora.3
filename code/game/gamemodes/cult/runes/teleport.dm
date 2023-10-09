@@ -17,7 +17,7 @@
 /datum/rune/teleport/get_cultist_fluff_text()
 	. = ..()
 	if(network)
-		. += "This rune's network tag reads: <span class='cult'><b><i>[network]</i></b></span>."
+		. += " This rune's network tag reads: <span class='cult'><b><i>[network]</i></b></span>."
 
 /datum/rune/teleport/proc/random_network()
 	if(!network) // check if it hasn't been assigned yet
