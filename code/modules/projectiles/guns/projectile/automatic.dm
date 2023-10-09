@@ -718,3 +718,36 @@
 /obj/item/gun/projectile/automatic/rifle/shotgun/konyang/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "mshotgun" : "mshotgun-empty"
+
+/obj/item/gun/projectile/automatic/rifle/konyang/k556
+	name = "konyang assault rifle"
+	desc = "The K556 is the standard assault rifle of the Konyang Armed Forces. Sturdy and reliable."
+	desc_extemded = "The Zavodskoi-made K556 assault rifle is a new design in use by elements of the Konyang Armed Forces. Light and accurate, it is a weapon of choice for its aerospace branch and special forces."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "k556rifle"
+	item_state = "k556rifle"
+	slot_flags = SLOT_BACK|SLOT_OCLOTHING
+	w_class = ITEMSIZE_NORMAL
+	ammo_type =
+	handle_casings = EJECT_CASINGS
+	caliber =
+	magazine_type =
+	allowed_magazines =
+	is_wieldable = TRUE
+
+/obj/item/gun/projectile/automatic/rifle/konyang/konyang47
+	name = "konyang assault carbine"
+	desc = "The Konyang-47 is the carbine version of the K556. Intended to be used by vehicle crews, second line infantry, support crew and staff or when you have limited space to work with."
+	desc_extended = "The Dering K1 battle rifle is a Zavodskoi-produced variant of its standard Solarian counterpart, suited for the needs of the Konyang Armed Forces. \
+	Its more robust design is tailored for naval and swamp warfare, while still maintaining the firepower needed for frontline combat operations."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "konyang-47"
+	item_state = "konyang-47"
+	slot_flags = SLOT_BACK|SLOT_OCLOTHING
+	w_class = ITEMSIZE_NORMAL
+	ammo_type =
+	handle_casings = EJECT_CASINGS
+	caliber =
+	magazine_type =
+	allowed_magazines =
+	is_wieldable = TRUE
