@@ -9585,12 +9585,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/computer/general_air_control/large_tank_control/wall{
-	name = "INDRA Chamber Monitor";
-	pixel_y = 26;
-	input_tag = "fusion_injector_air";
-	sensors = list("fusion_sensor"="Tank")
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
 "eGh" = (
@@ -31718,7 +31712,8 @@
 "pdF" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/air_sensor{
-	id_tag = "fusion_sensor"
+	id_tag = "fusion_sensor";
+	frequency = 1441
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced/airless,
@@ -37579,12 +37574,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/computer/general_air_control/large_tank_control/wall{
-	name = "INDRA Chamber Monitor";
-	pixel_y = 26;
-	input_tag = "fusion_injector_air";
-	sensors = list("fusion_sensor"="Tank")
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
 "rVL" = (
@@ -37826,6 +37815,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
+"sbT" = (
+/obj/machinery/computer/general_air_control/large_tank_control{
+	input_tag = "fusion_injector_air";
+	name = "INDRA Chamber Monitor";
+	sensors = list("fusion_sensor"="INDRA Chamber")
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_monitoring/rust)
 "sbW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -75425,7 +75422,7 @@ ssK
 iHo
 ums
 gVl
-pYW
+sbT
 uQQ
 eOs
 pOV
