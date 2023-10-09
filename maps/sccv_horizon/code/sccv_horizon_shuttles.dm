@@ -39,7 +39,8 @@
 /obj/effect/shuttle_landmark/burglar_ship/second_deck
 	name = "Second Deck"
 	landmark_tag = "nav_burglar_second_deck"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_turf = /turf/space
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/burglar_ship/third_deck
 	name = "Third Deck"
@@ -124,18 +125,20 @@
 	landmark_tag = "nav_merc_start"
 	docking_controller = "merc_base"
 	base_turf = /turf/space/dynamic
-	base_area = /area/template_noop
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/merc_ship/interim
 	name = "In Transit"
 	landmark_tag = "nav_merc_interim"
 	base_turf = /turf/space/transit/north
+	base_area = /area/template_noop
 
 /obj/effect/shuttle_landmark/merc_ship/dock
 	name = "Third Deck Starboard Dock 1"
 	landmark_tag = "nav_merc_dock"
 	docking_controller = "nuke_shuttle_dock_airlock"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/merc_ship/third_deck
 	name = "Third Deck Outside"
@@ -243,4 +246,5 @@
 	name = "First Deck Supply Shuttle Hangar Bay"
 	landmark_tag = "nav_cargo_shuttle_dock"
 	docking_controller = "cargo_shuttle_dock"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_turf = /turf/simulated/floor/plating
+	base_area = /area/hangar/operations

@@ -325,7 +325,7 @@
 /obj/machinery/reagentgrinder
 
 	name = "All-In-One Grinder"
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "juicer1"
 	layer = 2.99
 	density = 0

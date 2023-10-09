@@ -101,6 +101,8 @@
 	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
+		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_NEURAL_SOCKET        = /obj/item/organ/internal/vaurca/neuralsocket,
 		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
 		BP_FILTRATION_BIT       = /obj/item/organ/internal/vaurca/filtrationbit,
@@ -109,9 +111,7 @@
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
-		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
-		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca
+		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca
 	)
 
 	has_limbs = list(
@@ -127,6 +127,10 @@
 		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/vaurca),
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/vaurca)
 		)
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/hivenet_recieve
+	)
 
 	default_h_style = "Classic Antennae"
 
@@ -152,7 +156,7 @@
 /datum/species/bug/after_equip(var/mob/living/carbon/human/H)
 	if(H.shoes)
 		return
-	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
+	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
 	H.equip_to_slot_or_del(S,slot_shoes)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)

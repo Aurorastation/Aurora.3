@@ -1099,15 +1099,18 @@ About the new airlock wires panel:
 		if("opening")
 			set_airlock_overlays(AIRLOCK_OPENING, TRUE)
 			flick("opening", src)//[stat ? "_stat":]
+			update_icon(AIRLOCK_OPEN)
 		if("closing")
 			set_airlock_overlays(AIRLOCK_CLOSING, TRUE)
 			flick("closing", src)
+			update_icon(AIRLOCK_CLOSED)
 		if("deny")
 			set_airlock_overlays(AIRLOCK_DENY, TRUE)
 			if(density && arePowerSystemsOn())
 				flick("denied", src)
 				if(secured_wires)
 					playsound(src.loc, open_failure_access_denied, 50, 0)
+			update_icon(AIRLOCK_CLOSED)
 		if("emag")
 			set_airlock_overlays(AIRLOCK_EMAG, TRUE)
 			if(density && arePowerSystemsOn())
@@ -1270,7 +1273,7 @@ About the new airlock wires panel:
 	else if(activate && density)
 		open()
 		if (isAI(usr))
-			SSfeedback.IncrementSimpleStat("AI_DOOR")
+			SSstatistics.IncrementSimpleStat("AI_DOOR")
 	else if(!activate && !density)
 		close()
 
@@ -1361,7 +1364,7 @@ About the new airlock wires panel:
 
 				H.visible_message("<b>[H]</b> begins to pry open \the [src]!", SPAN_NOTICE("You begin to pry open \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
 
-				if(!do_after(H, 120, 1, act_target = src))
+				if(!do_after(H, 12 SECONDS, src, DO_UNIQUE))
 					return
 
 				var/check = src.open(1)
@@ -1456,19 +1459,19 @@ About the new airlock wires panel:
 
 	cut_delay *= 0.25
 
-	if(do_after(user, cut_delay, src))
+	if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 		to_chat(user, SPAN_NOTICE("You're a quarter way through."))
 		playsound(src, cut_sound, 100, 1)
 
-		if(do_after(user, cut_delay, src))
+		if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 			to_chat(user, SPAN_NOTICE("You're halfway through."))
 			playsound(src, cut_sound, 100, 1)
 
-			if(do_after(user, cut_delay, src))
+			if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 				to_chat(user, SPAN_NOTICE("You're three quarters through."))
 				playsound(src, cut_sound, 100, 1)
 
-				if(do_after(user, cut_delay, src))
+				if(do_after(user, cut_delay, src, DO_REPAIR_CONSTRUCT))
 					playsound(src, cut_sound, 100, 1)
 
 					if(initial_state != bolt_cut_state)
@@ -1575,7 +1578,7 @@ About the new airlock wires panel:
 			else if(activate && density)
 				open()
 				if (isAI(usr))
-					SSfeedback.IncrementSimpleStat("AI_DOOR")
+					SSstatistics.IncrementSimpleStat("AI_DOOR")
 			else if(!activate && !density)
 				close()
 		if("safeties")
@@ -1766,7 +1769,7 @@ About the new airlock wires panel:
 				SPAN_WARNING("You start cutting the airlock control panel..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), C)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting the control pannel of the airlock with the [C]."),\
 					SPAN_WARNING("You finish cutting the airlock control panel."),\
@@ -1784,7 +1787,7 @@ About the new airlock wires panel:
 				SPAN_WARNING("You start cutting below the airlock..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), C)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting below the airlock with the [C]."),\
 					SPAN_NOTICE("You finish cutting below the airlock."),\
@@ -1800,7 +1803,7 @@ About the new airlock wires panel:
 				SPAN_WARNING("You start cutting between the airlock..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, PROC_REF(CanChainsaw), C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), C)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting between the airlock."),\
 					SPAN_WARNING("You finish cutting between the airlock."),\
@@ -1947,7 +1950,7 @@ About the new airlock wires panel:
 				if(AM.blocks_airlock())
 					if(world.time > next_beep_at)
 						playsound(src.loc, close_failure_blocked, 30, 0, -3)
-						next_beep_at = world.time + SecondsToTicks(10)
+						next_beep_at = world.time + SecondsToTicks(20)
 					close_door_in(6)
 					return
 	var/has_opened_hatch = FALSE
@@ -2050,7 +2053,7 @@ About the new airlock wires panel:
 	return
 
 /obj/machinery/door/airlock/examine(mob/user)
-	..()
+	. = ..()
 	if (bolt_cut_state == BOLTS_EXPOSED)
 		to_chat(user, "The bolt cover has been cut open.")
 	if (bolt_cut_state == BOLTS_CUT)

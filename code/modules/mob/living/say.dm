@@ -1,65 +1,65 @@
 var/list/department_radio_keys = list(
-	  ":r" = "right ear",	".r" = "right ear",
-	  ":l" = "left ear",	".l" = "left ear",
-	  ":i" = "intercom",	".i" = "intercom",
-	  ":h" = "department",	".h" = "department",
-	  ":+" = "special",		".+" = "special", //activate radio-specific special functions
-	  ":a" = "Common",		".a" = "Common",
-	  ":c" = "Command",		".c" = "Command",
-	  ":n" = "Science",		".n" = "Science",
-	  ":m" = "Medical",		".m" = "Medical",
-	  ":e" = "Engineering", ".e" = "Engineering",
-	  ":s" = "Security",	".s" = "Security",
-	  ":q" = "Penal",		".q" = "Penal",
-	  ":w" = "whisper",		".w" = "whisper",
-	  ":t" = "Mercenary",	".t" = "Mercenary",
-	  ":x" = "Raider",		".x" = "Raider",
-	  ":b" = "Burglar",		".b" = "Burglar",
-	  ":j" = "Bluespace",	".j" = "Bluespace",
-	  ":y" = "Hailing",		".y" = "Hailing",
-	  ":q" = "Ninja",		".q" = "Ninja",
-	  ":u" = "Operations",	".u" = "Operations",
-	  ":v" = "Service",		".v" = "Service",
-	  ":p" = "AI Private",	".p" = "AI Private",
-	  ":z" = "Entertainment",".z" = "Entertainment",
+		":r" = "right ear",	".r" = "right ear",
+		":l" = "left ear",	".l" = "left ear",
+		":i" = "intercom",	".i" = "intercom",
+		":h" = "department",	".h" = "department",
+		":+" = "special",		".+" = "special", //activate radio-specific special functions
+		":a" = "Common",		".a" = "Common",
+		":c" = "Command",		".c" = "Command",
+		":n" = "Science",		".n" = "Science",
+		":m" = "Medical",		".m" = "Medical",
+		":e" = "Engineering", ".e" = "Engineering",
+		":s" = "Security",	".s" = "Security",
+		":q" = "Penal",		".q" = "Penal",
+		":w" = "whisper",		".w" = "whisper",
+		":t" = "Mercenary",	".t" = "Mercenary",
+		":x" = "Raider",		".x" = "Raider",
+		":b" = "Burglar",		".b" = "Burglar",
+		":j" = "Bluespace",	".j" = "Bluespace",
+		":y" = "Hailing",		".y" = "Hailing",
+		":q" = "Ninja",		".q" = "Ninja",
+		":u" = "Operations",	".u" = "Operations",
+		":v" = "Service",		".v" = "Service",
+		":p" = "AI Private",	".p" = "AI Private",
+		":z" = "Entertainment",".z" = "Entertainment",
 
-	  ":R" = "right ear",	".R" = "right ear",
-	  ":L" = "left ear",	".L" = "left ear",
-	  ":I" = "intercom",	".I" = "intercom",
-	  ":H" = "department",	".H" = "department",
-	  ":A" = "Common",		".A" = "Common",
-	  ":C" = "Command",		".C" = "Command",
-	  ":N" = "Science",		".N" = "Science",
-	  ":M" = "Medical",		".M" = "Medical",
-	  ":E" = "Engineering",	".E" = "Engineering",
-	  ":S" = "Security",	".S" = "Security",
-	  ":Q" = "Penal",		".Q" = "Penal",
-	  ":W" = "whisper",		".W" = "whisper",
-	  ":T" = "Mercenary",	".T" = "Mercenary",
-	  ":X" = "Raider",		".X" = "Raider",
-	  ":B" = "Burglar",		".B" = "Burglar",
-	  ":J" = "Bluespace",	".J" = "Bluespace",
-	  ":Y" = "Hailing",		".Y" = "Hailing",
-	  ":Q" = "Ninja",		".Q" = "Ninja",
-	  ":U" = "Operations",	".U" = "Operations",
-	  ":V" = "Service",		".V" = "Service",
-	  ":P" = "AI Private",	".P" = "AI Private",
-	  ":Z" = "Entertainment",".Z" = "Entertainment",
+		":R" = "right ear",	".R" = "right ear",
+		":L" = "left ear",	".L" = "left ear",
+		":I" = "intercom",	".I" = "intercom",
+		":H" = "department",	".H" = "department",
+		":A" = "Common",		".A" = "Common",
+		":C" = "Command",		".C" = "Command",
+		":N" = "Science",		".N" = "Science",
+		":M" = "Medical",		".M" = "Medical",
+		":E" = "Engineering",	".E" = "Engineering",
+		":S" = "Security",	".S" = "Security",
+		":Q" = "Penal",		".Q" = "Penal",
+		":W" = "whisper",		".W" = "whisper",
+		":T" = "Mercenary",	".T" = "Mercenary",
+		":X" = "Raider",		".X" = "Raider",
+		":B" = "Burglar",		".B" = "Burglar",
+		":J" = "Bluespace",	".J" = "Bluespace",
+		":Y" = "Hailing",		".Y" = "Hailing",
+		":Q" = "Ninja",		".Q" = "Ninja",
+		":U" = "Operations",	".U" = "Operations",
+		":V" = "Service",		".V" = "Service",
+		":P" = "AI Private",	".P" = "AI Private",
+		":Z" = "Entertainment",".Z" = "Entertainment",
 
-	  //kinda localization -- rastaf0
-	  //same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
-	  ":ê" = "right ear",	".ê" = "right ear",
-	  ":ä" = "left ear",	".ä" = "left ear",
-	  ":ø" = "intercom",	".ø" = "intercom",
-	  ":ð" = "department",	".ð" = "department",
-	  ":ñ" = "Command",		".ñ" = "Command",
-	  ":ò" = "Science",		".ò" = "Science",
-	  ":ü" = "Medical",		".ü" = "Medical",
-	  ":ó" = "Engineering",	".ó" = "Engineering",
-	  ":û" = "Security",	".û" = "Security",
-	  ":ö" = "whisper",		".ö" = "whisper",
-	  ":å" = "Mercenary",	".å" = "Mercenary",
-	  ":é" = "Operations",	".é" = "Operations"
+		//kinda localization -- rastaf0
+		//same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
+		":ê" = "right ear",	".ê" = "right ear",
+		":ä" = "left ear",	".ä" = "left ear",
+		":ø" = "intercom",	".ø" = "intercom",
+		":ð" = "department",	".ð" = "department",
+		":ñ" = "Command",		".ñ" = "Command",
+		":ò" = "Science",		".ò" = "Science",
+		":ü" = "Medical",		".ü" = "Medical",
+		":ó" = "Engineering",	".ó" = "Engineering",
+		":û" = "Security",	".û" = "Security",
+		":ö" = "whisper",		".ö" = "whisper",
+		":å" = "Mercenary",	".å" = "Mercenary",
+		":é" = "Operations",	".é" = "Operations"
 )
 
 
@@ -196,7 +196,7 @@ var/list/channel_to_radio_key = new
 	var/regex/emote = regex("^(\[\\*^\])\[^*\]+$")
 
 	if(emote.Find(message))
-		if(emote.group[1] == "*") return emote(copytext(message, 2))
+		if(emote.group[1] == "*") return client_emote(copytext(message, 2))
 		if(emote.group[1] == "^") return custom_emote(VISIBLE_MESSAGE, copytext(message,2))
 
 	//parse the radio code and consume it
@@ -341,6 +341,7 @@ var/list/channel_to_radio_key = new
 	var/image/speech_bubble
 	if(speech_bubble_state)
 		speech_bubble = image('icons/mob/talk.dmi', src, speech_bubble_state)
+		adjust_typing_indicator_offsets(speech_bubble)
 		speech_bubble.layer = layer
 		speech_bubble.plane = plane
 

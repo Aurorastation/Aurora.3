@@ -72,7 +72,15 @@
 	return ..()
 
 /obj/structure/railing/examine(mob/user)
-	..()
+	. = ..()
+	if(health < maxhealth)
+		switch(health / maxhealth)
+			if(0.0 to 0.5)
+				to_chat(user, SPAN_WARNING("It looks severely damaged!"))
+			if(0.25 to 0.5)
+				to_chat(user, SPAN_WARNING("It looks damaged!"))
+			if(0.5 to 1.0)
+				to_chat(user, SPAN_NOTICE("It has a few scrapes and dents."))
 	to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is <b>[density ? "closed" : "open"]</b> to passage.")))
 	to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is <b>[anchored ? "" : "not"] screwed</b> to the floor.")))
 
@@ -86,17 +94,6 @@
 	if(get_dir(loc, target) == dir)
 		return !density
 	return TRUE
-
-/obj/structure/railing/examine(mob/user)
-	..()
-	if(health < maxhealth)
-		switch(health / maxhealth)
-			if(0.0 to 0.5)
-				to_chat(user, SPAN_WARNING("It looks severely damaged!"))
-			if(0.25 to 0.5)
-				to_chat(user, SPAN_WARNING("It looks damaged!"))
-			if(0.5 to 1.0)
-				to_chat(user, SPAN_NOTICE("It has a few scrapes and dents."))
 
 /obj/structure/railing/proc/take_damage(amount)
 	health -= amount

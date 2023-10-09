@@ -21,6 +21,9 @@
 		created += src
 
 /atom/proc/Initialize(mapload, ...)
+	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(initialized)
 		crash_with("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
@@ -49,9 +52,23 @@
 
 	return INITIALIZE_HINT_NORMAL
 
-//called if Initialize returns INITIALIZE_HINT_LATELOAD
-//This version shouldn't be called
+/**
+ * Late Intialization, for code that should run after all atoms have run Intialization
+ *
+ * To have your LateIntialize proc be called, your atoms [Initalization][/atom/proc/Initialize]
+ *  proc must return the hint
+ * [INITIALIZE_HINT_LATELOAD] otherwise it will never be called.
+ *
+ * useful for doing things like finding other machines because you can guarantee
+ * that all atoms will actually exist in the "WORLD" at this time and that all their Intialization
+ * code has been run
+ */
 /atom/proc/LateInitialize()
+	set waitfor = FALSE
+
+	//You can override this in your inheritance if you *really* need to, but probably shouldn't
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/static/list/warned_types = list()
 	if(!warned_types[type])
 		WARNING("Old style LateInitialize behaviour detected in [type]!")

@@ -128,8 +128,11 @@
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for baby slimes."
 	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "bottle-1"
+	item_state = "bottle"
+	contained_sprite = TRUE
 
 /obj/item/docility_serum/Initialize() // Better than hardsprited in stuff.
+	. = ..()
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_PINK
 	add_overlay(filling)
@@ -169,10 +172,13 @@
 /obj/item/advanced_docility_serum
 	name = "advanced docility serum"
 	desc = "A potent chemical mix that will nullify a slime's powers, causing it to become docile and tame. This one is meant for adult slimes"
-	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
-	icon_state = "bottle-1"
+	icon = 'icons/obj/item/reagent_containers/glass.dmi'
+	icon_state = "bottle-2"
+	item_state = "bottle"
+	contained_sprite = TRUE
 
 /obj/item/advanced_docility_serum/Initialize() // Better than hardsprited in stuff.
+	. = ..()
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_PALE_PINK
 	add_overlay(filling)
@@ -212,10 +218,14 @@
 /obj/item/slimesteroid
 	name = "slime steroid"
 	desc = "A potent chemical mix that will cause a slime to generate more extract."
-	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
-	icon_state = "bottle-1"
+	icon = 'icons/obj/item/reagent_containers/glass.dmi'
+	icon_state = "bottle-3"
+	item_state = "bottle"
+	contained_sprite = TRUE
 
 /obj/item/slimesteroid/Initialize() // Better than hardsprited in stuff.
+	SHOULD_CALL_PARENT(FALSE)
+
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_GREEN
 	add_overlay(filling)
@@ -244,10 +254,14 @@
 /obj/item/extract_enhancer
 	name = "extract enhancer"
 	desc = "A potent chemical mix that will give a slime extract three uses."
-	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
-	icon_state = "bottle-1"
+	icon = 'icons/obj/item/reagent_containers/glass.dmi'
+	icon_state = "bottle-4"
+	item_state = "bottle"
+	contained_sprite = TRUE
 
 /obj/item/extract_enhancer/Initialize() // Better than hardsprited in stuff.
+	SHOULD_CALL_PARENT(FALSE)
+
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_BLUE
 	add_overlay(filling)

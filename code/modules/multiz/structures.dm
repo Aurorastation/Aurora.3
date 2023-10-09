@@ -59,7 +59,7 @@
 	if(LAZYLEN(destroy_tools))
 		if(is_type_in_list(C, destroy_tools))
 			user.visible_message("<b>[user]</b> starts breaking down \the [src] with \the [C]!", SPAN_NOTICE("You start breaking down \the [src] with \the [C]."))
-			if(do_after(user, 10 SECONDS, TRUE))
+			if(do_after(user, 10 SECONDS, src, DO_REPAIR_CONSTRUCT))
 				user.visible_message("<b>[user]</b> breaks down \the [src] with \the [C]!", SPAN_NOTICE("You break down \the [src] with \the [C]."))
 				qdel(src)
 			return
@@ -287,8 +287,6 @@
 
 /obj/structure/stairs/east
 	dir = EAST
-	bound_x = -32
-	pixel_x = -32
 	bound_width = 64
 	bound_x = -32
 	pixel_x = -32

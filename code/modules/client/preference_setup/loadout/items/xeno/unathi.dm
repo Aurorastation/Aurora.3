@@ -4,7 +4,7 @@
 	regions of Moghes. The forest mantle is exclusively for nobility these days."
 	path = /obj/item/clothing/accessory/poncho/unathimantle
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
@@ -74,7 +74,7 @@
 	display_name = "tzirzi robe"
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/robe_coat/New()
@@ -154,7 +154,7 @@
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic"
 	path = /obj/item/clothing/under/unathi
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -205,6 +205,7 @@
 	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
 	path = /obj/item/organ/external/hand/right/autakh/tool
 	whitelisted = list(SPECIES_UNATHI)
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 	cost = 2
 	allowed_roles = list("Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist")
@@ -215,6 +216,7 @@
 	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
 	whitelisted = list(SPECIES_UNATHI)
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 	cost = 2
 	allowed_roles = list("Shaft Miner")
@@ -225,6 +227,7 @@
 	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
 	path = /obj/item/organ/external/hand/right/autakh/medical
 	whitelisted = list(SPECIES_UNATHI)
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 	cost = 2
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Chemist")
@@ -235,6 +238,7 @@
 	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
 	path = /obj/item/organ/external/hand/right/autakh/security
 	whitelisted = list(SPECIES_UNATHI)
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 	cost = 2
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
@@ -259,7 +263,7 @@
 /datum/gear/uniform/unathi/sashes
 	display_name = "gyzao sashes"
 	path = /obj/item/clothing/under/unathi/sashes
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/mogazali
@@ -281,20 +285,20 @@
 /datum/gear/uniform/unathi/zazali
 	display_name = "zazali garb"
 	path = /obj/item/clothing/under/unathi/zazali
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/uniform/unathi/huytai
 	display_name = "huytai outfit"
 	path = /obj/item/clothing/under/unathi/huytai
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/zozo
 	display_name = "zozo top"
 	path = /obj/item/clothing/under/unathi/zozo
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/unathi/wrapping_head
@@ -320,8 +324,9 @@
 	description = "A rune inscribed mirror or piece of glass placed behind the eyes. Believed to \
 	be the 'Window to the Soul' and house the concentrated spirit of an individual."
 	path = /obj/item/organ/internal/anchor
-	cost = 0
+	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
+	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/augment/autakh/calf_override
@@ -414,7 +419,7 @@
 	display_name = "gyazo belt"
 	path = /obj/item/clothing/accessory/unathi
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 

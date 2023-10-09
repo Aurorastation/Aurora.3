@@ -129,7 +129,7 @@
 			to_chat(D, SPAN_WARNING("You need to remain still while decompiling such a large object."))
 			is_decompiling = FALSE
 			return
-			
+
 		is_decompiling = FALSE
 		if(!M || !D)
 			return
@@ -159,10 +159,10 @@
 	if(istype(victim, /mob/living/simple_animal/borer) && M.stat != DEAD)
 		to_chat(user, SPAN_WARNING("You can't seem to get \the [victim] into your [name]!"))
 		return
-	
+
 	//We're good to crunch them up
 	var/turf/T = get_turf(src)
-	T.visible_message(SPAN_DANGER("\The [user] sucks \the [victim] into its decompiler. There's a horrible crunching noise."), 
+	T.visible_message(SPAN_DANGER("\The [user] sucks \the [victim] into its decompiler. There's a horrible crunching noise."),
 		SPAN_NOTICE("It's a bit of a struggle, but you manage to suck \the [victim] into your decompiler. It makes a series of visceral crunching noises."))
 	new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 	playsound(get_turf(user), 'sound/effects/squelch1.ogg')

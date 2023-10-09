@@ -243,7 +243,7 @@
 			chamber_offset = rand(0,max_shells - loaded.len)
 
 /obj/item/gun/projectile/revolver/lemat/examine(mob/user)
-	..()
+	. = ..()
 	if(secondary_loaded)
 		var/to_print
 		for(var/round in secondary_loaded)

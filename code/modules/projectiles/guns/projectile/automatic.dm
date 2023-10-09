@@ -368,7 +368,7 @@
 		icon_state = "carbine-empty"
 
 /obj/item/gun/projectile/automatic/rifle/z8/examine(mob/user)
-	..()
+	. = ..()
 	if(launcher.chambered)
 		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
 	else

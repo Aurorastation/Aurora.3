@@ -59,7 +59,7 @@
 		to_chat(M, SPAN_DANGER("[src] locks up!"))
 		playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
 	var/initial_charge = power_supply.charge
-	power_supply.charge = 0	
+	power_supply.charge = 0
 	sleep(severity * 20)
 	power_supply.give(initial_charge)
 	update_maptext()
@@ -129,9 +129,9 @@
 
 	return null
 
-/obj/item/gun/energy/examine(mob/user)
-	..(user)
-	if(get_dist(src, user) > 1)
+/obj/item/gun/energy/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 1)
 		return
 	var/shots_remaining = round(power_supply.charge / charge_cost)
 	to_chat(user, "Has [shots_remaining] shot\s remaining.")
@@ -160,7 +160,7 @@
 		else
 			icon_state = "[initial(icon_state)][icon_state_ratio]"
 			item_state = "[initial(item_state)][item_state_ratio]"
-			
+
 	..()
 
 /obj/item/gun/energy/handle_post_fire()

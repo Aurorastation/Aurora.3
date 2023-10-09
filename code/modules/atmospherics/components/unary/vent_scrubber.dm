@@ -342,8 +342,8 @@
 		welded = !welded
 		update_icon()
 		user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
-							 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
-										 "You hear welding.")
+								SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
+								"You hear welding.")
 		return TRUE
 
 	if(istype(W, /obj/item/melee/arm_blade))
@@ -369,8 +369,9 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/unary/vent_scrubber/examine(mob/user)
-	if(..(user, 1))
+/obj/machinery/atmospherics/unary/vent_scrubber/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W")
 	else
 		to_chat(user, "You are too far away to read the gauge.")

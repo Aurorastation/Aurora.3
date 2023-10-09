@@ -124,12 +124,14 @@
 		M.update_inv_r_ear()
 		M.update_inv_head()
 
-/obj/item/device/flashlight/examine(mob/user)
+/obj/item/device/flashlight/examine(mob/user, distance, is_adjacent)
 	. = ..()
 	if(power_use && brightness_level)
 		to_chat(user, SPAN_NOTICE("\The [src] is set to [brightness_level]."))
 		if(cell)
 			to_chat(user, SPAN_NOTICE("\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining."))
+	if(light_wedge && isturf(loc))
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is facing [dir2text(dir)].")))
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(always_on)
@@ -198,11 +200,6 @@
 
 /obj/item/device/flashlight/vendor_action(var/obj/machinery/vending/V)
 	toggle()
-
-/obj/item/device/flashlight/examine(mob/user, distance)
-	. = ..()
-	if(light_wedge && isturf(loc))
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is facing [dir2text(dir)].")))
 
 /obj/item/device/flashlight/dropped(mob/user)
 	. = ..()

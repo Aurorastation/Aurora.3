@@ -135,7 +135,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	user.visible_message(SPAN_NOTICE("[user] starts assembling a liquidbag barricade."),
 	SPAN_NOTICE("You start assembling a liquidbag barricade."))
 
-	if(!do_after(user, 3 SECONDS))
+	if(!do_after(user, 3 SECONDS, do_flags = DO_REPAIR_CONSTRUCT))
 		return
 
 	for(var/obj/O in user.loc) //Objects, we don't care about mobs. Turfs are checked elsewhere

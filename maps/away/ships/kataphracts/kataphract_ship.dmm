@@ -505,9 +505,9 @@
 	pixel_x = 32
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/caligae/armor,
-/obj/item/clothing/shoes/caligae/armor,
-/obj/item/clothing/shoes/caligae/armor,
+/obj/item/clothing/shoes/sandals/caligae/socks,
+/obj/item/clothing/shoes/sandals/caligae/socks,
+/obj/item/clothing/shoes/sandals/caligae/socks,
 /obj/item/clothing/suit/armor/unathi/hegemony,
 /obj/item/clothing/suit/armor/unathi/hegemony,
 /obj/item/clothing/head/helmet/unathi/hegemony,
@@ -10339,8 +10339,8 @@
 /area/kataphract_chapter/cic)
 "YE" = (
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/caligae/armor,
-/obj/item/clothing/shoes/caligae/armor,
+/obj/item/clothing/shoes/sandals/caligae/socks,
+/obj/item/clothing/shoes/sandals/caligae/socks,
 /obj/item/clothing/suit/armor/unathi/hegemony,
 /obj/item/clothing/suit/armor/unathi/hegemony,
 /obj/item/clothing/head/helmet/unathi/hegemony,

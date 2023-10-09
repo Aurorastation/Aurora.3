@@ -16,7 +16,7 @@
 	return ..()
 
 /obj/item/poppet/examine(mob/user)
-	..(user)
+	. = ..()
 	if(countenance)
 		to_chat(user, "<span class='notice'>It is modeled after a [countenance].</span>")
 

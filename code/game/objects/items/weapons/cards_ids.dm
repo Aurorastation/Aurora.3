@@ -127,8 +127,9 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/Destroy()
 	return ..()
 
-/obj/item/card/id/examine(mob/user)
-	if (..(user, 1))
+/obj/item/card/id/examine(mob/user, distance)
+	. = ..()
+	if (distance <= 1)
 		show(user)
 
 /obj/item/card/id/on_slotmove(var/mob/living/user, slot)
@@ -458,14 +459,14 @@ var/const/NO_EMAG_ACT = -50
 	pickup_sound = /singleton/sound_category/generic_pickup_sound
 
 /obj/item/card/id/ccia/id_flash(var/mob/user)
-    var/add_text = "Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
-    var/blind_add_text = "Done with prejudice and professionalism, you mean business."
-    return ..(user, add_text, blind_add_text)
+	var/add_text = "Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
+	var/blind_add_text = "Done with prejudice and professionalism, you mean business."
+	return ..(user, add_text, blind_add_text)
 
-/obj/item/card/id/ccia/fib
-	name = "\improper Federal Investigations Bureau identification card"
-	desc = "An ID straight from the Federal Investigations Bureau."
-	icon_state = "fib"
+/obj/item/card/id/ccia/bssb
+	name = "\improper Biesel Security Services Bureau identification card"
+	desc = "An ID straight from the Biesel Security Services Bureau."
+	icon_state = "bssb"
 
 /obj/item/card/id/ert
 	name = "\improper NanoTrasen Emergency Response Team identification card"

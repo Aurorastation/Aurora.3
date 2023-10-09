@@ -20,7 +20,7 @@
 			return fizzle(user, A)
 		if(cultist == user) //just to be sure.
 			return
-		
+
 		var/cultist_free = TRUE
 		if(cultist.buckled_to)
 			cultist_free = FALSE
@@ -52,7 +52,7 @@
 				cultist_free = FALSE
 				door.unlock()
 				door.open()
-		
+
 		if(!cultist_free)
 			to_chat(cultist, SPAN_CULT("Your fellow cultists have freed you!"))
 

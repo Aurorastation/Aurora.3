@@ -25,7 +25,7 @@
 				return
 			user.visible_message("<span class='danger'>\The [user] begins taping over \the [H]'s eyes!</span>")
 
-			if(!do_after(user, 30))
+			if(!do_after(user, 3 SECONDS, H, DO_UNIQUE))
 				return
 
 			// Repeat failure checks.
@@ -54,7 +54,7 @@
 			playsound(src, /singleton/sound_category/rip_sound, 25)
 			user.visible_message("<span class='danger'>\The [user] begins taping up \the [H]'s mouth!</span>")
 
-			if(!do_after(user, 30))
+			if(!do_after(user, 3 SECONDS, H, DO_UNIQUE))
 				return
 
 			// Repeat failure checks.

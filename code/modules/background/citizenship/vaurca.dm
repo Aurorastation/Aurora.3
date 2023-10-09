@@ -63,14 +63,13 @@
 	suit = /obj/item/clothing/suit/vaurca/breeder
 
 /datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H && !visualsOnly)
+	if(H)
 		if(isvaurca(H))
-
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
 			H.equip_to_slot_or_del(new /obj/item/storage/box/tcfl_pamphlet(H), slot_in_backpack)
 			H.equip_to_slot_or_del(new /obj/item/gun/energy/vaurca/blaster(H), slot_in_backpack)
-
-		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
+		if(!visualsOnly)
+			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
 /datum/citizenship/klax
@@ -135,12 +134,11 @@
 	suit = /obj/item/clothing/suit/vaurca/breeder/klax
 
 /datum/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H && !visualsOnly)
+	if(H)
 		if(isvaurca(H))
-
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
-
-		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
+		if(!visualsOnly)
+			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
 
 /datum/citizenship/cthur
@@ -206,8 +204,9 @@
 	suit = /obj/item/clothing/suit/vaurca/breeder/cthur
 
 /datum/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H && !visualsOnly)
+	if(H)
 		if(isvaurca(H))
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
-		addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
+		if(!visualsOnly)
+			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE

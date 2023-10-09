@@ -154,9 +154,9 @@
 		return //no eating the limb until everything's been removed
 	return ..()
 
-/obj/item/organ/external/examine()
-	..()
-	if(in_range(usr, src) || istype(usr, /mob/abstract/observer))
+/obj/item/organ/external/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		for(var/obj/item/I in contents)
 			if(istype(I, /obj/item/organ))
 				continue
@@ -268,7 +268,7 @@
 	owner.update_action_buttons()
 
 /****************************************************
-			   DAMAGE PROCS
+					DAMAGE PROCS
 ****************************************************/
 
 /obj/item/organ/external/proc/is_damageable(var/additional_damage = 0)
@@ -569,7 +569,7 @@ This function completely restores a damaged organ to perfect condition.
 			wounds += W
 
 /****************************************************
-			   PROCESSING & UPDATING
+				PROCESSING & UPDATING
 ****************************************************/
 
 //external organs handle brokenness a bit differently when it comes to damage. Instead brute_dam is checked inside process()
@@ -916,7 +916,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return "[tbrute][tburn]"
 
 /****************************************************
-			   DISMEMBERMENT
+					DISMEMBERMENT
 ****************************************************/
 
 /obj/item/organ/external/proc/post_droplimb(mob/living/carbon/human/victim)
@@ -987,7 +987,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			M.Turn(rand(180))
 			src.transform = M
 			if(!clean)
-				 //Throw limb around.
+				//Throw limb around.
 				if(src && isturf(loc))
 					INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src,pick(alldirs)), rand(1,3), 4)
 				dir = 2
@@ -1022,7 +1022,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			qdel(src)
 
 /****************************************************
-			   HELPERS
+						HELPERS
 ****************************************************/
 
 /obj/item/organ/external/proc/is_stump()

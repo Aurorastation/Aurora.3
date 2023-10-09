@@ -41,7 +41,7 @@
 	set_state(1)
 
 /obj/machinery/power/breakerbox/examine(mob/user)
-	..()
+	. = ..()
 	if(on)
 		to_chat(user, SPAN_GOOD("It seems to be online."))
 	else
@@ -87,7 +87,7 @@
 	if(do_after(user, 50))
 		set_state(!on)
 		user.visible_message(SPAN_NOTICE("[user.name] [on ? "enabled" : "disabled"] the breaker box!"), \
-							 SPAN_NOTICE("You [on ? "enabled" : "disabled"] the breaker box!"))
+								SPAN_NOTICE("You [on ? "enabled" : "disabled"] the breaker box!"))
 		update_locked = 1
 		addtimer(CALLBACK(src, PROC_REF(reset_locked)), 600)
 	busy = 0

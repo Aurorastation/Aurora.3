@@ -158,7 +158,8 @@ AURORA_ESCAPE_POD(4)
 	name = "Second Deck Starboard Dock 1"
 	landmark_tag = "nav_merchant_dock"
 	docking_controller = "merchant_shuttle_dock"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_turf = /turf/space
+	base_area = /area/space
 
 //-// Admin Corvette //-//
 

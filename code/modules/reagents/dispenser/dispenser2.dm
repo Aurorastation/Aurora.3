@@ -14,7 +14,7 @@
 	var/icon_state_active = "dispenser_active"
 	/// Set to a list of types to spawn one of each on New().
 	var/list/spawn_cartridges
-	 /// Associative, label -> cartridge.
+	/// Associative, label -> cartridge.
 	var/list/cartridges = list()
 	///Current container.
 	var/obj/item/reagent_containers/container
@@ -40,7 +40,7 @@
 			add_cartridge(new type(src))
 
 /obj/machinery/chemical_dispenser/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more.")
 
 /obj/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)

@@ -627,7 +627,7 @@
 "cH" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/tajaran/pvsm,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/accessory/badge/dpra_passport,
 /obj/machinery/alarm/cold/east{
 	req_one_access = list(214)
@@ -2419,7 +2419,7 @@
 "xc" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/tajaran/pvsm,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/accessory/badge/dpra_passport,
 /obj/effect/floor_decal/corner/white{
 	dir = 6
@@ -2786,7 +2786,7 @@
 "Ea" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/tajaran/pvsm,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
@@ -3561,7 +3561,7 @@
 "QW" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/tajaran/pvsm,
-/obj/item/clothing/shoes/tajara/jackboots,
+/obj/item/clothing/shoes/jackboots/tajara,
 /obj/effect/floor_decal/corner/white{
 	dir = 10
 	},

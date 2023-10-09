@@ -13,16 +13,16 @@
 		CHECK_TICK //This stuff is a little intensive I think.
 		if(prob(25))
 			if(prob(50))
-				var/datum/battle_monsters/selected_trap = SSbattlemonsters.GetRandomTrap()
+				var/datum/battle_monsters/selected_trap = SSbattle_monsters.GetRandomTrap()
 				deck_data += "trap_type,[selected_trap.id],no_title"
 			else
-				var/datum/battle_monsters/selected_spell = SSbattlemonsters.GetRandomSpell()
+				var/datum/battle_monsters/selected_spell = SSbattle_monsters.GetRandomSpell()
 				deck_data += "spell_type,[selected_spell.id],no_title"
 			continue
 
-		var/datum/battle_monsters/selected_prefix = SSbattlemonsters.GetRandomPrefix_Filtered(rarity_min,rarity_max)
-		var/datum/battle_monsters/selected_root = SSbattlemonsters.GetRandomRoot_Filtered(rarity_min,rarity_max)
-		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.GetRandomSuffix_Filtered(rarity_min,rarity_max)
+		var/datum/battle_monsters/selected_prefix = SSbattle_monsters.GetRandomPrefix_Filtered(rarity_min,rarity_max)
+		var/datum/battle_monsters/selected_root = SSbattle_monsters.GetRandomRoot_Filtered(rarity_min,rarity_max)
+		var/datum/battle_monsters/selected_suffix = SSbattle_monsters.GetRandomSuffix_Filtered(rarity_min,rarity_max)
 		deck_data += "[selected_prefix.id],[selected_root.id],[(selected_prefix.rarity_score + selected_root.rarity_score) >= 3 ? selected_suffix.id : "no_title"]"
 
 	generated_deck.stored_card_names = deck_data

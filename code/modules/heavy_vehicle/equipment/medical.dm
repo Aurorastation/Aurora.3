@@ -37,12 +37,27 @@
 
 /obj/item/mecha_equipment/sleeper/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
-	if(.)
-		if(ishuman(target) && !sleeper.occupant)
-			visible_message("<span class='notice'>\The [src] begins loading \the [target] into \the [src].</span>")
-			sleeper.go_in(target, user)
-		else
-			to_chat(user, "<span class='warning'>You cannot load that in!</span>")
+	if(!.)
+		return
+
+	//Check it's a person and typecast if so
+	if(!ishuman(target))
+		return
+	var/mob/living/carbon/human/person_to_load = target
+
+	//Check that the person is not buckled
+	if(person_to_load.buckled_to)
+		to_chat(SPAN_WARNING("You must unbuckle [person_to_load] before loading!"))
+		return
+
+	//Check that the sleeper isn't already occupied
+	if(sleeper.occupant)
+		to_chat(user, SPAN_WARNING("The sleeper is already occupied!"))
+		return
+
+	//All good, load the person
+	visible_message("<span class='notice'>\The [src] begins loading \the [target] into \the [src].</span>")
+	sleeper.go_in(person_to_load, user)
 
 /obj/item/mecha_equipment/sleeper/get_hardpoint_maptext()
 	if(sleeper && sleeper.occupant)
@@ -284,16 +299,14 @@
 		to_chat(user, SPAN_NOTICE("You switch to \the [src]'s [HA.fullScan ? "full body" : "basic"] scan mode."))
 
 /obj/item/device/healthanalyzer/mech/attack(mob/living/M, var/mob/living/heavy_vehicle/user)
-	sound_scan = FALSE
-	if(last_scan <= world.time - 20) //Spam limiter.
-		last_scan = world.time
-		sound_scan = TRUE
+	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
+	user.do_attack_animation(src)
 	if(!fullScan)
 		for(var/mob/pilot in user.pilots)
-			health_scan_mob(M, pilot, TRUE, TRUE, sound_scan = sound_scan)
+			health_scan_mob(M, pilot, TRUE, TRUE, sound_scan = TRUE)
 	else
 		user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
-		if(do_after(user, 7 SECONDS, TRUE))
+		if(do_after(user, 7 SECONDS))
 			print_scan(M, user)
 			add_fingerprint(user)
 
