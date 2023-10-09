@@ -9585,6 +9585,12 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/computer/general_air_control/large_tank_control/wall{
+	name = "INDRA Chamber Monitor";
+	pixel_y = 26;
+	input_tag = "fusion_injector_air";
+	sensors = list("fusion_sensor"="Tank")
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
 "eGh" = (
@@ -37572,6 +37578,12 @@
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/computer/general_air_control/large_tank_control/wall{
+	name = "INDRA Chamber Monitor";
+	pixel_y = 26;
+	input_tag = "fusion_injector_air";
+	sensors = list("fusion_sensor"="Tank")
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
