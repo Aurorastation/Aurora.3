@@ -8,3 +8,4 @@ changes:
   - bugfix: "The proper proc is now called for the teleport talisman."
   - bugfix: "Added a null parent check, no more teleporting to nowhere."
   - bugfix: "Teleportation rune and talisman will only sizzle if they can't teleport."
+  - tweak: "Examining teleportation talismans will tell you what network it is keyed to."
