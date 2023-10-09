@@ -977,7 +977,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
 	frequency = 1379;
-	id_tag = "r-ust_airlock_interior";
+	id_tag = "indra_airlock_interior";
 	locked = 1;
 	name = "INDRA Reactor Airlock Interior";
 	req_one_access = list(11,24)
@@ -985,17 +985,17 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
-	master_tag = "r-ust_airlock_control";
+	master_tag = "indra_airlock_control";
 	name = "INDRA Reactor Airlock Access";
 	pixel_x = 23;
 	req_one_access = list(11,24)
 	},
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
-	id_tag = "r-ust_airlock_control";
+	id_tag = "indra_airlock_control";
 	name = "INDRA Reactor Airlock Access Console";
 	pixel_x = 38;
-	tag_exterior_door = "r-ust_airlock_exterior";
-	tag_interior_door = "r-ust_airlock_interior"
+	tag_exterior_door = "indra_airlock_exterior";
+	tag_interior_door = "indra_airlock_interior"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
@@ -27051,7 +27051,7 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
 	frequency = 1379;
-	id_tag = "r-ust_airlock_exterior";
+	id_tag = "indra_airlock_exterior";
 	locked = 1;
 	name = "INDRA Reactor Airlock Exterior";
 	req_one_access = list(11,24)
@@ -27060,18 +27060,18 @@
 	command = "cycle_exterior";
 	dir = 8;
 	frequency = 1379;
-	master_tag = "r-ust_airlock_control";
+	master_tag = "indra_airlock_control";
 	name = "INDRA Reactor Airlock Access";
 	pixel_y = 23;
 	req_one_access = list(11,24)
 	},
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
 	dir = 8;
-	id_tag = "r-ust_airlock_control";
+	id_tag = "indra_airlock_control";
 	name = "INDRA Reactor Airlock Access Console";
 	pixel_y = 38;
-	tag_exterior_door = "r-ust_airlock_exterior";
-	tag_interior_door = "r-ust_airlock_interior"
+	tag_exterior_door = "indra_airlock_exterior";
+	tag_interior_door = "indra_airlock_interior"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
