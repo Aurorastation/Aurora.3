@@ -2449,7 +2449,7 @@
 
 	glass_icon_state = "aleglass"
 	glass_name = "glass of ale"
-	glass_desc = "A freezing pint of delicious ale"
+	glass_desc = "A freezing pint of delicious ale."
 	glass_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/alcohol/beer
@@ -2510,6 +2510,17 @@
 	glass_name = "glass of bitters"
 	glass_desc = "A pungent glass of bitters."
 	glass_center_of_mass = list ("x"=17, "y"=8)
+
+/singleton/reagent/alcohol/fernet
+	name = "Fernet"
+	description = "A bitter, herbal spirit with strong ties to the Earth continent of South America. Commonly mixed with cola."
+	color = "#4e1e12"
+	strength = 30
+	taste_description = "bitter herbs"
+
+	glass_icon_state = "fernet_glass"
+	glass_name = "glass of fernet"
+	glass_desc = "A glass of raw, bitter fernet. Should probably mix this with something."
 
 /singleton/reagent/alcohol/bluecuracao
 	name = "Blue Curacao"
@@ -2821,6 +2832,26 @@
 	glass_icon_state = "sacredwineglass"
 	glass_name = "glass of geneboosted wine"
 	glass_desc = "An imperiously classy drink. In Her name, so shall it be drunk!"
+
+/singleton/reagent/alcohol/wine/assunzione
+	name = "Assunzioni Wine"
+	description = "A complex wine originating from the Dalyanese vineyards of Assunzione. The liturgical wine of choice for Luceian masses and holy gatherings."
+	strength = 15
+	taste_description = "red wine, truffles, hints of dried fruit, and herbs"
+
+	glass_icon_state = "assunzionewineglass"
+	glass_name = "glass of Assunzione wine"
+	glass_desc = "A complex wine originating from the Dalyanese vineyards of Assunzione. The liturgical wine of choice for Luceian masses and holy gatherings."
+
+/singleton/reagent/alcohol/wine/rose
+	name = "Rose Wine"
+	description = "A fruity, light, pink wine that looks and tastes like lighthearted fun."
+	strength = 8
+	taste_description = "citrus, cherry, and sweet wine"
+
+	glass_icon_state = "roseglass"
+	glass_name = "glass of rose"
+	glass_desc = "A fruity, light, pink wine that looks and tastes like lighthearted fun."
 
 /singleton/reagent/alcohol/wine/algae
 	name = "Algae Wine"
@@ -4055,6 +4086,17 @@
 	glass_desc = "Someone, somewhere, is saluting."
 
 /singleton/reagent/alcohol/metropolitan
+	name = "Cosmopolitan"
+	description = "Sweet, sour, and chic. The Cosmopolitan is a legendary, upscale classic."
+	color = "#f3174e"
+	strength = 27
+	taste_description = "fruity sweetness"
+
+	glass_icon_state = "cosmopolitan"
+	glass_name = "glass of Cosmopolitan"
+	glass_desc = "Sweet, sour, and chic. The Cosmopolitan is a legendary, upscale classic."
+
+/singleton/reagent/alcohol/metropolitan
 	name = "Metropolitan"
 	description = "What more could you ask for?"
 	color = "#ff0000"
@@ -4064,6 +4106,17 @@
 	glass_icon_state = "metropolitan"
 	glass_name = "glass of Metropolitan"
 	glass_desc = "What more could you ask for?"
+
+/singleton/reagent/alcohol/mendellian
+	name = "Mendellian"
+	description = "A blue citrusy spin on the Cosmopolitan, named after the most cosmopolitan city in the Spur."
+	color = "#4f66e7"
+	strength = 27
+	taste_description = "fruity sweetness"
+
+	glass_icon_state = "mendellian"
+	glass_name = "glass of Mendellian"
+	glass_desc = "A blue citrusy spin on the Cosmopolitan, named after the most cosmopolitan city in the Spur."
 
 /singleton/reagent/alcohol/primeminister
 	name = "Prime Minister"
@@ -5536,6 +5589,30 @@
 	glass_icon_state = "pina_colada"
 	glass_name = "glass of pina colada"
 	glass_desc = "Prepared just like in Silversun."
+
+/singleton/reagent/alcohol/red_dwarf_sangria
+	name = "Red Dwarf Sangria"
+	description = "A rich, sweet wine punch made with Assunzione wine, applejack, and orange juice."
+	strength = 30
+	color = "#960e15"
+	taste_description = "fruit cocktail, sweet red wine, and a hint of truffles"
+
+	glass_icon_state = "redsangria"
+	glass_name = "glass of red dwarf sangria"
+	glass_desc = "A rich, sweet wine punch made with Assunzione wine, applejack, and orange juice."
+
+/singleton/reagent/alcohol/forbidden_apple
+	name = "Forbidden Apple"
+	description = "A champagne cocktail spiked with brandy and orange liqueur."
+	strength = 25
+	color = "#bd6717"
+	taste_description = "champagne, a hint of apples, and orange sweetness"
+
+	glass_icon_state = "forbiddenapple"
+	glass_name = "glass of forbidden apple"
+	glass_desc = "A champagne cocktail spiked with brandy and orange liqueur."
+
+
 
 /singleton/reagent/drink/gibbfloats
 	name = "Root-Cola Floats"
