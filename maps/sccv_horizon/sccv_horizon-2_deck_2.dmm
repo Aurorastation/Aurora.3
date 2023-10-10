@@ -12014,6 +12014,7 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Aft Treatment Room"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "fMQ" = (
@@ -18786,6 +18787,9 @@
 	dir = 6
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "iSi" = (
@@ -19471,6 +19475,9 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/sign/icu,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "jkb" = (
@@ -23418,8 +23425,10 @@
 /obj/machinery/bodyscanner{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
 /area/medical/icu)
 "lhP" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -27077,6 +27086,7 @@
 /area/engineering/engine_monitoring/rust)
 "mRr" = (
 /obj/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light{
 	dir = 1
@@ -30247,6 +30257,9 @@
 	name = "O- Blood Locker";
 	pixel_x = -32
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/light,
 /obj/item/reagent_containers/blood/OMinus,
@@ -31499,6 +31512,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "oZh" = (
@@ -37469,8 +37485,10 @@
 /obj/machinery/sleeper{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
 /area/medical/icu)
 "rTC" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
@@ -37821,7 +37839,7 @@
 /obj/machinery/computer/general_air_control/large_tank_control{
 	input_tag = "fusion_injector_air";
 	name = "INDRA Chamber Monitor";
-	sensors = list("fusion_sensor"="INDRA Chamber")
+	sensors = list("fusion_sensor"="INDRA  Chamber")
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
@@ -38213,6 +38231,9 @@
 "sog" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
@@ -40154,10 +40175,10 @@
 /obj/machinery/body_scanconsole{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 9
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark,
 /area/medical/icu)
 "tnv" = (
 /obj/machinery/light{
@@ -40933,9 +40954,6 @@
 "tHA" = (
 /obj/effect/floor_decal/corner/beige/full,
 /obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -43065,6 +43083,9 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "uFm" = (
@@ -44112,6 +44133,15 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
+"vff" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/medical/icu)
 "vfi" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -44282,9 +44312,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
@@ -45697,7 +45724,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine                                                                Core")
+	sensors = list("engine_sensor"="Engine                                                                                                                                Core")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
@@ -68174,7 +68201,7 @@ guQ
 wia
 fME
 tnq
-sog
+vff
 sog
 laF
 lNb
