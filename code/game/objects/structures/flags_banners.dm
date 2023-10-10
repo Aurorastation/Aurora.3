@@ -1457,17 +1457,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/biesel/old/l
 
-/obj/structure/sign/flag/biesel/old/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/biesel/old/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/biesel/old/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/biesel/old/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/biesel/old/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/biesel/old/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/biesel/old/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/biesel/old/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 /obj/item/flag/biesel/antique
 	name = "antique Solarian Colonial Mandate of Tau Ceti flag"
@@ -1496,17 +1496,17 @@
 	flag_size = TRUE
 	flag_item = /obj/item/flag/biesel/antique/l
 
-/obj/structure/sign/flag/biesel/antique/large/north/New()
-	..(loc, NORTH)
+/obj/structure/sign/flag/biesel/antique/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
 
-/obj/structure/sign/flag/biesel/antique/large/south/New()
-	..(loc, SOUTH)
+/obj/structure/sign/flag/biesel/antique/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
 
-/obj/structure/sign/flag/biesel/antique/large/east/New()
-	..(loc, EAST)
+/obj/structure/sign/flag/biesel/antique/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/biesel/antique/large/west/New()
-	..(loc, WEST)
+/obj/structure/sign/flag/biesel/antique/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 // SCC
 
