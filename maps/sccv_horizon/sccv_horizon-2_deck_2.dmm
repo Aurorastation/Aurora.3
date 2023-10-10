@@ -23363,7 +23363,7 @@
 	pixel_x = -10;
 	pixel_y = 1
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/horizon/library)
 "lnv" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -30688,7 +30688,7 @@
 /area/maintenance/wing/port/far)
 "oNS" = (
 /obj/structure/bookcase/libraryspawn/fiction,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/horizon/library)
 "oOi" = (
 /obj/structure/cable/green{
@@ -35957,7 +35957,7 @@
 /area/turret_protected/ai_upload)
 "rtI" = (
 /obj/structure/bookcase/libraryspawn/nonfiction,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/horizon/library)
 "rtP" = (
 /obj/structure/cable{
@@ -37385,7 +37385,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/horizon/library)
 "sdX" = (
 /obj/effect/decal/cleanable/cobweb2,
@@ -41353,7 +41353,7 @@
 /area/medical/ors)
 "ugU" = (
 /obj/structure/bookcase/libraryspawn/reference,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/horizon/library)
 "ugV" = (
 /obj/structure/disposalpipe/segment{
@@ -44116,7 +44116,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "vyP" = (
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/horizon/library)
 "vzv" = (
 /obj/effect/floor_decal/spline/plain/corner{

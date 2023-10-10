@@ -115,9 +115,13 @@
 	icon_base = "artcarpet"
 	build_type = /obj/item/stack/tile/carpet/art
 
-/singleton/flooring/carpet/fancybrown
+/singleton/flooring/carpet/black
+	icon_base = "carpet_black"
+	build_type = /obj/item/stack/tile/carpet/black
+
+/singleton/flooring/carpet/brown
 	icon_base = "brown"
-	build_type = /obj/item/stack/tile/carpet/fancybrown
+	build_type = /obj/item/stack/tile/carpet/brown
 
 /singleton/flooring/carpet/red
 	icon_base = "red"

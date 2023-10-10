@@ -128,7 +128,11 @@
 	desc = "A piece of fancy adhomian carpet. It is the same size as a normal floor tile!"
 	icon_state = "carpet_art"
 
-/obj/item/stack/tile/carpet/fancybrown
+/obj/item/stack/tile/carpet/black
+	name = "black carpet"
+	icon_state = "tile_carpetblack"
+
+/obj/item/stack/tile/carpet/brown
 	name = "brown carpet"
 	icon_state = "tile_carpetbrown"
 

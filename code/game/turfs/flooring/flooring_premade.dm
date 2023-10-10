@@ -28,9 +28,9 @@
 	icon_state = "artcarpet"
 	initial_flooring = /singleton/flooring/carpet/art
 
-/turf/simulated/floor/carpet/fancybrown
+/turf/simulated/floor/carpet/brown
 	icon_state = "brown"
-	initial_flooring = /singleton/flooring/carpet/fancybrown
+	initial_flooring = /singleton/flooring/carpet/brown
 
 /turf/simulated/floor/carpet/red
 	icon_state = "red"
