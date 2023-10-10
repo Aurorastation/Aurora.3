@@ -16,7 +16,7 @@
 	var/turf/T = get_turf(src)
 	var/list/floor_decals = SSicon_cache.floor_decals
 	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
-		layer = T.is_plating() ? DECAL_PLATING_LAYER : ON_TURF_LAYER
+		layer = ON_TURF_LAYER
 		var/cache_key = "[name]-[alpha]-[color]-[dir]-[icon_state]-[layer]-[blend_state ? blend_state : ""]-[blend_process]-[T.icon]-[T.icon_state]-[T.tile_outline ? T.tile_outline : ""]-[T.tile_outline_blend_process]"
 		if(!floor_decals[cache_key])
 			var/icon/decal_icon
