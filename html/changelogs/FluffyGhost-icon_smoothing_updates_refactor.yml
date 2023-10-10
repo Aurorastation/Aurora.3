@@ -47,3 +47,4 @@ changes:
   - bugfix: "Structures now delete themselves from the smoothing and enqueue the neighbors upon deletion."
   - bugfix: "Structures now drop the reference to climbers upon deletion."
   - bugfix: "Z_LEVEL smoothing now ignores deleted turfs."
+  - bugfix: "Syndie C4s now delete correctly."
