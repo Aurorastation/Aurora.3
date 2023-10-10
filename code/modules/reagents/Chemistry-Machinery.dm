@@ -1,5 +1,5 @@
 // Update asset_cache.dm if you change these.
-#define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4", "bottle-5", "bottle-6") //list of available bottle sprites
+#define BOTTLE_SPRITES list("bottle-1", "bottle-2", "bottle-3", "bottle-4") //list of available bottle sprites
 
 #define CHEMMASTER_BOTTLE_SOUND playsound(src, 'sound/items/pickup/bottle.ogg', 75, 1)
 #define CHEMMASTER_DISPENSE_SOUND playsound(src, 'sound/machines/reagent_dispense.ogg', 75, 1)
@@ -49,6 +49,20 @@
 				qdel(src)
 				return
 
+/obj/machinery/chem_master/proc/eject()
+	if(beaker && usr)
+		if(!use_check_and_message(usr))
+			usr.put_in_hands(beaker, TRUE)
+		else
+			beaker.loc = get_turf(src)
+		beaker = null
+		reagents.clear_reagents()
+		icon_state = "mixer0"
+		return TRUE
+
+/obj/machinery/chem_master/AltClick()
+	if(!use_check_and_message(usr))
+		eject()
 
 /obj/machinery/chem_master/attackby(var/obj/item/B, mob/user)
 
@@ -215,16 +229,8 @@
 			return TRUE
 
 		else if (action == "eject")
-			if(beaker)
-				if(Adjacent(usr))
-					usr.put_in_hands(beaker)
-				else
-					beaker:loc = get_turf(src)
-				beaker = null
-				reagents.clear_reagents()
-				icon_state = "mixer0"
-			CHEMMASTER_BOTTLE_SOUND
-			return TRUE
+			if(eject())
+				return TRUE
 
 	if (action == "toggle")
 		mode = !mode
@@ -319,7 +325,7 @@
 /obj/machinery/reagentgrinder
 
 	name = "All-In-One Grinder"
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "juicer1"
 	layer = 2.99
 	density = 0

@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/chemistry/SSchemistry
-
-/datum/controller/subsystem/chemistry
+SUBSYSTEM_DEF(chemistry)
 	name = "Chemistry"
 	priority = SS_PRIORITY_CHEMISTRY
 	init_order = SS_INIT_MISC_FIRST
@@ -25,7 +23,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	if(recipe)
 		for(var/chem in recipe.required_reagents)
 			if(!has_valid_specific_heat(chem))
-				log_ss("chemistry", "ERROR: [recipe.type] has an improper recipe!")
+				log_subsystem_chemistry("ERROR: [recipe.type] has an improper recipe!")
 				return R.fallback_specific_heat > 0
 
 		return TRUE
@@ -33,7 +31,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		if(R.fallback_specific_heat > 0)
 			return TRUE
 		else
-			log_ss("chemistry", "ERROR: [_R] does not have a valid specific heat ([R.specific_heat]) or a valid fallback specific heat ([R.fallback_specific_heat]) assigned!")
+			log_subsystem_chemistry("ERROR: [_R] does not have a valid specific heat ([R.specific_heat]) or a valid fallback specific heat ([R.fallback_specific_heat]) assigned!")
 			return FALSE
 
 /datum/controller/subsystem/chemistry/proc/check_specific_heat(var/_R)
@@ -51,7 +49,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		for(var/chem in recipe.required_reagents)
 			var/chem_specific_heat = check_specific_heat(chem)
 			if(chem_specific_heat <= 0)
-				log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
+				log_subsystem_chemistry("ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
 				final_heat = 0
 				break
 			final_heat += chem_specific_heat * (recipe.required_reagents[chem]/result_amount)
@@ -64,7 +62,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		R.specific_heat = R.fallback_specific_heat
 		return R.fallback_specific_heat
 
-	log_ss("chemistry", "ERROR: [_R] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
+	log_subsystem_chemistry("ERROR: [_R] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
 	R.specific_heat = 1
 	return 1
 
@@ -82,15 +80,12 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	msg = "AH:[active_holders.len]"
 	return ..()
 
-/datum/controller/subsystem/chemistry/New()
-	NEW_SS_GLOBAL(SSchemistry)
-
 /datum/controller/subsystem/chemistry/Initialize()
 	initialize_chemical_reactions()
 	initialize_codex_data()
 	var/pre_secret_len = chemical_reactions.len
-	log_ss("chemistry", "Found [pre_secret_len] reactions.")
-	log_ss("chemistry", "Loaded [load_secret_chemicals()] secret reactions.")
+	log_subsystem_chemistry("Found [pre_secret_len] reactions.")
+	log_subsystem_chemistry("Loaded [load_secret_chemicals()] secret reactions.")
 	initialize_specific_heats() // must be after reactions
 	..()
 
@@ -104,7 +99,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 
 		if (QDELETED(holder))
 			active_holders -= holder
-			log_debug("SSchemistry: QDELETED holder found in processing list!")
+			LOG_DEBUG("SSchemistry: QDELETED holder found in processing list!")
 			if (MC_TICK_CHECK)
 				return
 			continue
@@ -129,22 +124,27 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 /datum/controller/subsystem/chemistry/proc/load_secret_chemicals()
 	. = 0
 	var/list/chemconfig = list()
+
+	if(!(rustg_file_exists("config/secretchem.json") == "true"))
+		log_config("The file config/secretchem.json was not found, secret chemicals will not be loaded.")
+		return
+
 	try
 		chemconfig = json_decode(return_file_text("config/secretchem.json"))
 	catch(var/exception/e)
-		log_debug("SSchemistry: Warning: Could not load config, as secretchem.json is missing - [e]")
+		log_subsystem_chemistry("Warning: Could not load config, as secretchem.json is missing - [e]")
 		return
 
 	chemconfig = chemconfig["chemicals"]
 	for (var/chemical in chemconfig)
-		log_debug("SSchemistry: Loading chemical: [chemical]")
+		log_subsystem_chemistry("Loading chemical: [chemical]")
 		var/datum/chemical_reaction/cc = new()
 		cc.name = chemconfig[chemical]["name"]
 		cc.id = chemconfig[chemical]["id"]
 		cc.result = text2path(chemconfig[chemical]["result"])
 		cc.result_amount = chemconfig[chemical]["resultamount"]
 		if(!ispath(cc.result, /singleton/reagent))
-			log_debug("SSchemistry: Warning: Invalid result [cc.result] in [cc.name] reactions list.")
+			log_subsystem_chemistry("Warning: Invalid result [cc.result] in [cc.name] reactions list.")
 			qdel(cc)
 			break
 
@@ -152,7 +152,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			var/result_chem = text2path(key)
 			LAZYSET(cc.required_reagents, result_chem, chemconfig[chemical]["required_reagents"][key])
 			if(!ispath(result_chem, /singleton/reagent))
-				log_debug("SSchemistry: Warning: Invalid chemical [key] in [cc.name] required reagents list.")
+				log_subsystem_chemistry("Warning: Invalid chemical [key] in [cc.name] required reagents list.")
 				qdel(cc)
 				break
 

@@ -55,7 +55,7 @@
 	mask = /obj/item/clothing/mask/gas/syndicate
 	l_ear = /obj/item/device/radio/headset/syndicate
 	glasses = /obj/item/clothing/glasses/night
-	shoes = /obj/item/clothing/shoes/magboots
+	shoes = /obj/item/clothing/shoes/magboots/syndie
 	l_pocket = /obj/item/pinpointer/nukeop
 	l_hand = /obj/item/tank/jetpack/void
 
@@ -87,7 +87,7 @@
 		/obj/item/reagent_containers/pill/cyanide = 1,
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
 		/obj/item/ammo_magazine/a50 = 2,
-		/obj/item/clothing/shoes/magboots = 1,
+		/obj/item/clothing/shoes/magboots/syndie = 1,
 		/obj/item/flame/lighter/zippo = 1
 	)
 	implants = list(
@@ -98,7 +98,7 @@
 /datum/outfit/admin/syndicate/spy
 	name = "Syndicate Spy"
 	uniform = /obj/item/clothing/under/suit_jacket/really_black
-	shoes = /obj/item/clothing/shoes/black/noslip
+	shoes = /obj/item/clothing/shoes/sneakers/black/noslip
 	uplink_uses = 40
 	id_access = "Syndicate Agent"
 
@@ -116,7 +116,7 @@
 	l_hand = /obj/item/hardsuit_token
 	back = null
 	belt = /obj/item/storage/belt/ninja
-	shoes = /obj/item/clothing/shoes/swat/ert
+	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/ring/ninja
 	mask = /obj/item/clothing/mask/balaclava
 	l_ear = /obj/item/device/radio/headset/ninja
@@ -172,7 +172,6 @@
 /datum/outfit/admin/syndicate/mercenary/loner
 	name = "Loner"
 
-	head = /obj/item/clothing/head/helmet/space/psi_amp/lesser
 	l_ear = /obj/item/device/radio/headset/syndicate
 	r_pocket = /obj/item/device/special_uplink/burglar
 
@@ -236,7 +235,6 @@
 		/obj/item/clothing/accessory/overalls/random,
 		/obj/item/clothing/suit/captunic/capjacket,
 		/obj/item/clothing/suit/ianshirt,
-		/obj/item/clothing/suit/storage/toggle/fib,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random,
 		/obj/item/clothing/suit/storage/hooded/wintercoat,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/red,
@@ -268,16 +266,15 @@
 	shoes = list(
 		/obj/item/clothing/shoes/jackboots,
 		/obj/item/clothing/shoes/workboots,
-		/obj/item/clothing/shoes/laceup/brown/all_species,
-		/obj/item/clothing/shoes/laceup/all_species,
+		/obj/item/clothing/shoes/laceup/brown,
+		/obj/item/clothing/shoes/laceup,
 		/obj/item/clothing/shoes/combat,
 		/obj/item/clothing/shoes/cowboy,
-		/obj/item/clothing/shoes/jackboots/knee,
 		/obj/item/clothing/shoes/lyodsuit,
 		/obj/item/clothing/shoes/winter,
-		/obj/item/clothing/shoes/hitops/black,
-		/obj/item/clothing/shoes/black,
-		/obj/item/clothing/shoes/brown
+		/obj/item/clothing/shoes/sneakers/hitops/black,
+		/obj/item/clothing/shoes/sneakers/black,
+		/obj/item/clothing/shoes/sneakers/brown
 	)
 
 	head = list(
@@ -379,7 +376,7 @@
 		return
 
 	if(!H.shoes)
-		var/fallback_type = pick(/obj/item/clothing/shoes/sandal, /obj/item/clothing/shoes/jackboots/toeless, /obj/item/clothing/shoes/laceup/brown/all_species, /obj/item/clothing/shoes/laceup/all_species)
+		var/fallback_type = pick(/obj/item/clothing/shoes/sandals, /obj/item/clothing/shoes/jackboots/toeless, /obj/item/clothing/shoes/laceup/brown, /obj/item/clothing/shoes/laceup)
 		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes)
 
 	var/obj/item/storage/wallet/W = H.wear_id
@@ -403,8 +400,8 @@
 	suit = null
 
 	shoes = list(
-		/obj/item/clothing/shoes/laceup/all_species,
-		/obj/item/clothing/shoes/laceup/brown/all_species
+		/obj/item/clothing/shoes/laceup,
+		/obj/item/clothing/shoes/laceup/brown
 	)
 
 	glasses = list(
@@ -552,7 +549,7 @@
 
 	uniform = /obj/item/clothing/under/syndicate/ninja
 	suit = null
-	shoes = /obj/item/clothing/shoes/sandal
+	shoes = /obj/item/clothing/shoes/sandals
 	head = null
 
 	belt = /obj/item/storage/belt/fannypack/component
@@ -587,12 +584,12 @@
 		if("Cobra")
 			head = /obj/item/clothing/head/wizard/cobra
 			suit = /obj/item/clothing/suit/wizrobe/cobra
-			shoes = /obj/item/clothing/shoes/hitops/red
+			shoes = /obj/item/clothing/shoes/sneakers/hitops/red
 			back = /obj/item/technomancer_core/overcharged
 		if("Brawler")
 			head = /obj/item/clothing/head/wizard/brawler
 			suit = /obj/item/clothing/suit/wizrobe/brawler
-			shoes = /obj/item/clothing/shoes/caligae
+			shoes = /obj/item/clothing/shoes/sandals/caligae
 			back = /obj/item/technomancer_core/bulky
 		if("Shimmer")
 			head = /obj/item/clothing/head/wizard/shimmer
@@ -615,7 +612,7 @@
 		return
 
 	if(!H.shoes)
-		var/fallback_type = pick(/obj/item/clothing/shoes/sandal, /obj/item/clothing/shoes/jackboots/toeless, /obj/item/clothing/shoes/laceup/brown/all_species, /obj/item/clothing/shoes/laceup/all_species)
+		var/fallback_type = pick(/obj/item/clothing/shoes/sandals, /obj/item/clothing/shoes/jackboots/toeless, /obj/item/clothing/shoes/laceup/brown, /obj/item/clothing/shoes/laceup)
 		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes)
 
 	var/obj/item/storage/wallet/W = H.wear_id

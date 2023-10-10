@@ -1,11 +1,6 @@
-/var/datum/controller/subsystem/jobs/SSjobs
-
-#define BE_ASSISTANT 0
-#define RETURN_TO_LOBBY 1
-
 #define Debug(text) if (Debug2) {job_debug += text}
 
-/datum/controller/subsystem/jobs
+SUBSYSTEM_DEF(jobs)
 	// Subsystem stuff.
 	name = "Jobs"
 	flags = SS_NO_FIRE
@@ -25,9 +20,6 @@
 
 	var/safe_to_sanitize = FALSE
 	var/list/deferred_preference_sanitizations = list()
-
-/datum/controller/subsystem/jobs/New()
-	NEW_SS_GLOBAL(SSjobs)
 
 /datum/controller/subsystem/jobs/Initialize()
 	..()
@@ -415,7 +407,7 @@
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 
-	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(show_location_blurb), H.client, 30)
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(show_location_blurb), H.client, 10 SECONDS)
 
 	if(spawning_at == "Arrivals Shuttle")
 		to_chat(H, "<b>[current_map.command_spawn_message]</b>")
@@ -489,8 +481,9 @@
 		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s cryostorage, and depart.</span>", range = 3)
 		DespawnMob(H)
 	else
-		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[current_map.dock_name] Robotic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s robotic storage, and depart.</span>", range = 3)
+		if(!isDrone(H))
+			global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[current_map.dock_name] Robotic Oversight")
+			H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s robotic storage, and depart.</span>", range = 3)
 		DespawnMob(H)
 
 /datum/controller/subsystem/jobs/proc/LoadJobs(jobsfile)
@@ -851,6 +844,7 @@
 	text = uppertext(text)
 
 	var/obj/effect/overlay/T = new()
+	T.icon_state = "nothing"
 	T.maptext_height = 64
 	T.maptext_width = 512
 	T.layer = SCREEN_LAYER+1

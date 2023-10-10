@@ -14,6 +14,9 @@
 	mob_swap_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 
+	/// The type of damage this mob deals.
+	var/damage_type = DAMAGE_BRUTE
+
 	var/show_stat_health = 1	//does the percentage health show in the stat panel for the mob
 
 	var/icon_living = ""
@@ -88,7 +91,7 @@
 	var/armor_penetration = 0
 	var/attack_flags = 0
 	var/attacktext = "attacked"
-	var/attack_sound = null
+	var/attack_sound = /singleton/sound_category/swing_hit_sound
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
 	var/resistance		  = 0	// Damage reduction
@@ -179,7 +182,7 @@
 
 	if(simple_default_language)
 		add_language(simple_default_language)
-		set_default_language(all_languages[simple_default_language])
+		default_language = all_languages[simple_default_language]
 
 	if(dead_on_map)
 		death()
@@ -207,7 +210,7 @@
 	..()
 
 /mob/living/simple_animal/examine(mob/user)
-	..()
+	. =  ..()
 
 	if (stat == DEAD)
 		to_chat(user, "<span class='danger'>It looks dead.</span>")
@@ -465,6 +468,8 @@
 
 //This is called when an animal 'speaks'. It does nothing here, but descendants should override it to add audio
 /mob/living/simple_animal/proc/speak_audio()
+	if(emote_sounds.len)
+		make_noise(TRUE)
 	return
 
 /mob/living/simple_animal/proc/visible_emote(var/act_desc)
@@ -538,7 +543,7 @@
 	simple_harm_attack(user)
 
 /mob/living/simple_animal/proc/simple_harm_attack(var/mob/living/user)
-	apply_damage(harm_intent_damage, DAMAGE_BRUTE, used_weapon = "Attack by [user.name]")
+	apply_damage(harm_intent_damage, damage_type, used_weapon = "Attack by [user.name]")
 	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	poke(TRUE)

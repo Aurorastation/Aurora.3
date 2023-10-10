@@ -115,13 +115,11 @@
 	item_state = "dainshu"
 	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/gurmori
+/obj/item/clothing/shoes/cowboy/gurmori
 	name = "gurmori hide boots"
 	desc = "A pair of hide boots with a shining, scaled appearance, this is produced from the mantle of a Vysokan Gurmori - oftentimes to the memory of a rider's past mount and companion."
-	icon = 'icons/obj/item/clothing/shoes/vysoka_shoes.dmi'
 	icon_state = "gurmori"
 	item_state = "gurmori"
-	contained_sprite = TRUE
 
 /obj/item/clothing/under/vysoka
 	name = "thin temperwear"

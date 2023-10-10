@@ -3,11 +3,7 @@
 #define EXPLFX_SHAKE 1
 #define EXPLFX_NONE 0
 
-var/datum/controller/subsystem/explosives/SSexplosives
-
-// yes, let's move the laggiest part of the game to a process
-// nothing could go wrong -- Lohikar
-/datum/controller/subsystem/explosives
+SUBSYSTEM_DEF(explosives)
 	name = "Explosives"
 	wait = 1
 	flags = SS_NO_INIT | SS_BACKGROUND | SS_POST_FIRE_TIMING
@@ -22,9 +18,6 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	var/explosion_in_progress
 
 	var/mc_notified = FALSE
-
-/datum/controller/subsystem/explosives/New()
-	NEW_SS_GLOBAL(SSexplosives)
 
 /datum/controller/subsystem/explosives/Recover()
 	work_queue = SSexplosives.work_queue
@@ -249,10 +242,10 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	if(!epicenter)
 		return
 
-	message_admins("Explosion with size ([power]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z])")
+	message_admins("Explosion with size ([power]) in area [epicenter.loc.name] ([epicenter.x],[epicenter.y],[epicenter.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[epicenter.x];Y=[epicenter.y];Z=[epicenter.z]'>JMP</a>)")
 	log_game("Explosion with size ([power]) in area [epicenter.loc.name] ")
 
-	log_debug("iexpl: Beginning discovery phase.")
+	LOG_DEBUG("iexpl: Beginning discovery phase.")
 	var/time = world.time
 
 	explosion_in_progress = TRUE
@@ -326,8 +319,8 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 		CHECK_TICK
 
-	log_debug("iexpl: Discovery completed in [(world.time-time)/10] seconds.")
-	log_debug("iexpl: Beginning SFX phase.")
+	LOG_DEBUG("iexpl: Discovery completed in [(world.time-time)/10] seconds.")
+	LOG_DEBUG("iexpl: Beginning SFX phase.")
 	time = world.time
 
 	var/volume = 10 + (power * 20)
@@ -376,8 +369,8 @@ var/datum/controller/subsystem/explosives/SSexplosives
 
 		CHECK_TICK
 
-	log_debug("iexpl: SFX phase completed in [(world.time-time)/10] seconds.")
-	log_debug("iexpl: Beginning application phase.")
+	LOG_DEBUG("iexpl: SFX phase completed in [(world.time-time)/10] seconds.")
+	LOG_DEBUG("iexpl: Beginning application phase.")
 	time = world.time
 
 	var/turf_tally = 0
@@ -412,7 +405,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		turf_tally++
 
 	explosion_in_progress = FALSE
-	log_debug("iexpl: Application completed in [(world.time-time)/10] seconds; processed [turf_tally] turfs and [movable_tally] movables.")
+	LOG_DEBUG("iexpl: Application completed in [(world.time-time)/10] seconds; processed [turf_tally] turfs and [movable_tally] movables.")
 
 #undef SEARCH_DIR
 

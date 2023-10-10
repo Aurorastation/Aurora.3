@@ -38,15 +38,17 @@
 	var/list/supply_name = list("1" = "engine parts", "2" = "hull parts", "3" = "electronic parts", "4" = "food", "5" = "fuel", "6" = "credits")
 	var/list/settlers = list()
 	var/num_traitors = 0
-	var/list/events = list(ORION_TRAIL_RAIDERS		= 3,
-						   ORION_TRAIL_FLUX			= 1,
-						   ORION_TRAIL_ILLNESS		= 3,
-						   ORION_TRAIL_BREAKDOWN	= 2,
-						   ORION_TRAIL_MUTINY		= 3,
-						   ORION_TRAIL_MALFUNCTION	= 2,
-						   ORION_TRAIL_COLLISION	= 1,
-						   ORION_TRAIL_CARP			= 3
-						   )
+	var/list/events = list(
+							ORION_TRAIL_RAIDERS		= 3,
+							ORION_TRAIL_FLUX		= 1,
+							ORION_TRAIL_ILLNESS		= 3,
+							ORION_TRAIL_BREAKDOWN	= 2,
+							ORION_TRAIL_MUTINY		= 3,
+							ORION_TRAIL_MALFUNCTION	= 2,
+							ORION_TRAIL_COLLISION	= 1,
+							ORION_TRAIL_CARP		= 3
+						)
+
 	var/list/stops = list("Pluto","Asteroid Belt","Proxima Centauri","Dead Space","Rigel Prime","Tau Ceti Beta","Black Hole","Space Outpost Beta-9","Orion Prime")
 	var/list/stopblurbs = list(
 		"Pluto, long since occupied with long-range sensors and scanners, stands ready to, and indeed continues to probe the far reaches of the galaxy.",
@@ -497,14 +499,13 @@
 	icon_state = "ship"
 	w_class = ITEMSIZE_SMALL
 	var/active = 0 //if the ship is on
-/obj/item/orion_ship/examine(mob/user)
-	..()
-	if(!(in_range(user, src)))
+
+/obj/item/orion_ship/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 1)
 		return
-	if(!active)
-		to_chat(user, "<span class='notice'>There's a little switch on the bottom. It's flipped down.</span>")
-	else
-		to_chat(user, "<span class='notice'>There's a little switch on the bottom. It's flipped up.</span>")
+	to_chat(user, SPAN_NOTICE("There's a little switch on the bottom. It's flipped [active ? "up" : "down"]."))
+
 /obj/item/orion_ship/attack_self(mob/user)
 	if(active)
 		return

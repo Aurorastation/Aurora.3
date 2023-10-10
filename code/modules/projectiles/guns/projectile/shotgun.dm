@@ -37,7 +37,7 @@
 // called on a SUCCESSFUL saw-off.
 /obj/item/gun/projectile/shotgun/proc/saw_off(mob/user, obj/item/tool)
 	to_chat(user, "<span class='notice'>You attempt to cut [src]'s barrel with [tool], but nothing happens.</span>")
-	log_debug("shotgun: attempt to saw-off shotgun with no saw-off behavior.")
+	LOG_DEBUG("shotgun: attempt to saw-off shotgun with no saw-off behavior.")
 
 /obj/item/gun/projectile/shotgun/pump
 	name = "pump shotgun"
@@ -63,6 +63,8 @@
 	var/recentpump = 0 // to prevent spammage
 	var/rack_sound = /singleton/sound_category/shotgun_pump
 	var/rack_verb = "pump"
+	///Whether the item icon has a cycling animation
+	var/cycle_anim = TRUE
 
 /obj/item/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)
@@ -79,11 +81,13 @@
 
 /obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
 	if(!wielded)
-		if(!do_after(M, 20, TRUE)) // have to stand still for 2 seconds instead of doing it instantly. bad idea during a shootout
+		if(!do_after(M, 2 SECONDS)) // have to stand still for 2 seconds instead of doing it instantly. bad idea during a shootout
 			return
 
 	playsound(M, rack_sound, 60, FALSE)
 	to_chat(M, SPAN_NOTICE("You [rack_verb] \the [src]!"))
+	if(cycle_anim)
+		flick("[icon_state]-cycling", src)
 
 	if(chambered)//We have a shell in the chamber
 		chambered.forceMove(get_turf(src)) //Eject casing
@@ -111,6 +115,7 @@
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/shotgun
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
+	cycle_anim = FALSE
 
 /obj/item/gun/projectile/shotgun/pump/combat/sol
 	name = "solarian combat shotgun"
@@ -120,6 +125,7 @@
 	item_state = "malella"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	cycle_anim = FALSE
 
 /obj/item/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"

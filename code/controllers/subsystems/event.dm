@@ -1,7 +1,4 @@
-var/datum/controller/subsystem/events/SSevents
-
-/datum/controller/subsystem/events
-	// Subsystem stuff.
+SUBSYSTEM_DEF(events)
 	name = "Events"
 	priority = SS_PRIORITY_EVENT
 
@@ -27,9 +24,6 @@ var/datum/controller/subsystem/events/SSevents
 	var/datum/event_meta/new_event = new
 
 	var/initialized = FALSE
-
-/datum/controller/subsystem/events/New()
-	NEW_SS_GLOBAL(SSevents)
 
 /datum/controller/subsystem/events/Initialize()
 	allEvents = subtypesof(/datum/event)
@@ -78,7 +72,7 @@ var/datum/controller/subsystem/events/SSevents
 
 /datum/controller/subsystem/events/proc/event_complete(datum/event/E)
 	if(!E.event_meta || !E.severity)	// datum/event is used here and there for random reasons, maintaining "backwards compatibility"
-		log_debug("SSevents: Event of '[E.type]' with missing meta-data has completed.")
+		LOG_DEBUG("SSevents: Event of '[E.type]' with missing meta-data has completed.")
 		return
 
 	finished_events += E
@@ -89,7 +83,7 @@ var/datum/controller/subsystem/events/SSevents
 	if(EM.add_to_queue)
 		EC.available_events += EM
 
-	log_debug("SSevents: Event '[EM.name]' has completed at [worldtime2text()].")
+	LOG_DEBUG("SSevents: Event '[EM.name]' has completed at [worldtime2text()].")
 
 /datum/controller/subsystem/events/proc/delay_events(severity, delay)
 	var/datum/event_container/EC = event_containers[severity]

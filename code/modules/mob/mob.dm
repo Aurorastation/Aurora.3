@@ -360,19 +360,11 @@
 	mob_win.open()
 
 //mob verbs are faster than object verbs. See http://www.byond.com/forum/?post=1326139&page=2#comment8198716 for why this isn't atom/verb/examine()
-/mob/verb/examinate(atom/A as mob|obj|turf in view())
+/mob/verb/ExaminateVerb(atom/A as mob|obj|turf in view())
 	set name = "Examine"
 	set category = "IC"
 
-	if(!A)
-		return
-
-	if((is_blind() || usr.stat) && !isobserver(src))
-		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
-		return 1
-
-	face_atom(A)
-	A.examine(src)
+	examinate(usr, A)
 
 /mob/proc/can_examine()
 	if(client?.eye == src)
@@ -654,9 +646,8 @@
 		src << browse(null, t1)
 
 	if(href_list["flavor_more"])
-		var/datum/browser/flavor_win = new(usr, name, capitalize_first_letters(name), 500, 250)
-		flavor_win.set_content(replacetext(flavor_text, "\n", "<BR>"))
-		flavor_win.open()
+		var/datum/tgui_module/flavor_text/FT = new /datum/tgui_module/flavor_text(usr, capitalize_first_letters(name), flavor_text)
+		FT.ui_interact(usr)
 
 	if(href_list["accent_tag"])
 		var/datum/accent/accent = SSrecords.accents[href_list["accent_tag"]]
@@ -836,40 +827,50 @@
 				lying = TRUE
 				break
 	else if(!resting && cannot_stand() && can_stand_overridden())
-		lying = 0
-		canmove = 1
+		lying = FALSE
+		lying_is_intentional = FALSE
+		canmove = TRUE
 	else
 		if(istype(buckled_to, /obj/vehicle))
 			var/obj/vehicle/V = buckled_to
 			if(is_physically_disabled())
-				lying = 1
-				canmove = 0
+				lying = TRUE
+				lying_is_intentional = FALSE
+				canmove = FALSE
 				pixel_y = V.mob_offset_y - 5
 			else
 				if(buckled_to.buckle_lying != -1) lying = buckled_to.buckle_lying
-				canmove = 1
+				lying_is_intentional = FALSE
+				canmove = TRUE
 				pixel_y = V.mob_offset_y
 		else if(buckled_to)
-			anchored = 1
-			canmove = 0
+			anchored = TRUE
+			canmove = FALSE
 			if(isobj(buckled_to))
 				if(buckled_to.buckle_lying != -1)
 					lying = buckled_to.buckle_lying
+					lying_is_intentional = FALSE
 				if(buckled_to.buckle_movable)
-					anchored = 0
-					canmove = 1
+					anchored = FALSE
+					canmove = TRUE
 		else if(captured)
-			anchored = 1
-			canmove = 0
-			lying = 0
+			anchored = TRUE
+			canmove = FALSE
+			lying = FALSE
+		else if(m_intent == M_LAY && !incapacitated())
+			lying = TRUE
+			lying_is_intentional = TRUE
+			canmove = TRUE
 		else
 			lying = MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
-			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT)
+			lying_is_intentional = FALSE
+			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 
 	if(lying)
 		density = 0
-		if(l_hand) unEquip(l_hand)
-		if(r_hand) unEquip(r_hand)
+		if(!lying_is_intentional)
+			if(l_hand) unEquip(l_hand)
+			if(r_hand) unEquip(r_hand)
 	else
 		density = initial(density)
 
@@ -1362,29 +1363,29 @@
 	toggle_zone_sel(list(BP_R_ARM,BP_R_HAND))
 
 /client/verb/body_l_arm()
- 	set name = "body-l-arm"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_L_ARM,BP_L_HAND))
+	set name = "body-l-arm"
+	set hidden = 1
+	toggle_zone_sel(list(BP_L_ARM,BP_L_HAND))
 
 /client/verb/body_chest()
- 	set name = "body-chest"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_CHEST))
+	set name = "body-chest"
+	set hidden = 1
+	toggle_zone_sel(list(BP_CHEST))
 
 /client/verb/body_groin()
- 	set name = "body-groin"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_GROIN))
+	set name = "body-groin"
+	set hidden = 1
+	toggle_zone_sel(list(BP_GROIN))
 
 /client/verb/body_r_leg()
- 	set name = "body-r-leg"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_R_LEG,BP_R_FOOT))
+	set name = "body-r-leg"
+	set hidden = 1
+	toggle_zone_sel(list(BP_R_LEG,BP_R_FOOT))
 
 /client/verb/body_l_leg()
- 	set name = "body-l-leg"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
+	set name = "body-l-leg"
+	set hidden = 1
+	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
 
 /client/verb/cycle_target_zone()
 	set name = "cycle-zone"
@@ -1396,40 +1397,6 @@
 		return
 	var/obj/screen/zone_sel/selector = mob.zone_sel
 	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))
-
-/mob/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
-	..()
-	if(assemble_height_string(user))
-		to_chat(user, SPAN_NOTICE(assemble_height_string(user)))
-
-//Height String for examine - Runs on the mob being examined.
-/mob/proc/assemble_height_string(mob/examiner)
-	var/height_string = null
-	var/height_descriptor
-	if(height == HEIGHT_NOT_USED)
-		return height_string
-
-	if(examiner.height == HEIGHT_NOT_USED)
-		return height_string
-
-	switch(height - examiner.height)
-		if(-999 to -100)
-			height_descriptor = "absolutely tiny compared to"
-		if(-99 to -50)
-			height_descriptor = "much smaller than"
-		if(-49 to -11)
-			height_descriptor = "shorter than"
-		if(-10 to 10)
-			height_descriptor = "about the same height as"
-		if(11 to 50)
-			height_descriptor = "taller than"
-		if(51 to 100)
-			height_descriptor = "much larger than"
-		else
-			height_descriptor = "to tower over"
-	if(height_string)
-		return height_string + " [get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
-	return "[get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
 
 /mob/proc/get_speech_bubble_state_modifier()
 	return "normal"

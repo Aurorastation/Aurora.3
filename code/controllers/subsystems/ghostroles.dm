@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/ghostroles/SSghostroles
-
-/datum/controller/subsystem/ghostroles
+SUBSYSTEM_DEF(ghostroles)
 	name = "Ghost Roles"
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_GHOSTROLES
@@ -19,9 +17,6 @@
 	src.spawnpoints = SSghostroles.spawnpoints
 	src.spawners = SSghostroles.spawners
 
-/datum/controller/subsystem/ghostroles/New()
-	NEW_SS_GLOBAL(SSghostroles)
-
 /datum/controller/subsystem/ghostroles/Initialize(start_timeofday)
 	. = ..()
 	for(var/spawner in subtypesof(/datum/ghostspawner))
@@ -29,11 +24,11 @@
 		var/datum/ghostspawner/G = new spawner
 		//Check if we have name, short_name and desc set
 		if(!G.short_name || !G.name || !G.desc)
-			log_ss("ghostroles","Spawner [G.type] got removed from selection because of missing data")
+			log_subsystem_ghostroles("Spawner [G.type] got removed from selection because of missing data")
 			continue
 		//Check if we have a spawnpoint on the current map
 		if(!G.select_spawnlocation(FALSE) && G.loc_type == GS_LOC_POS)
-			log_ss("ghostroles","Spawner [G.type] got removed from selection because of missing spawnpoint")
+			log_subsystem_ghostroles("Spawner [G.type] got removed from selection because of missing spawnpoint")
 			continue
 		spawners[G.short_name] = G
 
@@ -47,7 +42,7 @@
 //Adds a spawnpoint to the spawnpoint list
 /datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/effect/ghostspawpoint/P)
 	if(!P.identifier) //If the spawnpoint has no identifier -> Abort
-		log_ss("ghostroles","Spawner [P] at [P.x],[P.y],[P.z] has no identifier set")
+		log_subsystem_ghostroles_error("Spawner [P] at [P.x],[P.y],[P.z] has no identifier set")
 		qdel(P)
 		return
 
@@ -104,10 +99,10 @@
 			return get_turf(P)
 
 /datum/controller/subsystem/ghostroles/ui_state(mob/user)
-    return always_state
+	return always_state
 
 /datum/controller/subsystem/ghostroles/ui_status(mob/user, datum/ui_state/state)
-    return UI_INTERACTIVE
+	return UI_INTERACTIVE
 
 /datum/controller/subsystem/ghostroles/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

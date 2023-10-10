@@ -53,8 +53,8 @@ var/list/holder_mob_icon_cache = list()
 	return ..()
 
 /obj/item/holder/examine(mob/user)
-	if (contained)
-		contained.examine(user)
+	if(contained)
+		return contained.examine(user)
 
 /obj/item/holder/attack_self()
 	for(var/mob/M in contents)
@@ -607,7 +607,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/fox
 	name = "fox"
-	icon = 'icons/mob/npc/pets.dmi'
+	icon = 'icons/mob/npc/fox.dmi'
 	icon_state = "fox"
 	item_state = "fox"
 	w_class = ITEMSIZE_NORMAL

@@ -2,23 +2,25 @@
 	name = "Coalition of Colonies"
 	desc = "The Coalition of Colonies was born out of the fires of the Interstellar War, the bloodiest war humanity has seen since its dawn as a species. The majority of its citizens prize their freedom above all else, which has led to problems with governance for the Coalition: to this day, it remains a very decentralized and fragmented entity that can only be brought together as a unified front in moments of extreme crisis. But with the recent growth of the Republic of Biesel, retreat of the Solarian Alliance, and an increasingly militaristic Empire of Dominia, perhaps this matter shall change in the years to come."
 	possible_origins = list(
-		/singleton/origin_item/origin/xanu_free_league,
+		/singleton/origin_item/origin/xanu_prime,
 		/singleton/origin_item/origin/himeo,
 		/singleton/origin_item/origin/vysoka,
+		/singleton/origin_item/origin/galatea,
 		/singleton/origin_item/origin/coa_spacer,
 		/singleton/origin_item/origin/gadpathur,
 		/singleton/origin_item/origin/gadpathur_exile,
 		/singleton/origin_item/origin/assunzione,
 		/singleton/origin_item/origin/ncf,
+		/singleton/origin_item/origin/orepit,
 		/singleton/origin_item/origin/other_coalition
 	)
 
-/singleton/origin_item/origin/xanu_free_league
-	name = "Xanu Free League"
-	desc = "The Xanu Free League, and its capital of Xanu Prime, have long been considered some of the most important figures in the Coalition of Colonies. Xanusanii are a diverse body of people that value their freedom highly, and are known throughout the broader Spur as traders. Much of Xanu's surface remains uninhabitable due to damage inflicted upon the planet by the Solarian Alliance during the Interstellar War."
-	possible_accents = list(ACCENT_XANU, ACCENT_COC)
+/singleton/origin_item/origin/xanu_prime
+	name = "Xanu Prime"
+	desc = "Xanu Prime has long been considered one of the most important planets in the Coalition of Colonies, housing its current capital. Xanans are a diverse body of people that value their freedom highly, and are known throughout the broader Spur as traders. Much of Xanu's surface is scarred due to damage inflicted upon the planet by the Solarian Alliance during the Interstellar War."
+	possible_accents = list(ACCENT_XANU)
 	possible_citizenships = CITIZENSHIPS_COALITION
-	possible_religions = RELIGIONS_COALITION
+	possible_religions = list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_STOLITISM, RELIGION_MOROZ, RELIGION_LUCEISM)
 
 /singleton/origin_item/origin/himeo
 	name = "United Syndicates of Himeo"
@@ -36,6 +38,14 @@
 	possible_accents = list(ACCENT_VYSOKA)
 	possible_citizenships = CITIZENSHIPS_COALITION
 	possible_religions = list(RELIGION_NONE, RELIGION_STOLITISM, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_OTHER)
+
+/singleton/origin_item/origin/galatea
+	name = "Federal Technocracy of Galatea"
+	desc = "The Federal Technology of Galatea is an unusual human society which prizes academic knowledge and progress above almost all other things. It is originally descended from a Solarian scientific expedition which was sent to the current Weeping Stars to terraform the Yggdrasil System, and retains a focus on expert guidance. To have a political voice in the Federation, one must have some form of degree, and Galatean academicia is infamously rigorous. The non-degreed population of Galatea is kept in line \
+	through an extensive system of welfare, propaganda, and state surveillance known as the Welfare-Propaganda State. Dissent is rare and confidence in the government is high across the Technocracy. Galatea is widely known for its biotechnology; most of its citizens have some form of biological augmentations, with those lacking them viewed as social oddities. The Federation consists of four member-planets: Galatea, Tsukuyomi, Svarog, and Empyrean."
+	possible_accents = list(ACCENT_GALATEA, ACCENT_TSUKUYOMI, ACCENT_EMPYREAN, ACCENT_SVAROG)
+	possible_citizenships = CITIZENSHIPS_COALITION
+	possible_religions = RELIGIONS_COALITION
 
 /singleton/origin_item/origin/coa_spacer
 	name = "Coalition Offworlders"
@@ -55,7 +65,7 @@
 	origin_traits_descriptions = list("have a small resistance to radiation", "are more sensitive to bright lights")
 
 /singleton/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/human/H)
-  H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
+	H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/gadpathur_exile
 	name = "Gadpathurian Exile"
@@ -67,7 +77,7 @@
 	origin_traits_descriptions = list("have a small resistance to radiation", "are more sensitive to bright lights")
 
 /singleton/origin_item/origin/gadpathur_exile/on_apply(var/mob/living/carbon/human/H)
-  H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
+	H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/assunzione
 	name = "Republic of Assunzione"
@@ -92,3 +102,11 @@
 	possible_accents = list(ACCENT_COC, ACCENT_NCF)
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_COALITION
+
+/singleton/origin_item/origin/orepit
+	name = "Orepit"
+	desc = "The human population of Orepit includes the Native Orepitters, who descend from Hephaestus employees following the abandoned mining mission on the planet, as well as immigrants and pilgrims of the Trinary religion."
+	important_information = "All humans from Orepit are vetted Trinary faithful, and their behaviour should reflect that."
+	possible_accents = list(ACCENT_OREPIT, ACCENT_PROVIDENCE)
+	possible_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_COALITION)
+	possible_religions =  list(RELIGION_TRINARY)

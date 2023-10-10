@@ -335,8 +335,9 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weldingtool/examine(mob/user)
-	if(..(user, 0))
+/obj/item/weldingtool/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 0)
 		to_chat(user, text("[icon2html(src, user)] [] contains []/[] units of fuel!", src.name, get_fuel(),src.max_fuel ))
 
 /obj/item/weldingtool/attackby(obj/item/W, mob/user)
@@ -454,7 +455,7 @@
 				log_and_message_admins("is attempting to welderbomb", user)
 				to_chat(user, SPAN_ALERT("You start heating the fueltank..."))
 				tank.armed = 1
-				if(do_after(user, 100))
+				if(do_after(user, 10 SECONDS, O, DO_UNIQUE))
 					if(tank.defuse)
 						user.visible_message("[user] melts some of the framework on the [O]!", "You melt some of the framework!")
 						tank.defuse = 0
@@ -791,7 +792,7 @@
 
 /obj/item/combitool/examine(var/mob/user)
 	. = ..()
-	if(. && tools.len)
+	if(tools.len)
 		to_chat(user, "It has the following fittings: <b>[english_list(tools)]</b>.")
 
 /obj/item/combitool/iswrench()
@@ -850,7 +851,7 @@
 
 /obj/item/powerdrill/examine(var/mob/user)
 	. = ..()
-	if(. && tools.len)
+	if(tools.len)
 		to_chat(user, "It has the following fittings:")
 		for(var/tool in tools)
 			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")

@@ -739,6 +739,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	return 1
 
 /mob/living/carbon/human/proc/delayed_vomit()
+	if(QDELETED(src))
+		return
+
 	if(!check_has_mouth())
 		return
 	if(stat == DEAD)
@@ -753,9 +756,10 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 		spawn(150)	//15 seconds until second warning
 			to_chat(src, "<span class='warning'>You feel like you are about to throw up!</span>")
 			spawn(100)	//and you have 10 more for mad dash to the bucket
-				empty_stomach()
-				spawn(350)	//wait 35 seconds before next volley
-					lastpuke = 0
+				if(!QDELETED(src))
+					empty_stomach()
+					spawn(350)	//wait 35 seconds before next volley
+						lastpuke = 0
 
 /obj/proc/get_equip_slot()
 	//This function is called by an object which is somewhere on a humanoid mob
@@ -1070,20 +1074,20 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 // It's not worth adding a proc for every single one of these types.
 /mob/living/simple_animal/find_type()
 	. = ..()
-	if (is_type_in_typecache(src, SSmob.mtl_synthetic))
+	if (is_type_in_typecache(src, SSmobs.mtl_synthetic))
 		. |= TYPE_SYNTHETIC
 
-	if (is_type_in_typecache(src, SSmob.mtl_weird))
+	if (is_type_in_typecache(src, SSmobs.mtl_weird))
 		. |= TYPE_WEIRD
 
-	if (is_type_in_typecache(src, SSmob.mtl_incorporeal))
+	if (is_type_in_typecache(src, SSmobs.mtl_incorporeal))
 		. |= TYPE_INCORPOREAL
 
 	// If it's not TYPE_SYNTHETIC, TYPE_WEIRD or TYPE_INCORPOREAL, we can assume it's TYPE_ORGANIC.
 	if (!(. & (TYPE_SYNTHETIC|TYPE_WEIRD|TYPE_INCORPOREAL)))
 		. |= TYPE_ORGANIC
 
-	if (is_type_in_typecache(src, SSmob.mtl_humanoid))
+	if (is_type_in_typecache(src, SSmobs.mtl_humanoid))
 		. |= TYPE_HUMANOID
 
 #undef SAFE_PERP
@@ -1219,12 +1223,6 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	client.init_verbs()
 	return src
 
-/mob/proc/get_standard_pixel_x()
-	return initial(pixel_x)
-
-/mob/proc/get_standard_pixel_y()
-	return initial(pixel_y)
-
 /mob/proc/remove_nearsighted()
 	disabilities &= ~NEARSIGHTED
 
@@ -1300,6 +1298,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 
 /mob/proc/get_talk_bubble()
 	return 'icons/mob/talk.dmi'
+
+/mob/proc/adjust_typing_indicator_offsets(var/atom/movable/typing_indicator/indicator)
+	return
 
 /datum/proc/get_client()
 	return null

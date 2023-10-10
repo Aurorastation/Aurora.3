@@ -156,7 +156,8 @@
 		new /datum/computer_file/program/aidiag(comp),
 		new /datum/computer_file/program/chemistry_codex(comp),
 		new /datum/computer_file/program/scanner/science(comp),
-		new /datum/computer_file/program/scanner/gas(comp)
+		new /datum/computer_file/program/scanner/gas(comp),
+		new /datum/computer_file/program/away_manifest(comp)
 	)
 	return _prg_list
 
@@ -179,6 +180,7 @@
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/chemistry_codex(comp),
 		new /datum/computer_file/program/scanner/science(comp),
+		new /datum/computer_file/program/away_manifest(comp),
 		new /datum/computer_file/program/scanner/gas(comp)
 	)
 	return _prg_list
@@ -200,6 +202,7 @@
 		new /datum/computer_file/program/card_mod(comp),
 		new /datum/computer_file/program/comm(comp, TRUE),
 		new /datum/computer_file/program/docks(comp),
+		new /datum/computer_file/program/away_manifest(comp),
 		new /datum/computer_file/program/records/employment(comp)
 	)
 	return _prg_list
@@ -262,6 +265,7 @@
 		new /datum/computer_file/program/card_mod(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
 		new /datum/computer_file/program/docks(comp),
+		new /datum/computer_file/program/away_manifest(comp),
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/records/security(comp)
 	)
@@ -283,6 +287,7 @@
 		new /datum/computer_file/program/card_mod(comp),
 		new /datum/computer_file/program/comm(comp, TRUE),
 		new /datum/computer_file/program/docks(comp),
+		new /datum/computer_file/program/away_manifest(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/digitalwarrant(comp),
 		new /datum/computer_file/program/penal_mechs(comp),
@@ -471,7 +476,8 @@
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/civilian/cargocontrol(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
-		new /datum/computer_file/program/civilian/cargodelivery(comp)
+		new /datum/computer_file/program/civilian/cargodelivery(comp),
+		new /datum/computer_file/program/away_manifest(comp)
 	)
 	return _prg_list
 
@@ -492,7 +498,8 @@
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/civilian/cargodelivery(comp),
 		new /datum/computer_file/program/comm(comp, FALSE),
-		new /datum/computer_file/program/docks(comp)
+		new /datum/computer_file/program/docks(comp),
+		new /datum/computer_file/program/away_manifest(comp)
 	)
 	return _prg_list
 
@@ -651,6 +658,17 @@
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/chat_client(comp),
 		new /datum/computer_file/program/merchant/guild(comp)
+	)
+	return _prg_list
+
+
+/datum/modular_computer_app_presets/merchant/golden_deep/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/chat_client(comp),
+		new /datum/computer_file/program/merchant/golden_deep(comp)
 	)
 	return _prg_list
 

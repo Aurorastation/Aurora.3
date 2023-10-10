@@ -40,7 +40,10 @@
 	var/prone_icon                                       // If set, draws this from icobase when mob is prone.
 	var/icon_x_offset = 0
 	var/icon_y_offset = 0
+	var/typing_indicator_x_offset = 0
+	var/typing_indicator_y_offset = 0
 	var/floating_chat_x_offset = null
+	var/floating_chat_y_offset = null
 	var/eyes = "eyes_s"                                  // Icon for eyes.
 	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
@@ -156,8 +159,7 @@
 	var/hazard_low_pressure = HAZARD_LOW_PRESSURE     // Dangerously low pressure.
 	var/light_dam                                     // If set, mob will be damaged in light over this value and heal in light below its negative.
 	var/breathing_sound = 'sound/voice/monkey.ogg'    // If set, this mob will have a breathing sound.
-	var/body_temperature = 310.15	                  // Non-IS_SYNTHETIC species will try to stabilize at this temperature.
-	                                                  // (also affects temperature processing)
+	var/body_temperature = 310.15	                  // Non-IS_SYNTHETIC species will try to stabilize at this temperature. (also affects temperature processing)
 
 	var/heat_discomfort_level = 315                   // Aesthetic messages about feeling warm.
 	var/cold_discomfort_level = 285                   // Aesthetic messages about feeling chilly.
@@ -236,24 +238,24 @@
 	var/max_hydration_factor = 1	//Multiplier on maximum thirst
 	var/hydration_loss_factor = 1	//Multiplier on passive thirst losses
 
-	                              // Determines the organs that the species spawns with and
+	///Determines the organs that the species spawns with and
 	var/list/has_organ = list(    // which required-organ checks are conducted.
+		BP_BRAIN =    /obj/item/organ/internal/brain,
+		BP_EYES =     /obj/item/organ/internal/eyes,
 		BP_HEART =    /obj/item/organ/internal/heart,
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
 		BP_LIVER =    /obj/item/organ/internal/liver,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
 		BP_STOMACH =  /obj/item/organ/internal/stomach,
-		BP_BRAIN =    /obj/item/organ/internal/brain,
-		BP_APPENDIX = /obj/item/organ/internal/appendix,
-		BP_EYES =     /obj/item/organ/internal/eyes
+		BP_APPENDIX = /obj/item/organ/internal/appendix
 		)
 	var/vision_organ              // If set, this organ is required for vision. Defaults to BP_EYES if the species has them.
 	var/breathing_organ           // If set, this organ is required to breathe. Defaults to BP_LUNGS if the species has them.
 
 	var/list/has_limbs = list(
+		BP_HEAD =   list("path" = /obj/item/organ/external/head),
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg),
@@ -294,6 +296,13 @@
 	var/list/possible_speech_bubble_types = list("normal")
 
 	var/use_alt_hair_layer = FALSE
+
+	/// Species psionics. FALSE for no psionics. Otherwise, set to the PSI_RANK define you want.
+	var/has_psionics = FALSE
+	/// Number of psi points in character creation.
+	var/character_creation_psi_points = 0
+	/// Is this species psionically deaf?
+	var/psi_deaf = FALSE
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -470,6 +479,8 @@
 	if(!H.client || !H.client.prefs || !H.client.prefs.gender)
 		H.gender = pick(default_genders)
 		H.pronouns = H.gender
+	if(has_psionics)
+		H.set_psi_rank(has_psionics)
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
@@ -598,7 +609,7 @@
 	if(H.is_drowsy())
 		cost *= 1.25
 	if (H.stamina == -1)
-		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
+		LOG_DEBUG("Error: Species with special sprint mechanics has not overridden cost function.")
 		return 0
 
 	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
@@ -739,11 +750,8 @@
 /datum/species/proc/get_digestion_product()
 	return /singleton/reagent/nutriment
 
-/datum/species/proc/can_commune()
-	return FALSE
-
-/datum/species/proc/has_psi_potential()
-	return TRUE
+/datum/species/proc/has_psionics()
+	return has_psionics
 
 /datum/species/proc/handle_despawn()
 	return

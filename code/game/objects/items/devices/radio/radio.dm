@@ -23,6 +23,16 @@ var/global/list/default_medbay_channels = list(
 	num2text(MED_I_FREQ) = list(access_medical_equip)
 )
 
+var/global/list/default_expedition_channels = list(
+	num2text(PUB_FREQ) = list(),
+	num2text(EXP_FREQ) = list(),
+	num2text(HAIL_FREQ) = list()
+)
+
+var/global/list/default_interrogation_channels = list(
+	num2text(INT_FREQ) = list()
+)
+
 //
 // Radios
 //
@@ -505,9 +515,9 @@ var/global/list/default_medbay_channels = list(
 	return get_hearers_in_view(canhear_range, src)
 
 
-/obj/item/device/radio/examine(mob/user)
+/obj/item/device/radio/examine(mob/user, distance, is_adjacent)
 	. = ..()
-	if(show_modify_on_examine && (in_range(src, user) || loc == user))
+	if(show_modify_on_examine && (distance <= 1))
 		if (b_stat)
 			user.show_message("<span class='notice'>\The [src] can be attached and modified!</span>")
 		else

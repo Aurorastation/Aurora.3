@@ -120,6 +120,7 @@
 	if(internal_organs)
 		for(var/obj/item/organ/O in internal_organs)
 			qdel(O)
+	QDEL_NULL_LIST(implants)
 
 	infect_target_internal = null
 	infect_target_external = null
@@ -153,9 +154,9 @@
 		return //no eating the limb until everything's been removed
 	return ..()
 
-/obj/item/organ/external/examine()
-	..()
-	if(in_range(usr, src) || istype(usr, /mob/abstract/observer))
+/obj/item/organ/external/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		for(var/obj/item/I in contents)
 			if(istype(I, /obj/item/organ))
 				continue
@@ -267,7 +268,7 @@
 	owner.update_action_buttons()
 
 /****************************************************
-			   DAMAGE PROCS
+					DAMAGE PROCS
 ****************************************************/
 
 /obj/item/organ/external/proc/is_damageable(var/additional_damage = 0)
@@ -284,7 +285,25 @@
 	var/laser = (damage_flags & DAMAGE_FLAG_LASER)
 	var/sharp = (damage_flags & DAMAGE_FLAG_SHARP)
 	var/edge = (damage_flags & DAMAGE_FLAG_EDGE)
+	var/psionic = HAS_FLAG(damage_flags, DAMAGE_FLAG_PSIONIC)
 	var/blunt = !!(brute && !sharp && !edge)
+
+	/// Psionics and psionically deaf species take varying amounts of damage from psionic abilities.
+	if(psionic)
+		if(!owner.has_psionics())
+			brute *= 0.9
+			burn *= 0.9
+		else if(owner.psi)
+			var/psi_rank = owner.psi.get_rank()
+			if(psi_rank == PSI_RANK_SENSITIVE)
+				brute *= 1.05
+				burn *= 1.05
+			else if(psi_rank == PSI_RANK_HARMONIOUS)
+				brute *= 1.1
+				burn *= 1.1
+			else if(psi_rank == PSI_RANK_APEX)
+				brute *= 1.2
+				burn *= 1.2
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
 		if(owner && (owner.can_feel_pain()) && owner.stat == CONSCIOUS)
@@ -550,7 +569,7 @@ This function completely restores a damaged organ to perfect condition.
 			wounds += W
 
 /****************************************************
-			   PROCESSING & UPDATING
+				PROCESSING & UPDATING
 ****************************************************/
 
 //external organs handle brokenness a bit differently when it comes to damage. Instead brute_dam is checked inside process()
@@ -897,7 +916,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return "[tbrute][tburn]"
 
 /****************************************************
-			   DISMEMBERMENT
+					DISMEMBERMENT
 ****************************************************/
 
 /obj/item/organ/external/proc/post_droplimb(mob/living/carbon/human/victim)
@@ -968,7 +987,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			M.Turn(rand(180))
 			src.transform = M
 			if(!clean)
-				 //Throw limb around.
+				//Throw limb around.
 				if(src && isturf(loc))
 					INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src,pick(alldirs)), rand(1,3), 4)
 				dir = 2
@@ -1003,7 +1022,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			qdel(src)
 
 /****************************************************
-			   HELPERS
+						HELPERS
 ****************************************************/
 
 /obj/item/organ/external/proc/is_stump()

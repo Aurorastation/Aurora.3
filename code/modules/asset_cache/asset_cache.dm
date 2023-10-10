@@ -449,11 +449,10 @@ var/list/asset_datums = list()
 /datum/asset/simple/namespaced/fontawesome
 	legacy = TRUE
 	assets = list(
-		"fa-regular-400.eot"  = 'html/font-awesome/webfonts/fa-regular-400.eot',
-		"fa-regular-400.woff" = 'html/font-awesome/webfonts/fa-regular-400.woff',
-		"fa-solid-900.eot"    = 'html/font-awesome/webfonts/fa-solid-900.eot',
-		"fa-solid-900.woff"   = 'html/font-awesome/webfonts/fa-solid-900.woff',
-		"v4shim.css"          = 'html/font-awesome/css/v4-shims.min.css'
+		"fa-regular-400.ttf" = 'html/font-awesome/webfonts/fa-regular-400.ttf',
+		"fa-solid-900.ttf" = 'html/font-awesome/webfonts/fa-solid-900.ttf',
+		"fa-v4compatibility.ttf" = 'html/font-awesome/webfonts/fa-v4compatibility.ttf',
+		"v4shim.css" = 'html/font-awesome/css/v4-shims.min.css',
 	)
 	parents = list("font-awesome.css" = 'html/font-awesome/css/all.min.css')
 	cross_round_cachable = TRUE
@@ -568,6 +567,8 @@ var/list/asset_datums = list()
 		"raskara.png" = 'html/images/scans/exoplanets/raskara.png',
 		"comet.png" = 'html/images/scans/exoplanets/comet.png',
 		"asteroid.png" = 'html/images/scans/exoplanets/asteroid.png',
+		"konyang.png" = 'html/images/scans/exoplanets/konyang.png',
+		"konyang_point_verdant.png" = 'html/images/scans/exoplanets/konyang_point_verdant.png',
 		//end scan images
 		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
 		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',
@@ -661,7 +662,7 @@ var/list/asset_datums = list()
 /datum/asset/spritesheet/chem_master
 	name = "chemmaster"
 	cross_round_cachable = FALSE
-	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4", "bottle-5", "bottle-6")
+	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4")
 	var/max_pill_sprite = 20
 
 /datum/asset/spritesheet/chem_master/register()
@@ -669,7 +670,7 @@ var/list/asset_datums = list()
 		Insert("pill[i]", 'icons/obj/chemical.dmi', "pill[i]")
 
 	for (var/sprite in bottle_sprites)
-		Insert(sprite, icon('icons/obj/chemical.dmi', sprite))
+		Insert(sprite, icon('icons/obj/item/reagent_containers/glass.dmi', sprite))
 	return ..()
 
 /datum/asset/spritesheet/accents

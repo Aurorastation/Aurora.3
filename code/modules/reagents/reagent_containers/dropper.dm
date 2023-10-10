@@ -2,11 +2,8 @@
 	name = "dropper"
 	desc = "A dropper. It has a volume of 5 units."
 	desc_info = "Alt Click or Activate this item to change transfer rate."
-	icon = 'icons/obj/chemical.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
+	icon = 'icons/obj/item/reagent_containers/dropper.dmi'
+	contained_sprite = TRUE
 	icon_state = "dropper"
 	item_state = "dropper"
 	filling_states = "10;25;50;75;100"
@@ -99,15 +96,14 @@
 	cut_overlays()
 	if(reagents.total_volume)
 		worn_overlay = "filling"
-		add_overlay(overlay_image('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]", color = reagents.get_color()))
+		add_overlay(overlay_image(icon, "dropper-[get_filling_state()]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
-		update_held_icon()
 	else
 		worn_overlay = null
-		update_held_icon()
+	update_held_icon()
 
 /obj/item/reagent_containers/dropper/examine(mob/user)
-	..(user)
+	. = ..()
 	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, SPAN_NOTICE("\The [src] is holding [reagents.total_volume] units out of [volume]. Current transfer is [amount_per_transfer_from_this] units."))
 	else
@@ -116,11 +112,6 @@
 /obj/item/reagent_containers/dropper/electronic_pipette
 	name = "electronic pipette"
 	desc = "A laboratory standard electronic pipette, designed for a finer and more precise transfer rate of substances with a volume of 5 units."
-	icon = 'icons/obj/chemical.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
 	icon_state = "electronic_pipette"
 	item_state = "electronic_pipette"
 	amount_per_transfer_from_this = 5

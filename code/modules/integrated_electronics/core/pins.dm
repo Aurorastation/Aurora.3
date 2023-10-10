@@ -12,8 +12,8 @@ A [2]\      /[8] result
 B [1]-\|++|/
 C [4]-/|++|
 D [1]/  ||
-        ||
-     Activator
+		||
+	Activator
 
 
 
@@ -33,7 +33,7 @@ D [1]/  ||
 	holder = newloc
 	if(!istype(holder))
 		message_admins("ERROR: An integrated_io ([src.name]) spawned without a valid holder!  This is a bug.")
-		log_debug("ERROR: An integrated_io ([src.name]) spawned without a valid holder!  This is a bug.")
+		LOG_DEBUG("ERROR: An integrated_io ([src.name]) spawned without a valid holder!  This is a bug.")
 
 /datum/integrated_io/Destroy()
 	disconnect()

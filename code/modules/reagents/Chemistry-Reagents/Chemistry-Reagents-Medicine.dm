@@ -768,6 +768,28 @@
 	M.make_dizzy(5)
 	M.adjustToxLoss(1) //Antibodies start fighting your body
 
+/singleton/reagent/cytophenolate
+	name = "Cytophenolate"
+	description =  "A general-purpose immunosuppressant capable of treating organ rejections. Calms down the immune system, but also drastically reduces the effectiveness of antibiotics while in the body, making one more susceptible to infection."
+	reagent_state = LIQUID
+	color = "#337758"
+	od_minimum_dose = 1
+	overdose = REAGENTS_OVERDOSE
+	scannable = TRUE
+	metabolism = REM * 0.25
+	taste_description = "bitter vegetables"
+
+/singleton/reagent/cytophenolate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(check_min_dose(M, 0.25))
+		M.add_chemical_effect(CE_ANTIIMMUNE, M.chem_doses[type])
+
+/singleton/reagent/cytophenolate/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	to_chat(M, SPAN_WARNING("You feel extremely weak."))
+	M.dizziness = max(150, M.dizziness)
+	M.make_dizzy(5)
+	M.AdjustWeakened(5)
+	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/8)
+
 /singleton/reagent/asinodryl
 	name = "Asinodryl"
 	description = "Asinodryl is an anti-emetic medication which acts by preventing the two regions in the brain responsible for vomiting from controlling the act of emesis."
@@ -1585,7 +1607,7 @@
 /singleton/reagent/kilosemine
 	name = "Kilosemine"
 	description = "An illegal stimulant, known by specialists for its properties that somehow mix the effects of Synaptizine and Hyperzine without the immediate side \
-				   effects. It is unknown how and where this chemical was created; some speculate that it was created in Fisanduh for use by radical terrorist cells."
+					effects. It is unknown how and where this chemical was created; some speculate that it was created in Fisanduh for use by radical terrorist cells."
 	reagent_state = SOLID
 	scannable = TRUE
 	color = "#EE4B2B"
@@ -1618,7 +1640,7 @@
 	var/mob/living/carbon/human/H = M
 	if(prob(H.chem_doses[type] / 2))
 		to_chat(H, SPAN_WARNING(pick("You feel like you're on limited time...", "Something in the left side of your chest feels like it's bursting!",
-									 "You feel like today is your last day, and you should make it count...")))
+										"You feel like today is your last day, and you should make it count...")))
 	if(prob(H.chem_doses[type] / 3))
 		if(prob(75))
 			H.emote(pick("twitch", "shiver"))

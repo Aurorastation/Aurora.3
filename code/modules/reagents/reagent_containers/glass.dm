@@ -5,7 +5,7 @@
 /obj/item/reagent_containers/glass
 	name = " "
 	desc = " "
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = null
 	item_state = null
 	amount_per_transfer_from_this = 10
@@ -24,8 +24,9 @@
 	. = ..()
 	AddComponent(/datum/component/base_name, name)
 
-/obj/item/reagent_containers/glass/examine(var/mob/user)
-	if(!..(user, 2))
+/obj/item/reagent_containers/glass/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance > 2)
 		return
 	if(LAZYLEN(reagents.reagent_volumes))
 		to_chat(user, SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of a reagent."))
@@ -39,7 +40,7 @@
 				break
 			if(T.reagent_state == SOLID)
 				to_chat(user, SPAN_NOTICE("You see something solid in the beaker."))
-				break 
+				break
 	else
 		to_chat(user, SPAN_NOTICE("It is empty."))
 	if(!is_open_container())
@@ -98,15 +99,11 @@
 /obj/item/reagent_containers/glass/beaker
 	name = "beaker"
 	desc = "A beaker."
-	icon = 'icons/obj/chemical.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
-		)
+	contained_sprite = TRUE
 	icon_state = "beaker"
 	item_state = "beaker"
 	filling_states = "20;40;60;80;100"
-	center_of_mass = list("x" = 15,"y" = 11)
+	center_of_mass = list("x" = 16,"y" = 13)
 	matter = list(MATERIAL_GLASS = 500)
 	drop_sound = 'sound/items/drop/drinkglass.ogg'
 	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
@@ -138,7 +135,7 @@
 	cut_overlays()
 
 	if(reagents?.total_volume)
-		var/mutable_appearance/filling = mutable_appearance('icons/obj/reagentfillings.dmi', "[icon_state]-[get_filling_state()]")
+		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
@@ -156,7 +153,7 @@
 	name = "large beaker"
 	desc = "A large beaker."
 	icon_state = "beakerlarge"
-	center_of_mass = list("x" = 16,"y" = 11)
+	center_of_mass = list("x" = 17,"y" = 14)
 	matter = list(MATERIAL_GLASS = 5000)
 	volume = 120
 	amount_per_transfer_from_this = 10
@@ -178,7 +175,7 @@
 	name = "bluespace beaker"
 	desc = "A bluespace beaker, powered by experimental bluespace technology."
 	icon_state = "beakerbluespace"
-	center_of_mass = list("x" = 16,"y" = 11)
+	center_of_mass = list("x" = 16,"y" = 15)
 	matter = list(MATERIAL_PHORON = 1000, MATERIAL_DIAMOND = 100)
 	volume = 300
 	amount_per_transfer_from_this = 10
@@ -189,7 +186,8 @@
 	name = "vial"
 	desc = "A small glass vial."
 	icon_state = "vial"
-	center_of_mass = list("x" = 15,"y" = 9)
+	item_state = "dropper"
+	center_of_mass = list("x" = 16,"y" = 16)
 	matter = list(MATERIAL_GLASS = 250)
 	volume = 30
 	amount_per_transfer_from_this = 10
@@ -201,7 +199,7 @@
 	desc = "A glass medicine cup. Like a shot glass for medicine."
 	icon_state = "medcup"
 	filling_states = "25;50;75;100"
-	center_of_mass = list("x" = 15,"y" = 9)
+	center_of_mass = list("x" = 16,"y" = 13)
 	matter = list(MATERIAL_GLASS = 250)
 	volume = 15
 	amount_per_transfer_from_this = 5
@@ -214,6 +212,26 @@
 /obj/item/reagent_containers/glass/beaker/cryoxadone/reagents_to_add = list(/singleton/reagent/cryoxadone = 30)
 
 /obj/item/reagent_containers/glass/beaker/sulphuric/reagents_to_add = list(/singleton/reagent/acid = 60)
+
+/obj/item/reagent_containers/glass/beaker/teapot
+	name = "teapot"
+	desc = "An elegant teapot. It simply oozes class."
+	icon_state = "teapot"
+	item_state = "teapot"
+	unacidable = TRUE
+	amount_per_transfer_from_this = 10
+	volume = 120
+
+/obj/item/reagent_containers/glass/beaker/pitcher
+	name = "pitcher"
+	desc = "Everyone's best friend in the morning."
+	icon_state = "coffeepot"
+	unacidable = TRUE
+	amount_per_transfer_from_this = 10
+	volume = 120
+	possible_transfer_amounts = list(5,10,15,30,60,120)
+
+// buckets
 
 /obj/item/reagent_containers/glass/bucket
 	desc = "A blue plastic bucket."
@@ -274,7 +292,6 @@
 
 /obj/item/reagent_containers/glass/bucket/self_feed_message(var/mob/user)
 	to_chat(user, "<span class='notice'>You drink heavily from \the [src].</span>")
-
 
 /obj/item/reagent_containers/glass/bucket/wood
 	desc = "An old wooden bucket."

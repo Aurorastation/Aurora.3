@@ -115,7 +115,7 @@
 /obj/machinery/sleeper/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "Sleeper", "Sleeper", 1200, 800)
+		ui = new(user, src, "Sleeper", "Sleeper", 450, 500)
 		ui.open()
 
 /obj/machinery/sleeper/ui_data(mob/user)
@@ -335,7 +335,7 @@
 		else
 			visible_message("\The [user] starts putting [M] into \the [src].")
 
-	if(do_after(user, 20))
+	if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 		if(occupant)
 			to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
 			return
@@ -364,6 +364,10 @@
 	update_icon()
 	toggle_filter()
 	toggle_pump()
+
+/obj/machinery/sleeper/AltClick()
+	if(use_check_and_message(usr))
+		go_out()
 
 /obj/machinery/sleeper/proc/remove_beaker()
 	if(beaker)

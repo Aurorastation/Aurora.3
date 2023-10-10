@@ -12,7 +12,7 @@
 
 	if(stat == DEAD)
 		var/genetic_damage = getCloneLoss()
-		if(genetic_damage > 100)
+		if(genetic_damage > 100 && !(HAS_FLAG(mutations, SKELETON))) //They need flesh to slough off
 			visible_message(SPAN_WARNING("\The [src]'s flesh sloughs off [get_pronoun("his")] body into a puddle of viscera and goop."), SPAN_WARNING("Your flesh sloughs off your body into a puddle of viscera and goop."), range = 5)
 			ChangeToSkeleton(FALSE)
 		else
@@ -362,7 +362,7 @@ This function restores the subjects blood to max.
 /mob/living/carbon/human/proc/restore_blood()
 	if(!(species.flags & NO_BLOOD))
 		var/total_blood = REAGENT_VOLUME(vessel, /singleton/reagent/blood)
-		vessel.add_reagent(/singleton/reagent/blood,560.0-total_blood, temperature = species.body_temperature)
+		vessel.add_reagent(/singleton/reagent/blood, species.blood_volume - total_blood, temperature = species.body_temperature)
 
 
 /*

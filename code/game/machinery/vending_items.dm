@@ -14,7 +14,7 @@
 	var/charges = 0
 
 /obj/item/device/vending_refill/examine(mob/user)
-	..()
+	. = ..()
 	if(charges > 0)
 		to_chat(user, "It can restock [charges] item(s).")
 	else

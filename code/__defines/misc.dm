@@ -11,6 +11,10 @@
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 #define RUIN_MAP_EDGE_PAD 15
 
+/// Occupation preferences.
+#define BE_ASSISTANT 0
+#define RETURN_TO_LOBBY 1
+
 // Invisibility constants.
 #define INVISIBILITY_LIGHTING		20
 #define INVISIBILITY_LEVEL_ONE		35
@@ -277,10 +281,10 @@
 
 //supposedly the fastest way to do this according to https://gist.github.com/Giacom/be635398926bb463b42a
 #define RANGE_TURFS(RADIUS, CENTER) \
-  block( \
-    locate(max(CENTER.x-(RADIUS),1),          max(CENTER.y-(RADIUS),1),          CENTER.z), \
-    locate(min(CENTER.x+(RADIUS),world.maxx), min(CENTER.y+(RADIUS),world.maxy), CENTER.z) \
-  )
+	block( \
+		locate(max(CENTER.x-(RADIUS),1),          max(CENTER.y-(RADIUS),1),          CENTER.z), \
+		locate(min(CENTER.x+(RADIUS),world.maxx), min(CENTER.y+(RADIUS),world.maxy), CENTER.z) \
+	)
 
 #define get_turf(A) (get_step(A, 0))
 #define NORTH_OF_TURF(T)	locate(T.x, T.y + 1, T.z)
@@ -379,7 +383,7 @@
 #define GFI_ROTATION_OVERDIR 2 //Layers will have overidden direction
 
 // The pixel_(x|y) offset that will be used by default by wall items, such as APCs or Fire Alarms.
-#define DEFAULT_WALL_OFFSET 28
+#define DEFAULT_WALL_OFFSET 22 // Don't touch this unless you're going to work with walls in a major way.
 
 // Defines for translating a dir into pixelshifts for wall items
 #define DIR2PIXEL_X(dir) ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? DEFAULT_WALL_OFFSET : -(DEFAULT_WALL_OFFSET)))
@@ -387,10 +391,10 @@
 
 /*
 Define for getting a bitfield of adjacent turfs that meet a condition.
- ORIGIN is the object to step from, VAR is the var to write the bitfield to
- TVAR is the temporary turf variable to use, FUNC is the condition to check.
- FUNC generally should reference TVAR.
- example:
+ORIGIN is the object to step from, VAR is the var to write the bitfield to
+TVAR is the temporary turf variable to use, FUNC is the condition to check.
+FUNC generally should reference TVAR.
+example:
 	var/turf/T
 	var/result = 0
 	CALCULATE_NEIGHBORS(src, result, T, isopenturf(T))
@@ -523,3 +527,6 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define TRANSFER_EMERGENCY "emergency transfer"
 #define TRANSFER_JUMP "bluespace jump"
 #define TRANSFER_CREW "crew transfer"
+
+/// Gyrotron power usage modifier.
+#define GYRO_POWER 25000

@@ -12,8 +12,10 @@
 	var/destroyed_stack_amount //to specify a non-zero amount of stack to drop when destroyed
 	var/health = 100 //Pretty tough. Changes sprites at 300 and 150
 	var/maxhealth = 100 //Basic code functions
-	 /// Used for calculating some stuff related to maxhealth as it constantly changes due to e.g. barbed wire. set to 100 to avoid possible divisions by zero
+
+	///Used for calculating some stuff related to maxhealth as it constantly changes due to e.g. barbed wire. set to 100 to avoid possible divisions by zero
 	var/starting_maxhealth = 100
+
 	var/force_level_absorption = 5 //How much force an item needs to even damage it at all.
 	var/barricade_hitsound
 	var/barricade_type = "barricade" //"metal", "plasteel", etc.
@@ -30,7 +32,7 @@
 	starting_maxhealth = maxhealth
 
 /obj/structure/barricade/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum efficiency."))
 	if(is_wired)
 		to_chat(user, SPAN_INFO("There is a length of wire strewn across the top of this barricade."))
@@ -146,7 +148,7 @@
 		if(can_wire)
 			user.visible_message(SPAN_NOTICE("[user] starts setting up [W.name] on [src]."),
 			SPAN_NOTICE("You start setting up [W.name] on [src]."))
-			if(do_after(user, 20, act_target = src) && can_wire)
+			if(do_after(user, 20, src, DO_REPAIR_CONSTRUCT) && can_wire)
 				// Make sure there's still enough wire in the stack
 				if(!B.use(1))
 					return
@@ -167,7 +169,7 @@
 		if(is_wired)
 			user.visible_message(SPAN_NOTICE("[user] begin removing the barbed wire on [src]."),
 			SPAN_NOTICE("You begin removing the barbed wire on [src]."))
-			if(do_after(user, 20, act_target = src))
+			if(do_after(user, 20, src, DO_REPAIR_CONSTRUCT))
 				if(!is_wired)
 					return
 

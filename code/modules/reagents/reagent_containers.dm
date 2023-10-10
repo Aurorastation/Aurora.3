@@ -100,7 +100,7 @@
 		dipped.attempt_apply_coating(src, user)
 		return
 	if(!(W.flags & NOBLUDGEON) && (user.a_intent == I_HURT) && fragile && (W.force > fragile))
-		if(do_after(user, 10))
+		if(do_after(user, 1 SECOND, src))
 			if(!QDELETED(src))
 				visible_message(SPAN_WARNING("[user] smashes [src] with \a [W]!"))
 				user.do_attack_animation(src)
@@ -115,7 +115,7 @@
 		return ..()
 
 /obj/item/reagent_containers/afterattack(var/atom/target, var/mob/user, var/proximity, var/params)
-	if(!proximity || !is_open_container())
+	if(!proximity || (!is_open_container() && !is_pour_container()))
 		return
 	if(is_type_in_list(target,can_be_placed_into))
 		return

@@ -24,6 +24,16 @@
 	icon_keyboard = null
 	circuit = null
 
+/obj/machinery/computer/ship/helm/terminal
+	name = "helm control terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "helm"
+	icon_keyboard = "security_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 /obj/machinery/computer/ship/helm/Initialize()
 	. = ..()
 	get_known_sectors()
@@ -120,14 +130,15 @@
 		data["sector"] = current_sector ? current_sector.name : "Deep Space"
 		data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
 		data["landed"] = connected.get_landed_info()
-		data["s_x"] = connected.x
-		data["s_y"] = connected.y
+		data["ship_coord_x"] = connected.x
+		data["ship_coord_y"] = connected.y
 		data["dest"] = dy && dx
-		data["d_x"] = dx
-		data["d_y"] = dy
+		data["autopilot_x"] = dx
+		data["autopilot_y"] = dy
 		data["speedlimit"] = speedlimit ? speedlimit*1000 : "Halted"
 		data["accel"] = get_acceleration()
 		data["heading"] = connected.get_heading() ? dir2angle(connected.get_heading()) : 0
+		data["direction"] = dir2angle(connected.dir)
 		data["autopilot"] = autopilot
 		data["manual_control"] = viewing_overmap(user)
 		data["canburn"] = connected.can_burn()
@@ -142,6 +153,9 @@
 			data["speed_slow"] = TRUE
 		if(connected.get_speed() > SHIP_SPEED_FAST)
 			data["speed_fast"] = TRUE
+		var/list/speed_xy = connected.get_speed_xy()
+		data["ship_speed_x"] = speed_xy[1]
+		data["ship_speed_y"] = speed_xy[2]
 
 		data["ETAnext"] = get_eta()
 
@@ -171,22 +185,22 @@
 
 /obj/machinery/computer/ship/helm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
-		return TOPIC_HANDLED
+		return TRUE
 
 	if(!connected)
-		return TOPIC_HANDLED
+		return TRUE
 
 	if(action == "add")
 		var/datum/computer_file/data/waypoint/R = new()
 		var/sec_name = input("Input naviation entry name", "New navigation entry", "Sector #[known_sectors.len]") as text
 		if(!CanInteract(usr, physical_state))
-			return TOPIC_NOACTION
+			return FALSE
 		if(!sec_name)
 			sec_name = "Sector #[known_sectors.len]"
 		R.fields["name"] = sec_name
 		if(sec_name in known_sectors)
 			to_chat(usr, "<span class='warning'>Sector with that name already exists, please input a different name.</span>")
-			return TOPIC_REFRESH
+			return TRUE
 		switch(params["add"])
 			if("current")
 				R.fields["x"] = connected.x
@@ -194,10 +208,10 @@
 			if("new")
 				var/newx = input("Input new entry x coordinate", "Coordinate input", connected.x) as num
 				if(!CanInteract(usr, physical_state))
-					return TOPIC_REFRESH
+					return TRUE
 				var/newy = input("Input new entry y coordinate", "Coordinate input", connected.y) as num
 				if(!CanInteract(usr, physical_state))
-					return TOPIC_NOACTION
+					return FALSE
 				R.fields["x"] = Clamp(newx, 1, world.maxx)
 				R.fields["y"] = Clamp(newy, 1, world.maxy)
 		known_sectors[sec_name] = R
@@ -287,7 +301,7 @@
 			check_processing()
 	else
 		to_chat(usr, SPAN_WARNING("Your software does not allow you to interact with the piloting controls."))
-		return TOPIC_HANDLED
+		return TRUE
 
 	add_fingerprint(usr)
 	updateUsrDialog()
@@ -306,6 +320,16 @@
 	icon_screen = "blue"
 	icon_keyboard = null
 	circuit = null
+
+/obj/machinery/computer/ship/navigation/terminal
+	name = "navigation terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "nav"
+	icon_keyboard = "generic_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!connected)

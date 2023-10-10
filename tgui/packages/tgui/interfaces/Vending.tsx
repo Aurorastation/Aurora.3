@@ -97,6 +97,7 @@ export const ShowAllItems = (props, context) => {
             <Button
               tooltip={product.name}
               key={product.name}
+              disabled={data.vending_item || product.amount <= 0}
               onClick={() => act('vendItem', { vendItem: product.key })}
               style={{
                 height: '70px',
@@ -105,7 +106,6 @@ export const ShowAllItems = (props, context) => {
               <Box
                 as="img"
                 className={product.icon_tag}
-                disabled={product.amount <= 0}
                 style={{
                   '-ms-interpolation-mode': 'nearest-neighbor',
                   transform: 'scale(1.5) translate(30%, 30%)',

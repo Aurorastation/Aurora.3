@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/persistent_configuration/SSpersist_config = null
-
-/datum/controller/subsystem/persistent_configuration
+SUBSYSTEM_DEF(persistent_configuration)
 	name = "Persistent Configuration"
 	init_order = SS_INIT_PERSISTENT_CONFIG
 	flags = SS_NO_FIRE
@@ -17,7 +15,7 @@
 	var/forced_awaymission = FALSE
 
 /datum/controller/subsystem/persistent_configuration/Initialize(timeofday)
-	SSpersist_config = src
+	SSpersistent_configuration = src
 
 	load_from_file("data/persistent_config.json")
 
@@ -25,7 +23,7 @@
 	var/file = file2text(filename)
 
 	if (!file)
-		log_debug("SSpersist_config: file [filename] not found, falling back to default values.")
+		log_config("SSpersistent_configuration: file [filename] not found, falling back to default values.")
 		return
 
 	var/list/decoded = null
@@ -33,7 +31,8 @@
 	try
 		decoded = json_decode(file)
 	catch (var/exception/e)
-		log_error("SSperist_config: invalid JSON detected. Error: [e]")
+		log_config("ERROR: SSperist_config: invalid JSON detected. Error: [e]")
+		log_exception(e)
 		return
 
 	if (!decoded || !decoded.len)

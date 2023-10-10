@@ -21,17 +21,15 @@
 	desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
 	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
 	the buckles, instead. \ To unbuckle people as a stationbound, click the bed with an empty gripper."
-	icon = 'icons/obj/furniture.dmi'
+	icon = 'icons/obj/structure/beds.dmi'
 	icon_state = "bed"
 	anchored = TRUE
 	buckle_dir = SOUTH
 	buckle_lying = 1
 	build_amt = 2
 	var/material/padding_material
-	var/override_material_color = FALSE //If set, material colour won't override the colour.
 
 	var/base_icon = "bed"
-	var/material_alteration = MATERIAL_ALTERATION_ALL
 	var/buckling_sound = 'sound/effects/buckle.ogg'
 
 	var/painted_colour // Used for paint gun and preset colours. I know this name sucks.
@@ -96,7 +94,7 @@
 		cache_key += "-[cache_type]"
 		if(painted_colour && apply_painted_colour)
 			cache_key += "-[painted_colour]"
-		else if(overlay_material.icon_colour && !override_material_color)
+		else if(overlay_material.icon_colour)
 			cache_key += "-[overlay_material.icon_colour]"
 	if(!furniture_cache[cache_key]) // Check for cache key. Generate if image does not exist yet.
 		var/cache_icon_state = cache_type ? "[base_icon]_[cache_type]" : "[base_icon]" // Modularized. Just change cache_type when calling the proc if you ever wanted to add a different overlay. Not like you'd need to.
@@ -104,7 +102,7 @@
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			if(painted_colour && apply_painted_colour) // apply_painted_color, when you only want the padding to be painted, NOT the chair itself.
 				I.color = painted_colour
-			else if(overlay_material.icon_colour && !override_material_color) // Either that, or just fall back on the regular material color.
+			else if(overlay_material.icon_colour) // Either that, or just fall back on the regular material color.
 				I.color = overlay_material.icon_colour
 		furniture_cache[cache_key] = I
 	add_overlay(furniture_cache[cache_key]) // Use image from cache key!
@@ -205,7 +203,7 @@
 		var/obj/item/grab/G = W
 		var/mob/living/affecting = G.affecting
 		user.visible_message("<span class='notice'>[user] attempts to buckle [affecting] into \the [src]!</span>")
-		if(do_after(user, 20))
+		if(do_after(user, 2 SECONDS, affecting, DO_UNIQUE))
 			affecting.forceMove(loc)
 			spawn(0)
 				if(buckle(affecting))
@@ -225,7 +223,7 @@
 		W.pixel_x = 10 //make sure they reach the pillow
 		W.pixel_y = -6
 
-	else if(istype(W, /obj/item/device/floor_painter))
+	else if(istype(W, /obj/item/device/paint_sprayer))
 		return
 
 	else if(!istype(W, /obj/item/bedsheet))
@@ -251,7 +249,7 @@
 
 /obj/structure/bed/Move()
 	. = ..()
-	if(makes_rolling_sound)
+	if(makes_rolling_sound && has_gravity())
 		playsound(src, 'sound/effects/roll.ogg', 50, 1)
 	if(buckled && !istype(src, /obj/structure/bed/roller))
 		var/mob/living/occupant = buckled
@@ -373,6 +371,7 @@
 	var/iv_attached = 0
 	var/iv_stand = TRUE
 	var/iv_transfer_rate = 4 //Same as max for regular IV drips
+	var/has_iv_light = TRUE
 	//Items that can be attached to an IV
 	var/list/accepted_containers = list(
 		/obj/item/reagent_containers/blood,
@@ -394,7 +393,10 @@
 	cut_overlays()
 	vis_contents = list()
 	if(density)
-		icon_state = "[base_icon]_up"
+		if(anchored)
+			icon_state = "[base_icon]_br"
+		else
+			icon_state = "[base_icon]_up"
 	else
 		icon_state = "[base_icon]_down"
 	if(beaker)
@@ -406,8 +408,11 @@
 		if(percentage < 25)
 			iv.add_overlay(image(icon, "light_low"))
 		if(density)
-			iv.pixel_y = 6
+			iv.pixel_y = 7
 		add_overlay(iv)
+		if(has_iv_light)
+			var/image/light = image(icon, "iv[iv_attached]_l")
+			add_overlay(light)
 	if(vitals)
 		vitals.update_monitor()
 		vis_contents += vitals
@@ -439,6 +444,12 @@
 		remove_beaker(user)
 	else
 		..()
+
+/obj/structure/bed/roller/AltClick(mob/user)
+	if(density && !use_check_and_message(user))
+		anchored = !anchored
+		user.visible_message(SPAN_NOTICE("[user] [anchored ? "locks" : "releases"] \the [src]'s brakes."))
+		update_icon()
 
 /obj/structure/bed/roller/proc/collapse()
 	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), SPAN_NOTICE("You collapse \the [src]"))
@@ -537,6 +548,7 @@
 			if(iv_attached)
 				detach_iv(M, usr)
 		density = FALSE
+		anchored = FALSE
 		MA.pixel_y = 0
 		update_icon()
 
@@ -547,7 +559,7 @@
 	base_icon = "hover"
 	makes_rolling_sound = FALSE
 	held_item = /obj/item/roller/hover
-	patient_shift = 6
+	has_iv_light = FALSE
 
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
@@ -580,10 +592,12 @@
 /obj/item/roller/afterattack(obj/target, mob/user, proximity)
 	if(!proximity)
 		return
-	if(isturf(target))
-		var/turf/T = target
+	var/turf/T = target
+	if(is_type_in_list(target, list(/obj/effect, /obj/structure/lattice)))
+		T = get_turf(target)
+	if(istype(T))
 		if(!T.density)
-			deploy_roller(user, target)
+			deploy_roller(user, T)
 
 /obj/item/roller/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/roller_holder))

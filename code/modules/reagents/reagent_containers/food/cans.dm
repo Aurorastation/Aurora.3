@@ -16,12 +16,13 @@
 	volume = 40 //just over one and a half cups
 	amount_per_transfer_from_this = 5
 	flags = 0 //starts closed
+	icon = 'icons/obj/item/reagent_containers/food/drinks/soda.dmi'
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
 	desc_info = "Click it in your hand to open it.\
-				 If it's carbonated and closed, you can shake it by clicking on it with harm intent. \
-				 If it's empty, you can crush it on your forehead by selecting your head and clicking on yourself with harm intent. \
-				 You can also crush cans on other people's foreheads as well."
+					If it's carbonated and closed, you can shake it by clicking on it with harm intent. \
+					If it's empty, you can crush it on your forehead by selecting your head and clicking on yourself with harm intent. \
+					You can also crush cans on other people's foreheads as well."
 
 /obj/item/reagent_containers/food/drinks/cans/attack(mob/living/M, mob/user, var/target_zone)
 	if(iscarbon(M) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
@@ -433,7 +434,7 @@
 	desc_extended = "Hro'zamal Soda is a soft drink made from the seed's powder of a plant native to Hro'zamal, the sole Hadiist colony. While initially consumed as a herbal tea by the \
 	colonists, it was introduced to Adhomai by the Army Expeditionary Force and transformed into a carbonated drink. The beverage is popular with factory workers and university \
 	students because of its stimulant effect."
-	icon_state = "hrozamal_soda_can"
+	icon_state = "hrozamal_soda"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/drink/hrozamal_soda = 30)
@@ -452,3 +453,33 @@
 	icon_state = "xanu_rush"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/singleton/reagent/drink/peach_soda = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/beer
+	name = "\improper Virklunder canned beer"
+	desc = "Contains only water, malt and hops. Not really as high-quality as the label says, but it's still popular. This particular line of beer is made by Getmore on New Gibson, specifically in the Ovanstad of \
+	Virklund in a massive beer brewery complex. It quickly became the most consumed kind of beer across the Republic of Biesel and has since been in stock in practically every bar across the nation."
+	icon_state = "space_beer"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/alcohol/beer = 40)
+
+/obj/item/reagent_containers/food/drinks/cans/beer/rice
+	name = "\improper Ebisu Super Dry"
+	desc = "Konyang's favourite rice beer brand, 200 years running."
+	icon_state = "ebisu"
+	reagents_to_add = list(/singleton/reagent/alcohol/rice_beer = 40)
+
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/shimauma
+	name = "\improper Shimauma Ichiban"
+	desc = "Konyang's most middling rice beer brand. Not as popular as Ebisu, but it's comfortable in second place."
+	icon_state = "shimauma"
+
+/obj/item/reagent_containers/food/drinks/cans/beer/rice/moonlabor
+	name = "\improper Moonlabor Malt's"
+	desc = "Konyang's underdog rice beer brand. Popular amongst New Hai Phongers, for reasons unknown."
+	icon_state = "moonlabor"
+
+/obj/item/reagent_containers/food/drinks/cans/melon_soda
+	name = "Kansumi Melon Soda"
+	desc = "Konyang's favourite melon soda, now available in can form!"
+	icon_state = "melon_soda"
+	reagents_to_add = list(/singleton/reagent/drink/melon_soda = 30)

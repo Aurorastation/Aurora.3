@@ -25,13 +25,15 @@
 
 
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
-			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva, access_leviathan, access_ship_weapons,
-			            access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
-			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_intrepid, access_network)
+					access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva, access_leviathan, access_ship_weapons,
+					access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
+					access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_intrepid, access_network)
+
 	minimal_access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
-			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva, access_leviathan, access_ship_weapons,
-			            access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
-			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_bridge_crew, access_intrepid, access_network)
+							access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva, access_leviathan, access_ship_weapons,
+							access_heads, access_construction, access_sec_doors, access_research, access_medical, access_mining, access_mailsorting,
+							access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it, access_bridge_crew, access_intrepid, access_network)
+
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
@@ -215,6 +217,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
 	faction = "Station"
+	alt_titles = list("Atmospherics Apprentice")
+	alt_outfits = list("Atmospherics Apprentice" = /datum/outfit/job/intern_atmos)
 	total_positions = 3
 	spawn_positions = 3
 	intro_prefix = "an"
@@ -237,7 +241,7 @@
 	box = /obj/item/storage/box/survival/engineer
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice
-	shoes = /obj/item/clothing/shoes/orange
+	shoes = /obj/item/clothing/shoes/sneakers/orange
 	head = /obj/item/clothing/head/beret/engineering
 	belt = /obj/item/storage/belt/utility
 
@@ -262,3 +266,37 @@
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering
 	tablet = /obj/item/modular_computer/handheld/preset/engineering
+
+/datum/outfit/job/intern_atmos
+	name = "Atmospherics Apprentice"
+	jobtype = /datum/job/intern_eng
+	box = /obj/item/storage/box/survival/engineer
+
+	uniform = /obj/item/clothing/under/rank/engineer/apprentice
+	shoes = /obj/item/clothing/shoes/sneakers/orange
+	head = /obj/item/clothing/head/beret/engineering
+	belt = /obj/item/storage/belt/utility
+
+	belt_contents = list(
+		/obj/item/weldingtool = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
+		/obj/item/device/t_scanner = 1,
+		/obj/item/device/analyzer = 1,
+		/obj/item/pipewrench = 1,
+		/obj/item/powerdrill = 1
+	)
+
+	headset = /obj/item/device/radio/headset/headset_eng
+	bowman = /obj/item/device/radio/headset/headset_eng/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/eng
+	wrist_radio = /obj/item/device/radio/headset/wrist/eng
+
+	backpack = /obj/item/storage/backpack/industrial
+	satchel = /obj/item/storage/backpack/satchel/eng
+	dufflebag = /obj/item/storage/backpack/duffel/eng
+	messengerbag = /obj/item/storage/backpack/messenger/engi
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/engineering/atmos
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/atmos
+	tablet = /obj/item/modular_computer/handheld/preset/engineering/atmos

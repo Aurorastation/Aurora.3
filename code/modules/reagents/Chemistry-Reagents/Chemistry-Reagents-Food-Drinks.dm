@@ -349,7 +349,7 @@
 	taste_description = "corn oil"
 	condiment_name = "corn oil"
 	condiment_desc = "A delicious oil used in cooking. Made from corn."
-	condiment_icon_state = "oliveoil"
+	condiment_icon_state = "cooking_oil"
 
 /singleton/reagent/nutriment/triglyceride/oil/peanut
 	name = "Peanut Oil"
@@ -359,7 +359,7 @@
 	taste_mult = 1
 	condiment_name = "peanut oil"
 	condiment_desc = "Tasteful and rich peanut oil used in cooking. Made from roasted peanuts."
-	condiment_icon_state = "peanutoil"
+	condiment_icon_state = "peanut_oil"
 
 /singleton/reagent/nutriment/honey
 	name = "Honey"
@@ -367,6 +367,9 @@
 	nutriment_factor = 8
 	color = "#FFFF00"
 	taste_description = "honey"
+	condiment_name = "honey"
+	condiment_desc = "A jar of sweet and viscous honey."
+	condiment_icon_state = "honey"
 	germ_adjust = 5
 
 /singleton/reagent/nutriment/flour
@@ -594,7 +597,7 @@
 	taste_description = "roasted peanuts"
 	taste_mult = 2
 	condiment_name = "ground roasted peanuts sack"
-	condiment_icon_state = "peanut_sack"
+	condiment_icon_state = "peanut"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/nutriment/virusfood
@@ -682,7 +685,7 @@
 	color = "#F0EBD8"
 	condiment_name = "mayonnaise"
 	condiment_desc = "Great for sandwiches!"
-	condiment_icon_state = "mayojar"
+	condiment_icon_state = "mayonnaise"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /* Non-food stuff like condiments */
@@ -913,6 +916,18 @@
 	reagent_state = SOLID
 	color = "#441a03"
 	taste_description = "chocolate"
+
+/singleton/reagent/nutriment/gelatin
+	name = "Gelatin"
+	description = "A translucent, typically flavorless powder used in cooking."
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#CBBCA9"
+	taste_description = "jiggliness"
+	condiment_name = "Gelatin Box"
+	condiment_icon_state = "gello"
+	condiment_desc = "An unassuming box of raw powdered gelatin. Let's get jiggly."
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /* Drinks */
 
@@ -1795,15 +1810,15 @@
 	glass_center_of_mass = list("x"=15, "y"=9)
 
 /singleton/reagent/drink/coffee/ration
-    name = "Ration Coffee"
-    description = "Watered-down coffee. One cup now becomes four!"
-    color = "#664300" // rgb: 102, 67, 0
-    taste_description = "weak, watered-down coffee"
+	name = "Ration Coffee"
+	description = "Watered-down coffee. One cup now becomes four!"
+	color = "#664300" // rgb: 102, 67, 0
+	taste_description = "weak, watered-down coffee"
 
-    glass_icon_state = "hot_coffee"
-    glass_name = "glass of ration coffee"
-    glass_desc = "Coffee, watered-down."
-    glass_center_of_mass = list("x"=15, "y"=9)
+	glass_icon_state = "hot_coffee"
+	glass_name = "glass of ration coffee"
+	glass_desc = "Coffee, watered-down."
+	glass_center_of_mass = list("x"=15, "y"=9)
 
 /singleton/reagent/drink/coffee/freddo_espresso
 	name = "Freddo Espresso"
@@ -2456,6 +2471,34 @@
 	if(alien != IS_DIONA)
 		M.jitteriness = max(M.jitteriness - 3, 0)
 
+/singleton/reagent/alcohol/beer/light
+	name = "Light Beer"
+	description = "An alcoholic beverage brewed since ancient times on Earth. This variety has reduced calorie and alcohol content."
+	strength = 1
+	taste_description = "dish water"
+
+	glass_name = "glass of light beer"
+	glass_desc = "A freezing pint of watery light beer."
+
+/singleton/reagent/alcohol/rice_beer
+	name = "Rice Beer"
+	description = "A light, rice-based lagered beer popular on Konyang."
+	color = "#664300"
+	strength = 5
+	nutriment_factor = 1
+	taste_description = "mild carbonated malt"
+	carbonated = TRUE
+
+	glass_icon_state = "rice_beer"
+	glass_name = "glass of rice beer"
+	glass_desc = "A glass of fine, light rice beer. Best enjoyed cold."
+	glass_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/alcohol/rice_beer/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	..()
+	if(alien != IS_DIONA)
+		M.jitteriness = max(M.jitteriness - 3, 0)
+
 /singleton/reagent/alcohol/bitters
 	name = "Aromatic Bitters"
 	description = "A very, very concentrated and bitter herbal alcohol."
@@ -2649,14 +2692,14 @@
 
 /singleton/reagent/alcohol/soju
 	name = "Soju"
-	description = "A mild Konyanger spirit that is best described as rice vodka."
+	description = "Also known as shochu or baijiu, this drink is made from fermented rice, much like sake, but at a generally higher proof making it more similar to a true spirit."
 	color = "#f2f9fa"
 	strength = 25
-	taste_description = "slightly dry alcohol with a subtle burn"
+	taste_description = "stiff rice wine"
 
 	glass_icon_state = "sojuglass"
 	glass_name = "glass of soju"
-	glass_desc = "A clear alcohol similar to vodka, brewed from rice."
+	glass_desc = "A glass of strong rice wine."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 /singleton/reagent/alcohol/tequila
@@ -4601,7 +4644,7 @@
 	description = "A good, strong drink must be erected upon the ruins, if any of us are to have a future."
 	strength = 20
 	taste_description = "freedom from want"
-	
+
 	glass_icon_state = "insurrenderglass"
 	glass_name = "glass of instrument of surrender"
 	glass_desc = "A good, strong drink must be erected upon the ruins, if any of us are to have a future."
@@ -5546,6 +5589,17 @@
 	glass_icon_state = "glass_red"
 	glass_name = "glass of Xanu Rush!"
 	glass_desc = "Made from the NEW Xanu Prime peaches."
+
+/singleton/reagent/drink/melon_soda
+	name = "Melon Soda"
+	description = "A neon green hit of nostalgia."
+	color = "#6FEB48"
+	taste_description = "fizzy melon"
+	carbonated = TRUE
+
+	glass_icon_state = "melon_soda"
+	glass_name = "glass of melon soda"
+	glass_desc = "As enjoyed by Konyanger children and 30-something Konyang enthusiasts."
 
 /singleton/reagent/alcohol/pulque
 	name = "Pulque"

@@ -3,6 +3,7 @@
 	w_class = ITEMSIZE_IMMENSE
 	layer = OBJ_LAYER - 0.01
 
+	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
 	var/climbable
 	var/breakable
 	var/parts
@@ -17,8 +18,8 @@
 /obj/structure/Destroy()
 	if(parts)
 		new parts(loc)
-	if (smooth)
-		queue_smooth_neighbors(src)
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue_neighbors(src)
 	return ..()
 
 /obj/structure/attack_hand(mob/user)
@@ -72,9 +73,9 @@
 		updateVisibility(src)	// No point checking this before visualnet initializes.
 	if(climbable)
 		verbs += /obj/structure/proc/climb_on
-	if (smooth)
-		queue_smooth(src)
-		queue_smooth_neighbors(src)
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue(src)
+		SSicon_smooth.add_to_queue_neighbors(src)
 
 /obj/structure/proc/climb_on()
 
@@ -102,17 +103,17 @@
 
 /obj/structure/proc/can_climb(var/mob/living/user, post_climb_check=0)
 	if (!climbable || !can_touch(user) || (!post_climb_check && (user in climbers)))
-		return 0
+		return FALSE
 
 	if (!user.Adjacent(src))
-		to_chat(user, "<span class='danger'>You can't climb there, the way is blocked.</span>")
-		return 0
+		to_chat(user, SPAN_WARNING("You must be next to \the [src] to climb it."))
+		return FALSE
 
 	var/obj/occupied = turf_is_crowded()
 	if(occupied)
-		to_chat(user, "<span class='danger'>There's \a [occupied] in the way.</span>")
-		return 0
-	return 1
+		to_chat(user, SPAN_WARNING("There's \a [occupied] in the way."))
+		return FALSE
+	return TRUE
 
 /obj/structure/proc/turf_is_crowded(var/exclude_self = FALSE)
 	var/turf/T = get_turf(src)
@@ -136,7 +137,7 @@
 	user.visible_message(SPAN_WARNING("[user] starts [flags & ON_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
 
-	if(!do_after(user,50))
+	if(!do_after(user, 5 SECONDS, src, DO_DEFAULT | DO_USER_UNIQUE_ACT))
 		LAZYREMOVE(climbers, user)
 		return
 

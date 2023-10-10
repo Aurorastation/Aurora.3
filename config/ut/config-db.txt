@@ -45,44 +45,8 @@ JOBS_HAVE_MINIMAL_ACCESS
 # What to subtract power by when crossing Z-levels.
 #EXPLOSION_Z_SUB 2
 
-## log OOC channel
-LOG_OOC
-
-## log client Say
-LOG_SAY
-
-## log admin actions
-LOG_ADMIN
-
-## log signaler actions
-LOG_SIGNALER
-
-## log client access (logon/logoff)
-LOG_ACCESS
-
-## log game actions (start of round, results, etc.)
-LOG_GAME
-
-## log player votes
-LOG_VOTE
-
-## log client Whisper
-LOG_WHISPER
-
-## log emotes
-LOG_EMOTE
-
-## log attack messages
-LOG_ATTACK
-
-## log pda messages
-LOG_PDA
-
 ## log world.log messages
 # LOG_WORLD_OUTPUT
-
-## log all Topic() calls (for use by coders in tracking down Topic issues)
-# LOG_HREFS
 
 ## log runtime errors and hard-deletes to a file
 ## 0 - no such logging will be done. (Same effect if simply commented out.)
@@ -125,9 +89,7 @@ MOD_JOB_TEMPBAN_MAX 1440
 ## Default probablity is 1, increase to make that mode more likely to be picked.
 ## Set to 0 to disable that mode.
 PROBABILITY S EXTENDED 1
-PROBABILITY S MALFUNCTION 1
 PROBABILITY S MERCENARY 1
-PROBABILITY S WIZARD 1
 PROBABILITY S CHANGELING 1
 PROBABILITY S CULT 1
 PROBABILITY S BURGLARS 1
@@ -136,31 +98,21 @@ PROBABILITY S MAGISTAKE 1
 PROBABILITY S NINJA 1
 PROBABILITY S HEIST 1
 PROBABILITY S VAMPIRE 1
-PROBABILITY S EXTEND-A-TRAITORMONGOUS 6
-PROBABILITY S CONFLUX 1
 PROBABILITY S CROSSFIRE 1
-PROBABILITY S PARANOIA 1
 PROBABILITY S UPRISING 1
-PROBABILITY S VISITORS 1
 PROBABILITY S INTRIGUE 1
 PROBABILITY S SIEGE 1
 PROBABILITY S EXTENDED 1
-PROBABILITY S INFILTRATION 1
 PROBABILITY S VEILPARTY 1
 PROBABILITY S FEEDING 1
 PROBABILITY S TRAITORLING 1
-PROBABILITY S CORRUPTION 1
 
-PROBABILITY MS CONFLUX 1
 PROBABILITY MS CROSSFIRE 1
-PROBABILITY MS PARANOIA 1
 PROBABILITY MS UPRISING 1
-PROBABILITY MS VISITORS 1
 PROBABILITY MS INTRIGUE 1
 PROBABILITY MS CONFLICT 1
 PROBABILITY MS SIEGE 1
 PROBABILITY MS EXTENDED 1
-PROBABILITY MS INFILTRATION 1
 PROBABILITY MS VEILPARTY 1
 PROBABILITY MS FEEDING 1
 PROBABILITY MS TRAITORLING 1
@@ -318,15 +270,6 @@ GATEWAY_DELAY 18000
 ## Uncomment to restrict non-admins from using humanoid alien races
 USEALIENWHITELIST
 
-## Comment this to disable automated station night lighting
-NIGHT_LIGHTING
-
-## Hour when the station night lighting is disabled (if above is enabled)
-NL_FINISH_HOUR 8
-
-## Hour when the station night lighting is enabled (if above is enabled)
-NL_START_HOUR 19
-
 ## Comment this to unrestrict the number of alien players allowed in the round. The number represents the number of alien players for every human player.
 #ALIEN_PLAYER_RATIO 0.2
 ##Remove the # to let ghosts spin chairs
@@ -483,12 +426,6 @@ API_RATE_LIMIT_WHITELIST 127.0.0.1
 # You can set this high (~500) for local testing to *maybe* speed up startup a bit at the cost of lagging the lobby.
 # -- Should be below 99 (or undefined) on a server actually used for play. --
 MC_TICKLIMIT_INIT 500
-
-
-## GELF Logging Configuration
-LOG_GELF_ENABLED 0
-# Make sure the IP string is written in a manner of "IP:port", without the quotes.
-#LOG_GELF_ADDR 127.0.0.1:5667
 
 ### IPINTEL:
 ### This allows you to detect likely proxies by checking ips against getipintel.net

@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/records/SSrecords
-
-/datum/controller/subsystem/records
+SUBSYSTEM_DEF(records)
 	name = "Records"
 	flags = SS_NO_FIRE
 
@@ -9,6 +7,7 @@
 
 	var/list/warrants
 	var/list/viruses
+	var/list/shuttle_manifests
 
 	var/list/excluded_fields
 	var/list/localized_fields
@@ -29,15 +28,15 @@
 	InitializeReligions()
 	InitializeAccents()
 
-/datum/controller/subsystem/records/New()
+/datum/controller/subsystem/records/PreInit()
 	records = list()
 	records_locked = list()
 	warrants = list()
 	viruses = list()
+	shuttle_manifests = list()
 	excluded_fields = list()
 	localized_fields = list()
 	manifest = list()
-	NEW_SS_GLOBAL(SSrecords)
 	var/datum/D = new()
 	for(var/v in D.vars)
 		excluded_fields[v] = v
@@ -106,6 +105,8 @@
 			warrants += record
 		if(/datum/record/virus)
 			viruses += record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests += record
 
 /datum/controller/subsystem/records/proc/update_record(var/datum/record/record)
 	switch(record.type)
@@ -118,6 +119,8 @@
 			warrants |= record
 		if(/datum/record/virus)
 			viruses |= record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests |= record
 	onModify(record)
 
 /datum/controller/subsystem/records/proc/remove_record(var/datum/record/record)
@@ -131,6 +134,8 @@
 			warrants -= record
 		if(/datum/record/virus)
 			viruses *= record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests -= record
 	onDelete(record)
 	qdel(record)
 
@@ -228,7 +233,7 @@
 	if(manifest.len)
 		return manifest
 	if(!SSjobs)
-		log_error("SSjobs not available, cannot build manifest")
+		log_world("ERROR: SSjobs not available, cannot build manifest")
 		return
 	manifest = DEPARTMENTS_LIST_INIT
 	for(var/datum/record/general/t in records)

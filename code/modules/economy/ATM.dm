@@ -3,7 +3,7 @@
 /obj/machinery/atm
 	name = "Idris SelfServ Teller"
 	desc = "For all your monetary needs! Astronomical figures!"
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "atm"
 	anchored = 1
 	idle_power_usage = 10
@@ -66,11 +66,7 @@
 
 	for(var/obj/item/spacecash/S in src)
 		S.forceMove(src.loc)
-		if(prob(50))
-			playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
-		else
-			playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
-		break
+		playsound(loc, /singleton/sound_category/print_sound, 50, 1)
 
 /obj/machinery/atm/emag_act(var/remaining_charges, var/mob/user)
 	if(emagged)
@@ -110,10 +106,7 @@
 		if(istype(I,/obj/item/spacecash))
 			//consume the money
 			authenticated_account.money += I:worth
-			if(prob(50))
-				playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
-			else
-				playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
 
 			//create a transaction log entry
 			var/datum/transaction/T = new()
@@ -330,15 +323,12 @@
 				R.stamped += /obj/item/stamp
 				R.add_overlay(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
-				print(R)
+				print(R, user = usr)
 
 				release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
 				. = TRUE
 
-			if(prob(50))
-				playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
-			else
-				playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
 		if ("print_transaction")
 			if(authenticated_account)
 				var/obj/item/paper/R = new()
@@ -378,12 +368,9 @@
 				R.stamped += /obj/item/stamp
 				R.add_overlay(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
-				print(R)
+				print(R, user = usr)
 
-			if(prob(50))
-				playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
-			else
-				playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
 			release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
 			. = TRUE
 

@@ -251,7 +251,7 @@
 	INVOKE_ASYNC(radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA))
 
 /obj/machinery/computer/general_air_control/supermatter_core
-	icon = 'icons/obj/modular_console.dmi'
+	icon = 'icons/obj/machinery/modular_console.dmi'
 	ui_type = "AtmosControlSupermatter"
 
 	frequency = 1438

@@ -48,11 +48,18 @@
 
 	var/static/list/failure_strikes  //How many times we suspect a subsystem type has crashed the MC, 3 strikes and you're out! This is an assoc list indexed by type.
 
+//Do not override
+///datum/controller/subsystem/New()
+
 // Used to initialize the subsystem BEFORE the map has loaded
-/datum/controller/subsystem/New()
+// Called AFTER Recover if that is called
+// Prefer to use Initialize if possible
+/datum/controller/subsystem/proc/PreInit()
+	return
 
 //This is used so the mc knows when the subsystem sleeps. do not override.
 /datum/controller/subsystem/proc/ignite(resumed = 0)
+	SHOULD_NOT_OVERRIDE(TRUE)
 	set waitfor = 0
 	. = SS_SLEEPING
 	fire(resumed)
@@ -179,8 +186,13 @@
 	init_time = time
 	var/msg = "Initialized [name] subsystem within [time] second\s!"
 	admin_notice(SPAN_DANGER(msg), R_DEBUG)
+
+	// Do not print to world.log if we're running the unit tests
+	#if !defined(UNIT_TEST)
 	world.log <<  "SS Init: [msg]"
-	log_ss_init(msg)
+	#endif
+
+	log_subsystem_init(msg)
 	return time
 
 //hook for printing stats to the "MC" statuspanel for admins to see performance and related stats etc.

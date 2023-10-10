@@ -4,7 +4,7 @@
 	density = 1
 	anchored = 0
 	name = "computer frame"
-	icon = 'icons/obj/modular_console.dmi'
+	icon = 'icons/obj/machinery/modular_console.dmi'
 	icon_state = "0"
 	build_amt = 5
 	var/state = 0
@@ -76,7 +76,7 @@
 					return TRUE
 				to_chat(user, "<span class='notice'>You start to add cables to the frame.</span>")
 				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-				if(do_after(user, 20) && state == 2)
+				if(do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && state == 2)
 					if (C.use(5))
 						to_chat(user, "<span class='notice'>You add cables to the frame.</span>")
 						state = 3
@@ -99,7 +99,7 @@
 					return TRUE
 				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You start to put in the glass keyboard.</span>")
-				if(do_after(user, 20) && state == 3)
+				if(do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && state == 3)
 					if (G.use(2))
 						to_chat(user, "<span class='notice'>You put in the glass keyboard.</span>")
 						src.state = 4

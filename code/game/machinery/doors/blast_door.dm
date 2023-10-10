@@ -14,6 +14,14 @@
 	desc = "That looks like it doesn't open easily."
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = null
+	dir = 1
+	closed_layer = DOOR_CLOSED_LAYER + 0.1
+	explosion_resistance = 25
+	open_layer = 2.7
+
+	/// Most blast doors are infrequently toggled and sometimes used with regular doors anyways.
+	/// Turning this off prevents awkward zone geometry in places like medbay lobby, for example.
+	block_air_zones = 0
 
 	// Icon states for different shutter types. Simply change this instead of rewriting the update_icon proc.
 	var/icon_state_open = null
@@ -23,14 +31,7 @@
 	var/open_sound = 'sound/machines/blastdooropen.ogg'
 	var/close_sound = 'sound/machines/blastdoorclose.ogg'
 	var/damage = BLAST_DOOR_CRUSH_DAMAGE
-	closed_layer = 3.4 // Above airlocks when closed
 	var/id = 1.0
-	dir = 1
-	explosion_resistance = 25
-
-	// Most blast doors are infrequently toggled and sometimes used with regular doors anyways,
-	// turning this off prevents awkward zone geometry in places like medbay lobby, for example.
-	block_air_zones = 0
 
 	var/_wifi_id
 	var/datum/wifi/receiver/button/door/wifi_receiver
@@ -134,7 +135,7 @@
 			to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
 			return TRUE
 		to_chat(usr, "<span class='notice'>You begin repairing [src]...</span>")
-		if(do_after(usr, 30))
+		if(do_after(usr, 3 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			if(P.use(amt))
 				to_chat(usr, "<span class='notice'>You have repaired \The [src]</span>")
 				src.repair()

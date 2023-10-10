@@ -20,6 +20,7 @@
 #define ASPECT_UNSTABLE		"unstable"	//Heavily RNG-based, causes instability to the victim.
 #define ASPECT_CHROMATIC	"chromatic"	//Used to combine with other spells.
 #define ASPECT_UNHOLY		"unholy"	//Involves the dead, blood, and most things against divine beings.
+#define ASPECT_PSIONIC      "psionics"  //Psionic power. Bypasses core checks.
 
 /obj/item/spell
 	name = "glowing particles"
@@ -32,52 +33,78 @@
 		)
 	throwforce = 0
 	force = 0
-	var/mob/living/carbon/human/owner = null
-	var/obj/item/technomancer_core/core = null
+	flags = NOBLUDGEON
+	var/mob/living/carbon/human/owner
+	var/obj/item/technomancer_core/core
 	var/cast_methods = null			// Controls how the spell is casted.
 	var/aspect = null				// Used for combining spells.
 	var/toggled = 0					// Mainly used for overlays.
 	var/cooldown = 0 				// If set, will add a cooldown overlay and adjust click delay.  Must be a multiple of 5 for overlays.
 	var/cast_sound = null			// Sound file played when this is used.
+	var/psi_cost = 0				// Psi complexus cost to use this spell.
 
 /obj/item/spell/examine(mob/user, distance) // Nothing on examine.
-	return
+	return TRUE
 
 // Proc: on_use_cast()
 // Parameters: 1 (user - the technomancer casting the spell)
 // Description: Override this for clicking the spell in your hands.
-/obj/item/spell/proc/on_use_cast(mob/user)
-	return
+/obj/item/spell/proc/on_use_cast(mob/user, var/bypass_psi_check)
+	SHOULD_CALL_PARENT(TRUE)
+	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
+		if(!owner.psi.spend_power(psi_cost))
+			return FALSE
+	return TRUE
 
 // Proc: on_throw_cast()
 // Parameters: 1 (hit_atom - the atom hit by the spell object)
 // Description: Override this for throwing effects.
-/obj/item/spell/proc/on_throw_cast(atom/hit_atom)
-	return
+/obj/item/spell/proc/on_throw_cast(atom/hit_atom, var/bypass_psi_check)
+	SHOULD_CALL_PARENT(TRUE)
+	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
+		if(!owner.psi.spend_power(psi_cost))
+			return FALSE
+	return TRUE
 
 // Proc: on_ranged_cast()
 // Parameters: 2 (hit_atom - the atom clicked on by the user, user - the technomancer that clicked hit_atom)
 // Description: Override this for ranged effects.
-/obj/item/spell/proc/on_ranged_cast(atom/hit_atom, mob/user)
-	return
+/obj/item/spell/proc/on_ranged_cast(atom/hit_atom, mob/user, var/bypass_psi_check)
+	SHOULD_CALL_PARENT(TRUE)
+	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
+		if(!owner.psi.spend_power(psi_cost))
+			return FALSE
+	return TRUE
 
 // Proc: on_melee_cast()
 // Parameters: 3 (hit_atom - the atom clicked on by the user, user - the technomancer that clicked hit_atom, def_zone - unknown)
 // Description: Override this for effects that occur at melee range.
 /obj/item/spell/proc/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	if(aspect == ASPECT_PSIONIC)
+		if(!owner.psi.spend_power(psi_cost))
+			return FALSE
+	return TRUE
 
 // Proc: on_combine_cast()
 // Parameters: 2 (I - the item trying to merge with the spell, user - the technomancer who initiated the merge)
 // Description: Override this for combining spells, like Aspect spells.
 /obj/item/spell/proc/on_combine_cast(obj/item/I, mob/user)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	if(aspect == ASPECT_PSIONIC)
+		if(!owner.psi.spend_power(psi_cost))
+			return FALSE
+	return TRUE
 
 // Proc: on_innate_cast()
 // Parameters: 1 (user - the entity who is casting innately (without using hands).)
 // Description: Override this for casting without using hands (and as a result not using spell objects).
 /obj/item/spell/proc/on_innate_cast(mob/user)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	if(aspect == ASPECT_PSIONIC)
+		if(!owner.psi.spend_power(psi_cost))
+			return FALSE
+	return TRUE
 
 // Proc: on_scepter_use_cast()
 // Parameters: 1 (user - the holder of the Scepter that clicked.)
@@ -99,7 +126,9 @@
 // if they are able to pay, it is deducted automatically.
 /obj/item/spell/proc/pay_energy(var/amount)
 	if(!core)
-		return 0
+		if(aspect == ASPECT_PSIONIC)
+			return owner.psi.spend_power(amount)
+		return amount
 	return core.pay_energy(amount)
 
 // Proc: give_energy()
@@ -107,7 +136,7 @@
 // Description: Redirects the call to the core's give_energy().
 /obj/item/spell/proc/give_energy(var/amount)
 	if(!core)
-		return 0
+		return amount
 	return core.give_energy(amount)
 
 // Proc: adjust_instability()
@@ -141,11 +170,18 @@
 	if(isliving(loc))
 		owner = loc
 	if(owner)
-		core = owner.get_technomancer_core()
-		if(!core)
-			to_chat(owner, "<span class='warning'>You need a Core to do that.</span>")
-			qdel(src)
-			return
+		if(aspect != ASPECT_PSIONIC)
+			core = owner.get_technomancer_core()
+			if(!core)
+				to_chat(owner, "<span class='warning'>You need a Core to do that.</span>")
+				return INITIALIZE_HINT_QDEL
+		else
+			if(owner.psi.get_rank() >= PSI_RANK_APEX)
+				if(force)
+					force *= 1.1
+					armor_penetration *= 1.1
+	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(check_owner))
+
 	update_icon()
 
 // Proc: Destroy()
@@ -156,6 +192,11 @@
 	owner = null
 	core = null
 	return ..()
+
+/// Check if we're still being held. Otherwise... time to qdel.
+/obj/item/spell/proc/check_owner()
+	if(!(loc == owner) && NOT_FLAG(cast_methods, CAST_THROW))
+		qdel_self()
 
 // Proc: unref_spells()
 // Parameters: 0
@@ -180,32 +221,37 @@
 // if it still can't find one.  It will also check if the core is being worn properly, and finally checks if the owner is a technomancer.
 /obj/item/spell/proc/run_checks()
 	if(!owner)
-		return 0
-	if(!core)
-		core = locate(/obj/item/technomancer_core) in owner
+		return FALSE
+	if(aspect != ASPECT_PSIONIC)
 		if(!core)
+			core = locate(/obj/item/technomancer_core) in owner
+			if(!core)
+				to_chat(owner, "<span class='danger'>You need to be wearing a core on your back or your wrists!</span>")
+				return FALSE
+		if(core.loc != owner || (owner.back != core && owner.wrists != core)) //Make sure the core's being worn.
 			to_chat(owner, "<span class='danger'>You need to be wearing a core on your back or your wrists!</span>")
-			return 0
-	if(core.loc != owner || (owner.back != core && owner.wrists != core)) //Make sure the core's being worn.
-		to_chat(owner, "<span class='danger'>You need to be wearing a core on your back or your wrists!</span>")
-		return 0
-	if(!core.simple_operation && !technomancers.is_technomancer(owner.mind)) //Now make sure the person using this is the actual antag.
-		to_chat(owner, "<span class='danger'>You can't seem to figure out how to make the machine work properly.</span>")
-		return 0
-	return 1
+			return FALSE
+		if(!core.simple_operation && !technomancers.is_technomancer(owner.mind)) //Now make sure the person using this is the actual antag.
+			to_chat(owner, SPAN_DANGER("You can't seem to figure out how to make the machine work properly."))
+			return FALSE
+	else
+		if(!owner.psi)
+			return FALSE
+	return TRUE
 
 // Proc: check_for_scepter()
 // Parameters: 0
 // Description: Terrible code to check if a scepter is in the offhand, returns 1 if yes.
 /obj/item/spell/proc/check_for_scepter()
-	if(!src || !owner) return 0
+	if(!src || !owner)
+		return FALSE
 	if(owner.r_hand == src)
 		if(istype(owner.l_hand, /obj/item/scepter))
-			return 1
+			return TRUE
 	else
 		if(istype(owner.r_hand, /obj/item/scepter))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 // Proc: get_other_hand()
 // Parameters: 1 (I - item being compared to determine what the offhand is)
@@ -259,9 +305,16 @@
 		if(cast_methods & CAST_RANGED) //Try to use a ranged method if a melee one doesn't exist.
 			on_ranged_cast(target, user)
 	if(cooldown)
-		var/effective_cooldown = round(cooldown * core.cooldown_modifier, 5)
-		user.setClickCooldown(effective_cooldown)
-		flick("cooldown_[effective_cooldown]",src)
+		apply_cooldown(user)
+
+/obj/item/spell/proc/apply_cooldown(mob/user)
+	var/effective_cooldown
+	if(aspect == ASPECT_PSIONIC)
+		effective_cooldown = cooldown
+	else
+		effective_cooldown = round(cooldown * core.cooldown_modifier, 5)
+	user.setClickCooldown(effective_cooldown)
+	flick("cooldown_[effective_cooldown]",src)
 
 /obj/item/spell/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
 	. = ..()
@@ -314,9 +367,8 @@
 // Description: Deletes the spell object immediately.
 /obj/item/spell/dropped()
 	. = ..()
-	spawn(1)
-		if(src)
-			qdel(src)
+	qdel_self()
+
 
 // Proc: throw_impact()
 // Parameters: 1 (hit_atom - the atom that got hit by the spell as it was thrown)
@@ -328,5 +380,10 @@
 
 	// If we miss or hit an obstacle, we still want to delete the spell.
 	spawn(20)
-		if(src)
+		if(!QDELETED(src))
 			qdel(src)
+
+/obj/item/spell/damage_flags()
+	. = ..()
+	if(aspect == ASPECT_PSIONIC)
+		. |= DAMAGE_FLAG_PSIONIC

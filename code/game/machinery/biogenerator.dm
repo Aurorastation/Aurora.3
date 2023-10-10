@@ -67,7 +67,7 @@
 
 /singleton/biorecipe/food/milk
 	name = "Space Milk (50u)"
-	object = /obj/item/reagent_containers/food/drinks/milk
+	object = /obj/item/reagent_containers/food/drinks/carton/milk
 	cost = 100
 
 /singleton/biorecipe/food/nutrispread
@@ -95,7 +95,7 @@
 	object = /obj/item/reagent_containers/food/condiment/enzyme
 
 /*
- FERTILIZER
+FERTILIZER
 */
 
 /singleton/biorecipe/fertilizer
@@ -115,7 +115,7 @@
 	cost = 180
 
 /*
- ITEMS
+ITEMS
 */
 /singleton/biorecipe/item
 	name = "Towel"
@@ -182,7 +182,7 @@
 	cost = 600
 
 /*
- CONSTRUCTION
+CONSTRUCTION
 */
 
 /singleton/biorecipe/construction
@@ -215,7 +215,7 @@
 	object = /obj/item/stack/material/plastic
 
 /*
- SPECIAL
+SPECIAL
 */
 
 /singleton/biorecipe/mushroom

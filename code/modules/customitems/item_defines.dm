@@ -23,7 +23,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if (!implant_type)
 		return
 	imp = new implant_type(src)
-	update()
+	update_icon()
 
 	return
 
@@ -32,17 +32,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	..()
-
-
-/obj/item/clothing/suit/fluff/centurion_cloak //Paludamentum - Centurion - cakeisossim
-	name = "paludamentum"
-	desc = "A cloak-like piece of silky, red fabric. Fashioned at one point where the shoulder would be with a golden pin."
-	icon = 'icons/obj/custom_items/centurion_cloak.dmi'
-	icon_override = 'icons/obj/custom_items/centurion_cloak.dmi'
-	icon_state = "centurion_cloak"
-	item_state = "centurion_cloak"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Sutton - catnippy
@@ -82,55 +71,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A faded badge, backed with leather, that reads \"NT Security Force\" across the front. It bears the emblem of the forensic division."
 	stored_name = "Ana Issek"
 	badge_string = "NanoTrasen Security Department"
-
-
-/obj/item/clothing/head/beret/engineering/fluff/ikrad_beret //LR-31MTA Beret - Ikrad Yam'hir - houseofsynth
-	name = "\improper LR-31MTA beret"
-	desc = "A silver beret with an insignia on the front, it looks like an old Tajaran cannon with a ring around it. \
-	Along the top half of the ring \"LR-31MTA\" is engraved. The word \"Yam'hir\" is engraved along the bottom half of the ring. \
-	The beret looks old and is worn in some places around the edges. It appears to have a flap inside, \
-	secured by a piece of elastic that loops around a button."
-	icon = 'icons/obj/custom_items/ikrad_beret.dmi'
-	icon_override = 'icons/obj/custom_items/ikrad_beret.dmi'
-	icon_state = "ikrad_beret"
-	item_state = "ikrad_beret"
-	contained_sprite = TRUE
-	var/obj/item/fluff/ikrad_letter/letter
-
-/obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/Initialize()
-	. = ..()
-	letter = new(src)
-	letter.attack_self()
-
-/obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/Destroy()
-	QDEL_NULL(letter)
-	return ..()
-
-/obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/attack_self(var/mob/user)
-	if(letter)
-		to_chat(user, "<span class='notice'>You remove \the [letter] from inside the [src]'s flap.</span>")
-		user.put_in_hands(letter)
-		letter = null
-	else
-		..()
-
-/obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/attackby(var/obj/item/fluff/ikrad_letter/W, var/mob/user)
-	if(!src.letter && istype(W))
-		to_chat(user, "<span class='notice'>You place \the [W] back inside the [src]'s flap.</span>")
-		user.drop_from_inventory(W,src)
-		src.letter = W
-	else
-		..()
-
-/obj/item/fluff/ikrad_letter //Tattered Letter - Ikrad Yam'hir - houseofsynth
-	name = "tattered letter"
-	desc = "A tattered looking piece of paper that looks to have been folded multiple times. \
-	Although written in Siik'Maas it seems to be laid out like a letter, addressed to an \"Ikta Yam'hir\" and written in quite \
-	an untidy scrawl. The letter is torn in some places and the is writing faded."
-	icon = 'icons/obj/custom_items/ikrad_beret.dmi'
-	icon_override = 'icons/obj/custom_items/ikrad_beret.dmi'
-	icon_state = "ikrad_letter"
-	w_class = ITEMSIZE_SMALL
 
 
 /obj/item/clothing/under/fluff/faysal_uniform //Old Tajaran Nobleman Suit - Faysal Al-Shennawi - alberyk
@@ -182,22 +122,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "oz_plushie"
 
 
-/obj/item/reagent_containers/food/drinks/teapot/fluff/brianne_teapot //Ceramic Teapot - Sean Brianne - zelmana
+/obj/item/reagent_containers/glass/beaker/teapot/fluff/brianne_teapot //Ceramic Teapot - Sean Brianne - zelmana
 	name = "ceramic teapot"
 	desc = "A blue ceramic teapot, gilded with the abbreviation for NanoTrasen."
 	icon = 'icons/obj/custom_items/brianne_items.dmi'
 	icon_override = 'icons/obj/custom_items/brianne_items.dmi'
 	icon_state = "brianne_teapot"
-
-
-/obj/item/clothing/head/beret/engineering/fluff/make_beret //Tan Engineering Beret - M.A.K.E - toasterstrudes
-	name = "tan engineering beret"
-	desc = "An engineering beret that appears to have been dyed tan, with an orange patch sewn into the middle of it."
-	icon = 'icons/obj/custom_items/make_items.dmi'
-	icon_override = 'icons/obj/custom_items/make_items.dmi'
-	icon_state = "make_beret"
-	item_state = "make_beret"
-	contained_sprite = TRUE
 
 
 /obj/item/clothing/mask/fluff/corvo_cigarette //Vaporizer Pen - Nathan Corvo - jkjudgex
@@ -232,8 +162,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = "corvo_cigarette"
 		item_state = "corvo_cigarette"
 
-/obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user)
-	if(..(user, 1))
+/obj/item/clothing/mask/fluff/corvo_cigarette/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		to_chat(user, "It is [active ? "on" : "off"].")
 
 
@@ -352,27 +283,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "xerius_bag"
 	item_state = "xerius_bag"
 	contained_sprite = TRUE
-
-
-/obj/item/clothing/accessory/poncho/fluff/make_poncho //Raincoat Poncho - M.A.K.E - toasterstrudes
-	name = "raincoat poncho"
-	desc = "A tough brown hooded poncho that looks to be good at protecting someone from the rain."
-	icon = 'icons/obj/custom_items/make_items.dmi'
-	icon_override = 'icons/obj/custom_items/make_items.dmi'
-	icon_state = "make_poncho"
-	item_state = "make_poncho"
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/under/fluff/aegis_uniform //Hephaestus Experimental Projector - Sovereign Aegis - itanimulli
-	name = "Hephaestus experimental projector"
-	desc = "An odd device connected to a security uniform, apparently still in the prototype stage."
-	icon = 'icons/obj/custom_items/aegis_uniform.dmi'
-	icon_override = 'icons/obj/custom_items/aegis_uniform.dmi'
-	icon_state = "aegis_uniform"
-	item_state = "aegis_uniform"
-	contained_sprite = TRUE
-	species_restricted = list(BODYTYPE_IPC_INDUSTRIAL)
 
 
 /obj/item/clothing/mask/fluff/ird_mask //Titanium Faceplate - IRD - kyres1
@@ -519,22 +429,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/accessory/badge/fluff/kelt_tags //Foreign Legion Holo-Tags - Kelt - toasterstrudes
-	name = "foreign legion holo-tags"
-	desc = "A set of holo-tags, on them is the printed name, address, and Serial Code as well as what appears to be a bar code underneath."
-	icon = 'icons/obj/custom_items/kelt_tags.dmi'
-	icon_override = 'icons/obj/custom_items/kelt_tags.dmi'
-	icon_state = "kelt_tags"
-	item_state = "kelt_tags"
-	stored_name = "Kelt"
-	badge_string = "Tau Ceti Foreign Legion"
-	contained_sprite = TRUE
-	slot_flags = SLOT_MASK | SLOT_TIE
-
-
 /obj/item/device/radio/headset/fluff/resolve_headset //Antennae - Decisive Resolve - itanimulli
 	name = "antennae"
-	desc = "Collapsible spherical antennae designed to interface with an IPC. On it, in permanent marker, are the words: \"Cody Brickstend was here\" is immaculate, tiny handwriting."
+	desc = "Collapsible spherical antennae designed to interface with an IPC."
 	icon = 'icons/obj/custom_items/resolve_items.dmi'
 	icon_override = 'icons/obj/custom_items/resolve_items.dmi'
 	icon_state = "resolve_antennae"
@@ -551,8 +448,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/fluff/resolve_uniform //Haphaestus Experimental Projector - Decisive Resolve - itanimulli
-	name = "haphaestus experimental projector"
-	desc = "A flashing device seemingly attached to an officer's corporate security uniform. On the side of the casing are the words: \"Brickstend\", \"Dernestess\", \"Jastovski\", and \"Finch.\""
+	name = "panel harness"
+	desc = "A lightweight, minimalist set of all-in-one paneling. To be worn by an IPC. Doesn't offer much protection."
 	icon = 'icons/obj/custom_items/resolve_items.dmi'
 	icon_override = 'icons/obj/custom_items/resolve_items.dmi'
 	icon_state = "resolve_uniform"
@@ -577,8 +474,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_NORMAL
 	var/has_spear = TRUE
 
-/obj/item/fluff/tokash_spear/examine(mob/user)
-	if(..(user, 1) && has_spear)
+/obj/item/fluff/tokash_spear/examine(mob/user, distance, is_adjacent)
+	if(distance <= 1 && has_spear)
 		to_chat(user, "It currently holds an old looking spearhead.")
 
 /obj/item/fluff/tokash_spear/update_icon()
@@ -689,7 +586,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	user.update_inv_l_hand()
 	user.update_inv_r_hand()
 
-/obj/item/reagent_containers/food/drinks/teapot/fluff/thea_teapot //Bronze Teapot - Thea Reeves - shestrying
+/obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot //Bronze Teapot - Thea Reeves - shestrying
 	name = "bronze teapot"
 	desc = "A round-bottomed, well-used teapot. It looks as though it's been carefully maintained."
 	icon = 'icons/obj/custom_items/thea_tea.dmi'
@@ -712,10 +609,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/thea_tea.dmi'
 	icon_state = "thea_teabox"
 	foldable = null
-	can_hold = list(/obj/item/reagent_containers/food/drinks/teapot/fluff/thea_teapot, /obj/item/reagent_containers/food/drinks/fluff/thea_teacup)
+	can_hold = list(/obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot, /obj/item/reagent_containers/food/drinks/fluff/thea_teacup)
 
 /obj/item/storage/box/fluff/thea_teabox/fill()
-	new /obj/item/reagent_containers/food/drinks/teapot/fluff/thea_teapot(src)
+	new /obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot(src)
 	for(var/i in 1 to 4)
 		new /obj/item/reagent_containers/food/drinks/fluff/thea_teacup(src)
 	make_exact_fit()
@@ -1346,15 +1243,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clipboard/fluff/kennard_ledger //Blue Ledger - Kennard Rose - 6thechamp9
-	name = "blue ledger"
-	desc = "An aluminum block runs the width of the dark blue plastic board, biting down on it with crocodile teeth and barely holding it together. Stuffed within the ledger, a cabbage \
-	of paperwork narrates numerous cases, most of them closed. Turning it on its back reveals the embossed letters: NT."
-	icon = 'icons/obj/custom_items/kennard_ledger.dmi'
-	icon_override = 'icons/obj/custom_items/kennard_ledger.dmi'
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/accessory/poncho/tajarancloak/fancy/fluff/valetzrhonaja_cloak //Nayrragh'Rakhan Cloak - Valetzrhonaja Nayrragh'Rakhan - ramke
 	name = "nayrragh'rakhan cloak"
 	desc = " A worn, black cloak with golden adornments decorating the edges of the fabric. The insignia of the Nayrragh'Rakhan family is embedded into the custom pin holding the cloak \
@@ -1654,12 +1542,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng/fluff/eden_cloak // Zeng-Hu Nralakk division cloak - Eden Li - huntime
-	name = "Zeng-Hu cloak: Nralakk Division"
+	name = "\improper Zeng-Hu cloak: Nralakk division"
 	desc = "A cloak worn by Zeng-Hu personnel who worked with or in the Nralakk Federation."
 	icon = 'icons/obj/custom_items/eden_cloak.dmi'
 	icon_override = 'icons/obj/custom_items/eden_cloak.dmi'
 	icon_state = "ZH_cape_custom"
 	item_state = "ZH_cape_custom"
+
 
 /obj/item/clothing/head/welding/fluff/akara_mask //Steel Face Mask - Akara Seuseisak - aticius
 	name = "steel face mask"
@@ -1752,7 +1641,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	return ..()
 
 /obj/item/fluff/nasira_burner/examine(mob/user)
-	..(user)
+	. = ..()
 	if(lit)
 		to_chat(user, "\The [src] is currently lit.")
 
@@ -1965,8 +1854,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	add_overlay("card_spin_fx")
 	addtimer(CALLBACK(src, PROC_REF(finish_selection), usr), 3 SECONDS)
 
-/obj/item/fluff/ielia_tarot/examine(mob/user)
-	if(..(user, 1))
+/obj/item/fluff/ielia_tarot/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(distance <= 1)
 		if(first_card && second_card && third_card)
 			to_chat(user, "The following constellations are displayed on the starfinder: [first_card], [second_card], and [third_card].")
 
@@ -2073,9 +1963,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "freedom_coat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/fluff/schlosser_hat // Schlosser - NewOriginalSchwann
+/obj/item/clothing/head/fluff/schlosser_hat // National Defense Force Schiffchen - Schlosser - NewOriginalSchwann
 	name = "national defense force schiffchen"
-	desc = "A side cap known as a Schiffchen on Visegrad, a term roughly translating to “little boat” in Basic, which is commonly worn by members of the Visegradi National Defense Force. The NDF’s symbol – a silver fortress standing upon a crimson background – is prominently featured on the Schiffchen’s badge. “Totschlager” has been written on the inside of the band by somebody with a marker."
+	desc = "A side cap known as a Schiffchen on Visegrad, a term roughly translating to \"little boat\" in Basic, which is commonly worn by members of the Visegradi National Defense Force. The NDF’s symbol – a silver fortress standing upon a crimson background – is prominently featured on the Schiffchen’s badge. “Totschlager” has been written on the inside of the band by somebody with a marker."
 	desc_extended = "The Schiffchen has a long, storied, and somewhat controversial history upon Visegrad, which dates back to its initial colonization. The planet’s first security service, the Visegradi People’s Security Service, used the Schiffchen as its standard headwear for security personnel in an effort to invoke \
 	the Warsaw Pact’s security services. Following its dissolution the National Defense Force continued to use the Schiffchen as headwear, and it remains a common sight on Visegrad today even if the NDF, which was dissolved by the Navy shortly after the Solarian Collapse, no longer exists."
 	icon = 'icons/obj/custom_items/schlosser_hat.dmi'
@@ -2091,3 +1981,58 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/provenance_jacket.dmi'
 	icon_state = "provenance_coat"
 	item_state = "provenance_coat"
+
+/obj/item/voidsuit_modkit/fluff/ashkii_suit
+	name = "Squall voidsuit kit"
+	icon = 'icons/obj/custom_items/ashkii_items.dmi'
+	icon_state = "ashkii_modkit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a squall voidsuit."
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/suit/space/void/engineering/fluff/ashkii_suit,
+		/obj/item/clothing/head/helmet/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering/fluff/ashkii_helm)
+
+/obj/item/clothing/head/helmet/space/void/engineering/fluff/ashkii_helm //Squall Voidsuit Helmet - Ashkii Yeongseon - hawkington
+	name = "squall helmet"
+	desc = "A voidsuit helmet seemingly made out of plasteel. A respirator lines the bottom which gives somewhat less airflow that one would expect. It has an enhanced communications \
+	receiver on one side and a gyroscope system on the other; loose wires trailing out of both systems. The four yellow eyes give it a uniquely aggressive look similar to that of the \
+	hakhma beetle. \"Property of Engineering Department\" is handwritten on the side in small orange text. Next to a small logo of Hephaestus"
+	icon = 'icons/obj/custom_items/ashkii_items.dmi'
+	icon_override = 'icons/obj/custom_items/ashkii_items.dmi'
+	icon_state = "ashkii_helm"
+	item_state = "ashkii_helm"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/space/void/engineering/fluff/ashkii_suit //Squall Voidsuit - Ashkii Yeongseon - hawkington
+	name = "squall voidsuit"
+	desc = "A voidsuit that has been bedecked in the Yeongseon colours, namely navy. The entire thing is custom built out of spraypainted plating and a much softer synthleather \
+	underlayer; networks of tiny tubes carrying coolant liquids are laminated between the fabric layers. These active cooling systems help regulate the temperature inside the suit. \
+	There is particular padding around the joints and spine. Notably a series of dark-brown cables pulled taut around the legs brace them somewhat. While metal reinforcements that \
+	resemble a ribcage surround the chestpiece and form into a \"Spine\" on the back. A Hephaestus brand wristbound has been integrated into the forearm of the suit, it's capable of \
+	controlling the levels of cooling and the rigidity of the spinal support system. It looks comfortable for a voidsuit."
+	icon = 'icons/obj/custom_items/ashkii_items.dmi'
+	icon_override = 'icons/obj/custom_items/ashkii_items.dmi'
+	icon_state = "ashkii_suit"
+	item_state = "ashkii_suit"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/fluff/ashkii_cloak //Refurbished SLS Cloak - Ashkii Yeongseon - hawkington
+	name = "refurbished sls cloak"
+	desc = "A black cloak with a notable grey and orange plastic trim. The bulk of it is made out of a number of nanoceramic fibres giving it a distinctly synthetic sheen particularly \
+	in bright light. Some tiny and worn white writing on the side and the hood mark it as the property of \"Spur Logistical Solutions\" a small cargo company that went bankrupt years ago."
+	icon = 'icons/obj/custom_items/ashkii_items.dmi'
+	icon_override = 'icons/obj/custom_items/ashkii_items.dmi'
+	icon_state = "ashkii_cloak"
+	item_state = "ashkii_cloak"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/medical_chest_rig/fluff/pleig_rig
+	name = "\improper Lyukal medical rig"
+	desc = "This blue chestpiece, stylized after a traditional paramedic's chest rig, contains the iconography of the Federation Resistance, also known as the Lyukal, with \
+	the flag of the Free Traverse on the back. It is most suited to the form of a worker or warrior Vaurca."
+	icon = 'icons/obj/custom_items/pleig_rig.dmi'
+	icon_override = 'icons/obj/custom_items/pleig_rig.dmi'
+	icon_state = "pleig_rig"
+	item_state = "pleig_rig"
+	contained_sprite = TRUE
+	species_restricted = list(BODYTYPE_VAURCA)
+

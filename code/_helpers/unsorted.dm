@@ -263,7 +263,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 #undef LOCATE_COORDS
 
-//Returns whether or not a player is a guest using their ckey as an input
+///Returns whether or not a player is a guest using their ckey as an input
 /proc/IsGuestKey(key)
 	if (findtext(key, "Guest-", 1, 7) != 1) //was findtextEx
 		return 0
@@ -279,7 +279,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			return 0
 	return 1
 
-//Ensure the frequency is within bounds of what it should be sending/recieving at
+///Ensure the frequency is within bounds of what it should be sending/recieving at
 /proc/sanitize_frequency(var/f, var/low = PUBLIC_LOW_FREQ, var/high = PUBLIC_HIGH_FREQ)
 	f = round(f)
 	f = max(low, f)
@@ -288,15 +288,15 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		f += 1
 	return f
 
-//Turns 1479 into 147.9
+///Turns 1479 into 147.9
 /proc/format_frequency(var/f)
 	return "[round(f / 10)].[f % 10]"
 
-//Picks a string of symbols to display as the law number for hacked or ion laws
+///Picks a string of symbols to display as the law number for hacked or ion laws
 /proc/ionnum()
 	return "[pick("1","2","3","4","5","6","7","8","9","0")][pick("!","@","#","$","%","^","&","*")][pick("!","@","#","$","%","^","&","*")][pick("!","@","#","$","%","^","&","*")]"
 
-//When an AI is activated, it can choose from a list of non-slaved borgs to have as a slave.
+///When an AI is activated, it can choose from a list of non-slaved borgs to have as a slave.
 /proc/freeborg()
 	var/select = null
 	var/list/borgs = list()
@@ -310,7 +310,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		select = input("Unshackled borg signals detected:", "Borg selection", null, null) as null|anything in borgs
 		return borgs[select]
 
-//When a borg is activated, it can choose which AI it wants to be slaved to
+///When a borg is activated, it can choose which AI it wants to be slaved to
 /proc/active_ais()
 	. = list()
 	for(var/mob/living/silicon/ai/A in living_mob_list)
@@ -321,7 +321,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		. += A
 	return .
 
-//Find an active ai with the least borgs. VERBOSE PROCNAME HUH!
+///Find an active ai with the least borgs. VERBOSE PROCNAME HUH!
 /proc/select_active_ai_with_fewest_borgs()
 	var/mob/living/silicon/ai/selected
 	var/list/active = active_ais()
@@ -366,7 +366,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	new_list += Dead_list
 	return new_list
 
-//Returns a list of all mobs with their name
+///Returns a list of all mobs with their name
 /proc/getmobs()
 
 	var/list/mobs = sortmobs()
@@ -392,7 +392,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	return creatures
 
-//Orders mobs by type then by name
+///Orders mobs by type then by name
 /proc/sortmobs()
 	var/list/moblist = list()
 	var/list/sortmob = sortAtom(mob_list)
@@ -424,15 +424,17 @@ Turf and target are seperate in case you want to teleport some distance from a t
 //		mob_list.Add(M)
 	return moblist
 
-//Forces a variable to be posative
+///Forces a variable to be posative
 /proc/modulus(var/M)
 	if(M >= 0)
 		return M
 	if(M < 0)
 		return -M
 
-// returns the turf located at the map edge in the specified direction relative to A
-// used for mass driver
+/**
+ * Returns the turf located at the map edge in the specified direction relative to A
+ * used for mass driver
+ */
 /proc/get_edge_target_turf(var/atom/A, var/direction)
 
 	var/turf/target = locate(A.x, A.y, A.z)
@@ -453,10 +455,12 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	return target
 
-// returns turf relative to A in given direction at set range
-// result is bounded to map size
-// note range is non-pythagorean
-// used for disposal system
+/**
+ * returns turf relative to A in given direction at set range
+ * result is bounded to map size
+ * note range is non-pythagorean
+ * used for disposal system
+ */
 /proc/get_ranged_target_turf(var/atom/A, var/direction, var/range)
 
 	var/x = A.x
@@ -480,25 +484,25 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/y = min(world.maxy, max(1, A.y + dy))
 	return locate(x,y,A.z)
 
-//Makes sure MIDDLE is between LOW and HIGH. If not, it adjusts it. Returns the adjusted value.
+///Makes sure MIDDLE is between LOW and HIGH. If not, it adjusts it. Returns the adjusted value.
 /proc/between(var/low, var/middle, var/high)
 	return max(min(middle, high), low)
 
-//returns random gauss number
+///Returns random gauss number
 /proc/GaussRand(var/sigma)
-  var/x,y,rsq
-  do
-    x=2*rand()-1
-    y=2*rand()-1
-    rsq=x*x+y*y
-  while(rsq>1 || !rsq)
-  return sigma*y*sqrt(-2*log(rsq)/rsq)
+	var/x,y,rsq
+	do
+		x=2*rand()-1
+		y=2*rand()-1
+		rsq=x*x+y*y
+	while(rsq>1 || !rsq)
+	return sigma*y*sqrt(-2*log(rsq)/rsq)
 
-//returns random gauss number, rounded to 'roundto'
+///Returns random gauss number, rounded to 'roundto'
 /proc/GaussRandRound(var/sigma,var/roundto)
 	return round(GaussRand(sigma),roundto)
 
-//Step-towards method of determining whether one atom can see another. Similar to viewers()
+///Step-towards method of determining whether one atom can see another. Similar to viewers()
 /proc/can_see(var/atom/source, var/atom/target, var/length=5) // I couldn't be arsed to do actual raycasting :I This is horribly inaccurate.
 	var/turf/current = get_turf(source)
 	var/turf/target_turf = get_turf(target)
@@ -589,62 +593,149 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	if (progbar)
 		qdel(progbar)
 
-/proc/do_after(mob/user as mob, delay as num, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE, datum/callback/extra_checks)
-	if(!user || isnull(user))
-		return 0
+/// Integer. Unique sequential ID from the `do_after` proc used to validate `DO_USER_UNIQUE_ACT` flag checks.
+/mob/var/do_unique_user_handle = 0
+/// The mob currently interacting with the atom during a `do_after` timer. Used to validate `DO_TARGET_UNIQUE_ACT` flag checks.
+/atom/var/mob/do_unique_target_user
 
-	var/Location
-	var/act_location
-	if(use_user_turf)	//When this is true, do_after() will check whether the user's turf has changed, rather than the user's loc.
-		Location = get_turf(user)
-	else
-		Location = user.loc
+/**
+ * Timed actions involving one mob user and (optionally) one target.
+ *
+ * Returns TRUE on success or FALSE on failure
+ *
+ * Arguments:
+ * * user: The user to check for.
+ * * delay: The delay in ticks to wait before returning TRUE.
+ * * target: The target to check for. Optional.
+ * * do_flags: Flags that determine what the user and target can and cannot do, defined in [mobs.dm]. Defaults to DO_DEFAULT.
+ * * incapacitation_flags: Incapacitation flags that determines if the user can be incapacitated. Defaults to INCAPACITATION_DEFAULT.
+ * * extra_checks: Optional extra checks, that uses a callback. See [datum/callback].
+ *
+ */
+/proc/do_after(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks)
+	return !do_after_detailed(user, delay, target, do_flags, incapacitation_flags)
 
-	if (!act_target)
-		act_target = user
-	else
-		act_location = get_turf(act_target)
+/**
+ * See [/proc/do_after]
+ * Returns the exact error, defined in [mobs.dm] for custom error messages.
+ * Overlaps with do_flags, with some extra error messages available.
+ */
+/proc/do_after_detailed(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks)
+	if(!delay)
+		return FALSE
 
-	var/holding = user.get_active_hand()
+	if(!user)
+		return DO_MISSING_USER
+
+	var/initial_handle
+	if (HAS_FLAG(do_flags, DO_USER_UNIQUE_ACT))
+		initial_handle = sequential_id("/proc/do_after")
+		user.do_unique_user_handle = initial_handle
+
+	var/do_feedback = HAS_FLAG(do_flags, DO_FAIL_FEEDBACK)
+
+	if(target?.do_unique_target_user)
+		if (do_feedback)
+			USE_FEEDBACK_FAILURE("\The [target.do_unique_target_user] is already interacting with \the [target]!")
+		return DO_TARGET_UNIQUE_ACT
+
+	if (HAS_FLAG(do_flags, DO_TARGET_UNIQUE_ACT) && target)
+		target.do_unique_target_user = user
+
+	var/atom/user_loc = HAS_FLAG(do_flags, DO_USER_CAN_MOVE) ? null : user.loc
+	var/user_dir = HAS_FLAG(do_flags, DO_USER_CAN_TURN) ? null : user.dir
+	var/user_hand = HAS_FLAG(do_flags, DO_USER_SAME_HAND) ? user.hand : null
+
+	var/atom/target_loc = HAS_FLAG(do_flags, DO_TARGET_CAN_MOVE) ? null : target?.loc
+	var/target_dir = HAS_FLAG(do_flags, DO_TARGET_CAN_TURN) ? null : target?.dir
+	var/target_type = target?.type
+
+	var/target_zone = HAS_FLAG(do_flags, DO_USER_SAME_ZONE) ? user.zone_sel.selecting : null
+
+	if (HAS_FLAG(do_flags, DO_MOVE_CHECKS_TURFS))
+		if (user_loc)
+			user_loc = get_turf(user)
+		if (target_loc)
+			target_loc = get_turf(target)
 
 	var/datum/progressbar/progbar
-	if (display_progress && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
-		progbar = new(user, delay, act_target)
+	if (HAS_FLAG(do_flags, DO_SHOW_PROGRESS) && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
+		progbar = new(user, delay, target || user)
 
-	var/endtime = world.time + delay
-	var/starttime = world.time
+	SEND_SIGNAL(user, COMSIG_DO_AFTER_BEGAN)
 
-	. = 1
+	var/start_time = world.time
+	var/end_time = start_time + delay
 
-	while (world.time < endtime)
+	. = FALSE
+
+	while(world.time < end_time)
 		stoplag(1)
-		if (progbar)
-			progbar.update(world.time - starttime)
-
-		var/user_loc_to_check
-		if(use_user_turf)
-			user_loc_to_check = get_turf(user)
-		else
-			user_loc_to_check = user.loc
-
-		if (!user || user.stat || user.weakened || user.stunned)
-			. = 0
+		if (!QDELETED(progbar))
+			progbar.update(world.time - start_time)
+		if (QDELETED(user))
+			. = DO_MISSING_USER
 			break
-
-		if ((use_user_turf >= 0 && user_loc_to_check != Location) || (act_location && (get_turf(act_target) != act_location)))
-			. = 0
+		if (target_type && (QDELETED(target) || target_type != target.type))
+			. = DO_MISSING_TARGET
 			break
-
-		if(needhand && !(user.get_active_hand() == holding))	//Sometimes you don't want the user to have to keep their active hand
-			. = 0
+		if (user.incapacitated(incapacitation_flags))
+			. = DO_INCAPACITATED
 			break
-
+		if (user_loc && user_loc != (HAS_FLAG(do_flags, DO_MOVE_CHECKS_TURFS) ? get_turf(user) : user.loc))
+			. = DO_USER_CAN_MOVE
+			break
+		if (target_loc && target_loc != (HAS_FLAG(do_flags, DO_MOVE_CHECKS_TURFS) ? get_turf(target) : target.loc))
+			. = DO_TARGET_CAN_MOVE
+			break
+		if (user_dir && user_dir != user.dir)
+			. = DO_USER_CAN_TURN
+			break
+		if (target_dir && target_dir != target.dir)
+			. = DO_TARGET_CAN_TURN
+			break
+		if (HAS_FLAG(do_flags, DO_USER_SAME_HAND) && user_hand != user.hand)
+			. = DO_USER_SAME_HAND
+			break
+		if (initial_handle && initial_handle != user.do_unique_user_handle)
+			. = DO_USER_UNIQUE_ACT
+			break
+		if (target_zone && user.zone_sel.selecting != target_zone)
+			. = DO_USER_SAME_ZONE
+			break
 		if (extra_checks && !extra_checks.Invoke())
-			. = 0
+			. = DO_EXTRA_CHECKS
 			break
 
-	if (progbar)
-		qdel(progbar)
+	if (. && do_feedback)
+		switch (.)
+			if (DO_MISSING_TARGET)
+				USE_FEEDBACK_FAILURE("\The [target] no longer exists!")
+			if (DO_INCAPACITATED)
+				USE_FEEDBACK_FAILURE("You're no longer able to act!")
+			if (DO_USER_CAN_MOVE)
+				USE_FEEDBACK_FAILURE("You must remain still to perform that action!")
+			if (DO_TARGET_CAN_MOVE)
+				USE_FEEDBACK_FAILURE("\The [target] must remain still to perform that action!")
+			if (DO_USER_CAN_TURN)
+				USE_FEEDBACK_FAILURE("You must face the same direction to perform that action!")
+			if (DO_TARGET_CAN_TURN)
+				USE_FEEDBACK_FAILURE("\The [target] must face the same direction to perform that action!")
+			if (DO_USER_SAME_HAND)
+				USE_FEEDBACK_FAILURE("You must remain on the same active hand to perform that action!")
+			if (DO_USER_UNIQUE_ACT)
+				USE_FEEDBACK_FAILURE("You stop what you're doing with \the [target].")
+			if (DO_USER_SAME_ZONE)
+				USE_FEEDBACK_FAILURE("You must remain targeting the same zone to perform that action!")
+
+	if(!QDELETED(progbar))
+		progbar.endProgress()
+	if (HAS_FLAG(do_flags, DO_USER_UNIQUE_ACT) && user.do_unique_user_handle == initial_handle)
+		user.do_unique_user_handle = 0
+	if (HAS_FLAG(do_flags, DO_TARGET_UNIQUE_ACT) && target)
+		target.do_unique_target_user = null
+
+	SEND_SIGNAL(user, COMSIG_DO_AFTER_ENDED)
 
 /proc/atom_maintain_position(var/atom/A, var/atom/location)
 	if(QDELETED(A) || QDELETED(location))

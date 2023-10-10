@@ -45,7 +45,7 @@
 		assigned_antagonist.add_antagonist_mind(src.mind, TRUE)
 		if(assigned_antagonist.get_antag_radio())
 			module.channels[assigned_antagonist.get_antag_radio()] = TRUE
-			radio.recalculateChannels()
+			INVOKE_ASYNC(radio, TYPE_PROC_REF(/obj/item/device/radio/borg, recalculateChannels))
 	client.init_verbs()
 	say("Boot sequence complete!")
 	return src

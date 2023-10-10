@@ -20,6 +20,7 @@
 #define DAMAGE_FLAG_EXPLODE   16
 #define DAMAGE_FLAG_DISPERSED 32 // Makes apply_damage calls without specified zone distribute damage rather than randomly choose organ (for humans)
 #define DAMAGE_FLAG_BIO       64
+#define DAMAGE_FLAG_PSIONIC   128
 
 #define STUN      "stun"
 #define WEAKEN    "weaken"
@@ -88,5 +89,5 @@
 // that dealing just enough burn damage to kill the player will cause the given
 // proportion of their max blood volume to be lost
 // (e.g. 0.6 == 60% lost if 200 burn damage is taken).
-#define FLUIDLOSS_WIDE_BURN 0.6 //for burns from heat applied over a wider area, like from fire
-#define FLUIDLOSS_CONC_BURN 0.4 //for concentrated burns, like from lasers
+#define FLUIDLOSS_WIDE_BURN 0.3 //for burns from heat applied over a wider area, like from fire
+#define FLUIDLOSS_CONC_BURN 0.2 //for concentrated burns, like from lasers

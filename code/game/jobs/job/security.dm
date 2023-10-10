@@ -18,15 +18,17 @@
 	)
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
-			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
-			            access_research, access_engine, access_ship_weapons, access_mining, access_medical, access_construction, access_mailsorting,
-			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-				    	access_weapons, access_intrepid, access_teleporter)
+					access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
+					access_research, access_engine, access_ship_weapons, access_mining, access_medical, access_construction, access_mailsorting,
+					access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
+					access_weapons, access_intrepid, access_teleporter)
+
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
-			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
-			            access_research, access_engine, access_ship_weapons, access_mining, access_medical, access_construction, access_mailsorting,
-			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-				    	access_weapons, access_intrepid, access_teleporter)
+							access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
+							access_research, access_engine, access_ship_weapons, access_mining, access_medical, access_construction, access_mailsorting,
+							access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
+							access_weapons, access_intrepid, access_teleporter)
+
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/hos
 
@@ -161,7 +163,7 @@
 	jobtype = /datum/job/investigator
 
 	uniform = /obj/item/clothing/under/det
-	shoes = /obj/item/clothing/shoes/laceup/all_species
+	shoes = /obj/item/clothing/shoes/laceup
 
 	headset = /obj/item/device/radio/headset/headset_sec
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
@@ -249,6 +251,18 @@
 	departments = SIMPLEDEPT(DEPARTMENT_SECURITY)
 	department_flag = ENGSEC
 	faction = "Station"
+	alt_titles = list("Investigator Intern", "Warden Cadet")
+	alt_outfits = list("Investigator Intern" = /datum/outfit/job/intern_sec/forensics)
+	alt_ages = list("Investigator Intern" = list(
+		SPECIES_HUMAN = 24,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
+	),
+	"Warden Cadet" = list(
+		SPECIES_HUMAN = 24,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
+	))
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Head of Security"
@@ -298,3 +312,14 @@
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black_leather(H), slot_gloves)
+
+/datum/outfit/job/intern_sec/forensics
+	name = "Investigator Intern"
+	jobtype = /datum/job/intern_sec
+
+	shoes = /obj/item/clothing/shoes/laceup
+
+/datum/outfit/job/intern_sec/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	H.equip_or_collect(new /obj/item/clothing/gloves/black/forensic(H), slot_gloves)
+

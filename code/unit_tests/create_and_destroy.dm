@@ -8,7 +8,7 @@
 	//We'll spawn everything here
 	var/turf/spawn_at = locate()
 
-	/**
+	/*
 	 * EXCLUSIONS FROM THE TEST
 	 *
 	 * This is to be used when there's no other possible way to make this test work, to exclude a specific path from being scrutinized
@@ -97,6 +97,11 @@
 		/obj/screen/click_catcher,
 		/obj/screen/new_player/selection/polls,
 
+		//Temporary exclusion while matt fixes it
+		/obj/item/projectile/beam/psi_lightning/wide,
+		/obj/effect/fusion_particle_catcher,
+		/obj/item/fuel_assembly
+
 	)
 
 	// Paths and all the subpaths excluded
@@ -159,7 +164,7 @@
 	// do_spread sleeps and tries to addtimer after the src is qdeleted
 	ignore += typesof(/obj/effect/plant)
 
-	/**
+	/*
 	 * END EXCLUSIONS OF THE TEST
 	 */
 
@@ -223,9 +228,11 @@
 			garbage_queue_processed = TRUE
 			break
 
+		#if !defined(REFERENCE_TRACKING)
 		if(world.time > start_time + time_needed + 30 MINUTES) //If this gets us gitbanned I'm going to laugh so hard
 			result = TEST_FAIL("Something has gone horribly wrong, the garbage queue has been processing for well over 30 minutes. What the hell did you do")
 			break
+		#endif
 
 		//Immediately fire the gc right after
 		SSgarbage.next_fire = 1

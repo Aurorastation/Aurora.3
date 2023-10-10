@@ -57,6 +57,9 @@ var/global/datum/global_init/init = new ()
 	maxx = WORLD_MIN_SIZE	// So that we don't get map-window-popin at boot. DMMS will expand this.
 	maxy = WORLD_MIN_SIZE
 	fps = 30
+#ifdef FIND_REF_NO_CHECK_TICK
+	loop_checks = FALSE
+#endif
 
 #define RECOMMENDED_VERSION 510
 /world/New()
@@ -67,11 +70,11 @@ var/global/datum/global_init/init = new ()
 	log_startup()
 	changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
 
-	if(config.log_runtime)
+	if(config.logsettings["log_runtime"])
 		diary_runtime = file("data/logs/_runtime/[diary_date_string]-runtime.log")
 
 	if(byond_version < RECOMMENDED_VERSION)
-		log_error("Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION].")
+		log_world("ERROR: Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION].")
 
 	world.TgsNew()
 
@@ -213,16 +216,16 @@ var/list/world_api_rate_limit = list()
 			if (0)
 				hard_reset = TRUE
 			else
-				if (SSpersist_config.rounds_since_hard_restart >= config.rounds_until_hard_restart)
+				if (SSpersistent_configuration.rounds_since_hard_restart >= config.rounds_until_hard_restart)
 					hard_reset = TRUE
-					SSpersist_config.rounds_since_hard_restart = 0
+					SSpersistent_configuration.rounds_since_hard_restart = 0
 				else
 					hard_reset = FALSE
-					SSpersist_config.rounds_since_hard_restart++
+					SSpersistent_configuration.rounds_since_hard_restart++
 	else if (!world.TgsAvailable() && hard_reset)
 		hard_reset = FALSE
 
-	SSpersist_config.save_to_file("data/persistent_config.json")
+	SSpersistent_configuration.save_to_file("data/persistent_config.json")
 	Master.Shutdown()
 
 	for(var/thing in clients)
@@ -356,15 +359,15 @@ var/list/world_api_rate_limit = list()
 
 /hook/startup/proc/load_databases()
 	if(!config.sql_enabled)
-		log_error("Database Connection disabled. - Skipping Connection Establishment")
+		log_world("ERROR: Database Connection disabled. - Skipping Connection Establishment")
 		return 1
 	//Construct the database object from an init file.
 	dbcon = initialize_database_object("config/dbconfig.txt")
 
 	if(!setup_database_connection(dbcon))
-		log_error("Your server failed to establish a connection with the configured database.")
+		log_world("ERROR: Your server failed to establish a connection with the configured database.")
 	else
-		log_error("Database connection established.")
+		log_world("Database connection established.")
 	return 1
 
 /proc/initialize_database_object(var/filename)
@@ -409,7 +412,7 @@ var/list/world_api_rate_limit = list()
 
 /proc/setup_database_connection(var/DBConnection/con)
 	if (!con)
-		log_error("No DBConnection object passed to setup_database_connection().")
+		log_world("ERROR: No DBConnection object passed to setup_database_connection().")
 		return 0
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)	//If it failed to establish a connection more than 5 times in a row, don't bother attempting to conenct anymore.
@@ -425,11 +428,11 @@ var/list/world_api_rate_limit = list()
 
 #ifdef UNIT_TEST
 		// UTs are presumed public. Change this to hide your shit.
-		log_error("Database connection failed with message:")
-		log_error(con.ErrorMsg())
+		log_world("ERROR: Database connection failed with message:")
+		log_world("ERROR: [con.ErrorMsg()]")
 #else
-		log_error("[time2text(con.last_fail, "hh:mm:ss")]: Database connection failed (try #[con.failed_connections]/[FAILED_DB_CONNECTION_CUTOFF])")
-		log_error(con.ErrorMsg())
+		log_world("ERROR: [time2text(con.last_fail, "hh:mm:ss")]: Database connection failed (try #[con.failed_connections]/[FAILED_DB_CONNECTION_CUTOFF])")
+		log_world("ERROR: [con.ErrorMsg()]")
 #endif
 
 	return .
@@ -440,12 +443,12 @@ var/list/world_api_rate_limit = list()
 		return FALSE
 
 	if (!con)
-		log_error("No DBConnection object passed to establish_db_connection() proc.")
+		log_sql("ERROR: No DBConnection object passed to establish_db_connection() proc.")
 		return FALSE
 
 	if (con.failed_connections > FAILED_DB_CONNECTION_CUTOFF)
 		if(world.timeofday < con.last_fail + 100) // 10 seconds
-			log_error("DB connection cutoff exceeded for a database object in establish_db_connection().")
+			log_sql("ERROR: DB connection cutoff exceeded for a database object in establish_db_connection().")
 			return FALSE
 
 		con.failed_connections = 0

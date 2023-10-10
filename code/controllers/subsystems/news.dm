@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/news/SSnews
-
-/datum/controller/subsystem/news
+SUBSYSTEM_DEF(news)
 	name = "News"
 	flags = SS_NO_FIRE
 	var/list/datum/feed_channel/network_channels = list()
@@ -10,9 +8,6 @@
 /datum/controller/subsystem/news/Recover()
 	src.network_channels = SSnews.network_channels
 	src.wanted_issue = SSnews.wanted_issue
-
-/datum/controller/subsystem/news/New()
-	NEW_SS_GLOBAL(SSnews)
 
 /datum/controller/subsystem/news/Initialize(timeofday)
 	CreateFeedChannel("Station Announcements", "Automatic Announcement System", 1, 1, "New Station Announcement Available")
@@ -28,7 +23,7 @@
 
 /datum/controller/subsystem/news/proc/load_from_forums()
 	if (!config.forum_api_path || !global.forum_api_key)
-		log_debug("SSnews: Unable to load from forums, API path or key not set up.")
+		LOG_DEBUG("SSnews: Unable to load from forums, API path or key not set up.")
 		return
 
 	if (!length(forum_topics))
@@ -43,7 +38,7 @@
 		var/datum/http_response/initial_response = initial.into_response()
 		if (initial_response.errored)
 			testing("Errored: [initial_response.error]")
-			log_debug("SSnews: errored: [initial_response.error]")
+			LOG_DEBUG("SSnews: errored: [initial_response.error]")
 			continue
 
 
@@ -59,7 +54,7 @@
 
 		var/datum/http_response/posts_response = posts.into_response()
 		if (posts_response.errored)
-			log_debug("SSnews: errored getting posts from [topic_id]: [posts_response.error]")
+			LOG_DEBUG("SSnews: errored getting posts from [topic_id]: [posts_response.error]")
 			continue
 
 		var/list/forum_posts = posts_response.body
@@ -108,7 +103,7 @@
 		forum_topics -= "_comment"
 
 	catch(var/exception/e)
-		log_debug("SSnews: error loading news.json. [e]")
+		LOG_DEBUG("SSnews: error loading news.json. [e]")
 
 /datum/controller/subsystem/news/proc/GetFeedChannel(var/channel_name)
 	if(network_channels[channel_name])
@@ -130,7 +125,7 @@
 
 /datum/controller/subsystem/news/proc/SubmitArticle(var/msg, var/author, var/datum/feed_channel/channel, var/obj/item/photo/photo, var/adminMessage = 0, var/message_type = "", var/time_stamp)
 	if(!channel)
-		log_debug("SSnews: Attempted to submit a article from [author] without a proper channel",SEVERITY_ERROR)
+		log_world("SSnews: Attempted to submit a article from [author] without a proper channel")
 		return
 
 	var/datum/feed_message/newMsg = new /datum/feed_message

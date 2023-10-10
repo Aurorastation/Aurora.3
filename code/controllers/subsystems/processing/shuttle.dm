@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/shuttle/SSshuttle
-
-/datum/controller/subsystem/shuttle
+SUBSYSTEM_DEF(shuttle)
 	name = "Shuttle"
 	wait = 2 SECONDS
 	priority = SS_PRIORITY_SHUTTLE
@@ -27,9 +25,6 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 	var/block_queue = TRUE
 
 	var/tmp/list/working_shuttles
-
-/datum/controller/subsystem/shuttle/New()
-	NEW_SS_GLOBAL(SSshuttle)
 
 /datum/controller/subsystem/shuttle/Initialize()
 	last_landmark_registration_time = world.time
@@ -164,7 +159,7 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 				S.motherdock = S.current_location.landmark_tag
 				mothership.shuttle_area |= S.shuttle_area
 			else
-				log_error("Shuttle [S] was unable to find mothership [mothership]!")
+				log_world("ERROR: Shuttle [S] was unable to find mothership [mothership]!")
 
 /datum/controller/subsystem/shuttle/proc/toggle_overmap(new_setting)
 	if(overmap_halted == new_setting)

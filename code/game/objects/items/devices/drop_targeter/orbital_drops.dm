@@ -26,7 +26,7 @@
 	drop_message = "Mech coming in hot!"
 	drop_message_emagged = "Mech comin- SHIT! WHO PAINTED THAT?"
 	announcer_name = "Respawn Mech Industries"
-	announcer_channel = "Common"
+	announcer_frequency = PUB_FREQ
 
 	map = new /datum/map_template/mecha
 
@@ -39,6 +39,9 @@
 /obj/item/device/orbital_dropper/mecha/powerloader
 	map = new /datum/map_template/mecha/powerloader
 
+/obj/item/device/orbital_dropper/mecha/miner
+	map = new /datum/map_template/mecha/miner
+
 /obj/item/device/orbital_dropper/armory
 	name = "armory dropper"
 	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. Who's ready to raise hell?"
@@ -48,14 +51,14 @@
 	drop_message = "The cavalry has arrived!"
 	drop_message_emagged = "The cav-cav-cav-BzzzZZTTT!"
 	announcer_name = "GunCourier Industries Autodrone"
-	announcer_channel = "Common"
+	announcer_frequency = PUB_FREQ
 
 	map = new /datum/map_template/armory
 
 /obj/item/device/orbital_dropper/armory/syndicate
 	desc_antag = "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on common, unless emagged."
 	announcer_name = "Syndicate Autodrone"
-	announcer_channel = "Mercenary"
+	announcer_frequency = SYND_FREQ
 
 /obj/item/device/orbital_dropper/icarus_drones
 	name = "icarus painter"

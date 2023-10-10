@@ -33,9 +33,7 @@ if(Datum.isprocessing) {\
 #define START_PROCESSING_POWER_OBJECT(Datum) START_PROCESSING_IN_LIST(Datum, power_objects)
 #define STOP_PROCESSING_POWER_OBJECT(Datum) STOP_PROCESSING_IN_LIST(Datum, power_objects)
 
-/var/datum/controller/subsystem/machinery/SSmachinery
-
-/datum/controller/subsystem/machinery
+SUBSYSTEM_DEF(machinery)
 	name = "Machinery"
 	priority = SS_PRIORITY_MACHINERY
 	init_order = SS_INIT_MACHINERY
@@ -83,9 +81,6 @@ if(Datum.isprocessing) {\
 	all_telecomms = SSmachinery.all_telecomms
 	all_receivers = SSmachinery.all_receivers
 	current_step = SSMACHINERY_PIPENETS
-
-/datum/controller/subsystem/machinery/New()
-	NEW_SS_GLOBAL(SSmachinery)
 
 /datum/controller/subsystem/machinery/Initialize(timeofday)
 	makepowernets()
@@ -149,12 +144,12 @@ if(Datum.isprocessing) {\
 			continue
 		atmos_machines += machine
 	admin_notice(SPAN_DANGER("Initializing atmos machinery."), R_DEBUG)
-	log_ss("machinery", "Initializing atmos machinery.")
+	log_subsystem("machinery", "Initializing atmos machinery.")
 	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
 		machine.atmos_init()
 		CHECK_TICK
 	admin_notice(SPAN_DANGER("Initializing pipe networks."), R_DEBUG)
-	log_ss("machinery", "Initializing pipe networks.")
+	log_subsystem("machinery", "Initializing pipe networks.")
 	for (var/obj/machinery/atmospherics/machine as anything in atmos_machines)
 		machine.build_network()
 		CHECK_TICK
@@ -183,6 +178,24 @@ if(Datum.isprocessing) {\
 	var/obj/machinery/machine
 	for (var/i = queue.len to 1 step -1)
 		machine = queue[i]
+
+		if(!istype(machine)) // Below is a debugging and recovery effort. This should never happen, but has been observed recently.
+			if(!machine)
+				continue // Hard delete; unlikely but possible. Soft deletes are handled below and expected.
+			if(machine in processing)
+				processing.Remove(machine)
+				machine.isprocessing = null
+				WARNING("[log_info_line(machine)] was found illegally queued on SSmachines.")
+				continue
+			else if(resumed)
+				queue.Cut() // Abandon current run; assuming that we were improperly resumed with the wrong process queue.
+				WARNING("[log_info_line(machine)] was in the wrong subqueue on SSmachines on a resumed fire.")
+				process_machinery(0)
+				return
+			else // ??? possibly dequeued by another machine or something ???
+				WARNING("[log_info_line(machine)] was in the wrong subqueue on SSmachines on an unresumed fire.")
+				continue
+
 		if (QDELETED(machine))
 			if (machine)
 				machine.isprocessing = null

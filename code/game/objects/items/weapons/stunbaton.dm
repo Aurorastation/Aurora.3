@@ -59,10 +59,10 @@
 	else
 		set_light(0)
 
-/obj/item/melee/baton/examine(mob/user)
-	if(!..(user, 1))
+/obj/item/melee/baton/examine(mob/user, distance)
+	. = ..()
+	if(!distance <= 1)
 		return
-
 	if(bcell)
 		to_chat(user, "<span class='notice'>The baton is [round(bcell.percent())]% charged.</span>")
 	else

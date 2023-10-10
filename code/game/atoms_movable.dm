@@ -7,11 +7,15 @@
 	var/anchored = 0
 	var/movable_flags
 
-	var/icon_scale_x = 1 // Used to scale icons up or down horizonally in update_transform().
-	var/icon_scale_y = 1 // Used to scale icons up or down vertically in update_transform().
-	var/icon_rotation = 0 // Used to rotate icons in update_transform()
+	///Used to scale icons up or down horizonally in update_transform().
+	var/icon_scale_x = 1
 
-	// var/elevation = 2    - not used anywhere
+	///Used to scale icons up or down vertically in update_transform().
+	var/icon_scale_y = 1
+
+	///Used to rotate icons in update_transform()
+	var/icon_rotation = 0
+
 	var/move_speed = 10
 	var/l_move_time = 1
 	var/throwing = 0
@@ -21,9 +25,14 @@
 	var/throw_range = 7
 	var/moved_recently = 0
 	var/atom/movable/pulledby = null
-	var/item_state = null // Base name of the image used for when the item is in someone's hand. Suffixes are added to this. Doubles as legacy overlay_state.
-	var/overlay_state = null // Base name of the image used for when the item is worn. Suffixes are added to this. Important for icon flipping as _flip is added at the end of the value.
-	//Also used on holdable mobs for the same info related to their held version
+
+	///Base name of the image used for when the item is in someone's hand. Suffixes are added to this. Doubles as legacy overlay_state.
+	var/item_state = null
+
+	///Base name of the image used for when the item is worn. Suffixes are added to this. Important for icon flipping as _flip is added at the end of the value.
+	var/overlay_state = null
+
+	///Also used on holdable mobs for the same info related to their held version
 	var/does_spin = TRUE // Does the atom spin when thrown (of course it does :P)
 
 	var/can_hold_mob = FALSE
@@ -184,9 +193,9 @@
 		minor_dist = dist_x
 
 	while(src && target && src.throwing && istype(src.loc, /turf) \
-		  && ((abs(target.x - src.x)+abs(target.y - src.y) > 0 && dist_travelled < range) \
-		  	   || (a && a.has_gravity == 0) \
-			   || istype(src.loc, /turf/space)))
+			&& ((abs(target.x - src.x)+abs(target.y - src.y) > 0 && dist_travelled < range) \
+				|| (a && a.has_gravity == 0) \
+				|| istype(src.loc, /turf/space)))
 		// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 		var/atom/step
 		if(error >= 0)
@@ -591,6 +600,9 @@
 	animate(src, alpha = old_alpha, pixel_x = old_x, pixel_y = old_y, transform = old_transform, time = 3, easing = CUBIC_EASING)
 
 /atom/movable/proc/get_floating_chat_x_offset()
+	return 0
+
+/atom/movable/proc/get_floating_chat_y_offset()
 	return 0
 
 /atom/movable/proc/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)

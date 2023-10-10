@@ -14,7 +14,7 @@
 	var/icon_state_active = "dispenser_active"
 	/// Set to a list of types to spawn one of each on New().
 	var/list/spawn_cartridges
-	 /// Associative, label -> cartridge.
+	/// Associative, label -> cartridge.
 	var/list/cartridges = list()
 	///Current container.
 	var/obj/item/reagent_containers/container
@@ -40,7 +40,7 @@
 			add_cartridge(new type(src))
 
 /obj/machinery/chemical_dispenser/examine(mob/user)
-	..()
+	. = ..()
 	to_chat(user, "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more.")
 
 /obj/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
@@ -78,6 +78,22 @@
 	. = cartridges[label]
 	cartridges -= label
 	SStgui.update_uis(src)
+
+/obj/machinery/chemical_dispenser/proc/eject()
+	if(container && usr)
+		var/obj/item/reagent_containers/B = container
+		if(!use_check_and_message(usr))
+			usr.put_in_hands(B, TRUE)
+		else
+			B.loc = get_turf(src)
+		container = null
+		if(icon_state_active)
+			icon_state = initial(icon_state)
+		return TRUE
+
+/obj/machinery/chemical_dispenser/AltClick(mob/user)
+	if(use_check_and_message(usr))
+		eject()
 
 /obj/machinery/chemical_dispenser/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
@@ -180,12 +196,7 @@
 				. = TRUE
 
 		if("ejectBeaker")
-			if(container)
-				var/obj/item/reagent_containers/B = container
-				usr.put_in_hands(B)
-				container = null
-				if(icon_state_active)
-					icon_state = initial(icon_state)
+			if(eject())
 				. = TRUE
 
 	add_fingerprint(usr)

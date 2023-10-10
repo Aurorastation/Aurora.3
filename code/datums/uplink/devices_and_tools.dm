@@ -78,7 +78,7 @@
 /datum/uplink_item/item/tools/personal_shield
 	name = "Personal Shield"
 	desc = "A personal shield that, when kept in your hand and activated, will protect its user from five projectile shots. \
-	        This can only be bought once."
+			This can only be bought once."
 	telecrystal_cost = 1
 	item_limit = 1
 	path = /obj/item/device/personal_shield
@@ -96,7 +96,7 @@
 	name = "Space Suit"
 	telecrystal_cost = 2
 	bluecrystal_cost = 2
-	path = /obj/item/storage/box/syndie_kit/space
+	path = /obj/item/storage/box/syndie_kit/space/covert
 
 /datum/uplink_item/item/tools/thermal
 	name = "Thermal Imaging Glasses"

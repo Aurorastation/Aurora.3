@@ -2,7 +2,7 @@ var/global/datum/getrev/revdata = new()
 
 /hook/startup/proc/initialize_test_merges()
 	if (!revdata)
-		log_debug("GETREV: No rev found.")
+		LOG_DEBUG("GETREV: No rev found.")
 		return TRUE
 
 	revdata.testmerge_initialize()
@@ -72,8 +72,8 @@ var/global/datum/getrev/revdata = new()
 /datum/getrev/proc/generate_greeting_info()
 	if (!test_merges.len)
 		greeting_info = {"<div class="alert alert-info">
-		                  There are currently no test merges loaded onto the server.
-		                  </div>"}
+						There are currently no test merges loaded onto the server.
+						</div>"}
 		return
 
 	var/list/out = list("<p>There are currently [test_merges.len] PRs being tested live.</p>",
@@ -91,11 +91,11 @@ var/global/datum/getrev/revdata = new()
 	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
 
 	if (api)
-		log_debug("GETREV: TGS API found.")
+		LOG_DEBUG("GETREV: TGS API found.")
 		test_merges = api.TestMerges()
-		log_debug("GETREV: [test_merges.len] test merges found.")
+		LOG_DEBUG("GETREV: [test_merges.len] test merges found.")
 	else
-		log_debug("GETREV: No TGS API found.")
+		LOG_DEBUG("GETREV: No TGS API found.")
 		test_merges = list()
 
 	generate_greeting_info()

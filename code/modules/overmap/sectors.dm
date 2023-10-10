@@ -70,13 +70,13 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/map_high = current_map.overmap_size - OVERMAP_EDGE
 	var/turf/home
 	if (place_near_main)
-		var/obj/effect/overmap/visitable/main = map_sectors["1"]
-		if (islist(place_near_main))
+		var/obj/effect/overmap/visitable/main = map_sectors["1"] ? map_sectors["1"] : map_sectors[map_sectors[1]]
+		if(islist(place_near_main))
 			place_near_main = Roundm(Frand(place_near_main[1], place_near_main[2]), 0.1)
 		home = CircularRandomTurfAround(main, abs(place_near_main), map_low, map_low, map_high, map_high)
 		start_x = home.x
 		start_y = home.y
-		log_debug("place_near_main moving [src] near [main] ([main.x],[main.y]) with radius [place_near_main], got ([home.x],[home.y])")
+		LOG_DEBUG("place_near_main moving [src] near [main] ([main.x],[main.y]) with radius [place_near_main], got ([home.x],[home.y])")
 	else
 		start_x = start_x || rand(map_low, map_high)
 		start_y = start_y || rand(map_low, map_high)
@@ -87,7 +87,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	update_name()
 
-	testing("Located sector \"[name]\" at [start_x],[start_y], containing Z [english_list(map_z)]")
+	log_module_sectors("Located sector \"[name]\" at [start_x],[start_y], containing Z [english_list(map_z)]")
 
 	LAZYADD(SSshuttle.sectors_to_initialize, src) //Queued for further init. Will populate the waypoint lists; waypoints not spawned yet will be added in as they spawn.
 	SSshuttle.clear_init_queue()
@@ -229,12 +229,12 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	if(!current_map.use_overmap)
 		return 1
 
-	testing("Building overmap...")
+	log_module_sectors("Building overmap...")
 	world.maxz++
 	current_map.overmap_z = world.maxz
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
-	testing("Putting overmap on [current_map.overmap_z]")
+	log_module_sectors("Putting overmap on [current_map.overmap_z]")
 	var/area/overmap/A = new
 	global.map_overmap = A
 	for (var/square in block(locate(1,1,current_map.overmap_z), locate(current_map.overmap_size,current_map.overmap_size,current_map.overmap_z)))
@@ -247,7 +247,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 
 	current_map.sealed_levels |= current_map.overmap_z
 
-	testing("Overmap build complete.")
+	log_module_sectors("Overmap build complete.")
 	return 1
 
 /// A circular random coordinate pair from 0, unit by default, scaled by radius, then rounded if round.

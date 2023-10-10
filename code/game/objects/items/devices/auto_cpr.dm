@@ -5,9 +5,10 @@
 	desc = "A specialized medical harness that gives regular compressions to the patient's ribcage for cases of urgent heart issues, and functions as an emergency \
 	artificial respirator for cases of urgent lung issues."
 	desc_info = "The Stabilizer Harness' CPR mode is capable of restarting the heart much like manual CPR with a chance for rib cracking ONLY IF the patient is flat lining,\
-	 while the EPP mode can keep the patient breathing during transport for as long as there's appropriate air in the installed tank. Both use power from the battery. \
-	 <br> Use this item in your hand to toggle the CPR or EPP modes on/off.<br> Use a Screwdriver on it to unscrew the panel to be able to remove/add other items. \
-	 The tank can be removed with a Wrench. The battery can be removed with a crowbar. Use the item in your hand the panel unscrewed to remove the breath mask."
+				while the EPP mode can keep the patient breathing during transport for as long as there's appropriate air in the installed tank. Both use power from the battery. \
+				<br> Use this item in your hand to toggle the CPR or EPP modes on/off.<br> Use a Screwdriver on it to unscrew the panel to be able to remove/add other items. \
+				The tank can be removed with a Wrench. The battery can be removed with a crowbar. Use the item in your hand the panel unscrewed to remove the breath mask."
+
 	icon = 'icons/obj/med_harness.dmi'
 	icon_state = "med_harness"
 	item_state = "med_harness"
@@ -474,9 +475,9 @@
 	playsound(usr, 'sound/machines/click.ogg', 50)
 	update_icon()
 
-/obj/item/auto_cpr/examine(mob/user)
-	..(user)
-	if(!user.Adjacent(src))
+/obj/item/auto_cpr/examine(mob/user, distance, is_adjacent)
+	. = ..()
+	if(!is_adjacent)
 		return
 	to_chat(user, SPAN_NOTICE("\The [src]'s [EPP] is currently [epp_mode ? "on" : "off"], while the Auto CPR is [cpr_mode ? "on" : "off"]."))
 	if(battery)

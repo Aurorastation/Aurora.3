@@ -36,10 +36,27 @@
 	path = /obj/item/ammo_magazine/a357
 	desc = "Contains eight rounds of .357 bullets."
 
+/datum/uplink_item/item/ammo/c38
+	name = ".38 Speedloader"
+	path = /obj/item/ammo_magazine/c38
+	desc = "Contains six rounds of .38 bullets."
+
+/datum/uplink_item/item/ammo/c38/haywire
+	name = ".38 Speedloader (Haywire)"
+	telecrystal_cost = 2
+	path = /obj/item/ammo_magazine/c38/emp
+	desc = "Contains six rounds of .38 haywire bullets."
+
 /datum/uplink_item/item/ammo/shotgun_shells
 	name = "Box of Shells"
 	path = /obj/item/storage/box/shotgunshells
 	desc = "Contains eight shotgun buckshot shells."
+
+/datum/uplink_item/item/ammo/government
+	name = "Box of .45-70 Govt. ammo"
+	telecrystal_cost = 2
+	path = /obj/item/storage/box/governmentammo
+	desc = "Contains eight .45-70 Govt. bullets."
 
 /datum/uplink_item/item/ammo/plasma_mag
 	name = "Plasma Shotgun Magazine"

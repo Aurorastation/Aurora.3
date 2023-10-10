@@ -7,10 +7,12 @@
 /obj/structure/window
 	name = "glass pane"
 	desc = "A glass pane."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/obj/structure/window/window_panes.dmi'
+	icon_state = "pane"
+	alpha = 196
 	density = TRUE
 	w_class = ITEMSIZE_NORMAL
-	layer = 3.2 // Just above doors.
+	layer = WINDOW_PANE_LAYER
 	anchored = TRUE
 	flags = ON_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
@@ -27,11 +29,12 @@
 	var/glasstype = null // Set this in subtypes. Null is assumed strange or otherwise impossible to dismantle, such as for shuttle glass.
 	var/silicate = 0 // number of units of silicate
 	var/base_frame = null
+	var/full = FALSE
 
 	atmos_canpass = CANPASS_PROC
 
 /obj/structure/window/examine(mob/user)
-	. = ..(user)
+	. = ..()
 
 	if(health == maxhealth)
 		to_chat(user, SPAN_NOTICE("It looks fully intact."))
@@ -54,10 +57,15 @@
 			to_chat(user, SPAN_NOTICE("There is a thick layer of silicate covering it."))
 
 /obj/structure/window/proc/update_nearby_icons()
-	queue_smooth_neighbors(src)
+	SSicon_smooth.add_to_queue_neighbors(src)
 
 /obj/structure/window/update_icon()
-	queue_smooth(src)
+	if(!full)
+		if(dir == SOUTH)
+			layer = ABOVE_MOB_LAYER
+		else
+			layer = WINDOW_PANE_LAYER
+	SSicon_smooth.add_to_queue(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
 	var/initialhealth = health
@@ -346,9 +354,8 @@
 
 /obj/structure/window/Initialize(mapload, start_dir = null, constructed = 0)
 	. = ..()
-
-	if (constructed)
-		anchored = 0
+	if(!full && constructed)
+		anchored = FALSE
 
 	if (!mapload && constructed)
 		state = 0
@@ -362,6 +369,7 @@
 
 	update_nearby_tiles(need_rebuild=1)
 	update_nearby_icons()
+	update_icon()
 
 /obj/structure/window/Destroy()
 	density = 0
@@ -372,7 +380,6 @@
 		W.update_icon()
 	loc = location
 	return ..()
-
 
 /obj/structure/window/Move()
 	var/ini_dir = dir
@@ -502,8 +509,7 @@
 /obj/structure/window/borosilicate
 	name = "borosilicate glass pane"
 	desc = "A borosilicate alloy window. It seems to be quite strong."
-	basestate = "phoronwindow"
-	icon_state = "phoronwindow"
+	color = GLASS_COLOR_PHORON
 	shardtype = /obj/item/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronglass
 	maximal_heat = T0C + 2000
@@ -513,8 +519,7 @@
 /obj/structure/window/borosilicate/reinforced
 	name = "reinforced borosilicate glass pane"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
-	basestate = "phoronrwindow"
-	icon_state = "phoronrwindow"
+	color = GLASS_COLOR_PHORON_R
 	glasstype = /obj/item/stack/material/glass/phoronrglass
 	reinf = TRUE
 	maximal_heat = T0C + 4000
@@ -523,8 +528,7 @@
 /obj/structure/window/borosilicate/reinforced/skrell
 	name = "advanced borosilicate alloy window"
 	desc = "A window made out of a higly advanced borosilicate alloy. It seems to be extremely strong."
-	basestate = "phoronwindow"
-	icon_state = "phoronwindow"
+	color = GLASS_COLOR_PHORON
 	maxhealth = 250
 
 /********** Shuttle Windows **********/
@@ -540,7 +544,7 @@
 	reinf = TRUE
 	basestate = "w"
 	dir = 5
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	can_be_unanchored = TRUE
 	layer = 2.99
 
@@ -559,7 +563,7 @@
 	icon = 'icons/obj/smooth/skrell_window_purple.dmi'
 	health = 500
 	maxhealth = 500
-	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
+	smoothing_flags = SMOOTH_MORE | SMOOTH_DIAGONAL
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/skrell,
 		/obj/structure/window/shuttle/skrell
@@ -568,18 +572,30 @@
 /obj/structure/window/shuttle/scc_space_ship
 	name = "advanced borosilicate alloy window"
 	desc = "It looks extremely strong. Might take many good hits to crack it."
-	icon = 'icons/obj/smooth/scc_space_ship.dmi'
-	icon_state = "scc_space_ship"
+	icon = 'icons/turf/smooth/scc_ship/scc_ship_windows.dmi'
+	icon_state = "map_window"
 	health = 500
 	maxhealth = 500
-	smooth = SMOOTH_MORE | SMOOTH_DIAGONAL
+	alpha = 255
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/window/shuttle/scc_space_ship,
 		/turf/simulated/wall/shuttle/scc_space_ship
 	)
+	blend_overlay = "-wall"
+	attach_overlay = "attach"
+	can_blend_with = list(
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/obj/structure/window/shuttle/scc_space_ship
+	)
+
 
 /obj/structure/window/shuttle/scc_space_ship/cardinal
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
+
+/obj/structure/window/shuttle/scc_space_ship/cardinal_smooth(adjacencies, var/list/dir_mods)
+	dir_mods = handle_blending(adjacencies, dir_mods)
+	return ..(adjacencies, dir_mods)
 
 /obj/structure/window/shuttle/scc
 	icon = 'icons/obj/smooth/scc_shuttle_window.dmi'
@@ -604,68 +620,35 @@
 	maxhealth = 28 // Two glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	glasstype = /obj/item/stack/material/glass
 	shardtype = /obj/item/material/shard
+	full = TRUE
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
+		/turf/simulated/wall,
+		/turf/simulated/wall/r_wall,
+		/turf/unsimulated/wall/steel,
+		/turf/unsimulated/wall/darkshuttlewall,
+		/turf/unsimulated/wall/riveted,
+		/obj/structure/window_frame,
+		/obj/structure/window_frame/unanchored,
+		/obj/structure/window_frame/empty,
 		/obj/structure/window/full/reinforced,
+		/obj/structure/window/full/reinforced/indestructible,
 		/obj/structure/window/full/reinforced/polarized,
-		/obj/structure/window/full/phoron/reinforced
+		/obj/structure/window/full/reinforced/polarized/indestructible,
+		/obj/structure/window/full/phoron/reinforced,
+		/obj/structure/window/shuttle/scc_space_ship,
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/obj/machinery/door
 	)
-
-/obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
-	LAZYINITLIST(dir_mods)
-	var/north_wall = FALSE
-	var/east_wall = FALSE
-	var/south_wall = FALSE
-	var/west_wall = FALSE
-	if(adjacencies & N_NORTH)
-		var/turf/T = get_step(src, NORTH)
-		if(iswall(T))
-			dir_mods["[N_NORTH]"] = "-wall"
-			north_wall = TRUE
-	if(adjacencies & N_EAST)
-		var/turf/T = get_step(src, EAST)
-		if(iswall(T))
-			dir_mods["[N_EAST]"] = "-wall"
-			east_wall = TRUE
-	if(adjacencies & N_SOUTH)
-		var/turf/T = get_step(src, SOUTH)
-		if(iswall(T))
-			dir_mods["[N_SOUTH]"] = "-wall"
-			south_wall = TRUE
-	if(adjacencies & N_WEST)
-		var/turf/T = get_step(src, WEST)
-		if(iswall(T))
-			dir_mods["[N_WEST]"] = "-wall"
-			west_wall = TRUE
-	if(((adjacencies & N_NORTH) && (adjacencies & N_WEST)) && (north_wall || west_wall))
-		dir_mods["[N_NORTH][N_WEST]"] = "-n[north_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-	if(((adjacencies & N_NORTH) && (adjacencies & N_EAST)) && (north_wall || east_wall))
-		dir_mods["[N_NORTH][N_EAST]"] = "-n[north_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
-	if(((adjacencies & N_SOUTH) && (adjacencies & N_WEST)) && (south_wall || west_wall))
-		dir_mods["[N_SOUTH][N_WEST]"] = "-s[south_wall ? "wall" : "win"]-w[west_wall ? "wall" : "win"]"
-	if((adjacencies & N_SOUTH) && (adjacencies & N_EAST) && (south_wall || east_wall))
-		dir_mods["[N_SOUTH][N_EAST]"] = "-s[south_wall ? "wall" : "win"]-e[east_wall ? "wall" : "win"]"
-	return ..(adjacencies, dir_mods)
-
-/obj/structure/window/full/Initialize(mapload, start_dir = null, constructed = 0)
-	if (!mapload && constructed)
-		state = 0
-
-	if (start_dir)
-		set_dir(start_dir)
-
-	health = maxhealth
-
-	ini_dir = dir
-
-	update_nearby_tiles(need_rebuild=1)
-	update_icon()
-	update_nearby_icons()
-	initialized = TRUE
-
-	return INITIALIZE_HINT_NORMAL
+	blend_overlay = "wall"
+	attach_overlay = "attach"
+	can_blend_with = list(
+		/turf/simulated/wall,
+		/obj/machinery/door,
+		/obj/structure/window_frame
+	)
 
 /obj/structure/window/full/Destroy()
 	var/obj/structure/window_frame/WF = locate(/obj/structure/window_frame) in get_turf(src)
@@ -783,7 +766,7 @@
 /obj/structure/window/full/reinforced
 	name = "reinforced window"
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
-	icon = 'icons/obj/smooth/full_window.dmi'
+	icon = 'icons/obj/smooth/window/full_window.dmi'
 	icon_state = "window_glass"
 	basestate = "window_glass"
 	maxhealth = 80 // Two reinforced panes worth of health, since that's the minimum you need to break through to get to the other side.
@@ -792,14 +775,17 @@
 	glasstype = /obj/item/stack/material/glass/reinforced
 	layer = 2.99
 	base_frame = /obj/structure/window_frame
-	smooth = SMOOTH_TRUE
-	canSmoothWith = list(
-		/obj/structure/window/full/reinforced,
-		/obj/structure/window/full/reinforced/indestructible,
-		/obj/structure/window/full/reinforced/polarized,
-		/obj/structure/window/full/reinforced/polarized/indestructible,
-		/obj/structure/window/full/phoron/reinforced
-	)
+	smoothing_flags = SMOOTH_MORE
+
+/obj/structure/window/full/cardinal_smooth(adjacencies, var/list/dir_mods)
+	dir_mods = handle_blending(adjacencies, dir_mods)
+	return ..(adjacencies, dir_mods)
+
+/obj/structure/window_frame/proc/update_nearby_icons()
+	SSicon_smooth.add_to_queue_neighbors(src)
+
+/obj/structure/window_frame/update_icon()
+	SSicon_smooth.add_to_queue(src)
 
 // Indestructible Reinforced Window
 /obj/structure/window/full/reinforced/indestructible/attack_hand()
@@ -853,11 +839,27 @@
 /obj/structure/window/full/reinforced/polarized/indestructible/shatter()
 	return
 
+//Shuttle exterior window
+/obj/structure/window/full/reinforced/shuttle
+	icon = 'icons/obj/smooth/window/shuttle_window_dark.dmi'
+	color = "#006eff"
+	icon_state = "window_glass"
+	basestate = "window_glass"
+
+/obj/structure/window/full/reinforced/shuttle/red
+	color = "#ff0000"
+
+/obj/structure/window/full/reinforced/shuttle/green
+	color = "#00ff40"
+
+/obj/structure/window/full/reinforced/shuttle/black
+	color = "#150b41"
+
 // Borosilicate Window (I.e. Phoron Window)
 /obj/structure/window/full/phoron
 	name = "borosilicate window"
 	desc = "You aren't supposed to see this."
-	icon = 'icons/obj/smooth/full_window_phoron.dmi'
+	icon = 'icons/obj/smooth/window/full_window_phoron.dmi'
 	icon_state = "window_glass"
 	basestate = "window_glass"
 	glasstype = /obj/item/stack/material/glass/phoronglass
