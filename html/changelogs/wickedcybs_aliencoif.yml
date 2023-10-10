@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - bugfix: "Tactical coifs didn't have icon states for Unathi or Tajara, so their sidesprites would look off. That's been rectified. Now they can LARP too."
