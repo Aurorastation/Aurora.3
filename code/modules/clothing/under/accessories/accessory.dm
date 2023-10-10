@@ -1133,6 +1133,10 @@
 	item_state = "goon_coif"
 	contained_sprite = TRUE
 	slot_flags = SLOT_MASK | SLOT_EARS | SLOT_TIE
+	sprite_sheets = list(
+		BODYTYPE_TAJARA = 'icons/clothing/accessories/goon_coif_alien.dmi',
+		BODYTYPE_UNATHI = 'icons/clothing/accessories/goon_coif_alien.dmi'
+		)
 
 /obj/item/clothing/accessory/goon_coif/get_ear_examine_text(var/mob/user, var/ear_text = "left")
 	return "on [user.get_pronoun("his")] head"
