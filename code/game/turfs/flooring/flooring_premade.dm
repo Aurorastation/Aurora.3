@@ -11,12 +11,12 @@
 	initial_flooring = /singleton/flooring/carpet
 	footstep_sound = /singleton/sound_category/carpet_footstep
 
-/turf/simulated/floor/carpet/blue
-	name = "blue carpet"
-	icon_state = "bcarpet"
-	initial_flooring = /singleton/flooring/carpet/blue
+/turf/simulated/floor/carpet/cyan
+	name = "cyan carpet"
+	icon_state = "carpet_cyan"
+	initial_flooring = /singleton/flooring/carpet/cyan
 
-/turf/simulated/floor/carpet/blue/airless
+/turf/simulated/floor/carpet/cyan/airless
 	initial_gas = null
 
 /turf/simulated/floor/carpet/rubber

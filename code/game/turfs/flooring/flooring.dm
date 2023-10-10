@@ -100,56 +100,56 @@
 	space_smooth = SMOOTH_NONE
 	has_damage_range = 2
 
-/singleton/flooring/carpet/blue
+/singleton/flooring/carpet/cyan
 	name = "carpet"
-	icon_base = "bcarpet"
-	build_type = /obj/item/stack/tile/carpet_blue
+	icon_base = "carpet_cyan"
+	build_type = /obj/item/stack/tile/carpet/cyan
 
 /singleton/flooring/carpet/rubber
 	name = "rubber carpet"
 	desc = "Durable, easy to clean and provides extra grip. Perfect for industrial settings."
 	icon_base = "rub_carpet"
-	build_type = /obj/item/stack/tile/carpet_rubber
+	build_type = /obj/item/stack/tile/carpet/rubber
 
 /singleton/flooring/carpet/art
 	icon_base = "artcarpet"
-	build_type = /obj/item/stack/tile/carpet_art
+	build_type = /obj/item/stack/tile/carpet/art
 
 /singleton/flooring/carpet/fancybrown
 	icon_base = "brown"
-	build_type = /obj/item/stack/tile/carpet_fancybrown
+	build_type = /obj/item/stack/tile/carpet/fancybrown
 
 /singleton/flooring/carpet/red
 	icon_base = "red"
-	build_type = /obj/item/stack/tile/carpet_red
+	build_type = /obj/item/stack/tile/carpet/red
 
 /singleton/flooring/carpet/darkblue
 	icon_base = "blue1"
-	build_type = /obj/item/stack/tile/carpet_darkblue
+	build_type = /obj/item/stack/tile/carpet/darkblue
 
 /singleton/flooring/carpet/lightblue
 	icon_base = "blue2"
-	build_type = /obj/item/stack/tile/carpet_lightblue
+	build_type = /obj/item/stack/tile/carpet/lightblue
 
 /singleton/flooring/carpet/aquablue
 	icon_base = "blue3"
-	build_type = /obj/item/stack/tile/carpet_aquablue
+	build_type = /obj/item/stack/tile/carpet/aquablue
 
 /singleton/flooring/carpet/green
 	icon_base = "green"
-	build_type = /obj/item/stack/tile/carpet_green
+	build_type = /obj/item/stack/tile/carpet/green
 
 /singleton/flooring/carpet/magenta
 	icon_base = "magenta"
-	build_type = /obj/item/stack/tile/carpet_magenta
+	build_type = /obj/item/stack/tile/carpet/magenta
 
 /singleton/flooring/carpet/purple
 	icon_base = "purple"
-	build_type = /obj/item/stack/tile/carpet_purple
+	build_type = /obj/item/stack/tile/carpet/purple
 
 /singleton/flooring/carpet/orange
 	icon_base = "orange"
-	build_type = /obj/item/stack/tile/carpet_orange
+	build_type = /obj/item/stack/tile/carpet/orange
 
 /singleton/flooring/tiling
 	name = "floor"

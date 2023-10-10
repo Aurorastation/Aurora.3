@@ -1,6 +1,8 @@
 
 /obj/structure/table/proc/straight_table_check(var/direction)
-	if(health > 100)
+	if(material?.weight > DEFAULT_TABLE_FLIP_WEIGHT)
+		return 0
+	if(reinforced?.weight > DEFAULT_TABLE_FLIP_WEIGHT)
 		return 0
 	var/obj/structure/table/T
 	for(var/angle in list(-90,90))

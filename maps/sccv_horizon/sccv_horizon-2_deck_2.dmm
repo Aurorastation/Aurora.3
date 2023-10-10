@@ -44002,7 +44002,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "vwx" = (
-/obj/structure/table/rack/fancy_table/black,
+/obj/structure/table/fancy/black,
 /obj/machinery/light{
 	dir = 8
 	},

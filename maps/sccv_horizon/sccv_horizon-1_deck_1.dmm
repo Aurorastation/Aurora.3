@@ -15558,13 +15558,6 @@
 /obj/structure/window/shuttle/unique/scc/scout/over{
 	icon_state = "3,5"
 	},
-/obj/structure/table/rack{
-	density = 0;
-	icon_state = "rack_small";
-	name = "storage rack";
-	pixel_x = 22;
-	pixel_y = -2
-	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
 "lbc" = (

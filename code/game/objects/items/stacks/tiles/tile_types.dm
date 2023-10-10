@@ -112,78 +112,55 @@
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
-/obj/item/stack/tile/carpet_blue
-	name = "blue carpet"
-	singular_name = "carpet"
-	desc = "A piece of carpet. It is the same size as a normal floor tile!"
-	icon_state = "tile_carpet_blue"
-	force = 1.0
-	throwforce = 1.0
-	throw_speed = 5
-	throw_range = 20
-	flags = 0
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
+/obj/item/stack/tile/carpet/cyan
+	name = "cyan carpet"
+	icon_state = "tile_carpet_cyan"
 
-/obj/item/stack/tile/carpet_rubber
+/obj/item/stack/tile/carpet/rubber
 	name = "rubber carpet"
 	singular_name = "carpet"
 	desc = "A piece of rubber carpet. It is the same size as a normal floor tile!"
 	icon_state = "tile_carpet_rubber"
-	force = 1.0
-	throwforce = 1.0
-	throw_speed = 5
-	throw_range = 20
-	flags = 0
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
-/obj/item/stack/tile/carpet_art
+/obj/item/stack/tile/carpet/art
 	name = "adhomian carpet"
 	singular_name = "carpet"
 	desc = "A piece of fancy adhomian carpet. It is the same size as a normal floor tile!"
 	icon_state = "carpet_art"
-	force = 1.0
-	throwforce = 1.0
-	throw_speed = 5
-	throw_range = 20
-	flags = 0
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
-/obj/item/stack/tile/carpet_fancybrown
+/obj/item/stack/tile/carpet/fancybrown
 	name = "brown carpet"
 	icon_state = "tile_carpetbrown"
 
-/obj/item/stack/tile/carpet_purple
+/obj/item/stack/tile/carpet/purple
 	name = "purple carpet"
 	icon_state = "tile_carpetpurple"
 
-/obj/item/stack/tile/carpet_green
+/obj/item/stack/tile/carpet/green
 	name = "green carpet"
 	icon_state = "tile_carpetgreen"
 
-/obj/item/stack/tile/carpet_darkblue
+/obj/item/stack/tile/carpet/darkblue
 	name = "dark blue carpet"
 	icon_state = "tile_carpetblue"
 
-/obj/item/stack/tile/carpet_lightblue
+/obj/item/stack/tile/carpet/lightblue
 	name = "light blue carpet"
 	icon_state = "tile_carpetblue2"
 
-/obj/item/stack/tile/carpet_aquablue
+/obj/item/stack/tile/carpet/aquablue
 	name = "aqua blue carpet"
 	icon_state = "tile_carpetblue3"
 
-/obj/item/stack/tile/carpet_red
+/obj/item/stack/tile/carpet/red
 	name = "red carpet"
 	icon_state = "tile_carpetred"
 
-/obj/item/stack/tile/carpet_orange
+/obj/item/stack/tile/carpet/orange
 	name = "orange carpet"
 	icon_state = "tile_carpetorange"
 
-/obj/item/stack/tile/carpet_magenta
+/obj/item/stack/tile/carpet/magenta
 	name = "magenta carpet"
 	icon_state = "tile_carpetmagenta"
 

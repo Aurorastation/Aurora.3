@@ -10061,7 +10061,7 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/point_verdant/outdoors)
 "GL" = (
-/obj/structure/table/rack/fancy_table,
+/obj/structure/table/fancy,
 /obj/item/clothing/shoes/konyang{
 	pixel_y = 11
 	},
