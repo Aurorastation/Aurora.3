@@ -99,6 +99,7 @@ SUBSYSTEM_DEF(icon_update)
 	if(item_cache.icon_update_queued)
 		item_cache.icon_update_queued = FALSE
 		src.icon_update_queue -= item_cache
+		src.deferred -= item_cache
 
 /atom
 	///When was the last time (in `world.time`) that the icon of this atom was updated via `SSicon_update`
