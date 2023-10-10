@@ -147,7 +147,7 @@
 		rank = GetAssignment(H, TRUE)
 		age = H.age
 		fingerprint = md5(H.dna.uni_identity)
-		sex = H.gender
+		sex = H.species.get_species_record_sex(H)
 		species = H.get_species(FALSE, TRUE)
 		citizenship = H.citizenship
 		employer = H.employer_faction
@@ -165,7 +165,7 @@
 	var/nid = ""
 	var/enzymes
 	var/identity
-	var/exploit_record = "No additional information acquired."
+	var/exploit_record
 
 /datum/record/general/locked/New(var/mob/living/carbon/human/H)
 	..()
