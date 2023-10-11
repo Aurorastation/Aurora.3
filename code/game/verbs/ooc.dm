@@ -67,7 +67,7 @@
 			else
 				to_chat(target, "<span class='ooc'><span class='[ooc_style]'>" + create_text_tag("OOC", target) + " <EM>[display_name]:</EM> <span class='message linkify'>[msg]</span></span></span>")
 
-/client/verb/looc()
+/client/verb/looc(msg as text)
 	set name = "LOOC"
 	set desc = "Local OOC, seen only by those in view."
 	set category = "OOC"
@@ -83,7 +83,7 @@
 		to_chat(src, "Guests may not use OOC.")
 		return
 
-	var/msg = sanitize(input(src, "Enter an LOOC message.", "OOC"))
+	msg = sanitize(msg)
 	msg = process_chat_markup(msg, list("*"))
 	if(!msg)
 		return
