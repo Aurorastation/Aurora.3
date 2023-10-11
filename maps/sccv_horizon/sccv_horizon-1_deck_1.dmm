@@ -7884,10 +7884,8 @@
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 4
 	},
-/obj/machinery/cryopod{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "fzU" = (
@@ -14017,14 +14015,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
-	},
-/obj/structure/sign/directions/cryo{
-	pixel_y = -10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -16383,16 +16375,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
 "lDs" = (
-/obj/machinery/cryopod{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/camera/network/second_deck{
 	c_tag = "Second Deck - Living Quarters Lift";
 	dir = 1
+	},
+/obj/effect/landmark{
+	name = "JoinLate"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
@@ -26332,12 +26323,6 @@
 	},
 /area/shuttle/mining)
 "sxT" = (
-/obj/structure/sign/directions/cryo{
-	pixel_y = -10
-	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
