@@ -38,9 +38,9 @@
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL
 
 	has_limbs = list(
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/unbreakable),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/unbreakable),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/unbreakable),

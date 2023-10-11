@@ -94,6 +94,18 @@
 	},
 /turf/simulated/wall/gold_reinforced,
 /area/golden_deep/storage)
+"bp" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 8
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "aft"
+	},
+/obj/structure/window/borosilicate/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/golden_deep)
 "bB" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
@@ -653,11 +665,16 @@
 /turf/simulated/floor/carpet/art,
 /area/golden_deep/captain)
 "ho" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/golden_deep)
+/area/golden_deep/warehouse)
 "ht" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -846,7 +863,7 @@
 /obj/machinery/door/airlock/gold{
 	req_access = list(217);
 	dir = 1;
-	name = "Bridge"
+	name = "Warehouse Office"
 	},
 /turf/simulated/floor/gold,
 /area/golden_deep/office)
@@ -1205,6 +1222,15 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/atmos)
+"mn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
 "mp" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/east{
@@ -1353,6 +1379,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
+"nN" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 278.15
+	},
+/area/golden_deep/warehouse)
 "nZ" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -1863,6 +1897,21 @@
 	},
 /turf/simulated/floor/gold,
 /area/golden_deep/hangar)
+"tJ" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/gold{
+	req_access = list(217);
+	dir = 1;
+	name = "Bridge"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep)
 "tO" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1895,6 +1944,17 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/gold,
 /area/golden_deep/dock/aux)
+"uc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
 "uh" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
@@ -3446,8 +3506,8 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 8
 	},
-/obj/effect/landmark/entry_point/port{
-	name = "aft"
+/obj/structure/window/borosilicate/reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
@@ -3821,10 +3881,10 @@
 /area/golden_deep/warehouse)
 "PX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 5
+	dir = 4
 	},
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
 /area/golden_deep/hangar)
@@ -3834,6 +3894,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/golden_deep/dock)
+"Qe" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "golden_deep";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
 "Qi" = (
 /obj/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -15607,11 +15683,11 @@ pu
 uL
 aH
 aH
-aH
-aH
-aH
-aH
-aH
+Xd
+eR
+nH
+eR
+Xd
 aH
 aH
 aH
@@ -15768,13 +15844,13 @@ pu
 pu
 uL
 aH
-aH
-aH
-aH
-aH
-aH
-aH
-aH
+lX
+Xd
+Dg
+mY
+mR
+Xd
+xK
 aH
 aH
 aH
@@ -15930,13 +16006,13 @@ pu
 pu
 uL
 aH
-aH
 Xd
-eR
-nH
-eR
 Xd
-aH
+zR
+BD
+vw
+Xd
+Xd
 aH
 aH
 aH
@@ -16092,13 +16168,13 @@ pu
 pu
 uL
 aH
-lX
 Xd
-Dg
-mY
-mR
+Bq
+zR
+zR
+zR
+EV
 Xd
-xK
 aH
 aH
 aH
@@ -16255,13 +16331,13 @@ pu
 uL
 aH
 Xd
+un
+vR
+HD
+mb
+EV
 Xd
-zR
-BD
-vw
-Xd
-Xd
-aH
+rB
 aH
 Dt
 DZ
@@ -16292,12 +16368,12 @@ gb
 ER
 gb
 gb
+gb
 BW
 BW
 BW
 BW
 BW
-aQ
 Rf
 XS
 xp
@@ -16417,13 +16493,13 @@ pu
 uL
 aH
 Xd
-Bq
-zR
-zR
-zR
-EV
+MJ
+Bu
+kN
 Xd
-aH
+Xd
+Xd
+Xd
 aH
 aH
 Uo
@@ -16454,12 +16530,12 @@ Uf
 ER
 jY
 jY
+gb
 BW
 WZ
 WZ
 qa
 BW
-aQ
 eX
 rw
 xp
@@ -16579,14 +16655,14 @@ pu
 uL
 aH
 Xd
-un
-vR
-HD
-mb
-EV
-Xd
-rB
-aH
+oz
+VV
+Nm
+oc
+oG
+WT
+wN
+po
 aH
 Uo
 Dv
@@ -16616,12 +16692,12 @@ Uf
 ER
 jY
 jY
+gb
 BW
 Ds
 WZ
 vO
 BW
-aQ
 Rf
 jJ
 xp
@@ -16740,15 +16816,15 @@ pu
 pu
 uL
 aH
-Xd
-MJ
-Bu
-kN
-Xd
-Xd
-Xd
-Xd
-aH
+wp
+AC
+VV
+lV
+Im
+yG
+Jz
+IY
+mn
 aH
 Uo
 Dv
@@ -16778,12 +16854,12 @@ gb
 ER
 Zl
 Zl
+gb
 BW
 WZ
 WZ
 Bf
 BW
-aQ
 Rf
 ZL
 BE
@@ -16903,14 +16979,14 @@ pu
 uL
 aH
 Xd
-oz
-VV
-Nm
-oc
-oG
-WT
-wN
-po
+NH
+pK
+Wr
+Xd
+Xd
+Xd
+WP
+uc
 ja
 DZ
 DZ
@@ -16940,12 +17016,12 @@ gb
 ER
 gb
 gb
+gb
 BW
 WZ
 WZ
 Va
 BW
-aQ
 aQ
 aQ
 aQ
@@ -17064,14 +17140,14 @@ pu
 pu
 jZ
 aH
-wp
-AC
-VV
-lV
-Im
-yG
-Jz
-IY
+Xd
+db
+tz
+Zz
+lk
+MQ
+Xd
+mL
 PX
 pe
 zm
@@ -17102,12 +17178,12 @@ gb
 ER
 gb
 gb
+gb
 BW
 pl
 WZ
 fr
 BW
-aQ
 zb
 zb
 zb
@@ -17227,13 +17303,13 @@ pu
 uL
 aH
 Xd
-NH
-pK
-Wr
+aT
+XJ
+df
+gP
+YC
 Xd
-Xd
-Xd
-WP
+aH
 ax
 sX
 wi
@@ -17264,12 +17340,12 @@ pt
 pt
 pt
 pt
+ho
 wR
 Xh
 qw
 qw
 jm
-tO
 Tx
 Tx
 tO
@@ -17287,7 +17363,7 @@ Tx
 tO
 Tx
 Tx
-Kd
+tJ
 JY
 dB
 dz
@@ -17389,13 +17465,13 @@ pu
 uL
 aH
 Xd
-db
-tz
-Zz
-lk
-MQ
+bU
+aK
+aR
+ZA
+mI
 Xd
-mL
+aH
 aH
 ac
 zm
@@ -17426,12 +17502,12 @@ jY
 ER
 gb
 gb
+gb
 BW
 LN
 WZ
 WZ
-WZ
-Di
+BW
 zb
 zb
 zb
@@ -17551,11 +17627,11 @@ pu
 uL
 aH
 Xd
-aT
-XJ
-df
-gP
-YC
+ZA
+ZA
+km
+ZA
+SL
 Xd
 aH
 aH
@@ -17588,12 +17664,12 @@ gb
 ER
 gb
 gb
+gb
 BW
 rJ
 WZ
 WZ
-WZ
-Di
+BW
 Di
 Di
 Di
@@ -17711,15 +17787,15 @@ pu
 pu
 pu
 uL
-aH
 Xd
-bU
-aK
-aR
+Xd
 ZA
-mI
+ZA
+km
+ZA
+ZA
 Xd
-aH
+Xd
 aH
 vB
 vB
@@ -17750,12 +17826,12 @@ jY
 ER
 gb
 gb
+gb
 BW
 rJ
 WZ
 WZ
-WZ
-Di
+BW
 Zj
 LG
 Wc
@@ -17873,15 +17949,15 @@ pu
 pu
 pu
 uL
-aH
 Xd
-ZA
-ZA
-km
-ZA
-SL
+nf
+pC
+OC
+hh
+OC
+Kq
+Hk
 Xd
-aH
 aH
 vB
 vg
@@ -17912,12 +17988,12 @@ gb
 ER
 gb
 gb
+gb
 BW
 Zn
 WZ
 Mz
 BW
-Di
 Sg
 hk
 Ab
@@ -18037,11 +18113,11 @@ pu
 uL
 Xd
 Xd
-ZA
-ZA
-km
-ZA
-ZA
+KS
+Xd
+bp
+Xd
+KS
 Xd
 Xd
 aH
@@ -18074,12 +18150,12 @@ gb
 ER
 ft
 ft
+ft
 BW
 Ds
 WZ
 iY
 BW
-Di
 Hg
 hk
 Ab
@@ -18197,15 +18273,15 @@ pu
 pu
 pu
 uL
-Xd
-nf
-pC
-OC
-hh
-OC
-Kq
-Hk
-Xd
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
 aH
 sm
 vg
@@ -18236,12 +18312,12 @@ gb
 ER
 ft
 uM
+ft
 BW
 TQ
 qr
 oy
 BW
-Di
 Zj
 fc
 ck
@@ -18359,15 +18435,15 @@ pu
 pu
 pu
 uL
-Xd
-Xd
-ho
-Xd
-KS
-Xd
-ho
-Xd
-Xd
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
 aH
 vB
 vB
@@ -18398,12 +18474,12 @@ jY
 ER
 PU
 Nn
+nN
 MM
 gz
 xP
 gn
 BW
-Di
 Sg
 YX
 No
@@ -18560,12 +18636,12 @@ gb
 cN
 PU
 Gk
+Qe
 Ez
 sA
 sA
 Da
 BW
-Di
 Di
 OV
 OV
@@ -18722,12 +18798,12 @@ ek
 ek
 ek
 ek
+ek
 BW
 BW
 vC
 BW
 BW
-Di
 Di
 pu
 pu

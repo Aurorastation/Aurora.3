@@ -16,6 +16,16 @@
 	icon_keyboard = null
 	circuit = null
 
+/obj/machinery/computer/ship/engines/terminal
+	name = "engine control terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "engines"
+	icon_keyboard = "tech_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
 /obj/machinery/computer/ship/engines/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!connected)
 		display_reconnect_dialog(user, "ship control systems")

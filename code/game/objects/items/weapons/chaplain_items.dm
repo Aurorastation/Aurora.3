@@ -147,7 +147,7 @@
 	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
 		return
 
-	var/picked = tgui_input_list("What form would you like your obsidian relic to take?", "Reassembling your obsidian relic", nullchoices)
+	var/picked = tgui_input_list(user, "What form would you like your obsidian relic to take?", "Reassembling your obsidian relic", nullchoices)
 
 	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
 		return

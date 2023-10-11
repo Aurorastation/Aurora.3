@@ -11,9 +11,6 @@
 	S["ooccolor"]				>> pref.ooccolor
 	S["clientfps"]				>> pref.clientfps
 	S["tooltip_style"]			>> pref.tooltip_style
-	S["tgui_inputs"]			>> pref.tgui_inputs
-	S["tgui_buttons_large"]		>> pref.tgui_buttons_large
-	S["tgui_inputs_swapped"]	>> pref.tgui_inputs_swapped
 
 /datum/category_item/player_setup_item/player_global/ui/save_preferences(var/savefile/S)
 	S["UI_style"]				<< pref.UI_style
@@ -24,9 +21,6 @@
 	S["ooccolor"]				<< pref.ooccolor
 	S["clientfps"]				<< pref.clientfps
 	S["tooltip_style"]			<< pref.tooltip_style
-	S["tgui_inputs"]			<< pref.tgui_inputs
-	S["tgui_buttons_large"]		<< pref.tgui_buttons_large
-	S["tgui_inputs_swapped"]	<< pref.tgui_inputs_swapped
 
 /datum/category_item/player_setup_item/player_global/ui/gather_load_query()
 	return list(
@@ -39,10 +33,7 @@
 				"tgui_lock",
 				"ooccolor",
 				"clientfps",
-				"tooltip_style",
-				"tgui_inputs",
-				"tgui_buttons_large",
-				"tgui_inputs_swapped"
+				"tooltip_style"
 			),
 			"args" = list("ckey")
 		)
@@ -62,9 +53,6 @@
 			"ooccolor",
 			"clientfps",
 			"tooltip_style",
-			"tgui_inputs",
-			"tgui_buttons_large",
-			"tgui_inputs_swapped",
 			"ckey" = 1
 		)
 	)
@@ -79,10 +67,7 @@
 		"tgui_lock" = pref.tgui_lock,
 		"ooccolor" = pref.ooccolor,
 		"clientfps" = pref.clientfps,
-		"tooltip_style" = pref.tooltip_style,
-		"tgui_inputs" = pref.tgui_inputs,
-		"tgui_buttons_large" = pref.tgui_buttons_large,
-		"tgui_inputs_swapped" = pref.tgui_inputs_swapped
+		"tooltip_style" = pref.tooltip_style
 	)
 
 /datum/category_item/player_setup_item/player_global/ui/sanitize_preferences()

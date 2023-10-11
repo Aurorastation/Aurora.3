@@ -219,7 +219,7 @@
 			var/obj/machinery/photocopier/T = target
 			flick(T.print_animation, target)
 			--T.toner
-		target.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay)
+		target.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay, , user = usr)
 	return c
 
 /proc/photocopy(var/obj/machinery/target, var/obj/item/photo/photocopy, var/toner)

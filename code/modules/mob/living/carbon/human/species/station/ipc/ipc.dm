@@ -97,9 +97,9 @@
 	vision_organ = BP_EYES
 
 	has_limbs = list(
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/ipc),
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/ipc),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/ipc),
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/ipc),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/ipc),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/ipc),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/ipc),

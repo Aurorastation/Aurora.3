@@ -128,7 +128,7 @@
 	for(var/datum/dna/DNA in changeling.absorbed_dna)
 		names += "[DNA.real_name]"
 
-	var/S = tgui_input_list("Select the target DNA.", "Target DNA", names)
+	var/S = tgui_input_list(src, "Select the target DNA.", "Target DNA", names)
 	if(!S)
 		return
 

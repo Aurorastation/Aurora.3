@@ -74,6 +74,10 @@
 /area/point_verdant/interior/offices
 	name = "Point Verdant - Corporate Offices"
 
+/area/point_verdant/interior/maint_janitorial
+	name = "Point Verdant - Maint/Janitorial"
+	icon_state = "maintenance"
+
 /area/point_verdant/interior/tunnels
 	name = "Point Verdant - Tunnels"
 

@@ -27,6 +27,17 @@
 	icon_keyboard = null
 	circuit = null
 
+/obj/machinery/computer/ship/sensors/terminal
+	name = "sensors terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "teleport"
+	icon_keyboard = "teleport_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
+
+
 /obj/machinery/computer/ship/sensors/Destroy()
 	QDEL_NULL(sound_token)
 	sensors = null

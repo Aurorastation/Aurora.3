@@ -383,7 +383,7 @@ var/list/ai_verbs_default = list(
 		return
 
 	if (!custom_sprite)
-		var/new_sprite = tgui_input_list("Select an icon!", "AI", ai_icons, selected_sprite)
+		var/new_sprite = tgui_input_list(src, "Select an icon!", "AI", ai_icons, selected_sprite)
 		if(new_sprite) selected_sprite = new_sprite
 	update_icon()
 

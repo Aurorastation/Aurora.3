@@ -97,11 +97,6 @@
 	set hidden = TRUE
 	winset(src, null, "command=[client.tgui_say_create_open_command(ME_CHANNEL)]")
 
-/mob/verb/whisper_wrapper()
-	set name = ".Whisper"
-	set hidden = TRUE
-	winset(src, null, "command=[client.tgui_say_create_open_command(SAY_CHANNEL)]")
-
 /client/verb/typing_indicator()
 	set name = "Show/Hide Typing Indicator"
 	set category = "Preferences"

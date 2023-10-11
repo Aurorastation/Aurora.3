@@ -704,7 +704,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/list/available_states = mob_species.possible_external_organs_modifications
 		if(carries_organs)
 			available_states = list("Normal","Prosthesis")
-		var/new_state = tgui_input_list(user, "What state do you wish the limb to be in?", available_states)
+		var/new_state = tgui_input_list(user, "What state do you wish the limb to be in?", "Limbs", available_states)
 		if(!new_state && !CanUseTopic(user))
 			return TOPIC_NOACTION
 
