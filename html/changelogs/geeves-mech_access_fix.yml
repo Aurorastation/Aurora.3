@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed exosuits not getting access from guest pass cards."

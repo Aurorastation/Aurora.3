@@ -240,21 +240,12 @@
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
 	RegisterSignal(user, COMSIG_MOB_FACEDIR, PROC_REF(handle_user_turn))
-	sync_access()
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
 	walk(src, 0) // stop it from auto moving when the pilot gets in
 	return 1
-
-/mob/living/heavy_vehicle/proc/sync_access()
-	access_card.access = saved_access.Copy()
-	if(sync_access)
-		for(var/mob/pilot in pilots)
-			var/obj/item/card/id/pilot_id = pilot.GetIdCard()
-			if(pilot_id && pilot_id.access) access_card.access |= pilot_id.access
-			to_chat(pilot, "<span class='notice'>Security access permissions synchronized.</span>")
 
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
 	if(!user || !(user in src.contents))
