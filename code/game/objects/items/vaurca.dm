@@ -13,7 +13,7 @@
 	working = !working
 
 	if(working)
-		var/choice = input("You change the projector's holographic viewfinder to display:","Change the projector's viewfinder.") as null|anything in worlds_selection
+		var/choice = tgui_input_list(user, "You change the projector's holographic viewfinder to display:", "Change the projector's viewfinder.", worlds_selection)
 		apply_world(choice)
 		first_message = TRUE
 		START_PROCESSING(SSprocessing, src)

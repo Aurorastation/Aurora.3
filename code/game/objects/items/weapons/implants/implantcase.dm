@@ -38,14 +38,13 @@
 
 /obj/item/implantcase/attackby(obj/item/I, mob/user)
 	if (I.ispen())
-		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)
+		var/t = tgui_input_text(user, "What would you like the label to be?", name, name, MAX_NAME_LEN)
 		if (user.get_active_hand() != I)
 			return
 		if((!in_range(src, usr) && loc != user))
 			return
-		t = sanitizeSafe(t, MAX_NAME_LEN)
 		if(t)
-			src.name = text("implant case - '[]'", t)
+			src.name = "implant case - [t]"
 			desc = "An aluminium case, containing \a [t] implant."
 		else
 			src.name = "implant case"

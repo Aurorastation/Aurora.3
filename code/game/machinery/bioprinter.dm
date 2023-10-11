@@ -29,7 +29,7 @@
 
 /obj/machinery/bioprinter/attack_hand(mob/user)
 
-	var/choice = input("What would you like to print?") as null|anything in products
+	var/choice = tgui_input_list(usr, "What would you like to print?", "Bioprinter", products)
 	if(!choice)
 		return
 

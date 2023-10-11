@@ -85,7 +85,7 @@
 	set category = "Object"
 	set src in usr
 
-	var/nsize = input("Bite Size","Pick the amount of reagents to pick up.") as null|anything in bite_sizes
+	var/nsize = tgui_input_list(usr, "Select the amount of reagents to pick up.", "Bite Size", bite_sizes, transfer_amt)
 	if(nsize)
 		transfer_amt = nsize
 		to_chat(usr, SPAN_NOTICE("\The [src] will now scoop up [transfer_amt] reagents."))

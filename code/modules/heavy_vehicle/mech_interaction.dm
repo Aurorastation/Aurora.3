@@ -348,7 +348,7 @@
 		for(var/hardpoint in hardpoints)
 			if(hardpoints[hardpoint] == null)
 				free_hardpoints += hardpoint
-		var/to_place = input("Where would you like to install it?") as null|anything in (realThing.restricted_hardpoints & free_hardpoints)
+		var/to_place = tgui_input_list(user, "Where would you like to install it?", "Install Hardpoint", (realThing.restricted_hardpoints & free_hardpoints))
 		if(install_system(thing, to_place, user))
 			return
 		to_chat(user, "<span class='warning'>\The [thing] could not be installed in that hardpoint.</span>")
@@ -389,7 +389,7 @@
 					if(hardpoints[hardpoint])
 						parts += hardpoint
 
-				var/to_remove = input("Which component would you like to remove") as null|anything in parts
+				var/to_remove = tgui_input_list(user, "Which component would you like to remove?", "Remove Component", parts)
 
 				if(remove_system(to_remove, user))
 					return
@@ -429,7 +429,7 @@
 				for(var/obj/item/mech_component/MC in list(arms, legs, body, head))
 					if(MC && MC.brute_damage)
 						damaged_parts += MC
-				var/obj/item/mech_component/to_fix = input(user,"Which component would you like to fix?") as null|anything in damaged_parts
+				var/obj/item/mech_component/to_fix = tgui_input_list(user, "Which component would you like to fix?", "Fix Component", damaged_parts)
 				if(CanInteract(user, physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.brute_damage)
 					to_fix.repair_brute_generic(thing, user)
 				return
@@ -440,7 +440,7 @@
 				for(var/obj/item/mech_component/MC in list(arms, legs, body, head))
 					if(MC && MC.burn_damage)
 						damaged_parts += MC
-				var/obj/item/mech_component/to_fix = input(user,"Which component would you like to fix?") as null|anything in damaged_parts
+				var/obj/item/mech_component/to_fix = tgui_input_list(user, "Which component would you like to fix?", "Fix Component", damaged_parts)
 				if(CanInteract(user, physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.burn_damage)
 					to_fix.repair_burn_generic(thing, user)
 				return

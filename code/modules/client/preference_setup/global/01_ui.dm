@@ -3,22 +3,24 @@
 	sort_order = 1
 
 /datum/category_item/player_setup_item/player_global/ui/load_preferences(var/savefile/S)
-	S["UI_style"]       >> pref.UI_style
-	S["UI_style_color"] >> pref.UI_style_color
-	S["UI_style_alpha"] >> pref.UI_style_alpha
-	S["tgui_fancy"]		>> pref.tgui_fancy
-	S["tgui_lock"]		<< pref.tgui_lock
-	S["ooccolor"]       >> pref.ooccolor
-	S["clientfps"]			>> pref.clientfps
+	S["UI_style"]				>> pref.UI_style
+	S["UI_style_color"]			>> pref.UI_style_color
+	S["UI_style_alpha"]			>> pref.UI_style_alpha
+	S["tgui_fancy"]				>> pref.tgui_fancy
+	S["tgui_lock"]				>> pref.tgui_lock
+	S["ooccolor"]				>> pref.ooccolor
+	S["clientfps"]				>> pref.clientfps
+	S["tooltip_style"]			>> pref.tooltip_style
 
 /datum/category_item/player_setup_item/player_global/ui/save_preferences(var/savefile/S)
-	S["UI_style"]       << pref.UI_style
-	S["UI_style_color"] << pref.UI_style_color
-	S["UI_style_alpha"] << pref.UI_style_alpha
-	S["tgui_fancy"]		<< pref.tgui_fancy
-	S["tgui_lock"]		<< pref.tgui_lock
-	S["ooccolor"]       << pref.ooccolor
-	S["clientfps"]			<< pref.clientfps
+	S["UI_style"]				<< pref.UI_style
+	S["UI_style_color"]			<< pref.UI_style_color
+	S["UI_style_alpha"]			<< pref.UI_style_alpha
+	S["tgui_fancy"]				<< pref.tgui_fancy
+	S["tgui_lock"]				<< pref.tgui_lock
+	S["ooccolor"]				<< pref.ooccolor
+	S["clientfps"]				<< pref.clientfps
+	S["tooltip_style"]			<< pref.tooltip_style
 
 /datum/category_item/player_setup_item/player_global/ui/gather_load_query()
 	return list(
@@ -69,13 +71,16 @@
 	)
 
 /datum/category_item/player_setup_item/player_global/ui/sanitize_preferences()
-	pref.UI_style       = sanitize_inlist(pref.UI_style, all_ui_styles, initial(pref.UI_style))
+	pref.UI_style = sanitize_inlist(pref.UI_style, all_ui_styles, initial(pref.UI_style))
 	pref.UI_style_color = sanitize_hexcolor(pref.UI_style_color, initial(pref.UI_style_color))
 	pref.UI_style_alpha = sanitize_integer(text2num(pref.UI_style_alpha), 0, 255, initial(pref.UI_style_alpha))
 	pref.clientfps = sanitize_integer(text2num(pref.clientfps), 0, 1000, initial(pref.clientfps))
-	pref.tgui_fancy		= sanitize_bool(pref.tgui_fancy, TRUE)
-	pref.tgui_lock		= sanitize_bool(pref.tgui_lock, FALSE)
-	pref.ooccolor       = sanitize_hexcolor(pref.ooccolor, initial(pref.ooccolor))
+	pref.tgui_fancy = sanitize_bool(pref.tgui_fancy, TRUE)
+	pref.tgui_lock = sanitize_bool(pref.tgui_lock, FALSE)
+	pref.tgui_inputs = sanitize_bool(pref.tgui_inputs, TRUE)
+	pref.tgui_buttons_large = sanitize_bool(pref.tgui_buttons_large, FALSE)
+	pref.tgui_inputs_swapped = sanitize_bool(pref.tgui_inputs_swapped, FALSE)
+	pref.ooccolor = sanitize_hexcolor(pref.ooccolor, initial(pref.ooccolor))
 
 /datum/category_item/player_setup_item/player_global/ui/content(mob/user)
 	var/list/dat = list()
@@ -87,6 +92,9 @@
 	dat += "<b>Tooltip Style:</b> <a href='?src=\ref[src];select_tooltip_style=1'><b>[pref.tooltip_style]</b></a><br>"
 	dat += "<b>TGUI Fancy:</b> <a href='?src=\ref[src];select_tguif=1'><b>[pref.tgui_fancy ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>TGUI Lock:</b> <a href='?src=\ref[src];select_tguil=1'><b>[pref.tgui_lock ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>TGUI Inputs:</b> <a href='?src=\ref[src];tgui_inputs=1'><b>[pref.tgui_inputs ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>TGUI Input Large Buttons:</b> <a href='?src=\ref[src];tgui_inputs_large=1'><b>[pref.tgui_buttons_large ? "ON" : "OFF"]</b></a><br>"
+	dat += "<b>TGUI Input Swapped Buttons:</b> <a href='?src=\ref[src];tgui_inputs_swapped=1'><b>[pref.tgui_inputs_swapped ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>FPS:</b> <a href='?src=\ref[src];select_fps=1'><b>[pref.clientfps]</b></a> - <a href='?src=\ref[src];reset=fps'>reset</a><br>"
 	if(can_select_ooc_color(user))
 		dat += "<b>OOC Color:</b> "
@@ -122,6 +130,18 @@
 
 	else if(href_list["select_tguil"])
 		pref.tgui_lock = !pref.tgui_lock
+		return TOPIC_REFRESH
+
+	else if(href_list["tgui_inputs"])
+		pref.tgui_inputs = !pref.tgui_inputs
+		return TOPIC_REFRESH
+
+	else if(href_list["tgui_inputs_large"])
+		pref.tgui_buttons_large = !pref.tgui_buttons_large
+		return TOPIC_REFRESH
+
+	else if(href_list["tgui_inputs_swapped"])
+		pref.tgui_inputs_swapped = !pref.tgui_inputs_swapped
 		return TOPIC_REFRESH
 
 	else if(href_list["select_ooc_color"])
