@@ -234,6 +234,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
+"afj" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "afn" = (
 /obj/machinery/requests_console/west{
 	department = "Consular's Office";
@@ -1432,6 +1437,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "aZS" = (
@@ -1524,7 +1530,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "bbm" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "bbA" = (
 /obj/machinery/recharge_station,
@@ -10191,6 +10211,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/template_noop)
 "hVM" = (
@@ -13857,6 +13878,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/junk,
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/template_noop)
 "kIy" = (
@@ -15413,6 +15435,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/table/rack,
 /obj/random/loot,
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
 "lMA" = (
@@ -20623,6 +20646,13 @@
 /obj/item/pen,
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
+"pWR" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/maintenance/engineering_ladder)
 "pWW" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -49904,9 +49934,9 @@ wGH
 wGH
 wGH
 mzs
-vtf
-fwo
-mZB
+afj
+bbm
+pWR
 hPy
 rPd
 bpD
@@ -50106,7 +50136,7 @@ wGH
 wGH
 wGH
 mzs
-vtf
+afj
 fwo
 qLy
 bpD
@@ -50308,7 +50338,7 @@ wGH
 wGH
 wGH
 mzs
-vtf
+afj
 fwo
 qLy
 aiX
@@ -50712,7 +50742,7 @@ ilL
 ilL
 ilL
 ilL
-bbm
+qLy
 fwo
 qLy
 isK
