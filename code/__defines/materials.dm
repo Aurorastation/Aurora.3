@@ -34,6 +34,8 @@
 #define MATERIAL_RUST                       "rust"
 #define MATERIAL_CARDBOARD                  "cardboard"
 #define MATERIAL_GRAPHITE                   "graphite"
+#define MATERIAL_DEUTERIUM					"deuterium"
+#define MATERIAL_SUPERMATTER				"supermatter"
 
 // Leathers and related.
 #define MATERIAL_RESIN                   "resin"

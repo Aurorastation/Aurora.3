@@ -69,8 +69,8 @@
 			habitability_class = HABITABILITY_BAD
 
 /obj/effect/overmap/visitable/sector/exoplanet/Initialize()
-  . = ..()
-  update_icon()
+	. = ..()
+	update_icon()
 
 /obj/effect/overmap/visitable/sector/exoplanet/update_icon()
 	icon_state = "globe[rand(1,3)]"

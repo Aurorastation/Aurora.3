@@ -100,9 +100,9 @@
  * Balloons
  */
 
- #define BALLOON_NORMAL	0
- #define BALLOON_BLOW	1
- #define BALLOON_BURST	2
+#define BALLOON_NORMAL	0
+#define BALLOON_BLOW	1
+#define BALLOON_BURST	2
 
 /obj/item/toy/balloon
 	name = "balloon"
@@ -629,7 +629,7 @@
  * Water flower
  */
 
- //moved to spray.dm
+//moved to spray.dm
 
 /*
  * Bosun's whistle

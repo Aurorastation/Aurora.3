@@ -39,7 +39,7 @@
 				R.updatehealth()
 				use(1)
 				user.visible_message(SPAN_NOTICE("\The [user] applied some [src] at [R]'s damaged areas."),\
-									 SPAN_NOTICE("You apply some [src] at [R]'s damaged areas."))
+										SPAN_NOTICE("You apply some [src] at [R]'s damaged areas."))
 		else
 			to_chat(user, SPAN_NOTICE("All [R]'s systems are nominal."))
 
@@ -65,7 +65,7 @@
 					H.updatehealth()
 					use(1)
 					user.visible_message(SPAN_NOTICE("\The [user] applies some nanite paste at[user != M ? " \the [M]'s" : " \the [user]"] [S.name] with \the [src]."),\
-										 SPAN_NOTICE("You apply some nanite paste at [user == M ? "your" : "[M]'s"] [S.name]."))
+											SPAN_NOTICE("You apply some nanite paste at [user == M ? "your" : "[M]'s"] [S.name]."))
 			else
 				to_chat(user, SPAN_NOTICE("Nothing to fix here."))
 		else

@@ -44,7 +44,7 @@
 			else
 				str = angle_step_to_dir[clamp(round(angle/45)+1, 1, length(angle_step_to_dir))]
 			str_col = "#ffffffaa"
-		else 
+		else
 			str = "〡"
 			str_col = "#aaaaaa88"
 		I.maptext = "<center><font color = '[str_col]' size = '1px'><b>[str]</b></font></center>"

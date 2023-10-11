@@ -27,12 +27,18 @@
 					lostTarget(target)
 
 /obj/machinery/camera/proc/newTarget(var/mob/target)
-	if (istype(target, /mob/living/silicon/ai)) return 0
+	if(QDELETED(target))
+		return FALSE
+
+	if (istype(target, /mob/living/silicon/ai))
+		return FALSE
+
 	if (detectTime == 0)
 		detectTime = world.time // start the clock
 	if (!(target in motionTargets) && !QDELING(target))
 		motionTargets += target
-	return 1
+
+	return TRUE
 
 /obj/machinery/camera/proc/lostTarget(var/mob/target)
 	if (target in motionTargets)
