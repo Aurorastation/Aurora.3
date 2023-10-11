@@ -3164,6 +3164,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "coB" = (
@@ -9513,8 +9514,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
 "gBo" = (
-/obj/machinery/alarm/east,
-/obj/machinery/atmospherics/valve{
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 1;
 	name = "Nitrous Oxide to Thrusters"
 	},
 /turf/simulated/floor/plating,
@@ -10293,7 +10297,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
 	frequency = 1441;
-	id_tag = "h_out"
+	id_tag = "o2_out"
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
@@ -18915,11 +18919,11 @@
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "njH" = (
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Atmospherics Tanks 3";
-	dir = 4
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/machinery/atmospherics/valve{
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 1;
 	name = "Oxygen to Thrusters"
 	},
 /turf/simulated/floor/plating,
@@ -21196,6 +21200,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 6
 	},
+/obj/machinery/alarm/west,
+/obj/machinery/camera/network/engineering{
+	c_tag = "Engineering - Atmospherics Tanks 3"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "oVl" = (
@@ -21933,6 +21941,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "psB" = (
@@ -29704,14 +29713,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
-"uQO" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/engineering/atmos/air)
 "uQU" = (
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = 32
@@ -58396,7 +58397,7 @@ twQ
 fnL
 lBp
 bxw
-uQO
+bxw
 psv
 coo
 bxw
