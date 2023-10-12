@@ -3,7 +3,7 @@
 	if(material?.weight > DEFAULT_TABLE_FLIP_WEIGHT)
 		return 0
 	if(reinforced?.weight > DEFAULT_TABLE_FLIP_WEIGHT)
-		return 0
+		return FALSE
 	var/obj/structure/table/T
 	for(var/angle in list(-90,90))
 		T = locate() in get_step(src.loc,turn(direction,angle))
