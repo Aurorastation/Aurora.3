@@ -10073,13 +10073,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "hPy" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/engineering_ladder)
 "hQh" = (
 /obj/structure/cable/green{
@@ -10203,17 +10197,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
-"hVv" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/random/dirt_75,
-/turf/simulated/floor,
-/area/template_noop)
 "hVM" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -12415,13 +12398,16 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/template_noop)
+/area/maintenance/engineering_ladder)
 "jFu" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/table/steel,
 /obj/random/loot,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor,
-/area/template_noop)
+/area/maintenance/engineering_ladder)
 "jFO" = (
 /obj/effect/landmark/start{
 	name = "Chief Medical Officer"
@@ -13880,7 +13866,7 @@
 /obj/random/junk,
 /obj/random/dirt_75,
 /turf/simulated/floor,
-/area/template_noop)
+/area/maintenance/engineering_ladder)
 "kIy" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -16437,7 +16423,7 @@
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/template_noop)
+/area/maintenance/engineering_ladder)
 "mzI" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -17030,7 +17016,7 @@
 	name = "aft, recreational area"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/template_noop)
+/area/maintenance/engineering_ladder)
 "mYH" = (
 /obj/structure/table/reinforced,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -20647,12 +20633,12 @@
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "pWR" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
+/obj/structure/cryofeed{
+	dir = 4
 	},
-/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/maintenance/engineering_ladder)
+/area/horizon/crew_quarters/fitness/changing)
 "pWW" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -22967,13 +22953,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/crew_quarters/heads/cmo)
-"rPd" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/random/junk,
-/turf/simulated/floor,
-/area/maintenance/engineering_ladder)
 "rPg" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -49529,10 +49508,10 @@ wGH
 wGH
 wGH
 wGH
-rRe
-rRe
+hPy
+hPy
 jFn
-rRe
+hPy
 oXs
 iQF
 pAw
@@ -49734,7 +49713,7 @@ wGH
 mYf
 jFu
 kIk
-hVv
+aZl
 aZl
 xBf
 bpD
@@ -49936,9 +49915,9 @@ wGH
 mzs
 afj
 bbm
-pWR
-hPy
-rPd
+qLy
+qLy
+qLy
 bpD
 bpD
 bpD
@@ -50139,8 +50118,8 @@ mzs
 afj
 fwo
 qLy
-bpD
-bpD
+pWR
+pWR
 bpD
 uWs
 eqr
@@ -50539,7 +50518,7 @@ wGH
 wGH
 wGH
 wGH
-rRe
+hPy
 lMh
 fwo
 aaz
