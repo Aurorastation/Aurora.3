@@ -35498,7 +35498,7 @@
 /area/horizon/kitchen)
 "qVC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
+/obj/machinery/portable_atmospherics/canister/boron,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "qVH" = (
@@ -77640,7 +77640,7 @@ fJv
 seK
 fSA
 ccc
-ccc
+qVC
 ntt
 seK
 puP
