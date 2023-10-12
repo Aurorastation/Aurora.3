@@ -1,7 +1,7 @@
 
 /obj/structure/table/proc/straight_table_check(var/direction)
 	if(material?.weight > DEFAULT_TABLE_FLIP_WEIGHT)
-		return 0
+		return FALSE
 	if(reinforced?.weight > DEFAULT_TABLE_FLIP_WEIGHT)
 		return FALSE
 	var/obj/structure/table/T
