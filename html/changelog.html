@@ -51,6 +51,16 @@
 				<li class="backend">Turned the INVOKE_ASYNC into a define, copied from TG.</li>
 				<li class="backend">Adjusted signal sending to use the new format via direct call invocation (TG backport).</li>
 				<li class="backend">Adjusted atmos control tank to use the new format.</li>
+				<li class="refactor">Refactored SSicon_update, now supports deferred queue and insertion/removal from said queue(s).</li>
+				<li class="refactor">Refactored SSicon_smoothing, now supports deferred queue and insertion/removal from said queue(s).</li>
+				<li class="bugfix">SSicon_smoothing now waits for the atom to be initialized before trying to smooth it.</li>
+				<li class="bugfix">Atoms now dequeue themselves from icon smoothing and update upon deletion.</li>
+				<li class="bugfix">Atoms now delete their overlays upon deletion.</li>
+				<li class="bugfix">Atoms now delete their light and light sources upon deletion.</li>
+				<li class="bugfix">Structures now delete themselves from the smoothing and enqueue the neighbors upon deletion.</li>
+				<li class="bugfix">Structures now drop the reference to climbers upon deletion.</li>
+				<li class="bugfix">Z_LEVEL smoothing now ignores deleted turfs.</li>
+				<li class="bugfix">Syndie C4s now delete correctly.</li>
 			</ul>
 			<h3 class="author">Geeves updated:</h3>
 			<ul class="changes bgimages16">
@@ -64,6 +74,7 @@
 			<ul class="changes bgimages16">
 				<li class="maptweak">Fixes wall sprites on Golden Deep ship.</li>
 				<li class="bugfix">Floor decals will now show up correctly on plating.</li>
+				<li class="rscadd">Adds an Einstein Engines transport shuttle away site.</li>
 			</ul>
 			<h3 class="author">WowzewoW (Wezzy) updated:</h3>
 			<ul class="changes bgimages16">
