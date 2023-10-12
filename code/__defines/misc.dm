@@ -168,6 +168,8 @@
 #define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon.
 
 #define DEFAULT_TABLE_MATERIAL "plastic"
+#define DEFAULT_TABLE_REINF_MATERIAL "plasteel"
+#define DEFAULT_TABLE_FLIP_WEIGHT 22
 #define DEFAULT_WALL_MATERIAL "steel"
 
 #define SHARD_SHARD "shard"

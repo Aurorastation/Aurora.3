@@ -71,7 +71,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/golden_deep/engineering)
 "bd" = (
-/obj/structure/table/rack/fancy_table/black,
+/obj/structure/table/fancy/black,
 /obj/item/modular_computer/laptop/preset/civilian,
 /turf/simulated/floor/wood/mahogany,
 /area/golden_deep/captain)
@@ -3759,7 +3759,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "No" = (
-/obj/structure/table/rack/fancy_table/black,
+/obj/structure/table/fancy/black,
 /obj/item/paper_bin,
 /obj/item/pen/fountain/captain,
 /turf/simulated/floor/wood/mahogany,
@@ -4516,7 +4516,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/eva)
 "WO" = (
-/obj/structure/table/rack/fancy_table/black,
+/obj/structure/table/fancy/black,
 /obj/item/ipc_overloader/tranquil,
 /turf/simulated/floor/wood/mahogany,
 /area/golden_deep/captain)
