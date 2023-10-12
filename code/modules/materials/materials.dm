@@ -57,7 +57,7 @@
 	var/wall_colour                                      // Colour applied to walls specifically.
 	var/icon_base = "solid"                              // Wall and table base icon tag. See header.
 	var/door_icon_base = "metal"                         // Door base icon tag. See header.
-	var/reinf_icon = "reinf_over"                       // Handles type of overlay used for tables and walls. Don't change without checking every use case.
+	var/reinf_icon = "reinf_over"                        // Handles type of overlay used for tables and walls. Don't change without checking every use case.
 	var/icon/multipart_reinf_icon
 	var/list/stack_origin_tech = list(TECH_MATERIAL = 1) // Research level for stacks.
 	var/icon/wall_icon
