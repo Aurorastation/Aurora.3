@@ -69,11 +69,6 @@
 	path = /obj/item/storage/box/syndie_kit/sideeffectbegone
 
 /datum/uplink_item/item/medical/firstaid
-	name = "Standard First-Aid Kit"
-	bluecrystal_cost = 1
-	path = /obj/item/storage/firstaid/regular
-
-/datum/uplink_item/item/medical/firstaid
 	name = "Standard First-Aid Kit (Free)"
 	telecrystal_cost = 0
 	bluecrystal_cost = 0
