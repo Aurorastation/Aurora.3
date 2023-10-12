@@ -60,6 +60,12 @@
 /obj/random/toolbox,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
+"dy" = (
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/keg/beerkeg/rice,
+/obj/structure/table/standard,
+/turf/simulated/floor/wood,
+/area/konyang_pirate_outpost)
 "dz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
@@ -144,6 +150,9 @@
 /area/konyang_pirate_outpost)
 "ix" = (
 /obj/item/broken_bottle,
+/obj/item/reagent_containers/food/drinks/bottle,
+/obj/item/reagent_containers/food/drinks/bottle,
+/obj/item/reagent_containers/food/drinks/bottle,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
 "iy" = (
@@ -158,6 +167,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/konyang_pirate)
 "jb" = (
@@ -435,6 +445,7 @@
 "BW" = (
 /obj/structure/table/standard,
 /obj/item/clothing/mask/gas/alt,
+/obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
 "CG" = (
@@ -495,6 +506,7 @@
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/konyang_pirate)
 "He" = (
@@ -597,6 +609,8 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/inhaler/space_drugs,
 /obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/weldingtool,
+/obj/item/weldingtool,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
 "OC" = (
@@ -994,7 +1008,7 @@ tZ
 Bv
 PS
 PS
-PS
+dy
 DE
 tu
 ix
