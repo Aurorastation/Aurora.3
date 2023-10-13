@@ -92,10 +92,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/konyang_pirate)
-"fr" = (
-/obj/structure/distillery,
-/turf/simulated/floor/wood,
-/area/konyang_pirate_outpost)
 "fx" = (
 /obj/effect/map_effect/airlock/s_to_n/long,
 /turf/simulated/wall/shuttle/raider,
@@ -150,9 +146,6 @@
 /area/konyang_pirate_outpost)
 "ix" = (
 /obj/item/broken_bottle,
-/obj/item/reagent_containers/food/drinks/bottle,
-/obj/item/reagent_containers/food/drinks/bottle,
-/obj/item/reagent_containers/food/drinks/bottle,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
 "iy" = (
@@ -609,8 +602,6 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/inhaler/space_drugs,
 /obj/item/reagent_containers/inhaler/space_drugs,
-/obj/item/weldingtool,
-/obj/item/weldingtool,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
 "OC" = (
@@ -852,7 +843,7 @@ AV
 Bv
 Jf
 am
-fr
+dy
 vW
 No
 sA
@@ -1008,7 +999,7 @@ tZ
 Bv
 PS
 PS
-dy
+zU
 DE
 tu
 ix
