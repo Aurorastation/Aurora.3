@@ -274,7 +274,7 @@
 
 	if(W.isscrewdriver())
 		if(helmet || boots || tank || cooler)
-			var/choice = input("What component would you like to remove?") as null|anything in list(helmet,boots,tank,cooler)
+			var/choice = tgui_input_list(usr, "What component would you like to remove?", "Component Removal", list(helmet,boots,tank,cooler))
 			if(!choice) return
 
 			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)

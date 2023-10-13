@@ -84,7 +84,7 @@
 			if (reinf_material.multipart_reinf_icon)
 				LAZYADD(reinforcement_images, cardinal_smooth_fromicon(reinf_material.multipart_reinf_icon, cached_adjacency))
 			else
-				I = image('icons/turf/wall_masks.dmi', reinf_material.icon_reinf)
+				I = image('icons/turf/wall_masks.dmi', reinf_material.reinf_icon)
 				I.color = reinf_material.icon_colour
 				LAZYADD(reinforcement_images, I)
 

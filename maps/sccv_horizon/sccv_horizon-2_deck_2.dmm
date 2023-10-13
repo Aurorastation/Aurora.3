@@ -48,10 +48,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/corner,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/full,
 /area/engineering/atmos/storage)
 "aax" = (
@@ -977,7 +977,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
 	frequency = 1379;
-	id_tag = "r-ust_airlock_interior";
+	id_tag = "indra_airlock_interior";
 	locked = 1;
 	name = "INDRA Reactor Airlock Interior";
 	req_one_access = list(11,24)
@@ -985,17 +985,17 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
-	master_tag = "r-ust_airlock_control";
+	master_tag = "indra_airlock_control";
 	name = "INDRA Reactor Airlock Access";
 	pixel_x = 23;
 	req_one_access = list(11,24)
 	},
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
-	id_tag = "r-ust_airlock_control";
+	id_tag = "indra_airlock_control";
 	name = "INDRA Reactor Airlock Access Console";
 	pixel_x = 38;
-	tag_exterior_door = "r-ust_airlock_exterior";
-	tag_interior_door = "r-ust_airlock_interior"
+	tag_exterior_door = "indra_airlock_exterior";
+	tag_interior_door = "indra_airlock_interior"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
@@ -2697,7 +2697,7 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "biZ" = (
@@ -3291,13 +3291,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"bwU" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos/storage)
 "bxp" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/open/airless,
@@ -4093,11 +4086,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bPf" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -5607,19 +5600,19 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "cFX" = (
-/obj/structure/cable/orange{
-	icon_state = "1-4"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
 	},
 /obj/structure/cable/orange{
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/orange{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/rust)
 "cGd" = (
@@ -8192,7 +8185,8 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/junction{
-	dir = 1
+	dir = 2;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/rust)
@@ -10416,6 +10410,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "fco" = (
@@ -12019,6 +12014,7 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Aft Treatment Room"
 	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "fMQ" = (
@@ -13776,7 +13772,7 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -17452,6 +17448,20 @@
 /area/maintenance/wing/port/far)
 "ikT" = (
 /obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "r_ust_core_blast";
+	name = "INDRA Reactor Core Blast Doors";
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "r-ust_monitoring_blast";
+	name = "INDRA Reactor Monitoring Blast Doors";
+	pixel_x = 6;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
 "ilm" = (
@@ -17541,7 +17551,7 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
@@ -18777,6 +18787,9 @@
 	dir = 6
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "iSi" = (
@@ -19462,6 +19475,9 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/sign/icu,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "jkb" = (
@@ -23409,8 +23425,10 @@
 /obj/machinery/bodyscanner{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
 /area/medical/icu)
 "lhP" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -23645,7 +23663,7 @@
 	pixel_x = -10;
 	pixel_y = 1
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/horizon/library)
 "lnv" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -25768,6 +25786,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "mqq" = (
@@ -27041,7 +27060,7 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
 	frequency = 1379;
-	id_tag = "r-ust_airlock_exterior";
+	id_tag = "indra_airlock_exterior";
 	locked = 1;
 	name = "INDRA Reactor Airlock Exterior";
 	req_one_access = list(11,24)
@@ -27050,23 +27069,24 @@
 	command = "cycle_exterior";
 	dir = 8;
 	frequency = 1379;
-	master_tag = "r-ust_airlock_control";
+	master_tag = "indra_airlock_control";
 	name = "INDRA Reactor Airlock Access";
 	pixel_y = 23;
 	req_one_access = list(11,24)
 	},
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
 	dir = 8;
-	id_tag = "r-ust_airlock_control";
+	id_tag = "indra_airlock_control";
 	name = "INDRA Reactor Airlock Access Console";
 	pixel_y = 38;
-	tag_exterior_door = "r-ust_airlock_exterior";
-	tag_interior_door = "r-ust_airlock_interior"
+	tag_exterior_door = "indra_airlock_exterior";
+	tag_interior_door = "indra_airlock_interior"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
 "mRr" = (
 /obj/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light{
 	dir = 1
@@ -30237,6 +30257,9 @@
 	name = "O- Blood Locker";
 	pixel_x = -32
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/light,
 /obj/item/reagent_containers/blood/OMinus,
@@ -31093,7 +31116,7 @@
 /area/maintenance/wing/port/far)
 "oNS" = (
 /obj/structure/bookcase/libraryspawn/fiction,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/horizon/library)
 "oOi" = (
 /obj/structure/cable/green{
@@ -31489,6 +31512,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "oZh" = (
@@ -31704,7 +31730,8 @@
 "pdF" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/air_sensor{
-	id_tag = fusion_sensor
+	id_tag = "fusion_sensor";
+	frequency = 1441
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced/airless,
@@ -35245,15 +35272,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/wing_starboard)
-"qRh" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos/storage)
 "qRE" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 1
@@ -35554,22 +35572,10 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "qXF" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "r_ust_core_blast";
-	name = "INDRA Reactor Core Blast Doors";
-	pixel_x = -6;
-	pixel_y = 7
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "r-ust_monitoring_blast";
-	name = "INDRA Reactor Monitoring Blast Doors";
-	pixel_x = 6;
-	pixel_y = 7
-	},
 /obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -36453,7 +36459,7 @@
 /area/turret_protected/ai_upload)
 "rtI" = (
 /obj/structure/bookcase/libraryspawn/nonfiction,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/horizon/library)
 "rtP" = (
 /obj/structure/cable{
@@ -37479,8 +37485,10 @@
 /obj/machinery/sleeper{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
 /area/medical/icu)
 "rTC" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
@@ -37827,6 +37835,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering)
+"sbT" = (
+/obj/machinery/computer/general_air_control/large_tank_control{
+	input_tag = "fusion_injector_air";
+	name = "INDRA Chamber Monitor";
+	sensors = list("fusion_sensor"="INDRA  Chamber")
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_monitoring/rust)
 "sbW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -37900,7 +37916,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/horizon/library)
 "sdX" = (
 /obj/effect/decal/cleanable/cobweb2,
@@ -38215,6 +38231,9 @@
 "sog" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
@@ -40156,10 +40175,10 @@
 /obj/machinery/body_scanconsole{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner_wide/green{
-	dir = 9
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark,
 /area/medical/icu)
 "tnv" = (
 /obj/machinery/light{
@@ -40937,9 +40956,6 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/gen_treatment)
 "tHI" = (
@@ -41224,7 +41240,7 @@
 	},
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	id = fusion_injector_air;
+	id = "fusion_injector_air";
 	injecting = 1;
 	use_power = 1
 	},
@@ -41296,6 +41312,20 @@
 	icon_state = "0-2"
 	},
 /obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "r_ust_core_blast";
+	name = "INDRA Reactor Core Blast Doors";
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "r-ust_monitoring_blast";
+	name = "INDRA Reactor Monitoring Blast Doors";
+	pixel_x = 6;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_monitoring/rust)
 "tPV" = (
@@ -41954,7 +41984,7 @@
 /area/medical/ors)
 "ugU" = (
 /obj/structure/bookcase/libraryspawn/reference,
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/horizon/library)
 "ugV" = (
 /obj/structure/disposalpipe/segment{
@@ -43053,6 +43083,9 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "uFm" = (
@@ -43709,13 +43742,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	id = fusion_injector_air;
+	id = "fusion_injector_air";
 	injecting = 1;
 	use_power = 1
 	},
-/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/engine_room/rust)
 "uUn" = (
@@ -44100,6 +44133,15 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
+"vff" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/medical/icu)
 "vfi" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -44270,9 +44312,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
@@ -44606,7 +44645,7 @@
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "vwx" = (
-/obj/structure/table/rack/fancy_table/black,
+/obj/structure/table/fancy/black,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -44720,7 +44759,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "vyP" = (
-/turf/simulated/floor/carpet/fancybrown,
+/turf/simulated/floor/carpet/brown,
 /area/horizon/library)
 "vzv" = (
 /obj/effect/floor_decal/spline/plain/corner{
@@ -45685,7 +45724,7 @@
 	input_tag = "cooling_in";
 	name = "Engine Cooling Control";
 	output_tag = "cooling_out";
-	sensors = list("engine_sensor"="Engine                                                                Core")
+	sensors = list("engine_sensor"="Engine                                                                                                                                Core")
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Supermatter Reactor Monitoring";
@@ -50517,10 +50556,10 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/engineering/atmos/storage)
 "xWV" = (
@@ -68162,7 +68201,7 @@ guQ
 wia
 fME
 tnq
-sog
+vff
 sog
 laF
 lNb
@@ -71782,7 +71821,7 @@ ulg
 fnn
 tUR
 xrh
-bwU
+biI
 bPf
 jkb
 nlG
@@ -71984,7 +72023,7 @@ wZK
 fnn
 fnn
 wTF
-bwU
+biI
 bPf
 kJZ
 puO
@@ -72187,7 +72226,7 @@ vCQ
 fnn
 aFm
 biI
-qRh
+bPf
 jkb
 puO
 rNE
@@ -75412,7 +75451,7 @@ ssK
 iHo
 ums
 gVl
-pYW
+sbT
 uQQ
 eOs
 pOV

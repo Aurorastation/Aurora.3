@@ -56,7 +56,7 @@
 		to_chat(usr, SPAN_WARNING("You have no runes memorized!"))
 		return
 
-	var/chosen_rune = input("Choose a rune to forget.") as null|anything in C.memorized_runes
+	var/chosen_rune = tgui_input_list(usr, "Choose a rune to forget.", "Cultist Memory", C.memorized_runes)
 	if(!chosen_rune)
 		return
 	LAZYREMOVE(C.memorized_runes, chosen_rune)
@@ -80,7 +80,7 @@
 		to_chat(usr, SPAN_WARNING("You are in no shape to do this."))
 		return
 
-	var/chosen_rune = input("Choose a rune to scribe.") as null|anything in C.memorized_runes
+	var/chosen_rune = tgui_input_list(usr, "Choose a rune to scribe.", "Cultist Memory", C.memorized_runes)
 	if(!chosen_rune)
 		return
 

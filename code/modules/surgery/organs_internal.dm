@@ -58,6 +58,7 @@
 			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 			"You start treating damage to [target]'s [I.name] with [tool_name]." )
 	target.custom_pain("The pain in your [affected.name] is living hell!",100, affecting = affected)
+	..()
 
 /singleton/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/tool_name = "\the [tool]"
@@ -204,7 +205,7 @@
 		if(I && !(I.status & ORGAN_CUT_AWAY) && I.parent_organ == target_zone)
 			attached_organs |= organ
 
-	var/organ_to_remove = input(user, "Which organ do you want to prepare for removal?") as null|anything in attached_organs
+	var/organ_to_remove = tgui_input_list(user, "Which organ do you want to prepare for removal?", "Surgery", attached_organs)
 	if(!organ_to_remove)
 		return FALSE
 
@@ -262,7 +263,7 @@
 		if((I.status & ORGAN_CUT_AWAY) && I.parent_organ == target_zone)
 			removable_organs |= organ
 
-	var/organ_to_remove = input(user, "Which organ do you want to remove?") as null|anything in removable_organs
+	var/organ_to_remove = tgui_input_list(user, "Which organ do you want to remove?", "Surgery", removable_organs)
 	if(!organ_to_remove)
 		return FALSE
 
@@ -426,7 +427,7 @@
 		if(I && (I.status & ORGAN_CUT_AWAY) && !BP_IS_ROBOTIC(I) && I.parent_organ == target_zone)
 			removable_organs |= organ
 
-	var/organ_to_replace = input(user, "Which organ do you want to reattach?") as null|anything in removable_organs
+	var/organ_to_replace = tgui_input_list(user, "Which organ do you want to reattach?", "Surgery", removable_organs)
 	if(!organ_to_replace)
 		return FALSE
 

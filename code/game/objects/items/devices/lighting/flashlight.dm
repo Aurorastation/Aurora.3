@@ -83,7 +83,7 @@
 	return cell
 
 /obj/item/device/flashlight/proc/set_brightness(mob/user)
-	var/choice = input("Choose a brightness level.") as null|anything in brightness_levels
+	var/choice = tgui_input_list(user, "Choose a brightness level.", "Flashlight", brightness_levels)
 	if(choice)
 		brightness_level = choice
 		power_usage = brightness_levels[choice]

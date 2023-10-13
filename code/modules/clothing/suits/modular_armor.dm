@@ -398,7 +398,10 @@
 	var/shading_state = "flagpatch"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_GENERIC
-	flippable = FALSE
+	flippable = TRUE
+
+/obj/item/clothing/accessory/flagpatch/flip_message(mob/user)
+	to_chat(user, "You change \the [src] to be on your [src.flipped ? "shoulder" : "chest"].")
 
 /obj/item/clothing/accessory/flagpatch/Initialize()
 	. = ..()

@@ -67,12 +67,12 @@
 				return
 			switch(params["action"])
 				if("brute")
-					var/damage_dealt = input(usr, "How much brute damage do you want to deal? (Current Brute: [L.brute_dam] | Current Burn; [L.burn_dam])", "Brute Damage") as null|num
+					var/damage_dealt = tgui_input_number(usr, "How much brute damage do you want to deal? (Current Brute: [L.brute_dam] | Current Burn; [L.burn_dam])", "Brute Damage")
 					if(damage_dealt)
 						L.take_damage(damage_dealt, 0)
 						log_and_message_admins("used the Damage Menu to deploy deal [damage_dealt] [params["action"]] to [H]'s [params["name"]]", usr, get_turf(H))
 				if("burn")
-					var/damage_dealt = input(usr, "How much burn damage do you want to deal? (Current Brute: [L.brute_dam] | Current Burn; [L.burn_dam])", "Burn Damage") as null|num
+					var/damage_dealt = tgui_input_number(usr, "How much burn damage do you want to deal? (Current Brute: [L.brute_dam] | Current Burn; [L.burn_dam])", "Burn Damage")
 					if(damage_dealt)
 						L.take_damage(0, damage_dealt)
 						log_and_message_admins("used the Damage Menu to deploy deal [damage_dealt] [params["action"]] to [H]'s [params["name"]]", usr, get_turf(H))
@@ -116,7 +116,7 @@
 				return
 			switch(params["action"])
 				if("damage")
-					var/damage_dealt = input(usr, "How much damage do you want to deal? (Current Damage: [O.damage])", "Brute Damage") as null|num
+					var/damage_dealt = tgui_input_number(usr, "How much damage do you want to deal? (Current Damage: [O.damage])", "Brute Damage")
 					if(damage_dealt)
 						O.take_internal_damage(damage_dealt)
 						log_and_message_admins("used the Damage Menu to deal [damage_dealt] [params["action"]] to [H]'s [params["name"]]", usr, get_turf(H))

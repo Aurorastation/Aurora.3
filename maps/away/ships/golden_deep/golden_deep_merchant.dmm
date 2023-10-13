@@ -49,7 +49,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "aQ" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/secure)
 "aR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
@@ -71,7 +71,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/golden_deep/engineering)
 "bd" = (
-/obj/structure/table/rack/fancy_table/black,
+/obj/structure/table/fancy/black,
 /obj/item/modular_computer/laptop/preset/civilian,
 /turf/simulated/floor/wood/mahogany,
 /area/golden_deep/captain)
@@ -92,7 +92,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, crew quarters"
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/storage)
 "bp" = (
 /obj/machinery/atmospherics/unary/engine{
@@ -229,7 +229,7 @@
 /turf/simulated/floor/gold,
 /area/golden_deep)
 "ct" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/storage)
 "cv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -382,11 +382,11 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/storage)
 "ek" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/warehouse)
 "en" = (
 /obj/effect/map_effect/airlock/s_to_n/long/square,
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/hangar)
 "ex" = (
 /obj/machinery/door/window{
@@ -490,7 +490,7 @@
 /area/golden_deep/starboardprop)
 "fO" = (
 /obj/effect/map_effect/airlock/long/square,
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/dock)
 "fU" = (
 /obj/structure/cable/green{
@@ -694,6 +694,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/golden_deep/atmos)
+"hA" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/floor{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
 "hB" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
@@ -835,6 +842,7 @@
 /obj/item/spacecash/c1000{
 	pixel_x = 2
 	},
+/obj/machinery/light,
 /turf/simulated/floor/gold,
 /area/golden_deep/office)
 "ja" = (
@@ -871,7 +879,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, thrusters"
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/starboardprop)
 "js" = (
 /obj/effect/decal/cleanable/dirt,
@@ -934,7 +942,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, thruster"
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/portprop)
 "kg" = (
 /obj/structure/closet/secure_closet/guncabinet,
@@ -996,7 +1004,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "kA" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/bridge)
 "kM" = (
 /obj/structure/table/rack,
@@ -1207,7 +1215,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, warehouse"
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/warehouse)
 "mg" = (
 /obj/structure/cable/green{
@@ -1254,7 +1262,7 @@
 /turf/simulated/floor/gold,
 /area/golden_deep/dock)
 "mv" = (
-/turf/simulated/wall/gold_reinforced{
+/turf/simulated/wall/shuttle/dark/cardinal/gold{
 	can_open = 1
 	},
 /area/golden_deep/engineering)
@@ -1633,7 +1641,7 @@
 /turf/simulated/floor/gold,
 /area/golden_deep/dock)
 "pZ" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/hangar)
 "qa" = (
 /obj/structure/table/wood,
@@ -1673,7 +1681,7 @@
 /area/golden_deep/office)
 "qz" = (
 /obj/effect/map_effect/airlock/long/square,
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/starboardprop)
 "qD" = (
 /obj/machinery/computer/ship/navigation{
@@ -1723,7 +1731,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, bridge"
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/bridge)
 "rn" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -1823,7 +1831,7 @@
 /area/golden_deep/atmos)
 "sm" = (
 /obj/machinery/light,
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/engineering)
 "st" = (
 /turf/space,
@@ -1868,6 +1876,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating,
 /area/golden_deep/hangar)
+"ta" = (
+/obj/structure/bed,
+/obj/item/bedsheet/random,
+/obj/structure/curtain/open/bed,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/golden_deep/captain)
 "tp" = (
 /obj/machinery/light{
 	dir = 4
@@ -1928,7 +1945,6 @@
 /area/golden_deep)
 "tQ" = (
 /obj/structure/bookcase/libraryspawn/nonfiction,
-/obj/machinery/light,
 /turf/simulated/floor/wood/mahogany,
 /area/golden_deep/captain)
 "tU" = (
@@ -1938,7 +1954,7 @@
 /turf/simulated/floor/gold,
 /area/golden_deep/hangar)
 "tZ" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/dock/aux)
 "ua" = (
 /obj/structure/reagent_dispensers/water_cooler,
@@ -2024,7 +2040,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, engineering"
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/engineering)
 "vi" = (
 /obj/structure/table/steel,
@@ -2079,13 +2095,13 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "vB" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/engineering)
 "vC" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, cargo office"
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/office)
 "vH" = (
 /obj/structure/table/steel,
@@ -2109,6 +2125,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/machinery/light,
 /turf/simulated/floor/gold,
 /area/golden_deep/office)
 "vR" = (
@@ -2144,13 +2161,13 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, fuel bay"
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/eva)
 "wp" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "starboard"
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/shuttle/golden_deep)
 "wr" = (
 /obj/structure/cable/green{
@@ -2292,7 +2309,7 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/eva)
 "xz" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/custodial)
 "xB" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -2375,6 +2392,7 @@
 /obj/item/cane/concealed,
 /obj/item/clothing/accessory/holster,
 /obj/item/clothing/accessory/holster,
+/obj/machinery/light,
 /turf/simulated/floor/wood/mahogany,
 /area/golden_deep/captain)
 "ym" = (
@@ -2395,8 +2413,16 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/eva)
 "ys" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/portprop)
+"yu" = (
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/machinery/recharge_station,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/golden_deep/captain)
 "yA" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -2461,7 +2487,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, storage"
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/secure)
 "yZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2730,7 +2756,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/dock)
 "BW" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/office)
 "Cb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2754,7 +2780,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, bridge"
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/bridge)
 "CC" = (
 /obj/structure/cable/green{
@@ -2806,7 +2832,7 @@
 /turf/simulated/floor/gold,
 /area/shuttle/golden_deep)
 "Di" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/captain)
 "Dn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -2888,7 +2914,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/storage)
 "DZ" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/atmos)
 "Eh" = (
 /obj/structure/table/rack,
@@ -3109,7 +3135,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, cargo office"
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/warehouse)
 "Gx" = (
 /obj/structure/closet/secure_closet/guncabinet,
@@ -3206,11 +3232,12 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "Hg" = (
-/obj/machinery/light{
-	dir = 1
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/floor{
+	dir = 4
 	},
-/turf/simulated/floor/wood/mahogany,
-/area/golden_deep/captain)
+/turf/simulated/floor/plating,
+/area/golden_deep/warehouse)
 "Hj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3401,6 +3428,7 @@
 /area/shuttle/golden_deep)
 "JQ" = (
 /obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light,
 /turf/simulated/floor/wood/mahogany,
 /area/golden_deep/captain)
 "JS" = (
@@ -3471,7 +3499,7 @@
 /area/golden_deep/dock)
 "Kj" = (
 /obj/effect/map_effect/airlock/w_to_e/long/square,
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/dock/aux)
 "Kq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -3655,7 +3683,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "Mr" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/dock)
 "Mz" = (
 /obj/structure/table/wood,
@@ -3677,7 +3705,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/office)
 "MN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3731,7 +3759,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/warehouse)
 "No" = (
-/obj/structure/table/rack/fancy_table/black,
+/obj/structure/table/fancy/black,
 /obj/item/paper_bin,
 /obj/item/pen/fountain/captain,
 /turf/simulated/floor/wood/mahogany,
@@ -3864,7 +3892,7 @@
 /turf/simulated/floor/gold,
 /area/golden_deep/dock)
 "PM" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/eva)
 "PR" = (
 /obj/machinery/light,
@@ -4047,7 +4075,9 @@
 /area/golden_deep/dock)
 "RH" = (
 /obj/machinery/door/airlock/multi_tile{
-	dir = 2
+	dir = 2;
+	door_color = "#ffcc33";
+	name = "Fuel Bay"
 	},
 /turf/simulated/floor/tiled,
 /area/golden_deep/atmos)
@@ -4110,7 +4140,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/engineering)
 "Sy" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/starboardprop)
 "SA" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -4486,7 +4516,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/eva)
 "WO" = (
-/obj/structure/table/rack/fancy_table/black,
+/obj/structure/table/fancy/black,
 /obj/item/ipc_overloader/tranquil,
 /turf/simulated/floor/wood/mahogany,
 /area/golden_deep/captain)
@@ -4494,7 +4524,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/shuttle/golden_deep)
 "WT" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -4549,7 +4579,7 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/engineering)
 "Xd" = (
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/shuttle/golden_deep)
 "Xg" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -4732,7 +4762,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, warehouse"
 	},
-/turf/simulated/wall/gold_reinforced,
+/turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/warehouse)
 "Zn" = (
 /obj/structure/cable/green{
@@ -17166,16 +17196,16 @@ xz
 JS
 gb
 jY
-ER
+Hg
 gb
 gb
-ER
+Hg
 jY
 oR
-ER
+Hg
 jY
 gb
-ER
+Hg
 gb
 gb
 gb
@@ -17490,16 +17520,16 @@ vB
 vo
 gb
 gb
-ER
+hA
 gb
 jY
-ER
+hA
 jY
 QB
-ER
+hA
 gb
 jY
-ER
+hA
 gb
 gb
 gb
@@ -17832,7 +17862,7 @@ rJ
 WZ
 WZ
 BW
-Zj
+ta
 LG
 Wc
 Mo
@@ -18156,7 +18186,7 @@ Ds
 WZ
 iY
 BW
-Hg
+YX
 hk
 Ab
 Ab
@@ -18480,7 +18510,7 @@ gz
 xP
 gn
 BW
-Sg
+yu
 YX
 No
 bd
