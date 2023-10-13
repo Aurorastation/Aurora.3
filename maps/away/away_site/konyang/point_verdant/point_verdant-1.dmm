@@ -3412,6 +3412,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
+"nP" = (
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/tunnels)
 "nQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -4073,6 +4077,18 @@
 "rc" = (
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/sidewalk/flat,
+/area/point_verdant/interior/tunnels)
+"rd" = (
+/obj/structure/stairs/west,
+/obj/structure/stairs_lower{
+	dir = 8;
+	layer = 2;
+	pixel_y = -23
+	},
+/obj/structure/stairs_lower/stairs_upper{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
 /area/point_verdant/interior/tunnels)
 "re" = (
 /obj/structure/table/rack/retail_shelf,
@@ -5611,6 +5627,10 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
+"xB" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/tunnels)
 "xC" = (
 /turf/simulated/wall/shuttle,
 /area/point_verdant/interior)
@@ -7212,6 +7232,10 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/police)
+"Fx" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/tunnels)
 "FA" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
@@ -7429,6 +7453,10 @@
 /mob/living/simple_animal/rat/gray,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/hotel)
+"GA" = (
+/obj/structure/closet,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/tunnels)
 "GB" = (
 /obj/structure/road_sign/yield{
 	pixel_x = -16;
@@ -7903,6 +7931,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
+"Ik" = (
+/obj/structure/table/rack/retail_shelf,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/tunnels)
 "In" = (
 /obj/item/broken_bottle{
 	pixel_y = 2;
@@ -9660,6 +9692,9 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/interior/tunnels)
+"PW" = (
+/turf/simulated/wall/wood,
+/area/point_verdant/interior/tunnels)
 "PY" = (
 /obj/structure/ledge{
 	dir = 10
@@ -9750,6 +9785,10 @@
 	},
 /turf/simulated/wall,
 /area/point_verdant/interior/bar)
+"Qn" = (
+/obj/structure/closet/crate,
+/turf/simulated/floor/wood,
+/area/point_verdant/interior/tunnels)
 "Qq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/oil,
@@ -40797,9 +40836,9 @@ AV
 AV
 AV
 AV
-AV
-AV
-AV
+MO
+MO
+MO
 AV
 AV
 HP
@@ -41054,10 +41093,10 @@ AV
 AV
 AV
 AV
-AV
-AV
-AV
-AV
+MO
+MO
+MO
+jJ
 AV
 WO
 WO
@@ -41069,8 +41108,8 @@ AV
 MO
 AV
 MO
-AV
-AV
+MO
+NA
 WO
 SS
 AV
@@ -41312,20 +41351,20 @@ MO
 AV
 AV
 AV
-AV
-AV
-AV
+MO
+MO
+MO
 AV
 CE
-AV
-AV
+MO
+MO
 AV
 AV
 AV
 MO
 MO
 AV
-MO
+AV
 AV
 AV
 ya
@@ -41569,22 +41608,22 @@ MO
 AV
 AV
 AV
-AV
-AV
-AV
-AV
+MO
+MO
+MO
+rC
 WO
-AV
+MO
 AV
 AV
 AV
 AV
 MO
+MO
+jJ
+MO
 AV
 AV
-MO
-MO
-NA
 ya
 La
 GN
@@ -41826,20 +41865,20 @@ MO
 AV
 AV
 AV
-AV
-AV
-AV
-AV
-WO
-AV
-AV
-AV
-AV
-AV
+jJ
 MO
 AV
 AV
-AV
+WO
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+MO
 AV
 AV
 WO
@@ -42088,15 +42127,15 @@ AV
 AV
 AV
 AD
-AV
-AV
-AV
-AV
-AV
+PW
+Ik
+Qn
+PW
+rd
+xB
+xB
+PW
 MO
-AV
-AV
-AV
 AV
 AV
 Vm
@@ -42345,14 +42384,14 @@ AV
 AV
 AV
 WO
-AV
-AV
-AV
-AV
-MO
-MO
-MO
-MO
+PW
+Ik
+fD
+PW
+fD
+fD
+xB
+PW
 MO
 AV
 AV
@@ -42602,14 +42641,14 @@ AV
 AV
 AV
 WO
-AV
-AV
-AV
-AV
-AV
-AV
-AV
-AV
+PW
+Ik
+fD
+fD
+fD
+fD
+xB
+PW
 MO
 AV
 AV
@@ -42859,15 +42898,15 @@ AV
 AV
 AV
 WO
-WO
-WO
-WO
-WO
-AV
-AV
-AV
-AV
-RN
+PW
+Ik
+Fx
+nP
+fD
+fD
+GA
+PW
+MO
 AV
 AV
 Vm
@@ -43115,18 +43154,18 @@ AV
 AV
 AV
 AV
+WO
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+PW
+Tj
 AV
 AV
-AV
-AV
-WO
-WO
-WO
-WO
-WO
-yW
-WO
-WO
 WO
 AV
 AV
@@ -43372,18 +43411,18 @@ rf
 rf
 rf
 rf
-AV
-AV
-AV
-AV
 WO
-AV
-AV
-AV
-AV
-AV
-AV
-AV
+WO
+WO
+WO
+WO
+WO
+WO
+WO
+WO
+yW
+WO
+WO
 Hq
 AV
 AV
