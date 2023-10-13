@@ -86,8 +86,14 @@
 
 /datum/outfit/admin/konyang_pirate
 	name = "Konyang Pirate"
-	uniform = /obj/item/clothing/under/pants/tacticool
-	shoes = /obj/item/clothing/shoes/workboots
+	uniform = list(
+		/obj/item/clothing/under/konyang/pirate,
+		/obj/item/clothing/under/konyang/pirate/tanktop
+	)
+	shoes = list(
+		/obj/item/clothing/shoes/sneakers/black,
+		/obj/item/clothing/shoes/sandals
+	)
 	head = /obj/item/clothing/head/bandana/pirate
 	belt = /obj/item/material/knife/tacknife
 	r_pocket = /obj/item/storage/wallet/random
