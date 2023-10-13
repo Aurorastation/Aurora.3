@@ -9,7 +9,7 @@
 	requires_ntnet = TRUE
 	network_destination = "crew lifesigns monitoring system"
 	size = 11
-	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_STATIONBOUND
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_STATIONBOUND
 	color = LIGHT_COLOR_CYAN
 	tgui_id = "SuitSensors"
 	tgui_theme = "zenghu"
