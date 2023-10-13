@@ -298,7 +298,7 @@
 	name = "reclaimed revolver"
 	desc = "A revolver, made out of cheap scrap metal. Often used by Konyang's pirates."
 	desc_extended = "A six-shot revolver, crudely hacked together out of different kinds of scrap metal and wood. Made working by the ingenuity Konyang's pirates often need to show. Chambered in .38 ammo."
-	icon = 'icons/obj/icons/konyang_guns.dmi'
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = ".38 revolver"
 	item_state = ".38 revolver"
 	w_class = ITEMSIZE_NORMAL
@@ -316,7 +316,7 @@
 	desc_extended = "The Nam-Kawada model .45 caliber revolver, named after its two inventors, is an adaptation of an old Zavodskoi design designed to be easily made from colony ship autolathes. \
 	The original design was first introduced in 2307 due to a growing need to arm the nascent Konyang National Police (then known as the Suwon Colonial Constabulary) in the face of both wildlife and the occasional criminal activity.\
 	The lack of a need for an upgrade, as well as institutional attachment to the design, has led to its continued use for almost two centuries."
-	icon = 'icons/obj/icons/konyang_guns.dmi'
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "police_gun"
 	item_state = "police_gun"
 	w_class = ITEMSIZE_NORMAL

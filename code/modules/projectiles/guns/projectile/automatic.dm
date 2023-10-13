@@ -670,8 +670,8 @@
 	ammo_type = "/obj/item/ammo_casing/a556"
 	handle_casings = EJECT_CASINGS
 	caliber = "a556"
-	magazine_type = /obj/item/ammo_magazine/k556
-	allowed_magazines = list(/obj/item/ammo_magazine/k556)
+	magazine_type = /obj/item/ammo_magazine/a556/k556
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/k556)
 	is_wieldable = TRUE
 
 /obj/item/gun/projectile/automatic/rifle/konyang/konyang47
@@ -687,8 +687,8 @@
 	ammo_type = "/obj/item/ammo_casing/a556"
 	handle_casings = EJECT_CASINGS
 	caliber = "a556"
-	magazine_type = /obj/item/ammo_magazines/konyang47
-	allowed_magazines = list(/obj/item/ammo_magazines/konyang47)
+	magazine_type = /obj/item/ammo_magazines/a556/carbine/konyang47
+	allowed_magazines = list(/obj/item/ammo_magazines/a556/carbine/konyang47)
 	is_wieldable = TRUE
 
 /obj/item/gun/projectile/automatic/rifle/konyang/pirate_rifle
@@ -699,7 +699,7 @@
 	icon_state = "garand"
 	item_state = "garand"
 	slot_flags = SLOT_BACK|SLOT_OCLOTHING
-	load_method = SINGLE_CASINGS
+	load_method = SINGLE_CASING
 	w_class = ITEMSIZE_LARGE
 	ammo_type = /obj/item/ammo_casing/vintage
 	handle_casings = EJECT_CASINGS
